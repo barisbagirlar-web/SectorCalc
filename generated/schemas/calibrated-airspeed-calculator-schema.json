@@ -14,14 +14,15 @@
         "de": "Gesamtdruck (Pt)",
         "fr": "Pression totale (Pt)",
         "es": "Presión total (Pt)",
-        "ar": "Total Pressure (Pt)"
+        "ar": "الضغط الكلي (Pt)"
       },
       "businessContext_i18n": {
         "en": "Pitot tube total pressure reading",
         "tr": "Pitot tüpü toplam basınç okuması",
         "de": "Pitot-Rohr Gesamtdruckmessung",
         "fr": "Lecture de pression totale du tube de Pitot",
-        "es": "Lectura de presión total del tubo Pitot"
+        "es": "Lectura de presión total del tubo Pitot",
+        "ar": "قراءة الضغط الكلي لأنبوب بيتو"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Statischer Druck (Ps)",
         "fr": "Pression statique (Ps)",
         "es": "Presión estática (Ps)",
-        "ar": "Static Pressure (Ps)"
+        "ar": "الضغط الساكن (Ps)"
       },
       "businessContext_i18n": {
         "en": "Static port pressure reading",
         "tr": "Statik port basınç okuması",
         "de": "Statischer Druckanschluss",
         "fr": "Lecture de pression de la prise statique",
-        "es": "Lectura de presión del puerto estático"
+        "es": "Lectura de presión del puerto estático",
+        "ar": "قراءة الضغط من المنفذ الساكن"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Referenzdruck (P₀)",
         "fr": "Pression de référence (P₀)",
         "es": "Presión de referencia (P₀)",
-        "ar": "Reference Pressure (P₀)"
+        "ar": "الضغط المرجعي (P₀)"
       },
       "businessContext_i18n": {
         "en": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions.",
         "tr": "Kalibrasyon için kullanılan standart deniz seviyesi basıncı (101325 Pa). Standart dışı koşullar için ayarlanabilir.",
         "de": "Standard-Meeresniveaudruck (101325 Pa) für Kalibrierung. Anpassbar für nicht-standard Bedingungen.",
         "fr": "Pression standard au niveau de la mer (101325 Pa) utilisée pour l'étalonnage. Ajustable pour des conditions non standard.",
-        "es": "Presión estándar a nivel del mar (101325 Pa) utilizada para calibración. Ajustable para condiciones no estándar."
+        "es": "Presión estándar a nivel del mar (101325 Pa) utilizada para calibración. Ajustable para condiciones no estándar.",
+        "ar": "الضغط الجوي القياسي عند مستوى سطح البحر (101325 باسكال) المستخدم للمعايرة. قابل للتعديل للظروف غير القياسية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Luftdichte (ρ₀)",
         "fr": "Masse volumique de l'air (ρ₀)",
         "es": "Densidad del aire (ρ₀)",
-        "ar": "Air Density (ρ₀)"
+        "ar": "كثافة الهواء (ρ₀)"
       },
       "businessContext_i18n": {
         "en": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration.",
         "tr": "Deniz seviyesi standart hava yoğunluğu (1,225 kg/m³). Kalibrasyon için ayarlanabilir.",
         "de": "Standard-Luftdichte auf Meereshöhe (1,225 kg/m³). Anpassbar für Kalibrierung.",
         "fr": "Masse volumique standard de l'air au niveau de la mer (1,225 kg/m³). Ajustable pour l'étalonnage.",
-        "es": "Densidad estándar del aire a nivel del mar (1.225 kg/m³). Ajustable para calibración."
+        "es": "Densidad estándar del aire a nivel del mar (1.225 kg/m³). Ajustable para calibración.",
+        "ar": "كثافة الهواء القياسية عند مستوى سطح البحر (1.225 كجم/م³). قابلة للتعديل للمعايرة."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Isentropenexponent (γ)",
         "fr": "Rapport des chaleurs spécifiques (γ)",
         "es": "Relación de calores específicos (γ)",
-        "ar": "Specific Heat Ratio (γ)"
+        "ar": "نسبة الحرارة النوعية (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for air (1.4 standard).",
         "tr": "Hava için özgül ısı oranı (1,4 standart).",
         "de": "Isentropenexponent für Luft (1,4 Standard).",
         "fr": "Rapport des chaleurs spécifiques de l'air (1,4 standard).",
-        "es": "Relación de calores específicos del aire (1.4 estándar)."
+        "es": "Relación de calores específicos del aire (1.4 estándar).",
+        "ar": "نسبة الحرارة النوعية للهواء (1.4 قياسي)."
       }
     }
   ],
   "formulas": {
-    "result": "totalPressure + staticPressure + referencePressure",
-    "result_copy": "totalPressure + staticPressure + referencePressure"
+    "normalized_product": "totalPressure * staticPressure * referencePressure * airDensity",
+    "result": "totalPressure * staticPressure * referencePressure * airDensity * (gamma)",
+    "adjustment_factor": "gamma"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "CAS_mps",
-      "CAS_kmh"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "CAS_kmh",
-    "unit": "Pa"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

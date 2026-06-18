@@ -28,6 +28,8 @@ import {
   useToolSchema,
 } from "@/lib/generated-tools/use-tool-schema";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import { evaluateSchemaTrust } from "@/lib/generated-tools/trust-gate";
+import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 export type GeneratedToolPageProps = {
   readonly slug: string;
@@ -143,6 +145,11 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
 
   const showCarbonFootprintReport = isCarbonFootprintReportTool(slug);
 
+  const schemaTrust = useMemo(
+    () => evaluateSchemaTrust(schema as unknown as Record<string, unknown>, slug),
+    [schema, slug],
+  );
+
   const handleCalculate = (values: Record<string, unknown>) => {
     if (!calculator) {
       return;
@@ -163,6 +170,14 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
     return (
       <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-800">
         {error ?? t("loadError")}
+      </div>
+    );
+  }
+
+  if (schemaTrust.status === "QUARANTINE") {
+    return (
+      <div className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <ToolSafeReviewState slug={slug} locale={locale} findings={schemaTrust.issues} />
       </div>
     );
   }

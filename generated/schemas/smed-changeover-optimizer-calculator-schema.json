@@ -25,14 +25,16 @@
         "tr": "Mevcut Değişim Süresi (dakika)",
         "de": "Aktuelle Rüstzeit (Minuten)",
         "fr": "Temps de changement de série actuel (minutes)",
-        "es": "Tiempo actual de cambio (minutos)"
+        "es": "Tiempo actual de cambio (minutos)",
+        "ar": "وقت التغيير الحالي (بالدقائق)"
       },
       "businessContext_i18n": {
         "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
         "tr": "Önceki partinin son iyi parçasından sonraki partinin ilk iyi parçasına kadar geçen toplam süre. SMED standardına göre ölçülür.",
         "de": "Gesamtzeit vom letzten guten Teil des vorherigen Laufs bis zum ersten guten Teil des nächsten Laufs. Gemessen nach SMED-Standard.",
         "fr": "Temps total entre la dernière bonne pièce du lot précédent et la première bonne pièce du lot suivant. Mesuré selon la norme SMED.",
-        "es": "Tiempo total desde la última pieza buena de la ejecución anterior hasta la primera pieza buena de la siguiente ejecución. Medido según estándar SMED."
+        "es": "Tiempo total desde la última pieza buena de la ejecución anterior hasta la primera pieza buena de la siguiente ejecución. Medido según estándar SMED.",
+        "ar": "الوقت الإجمالي من آخر قطعة جيدة للتشغيل السابق إلى أول قطعة جيدة للتشغيل التالي. يُقاس وفقًا لمعيار SMED."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Dahili Operasyonlar (toplam sürenin %'si)",
         "de": "Interne Tätigkeiten (% der Gesamtzeit)",
         "fr": "Opérations internes (% du temps total)",
-        "es": "Operaciones internas (% del tiempo total)"
+        "es": "Operaciones internas (% del tiempo total)",
+        "ar": "العمليات الداخلية (% من الوقت الإجمالي)"
       },
       "businessContext_i18n": {
         "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
         "tr": "Makinenin durduğu değişim süresinin yüzdesi. Hedef, dahiliyi hariciye dönüştürmektir.",
         "de": "Prozentsatz der Rüstzeit, in dem die Maschine stillsteht. Ziel ist es, interne in externe Tätigkeiten umzuwandeln.",
         "fr": "Pourcentage du temps de changement de série où la machine est arrêtée. L'objectif est de convertir l'interne en externe.",
-        "es": "Porcentaje del tiempo de cambio en que la máquina está detenida. El objetivo es convertir interno en externo."
+        "es": "Porcentaje del tiempo de cambio en que la máquina está detenida. El objetivo es convertir interno en externo.",
+        "ar": "نسبة وقت التغيير التي تكون فيها الآلة متوقفة. الهدف هو تحويل الداخلي إلى خارجي."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Kurulum Ekibi Büyüklüğü (operatör)",
         "de": "Rüstteamgröße (Operateure)",
         "fr": "Taille de l'équipe de changement de série (opérateurs)",
-        "es": "Tamaño del equipo de preparación (operadores)"
+        "es": "Tamaño del equipo de preparación (operadores)",
+        "ar": "حجم فريق الإعداد (عدد المشغلين)"
       },
       "businessContext_i18n": {
         "en": "Number of operators directly involved in the changeover process.",
         "tr": "Değişim sürecine doğrudan dahil olan operatör sayısı.",
         "de": "Anzahl der direkt am Rüstprozess beteiligten Operateure.",
         "fr": "Nombre d'opérateurs directement impliqués dans le processus de changement de série.",
-        "es": "Número de operadores directamente involucrados en el proceso de cambio."
+        "es": "Número de operadores directamente involucrados en el proceso de cambio.",
+        "ar": "عدد المشغلين المشاركين مباشرة في عملية التغيير."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Paralel Çalışma Mümkün",
         "de": "Parallelarbeit möglich",
         "fr": "Travail parallèle possible",
-        "es": "Trabajo en paralelo posible"
+        "es": "Trabajo en paralelo posible",
+        "ar": "إمكانية العمل المتوازي"
       },
       "businessContext_i18n": {
         "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
         "tr": "Görevlerin birden fazla operatör tarafından eşzamanlı olarak gerçekleştirilip gerçekleştirilemeyeceğini belirtir (SMED prensibi).",
         "de": "Gibt an, ob Aufgaben von mehreren Operateuren gleichzeitig ausgeführt werden können (SMED-Prinzip).",
         "fr": "Indique si les tâches peuvent être effectuées simultanément par plusieurs opérateurs (principe SMED).",
-        "es": "Indica si las tareas pueden realizarse simultáneamente por varios operadores (principio SMED)."
+        "es": "Indica si las tareas pueden realizarse simultáneamente por varios operadores (principio SMED).",
+        "ar": "يشير إلى إمكانية تنفيذ المهام بشكل متزامن بواسطة عدة مشغلين (مبدأ SMED)."
       }
     },
     {
@@ -126,14 +134,16 @@
         "tr": "Standardizasyon Seviyesi",
         "de": "Standardisierungsgrad",
         "fr": "Niveau de standardisation",
-        "es": "Nivel de estandarización"
+        "es": "Nivel de estandarización",
+        "ar": "مستوى التوحيد القياسي"
       },
       "businessContext_i18n": {
         "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
         "tr": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar.",
         "de": "Grad der standardisierten Arbeitsanweisungen, Werkzeuge und Werkzeugkonstruktion. Hoch = minimale Anpassungen.",
         "fr": "Degré de standardisation des instructions de travail, de l'outillage et de la conception des matrices. Élevé = ajustements minimaux.",
-        "es": "Grado de instrucciones de trabajo estandarizadas, herramientas y diseño de troqueles. Alto = ajustes mínimos."
+        "es": "Grado de instrucciones de trabajo estandarizadas, herramientas y diseño de troqueles. Alto = ajustes mínimos.",
+        "ar": "درجة توحيد تعليمات العمل والأدوات وتصميم القوالب. عالي = تعديلات ضئيلة."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Atık Hareket Puanı (1-10)",
         "de": "Verschwendungsbewertung Bewegung (1-10)",
         "fr": "Score de mouvement gaspillé (1-10)",
-        "es": "Puntuación de movimiento desperdiciado (1-10)"
+        "es": "Puntuación de movimiento desperdiciado (1-10)",
+        "ar": "درجة الحركة المهدرة (1-10)"
       },
       "businessContext_i18n": {
         "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
         "tr": "Değişim sırasında gereksiz hareket, arama ve yürümenin subjektif değerlendirmesi. 1 = optimal, 10 = aşırı atık.",
         "de": "Subjektive Bewertung unnötiger Bewegungen, Suchens und Gehens während des Rüstens. 1 = optimal, 10 = extreme Verschwendung.",
         "fr": "Évaluation subjective des mouvements inutiles, des recherches et des déplacements pendant le changement. 1 = optimal, 10 = gaspillage extrême.",
-        "es": "Evaluación subjetiva de movimiento innecesario, búsqueda y caminatas durante el cambio. 1 = óptimo, 10 = desperdicio extremo."
+        "es": "Evaluación subjetiva de movimiento innecesario, búsqueda y caminatas durante el cambio. 1 = óptimo, 10 = desperdicio extremo.",
+        "ar": "تقييم شخصي للحركة غير الضرورية والبحث والمشي أثناء التغيير. 1 = مثالي، 10 = هدر شديد."
       }
     }
   ],
@@ -198,18 +210,24 @@
     ]
   },
   "formulas": {
-    "result": "current_changeover_time + internal_operations_percentage + setup_team_size",
-    "result_copy": "current_changeover_time + internal_operations_percentage + setup_team_size"
+    "normalized_product": "current_changeover_time * (internal_operations_percentage / 100) * setup_team_size * waste_motion_score",
+    "result": "current_changeover_time * (internal_operations_percentage / 100) * setup_team_size * waste_motion_score"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "minutes"
+    "unit": "%"
   },
   "toolName": "smed-changeover-optimizer-calculator",
   "catalogCategory": "everyday-life",

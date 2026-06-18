@@ -13,14 +13,16 @@
         "tr": "Birleşik Krallık Ayakkabı Numarası",
         "de": "UK-Schuhgröße",
         "fr": "Pointure Royaume-Uni",
-        "es": "UK Shoe Size",
-        "ar": "UK Shoe Size"
+        "es": "Talla de zapato Reino Unido",
+        "ar": "مقاس الحذاء في المملكة المتحدة"
       },
       "businessContext_i18n": {
         "en": "The shoe size measured in the UK system.",
         "tr": "Birleşik Krallık sisteminde ölçülen ayakkabı numarası.",
         "de": "Die im UK-System gemessene Schuhgröße.",
-        "fr": "La pointure mesurée dans le système britannique."
+        "fr": "La pointure mesurée dans le système britannique.",
+        "es": "La talla de zapato medida en el sistema del Reino Unido.",
+        "ar": "مقاس الحذاء المقاس بالنظام البريطاني."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Geschlecht (0=Männer, 1=Frauen)",
         "fr": "Genre (0=Homme, 1=Femme)",
-        "es": "Gender (0=Men, 1=Women)",
-        "ar": "Gender (0=Men, 1=Women)"
+        "es": "Género (0=Hombre, 1=Mujer)",
+        "ar": "الجنس (0=رجال، 1=نساء)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for men's sizing or 1 for women's sizing.",
         "tr": "Erkek bedenleri için 0'ı, kadın bedenleri için 1'i seçin.",
         "de": "Wählen Sie 0 für Männergrößen oder 1 für Frauengrößen.",
-        "fr": "Sélectionnez 0 pour les tailles hommes ou 1 pour les tailles femmes."
+        "fr": "Sélectionnez 0 pour les tailles hommes ou 1 pour les tailles femmes.",
+        "es": "Seleccione 0 para talla de hombre o 1 para talla de mujer.",
+        "ar": "اختر 0 لمقاسات الرجال أو 1 لمقاسات النساء."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Düzeltme Faktörü",
         "fr": "Facteur d'ajustement",
         "es": "Düzeltme Faktörü",
-        "ar": "Adjustment Factor"
+        "ar": "Düzeltme Faktörü"
       },
       "businessContext_i18n": {
         "en": "Fine-tuning offset for brand-specific variations.",
         "tr": "Markaya özel varyasyonlar için ince ayar ofseti.",
         "de": "Feinabstimmungs-Offset für markenspezifische Variationen.",
-        "fr": "Décalage d'ajustement pour les variations spécifiques à la marque."
+        "fr": "Décalage d'ajustement pour les variations spécifiques à la marque.",
+        "es": "Ajuste fino para variaciones específicas de la marca.",
+        "ar": "إزاحة ضبط دقيقة للاختلافات الخاصة بالعلامة التجارية."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Yuvarlama Yöntemi (0=Taban, 1=Normal, 2=Tavan)",
         "de": "Rundungsmethode (0=Abrunden, 1=Normal, 2=Aufrunden)",
         "fr": "Méthode d'arrondi (0=Plancher, 1=Normal, 2=Plafond)",
-        "es": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
-        "ar": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)"
+        "es": "Método de redondeo (0=Suelo, 1=Normal, 2=Techo)",
+        "ar": "طريقة التقريب (0=تقريب لأسفل، 1=تقريب عادي، 2=تقريب لأعلى)"
       },
       "businessContext_i18n": {
         "en": "Choose rounding style: floor, nearest integer, or ceiling.",
         "tr": "Yuvarlama stili seçin: taban, en yakın tam sayı veya tavan.",
         "de": "Rundungsstil wählen: abrunden, nächstgelegene ganze Zahl oder aufrunden.",
-        "fr": "Choisissez le style d'arrondi : plancher, entier le plus proche ou plafond."
+        "fr": "Choisissez le style d'arrondi : plancher, entier le plus proche ou plafond.",
+        "es": "Elija el estilo de redondeo: suelo, entero más cercano o techo.",
+        "ar": "اختر نمط التقريب: لأسفل، أو لأقرب عدد صحيح، أو لأعلى."
       }
     }
   ],

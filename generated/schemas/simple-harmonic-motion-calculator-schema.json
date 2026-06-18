@@ -14,14 +14,15 @@
         "de": "Amplitude",
         "fr": "Amplitude",
         "es": "Amplitud",
-        "ar": "Amplitude"
+        "ar": "السعة"
       },
       "businessContext_i18n": {
         "en": "Maximum displacement from equilibrium (meters). Critical parameter for vibration amplitude in machinery monitoring.",
         "tr": "Dengeden maksimum yer değiştirme (metre). Makine izlemede titreşim genliği için kritik parametre.",
         "de": "Maximale Auslenkung aus der Gleichgewichtslage (Meter). Kritischer Parameter für die Schwingungsamplitude in der Maschinenüberwachung.",
         "fr": "Déplacement maximal par rapport à l'équilibre (mètres). Paramètre critique pour l'amplitude des vibrations dans la surveillance des machines.",
-        "es": "Desplazamiento máximo desde el equilibrio (metros). Parámetro crítico para la amplitud de vibración en monitoreo de maquinaria."
+        "es": "Desplazamiento máximo desde el equilibrio (metros). Parámetro crítico para la amplitud de vibración en monitoreo de maquinaria.",
+        "ar": "أقصى إزاحة من وضع الاتزان (متر). معلمة حاسمة لسعة الاهتزاز في مراقبة الآلات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Frequenz",
         "fr": "Fréquence",
         "es": "Frecuencia",
-        "ar": "Frequency"
+        "ar": "التردد"
       },
       "businessContext_i18n": {
         "en": "Oscillation frequency in Hertz. Typically derived from FFT analysis in predictive maintenance.",
         "tr": "Hertz cinsinden salınım frekansı. Genellikle kestirimci bakımda FFT analizinden elde edilir.",
         "de": "Oszillationsfrequenz in Hertz. Typischerweise aus der FFT-Analyse in der vorausschauenden Wartung abgeleitet.",
         "fr": "Fréquence d'oscillation en Hertz. Généralement dérivée de l'analyse FFT en maintenance prédictive.",
-        "es": "Frecuencia de oscilación en Hertz. Típicamente derivada del análisis FFT en mantenimiento predictivo."
+        "es": "Frecuencia de oscilación en Hertz. Típicamente derivada del análisis FFT en mantenimiento predictivo.",
+        "ar": "تردد التذبذب بالهرتز. يُشتق عادةً من تحليل FFT في الصيانة التنبؤية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Phasenkonstante",
         "fr": "Constante de phase",
         "es": "Constante de fase",
-        "ar": "Phase Constant"
+        "ar": "ثابت الطور"
       },
       "businessContext_i18n": {
         "en": "Initial phase angle (radians), accounting for the starting point of the oscillation cycle.",
         "tr": "Salınım döngüsünün başlangıç noktasını hesaba katan başlangıç faz açısı (radyan).",
         "de": "Anfangsphasenwinkel (Bogenmaß), der den Startpunkt des Schwingungszyklus berücksichtigt.",
         "fr": "Angle de phase initial (radians), tenant compte du point de départ du cycle d'oscillation.",
-        "es": "Ángulo de fase inicial (radianes), que representa el punto de inicio del ciclo de oscilación."
+        "es": "Ángulo de fase inicial (radianes), que representa el punto de inicio del ciclo de oscilación.",
+        "ar": "زاوية الطور الأولية (راديان)، تمثل نقطة بداية دورة التذبذب."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zeit",
         "fr": "Temps",
         "es": "Tiempo",
-        "ar": "Time"
+        "ar": "الزمن"
       },
       "businessContext_i18n": {
         "en": "Point in time (seconds) for calculating instantaneous displacement, velocity, etc.",
         "tr": "Anlık yer değiştirme, hız vb. hesaplamak için zaman noktası (saniye).",
         "de": "Zeitpunkt (Sekunden) zur Berechnung der momentanen Auslenkung, Geschwindigkeit usw.",
         "fr": "Instant dans le temps (secondes) pour calculer le déplacement instantané, la vitesse, etc.",
-        "es": "Punto en el tiempo (segundos) para calcular desplazamiento instantáneo, velocidad, etc."
+        "es": "Punto en el tiempo (segundos) para calcular desplazamiento instantáneo, velocidad, etc.",
+        "ar": "نقطة زمنية (بالثواني) لحساب الإزاحة اللحظية والسرعة وغيرها."
       }
     },
     {
@@ -106,38 +110,39 @@
         "de": "Masse",
         "fr": "Masse",
         "es": "Masa",
-        "ar": "Mass"
+        "ar": "الكتلة"
       },
       "businessContext_i18n": {
         "en": "Mass of the vibrating component (kg). Used for energy calculations; default 1 if energy analysis is not required.",
         "tr": "Titreşen bileşenin kütlesi (kg). Enerji hesaplamaları için kullanılır; enerji analizi gerekmiyorsa varsayılan 1.",
         "de": "Masse der schwingenden Komponente (kg). Wird für Energieberechnungen verwendet; Standardwert 1, wenn keine Energieanalyse erforderlich ist.",
         "fr": "Masse du composant vibrant (kg). Utilisée pour les calculs d'énergie ; valeur par défaut 1 si l'analyse énergétique n'est pas requise.",
-        "es": "Masa del componente vibrante (kg). Se usa para cálculos de energía; valor predeterminado 1 si no se requiere análisis energético."
+        "es": "Masa del componente vibrante (kg). Se usa para cálculos de energía; valor predeterminado 1 si no se requiere análisis energético.",
+        "ar": "كتلة المكون المهتز (كجم). تُستخدم لحسابات الطاقة؛ القيمة الافتراضية 1 إذا لم يكن تحليل الطاقة مطلوبًا."
       }
     }
   ],
   "formulas": {
-    "result": "A + f + phi",
-    "result_copy": "A + f + phi"
+    "normalized_product": "A * f * phi * t",
+    "result": "A * f * phi * t * (m)",
+    "adjustment_factor": "m"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "v",
-      "a",
-      "T",
-      "omega",
-      "KE",
-      "PE",
-      "E"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "E",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Fizik & Mekanik",

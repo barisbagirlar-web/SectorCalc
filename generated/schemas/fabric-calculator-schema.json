@@ -14,14 +14,15 @@
         "de": "Teillänge (cm)",
         "fr": "Longueur de pièce (cm)",
         "es": "Longitud de pieza (cm)",
-        "ar": "Piece Length (cm)"
+        "ar": "طول القطعة (سم)"
       },
       "businessContext_i18n": {
         "en": "The length of one piece to be cut from the fabric.",
         "tr": "Kumaştan kesilecek bir parçanın uzunluğu.",
         "de": "Die Länge eines aus dem Stoff zu schneidenden Teils.",
         "fr": "La longueur d'une pièce à découper dans le tissu.",
-        "es": "La longitud de una pieza a cortar de la tela."
+        "es": "La longitud de una pieza a cortar de la tela.",
+        "ar": "طول القطعة الواحدة المراد قصها من القماش."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Teilbreite (cm)",
         "fr": "Largeur de pièce (cm)",
         "es": "Ancho de pieza (cm)",
-        "ar": "Piece Width (cm)"
+        "ar": "عرض القطعة (سم)"
       },
       "businessContext_i18n": {
         "en": "The width of one piece to be cut from the fabric.",
         "tr": "Kumaştan kesilecek bir parçanın genişliği.",
         "de": "Die Breite eines aus dem Stoff zu schneidenden Teils.",
         "fr": "La largeur d'une pièce à découper dans le tissu.",
-        "es": "El ancho de una pieza a cortar de la tela."
+        "es": "El ancho de una pieza a cortar de la tela.",
+        "ar": "عرض القطعة الواحدة المراد قصها من القماش."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "The total number of pieces to be cut.",
         "tr": "Kesilecek toplam parça sayısı.",
         "de": "Die Gesamtzahl der zu schneidenden Teile.",
         "fr": "Le nombre total de pièces à découper.",
-        "es": "El número total de piezas a cortar."
+        "es": "El número total de piezas a cortar.",
+        "ar": "العدد الإجمالي للقطع المراد قصها."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stoffbreite (cm)",
         "fr": "Largeur du tissu (cm)",
         "es": "Ancho de tela (cm)",
-        "ar": "Fabric Width (cm)"
+        "ar": "عرض القماش (سم)"
       },
       "businessContext_i18n": {
         "en": "Available usable width of the fabric after accounting for selvage.",
         "tr": "Kenar payı düşüldükten sonra kullanılabilir kumaş genişliği.",
         "de": "Verfügbare Nutzbreite des Stoffes nach Abzug des Webrands.",
         "fr": "Largeur utile disponible du tissu après prise en compte des lisières.",
-        "es": "Ancho utilizable disponible de la tela después de considerar el orillo."
+        "es": "Ancho utilizable disponible de la tela después de considerar el orillo.",
+        "ar": "العرض القابل للاستخدام من القماش بعد حساب الحاشية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verschnittfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
-        "ar": "Waste Factor (%)"
+        "ar": "عامل الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra fabric to account for cutting waste and defects.",
         "tr": "Kesim atığı ve kusurları hesaba katmak için ek kumaş yüzdesi.",
         "de": "Prozentsatz zusätzlichen Stoffes für Verschnitt und Fehler.",
         "fr": "Pourcentage de tissu supplémentaire pour tenir compte des déchets de coupe et des défauts.",
-        "es": "Porcentaje de tela extra para considerar desperdicio de corte y defectos."
+        "es": "Porcentaje de tela extra para considerar desperdicio de corte y defectos.",
+        "ar": "نسبة القماش الإضافي لمراعاة هدر القطع والعيوب."
       }
     },
     {
@@ -129,35 +134,39 @@
         "de": "Musterrapport (cm)",
         "fr": "Raccord de motif (cm)",
         "es": "Repetición de patrón (cm)",
-        "ar": "Pattern Repeat (cm)"
+        "ar": "تكرار النقش (سم)"
       },
       "businessContext_i18n": {
         "en": "Length of pattern repeat if matching is required; set to 0 for plain fabrics.",
         "tr": "Desen eşleştirmesi gerekiyorsa desen tekrarı uzunluğu; düz kumaşlar için 0 ayarlayın.",
         "de": "Länge des Musterrapports, falls Musteranpassung erforderlich; bei einfarbigen Stoffen auf 0 setzen.",
         "fr": "Longueur du raccord de motif si nécessaire ; mettre à 0 pour les tissus unis.",
-        "es": "Longitud de repetición del patrón si se requiere coincidencia; establecer en 0 para telas lisas."
+        "es": "Longitud de repetición del patrón si se requiere coincidencia; establecer en 0 para telas lisas.",
+        "ar": "طول تكرار النمط إذا كان التطابق مطلوبًا؛ اضبط على 0 للأقمشة العادية."
       }
     }
   ],
   "formulas": {
-    "result": "itemLength + itemWidth + quantity",
-    "result_copy": "itemLength + itemWidth + quantity"
+    "normalized_product": "itemLength * itemWidth * quantity * fabricWidth",
+    "result": "itemLength * itemWidth * quantity * fabricWidth * ((wasteFactor / 100) * patternRepeat)",
+    "adjustment_factor": "(wasteFactor / 100) * patternRepeat"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "piecesPerWidth",
-      "rowsNeeded",
-      "totalLengthBeforeWasteCm",
-      "totalFabricLengthCm"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalFabricLengthMeters",
-    "unit": "cm",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "totalLengthBeforeWasteCm": "cm",
       "totalFabricLengthCm": "cm"

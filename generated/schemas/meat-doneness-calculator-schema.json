@@ -14,14 +14,15 @@
         "de": "Fleischgewicht",
         "fr": "Poids de la viande",
         "es": "Peso de la carne",
-        "ar": "Meat Weight"
+        "ar": "وزن اللحم"
       },
       "businessContext_i18n": {
         "en": "Weight of the meat cut in kilograms, responsible for heat capacity.",
         "tr": "Isı kapasitesinden sorumlu et parçasının kilogram cinsinden ağırlığı.",
         "de": "Gewicht des Fleischstücks in Kilogramm, verantwortlich für die Wärmekapazität.",
         "fr": "Poids du morceau de viande en kilogrammes, responsable de la capacité thermique.",
-        "es": "Peso del corte de carne en kilogramos, responsable de la capacidad calorífica."
+        "es": "Peso del corte de carne en kilogramos, responsable de la capacidad calorífica.",
+        "ar": "وزن قطعة اللحم بالكيلوغرام، المسؤول عن السعة الحرارية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ofentemperatur",
         "fr": "Température du four",
         "es": "Temperatura del horno",
-        "ar": "Oven Temperature"
+        "ar": "درجة حرارة الفرن"
       },
       "businessContext_i18n": {
         "en": "Temperature of the cooking environment.",
         "tr": "Pişirme ortamının sıcaklığı.",
         "de": "Temperatur der Garumgebung.",
         "fr": "Température de l'environnement de cuisson.",
-        "es": "Temperatura del entorno de cocción."
+        "es": "Temperatura del entorno de cocción.",
+        "ar": "درجة حرارة بيئة الطهي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ziel-Kerntemperatur",
         "fr": "Température interne cible",
         "es": "Temperatura interna objetivo",
-        "ar": "Target Internal Temperature"
+        "ar": "درجة الحرارة الداخلية المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Desired core temperature for doneness.",
         "tr": "Pişme derecesi için istenen çekirdek sıcaklığı.",
         "de": "Gewünschte Kerntemperatur für den Garzustand.",
         "fr": "Température à cœur souhaitée pour la cuisson.",
-        "es": "Temperatura interna deseada para el punto de cocción."
+        "es": "Temperatura interna deseada para el punto de cocción.",
+        "ar": "درجة الحرارة الأساسية المطلوبة للنضج."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Starttemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Starting Temperature"
+        "ar": "درجة الحرارة الابتدائية"
       },
       "businessContext_i18n": {
         "en": "Initial meat temperature.",
         "tr": "Başlangıç et sıcaklığı.",
         "de": "Anfängliche Fleischtemperatur.",
         "fr": "Température initiale de la viande.",
-        "es": "Temperatura inicial de la carne."
+        "es": "Temperatura inicial de la carne.",
+        "ar": "درجة حرارة اللحم الأولية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Fleischdicke",
         "fr": "Épaisseur de la viande",
         "es": "Grosor de la carne",
-        "ar": "Meat Thickness"
+        "ar": "سمك اللحم"
       },
       "businessContext_i18n": {
         "en": "Thickness of the cut.",
         "tr": "Parçanın kalınlığı.",
         "de": "Dicke des Stücks.",
         "fr": "Épaisseur du morceau.",
-        "es": "Grosor del corte."
+        "es": "Grosor del corte.",
+        "ar": "سمك القطعة."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Formfaktor",
         "fr": "Facteur de forme",
         "es": "Factor de forma",
-        "ar": "Shape Factor"
+        "ar": "عامل الشكل"
       },
       "businessContext_i18n": {
         "en": "Geometry correction (1: slab, 1.3: cylinder, 1.5: sphere).",
         "tr": "Geometri düzeltmesi (1: levha, 1.3: silindir, 1.5: küre).",
         "de": "Geometriekorrektur (1: Platte, 1,3: Zylinder, 1,5: Kugel).",
         "fr": "Correction géométrique (1 : plaque, 1,3 : cylindre, 1,5 : sphère).",
-        "es": "Corrección geométrica (1: losa, 1.3: cilindro, 1.5: esfera)."
+        "es": "Corrección geométrica (1: losa, 1.3: cilindro, 1.5: esfera).",
+        "ar": "تصحيح الهندسة (1: لوح، 1.3: أسطوانة، 1.5: كرة)."
       }
     }
   ],
   "formulas": {
-    "result": "meat-weight + oven-temp + target-temp",
-    "result_copy": "meat-weight + oven-temp + target-temp"
+    "normalized_product": "meat-weight * oven-temp * target-temp * starting-temp",
+    "result": "meat-weight * oven-temp * target-temp * starting-temp * (thickness * shape-factor)",
+    "adjustment_factor": "thickness * shape-factor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "donenessLevel",
-      "tempDifference"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "tempDifference",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "tempDifference": "°C"
     }

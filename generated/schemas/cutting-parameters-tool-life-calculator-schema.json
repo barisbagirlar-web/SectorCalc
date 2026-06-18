@@ -25,14 +25,16 @@
         "tr": "Kesme Hızı",
         "de": "Schnittgeschwindigkeit",
         "fr": "Vitesse de coupe",
-        "es": "Velocidad de corte"
+        "es": "Velocidad de corte",
+        "ar": "سرعة القطع"
       },
       "businessContext_i18n": {
         "en": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685.",
         "tr": "İş parçasının kesici takıma göre yüzey hızı, ISO 3685'e dayanır.",
         "de": "Oberflächengeschwindigkeit des Werkstücks relativ zum Schneidwerkzeug, basierend auf ISO 3685.",
         "fr": "Vitesse de surface de la pièce par rapport à l'outil de coupe, basée sur l'ISO 3685.",
-        "es": "Velocidad superficial de la pieza en relación con la herramienta de corte, basada en ISO 3685."
+        "es": "Velocidad superficial de la pieza en relación con la herramienta de corte, basada en ISO 3685.",
+        "ar": "السرعة السطحية لقطعة العمل بالنسبة لأداة القطع، بناءً على ISO 3685."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "İlerleme Hızı",
         "de": "Vorschubgeschwindigkeit",
         "fr": "Avance",
-        "es": "Avance"
+        "es": "Avance",
+        "ar": "معدل التغذية"
       },
       "businessContext_i18n": {
         "en": "Linear distance the tool advances per revolution, affects chip load and tool wear.",
         "tr": "Takımın devir başına ilerlediği doğrusal mesafe, talaş yükünü ve takım aşınmasını etkiler.",
         "de": "Vorschub",
         "fr": "Avance",
-        "es": "Distancia lineal que avanza la herramienta por revolución, afecta la carga de viruta y el desgaste de la herramienta."
+        "es": "Distancia lineal que avanza la herramienta por revolución, afecta la carga de viruta y el desgaste de la herramienta.",
+        "ar": "المسافة الخطية التي تتقدمها الأداة لكل دورة، تؤثر على حمل الرقاقة وتآكل الأداة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Kesme Derinliği",
         "de": "Schnitttiefe",
         "fr": "Profondeur de passe",
-        "es": "Profundidad de corte"
+        "es": "Profundidad de corte",
+        "ar": "عمق القطع"
       },
       "businessContext_i18n": {
         "en": "Radial or axial engagement of the tool, influences cutting forces and heat generation.",
         "tr": "Takımın radyal veya eksenel teması, kesme kuvvetlerini ve ısı oluşumunu etkiler.",
         "de": "Radialer oder axialer Eingriff des Werkzeugs, beeinflusst Schnittkräfte und Wärmeentwicklung.",
         "fr": "Engagement radial ou axial de l'outil, influence les forces de coupe et la génération de chaleur.",
-        "es": "Enganche radial o axial de la herramienta, influye en las fuerzas de corte y la generación de calor."
+        "es": "Enganche radial o axial de la herramienta, influye en las fuerzas de corte y la generación de calor.",
+        "ar": "الاشتباك الشعاعي أو المحوري للأداة، يؤثر على قوى القطع وتوليد الحرارة."
       }
     },
     {
@@ -104,14 +110,16 @@
         "tr": "Takım Malzemesi",
         "de": "Werkzeugmaterial",
         "fr": "Matériau de l'outil",
-        "es": "Material de la herramienta"
+        "es": "Material de la herramienta",
+        "ar": "مادة الأداة"
       },
       "businessContext_i18n": {
         "en": "Material of the cutting tool, affects wear resistance and optimal cutting parameters.",
         "tr": "Kesici takımın malzemesi, aşınma direncini ve optimum kesme parametrelerini etkiler.",
         "de": "Material des Schneidwerkzeugs, beeinflusst Verschleißfestigkeit und optimale Schnittparameter.",
         "fr": "Matériau de l'outil de coupe, affecte la résistance à l'usure et les paramètres de coupe optimaux.",
-        "es": "Material de la herramienta de corte, afecta la resistencia al desgaste y los parámetros de corte óptimos."
+        "es": "Material de la herramienta de corte, afecta la resistencia al desgaste y los parámetros de corte óptimos.",
+        "ar": "مادة أداة القطع، تؤثر على مقاومة التآكل ومعايير القطع المثلى."
       }
     },
     {
@@ -136,14 +144,16 @@
         "tr": "İş Parçası Malzemesi",
         "de": "Werkstückmaterial",
         "fr": "Matériau de la pièce",
-        "es": "Material de la pieza"
+        "es": "Material de la pieza",
+        "ar": "مادة قطعة العمل"
       },
       "businessContext_i18n": {
         "en": "Material being machined, determines machinability rating and recommended speeds.",
         "tr": "İşlenen malzeme, işlenebilirlik derecesini ve önerilen hızları belirler.",
         "de": "Zu bearbeitendes Material, bestimmt die Zerspanbarkeitsbewertung und empfohlene Geschwindigkeiten.",
         "fr": "Matériau usiné, détermine l'indice d'usinabilité et les vitesses recommandées.",
-        "es": "Material que se está mecanizando, determina el índice de maquinabilidad y las velocidades recomendadas."
+        "es": "Material que se está mecanizando, determina el índice de maquinabilidad y las velocidades recomendadas.",
+        "ar": "المادة التي يتم تشغيلها، تحدد قابلية التشغيل والسرعات الموصى بها."
       }
     },
     {
@@ -160,14 +170,16 @@
         "tr": "Kullanılan Soğutma Sıvısı",
         "de": "Kühlmittel verwendet",
         "fr": "Lubrifiant utilisé",
-        "es": "Refrigerante utilizado"
+        "es": "Refrigerante utilizado",
+        "ar": "سائل التبريد المستخدم"
       },
       "businessContext_i18n": {
         "en": "Indicates if coolant is applied, reduces thermal stress and extends tool life.",
         "tr": "Soğutma sıvısının uygulanıp uygulanmadığını belirtir, termal stresi azaltır ve takım ömrünü uzatır.",
         "de": "Gibt an, ob Kühlmittel verwendet wird, reduziert thermische Belastung und verlängert Werkzeugstandzeit.",
         "fr": "Indique si un lubrifiant est appliqué, réduit le stress thermique et prolonge la durée de vie de l'outil.",
-        "es": "Indica si se aplica refrigerante, reduce el estrés térmico y prolonga la vida útil de la herramienta."
+        "es": "Indica si se aplica refrigerante, reduce el estrés térmico y prolonga la vida útil de la herramienta.",
+        "ar": "يشير إلى استخدام سائل التبريد، يقلل الإجهاد الحراري ويطيل عمر الأداة."
       }
     },
     {
@@ -184,14 +196,16 @@
         "tr": "Makine Stabilite Faktörü",
         "de": "Maschinenstabilitätsfaktor",
         "fr": "Facteur de stabilité de la machine",
-        "es": "Factor de estabilidad de la máquina"
+        "es": "Factor de estabilidad de la máquina",
+        "ar": "عامل استقرار الماكينة"
       },
       "businessContext_i18n": {
         "en": "Factor representing machine rigidity and vibration damping, based on condition monitoring data.",
         "tr": "Makine rijitliğini ve titreşim sönümlemesini temsil eden faktör, durum izleme verilerine dayanır.",
         "de": "Faktor, der die Maschinensteifigkeit und Schwingungsdämpfung basierend auf Zustandsüberwachungsdaten repräsentiert.",
         "fr": "Facteur représentant la rigidité de la machine et l'amortissement des vibrations, basé sur les données de surveillance de l'état.",
-        "es": "Factor que representa la rigidez de la máquina y la amortiguación de vibraciones, basado en datos de monitoreo de condición."
+        "es": "Factor que representa la rigidez de la máquina y la amortiguación de vibraciones, basado en datos de monitoreo de condición.",
+        "ar": "عامل يمثل صلابة الماكينة وتخميد الاهتزاز، بناءً على بيانات مراقبة الحالة."
       }
     }
   ],
@@ -229,18 +243,24 @@
     ]
   },
   "formulas": {
-    "result": "cutting_speed + feed_rate + depth_of_cut",
-    "result_copy": "cutting_speed + feed_rate + depth_of_cut"
+    "normalized_product": "cutting_speed * (feed_rate / 100) * depth_of_cut * machine_stability_factor",
+    "result": "cutting_speed * (feed_rate / 100) * depth_of_cut * machine_stability_factor"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "m/min"
+    "unit": "USD"
   },
   "toolName": "cutting-parameters-tool-life-calculator",
   "catalogCategory": "manufacturing-workshop",

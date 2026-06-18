@@ -13,14 +13,16 @@
         "tr": "Yük Kütlesi",
         "de": "Masse der Last",
         "fr": "Masse de la charge",
-        "es": "Mass of Load",
-        "ar": "Mass of Load"
+        "es": "Masa de la carga",
+        "ar": "كتلة الحمولة"
       },
       "businessContext_i18n": {
         "en": "The mass of the load being cycled (lifted and lowered).",
         "tr": "Çevrimlenen (kaldırılıp indirilen) yükün kütlesi.",
         "de": "Die Masse der Last, die zyklisch bewegt (angehoben und abgesenkt) wird.",
-        "fr": "Masse de la charge en cycle (levée et descente)."
+        "fr": "Masse de la charge en cycle (levée et descente).",
+        "es": "Masa de la carga que se cicla (eleva y baja).",
+        "ar": "كتلة الحمولة التي يتم تدويرها (رفع وخفض)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kaldırma Yüksekliği",
         "de": "Hubhöhe",
         "fr": "Hauteur de levage",
-        "es": "Lifting Height",
-        "ar": "Lifting Height"
+        "es": "Altura de elevación",
+        "ar": "ارتفاع الرفع"
       },
       "businessContext_i18n": {
         "en": "Vertical distance the load is lifted each cycle.",
         "tr": "Her çevrimde yükün kaldırıldığı dikey mesafe.",
         "de": "Vertikale Distanz, die die Last pro Zyklus angehoben wird.",
-        "fr": "Distance verticale de levage de la charge à chaque cycle."
+        "fr": "Distance verticale de levage de la charge à chaque cycle.",
+        "es": "Distancia vertical que se eleva la carga cada ciclo.",
+        "ar": "المسافة الرأسية التي ترفعها الحمولة في كل دورة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Günlük Çevrim Sayısı",
         "de": "Zyklen pro Tag",
         "fr": "Cycles par jour",
-        "es": "Cycles per Day",
-        "ar": "Cycles per Day"
+        "es": "Ciclos por día",
+        "ar": "الدورات في اليوم"
       },
       "businessContext_i18n": {
         "en": "Number of lift cycles per operating day.",
         "tr": "Çalışma günü başına kaldırma çevrimi sayısı.",
         "de": "Anzahl der Hubzyklen pro Arbeitstag.",
-        "fr": "Nombre de cycles de levage par jour ouvré."
+        "fr": "Nombre de cycles de levage par jour ouvré.",
+        "es": "Número de ciclos de elevación por día operativo.",
+        "ar": "عدد دورات الرفع في يوم التشغيل."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Çalışma Günleri",
         "de": "Arbeitstage",
         "fr": "Jours ouvrés",
-        "es": "Operating Days",
-        "ar": "Operating Days"
+        "es": "Días operativos",
+        "ar": "أيام التشغيل"
       },
       "businessContext_i18n": {
         "en": "Total number of operating days per year or period.",
         "tr": "Yıllık veya dönem başına toplam çalışma günü sayısı.",
         "de": "Gesamtzahl der Arbeitstage pro Jahr oder Zeitraum.",
-        "fr": "Nombre total de jours ouvrés par an ou période."
+        "fr": "Nombre total de jours ouvrés par an ou période.",
+        "es": "Número total de días operativos por año o período.",
+        "ar": "إجمالي عدد أيام التشغيل في السنة أو الفترة."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Systemeffizienz",
         "fr": "Efficacité du système",
         "es": "Eficiencia del sistema",
-        "ar": "System Efficiency"
+        "ar": "كفاءة النظام"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100).",
         "tr": "Motor, şanzıman vb. dahil kaldırma mekanizmasının genel verimliliği. Yüzde olarak girin (0-100).",
         "de": "Gesamtwirkungsgrad des Hubmechanismus einschließlich Motor, Getriebe usw. Eingabe als Prozentsatz (0-100).",
-        "fr": "Rendement global du mécanisme de levage incluant moteur, transmission, etc. Saisir en pourcentage (0-100)."
+        "fr": "Rendement global du mécanisme de levage incluant moteur, transmission, etc. Saisir en pourcentage (0-100).",
+        "es": "Eficiencia general del mecanismo de elevación, incluyendo motor, transmisión, etc. Ingrese como porcentaje (0-100).",
+        "ar": "الكفاءة الإجمالية لآلية الرفع بما في ذلك المحرك وناقل الحركة إلخ. أدخل كنسبة مئوية (0-100)."
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Energiekosten",
         "fr": "Coût énergétique",
         "es": "Coste energético",
-        "ar": "Energy Cost"
+        "ar": "تكلفة الطاقة"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour in your currency.",
         "tr": "Para biriminizde kilovat-saat başına elektrik maliyeti.",
         "de": "Stromkosten pro Kilowattstunde in Ihrer Währung.",
-        "fr": "Coût de l'électricité par kilowattheure dans votre devise."
+        "fr": "Coût de l'électricité par kilowattheure dans votre devise.",
+        "es": "Costo de la electricidad por kilovatio-hora en su moneda.",
+        "ar": "تكلفة الكهرباء لكل كيلوواط ساعة بعملتك."
       }
     }
   ],

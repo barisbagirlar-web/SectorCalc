@@ -12,16 +12,17 @@
         "en": "n (Toplam Eleman Sayısı)",
         "tr": "n (Toplam Eleman Sayısı)",
         "de": "n (Gesamtzahl der Elemente)",
-        "fr": "n (Toplam Eleman Sayısı)",
+        "fr": "n (Nombre total d'éléments)",
         "es": "n (Número total de elementos)",
-        "ar": "n (Toplam Eleman Sayısı)"
+        "ar": "n (إجمالي عدد العناصر)"
       },
       "businessContext_i18n": {
         "en": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
         "tr": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
         "de": "Gesamtzahl der Elemente; z. B. Gesamtzahl der Fertigprodukte in einer Produktionscharge.",
-        "fr": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
-        "es": "Número total de elementos; ejemplo: número total de productos en un lote de producción."
+        "fr": "Nombre total d'éléments ; ex : nombre total de produits finis dans un lot de production.",
+        "es": "Número total de elementos; ejemplo: número total de productos en un lote de producción.",
+        "ar": "إجمالي عدد العناصر؛ مثال: إجمالي عدد المنتجات في دفعة إنتاج."
       }
     },
     {
@@ -35,16 +36,17 @@
         "en": "r (Seçilecek Eleman Sayısı)",
         "tr": "r (Seçilecek Eleman Sayısı)",
         "de": "r (Anzahl der auszuwählenden Elemente)",
-        "fr": "r (Seçilecek Eleman Sayısı)",
+        "fr": "r (Nombre d'éléments à sélectionner)",
         "es": "r (Número de elementos a seleccionar)",
-        "ar": "r (Seçilecek Eleman Sayısı)"
+        "ar": "r (عدد العناصر المختارة)"
       },
       "businessContext_i18n": {
         "en": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
         "tr": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
         "de": "Wie viele ausgewählt werden sollen; z. B. Anzahl der für die Qualitätskontrolle zufällig zu entnehmenden Proben.",
-        "fr": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
-        "es": "Cuántos elementos se seleccionarán; ejemplo: número de muestras aleatorias para control de calidad."
+        "fr": "Combien d'éléments sélectionner ; ex : nombre d'échantillons à prélever aléatoirement pour le contrôle qualité.",
+        "es": "Cuántos elementos se seleccionarán; ejemplo: número de muestras aleatorias para control de calidad.",
+        "ar": "كم عدد العناصر المراد اختيارها؛ مثال: عدد العينات العشوائية لفحص الجودة."
       }
     },
     {
@@ -58,16 +60,17 @@
         "en": "Ondalık Basamak (Yuvarlama)",
         "tr": "Ondalık Basamak (Yuvarlama)",
         "de": "Dezimalstellen (Rundung)",
-        "fr": "Ondalık Basamak (Yuvarlama)",
+        "fr": "Décimales (Arrondi)",
         "es": "Decimales (Redondeo)",
-        "ar": "Ondalık Basamak (Yuvarlama)"
+        "ar": "الخانات العشرية (التقريب)"
       },
       "businessContext_i18n": {
         "en": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
         "tr": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
         "de": "Auf wie viele Dezimalstellen das Ergebnis gerundet werden soll (normalerweise 0, ganze Zahl).",
-        "fr": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
-        "es": "Número de decimales a los que se redondeará el resultado (generalmente 0, entero)."
+        "fr": "Nombre de décimales pour arrondir le résultat (généralement 0, entier).",
+        "es": "Número de decimales a los que se redondeará el resultado (generalmente 0, entero).",
+        "ar": "عدد الخانات العشرية لتقريب النتيجة (عادة 0، عدد صحيح)."
       }
     },
     {
@@ -81,36 +84,39 @@
         "en": "Maksimum İterasyon (Güvenlik Limiti)",
         "tr": "Maksimum İterasyon (Güvenlik Limiti)",
         "de": "Maximale Iterationen (Sicherheitsgrenze)",
-        "fr": "Maksimum İterasyon (Güvenlik Limiti)",
+        "fr": "Itération maximale (Limite de sécurité)",
         "es": "Iteración máxima (Límite de seguridad)",
-        "ar": "Maksimum İterasyon (Güvenlik Limiti)"
+        "ar": "الحد الأقصى للتكرار (حد الأمان)"
       },
       "businessContext_i18n": {
         "en": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
         "tr": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
         "de": "Iterationsgrenze bei der Fakultätsberechnung (Schutz für große Zahlen).",
-        "fr": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
-        "es": "Límite de iteración en el cálculo factorial (protección para números grandes)."
+        "fr": "Limite d'itération pour le calcul factoriel (protection pour les grands nombres).",
+        "es": "Límite de iteración en el cálculo factorial (protección para números grandes).",
+        "ar": "حد التكرار في حساب المضروب (حماية للأعداد الكبيرة)."
       }
     }
   ],
   "formulas": {
-    "result": "n + r + decimalPlaces",
-    "result_copy": "n + r + decimalPlaces"
+    "normalized_product": "n * r * decimalPlaces * maxIterations",
+    "result": "n * r * decimalPlaces * maxIterations"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "nFact",
-      "rFact",
-      "nrFact"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "nrFact",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

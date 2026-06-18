@@ -13,14 +13,16 @@
         "tr": "Kırılma İndisi n",
         "de": "Brechungsindex n",
         "fr": "Indice de réfraction n",
-        "es": "Refractive Index n",
-        "ar": "Refractive Index n"
+        "es": "Índice de refracción n",
+        "ar": "معامل الانكسار n"
       },
       "businessContext_i18n": {
         "en": "Refractive index of the lens material (dimensionless).",
         "tr": "Mercek malzemesinin kırılma indisi (boyutsuz).",
         "de": "Brechungsindex des Linsenmaterials (dimensionslos).",
-        "fr": "Indice de réfraction du matériau de la lentille (sans dimension)."
+        "fr": "Indice de réfraction du matériau de la lentille (sans dimension).",
+        "es": "Índice de refracción del material de la lente (adimensional).",
+        "ar": "معامل انكسار مادة العدسة (بدون أبعاد)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Eğrilik Yarıçapı R1",
         "de": "Krümmungsradius R1",
         "fr": "Rayon de courbure R1",
-        "es": "Radius of Curvature R1",
-        "ar": "Radius of Curvature R1"
+        "es": "Radio de curvatura R1",
+        "ar": "نصف قطر الانحناء R1"
       },
       "businessContext_i18n": {
         "en": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
         "tr": "Birinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif.",
         "de": "Krümmungsradius der ersten Linsenfläche. Vorzeichenkonvention: positiv, wenn der Krümmungsmittelpunkt rechts vom Scheitelpunkt liegt.",
-        "fr": "Rayon de courbure de la première surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet."
+        "fr": "Rayon de courbure de la première surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet.",
+        "es": "Radio de curvatura de la primera superficie de la lente. Convención de signos: positivo si el centro de curvatura está a la derecha del vértice.",
+        "ar": "نصف قطر انحناء السطح الأول للعدسة. قاعدة الإشارة: موجب إذا كان مركز الانحناء على يمين القمة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Eğrilik Yarıçapı R2",
         "de": "Krümmungsradius R2",
         "fr": "Rayon de courbure R2",
-        "es": "Radius of Curvature R2",
-        "ar": "Radius of Curvature R2"
+        "es": "Radio de curvatura R2",
+        "ar": "نصف قطر الانحناء R2"
       },
       "businessContext_i18n": {
         "en": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
         "tr": "İkinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif.",
         "de": "Krümmungsradius der zweiten Linsenfläche. Vorzeichenkonvention: positiv, wenn der Krümmungsmittelpunkt rechts vom Scheitelpunkt liegt.",
-        "fr": "Rayon de courbure de la deuxième surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet."
+        "fr": "Rayon de courbure de la deuxième surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet.",
+        "es": "Radio de curvatura de la segunda superficie de la lente. Convención de signos: positivo si el centro de curvatura está a la derecha del vértice.",
+        "ar": "نصف قطر انحناء السطح الثاني للعدسة. قاعدة الإشارة: موجب إذا كان مركز الانحناء على يمين القمة."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Nesne Mesafesi u",
         "de": "Gegenstandsabstand u",
         "fr": "Distance objet u",
-        "es": "Object Distance u",
-        "ar": "Object Distance u"
+        "es": "Distancia del objeto u",
+        "ar": "مسافة الجسم u"
       },
       "businessContext_i18n": {
         "en": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object).",
         "tr": "Nesneden merceğe optik eksen boyunca mesafe. İşaret kuralı: nesne gelen ışık tarafında ise (gerçek nesne) pozitif.",
         "de": "Abstand vom Objekt zur Linse, gemessen entlang der optischen Achse. Vorzeichenkonvention: positiv, wenn das Objekt auf der Seite des einfallenden Lichts liegt (reales Objekt).",
-        "fr": "Distance de l'objet à la lentille, mesurée le long de l'axe optique. Convention de signe : positif si l'objet est du côté de la lumière incidente (objet réel)."
+        "fr": "Distance de l'objet à la lentille, mesurée le long de l'axe optique. Convention de signe : positif si l'objet est du côté de la lumière incidente (objet réel).",
+        "es": "Distancia del objeto a la lente, medida a lo largo del eje óptico. Convención de signos: positivo si el objeto está en el lado de la luz incidente (objeto real).",
+        "ar": "المسافة من الجسم إلى العدسة، مقاسة على طول المحور البصري. قاعدة الإشارة: موجبة إذا كان الجسم على جانب الضوء الساقط (جسم حقيقي)."
       }
     }
   ],

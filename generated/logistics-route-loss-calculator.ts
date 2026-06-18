@@ -30,8 +30,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Logistics_route_loss_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.route_distance_km + input.average_speed_kmh + input.planned_stops; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.route_distance_km + input.average_speed_kmh + input.planned_stops; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km * 1 * (input.route_distance_km * input.average_speed_kmh); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.route_distance_km; results["factor_route_distance_km"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_route_distance_km"] = 0; }
+  try { const v = input.average_speed_kmh; results["factor_average_speed_kmh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_average_speed_kmh"] = 0; }
   return results;
 }
 
@@ -46,8 +49,8 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

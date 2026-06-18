@@ -14,14 +14,15 @@
         "de": "Jährliche Nachfrage",
         "fr": "Demande annuelle",
         "es": "Demanda anual",
-        "ar": "Yıllık Talep"
+        "ar": "الطلب السنوي"
       },
       "businessContext_i18n": {
         "en": "Yıllık satılan veya kullanılan ürün miktarı",
         "tr": "Yıllık satılan veya kullanılan ürün miktarı",
         "de": "Jährlich verkaufte oder verwendete Produktmenge",
         "fr": "Quantité de produits vendus ou utilisés par an.",
-        "es": "Cantidad de producto vendido o utilizado anualmente"
+        "es": "Cantidad de producto vendido o utilizado anualmente",
+        "ar": "إجمالي الطلب المتوقع للمنتج خلال عام واحد. يُستخدم لحساب تكرار الطلب وإجمالي المخزون الدوري."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bestellkosten",
         "fr": "Coût de commande",
         "es": "Costo de pedido",
-        "ar": "Sipariş Maliyeti"
+        "ar": "تكلفة الطلب"
       },
       "businessContext_i18n": {
         "en": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
         "tr": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
         "de": "Fixe Kosten pro Bestellung (Transport, Bearbeitung usw.)",
         "fr": "Coût fixe engagé lors de la passation d'une commande (transport, traitement, etc.)",
-        "es": "Costo fijo por pedido (transporte, procesamiento, etc.)"
+        "es": "Costo fijo por pedido (transporte, procesamiento, etc.)",
+        "ar": "تكلفة الطلب لكل طلب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lagerhaltungskosten",
         "fr": "Coût de détention",
         "es": "Costo de mantenimiento",
-        "ar": "Elde Tutma Maliyeti"
+        "ar": "تكلفة ثابتة تتكبدها كل طلب شراء (مثل: إدارية، فحص، تجهيز النقل)."
       },
       "businessContext_i18n": {
         "en": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
         "tr": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
         "de": "Jährliche Kosten für Lagerung, Versicherung, Verderb usw. pro Lagereinheit",
         "fr": "Coût annuel de stockage, assurance, détérioration, etc. par unité de stock.",
-        "es": "Costo anual de almacenamiento, seguro, deterioro, etc. por unidad de inventario"
+        "es": "Costo anual de almacenamiento, seguro, deterioro, etc. por unidad de inventario",
+        "ar": "تكلفة الاحتفاظ لكل وحدة سنويًا"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stückkosten",
         "fr": "Coût unitaire",
         "es": "Costo unitario",
-        "ar": "Birim Maliyet"
+        "ar": "تكلفة الوحدة"
       },
       "businessContext_i18n": {
         "en": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
         "tr": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
         "de": "Beschaffungskosten pro Einheit (wird zu Gesamtkosten addiert, optional)",
         "fr": "Coût d'achat unitaire (ajouté au coût total, facultatif)",
-        "es": "Costo de compra por unidad (se añade al costo total, opcional)"
+        "es": "Costo de compra por unidad (se añade al costo total, opcional)",
+        "ar": "تكلفة الاحتفاظ بوحدة واحدة في المخزون لمدة عام، تشمل التخزين والتأمين والتقادم وتكلفة رأس المال."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Lieferzeit",
         "fr": "Délai d'approvisionnement",
         "es": "Plazo de entrega",
-        "ar": "Tedarik Süresi"
+        "ar": "تكلفة الوحدة (سعر الشراء)"
       },
       "businessContext_i18n": {
         "en": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
         "tr": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
         "de": "Zeit von der Bestellung bis zur Lieferung (für den Meldebestand)",
         "fr": "Délai de livraison de la commande (pour le point de commande)",
-        "es": "Tiempo de entrega del pedido (para el punto de reorden)"
+        "es": "Tiempo de entrega del pedido (para el punto de reorden)",
+        "ar": "سعر شراء الوحدة من المورد. يُستخدم لحساب إجمالي تكلفة الشراء السنوية ورأس المال المقيد."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Jährliche Arbeitstage",
         "fr": "Jours ouvrables par an",
         "es": "Días laborables al año",
-        "ar": "Yıllık Çalışma Günü"
+        "ar": "متوسط الوقت من تقديم الطلب إلى الاستلام. ضروري لحساب مخزون الأمان ونقطة إعادة الطلب."
       },
       "businessContext_i18n": {
         "en": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
         "tr": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
         "de": "Anzahl der Arbeitstage pro Jahr (für die Nachfrageverteilung)",
         "fr": "Nombre de jours ouvrables par an (pour la répartition de la demande)",
-        "es": "Número de días laborables al año (para la distribución de la demanda)"
+        "es": "Número de días laborables al año (para la distribución de la demanda)",
+        "ar": "عدد أيام العمل السنوية"
       }
     }
   ],

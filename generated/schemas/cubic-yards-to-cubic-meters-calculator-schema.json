@@ -14,14 +14,15 @@
         "de": "Länge (yd)",
         "fr": "Longueur (yd)",
         "es": "Longitud (yd)",
-        "ar": "Length (yd)"
+        "ar": "الطول (ياردة)"
       },
       "businessContext_i18n": {
         "en": "Enter the length in yards.",
         "tr": "Uzunluğu yarda cinsinden girin.",
         "de": "Geben Sie die Länge in Yards ein.",
         "fr": "Saisissez la longueur en yards.",
-        "es": "Ingrese la longitud en yardas."
+        "es": "Ingrese la longitud en yardas.",
+        "ar": "أدخل الطول بالياردة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Breite (yd)",
         "fr": "Largeur (yd)",
         "es": "Ancho (yd)",
-        "ar": "Width (yd)"
+        "ar": "العرض (ياردة)"
       },
       "businessContext_i18n": {
         "en": "Enter the width in yards.",
         "tr": "Genişliği yarda cinsinden girin.",
         "de": "Geben Sie die Breite in Yards ein.",
         "fr": "Saisissez la largeur en yards.",
-        "es": "Ingrese el ancho en yardas."
+        "es": "Ingrese el ancho en yardas.",
+        "ar": "أدخل العرض بالياردة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Höhe (yd)",
         "fr": "Hauteur (yd)",
         "es": "Altura (yd)",
-        "ar": "Height (yd)"
+        "ar": "الارتفاع (ياردة)"
       },
       "businessContext_i18n": {
         "en": "Enter the height in yards.",
         "tr": "Yüksekliği yarda cinsinden girin.",
         "de": "Geben Sie die Höhe in Yards ein.",
         "fr": "Saisissez la hauteur en yards.",
-        "es": "Ingrese la altura en yardas."
+        "es": "Ingrese la altura en yardas.",
+        "ar": "أدخل الارتفاع بالياردة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kubikyards",
         "fr": "Yards cubes",
         "es": "Yardas cúbicas",
-        "ar": "Cubic Yards"
+        "ar": "الياردة المكعبة"
       },
       "businessContext_i18n": {
         "en": "Alternatively, enter the volume directly in cubic yards. Overrides dimensions if non-zero.",
         "tr": "Alternatif olarak hacmi doğrudan yarda küp cinsinden girin. Sıfırdan farklıysa boyutları geçersiz kılar.",
         "de": "Alternativ das Volumen direkt in Kubikyards eingeben. Überschreibt die Abmessungen, wenn ungleich Null.",
         "fr": "Vous pouvez aussi saisir directement le volume en yards cubes. Remplace les dimensions si non nul.",
-        "es": "Alternativamente, ingrese el volumen directamente en yardas cúbicas. Anula las dimensiones si es distinto de cero."
+        "es": "Alternativamente, ingrese el volumen directamente en yardas cúbicas. Anula las dimensiones si es distinto de cero.",
+        "ar": "بدلاً من ذلك، أدخل الحجم مباشرة بالياردة المكعبة. يتجاوز الأبعاد إذا كانت غير صفرية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final result.",
         "tr": "Nihai sonuç için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für das Endergebnis.",
         "fr": "Nombre de décimales pour le résultat final.",
-        "es": "Número de decimales para el resultado final."
+        "es": "Número de decimales para el resultado final.",
+        "ar": "عدد المنازل العشرية للنتيجة النهائية."
       }
     },
     {
@@ -129,35 +134,39 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Fixed conversion factor: 1 yd³ = 0.764554857992 m³.",
         "tr": "Sabit dönüşüm faktörü: 1 yd³ = 0,764554857992 m³.",
         "de": "Fester Umrechnungsfaktor: 1 yd³ = 0,764554857992 m³.",
         "fr": "Facteur de conversion fixe : 1 yd³ = 0,764554857992 m³.",
-        "es": "Factor de conversión fijo: 1 yd³ = 0,764554857992 m³."
+        "es": "Factor de conversión fijo: 1 yd³ = 0,764554857992 m³.",
+        "ar": "عامل تحويل ثابت: 1 ياردة مكعبة = 0.764554857992 متر مكعب."
       }
     }
   ],
   "formulas": {
-    "result": "length + width + height",
-    "result_copy": "length + width + height"
+    "normalized_product": "length * width * height * cubicYards",
+    "result": "length * width * height * cubicYards * (decimalPlaces * conversionConstant)",
+    "adjustment_factor": "decimalPlaces * conversionConstant"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "breakdown_0",
-      "breakdown_1",
-      "breakdown_2",
-      "breakdown_3"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "yd"
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

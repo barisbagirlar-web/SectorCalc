@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Mevcut Aylık Üretim",
         "tr": "Mevcut Aylık Üretim",
-        "de": "Mevcut Aylık Üretim",
+        "de": "Aktuelle monatliche Produktion",
         "fr": "Production mensuelle actuelle",
         "es": "Producción mensual actual",
-        "ar": "Mevcut Aylık Üretim"
+        "ar": "الإنتاج الشهري الحالي"
       },
       "businessContext_i18n": {
         "en": "Mevcut aylık üretim adedi (birim/ay)",
         "tr": "Mevcut aylık üretim adedi (birim/ay)",
-        "de": "Mevcut aylık üretim adedi (birim/ay)",
+        "de": "Aktuelle monatliche Produktionsmenge (Einheiten/Monat)",
         "fr": "Quantité de production mensuelle actuelle (unités/mois)",
-        "es": "Cantidad de producción mensual actual (unidades/mes)"
+        "es": "Cantidad de producción mensual actual (unidades/mes)",
+        "ar": "عدد الإنتاج الشهري الحالي (وحدة/شهر)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verkaufspreis pro Einheit",
         "fr": "Prix de vente unitaire",
         "es": "Precio de venta unitario",
-        "ar": "Birim Satış Fiyatı"
+        "ar": "سعر البيع للوحدة"
       },
       "businessContext_i18n": {
         "en": "Birim başına satış fiyatı (TL)",
         "tr": "Birim başına satış fiyatı (TL)",
-        "de": "Birim başına satış fiyatı (TL)",
+        "de": "Verkaufspreis pro Einheit (EUR)",
         "fr": "Prix de vente unitaire (TL)",
-        "es": "Precio de venta por unidad (TL)"
+        "es": "Precio de venta por unidad (TL)",
+        "ar": "سعر البيع لكل وحدة (ليرة تركية)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Variable Kosten pro Einheit",
         "fr": "Coût variable unitaire",
         "es": "Coste variable unitario",
-        "ar": "Birim Değişken Maliyet"
+        "ar": "التكلفة المتغيرة للوحدة"
       },
       "businessContext_i18n": {
         "en": "Birim başına değişken maliyet (TL)",
         "tr": "Birim başına değişken maliyet (TL)",
-        "de": "Birim başına değişken maliyet (TL)",
+        "de": "Variable Kosten pro Einheit (EUR)",
         "fr": "Coût variable unitaire (TL)",
-        "es": "Costo variable por unidad (TL)"
+        "es": "Costo variable por unidad (TL)",
+        "ar": "التكلفة المتغيرة لكل وحدة (ليرة تركية)"
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Mevcut Sabit Maliyetler",
         "tr": "Mevcut Sabit Maliyetler",
-        "de": "Mevcut Sabit Maliyetler",
+        "de": "Aktuelle Fixkosten",
         "fr": "Coûts fixes actuels",
         "es": "Costos fijos actuales",
-        "ar": "Mevcut Sabit Maliyetler"
+        "ar": "التكاليف الثابتة الحالية"
       },
       "businessContext_i18n": {
         "en": "Mevcut aylık sabit maliyetler (TL/ay)",
         "tr": "Mevcut aylık sabit maliyetler (TL/ay)",
-        "de": "Mevcut aylık sabit maliyetler (TL/ay)",
+        "de": "Aktuelle monatliche Fixkosten (EUR/Monat)",
         "fr": "Coûts fixes mensuels actuels (TL/mois)",
-        "es": "Costos fijos mensuales actuales (TL/mes)"
+        "es": "Costos fijos mensuales actuales (TL/mes)",
+        "ar": "التكاليف الثابتة الشهرية الحالية (ليرة تركية/شهر)"
       }
     },
     {
@@ -103,17 +107,18 @@
       "label_i18n": {
         "en": "Üretim Artış Yüzdesi",
         "tr": "Üretim Artış Yüzdesi",
-        "de": "Üretim Artış Yüzdesi",
+        "de": "Produktionssteigerung in Prozent",
         "fr": "Pourcentage d'augmentation de la production",
         "es": "Porcentaje de aumento de producción",
-        "ar": "Üretim Artış Yüzdesi"
+        "ar": "نسبة زيادة الإنتاج"
       },
       "businessContext_i18n": {
         "en": "Üretim seviyesini artırma hedef yüzdesi (%)",
         "tr": "Üretim seviyesini artırma hedef yüzdesi (%)",
-        "de": "Üretim seviyesini artırma hedef yüzdesi (%)",
+        "de": "Zielprozentsatz zur Steigerung des Produktionsniveaus (%)",
         "fr": "Pourcentage cible d'augmentation du niveau de production (%)",
-        "es": "Porcentaje objetivo para aumentar el nivel de producción (%)"
+        "es": "Porcentaje objetivo para aumentar el nivel de producción (%)",
+        "ar": "النسبة المئوية المستهدفة لزيادة مستوى الإنتاج (%)"
       }
     },
     {
@@ -126,17 +131,18 @@
       "label_i18n": {
         "en": "Ek Sabit Maliyet",
         "tr": "Ek Sabit Maliyet",
-        "de": "Ek Sabit Maliyet",
+        "de": "Zusätzliche Fixkosten",
         "fr": "Coût fixe supplémentaire",
         "es": "Costo fijo adicional",
-        "ar": "Ek Sabit Maliyet"
+        "ar": "تكلفة ثابتة إضافية"
       },
       "businessContext_i18n": {
         "en": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
         "tr": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
-        "de": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
+        "de": "Zusätzliche monatliche Fixkosten für Niveausprung (EUR/Monat)",
         "fr": "Coût fixe mensuel supplémentaire nécessaire pour le changement de niveau (TL/mois)",
-        "es": "Costo fijo mensual adicional necesario para el aumento de nivel (TL/mes)"
+        "es": "Costo fijo mensual adicional necesario para el aumento de nivel (TL/mes)",
+        "ar": "التكلفة الثابتة الشهرية الإضافية المطلوبة للارتقاء بالمستوى (TL/شهر)"
       }
     }
   ],

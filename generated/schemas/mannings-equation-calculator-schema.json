@@ -10,18 +10,19 @@
       "businessContext": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
       "label_i18n": {
         "en": "Manning's Roughness Coefficient (n)",
-        "tr": "Manning's Roughness Coefficient (n)",
+        "tr": "Manning Pürüzlülük Katsayısı (n)",
         "de": "Manning-Rauheitsbeiwert (n)",
         "fr": "Coefficient de rugosité de Manning (n)",
         "es": "Coeficiente de rugosidad de Manning (n)",
-        "ar": "Manning's Roughness Coefficient (n)"
+        "ar": "معامل الخشونة لمانينغ (n)"
       },
       "businessContext_i18n": {
         "en": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
         "tr": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
         "de": "Dimensionsloser Rauheitsbeiwert. Wird je nach Beton, Erdkanal oder natürlichem Fluss ausgewählt.",
         "fr": "Coefficient de rugosité sans dimension. Choisir selon le type : béton, canal en terre ou cours d'eau naturel.",
-        "es": "Coeficiente de rugosidad adimensional. Se selecciona según el tipo de hormigón, canal de tierra o corriente natural."
+        "es": "Coeficiente de rugosidad adimensional. Se selecciona según el tipo de hormigón, canal de tierra o corriente natural.",
+        "ar": "معامل الخشونة بدون أبعاد. يُختار حسب نوع القناة (خرسانية، ترابية، أو مجرى طبيعي)."
       }
     },
     {
@@ -33,18 +34,19 @@
       "businessContext": "Akış kesit alanının ıslak çevreye oranı (A/P).",
       "label_i18n": {
         "en": "Hydraulic Radius (R)",
-        "tr": "Hydraulic Radius (R)",
+        "tr": "Hidrolik Yarıçap (R)",
         "de": "Hydraulischer Radius (R)",
         "fr": "Rayon hydraulique (R)",
         "es": "Radio hidráulico (R)",
-        "ar": "Hydraulic Radius (R)"
+        "ar": "نصف القطر الهيدروليكي (R)"
       },
       "businessContext_i18n": {
         "en": "Akış kesit alanının ıslak çevreye oranı (A/P).",
         "tr": "Akış kesit alanının ıslak çevreye oranı (A/P).",
         "de": "Verhältnis von Strömungsquerschnittsfläche zu benetztem Umfang (A/P).",
         "fr": "Rapport de la section mouillée au périmètre mouillé (A/P).",
-        "es": "Relación entre el área de la sección transversal del flujo y el perímetro mojado (A/P)."
+        "es": "Relación entre el área de la sección transversal del flujo y el perímetro mojado (A/P).",
+        "ar": "نسبة مساحة المقطع العرضي للتدفق إلى المحيط المبلل (A/P)."
       }
     },
     {
@@ -56,18 +58,19 @@
       "businessContext": "Kanal taban eğimi (düşey/yatay).",
       "label_i18n": {
         "en": "Channel Slope (S)",
-        "tr": "Channel Slope (S)",
+        "tr": "Kanal Eğimi (S)",
         "de": "Gerinnegefälle (S)",
         "fr": "Pente du canal (S)",
         "es": "Pendiente del canal (S)",
-        "ar": "Channel Slope (S)"
+        "ar": "ميل القناة (S)"
       },
       "businessContext_i18n": {
         "en": "Kanal taban eğimi (düşey/yatay).",
         "tr": "Kanal taban eğimi (düşey/yatay).",
         "de": "Sohlgefälle des Gerinnes (vertikal/horizontal).",
         "fr": "Pente du fond du canal (vertical/horizontal).",
-        "es": "Pendiente del fondo del canal (vertical/horizontal)."
+        "es": "Pendiente del fondo del canal (vertical/horizontal).",
+        "ar": "ميل قاع القناة (رأسي/أفقي)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Strömungsquerschnittsfläche (A)",
         "fr": "Section transversale d'écoulement (A)",
         "es": "Área de la sección transversal del flujo (A)",
-        "ar": "Cross-sectional Flow Area (A)"
+        "ar": "مساحة المقطع العرضي للتدفق (A)"
       },
       "businessContext_i18n": {
         "en": "Akışın dolu kesit alanı.",
         "tr": "Akışın dolu kesit alanı.",
         "de": "Vollständige Querschnittsfläche der Strömung.",
         "fr": "Section transversale pleine de l'écoulement.",
-        "es": "Área de la sección transversal llena del flujo."
+        "es": "Área de la sección transversal llena del flujo.",
+        "ar": "مساحة المقطع العرضي الكامل للتدفق."
       }
     }
   ],
   "formulas": {
-    "result": "n + R + S",
-    "result_copy": "n + R + S"
+    "normalized_product": "n * R * S * A",
+    "result": "n * R * S * A"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "V",
-      "Q"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "Q",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

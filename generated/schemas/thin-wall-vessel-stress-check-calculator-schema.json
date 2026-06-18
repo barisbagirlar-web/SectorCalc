@@ -13,14 +13,16 @@
         "tr": "İç Basınç (P)",
         "de": "Innendruck (P)",
         "fr": "Pression interne (P)",
-        "es": "Internal Pressure (P)",
-        "ar": "Internal Pressure (P)"
+        "es": "Presión interna (P)",
+        "ar": "الضغط الداخلي (P)"
       },
       "businessContext_i18n": {
         "en": "Internal design pressure of the vessel",
         "tr": "Kabın iç tasarım basıncı",
         "de": "Innerer Auslegungsdruck des Behälters",
-        "fr": "Pression interne de conception du récipient"
+        "fr": "Pression interne de conception du récipient",
+        "es": "Presión interna de diseño del recipiente",
+        "ar": "ضغط التصميم الداخلي للوعاء"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İç Çap (D)",
         "de": "Innendurchmesser (D)",
         "fr": "Diamètre intérieur (D)",
-        "es": "Inside Diameter (D)",
-        "ar": "Inside Diameter (D)"
+        "es": "Diámetro interior (D)",
+        "ar": "القطر الداخلي (D)"
       },
       "businessContext_i18n": {
         "en": "Nominal inner diameter of the shell",
         "tr": "Gövdenin nominal iç çapı",
         "de": "Nenninnendurchmesser des Mantels",
-        "fr": "Diamètre intérieur nominal de la coque"
+        "fr": "Diamètre intérieur nominal de la coque",
+        "es": "Diámetro interior nominal de la carcasa",
+        "ar": "القطر الداخلي الاسمي للجسم الأسطواني"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Duvar Kalınlığı (t)",
         "de": "Wanddicke (t)",
         "fr": "Épaisseur de paroi (t)",
-        "es": "Wall Thickness (t)",
-        "ar": "Wall Thickness (t)"
+        "es": "Espesor de pared (t)",
+        "ar": "سُمك الجدار (t)"
       },
       "businessContext_i18n": {
         "en": "Minimum required wall thickness after corrosion allowance",
         "tr": "Korozyon payı sonrası minimum gerekli duvar kalınlığı",
         "de": "Mindestwanddicke nach Korrosionszuschlag",
-        "fr": "Épaisseur de paroi minimale requise après surépaisseur de corrosion"
+        "fr": "Épaisseur de paroi minimale requise après surépaisseur de corrosion",
+        "es": "Espesor mínimo requerido después del margen de corrosión",
+        "ar": "الحد الأدنى المطلوب لسُمك الجدار بعد بدل التآكل"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Zulässige Spannung (S)",
         "fr": "Contrainte admissible (S)",
         "es": "Esfuerzo admisible (S)",
-        "ar": "Allowable Stress (S)"
+        "ar": "الإجهاد المسموح به (S)"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable stress of material at design temperature",
         "tr": "Tasarım sıcaklığında malzemenin maksimum izin verilen gerilimi",
         "de": "Maximal zulässige Spannung des Materials bei Auslegungstemperatur",
-        "fr": "Contrainte admissible maximale du matériau à la température de calcul"
+        "fr": "Contrainte admissible maximale du matériau à la température de calcul",
+        "es": "Esfuerzo máximo admisible del material a temperatura de diseño",
+        "ar": "الإجهاد المسموح به الأقصى للمادة عند درجة حرارة التصميم"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Kaynak Bağlantı Verimliliği (E)",
         "de": "Schweißnahtwirkungsgrad (E)",
         "fr": "Efficacité du joint soudé (E)",
-        "es": "Weld Joint Efficiency (E)",
-        "ar": "Weld Joint Efficiency (E)"
+        "es": "Eficiencia de junta soldada (E)",
+        "ar": "كفاءة وصلة اللحام (E)"
       },
       "businessContext_i18n": {
         "en": "Joint efficiency factor per design code (e.g., ASME UW-12)",
         "tr": "Tasarım koduna göre bağlantı verimlilik faktörü (örn. ASME UW-12)",
         "de": "Wirkungsgradfaktor der Schweißnaht gemäß Auslegungscode (z. B. ASME UW-12)",
-        "fr": "Facteur d'efficacité du joint selon le code de conception (ex. ASME UW-12)"
+        "fr": "Facteur d'efficacité du joint selon le code de conception (ex. ASME UW-12)",
+        "es": "Factor de eficiencia de junta según código de diseño (ej. ASME UW-12)",
+        "ar": "عامل كفاءة الوصلة حسب كود التصميم (مثل ASME UW-12)"
       }
     }
   ],

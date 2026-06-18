@@ -14,14 +14,15 @@
         "de": "Start X",
         "fr": "Début X",
         "es": "Inicio X",
-        "ar": "Start X"
+        "ar": "بداية X"
       },
       "businessContext_i18n": {
         "en": "X-coordinate of the starting point.",
         "tr": "Başlangıç noktasının X koordinatı.",
         "de": "X-Koordinate des Startpunkts.",
         "fr": "Coordonnée X du point de départ.",
-        "es": "Coordenada X del punto de inicio."
+        "es": "Coordenada X del punto de inicio.",
+        "ar": "إحداثي X لنقطة البداية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Start Y",
         "fr": "Début Y",
         "es": "Inicio Y",
-        "ar": "Start Y"
+        "ar": "بداية Y"
       },
       "businessContext_i18n": {
         "en": "Y-coordinate of the starting point.",
         "tr": "Başlangıç noktasının Y koordinatı.",
         "de": "Y-Koordinate des Startpunkts.",
         "fr": "Coordonnée Y du point de départ.",
-        "es": "Coordenada Y del punto de inicio."
+        "es": "Coordenada Y del punto de inicio.",
+        "ar": "إحداثي Y لنقطة البداية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ende X",
         "fr": "Fin X",
         "es": "Fin X",
-        "ar": "End X"
+        "ar": "نهاية X"
       },
       "businessContext_i18n": {
         "en": "X-coordinate of the ending point.",
         "tr": "Bitiş noktasının X koordinatı.",
         "de": "X-Koordinate des Endpunkts.",
         "fr": "Coordonnée X du point d'arrivée.",
-        "es": "Coordenada X del punto final."
+        "es": "Coordenada X del punto final.",
+        "ar": "إحداثي X لنقطة النهاية."
       }
     },
     {
@@ -83,43 +86,37 @@
         "de": "Ende Y",
         "fr": "Fin Y",
         "es": "Fin Y",
-        "ar": "End Y"
+        "ar": "نهاية Y"
       },
       "businessContext_i18n": {
         "en": "Y-coordinate of the ending point.",
         "tr": "Bitiş noktasının Y koordinatı.",
         "de": "Y-Koordinate des Endpunkts.",
         "fr": "Coordonnée Y du point d'arrivée.",
-        "es": "Coordenada Y del punto final."
+        "es": "Coordenada Y del punto final.",
+        "ar": "إحداثي Y لنقطة النهاية."
       }
     }
   ],
   "formulas": {
-    "result": "x1 + y1 + x2",
-    "result_copy": "x1 + y1 + x2"
+    "normalized_product": "x1 * y1 * x2 * y2",
+    "result": "x1 * y1 * x2 * y2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "label": "Horizontal Distance (dx)",
-        "value": "dx",
-        "unit": "m",
-        "businessContext": "Absolute horizontal difference between start and end points."
-      },
-      {
-        "label": "Vertical Distance (dy)",
-        "value": "dy",
-        "unit": "m",
-        "businessContext": "Absolute vertical difference between start and end points."
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "distance",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Lojistik & Rota",
   "sector": "Lojistik & Tedarik",

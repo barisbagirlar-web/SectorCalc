@@ -14,14 +14,15 @@
         "de": "Logarithmuswert",
         "fr": "Valeur du logarithme",
         "es": "Valor del logaritmo",
-        "ar": "Logarithm Value"
+        "ar": "قيمة اللوغاريتم"
       },
       "businessContext_i18n": {
         "en": "The logarithm value (exponent) to compute the antilogarithm for.",
         "tr": "Antilogaritma hesaplamak için logaritma değeri (üs).",
         "de": "Der Logarithmuswert (Exponent) zur Berechnung des Antilogarithmus.",
         "fr": "La valeur du logarithme (exposant) pour calculer l'antilogarithme.",
-        "es": "El valor del logaritmo (exponente) para calcular el antilogaritmo."
+        "es": "El valor del logaritmo (exponente) para calcular el antilogaritmo.",
+        "ar": "قيمة اللوغاريتم (الأس) لحساب مضاد اللوغاريتم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Basis",
         "fr": "Base",
         "es": "Base",
-        "ar": "Base"
+        "ar": "الأساس"
       },
       "businessContext_i18n": {
         "en": "The base of the logarithm for the primary antilogarithm calculation.",
         "tr": "Birincil antilogaritma hesaplaması için logaritmanın tabanı.",
         "de": "Die Basis des Logarithmus für die primäre Antilogarithmus-Berechnung.",
         "fr": "La base du logarithme pour le calcul principal de l'antilogarithme.",
-        "es": "La base del logaritmo para el cálculo principal del antilogaritmo."
+        "es": "La base del logaritmo para el cálculo principal del antilogaritmo.",
+        "ar": "أساس اللوغاريتم لحساب مضاد اللوغاريتم الأساسي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the computed results.",
         "tr": "Hesaplanan sonuçların yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden der berechneten Ergebnisse.",
         "fr": "Nombre de décimales pour arrondir les résultats calculés.",
-        "es": "Número de decimales para redondear los resultados calculados."
+        "es": "Número de decimales para redondear los resultados calculados.",
+        "ar": "عدد المنازل العشرية لتقريب النتائج المحسوبة."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de escala",
-        "ar": "Scale Factor"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to the primary antilogarithm result for scaling purposes.",
         "tr": "Ölçekleme amacıyla birincil antilogaritma sonucuna uygulanan çarpan.",
         "de": "Multiplikator, der auf das primäre Antilogarithmus-Ergebnis zur Skalierung angewendet wird.",
         "fr": "Multiplicateur appliqué au résultat principal de l'antilogarithme à des fins de mise à l'échelle.",
-        "es": "Multiplicador aplicado al resultado principal del antilogaritmo para fines de escalado."
+        "es": "Multiplicador aplicado al resultado principal del antilogaritmo para fines de escalado.",
+        "ar": "مضاعف يُطبق على نتيجة مضاد اللوغاريتم الأساسي لأغراض القياس."
       }
     }
   ],
   "formulas": {
-    "result": "logValue + base + precision",
-    "result_copy": "logValue + base + precision"
+    "normalized_product": "logValue * base * precision * scaleFactor",
+    "result": "logValue * base * precision * scaleFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "antilogBase10",
-      "antilogBaseE",
-      "antilogBase2"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "antilogBase2",
-    "unit": "places"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -13,14 +13,16 @@
         "tr": "Başlangıç Eğimi (%)",
         "de": "Anfangssteigung (%)",
         "fr": "Pente initiale (%)",
-        "es": "Initial Grade (%)",
-        "ar": "Initial Grade (%)"
+        "es": "Pendiente Inicial (%)",
+        "ar": "الميل الابتدائي (%)"
       },
       "businessContext_i18n": {
         "en": "Initial tangent grade in percent",
         "tr": "Başlangıç teğet eğimi yüzde olarak",
         "de": "Anfängliche Tangentensteigung in Prozent",
-        "fr": "Pente initiale en pourcentage"
+        "fr": "Pente initiale en pourcentage",
+        "es": "Pendiente tangente inicial en porcentaje",
+        "ar": "ميل المماس الابتدائي بالنسبة المئوية"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Bitiş Eğimi (%)",
         "de": "Endsteigung (%)",
         "fr": "Pente finale (%)",
-        "es": "Final Grade (%)",
-        "ar": "Final Grade (%)"
+        "es": "Pendiente Final (%)",
+        "ar": "الميل النهائي (%)"
       },
       "businessContext_i18n": {
         "en": "Final tangent grade in percent",
         "tr": "Bitiş teğet eğimi yüzde olarak",
         "de": "Endgültige Tangentensteigung in Prozent",
-        "fr": "Pente finale en pourcentage"
+        "fr": "Pente finale en pourcentage",
+        "es": "Pendiente tangente final en porcentaje",
+        "ar": "ميل المماس النهائي بالنسبة المئوية"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Eğri Uzunluğu (m)",
         "de": "Kurvenlänge (m)",
         "fr": "Longueur de la courbe (m)",
-        "es": "Curve Length (m)",
-        "ar": "Curve Length (m)"
+        "es": "Longitud de la Curva (m)",
+        "ar": "طول المنحنى (م)"
       },
       "businessContext_i18n": {
         "en": "Length of the vertical curve",
         "tr": "Düşey eğrinin uzunluğu",
         "de": "Länge der vertikalen Kurve",
-        "fr": "Longueur de la courbe verticale"
+        "fr": "Longueur de la courbe verticale",
+        "es": "Longitud de la curva vertical",
+        "ar": "طول المنحنى الرأسي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "PVC Noktası (m)",
         "de": "Station des PVC (m)",
         "fr": "Station du PVC (m)",
-        "es": "Station of PVC (m)",
-        "ar": "Station of PVC (m)"
+        "es": "Estación del PVC (m)",
+        "ar": "محطة PVC (م)"
       },
       "businessContext_i18n": {
         "en": "Station of the point of vertical curvature",
         "tr": "Düşey eğrilik noktasının istasyonu",
         "de": "Station des Scheitelpunkts der vertikalen Krümmung",
-        "fr": "Station du point de courbure verticale"
+        "fr": "Station du point de courbure verticale",
+        "es": "Estación del punto de curvatura vertical",
+        "ar": "محطة نقطة الانحناء الرأسي"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "PVC Kotu (m)",
         "de": "Höhe am PVC (m)",
         "fr": "Altitude au PVC (m)",
-        "es": "Elevation at PVC (m)",
-        "ar": "Elevation at PVC (m)"
+        "es": "Elevación en el PVC (m)",
+        "ar": "ارتفاع عند PVC (م)"
       },
       "businessContext_i18n": {
         "en": "Elevation at the point of vertical curvature",
         "tr": "Düşey eğrilik noktasındaki kot",
         "de": "Höhe am Scheitelpunkt der vertikalen Krümmung",
-        "fr": "Altitude au point de courbure verticale"
+        "fr": "Altitude au point de courbure verticale",
+        "es": "Elevación en el punto de curvatura vertical",
+        "ar": "الارتفاع عند نقطة الانحناء الرأسي"
       }
     },
     {
@@ -123,33 +133,39 @@
         "tr": "Hedef İstasyon (m)",
         "de": "Zielstation (m)",
         "fr": "Station cible (m)",
-        "es": "Target Station (m)",
-        "ar": "Target Station (m)"
+        "es": "Estación Objetivo (m)",
+        "ar": "المحطة المستهدفة (م)"
       },
       "businessContext_i18n": {
         "en": "Station at which to compute the elevation",
         "tr": "Kotun hesaplanacağı istasyon",
         "de": "Station, für die die Höhe berechnet werden soll",
-        "fr": "Station à laquelle calculer l'altitude"
+        "fr": "Station à laquelle calculer l'altitude",
+        "es": "Estación en la que se calculará la elevación",
+        "ar": "المحطة التي سيتم حساب الارتفاع عندها"
       }
     }
   ],
   "formulas": {
-    "result": "g1 + g2 + L",
-    "result_copy": "g1 + g2 + L"
+    "normalized_product": "(g1 / 100) * (g2 / 100) * L * station_PVC",
+    "result": "(g1 / 100) * (g2 / 100) * L * station_PVC * (elevation_PVC * target_station)",
+    "adjustment_factor": "elevation_PVC * target_station"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "high_point_station",
-      "high_point_elevation",
-      "rate_change"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "rate_change",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Matematik & Analiz",

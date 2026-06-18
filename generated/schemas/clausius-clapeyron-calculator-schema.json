@@ -14,14 +14,15 @@
         "de": "Temperatur 1",
         "fr": "Température 1",
         "es": "Temperatura 1",
-        "ar": "Sıcaklık 1"
+        "ar": "درجة الحرارة 1"
       },
       "businessContext_i18n": {
         "en": "Birinci sıcaklık değeri (Santigrat)",
         "tr": "Birinci sıcaklık değeri (Santigrat)",
         "de": "Erster Temperaturwert (Grad Celsius)",
         "fr": "Première valeur de température (Celsius)",
-        "es": "Primer valor de temperatura (Celsius)"
+        "es": "Primer valor de temperatura (Celsius)",
+        "ar": "قيمة درجة الحرارة الأولى (درجة مئوية)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Druck 1",
         "fr": "Pression 1",
         "es": "Presión 1",
-        "ar": "Basınç 1"
+        "ar": "الضغط 1"
       },
       "businessContext_i18n": {
         "en": "Birinci basınç değeri (kPa)",
         "tr": "Birinci basınç değeri (kPa)",
         "de": "Erster Druckwert (kPa)",
         "fr": "Première valeur de pression (kPa)",
-        "es": "Primer valor de presión (kPa)"
+        "es": "Primer valor de presión (kPa)",
+        "ar": "قيمة الضغط الأولى (كيلو باسكال)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Temperatur 2",
         "fr": "Température 2",
         "es": "Temperatura 2",
-        "ar": "Sıcaklık 2"
+        "ar": "درجة الحرارة 2"
       },
       "businessContext_i18n": {
         "en": "İkinci sıcaklık değeri (Santigrat)",
         "tr": "İkinci sıcaklık değeri (Santigrat)",
         "de": "Zweiter Temperaturwert (Grad Celsius)",
         "fr": "Deuxième valeur de température (Celsius)",
-        "es": "Segundo valor de temperatura (Celsius)"
+        "es": "Segundo valor de temperatura (Celsius)",
+        "ar": "قيمة درجة الحرارة الثانية (درجة مئوية)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Druck 2",
         "fr": "Pression 2",
         "es": "Presión 2",
-        "ar": "Basınç 2"
+        "ar": "الضغط 2"
       },
       "businessContext_i18n": {
         "en": "İkinci basınç değeri (kPa)",
         "tr": "İkinci basınç değeri (kPa)",
         "de": "Zweiter Druckwert (kPa)",
         "fr": "Deuxième valeur de pression (kPa)",
-        "es": "Segundo valor de presión (kPa)"
+        "es": "Segundo valor de presión (kPa)",
+        "ar": "قيمة الضغط الثانية (كيلو باسكال)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gaskonstante (R)",
         "fr": "Constante des gaz (R)",
         "es": "Constante de los gases (R)",
-        "ar": "Gaz Sabiti (R)"
+        "ar": "ثابت الغاز (R)"
       },
       "businessContext_i18n": {
         "en": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
         "tr": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
         "de": "Ideale Gaskonstante, normalerweise 8,314 J/(mol·K)",
         "fr": "Constante universelle des gaz, généralement 8,314 J/(mol·K)",
-        "es": "Constante universal de los gases, generalmente 8.314 J/(mol·K)"
+        "es": "Constante universal de los gases, generalmente 8.314 J/(mol·K)",
+        "ar": "ثابت الغاز المثالي، عادة 8.314 جول/(مول·كلفن)"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Molekulargewicht",
         "fr": "Masse moléculaire",
         "es": "Peso molecular",
-        "ar": "Molekül Ağırlığı"
+        "ar": "الوزن الجزيئي"
       },
       "businessContext_i18n": {
         "en": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
         "tr": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
         "de": "Molekulargewicht der Substanz (optional, für massenspezifische Wärmeberechnung)",
         "fr": "Masse moléculaire de la substance (optionnelle, pour le calcul de la chaleur massique)",
-        "es": "Peso molecular de la sustancia (opcional, para cálculo de calor específico másico)"
+        "es": "Peso molecular de la sustancia (opcional, para cálculo de calor específico másico)",
+        "ar": "الوزن الجزيئي للمادة (اختياري، لحساب الحرارة النوعية للكتلة)"
       }
     }
   ],
   "formulas": {
-    "result": "T1_C + P1_kPa + T2_C",
-    "result_copy": "T1_C + P1_kPa + T2_C"
+    "normalized_product": "T1_C * P1_kPa * T2_C * P2_kPa",
+    "result": "T1_C * P1_kPa * T2_C * P2_kPa * (R_JmolK * M_gmol)",
+    "adjustment_factor": "R_JmolK * M_gmol"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "massSpecificHeat_kJkg",
-      "logPressureRatio"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "logPressureRatio",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "massSpecificHeat_kJkg": "kg",
       "logPressureRatio": "%"

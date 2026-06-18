@@ -14,13 +14,15 @@
         "de": "Schwimmdistanz",
         "fr": "Distance de natation",
         "es": "Distancia de natación",
-        "ar": "Swim Distance"
+        "ar": "مسافة السباحة"
       },
       "businessContext_i18n": {
         "en": "Total swimming distance in meters",
         "tr": "Toplam yüzme mesafesi (metre)",
         "de": "Gesamte Schwimmdistanz in Metern",
-        "fr": "Distance totale de natation en mètres"
+        "fr": "Distance totale de natation en mètres",
+        "es": "Distancia total de natación en metros",
+        "ar": "إجمالي مسافة السباحة بالأمتار"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Radstrecke",
         "fr": "Distance à vélo",
         "es": "Distancia en bicicleta",
-        "ar": "Bike Distance"
+        "ar": "مسافة الدراجة"
       },
       "businessContext_i18n": {
         "en": "Total cycling distance in kilometers",
         "tr": "Toplam bisiklet mesafesi (kilometre)",
         "de": "Gesamte Radfahrdistanz in Kilometern",
-        "fr": "Distance totale de cyclisme en kilomètres"
+        "fr": "Distance totale de cyclisme en kilomètres",
+        "es": "Distancia total de ciclismo en kilómetros",
+        "ar": "إجمالي مسافة ركوب الدراجة بالكيلومترات"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Laufstrecke",
         "fr": "Distance de course",
         "es": "Distancia de carrera",
-        "ar": "Run Distance"
+        "ar": "مسافة الجري"
       },
       "businessContext_i18n": {
         "en": "Total running distance in kilometers",
         "tr": "Toplam koşu mesafesi (kilometre)",
         "de": "Gesamte Laufsdistanz in Kilometern",
-        "fr": "Distance totale de course à pied en kilomètres"
+        "fr": "Distance totale de course à pied en kilomètres",
+        "es": "Distancia total de carrera en kilómetros",
+        "ar": "إجمالي مسافة الجري بالكيلومترات"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Schwimmtempo",
         "fr": "Allure de nage",
         "es": "Ritmo de natación",
-        "ar": "Swim Pace"
+        "ar": "سرعة السباحة"
       },
       "businessContext_i18n": {
         "en": "Average swimming time per 100 meters in minutes",
         "tr": "100 metre başına ortalama yüzme süresi (dakika)",
         "de": "Durchschnittliche Schwimmzeit pro 100 Meter in Minuten",
-        "fr": "Temps moyen de natation par 100 mètres en minutes"
+        "fr": "Temps moyen de natation par 100 mètres en minutes",
+        "es": "Tiempo promedio de natación por cada 100 metros en minutos",
+        "ar": "متوسط وقت السباحة لكل 100 متر بالدقائق"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Radgeschwindigkeit",
         "fr": "Vitesse à vélo",
         "es": "Velocidad en bicicleta",
-        "ar": "Bike Speed"
+        "ar": "سرعة الدراجة"
       },
       "businessContext_i18n": {
         "en": "Average cycling speed in kilometers per hour",
         "tr": "Ortalama bisiklet hızı (km/saat)",
         "de": "Durchschnittliche Radfahrgeschwindigkeit in Kilometern pro Stunde",
-        "fr": "Vitesse moyenne de cyclisme en kilomètres par heure"
+        "fr": "Vitesse moyenne de cyclisme en kilomètres par heure",
+        "es": "Velocidad promedio de ciclismo en kilómetros por hora",
+        "ar": "متوسط سرعة ركوب الدراجة بالكيلومترات في الساعة"
       }
     },
     {
@@ -124,33 +134,39 @@
         "de": "Lauftempo",
         "fr": "Allure de course",
         "es": "Ritmo de carrera",
-        "ar": "Run Pace"
+        "ar": "سرعة الجري"
       },
       "businessContext_i18n": {
         "en": "Average running time per kilometer in minutes",
         "tr": "Kilometre başına ortalama koşu süresi (dakika)",
         "de": "Durchschnittliche Laufzeit pro Kilometer in Minuten",
-        "fr": "Temps moyen de course par kilomètre en minutes"
+        "fr": "Temps moyen de course par kilomètre en minutes",
+        "es": "Tiempo promedio de carrera por kilómetro en minutos",
+        "ar": "متوسط وقت الجري لكل كيلومتر بالدقائق"
       }
     }
   ],
   "formulas": {
-    "result": "swimDistance + bikeDistance + runDistance",
-    "result_copy": "swimDistance + bikeDistance + runDistance"
+    "normalized_product": "swimDistance * bikeDistance * runDistance * swimPace",
+    "result": "swimDistance * bikeDistance * runDistance * swimPace * (bikeSpeed * runPace)",
+    "adjustment_factor": "bikeSpeed * runPace"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "swimTime",
-      "bikeTime",
-      "runTime"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalTime",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Fitness & Spor",

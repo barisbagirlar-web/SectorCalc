@@ -14,14 +14,15 @@
         "de": "Energie in Erg",
         "fr": "Énergie en ergs",
         "es": "Energía en Ergios",
-        "ar": "Energy in Ergs"
+        "ar": "الطاقة بالإرج"
       },
       "businessContext_i18n": {
         "en": "The amount of energy in ergs to be converted to joules.",
         "tr": "Joule'a dönüştürülecek erg cinsinden enerji miktarı.",
         "de": "Die Energiemenge in Erg, die in Joule umgerechnet werden soll.",
         "fr": "Quantité d'énergie en ergs à convertir en joules.",
-        "es": "La cantidad de energía en ergios a convertir a julios."
+        "es": "La cantidad de energía en ergios a convertir a julios.",
+        "ar": "كمية الطاقة بالإرج المراد تحويلها إلى جول."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration.",
         "tr": "Sabit dönüşüm faktörü: 1 erg = 1e-7 joule. Sistem kalibrasyonu için ayarlanabilir.",
         "de": "Fester Umrechnungsfaktor: 1 erg = 1e-7 Joule. Für Systemkalibrierung anpassbar.",
         "fr": "Facteur de conversion fixe : 1 erg = 1e-7 joules. Ajustable pour l'étalonnage du système.",
-        "es": "Factor de conversión fijo: 1 ergio = 1e-7 julios. Ajustable para calibración del sistema."
+        "es": "Factor de conversión fijo: 1 ergio = 1e-7 julios. Ajustable para calibración del sistema.",
+        "ar": "عامل التحويل الثابت: 1 إرج = 1e-7 جول. قابل للتعديل لمعايرة النظام."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output value.",
         "tr": "Çıktı değeri için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den Ausgabewert.",
         "fr": "Nombre de décimales pour la valeur de sortie.",
-        "es": "Número de decimales para el valor de salida."
+        "es": "Número de decimales para el valor de salida.",
+        "ar": "عدد المنازل العشرية لقيمة المخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
         "es": "Incertidumbre de medición (%)",
-        "ar": "Measurement Uncertainty (%)"
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated measurement uncertainty percentage to calculate tolerance range.",
         "tr": "Tolerans aralığını hesaplamak için tahmini ölçüm belirsizliği yüzdesi.",
         "de": "Geschätzte Messunsicherheit in Prozent zur Berechnung des Toleranzbereichs.",
         "fr": "Pourcentage d'incertitude de mesure estimé pour calculer la plage de tolérance.",
-        "es": "Porcentaje de incertidumbre de medición estimado para calcular el rango de tolerancia."
+        "es": "Porcentaje de incertidumbre de medición estimado para calcular el rango de tolerancia.",
+        "ar": "نسبة عدم اليقين في القياس المقدرة لحساب نطاق التسامح."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Chargennummer",
         "fr": "Numéro de lot",
         "es": "Número de lote",
-        "ar": "Batch Number"
+        "ar": "رقم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Production batch identifier for traceability.",
         "tr": "İzlenebilirlik için üretim parti tanımlayıcısı.",
         "de": "Produktionschargen-ID für Rückverfolgbarkeit.",
         "fr": "Identifiant du lot de production pour la traçabilité.",
-        "es": "Identificador del lote de producción para trazabilidad."
+        "es": "Identificador del lote de producción para trazabilidad.",
+        "ar": "معرف دفعة الإنتاج للتتبع."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Bediener-ID",
         "fr": "ID opérateur",
         "es": "ID del operador",
-        "ar": "Operator ID"
+        "ar": "معرف المشغل"
       },
       "businessContext_i18n": {
         "en": "Identifier of the operator performing the calculation.",
         "tr": "Hesaplamayı yapan operatörün tanımlayıcısı.",
         "de": "Kennung des Bedieners, der die Berechnung durchführt.",
         "fr": "Identifiant de l'opérateur effectuant le calcul.",
-        "es": "Identificador del operador que realiza el cálculo."
+        "es": "Identificador del operador que realiza el cálculo.",
+        "ar": "معرف المشغل الذي يقوم بالحساب."
       }
     }
   ],

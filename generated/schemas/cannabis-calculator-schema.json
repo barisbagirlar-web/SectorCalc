@@ -14,14 +14,15 @@
         "de": "Anfängliches Cannabinoid",
         "fr": "Cannabinoïde initial",
         "es": "Cannabinoide inicial",
-        "ar": "Initial Cannabinoid"
+        "ar": "الكانابينويد الأولي"
       },
       "businessContext_i18n": {
         "en": "Total cannabinoid content before extraction, measured in milligrams.",
         "tr": "Ekstraksiyondan önce toplam kannabinoid içeriği, miligram cinsinden ölçülür.",
         "de": "Gesamtcannabinoidgehalt vor der Extraktion, gemessen in Milligramm.",
         "fr": "Teneur totale en cannabinoïdes avant extraction, mesurée en milligrammes.",
-        "es": "Contenido total de cannabinoides antes de la extracción, medido en miligramos."
+        "es": "Contenido total de cannabinoides antes de la extracción, medido en miligramos.",
+        "ar": "إجمالي محتوى الكانابينويد قبل الاستخلاص، مقاسًا بالملليجرام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lösungsmittelvolumen",
         "fr": "Volume de solvant",
         "es": "Volumen de solvente",
-        "ar": "Solvent Volume"
+        "ar": "حجم المذيب"
       },
       "businessContext_i18n": {
         "en": "Volume of solvent used in extraction, in milliliters.",
         "tr": "Ekstraksiyonda kullanılan çözücü hacmi, mililitre cinsinden.",
         "de": "Volumen des verwendeten Lösungsmittels in Millilitern.",
         "fr": "Volume de solvant utilisé dans l'extraction, en millilitres.",
-        "es": "Volumen de disolvente utilizado en la extracción, en mililitros."
+        "es": "Volumen de disolvente utilizado en la extracción, en mililitros.",
+        "ar": "حجم المذيب المستخدم في الاستخلاص، بالملليلتر."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Extraktionszeit",
         "fr": "Temps d'extraction",
         "es": "Tiempo de extracción",
-        "ar": "Extraction Time"
+        "ar": "وقت الاستخلاص"
       },
       "businessContext_i18n": {
         "en": "Duration of extraction process in minutes.",
         "tr": "Ekstraksiyon işleminin dakika cinsinden süresi.",
         "de": "Dauer des Extraktionsprozesses in Minuten.",
         "fr": "Durée du processus d'extraction en minutes.",
-        "es": "Duración del proceso de extracción en minutos."
+        "es": "Duración del proceso de extracción en minutos.",
+        "ar": "مدة عملية الاستخلاص بالدقائق."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation.",
         "tr": "Santigrat derece cinsinden işletme sıcaklığı, Arrhenius denklemi yoluyla hız sabitini etkiler.",
         "de": "Betriebstemperatur in Grad Celsius, beeinflusst die Geschwindigkeitskonstante über die Arrhenius-Gleichung.",
         "fr": "Température de fonctionnement en degrés Celsius, affecte la constante de vitesse via l'équation d'Arrhenius.",
-        "es": "Temperatura de operación en grados Celsius, afecta la constante de velocidad mediante la ecuación de Arrhenius."
+        "es": "Temperatura de operación en grados Celsius, afecta la constante de velocidad mediante la ecuación de Arrhenius.",
+        "ar": "درجة حرارة التشغيل بالدرجات المئوية، تؤثر على ثابت المعدل عبر معادلة أرهينيوس."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Präexponentieller Faktor",
         "fr": "Facteur pré-exponentiel",
         "es": "Factor preexponencial",
-        "ar": "Pre-exponential Factor"
+        "ar": "عامل التردد"
       },
       "businessContext_i18n": {
         "en": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate.",
         "tr": "Arrhenius hız denklemindeki frekans faktörü, mümkün olan maksimum hızı temsil eder.",
         "de": "Frequenzfaktor in der Arrhenius-Geschwindigkeitsgleichung, stellt die maximale mögliche Rate dar.",
         "fr": "Facteur de fréquence dans l'équation de vitesse d'Arrhenius, représente le taux maximal possible.",
-        "es": "Factor de frecuencia en la ecuación de velocidad de Arrhenius, representa la tasa máxima posible."
+        "es": "Factor de frecuencia en la ecuación de velocidad de Arrhenius, representa la tasa máxima posible.",
+        "ar": "عامل التردد في معادلة معدل أرهينيوس، يمثل أقصى معدل ممكن."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Aktivierungsenergie",
         "fr": "Énergie d'activation",
         "es": "Energía de activación",
-        "ar": "Activation Energy"
+        "ar": "طاقة التنشيط"
       },
       "businessContext_i18n": {
         "en": "Energy barrier for extraction, in joules per mole.",
         "tr": "Ekstraksiyon için enerji bariyeri, mol başına joule cinsinden.",
         "de": "Energiebarriere für die Extraktion, in Joule pro Mol.",
         "fr": "Barrière énergétique pour l'extraction, en joules par mole.",
-        "es": "Barrera energética para la extracción, en julios por mol."
+        "es": "Barrera energética para la extracción, en julios por mol.",
+        "ar": "حاجز الطاقة للاستخلاص، بالجول لكل مول."
       }
     }
   ],
   "formulas": {
-    "result": "initial_cannabinoid_mg + solvent_volume_ml + extraction_time_min",
-    "result_copy": "initial_cannabinoid_mg + solvent_volume_ml + extraction_time_min"
+    "normalized_product": "initial_cannabinoid_mg * solvent_volume_ml * extraction_time_min * temperature_c",
+    "result": "initial_cannabinoid_mg * solvent_volume_ml * extraction_time_min * temperature_c * (k0 * Ea)",
+    "adjustment_factor": "k0 * Ea"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "efficiency",
-      "k"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "efficiency",
-    "unit": "mg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "efficiency": "%"
     }

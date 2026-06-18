@@ -14,14 +14,15 @@
         "de": "Zahlungsmittel und Zahlungsmitteläquivalente",
         "fr": "Trésorerie et équivalents de trésorerie",
         "es": "Efectivo y equivalentes de efectivo",
-        "ar": "Nakit ve Nakit Benzerleri"
+        "ar": "النقد وما في حكمه"
       },
       "businessContext_i18n": {
         "en": "Kasa, banka, kısa vadeli yatırımlar",
         "tr": "Kasa, banka, kısa vadeli yatırımlar",
         "de": "Kasse, Bank, kurzfristige Anlagen",
         "fr": "Caisse, banque, placements à court terme",
-        "es": "Caja, bancos, inversiones a corto plazo"
+        "es": "Caja, bancos, inversiones a corto plazo",
+        "ar": "الصندوق، البنك، الاستثمارات قصيرة الأجل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wertpapiere",
         "fr": "Valeurs mobilières",
         "es": "Valores negociables",
-        "ar": "Menkul Kıymetler"
+        "ar": "الأوراق المالية"
       },
       "businessContext_i18n": {
         "en": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar",
         "tr": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar",
         "de": "Kurzfristige Anlagen, die schnell in Bargeld umgewandelt werden können",
         "fr": "Investissements à court terme facilement convertibles en liquidités",
-        "es": "Inversiones a corto plazo que pueden convertirse rápidamente en efectivo"
+        "es": "Inversiones a corto plazo que pueden convertirse rápidamente en efectivo",
+        "ar": "استثمارات قصيرة الأجل يمكن تحويلها بسرعة إلى نقد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Forderungen aus Lieferungen und Leistungen",
         "fr": "Créances commerciales",
         "es": "Cuentas por cobrar comerciales",
-        "ar": "Ticari Alacaklar"
+        "ar": "المستحقات التجارية"
       },
       "businessContext_i18n": {
         "en": "Müşterilerden alacaklar",
         "tr": "Müşterilerden alacaklar",
         "de": "Forderungen von Kunden",
         "fr": "Créances clients",
-        "es": "Cuentas por cobrar a clientes"
+        "es": "Cuentas por cobrar a clientes",
+        "ar": "المستحقات من العملاء"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Kurzfristige Verbindlichkeiten",
         "fr": "Passifs à court terme",
         "es": "Pasivos a corto plazo",
-        "ar": "Kısa Vadeli Yükümlülükler"
+        "ar": "الالتزامات قصيرة الأجل"
       },
       "businessContext_i18n": {
         "en": "1 yıl içinde ödenmesi gereken borçlar",
         "tr": "1 yıl içinde ödenmesi gereken borçlar",
         "de": "Verbindlichkeiten, die innerhalb eines Jahres fällig sind",
         "fr": "Dettes exigibles à moins d'un an",
-        "es": "Deudas a pagar dentro de 1 año"
+        "es": "Deudas a pagar dentro de 1 año",
+        "ar": "الديون المستحقة الدفع خلال سنة واحدة"
       }
     }
   ],
   "formulas": {
-    "result": "cashEquivalents + marketableSecurities + accountsReceivable",
-    "result_aux": "cashEquivalents + marketableSecurities + accountsReceivable"
+    "normalized_product": "cashEquivalents * marketableSecurities * accountsReceivable * currentLiabilities",
+    "result": "cashEquivalents * marketableSecurities * accountsReceivable * currentLiabilities"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Likidite Oranı: ${quickRatio.toFixed(2)}",
-      "Nakit + Menkul Kıymetler + Alacaklar = ${inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable} TRY",
-      "Kısa Vadeli Yükümlülükler = ${inputs.currentLiabilities} TRY"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "quickRatio_aux",
-    "unit": "TRY",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Likidite Oranı: ${quickRatio.toFixed(2)}": "%",
       "Nakit + Menkul Kıymetler + Alacaklar = ${inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable} TRY": "TRY",

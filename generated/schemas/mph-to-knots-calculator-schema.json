@@ -14,14 +14,15 @@
         "de": "Geschwindigkeit in mph",
         "fr": "Vitesse en mph",
         "es": "Velocidad en mph",
-        "ar": "Speed in mph"
+        "ar": "السرعة بالميل/ساعة"
       },
       "businessContext_i18n": {
         "en": "The speed to convert from miles per hour.",
         "tr": "Mil/saat'ten dönüştürülecek hız.",
         "de": "Die Geschwindigkeit, die von Meilen pro Stunde umgerechnet werden soll.",
         "fr": "La vitesse à convertir depuis les miles par heure.",
-        "es": "La velocidad a convertir desde millas por hora."
+        "es": "La velocidad a convertir desde millas por hora.",
+        "ar": "السرعة المراد تحويلها من أميال في الساعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration.",
         "tr": "mph'yi knot'a çarpmak için faktör. 1 mph = 0,868976 knot (standart). Kalibrasyon için düzenlenebilir.",
         "de": "Der Faktor, mit dem mph multipliziert wird, um Knoten zu erhalten. 1 mph = 0,868976 Knoten (Standard). Bearbeitbar für Kalibrierung.",
         "fr": "Le facteur pour multiplier mph afin d'obtenir des nœuds. 1 mph = 0,868976 nœuds (standard). Modifiable pour étalonnage.",
-        "es": "El factor por el que multiplicar mph para obtener nudos. 1 mph = 0.868976 nudos (estándar). Editable para calibración."
+        "es": "El factor por el que multiplicar mph para obtener nudos. 1 mph = 0.868976 nudos (estándar). Editable para calibración.",
+        "ar": "العامل لضرب الميل/ساعة للحصول على العقدة. 1 ميل/ساعة = 0.868976 عقدة (قياسي). قابل للتعديل للمعايرة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal places"
+        "ar": "عدد المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output knots.",
         "tr": "Çıktı knot'larını yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabeknoten.",
         "fr": "Nombre de décimales pour arrondir les nœuds de sortie.",
-        "es": "Número de decimales para redondear los nudos de salida."
+        "es": "Número de decimales para redondear los nudos de salida.",
+        "ar": "عدد المنازل العشرية لتقريب ناتج العقدة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bekannte Knoten (für Qualitätskontrolle)",
         "fr": "Nœuds connus (pour contrôle qualité)",
         "es": "Nudos conocidos (para control de calidad)",
-        "ar": "Known knots (for QC)"
+        "ar": "العقدة المعروفة (لمراقبة الجودة)"
       },
       "businessContext_i18n": {
         "en": "Optional known value in knots to validate conversion accuracy.",
         "tr": "Dönüşüm doğruluğunu doğrulamak için knot cinsinden isteğe bağlı bilinen değer.",
         "de": "Optionaler bekannter Wert in Knoten zur Validierung der Umrechnungsgenauigkeit.",
         "fr": "Valeur connue facultative en nœuds pour valider la précision de la conversion.",
-        "es": "Valor conocido opcional en nudos para validar la precisión de la conversión."
+        "es": "Valor conocido opcional en nudos para validar la precisión de la conversión.",
+        "ar": "قيمة معروفة اختيارية بالعقدة للتحقق من دقة التحويل."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Maximum allowed deviation between computed and known knots for quality check.",
         "tr": "Kalite kontrol için hesaplanan ve bilinen knot arasındaki izin verilen maksimum sapma.",
         "de": "Maximal zulässige Abweichung zwischen berechneten und bekannten Knoten für die Qualitätsprüfung.",
         "fr": "Écart maximal autorisé entre les nœuds calculés et connus pour le contrôle qualité.",
-        "es": "Desviación máxima permitida entre los nudos calculados y los conocidos para la verificación de calidad."
+        "es": "Desviación máxima permitida entre los nudos calculados y los conocidos para la verificación de calidad.",
+        "ar": "أقصى انحراف مسموح به بين العقدة المحسوبة والمعروفة لفحص الجودة."
       }
     }
   ],

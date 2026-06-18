@@ -14,14 +14,15 @@
         "de": "Grundmaß X (Nennmaß)",
         "fr": "X de base (nominal)",
         "es": "X básica (Nominal)",
-        "ar": "Basic X (Nominal)"
+        "ar": "الأساسي X (الاسمي)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact X coordinate from drawing",
         "tr": "Çizimden teorik tam X koordinatı",
         "de": "Theoretisches exaktes X-Koordinate aus der Zeichnung",
         "fr": "Coordonnée X théorique exacte du dessin",
-        "es": "Coordenada X teórica exacta del dibujo"
+        "es": "Coordenada X teórica exacta del dibujo",
+        "ar": "إحداثي X النظري الدقيق من الرسم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Grundmaß Y (Nennmaß)",
         "fr": "Y de base (nominal)",
         "es": "Y básica (Nominal)",
-        "ar": "Basic Y (Nominal)"
+        "ar": "الأساسي Y (الاسمي)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact Y coordinate from drawing",
         "tr": "Çizimden teorik tam Y koordinatı",
         "de": "Theoretisches exaktes Y-Koordinate aus der Zeichnung",
         "fr": "Coordonnée Y théorique exacte du dessin",
-        "es": "Coordenada Y teórica exacta del dibujo"
+        "es": "Coordenada Y teórica exacta del dibujo",
+        "ar": "إحداثي Y النظري الدقيق من الرسم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gemessenes X",
         "fr": "X mesuré",
         "es": "X medida",
-        "ar": "Measured X"
+        "ar": "X المقاس"
       },
       "businessContext_i18n": {
         "en": "Actual measured X coordinate",
         "tr": "Gerçek ölçülen X koordinatı",
         "de": "Tatsächlich gemessene X-Koordinate",
         "fr": "Coordonnée X mesurée réelle",
-        "es": "Coordenada X real medida"
+        "es": "Coordenada X real medida",
+        "ar": "إحداثي X الفعلي المقاس"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gemessenes Y",
         "fr": "Y mesuré",
         "es": "Y medida",
-        "ar": "Measured Y"
+        "ar": "Y المقاس"
       },
       "businessContext_i18n": {
         "en": "Actual measured Y coordinate",
         "tr": "Gerçek ölçülen Y koordinatı",
         "de": "Tatsächlich gemessene Y-Koordinate",
         "fr": "Coordonnée Y mesurée réelle",
-        "es": "Coordenada Y real medida"
+        "es": "Coordenada Y real medida",
+        "ar": "إحداثي Y الفعلي المقاس"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Lochdurchmesser (Nennmaß)",
         "fr": "Diamètre du trou (nominal)",
         "es": "Diámetro del agujero (Nominal)",
-        "ar": "Hole Diameter (Nominal)"
+        "ar": "قطر الثقب (الاسمي)"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the hole",
         "tr": "Deliğin nominal çapı",
         "de": "Nenndurchmesser des Lochs",
         "fr": "Diamètre nominal du trou",
-        "es": "Diámetro nominal del agujero"
+        "es": "Diámetro nominal del agujero",
+        "ar": "القطر الاسمي للثقب"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Untere Toleranz (MMC)",
         "fr": "Tolérance inférieure (MMC)",
         "es": "Tolerancia inferior (MMC)",
-        "ar": "Lower Tolerance (MMC)"
+        "ar": "الحد الأدنى (MMC)"
       },
       "businessContext_i18n": {
         "en": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)",
         "tr": "Nominalden izin verilen en küçük boyuta mutlak sapma (örneğin, MMC'de delik için 0,1 = nominal - 0,1)",
         "de": "Absolute Abweichung vom Nennmaß zur kleinsten zulässigen Größe (z. B. 0,1 für Loch bei MMC = Nennmaß - 0,1)",
         "fr": "Écart absolu du nominal à la plus petite taille admissible (ex. 0,1 pour un trou à MMC = nominal - 0,1)",
-        "es": "Desviación absoluta del nominal al tamaño mínimo permitido (ej., 0.1 para agujero en MMC = nominal - 0.1)"
+        "es": "Desviación absoluta del nominal al tamaño mínimo permitido (ej., 0.1 para agujero en MMC = nominal - 0.1)",
+        "ar": "الانحراف المطلق من الاسمي إلى أصغر حجم مسموح (مثال: 0.1 للثقب عند MMC = الاسمي - 0.1)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Tatsächlicher Lochdurchmesser",
         "fr": "Diamètre réel du trou",
         "es": "Diámetro real del agujero",
-        "ar": "Actual Hole Diameter"
+        "ar": "قطر الثقب الفعلي"
       },
       "businessContext_i18n": {
         "en": "Measured diameter of the produced hole",
         "tr": "Üretilen deliğin ölçülen çapı",
         "de": "Gemessener Durchmesser des gefertigten Lochs",
         "fr": "Diamètre mesuré du trou produit",
-        "es": "Diámetro medido del agujero producido"
+        "es": "Diámetro medido del agujero producido",
+        "ar": "القطر المقاس للثقب المنتج"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Spezifizierte Positionstoleranz",
         "fr": "Tolérance de position spécifiée",
         "es": "Tolerancia de posición especificada",
-        "ar": "Specified Position Tolerance"
+        "ar": "تفاوت الموقع المحدد"
       },
       "businessContext_i18n": {
         "en": "Position tolerance value from the drawing feature control frame",
         "tr": "Çizim özellik kontrol çerçevesinden konum toleransı değeri",
         "de": "Positionstoleranzwert aus dem Merkmalrahmen der Zeichnung",
         "fr": "Valeur de tolérance de position issue du cadre de contrôle de caractéristique du dessin",
-        "es": "Valor de tolerancia de posición del recuadro de control de características del dibujo"
+        "es": "Valor de tolerancia de posición del recuadro de control de características del dibujo",
+        "ar": "قيمة تفاوت الموقع من إطار التحكم في الميزة بالرسم"
       }
     }
   ],

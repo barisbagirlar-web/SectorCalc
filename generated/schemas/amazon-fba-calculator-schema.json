@@ -14,14 +14,15 @@
         "de": "Produktkosten (pro Einheit)",
         "fr": "Coût du produit (unitaire)",
         "es": "Coste del producto (por unidad)",
-        "ar": "Ürün Maliyeti (Birim)"
+        "ar": "تكلفة المنتج (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Birim başına ürün edinme maliyeti",
         "tr": "Birim başına ürün edinme maliyeti",
         "de": "Anschaffungskosten pro Einheit",
         "fr": "Coût d'acquisition du produit par unité",
-        "es": "Coste de adquisición del producto por unidad"
+        "es": "Coste de adquisición del producto por unidad",
+        "ar": "تكلفة الحصول على المنتج لكل وحدة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verkaufspreis (inkl. MwSt.)",
         "fr": "Prix de vente (TVA incluse)",
         "es": "Precio de venta (IVA incluido)",
-        "ar": "Satış Fiyatı (KDV Dahil)"
+        "ar": "سعر البيع (شامل ضريبة القيمة المضافة)"
       },
       "businessContext_i18n": {
         "en": "Amazon'da listelenecek nihai satış fiyatı",
         "tr": "Amazon'da listelenecek nihai satış fiyatı",
         "de": "Endgültiger Verkaufspreis auf Amazon",
         "fr": "Prix de vente final sur Amazon",
-        "es": "Precio de venta final listado en Amazon"
+        "es": "Precio de venta final listado en Amazon",
+        "ar": "سعر البيع النهائي المدرج على أمازون"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Amazon-Referral-Gebühr (%)",
         "fr": "Frais de recommandation Amazon (%)",
         "es": "Tarifa de referencia de Amazon (%)",
-        "ar": "Amazon Referral Ücreti (%)"
+        "ar": "Amazon Referans Ücreti (%)"
       },
       "businessContext_i18n": {
         "en": "Kategoriye göre Amazon komisyon oranı",
         "tr": "Kategoriye göre Amazon komisyon oranı",
         "de": "Amazon-Provision nach Kategorie",
         "fr": "Taux de commission Amazon par catégorie",
-        "es": "Comisión de Amazon según categoría"
+        "es": "Comisión de Amazon según categoría",
+        "ar": "نسبة عمولة أمازون حسب الفئة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "FBA-Abwicklungsgebühr (pro Einheit)",
         "fr": "Frais de traitement FBA (unitaire)",
         "es": "Tarifa de gestión FBA (por unidad)",
-        "ar": "FBA İşlem Ücreti (Birim)"
+        "ar": "رسوم معالجة FBA (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
         "tr": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
         "de": "Von Amazon erhobene Gebühr für Lagerung, Verpackung und Versand",
         "fr": "Frais de stockage, emballage et expédition facturés par Amazon",
-        "es": "Tarifa de almacenamiento, embalaje y envío cobrada por Amazon"
+        "es": "Tarifa de almacenamiento, embalaje y envío cobrada por Amazon",
+        "ar": "الرسوم التي تتقاضاها أمازون للتخزين والتعبئة والشحن"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Versand zu Amazon (pro Einheit)",
         "fr": "Expédition vers Amazon (unitaire)",
         "es": "Envío a Amazon (por unidad)",
-        "ar": "Amazon'a Nakliye (Birim)"
+        "ar": "الشحن إلى أمازون (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Ürünlerin Amazon deposuna gönderim maliyeti",
         "tr": "Ürünlerin Amazon deposuna gönderim maliyeti",
         "de": "Kosten für den Versand der Produkte zum Amazon-Lager",
         "fr": "Coût d'expédition des produits vers l'entrepôt Amazon",
-        "es": "Coste de envío de productos al almacén de Amazon"
+        "es": "Coste de envío de productos al almacén de Amazon",
+        "ar": "تكلفة شحن المنتجات إلى مستودع أمازون"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Werbungskosten (pro Einheit)",
         "fr": "Coût publicitaire (par unité)",
         "es": "Coste de publicidad (por unidad)",
-        "ar": "Reklam Maliyeti (Birim Başı)"
+        "ar": "تكلفة الإعلان (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "PPC reklam harcaması (birim başı dağıtılmış)",
         "tr": "PPC reklam harcaması (birim başı dağıtılmış)",
         "de": "PPC-Werbeausgaben (auf Einheit umgelegt)",
         "fr": "Dépenses publicitaires PPC (réparties par unité)",
-        "es": "Gasto en publicidad PPC (distribuido por unidad)"
+        "es": "Gasto en publicidad PPC (distribuido por unidad)",
+        "ar": "إنفاق إعلانات PPC (موزع لكل وحدة)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Lagergebühr (pro Einheit/Monat)",
         "fr": "Frais de stockage (par unité/mois)",
         "es": "Tarifa de almacenamiento (por unidad/mes)",
-        "ar": "Depolama Ücreti (Birim Başı/Aylık)"
+        "ar": "رسوم التخزين (لكل وحدة/شهرياً)"
       },
       "businessContext_i18n": {
         "en": "Aylık depolama ücreti (varsa)",
         "tr": "Aylık depolama ücreti (varsa)",
         "de": "Monatliche Lagergebühr (falls zutreffend)",
         "fr": "Frais de stockage mensuels (le cas échéant)",
-        "es": "Tarifa de almacenamiento mensual (si aplica)"
+        "es": "Tarifa de almacenamiento mensual (si aplica)",
+        "ar": "رسوم التخزين الشهرية (إن وجدت)"
       }
     }
   ],

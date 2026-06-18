@@ -14,14 +14,15 @@
         "de": "Spannung",
         "fr": "Tension",
         "es": "Tensión",
-        "ar": "Voltage"
+        "ar": "الجهد الكهربائي"
       },
       "businessContext_i18n": {
         "en": "Nominal system voltage (V)",
         "tr": "Nominal sistem voltajı (V)",
         "de": "Nennspannung des Systems (V)",
         "fr": "Tension nominale du système (V)",
-        "es": "Tensión nominal del sistema (V)"
+        "es": "Tensión nominal del sistema (V)",
+        "ar": "جهد النظام الاسمي (V)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strom",
         "fr": "Courant",
         "es": "Corriente",
-        "ar": "Current"
+        "ar": "التيار"
       },
       "businessContext_i18n": {
         "en": "Load current in amperes (A)",
         "tr": "Amper cinsinden yük akımı (A)",
         "de": "Laststrom in Ampere (A)",
         "fr": "Courant de charge en ampères (A)",
-        "es": "Corriente de carga en amperios (A)"
+        "es": "Corriente de carga en amperios (A)",
+        "ar": "تيار الحمل بالأمبير (A)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Power Factor"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (0-1)",
         "tr": "Yükün güç faktörü (0-1)",
         "de": "Leistungsfaktor der Last (0-1)",
         "fr": "Facteur de puissance de la charge (0-1)",
-        "es": "Factor de potencia de la carga (0-1)"
+        "es": "Factor de potencia de la carga (0-1)",
+        "ar": "معامل قدرة الحمل (0-1)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Phasenzahl",
         "fr": "Nombre de phases",
         "es": "Número de fases",
-        "ar": "Phase Count"
+        "ar": "عدد الأطوار"
       },
       "businessContext_i18n": {
         "en": "Number of phases (1 for single-phase, 3 for three-phase)",
         "tr": "Faz sayısı (tek faz için 1, üç faz için 3)",
         "de": "Anzahl der Phasen (1 für Einphasen-, 3 für Dreiphasensystem)",
         "fr": "Nombre de phases (1 pour monophasé, 3 pour triphasé)",
-        "es": "Número de fases (1 para monofásica, 3 para trifásica)"
+        "es": "Número de fases (1 para monofásica, 3 para trifásica)",
+        "ar": "عدد الأطوار (1 لأحادي الطور، 3 لثلاثي الطور)"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the load equipment in percentage (%)",
         "tr": "Yük ekipmanının yüzde olarak verimliliği (%)",
         "de": "Wirkungsgrad des Lastgeräts in Prozent (%)",
         "fr": "Rendement de l'équipement de charge en pourcentage (%)",
-        "es": "Eficiencia del equipo de carga en porcentaje (%)"
+        "es": "Eficiencia del equipo de carga en porcentaje (%)",
+        "ar": "كفاءة معدات الحمل بالنسبة المئوية (%)"
       }
     }
   ],
   "formulas": {
-    "result": "voltage + current + powerFactor",
-    "result_copy": "voltage + current + powerFactor"
+    "normalized_product": "voltage * current * powerFactor * phaseCount",
+    "result": "voltage * current * powerFactor * phaseCount * ((efficiency / 100))",
+    "adjustment_factor": "(efficiency / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "activePower",
-      "reactivePower",
-      "outputPower"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "outputPower",
-    "unit": "V"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Yapısal Mühendislik",

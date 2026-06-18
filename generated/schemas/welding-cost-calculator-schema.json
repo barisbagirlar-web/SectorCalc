@@ -25,13 +25,17 @@
         "en": "Weld Length (mm)",
         "tr": "Kaynak Uzunluğu (mm)",
         "de": "Schweißnahtlänge (mm)",
-        "fr": "Longueur de soudure (mm)"
+        "fr": "Longueur de soudure (mm)",
+        "es": "Longitud de soldadura (mm)",
+        "ar": "طول اللحام (مم)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld joint to be deposited.",
         "tr": "Biriktirilecek kaynak bağlantısının toplam uzunluğu.",
         "de": "Gesamtlänge der zu schweißenden Naht.",
-        "fr": "Longueur totale du joint de soudure à déposer."
+        "fr": "Longueur totale du joint de soudure à déposer.",
+        "es": "Longitud total de la unión soldada a depositar.",
+        "ar": "الطول الإجمالي لمفصل اللحام المراد ترسيبه."
       }
     },
     {
@@ -47,13 +51,17 @@
         "en": "Weld Throat Thickness (mm)",
         "tr": "Kaynak Boğaz Kalınlığı (mm)",
         "de": "Schweißnahtdicke (mm)",
-        "fr": "Épaisseur de gorge de soudure (mm)"
+        "fr": "Épaisseur de gorge de soudure (mm)",
+        "es": "Espesor de garganta de soldadura (mm)",
+        "ar": "سمك حلق اللحام (مم)"
       },
       "businessContext_i18n": {
         "en": "Effective throat thickness of the fillet or groove weld.",
         "tr": "Köşe veya oluk kaynağının etkin boğaz kalınlığı.",
         "de": "Effektive Kehlnahtdicke der Kehl- oder Stumpfnaht.",
-        "fr": "Épaisseur effective de la gorge de la soudure d'angle ou en chanfrein."
+        "fr": "Épaisseur effective de la gorge de la soudure d'angle ou en chanfrein.",
+        "es": "Espesor efectivo de la garganta de la soldadura de filete o ranura.",
+        "ar": "سمك الحلق الفعال للحام الشرائح أو الأخاديد."
       }
     },
     {
@@ -69,13 +77,17 @@
         "en": "Material Density (g/cm³)",
         "tr": "Malzeme Yoğunluğu (g/cm³)",
         "de": "Materialdichte (g/cm³)",
-        "fr": "Densité du matériau (g/cm³)"
+        "fr": "Densité du matériau (g/cm³)",
+        "es": "Densidad del material (g/cm³)",
+        "ar": "كثافة المادة (جم/سم³)"
       },
       "businessContext_i18n": {
         "en": "Density of the base and filler material (typical steel ~7.85).",
         "tr": "Taban ve dolgu malzemesinin yoğunluğu (tipik çelik ~7.85).",
         "de": "Dichte des Grund- und Zusatzmaterials (typischer Stahl ~7,85).",
-        "fr": "Densité du métal de base et d'apport (acier typique ~7,85)."
+        "fr": "Densité du métal de base et d'apport (acier typique ~7,85).",
+        "es": "Densidad del material base y de aporte (acero típico ~7,85).",
+        "ar": "كثافة المادة الأساسية ومادة الحشو (الصلب النموذجي ~7.85)."
       }
     },
     {
@@ -91,13 +103,17 @@
         "en": "Deposition Efficiency (%)",
         "tr": "Biriktirme Verimliliği (%)",
         "de": "Abscheideeffizienz (%)",
-        "fr": "Efficacité de dépôt (%)"
+        "fr": "Efficacité de dépôt (%)",
+        "es": "Eficiencia de deposición (%)",
+        "ar": "كفاءة الترسيب (%)"
       },
       "businessContext_i18n": {
         "en": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
         "tr": "Biriktirilen kaynak metalinin tüketilen toplam dolgu metaline oranı (sıçrama ve kayıplar dahil).",
         "de": "Verhältnis von abgeschiedenem Schweißgut zu verbrauchtem Zusatzwerkstoff (inkl. Spritzer und Verluste).",
-        "fr": "Rapport entre le métal déposé et le métal d'apport total consommé (inclut projections et pertes)."
+        "fr": "Rapport entre le métal déposé et le métal d'apport total consommé (inclut projections et pertes).",
+        "es": "Relación entre el metal de soldadura depositado y el metal de aporte total consumido (incluye salpicaduras y pérdidas).",
+        "ar": "نسبة معدن اللحام المترسب إلى إجمالي معدن الحشو المستهلك (يشمل التناثر والفقد)."
       }
     },
     {
@@ -114,13 +130,16 @@
         "tr": "İşçilik Ücreti (USD/saat)",
         "de": "Stundensatz (USD/Stunde)",
         "fr": "Taux de main-d'œuvre (USD/heure)",
-        "es": "Tarifa de mano de obra (USD/hora)"
+        "es": "Tarifa de mano de obra (USD/hora)",
+        "ar": "سعر الساعة للعمالة (دولار أمريكي/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly labor cost for welder.",
         "tr": "Kaynakçı için tam yüklü saatlik işçilik maliyeti.",
         "de": "Voll belastete stündliche Arbeitskosten für Schweißer.",
-        "fr": "Coût horaire complet de la main-d'œuvre du soudeur."
+        "fr": "Coût horaire complet de la main-d'œuvre du soudeur.",
+        "es": "Coste laboral por hora del soldador, incluyendo cargas sociales.",
+        "ar": "تكلفة العمالة لكل ساعة لعامل اللحام (شاملة جميع التكاليف)."
       }
     },
     {
@@ -136,13 +155,17 @@
         "en": "Welding Speed (mm/min)",
         "tr": "Kaynak Hızı (mm/dk)",
         "de": "Schweißgeschwindigkeit (mm/min)",
-        "fr": "Vitesse de soudage (mm/min)"
+        "fr": "Vitesse de soudage (mm/min)",
+        "es": "Velocidad de soldadura (mm/min)",
+        "ar": "سرعة اللحام (مم/دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Travel speed of the welding torch along the joint.",
         "tr": "Kaynak torcunun birleşme hattı boyunca ilerleme hızı.",
         "de": "Vorschubgeschwindigkeit des Schweißbrenners entlang der Naht.",
-        "fr": "Vitesse de déplacement de la torche le long du joint."
+        "fr": "Vitesse de déplacement de la torche le long du joint.",
+        "es": "Velocidad de avance de la antorcha a lo largo de la unión.",
+        "ar": "سرعة حركة شعلة اللحام على طول المفصل."
       }
     },
     {
@@ -158,13 +181,17 @@
         "en": "Filler Wire Cost (USD/kg)",
         "tr": "Dolgu Teli Maliyeti (USD/kg)",
         "de": "Kosten für Schweißdraht (USD/kg)",
-        "fr": "Coût du fil d'apport (USD/kg)"
+        "fr": "Coût du fil d'apport (USD/kg)",
+        "es": "Coste del alambre de aporte (USD/kg)",
+        "ar": "تكلفة سلك الحشو (دولار/كجم)"
       },
       "businessContext_i18n": {
         "en": "Cost per kilogram of filler wire or electrode.",
         "tr": "Dolgu teli veya elektrotun kilogram başına maliyeti.",
         "de": "Kosten pro Kilogramm Schweißdraht oder Elektrode.",
-        "fr": "Coût par kilogramme de fil d'apport ou d'électrode."
+        "fr": "Coût par kilogramme de fil d'apport ou d'électrode.",
+        "es": "Coste por kilogramo de alambre o electrodo de aporte.",
+        "ar": "تكلفة الكيلوغرام من سلك الحشو أو القطب."
       }
     },
     {
@@ -180,13 +207,17 @@
         "en": "Shielding Gas Cost (USD/L)",
         "tr": "Koruyucu Gaz Maliyeti (USD/L)",
         "de": "Kosten für Schutzgas (USD/L)",
-        "fr": "Coût du gaz de protection (USD/L)"
+        "fr": "Coût du gaz de protection (USD/L)",
+        "es": "Coste del gas de protección (USD/L)",
+        "ar": "تكلفة غاز التدريع (دولار/لتر)"
       },
       "businessContext_i18n": {
         "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
         "tr": "Litre başına koruyucu gaz maliyeti (örn. Argon/CO2 karışımı).",
         "de": "Kosten pro Liter Schutzgas (z. B. Argon/CO2-Gemisch).",
-        "fr": "Coût par litre de gaz de protection (ex. mélange Argon/CO2)."
+        "fr": "Coût par litre de gaz de protection (ex. mélange Argon/CO2).",
+        "es": "Coste por litro de gas de protección (ej. mezcla Argón/CO2).",
+        "ar": "تكلفة اللتر من غاز التدريع (مثل خليط الأرجون/CO2)."
       }
     }
   ],
@@ -241,18 +272,26 @@
     ]
   },
   "formulas": {
-    "result": "weld_length_mm + weld_throat_mm + material_density_g_per_cm3",
-    "result_copy": "weld_length_mm + weld_throat_mm + material_density_g_per_cm3"
+    "normalized_product": "weld_length_mm * weld_throat_mm * material_density_g_per_cm3 * (deposition_efficiency / 100)",
+    "result": "weld_length_mm * weld_throat_mm * material_density_g_per_cm3 * (deposition_efficiency / 100) * ((labor_rate_per_hour / 100) * welding_speed_mm_per_min * filler_wire_cost_per_kg * gas_cost_per_liter)",
+    "adjustment_factor": "(labor_rate_per_hour / 100) * welding_speed_mm_per_min * filler_wire_cost_per_kg * gas_cost_per_liter"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

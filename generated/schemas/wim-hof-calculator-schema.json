@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Yaş"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı",
         "tr": "Kullanıcının yaşı",
         "de": "Alter des Benutzers",
         "fr": "Âge de l'utilisateur",
-        "es": "Edad del usuario"
+        "es": "Edad del usuario",
+        "ar": "عمر المستخدم"
       }
     },
     {
@@ -37,13 +38,15 @@
         "de": "Körpergewicht",
         "fr": "Poids corporel",
         "es": "Peso corporal",
-        "ar": "Vücut Ağırlığı"
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının kilosu",
         "tr": "Kullanıcının kilosu",
-        "de": "Kullanıcının kilosu",
-        "fr": "Poids de l'utilisateur"
+        "de": "Gewicht des Benutzers",
+        "fr": "Poids de l'utilisateur",
+        "es": "Peso del usuario",
+        "ar": "وزن المستخدم"
       }
     },
     {
@@ -57,15 +60,17 @@
         "en": "Boy",
         "tr": "Boy",
         "de": "Junge",
-        "fr": "Boy",
+        "fr": "Garçon",
         "es": "Niño",
-        "ar": "Boy"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının boyu",
         "tr": "Kullanıcının boyu",
-        "de": "Kullanıcının boyu",
-        "fr": "Taille de l'utilisateur"
+        "de": "Größe des Benutzers",
+        "fr": "Taille de l'utilisateur",
+        "es": "Altura del usuario",
+        "ar": "طول المستخدم"
       }
     },
     {
@@ -80,14 +85,16 @@
         "tr": "Çekirdek Vücut Sıcaklığı",
         "de": "Kernkörpertemperatur",
         "fr": "Température corporelle centrale",
-        "es": "Çekirdek Vücut Sıcaklığı",
-        "ar": "Çekirdek Vücut Sıcaklığı"
+        "es": "Temperatura corporal central",
+        "ar": "درجة حرارة الجسم الأساسية"
       },
       "businessContext_i18n": {
         "en": "Başlangıç vücut sıcaklığı",
         "tr": "Başlangıç vücut sıcaklığı",
         "de": "Anfängliche Körpertemperatur",
-        "fr": "Température corporelle initiale"
+        "fr": "Température corporelle initiale",
+        "es": "Temperatura corporal inicial",
+        "ar": "درجة حرارة الجسم الأولية"
       }
     },
     {
@@ -102,14 +109,16 @@
         "tr": "Çevre Sıcaklığı",
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
-        "es": "Çevre Sıcaklığı",
-        "ar": "Çevre Sıcaklığı"
+        "es": "Temperatura ambiente",
+        "ar": "درجة حرارة المحيط"
       },
       "businessContext_i18n": {
         "en": "Soğuk maruziyet sıcaklığı",
         "tr": "Soğuk maruziyet sıcaklığı",
         "de": "Kälteexpositionstemperatur",
-        "fr": "Température d'exposition au froid"
+        "fr": "Température d'exposition au froid",
+        "es": "Temperatura de exposición al frío",
+        "ar": "درجة حرارة التعرض للبرد"
       }
     },
     {
@@ -124,41 +133,40 @@
         "tr": "Maruziyet Süresi",
         "de": "Expositionsdauer",
         "fr": "Durée d'exposition",
-        "es": "Maruziyet Süresi",
-        "ar": "Maruziyet Süresi"
+        "es": "Duración de exposición",
+        "ar": "مدة التعرض"
       },
       "businessContext_i18n": {
         "en": "Soğuk maruziyet süresi",
         "tr": "Soğuk maruziyet süresi",
         "de": "Kälteexpositionsdauer",
-        "fr": "Durée d'exposition au froid"
+        "fr": "Durée d'exposition au froid",
+        "es": "Duración de exposición al frío",
+        "ar": "مدة التعرض للبرد"
       }
     }
   ],
   "formulas": {
-    "result": "age + weight + height",
-    "result_copy": "age + weight + height"
+    "normalized_product": "age * weight * height * coreTemp",
+    "result": "age * weight * height * coreTemp * (ambientTemp * exposureTime)",
+    "adjustment_factor": "ambientTemp * exposureTime"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "bsa",
-        "label": "Vücut Yüzey Alanı",
-        "unit": "m²"
-      },
-      {
-        "id": "heatLossRate",
-        "label": "Isı Kaybı Oranı",
-        "unit": "W"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "metabolicIncrease",
-    "unit": "yıl"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

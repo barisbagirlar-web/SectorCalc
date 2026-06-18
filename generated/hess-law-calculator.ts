@@ -26,8 +26,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Hess_law_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.deltaH1 + input.deltaH2 + input.deltaH3 + input.deltaH4 + input.deltaH5 + input.deltaH6; results["totalDeltaH"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDeltaH"] = 0; }
-  try { const v = input.deltaH1 + input.deltaH2 + input.deltaH3 + input.deltaH4 + input.deltaH5 + input.deltaH6; results["totalDeltaH_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDeltaH_aux"] = 0; }
+  try { const v = input.deltaH1 * input.deltaH2 * input.deltaH3 * input.deltaH4; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.deltaH1 * input.deltaH2 * input.deltaH3 * input.deltaH4 * (input.deltaH5 * input.deltaH6); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.deltaH5 * input.deltaH6; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -38,12 +39,12 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHess_law_calculator(input: Hess_law_calculatorInput): Hess_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalDeltaH_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

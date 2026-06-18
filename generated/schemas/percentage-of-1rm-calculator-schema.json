@@ -14,14 +14,15 @@
         "de": "One Rep Max (1RM)",
         "fr": "Répétition maximale (1RM)",
         "es": "Repetición máxima (1RM)",
-        "ar": "One Rep Max (1RM)"
+        "ar": "أقصى تكرار واحد (1RM)"
       },
       "businessContext_i18n": {
         "en": "Maximum weight you can lift for one repetition",
         "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık",
         "de": "Maximales Gewicht, das Sie für eine Wiederholung heben können",
         "fr": "Poids maximal que vous pouvez soulever pour une répétition",
-        "es": "Peso máximo que puedes levantar en una repetición"
+        "es": "Peso máximo que puedes levantar en una repetición",
+        "ar": "الوزن الأقصى الذي يمكنك رفعه لتكرار واحد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zielprozentsatz",
         "fr": "Pourcentage cible",
         "es": "Porcentaje objetivo",
-        "ar": "Target Percentage"
+        "ar": "النسبة المئوية المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Percentage of 1RM to calculate",
         "tr": "Hesaplanacak 1TM yüzdesi",
         "de": "Prozentsatz des 1RM zur Berechnung",
         "fr": "Pourcentage de la 1RM à calculer",
-        "es": "Porcentaje de 1RM a calcular"
+        "es": "Porcentaje de 1RM a calcular",
+        "ar": "نسبة من 1RM للحساب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rundungsintervall",
         "fr": "Incrément d'arrondi",
         "es": "Incremento de redondeo",
-        "ar": "Rounding Increment"
+        "ar": "زيادة التقريب"
       },
       "businessContext_i18n": {
         "en": "Increment to round the result to (0 for no rounding)",
         "tr": "Sonucun yuvarlanacağı artış (yuvarlama yok için 0)",
         "de": "Intervall, auf das das Ergebnis gerundet wird (0 für keine Rundung)",
         "fr": "Incrément pour arrondir le résultat (0 pour aucun arrondi)",
-        "es": "Incremento para redondear el resultado (0 para sin redondeo)"
+        "es": "Incremento para redondear el resultado (0 para sin redondeo)",
+        "ar": "الزيادة لتقريب النتيجة إليها (0 لعدم التقريب)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Körpergewicht",
         "fr": "Poids corporel",
         "es": "Peso corporal",
-        "ar": "Body Weight"
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Your body weight for relative strength reference",
         "tr": "Göreceli güç referansı için vücut ağırlığınız",
         "de": "Ihr Körpergewicht als Referenz für die relative Kraft",
         "fr": "Votre poids corporel pour référence de force relative",
-        "es": "Tu peso corporal para referencia de fuerza relativa"
+        "es": "Tu peso corporal para referencia de fuerza relativa",
+        "ar": "وزن جسمك كمرجع للقوة النسبية"
       }
     }
   ],
   "formulas": {
-    "result": "oneRepMax + targetPercentage + roundingIncrement",
-    "result_copy": "oneRepMax + targetPercentage + roundingIncrement"
+    "normalized_product": "oneRepMax * (targetPercentage / 100) * roundingIncrement * bodyWeight",
+    "result": "oneRepMax * (targetPercentage / 100) * roundingIncrement * bodyWeight"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rawWeight",
-      "bodyWeightPercentage"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "bodyWeightPercentage",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "bodyWeightPercentage": "%"
     }

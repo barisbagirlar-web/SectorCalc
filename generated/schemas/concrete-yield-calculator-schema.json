@@ -14,14 +14,15 @@
         "de": "Zementmasse",
         "fr": "Masse de ciment",
         "es": "Masa de cemento",
-        "ar": "Cement Mass"
+        "ar": "كتلة الأسمنت"
       },
       "businessContext_i18n": {
         "en": "Mass of cement in the concrete batch, typically in kilograms.",
         "tr": "Beton partisindeki çimento kütlesi, tipik olarak kilogram cinsinden.",
         "de": "Masse des Zements in der Betonmischung, typischerweise in Kilogramm.",
         "fr": "Masse de ciment dans le lot de béton, généralement en kilogrammes.",
-        "es": "Masa de cemento en la tanda de hormigón, típicamente en kilogramos."
+        "es": "Masa de cemento en la tanda de hormigón, típicamente en kilogramos.",
+        "ar": "كتلة الأسمنت في الخلطة الخرسانية، عادةً بالكيلوغرام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wassermasse",
         "fr": "Masse d'eau",
         "es": "Masa de agua",
-        "ar": "Water Mass"
+        "ar": "كتلة الماء"
       },
       "businessContext_i18n": {
         "en": "Mass of water in the batch, including water in admixtures if applicable.",
         "tr": "Partideki su kütlesi, varsa katkılardaki su dahil.",
         "de": "Masse des Wassers in der Mischung, einschließlich Wasser in Zusatzmitteln, falls zutreffend.",
         "fr": "Masse d'eau dans le lot, y compris l'eau des adjuvants si applicable.",
-        "es": "Masa de agua en el lote, incluyendo agua en aditivos si corresponde."
+        "es": "Masa de agua en el lote, incluyendo agua en aditivos si corresponde.",
+        "ar": "كتلة الماء في الخلطة، بما في ذلك الماء في الإضافات إن وجد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Feine Gesteinskörnung (Sand) Masse",
         "fr": "Masse de granulat fin (sable)",
         "es": "Masa de agregado fino (arena)",
-        "ar": "Fine Aggregate (Sand) Mass"
+        "ar": "كتلة الركام الناعم (الرمل)"
       },
       "businessContext_i18n": {
         "en": "Mass of fine aggregate (sand) in the batch.",
         "tr": "Partideki ince agrega (kum) kütlesi.",
         "de": "Masse der feinen Gesteinskörnung (Sand) in der Mischung.",
         "fr": "Masse de granulat fin (sable) dans le lot.",
-        "es": "Masa de agregado fino (arena) en el lote."
+        "es": "Masa de agregado fino (arena) en el lote.",
+        "ar": "كتلة الركام الناعم (الرمل) في الخلطة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Grobe Gesteinskörnung Masse",
         "fr": "Masse de granulat grossier",
         "es": "Masa de agregado grueso",
-        "ar": "Coarse Aggregate Mass"
+        "ar": "كتلة الركام الخشن"
       },
       "businessContext_i18n": {
         "en": "Mass of coarse aggregate (gravel or crushed stone) in the batch.",
         "tr": "Partideki iri agrega (çakıl veya kırma taş) kütlesi.",
         "de": "Masse der groben Gesteinskörnung (Kies oder Schotter) in der Mischung.",
         "fr": "Masse de granulat grossier (gravier ou pierre concassée) dans le lot.",
-        "es": "Masa de agregado grueso (grava o piedra triturada) en el lote."
+        "es": "Masa de agregado grueso (grava o piedra triturada) en el lote.",
+        "ar": "كتلة الركام الخشن (الحصى أو الحجر المكسر) في الخلطة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Zusatzmittelmasse",
         "fr": "Masse d'adjuvant",
         "es": "Masa de aditivo",
-        "ar": "Admixture Mass"
+        "ar": "كتلة الإضافات"
       },
       "businessContext_i18n": {
         "en": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable.",
         "tr": "Eklenen kimyasal katkıların kütlesi (varsa), kilogram cinsinden. Sıvı hacmi, yoğunluk kullanılarak kütleye dönüştürülür.",
         "de": "Masse der chemischen Zusatzmittel (falls vorhanden) in Kilogramm. Flüssigkeitsvolumen ggf. mit Dichte in Masse umrechnen.",
         "fr": "Masse des adjuvants chimiques ajoutés (le cas échéant), en kilogrammes. Convertir le volume liquide en masse à l'aide de la densité si applicable.",
-        "es": "Masa de aditivos químicos añadidos (si los hay), en kilogramos. Convierta el volumen líquido a masa usando la densidad si corresponde."
+        "es": "Masa de aditivos químicos añadidos (si los hay), en kilogramos. Convierta el volumen líquido a masa usando la densidad si corresponde.",
+        "ar": "كتلة الإضافات الكيميائية المضافة (إن وجدت)، بالكيلوغرام. حوّل الحجم السائل إلى كتلة باستخدام الكثافة إن أمكن."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Frischbetondichte",
         "fr": "Densité du béton frais",
         "es": "Densidad del concreto fresco",
-        "ar": "Fresh Concrete Density"
+        "ar": "كثافة الخرسانة الطازجة"
       },
       "businessContext_i18n": {
         "en": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³.",
         "tr": "Taze betonun ölçülen birim ağırlığı (yoğunluğu). Tipik aralık: 2200–2500 kg/m³.",
         "de": "Gemessene Rohdichte (Dichte) des Frischbetons. Typischer Bereich: 2200–2500 kg/m³.",
         "fr": "Masse volumique mesurée du béton frais. Plage typique : 2200–2500 kg/m³.",
-        "es": "Peso unitario medido (densidad) del concreto fresco. Rango típico: 2200–2500 kg/m³."
+        "es": "Peso unitario medido (densidad) del concreto fresco. Rango típico: 2200–2500 kg/m³.",
+        "ar": "الوزن الحجمي (الكثافة) المقاس للخرسانة الطازجة. النطاق النموذجي: 2200–2500 كجم/م³."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Zementsackmasse",
         "fr": "Masse du sac de ciment",
         "es": "Masa de la bolsa de cemento",
-        "ar": "Cement Bag Mass"
+        "ar": "وزن كيس الأسمنت"
       },
       "businessContext_i18n": {
         "en": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag.",
         "tr": "Bir çimento torbasının standart kütlesi (ör. 50 kg). Torba başına verimi hesaplamak için kullanılır.",
         "de": "Standardmasse eines Zementsacks (z. B. 50 kg). Wird zur Berechnung der Ausbeute pro Sack verwendet.",
         "fr": "Masse standard d'un sac de ciment (ex. 50 kg). Utilisée pour calculer le rendement par sac.",
-        "es": "Masa estándar de una bolsa de cemento (ej., 50 kg). Se utiliza para calcular el rendimiento por bolsa."
+        "es": "Masa estándar de una bolsa de cemento (ej., 50 kg). Se utiliza para calcular el rendimiento por bolsa.",
+        "ar": "الوزن القياسي لكيس الأسمنت (مثل 50 كجم). يُستخدم لحساب الإنتاجية لكل كيس."
       }
     }
   ],

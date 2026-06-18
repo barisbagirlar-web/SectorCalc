@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Delivery_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.distance_km + input.fuel_cost_per_liter + input.fuel_efficiency_kmpl; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.distance_km + input.fuel_cost_per_liter + input.fuel_efficiency_kmpl; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.distance_km * input.fuel_cost_per_liter * (input.fuel_efficiency_kmpl / 100) * input.driver_wage_per_hour; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.distance_km * input.fuel_cost_per_liter * (input.fuel_efficiency_kmpl / 100) * input.driver_wage_per_hour * (input.average_speed_kmph * input.load_weight_kg * input.handling_cost_per_kg * input.vehicle_maintenance_per_km); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.average_speed_kmph * input.load_weight_kg * input.handling_cost_per_kg * input.vehicle_maintenance_per_km; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -46,8 +47,8 @@ export function calculateDelivery_cost_calculator(input: Delivery_cost_calculato
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

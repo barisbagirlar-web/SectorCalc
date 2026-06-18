@@ -14,14 +14,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample",
         "tr": "Örneklemdeki gözlem sayısı",
         "de": "Anzahl der Beobachtungen in der Stichprobe",
         "fr": "Nombre d'observations dans l'échantillon",
-        "es": "Número de observaciones en la muestra"
+        "es": "Número de observaciones en la muestra",
+        "ar": "عدد المشاهدات في العينة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schiefe",
         "fr": "Asymétrie",
         "es": "Asimetría",
-        "ar": "Skewness"
+        "ar": "الانحراف"
       },
       "businessContext_i18n": {
         "en": "Sample skewness coefficient",
         "tr": "Örneklem çarpıklık katsayısı",
         "de": "Stichproben-Schiefekoeffizient",
         "fr": "Coefficient d'asymétrie de l'échantillon",
-        "es": "Coeficiente de asimetría muestral"
+        "es": "Coeficiente de asimetría muestral",
+        "ar": "معامل انحراف العينة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exzess-Kurtosis",
         "fr": "Kurtosis excessif",
         "es": "Curtosis excesiva",
-        "ar": "Excess Kurtosis"
+        "ar": "التفرطح الزائد"
       },
       "businessContext_i18n": {
         "en": "Excess kurtosis (kurtosis - 3)",
         "tr": "Fazla basıklık (basıklık - 3)",
         "de": "Exzess-Kurtosis (Kurtosis - 3)",
         "fr": "Kurtosis excessif (kurtosis - 3)",
-        "es": "Curtosis excesiva (curtosis - 3)"
+        "es": "Curtosis excesiva (curtosis - 3)",
+        "ar": "التفرطح الزائد (التفرطح - 3)"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Kritischer Z-Wert",
         "fr": "Valeur Z critique",
         "es": "Valor Z crítico",
-        "ar": "Critical Z-value"
+        "ar": "قيمة Z الحرجة"
       },
       "businessContext_i18n": {
         "en": "Z-score threshold for normality rule of thumb",
         "tr": "Normallik kuralı için Z-skor eşiği",
         "de": "Z-Score-Schwellenwert für die Normalitäts-Daumenregel",
         "fr": "Seuil Z pour la règle empirique de normalité",
-        "es": "Umbral de puntuación Z para la regla de normalidad"
+        "es": "Umbral de puntuación Z para la regla de normalidad",
+        "ar": "عتبة درجة Z لقاعدة الحكم على الطبيعية"
       }
     }
   ],
   "formulas": {
-    "result": "sampleSize + skewness + excessKurtosis",
-    "result_copy": "sampleSize + skewness + excessKurtosis"
+    "normalized_product": "sampleSize * skewness * excessKurtosis * criticalZ",
+    "result": "sampleSize * skewness * excessKurtosis * criticalZ"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "zSkew",
-      "zKurt",
-      "seSkew",
-      "seKurt"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "seKurt",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

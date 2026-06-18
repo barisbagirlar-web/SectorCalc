@@ -14,14 +14,15 @@
         "de": "Verkaufspreis",
         "fr": "Prix de vente",
         "es": "Precio de venta",
-        "ar": "Sale Price"
+        "ar": "سعر البيع"
       },
       "businessContext_i18n": {
         "en": "The final price at which the item was sold, excluding shipping.",
         "tr": "Nihai Fiyat",
         "de": "Der endgültige Verkaufspreis des Artikels ohne Versand.",
         "fr": "Le prix final auquel l'article a été vendu, hors expédition.",
-        "es": "El precio final al que se vendió el artículo, excluyendo el envío."
+        "es": "El precio final al que se vendió el artículo, excluyendo el envío.",
+        "ar": "السعر النهائي الذي بيع به العنصر، باستثناء الشحن."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Versandkosten",
         "fr": "Frais d'expédition",
         "es": "Coste de envío",
-        "ar": "Shipping Cost"
+        "ar": "تكلفة الشحن"
       },
       "businessContext_i18n": {
         "en": "The shipping cost charged to the buyer.",
         "tr": "Alıcıya yansıtılan kargo ücreti.",
         "de": "Die dem Käufer berechneten Versandkosten.",
         "fr": "Les frais d'expédition facturés à l'acheteur.",
-        "es": "El coste de envío cobrado al comprador."
+        "es": "El coste de envío cobrado al comprador.",
+        "ar": "تكلفة الشحن التي يتحملها المشتري."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Endwertgebühren-Satz",
         "fr": "Taux de commission sur la valeur finale",
         "es": "Tarifa de comisión final",
-        "ar": "Final Value Fee Rate"
+        "ar": "نسبة رسوم القيمة النهائية"
       },
       "businessContext_i18n": {
         "en": "The percentage of the total sale amount (item price + shipping) charged as final value fee.",
         "tr": "Toplam satış tutarının (ürün fiyatı + kargo) nihai değer ücreti olarak alınan yüzdesi.",
         "de": "Der Prozentsatz des Gesamtverkaufsbetrags (Artikelpreis + Versand), der als Endwertgebühr berechnet wird.",
         "fr": "Le pourcentage du montant total de la vente (prix de l'article + expédition) facturé comme commission sur la valeur finale.",
-        "es": "El porcentaje del importe total de la venta (precio del artículo + envío) cobrado como comisión final."
+        "es": "El porcentaje del importe total de la venta (precio del artículo + envío) cobrado como comisión final.",
+        "ar": "النسبة المئوية من إجمالي مبلغ البيع (سعر العنصر + الشحن) المفروضة كرسوم قيمة نهائية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Feste Endwertgebühr",
         "fr": "Commission fixe sur la valeur finale",
         "es": "Comisión final fija",
-        "ar": "Fixed Final Value Fee"
+        "ar": "رسوم القيمة النهائية الثابتة"
       },
       "businessContext_i18n": {
         "en": "A fixed fee per order charged on top of the percentage-based final value fee.",
         "tr": "Yüzde bazlı nihai değer ücretine ek olarak sipariş başına alınan sabit ücret.",
         "de": "Eine feste Gebühr pro Bestellung zusätzlich zur prozentualen Endwertgebühr.",
         "fr": "Des frais fixes par commande facturés en plus de la commission basée sur un pourcentage.",
-        "es": "Una tarifa fija por pedido cobrada además de la comisión final basada en porcentaje."
+        "es": "Una tarifa fija por pedido cobrada además de la comisión final basada en porcentaje.",
+        "ar": "رسوم ثابتة لكل طلب تُضاف فوق نسبة الرسوم على القيمة النهائية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Einstellgebühr",
         "fr": "Frais d'insertion",
         "es": "Tarifa de inserción",
-        "ar": "Insertion Fee"
+        "ar": "رسوم الإدراج"
       },
       "businessContext_i18n": {
         "en": "The fee charged for listing the item. First few listings may be free.",
         "tr": "Ürünü listelemek için alınan ücret. İlk birkaç listelem ücretsiz olabilir.",
         "de": "Die Gebühr für die Listung des Artikels. Die ersten Listungen können kostenlos sein.",
         "fr": "Les frais facturés pour la mise en vente de l'article. Les premières annonces peuvent être gratuites.",
-        "es": "La tarifa cobrada por publicar el artículo. Las primeras publicaciones pueden ser gratuitas."
+        "es": "La tarifa cobrada por publicar el artículo. Las primeras publicaciones pueden ser gratuitas.",
+        "ar": "الرسوم المفروضة على إدراج العنصر. قد تكون الإدراجات الأولى مجانية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gebühr für Listungs-Upgrades",
         "fr": "Frais d'option de mise en valeur",
         "es": "Tarifa de mejora de publicación",
-        "ar": "Listing Upgrade Fee"
+        "ar": "رسوم ترقية الإدراج"
       },
       "businessContext_i18n": {
         "en": "Any additional fees for listing upgrades (e.g., bold title, subtitle, gallery plus).",
         "tr": "Listeleme yükseltmeleri (ör. kalın başlık, alt başlık, galeri plus) için ek ücretler.",
         "de": "Zusätzliche Gebühren für Listungs-Upgrades (z. B. fette Überschrift, Untertitel, Galerie Plus).",
         "fr": "Tous frais supplémentaires pour les options de mise en valeur (ex. titre en gras, sous-titre, galerie plus).",
-        "es": "Cualquier tarifa adicional por mejoras en la publicación (p. ej., título en negrita, subtítulo, galería plus)."
+        "es": "Cualquier tarifa adicional por mejoras en la publicación (p. ej., título en negrita, subtítulo, galería plus).",
+        "ar": "أي رسوم إضافية لترقيات الإدراج (مثل العنوان العريض، الترجمة، المعرض بلس)."
       }
     }
   ],

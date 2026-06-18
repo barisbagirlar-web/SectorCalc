@@ -14,14 +14,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Number of data points in the sample or population",
         "tr": "Örneklem veya popülasyondaki veri noktası sayısı",
         "de": "Anzahl der Datenpunkte in der Stichprobe oder Grundgesamtheit",
         "fr": "Nombre de points de données dans l'échantillon ou la population",
-        "es": "Número de puntos de datos en la muestra o población"
+        "es": "Número de puntos de datos en la muestra o población",
+        "ar": "عدد نقاط البيانات في العينة أو المجتمع"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Summe der quadrierten Abweichungen",
         "fr": "Somme des écarts au carré",
         "es": "Suma de desviaciones al cuadrado",
-        "ar": "Sum of Squared Deviations"
+        "ar": "مجموع مربعات الانحرافات"
       },
       "businessContext_i18n": {
         "en": "Sum of (xi - mean)²",
         "tr": "Σ(xi - ortalama)²",
         "de": "Summe von (xi - Mittelwert)²",
         "fr": "Somme de (xi - moyenne)²",
-        "es": "Suma de (xi - media)²"
+        "es": "Suma de (xi - media)²",
+        "ar": "مجموع (xi - المتوسط)²"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Summe der Abweichungen zur vierten Potenz",
         "fr": "Somme des écarts à la puissance quatre",
         "es": "Suma de desviaciones a la cuarta potencia",
-        "ar": "Sum of Fourth Power Deviations"
+        "ar": "مجموع انحرافات القوة الرابعة"
       },
       "businessContext_i18n": {
         "en": "Sum of (xi - mean)⁴",
         "tr": "Σ(xi - ortalama)⁴",
         "de": "Summe von (xi - Mittelwert)⁴",
         "fr": "Somme de (xi - moyenne)⁴",
-        "es": "Suma de (xi - media)⁴"
+        "es": "Suma de (xi - media)⁴",
+        "ar": "مجموع (xi - المتوسط)⁴"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para el redondeo de salida"
+        "es": "Número de decimales para el redondeo de salida",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     }
   ],
   "formulas": {
-    "result": "n + sumSquared + sumFourth",
-    "result_copy": "n + sumSquared + sumFourth"
+    "normalized_product": "n * sumSquared * sumFourth * decimalPlaces",
+    "result": "n * sumSquared * sumFourth * decimalPlaces"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "kurtosis",
-      "excessKurtosis"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "excessKurtosis",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

@@ -14,14 +14,15 @@
         "de": "Jahr",
         "fr": "Année",
         "es": "Año",
-        "ar": "Year"
+        "ar": "السنة"
       },
       "businessContext_i18n": {
         "en": "The year for which to calculate Easter Sunday.",
         "tr": "Paskalya Pazarının hesaplanacağı yıl.",
         "de": "Das Jahr, für das der Ostersonntag berechnet werden soll.",
         "fr": "Année pour laquelle calculer le dimanche de Pâques.",
-        "es": "El año para el cual calcular el Domingo de Pascua."
+        "es": "El año para el cual calcular el Domingo de Pascua.",
+        "ar": "السنة التي سيتم حساب عيد الفصح لها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenzjahr",
         "fr": "Année de référence",
         "es": "Año de referencia",
-        "ar": "Reference Year"
+        "ar": "سنة المرجع"
       },
       "businessContext_i18n": {
         "en": "Year of the reference date to compute days until Easter.",
         "tr": "Paskalya'ya kalan günleri hesaplamak için referans tarihin yılı.",
         "de": "Jahr des Referenzdatums zur Berechnung der Tage bis Ostern.",
         "fr": "Année de la date de référence pour calculer les jours jusqu'à Pâques.",
-        "es": "Año de la fecha de referencia para calcular los días hasta Pascua."
+        "es": "Año de la fecha de referencia para calcular los días hasta Pascua.",
+        "ar": "سنة التاريخ المرجعي لحساب الأيام حتى عيد الفصح."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Referenzmonat",
         "fr": "Mois de référence",
         "es": "Mes de referencia",
-        "ar": "Reference Month"
+        "ar": "شهر المرجع"
       },
       "businessContext_i18n": {
         "en": "Month of the reference date (1-12).",
         "tr": "Referans tarihin ayı (1-12).",
         "de": "Monat des Referenzdatums (1-12).",
         "fr": "Mois de la date de référence (1-12).",
-        "es": "Mes de la fecha de referencia (1-12)."
+        "es": "Mes de la fecha de referencia (1-12).",
+        "ar": "شهر التاريخ المرجعي (1-12)."
       }
     },
     {
@@ -83,46 +86,37 @@
         "de": "Referenztag",
         "fr": "Jour de référence",
         "es": "Día de referencia",
-        "ar": "Reference Day"
+        "ar": "يوم المرجع"
       },
       "businessContext_i18n": {
         "en": "Day of the reference date (1-31).",
         "tr": "Referans tarihin günü (1-31).",
         "de": "Tag des Referenzdatums (1-31).",
         "fr": "Jour de la date de référence (1-31).",
-        "es": "Día de la fecha de referencia (1-31)."
+        "es": "Día de la fecha de referencia (1-31).",
+        "ar": "يوم التاريخ المرجعي (1-31)."
       }
     }
   ],
   "formulas": {
-    "result": "year + refYear + refMonth",
-    "result_copy": "year + refYear + refMonth"
+    "normalized_product": "year * refYear * refMonth * refDay",
+    "result": "year * refYear * refMonth * refDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "k",
-      "l",
-      "m",
-      "easterMonth",
-      "easterDay",
-      "daysUntilEaster"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "daysUntilEaster",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

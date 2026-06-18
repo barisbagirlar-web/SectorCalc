@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
         "de": "Patientenalter in Jahren",
         "fr": "Âge du patient en années",
-        "es": "Edad del paciente en años"
+        "es": "Edad del paciente en años",
+        "ar": "عمر المريض بالسنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gesamtcholesterin",
         "fr": "Cholestérol total",
         "es": "Colesterol total",
-        "ar": "Total Cholesterol"
+        "ar": "الكوليسترول الكلي"
       },
       "businessContext_i18n": {
         "en": "Total serum cholesterol level",
         "tr": "Toplam serum kolesterol seviyesi",
         "de": "Gesamtserumcholesterinspiegel",
         "fr": "Niveau de cholestérol total sérique",
-        "es": "Nivel de colesterol total en suero"
+        "es": "Nivel de colesterol total en suero",
+        "ar": "مستوى الكوليسترول الكلي في الدم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "HDL-Cholesterin",
         "fr": "Cholestérol HDL",
         "es": "Colesterol HDL",
-        "ar": "HDL Cholesterol"
+        "ar": "كوليسترول HDL"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol level",
         "tr": "Yüksek yoğunluklu lipoprotein kolesterol seviyesi",
         "de": "High-Density-Lipoprotein-Cholesterinspiegel",
         "fr": "Niveau de cholestérol des lipoprotéines de haute densité",
-        "es": "Nivel de colesterol de lipoproteínas de alta densidad"
+        "es": "Nivel de colesterol de lipoproteínas de alta densidad",
+        "ar": "مستوى كوليسترول البروتين الدهني عالي الكثافة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Systolischer Blutdruck",
         "fr": "Pression artérielle systolique",
         "es": "Presión arterial sistólica",
-        "ar": "Systolic Blood Pressure"
+        "ar": "ضغط الدم الانقباضي"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure reading",
         "tr": "Sistolik kan basıncı değeri",
         "de": "Systolischer Blutdruckwert",
         "fr": "Lecture de la pression artérielle systolique",
-        "es": "Lectura de presión arterial sistólica"
+        "es": "Lectura de presión arterial sistólica",
+        "ar": "قراءة ضغط الدم الانقباضي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Behandelt wegen Bluthochdruck",
         "fr": "Traité pour hypertension",
         "es": "Tratado por hipertensión",
-        "ar": "Treated for Hypertension"
+        "ar": "معالج من ارتفاع ضغط الدم"
       },
       "businessContext_i18n": {
         "en": "1 if patient is on hypertension medication, else 0",
         "tr": "Hasta hipertansiyon ilacı kullanıyorsa 1, değilse 0",
         "de": "1 wenn Patient blutdrucksenkende Medikamente einnimmt, sonst 0",
         "fr": "1 si le patient prend des médicaments contre l'hypertension, sinon 0",
-        "es": "1 si el paciente está bajo medicación para hipertensión, si no 0"
+        "es": "1 si el paciente está bajo medicación para hipertensión, si no 0",
+        "ar": "1 إذا كان المريض يتناول أدوية ارتفاع ضغط الدم، وإلا 0"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Diabetes",
         "fr": "Diabète",
         "es": "Diabetes",
-        "ar": "Diabetes"
+        "ar": "السكري"
       },
       "businessContext_i18n": {
         "en": "1 if patient has diabetes, else 0",
         "tr": "Hastada diyabet varsa 1, yoksa 0",
         "de": "1 wenn Patient Diabetes hat, sonst 0",
         "fr": "1 si le patient est diabétique, sinon 0",
-        "es": "1 si el paciente tiene diabetes, si no 0"
+        "es": "1 si el paciente tiene diabetes, si no 0",
+        "ar": "1 إذا كان المريض مصابًا بالسكري، وإلا 0"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Aktueller Raucher",
         "fr": "Fumeur actuel",
         "es": "Fumador actual",
-        "ar": "Current Smoker"
+        "ar": "مدخن حاليًا"
       },
       "businessContext_i18n": {
         "en": "1 if patient is a current smoker, else 0",
         "tr": "Hasta şu anda sigara içiyorsa 1, içmiyorsa 0",
         "de": "1 wenn Patient aktuell raucht, sonst 0",
         "fr": "1 si le patient fume actuellement, sinon 0",
-        "es": "1 si el paciente es fumador actual, si no 0"
+        "es": "1 si el paciente es fumador actual, si no 0",
+        "ar": "1 إذا كان المريض مدخنًا حاليًا، وإلا 0"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Männliches Geschlecht",
         "fr": "Sexe masculin",
         "es": "Sexo masculino",
-        "ar": "Male Sex"
+        "ar": "جنس ذكر"
       },
       "businessContext_i18n": {
         "en": "1 if male, 0 if female",
         "tr": "Erkekse 1, kadınsa 0",
         "de": "1 wenn männlich, 0 wenn weiblich",
         "fr": "1 si homme, 0 si femme",
-        "es": "1 si es hombre, 0 si es mujer"
+        "es": "1 si es hombre, 0 si es mujer",
+        "ar": "1 إذا كان ذكرًا، 0 إذا كان أنثى"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Geburtsjahr",
         "fr": "Année de naissance",
         "es": "Año de nacimiento",
-        "ar": "Doğum Yılı"
+        "ar": "سنة الميلاد"
       },
       "businessContext_i18n": {
         "en": "Kişinin doğum yılını giriniz.",
         "tr": "Kişinin doğum yılını giriniz.",
         "de": "Geben Sie das Geburtsjahr der Person ein.",
         "fr": "Entrez l'année de naissance de la personne.",
-        "es": "Ingrese el año de nacimiento de la persona."
+        "es": "Ingrese el año de nacimiento de la persona.",
+        "ar": "أدخل سنة ميلاد الشخص."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geburtsmonat",
         "fr": "Mois de naissance",
         "es": "Mes de nacimiento",
-        "ar": "Doğum Ayı"
+        "ar": "شهر الميلاد"
       },
       "businessContext_i18n": {
         "en": "1-12 arası değer giriniz (1=Ocak).",
         "tr": "1-12 arası değer giriniz (1=Ocak).",
         "de": "Wert zwischen 1 und 12 eingeben (1=Januar).",
         "fr": "Entrez une valeur entre 1 et 12 (1=Janvier).",
-        "es": "Ingrese un valor entre 1 y 12 (1=Enero)."
+        "es": "Ingrese un valor entre 1 y 12 (1=Enero).",
+        "ar": "أدخل قيمة بين 1 و12 (1=يناير)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geburtstag",
         "fr": "Jour de naissance",
         "es": "Día de nacimiento",
-        "ar": "Doğum Günü"
+        "ar": "يوم الميلاد"
       },
       "businessContext_i18n": {
         "en": "1-31 arası değer giriniz.",
         "tr": "1-31 arası değer giriniz.",
         "de": "Wert zwischen 1 und 31 eingeben.",
         "fr": "Entrez une valeur entre 1 et 31.",
-        "es": "Ingrese un valor entre 1 y 31."
+        "es": "Ingrese un valor entre 1 y 31.",
+        "ar": "أدخل قيمة بين 1 و31."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Referenzjahr",
         "fr": "Année de référence",
         "es": "Año de referencia",
-        "ar": "Referans Yılı"
+        "ar": "السنة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Yaşın hesaplanacağı referans yıl.",
         "tr": "Yaşın hesaplanacağı referans yıl.",
         "de": "Referenzjahr, für das das Alter berechnet wird.",
         "fr": "Année de référence pour le calcul de l'âge.",
-        "es": "Año de referencia para calcular la edad."
+        "es": "Año de referencia para calcular la edad.",
+        "ar": "السنة المرجعية لحساب العمر."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Referenzmonat",
         "fr": "Mois de référence",
         "es": "Mes de referencia",
-        "ar": "Referans Ayı"
+        "ar": "الشهر المرجعي"
       },
       "businessContext_i18n": {
         "en": "1-12 arası değer giriniz (1=Ocak).",
         "tr": "1-12 arası değer giriniz (1=Ocak).",
         "de": "Wert zwischen 1 und 12 eingeben (1=Januar).",
         "fr": "Entrez une valeur entre 1 et 12 (1=Janvier).",
-        "es": "Ingrese un valor entre 1 y 12 (1=Enero)."
+        "es": "Ingrese un valor entre 1 y 12 (1=Enero).",
+        "ar": "أدخل قيمة بين 1 و12 (1=يناير)."
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Referenztag",
         "fr": "Jour de référence",
         "es": "Día de referencia",
-        "ar": "Referans Günü"
+        "ar": "اليوم المرجعي"
       },
       "businessContext_i18n": {
         "en": "1-31 arası değer giriniz.",
         "tr": "1-31 arası değer giriniz.",
         "de": "Wert zwischen 1 und 31 eingeben.",
         "fr": "Entrez une valeur entre 1 et 31.",
-        "es": "Ingrese un valor entre 1 y 31."
+        "es": "Ingrese un valor entre 1 y 31.",
+        "ar": "أدخل قيمة بين 1 و31."
       }
     }
   ],
   "formulas": {
-    "result": "birthYear + birthMonth + birthDay",
-    "result_copy": "birthYear + birthMonth + birthDay"
+    "normalized_product": "birthYear * birthMonth * birthDay * referenceYear",
+    "result": "birthYear * birthMonth * birthDay * referenceYear * (referenceMonth * referenceDay)",
+    "adjustment_factor": "referenceMonth * referenceDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "ageInDays",
-      "ageInMonths",
-      "ageInWeeks"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "ageInHours",
-    "unit": "year"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

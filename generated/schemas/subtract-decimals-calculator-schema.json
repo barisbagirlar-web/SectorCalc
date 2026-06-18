@@ -14,14 +14,15 @@
         "de": "Erste Zahl (Minuend)",
         "fr": "Premier nombre (diminuende)",
         "es": "Primer número (minuendo)",
-        "ar": "First Number (Minuend)"
+        "ar": "الرقم الأول (المطروح منه)"
       },
       "businessContext_i18n": {
         "en": "The value from which another number is to be subtracted.",
         "tr": "Başka bir sayının çıkarılacağı değer.",
         "de": "Der Wert, von dem eine andere Zahl subtrahiert wird.",
         "fr": "La valeur à partir de laquelle un autre nombre doit être soustrait.",
-        "es": "Valor del cual se resta otro número."
+        "es": "Valor del cual se resta otro número.",
+        "ar": "القيمة التي سيتم طرح رقم آخر منها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zweite Zahl (Subtrahend)",
         "fr": "Deuxième nombre (soustracteur)",
         "es": "Segundo número (sustraendo)",
-        "ar": "Second Number (Subtrahend)"
+        "ar": "الرقم الثاني (المطروح)"
       },
       "businessContext_i18n": {
         "en": "The value to be subtracted from the first number.",
         "tr": "Birinci sayıdan çıkarılacak değer.",
         "de": "Der Wert, der von der ersten Zahl subtrahiert wird.",
         "fr": "La valeur à soustraire du premier nombre.",
-        "es": "Valor que se resta del primer número."
+        "es": "Valor que se resta del primer número.",
+        "ar": "القيمة التي سيتم طرحها من الرقم الأول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rundungsgenauigkeit",
         "fr": "Précision d'arrondi",
         "es": "Precisión de redondeo",
-        "ar": "Rounding Precision"
+        "ar": "دقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the intermediate difference for final output.",
         "tr": "Nihai çıktı için ara farkın yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden der Zwischendifferenz für die endgültige Ausgabe.",
         "fr": "Nombre de décimales pour arrondir la différence intermédiaire pour le résultat final.",
-        "es": "Número de decimales para redondear la diferencia intermedia para el resultado final."
+        "es": "Número de decimales para redondear la diferencia intermedia para el resultado final.",
+        "ar": "عدد المنازل العشرية لتقريب الفرق الوسيط للإخراج النهائي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Offset",
         "fr": "Décalage",
         "es": "Desplazamiento",
-        "ar": "Offset"
+        "ar": "الإزاحة"
       },
       "businessContext_i18n": {
         "en": "A constant added to the rounded difference (e.g., calibration or zero-offset).",
         "tr": "Yuvarlanmış farka eklenen sabit (örn. kalibrasyon veya sıfır ofseti).",
         "de": "Eine Konstante, die zur gerundeten Differenz addiert wird (z. B. Kalibrierung oder Nullpunktverschiebung).",
         "fr": "Une constante ajoutée à la différence arrondie (ex. calibration ou décalage zéro).",
-        "es": "Constante añadida a la diferencia redondeada (ej. calibración o compensación de cero)."
+        "es": "Constante añadida a la diferencia redondeada (ej. calibración o compensación de cero).",
+        "ar": "ثابت يضاف إلى الفرق المقرب (مثل المعايرة أو تعويض الصفر)."
       }
     }
   ],

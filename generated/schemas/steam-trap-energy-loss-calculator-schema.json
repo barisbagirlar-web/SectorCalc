@@ -25,14 +25,16 @@
         "tr": "Orifis çapı",
         "de": "Blendendurchmesser",
         "fr": "Diamètre de l'orifice",
-        "es": "Diámetro del orificio"
+        "es": "Diámetro del orificio",
+        "ar": "قطر الفتحة"
       },
       "businessContext_i18n": {
         "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
         "tr": "Trap orifis çapı; tipik arızalı traplarda orifis 1 mm ile 20 mm arasındadır.",
         "de": "Durchmesser der Kondensatableiteröffnung; typische defekte Ableiter haben Öffnungen von 1 mm bis 20 mm.",
         "fr": "Diamètre de l'orifice du purgeur ; les purgeurs défaillants typiques ont des orifices de 1 mm à 20 mm.",
-        "es": "Diámetro del orificio de la trampa; las trampas típicas falladas tienen orificios de 1 mm a 20 mm."
+        "es": "Diámetro del orificio de la trampa; las trampas típicas falladas tienen orificios de 1 mm a 20 mm.",
+        "ar": "قطر فتحة المصيدة؛ عادةً ما تكون فتحات المصائد المعطلة من 1 مم إلى 20 مم."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Buhar Basıncı (gösterge)",
         "de": "Dampfdruck (Überdruck)",
         "fr": "Pression de vapeur (manométrique)",
-        "es": "Presión de vapor (manométrica)"
+        "es": "Presión de vapor (manométrica)",
+        "ar": "ضغط البخار (مقياس)"
       },
       "businessContext_i18n": {
         "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
         "tr": "Trapin yukarı akışındaki buharın gösterge basıncı. Yaygın endüstriyel aralık 3–15 bar_g.",
         "de": "Überdruck des Dampfes vor dem Ableiter. Üblicher Industriebereich 3–15 bar_ü.",
         "fr": "Pression manométrique de la vapeur en amont du purgeur. Plage industrielle courante 3–15 bar_g.",
-        "es": "Presión manométrica del vapor aguas arriba de la trampa. Rango industrial común 3–15 bar_g."
+        "es": "Presión manométrica del vapor aguas arriba de la trampa. Rango industrial común 3–15 bar_g.",
+        "ar": "ضغط البخار المقاس قبل المصيدة. النطاق الصناعي الشائع 3–15 بار_مقياس."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Yıllık Çalışma Saati",
         "de": "Betriebsstunden pro Jahr",
         "fr": "Heures de fonctionnement par an",
-        "es": "Horas de operación por año"
+        "es": "Horas de operación por año",
+        "ar": "ساعات التشغيل سنويًا"
       },
       "businessContext_i18n": {
         "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
         "tr": "Buhar sisteminin yıllık çalışma saati. Tipik sürekli proses: 8000 h/yıl.",
         "de": "Jährliche Betriebsstunden des Dampfsystems. Typischer kontinuierlicher Prozess: 8000 h/Jahr.",
         "fr": "Heures de fonctionnement annuelles du système vapeur. Processus continu typique : 8000 h/an.",
-        "es": "Horas anuales de operación del sistema de vapor. Proceso continuo típico: 8000 h/año."
+        "es": "Horas anuales de operación del sistema de vapor. Proceso continuo típico: 8000 h/año.",
+        "ar": "ساعات التشغيل السنوية لنظام البخار. العملية المستمرة النموذجية: 8000 ساعة/سنة."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Buhar Maliyeti",
         "de": "Dampfkosten",
         "fr": "Coût de la vapeur",
-        "es": "Coste del vapor"
+        "es": "Coste del vapor",
+        "ar": "تكلفة البخار"
       },
       "businessContext_i18n": {
         "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
         "tr": "Yakıt, su arıtma ve bakım dahil olmak üzere bir metrik ton buhar üretme maliyeti.",
         "de": "Kosten zur Erzeugung einer metrischen Tonne Dampf, einschließlich Brennstoff, Wasseraufbereitung und Wartung.",
         "fr": "Coût de production d'une tonne métrique de vapeur, incluant le combustible, le traitement de l'eau et la maintenance.",
-        "es": "Coste de generar una tonelada métrica de vapor, incluyendo combustible, tratamiento de agua y mantenimiento."
+        "es": "Coste de generar una tonelada métrica de vapor, incluyendo combustible, tratamiento de agua y mantenimiento.",
+        "ar": "تكلفة توليد طن متري واحد من البخار، بما في ذلك الوقود ومعالجة المياه والصيانة."
       }
     },
     {
@@ -125,14 +133,16 @@
         "tr": "Trap Türü",
         "de": "Ableitertyp",
         "fr": "Type de purgeur",
-        "es": "Tipo de trampa"
+        "es": "Tipo de trampa",
+        "ar": "نوع المصيدة"
       },
       "businessContext_i18n": {
         "en": "Type of steam trap influences discharge coefficient and failure mode.",
         "tr": "Buhar trap türü, boşaltma katsayısını ve arıza modunu etkiler.",
         "de": "Der Kondensatableitertyp beeinflusst den Ausflusskoeffizienten und die Fehlerart.",
         "fr": "Le type de purgeur influence le coefficient de décharge et le mode de défaillance.",
-        "es": "El tipo de trampa de vapor influye en el coeficiente de descarga y el modo de fallo."
+        "es": "El tipo de trampa de vapor influye en el coeficiente de descarga y el modo de fallo.",
+        "ar": "نوع مصيدة البخار يؤثر على معامل التصريف وطريقة الفشل."
       },
       "unit": "unit"
     },
@@ -152,14 +162,16 @@
         "tr": "Arıza Modu",
         "de": "Fehlerart",
         "fr": "Mode de défaillance",
-        "es": "Modo de fallo"
+        "es": "Modo de fallo",
+        "ar": "نمط الفشل"
       },
       "businessContext_i18n": {
         "en": "Failure mode determines effective orifice area and discharge coefficient.",
         "tr": "Arıza modu, etkili orifis alanını ve boşaltma katsayısını belirler.",
         "de": "Die Fehlerart bestimmt die wirksame Öffnungsfläche und den Ausflusskoeffizienten.",
         "fr": "Le mode de défaillance détermine la surface d'orifice effective et le coefficient de décharge.",
-        "es": "El modo de fallo determina el área efectiva del orificio y el coeficiente de descarga."
+        "es": "El modo de fallo determina el área efectiva del orificio y el coeficiente de descarga.",
+        "ar": "نمط الفشل يحدد مساحة الفتحة الفعالة ومعامل التصريف."
       },
       "unit": "unit"
     },
@@ -174,14 +186,16 @@
         "tr": "Kondens Geri Kazanımı",
         "de": "Kondensatrückgewinnung",
         "fr": "Récupération des condensats",
-        "es": "Recuperación de condensado"
+        "es": "Recuperación de condensado",
+        "ar": "استرداد المكثفات"
       },
       "businessContext_i18n": {
         "en": "Whether condensate is recovered; affects net energy loss calculation.",
         "tr": "Kondensin geri kazanılıp kazanılmadığı; net enerji kaybı hesaplamasını etkiler.",
         "de": "Gibt an, ob Kondensat zurückgewonnen wird; beeinflusst die Berechnung des Nettoenergieverlusts.",
         "fr": "Indique si les condensats sont récupérés ; affecte le calcul de la perte d'énergie nette.",
-        "es": "Indica si se recupera el condensado; afecta el cálculo de la pérdida neta de energía."
+        "es": "Indica si se recupera el condensado; afecta el cálculo de la pérdida neta de energía.",
+        "ar": "ما إذا كان يتم استرداد المكثفات؛ يؤثر على حساب فقدان الطاقة الصافي."
       },
       "unit": "unit"
     }
@@ -217,18 +231,30 @@
     ]
   },
   "formulas": {
-    "result": "orifice_diameter + steam_pressure + operating_hours_per_year",
-    "result_copy": "orifice_diameter + steam_pressure + operating_hours_per_year"
+    "base_cost": "steam_pressure * steam_cost",
+    "adjusted_cost": "steam_pressure * steam_cost * 1",
+    "result": "steam_pressure * steam_cost * 1 * (orifice_diameter * operating_hours_per_year)",
+    "factor_orifice_diameter": "orifice_diameter",
+    "factor_operating_hours_per_year": "operating_hours_per_year"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_orifice_diameter",
+      "factor_operating_hours_per_year"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "USD"
   },
   "toolName": "steam-trap-energy-loss-calculator",
   "catalogCategory": "energy-carbon",

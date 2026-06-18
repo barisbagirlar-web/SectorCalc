@@ -14,14 +14,15 @@
         "de": "Grundpreis",
         "fr": "Tarif de base",
         "es": "Tarifa base",
-        "ar": "Base Fare"
+        "ar": "الأجرة الأساسية"
       },
       "businessContext_i18n": {
         "en": "Initial flag-drop or starting fee for taxi.",
         "tr": "Taksi için ilk açılış ücreti veya başlangıç ücreti",
         "de": "Grundgebühr oder Startgebühr für Taxi",
         "fr": "Frais de prise en charge ou de départ pour le taxi",
-        "es": "Tarifa inicial o banderazo del taxi"
+        "es": "Tarifa inicial o banderazo del taxi",
+        "ar": "رسوم البدء الأولية لسيارة الأجرة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kosten pro Kilometer",
         "fr": "Coût par kilomètre",
         "es": "Coste por kilómetro",
-        "ar": "Cost per Kilometer"
+        "ar": "التكلفة لكل كيلومتر"
       },
       "businessContext_i18n": {
         "en": "Rate charged per kilometer traveled.",
         "tr": "Seyahat edilen kilometre başına uygulanan ücret",
         "de": "Tarif pro gefahrenem Kilometer",
         "fr": "Tarif appliqué par kilomètre parcouru",
-        "es": "Tarifa cobrada por kilómetro recorrido"
+        "es": "Tarifa cobrada por kilómetro recorrido",
+        "ar": "السعر لكل كيلومتر يتم قطعه"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kosten pro Minute",
         "fr": "Coût par minute",
         "es": "Coste por minuto",
-        "ar": "Cost per Minute"
+        "ar": "التكلفة لكل دقيقة"
       },
       "businessContext_i18n": {
         "en": "Rate charged per minute for waiting or slow traffic.",
         "tr": "Bekleme veya yavaş trafik için dakika başına uygulanan ücret",
         "de": "Tarif pro Minute für Wartezeit oder langsamen Verkehr",
         "fr": "Tarif appliqué par minute d'attente ou de circulation lente",
-        "es": "Tarifa por minuto de espera o tráfico lento"
+        "es": "Tarifa por minuto de espera o tráfico lento",
+        "ar": "السعر لكل دقيقة انتظار أو حركة مرور بطيئة"
       }
     },
     {
@@ -83,13 +86,15 @@
         "de": "Fahrtstrecke",
         "fr": "Distance du trajet",
         "es": "Distancia del viaje",
-        "ar": "Trip Distance"
+        "ar": "مسافة الرحلة"
       },
       "businessContext_i18n": {
         "en": "Total distance of the trip in kilometers.",
         "tr": "Seyahatin kilometre cinsinden toplam mesafesi",
         "de": "Gesamtstrecke der Fahrt in Kilometern",
-        "fr": "Distance totale du trajet en kilomètres"
+        "fr": "Distance totale du trajet en kilomètres",
+        "es": "Distancia total del viaje en kilómetros.",
+        "ar": "المسافة الإجمالية للرحلة بالكيلومترات."
       }
     },
     {
@@ -104,14 +109,16 @@
         "tr": "Seyahat Süresi",
         "de": "Fahrtzeit",
         "fr": "Durée du trajet",
-        "es": "Trip Time",
-        "ar": "Trip Time"
+        "es": "Tiempo de viaje",
+        "ar": "وقت الرحلة"
       },
       "businessContext_i18n": {
         "en": "Total duration of the trip in minutes.",
         "tr": "Seyahatin dakika cinsinden toplam süresi",
         "de": "Gesamtdauer der Fahrt in Minuten",
-        "fr": "Durée totale du trajet en minutes"
+        "fr": "Durée totale du trajet en minutes",
+        "es": "Duración total del viaje en minutos.",
+        "ar": "المدة الإجمالية للرحلة بالدقائق."
       }
     },
     {
@@ -126,14 +133,16 @@
         "tr": "Ek Ücret",
         "de": "Zusätzlicher Zuschlag",
         "fr": "Supplément additionnel",
-        "es": "Additional Surcharge",
-        "ar": "Additional Surcharge"
+        "es": "Recargo adicional",
+        "ar": "رسوم إضافية"
       },
       "businessContext_i18n": {
         "en": "Any extra fees such as airport toll, night charge, etc.",
         "tr": "Havalimanı geçiş ücreti, gece ücreti vb. gibi ek ücretler",
         "de": "Zusätzliche Gebühren wie Flughafenmaut, Nachtzuschlag usw.",
-        "fr": "Frais supplémentaires tels que péage aéroportuaire, tarif de nuit, etc."
+        "fr": "Frais supplémentaires tels que péage aéroportuaire, tarif de nuit, etc.",
+        "es": "Cualquier tarifa extra como peaje de aeropuerto, cargo nocturno, etc.",
+        "ar": "أي رسوم إضافية مثل رسوم المطار، رسوم الليل، إلخ."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Upstream-Mach-Zahl (M1)",
         "fr": "Nombre de Mach amont (M1)",
         "es": "Número de Mach aguas arriba (M1)",
-        "ar": "Upstream Mach Number (M1)"
+        "ar": "رقم ماخ العلوي (M1)"
       },
       "businessContext_i18n": {
         "en": "Mach number before the expansion fan",
         "tr": "Genleşme fanı öncesi Mach sayısı",
         "de": "Mach-Zahl vor dem Expansionsfächer",
         "fr": "Nombre de Mach avant l'éventail de détente",
-        "es": "Número de Mach antes del abanico de expansión"
+        "es": "Número de Mach antes del abanico de expansión",
+        "ar": "رقم ماخ قبل مروحة التمدد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Isentropenexponent (γ)",
         "fr": "Rapport des chaleurs spécifiques (γ)",
         "es": "Relación de calores específicos (γ)",
-        "ar": "Specific Heat Ratio (γ)"
+        "ar": "نسبة الحرارة النوعية (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for the gas (e.g., 1.4 for air)",
         "tr": "Gazın özgül ısı oranı (örneğin hava için 1.4)",
         "de": "Isentropenexponent des Gases (z. B. 1,4 für Luft)",
         "fr": "Rapport des chaleurs spécifiques du gaz (ex. 1,4 pour l'air)",
-        "es": "Relación de calores específicos del gas (ej., 1.4 para aire)"
+        "es": "Relación de calores específicos del gas (ej., 1.4 para aire)",
+        "ar": "نسبة الحرارة النوعية للغاز (مثل 1.4 للهواء)"
       }
     },
     {
@@ -60,34 +62,37 @@
         "de": "Strömungsablenkungswinkel (θ)",
         "fr": "Angle de déviation de l'écoulement (θ)",
         "es": "Ángulo de desviación del flujo (θ)",
-        "ar": "Flow Deflection Angle (θ)"
+        "ar": "زاوية انحراف التدفق (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle through which the flow is turned (positive for expansion)",
         "tr": "Akışın döndürüldüğü açı (genleşme için pozitif)",
         "de": "Winkel, um den die Strömung umgelenkt wird (positiv für Expansion)",
         "fr": "Angle de rotation de l'écoulement (positif pour une détente)",
-        "es": "Ángulo de giro del flujo (positivo para expansión)"
+        "es": "Ángulo de giro del flujo (positivo para expansión)",
+        "ar": "الزاوية التي ينعطف بها التدفق (موجبة للتمدد)"
       }
     }
   ],
   "formulas": {
-    "result": "mach1 + gamma + deflectionAngle",
-    "result_aux": "mach1 + gamma + deflectionAngle"
+    "normalized_product": "mach1 * gamma * deflectionAngle",
+    "result": "mach1 * gamma * deflectionAngle"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Pressure Ratio (P2/P1)",
-      "Temperature Ratio (T2/T1)",
-      "Density Ratio (ρ2/ρ1)"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "densityRatio",
-    "unit": "degrees",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Pressure Ratio (P2/P1)": "%",
       "Temperature Ratio (T2/T1)": "%",

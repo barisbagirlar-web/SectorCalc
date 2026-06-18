@@ -14,14 +14,15 @@
         "de": "Anfangszahlung (P)",
         "fr": "Paiement initial (P)",
         "es": "Pago inicial (P)",
-        "ar": "Initial Payment (P)"
+        "ar": "الدفعة الأولية (P)"
       },
       "businessContext_i18n": {
         "en": "The payment amount at the end of the first period.",
         "tr": "İlk dönem sonundaki ödeme tutarı.",
         "de": "Der Zahlungsbetrag am Ende der ersten Periode.",
         "fr": "Montant du paiement à la fin de la première période.",
-        "es": "Monto del pago al final del primer período."
+        "es": "Monto del pago al final del primer período.",
+        "ar": "مبلغ الدفعة في نهاية الفترة الأولى."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wachstumsrate (g)",
         "fr": "Taux de croissance (g)",
         "es": "Tasa de crecimiento (g)",
-        "ar": "Growth Rate (g)"
+        "ar": "معدل النمو (g)"
       },
       "businessContext_i18n": {
         "en": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
         "tr": "Ödemenin her dönem büyüdüğü oran. Ondalık olarak girin (örneğin, %3 için 0,03).",
         "de": "Die Rate, mit der die Zahlung pro Periode wächst. Als Dezimalzahl eingeben (z. B. 0,03 für 3 %).",
         "fr": "Taux auquel le paiement augmente chaque période. Saisir en décimal (ex. 0,03 pour 3%).",
-        "es": "Tasa a la que crece el pago cada período. Ingrese como decimal (ej. 0.03 para 3%)."
+        "es": "Tasa a la que crece el pago cada período. Ingrese como decimal (ej. 0.03 para 3%).",
+        "ar": "المعدل الذي تنمو به الدفعة كل فترة. أدخل كرقم عشري (مثل 0.03 لـ 3%)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Diskontsatz (r)",
         "fr": "Taux d'actualisation (r)",
         "es": "Tasa de descuento (r)",
-        "ar": "Discount Rate (r)"
+        "ar": "معدل الخصم (r)"
       },
       "businessContext_i18n": {
         "en": "The interest rate per period used for discounting. Enter as decimal.",
         "tr": "İskonto için kullanılan dönem başına faiz oranı. Ondalık olarak girin.",
         "de": "Der Zinssatz pro Periode, der für die Abzinsung verwendet wird. Als Dezimalzahl eingeben.",
         "fr": "Taux d'intérêt par période utilisé pour l'actualisation. Saisir en décimal.",
-        "es": "Tasa de interés por período utilizada para descontar. Ingrese como decimal."
+        "es": "Tasa de interés por período utilizada para descontar. Ingrese como decimal.",
+        "ar": "سعر الفائدة لكل فترة يستخدم للخصم. أدخل كرقم عشري."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Anzahl der Perioden (n)",
         "fr": "Nombre de périodes (n)",
         "es": "Número de períodos (n)",
-        "ar": "Number of Periods (n)"
+        "ar": "عدد الفترات (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of payment periods.",
         "tr": "Toplam ödeme dönemi sayısı.",
         "de": "Gesamtzahl der Zahlungsperioden.",
         "fr": "Nombre total de périodes de paiement.",
-        "es": "Número total de períodos de pago."
+        "es": "Número total de períodos de pago.",
+        "ar": "إجمالي عدد فترات الدفع."
       }
     }
   ],
   "formulas": {
-    "result": "payment + growthRate + discountRate",
-    "result_copy": "payment + growthRate + discountRate"
+    "normalized_product": "payment * growthRate * discountRate * periods",
+    "result": "payment * growthRate * discountRate * periods"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "futureValue"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "futureValue",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Havacılık & Uzay",

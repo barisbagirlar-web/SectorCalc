@@ -14,14 +14,15 @@
         "de": "Wellendrehzahl (U/min)",
         "fr": "Vitesse de l'arbre (tr/min)",
         "es": "Velocidad del eje (RPM)",
-        "ar": "Shaft Speed (RPM)"
+        "ar": "سرعة العمود (دورة/دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the shaft in revolutions per minute.",
         "tr": "Milin dakikadaki devir cinsinden dönüş hızı.",
         "de": "Rotationsgeschwindigkeit der Welle in Umdrehungen pro Minute.",
         "fr": "Vitesse de rotation de l'arbre en tours par minute.",
-        "es": "Velocidad de rotación del eje en revoluciones por minuto."
+        "es": "Velocidad de rotación del eje en revoluciones por minuto.",
+        "ar": "السرعة الدورانية للعمود بعدد الدورات في الدقيقة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Kugeln",
         "fr": "Nombre de billes",
         "es": "Número de bolas",
-        "ar": "Number of Balls"
+        "ar": "عدد الكرات"
       },
       "businessContext_i18n": {
         "en": "Number of rolling elements in the bearing.",
         "tr": "Rulman içindeki yuvarlanma elemanlarının sayısı.",
         "de": "Anzahl der Wälzkörper im Lager.",
         "fr": "Nombre d'éléments roulants dans le roulement.",
-        "es": "Número de elementos rodantes en el rodamiento."
+        "es": "Número de elementos rodantes en el rodamiento.",
+        "ar": "عدد عناصر الدحرجة في المحمل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kugeldurchmesser",
         "fr": "Diamètre de bille",
         "es": "Diámetro de la bola",
-        "ar": "Ball Diameter"
+        "ar": "قطر الكرة"
       },
       "businessContext_i18n": {
         "en": "Diameter of a single rolling element.",
         "tr": "Tek bir yuvarlanma elemanının çapı.",
         "de": "Durchmesser eines einzelnen Wälzkörpers.",
         "fr": "Diamètre d'un élément roulant.",
-        "es": "Diámetro de un solo elemento rodante."
+        "es": "Diámetro de un solo elemento rodante.",
+        "ar": "قطر عنصر الدحرجة الواحد."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Teilkreisdurchmesser",
         "fr": "Diamètre primitif",
         "es": "Diámetro primitivo",
-        "ar": "Pitch Diameter"
+        "ar": "قطر الخطوة"
       },
       "businessContext_i18n": {
         "en": "Diameter of the circle passing through the centers of the rolling elements.",
         "tr": "Yuvarlanma elemanlarının merkezlerinden geçen dairenin çapı.",
         "de": "Durchmesser des Kreises durch die Mittelpunkte der Wälzkörper.",
         "fr": "Diamètre du cercle passant par les centres des éléments roulants.",
-        "es": "Diámetro del círculo que pasa por los centros de los elementos rodantes."
+        "es": "Diámetro del círculo que pasa por los centros de los elementos rodantes.",
+        "ar": "قطر الدائرة المارة بمراكز عناصر الدحرجة."
       }
     },
     {
@@ -106,46 +110,39 @@
         "de": "Eingriffswinkel",
         "fr": "Angle de contact",
         "es": "Ángulo de contacto",
-        "ar": "Contact Angle"
+        "ar": "زاوية التلامس"
       },
       "businessContext_i18n": {
         "en": "Angular contact angle of the bearing in degrees.",
         "tr": "Rulmanın açısal temas açısı (derece cinsinden).",
         "de": "Winkeleingriffswinkel des Lagers in Grad.",
         "fr": "Angle de contact du roulement en degrés.",
-        "es": "Ángulo de contacto angular del rodamiento en grados."
+        "es": "Ángulo de contacto angular del rodamiento en grados.",
+        "ar": "زاوية التلامس الزاوي للمحمل بالدرجات."
       }
     }
   ],
   "formulas": {
-    "result": "shaftSpeed + numBalls + ballDiameter",
-    "result_copy": "shaftSpeed + numBalls + ballDiameter"
+    "normalized_product": "shaftSpeed * numBalls * ballDiameter * pitchDiameter",
+    "result": "shaftSpeed * numBalls * ballDiameter * pitchDiameter * (contactAngle)",
+    "adjustment_factor": "contactAngle"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "bpfi",
-        "label": "Ball Pass Frequency Inner Race",
-        "unit": "Hz"
-      },
-      {
-        "id": "ftf",
-        "label": "Fundamental Train Frequency",
-        "unit": "Hz"
-      },
-      {
-        "id": "bsf",
-        "label": "Ball Spin Frequency",
-        "unit": "Hz"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "bsf",
-    "unit": "RPM"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

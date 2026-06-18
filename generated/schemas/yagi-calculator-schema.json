@@ -14,13 +14,15 @@
         "de": "Frequenz",
         "fr": "Fréquence",
         "es": "Frecuencia",
-        "ar": "Frekans"
+        "ar": "التردد"
       },
       "businessContext_i18n": {
         "en": "Çalışma frekansı (MHz)",
         "tr": "Çalışma frekansı (MHz)",
         "de": "Arbeitsfrequenz (MHz)",
-        "fr": "Fréquence de fonctionnement (MHz)"
+        "fr": "Fréquence de fonctionnement (MHz)",
+        "es": "Frecuencia de trabajo (MHz)",
+        "ar": "تردد التشغيل (MHz)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Eleman Sayısı",
         "de": "Anzahl der Elemente",
         "fr": "Nombre d'éléments",
-        "es": "Eleman Sayısı",
-        "ar": "Eleman Sayısı"
+        "es": "Número de elementos",
+        "ar": "عدد العناصر"
       },
       "businessContext_i18n": {
         "en": "Reflektör ve sürücü dahil toplam eleman sayısı",
         "tr": "Reflektör ve sürücü dahil toplam eleman sayısı",
         "de": "Gesamtzahl der Elemente inklusive Reflektor und Treiber",
-        "fr": "Nombre total d'éléments, réflecteur et driver inclus"
+        "fr": "Nombre total d'éléments, réflecteur et driver inclus",
+        "es": "Número total de elementos, incluyendo reflector y driver.",
+        "ar": "إجمالي عدد العناصر بما في ذلك العاكس والمحرك"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Hız Faktörü",
         "de": "Geschwindigkeitsfaktor",
         "fr": "Facteur de vitesse",
-        "es": "Hız Faktörü",
-        "ar": "Hız Faktörü"
+        "es": "Factor de velocidad",
+        "ar": "عامل السرعة"
       },
       "businessContext_i18n": {
         "en": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
         "tr": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
         "de": "Korrekturfaktor für Hauteffekt, normalerweise 0,95",
-        "fr": "Coefficient de correction d'effet de peau, généralement 0,95"
+        "fr": "Coefficient de correction d'effet de peau, généralement 0,95",
+        "es": "Coeficiente de corrección por efecto de piel, generalmente 0.95.",
+        "ar": "معامل تصحيح تأثير الغلاف، عادة 0.95"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Aralık Katsayısı",
         "de": "Abstandsfaktor",
         "fr": "Coefficient d'espacement",
-        "es": "Aralık Katsayısı",
-        "ar": "Aralık Katsayısı"
+        "es": "Coeficiente de espaciado",
+        "ar": "معامل التباعد"
       },
       "businessContext_i18n": {
         "en": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
         "tr": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
         "de": "Wellenlängenverhältnis zwischen Elementen (z. B. 0,2λ)",
-        "fr": "Rapport de longueur d'onde entre éléments (ex. 0,2λ)"
+        "fr": "Rapport de longueur d'onde entre éléments (ex. 0,2λ)",
+        "es": "Relación de longitud de onda entre elementos (ej. 0.2λ).",
+        "ar": "نسبة الطول الموجي بين العناصر (مثل 0.2λ)"
       }
     }
   ],

@@ -24,15 +24,17 @@
         "en": "Cut Volume",
         "tr": "Kesme Hacmi",
         "de": "Abtragsvolumen",
-        "fr": "Cut Volume",
-        "es": "Volumen de corte"
+        "fr": "Volume de déblai",
+        "es": "Volumen de corte",
+        "ar": "حجم القطع"
       },
       "businessContext_i18n": {
         "en": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
         "tr": "Kesme alanlarından kazılacak toplam malzeme hacmi, bank metreküp (BCM) cinsinden ölçülür.",
         "de": "Gesamtvolumen des aus Abtragsbereichen auszuhebenden Materials, gemessen in Bank Cubic Metern (BCM).",
-        "fr": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
-        "es": "Volumen total de material a excavar en áreas de corte, medido en metros cúbicos en banco (BCM)."
+        "fr": "Volume total de matériau à excaver des zones de déblai, mesuré en mètres cubes en place (BCM).",
+        "es": "Volumen total de material a excavar en áreas de corte, medido en metros cúbicos en banco (BCM).",
+        "ar": "الحجم الإجمالي للمواد المراد حفرها من مناطق القطع، مقاسًا بالمتر المكعب البنكي (BCM)."
       }
     },
     {
@@ -48,15 +50,17 @@
         "en": "Fill Volume",
         "tr": "Dolgu Hacmi",
         "de": "Füllvolumen",
-        "fr": "Fill Volume",
-        "es": "Volumen de relleno"
+        "fr": "Volume de remblai",
+        "es": "Volumen de relleno",
+        "ar": "حجم الردم"
       },
       "businessContext_i18n": {
         "en": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
         "tr": "Dolgu/set alanları için gereken toplam malzeme hacmi, sıkıştırılmış metreküp (CCM) cinsinden ölçülür.",
         "de": "Gesamtvolumen des Materials, das für Damm-/Verfüllbereiche benötigt wird, gemessen in verdichteten Kubikmetern (CCM).",
-        "fr": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
-        "es": "Volumen total de material requerido para áreas de relleno/terraplén, medido en metros cúbicos compactados (CCM)."
+        "fr": "Volume total de matériau nécessaire pour les zones de remblai, mesuré en mètres cubes compactés (CCM).",
+        "es": "Volumen total de material requerido para áreas de relleno/terraplén, medido en metros cúbicos compactados (CCM).",
+        "ar": "الحجم الإجمالي للمواد المطلوبة لمناطق الردم/السد، مقاسًا بالمتر المكعب المدموك (CCM)."
       }
     },
     {
@@ -72,15 +76,17 @@
         "en": "Swell Factor",
         "tr": "Kabarma Faktörü",
         "de": "Auflockerungsfaktor",
-        "fr": "Swell Factor",
-        "es": "Factor de esponjamiento"
+        "fr": "Coefficient de foisonnement",
+        "es": "Factor de esponjamiento",
+        "ar": "معامل الانتفاخ"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
         "tr": "Malzemenin kazıldığında hacim artışını hesaba katan faktör (gevşek durum vs. bank durumu). Tipik aralık 1.1–1.4.",
         "de": "Faktor, der die Volumenzunahme beim Ausheben berücksichtigt (lose vs. gewachsener Zustand). Typischer Bereich 1,1–1,4.",
-        "fr": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
-        "es": "Factor que contabiliza el aumento de volumen al excavar material (estado suelto vs. banco). Rango típico 1.1–1.4."
+        "fr": "Facteur tenant compte de l'augmentation de volume lors de l'excavation (état foisonné vs. état en place). Plage typique 1,1–1,4.",
+        "es": "Factor que contabiliza el aumento de volumen al excavar material (estado suelto vs. banco). Rango típico 1.1–1.4.",
+        "ar": "معامل يفسر الزيادة في الحجم عند حفر المواد (حالة فضفاضة مقابل حالة بنكية). النطاق النموذجي 1.1–1.4."
       }
     },
     {
@@ -96,15 +102,17 @@
         "en": "Shrinkage Factor",
         "tr": "Büzülme Faktörü",
         "de": "Schwindfaktor",
-        "fr": "Shrinkage Factor",
-        "es": "Factor de contracción"
+        "fr": "Coefficient de retrait",
+        "es": "Factor de contracción",
+        "ar": "معامل الانكماش"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
         "tr": "Malzemenin sıkıştırıldığında hacim azalmasını hesaba katan faktör (sıkıştırılmış durum vs. bank durumu). Tipik aralık 0.75–0.95.",
         "de": "Verdichtungsfaktor",
-        "fr": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
-        "es": "Factor de compactación"
+        "fr": "Coefficient de tassement",
+        "es": "Factor de compactación",
+        "ar": "معامل الانضغاط"
       }
     },
     {
@@ -120,15 +128,17 @@
         "en": "Average Haul Distance",
         "tr": "Ortalama Taşıma Mesafesi",
         "de": "Mittlere Transportentfernung",
-        "fr": "Average Haul Distance",
-        "es": "Distancia media de acarreo"
+        "fr": "Facteur tenant compte de la diminution de volume lors du compactage (état compacté vs. état en place). Plage typique 0,75–0,95.",
+        "es": "Distancia media de acarreo",
+        "ar": "متوسط مسافة النقل"
       },
       "businessContext_i18n": {
         "en": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
         "tr": "Kesme alanlarından dolgu alanlarına tek yönlü ortalama mesafe, maliyet ve yakıt hesaplamalarında kullanılır.",
         "de": "Mittlere einfache Entfernung vom Einschnitt zur Verfüllung, verwendet für Kosten- und Kraftstoffberechnungen.",
-        "fr": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
-        "es": "Distancia media de ida desde áreas de corte a relleno, utilizada para cálculos de coste y combustible."
+        "fr": "Distance de transport moyenne",
+        "es": "Distancia media de ida desde áreas de corte a relleno, utilizada para cálculos de coste y combustible.",
+        "ar": "متوسط مسافة الذهاب من مناطق القطع إلى الردم، تستخدم لحساب التكلفة والوقود."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Birim Taşıma Maliyeti",
         "de": "Stücktransportkosten",
         "fr": "Coût de transport unitaire",
-        "es": "Coste unitario de acarreo"
+        "es": "Coste unitario de acarreo",
+        "ar": "تكلفة النقل للوحدة"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
         "tr": "Malzeme taşımanın metreküp başına kilometre başına maliyeti; yakıt, işçilik ve ekipman amortismanını içerir.",
         "de": "Kosten pro Kubikmeter pro Kilometer für den Materialtransport, einschließlich Kraftstoff, Arbeit und Geräteabschreibung.",
         "fr": "Coût par mètre cube par kilomètre de transport de matériau, incluant carburant, main-d'œuvre et dépréciation de l'équipement.",
-        "es": "Coste por metro cúbico por kilómetro de acarreo de material, incluyendo combustible, mano de obra y depreciación del equipo."
+        "es": "Coste por metro cúbico por kilómetro de acarreo de material, incluyendo combustible, mano de obra y depreciación del equipo.",
+        "ar": "التكلفة لكل متر مكعب لكل كيلومتر من نقل المواد، تشمل الوقود والعمالة وإهلاك المعدات."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Atık Bertaraf Maliyeti",
         "de": "Entsorgungskosten",
         "fr": "Coût d'élimination des déchets",
-        "es": "Coste de eliminación de residuos"
+        "es": "Coste de eliminación de residuos",
+        "ar": "تكلفة التخلص من النفايات"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter for disposing excess material at a designated waste site.",
         "tr": "Fazla malzemenin belirlenmiş bir atık sahasında bertaraf edilmesinin metreküp başına maliyeti.",
         "de": "Kosten pro Kubikmeter für die Entsorgung von Überschussmaterial auf einer dafür vorgesehenen Deponie.",
         "fr": "Coût par mètre cube pour l'élimination des matériaux excédentaires dans un site de décharge désigné.",
-        "es": "Coste por metro cúbico para eliminar material sobrante en un vertedero designado."
+        "es": "Coste por metro cúbico para eliminar material sobrante en un vertedero designado.",
+        "ar": "التكلفة لكل متر مكعب للتخلص من المواد الزائدة في موقع نفايات مخصص."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Ödünç Malzeme Maliyeti",
         "de": "Materialkosten aus Entnahmegrube",
         "fr": "Coût du matériau d'emprunt",
-        "es": "Coste de material de préstamo"
+        "es": "Coste de material de préstamo",
+        "ar": "تكلفة المواد المستعارة"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
         "tr": "Dolgu açığını karşılamak için bir ödünç ocaktan malzeme ithal etmenin metreküp başına maliyeti.",
         "de": "Kosten pro Kubikmeter für den Import von Material aus einer Entnahmegrube zur Deckung des Verfüllungsdefizits.",
         "fr": "Coût par mètre cube pour importer du matériau d'une carrière afin de combler un déficit de remblai.",
-        "es": "Coste por metro cúbico para importar material de un banco de préstamo para cubrir el déficit de relleno."
+        "es": "Coste por metro cúbico para importar material de un banco de préstamo para cubrir el déficit de relleno.",
+        "ar": "التكلفة لكل متر مكعب لاستيراد المواد من حفرة اقتراض لتلبية العجز في الردم."
       }
     }
   ],
@@ -250,18 +266,30 @@
     ]
   },
   "formulas": {
-    "result": "cutVolume + fillVolume + swellFactor",
-    "result_copy": "cutVolume + fillVolume + swellFactor"
+    "base_cost": "swellFactor * unitHaulCost",
+    "adjusted_cost": "swellFactor * unitHaulCost * 1",
+    "result": "swellFactor * unitHaulCost * 1 * (cutVolume * fillVolume)",
+    "factor_cutVolume": "cutVolume",
+    "factor_fillVolume": "fillVolume"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_cutVolume",
+      "factor_fillVolume"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "m³"
+    "unit": "USD"
   },
   "toolName": "cut-fill-balance-optimizer-calculator",
   "catalogCategory": "everyday-life",

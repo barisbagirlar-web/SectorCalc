@@ -14,14 +14,15 @@
         "de": "Gewicht in Pfund",
         "fr": "Poids en livres",
         "es": "Peso en libras",
-        "ar": "Weight in Pounds"
+        "ar": "الوزن بالرطل"
       },
       "businessContext_i18n": {
         "en": "The weight in pounds to convert to calories. Standard use is for body fat energy content.",
         "tr": "Kaloriye dönüştürülecek pound cinsinden ağırlık. Standart kullanım vücut yağ enerji içeriği içindir.",
         "de": "Das Gewicht in Pfund zur Umrechnung in Kalorien. Standardmäßig für den Energiegehalt von Körperfett.",
         "fr": "Le poids en livres à convertir en calories. Utilisation standard pour le contenu énergétique de la graisse corporelle.",
-        "es": "El peso en libras para convertir a calorías. El uso estándar es para el contenido energético de la grasa corporal."
+        "es": "El peso en libras para convertir a calorías. El uso estándar es para el contenido energético de la grasa corporal.",
+        "ar": "الوزن بالرطل المراد تحويله إلى سعرات حرارية. الاستخدام القياسي هو لمحتوى الطاقة في دهون الجسم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalorien pro Pfund",
         "fr": "Calories par livre",
         "es": "Calorías por libra",
-        "ar": "Calories per Pound"
+        "ar": "السعرات الحرارية لكل رطل"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat.",
         "tr": "Pound'dan kaloriye dönüşüm faktörü. Varsayılan 3500 kcal/lb, vücut yağı için yaygın olarak kabul edilen değerdir.",
         "de": "Umrechnungsfaktor von Pfund in Kalorien. Standard 3500 kcal/lb ist der allgemein akzeptierte Wert für Körperfett.",
         "fr": "Facteur de conversion des livres en calories. La valeur par défaut de 3500 kcal/lb est largement acceptée pour la graisse corporelle.",
-        "es": "Factor de conversión de libras a calorías. El valor predeterminado de 3500 kcal/lb es ampliamente aceptado para la grasa corporal."
+        "es": "Factor de conversión de libras a calorías. El valor predeterminado de 3500 kcal/lb es ampliamente aceptado para la grasa corporal.",
+        "ar": "عامل التحويل من الرطل إلى السعرات الحرارية. القيمة الافتراضية 3500 سعرة حرارية/رطل هي القيمة المقبولة على نطاق واسع لدهون الجسم."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kilojoule anzeigen",
         "fr": "Inclure les kilojoules",
         "es": "Incluir kilojulios",
-        "ar": "Include Kilojoules"
+        "ar": "تضمين الكيلوجول"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to also display the equivalent energy in kilojoules.",
         "tr": "Eşdeğer enerjiyi kilojul cinsinden de göstermek için 1 olarak ayarlayın.",
         "de": "Auf 1 setzen, um auch die äquivalente Energie in Kilojoule anzuzeigen.",
         "fr": "Régler sur 1 pour afficher également l'énergie équivalente en kilojoules.",
-        "es": "Establecer en 1 para mostrar también la energía equivalente en kilojulios."
+        "es": "Establecer en 1 para mostrar también la energía equivalente en kilojulios.",
+        "ar": "اضبط على 1 لعرض الطاقة المكافئة بالكيلوجول أيضًا."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Rundungsgenauigkeit",
         "fr": "Précision d'arrondi",
         "es": "Precisión de redondeo",
-        "ar": "Rounding Precision"
+        "ar": "دقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output values.",
         "tr": "Çıktı değerlerinin yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden der Ausgabewerte.",
         "fr": "Nombre de décimales pour arrondir les valeurs de sortie.",
-        "es": "Número de decimales para redondear los valores de salida."
+        "es": "Número de decimales para redondear los valores de salida.",
+        "ar": "عدد المنازل العشرية لتقريب القيم الناتجة."
       }
     }
   ],
   "formulas": {
-    "result": "weightPounds + caloriesPerPound + includeKilojoules",
-    "result_copy": "weightPounds + caloriesPerPound + includeKilojoules"
+    "normalized_product": "weightPounds * caloriesPerPound * includeKilojoules * roundingPrecision",
+    "result": "weightPounds * caloriesPerPound * includeKilojoules * roundingPrecision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "calories",
-      "kilojoules"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "kilojoules",
-    "unit": "lb"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

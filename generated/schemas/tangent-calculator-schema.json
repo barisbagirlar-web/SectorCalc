@@ -14,14 +14,15 @@
         "de": "Winkel",
         "fr": "Angle",
         "es": "Ángulo",
-        "ar": "Angle"
+        "ar": "الزاوية"
       },
       "businessContext_i18n": {
         "en": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1.",
         "tr": "Açı değeri. Derece kullanılıyorsa unitRadians 0 olmalı; radyan kullanılıyorsa unitRadians 1 olarak ayarlanmalıdır.",
         "de": "Winkelwert. Bei Verwendung von Grad sollte unitRadians 0 sein; bei Bogenmaß setzen Sie unitRadians auf 1.",
         "fr": "Valeur de l'angle. Si vous utilisez des degrés, unitRadians doit être 0 ; si des radians, définissez unitRadians sur 1.",
-        "es": "Valor del ángulo. Si se usan grados, unitRadians debe ser 0; si se usan radianes, establezca unitRadians en 1."
+        "es": "Valor del ángulo. Si se usan grados, unitRadians debe ser 0; si se usan radianes, establezca unitRadians en 1.",
+        "ar": "قيمة الزاوية. إذا كنت تستخدم الدرجات، يجب أن يكون unitRadians 0؛ إذا كان بالراديان، اضبط unitRadians على 1."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bogenmaß verwenden",
         "fr": "Utiliser les radians",
         "es": "Usar radianes",
-        "ar": "Use Radians"
+        "ar": "استخدام الراديان"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the angle is in radians; set to 0 for degrees.",
         "tr": "Açı radyan cinsindense 1, derece cinsindense 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, wenn der Winkel im Bogenmaß vorliegt; bei Grad auf 0 setzen.",
         "fr": "Définir sur 1 si l'angle est en radians ; sur 0 pour les degrés.",
-        "es": "Establezca en 1 si el ángulo está en radianes; en 0 para grados."
+        "es": "Establezca en 1 si el ángulo está en radianes; en 0 para grados.",
+        "ar": "اضبط على 1 إذا كانت الزاوية بالراديان؛ اضبط على 0 للدرجات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output tangent.",
         "tr": "Çıktı tanjantı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den ausgegebenen Tangens.",
         "fr": "Nombre de décimales pour la tangente de sortie.",
-        "es": "Número de decimales para la tangente de salida."
+        "es": "Número de decimales para la tangente de salida.",
+        "ar": "عدد المنازل العشرية لظل الزاوية الناتج."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "tan(2θ) berechnen?",
         "fr": "Calculer tan(2θ) ?",
         "es": "¿Calcular tan(2θ)?",
-        "ar": "Compute tan(2θ)?"
+        "ar": "حساب tan(2θ)?"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ).",
         "tr": "Açının iki katının tanjantını (2θ) hesaplamak için 1, tan(θ) için 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, um den Tangens des doppelten Winkels (2θ) zu berechnen; 0 für tan(θ).",
         "fr": "Définir sur 1 pour calculer la tangente du double de l'angle (2θ) ; 0 pour tan(θ).",
-        "es": "Establezca en 1 para calcular la tangente del doble del ángulo (2θ); 0 para tan(θ)."
+        "es": "Establezca en 1 para calcular la tangente del doble del ángulo (2θ); 0 para tan(θ).",
+        "ar": "اضبط على 1 لحساب ظل ضعف الزاوية (2θ)؛ 0 لـ tan(θ)."
       }
     }
   ],

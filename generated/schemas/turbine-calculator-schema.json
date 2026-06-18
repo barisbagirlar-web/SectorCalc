@@ -10,17 +10,19 @@
       "businessContext": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
       "label_i18n": {
         "en": "Hava Yoğunluğu",
-        "tr": "Hava Yoğunluğu",
-        "de": "Hava Yoğunluğu",
+        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+        "de": "Luftdichte",
         "fr": "Densité de l'air",
-        "es": "Hava Yoğunluğu",
-        "ar": "Hava Yoğunluğu"
+        "es": "Densidad del aire",
+        "ar": "كثافة الهواء"
       },
       "businessContext_i18n": {
         "en": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
         "tr": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
         "de": "Standard-Luftdichte auf Meereshöhe bei 15°C. Ändert sich mit Höhe und Temperatur.",
-        "fr": "Densité de l'air standard au niveau de la mer à 15°C. Varie selon l'altitude et la température."
+        "fr": "Densité de l'air standard au niveau de la mer à 15°C. Varie selon l'altitude et la température.",
+        "es": "Densidad del aire estándar a 15°C a nivel del mar. Varía según altitud y temperatura.",
+        "ar": "كثافة الهواء القياسية عند مستوى سطح البحر و15 درجة مئوية. تتغير حسب الارتفاع ودرجة الحرارة."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Rotor Çapı",
         "de": "Rotordurchmesser",
         "fr": "Diamètre du rotor",
-        "es": "Rotor Çapı",
-        "ar": "Rotor Çapı"
+        "es": "Diámetro del rotor",
+        "ar": "قطر الدوار"
       },
       "businessContext_i18n": {
         "en": "Türbin kanatlarının süpürdüğü dairenin çapı.",
         "tr": "Türbin kanatlarının süpürdüğü dairenin çapı.",
         "de": "Durchmesser des Kreises, den die Turbinenblätter überstreichen.",
-        "fr": "Diamètre du cercle balayé par les pales de l'éolienne."
+        "fr": "Diamètre du cercle balayé par les pales de l'éolienne.",
+        "es": "Diámetro del círculo barrido por las aspas de la turbina.",
+        "ar": "قطر الدائرة التي تمسحها شفرات التوربين."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Rüzgar Hızı",
         "de": "Windgeschwindigkeit",
         "fr": "Vitesse du vent",
-        "es": "Rüzgar Hızı",
-        "ar": "Rüzgar Hızı"
+        "es": "Velocidad del viento",
+        "ar": "سرعة الرياح"
       },
       "businessContext_i18n": {
         "en": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
         "tr": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
         "de": "Durchschnittliche Windgeschwindigkeit in Nabenhöhe.",
-        "fr": "Vitesse moyenne du vent à la hauteur des pales."
+        "fr": "Vitesse moyenne du vent à la hauteur des pales.",
+        "es": "Velocidad promedio del viento a la altura de las aspas.",
+        "ar": "متوسط سرعة الرياح عند ارتفاع الشفرة."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Wirkungsgrad",
         "fr": "Efficacité",
         "es": "Eficiencia",
-        "ar": "Verimlilik"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
-        "tr": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
+        "tr": "Türbin Verimliliği",
         "de": "Gesamte aerodynamische und mechanische Effizienz der Turbine. Typischerweise 35-45%.",
-        "fr": "Efficacité aérodynamique et mécanique globale de l'éolienne. Typiquement entre 35 et 45 %."
+        "fr": "Efficacité aérodynamique et mécanique globale de l'éolienne. Typiquement entre 35 et 45 %.",
+        "es": "Eficiencia aerodinámica y mecánica general de la turbina. Típicamente entre 35-45%.",
+        "ar": "الكفاءة الديناميكية الهوائية والميكانيكية الكلية للتوربين. عادة بين 35-45%."
       }
     }
   ],

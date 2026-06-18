@@ -14,14 +14,15 @@
         "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
         "fr": "EBIT (Bénéfice avant intérêts et impôts)",
         "es": "EBIT (Ganancias antes de intereses e impuestos)",
-        "ar": "EBIT (Faiz ve Vergi Öncesi Kar)"
+        "ar": "EBIT (الأرباح قبل الفوائد والضرائب)"
       },
       "businessContext_i18n": {
         "en": "Faiz ve vergi öncesi net faaliyet karıdır.",
         "tr": "Faiz ve vergi öncesi net faaliyet karıdır.",
         "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
         "fr": "Bénéfice net d'exploitation avant intérêts et impôts.",
-        "es": "Utilidad operativa neta antes de intereses e impuestos."
+        "es": "Utilidad operativa neta antes de intereses e impuestos.",
+        "ar": "صافي الربح التشغيلي قبل الفوائد والضرائب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Steuersatz",
         "fr": "Taux d'imposition",
         "es": "Tasa impositiva",
-        "ar": "Vergi Oranı"
+        "ar": "معدل الضريبة"
       },
       "businessContext_i18n": {
         "en": "Kurumlar vergisi oranıdır.",
         "tr": "Kurumlar vergisi oranıdır.",
         "de": "Körperschaftsteuersatz.",
         "fr": "Taux d'impôt sur les sociétés.",
-        "es": "Tasa de impuesto corporativo."
+        "es": "Tasa de impuesto corporativo.",
+        "ar": "معدل ضريبة الشركات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtschulden",
         "fr": "Dette totale",
         "es": "Deuda Total",
-        "ar": "Toplam Borç"
+        "ar": "إجمالي الديون"
       },
       "businessContext_i18n": {
         "en": "Şirketin toplam kısa ve uzun vadeli borçları.",
         "tr": "Şirketin toplam kısa ve uzun vadeli borçları.",
         "de": "Gesamte kurzfristige und langfristige Verbindlichkeiten des Unternehmens.",
         "fr": "Dettes totales à court et long terme de l'entreprise.",
-        "es": "Deuda total de la empresa a corto y largo plazo."
+        "es": "Deuda total de la empresa a corto y largo plazo.",
+        "ar": "إجمالي ديون الشركة قصيرة وطويلة الأجل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gesamtes Eigenkapital",
         "fr": "Capitaux propres totaux",
         "es": "Patrimonio total",
-        "ar": "Toplam Öz Sermaye"
+        "ar": "إجمالي حقوق الملكية"
       },
       "businessContext_i18n": {
         "en": "Şirketin hissedarlara ait öz sermayesi.",
         "tr": "Şirketin hissedarlara ait öz sermayesi.",
         "de": "Eigenkapital der Aktionäre.",
         "fr": "Capitaux propres appartenant aux actionnaires de l'entreprise.",
-        "es": "Patrimonio neto de los accionistas de la empresa."
+        "es": "Patrimonio neto de los accionistas de la empresa.",
+        "ar": "حقوق ملكية الشركة العائدة للمساهمين."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Zahlungsmittel und Zahlungsmitteläquivalente",
         "fr": "Trésorerie et équivalents de trésorerie",
         "es": "Efectivo y equivalentes de efectivo",
-        "ar": "Nakit ve Nakit Benzerleri"
+        "ar": "النقد وما في حكمه"
       },
       "businessContext_i18n": {
         "en": "Kasadaki nakit ve likit varlıklar.",
         "tr": "Kasadaki nakit ve likit varlıklar.",
         "de": "Bargeld und liquide Mittel in der Kasse.",
         "fr": "Trésorerie et actifs liquides en caisse.",
-        "es": "Efectivo y activos líquidos en caja."
+        "es": "Efectivo y activos líquidos en caja.",
+        "ar": "النقد والأصول السائلة في الصندوق."
       }
     }
   ],
   "formulas": {
-    "result": "ebit + taxRate + totalDebt",
-    "result_copy": "ebit + taxRate + totalDebt"
+    "normalized_product": "ebit * (taxRate / 100) * totalDebt * totalEquity",
+    "result": "ebit * (taxRate / 100) * totalDebt * totalEquity * (cash)",
+    "adjustment_factor": "cash"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "nopat",
-      "investedCapital"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "roic",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

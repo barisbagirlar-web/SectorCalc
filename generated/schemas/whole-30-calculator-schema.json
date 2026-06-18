@@ -13,14 +13,16 @@
         "tr": "Günlük Malzeme Talebi",
         "de": "Täglicher Materialbedarf",
         "fr": "Demande quotidienne de matière",
-        "es": "Daily Material Demand",
-        "ar": "Daily Material Demand"
+        "es": "Demanda diaria de material",
+        "ar": "الطلب اليومي على المواد"
       },
       "businessContext_i18n": {
         "en": "The amount of raw material required per day in kilograms.",
         "tr": "Günlük kilogram cinsinden gerekli hammadde miktarı.",
         "de": "Die pro Tag benötigte Rohmaterialmenge in Kilogramm.",
-        "fr": "Quantité de matière première nécessaire par jour en kilogrammes."
+        "fr": "Quantité de matière première nécessaire par jour en kilogrammes.",
+        "es": "Cantidad de materia prima requerida por día en kilogramos.",
+        "ar": "كمية المواد الخام المطلوبة يوميًا بالكيلوجرام."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Kosten pro kg",
         "fr": "Coût par kg",
         "es": "Costo por kg",
-        "ar": "Cost per kg"
+        "ar": "التكلفة لكل كجم"
       },
       "businessContext_i18n": {
         "en": "Unit cost of the material in EUR per kg.",
         "tr": "Malzemenin kg başına EUR cinsinden birim maliyeti.",
         "de": "Stückkosten des Materials in EUR pro kg.",
-        "fr": "Coût unitaire de la matière en EUR par kg."
+        "fr": "Coût unitaire de la matière en EUR par kg.",
+        "es": "Coste unitario del material en EUR por kg.",
+        "ar": "تكلفة الوحدة من المادة باليورو لكل كجم."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Fire Oranı",
         "de": "Ausschussrate",
         "fr": "Taux de perte",
-        "es": "Waste Rate",
-        "ar": "Waste Rate"
+        "es": "Tasa de desperdicio",
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of material wasted during processing.",
         "tr": "İşleme sırasında israf edilmesi beklenen malzeme yüzdesi.",
         "de": "Erwarteter Prozentsatz des während der Verarbeitung verschwendeten Materials.",
-        "fr": "Pourcentage attendu de matière perdue lors du traitement."
+        "fr": "Pourcentage attendu de matière perdue lors du traitement.",
+        "es": "Porcentaje esperado de material desperdiciado durante el procesamiento.",
+        "ar": "النسبة المئوية المتوقعة من المواد المهدرة أثناء المعالجة."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
         "es": "Número de días",
-        "ar": "Number of Days"
+        "ar": "عدد الأيام"
       },
       "businessContext_i18n": {
         "en": "Production period in days (default 30 for Whole 30).",
         "tr": "Gün cinsinden üretim dönemi (varsayılan 30, Whole 30 için).",
         "de": "Produktionszeitraum in Tagen (Standard 30 für Whole 30).",
-        "fr": "Période de production en jours (30 par défaut pour Whole 30)."
+        "fr": "Période de production en jours (30 par défaut pour Whole 30).",
+        "es": "Período de producción en días (por defecto 30 para Whole 30).",
+        "ar": "فترة الإنتاج بالأيام (الافتراضي 30 لـ Whole 30)."
       }
     }
   ],

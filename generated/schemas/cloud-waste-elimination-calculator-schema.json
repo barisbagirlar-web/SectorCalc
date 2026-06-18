@@ -23,14 +23,16 @@
         "tr": "Toplam Bulut Harcaması (Aylık)",
         "de": "Gesamte Cloud-Ausgaben (monatlich)",
         "fr": "Dépenses cloud totales (mensuelles)",
-        "es": "Gasto total en la nube (mensual)"
+        "es": "Gasto total en la nube (mensual)",
+        "ar": "إجمالي الإنفاق السحابي (شهريًا)"
       },
       "businessContext_i18n": {
         "en": "Total monthly cloud infrastructure cost across all services.",
         "tr": "Tüm hizmetler genelinde aylık toplam bulut altyapı maliyeti.",
         "de": "Monatliche Gesamtkosten der Cloud-Infrastruktur über alle Dienste hinweg.",
         "fr": "Coût mensuel total de l'infrastructure cloud tous services confondus.",
-        "es": "Costo mensual total de infraestructura en la nube en todos los servicios."
+        "es": "Costo mensual total de infraestructura en la nube en todos los servicios.",
+        "ar": "إجمالي تكلفة البنية التحتية السحابية الشهرية عبر جميع الخدمات."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Ortalama Bilgi İşlem Kullanım Oranı",
         "de": "Durchschnittliche Compute-Auslastungsrate",
         "fr": "Taux d'utilisation moyen du calcul",
-        "es": "Tasa de utilización promedio de cómputo"
+        "es": "Tasa de utilización promedio de cómputo",
+        "ar": "متوسط معدل استخدام الحوسبة"
       },
       "businessContext_i18n": {
         "en": "Average CPU/memory utilization across all compute instances.",
         "tr": "Tüm bilgi işlem örnekleri genelinde ortalama CPU/bellek kullanımı.",
         "de": "Durchschnittliche CPU-/Speicherauslastung aller Compute-Instanzen.",
         "fr": "Utilisation moyenne du processeur/mémoire sur toutes les instances de calcul.",
-        "es": "Utilización promedio de CPU/memoria en todas las instancias de cómputo."
+        "es": "Utilización promedio de CPU/memoria en todas las instancias de cómputo.",
+        "ar": "متوسط استخدام وحدة المعالجة المركزية/الذاكرة عبر جميع مثيلات الحوسبة."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Depolama İsrafı Yüzdesi",
         "de": "Speicherverschwendungsprozentsatz",
         "fr": "Pourcentage de gaspillage de stockage",
-        "es": "Porcentaje de desperdicio de almacenamiento"
+        "es": "Porcentaje de desperdicio de almacenamiento",
+        "ar": "نسبة هدر التخزين"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of storage that is orphaned, unused, or over-provisioned.",
         "tr": "Yetim kalmış, kullanılmayan veya aşırı sağlanmış depolamanın tahmini yüzdesi.",
         "de": "Geschätzter Prozentsatz des Speichers, der verwaist, ungenutzt oder überdimensioniert ist.",
         "fr": "Pourcentage estimé de stockage orphelin, inutilisé ou sur-provisionné.",
-        "es": "Porcentaje estimado de almacenamiento huérfano, no utilizado o sobreaprovisionado."
+        "es": "Porcentaje estimado de almacenamiento huérfano, no utilizado o sobreaprovisionado.",
+        "ar": "النسبة المئوية المقدرة للتخزين المهجور أو غير المستخدم أو المفرط في التزويد."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Boşta Kaynak Sayısı",
         "de": "Anzahl der Leerlaufressourcen",
         "fr": "Nombre de ressources inactives",
-        "es": "Conteo de recursos inactivos"
+        "es": "Conteo de recursos inactivos",
+        "ar": "عدد الموارد الخاملة"
       },
       "businessContext_i18n": {
         "en": "Number of compute instances that have been idle for more than 7 days.",
         "tr": "7 günden uzun süredir boşta olan bilgi işlem örneği sayısı.",
         "de": "Anzahl der Compute-Instanzen, die länger als 7 Tage im Leerlauf waren.",
         "fr": "Nombre d'instances de calcul inactives depuis plus de 7 jours.",
-        "es": "Número de instancias de cómputo que han estado inactivas por más de 7 días."
+        "es": "Número de instancias de cómputo que han estado inactivas por más de 7 días.",
+        "ar": "عدد مثيلات الحوسبة التي كانت خاملة لأكثر من 7 أيام."
       }
     },
     {
@@ -119,14 +127,16 @@
         "tr": "Aylık Veri Çıkışı",
         "de": "Monatliches Datenübertragungsvolumen ausgehend",
         "fr": "Transfert mensuel de données sortantes",
-        "es": "Transferencia de datos saliente mensual"
+        "es": "Transferencia de datos saliente mensual",
+        "ar": "نقل البيانات الصادر شهريًا"
       },
       "businessContext_i18n": {
         "en": "Total outbound data transfer volume per month.",
         "tr": "Aylık toplam giden veri aktarım hacmi.",
         "de": "Gesamtes ausgehendes Datenübertragungsvolumen pro Monat.",
         "fr": "Volume total de transfert de données sortant par mois.",
-        "es": "Volumen total de transferencia de datos saliente por mes."
+        "es": "Volumen total de transferencia de datos saliente por mes.",
+        "ar": "إجمالي حجم نقل البيانات الصادرة شهريًا."
       }
     },
     {
@@ -143,14 +153,16 @@
         "tr": "Ayrılmış Örnek Kapsamı",
         "de": "Abdeckung reservierter Instanzen",
         "fr": "Couverture des instances réservées",
-        "es": "Cobertura de instancias reservadas"
+        "es": "Cobertura de instancias reservadas",
+        "ar": "تغطية المثيلات المحجوزة"
       },
       "businessContext_i18n": {
         "en": "Percentage of compute spend covered by reserved or savings plans.",
         "tr": "Ayrılmış veya tasarruf planları tarafından karşılanan bilgi işlem harcaması yüzdesi.",
         "de": "Prozentsatz der Compute-Ausgaben, die durch reservierte oder Sparpläne abgedeckt sind.",
         "fr": "Pourcentage des dépenses de calcul couvert par des instances réservées ou des plans d'économies.",
-        "es": "Porcentaje del gasto en cómputo cubierto por planes reservados o de ahorro."
+        "es": "Porcentaje del gasto en cómputo cubierto por planes reservados o de ahorro.",
+        "ar": "النسبة المئوية للإنفاق الحاسوبي المغطى بخطط الحجز أو الادخار."
       }
     },
     {
@@ -167,14 +179,16 @@
         "tr": "Doğru Boyutlandırma Fırsat Puanı",
         "de": "Optimierungspotenzial-Score",
         "fr": "Score d'opportunité de redimensionnement",
-        "es": "Puntaje de oportunidad de redimensionamiento"
+        "es": "Puntaje de oportunidad de redimensionamiento",
+        "ar": "درجة فرصة تحسين الحجم"
       },
       "businessContext_i18n": {
         "en": "Aggregate score (0-100) indicating potential savings from instance type adjustments.",
         "tr": "Örnek türü ayarlamalarından potansiyel tasarrufu gösteren toplam puan (0-100).",
         "de": "Aggregierter Score (0-100), der potenzielle Einsparungen durch Anpassungen des Instanztyps anzeigt.",
         "fr": "Score agrégé (0-100) indiquant les économies potentielles liées aux ajustements de type d'instance.",
-        "es": "Puntaje agregado (0-100) que indica el ahorro potencial de ajustes de tipo de instancia."
+        "es": "Puntaje agregado (0-100) que indica el ahorro potencial de ajustes de tipo de instancia.",
+        "ar": "درجة إجمالية (0-100) تشير إلى التوفير المحتمل من تعديلات نوع المثيل."
       }
     },
     {
@@ -197,14 +211,16 @@
         "tr": "Bulut Sağlayıcısı",
         "de": "Cloud-Anbieter",
         "fr": "Fournisseur cloud",
-        "es": "Proveedor de nube"
+        "es": "Proveedor de nube",
+        "ar": "مزود السحابة"
       },
       "businessContext_i18n": {
         "en": "Primary cloud provider for cost analysis.",
         "tr": "Maliyet analizi için birincil bulut sağlayıcısı.",
         "de": "Primärer Cloud-Anbieter für Kostenanalyse.",
         "fr": "Principal fournisseur cloud pour l'analyse des coûts.",
-        "es": "Proveedor de nube principal para el análisis de costos."
+        "es": "Proveedor de nube principal para el análisis de costos.",
+        "ar": "مزود السحابة الأساسي لتحليل التكاليف."
       }
     }
   ],
@@ -255,15 +271,25 @@
     ]
   },
   "formulas": {
-    "result": "total_cloud_spend + compute_utilization_rate + storage_waste_percentage",
-    "result_copy": "total_cloud_spend + compute_utilization_rate + storage_waste_percentage"
+    "base_cost": "idle_resource_count * total_cloud_spend",
+    "adjusted_cost": "idle_resource_count * total_cloud_spend * (1 + (compute_utilization_rate / 100))",
+    "result": "idle_resource_count * total_cloud_spend * (1 + (compute_utilization_rate / 100)) * ((storage_waste_percentage / 100))",
+    "factor_storage_waste_percentage": "(storage_waste_percentage / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_storage_waste_percentage"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

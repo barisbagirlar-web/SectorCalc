@@ -13,15 +13,16 @@
         "tr": "Delik çapı (silindir çapı)",
         "de": "Bohrung (Zylinderdurchmesser)",
         "fr": "Alésage (diamètre du cylindre)",
-        "es": "Bore (cylinder diameter)",
-        "ar": "Bore (cylinder diameter)"
+        "es": "Diámetro del cilindro (calibre)",
+        "ar": "التجويف (قطر الأسطوانة)"
       },
       "businessContext_i18n": {
         "en": "Cylinder bore diameter in millimeters",
         "tr": "Silindir çapı (mm)",
         "de": "Zylinderbohrungsdurchmesser in Millimetern",
         "fr": "Alésage du cylindre en millimètres",
-        "es": "Diámetro del cilindro en milímetros"
+        "es": "Diámetro del cilindro en milímetros",
+        "ar": "قطر الأسطوانة بالمليمتر"
       }
     },
     {
@@ -36,15 +37,16 @@
         "tr": "Strok uzunluğu",
         "de": "Hublänge",
         "fr": "Longueur de course",
-        "es": "Stroke length",
-        "ar": "Stroke length"
+        "es": "Longitud de carrera",
+        "ar": "طول الشوط"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length in millimeters",
         "tr": "Piston strok uzunluğu (mm)",
         "de": "Kolbenhublänge in Millimetern",
         "fr": "Longueur de la course du piston en millimètres",
-        "es": "Longitud de la carrera del pistón en milímetros"
+        "es": "Longitud de la carrera del pistón en milímetros",
+        "ar": "طول شوط المكبس بالمليمتر"
       }
     },
     {
@@ -59,14 +61,16 @@
         "tr": "Silindir sayısı",
         "de": "Anzahl der Zylinder",
         "fr": "Nombre de cylindres",
-        "es": "Number of cylinders",
-        "ar": "Number of cylinders"
+        "es": "Número de cilindros",
+        "ar": "عدد الأسطوانات"
       },
       "businessContext_i18n": {
         "en": "Number of cylinders in the pump/compressor",
         "tr": "Pompa/kompresördeki silindir sayısı",
         "de": "Anzahl der Zylinder in der Pumpe/dem Kompressor",
-        "fr": "Nombre de cylindres dans la pompe/compresseur"
+        "fr": "Nombre de cylindres dans la pompe/compresseur",
+        "es": "Número de cilindros en la bomba/compresor",
+        "ar": "عدد أسطوانات المضخة/الضاغط"
       }
     },
     {
@@ -81,15 +85,16 @@
         "tr": "Dönüş hızı",
         "de": "Drehzahl",
         "fr": "Vitesse de rotation",
-        "es": "Rotational speed",
-        "ar": "Rotational speed"
+        "es": "Velocidad de rotación",
+        "ar": "السرعة الدورانية"
       },
       "businessContext_i18n": {
         "en": "Shaft rotational speed in revolutions per minute",
         "tr": "Mil dönüş hızı (dakikadaki devir sayısı)",
         "de": "Wellendrehzahl in Umdrehungen pro Minute",
         "fr": "Vitesse de rotation de l'arbre en tours par minute",
-        "es": "Velocidad de rotación del eje en revoluciones por minuto"
+        "es": "Velocidad de rotación del eje en revoluciones por minuto",
+        "ar": "سرعة دوران العمود بعدد الدورات في الدقيقة"
       }
     },
     {
@@ -104,33 +109,40 @@
         "tr": "Gerçek debi",
         "de": "Tatsächlicher Durchfluss",
         "fr": "Débit réel",
-        "es": "Actual flow rate",
-        "ar": "Actual flow rate"
+        "es": "Caudal real",
+        "ar": "معدل التدفق الفعلي"
       },
       "businessContext_i18n": {
         "en": "Measured actual flow rate in liters per minute",
         "tr": "Dakikada litre cinsinden ölçülen gerçek debi",
         "de": "Gemessener tatsächlicher Durchfluss in Litern pro Minute",
-        "fr": "Débit réel mesuré en litres par minute"
+        "fr": "Débit réel mesuré en litres par minute",
+        "es": "Caudal real medido en litros por minuto",
+        "ar": "معدل التدفق الفعلي المُقاس باللتر في الدقيقة"
       }
     }
   ],
   "formulas": {
-    "result": "bore + stroke + cylinders",
-    "result_copy": "bore + stroke + cylinders"
+    "normalized_product": "bore * stroke * cylinders * speed",
+    "result": "bore * stroke * cylinders * speed * (actualFlow)",
+    "adjustment_factor": "actualFlow"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sweptVolumePerRevolutionL",
-      "theoreticalFlowLPerMin"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "volumetricEfficiency",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

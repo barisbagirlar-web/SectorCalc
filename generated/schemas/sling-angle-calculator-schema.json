@@ -14,14 +14,15 @@
         "de": "Lastgewicht",
         "fr": "Poids de la charge",
         "es": "Peso de la carga",
-        "ar": "Yük Ağırlığı"
+        "ar": "وزن الحمولة"
       },
       "businessContext_i18n": {
         "en": "Kaldırılacak toplam yük ağırlığı",
         "tr": "Kaldırılacak toplam yük ağırlığı",
         "de": "Zu hebendes Gesamtlastgewicht",
         "fr": "Poids total de la charge à soulever",
-        "es": "Peso total de la carga a levantar"
+        "es": "Peso total de la carga a levantar",
+        "ar": "الوزن الإجمالي للحمل المراد رفعه"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Anschlagmittelstränge",
         "fr": "Nombre de brins d'élingue",
         "es": "Número de ramales de la eslinga",
-        "ar": "Sapan Kol Sayısı"
+        "ar": "عدد أذرعة الحبال"
       },
       "businessContext_i18n": {
         "en": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)",
         "tr": "Yükü taşıyan sapan kollarının sayısı (genellikle 1, 2, 3 veya 4)",
         "de": "Anzahl der Anschlagmittelstränge, die die Last tragen (normalerweise 1, 2, 3 oder 4)",
         "fr": "Nombre de brins d'élingue supportant la charge (généralement 1, 2, 3 ou 4)",
-        "es": "Número de ramales que soportan la carga (generalmente 1, 2, 3 o 4)"
+        "es": "Número de ramales que soportan la carga (generalmente 1, 2, 3 o 4)",
+        "ar": "عدد أذرعة الحبال الحاملة للحمل (عادة 1، 2، 3 أو 4)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anschlagwinkel (von der Senkrechten)",
         "fr": "Angle d'élingue (par rapport à la verticale)",
         "es": "Ángulo de la eslinga (desde la vertical)",
-        "ar": "Sapan Açısı (Dikeyden)"
+        "ar": "زاوية الحبل (من العمودي)"
       },
       "businessContext_i18n": {
         "en": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
         "tr": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
         "de": "Winkel zwischen der Senkrechten und dem Anschlagmittelstrang (0° senkrechter Strang, 90° waagerechter Strang)",
         "fr": "Angle entre l'axe vertical et le brin d'élingue (0° élingue verticale, 90° élingue horizontale)",
-        "es": "Ángulo entre el eje vertical y el ramal de la eslinga (0° eslinga vertical, 90° eslinga horizontal)"
+        "es": "Ángulo entre el eje vertical y el ramal de la eslinga (0° eslinga vertical, 90° eslinga horizontal)",
+        "ar": "الزاوية بين المحور العمودي وذراع الحبل (0° حبل عمودي، 90° حبل أفقي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Emniyet Katsayısı"
+        "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Uygulanacak emniyet faktörü (örn. 5:1)",
         "tr": "Uygulanacak emniyet faktörü (örn. 5:1)",
         "de": "Anzuwendender Sicherheitsfaktor (z. B. 5:1)",
         "fr": "Facteur de sécurité à appliquer (ex. 5:1)",
-        "es": "Factor de seguridad a aplicar (ej. 5:1)"
+        "es": "Factor de seguridad a aplicar (ej. 5:1)",
+        "ar": "عامل الأمان المطبق (مثل 5:1)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dynamikfaktor",
         "fr": "Coefficient dynamique",
         "es": "Coeficiente dinámico",
-        "ar": "Dinamik Katsayı"
+        "ar": "معامل الديناميكية"
       },
       "businessContext_i18n": {
         "en": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
         "tr": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
         "de": "Dynamischer Belastungseffekt (Faktor, mit dem die statische Last multipliziert wird)",
         "fr": "Effet de charge dynamique (facteur multipliant la charge statique)",
-        "es": "Efecto de carga dinámica (factor por el que se multiplica la carga estática)"
+        "es": "Efecto de carga dinámica (factor por el que se multiplica la carga estática)",
+        "ar": "تأثير التحميل الديناميكي (العامل الذي يضرب به الحمل الساكن)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Wirkungsgradfaktor",
         "fr": "Facteur d'efficacité",
         "es": "Factor de eficiencia",
-        "ar": "Verimlilik Faktörü"
+        "ar": "عامل الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
         "tr": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
         "de": "Korrekturfaktor für ungleichmäßige Lastverteilung auf die Stränge (0-1, 1 = perfekte Verteilung)",
         "fr": "Facteur de correction pour la répartition non idéale de la charge (0-1, 1 étant une répartition parfaite)",
-        "es": "Factor de corrección por distribución no ideal de la carga en las eslingas (0-1, 1 distribución perfecta)"
+        "es": "Factor de corrección por distribución no ideal de la carga en las eslingas (0-1, 1 distribución perfecta)",
+        "ar": "عامل تصحيح التوزيع غير المثالي للحمل على الحبال (بين 0-1، 1 توزيع مثالي)"
       }
     }
   ],
   "formulas": {
-    "result": "loadWeight + numberOfSlingLegs + slingAngle",
-    "result_copy": "loadWeight + numberOfSlingLegs + slingAngle"
+    "normalized_product": "loadWeight * numberOfSlingLegs * slingAngle * safetyFactor",
+    "result": "loadWeight * numberOfSlingLegs * slingAngle * safetyFactor * (dynamicFactor * (efficiencyFactor / 100))",
+    "adjustment_factor": "dynamicFactor * (efficiencyFactor / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "baseLoadPerSling",
-      "slingAngleRad",
-      "requiredBreakingStrength"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "requiredBreakingStrength",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

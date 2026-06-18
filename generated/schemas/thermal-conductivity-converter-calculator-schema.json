@@ -13,14 +13,16 @@
         "tr": "Termal İletkenlik Değeri",
         "de": "Wärmeleitfähigkeitswert",
         "fr": "Valeur de conductivité thermique",
-        "es": "Thermal Conductivity Value",
-        "ar": "Thermal Conductivity Value"
+        "es": "Valor de conductividad térmica",
+        "ar": "قيمة التوصيل الحراري"
       },
       "businessContext_i18n": {
         "en": "Numeric value to convert",
         "tr": "Dönüştürülecek sayısal değer",
         "de": "Umzurechnender Zahlenwert",
-        "fr": "Valeur numérique à convertir"
+        "fr": "Valeur numérique à convertir",
+        "es": "Valor numérico a convertir",
+        "ar": "القيمة الرقمية للتحويل"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kaynak Birim Kodu",
         "de": "Von Einheitencode",
         "fr": "Code de l'unité source",
-        "es": "From Unit Code",
-        "ar": "From Unit Code"
+        "es": "Código de unidad de origen",
+        "ar": "رمز الوحدة المصدر"
       },
       "businessContext_i18n": {
         "en": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
         "tr": "Kaynak birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
         "de": "Quelleinheit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
-        "fr": "Unité source : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+        "fr": "Unité source : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "es": "Unidad de origen: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "ar": "الوحدة المصدر: 0=W/(m·K)، 1=BTU/(hr·ft·°F)، 2=kcal/(hr·m·°C)، 3=W/(cm·K)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Hedef Birim Kodu",
         "de": "Zu Einheitencode",
         "fr": "Code de l'unité cible",
-        "es": "To Unit Code",
-        "ar": "To Unit Code"
+        "es": "Código de unidad de destino",
+        "ar": "رمز الوحدة الهدف"
       },
       "businessContext_i18n": {
         "en": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
         "tr": "Hedef birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
         "de": "Zieleinheit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
-        "fr": "Unité cible : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+        "fr": "Unité cible : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "es": "Unidad de destino: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "ar": "الوحدة الهدف: 0=W/(m·K)، 1=BTU/(hr·ft·°F)، 2=kcal/(hr·m·°C)، 3=W/(cm·K)"
       }
     },
     {
@@ -80,33 +86,37 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for result",
         "tr": "Sonuç için ondalık basamak sayısı",
         "de": "Temperaturwert in Newton-Skala",
         "fr": "Nombre de décimales pour le résultat",
-        "es": "Número de decimales para el resultado"
+        "es": "Número de decimales para el resultado",
+        "ar": "عدد المنازل العشرية للنتيجة"
       }
     }
   ],
   "formulas": {
-    "result": "value + fromUnit + toUnit",
-    "result_copy": "value + fromUnit + toUnit"
+    "normalized_product": "value * fromUnit * toUnit * precision",
+    "result": "value * fromUnit * toUnit * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "breakdownFactor",
-      "breakdownFormula"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "breakdownFormula",
-    "unit": "input unit"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

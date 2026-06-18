@@ -14,14 +14,15 @@
         "de": "Datenpunkt 1",
         "fr": "Point de données 1",
         "es": "Punto de datos 1",
-        "ar": "Data Point 1"
+        "ar": "نقطة بيانات 1"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Datenpunkt 2",
         "fr": "Point de données 2",
         "es": "Punto de datos 2",
-        "ar": "Data Point 2"
+        "ar": "نقطة بيانات 2"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Datenpunkt 3",
         "fr": "Point de données 3",
         "es": "Punto de datos 3",
-        "ar": "Data Point 3"
+        "ar": "نقطة بيانات 3"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Datenpunkt 4",
         "fr": "Point de données 4",
         "es": "Punto de datos 4",
-        "ar": "Data Point 4"
+        "ar": "نقطة بيانات 4"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Datenpunkt 5",
         "fr": "Point de données 5",
         "es": "Punto de datos 5",
-        "ar": "Data Point 5"
+        "ar": "نقطة بيانات 5"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Datenpunkt 6",
         "fr": "Point de données 6",
         "es": "Punto de datos 6",
-        "ar": "Data Point 6"
+        "ar": "نقطة بيانات 6"
       },
       "businessContext_i18n": {
         "en": "Measurement value",
         "tr": "Ölçüm değeri",
         "de": "Messwert",
         "fr": "Valeur mesurée",
-        "es": "Valor de medición"
+        "es": "Valor de medición",
+        "ar": "قيمة القياس"
       }
     },
     {
@@ -151,32 +157,39 @@
         "tr": "Winsorizasyon Yüzdesi",
         "de": "Winsorierungsprozentsatz",
         "fr": "Pourcentage de winsorisation",
-        "es": "Winsorization Percentage",
-        "ar": "Winsorization Percentage"
+        "es": "Porcentaje de winsorización",
+        "ar": "نسبة التعديل بالقص"
       },
       "businessContext_i18n": {
         "en": "Percentage of extreme values to winsorize on each tail (0-50)",
         "tr": "Her kuyrukta winsorize edilecek aşırı değerlerin yüzdesi (0-50)",
         "de": "Prozentsatz der Extremwerte, die auf jeder Seite winsorisiert werden (0-50)",
-        "fr": "Pourcentage de valeurs extrêmes à winsoriser sur chaque queue (0-50)"
+        "fr": "Pourcentage de valeurs extrêmes à winsoriser sur chaque queue (0-50)",
+        "es": "Porcentaje de valores extremos a winsorizar en cada cola (0-50)",
+        "ar": "النسبة المئوية للقيم المتطرفة لتعديلها بالقص عند كل ذيل (0-50)"
       }
     }
   ],
   "formulas": {
-    "result": "x1 + x2 + x3",
-    "result_copy": "x1 + x2 + x3"
+    "normalized_product": "x1 * x2 * x3 * x4",
+    "result": "x1 * x2 * x3 * x4 * (x5 * x6 * (winPercent / 100))",
+    "adjustment_factor": "x5 * x6 * (winPercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "originalMean",
-      "k"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "originalMean",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Matematik & Analiz",

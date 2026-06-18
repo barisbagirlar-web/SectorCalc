@@ -14,14 +14,15 @@
         "de": "Tägliches Produktionsvolumen",
         "fr": "Volume de production quotidien",
         "es": "Volumen de Producción Diaria",
-        "ar": "Daily Production Volume"
+        "ar": "حجم الإنتاج اليومي"
       },
       "businessContext_i18n": {
         "en": "Number of units produced per day",
         "tr": "Günde üretilen birim sayısı",
         "de": "Anzahl der pro Tag produzierten Einheiten",
         "fr": "Nombre d'unités produites par jour",
-        "es": "Número de unidades producidas por día"
+        "es": "Número de unidades producidas por día",
+        "ar": "عدد الوحدات المنتجة يوميًا"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Material pro Einheit",
         "fr": "Matière par unité",
         "es": "Material por unidad",
-        "ar": "Material Per Unit"
+        "ar": "المواد الخام لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Amount of raw material required per unit",
         "tr": "Birim başına gereken hammadde miktarı",
         "de": "Menge an Rohmaterial, die pro Einheit benötigt wird",
         "fr": "Quantité de matière première requise par unité",
-        "es": "Cantidad de materia prima requerida por unidad"
+        "es": "Cantidad de materia prima requerida por unidad",
+        "ar": "كمية المواد الخام المطلوبة لكل وحدة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Behälterkapazität",
         "fr": "Capacité du conteneur",
         "es": "Capacidad del contenedor",
-        "ar": "Container Capacity"
+        "ar": "سعة الحاوية"
       },
       "businessContext_i18n": {
         "en": "Capacity of each bulk container",
         "tr": "Her bir dökme konteynerin kapasitesi",
         "de": "Kapazität jedes Schüttgutbehälters",
         "fr": "Capacité de chaque conteneur en vrac",
-        "es": "Capacidad de cada contenedor a granel"
+        "es": "Capacidad de cada contenedor a granel",
+        "ar": "سعة كل حاوية سائبة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsbestand in Tagen",
         "fr": "Jours de stock de sécurité",
         "es": "Días de stock de seguridad",
-        "ar": "Safety Stock Days"
+        "ar": "أيام المخزون الآمن"
       },
       "businessContext_i18n": {
         "en": "Days of inventory kept as safety buffer",
         "tr": "Güvenlik tamponu olarak tutulan envanter gün sayısı",
         "de": "Tage des Lagerbestands, der als Sicherheitspuffer gehalten wird",
         "fr": "Jours de stock conservés comme tampon de sécurité",
-        "es": "Días de inventario mantenidos como colchón de seguridad"
+        "es": "Días de inventario mantenidos como colchón de seguridad",
+        "ar": "أيام المخزون المحتفظ به كحاجز أمان"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Vorlaufzeit in Tagen",
         "fr": "Délai de livraison en jours",
         "es": "Días de plazo de entrega",
-        "ar": "Lead Time Days"
+        "ar": "أيام المهلة الزمنية"
       },
       "businessContext_i18n": {
         "en": "Supplier lead time in days",
         "tr": "Tedarikçi teslim süresi (gün)",
         "de": "Lieferanten-Vorlaufzeit in Tagen",
         "fr": "Délai de livraison du fournisseur en jours",
-        "es": "Plazo de entrega del proveedor en días"
+        "es": "Plazo de entrega del proveedor en días",
+        "ar": "المهلة الزمنية للمورد بالأيام"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Multiplikator für den Bestellpunkt",
         "fr": "Multiplicateur du point de commande",
         "es": "Multiplicador de punto de reorden",
-        "ar": "Reorder Point Multiplier"
+        "ar": "مضاعف نقطة إعادة الطلب"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for variability in demand during lead time",
         "tr": "Teslim süresi boyunca talep değişkenliğini hesaba katan çarpan",
         "de": "Multiplikator zur Berücksichtigung der Variabilität der Nachfrage während der Vorlaufzeit",
         "fr": "Multiplicateur pour tenir compte de la variabilité de la demande pendant le délai de livraison",
-        "es": "Multiplicador para tener en cuenta la variabilidad de la demanda durante el plazo de entrega"
+        "es": "Multiplicador para tener en cuenta la variabilidad de la demanda durante el plazo de entrega",
+        "ar": "مضاعف لمراعاة التباين في الطلب خلال المهلة الزمنية"
       }
     }
   ],

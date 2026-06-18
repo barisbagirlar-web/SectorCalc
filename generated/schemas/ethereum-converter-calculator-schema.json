@@ -14,14 +14,15 @@
         "de": "Ethereum-Menge",
         "fr": "Montant d'Ethereum",
         "es": "Cantidad de Ethereum",
-        "ar": "Ethereum Amount"
+        "ar": "كمية الإيثيريوم"
       },
       "businessContext_i18n": {
         "en": "The amount of Ethereum to convert, before transaction fees.",
         "tr": "İşlem ücretlerinden önce dönüştürülecek Ethereum miktarı.",
         "de": "Die umzurechnende Ethereum-Menge vor Transaktionsgebühren.",
         "fr": "Montant d'Ethereum à convertir, avant frais de transaction.",
-        "es": "Cantidad de Ethereum a convertir, antes de las comisiones de transacción."
+        "es": "Cantidad de Ethereum a convertir, antes de las comisiones de transacción.",
+        "ar": "كمية الإيثيريوم المراد تحويلها، قبل رسوم المعاملة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "ETH-Preis (USD)",
         "fr": "Prix ETH (USD)",
         "es": "Precio de ETH (USD)",
-        "ar": "ETH Price (USD)"
+        "ar": "سعر ETH (بالدولار)"
       },
       "businessContext_i18n": {
         "en": "Current market price of 1 ETH in US dollars.",
         "tr": "1 ETH'nin ABD doları cinsinden güncel piyasa fiyatı.",
         "de": "Aktueller Marktpreis von 1 ETH in US-Dollar.",
         "fr": "Prix actuel du marché de 1 ETH en dollars américains.",
-        "es": "Precio de mercado actual de 1 ETH en dólares estadounidenses."
+        "es": "Precio de mercado actual de 1 ETH en dólares estadounidenses.",
+        "ar": "سعر السوق الحالي لـ 1 ETH بالدولار الأمريكي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gas-Limit",
         "fr": "Limite de gaz",
         "es": "Límite de gas",
-        "ar": "Gas Limit"
+        "ar": "حد الغاز"
       },
       "businessContext_i18n": {
         "en": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000).",
         "tr": "Ethereum işlemi için izin verilen maksimum gaz birimi (standart ETH transferi: 21000).",
         "de": "Maximale Gas-Einheiten für die Ethereum-Transaktion (Standard-ETH-Transfer: 21000).",
         "fr": "Unités de gaz maximales autorisées pour la transaction Ethereum (transfert ETH standard : 21000).",
-        "es": "Unidades máximas de gas permitidas para la transacción de Ethereum (transferencia estándar de ETH: 21000)."
+        "es": "Unidades máximas de gas permitidas para la transacción de Ethereum (transferencia estándar de ETH: 21000).",
+        "ar": "الحد الأقصى لوحدات الغاز المسموح بها لمعاملة الإيثيريوم (تحويل ETH قياسي: 21000)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Max. Gebühr pro Gas",
         "fr": "Frais max par gaz",
         "es": "Tarifa máxima por gas",
-        "ar": "Max Fee per Gas"
+        "ar": "الحد الأقصى للرسوم لكل غاز"
       },
       "businessContext_i18n": {
         "en": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee.",
         "tr": "Gwei cinsinden gaz birimi başına maksimum ücret (1 ETH = 10^9 Gwei). Temel ücret + öncelik ücretini kapsar.",
         "de": "Maximale Gebühr pro Gaseinheit in Gwei (1 ETH = 10^9 Gwei). Deckt Basisgebühr + Prioritätsgebühr ab.",
         "fr": "Frais maximum par unité de gaz en Gwei (1 ETH = 10^9 Gwei). Cela couvre les frais de base + les frais de priorité.",
-        "es": "Tarifa máxima por unidad de gas en Gwei (1 ETH = 10^9 Gwei). Esto cubre la tarifa base + tarifa prioritaria."
+        "es": "Tarifa máxima por unidad de gas en Gwei (1 ETH = 10^9 Gwei). Esto cubre la tarifa base + tarifa prioritaria.",
+        "ar": "الحد الأقصى للرسوم لكل وحدة غاز بوحدة Gwei (1 ETH = 10^9 Gwei). يغطي الرسوم الأساسية ورسوم الأولوية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Netzwerk-Überlastungsmultiplikator",
         "fr": "Multiplicateur de congestion réseau",
         "es": "Multiplicador de congestión de red",
-        "ar": "Network Congestion Multiplier"
+        "ar": "مضاعف ازدحام الشبكة"
       },
       "businessContext_i18n": {
         "en": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand).",
         "tr": "Ağ tıkanıklığı sırasında daha yüksek gaz fiyatlarını simüle etmek için çarpan (normal için 1, yüksek talep için >1).",
         "de": "Multiplikator zur Simulation höherer Gaspreise bei Netzüberlastung (1 für normal, >1 für hohe Nachfrage).",
         "fr": "Multiplicateur pour simuler des prix de gaz plus élevés en cas de congestion réseau (1 pour normal, >1 pour forte demande).",
-        "es": "Multiplicador para simular precios de gas más altos durante la congestión de la red (1 para normal, >1 para alta demanda)."
+        "es": "Multiplicador para simular precios de gas más altos durante la congestión de la red (1 para normal, >1 para alta demanda).",
+        "ar": "مضاعف لمحاكاة ارتفاع أسعار الغاز أثناء ازدحام الشبكة (1 للوضع الطبيعي، >1 للطلب المرتفع)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Umrechnungsgebühr (%)",
         "fr": "Frais de conversion (%)",
         "es": "Comisión de conversión (%)",
-        "ar": "Conversion Fee (%)"
+        "ar": "رسوم التحويل (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by the exchange or service for converting crypto to fiat currency.",
         "tr": "Kripto parayı itibari paraya dönüştürmek için borsa veya hizmet tarafından alınan yüzde ücret.",
         "de": "Prozentuale Gebühr, die von der Börse oder dem Dienst für die Umwandlung von Krypto in Fiat-Währung erhoben wird.",
         "fr": "Frais en pourcentage facturés par la plateforme d'échange pour convertir la crypto en monnaie fiduciaire.",
-        "es": "Comisión porcentual cobrada por el exchange o servicio por convertir cripto a moneda fiduciaria."
+        "es": "Comisión porcentual cobrada por el exchange o servicio por convertir cripto a moneda fiduciaria.",
+        "ar": "نسبة الرسوم التي تفرضها البورصة أو الخدمة لتحويل العملة المشفرة إلى عملة ورقية."
       }
     }
   ],

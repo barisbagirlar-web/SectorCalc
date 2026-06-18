@@ -14,14 +14,15 @@
         "de": "Blende (f-stop)",
         "fr": "Ouverture (f-stop)",
         "es": "Apertura (f-stop)",
-        "ar": "Aperture (f-stop)"
+        "ar": "فتحة العدسة (f-stop)"
       },
       "businessContext_i18n": {
         "en": "Lens aperture setting.",
         "tr": "Lens diyafram ayarı.",
         "de": "Einstellung der Objektivblende.",
         "fr": "Réglage de l'ouverture de l'objectif.",
-        "es": "Configuración de apertura del lente."
+        "es": "Configuración de apertura del lente.",
+        "ar": "إعداد فتحة العدسة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verschlusszeit",
         "fr": "Vitesse d'obturation",
         "es": "Velocidad de obturación",
-        "ar": "Shutter Speed"
+        "ar": "سرعة الغالق"
       },
       "businessContext_i18n": {
         "en": "Exposure time in seconds.",
         "tr": "Saniye cinsinden pozlama süresi.",
         "de": "Belichtungszeit in Sekunden.",
         "fr": "Temps d'exposition en secondes.",
-        "es": "Tiempo de exposición en segundos."
+        "es": "Tiempo de exposición en segundos.",
+        "ar": "زمن التعرض بالثواني."
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "Sensör hassasiyet derecesi.",
         "de": "Sensor-Empfindlichkeit.",
         "fr": "Indice de sensibilité du capteur.",
-        "es": "Clasificación de sensibilidad del sensor."
+        "es": "Clasificación de sensibilidad del sensor.",
+        "ar": "تصنيف حساسية المستشعر."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Gemessener EV",
         "fr": "EV mesuré",
         "es": "EV medido",
-        "ar": "Measured EV"
+        "ar": "قيمة التعرض المقاسة"
       },
       "businessContext_i18n": {
         "en": "Exposure value from light meter.",
         "tr": "Işık ölçerden pozlama değeri.",
         "de": "Belichtungswert vom Belichtungsmesser.",
         "fr": "Valeur d'exposition du posemètre.",
-        "es": "Valor de exposición del fotómetro."
+        "es": "Valor de exposición del fotómetro.",
+        "ar": "قيمة التعرض من مقياس الضوء."
       }
     }
   ],
   "formulas": {
-    "result": "aperture + shutterSpeed + iso",
-    "result_copy": "aperture + shutterSpeed + iso"
+    "normalized_product": "aperture * shutterSpeed * iso * measuredEV",
+    "result": "aperture * shutterSpeed * iso * measuredEV"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "calculatedEV",
-      "difference"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "difference",
-    "unit": "s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

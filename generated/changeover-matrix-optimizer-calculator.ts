@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Changeover_matrix_optimizer_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.changeover_time_matrix + input.number_of_changeovers_per_month + input.setup_external_time; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.changeover_time_matrix + input.number_of_changeovers_per_month + input.setup_external_time; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.changeover_time_matrix * input.number_of_changeovers_per_month * input.setup_external_time * input.setup_internal_time; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.changeover_time_matrix * input.number_of_changeovers_per_month * input.setup_external_time * input.setup_internal_time * (input.product_family_count * input.standard_deviation_changeover_time); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.product_family_count * input.standard_deviation_changeover_time; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -46,8 +47,8 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

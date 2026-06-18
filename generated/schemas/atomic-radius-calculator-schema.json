@@ -14,14 +14,15 @@
         "de": "Dichte",
         "fr": "Densité",
         "es": "Densidad",
-        "ar": "Density"
+        "ar": "الكثافة"
       },
       "businessContext_i18n": {
         "en": "The density of the material in grams per cubic centimeter.",
         "tr": "Malzemenin santimetreküp başına gram cinsinden yoğunluğu.",
         "de": "Die Dichte des Materials in Gramm pro Kubikzentimeter.",
         "fr": "Densité du matériau en grammes par centimètre cube.",
-        "es": "Densidad del material en gramos por centímetro cúbico."
+        "es": "Densidad del material en gramos por centímetro cúbico.",
+        "ar": "كثافة المادة بالجرام لكل سنتيمتر مكعب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Molmasse",
         "fr": "Masse molaire",
         "es": "Masa molar",
-        "ar": "Molar Mass"
+        "ar": "الكتلة المولية"
       },
       "businessContext_i18n": {
         "en": "The molar mass of the element in grams per mole.",
         "tr": "Elementin mol başına gram cinsinden molar kütlesi.",
         "de": "Die molare Masse des Elements in Gramm pro Mol.",
         "fr": "Masse molaire de l'élément en grammes par mole.",
-        "es": "Masa molar del elemento en gramos por mol."
+        "es": "Masa molar del elemento en gramos por mol.",
+        "ar": "الكتلة المولية للعنصر بالجرام لكل مول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kristallstruktur",
         "fr": "Structure cristalline",
         "es": "Estructura cristalina",
-        "ar": "Crystal Structure"
+        "ar": "البنية البلورية"
       },
       "businessContext_i18n": {
         "en": "Crystal structure index: 0=Custom packing factor, 1=Simple Cubic, 2=BCC, 3=FCC, 4=HCP.",
         "tr": "Kristal yapı indeksi: 0=Özel paketleme faktörü, 1=Basit Kübik, 2=HMK, 3=YMK, 4=HDP.",
         "de": "Kristallstruktur-Index: 0=Benutzerdefinierter Packungsfaktor, 1=Einfach kubisch, 2=krz, 3=kfz, 4=hexagonal dichteste Kugelpackung.",
         "fr": "Indice de structure cristalline : 0=Facteur de tassement personnalisé, 1=Cubique simple, 2=CC, 3=CFC, 4=HC.",
-        "es": "Índice de estructura cristalina: 0=Factor de empaquetamiento personalizado, 1=Cúbica simple, 2=BCC, 3=FCC, 4=HCP."
+        "es": "Índice de estructura cristalina: 0=Factor de empaquetamiento personalizado, 1=Cúbica simple, 2=BCC, 3=FCC, 4=HCP.",
+        "ar": "مؤشر البنية البلورية: 0=عامل تعبئة مخصص، 1=مكعب بسيط، 2=BCC، 3=FCC، 4=HCP."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Benutzerdefinierter Packungsfaktor",
         "fr": "Facteur de tassement personnalisé",
         "es": "Factor de empaquetamiento personalizado",
-        "ar": "Custom Packing Factor"
+        "ar": "عامل التعبئة المخصص"
       },
       "businessContext_i18n": {
         "en": "Used only if structure type is 0. Typical values: 0.52 (SC), 0.68 (BCC), 0.74 (FCC/HCP).",
         "tr": "Yalnızca yapı türü 0 ise kullanılır. Tipik değerler: 0.52 (BK), 0.68 (HMK), 0.74 (YMK/HDP).",
         "de": "Wird nur verwendet, wenn der Strukturtyp 0 ist. Typische Werte: 0,52 (kubisch primitiv), 0,68 (krz), 0,74 (kfz/hexagonal).",
         "fr": "Utilisé uniquement si le type de structure est 0. Valeurs typiques : 0,52 (CS), 0,68 (CC), 0,74 (CFC/HC).",
-        "es": "Se usa solo si el tipo de estructura es 0. Valores típicos: 0.52 (CS), 0.68 (BCC), 0.74 (FCC/HCP)."
+        "es": "Se usa solo si el tipo de estructura es 0. Valores típicos: 0.52 (CS), 0.68 (BCC), 0.74 (FCC/HCP).",
+        "ar": "يُستخدم فقط إذا كان نوع البنية 0. القيم النموذجية: 0.52 (SC)، 0.68 (BCC)، 0.74 (FCC/HCP)."
       }
     }
   ],

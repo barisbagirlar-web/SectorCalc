@@ -14,14 +14,15 @@
         "de": "Atmosphärendruck",
         "fr": "Pression atmosphérique",
         "es": "Presión atmosférica",
-        "ar": "Atmospheric Pressure"
+        "ar": "الضغط الجوي"
       },
       "businessContext_i18n": {
         "en": "Standard atmospheric pressure at sea level.",
         "tr": "Deniz seviyesinde standart atmosfer basıncı.",
         "de": "Standard-Atmosphärendruck auf Meereshöhe.",
         "fr": "Pression atmosphérique standard au niveau de la mer.",
-        "es": "Presión atmosférica estándar al nivel del mar."
+        "es": "Presión atmosférica estándar al nivel del mar.",
+        "ar": "الضغط الجوي القياسي عند مستوى سطح البحر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dampfdruck",
         "fr": "Pression de vapeur",
         "es": "Presión de vapor",
-        "ar": "Vapor Pressure"
+        "ar": "ضغط البخار"
       },
       "businessContext_i18n": {
         "en": "Vapor pressure of the fluid at pumping temperature.",
         "tr": "Pompalama sıcaklığında akışkanın buhar basıncı.",
         "de": "Dampfdruck der Flüssigkeit bei Pumptemperatur.",
         "fr": "Pression de vapeur du fluide à la température de pompage.",
-        "es": "Presión de vapor del fluido a la temperatura de bombeo."
+        "es": "Presión de vapor del fluido a la temperatura de bombeo.",
+        "ar": "ضغط بخار المائع عند درجة حرارة الضخ."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du liquide",
         "es": "Densidad del líquido",
-        "ar": "Liquid Density"
+        "ar": "كثافة المائع"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid being pumped.",
         "tr": "Pompalanan akışkanın yoğunluğu.",
         "de": "Dichte der geförderten Flüssigkeit.",
         "fr": "Densité du fluide pompé.",
-        "es": "Densidad del fluido bombeado."
+        "es": "Densidad del fluido bombeado.",
+        "ar": "كثافة المائع الذي يتم ضخه."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Statische Saughöhe",
         "fr": "Hauteur d'aspiration statique",
         "es": "Altura de succión estática",
-        "ar": "Static Suction Head"
+        "ar": "ارتفاع الشفط الساكن"
       },
       "businessContext_i18n": {
         "en": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift.",
         "tr": "Sıvı yüzeyinden pompa merkezine olan yükseklik. Sıvı pompanın üzerindeyse pozitif, emme yüksekliği için negatif.",
         "de": "Höhe von der Flüssigkeitsoberfläche bis zur Pumpenmitte. Positiv, wenn Flüssigkeit oberhalb der Pumpe, negativ bei Saughub.",
         "fr": "Hauteur de la surface du fluide à l'axe de la pompe. Positive si le fluide est au-dessus de la pompe, négative pour l'aspiration.",
-        "es": "Altura desde la superficie del fluido hasta la línea central de la bomba. Positiva si el fluido está por encima de la bomba, negativa para elevación de succión."
+        "es": "Altura desde la superficie del fluido hasta la línea central de la bomba. Positiva si el fluido está por encima de la bomba, negativa para elevación de succión.",
+        "ar": "الارتفاع من سطح المائع إلى مركز المضخة. موجب إذا كان المائع فوق المضخة، وسالب للشفط الرفعي."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Reibungsdruckverlust",
         "fr": "Perte de charge par frottement",
         "es": "Pérdida de carga por fricción",
-        "ar": "Friction Head Loss"
+        "ar": "فقدان الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Friction losses in suction piping, including fittings.",
         "tr": "Emme boru hattındaki bağlantı parçaları dahil sürtünme kayıpları.",
         "de": "Reibungsverluste in der Saugleitung, einschließlich Formstücke.",
         "fr": "Pertes par frottement dans la tuyauterie d'aspiration, y compris les raccords.",
-        "es": "Pérdidas por fricción en la tubería de succión, incluyendo accesorios."
+        "es": "Pérdidas por fricción en la tubería de succión, incluyendo accesorios.",
+        "ar": "فقدان الاحتكاك في أنابيب الشفط، بما في ذلك الوصلات."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Geschwindigkeitshöhe",
         "fr": "Hauteur de vitesse",
         "es": "Altura de velocidad",
-        "ar": "Velocity Head"
+        "ar": "ارتفاع السرعة"
       },
       "businessContext_i18n": {
         "en": "Velocity head at pump suction, typically v²/(2g).",
         "tr": "Pompa emişindeki hız yüksekliği, tipik olarak v²/(2g).",
         "de": "Geschwindigkeitshöhe am Pumpeneintritt, typischerweise v²/(2g).",
         "fr": "Hauteur de vitesse à l'aspiration de la pompe, généralement v²/(2g).",
-        "es": "Altura de velocidad en la succión de la bomba, típicamente v²/(2g)."
+        "es": "Altura de velocidad en la succión de la bomba, típicamente v²/(2g).",
+        "ar": "ارتفاع السرعة عند شفط المضخة، عادة v²/(2g)."
       }
     }
   ],

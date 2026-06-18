@@ -14,14 +14,15 @@
         "de": "Geburtsjahr",
         "fr": "Année de naissance",
         "es": "Año de nacimiento",
-        "ar": "Doğum Yılı"
+        "ar": "سنة الميلاد"
       },
       "businessContext_i18n": {
         "en": "Kişinin doğduğu yıl",
         "tr": "Kişinin doğduğu yıl",
         "de": "Geburtsjahr der Person",
         "fr": "Année de naissance de la personne",
-        "es": "Año en que nació la persona"
+        "es": "Año en que nació la persona",
+        "ar": "سنة ميلاد الشخص"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geburtsmonat",
         "fr": "Mois de naissance",
         "es": "Mes de nacimiento",
-        "ar": "Doğum Ay"
+        "ar": "شهر الميلاد"
       },
       "businessContext_i18n": {
         "en": "Kişinin doğduğu ay (1-12)",
         "tr": "Kişinin doğduğu ay (1-12)",
         "de": "Monat der Geburt (1-12)",
         "fr": "Mois de naissance (1-12)",
-        "es": "Mes en que nació la persona (1-12)"
+        "es": "Mes en que nació la persona (1-12)",
+        "ar": "الشهر الذي ولد فيه الشخص (1-12)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geburtstag",
         "fr": "Jour de naissance",
         "es": "Día de nacimiento",
-        "ar": "Doğum Gün"
+        "ar": "يوم الميلاد"
       },
       "businessContext_i18n": {
         "en": "Kişinin doğduğu gün",
         "tr": "Kişinin doğduğu gün",
         "de": "Tag der Geburt",
         "fr": "Jour de naissance",
-        "es": "Día en que nació la persona"
+        "es": "Día en que nació la persona",
+        "ar": "اليوم الذي ولد فيه الشخص"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Referenzjahr",
         "fr": "Année de référence",
         "es": "Año de referencia",
-        "ar": "Referans Yıl"
+        "ar": "السنة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Yaş hesaplanacak yıl",
         "tr": "Yaş hesaplanacak yıl",
         "de": "Jahr, für das das Alter berechnet wird",
         "fr": "Année pour le calcul de l'âge",
-        "es": "Año para calcular la edad"
+        "es": "Año para calcular la edad",
+        "ar": "السنة التي سيتم حساب العمر فيها"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Referenzmonat",
         "fr": "Mois de référence",
         "es": "Mes de referencia",
-        "ar": "Referans Ay"
+        "ar": "الشهر المرجعي"
       },
       "businessContext_i18n": {
         "en": "Yaş hesaplanacak ay (1-12)",
         "tr": "Yaş hesaplanacak ay (1-12)",
         "de": "Monat, für den das Alter berechnet wird (1-12)",
         "fr": "Mois pour le calcul de l'âge (1-12)",
-        "es": "Mes para calcular la edad (1-12)"
+        "es": "Mes para calcular la edad (1-12)",
+        "ar": "الشهر الذي سيتم حساب العمر فيه (1-12)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Referenztag",
         "fr": "Jour de référence",
         "es": "Día de referencia",
-        "ar": "Referans Gün"
+        "ar": "اليوم المرجعي"
       },
       "businessContext_i18n": {
         "en": "Yaş hesaplanacak gün",
         "tr": "Yaş hesaplanacak gün",
         "de": "Tag, für den das Alter berechnet wird",
         "fr": "Jour pour le calcul de l'âge",
-        "es": "Día para calcular la edad"
+        "es": "Día para calcular la edad",
+        "ar": "اليوم الذي سيتم حساب العمر فيه"
       }
     }
   ],
   "formulas": {
-    "result": "birthYear + birthMonth + birthDay",
-    "result_copy": "birthYear + birthMonth + birthDay"
+    "normalized_product": "birthYear * birthMonth * birthDay * refYear",
+    "result": "birthYear * birthMonth * birthDay * refYear * (refMonth * refDay)",
+    "adjustment_factor": "refMonth * refDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "birthString",
-      "refString",
-      "diffDays"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "diffDays",
-    "unit": "yıl"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

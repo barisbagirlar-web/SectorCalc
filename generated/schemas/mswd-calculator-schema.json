@@ -14,14 +14,15 @@
         "de": "Summe der gewichteten quadrierten Residuen (Σ w_i (y_i - ŷ_i)²)",
         "fr": "Somme des résidus pondérés au carré (Σ w_i (y_i - ŷ_i)²)",
         "es": "Suma de Residuos Cuadrados Ponderados (Σ w_i (y_i - ŷ_i)²)",
-        "ar": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)"
+        "ar": "مجموع المربعات الموزونة للبواقي (Σ w_i (y_i - ŷ_i)²)"
       },
       "businessContext_i18n": {
         "en": "The total weighted sum of squared differences between observed and predicted values.",
         "tr": "Gözlemlenen ve tahmin edilen değerler arasındaki ağırlıklı kareli farkların toplamı.",
         "de": "Die gewichtete Summe der quadrierten Abweichungen zwischen beobachteten und vorhergesagten Werten.",
         "fr": "La somme totale pondérée des carrés des différences entre les valeurs observées et prédites.",
-        "es": "La suma total ponderada de diferencias al cuadrado entre valores observados y predichos."
+        "es": "La suma total ponderada de diferencias al cuadrado entre valores observados y predichos.",
+        "ar": "المجموع الموزون للفروق المربعة بين القيم الملاحظة والمتوقعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Datenpunkte (n)",
         "fr": "Nombre de points de données (n)",
         "es": "Número de Puntos de Datos (n)",
-        "ar": "Number of Data Points (n)"
+        "ar": "عدد نقاط البيانات (n)"
       },
       "businessContext_i18n": {
         "en": "The number of measurements in the regression.",
         "tr": "Regresyondaki ölçüm sayısı.",
         "de": "Die Anzahl der Messungen in der Regression.",
         "fr": "Le nombre de mesures dans la régression.",
-        "es": "El número de mediciones en la regresión."
+        "es": "El número de mediciones en la regresión.",
+        "ar": "عدد القياسات في الانحدار."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Parameter (p)",
         "fr": "Nombre de paramètres (p)",
         "es": "Número de Parámetros (p)",
-        "ar": "Number of Parameters (p)"
+        "ar": "عدد المعاملات (p)"
       },
       "businessContext_i18n": {
         "en": "The number of fitted parameters in the regression model (e.g., slope and intercept).",
         "tr": "Regresyon modelindeki uydurulmuş parametre sayısı (örneğin, eğim ve kesişim).",
         "de": "Die Anzahl der angepassten Parameter im Regressionsmodell (z. B. Steigung und Achsenabschnitt).",
         "fr": "Le nombre de paramètres ajustés dans le modèle de régression (par exemple, pente et ordonnée à l'origine).",
-        "es": "El número de parámetros ajustados en el modelo de regresión (ej., pendiente e intersección)."
+        "es": "El número de parámetros ajustados en el modelo de regresión (ej., pendiente e intersección).",
+        "ar": "عدد المعاملات الملائمة في نموذج الانحدار (مثل الميل والتقاطع)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Signifikanzniveau (α)",
         "fr": "Niveau de signification (α)",
         "es": "Nivel de significancia (α)",
-        "ar": "Significance Level (α)"
+        "ar": "مستوى الدلالة (α)"
       },
       "businessContext_i18n": {
         "en": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion.",
         "tr": "MSWD kritik değeri aştığında geçerli bir modeli reddetme olasılığı; MSWD'nin aşırı dağılım gösterip göstermediğini test etmek için kullanılır.",
         "de": "Die Wahrscheinlichkeit, ein gültiges Modell abzulehnen, wenn MSWD den kritischen Wert überschreitet; wird verwendet, um zu prüfen, ob MSWD auf Überdispersion hinweist.",
         "fr": "La probabilité de rejeter un modèle valide lorsque le MSWD dépasse la valeur critique ; utilisé pour tester si le MSWD indique une surdispersion.",
-        "es": "La probabilidad de rechazar un modelo válido cuando MSWD excede el valor crítico; se usa para probar si MSWD indica sobredispersión."
+        "es": "La probabilidad de rechazar un modelo válido cuando MSWD excede el valor crítico; se usa para probar si MSWD indica sobredispersión.",
+        "ar": "احتمال رفض نموذج صالح عندما تتجاوز MSWD القيمة الحرجة؛ يُستخدم لاختبار ما إذا كانت MSWD تشير إلى تشتت زائد."
       }
     }
   ],

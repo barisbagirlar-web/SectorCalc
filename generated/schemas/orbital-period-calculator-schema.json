@@ -14,14 +14,15 @@
         "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitud",
-        "ar": "Altitude"
+        "ar": "الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Altitude of the satellite above the central body's surface.",
         "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği.",
         "de": "Höhe des Satelliten über der Oberfläche des Zentralkörpers.",
         "fr": "Altitude du satellite au-dessus de la surface du corps central.",
-        "es": "Altitud del satélite sobre la superficie del cuerpo central."
+        "es": "Altitud del satélite sobre la superficie del cuerpo central.",
+        "ar": "ارتفاع القمر الصناعي فوق سطح الجسم المركزي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Radius des Zentralkörpers",
         "fr": "Rayon du corps central",
         "es": "Radio del cuerpo central",
-        "ar": "Central Body Radius"
+        "ar": "نصف قطر الجسم المركزي"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (planet or star).",
         "tr": "Merkezi cismin yarıçapı (gezegen veya yıldız).",
         "de": "Radius des Zentralkörpers (Planet oder Stern).",
         "fr": "Rayon du corps central (planète ou étoile).",
-        "es": "Radio del cuerpo central (planeta o estrella)."
+        "es": "Radio del cuerpo central (planeta o estrella).",
+        "ar": "نصف قطر الجسم المركزي (كوكب أو نجم)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Masse des Zentralkörpers",
         "fr": "Masse du corps central",
         "es": "Masa del cuerpo central",
-        "ar": "Central Body Mass"
+        "ar": "كتلة الجسم المركزي"
       },
       "businessContext_i18n": {
         "en": "Mass of the central body.",
         "tr": "Merkezi cismin kütlesi.",
         "de": "Masse des Zentralkörpers.",
         "fr": "Masse du corps central.",
-        "es": "Masa del cuerpo central."
+        "es": "Masa del cuerpo central.",
+        "ar": "كتلة الجسم المركزي."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Gravitationskonstante (G)",
         "fr": "Constante gravitationnelle (G)",
         "es": "Constante gravitacional (G)",
-        "ar": "Gravitational Constant (G)"
+        "ar": "ثابت الجاذبية (G)"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant. Default is SI value.",
         "tr": "Evrensel çekim sabiti. Varsayılan SI değeridir.",
         "de": "Universelle Gravitationskonstante. Standard ist SI-Wert.",
         "fr": "Constante gravitationnelle universelle. La valeur par défaut est en unités SI.",
-        "es": "Constante gravitacional universal. Valor por defecto en SI."
+        "es": "Constante gravitacional universal. Valor por defecto en SI.",
+        "ar": "ثابت الجاذبية العام. القيمة الافتراضية بوحدات النظام الدولي."
       }
     }
   ],
   "formulas": {
-    "semiMajorAxis": "altitude + bodyRadius",
-    "semiMajorAxis_aux": "altitude + bodyRadius"
+    "normalized_product": "altitude * bodyRadius * bodyMass * gravitationalConstant",
+    "result": "altitude * bodyRadius * bodyMass * gravitationalConstant"
   },
   "outputs": {
-    "primary": "semiMajorAxis_aux",
+    "primary": "result",
     "breakdown": [
-      "periodMinutes",
-      "periodHours",
-      "periodDays"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "periodDays",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "periodMinutes": "min",
       "periodHours": "h"

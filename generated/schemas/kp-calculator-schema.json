@@ -14,14 +14,15 @@
         "de": "Prozessverstärkung (K)",
         "fr": "Gain du procédé (K)",
         "es": "Ganancia del proceso (K)",
-        "ar": "Process Gain (K)"
+        "ar": "كسب العملية (K)"
       },
       "businessContext_i18n": {
         "en": "Steady-state gain of the process, ratio of output change to input change.",
         "tr": "Prosesin kararlı hal kazancı, çıktı değişiminin girdi değişimine oranı.",
         "de": "Stationäre Verstärkung des Prozesses, Verhältnis von Ausgangs- zu Eingangsänderung.",
         "fr": "Gain statique du procédé, rapport de la variation de sortie à la variation d'entrée.",
-        "es": "Ganancia en estado estacionario del proceso, relación entre el cambio de salida y el cambio de entrada."
+        "es": "Ganancia en estado estacionario del proceso, relación entre el cambio de salida y el cambio de entrada.",
+        "ar": "كسب الحالة المستقرة للعملية، نسبة تغير المخرجات إلى تغير المدخلات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zeitkonstante (T)",
         "fr": "Constante de temps (T)",
         "es": "Constante de tiempo (T)",
-        "ar": "Time Constant (T)"
+        "ar": "ثابت الزمن (T)"
       },
       "businessContext_i18n": {
         "en": "Time taken for the process response to reach 63.2% of its final value.",
         "tr": "Proses yanıtının son değerinin %63,2'sine ulaşması için geçen süre.",
         "de": "Zeit, die die Prozessantwort benötigt, um 63,2 % ihres Endwerts zu erreichen.",
         "fr": "Temps nécessaire pour que la réponse du procédé atteigne 63,2 % de sa valeur finale.",
-        "es": "Tiempo que tarda la respuesta del proceso en alcanzar el 63.2% de su valor final."
+        "es": "Tiempo que tarda la respuesta del proceso en alcanzar el 63.2% de su valor final.",
+        "ar": "الزمن المستغرق لوصول استجابة العملية إلى 63.2% من قيمتها النهائية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Totzeit (L)",
         "fr": "Temps mort (L)",
         "es": "Tiempo muerto (L)",
-        "ar": "Dead Time (L)"
+        "ar": "زمن الميت (L)"
       },
       "businessContext_i18n": {
         "en": "Delay between input change and process response.",
         "tr": "Girdi değişimi ile proses yanıtı arasındaki gecikme.",
         "de": "Verzögerung zwischen Eingangsänderung und Prozessantwort.",
         "fr": "Délai entre le changement d'entrée et la réponse du procédé.",
-        "es": "Retardo entre el cambio de entrada y la respuesta del proceso."
+        "es": "Retardo entre el cambio de entrada y la respuesta del proceso.",
+        "ar": "التأخير بين تغير المدخلات واستجابة العملية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Multiplier to derate the calculated gain for robustness.",
         "tr": "Hesaplanan kazancı sağlamlık için düşüren çarpan.",
         "de": "Multiplikator zur Herabsetzung der berechneten Verstärkung für Robustheit.",
         "fr": "Multiplicateur pour réduire le gain calculé pour la robustesse.",
-        "es": "Multiplicador para reducir la ganancia calculada en aras de la robustez."
+        "es": "Multiplicador para reducir la ganancia calculada en aras de la robustez.",
+        "ar": "مضاعف لتقليل الكسب المحسوب من أجل المتانة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Reglertyp (1=P, 2=PI, 3=PID)",
         "fr": "Type de régulateur (1=P, 2=PI, 3=PID)",
         "es": "Tipo de controlador (1=P, 2=PI, 3=PID)",
-        "ar": "Controller Type (1=P, 2=PI, 3=PID)"
+        "ar": "نوع المتحكم (1=P, 2=PI, 3=PID)"
       },
       "businessContext_i18n": {
         "en": "Selects the tuning rule: 1 for P-only, 2 for PI, 3 for PID based on Ziegler-Nichols open-loop method.",
         "tr": "Ziegler-Nichols açık çevrim yöntemine göre ayar kuralını seçer: 1 sadece P, 2 PI, 3 PID.",
         "de": "Wählt die Einstellregel: 1 für P-only, 2 für PI, 3 für PID basierend auf der Ziegler-Nichols-Open-Loop-Methode.",
         "fr": "Sélectionne la règle de réglage : 1 pour P seul, 2 pour PI, 3 pour PID selon la méthode en boucle ouverte de Ziegler-Nichols.",
-        "es": "Selecciona la regla de sintonización: 1 para solo P, 2 para PI, 3 para PID basado en el método de lazo abierto de Ziegler-Nichols."
+        "es": "Selecciona la regla de sintonización: 1 para solo P, 2 para PI, 3 para PID basado en el método de lazo abierto de Ziegler-Nichols.",
+        "ar": "يختار قاعدة الضبط: 1 لـ P فقط، 2 لـ PI، 3 لـ PID بناءً على طريقة Ziegler-Nichols ذات الحلقة المفتوحة."
       }
     }
   ],

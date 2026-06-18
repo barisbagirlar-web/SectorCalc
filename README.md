@@ -63,6 +63,33 @@ npm run start   # production build locally
 
 Full checklist: [docs/env-checklist.md](docs/env-checklist.md).
 
+## Model Seçimi
+
+| Model | Kullanım |
+|-------|----------|
+| Claude | Kritik iş: refactor, mimari, güvenli patch, admin/stripe/revenue |
+| DeepSeek (`deepseek-coder`) | Toplu iş: `scripts/deepseek/*`, schema scan, bulk repair, i18n pipeline |
+
+### Cursor + DeepSeek
+
+**Basit (deepseek-coder / deepseek-chat):**
+
+1. `.env.local` → `DEEPSEEK_API_KEY=...` (tırnaksız)
+2. `npm run setup:cursor-deepseek`
+3. Cursor Settings → Models → Base URL `https://api.deepseek.com` → custom model ekle → seç
+
+**V4 Pro (Agent + reasoning — proxy gerekir):**
+
+1. `pip3 install git+https://github.com/yxlao/deepseek-cursor-proxy.git`
+2. `npm run start:deepseek-proxy` — terminal açık kalsın; çıktıdaki `api_base_url` satırını not al
+3. Cursor Settings → Models:
+   - OpenAI API Key: `.env.local` → `DEEPSEEK_API_KEY`
+   - Override Base URL: `api_base_url` (ör. `https://XXXX.ngrok-free.dev/v1`)
+   - Custom model: `deepseek-v4-pro`
+4. Durdurmak: `npm run stop:deepseek-proxy`
+
+Toplu iş subagent: `@deepseek-bulk`
+
 ## Deployment
 
 ### Local pre-deploy checks

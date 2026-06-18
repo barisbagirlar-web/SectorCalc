@@ -14,14 +14,15 @@
         "de": "Zähler 1",
         "fr": "Numérateur 1",
         "es": "Numerador 1",
-        "ar": "Numerator 1"
+        "ar": "البسط 1"
       },
       "businessContext_i18n": {
         "en": "The numerator of the first fraction",
         "tr": "Birinci kesrin payı",
         "de": "Der Zähler des ersten Bruchs",
         "fr": "Numérateur de la première fraction",
-        "es": "Numerador de la primera fracción"
+        "es": "Numerador de la primera fracción",
+        "ar": "بسط الكسر الأول"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nenner 1",
         "fr": "Dénominateur 1",
         "es": "Denominador 1",
-        "ar": "Denominator 1"
+        "ar": "المقام 1"
       },
       "businessContext_i18n": {
         "en": "The denominator of the first fraction (non-zero)",
         "tr": "Birinci kesrin paydası (sıfırdan farklı)",
         "de": "Der Nenner des ersten Bruchs (ungleich Null)",
         "fr": "Dénominateur de la première fraction (non nul)",
-        "es": "Denominador de la primera fracción (distinto de cero)"
+        "es": "Denominador de la primera fracción (distinto de cero)",
+        "ar": "مقام الكسر الأول (غير صفري)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zähler 2",
         "fr": "Numérateur 2",
         "es": "Numerador 2",
-        "ar": "Numerator 2"
+        "ar": "البسط 2"
       },
       "businessContext_i18n": {
         "en": "The numerator of the second fraction",
         "tr": "İkinci kesrin payı",
         "de": "Der Zähler des zweiten Bruchs",
         "fr": "Numérateur de la deuxième fraction",
-        "es": "Numerador de la segunda fracción"
+        "es": "Numerador de la segunda fracción",
+        "ar": "بسط الكسر الثاني"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Nenner 2",
         "fr": "Dénominateur 2",
         "es": "Denominador 2",
-        "ar": "Denominator 2"
+        "ar": "المقام 2"
       },
       "businessContext_i18n": {
         "en": "The denominator of the second fraction (non-zero)",
         "tr": "İkinci kesrin paydası (sıfırdan farklı)",
         "de": "Der Nenner des zweiten Bruchs (ungleich Null)",
         "fr": "Dénominateur de la deuxième fraction (non nul)",
-        "es": "Denominador de la segunda fracción (distinto de cero)"
+        "es": "Denominador de la segunda fracción (distinto de cero)",
+        "ar": "مقام الكسر الثاني (غير صفري)"
       }
     }
   ],
   "formulas": {
-    "result": "numerator1 + denominator1 + numerator2",
-    "result_copy": "numerator1 + denominator1 + numerator2"
+    "normalized_product": "numerator1 * denominator1 * numerator2 * denominator2",
+    "result": "numerator1 * denominator1 * numerator2 * denominator2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "productNumerator",
-      "productDenominator"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "productDenominator",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

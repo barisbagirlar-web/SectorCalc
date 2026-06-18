@@ -14,14 +14,15 @@
         "de": "Winkelwert",
         "fr": "Valeur de l'angle",
         "es": "Valor del ángulo",
-        "ar": "Angle Value"
+        "ar": "قيمة الزاوية"
       },
       "businessContext_i18n": {
         "en": "The magnitude of the angle to compute the sine of.",
         "tr": "Sinüsü hesaplanacak açının büyüklüğü.",
         "de": "Größe des Winkels, dessen Sinus berechnet werden soll.",
         "fr": "Ampleur de l'angle pour calculer le sinus.",
-        "es": "Magnitud del ángulo para calcular el seno"
+        "es": "Magnitud del ángulo para calcular el seno",
+        "ar": "مقدار الزاوية لحساب جيبها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Winkeleinheit (0=Grad, 1=Bogenmaß)",
         "fr": "Unité de l'angle (0=Degrés, 1=Radiants)",
         "es": "Unidad del ángulo (0=Grados, 1=Radianes)",
-        "ar": "Angle Unit (0=Degrees, 1=Radians)"
+        "ar": "وحدة الزاوية (0=درجات، 1=راديان)"
       },
       "businessContext_i18n": {
         "en": "Select 0 if the angle is in degrees, 1 if in radians.",
         "tr": "Açı derece ise 0, radyan ise 1 seçin.",
         "de": "Wählen Sie 0, wenn der Winkel in Grad vorliegt, 1 wenn im Bogenmaß.",
         "fr": "Sélectionnez 0 si l'angle est en degrés, 1 si en radians.",
-        "es": "Seleccione 0 si el ángulo está en grados, 1 si está en radianes"
+        "es": "Seleccione 0 si el ángulo está en grados, 1 si está en radianes",
+        "ar": "اختر 0 إذا كانت الزاوية بالدرجات، 1 إذا كانت بالراديان."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the sine output.",
         "tr": "Sinüs çıktısı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Sinusausgabe.",
         "fr": "Nombre de décimales pour le résultat du sinus.",
-        "es": "Número de decimales para la salida del seno"
+        "es": "Número de decimales para la salida del seno",
+        "ar": "عدد المنازل العشرية لمخرج الجيب."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Amplitudenskalierung",
         "fr": "Mise à l'échelle de l'amplitude",
         "es": "Escalado de amplitud",
-        "ar": "Amplitude Scaling"
+        "ar": "تحجيم السعة"
       },
       "businessContext_i18n": {
         "en": "Optional amplitude multiplication factor (for a*sin(x)).",
         "tr": "İsteğe bağlı genlik çarpma faktörü (a*sin(x) için).",
         "de": "Optionaler Amplituden-Multiplikationsfaktor (für a*sin(x)).",
         "fr": "Facteur de multiplication d'amplitude optionnel (pour a*sin(x)).",
-        "es": "Factor de multiplicación de amplitud opcional (para a*sin(x))"
+        "es": "Factor de multiplicación de amplitud opcional (para a*sin(x))",
+        "ar": "عامل ضرب السعة الاختياري (لـ a*sin(x))."
       }
     }
   ],

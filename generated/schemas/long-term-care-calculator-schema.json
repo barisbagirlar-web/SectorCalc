@@ -14,14 +14,15 @@
         "de": "Aktuelles Alter",
         "fr": "Âge actuel",
         "es": "Edad actual",
-        "ar": "Current Age"
+        "ar": "العمر الحالي"
       },
       "businessContext_i18n": {
         "en": "User's current age in years",
         "tr": "Kullanıcının yıl cinsinden mevcut yaşı",
         "de": "Aktuelles Alter des Benutzers in Jahren",
         "fr": "Âge actuel de l'utilisateur en années",
-        "es": "Edad actual del usuario en años"
+        "es": "Edad actual del usuario en años",
+        "ar": "عمر المستخدم الحالي بالسنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rentenalter",
         "fr": "Âge de la retraite",
         "es": "Edad de jubilación",
-        "ar": "Retirement Age"
+        "ar": "سن التقاعد"
       },
       "businessContext_i18n": {
         "en": "Expected retirement age",
         "tr": "Beklenen emeklilik yaşı",
         "de": "Erwartetes Rentenalter",
         "fr": "Âge de retraite prévu",
-        "es": "Edad de jubilación esperada"
+        "es": "Edad de jubilación esperada",
+        "ar": "سن التقاعد المتوقع"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Erwartete Pflegedauer",
         "fr": "Durée prévue des soins",
         "es": "Duración esperada del cuidado",
-        "ar": "Expected Care Duration"
+        "ar": "مدة الرعاية المتوقعة"
       },
       "businessContext_i18n": {
         "en": "Expected number of years requiring long-term care",
         "tr": "Uzun süreli bakım gerektiren beklenen yıl sayısı",
         "de": "Erwartete Anzahl von Jahren mit Langzeitpflegebedarf",
         "fr": "Nombre d'années prévu nécessitant des soins de longue durée",
-        "es": "Número esperado de años que requieren cuidados a largo plazo"
+        "es": "Número esperado de años que requieren cuidados a largo plazo",
+        "ar": "العدد المتوقع من السنوات التي تتطلب رعاية طويلة الأمد"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Aktuelle tägliche Pflegekosten",
         "fr": "Coût quotidien des soins aujourd'hui",
         "es": "Coste diario del cuidado hoy",
-        "ar": "Daily Care Cost Today"
+        "ar": "تكلفة الرعاية اليومية اليوم"
       },
       "businessContext_i18n": {
         "en": "Current daily cost of long-term care in local currency",
         "tr": "Yerel para biriminde uzun süreli bakımın güncel günlük maliyeti",
         "de": "Aktuelle tägliche Kosten der Langzeitpflege in lokaler Währung",
         "fr": "Coût quotidien actuel des soins de longue durée en devise locale",
-        "es": "Coste diario actual del cuidado a largo plazo en moneda local"
+        "es": "Coste diario actual del cuidado a largo plazo en moneda local",
+        "ar": "التكلفة اليومية الحالية للرعاية طويلة الأمد بالعملة المحلية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
         "es": "Tasa de inflación anual",
-        "ar": "Annual Inflation Rate"
+        "ar": "معدل التضخم السنوي"
       },
       "businessContext_i18n": {
         "en": "Expected average annual inflation rate for healthcare costs",
         "tr": "Sağlık hizmetleri maliyetleri için beklenen ortalama yıllık enflasyon oranı",
         "de": "Erwartete durchschnittliche jährliche Inflationsrate für Gesundheitskosten",
         "fr": "Taux d'inflation annuel moyen attendu pour les coûts de santé",
-        "es": "Tasa de inflación anual media esperada para costes sanitarios"
+        "es": "Tasa de inflación anual media esperada para costes sanitarios",
+        "ar": "متوسط معدل التضخم السنوي المتوقع لتكاليف الرعاية الصحية"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Bereits vorhandene Ersparnisse",
         "fr": "Épargne existante allouée",
         "es": "Ahorros existentes asignados",
-        "ar": "Existing Savings Allocated"
+        "ar": "المدخرات الحالية المخصصة"
       },
       "businessContext_i18n": {
         "en": "Amount already saved to cover future care",
         "tr": "Gelecekteki bakımı karşılamak için halihazırda biriktirilen miktar",
         "de": "Bereits gesparter Betrag zur Deckung zukünftiger Pflegekosten",
         "fr": "Montant déjà épargné pour couvrir les soins futurs",
-        "es": "Cantidad ya ahorrada para cubrir cuidados futuros"
+        "es": "Cantidad ya ahorrada para cubrir cuidados futuros",
+        "ar": "المبلغ المدخر بالفعل لتغطية الرعاية المستقبلية"
       }
     },
     {
@@ -152,33 +158,43 @@
         "de": "Sonstiges Renteneinkommen",
         "fr": "Autres revenus de retraite",
         "es": "Otros ingresos de jubilación",
-        "ar": "Other Retirement Income"
+        "ar": "دخل التقاعد الآخر"
       },
       "businessContext_i18n": {
         "en": "Expected additional income during care period (e.g., pension, rental)",
         "tr": "Bakım döneminde beklenen ek gelir (örneğin, emekli maaşı, kira geliri)",
         "de": "Erwartetes zusätzliches Einkommen während der Pflegezeit (z. B. Rente, Mieteinnahmen)",
         "fr": "Revenu supplémentaire attendu pendant la période de soins (ex. pension, loyer)",
-        "es": "Ingresos adicionales esperados durante el período de cuidado (p. ej., pensión, alquiler)"
+        "es": "Ingresos adicionales esperados durante el período de cuidado (p. ej., pensión, alquiler)",
+        "ar": "الدخل الإضافي المتوقع خلال فترة الرعاية (مثل المعاش التقاعدي، الإيجار)"
       }
     }
   ],
   "formulas": {
-    "result": "currentAge + retirementAge + expectedLongTermCareYears",
-    "result_copy": "currentAge + retirementAge + expectedLongTermCareYears"
+    "base_cost": "currentAge * dailyCareCost",
+    "adjusted_cost": "currentAge * dailyCareCost * 1",
+    "result": "currentAge * dailyCareCost * 1 * (retirementAge * expectedLongTermCareYears)",
+    "factor_retirementAge": "retirementAge",
+    "factor_expectedLongTermCareYears": "expectedLongTermCareYears"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalCareCost",
-      "monthlySavingsNeeded"
+      "base_cost",
+      "adjusted_cost",
+      "factor_retirementAge",
+      "factor_expectedLongTermCareYears"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "monthlySavingsNeeded",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Günlük Yaşam & Ev",

@@ -8,6 +8,48 @@ const FORBIDDEN_FORMULA_PATTERNS = [
   /\bsolve\s*\(/i,
 ] as const;
 
+const NON_COST_OUTPUT_UNITS = new Set([
+  "workers",
+  "employees",
+  "years",
+  "units",
+  "count",
+  "ea",
+  "each",
+  "dimensionless",
+]);
+
+/** True when expression is only input identifiers joined by + (placeholder stub). */
+export function isStubSumFormula(expression: string, inputIds: readonly string[]): boolean {
+  const trimmed = expression.trim();
+  if (!trimmed.includes("+")) {
+    return false;
+  }
+  if (
+    /[*/^%]|Math\.|\(|\)|\bsqrt\b|\blog\b|\bpow\b|\bmin\b|\bmax\b|\babs\b|\bexp\b/i.test(
+      trimmed,
+    )
+  ) {
+    return false;
+  }
+  const tokens = trimmed
+    .split("+")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (tokens.length < 2) {
+    return false;
+  }
+  const idSet = new Set(inputIds);
+  return tokens.every((token) => idSet.has(token) || /^\d+(\.\d+)?$/.test(token));
+}
+
+function isCostOrientedTool(raw: Record<string, unknown>): boolean {
+  const title = String(raw.title ?? "").toLowerCase();
+  const description = String(raw.description ?? "").toLowerCase();
+  const blob = `${title} ${description}`;
+  return /cost|maliyet|price|fiyat|waste|kayıp|loss|roi|margin|karbon|carbon/.test(blob);
+}
+
 export type IndustrialValidationResult = {
   readonly valid: boolean;
   readonly errors: readonly string[];
@@ -78,6 +120,8 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
       errors.push(`formula ${key}: does not compile`);
     } else if (compiled.includes("Math.Math")) {
       errors.push(`formula ${key}: double Math prefix`);
+    } else if (isStubSumFormula(expression, inputIds)) {
+      errors.push(`formula ${key}: stub sum placeholder (inputs added, not domain logic)`);
     }
   }
 
@@ -85,6 +129,24 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
   const primary = outputs.primary;
   if (typeof primary !== "string" || !formulaKeys.includes(primary)) {
     errors.push("outputs.primary missing or not in formulas");
+  } else {
+    const primaryExpr = formulas[primary];
+    const usedInputs = inputIds.filter((id) =>
+      Object.values(formulas).some((expression) => expression.includes(id)),
+    ).length;
+    if (inputIds.length >= 4 && usedInputs < Math.ceil(inputIds.length / 2)) {
+      errors.push(
+        `formulas use ${usedInputs}/${inputIds.length} inputs — incomplete domain model`,
+      );
+    }
+    if (isStubSumFormula(primaryExpr, inputIds)) {
+      errors.push(`primary formula ${primary}: stub sum placeholder`);
+    }
+  }
+
+  const outputUnit = typeof outputs.unit === "string" ? outputs.unit.trim().toLowerCase() : "";
+  if (isCostOrientedTool(raw) && outputUnit && NON_COST_OUTPUT_UNITS.has(outputUnit)) {
+    errors.push(`output unit mismatch: cost-oriented tool publishes "${outputs.unit}"`);
   }
 
   return { valid: errors.length === 0, errors };

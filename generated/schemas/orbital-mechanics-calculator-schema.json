@@ -14,14 +14,15 @@
         "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitud",
-        "ar": "Altitude"
+        "ar": "الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Satellite height above planet surface",
         "tr": "Uydunun gezegen yüzeyinden yüksekliği",
         "de": "Satellitenhöhe über der Planetenoberfläche",
         "fr": "Hauteur du satellite au-dessus de la surface de la planète",
-        "es": "Altura del satélite sobre la superficie del planeta"
+        "es": "Altura del satélite sobre la superficie del planeta",
+        "ar": "ارتفاع القمر الصناعي فوق سطح الكوكب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Planetenradius",
         "fr": "Rayon de la planète",
         "es": "Radio del planeta",
-        "ar": "Planet Radius"
+        "ar": "نصف قطر الكوكب"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (e.g., Earth)",
         "tr": "Merkezi cismin yarıçapı (ör. Dünya)",
         "de": "Radius des Zentralkörpers (z. B. Erde)",
         "fr": "Rayon du corps central (par exemple, la Terre)",
-        "es": "Radio del cuerpo central (ej. Tierra)"
+        "es": "Radio del cuerpo central (ej. Tierra)",
+        "ar": "نصف قطر الجسم المركزي (مثل الأرض)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exzentrizität",
         "fr": "Excentricité",
         "es": "Excentricidad",
-        "ar": "Eccentricity"
+        "ar": "الانحراف المركزي"
       },
       "businessContext_i18n": {
         "en": "Orbit eccentricity (0 for circular orbit)",
         "tr": "Yörünge dışmerkezliği (dairesel yörünge için 0)",
         "de": "Bahn-Exzentrizität (0 für Kreisbahn)",
         "fr": "Excentricité de l'orbite (0 pour une orbite circulaire)",
-        "es": "Excentricidad orbital (0 para órbita circular)"
+        "es": "Excentricidad orbital (0 para órbita circular)",
+        "ar": "الانحراف المركزي للمدار (0 للمدار الدائري)"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Gravitationsparameter",
         "fr": "Paramètre gravitationnel",
         "es": "Parámetro gravitacional",
-        "ar": "Gravitational Parameter"
+        "ar": "المعامل الجاذبي"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational parameter (G × M)",
         "tr": "Standart çekim parametresi (G × M)",
         "de": "Standard-Gravitationsparameter (G × M)",
         "fr": "Paramètre gravitationnel standard (G × M)",
-        "es": "Parámetro gravitacional estándar (G × M)"
+        "es": "Parámetro gravitacional estándar (G × M)",
+        "ar": "المعامل الجاذبي القياسي (G × M)"
       }
     }
   ],
   "formulas": {
-    "semiMajorAxis": "altitude + planetRadius",
-    "semiMajorAxis_aux": "altitude + planetRadius"
+    "normalized_product": "altitude * planetRadius * eccentricity * mu",
+    "result": "altitude * planetRadius * eccentricity * mu"
   },
   "outputs": {
-    "primary": "semiMajorAxis_aux",
+    "primary": "result",
     "breakdown": [
-      "vPeriapsis",
-      "vApoapsis",
-      "periodSeconds"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "periodHours",
-    "unit": "km"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Havacılık & Uzay",

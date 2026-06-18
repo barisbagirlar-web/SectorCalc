@@ -14,14 +14,15 @@
         "de": "Einfallswinkel",
         "fr": "Angle d'incidence",
         "es": "Ángulo de incidencia",
-        "ar": "Geliş Açısı"
+        "ar": "زاوية السقوط"
       },
       "businessContext_i18n": {
         "en": "Işığın birinci ortamdaki geliş açısı.",
         "tr": "Işığın birinci ortamdaki geliş açısı.",
         "de": "Einfallswinkel des Lichts im ersten Medium.",
         "fr": "Angle d'incidence de la lumière dans le premier milieu.",
-        "es": "Ángulo de incidencia de la luz en el primer medio."
+        "es": "Ángulo de incidencia de la luz en el primer medio.",
+        "ar": "زاوية سقوط الضوء في الوسط الأول."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Brechungsindex des ersten Mediums",
         "fr": "Indice de réfraction du premier milieu",
         "es": "Índice de refracción del primer medio",
-        "ar": "Birinci Ortam Kırılma İndisi"
+        "ar": "معامل انكسار الوسط الأول"
       },
       "businessContext_i18n": {
         "en": "Birinci ortamın kırılma indisi (n1).",
         "tr": "Birinci ortamın kırılma indisi (n1).",
         "de": "Brechungsindex des ersten Mediums (n1).",
         "fr": "Indice de réfraction du premier milieu (n1).",
-        "es": "Índice de refracción del primer medio (n1)."
+        "es": "Índice de refracción del primer medio (n1).",
+        "ar": "معامل انكسار الوسط الأول (n1)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Brechungsindex des zweiten Mediums",
         "fr": "Indice de réfraction du second milieu",
         "es": "Índice de refracción del segundo medio",
-        "ar": "İkinci Ortam Kırılma İndisi"
+        "ar": "معامل انكسار الوسط الثاني"
       },
       "businessContext_i18n": {
         "en": "İkinci ortamın kırılma indisi (n2).",
         "tr": "İkinci ortamın kırılma indisi (n2).",
         "de": "Brechungsindex des zweiten Mediums (n2).",
         "fr": "Indice de réfraction du second milieu (n2).",
-        "es": "Índice de refracción del segundo medio (n2)."
+        "es": "Índice de refracción del segundo medio (n2).",
+        "ar": "معامل انكسار الوسط الثاني (n2)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dicke",
         "fr": "Épaisseur",
         "es": "Grosor",
-        "ar": "Kalınlık"
+        "ar": "السماكة"
       },
       "businessContext_i18n": {
         "en": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
         "tr": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
         "de": "Dicke des durchstrahlten Mediums (für die seitliche Verschiebung).",
         "fr": "Épaisseur du milieu traversé par la lumière (pour le calcul du décalage latéral).",
-        "es": "Espesor del medio que atraviesa la luz (para cálculo de desplazamiento lateral)."
+        "es": "Espesor del medio que atraviesa la luz (para cálculo de desplazamiento lateral).",
+        "ar": "سمك الوسط الذي يمر عبره الضوء (لحساب الإزاحة الجانبية)."
       }
     }
   ],
   "formulas": {
-    "result": "incidentAngle + refractiveIndex1 + refractiveIndex2",
-    "result_copy": "incidentAngle + refractiveIndex1 + refractiveIndex2"
+    "normalized_product": "incidentAngle * refractiveIndex1 * refractiveIndex2 * thickness",
+    "result": "incidentAngle * refractiveIndex1 * refractiveIndex2 * thickness"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "criticalAngle",
-      "lateralShift"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "lateralShift",
-    "unit": "derece (°)"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

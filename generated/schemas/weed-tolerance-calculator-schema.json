@@ -13,14 +13,16 @@
         "tr": "Temel Uzunluk (mm)",
         "de": "Basislänge (mm)",
         "fr": "Longueur de base (mm)",
-        "es": "Base Length (mm)",
-        "ar": "Base Length (mm)"
+        "es": "Longitud base (mm)",
+        "ar": "الطول الأساسي (مم)"
       },
       "businessContext_i18n": {
         "en": "Nominal dimension before welding",
         "tr": "Kaynak öncesi nominal boyut",
         "de": "Nennmaß vor dem Schweißen",
-        "fr": "Dimension nominale avant soudage"
+        "fr": "Dimension nominale avant soudage",
+        "es": "Dimensión nominal antes de soldadura",
+        "ar": "البعد الاسمي قبل اللحام"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kaynak Sayısı",
         "de": "Anzahl der Schweißnähte",
         "fr": "Nombre de soudures",
-        "es": "Number of Welds",
-        "ar": "Number of Welds"
+        "es": "Número de soldaduras",
+        "ar": "عدد اللحامات"
       },
       "businessContext_i18n": {
         "en": "Number of weld joints",
         "tr": "Kaynak bağlantı sayısı",
         "de": "Anzahl der Schweißverbindungen",
-        "fr": "Nombre de joints de soudure"
+        "fr": "Nombre de joints de soudure",
+        "es": "Número de uniones soldadas",
+        "ar": "عدد وصلات اللحام"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Bağlantı Başına Kaynak Pasosu",
         "de": "Schweißlagen pro Verbindung",
         "fr": "Passes de soudure par joint",
-        "es": "Weld Passes per Joint",
-        "ar": "Weld Passes per Joint"
+        "es": "Pasadas de soldadura por unión",
+        "ar": "عدد مرات اللحام لكل وصلة"
       },
       "businessContext_i18n": {
         "en": "Average number of passes per joint",
         "tr": "Bağlantı başına ortalama paso sayısı",
         "de": "Durchschnittliche Anzahl der Lagen pro Verbindung",
-        "fr": "Nombre moyen de passes par joint"
+        "fr": "Nombre moyen de passes par joint",
+        "es": "Número medio de pasadas por unión",
+        "ar": "متوسط عدد مرات اللحام لكل وصلة"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Malzeme Büzülme Faktörü",
         "de": "Material-Schwindungsfaktor",
         "fr": "Facteur de retrait du matériau",
-        "es": "Material Shrinkage Factor",
-        "ar": "Material Shrinkage Factor"
+        "es": "Factor de contracción del material",
+        "ar": "عامل انكماش المادة"
       },
       "businessContext_i18n": {
         "en": "Shrinkage per meter per pass (e.g., steel = 0.5)",
         "tr": "Metre başına paso başına büzülme (ör. çelik = 0,5)",
         "de": "Schwindung pro Meter pro Lage (z. B. Stahl = 0,5)",
-        "fr": "Retrait par mètre par passe (ex. acier = 0,5)"
+        "fr": "Retrait par mètre par passe (ex. acier = 0,5)",
+        "es": "Contracción por metro por pasada (p. ej., acero = 0,5)",
+        "ar": "الانكماش لكل متر لكل مرة لحام (مثل الفولاذ = 0.5)"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
         "es": "Temperatura ambiente (°C)",
-        "ar": "Ambient Temperature (°C)"
+        "ar": "درجة الحرارة المحيطة (°م)"
       },
       "businessContext_i18n": {
         "en": "Temperature for thermal expansion adjustment",
         "tr": "Termal genleşme ayarı için sıcaklık",
         "de": "Temperatur für die Anpassung der Wärmeausdehnung",
-        "fr": "Température pour l'ajustement de dilatation thermique"
+        "fr": "Température pour l'ajustement de dilatation thermique",
+        "es": "Temperatura para ajuste por expansión térmica",
+        "ar": "درجة الحرارة لتعديل التمدد الحراري"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Termal Genleşme Katsayısı (µm/m·°C)",
         "de": "Wärmeausdehnungskoeffizient (µm/m·°C)",
         "fr": "Coefficient de dilatation thermique (µm/m·°C)",
-        "es": "Thermal Expansion Coeff (µm/m·°C)",
-        "ar": "Thermal Expansion Coeff (µm/m·°C)"
+        "es": "Coeficiente de expansión térmica (µm/m·°C)",
+        "ar": "معامل التمدد الحراري (ميكرومتر/م·°م)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of thermal expansion for the material",
         "tr": "Malzemenin termal genleşme katsayısı",
         "de": "Wärmeausdehnungskoeffizient des Materials",
-        "fr": "Coefficient de dilatation thermique du matériau"
+        "fr": "Coefficient de dilatation thermique du matériau",
+        "es": "Coeficiente de expansión térmica del material",
+        "ar": "معامل التمدد الحراري للمادة"
       }
     }
   ],

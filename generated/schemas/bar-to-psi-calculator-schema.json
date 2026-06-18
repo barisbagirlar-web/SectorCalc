@@ -14,14 +14,15 @@
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
-        "ar": "Pressure (bar)"
+        "ar": "الضغط (بار)"
       },
       "businessContext_i18n": {
         "en": "Pressure value to convert from bar to psi.",
         "tr": "Bar'dan psi'ye dönüştürülecek basınç değeri.",
         "de": "Druckwert zur Umrechnung von bar in psi.",
         "fr": "Valeur de pression à convertir de bar en psi.",
-        "es": "Valor de presión a convertir de bar a psi."
+        "es": "Valor de presión a convertir de bar a psi.",
+        "ar": "قيمة الضغط للتحويل من bar إلى psi."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bezugstyp",
         "fr": "Type de référence",
         "es": "Tipo de referencia",
-        "ar": "Reference Type"
+        "ar": "نوع المرجع"
       },
       "businessContext_i18n": {
         "en": "0 for absolute pressure, 1 for gauge pressure. If gauge, atmospheric pressure is added to obtain absolute pressure before conversion.",
         "tr": "Mutlak basınç için 0, gösterge basıncı için 1. Gösterge ise, dönüşümden önce mutlak basınç elde etmek için atmosfer basıncı eklenir.",
         "de": "0 für Absolutdruck, 1 für Relativdruck. Bei Relativdruck wird der Atmosphärendruck addiert, um den Absolutdruck vor der Umrechnung zu erhalten.",
         "fr": "0 pour pression absolue, 1 pour pression relative. Si relative, la pression atmosphérique est ajoutée pour obtenir la pression absolue avant conversion.",
-        "es": "0 para presión absoluta, 1 para presión manométrica. Si es manométrica, se suma la presión atmosférica para obtener la presión absoluta antes de la conversión."
+        "es": "0 para presión absoluta, 1 para presión manométrica. Si es manométrica, se suma la presión atmosférica para obtener la presión absoluta antes de la conversión.",
+        "ar": "0 للضغط المطلق، 1 للضغط النسبي. إذا كان نسبيًا، يُضاف الضغط الجوي للحصول على الضغط المطلق قبل التحويل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Atmosphärendruck",
         "fr": "Pression atmosphérique",
         "es": "Presión atmosférica",
-        "ar": "Atmospheric Pressure"
+        "ar": "الضغط الجوي"
       },
       "businessContext_i18n": {
         "en": "Standard atmospheric pressure at sea level. Used only when reference type is gauge.",
         "tr": "Deniz seviyesinde standart atmosfer basıncı. Yalnızca referans türü gösterge olduğunda kullanılır.",
         "de": "Standard-Atmosphärendruck auf Meereshöhe. Wird nur verwendet, wenn der Bezugstyp Relativdruck ist.",
         "fr": "Pression atmosphérique standard au niveau de la mer. Utilisée uniquement lorsque le type de référence est relatif.",
-        "es": "Presión atmosférica estándar al nivel del mar. Se usa solo cuando el tipo de referencia es manométrica."
+        "es": "Presión atmosférica estándar al nivel del mar. Se usa solo cuando el tipo de referencia es manométrica.",
+        "ar": "الضغط الجوي القياسي عند مستوى سطح البحر. يُستخدم فقط عندما يكون نوع المرجع نسبيًا."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the converted psi value.",
         "tr": "Dönüştürülen psi değeri için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den umgerechneten psi-Wert.",
         "fr": "Nombre de décimales pour la valeur convertie en psi.",
-        "es": "Número de decimales para el valor convertido en psi."
+        "es": "Número de decimales para el valor convertido en psi.",
+        "ar": "عدد المنازل العشرية لقيمة psi المحولة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Custom conversion factor (default is 1 bar = 14.503773773 psi). Modify only if a different definition is required.",
         "tr": "Özel dönüşüm faktörü (varsayılan 1 bar = 14.503773773 psi). Yalnızca farklı bir tanım gerekiyorsa değiştirin.",
         "de": "Benutzerdefinierter Umrechnungsfaktor (Standard: 1 bar = 14,503773773 psi). Nur ändern, wenn eine andere Definition erforderlich ist.",
         "fr": "Facteur de conversion personnalisé (par défaut 1 bar = 14,503773773 psi). Modifier uniquement si une définition différente est requise.",
-        "es": "Factor de conversión personalizado (por defecto 1 bar = 14.503773773 psi). Modificar solo si se requiere una definición diferente."
+        "es": "Factor de conversión personalizado (por defecto 1 bar = 14.503773773 psi). Modificar solo si se requiere una definición diferente.",
+        "ar": "عامل التحويل المخصص (الافتراضي هو 1 bar = 14.503773773 psi). يُعدل فقط إذا كان مطلوب تعريف مختلف."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Messtemperatur",
         "fr": "Température de mesure",
         "es": "Temperatura de medición",
-        "ar": "Measurement Temperature"
+        "ar": "درجة حرارة القياس"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at the measurement point (for documentation only, does not affect the conversion).",
         "tr": "Ölçüm noktasındaki ortam sıcaklığı (yalnızca dokümantasyon için, dönüşümü etkilemez).",
         "de": "Umgebungstemperatur am Messpunkt (nur zur Dokumentation, beeinflusst die Umrechnung nicht).",
         "fr": "Température ambiante au point de mesure (pour documentation uniquement, n'affecte pas la conversion).",
-        "es": "Temperatura ambiente en el punto de medición (solo para documentación, no afecta la conversión)."
+        "es": "Temperatura ambiente en el punto de medición (solo para documentación, no afecta la conversión).",
+        "ar": "درجة الحرارة المحيطة عند نقطة القياس (للتوثيق فقط، لا تؤثر على التحويل)."
       }
     }
   ],

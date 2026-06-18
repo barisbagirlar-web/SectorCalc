@@ -14,14 +14,15 @@
         "de": "Erster Cashflow",
         "fr": "Premier flux de trésorerie",
         "es": "Flujo de caja inicial",
-        "ar": "İlk Nakit Akışı"
+        "ar": "التدفق النقدي الأول"
       },
       "businessContext_i18n": {
         "en": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
         "tr": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
         "de": "Erwarteter Cashflow am Ende der ersten Periode (normalerweise nächstes Jahr)",
         "fr": "Flux de trésorerie attendu à la fin de la première période (généralement l'année suivante)",
-        "es": "Flujo de caja esperado al final del primer período (generalmente el próximo año)."
+        "es": "Flujo de caja esperado al final del primer período (generalmente el próximo año).",
+        "ar": "التدفق النقدي المتوقع في نهاية الفترة الأولى (عادةً العام القادم)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Diskontsatz",
         "fr": "Taux d'actualisation",
         "es": "Tasa de descuento",
-        "ar": "İskonto Oranı"
+        "ar": "معدل الخصم"
       },
       "businessContext_i18n": {
         "en": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
         "tr": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
         "de": "Erwartete Rendite des Investors oder Kapitalkosten, verwendet als Diskontsatz",
         "fr": "Taux de rendement attendu par l'investisseur ou coût du capital, utilisé comme taux d'actualisation",
-        "es": "Tasa de rendimiento esperada por el inversor o costo de capital, utilizada como tasa de descuento."
+        "es": "Tasa de rendimiento esperada por el inversor o costo de capital, utilizada como tasa de descuento.",
+        "ar": "معدل العائد المتوقع للمستثمر أو تكلفة رأس المال، يستخدم كمعدل خصم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wachstumsrate",
         "fr": "Taux de croissance",
         "es": "Tasa de crecimiento",
-        "ar": "Büyüme Oranı"
+        "ar": "معدل النمو"
       },
       "businessContext_i18n": {
         "en": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
         "tr": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
         "de": "Konstante Wachstumsrate der Cashflows pro Periode, muss kleiner als der Diskontsatz sein",
         "fr": "Le taux de croissance constant des flux de trésorerie à chaque période doit être inférieur au taux d'actualisation",
-        "es": "Tasa de crecimiento constante de los flujos de caja en cada período, debe ser menor que la tasa de descuento."
+        "es": "Tasa de crecimiento constante de los flujos de caja en cada período, debe ser menor que la tasa de descuento.",
+        "ar": "معدل النمو الثابت للتدفقات النقدية كل فترة، يجب أن يكون أقل من معدل الخصم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zahlungszeitpunkt",
         "fr": "Calendrier de paiement",
         "es": "Momento del pago",
-        "ar": "Ödeme Zamanlaması"
+        "ar": "توقيت الدفع"
       },
       "businessContext_i18n": {
         "en": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
         "tr": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
         "de": "Gibt an, ob Cashflows am Ende (0) oder am Anfang (1) der Periode anfallen",
         "fr": "Indique si les flux de trésorerie se produisent en fin de période (0) ou en début de période (1)",
-        "es": "Indica si los flujos de caja ocurren al final del período (0) o al inicio (1)."
+        "es": "Indica si los flujos de caja ocurren al final del período (0) o al inicio (1).",
+        "ar": "يحدد ما إذا كانت التدفقات النقدية تحدث في نهاية الفترة (0) أم في بدايتها (1)"
       }
     }
   ],

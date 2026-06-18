@@ -42,6 +42,7 @@ import type {
   GeneratedToolResult,
   GeneratedToolSchema,
 } from "@/lib/generated-tools/types";
+import { evaluateSchemaTrust } from "@/lib/generated-tools/trust-gate";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
 
 export type DynamicToolScenarioComparisonConfig = {
@@ -235,6 +236,11 @@ export function DynamicToolForm({
   const useStandardLayout = layout === "standard";
 
   const resolvedPrimaryOutputKey = primaryOutputKey?.trim() || resolvePrimaryOutputKey(schema);
+
+  const showValidResultBadge = useMemo(
+    () => evaluateSchemaTrust(schema as unknown as Record<string, unknown>, slug).status === "PASS",
+    [schema, slug],
+  );
 
   const routePath = `/tools/generated/${slug}`;
 
@@ -528,6 +534,7 @@ export function DynamicToolForm({
           }}
           selectedStandard={selectedStandard}
           onStandardChange={setSelectedStandard}
+          showValidResultBadge={showValidResultBadge}
         />
       ) : null}
 

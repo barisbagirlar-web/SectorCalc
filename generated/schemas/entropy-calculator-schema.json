@@ -14,14 +14,15 @@
         "de": "Masse (m)",
         "fr": "Masse (m)",
         "es": "Masa (m)",
-        "ar": "Mass (m)"
+        "ar": "الكتلة (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance undergoing entropy change",
         "tr": "Entropi değişimine uğrayan maddenin kütlesi",
         "de": "Masse des Stoffes, der die Entropieänderung erfährt",
         "fr": "Masse de la substance subissant un changement d'entropie",
-        "es": "Masa de la sustancia que experimenta el cambio de entropía"
+        "es": "Masa de la sustancia que experimenta el cambio de entropía",
+        "ar": "كتلة المادة التي تخضع لتغير الإنتروبيا"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Spezifische Wärmekapazität (Cp)",
         "fr": "Capacité thermique spécifique (Cp)",
         "es": "Capacidad calorífica específica (Cp)",
-        "ar": "Specific Heat Capacity (Cp)"
+        "ar": "السعة الحرارية النوعية (Cp)"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity at constant pressure",
         "tr": "Sabit basınçta özgül ısı kapasitesi",
         "de": "Spezifische Wärmekapazität bei konstantem Druck",
         "fr": "Capacité thermique spécifique à pression constante",
-        "es": "Capacidad calorífica específica a presión constante"
+        "es": "Capacidad calorífica específica a presión constante",
+        "ar": "السعة الحرارية النوعية عند ضغط ثابت"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangstemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Initial Temperature"
+        "ar": "درجة الحرارة الأولية"
       },
       "businessContext_i18n": {
         "en": "Initial absolute temperature",
         "tr": "Başlangıç mutlak sıcaklığı",
         "de": "Anfängliche absolute Temperatur",
         "fr": "Température absolue initiale",
-        "es": "Temperatura absoluta inicial"
+        "es": "Temperatura absoluta inicial",
+        "ar": "درجة الحرارة المطلقة الأولية"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Endtemperatur",
         "fr": "Température finale",
         "es": "Temperatura final",
-        "ar": "Final Temperature"
+        "ar": "درجة الحرارة النهائية"
       },
       "businessContext_i18n": {
         "en": "Final absolute temperature",
         "tr": "Son mutlak sıcaklığı",
         "de": "Endgültige absolute Temperatur",
         "fr": "Température absolue finale",
-        "es": "Temperatura absoluta final"
+        "es": "Temperatura absoluta final",
+        "ar": "درجة الحرارة المطلقة النهائية"
       }
     }
   ],
   "formulas": {
-    "result": "mass + specificHeat + temp1",
-    "result_copy": "mass + specificHeat + temp1"
+    "normalized_product": "mass * specificHeat * temp1 * temp2",
+    "result": "mass * specificHeat * temp1 * temp2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "ΔS = m · Cp · ln(T₂/T₁)",
-      "Calculate temperature ratio T₂/T₁",
-      "Compute natural logarithm",
-      "Multiply by mass and specific heat"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "entropyChange_aux",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Calculate temperature ratio T₂/T₁": "%"
     }

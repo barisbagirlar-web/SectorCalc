@@ -14,14 +14,15 @@
         "de": "Energieverbrauch pro Einheit",
         "fr": "Consommation d'énergie par unité",
         "es": "Consumo de energía por unidad",
-        "ar": "Energy Consumption per Unit"
+        "ar": "استهلاك الطاقة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Total energy consumed per production unit",
         "tr": "Üretim birimi başına tüketilen toplam enerji",
         "de": "Gesamte verbrauchte Energie pro Produktionseinheit",
         "fr": "Énergie totale consommée par unité de production",
-        "es": "Energía total consumida por unidad de producción"
+        "es": "Energía total consumida por unidad de producción",
+        "ar": "إجمالي الطاقة المستهلكة لكل وحدة إنتاج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wasserverbrauch pro Einheit",
         "fr": "Consommation d'eau par unité",
         "es": "Consumo de agua por unidad",
-        "ar": "Water Consumption per Unit"
+        "ar": "استهلاك المياه لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Total water usage per production unit",
         "tr": "Üretim birimi başına toplam su kullanımı",
         "de": "Gesamter Wasserverbrauch pro Produktionseinheit",
         "fr": "Utilisation totale d'eau par unité de production",
-        "es": "Uso total de agua por unidad de producción"
+        "es": "Uso total de agua por unidad de producción",
+        "ar": "إجمالي استخدام المياه لكل وحدة إنتاج"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Abfallaufkommen pro Einheit",
         "fr": "Génération de déchets par unité",
         "es": "Generación de desperdicio por unidad",
-        "ar": "Waste Generation per Unit"
+        "ar": "توليد النفايات لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Total waste produced per production unit",
         "tr": "Üretim birimi başına üretilen toplam atık",
         "de": "Gesamter produzierter Abfall pro Produktionseinheit",
         "fr": "Déchets totaux produits par unité de production",
-        "es": "Total de desperdicio producido por unidad de producción"
+        "es": "Total de desperdicio producido por unidad de producción",
+        "ar": "إجمالي النفايات المنتجة لكل وحدة إنتاج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anteil erneuerbarer Energien",
         "fr": "Part d'énergie renouvelable",
         "es": "Participación de energía renovable",
-        "ar": "Renewable Energy Share"
+        "ar": "حصة الطاقة المتجددة"
       },
       "businessContext_i18n": {
         "en": "Share of energy from renewable sources",
         "tr": "Yenilenebilir kaynaklardan enerji payı",
         "de": "Anteil der Energie aus erneuerbaren Quellen",
         "fr": "Part de l'énergie provenant de sources renouvelables",
-        "es": "Porcentaje de energía de fuentes renovables"
+        "es": "Porcentaje de energía de fuentes renovables",
+        "ar": "حصة الطاقة من المصادر المتجددة"
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Recycelter Materialanteil",
         "fr": "Contenu en matériaux recyclés",
         "es": "Contenido de material reciclado",
-        "ar": "Recycled Material Content"
+        "ar": "محتوى المواد المعاد تدويرها"
       },
       "businessContext_i18n": {
         "en": "Percentage of recycled materials used in production",
         "tr": "Üretimde kullanılan geri dönüştürülmüş malzeme yüzdesi",
         "de": "Prozentsatz der in der Produktion verwendeten recycelten Materialien",
         "fr": "Pourcentage de matériaux recyclés utilisés en production",
-        "es": "Porcentaje de materiales reciclados utilizados en la producción"
+        "es": "Porcentaje de materiales reciclados utilizados en la producción",
+        "ar": "نسبة المواد المعاد تدويرها المستخدمة في الإنتاج"
       }
     }
   ],
   "formulas": {
-    "result": "energyPerUnit + waterPerUnit + wastePerUnit",
-    "result_copy": "energyPerUnit + waterPerUnit + wastePerUnit"
+    "normalized_product": "energyPerUnit * waterPerUnit * wastePerUnit * (renewablePct / 100)",
+    "result": "energyPerUnit * waterPerUnit * wastePerUnit * (renewablePct / 100) * ((recycledPct / 100))",
+    "adjustment_factor": "(recycledPct / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "energyScore",
-      "waterScore",
-      "wasteScore",
-      "renewableScore",
-      "recycledScore"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "recycledScore",
-    "unit": "kWh/unit"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Sürdürülebilirlik",
   "sector": "Çevre & Sürdürülebilirlik",

@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Cleaning_bid_optimizer_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.total_sq_ft + input.cleaning_frequency + input.labor_rate_per_hour; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.total_sq_ft + input.cleaning_frequency + input.labor_rate_per_hour; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100); results["annual_kwh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_kwh"] = 0; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["annual_energy_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -46,8 +47,8 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
+  const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

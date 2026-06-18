@@ -5,7 +5,7 @@
  */
 import { spawnSync } from "node:child_process";
 import path from "node:path";
-import { getActiveSlugs } from "../src/lib/generated-tools/trust-gate";
+import { getActiveSlugs } from "../src/lib/generated-tools/trust-gate-server";
 
 const deepseekScript = path.join(process.cwd(), "scripts/deepseek/generate-calculator-registry.ts");
 const result = spawnSync("npx", ["tsx", deepseekScript], {

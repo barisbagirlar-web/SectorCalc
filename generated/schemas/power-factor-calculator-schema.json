@@ -14,14 +14,15 @@
         "de": "Wirkleistung",
         "fr": "Puissance active",
         "es": "Potencia real",
-        "ar": "Real Power"
+        "ar": "القدرة الفعلية"
       },
       "businessContext_i18n": {
         "en": "The actual power consumed by the load, measured in kilowatts.",
         "tr": "Yük tarafından tüketilen gerçek güç, kilovat cinsinden.",
         "de": "Die tatsächlich von der Last aufgenommene Leistung, gemessen in Kilowatt.",
         "fr": "La puissance réelle consommée par la charge, mesurée en kilowatts.",
-        "es": "La potencia real consumida por la carga, medida en kilovatios."
+        "es": "La potencia real consumida por la carga, medida en kilovatios.",
+        "ar": "القدرة الفعلية المستهلكة بواسطة الحمل، مقاسة بالكيلوواط."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Scheinleistung",
         "fr": "Puissance apparente",
         "es": "Potencia aparente",
-        "ar": "Apparent Power"
+        "ar": "القدرة الظاهرية"
       },
       "businessContext_i18n": {
         "en": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes.",
         "tr": "Yüke sağlanan toplam güç (aktif ve reaktif gücün vektörel toplamı), kilovolt-amper cinsinden.",
         "de": "Die der Last zugeführte Gesamtleistung (Vektorsumme aus Wirk- und Blindleistung), gemessen in Kilovoltampere.",
         "fr": "La puissance totale fournie à la charge (somme vectorielle des puissances active et réactive), mesurée en kilovolt-ampères.",
-        "es": "La potencia total suministrada a la carga (suma vectorial de potencia real y reactiva), medida en kilovoltios-amperios."
+        "es": "La potencia total suministrada a la carga (suma vectorial de potencia real y reactiva), medida en kilovoltios-amperios.",
+        "ar": "إجمالي القدرة الموردة للحمل (المجموع الاتجاهي للقدرة الفعلية والتفاعلية)، مقاسة بالكيلوفولت أمبير."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Spannung",
         "fr": "Tension",
         "es": "Tensión",
-        "ar": "Voltage"
+        "ar": "الجهد الكهربائي"
       },
       "businessContext_i18n": {
         "en": "Supply voltage in volts (optional, used for VI-based apparent power calculation).",
         "tr": "Besleme gerilimi (volt, isteğe bağlı, VI tabanlı görünür güç hesaplaması için kullanılır).",
         "de": "Versorgungsspannung in Volt (optional, für die scheinbare Leistungsberechnung über Spannung und Strom).",
         "fr": "Tension d'alimentation en volts (optionnel, utilisé pour le calcul de la puissance apparente par VI).",
-        "es": "Tensión de alimentación en voltios (opcional, se usa para el cálculo de potencia aparente basado en VI)."
+        "es": "Tensión de alimentación en voltios (opcional, se usa para el cálculo de potencia aparente basado en VI).",
+        "ar": "جهد الإمداد بالفولت (اختياري، يُستخدم لحساب القدرة الظاهرية من الجهد والتيار)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Strom",
         "fr": "Courant",
         "es": "Corriente",
-        "ar": "Current"
+        "ar": "التيار"
       },
       "businessContext_i18n": {
         "en": "Supply current in amperes (optional, used for VI-based apparent power calculation).",
         "tr": "Besleme akımı (amper, isteğe bağlı, VI tabanlı görünür güç hesaplaması için kullanılır).",
         "de": "Versorgungsstrom in Ampere (optional, für die scheinbare Leistungsberechnung über Spannung und Strom).",
         "fr": "Courant d'alimentation en ampères (optionnel, utilisé pour le calcul de la puissance apparente par VI).",
-        "es": "Corriente de alimentación en amperios (opcional, se usa para el cálculo de potencia aparente basado en VI)."
+        "es": "Corriente de alimentación en amperios (opcional, se usa para el cálculo de potencia aparente basado en VI).",
+        "ar": "تيار الإمداد بالأمبير (اختياري، يُستخدم لحساب القدرة الظاهرية من الجهد والتيار)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Trägheitskonstante (H)",
         "fr": "Constante d'inertie (H)",
         "es": "Constante de inercia (H)",
-        "ar": "Inertia Constant (H)"
+        "ar": "ثابت القصور الذاتي (H)"
       },
       "businessContext_i18n": {
         "en": "Generator inertia constant in seconds (per unit).",
         "tr": "Jeneratör atalet sabiti saniye cinsinden (birim başına).",
         "de": "Generator-Trägheitskonstante in Sekunden (pro Einheit).",
         "fr": "Constante d'inertie du générateur en secondes (par unité).",
-        "es": "Constante de inercia del generador en segundos (por unidad)."
+        "es": "Constante de inercia del generador en segundos (por unidad).",
+        "ar": "ثابت القصور الذاتي للمولد بالثواني (لكل وحدة)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anfangslastwinkel (δ₀)",
         "fr": "Angle de charge initial (δ₀)",
         "es": "Ángulo de carga inicial (δ₀)",
-        "ar": "Initial Load Angle (δ₀)"
+        "ar": "زاوية الحمل الأولية (δ₀)"
       },
       "businessContext_i18n": {
         "en": "Pre-fault rotor angle with respect to infinite bus.",
         "tr": "Arıza öncesi rotor açısı, sonsuz bara referans alınarak.",
         "de": "Rotorwinkel vor dem Fehler in Bezug auf die unendliche Sammelschiene.",
         "fr": "Angle du rotor avant défaut par rapport au bus infini.",
-        "es": "Ángulo del rotor antes de la falla con respecto al bus infinito."
+        "es": "Ángulo del rotor antes de la falla con respecto al bus infinito.",
+        "ar": "زاوية الدوار قبل العطل بالنسبة للشبكة اللانهائية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mechanische Leistungsaufnahme (Pₘ)",
         "fr": "Puissance mécanique d'entrée (Pₘ)",
         "es": "Potencia mecánica de entrada (Pₘ)",
-        "ar": "Mechanical Power Input (Pₘ)"
+        "ar": "مدخلات الطاقة الميكانيكية (Pₘ)"
       },
       "businessContext_i18n": {
         "en": "Turbine mechanical power on system base.",
         "tr": "Türbin mekanik gücü, sistem bazında.",
         "de": "Mechanische Turbinenleistung auf Systembasis.",
         "fr": "Puissance mécanique de la turbine sur la base du système.",
-        "es": "Potencia mecánica de la turbina en base del sistema."
+        "es": "Potencia mecánica de la turbina en base del sistema.",
+        "ar": "الطاقة الميكانيكية للتوربين على أساس النظام."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Maximale elektrische Leistung (Pₘₐₓ)",
         "fr": "Puissance électrique maximale (Pₘₐₓ)",
         "es": "Potencia eléctrica máxima (Pₘₐₓ)",
-        "ar": "Maximum Electrical Power (Pₘₐₓ)"
+        "ar": "الطاقة الكهربائية القصوى (Pₘₐₓ)"
       },
       "businessContext_i18n": {
         "en": "Post-fault maximum of the power-angle curve.",
         "tr": "Arıza sonrası güç-açı eğrisinin maksimum değeri.",
         "de": "Nachfehler-Maximum der Leistungswinkelkurve.",
         "fr": "Maximum post-défaut de la courbe puissance-angle.",
-        "es": "Máximo post-falla de la curva potencia-ángulo."
+        "es": "Máximo post-falla de la curva potencia-ángulo.",
+        "ar": "الحد الأقصى لمنحنى القدرة-الزاوية بعد العطل."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Systemfrequenz (f)",
         "fr": "Fréquence du système (f)",
         "es": "Frecuencia del sistema (f)",
-        "ar": "System Frequency (f)"
+        "ar": "تردد النظام (f)"
       },
       "businessContext_i18n": {
         "en": "Nominal system frequency (50 or 60 Hz).",
         "tr": "Nominal sistem frekansı (50 veya 60 Hz).",
         "de": "Nennfrequenz des Systems (50 oder 60 Hz).",
         "fr": "Fréquence nominale du système (50 ou 60 Hz).",
-        "es": "Frecuencia nominal del sistema (50 o 60 Hz)."
+        "es": "Frecuencia nominal del sistema (50 o 60 Hz).",
+        "ar": "التردد الاسمي للنظام (50 أو 60 هرتز)."
       }
     }
   ],
   "formulas": {
-    "result": "inertiaConstant + initialAngle + mechPower",
-    "result_copy": "inertiaConstant + initialAngle + mechPower"
+    "normalized_product": "inertiaConstant * initialAngle * mechPower * maxElecPower",
+    "result": "inertiaConstant * initialAngle * mechPower * maxElecPower * (frequency)",
+    "adjustment_factor": "frequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "criticalClearingAngle",
-      "maxSwingAngle",
-      "acceleratingEnergy"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "acceleratingEnergy",
-    "unit": "s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

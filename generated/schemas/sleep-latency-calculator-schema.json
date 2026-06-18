@@ -14,14 +14,15 @@
         "de": "Licht-aus-Zeit (Dezimalstunden)",
         "fr": "Heure d'extinction des lumières (heures décimales)",
         "es": "Hora de apagar la luz (horas decimales)",
-        "ar": "Lights Out Time (decimal hours)"
+        "ar": "وقت إطفاء الأنوار (ساعات عشرية)"
       },
       "businessContext_i18n": {
         "en": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)",
         "tr": "İşçinin ışıkları kapatıp uyumaya çalıştığı saat (ör. 22.5, 22:30 için)",
         "de": "Zeit, zu der der Arbeiter das Licht ausschaltet und versucht zu schlafen (z.B. 22,5 für 22:30)",
         "fr": "Heure à laquelle le travailleur éteint les lumières et tente de dormir (ex. 22,5 pour 22h30)",
-        "es": "Hora en que el trabajador apaga la luz e intenta dormir (ej. 22.5 para las 22:30)"
+        "es": "Hora en que el trabajador apaga la luz e intenta dormir (ej. 22.5 para las 22:30)",
+        "ar": "الوقت الذي يطفئ فيه العامل الأنوار ويحاول النوم (مثال: 22.5 للساعة 22:30)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Alter des Arbeiters",
         "fr": "Âge du travailleur",
         "es": "Edad del trabajador",
-        "ar": "Worker Age"
+        "ar": "عمر العامل"
       },
       "businessContext_i18n": {
         "en": "Worker's age in years; older age may increase sleep latency",
         "tr": "İşçinin yıl cinsinden yaşı; ileri yaş uykuya dalma süresini artırabilir",
         "de": "Alter des Arbeiters in Jahren; höheres Alter kann die Einschlafzeit verlängern",
         "fr": "Âge du travailleur en années ; un âge avancé peut augmenter la latence d'endormissement",
-        "es": "Edad del trabajador en años; la edad avanzada puede aumentar la latencia del sueño"
+        "es": "Edad del trabajador en años; la edad avanzada puede aumentar la latencia del sueño",
+        "ar": "عمر العامل بالسنوات؛ قد يزيد العمر المتقدم من زمن بداية النوم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Koffeinkonsum vor dem Schlafengehen",
         "fr": "Consommation de caféine avant le coucher",
         "es": "Ingesta de cafeína antes de acostarse",
-        "ar": "Caffeine Intake Before Bed"
+        "ar": "تناول الكافيين قبل النوم"
       },
       "businessContext_i18n": {
         "en": "Total caffeine consumed in mg within 6 hours before bedtime",
         "tr": "Yatmadan 6 saat içinde tüketilen toplam kafein (mg cinsinden)",
         "de": "Gesamter Koffeinkonsum in mg innerhalb von 6 Stunden vor dem Schlafengehen",
         "fr": "Caféine totale consommée en mg dans les 6 heures avant le coucher",
-        "es": "Cafeína total consumida en mg dentro de las 6 horas antes de acostarse"
+        "es": "Cafeína total consumida en mg dentro de las 6 horas antes de acostarse",
+        "ar": "إجمالي الكافيين المستهلك بالملغ خلال 6 ساعات قبل موعد النوم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bildschirmzeit vor dem Schlafengehen",
         "fr": "Temps d'écran avant le coucher",
         "es": "Tiempo de pantalla antes de acostarse",
-        "ar": "Screen Time Before Bed"
+        "ar": "وقت استخدام الشاشات قبل النوم"
       },
       "businessContext_i18n": {
         "en": "Minutes spent on screens (phone, TV, computer) before lights out",
         "tr": "Işıklar kapatılmadan önce ekranlarda (telefon, TV, bilgisayar) geçirilen dakika",
         "de": "Minuten, die vor dem Ausschalten des Lichts vor Bildschirmen (Telefon, Fernseher, Computer) verbracht werden",
         "fr": "Minutes passées sur les écrans (téléphone, TV, ordinateur) avant l'extinction des lumières",
-        "es": "Minutos dedicados a pantallas (teléfono, TV, computadora) antes de apagar la luz"
+        "es": "Minutos dedicados a pantallas (teléfono, TV, computadora) antes de apagar la luz",
+        "ar": "الدقائق التي يقضيها على الشاشات (هاتف، تلفاز، حاسوب) قبل إطفاء الأنوار"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Raumtemperatur",
         "fr": "Température ambiante",
         "es": "Temperatura ambiente",
-        "ar": "Room Temperature"
+        "ar": "درجة حرارة الغرفة"
       },
       "businessContext_i18n": {
         "en": "Bedroom temperature in degrees Celsius; optimal is around 20°C",
         "tr": "Yatak Odası Sıcaklığı (°C)",
         "de": "Schlafzimmertemperatur in Grad Celsius; optimal liegt bei etwa 20°C",
         "fr": "Température de la chambre en degrés Celsius ; optimale autour de 20°C",
-        "es": "Temperatura del dormitorio en grados Celsius; la óptima es alrededor de 20°C"
+        "es": "Temperatura del dormitorio en grados Celsius; la óptima es alrededor de 20°C",
+        "ar": "درجة حرارة غرفة النوم بالدرجات المئوية؛ المثالية حوالي 20 درجة مئوية"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Stresslevel (1-10)",
         "fr": "Niveau de stress (1-10)",
         "es": "Nivel de estrés (1-10)",
-        "ar": "Stress Level (1-10)"
+        "ar": "مستوى التوتر (1-10)"
       },
       "businessContext_i18n": {
         "en": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed",
         "tr": "1-10 ölçeğinde kendi bildirilen stres seviyesi, 10 aşırı stresli",
         "de": "Selbstberichtetes Stresslevel auf einer Skala von 1-10, wobei 10 extrem gestresst bedeutet",
         "fr": "Niveau de stress auto-déclaré sur une échelle de 1 à 10, 10 étant extrêmement stressé",
-        "es": "Nivel de estrés autoinformado en una escala del 1 al 10, siendo 10 extremadamente estresado"
+        "es": "Nivel de estrés autoinformado en una escala del 1 al 10, siendo 10 extremadamente estresado",
+        "ar": "مستوى التوتر المبلغ عنه ذاتياً على مقياس من 1 إلى 10، حيث 10 تعني توتر شديد"
       }
     }
   ],

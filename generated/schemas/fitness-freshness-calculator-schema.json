@@ -14,14 +14,15 @@
         "de": "Maschinenalter",
         "fr": "Âge de la machine",
         "es": "Edad de la máquina",
-        "ar": "Machine Age"
+        "ar": "عمر الآلة"
       },
       "businessContext_i18n": {
         "en": "Age of the machine in years",
         "tr": "Makinenin yıl cinsinden yaşı",
         "de": "Alter der Maschine in Jahren",
         "fr": "Âge de la machine en années",
-        "es": "Edad de la máquina en años"
+        "es": "Edad de la máquina en años",
+        "ar": "عمر الآلة بالسنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wartungshäufigkeit",
         "fr": "Fréquence de maintenance",
         "es": "Frecuencia de mantenimiento",
-        "ar": "Maintenance Frequency"
+        "ar": "تكرار الصيانة"
       },
       "businessContext_i18n": {
         "en": "Number of maintenance visits per year",
         "tr": "Yıllık bakım ziyareti sayısı",
         "de": "Anzahl der Wartungsbesuche pro Jahr",
         "fr": "Nombre de visites de maintenance par an",
-        "es": "Número de visitas de mantenimiento por año"
+        "es": "Número de visitas de mantenimiento por año",
+        "ar": "عدد زيارات الصيانة سنويًا"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Produkthaltbarkeit",
         "fr": "Durée de conservation du produit",
         "es": "Vida útil del producto",
-        "ar": "Product Shelf Life"
+        "ar": "العمر الافتراضي للمنتج"
       },
       "businessContext_i18n": {
         "en": "Total shelf life of the product in days",
         "tr": "Ürünün gün cinsinden toplam raf ömrü",
         "de": "Gesamthaltbarkeit des Produkts in Tagen",
         "fr": "Durée de conservation totale du produit en jours",
-        "es": "Vida útil total del producto en días"
+        "es": "Vida útil total del producto en días",
+        "ar": "إجمالي العمر الافتراضي للمنتج بالأيام"
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Aktuelles Produktalter",
         "fr": "Âge actuel du produit",
         "es": "Edad actual del producto",
-        "ar": "Product Current Age"
+        "ar": "العمر الحالي للمنتج"
       },
       "businessContext_i18n": {
         "en": "Current age of the product since production",
         "tr": "Ürünün üretimden bu yana geçen gün cinsinden yaşı",
         "de": "Aktuelles Alter des Produkts seit Herstellung",
         "fr": "Âge actuel du produit depuis la production",
-        "es": "Edad actual del producto desde su fabricación"
+        "es": "Edad actual del producto desde su fabricación",
+        "ar": "العمر الحالي للمنتج منذ الإنتاج"
       }
     }
   ],
   "formulas": {
-    "result": "machineAge + maintenanceFrequency + productShelfLife",
-    "result_copy": "machineAge + maintenanceFrequency + productShelfLife"
+    "machine_maintenance_annual": "machineAge * maintenanceFrequency",
+    "machine_runtime_hours": "machineAge * 260",
+    "result": "machineAge * maintenanceFrequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "machineFitness",
-      "productFreshness"
+      "machine_maintenance_annual",
+      "machine_runtime_hours"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
-    "dataConfidenceAdjusted": "overallFitnessFreshness",
-    "unit": "yrs"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "İSG & Risk",
   "sector": "Günlük Yaşam & Ev",

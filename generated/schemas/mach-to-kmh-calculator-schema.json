@@ -14,14 +14,15 @@
         "de": "Mach-Zahl",
         "fr": "Nombre de Mach",
         "es": "Número de Mach",
-        "ar": "Mach Number"
+        "ar": "رقم ماخ"
       },
       "businessContext_i18n": {
         "en": "The Mach number (ratio of speed to speed of sound).",
         "tr": "Mach sayısı (hızın ses hızına oranı).",
         "de": "Die Mach-Zahl (Verhältnis von Geschwindigkeit zur Schallgeschwindigkeit).",
         "fr": "Le nombre de Mach (rapport de la vitesse à la vitesse du son).",
-        "es": "Número de Mach (relación entre la velocidad y la velocidad del sonido)."
+        "es": "Número de Mach (relación entre la velocidad y la velocidad del sonido).",
+        "ar": "رقم ماخ (نسبة السرعة إلى سرعة الصوت)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lufttemperatur",
         "fr": "Température de l'air",
         "es": "Temperatura del aire",
-        "ar": "Air Temperature"
+        "ar": "درجة حرارة الهواء"
       },
       "businessContext_i18n": {
         "en": "Temperature of the air in degrees Celsius.",
         "tr": "Santigrat derece cinsinden hava sıcaklığı.",
         "de": "Temperatur der Luft in Grad Celsius.",
         "fr": "Température de l'air en degrés Celsius.",
-        "es": "Temperatura del aire en grados Celsius."
+        "es": "Temperatura del aire en grados Celsius.",
+        "ar": "درجة حرارة الهواء بوحدة درجة مئوية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Adiabatenexponent (γ)",
         "fr": "Indice adiabatique (γ)",
         "es": "Índice adiabático (γ)",
-        "ar": "Adiabatic Index (γ)"
+        "ar": "معامل ثابت الحرارة (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for air. Standard value is 1.4.",
         "tr": "Hava için özgül ısı oranı. Standart değer 1.4'tür.",
         "de": "Verhältnis der spezifischen Wärmen für Luft. Standardwert ist 1,4.",
         "fr": "Rapport des chaleurs spécifiques pour l'air. La valeur standard est 1,4.",
-        "es": "Relación de calores específicos para el aire. Valor estándar: 1.4."
+        "es": "Relación de calores específicos para el aire. Valor estándar: 1.4.",
+        "ar": "نسبة الحرارة النوعية للهواء. القيمة القياسية هي 1.4."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Spezifische Gaskonstante (R)",
         "fr": "Constante spécifique des gaz (R)",
         "es": "Constante específica del gas (R)",
-        "ar": "Specific Gas Constant (R)"
+        "ar": "ثابت الغاز النوعي (R)"
       },
       "businessContext_i18n": {
         "en": "Specific gas constant for dry air. Standard value is 287.058 J/(kg·K).",
         "tr": "Kuru hava için özgül gaz sabiti. Standart değer 287.058 J/(kg·K)'dir.",
         "de": "Spezifische Gaskonstante für trockene Luft. Standardwert ist 287,058 J/(kg·K).",
         "fr": "Constante spécifique des gaz pour l'air sec. La valeur standard est 287,058 J/(kg·K).",
-        "es": "Constante específica del gas para aire seco. El valor estándar es 287,058 J/(kg·K)."
+        "es": "Constante específica del gas para aire seco. El valor estándar es 287,058 J/(kg·K).",
+        "ar": "ثابت الغاز النوعي للهواء الجاف. القيمة القياسية هي 287.058 جول/(كجم·كلفن)."
       }
     }
   ],
   "formulas": {
-    "t_kelvin": "temperature + 273.15",
-    "t_kelvin_aux": "temperature + 273.15"
+    "normalized_product": "mach * temperature * gamma * gasConstant",
+    "result": "mach * temperature * gamma * gasConstant"
   },
   "outputs": {
-    "primary": "t_kelvin_aux",
+    "primary": "result",
     "breakdown": [
-      "speed_sound_ms",
-      "speed_sound_kmh"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "speed_kmh",
-    "unit": "°C"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Birim & Dönüşüm",

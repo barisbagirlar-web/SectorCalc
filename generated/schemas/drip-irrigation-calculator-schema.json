@@ -14,14 +14,15 @@
         "de": "Arazi Alanı",
         "fr": "Surface du terrain",
         "es": "Área del terreno",
-        "ar": "Arazi Alanı"
+        "ar": "مساحة الأرض"
       },
       "businessContext_i18n": {
         "en": "Sulanacak toplam alan",
         "tr": "Sulanacak toplam alan",
         "de": "Zu bewässernde Gesamtfläche",
         "fr": "Surface totale à irriguer",
-        "es": "Área total a regar"
+        "es": "Área total a regar",
+        "ar": "المساحة الإجمالية المراد ريها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tropferdurchfluss",
         "fr": "Débit du goutteur",
         "es": "Caudal del gotero",
-        "ar": "Damlatıcı Debisi"
+        "ar": "معدل تدفق النقاط"
       },
       "businessContext_i18n": {
         "en": "Her bir damlatıcının saatte verdiği su miktarı",
         "tr": "Her bir damlatıcının saatte verdiği su miktarı",
         "de": "Wassermenge pro Tropfer pro Stunde",
         "fr": "Quantité d'eau fournie par chaque goutteur par heure",
-        "es": "Cantidad de agua que suministra cada gotero por hora"
+        "es": "Cantidad de agua que suministra cada gotero por hora",
+        "ar": "كمية المياه التي يعطيها كل ناقط في الساعة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Tropferabstand",
         "fr": "Espacement des goutteurs",
         "es": "Espaciado entre goteros",
-        "ar": "Damlatıcı Aralığı"
+        "ar": "تباعد النقاطات"
       },
       "businessContext_i18n": {
         "en": "Lateral üzerindeki damlatıcılar arası mesafe",
         "tr": "Lateral üzerindeki damlatıcılar arası mesafe",
         "de": "Abstand zwischen den Tropfern auf dem Seitenrohr",
         "fr": "Distance entre goutteurs sur la rampe",
-        "es": "Distancia entre goteros en la línea lateral"
+        "es": "Distancia entre goteros en la línea lateral",
+        "ar": "المسافة بين النقاطات على الخط الجانبي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Seitenrohrabstand",
         "fr": "Espacement des rampes",
         "es": "Espaciado entre laterales",
-        "ar": "Lateral Aralığı"
+        "ar": "تباعد الخطوط الجانبية"
       },
       "businessContext_i18n": {
         "en": "Damlama hatları arası mesafe",
         "tr": "Damlama hatları arası mesafe",
         "de": "Abstand zwischen den Tropfleitungen",
         "fr": "Distance entre les lignes de goutte-à-goutte",
-        "es": "Distancia entre líneas de goteo"
+        "es": "Distancia entre líneas de goteo",
+        "ar": "المسافة بين خطوط الري بالتنقيط"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Bewässerungswassertiefe",
         "fr": "Profondeur d'eau d'irrigation",
         "es": "Profundidad de agua de riego",
-        "ar": "Sulama Suyu Derinliği"
+        "ar": "عمق مياه الري"
       },
       "businessContext_i18n": {
         "en": "Her sulamada uygulanacak net su yüksekliği",
         "tr": "Her sulamada uygulanacak net su yüksekliği",
         "de": "Netto-Wasserhöhe pro Bewässerung",
         "fr": "Hauteur nette d'eau appliquée par irrigation",
-        "es": "Altura neta de agua aplicada por riego"
+        "es": "Altura neta de agua aplicada por riego",
+        "ar": "ارتفاع المياه الصافي المطبق في كل رية"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Systemwirkungsgrad",
         "fr": "Efficacité du système",
         "es": "Eficiencia del sistema",
-        "ar": "Sistem Verimi"
+        "ar": "كفاءة النظام"
       },
       "businessContext_i18n": {
         "en": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
         "tr": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
         "de": "Wasserförder- und Verteilungswirkungsgrad des Bewässerungssystems (0-100)",
         "fr": "Efficacité de transport et de distribution du système d'irrigation (0-100)",
-        "es": "Eficiencia de conducción y distribución del sistema de riego (0-100)"
+        "es": "Eficiencia de conducción y distribución del sistema de riego (0-100)",
+        "ar": "كفاءة نقل وتوزيع المياه لنظام الري (0-100)"
       }
     }
   ],

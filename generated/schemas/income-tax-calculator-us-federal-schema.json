@@ -14,14 +14,15 @@
         "de": "Jährliches Bruttoeinkommen ($)",
         "fr": "Revenu brut annuel ($)",
         "es": "Ingreso Bruto Anual ($)",
-        "ar": "Annual Gross Income ($)"
+        "ar": "الدخل السنوي الإجمالي ($)"
       },
       "businessContext_i18n": {
         "en": "Total annual income before any deductions",
         "tr": "Vergi öncesi toplam yıllık gelir",
         "de": "Gesamtes Jahreseinkommen vor Abzügen",
         "fr": "Revenu annuel total avant déductions",
-        "es": "Ingreso anual total antes de cualquier deducción"
+        "es": "Ingreso anual total antes de cualquier deducción",
+        "ar": "إجمالي الدخل السنوي قبل أي خصومات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Steuerstatus (0=Single, 1=Verheiratet gemeinsam, 2=Haushaltsvorstand)",
         "fr": "Statut de déclaration (0=Célibataire, 1=Marié conjoint, 2=Chef de famille)",
         "es": "Estado civil (0=Soltero, 1=Casado en conjunto, 2=Jefe de hogar)",
-        "ar": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)"
+        "ar": "حالة الإيداع (0=أعزب، 1=متزوج بشكل مشترك، 2=رب أسرة)"
       },
       "businessContext_i18n": {
         "en": "Tax filing status affects tax brackets and standard deduction",
         "tr": "Vergi beyanname durumu, vergi dilimlerini ve standart kesintiyi etkiler",
         "de": "Der Steuerstatus beeinflusst Steuerklassen und Pauschalabzug",
         "fr": "Le statut de déclaration affecte les tranches d'imposition et la déduction forfaitaire.",
-        "es": "El estado civil afecta los tramos impositivos y la deducción estándar"
+        "es": "El estado civil afecta los tramos impositivos y la deducción estándar",
+        "ar": "حالة الإيداع الضريبي تؤثر على الشرائح الضريبية والخصم القياسي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Vorsteuerliche Abzüge ($)",
         "fr": "Déductions avant impôt ($)",
         "es": "Deducciones antes de impuestos ($)",
-        "ar": "Pre-tax Deductions ($)"
+        "ar": "الخصومات قبل الضريبة ($)"
       },
       "businessContext_i18n": {
         "en": "401(k), HSA, FSA, etc. subtracted from gross income",
         "tr": "401(k), HSA, FSA vb. brüt gelirden düşülür",
         "de": "401(k), HSA, FSA usw., vom Bruttoeinkommen abgezogen",
         "fr": "401(k), HSA, FSA, etc. soustraits du revenu brut.",
-        "es": "401(k), HSA, FSA, etc. restados del ingreso bruto"
+        "es": "401(k), HSA, FSA, etc. restados del ingreso bruto",
+        "ar": "401(k)، HSA، FSA، إلخ. تُطرح من الدخل الإجمالي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Pauschalabzug ($)",
         "fr": "Déduction forfaitaire ($)",
         "es": "Deducción estándar ($)",
-        "ar": "Standard Deduction ($)"
+        "ar": "الخصم القياسي ($)"
       },
       "businessContext_i18n": {
         "en": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)",
         "tr": "2023 yılı standart kesinti tutarı (bekar: 13850, evli ortak: 27700, hane reisi: 20800)",
         "de": "Pauschalabzugsbetrag für 2023 (Single: 13850, Verheiratet gemeinsam: 27700, Haushaltsvorstand: 20800)",
         "fr": "Montant de la déduction forfaitaire pour 2023 (célibataire : 13850, marié conjoint : 27700, chef de famille : 20800).",
-        "es": "Monto de deducción estándar para 2023 (soltero: 13850, casado en conjunto: 27700, jefe de hogar: 20800)"
+        "es": "Monto de deducción estándar para 2023 (soltero: 13850, casado en conjunto: 27700, jefe de hogar: 20800)",
+        "ar": "مبلغ الخصم القياسي لعام 2023 (أعزب: 13850، متزوج بشكل مشترك: 27700، رب أسرة: 20800)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Zusätzliches steuerpflichtiges Einkommen ($)",
         "fr": "Revenu imposable supplémentaire ($)",
         "es": "Ingreso adicional sujeto a impuestos ($)",
-        "ar": "Additional Taxable Income ($)"
+        "ar": "الدخل الإضافي الخاضع للضريبة ($)"
       },
       "businessContext_i18n": {
         "en": "Interest, dividends, capital gains, etc.",
         "tr": "Faiz, temettü, sermaye kazancı vb.",
         "de": "Zinsen, Dividenden, Kapitalgewinne usw.",
         "fr": "Intérêts, dividendes, gains en capital, etc.",
-        "es": "Intereses, dividendos, ganancias de capital, etc."
+        "es": "Intereses, dividendos, ganancias de capital, etc.",
+        "ar": "الفوائد، أرباح الأسهم، أرباح رأس المال، إلخ."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Nicht erstattungsfähige Steuergutschriften ($)",
         "fr": "Crédits d'impôt non remboursables ($)",
         "es": "Créditos fiscales no reembolsables ($)",
-        "ar": "Non-refundable Tax Credits ($)"
+        "ar": "الإعفاءات الضريبية غير القابلة للاسترداد ($)"
       },
       "businessContext_i18n": {
         "en": "Child tax credit, education credits, etc.",
         "tr": "Çocuk vergi kredisi, eğitim kredileri vb.",
         "de": "Kinderfreibetrag, Bildungsgutschriften usw.",
         "fr": "Crédit d'impôt pour enfants, crédits d'études, etc.",
-        "es": "Crédito tributario por hijos, créditos educativos, etc."
+        "es": "Crédito tributario por hijos, créditos educativos, etc.",
+        "ar": "الإعفاء الضريبي للطفل، الإعفاءات التعليمية، إلخ."
       }
     }
   ],

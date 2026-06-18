@@ -23,14 +23,16 @@
         "tr": "Toplam Enerji Tüketimi (kWh)",
         "de": "Gesamtenergieverbrauch (kWh)",
         "fr": "Consommation totale d'énergie (kWh)",
-        "es": "Consumo total de energía (kWh)"
+        "es": "Consumo total de energía (kWh)",
+        "ar": "إجمالي استهلاك الطاقة (كيلوواط ساعة)"
       },
       "businessContext_i18n": {
         "en": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly).",
         "tr": "Tesisin raporlama dönemi boyunca (örneğin aylık) tükettiği toplam elektrik enerjisi.",
         "de": "Gesamte elektrische Energie, die von der Einrichtung im Berichtszeitraum (z. B. monatlich) verbraucht wurde.",
         "fr": "Énergie électrique totale consommée par l'installation sur la période de rapport (ex. mensuelle).",
-        "es": "Energía eléctrica total consumida por la instalación durante el período de reporte (ej. mensual)."
+        "es": "Energía eléctrica total consumida por la instalación durante el período de reporte (ej. mensual).",
+        "ar": "إجمالي الطاقة الكهربائية المستهلكة من قبل المنشأة خلال فترة التقرير (مثل شهريًا)."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Tepe Talebi (kW)",
         "de": "Spitzenlast (kW)",
         "fr": "Demande de pointe (kW)",
-        "es": "Demanda máxima (kW)"
+        "es": "Demanda máxima (kW)",
+        "ar": "ذروة الطلب (كيلوواط)"
       },
       "businessContext_i18n": {
         "en": "Highest recorded power demand during the period; used for demand charge calculation.",
         "tr": "Dönem boyunca kaydedilen en yüksek güç talebi; talep ücreti hesaplamasında kullanılır.",
         "de": "Höchste aufgezeichnete Leistungsnachfrage im Zeitraum; wird für die Berechnung der Leistungspreise verwendet.",
         "fr": "Demande de puissance la plus élevée enregistrée pendant la période ; utilisée pour le calcul de la facturation de la demande.",
-        "es": "Mayor demanda de potencia registrada durante el período; se utiliza para el cálculo del cargo por demanda."
+        "es": "Mayor demanda de potencia registrada durante el período; se utiliza para el cálculo del cargo por demanda.",
+        "ar": "أعلى طاقة مسجلة خلال الفترة؛ تُستخدم لحساب رسوم الطلب."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Enerji Birim Fiyatı ($/kWh)",
         "de": "Energiepreis ($/kWh)",
         "fr": "Tarif énergétique ($/kWh)",
-        "es": "Tarifa energética ($/kWh)"
+        "es": "Tarifa energética ($/kWh)",
+        "ar": "سعر الطاقة ($/كيلوواط ساعة)"
       },
       "businessContext_i18n": {
         "en": "Average cost per kWh from utility bill (blended rate).",
         "tr": "Fatura üzerinden kWh başına ortalama maliyet (karma oran).",
         "de": "Durchschnittliche Kosten pro kWh aus der Stromrechnung (Mischpreis).",
         "fr": "Coût moyen par kWh selon la facture d'électricité (tarif mixte).",
-        "es": "Costo promedio por kWh según la factura de servicios públicos (tarifa combinada)."
+        "es": "Costo promedio por kWh según la factura de servicios públicos (tarifa combinada).",
+        "ar": "متوسط التكلفة لكل كيلوواط ساعة من فاتورة المرافق (معدل مدمج)."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Talep Ücreti ($/kW)",
         "de": "Leistungspreis ($/kW)",
         "fr": "Frais de demande ($/kW)",
-        "es": "Cargo por demanda ($/kW)"
+        "es": "Cargo por demanda ($/kW)",
+        "ar": "تكلفة الطلب ($/ك.واط)"
       },
       "businessContext_i18n": {
         "en": "Utility demand charge per kW of peak demand.",
         "tr": "Tepe talebin kW'ı başına uygulanan talep ücreti.",
         "de": "Leistungspreis des Versorgers pro kW Spitzenlast.",
         "fr": "Frais de demande du fournisseur d'électricité par kW de demande de pointe.",
-        "es": "Cargo por demanda de la empresa de servicios públicos por kW de demanda máxima."
+        "es": "Cargo por demanda de la empresa de servicios públicos por kW de demanda máxima.",
+        "ar": "تكلفة الطلب من شركة المرافق لكل ك.واط من ذروة الطلب."
       }
     },
     {
@@ -119,14 +127,16 @@
         "tr": "Toplam Üretim Birimi",
         "de": "Gesamtproduktionseinheiten",
         "fr": "Unités de production totales",
-        "es": "Unidades totales producidas"
+        "es": "Unidades totales producidas",
+        "ar": "إجمالي وحدات الإنتاج"
       },
       "businessContext_i18n": {
         "en": "Number of units produced in the period (e.g., pieces, kg, liters).",
         "tr": "Dönemde üretilen birim sayısı (örneğin adet, kg, litre).",
         "de": "Anzahl der im Zeitraum produzierten Einheiten (z. B. Stück, kg, Liter).",
         "fr": "Nombre d'unités produites sur la période (ex. pièces, kg, litres).",
-        "es": "Número de unidades producidas en el período (ej. piezas, kg, litros)."
+        "es": "Número de unidades producidas en el período (ej. piezas, kg, litros).",
+        "ar": "عدد الوحدات المنتجة في الفترة (مثل القطع، الكجم، اللترات)."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Tesis Türü",
         "de": "Einrichtungstyp",
         "fr": "Type d'installation",
-        "es": "Tipo de instalación"
+        "es": "Tipo de instalación",
+        "ar": "نوع المنشأة"
       },
       "businessContext_i18n": {
         "en": "Type of facility for benchmarking and normalization.",
         "tr": "Kıyaslama ve normalleştirme için tesis türü.",
         "de": "Art der Einrichtung für Benchmarking und Normierung.",
         "fr": "Type d'installation pour l'analyse comparative et la normalisation.",
-        "es": "Tipo de instalación para referencia comparativa y normalización."
+        "es": "Tipo de instalación para referencia comparativa y normalización.",
+        "ar": "نوع المنشأة لأغراض المقارنة والتطبيع."
       }
     },
     {
@@ -174,14 +186,16 @@
         "tr": "Yenilenebilir Enerji Mahsupunu Dahil Et",
         "de": "Erneuerbare-Energie-Ausgleich einbeziehen",
         "fr": "Inclure le crédit d'énergie renouvelable",
-        "es": "Incluir compensación de energía renovable"
+        "es": "Incluir compensación de energía renovable",
+        "ar": "تضمين تعويض الطاقة المتجددة"
       },
       "businessContext_i18n": {
         "en": "If true, subtracts renewable generation from total consumption for net cost calculation.",
         "tr": "Doğruysa, net maliyet hesaplaması için yenilenebilir üretimi toplam tüketimden düşer.",
         "de": "Wenn aktiviert, wird die erzeugte erneuerbare Energie vom Gesamtverbrauch abgezogen, um die Nettokosten zu berechnen.",
         "fr": "Si vrai, soustrait la production renouvelable de la consommation totale pour le calcul du coût net.",
-        "es": "Si es verdadero, resta la generación renovable del consumo total para el cálculo del costo neto."
+        "es": "Si es verdadero, resta la generación renovable del consumo total para el cálculo del costo neto.",
+        "ar": "إذا كان صحيحًا، يطرح التوليد المتجدد من الاستهلاك الكلي لحساب التكلفة الصافية."
       }
     },
     {
@@ -198,14 +212,16 @@
         "tr": "Üretilen Yenilenebilir Enerji (kWh)",
         "de": "Erzeugte erneuerbare Energie (kWh)",
         "fr": "Énergie renouvelable produite (kWh)",
-        "es": "Energía renovable generada (kWh)"
+        "es": "Energía renovable generada (kWh)",
+        "ar": "الطاقة المتجددة المولدة (ك.واط.ساعة)"
       },
       "businessContext_i18n": {
         "en": "On-site renewable generation (solar, wind) during the period.",
         "tr": "Dönem boyunca sahada üretilen yenilenebilir enerji (güneş, rüzgar).",
         "de": "Eigene erneuerbare Erzeugung (Solar, Wind) im betrachteten Zeitraum.",
         "fr": "Production renouvelable sur site (solaire, éolien) pendant la période.",
-        "es": "Generación renovable in situ (solar, eólica) durante el período."
+        "es": "Generación renovable in situ (solar, eólica) durante el período.",
+        "ar": "التوليد المتجدد في الموقع (شمسي، رياح) خلال الفترة."
       }
     }
   ],
@@ -244,18 +260,26 @@
     ]
   },
   "formulas": {
-    "result": "total_energy_kwh + peak_demand_kw + tariff_rate_per_kwh",
-    "result_copy": "total_energy_kwh + peak_demand_kw + tariff_rate_per_kwh"
+    "normalized_product": "total_energy_kwh * peak_demand_kw * (tariff_rate_per_kwh / 100) * demand_charge_per_kw",
+    "result": "total_energy_kwh * peak_demand_kw * (tariff_rate_per_kwh / 100) * demand_charge_per_kw * (production_units * renewable_kwh)",
+    "adjustment_factor": "production_units * renewable_kwh"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kWh"
+    "unit": "USD"
   },
   "toolName": "energy-consumption-cost-report-calculator",
   "catalogCategory": "energy-carbon",

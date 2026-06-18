@@ -14,14 +14,15 @@
         "de": "Temperatur (°F)",
         "fr": "Température (°F)",
         "es": "Temperatura (°F)",
-        "ar": "Temperature (°F)"
+        "ar": "درجة الحرارة (°F)"
       },
       "businessContext_i18n": {
         "en": "Measured temperature in Fahrenheit",
         "tr": "Fahrenheit cinsinden ölçülen sıcaklık",
         "de": "Gemessene Temperatur in Fahrenheit",
         "fr": "Température mesurée en degrés Fahrenheit",
-        "es": "Temperatura medida en Fahrenheit"
+        "es": "Temperatura medida en Fahrenheit",
+        "ar": "درجة الحرارة المقاسة بالفهرنهايت"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Subtrahieren Offset",
         "fr": "Soustraire le décalage",
         "es": "Restar desplazamiento",
-        "ar": "Subtract Offset"
+        "ar": "طرح الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Offset to subtract for zero-point alignment (freezing point of water in °F)",
         "tr": "Sıfır noktası hizalaması için çıkarılacak ofset (Fahrenheit cinsinden suyun donma noktası)",
         "de": "Offset zur Nullpunktanpassung (Gefrierpunkt von Wasser in °F)",
         "fr": "Décalage à soustraire pour l'alignement du point zéro (point de congélation de l'eau en °F)",
-        "es": "Desplazamiento a restar para la alineación del punto cero (punto de congelación del agua en °F)"
+        "es": "Desplazamiento a restar para la alineación del punto cero (punto de congelación del agua en °F)",
+        "ar": "الإزاحة المراد طرحها لمحاذاة نقطة الصفر (نقطة تجمد الماء بالفهرنهايت)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Multiplikationsfaktor",
         "fr": "Facteur de multiplication",
         "es": "Factor de multiplicación",
-        "ar": "Multiply Factor"
+        "ar": "عامل الضرب"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)",
         "tr": "Fahrenheit farkından Kelvin farkına dönüşüm faktörü (5/9)",
         "de": "Umrechnungsfaktor von Fahrenheit-Differenz zu Kelvin-Differenz (5/9)",
         "fr": "Facteur de conversion de la différence Fahrenheit en différence Kelvin (5/9)",
-        "es": "Factor de conversión de diferencia Fahrenheit a diferencia Kelvin (5/9)"
+        "es": "Factor de conversión de diferencia Fahrenheit a diferencia Kelvin (5/9)",
+        "ar": "عامل التحويل من فرق الفهرنهايت إلى فرق الكلفن (5/9)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Addieren Offset",
         "fr": "Ajouter le décalage",
         "es": "Agregar desplazamiento",
-        "ar": "Add Offset"
+        "ar": "إضافة الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Absolute zero offset in Kelvin",
         "tr": "Mutlak sıfır ofseti (Kelvin cinsinden)",
         "de": "Absoluter Nullpunkt-Offset in Kelvin",
         "fr": "Décalage du zéro absolu en Kelvin",
-        "es": "Desplazamiento del cero absoluto en Kelvin"
+        "es": "Desplazamiento del cero absoluto en Kelvin",
+        "ar": "إزاحة الصفر المطلق بالكلفن"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
         "fr": "Nombre de décimales pour le résultat arrondi",
-        "es": "Número de decimales para la salida redondeada"
+        "es": "Número de decimales para la salida redondeada",
+        "ar": "عدد المنازل العشرية للمخرجات المقربة"
       }
     }
   ],

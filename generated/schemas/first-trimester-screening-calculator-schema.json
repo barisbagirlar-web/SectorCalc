@@ -14,14 +14,15 @@
         "de": "Mütterliches Alter",
         "fr": "Âge maternel",
         "es": "Edad materna",
-        "ar": "Maternal Age"
+        "ar": "عمر الأم"
       },
       "businessContext_i18n": {
         "en": "Maternal age in years at the date of screening.",
         "tr": "Tarama tarihindeki anne yaşı (yıl cinsinden)",
         "de": "Mütterliches Alter in Jahren zum Zeitpunkt des Screenings.",
         "fr": "Âge maternel en années à la date du dépistage.",
-        "es": "Edad materna en años en la fecha del cribado."
+        "es": "Edad materna en años en la fecha del cribado.",
+        "ar": "عمر الأم بالسنوات في تاريخ الفحص."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nackentransparenz (NT)",
         "fr": "Clarté nucale (CN)",
         "es": "Translucencia nucal (TN)",
-        "ar": "Nuchal Translucency (NT)"
+        "ar": "الشفافية القفوية (NT)"
       },
       "businessContext_i18n": {
         "en": "Nuchal translucency measurement from ultrasound.",
         "tr": "Ultrason ile ölçülen ense kalınlığı.",
         "de": "Nackentransparenzmessung aus dem Ultraschall.",
         "fr": "Mesure de la clarté nucale par échographie.",
-        "es": "Medición de translucencia nucal por ecografía."
+        "es": "Medición de translucencia nucal por ecografía.",
+        "ar": "قياس الشفافية القفوية من الموجات فوق الصوتية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Scheitel-Steiß-Länge (CRL)",
         "fr": "Longueur cranio-caudale (LCC)",
         "es": "Longitud cráneo-caudal (LCC)",
-        "ar": "Crown-Rump Length (CRL)"
+        "ar": "طول الرأس-الردف (CRL)"
       },
       "businessContext_i18n": {
         "en": "Crown-rump length from ultrasound for gestational age and NT normalization.",
         "tr": "Gebelik yaşı ve NT normalizasyonu için ultrason ile ölçülen baş-popo uzunluğu.",
         "de": "Scheitel-Steiß-Länge aus dem Ultraschall für Gestationsalter und NT-Normalisierung.",
         "fr": "Longueur cranio-caudale par échographie pour l'âge gestationnel et la normalisation de la CN.",
-        "es": "Longitud cráneo-caudal por ecografía para edad gestacional y normalización de TN."
+        "es": "Longitud cráneo-caudal por ecografía para edad gestacional y normalización de TN.",
+        "ar": "طول الرأس-الردف من الموجات فوق الصوتية لتحديد عمر الحمل وتطبيع الشفافية القفوية."
       }
     },
     {
@@ -90,7 +93,8 @@
         "tr": "Gebelikle ilişkili plazma protein A (PAPP-A) medyan katı.",
         "de": "Schwangerschafts-assoziiertes Plasmaprotein A (PAPP-A) Vielfaches des Medians.",
         "fr": "Protéine plasmatique A associée à la grossesse (PAPP-A) multiples de la médiane.",
-        "es": "Proteína plasmática A asociada al embarazo (PAPP-A) múltiplos de la mediana."
+        "es": "Proteína plasmática A asociada al embarazo (PAPP-A) múltiplos de la mediana.",
+        "ar": "البروتين البلازمي المرتبط بالحمل A (PAPP-A) مضاعفات الوسيط."
       }
     },
     {
@@ -113,27 +117,32 @@
         "tr": "Serbest beta insan koryonik gonadotropin medyan katı.",
         "de": "Freies Beta-humanes Choriongonadotropin Vielfaches des Medians.",
         "fr": "Bêta-hCG libre multiples de la médiane.",
-        "es": "Fracción libre de gonadotropina coriónica humana beta múltiplos de la mediana."
+        "es": "Fracción libre de gonadotropina coriónica humana beta múltiplos de la mediana.",
+        "ar": "موجهة الغدد التناسلية المشيمائية بيتا الحرة مضاعفات الوسيط."
       }
     }
   ],
   "formulas": {
-    "result": "maternalAge + nuchalTranslucency + crownRumpLength",
-    "result_copy": "maternalAge + nuchalTranslucency + crownRumpLength"
+    "normalized_product": "maternalAge * nuchalTranslucency * crownRumpLength * pappA",
+    "result": "maternalAge * nuchalTranslucency * crownRumpLength * pappA * (freeBetaHCG)",
+    "adjustment_factor": "freeBetaHCG"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "logit",
-      "riskProbability",
-      "ntMoM"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "riskPercentage",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

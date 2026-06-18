@@ -14,14 +14,15 @@
         "de": "Zoll",
         "fr": "Pouces",
         "es": "Pulgadas",
-        "ar": "Inches"
+        "ar": "بوصة"
       },
       "businessContext_i18n": {
         "en": "Length in inches to convert to millimeters",
         "tr": "Milimetreye dönüştürülecek inç cinsinden uzunluk",
         "de": "Länge in Zoll zur Umrechnung in Millimeter",
         "fr": "Longueur en pouces à convertir en millimètres",
-        "es": "Longitud en pulgadas a convertir a milímetros"
+        "es": "Longitud en pulgadas a convertir a milímetros",
+        "ar": "الطول بالبوصة للتحويل إلى ملليمتر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications.",
         "tr": "Standart dönüşüm faktörü (1 inç = 25,4 mm). Yalnızca standart dışı uygulamalar için değiştirin.",
         "de": "Standard-Umrechnungsfaktor (1 Zoll = 25,4 mm). Nur für nicht standardmäßige Anwendungen ändern.",
         "fr": "Facteur de conversion standard (1 pouce = 25,4 mm). Modifiez uniquement pour des applications non standard.",
-        "es": "Factor de conversión estándar (1 pulgada = 25.4 mm). Modificar solo para aplicaciones no estándar."
+        "es": "Factor de conversión estándar (1 pulgada = 25.4 mm). Modificar solo para aplicaciones no estándar.",
+        "ar": "عامل التحويل القياسي (1 بوصة = 25.4 مم). قم بالتعديل فقط للتطبيقات غير القياسية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe.",
         "fr": "Nombre de décimales pour le résultat.",
-        "es": "Número de decimales para la salida."
+        "es": "Número de decimales para la salida.",
+        "ar": "عدد المنازل العشرية للمخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance for conversion accuracy.",
         "tr": "Dönüşüm doğruluğu için üretim toleransı.",
         "de": "Fertigungstoleranz für die Umrechnungsgenauigkeit.",
         "fr": "Tolérance de fabrication pour la précision de conversion.",
-        "es": "Tolerancia de fabricación para precisión de conversión."
+        "es": "Tolerancia de fabricación para precisión de conversión.",
+        "ar": "التسامح التصنيعي لدقة التحويل."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de escala",
-        "ar": "Scale Factor"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Optional scaling factor for batch conversions or scaling.",
         "tr": "Toplu dönüşümler veya ölçekleme için isteğe bağlı ölçekleme faktörü.",
         "de": "Optionaler Skalierungsfaktor für Stapelumrechnungen oder Skalierung.",
         "fr": "Facteur d'échelle optionnel pour conversions par lots ou mise à l'échelle.",
-        "es": "Factor de escala opcional para conversiones por lote o escalado."
+        "es": "Factor de escala opcional para conversiones por lote o escalado.",
+        "ar": "عامل القياس الاختياري للتحويلات الدفعية أو القياس."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Offset",
         "fr": "Décalage",
         "es": "Desplazamiento",
-        "ar": "Offset"
+        "ar": "الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Offset to add after conversion (e.g., for calibration).",
         "tr": "Dönüşümden sonra eklenecek ofset (örn. kalibrasyon için).",
         "de": "Offset nach der Umrechnung (z. B. für Kalibrierung).",
         "fr": "Décalage à ajouter après conversion (par exemple pour étalonnage).",
-        "es": "Desplazamiento a añadir después de la conversión (p. ej., para calibración)."
+        "es": "Desplazamiento a añadir después de la conversión (p. ej., para calibración).",
+        "ar": "الإزاحة المراد إضافتها بعد التحويل (مثل المعايرة)."
       }
     }
   ],

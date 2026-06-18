@@ -14,14 +14,15 @@
         "de": "Anzahl der Punkte",
         "fr": "Nombre de points",
         "es": "Número de puntos",
-        "ar": "Number of Points"
+        "ar": "عدد النقاط"
       },
       "businessContext_i18n": {
         "en": "Total data points to be clustered",
         "tr": "Kümelenecek toplam veri noktası",
         "de": "Gesamtzahl der zu clusternden Datenpunkte",
         "fr": "Nombre total de points de données à regrouper",
-        "es": "Total de puntos de datos a agrupar"
+        "es": "Total de puntos de datos a agrupar",
+        "ar": "إجمالي نقاط البيانات المراد تجميعها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Cluster",
         "fr": "Nombre de clusters",
         "es": "Número de clústeres",
-        "ar": "Number of Clusters"
+        "ar": "عدد المجموعات"
       },
       "businessContext_i18n": {
         "en": "Desired number of clusters (k)",
         "tr": "İstenen küme sayısı (k)",
         "de": "Gewünschte Anzahl von Clustern (k)",
         "fr": "Nombre de clusters souhaité (k)",
-        "es": "Número deseado de clústeres (k)"
+        "es": "Número deseado de clústeres (k)",
+        "ar": "عدد المجموعات المطلوب (k)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dimensionen",
         "fr": "Dimensions",
         "es": "Dimensiones",
-        "ar": "Dimensions"
+        "ar": "الأبعاد"
       },
       "businessContext_i18n": {
         "en": "Number of features per point",
         "tr": "Nokta başına özellik sayısı",
         "de": "Anzahl der Merkmale pro Punkt",
         "fr": "Nombre de caractéristiques par point",
-        "es": "Número de características por punto"
+        "es": "Número de características por punto",
+        "ar": "عدد الميزات لكل نقطة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Maximale Iterationen",
         "fr": "Itérations maximales",
         "es": "Máximo de iteraciones",
-        "ar": "Max Iterations"
+        "ar": "الحد الأقصى للتكرارات"
       },
       "businessContext_i18n": {
         "en": "Maximum iterations for k-means",
         "tr": "k-ortalamalar için maksimum iterasyon sayısı",
         "de": "Maximale Iterationen für k-Means",
         "fr": "Nombre maximum d'itérations pour k-means",
-        "es": "Máximo de iteraciones para k-means"
+        "es": "Máximo de iteraciones para k-means",
+        "ar": "الحد الأقصى لتكرارات خوارزمية k-means"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Convergence threshold for centroid movement",
         "tr": "Merkez hareketi için yakınsama eşiği",
         "de": "Konvergenzschwellenwert für Zentroidbewegung",
         "fr": "Seuil de convergence pour le déplacement des centroïdes",
-        "es": "Umbral de convergencia para el movimiento del centroide"
+        "es": "Umbral de convergencia para el movimiento del centroide",
+        "ar": "حد التقارب لحركة المركز"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Zufallssaat",
         "fr": "Graine aléatoire",
         "es": "Semilla aleatoria",
-        "ar": "Random Seed"
+        "ar": "البذرة العشوائية"
       },
       "businessContext_i18n": {
         "en": "Seed for reproducible initialization",
         "tr": "Tekrarlanabilir başlatma için tohum",
         "de": "Saat für reproduzierbare Initialisierung",
         "fr": "Graine pour une initialisation reproductible",
-        "es": "Semilla para inicialización reproducible"
+        "es": "Semilla para inicialización reproducible",
+        "ar": "بذرة للتهيئة القابلة للتكرار"
       }
     }
   ],

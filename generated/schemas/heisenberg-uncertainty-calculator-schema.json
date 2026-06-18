@@ -14,14 +14,15 @@
         "de": "Positionsunsicherheit (Δx)",
         "fr": "Incertitude de position (Δx)",
         "es": "Incertidumbre de posición (Δx)",
-        "ar": "Position uncertainty (Δx)"
+        "ar": "عدم اليقين في الموضع (Δx)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of position measurement (nanometer scale typical).",
         "tr": "Konum ölçümünün standart sapması (tipik olarak nanometre ölçeği).",
         "de": "Standardabweichung der Positionsmessung (typischerweise Nanometer-Skala).",
         "fr": "Écart type de la mesure de position (échelle nanométrique typique).",
-        "es": "Desviación estándar de la medición de posición (escala típica en nanómetros)."
+        "es": "Desviación estándar de la medición de posición (escala típica en nanómetros).",
+        "ar": "الانحراف المعياري لقياس الموضع (مقياس النانومتر نموذجي)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Impulsunsicherheit (Δp)",
         "fr": "Incertitude de quantité de mouvement (Δp)",
         "es": "Incertidumbre de momento (Δp)",
-        "ar": "Momentum uncertainty (Δp)"
+        "ar": "عدم اليقين في الزخم (Δp)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of momentum measurement. Adjust based on measurement system.",
         "tr": "Momentum ölçümünün standart sapması. Ölçüm sistemine göre ayarlayın.",
         "de": "Standardabweichung der Impulsmessung. Anpassung basierend auf dem Messsystem.",
         "fr": "Écart type de la mesure de quantité de mouvement. Ajuster selon le système de mesure.",
-        "es": "Desviación estándar de la medición de momento. Ajustar según el sistema de medición."
+        "es": "Desviación estándar de la medición de momento. Ajustar según el sistema de medición.",
+        "ar": "الانحراف المعياري لقياس الزخم. اضبط بناءً على نظام القياس."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reduziertes Plancksches Wirkungsquantum (ħ)",
         "fr": "Constante de Planck réduite (ħ)",
         "es": "Constante de Planck reducida (ħ)",
-        "ar": "Reduced Planck constant (ħ)"
+        "ar": "ثابت بلانك المخفض (ħ)"
       },
       "businessContext_i18n": {
         "en": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios.",
         "tr": "Temel kuantum sabiti. Genellikle sabittir, ancak teorik senaryolar için ayarlanabilir.",
         "de": "Fundamentale Quantenkonstante. Normalerweise fest, aber für theoretische Szenarien anpassbar.",
         "fr": "Constante quantique fondamentale. Généralement fixe, mais ajustable pour des scénarios théoriques.",
-        "es": "Constante cuántica fundamental. Normalmente fija, pero ajustable para escenarios teóricos."
+        "es": "Constante cuántica fundamental. Normalmente fija, pero ajustable para escenarios teóricos.",
+        "ar": "ثابت كمومي أساسي. عادةً ما يكون ثابتًا، لكن يمكن تعديله للسيناريوهات النظرية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Compliance-Toleranz",
         "fr": "Tolérance de conformité",
         "es": "Tolerancia de cumplimiento",
-        "ar": "Compliance tolerance"
+        "ar": "تفاوت الامتثال"
       },
       "businessContext_i18n": {
         "en": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance.",
         "tr": "Minimum belirsizlik çarpımı için güvenlik faktörü çarpanı. >=1, sıkı Heisenberg uyumluluğunu sağlar.",
         "de": "Sicherheitsfaktor-Multiplikator für minimales Unsicherheitsprodukt. >=1 gewährleistet strenge Heisenberg-Konformität.",
         "fr": "Facteur de sécurité multiplicateur pour le produit d'incertitude minimal. >=1 garantit une conformité stricte à Heisenberg.",
-        "es": "Factor de seguridad multiplicador para el producto mínimo de incertidumbre. >=1 asegura el cumplimiento estricto de Heisenberg."
+        "es": "Factor de seguridad multiplicador para el producto mínimo de incertidumbre. >=1 asegura el cumplimiento estricto de Heisenberg.",
+        "ar": "عامل أمان مضاعف لأدنى حاصل ضرب عدم يقين. >=1 يضمن الامتثال الصارم لمبدأ هايزنبرغ."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Teilchenmasse",
         "fr": "Masse de la particule",
         "es": "Masa de la partícula",
-        "ar": "Particle mass"
+        "ar": "كتلة الجسيم"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle (e.g., electron) for velocity uncertainty derivation.",
         "tr": "Hız belirsizliği türetimi için parçacığın (ör. elektron) kütlesi.",
         "de": "Masse des Teilchens (z. B. Elektron) zur Ableitung der Geschwindigkeitsunsicherheit.",
         "fr": "Masse de la particule (ex. électron) pour la dérivation de l'incertitude de vitesse.",
-        "es": "Masa de la partícula (p. ej., electrón) para la derivación de la incertidumbre de velocidad."
+        "es": "Masa de la partícula (p. ej., electrón) para la derivación de la incertidumbre de velocidad.",
+        "ar": "كتلة الجسيم (مثل الإلكترون) لاشتقاق عدم اليقين في السرعة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Geschwindigkeitsunsicherheit (Δv)",
         "fr": "Incertitude de vitesse (Δv)",
         "es": "Incertidumbre de velocidad (Δv)",
-        "ar": "Velocity uncertainty (Δv)"
+        "ar": "عدم اليقين في السرعة (Δv)"
       },
       "businessContext_i18n": {
         "en": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations.",
         "tr": "0 ise Δp/kütle olarak hesaplanır. Aksi halde alternatif hesaplamalar için doğrudan girdi olarak kullanılır.",
         "de": "Wenn 0, wird als Δp/Masse berechnet. Sonst als direkte Eingabe für alternative Berechnungen verwendet.",
         "fr": "Si 0, sera calculée comme Δp/masse. Sinon, utilisée comme entrée directe pour des calculs alternatifs.",
-        "es": "Si es 0, se calculará como Δp/masa. De lo contrario, se usa como entrada directa para cálculos alternativos."
+        "es": "Si es 0, se calculará como Δp/masa. De lo contrario, se usa como entrada directa para cálculos alternativos.",
+        "ar": "إذا كانت 0، سيتم حسابها كـ Δp/الكتلة. وإلا تُستخدم كمدخل مباشر للحسابات البديلة."
       }
     }
   ],

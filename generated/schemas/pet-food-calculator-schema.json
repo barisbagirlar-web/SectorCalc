@@ -14,14 +14,15 @@
         "de": "Haustiergewicht",
         "fr": "Poids de l'animal",
         "es": "Peso de la mascota",
-        "ar": "Pet Weight"
+        "ar": "وزن الحيوان الأليف"
       },
       "businessContext_i18n": {
         "en": "The weight of the pet in kilograms.",
         "tr": "Evcil hayvanın kilogram cinsinden ağırlığı.",
         "de": "Das Gewicht des Haustiers in Kilogramm",
         "fr": "Le poids de l'animal en kilogrammes.",
-        "es": "El peso de la mascota en kilogramos."
+        "es": "El peso de la mascota en kilogramos.",
+        "ar": "وزن الحيوان الأليف بالكيلوغرام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktivitätsfaktor",
         "fr": "Facteur d'activité",
         "es": "Factor de actividad",
-        "ar": "Activity Factor"
+        "ar": "عامل النشاط"
       },
       "businessContext_i18n": {
         "en": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active).",
         "tr": "Aktivite seviyesi çarpanı (örn. hareketsiz için 1.2, orta için 1.5, aktif için 1.8).",
         "de": "Multiplikator für Aktivitätsniveau (z.B. 1,2 für sitzend, 1,5 moderat, 1,8 aktiv)",
         "fr": "Multiplicateur pour le niveau d'activité (ex. : 1,2 pour sédentaire, 1,5 modéré, 1,8 actif).",
-        "es": "Multiplicador por nivel de actividad (ej. 1.2 sedentario, 1.5 moderado, 1.8 activo)."
+        "es": "Multiplicador por nivel de actividad (ej. 1.2 sedentario, 1.5 moderado, 1.8 activo).",
+        "ar": "مضاعف مستوى النشاط (مثل 1.2 للخامل، 1.5 للمعتدل، 1.8 للنشط)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kalorische Dichte",
         "fr": "Densité calorique",
         "es": "Densidad calórica",
-        "ar": "Caloric Density"
+        "ar": "الكثافة السعرية"
       },
       "businessContext_i18n": {
         "en": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg).",
         "tr": "Mamanın kilogram başına kilokalori cinsinden enerji yoğunluğu (kuru mama için yaygın: 3000-4000 kcal/kg).",
         "de": "Energiedichte des Futters in Kilokalorien pro Kilogramm (üblich für Trockenfutter: 3000-4000 kcal/kg).",
         "fr": "Densité énergétique de l'aliment en kilocalories par kilogramme (courant pour les aliments secs : 3000-4000 kcal/kg).",
-        "es": "Densidad energética del alimento en kilocalorías por kilogramo (común en alimento seco: 3000-4000 kcal/kg)."
+        "es": "Densidad energética del alimento en kilocalorías por kilogramo (común en alimento seco: 3000-4000 kcal/kg).",
+        "ar": "كثافة الطاقة في الطعام بالكيلو سعرات حرارية لكل كيلوغرام (شائع للطعام الجاف: 3000-4000 كيلو سعر/كغم)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Mahlzeiten pro Tag",
         "fr": "Repas par jour",
         "es": "Comidas por día",
-        "ar": "Meals Per Day"
+        "ar": "الوجبات يومياً"
       },
       "businessContext_i18n": {
         "en": "Number of meals the pet eats daily.",
         "tr": "Evcil hayvanın günlük yediği öğün sayısı.",
         "de": "Anzahl der Mahlzeiten, die das Haustier täglich frisst.",
         "fr": "Nombre de repas que l'animal mange par jour.",
-        "es": "Número de comidas que la mascota consume al día."
+        "es": "Número de comidas que la mascota consume al día.",
+        "ar": "عدد الوجبات التي يتناولها الحيوان الأليف يومياً."
       }
     }
   ],
   "formulas": {
-    "result": "weight + activityFactor + caloricDensity",
-    "result_copy": "weight + activityFactor + caloricDensity"
+    "normalized_product": "weight * activityFactor * caloricDensity * mealsPerDay",
+    "result": "weight * activityFactor * caloricDensity * mealsPerDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "dailyCalories",
-      "foodPerMealGrams"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "foodPerMealGrams",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "foodPerMealGrams": "g"
     }

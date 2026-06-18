@@ -14,14 +14,15 @@
         "de": "Untere Grenze a",
         "fr": "Borne inférieure a",
         "es": "Límite inferior a",
-        "ar": "Lower bound a"
+        "ar": "الحد الأدنى أ"
       },
       "businessContext_i18n": {
         "en": "Left endpoint of the interval",
         "tr": "Aralığın sol uç noktası",
         "de": "Linker Endpunkt des Intervalls",
         "fr": "Extrémité gauche de l'intervalle",
-        "es": "Extremo izquierdo del intervalo"
+        "es": "Extremo izquierdo del intervalo",
+        "ar": "نقطة النهاية اليسرى للفترة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Obere Grenze b",
         "fr": "Borne supérieure b",
         "es": "Límite superior b",
-        "ar": "Upper bound b"
+        "ar": "الحد الأعلى ب"
       },
       "businessContext_i18n": {
         "en": "Right endpoint of the interval, must be greater than a",
         "tr": "Aralığın sağ uç noktası, a'dan büyük olmalıdır",
         "de": "Rechter Endpunkt des Intervalls, muss größer als a sein",
         "fr": "Extrémité droite de l'intervalle, doit être supérieure à a",
-        "es": "Extremo derecho del intervalo, debe ser mayor que a"
+        "es": "Extremo derecho del intervalo, debe ser mayor que a",
+        "ar": "نقطة النهاية اليمنى للفترة، يجب أن تكون أكبر من أ"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "f(a)",
         "fr": "f(a)",
         "es": "f(a)",
-        "ar": "f(a)"
+        "ar": "ق(أ)"
       },
       "businessContext_i18n": {
         "en": "Function value at the lower bound",
         "tr": "Alt sınırdaki fonksiyon değeri",
         "de": "Funktionswert an der unteren Grenze",
         "fr": "Valeur de la fonction à la borne inférieure",
-        "es": "Valor de la función en el límite inferior"
+        "es": "Valor de la función en el límite inferior",
+        "ar": "قيمة الدالة عند الحد الأدنى"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "f(b)",
         "fr": "f(b)",
         "es": "f(b)",
-        "ar": "f(b)"
+        "ar": "ق(ب)"
       },
       "businessContext_i18n": {
         "en": "Function value at the upper bound",
         "tr": "Üst sınırdaki fonksiyon değeri",
         "de": "Funktionswert an der oberen Grenze",
         "fr": "Valeur de la fonction à la borne supérieure",
-        "es": "Valor de la función en el límite superior"
+        "es": "Valor de la función en el límite superior",
+        "ar": "قيمة الدالة عند الحد الأعلى"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Zielwert k",
         "fr": "Valeur cible k",
         "es": "Valor objetivo k",
-        "ar": "Target value k"
+        "ar": "القيمة المستهدفة ك"
       },
       "businessContext_i18n": {
         "en": "Value to find between f(a) and f(b)",
         "tr": "f(a) ile f(b) arasında bulunacak değer",
         "de": "Wert, der zwischen f(a) und f(b) gesucht wird",
         "fr": "Valeur à trouver entre f(a) et f(b)",
-        "es": "Valor a encontrar entre f(a) y f(b)"
+        "es": "Valor a encontrar entre f(a) y f(b)",
+        "ar": "القيمة المطلوب إيجادها بين f(a) و f(b)"
       }
     }
   ],
   "formulas": {
-    "result": "a + b + f_a",
-    "result_copy": "a + b + f_a"
+    "normalized_product": "a * b * f_a * f_b",
+    "result": "a * b * f_a * f_b * (k)",
+    "adjustment_factor": "k"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "conditionDetail",
-      "intervalInfo"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "intervalInfo",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

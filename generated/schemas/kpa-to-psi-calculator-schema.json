@@ -14,14 +14,15 @@
         "de": "Druck (kPa)",
         "fr": "Pression (kPa)",
         "es": "Presión (kPa)",
-        "ar": "Basınç (kPa)"
+        "ar": "الضغط (kPa)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek kPa cinsinden basınç değeri",
         "tr": "Dönüştürülecek kPa cinsinden basınç değeri",
         "de": "Druckwert in kPa, der umgerechnet werden soll",
         "fr": "Valeur de pression en kPa à convertir",
-        "es": "Valor de presión en kPa a convertir"
+        "es": "Valor de presión en kPa a convertir",
+        "ar": "قيمة الضغط بوحدة kPa المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Coefficient de conversion",
         "es": "Factor de conversión",
-        "ar": "Dönüşüm Katsayısı"
+        "ar": "معامل التحويل"
       },
       "businessContext_i18n": {
         "en": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
         "tr": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
         "de": "Faktor zur Umrechnung von kPa in psi (Standardwert)",
         "fr": "Coefficient utilisé pour convertir les kPa en psi (valeur standard par défaut)",
-        "es": "Factor utilizado para convertir kPa a psi (valor estándar por defecto)"
+        "es": "Factor utilizado para convertir kPa a psi (valor estándar por defecto)",
+        "ar": "المعامل المستخدم لتحويل kPa إلى psi (القيمة الافتراضية القياسية)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Ondalık Basamak"
+        "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuçtaki ondalık basamak sayısı",
         "tr": "Sonuçtaki ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen im Ergebnis",
         "fr": "Nombre de décimales du résultat",
-        "es": "Número de decimales en el resultado"
+        "es": "Número de decimales en el resultado",
+        "ar": "عدد المنازل العشرية في النتيجة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Offset (psi)",
         "fr": "Offset (psi)",
         "es": "Desplazamiento (psi)",
-        "ar": "Ofset (psi)"
+        "ar": "الإزاحة (psi)"
       },
       "businessContext_i18n": {
         "en": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
         "tr": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
         "de": "Konstanter Offset, der nach der linearen Umrechnung hinzugefügt wird (normalerweise 0)",
         "fr": "Offset constant ajouté après la transformation linéaire (généralement 0)",
-        "es": "Desplazamiento constante a añadir después de la conversión lineal (generalmente 0)"
+        "es": "Desplazamiento constante a añadir después de la conversión lineal (generalmente 0)",
+        "ar": "إزاحة ثابتة تضاف بعد التحويل الخطي (عادة 0)"
       }
     }
   ],

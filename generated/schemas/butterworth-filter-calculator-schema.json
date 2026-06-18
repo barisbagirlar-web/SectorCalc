@@ -14,14 +14,15 @@
         "de": "Filterordnung (n)",
         "fr": "Ordre du filtre (n)",
         "es": "Orden del filtro (n)",
-        "ar": "Filter Order (n)"
+        "ar": "رتبة المرشح (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the Butterworth filter (positive integer). Higher order gives steeper roll-off.",
         "tr": "Butterworth filtresinin derecesi (pozitif tam sayı). Yüksek derece daha dik geçiş sağlar.",
         "de": "Ordnung des Butterworth-Filters (positive ganze Zahl). Höhere Ordnung ergibt steileren Abfall.",
         "fr": "Ordre du filtre Butterworth (entier positif). Un ordre plus élevé donne une pente plus raide.",
-        "es": "Orden del filtro Butterworth (entero positivo). Un orden mayor proporciona una caída más pronunciada."
+        "es": "Orden del filtro Butterworth (entero positivo). Un orden mayor proporciona una caída más pronunciada.",
+        "ar": "رتبة مرشح بتروورث (عدد صحيح موجب). الرتبة الأعلى تعطي انحدارًا أكثر حدة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Grenzfrequenz",
         "fr": "Fréquence de coupure",
         "es": "Frecuencia de corte",
-        "ar": "Cutoff Frequency"
+        "ar": "تردد القطع"
       },
       "businessContext_i18n": {
         "en": "Cutoff frequency at -3 dB point.",
         "tr": "-3 dB noktasındaki kesme frekansı.",
         "de": "Grenzfrequenz am -3 dB-Punkt.",
         "fr": "Fréquence de coupure au point -3 dB.",
-        "es": "Frecuencia de corte en el punto de -3 dB."
+        "es": "Frecuencia de corte en el punto de -3 dB.",
+        "ar": "تردد القطع عند نقطة -3 ديسيبل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Frequenz von Interesse",
         "fr": "Fréquence d'intérêt",
         "es": "Frecuencia de interés",
-        "ar": "Frequency of Interest"
+        "ar": "التردد محل الاهتمام"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate the filter response.",
         "tr": "Filtre yanıtının değerlendirileceği frekans.",
         "de": "Frequenz, bei der die Filterantwort ausgewertet wird.",
         "fr": "Fréquence à laquelle évaluer la réponse du filtre.",
-        "es": "Frecuencia a la que se evalúa la respuesta del filtro."
+        "es": "Frecuencia a la que se evalúa la respuesta del filtro.",
+        "ar": "التردد الذي سيتم عنده تقييم استجابة المرشح."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Durchlassverstärkung",
         "fr": "Gain de la bande passante",
         "es": "Ganancia de banda de paso",
-        "ar": "Passband Gain"
+        "ar": "كسب نطاق المرور"
       },
       "businessContext_i18n": {
         "en": "Linear gain in the passband (for active filters). Typically 1 for unity-gain Sallen-Key.",
         "tr": "Geçiş bandındaki doğrusal kazanç (aktif filtreler için). Sallen-Key birim kazanç için tipik olarak 1.",
         "de": "Lineare Verstärkung im Durchlassbereich (für aktive Filter). Typischerweise 1 für Sallen-Key mit Einheitsverstärkung.",
         "fr": "Gain linéaire dans la bande passante (pour filtres actifs). Généralement 1 pour Sallen-Key à gain unitaire.",
-        "es": "Ganancia lineal en la banda de paso (para filtros activos). Normalmente 1 para Sallen-Key de ganancia unitaria."
+        "es": "Ganancia lineal en la banda de paso (para filtros activos). Normalmente 1 para Sallen-Key de ganancia unitaria.",
+        "ar": "الكسب الخطي في نطاق المرور (للمرشحات النشطة). عادةً 1 للكسب الواحدي في Sallen-Key."
       }
     }
   ],
   "formulas": {
-    "result": "order + cutoffHz + frequencyHz",
-    "result_copy": "order + cutoffHz + frequencyHz"
+    "normalized_product": "order * cutoffHz * frequencyHz * gain",
+    "result": "order * cutoffHz * frequencyHz * gain"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "attenuationFactor",
-      "magnitude"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "attenuation_dB",
-    "unit": "Hz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

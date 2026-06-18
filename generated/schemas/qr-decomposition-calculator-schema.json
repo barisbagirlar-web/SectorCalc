@@ -21,7 +21,8 @@
         "tr": "2x2 matris A'nın (1,1) elemanı.",
         "de": "Element (1,1) der 2x2-Matrix A.",
         "fr": "Élément (1,1) de la matrice A 2x2.",
-        "es": "Elemento (1,1) de la matriz A de 2x2."
+        "es": "Elemento (1,1) de la matriz A de 2x2.",
+        "ar": "العنصر (1,1) من المصفوفة A (2×2)."
       }
     },
     {
@@ -44,7 +45,8 @@
         "tr": "2x2 matris A'nın (1,2) elemanı.",
         "de": "Element (1,2) der 2x2-Matrix A.",
         "fr": "Élément (1,2) de la matrice A 2x2.",
-        "es": "Elemento (1,2) de la matriz A de 2x2."
+        "es": "Elemento (1,2) de la matriz A de 2x2.",
+        "ar": "العنصر (1,2) من المصفوفة A (2×2)."
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "2x2 matris A'nın (2,1) elemanı.",
         "de": "Element (2,1) der 2x2-Matrix A.",
         "fr": "Élément (2,1) de la matrice A 2x2.",
-        "es": "Elemento (2,1) de la matriz A de 2x2."
+        "es": "Elemento (2,1) de la matriz A de 2x2.",
+        "ar": "العنصر (2,1) من المصفوفة A (2×2)."
       }
     },
     {
@@ -90,30 +93,30 @@
         "tr": "2x2 matris A'nın (2,2) elemanı.",
         "de": "Element (2,2) der 2x2-Matrix A.",
         "fr": "Élément (2,2) de la matrice A 2x2.",
-        "es": "Elemento (2,2) de la matriz A de 2x2."
+        "es": "Elemento (2,2) de la matriz A de 2x2.",
+        "ar": "العنصر (2,2) من المصفوفة 2×2 أ."
       }
     }
   ],
   "formulas": {
-    "result": "a11 + a12 + a21",
-    "result_copy": "a11 + a12 + a21"
+    "normalized_product": "a11 * a12 * a21 * a22",
+    "result": "a11 * a12 * a21 * a22"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "q11",
-      "q12",
-      "q21",
-      "q22",
-      "r12",
-      "r22"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "r22",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -14,13 +14,15 @@
         "de": "A X",
         "fr": "A X",
         "es": "A X",
-        "ar": "A X"
+        "ar": "إحداثي X للمدينة A"
       },
       "businessContext_i18n": {
         "en": "x-coordinate of city A",
         "tr": "A şehrinin x koordinatı",
         "de": "x-Koordinate von Stadt A",
-        "fr": "Coordonnée x de la ville A"
+        "fr": "Coordonnée x de la ville A",
+        "es": "Coordenada x de la ciudad A",
+        "ar": "الإحداثي X للمدينة A"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "A Y",
         "fr": "A Y",
         "es": "A Y",
-        "ar": "A Y"
+        "ar": "إحداثي Y للمدينة A"
       },
       "businessContext_i18n": {
         "en": "y-coordinate of city A",
         "tr": "A şehrinin y koordinatı",
         "de": "Y-Koordinate von Stadt A",
-        "fr": "Coordonnée Y de la ville A"
+        "fr": "Coordonnée Y de la ville A",
+        "es": "Coordenada y de la ciudad A",
+        "ar": "الإحداثي Y للمدينة A"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "B X",
         "fr": "B X",
         "es": "B X",
-        "ar": "B X"
+        "ar": "إحداثي X للمدينة B"
       },
       "businessContext_i18n": {
         "en": "x-coordinate of city B",
         "tr": "B şehrinin x koordinatı",
         "de": "X-Koordinate von Stadt B",
-        "fr": "Coordonnée X de la ville B"
+        "fr": "Coordonnée X de la ville B",
+        "es": "Coordenada x de la ciudad B",
+        "ar": "الإحداثي X للمدينة B"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "B Y",
         "fr": "B Y",
         "es": "B Y",
-        "ar": "B Y"
+        "ar": "إحداثي Y للمدينة B"
       },
       "businessContext_i18n": {
         "en": "y-coordinate of city B",
         "tr": "B şehrinin y koordinatı",
         "de": "Y-Koordinate von Stadt B",
-        "fr": "Coordonnée Y de la ville B"
+        "fr": "Coordonnée Y de la ville B",
+        "es": "Coordenada y de la ciudad B",
+        "ar": "الإحداثي Y للمدينة B"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "C X",
         "fr": "C X",
         "es": "C X",
-        "ar": "C X"
+        "ar": "إحداثي X للمدينة C"
       },
       "businessContext_i18n": {
         "en": "x-coordinate of city C",
         "tr": "C şehrinin x koordinatı",
         "de": "X-Koordinate von Stadt C",
-        "fr": "Coordonnée X de la ville C"
+        "fr": "Coordonnée X de la ville C",
+        "es": "Coordenada x de la ciudad C",
+        "ar": "الإحداثي X للمدينة C"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "C Y",
         "fr": "C Y",
         "es": "C Y",
-        "ar": "C Y"
+        "ar": "إحداثي Y للمدينة C"
       },
       "businessContext_i18n": {
         "en": "y-coordinate of city C",
         "tr": "C şehrinin y koordinatı",
         "de": "Y-Koordinate von Stadt C",
-        "fr": "Coordonnée Y de la ville C"
+        "fr": "Coordonnée Y de la ville C",
+        "es": "Coordenada y de la ciudad C",
+        "ar": "الإحداثي Y للمدينة C"
       }
     },
     {
@@ -146,13 +158,15 @@
         "de": "D X",
         "fr": "D X",
         "es": "D X",
-        "ar": "D X"
+        "ar": "إحداثي X للمدينة D"
       },
       "businessContext_i18n": {
         "en": "x-coordinate of city D",
         "tr": "D şehrinin x koordinatı",
         "de": "X-Koordinate von Stadt D",
-        "fr": "Coordonnée X de la ville D"
+        "fr": "Coordonnée X de la ville D",
+        "es": "Coordenada x de la ciudad D",
+        "ar": "الإحداثي X للمدينة D"
       }
     },
     {
@@ -168,34 +182,39 @@
         "de": "D Y",
         "fr": "D Y",
         "es": "D Y",
-        "ar": "D Y"
+        "ar": "إحداثي Y للمدينة D"
       },
       "businessContext_i18n": {
         "en": "y-coordinate of city D",
         "tr": "D şehrinin y koordinatı",
         "de": "Y-Koordinate von Stadt D",
-        "fr": "Coordonnée Y de la ville D"
+        "fr": "Coordonnée Y de la ville D",
+        "es": "Coordenada y de la ciudad D",
+        "ar": "الإحداثي Y للمدينة D"
       }
     }
   ],
   "formulas": {
-    "result": "ax + ay + bx",
-    "result_copy": "ax + ay + bx"
+    "normalized_product": "ax * ay * bx * by",
+    "result": "ax * ay * bx * by * (cx * cy * dx * dy)",
+    "adjustment_factor": "cx * cy * dx * dy"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "dAB",
-      "dBC",
-      "dCD",
-      "dDA"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalDistance",
-    "unit": "km"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

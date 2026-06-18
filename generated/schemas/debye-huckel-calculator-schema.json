@@ -12,16 +12,17 @@
         "en": "Debye-Hückel A",
         "tr": "Debye-Hückel A",
         "de": "Debye-Hückel A",
-        "fr": "Debye-Hückel A",
+        "fr": "Epsilon (ε)",
         "es": "Debye-Hückel A",
-        "ar": "Debye-Hückel A"
+        "ar": "ثابت ديباي-هوكل A"
       },
       "businessContext_i18n": {
         "en": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.509.",
         "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.509 kullanın.",
         "de": "Empirische Konstante in Abhängigkeit von Temperatur und Lösungsmittel. Für Wasser bei 25 °C verwenden Sie 0,509.",
         "fr": "Constante empirique dépendant de la température et du solvant. Pour l'eau à 25°C, utiliser 0,509.",
-        "es": "Constante empírica dependiente de la temperatura y el disolvente. Para agua a 25°C, use 0.509."
+        "es": "Constante empírica dependiente de la temperatura y el disolvente. Para agua a 25°C, use 0.509.",
+        "ar": "ثابت تجريبي يعتمد على درجة الحرارة والمذيب. للماء عند 25°C، استخدم 0.509."
       }
     },
     {
@@ -35,16 +36,17 @@
         "en": "Debye-Hückel B",
         "tr": "Debye-Hückel B",
         "de": "Debye-Hückel B",
-        "fr": "Debye-Hückel B",
+        "fr": "Debye-Hückel A",
         "es": "Debye-Hückel B",
-        "ar": "Debye-Hückel B"
+        "ar": "ثابت ديباي-هوكل B"
       },
       "businessContext_i18n": {
         "en": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.328.",
         "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.328 kullanın.",
         "de": "Empirische Konstante in Abhängigkeit von Temperatur und Lösungsmittel. Für Wasser bei 25 °C verwenden Sie 0,328.",
         "fr": "Constante empirique dépendant de la température et du solvant. Pour l'eau à 25°C, utiliser 0,328.",
-        "es": "Constante empírica dependiente de la temperatura y el disolvente. Para agua a 25°C, use 0.328."
+        "es": "Constante empírica dependiente de la temperatura y el disolvente. Para agua a 25°C, use 0.328.",
+        "ar": "ثابت تجريبي يعتمد على درجة الحرارة والمذيب. للماء عند 25°C، استخدم 0.328."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ionenstärke",
         "fr": "Force ionique",
         "es": "Fuerza iónica",
-        "ar": "Ionic Strength"
+        "ar": "القوة الأيونية"
       },
       "businessContext_i18n": {
         "en": "Half the sum of concentrations times squared charges of all ions. Range typically 0.001 - 0.5 mol/L.",
         "tr": "Tüm iyonların konsantrasyonları ile yüklerinin karelerinin çarpımlarının toplamının yarısı. Tipik aralık 0.001 - 0.5 mol/L.",
         "de": "Hälfte der Summe der Konzentrationen multipliziert mit den quadrierten Ladungen aller Ionen. Typischer Bereich 0,001 - 0,5 mol/L.",
         "fr": "Demi-somme des concentrations multipliées par les charges au carré de tous les ions. Plage typique 0,001 - 0,5 mol/L.",
-        "es": "Mitad de la suma de concentraciones por cargas al cuadrado de todos los iones. Rango típico 0.001 - 0.5 mol/L."
+        "es": "Mitad de la suma de concentraciones por cargas al cuadrado de todos los iones. Rango típico 0.001 - 0.5 mol/L.",
+        "ar": "نصف مجموع التراكيز مضروبة في مربعات الشحنات لجميع الأيونات. النطاق النموذجي 0.001 - 0.5 مول/لتر."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kationenladung (z+)",
         "fr": "Charge du cation (z+)",
         "es": "Carga del catión (z+)",
-        "ar": "Cation Charge (z+)"
+        "ar": "شحنة الكاتيون (z+)"
       },
       "businessContext_i18n": {
         "en": "Absolute charge number of the cation, e.g., 1 for Na+, 2 for Ca2+.",
         "tr": "Katyonun mutlak yük sayısı, örn. Na+ için 1, Ca2+ için 2.",
         "de": "Absolute Ladungszahl des Kations, z.B. 1 für Na+, 2 für Ca2+.",
         "fr": "Nombre de charge absolu du cation, ex. 1 pour Na+, 2 pour Ca2+.",
-        "es": "Número de carga absoluta del catión, ej., 1 para Na+, 2 para Ca2+."
+        "es": "Número de carga absoluta del catión, ej., 1 para Na+, 2 para Ca2+.",
+        "ar": "رقم الشحنة المطلقة للكاتيون، مثلاً 1 لـ Na+، 2 لـ Ca2+."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anionenladung (|z-|)",
         "fr": "Charge de l'anion (|z-|)",
         "es": "Carga del anión (|z-|)",
-        "ar": "Anion Charge (|z-|)"
+        "ar": "شحنة الأنيون (|z-|)"
       },
       "businessContext_i18n": {
         "en": "Absolute charge number of the anion, e.g., 1 for Cl-, 2 for SO4^2-.",
         "tr": "Anyonun mutlak yük sayısı, örn. Cl- için 1, SO4^2- için 2.",
         "de": "Absolute Ladungszahl des Anions, z.B. 1 für Cl-, 2 für SO4^2-.",
         "fr": "Nombre de charge absolu de l'anion, ex. 1 pour Cl-, 2 pour SO4^2-.",
-        "es": "Número de carga absoluta del anión, ej., 1 para Cl-, 2 para SO4^2-."
+        "es": "Número de carga absoluta del anión, ej., 1 para Cl-, 2 para SO4^2-.",
+        "ar": "رقم الشحنة المطلقة للأنيون، مثلاً 1 لـ Cl-، 2 لـ SO4^2-."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Ionengrößenparameter (a)",
         "fr": "Paramètre de taille ionique (a)",
         "es": "Parámetro de tamaño iónico (a)",
-        "ar": "Ion Size Parameter (a)"
+        "ar": "معامل حجم الأيون (a)"
       },
       "businessContext_i18n": {
         "en": "Effective diameter of the hydrated ion. Common values: 3-9 Å. For many simple ions, ~3-4 Å.",
         "tr": "Hidratlanmış iyonun etkin çapı. Yaygın değerler: 3-9 Å. Basit iyonlar için ~3-4 Å.",
         "de": "Effektiver Durchmesser des hydratisierten Ions. Übliche Werte: 3-9 Å. Für viele einfache Ionen ~3-4 Å.",
         "fr": "Diamètre effectif de l'ion hydraté. Valeurs courantes : 3-9 Å. Pour de nombreux ions simples, ~3-4 Å.",
-        "es": "Diámetro efectivo del ion hidratado. Valores comunes: 3-9 Å. Para muchos iones simples, ~3-4 Å."
+        "es": "Diámetro efectivo del ion hidratado. Valores comunes: 3-9 Å. Para muchos iones simples, ~3-4 Å.",
+        "ar": "القطر الفعال للأيون المائي. القيم الشائعة: 3-9 أنجستروم. للعديد من الأيونات البسيطة، ~3-4 أنجستروم."
       }
     }
   ],
   "formulas": {
-    "result": "aConstant + bConstant + ionicStrength",
-    "result_copy": "aConstant + bConstant + ionicStrength"
+    "normalized_product": "aConstant * bConstant * ionicStrength * chargeCation",
+    "result": "aConstant * bConstant * ionicStrength * chargeCation * (chargeAnion * ionSize)",
+    "adjustment_factor": "chargeAnion * ionSize"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "logGamma",
-      "sqrtI"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "activityCoefficient",
-    "unit": "(mol/L)^(-1/2)"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Kimya & Proses",

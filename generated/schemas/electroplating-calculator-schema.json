@@ -14,14 +14,15 @@
         "de": "Oberfläche",
         "fr": "Surface",
         "es": "Área superficial",
-        "ar": "Surface Area"
+        "ar": "مساحة السطح"
       },
       "businessContext_i18n": {
         "en": "total area to be plated",
         "tr": "kaplanacak toplam alan",
         "de": "Gesamte zu beschichtende Fläche",
         "fr": "Surface totale à plaquer",
-        "es": "Área total a recubrir"
+        "es": "Área total a recubrir",
+        "ar": "المساحة الكلية المراد طلاؤها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Beschichtungsdicke",
         "fr": "Épaisseur de placage",
         "es": "Espesor del recubrimiento",
-        "ar": "Plating Thickness"
+        "ar": "سمك الطلاء"
       },
       "businessContext_i18n": {
         "en": "desired coating thickness",
         "tr": "istenen kaplama kalınlığı",
         "de": "Gewünschte Schichtdicke",
         "fr": "Épaisseur de revêtement souhaitée",
-        "es": "Espesor de recubrimiento deseado"
+        "es": "Espesor de recubrimiento deseado",
+        "ar": "سمك الطلاء المطلوب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stromdichte",
         "fr": "Densité de courant",
         "es": "Densidad de corriente",
-        "ar": "Current Density"
+        "ar": "كثافة التيار"
       },
       "businessContext_i18n": {
         "en": "applied current per unit area",
         "tr": "birim alana uygulanan akım",
         "de": "Angewandte Stromdichte",
         "fr": "Courant appliqué par unité de surface",
-        "es": "Corriente aplicada por unidad de área"
+        "es": "Corriente aplicada por unidad de área",
+        "ar": "التيار المطبق لكل وحدة مساحة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kathodenwirkungsgrad",
         "fr": "Rendement cathodique",
         "es": "Eficiencia del cátodo",
-        "ar": "Cathode Efficiency"
+        "ar": "كفاءة الكاثود"
       },
       "businessContext_i18n": {
         "en": "percentage of current used for metal deposition",
         "tr": "metal biriktirme için kullanılan akım yüzdesi",
         "de": "Prozentsatz des für die Metallabscheidung genutzten Stroms",
         "fr": "Pourcentage du courant utilisé pour le dépôt de métal",
-        "es": "Porcentaje de corriente utilizado para la deposición del metal"
+        "es": "Porcentaje de corriente utilizado para la deposición del metal",
+        "ar": "النسبة المئوية للتيار المستخدم لترسيب المعدن"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Metalldichte",
         "fr": "Densité du métal",
         "es": "Densidad del metal",
-        "ar": "Metal Density"
+        "ar": "كثافة المعدن"
       },
       "businessContext_i18n": {
         "en": "density of plating metal",
         "tr": "kaplama metalinin yoğunluğu",
         "de": "Dichte des Plattierungsmetalls",
         "fr": "Densité du métal de placage",
-        "es": "Densidad del metal de recubrimiento"
+        "es": "Densidad del metal de recubrimiento",
+        "ar": "كثافة معدن الطلاء"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Atomgewicht",
         "fr": "Masse atomique",
         "es": "Peso atómico",
-        "ar": "Atomic Weight"
+        "ar": "الوزن الذري"
       },
       "businessContext_i18n": {
         "en": "molar mass of metal",
         "tr": "metal mol kütlesi",
         "de": "Molare Masse des Metalls",
         "fr": "Masse molaire du métal",
-        "es": "Masa molar del metal"
+        "es": "Masa molar del metal",
+        "ar": "الكتلة المولية للمعدن"
       }
     },
     {
@@ -152,34 +158,39 @@
         "de": "Wertigkeit",
         "fr": "Valence",
         "es": "Valencia",
-        "ar": "Valence"
+        "ar": "التكافؤ"
       },
       "businessContext_i18n": {
         "en": "number of electrons transferred per ion",
         "tr": "iyon başına aktarılan elektron sayısı",
         "de": "Anzahl der pro Ion übertragenen Elektronen",
         "fr": "nombre d'électrons transférés par ion",
-        "es": "Número de electrones transferidos por ion"
+        "es": "Número de electrones transferidos por ion",
+        "ar": "عدد الإلكترونات المنقولة لكل أيون"
       }
     }
   ],
   "formulas": {
-    "result": "area + thickness + currentDensity",
-    "result_copy": "area + thickness + currentDensity"
+    "normalized_product": "area * thickness * currentDensity * (efficiency / 100)",
+    "result": "area * thickness * currentDensity * (efficiency / 100) * (density * atomicWeight * valence)",
+    "adjustment_factor": "density * atomicWeight * valence"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "mass",
-      "charge",
-      "current"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "charge",
-    "unit": "cm²"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Kimya & Proses",

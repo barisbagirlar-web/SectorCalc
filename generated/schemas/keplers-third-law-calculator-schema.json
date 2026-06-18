@@ -14,14 +14,15 @@
         "de": "Große Halbachse",
         "fr": "Demi-grand axe",
         "es": "Semieje mayor",
-        "ar": "Semi-major axis"
+        "ar": "نصف المحور الرئيسي"
       },
       "businessContext_i18n": {
         "en": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m.",
         "tr": "Birincil cisimden ortalama uzaklık, örn. 1 AU = 149.597.870.691 m.",
         "de": "Durchschnittliche Entfernung vom Primärkörper, z.B. 1 AE = 149.597.870.691 m.",
         "fr": "Distance moyenne du corps principal, ex. 1 UA = 149 597 870 691 m.",
-        "es": "Distancia media al cuerpo primario, ej. 1 UA = 149.597.870.691 m."
+        "es": "Distancia media al cuerpo primario, ej. 1 UA = 149.597.870.691 m.",
+        "ar": "متوسط المسافة من الجسم الأساسي، على سبيل المثال 1 وحدة فلكية = 149,597,870,691 متر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Masse des Primärkörpers",
         "fr": "Masse du corps principal",
         "es": "Masa del cuerpo primario",
-        "ar": "Mass of primary body"
+        "ar": "كتلة الجسم الأساسي"
       },
       "businessContext_i18n": {
         "en": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg.",
         "tr": "Merkezi cismin kütlesi, örn. Güneş kütlesi = 1,989 × 10^30 kg.",
         "de": "Masse des Zentralkörpers, z.B. Sonnenmasse = 1,989 × 10^30 kg.",
         "fr": "Masse du corps central, ex. masse du Soleil = 1,989 × 10^30 kg.",
-        "es": "Masa del cuerpo central, ej. masa del Sol = 1,989 × 10^30 kg."
+        "es": "Masa del cuerpo central, ej. masa del Sol = 1,989 × 10^30 kg.",
+        "ar": "كتلة الجسم المركزي، على سبيل المثال كتلة الشمس = 1.989 × 10^30 كجم."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Masse des Sekundärkörpers",
         "fr": "Masse du corps secondaire",
         "es": "Masa del cuerpo secundario",
-        "ar": "Mass of secondary body"
+        "ar": "كتلة الجسم الثانوي"
       },
       "businessContext_i18n": {
         "en": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg.",
         "tr": "Yörüngedeki cismin kütlesi, örn. Dünya kütlesi = 5,972 × 10^24 kg.",
         "de": "Masse des umlaufenden Körpers, z.B. Erdmasse = 5,972 × 10^24 kg.",
         "fr": "Masse du corps en orbite, ex. masse de la Terre = 5,972 × 10^24 kg.",
-        "es": "Masa del cuerpo en órbita, ej. masa de la Tierra = 5,972 × 10^24 kg."
+        "es": "Masa del cuerpo en órbita, ej. masa de la Tierra = 5,972 × 10^24 kg.",
+        "ar": "كتلة الجسم المداري، على سبيل المثال كتلة الأرض = 5.972 × 10^24 كجم."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Gravitationskonstante",
         "fr": "Constante gravitationnelle",
         "es": "Constante gravitacional",
-        "ar": "Gravitational constant"
+        "ar": "ثابت الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
         "tr": "Evrensel çekim sabiti, standart değer 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
         "de": "Universelle Gravitationskonstante, Standardwert 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
         "fr": "Constante gravitationnelle universelle, valeur standard 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
-        "es": "Constante gravitacional universal, valor estándar 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}."
+        "es": "Constante gravitacional universal, valor estándar 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
+        "ar": "ثابت الجاذبية العام، القيمة القياسية 6.67430 × 10^{-11} م^3 كجم^{-1} ث^{-2}."
       }
     }
   ],
   "formulas": {
-    "result": "semiMajorAxis + primaryMass + secondaryMass",
-    "result_copy": "semiMajorAxis + primaryMass + secondaryMass"
+    "normalized_product": "semiMajorAxis * primaryMass * secondaryMass * gravitationalConstant",
+    "result": "semiMajorAxis * primaryMass * secondaryMass * gravitationalConstant"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "orbitalPeriodYears",
-      "orbitalPeriodDays"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "orbitalPeriodDays",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

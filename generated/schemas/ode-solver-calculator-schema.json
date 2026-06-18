@@ -14,14 +14,15 @@
         "de": "Koeffizient a (dy/dt = a·y + b)",
         "fr": "Coefficient a (dy/dt = a·y + b)",
         "es": "Coeficiente a (dy/dt = a·y + b)",
-        "ar": "Coefficient a (dy/dt = a·y + b)"
+        "ar": "المعامل أ (dy/dt = a·y + b)"
       },
       "businessContext_i18n": {
         "en": "Rate constant in first-order linear ODE",
         "tr": "Birinci dereceden lineer adi diferansiyel denklemde hız sabiti",
         "de": "Geschwindigkeitskonstante in linearer DGL erster Ordnung",
         "fr": "Constante de vitesse dans l'EDO linéaire du premier ordre",
-        "es": "Constante de velocidad en EDO lineal de primer orden"
+        "es": "Constante de velocidad en EDO lineal de primer orden",
+        "ar": "ثابت المعدل في المعادلة التفاضلية الخطية من الدرجة الأولى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Konstanter Term b",
         "fr": "Terme constant b",
         "es": "Término constante b",
-        "ar": "Constant term b"
+        "ar": "الحد الثابت ب"
       },
       "businessContext_i18n": {
         "en": "Forcing term in the ODE",
         "tr": "Adi diferansiyel denklemde zorlama terimi",
         "de": "Antriebsterm in der DGL",
         "fr": "Terme forçant dans l'EDO",
-        "es": "Término forzante en la EDO"
+        "es": "Término forzante en la EDO",
+        "ar": "حد القوة في المعادلة التفاضلية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Startzeit",
         "fr": "Temps initial",
         "es": "Tiempo inicial",
-        "ar": "Initial time"
+        "ar": "الزمن الابتدائي"
       },
       "businessContext_i18n": {
         "en": "Start time for the integration",
         "tr": "İntegrasyon için başlangıç zamanı",
         "de": "Startzeit für die Integration",
         "fr": "Temps de début de l'intégration",
-        "es": "Tiempo de inicio para la integración"
+        "es": "Tiempo de inicio para la integración",
+        "ar": "زمن بدء التكامل"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anfangswert y(t0)",
         "fr": "Valeur initiale y(t0)",
         "es": "Valor inicial y(t0)",
-        "ar": "Initial value y(t0)"
+        "ar": "القيمة الابتدائية y(t0)"
       },
       "businessContext_i18n": {
         "en": "Initial condition at t0",
         "tr": "t0'daki başlangıç koşulu",
         "de": "Anfangsbedingung bei t0",
         "fr": "Condition initiale à t0",
-        "es": "Condición inicial en t0"
+        "es": "Condición inicial en t0",
+        "ar": "الشرط الابتدائي عند t0"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schrittweite",
         "fr": "Pas de temps",
         "es": "Tamaño de paso",
-        "ar": "Step size"
+        "ar": "حجم الخطوة"
       },
       "businessContext_i18n": {
         "en": "Time increment for numerical approximation",
         "tr": "Sayısal yaklaşım için zaman artışı",
         "de": "Zeitinkrement für numerische Näherung",
         "fr": "Incrément de temps pour l'approximation numérique",
-        "es": "Incremento de tiempo para la aproximación numérica"
+        "es": "Incremento de tiempo para la aproximación numérica",
+        "ar": "زيادة الزمن للتقريب العددي"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Anzahl der Schritte",
         "fr": "Nombre d'étapes",
         "es": "Número de pasos",
-        "ar": "Number of steps"
+        "ar": "عدد الخطوات"
       },
       "businessContext_i18n": {
         "en": "Total integration steps to reach final time",
         "tr": "Son süreye ulaşmak için toplam entegrasyon adımı",
         "de": "Gesamtzahl der Integrationsschritte bis zur Endzeit",
         "fr": "Nombre total d'étapes d'intégration pour atteindre le temps final",
-        "es": "Pasos totales de integración para alcanzar el tiempo final"
+        "es": "Pasos totales de integración para alcanzar el tiempo final",
+        "ar": "إجمالي خطوات التكامل للوصول إلى الزمن النهائي"
       }
     }
   ],

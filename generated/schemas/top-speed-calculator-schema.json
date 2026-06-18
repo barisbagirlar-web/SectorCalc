@@ -11,16 +11,18 @@
       "label_i18n": {
         "en": "Motor Gücü",
         "tr": "Motor Gücü",
-        "de": "Motor Gücü",
+        "de": "Motorleistung",
         "fr": "Puissance moteur",
-        "es": "Motor Gücü",
-        "ar": "Motor Gücü"
+        "es": "Potencia del motor",
+        "ar": "قوة المحرك"
       },
       "businessContext_i18n": {
         "en": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
         "tr": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
-        "de": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
-        "fr": "Puissance maximale du moteur du véhicule (en kW). Paramètre critique pour les calculs d'émissions et de performances."
+        "de": "Maximale Motorleistung des Fahrzeugs (in kW). Kritischer Parameter für Emissions- und Leistungsberechnungen.",
+        "fr": "Puissance maximale du moteur du véhicule (en kW). Paramètre critique pour les calculs d'émissions et de performances.",
+        "es": "Potencia máxima del motor del vehículo (en kW). Parámetro crítico en cálculos de emisiones y rendimiento.",
+        "ar": "أقصى قوة للمركبة (بالكيلوواط). معلمة حاسمة في حسابات الانبعاثات والأداء."
       }
     },
     {
@@ -33,16 +35,18 @@
       "label_i18n": {
         "en": "Sürtünme Katsayısı (Cd)",
         "tr": "Sürtünme Katsayısı (Cd)",
-        "de": "Sürtünme Katsayısı (Cd)",
+        "de": "Luftwiderstandsbeiwert (Cd)",
         "fr": "Coefficient de traînée (Cd)",
-        "es": "Sürtünme Katsayısı (Cd)",
-        "ar": "Sürtünme Katsayısı (Cd)"
+        "es": "Coeficiente de arrastre (Cd)",
+        "ar": "معامل السحب (Cd)"
       },
       "businessContext_i18n": {
         "en": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
         "tr": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
-        "de": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
-        "fr": "Coefficient de traînée aérodynamique du véhicule. Doit être validé par des essais en soufflerie."
+        "de": "Aerodynamischer Luftwiderstandsbeiwert des Fahrzeugs. Sollte durch Windkanaltests bestätigt werden.",
+        "fr": "Coefficient de traînée aérodynamique du véhicule. Doit être validé par des essais en soufflerie.",
+        "es": "Coeficiente de arrastre aerodinámico del vehículo. Debe verificarse mediante pruebas en túnel de viento.",
+        "ar": "معامل السحب الديناميكي الهوائي للمركبة. يجب التحقق منه عبر اختبارات نفق الرياح."
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Ön Kesit Alanı",
         "tr": "Ön Kesit Alanı",
-        "de": "Ön Kesit Alanı",
+        "de": "Stirnfläche",
         "fr": "Surface frontale",
-        "es": "Ön Kesit Alanı",
-        "ar": "Ön Kesit Alanı"
+        "es": "Área frontal",
+        "ar": "مساحة المقطع الأمامي"
       },
       "businessContext_i18n": {
         "en": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
         "tr": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
-        "de": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
-        "fr": "Surface maximale de la section perpendiculaire à la direction du mouvement. Doit être obtenue à partir du modèle CAO ou par mesure laser."
+        "de": "Maximale Querschnittsfläche des Fahrzeugs senkrecht zur Fahrtrichtung. Aus CAD-Modell oder Lasermessung zu ermitteln.",
+        "fr": "Surface maximale de la section perpendiculaire à la direction du mouvement. Doit être obtenue à partir du modèle CAO ou par mesure laser.",
+        "es": "Área de sección transversal máxima perpendicular a la dirección de movimiento del vehículo. Debe obtenerse del modelo CAD o mediante medición láser.",
+        "ar": "أقصى مساحة مقطع عمودي على اتجاه حركة المركبة. يجب الحصول عليها من نموذج CAD أو القياس بالليزر."
       }
     },
     {
@@ -77,16 +83,18 @@
       "label_i18n": {
         "en": "Araç Kütlesi",
         "tr": "Araç Kütlesi",
-        "de": "Araç Kütlesi",
+        "de": "Fahrzeugmasse",
         "fr": "Masse du véhicule",
-        "es": "Araç Kütlesi",
-        "ar": "Araç Kütlesi"
+        "es": "Masa del vehículo",
+        "ar": "كتلة المركبة"
       },
       "businessContext_i18n": {
         "en": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
         "tr": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
-        "de": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
-        "fr": "Masse en charge complète, conducteur et carburant inclus. Doit être pesée selon la norme ISO 2416."
+        "de": "Voll beladene Masse inklusive Fahrer und Kraftstoff. Nach ISO 2416 zu wiegen.",
+        "fr": "Masse en charge complète, conducteur et carburant inclus. Doit être pesée selon la norme ISO 2416.",
+        "es": "Masa a plena carga, incluidos conductor y combustible. Debe pesarse según ISO 2416.",
+        "ar": "الكتلة الكاملة التحميل بما في ذلك السائق والوقود. يجب وزنها وفقًا لـ ISO 2416."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Rollwiderstandskoeffizient",
         "fr": "Coefficient de résistance au roulement",
         "es": "Coeficiente de resistencia a la rodadura",
-        "ar": "Yuvarlanma Direnci Katsayısı"
+        "ar": "معامل مقاومة التدحرج"
       },
       "businessContext_i18n": {
         "en": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
-        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
-        "de": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
-        "fr": "Coefficient de résistance au roulement entre le pneu et la surface de la route. Testé conformément à la norme SAE J2452."
+        "tr": "Yuvarlanma Direnci Katsayısı",
+        "de": "Rollwiderstandsbeiwert zwischen Reifen und Fahrbahnoberfläche. Getestet nach SAE J2452.",
+        "fr": "Coefficient de résistance au roulement entre le pneu et la surface de la route. Testé conformément à la norme SAE J2452.",
+        "es": "Coeficiente de resistencia a la rodadura entre el neumático y la superficie de la carretera. Probado según SAE J2452.",
+        "ar": "معامل مقاومة التدحرج بين الإطار وسطح الطريق. تم اختباره وفقًا لـ SAE J2452."
       }
     },
     {
@@ -120,17 +130,19 @@
       "businessContext": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
       "label_i18n": {
         "en": "Hava Yoğunluğu",
-        "tr": "Hava Yoğunluğu",
-        "de": "Hava Yoğunluğu",
+        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+        "de": "Luftdichte",
         "fr": "Densité de l'air",
-        "es": "Hava Yoğunluğu",
-        "ar": "Hava Yoğunluğu"
+        "es": "Densidad del aire",
+        "ar": "كثافة الهواء"
       },
       "businessContext_i18n": {
         "en": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
-        "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
-        "de": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
-        "fr": "Densité de l'air standard au niveau de la mer et à 15°C. Une correction peut être appliquée en fonction de l'altitude."
+        "tr": "Hava Yoğunluğu",
+        "de": "Standard-Luftdichte auf Meereshöhe bei 15°C. Kann je nach Höhenlage korrigiert werden.",
+        "fr": "Densité de l'air standard au niveau de la mer et à 15°C. Une correction peut être appliquée en fonction de l'altitude.",
+        "es": "Densidad estándar del aire a nivel del mar y 15°C. Se puede corregir según la altitud.",
+        "ar": "كثافة الهواء القياسية عند مستوى سطح البحر و 15 درجة مئوية. يمكن تعديلها حسب الارتفاع."
       }
     },
     {
@@ -142,17 +154,19 @@
       "businessContext": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
       "label_i18n": {
         "en": "Aktarma Organı Verimi",
-        "tr": "Aktarma Organı Verimi",
-        "de": "Aktarma Organı Verimi",
+        "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+        "de": "Antriebsstrangwirkungsgrad",
         "fr": "Rendement de la transmission",
-        "es": "Aktarma Organı Verimi",
-        "ar": "Aktarma Organı Verimi"
+        "es": "Eficiencia de la transmisión",
+        "ar": "كفاءة ناقل الحركة"
       },
       "businessContext_i18n": {
         "en": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
-        "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
-        "de": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
-        "fr": "Rendement total de la sortie moteur aux roues. Doit être déterminé par des mesures fiables."
+        "tr": "Aktarma Organı Verimi",
+        "de": "Gesamtwirkungsgrad vom Motorausgang bis zu den Rädern. Muss durch zuverlässige Messungen bestimmt werden.",
+        "fr": "Rendement total de la sortie moteur aux roues. Doit être déterminé par des mesures fiables.",
+        "es": "Eficiencia total desde la salida del motor hasta las ruedas. Debe determinarse mediante mediciones fiables.",
+        "ar": "الكفاءة الكلية من مخرج المحرك إلى العجلات. يجب تحديدها بقياسات موثوقة."
       }
     }
   ],

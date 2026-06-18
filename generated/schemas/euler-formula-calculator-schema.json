@@ -14,14 +14,15 @@
         "de": "Realteil (a)",
         "fr": "Partie réelle (a)",
         "es": "Parte real (a)",
-        "ar": "Real Part (a)"
+        "ar": "الجزء الحقيقي (a)"
       },
       "businessContext_i18n": {
         "en": "Real component of the complex number",
         "tr": "Karmaşık sayının gerçel bileşeni",
         "de": "Reelle Komponente der komplexen Zahl",
         "fr": "Composante réelle du nombre complexe",
-        "es": "Componente real del número complejo"
+        "es": "Componente real del número complejo",
+        "ar": "المكون الحقيقي للعدد المركب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Imaginärteil (b)",
         "fr": "Partie imaginaire (b)",
         "es": "Parte imaginaria (b)",
-        "ar": "Imaginary Part (b)"
+        "ar": "الجزء التخيلي (b)"
       },
       "businessContext_i18n": {
         "en": "Imaginary component of the complex number",
         "tr": "Karmaşık sayının sanal bileşeni",
         "de": "Imaginäre Komponente der komplexen Zahl",
         "fr": "Composante imaginaire du nombre complexe",
-        "es": "Componente imaginaria del número complejo"
+        "es": "Componente imaginaria del número complejo",
+        "ar": "المكون التخيلي للعدد المركب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Winkel (Grad)",
         "fr": "Angle (degrés)",
         "es": "Ángulo (grados)",
-        "ar": "Angle (degrees)"
+        "ar": "الزاوية (بالدرجات)"
       },
       "businessContext_i18n": {
         "en": "Angle in degrees for Euler's formula",
         "tr": "Euler formülü için derece cinsinden açı",
         "de": "Winkel in Grad für die Euler-Formel",
         "fr": "Angle en degrés pour la formule d'Euler",
-        "es": "Ángulo en grados para la fórmula de Euler"
+        "es": "Ángulo en grados para la fórmula de Euler",
+        "ar": "الزاوية بالدرجات لصيغة أويلر"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Betrag (r)",
         "fr": "Module (r)",
         "es": "Módulo (r)",
-        "ar": "Modulus (r)"
+        "ar": "المعامل (r)"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the complex number",
         "tr": "Karmaşık sayının büyüklüğü",
         "de": "Größe der komplexen Zahl",
         "fr": "Magnitude du nombre complexe",
-        "es": "Magnitud del número complejo"
+        "es": "Magnitud del número complejo",
+        "ar": "مقدار العدد المركب"
       }
     }
   ],
   "formulas": {
-    "result": "realPart + imagPart + angleDeg",
-    "result_copy": "realPart + imagPart + angleDeg"
+    "normalized_product": "realPart * imagPart * angleDeg * modulus",
+    "result": "realPart * imagPart * angleDeg * modulus"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Real part: realFromPolar",
-      "Imaginary part: imagFromPolar",
-      "Modulus: modulusFromRect",
-      "Angle (deg): angleFromRect"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "angleFromRect",
-    "unit": "°"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

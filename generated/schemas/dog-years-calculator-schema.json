@@ -14,14 +14,15 @@
         "de": "Menschenalter",
         "fr": "Âge humain",
         "es": "Edad humana",
-        "ar": "İnsan Yaşı"
+        "ar": "العمر البشري"
       },
       "businessContext_i18n": {
         "en": "Köpeğin insan yaşı cinsinden yaşı",
         "tr": "Köpeğin insan yaşı cinsinden yaşı",
         "de": "Alter des Hundes in Menschenjahren",
         "fr": "Âge du chien en années humaines",
-        "es": "Edad del perro en años humanos"
+        "es": "Edad del perro en años humanos",
+        "ar": "عمر الكلب بالسنوات البشرية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rassengröße",
         "fr": "Taille de la race",
         "es": "Tamaño de la raza",
-        "ar": "Irk Boyutu"
+        "ar": "حجم السلالة"
       },
       "businessContext_i18n": {
         "en": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)",
         "tr": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)",
         "de": "1: Klein (z. B. Chihuahua), 2: Mittel (z. B. Beagle), 3: Groß (z. B. Labrador), 4: Riese (z. B. Deutsche Dogge)",
         "fr": "1: Petit (ex. Chihuahua), 2: Moyen (ex. Beagle), 3: Grand (ex. Labrador), 4: Géant (ex. Dogue Allemand)",
-        "es": "1: Pequeño (ej. Chihuahua), 2: Mediano (ej. Beagle), 3: Grande (ej. Labrador), 4: Gigante (ej. Gran Danés)"
+        "es": "1: Pequeño (ej. Chihuahua), 2: Mediano (ej. Beagle), 3: Grande (ej. Labrador), 4: Gigante (ej. Gran Danés)",
+        "ar": "1: صغير (مثل تشيهواهوا)، 2: متوسط (مثل بيغل)، 3: كبير (مثل لابرادور)، 4: عملاق (مثل الدانماركي الضخم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gewicht des Hundes",
         "fr": "Poids du chien",
         "es": "Peso del perro",
-        "ar": "Köpeğin Ağırlığı"
+        "ar": "وزن الكلب"
       },
       "businessContext_i18n": {
         "en": "Köpeğin yaklaşık ağırlığı (kg cinsinden)",
         "tr": "Köpeğin yaklaşık ağırlığı (kg cinsinden)",
         "de": "Ungefähres Gewicht des Hundes (in kg)",
         "fr": "Poids approximatif du chien (en kg)",
-        "es": "Peso aproximado del perro (en kg)"
+        "es": "Peso aproximado del perro (en kg)",
+        "ar": "الوزن التقريبي للكلب (بالكيلوجرام)"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Aktivitätsniveau",
         "fr": "Niveau d'activité",
         "es": "Nivel de actividad",
-        "ar": "Aktivite Seviyesi"
+        "ar": "مستوى النشاط"
       },
       "businessContext_i18n": {
         "en": "1: Düşük, 2: Orta, 3: Yüksek",
         "tr": "1: Düşük, 2: Orta, 3: Yüksek",
         "de": "1: Niedrig, 2: Mittel, 3: Hoch",
         "fr": "1: Faible, 2: Moyen, 3: Élevé",
-        "es": "1: Bajo, 2: Medio, 3: Alto"
+        "es": "1: Bajo, 2: Medio, 3: Alto",
+        "ar": "1: منخفض، 2: متوسط، 3: مرتفع"
       }
     }
   ],
   "formulas": {
-    "result": "humanAge + breedSize + weight",
-    "result_copy": "humanAge + breedSize + weight"
+    "normalized_product": "humanAge * breedSize * weight * activityLevel",
+    "result": "humanAge * breedSize * weight * activityLevel"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "dogYearsOld",
-      "dogYearsNew",
-      "dogYearsAdjusted"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dogYearsAdjusted",
-    "unit": "yıl"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

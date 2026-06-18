@@ -14,14 +14,15 @@
         "de": "Feldfläche",
         "fr": "Superficie du champ",
         "es": "Área del campo",
-        "ar": "Field Area"
+        "ar": "مساحة الحقل"
       },
       "businessContext_i18n": {
         "en": "Area of the field to fertilize",
         "tr": "Gübrelenecek tarlanın alanı",
         "de": "Fläche des zu düngenden Feldes",
         "fr": "Superficie du champ à fertiliser",
-        "es": "Área del campo a fertilizar"
+        "es": "Área del campo a fertilizar",
+        "ar": "مساحة الحقل المراد تسميده"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stickstoffrate (N)",
         "fr": "Dose d'azote (N)",
         "es": "Tasa de nitrógeno (N)",
-        "ar": "Nitrogen Rate (N)"
+        "ar": "معدل النيتروجين (N)"
       },
       "businessContext_i18n": {
         "en": "Desired application rate of nitrogen per hectare",
         "tr": "Hektar başına istenen azot uygulama oranı",
         "de": "Gewünschte Ausbringungsrate von Stickstoff pro Hektar",
         "fr": "Taux d'application souhaité d'azote par hectare",
-        "es": "Tasa de aplicación deseada de nitrógeno por hectárea"
+        "es": "Tasa de aplicación deseada de nitrógeno por hectárea",
+        "ar": "معدل التطبيق المطلوب للنيتروجين لكل هكتار"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Phosphorrate (P₂O₅)",
         "fr": "Dose de phosphore (P2O5)",
         "es": "Tasa de fósforo (P2O5)",
-        "ar": "Phosphorus Rate (P2O5)"
+        "ar": "معدل الفوسفور (P2O5)"
       },
       "businessContext_i18n": {
         "en": "Desired application rate of phosphorus (as P2O5) per hectare",
         "tr": "Hektar başına istenen fosfor (P2O5 olarak) uygulama oranı",
         "de": "Gewünschte Ausbringungsmenge von Phosphor (als P₂O₅) pro Hektar",
         "fr": "Taux d'application souhaité de phosphore (sous forme de P2O5) par hectare",
-        "es": "Tasa de aplicación deseada de fósforo (como P2O5) por hectárea"
+        "es": "Tasa de aplicación deseada de fósforo (como P2O5) por hectárea",
+        "ar": "معدل التطبيق المطلوب للفوسفور (كـ P2O5) لكل هكتار"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kaliumrate (K₂O)",
         "fr": "Dose de potassium (K2O)",
         "es": "Tasa de potasio (K2O)",
-        "ar": "Potassium Rate (K2O)"
+        "ar": "معدل البوتاسيوم (K2O)"
       },
       "businessContext_i18n": {
         "en": "Desired application rate of potassium (as K2O) per hectare",
         "tr": "Hektar başına istenen potasyum (K2O olarak) uygulama oranı",
         "de": "Gewünschte Ausbringungsmenge von Kalium (als K₂O) pro Hektar",
         "fr": "Taux d'application souhaité de potassium (sous forme de K2O) par hectare",
-        "es": "Tasa de aplicación deseada de potasio (como K2O) por hectárea"
+        "es": "Tasa de aplicación deseada de potasio (como K2O) por hectárea",
+        "ar": "معدل التطبيق المطلوب للبوتاسيوم (كـ K2O) لكل هكتار"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Stickstoffgehalt des Düngers",
         "fr": "Teneur en N de l'engrais",
         "es": "Contenido de N del fertilizante",
-        "ar": "Fertilizer N Content"
+        "ar": "محتوى السماد من النيتروجين"
       },
       "businessContext_i18n": {
         "en": "Percentage of nitrogen in the fertilizer",
         "tr": "Gübredeki azot yüzdesi",
         "de": "Prozentsatz an Stickstoff im Dünger",
         "fr": "Pourcentage d'azote dans l'engrais",
-        "es": "Porcentaje de nitrógeno en el fertilizante"
+        "es": "Porcentaje de nitrógeno en el fertilizante",
+        "ar": "نسبة النيتروجين في السماد"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "P₂O₅-Gehalt des Düngers",
         "fr": "Teneur en P2O5 de l'engrais",
         "es": "Contenido de P2O5 del fertilizante",
-        "ar": "Fertilizer P2O5 Content"
+        "ar": "محتوى السماد من P2O5"
       },
       "businessContext_i18n": {
         "en": "Percentage of phosphorus pentoxide in the fertilizer",
         "tr": "Gübredeki fosfor pentoksit yüzdesi",
         "de": "Prozentsatz an Phosphorpentoxid im Dünger",
         "fr": "Pourcentage de pentoxyde de phosphore dans l'engrais",
-        "es": "Porcentaje de pentóxido de fósforo en el fertilizante"
+        "es": "Porcentaje de pentóxido de fósforo en el fertilizante",
+        "ar": "نسبة خماسي أكسيد الفوسفور في السماد"
       }
     },
     {
@@ -152,33 +158,39 @@
         "de": "K₂O-Gehalt des Düngers",
         "fr": "Teneur en K₂O de l'engrais",
         "es": "Contenido de K2O del fertilizante",
-        "ar": "Fertilizer K2O Content"
+        "ar": "محتوى السماد من K2O"
       },
       "businessContext_i18n": {
         "en": "Percentage of potassium oxide in the fertilizer",
         "tr": "Gübredeki potasyum oksit yüzdesi",
         "de": "Prozentsatz an Kaliumoxid im Dünger",
         "fr": "Pourcentage d'oxyde de potassium dans l'engrais",
-        "es": "Porcentaje de óxido de potasio en el fertilizante"
+        "es": "Porcentaje de óxido de potasio en el fertilizante",
+        "ar": "نسبة أكسيد البوتاسيوم في السماد"
       }
     }
   ],
   "formulas": {
-    "result": "area + nitrogenRate + phosphorusRate",
-    "result_copy": "area + nitrogenRate + phosphorusRate"
+    "normalized_product": "area * nitrogenRate * phosphorusRate * potassiumRate",
+    "result": "area * nitrogenRate * phosphorusRate * potassiumRate * ((fertilizerN / 100) * (fertilizerP / 100) * (fertilizerK / 100))",
+    "adjustment_factor": "(fertilizerN / 100) * (fertilizerP / 100) * (fertilizerK / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "perHaRequirement",
-      "totalFertilizerTons"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalFertilizerTons",
-    "unit": "ha"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Sürdürülebilirlik",
   "sector": "Tarım & Hayvancılık",

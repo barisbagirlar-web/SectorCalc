@@ -14,14 +14,15 @@
         "de": "Eingangsspannung",
         "fr": "Tension d'entrée",
         "es": "Tensión de entrada",
-        "ar": "Input Voltage"
+        "ar": "جهد الدخل"
       },
       "businessContext_i18n": {
         "en": "Input signal voltage.",
         "tr": "Giriş sinyal voltajı.",
         "de": "Eingangssignal-Spannung.",
         "fr": "Tension du signal d'entrée.",
-        "es": "Tensión de la señal de entrada."
+        "es": "Tensión de la señal de entrada.",
+        "ar": "جهد إشارة الدخل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Widerstand R1",
         "fr": "Résistance R1",
         "es": "Resistencia R1",
-        "ar": "Resistor R1"
+        "ar": "المقاوم R1"
       },
       "businessContext_i18n": {
         "en": "Resistor from inverting input to ground.",
         "tr": "Tersleyen girişten toprağa direnç.",
         "de": "Widerstand vom invertierenden Eingang gegen Masse.",
         "fr": "Résistance de l'entrée inverseuse à la masse.",
-        "es": "Resistencia desde la entrada inversora a tierra."
+        "es": "Resistencia desde la entrada inversora a tierra.",
+        "ar": "مقاوم من المدخل العكسي إلى الأرضي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gegenkopplungswiderstand R2",
         "fr": "Résistance de contre-réaction R2",
         "es": "Resistencia de realimentación R2",
-        "ar": "Feedback Resistor R2"
+        "ar": "مقاوم التغذية الراجعة R2"
       },
       "businessContext_i18n": {
         "en": "Feedback resistor from output to inverting input.",
         "tr": "Çıkıştan tersleyen girişe geri besleme direnci.",
         "de": "Gegenkopplungswiderstand vom Ausgang zum invertierenden Eingang.",
         "fr": "Résistance de contre-réaction de la sortie à l'entrée inverseuse.",
-        "es": "Resistencia de realimentación desde la salida a la entrada inversora."
+        "es": "Resistencia de realimentación desde la salida a la entrada inversora.",
+        "ar": "مقاوم التغذية الراجعة من الخرج إلى المدخل العكسي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Positive Versorgungsspannung",
         "fr": "Tension d'alimentation positive",
         "es": "Tensión de alimentación positiva",
-        "ar": "Positive Supply Voltage"
+        "ar": "جهد التغذية الموجب"
       },
       "businessContext_i18n": {
         "en": "Positive power supply voltage.",
         "tr": "Pozitif güç kaynağı voltajı.",
         "de": "Positive Betriebsspannung.",
         "fr": "Tension d'alimentation positive.",
-        "es": "Tensión de alimentación positiva."
+        "es": "Tensión de alimentación positiva.",
+        "ar": "جهد مصدر الطاقة الموجب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Negative Versorgungsspannung",
         "fr": "Tension d'alimentation négative",
         "es": "Tensión de alimentación negativa",
-        "ar": "Negative Supply Voltage"
+        "ar": "جهد الإمداد السالب"
       },
       "businessContext_i18n": {
         "en": "Negative power supply voltage.",
         "tr": "Negatif güç kaynağı voltajı.",
         "de": "Negative Betriebsspannung.",
         "fr": "Tension d'alimentation négative.",
-        "es": "Tensión de alimentación negativa."
+        "es": "Tensión de alimentación negativa.",
+        "ar": "جهد مصدر الطاقة السالب."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Ausgangs-Headroom",
         "fr": "Marge de sortie",
         "es": "Margen de salida",
-        "ar": "Output Headroom"
+        "ar": "هامش الخرج"
       },
       "businessContext_i18n": {
         "en": "Voltage drop from supply rails to output swing limits.",
         "tr": "Besleme raylarından çıkış salınım sınırlarına voltaj düşüşü.",
         "de": "Spannungsabfall von den Versorgungsschienen zu den Ausgangsaussteuerungsgrenzen.",
         "fr": "Chute de tension des rails d'alimentation aux limites de la sortie.",
-        "es": "Caída de tensión desde los rieles de alimentación hasta los límites de oscilación de salida."
+        "es": "Caída de tensión desde los rieles de alimentación hasta los límites de oscilación de salida.",
+        "ar": "انخفاض الجهد من قضبان الإمداد إلى حدود تأرجح الخرج."
       }
     }
   ],

@@ -26,14 +26,16 @@
         "tr": "Planlanan Rota Mesafesi",
         "de": "Geplante Routenentfernung",
         "fr": "Distance de route planifiée",
-        "es": "Distancia de ruta planificada"
+        "es": "Distancia de ruta planificada",
+        "ar": "مسافة المسار المخطط"
       },
       "businessContext_i18n": {
         "en": "Total distance of the planned route as per logistics plan.",
         "tr": "Lojistik planına göre planlanan rotanın toplam mesafesi.",
         "de": "Gesamtentfernung der geplanten Route gemäß Logistikplan.",
         "fr": "Distance totale de la route planifiée selon le plan logistique.",
-        "es": "Distancia total de la ruta planificada según el plan logístico."
+        "es": "Distancia total de la ruta planificada según el plan logístico.",
+        "ar": "المسافة الإجمالية للمسار المخطط وفقًا لخطة اللوجستيات."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Gerçek Rota Mesafesi",
         "de": "Tatsächliche Routenentfernung",
         "fr": "Distance de route réelle",
-        "es": "Distancia de ruta real"
+        "es": "Distancia de ruta real",
+        "ar": "مسافة المسار الفعلية"
       },
       "businessContext_i18n": {
         "en": "Total distance actually driven, including deviations.",
         "tr": "Sapmalar dahil fiilen sürülen toplam mesafe.",
         "de": "Tatsächlich gefahrene Gesamtstrecke inkl. Abweichungen.",
         "fr": "Distance totale réellement parcourue, y compris les écarts.",
-        "es": "Distancia total realmente recorrida, incluyendo desviaciones."
+        "es": "Distancia total realmente recorrida, incluyendo desviaciones.",
+        "ar": "إجمالي المسافة المقطوعة فعليًا، بما في ذلك الانحرافات."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Ortalama Yakıt Tüketim Oranı",
         "de": "Durchschnittlicher Kraftstoffverbrauch",
         "fr": "Taux de consommation moyen de carburant",
-        "es": "Tasa media de consumo de combustible"
+        "es": "Tasa media de consumo de combustible",
+        "ar": "متوسط معدل استهلاك الوقود"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
         "tr": "Standart koşullar altında (ISO 14040) araç yakıt tüketim oranı.",
         "de": "Kraftstoffverbrauch des Fahrzeugs unter Standardbedingungen (ISO 14040).",
         "fr": "Taux de consommation de carburant du véhicule dans des conditions standard (ISO 14040).",
-        "es": "Tasa de consumo de combustible del vehículo en condiciones estándar (ISO 14040)."
+        "es": "Tasa de consumo de combustible del vehículo en condiciones estándar (ISO 14040).",
+        "ar": "معدل استهلاك الوقود للمركبة في الظروف القياسية (ISO 14040)."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Litre Başına Yakıt Fiyatı",
         "de": "Kraftstoffpreis pro Liter",
         "fr": "Prix du carburant par litre",
-        "es": "Precio del combustible por litro"
+        "es": "Precio del combustible por litro",
+        "ar": "سعر الوقود لكل لتر"
       },
       "businessContext_i18n": {
         "en": "Current market price of diesel or gasoline per liter.",
         "tr": "Litre başına dizel veya benzinin güncel piyasa fiyatı.",
         "de": "Aktueller Marktpreis für Diesel oder Benzin pro Liter.",
         "fr": "Prix actuel du marché du diesel ou de l'essence par litre.",
-        "es": "Precio actual de mercado del diésel o gasolina por litro."
+        "es": "Precio actual de mercado del diésel o gasolina por litro.",
+        "ar": "سعر السوق الحالي للديزل أو البنزين لكل لتر."
       }
     },
     {
@@ -122,14 +130,16 @@
         "tr": "Yük Ağırlığı",
         "de": "Lastgewicht",
         "fr": "Poids de la charge",
-        "es": "Peso de la carga"
+        "es": "Peso de la carga",
+        "ar": "وزن الحمل"
       },
       "businessContext_i18n": {
         "en": "Total weight of cargo carried, affects fuel consumption.",
         "tr": "Taşınan toplam yük ağırlığı, yakıt tüketimini etkiler.",
         "de": "Gesamtgewicht der transportierten Ladung, beeinflusst den Kraftstoffverbrauch.",
         "fr": "Poids total de la cargaison transportée, affecte la consommation de carburant.",
-        "es": "Peso total de la carga transportada, afecta el consumo de combustible."
+        "es": "Peso total de la carga transportada, afecta el consumo de combustible.",
+        "ar": "الوزن الإجمالي للبضائع المنقولة، يؤثر على استهلاك الوقود."
       }
     },
     {
@@ -148,14 +158,16 @@
         "tr": "Arazi Türü",
         "de": "Geländetyp",
         "fr": "Type de terrain",
-        "es": "Tipo de terreno"
+        "es": "Tipo de terreno",
+        "ar": "نوع التضاريس"
       },
       "businessContext_i18n": {
         "en": "Terrain classification affecting fuel efficiency (WERC guidelines).",
         "tr": "Yakıt verimliliğini etkileyen arazi sınıflandırması (WERC yönergeleri).",
         "de": "Geländeklassifizierung, die die Kraftstoffeffizienz beeinflusst (WERC-Richtlinien).",
         "fr": "Classification du terrain affectant l'efficacité énergétique (directives WERC).",
-        "es": "Clasificación del terreno que afecta la eficiencia del combustible (directrices WERC)."
+        "es": "Clasificación del terreno que afecta la eficiencia del combustible (directrices WERC).",
+        "ar": "تصنيف التضاريس المؤثر على كفاءة الوقود (إرشادات WERC)."
       },
       "unit": "unit"
     },
@@ -175,14 +187,16 @@
         "tr": "Trafik Durumu",
         "de": "Verkehrsbedingungen",
         "fr": "Condition de circulation",
-        "es": "Condición del tráfico"
+        "es": "Condición del tráfico",
+        "ar": "حالة المرور"
       },
       "businessContext_i18n": {
         "en": "Traffic density impact on fuel consumption and route drift.",
         "tr": "Yakıt tüketimi ve rota sapması üzerinde trafik yoğunluğu etkisi.",
         "de": "Auswirkung der Verkehrsdichte auf Kraftstoffverbrauch und Routenabweichung.",
         "fr": "Impact de la densité du trafic sur la consommation de carburant et les écarts de route.",
-        "es": "Impacto de la densidad del tráfico en el consumo de combustible y la desviación de ruta."
+        "es": "Impacto de la densidad del tráfico en el consumo de combustible y la desviación de ruta.",
+        "ar": "تأثير كثافة المرور على استهلاك الوقود وانحراف المسار."
       },
       "unit": "unit"
     },
@@ -200,14 +214,16 @@
         "tr": "Sürücü Davranış Puanı",
         "de": "Fahrerverhaltensbewertung",
         "fr": "Score de comportement du conducteur",
-        "es": "Puntuación de comportamiento del conductor"
+        "es": "Puntuación de comportamiento del conductor",
+        "ar": "درجة سلوك السائق"
       },
       "businessContext_i18n": {
         "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
         "tr": "Hızlanma, frenleme, rölantiye dayalı eko-sürüş puanı (Yalın Altı Sigma metriği).",
         "de": "Öko-Fahrbewertung basierend auf Beschleunigung, Bremsen, Leerlauf (Lean Six Sigma-Metrik).",
         "fr": "Score d'éco-conduite basé sur l'accélération, le freinage, le ralenti (métrique Lean Six Sigma).",
-        "es": "Puntuación de conducción ecológica basada en aceleración, frenado, ralentí (métrica Lean Seis Sigma)."
+        "es": "Puntuación de conducción ecológica basada en aceleración, frenado, ralentí (métrica Lean Seis Sigma).",
+        "ar": "درجة القيادة البيئية بناءً على التسارع والفرملة والتوقف (مقياس اللين ستة سيجما)."
       }
     }
   ],
@@ -251,18 +267,28 @@
     ]
   },
   "formulas": {
-    "result": "planned_distance_km + actual_distance_km + fuel_consumption_rate",
-    "result_copy": "planned_distance_km + actual_distance_km + fuel_consumption_rate"
+    "base_cost": "load_weight_tonnes * fuel_price_per_liter",
+    "adjusted_cost": "load_weight_tonnes * fuel_price_per_liter * (1 + (fuel_consumption_rate / 100))",
+    "result": "load_weight_tonnes * fuel_price_per_liter * (1 + (fuel_consumption_rate / 100)) * (planned_distance_km)",
+    "factor_planned_distance_km": "planned_distance_km"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_planned_distance_km"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "km"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -25,14 +25,16 @@
         "tr": "Fit Kare Cinsinden Alan",
         "de": "Fläche in Quadratfuß",
         "fr": "Superficie en pieds carrés",
-        "es": "Área en pies cuadrados"
+        "es": "Área en pies cuadrados",
+        "ar": "المساحة بالقدم المربع"
       },
       "businessContext_i18n": {
         "en": "Total area to be converted from imperial to metric units. Typical range for industrial floors, warehouses, or production cells.",
         "tr": "İmperial birimlerden metrik birimlere dönüştürülecek toplam alan. Endüstriyel zeminler, depolar veya üretim hücreleri için tipik aralık.",
         "de": "Gesamtfläche, die von imperialen in metrische Einheiten umgerechnet werden soll. Typischer Bereich für Industrieböden, Lagerhallen oder Produktionszellen.",
         "fr": "Superficie totale à convertir des unités impériales en unités métriques. Plage typique pour les sols industriels, entrepôts ou cellules de production.",
-        "es": "Área total a convertir de unidades imperiales a métricas. Rango típico para pisos industriales, almacenes o celdas de producción."
+        "es": "Área total a convertir de unidades imperiales a métricas. Rango típico para pisos industriales, almacenes o celdas de producción.",
+        "ar": "المساحة الإجمالية المراد تحويلها من الوحدات الإمبراطورية إلى المترية. النطاق النموذجي للأرضيات الصناعية أو المستودعات أو خلايا الإنتاج."
       }
     },
     {
@@ -54,14 +56,16 @@
         "tr": "Ölçüm Doğruluk Sınıfı",
         "de": "Messgenauigkeitsklasse",
         "fr": "Classe de précision de mesure",
-        "es": "Clase de precisión de medición"
+        "es": "Clase de precisión de medición",
+        "ar": "فئة دقة القياس"
       },
       "businessContext_i18n": {
         "en": "Defines the tolerance level of the original measurement per ISO 2768-1. Affects confidence interval and hidden loss drivers.",
         "tr": "ISO 2768-1'e göre orijinal ölçümün tolerans seviyesini tanımlar. Güven aralığını ve görünmeyen kayıp sürücülerini etkiler.",
         "de": "Definiert die Toleranzstufe der ursprünglichen Messung nach ISO 2768-1. Beeinflusst das Konfidenzintervall und die Treiber für verborgenen Verlust.",
         "fr": "Définit le niveau de tolérance de la mesure d'origine selon la norme ISO 2768-1. Affecte l'intervalle de confiance et les facteurs de perte cachée.",
-        "es": "Define el nivel de tolerancia de la medición original según ISO 2768-1. Afecta el intervalo de confianza y los impulsores de pérdida oculta."
+        "es": "Define el nivel de tolerancia de la medición original según ISO 2768-1. Afecta el intervalo de confianza y los impulsores de pérdida oculta.",
+        "ar": "يحدد مستوى التفاوت للقياس الأصلي وفقًا لـ ISO 2768-1. يؤثر على فاصل الثقة ومحركات الخسائر غير المرئية."
       }
     },
     {
@@ -85,14 +89,16 @@
         "tr": "Yuvarlama Hassasiyeti",
         "de": "Rundungsgenauigkeit",
         "fr": "Précision d'arrondi",
-        "es": "Precisión de redondeo"
+        "es": "Precisión de redondeo",
+        "ar": "دقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final result. Industrial standards often require 2-4 decimals for engineering documentation.",
         "tr": "Nihai sonuç için ondalık basamak sayısı. Endüstriyel standartlar mühendislik dokümantasyonu için genellikle 2-4 ondalık basamak gerektirir.",
         "de": "Anzahl der Dezimalstellen für das Endergebnis. Industriestandards erfordern oft 2-4 Dezimalstellen für technische Dokumentation.",
         "fr": "Nombre de décimales pour le résultat final. Les normes industrielles exigent souvent 2 à 4 décimales pour la documentation technique.",
-        "es": "Número de decimales para el resultado final. Los estándares industriales a menudo requieren 2-4 decimales para documentación de ingeniería."
+        "es": "Número de decimales para el resultado final. Los estándares industriales a menudo requieren 2-4 decimales para documentación de ingeniería.",
+        "ar": "عدد المنازل العشرية للنتيجة النهائية. المعايير الصناعية غالبًا تتطلب 2-4 منازل عشرية للتوثيق الهندسي."
       }
     },
     {
@@ -109,14 +115,16 @@
         "tr": "Tolerans Bandını Dahil Et",
         "de": "Toleranzband einbeziehen",
         "fr": "Inclure la bande de tolérance",
-        "es": "Incluir banda de tolerancia"
+        "es": "Incluir banda de tolerancia",
+        "ar": "تضمين نطاق التفاوت"
       },
       "businessContext_i18n": {
         "en": "If enabled, the output will include upper and lower tolerance limits based on measurement accuracy class.",
         "tr": "Etkinleştirilirse, çıktı ölçüm doğruluk sınıfına göre üst ve alt tolerans limitlerini içerir.",
         "de": "Wenn aktiviert, enthält die Ausgabe obere und untere Toleranzgrenzen basierend auf der Messgenauigkeitsklasse.",
         "fr": "Si activé, la sortie inclura les limites de tolérance supérieure et inférieure basées sur la classe de précision de mesure.",
-        "es": "Si está habilitado, la salida incluirá límites de tolerancia superior e inferior basados en la clase de precisión de medición."
+        "es": "Si está habilitado, la salida incluirá límites de tolerancia superior e inferior basados en la clase de precisión de medición.",
+        "ar": "إذا تم التمكين، سيتضمن الإخراج حدود التفاوت العلوية والسفلية بناءً على فئة دقة القياس."
       }
     }
   ],
@@ -154,18 +162,24 @@
     ]
   },
   "formulas": {
-    "result": "area_sqft + measurement_accuracy + rounding_precision",
-    "result_copy": "area_sqft + measurement_accuracy + rounding_precision"
+    "normalized_product": "area_sqft * 1",
+    "result": "area_sqft * 1"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "ft²"
+    "unit": "units"
   },
   "toolName": "sqft-to-sqm-converter-calculator",
   "catalogCategory": "conversion",

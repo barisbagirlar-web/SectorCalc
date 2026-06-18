@@ -14,13 +14,15 @@
         "de": "Kaufpreis",
         "fr": "Prix d'achat",
         "es": "Precio de compra",
-        "ar": "Purchase Price"
+        "ar": "سعر الشراء"
       },
       "businessContext_i18n": {
         "en": "Price paid to acquire the goods (VAT-inclusive).",
         "tr": "Malın alış fiyatı (KDV dahil).",
         "de": "Preis für den Erwerb der Waren (inkl. MwSt.).",
-        "fr": "Prix d'achat des biens (TTC)."
+        "fr": "Prix d'achat des biens (TTC).",
+        "es": "Precio pagado para adquirir los bienes (IVA incluido).",
+        "ar": "السعر المدفوع لشراء البضائع (شامل ضريبة القيمة المضافة)."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Verkaufspreis",
         "fr": "Prix de vente",
         "es": "Precio de venta",
-        "ar": "Selling Price"
+        "ar": "سعر البيع"
       },
       "businessContext_i18n": {
         "en": "Price charged to the customer (VAT-inclusive).",
         "tr": "Müşteriye uygulanan satış fiyatı (KDV dahil).",
         "de": "Preis, der dem Kunden berechnet wird (inkl. MwSt.).",
-        "fr": "Prix facturé au client (TTC)."
+        "fr": "Prix facturé au client (TTC).",
+        "es": "Precio cobrado al cliente (IVA incluido).",
+        "ar": "السعر المفروض على العميل (شامل ضريبة القيمة المضافة)."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Mehrwertsteuersatz",
         "fr": "Taux de TVA",
         "es": "Tasa de IVA",
-        "ar": "VAT Rate"
+        "ar": "نسبة ضريبة القيمة المضافة"
       },
       "businessContext_i18n": {
         "en": "Standard VAT rate percentage applicable to the goods.",
         "tr": "Mala uygulanan standart KDV oranı yüzdesi.",
         "de": "Standard-Mehrwertsteuersatz in Prozent, der auf die Waren anwendbar ist.",
-        "fr": "Pourcentage de TVA standard applicable aux biens."
+        "fr": "Pourcentage de TVA standard applicable aux biens.",
+        "es": "Porcentaje de tipo de IVA estándar aplicable a los bienes.",
+        "ar": "نسبة ضريبة القيمة المضافة القياسية المطبقة على البضائع."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "İzin Verilen Maliyetler",
         "de": "Zulässige Kosten",
         "fr": "Coûts admissibles",
-        "es": "Allowable Costs",
-        "ar": "Allowable Costs"
+        "es": "Costes admisibles",
+        "ar": "التكاليف المسموح بها"
       },
       "businessContext_i18n": {
         "en": "Costs directly attributable to the sale that reduce the margin (e.g., refurbishment, transport).",
         "tr": "Satışa doğrudan atfedilebilen ve marjı azaltan maliyetler (ör. yenileme, nakliye).",
         "de": "Kosten, die direkt dem Verkauf zuzurechnen sind und die Marge verringern (z. B. Aufbereitung, Transport).",
-        "fr": "Coûts directement attribuables à la vente qui réduisent la marge (ex. : rénovation, transport)."
+        "fr": "Coûts directement attribuables à la vente qui réduisent la marge (ex. : rénovation, transport).",
+        "es": "Costes directamente atribuibles a la venta que reducen el margen (p. ej., reacondicionamiento, transporte).",
+        "ar": "التكاليف المنسوبة مباشرة إلى البيع التي تقلل الهامش (مثل التجديد، النقل)."
       }
     }
   ],

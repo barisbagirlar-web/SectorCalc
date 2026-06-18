@@ -14,13 +14,15 @@
         "de": "Spannung",
         "fr": "Tension",
         "es": "Tensión",
-        "ar": "Voltage"
+        "ar": "الجهد الكهربائي"
       },
       "businessContext_i18n": {
         "en": "Arc voltage during welding, measured at the power source terminals. Affects total energy input.",
         "tr": "Kaynak sırasında güç kaynağı terminallerinde ölçülen ark voltajı. Toplam enerji girdisini etkiler.",
         "de": "Lichtbogenspannung während des Schweißens, gemessen an den Stromquellenklemmen. Beeinflusst den Gesamtenergieeintrag.",
-        "fr": "Tension d'arc pendant le soudage, mesurée aux bornes de la source de courant. Affecte l'énergie totale."
+        "fr": "Tension d'arc pendant le soudage, mesurée aux bornes de la source de courant. Affecte l'énergie totale.",
+        "es": "Tensión de arco durante la soldadura, medida en los terminales de la fuente de alimentación. Afecta la energía total de entrada.",
+        "ar": "جهد القوس أثناء اللحام، يُقاس عند أطراف مصدر الطاقة. يؤثر على إجمالي مدخلات الطاقة."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Strom",
         "fr": "Courant",
         "es": "Corriente",
-        "ar": "Current"
+        "ar": "التيار"
       },
       "businessContext_i18n": {
         "en": "Welding current, typically measured with a clamp meter. Higher current increases heat input.",
         "tr": "Kaynak akımı, tipik olarak bir pens ampermetre ile ölçülür. Yüksek akım, birim uzunluk başına ısı girdisini artırır.",
         "de": "Schweißstrom, typischerweise mit einem Zangenamperemeter gemessen. Höherer Strom erhöht den Wärmeeintrag.",
-        "fr": "Courant de soudage, généralement mesuré avec une pince ampèremétrique. Un courant plus élevé augmente l'apport thermique."
+        "fr": "Courant de soudage, généralement mesuré avec une pince ampèremétrique. Un courant plus élevé augmente l'apport thermique.",
+        "es": "Corriente de soldadura, medida típicamente con una pinza amperimétrica. Mayor corriente aumenta la entrada de calor.",
+        "ar": "تيار اللحام، يُقاس عادة بمقياس المشبك. التيار الأعلى يزيد من مدخلات الحرارة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Seyahat Hızı",
         "de": "Reisegeschwindigkeit",
         "fr": "Vitesse de déplacement",
-        "es": "Travel Speed",
-        "ar": "Travel Speed"
+        "es": "Velocidad de viaje",
+        "ar": "سرعة السفر"
       },
       "businessContext_i18n": {
         "en": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length.",
         "tr": "Kaynak torcunun birleşme hattı boyunca hızı. Daha yüksek hızlar birim uzunluk başına ısı girdisini azaltır.",
         "de": "Geschwindigkeit des Schweißbrenners entlang der Naht. Höhere Geschwindigkeiten reduzieren den Wärmeeintrag pro Längeneinheit.",
-        "fr": "Vitesse de déplacement de la torche le long du joint. Des vitesses plus rapides réduisent l'apport thermique par unité de longueur."
+        "fr": "Vitesse de déplacement de la torche le long du joint. Des vitesses plus rapides réduisent l'apport thermique par unité de longueur.",
+        "es": "Velocidad de avance de la antorcha a lo largo de la unión. Velocidades más rápidas reducen la entrada de calor por unidad de longitud.",
+        "ar": "سرعة شعلة اللحام على طول المفصل. السرعات الأسرع تقلل من مدخلات الحرارة لكل وحدة طول."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ark Verimliliği",
         "de": "Lichtbogenwirkungsgrad",
         "fr": "Rendement de l'arc",
-        "es": "Arc Efficiency",
-        "ar": "Arc Efficiency"
+        "es": "Eficiencia del arco",
+        "ar": "كفاءة القوس"
       },
       "businessContext_i18n": {
         "en": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW).",
         "tr": "Kaynak prosesinin termal verimlilik faktörü (örn. SMAW için 0.8, GMAW için 0.9, SAW için 1.0).",
         "de": "Thermischer Wirkungsgrad des Schweißprozesses (z. B. 0,8 für MMA, 0,9 für MAG, 1,0 für UP).",
-        "fr": "Facteur d'efficacité thermique du procédé de soudage (ex. 0,8 pour SMAW, 0,9 pour GMAW, 1,0 pour SAW)."
+        "fr": "Facteur d'efficacité thermique du procédé de soudage (ex. 0,8 pour SMAW, 0,9 pour GMAW, 1,0 pour SAW).",
+        "es": "Factor de eficiencia térmica del proceso de soldadura (ej. 0,8 para SMAW, 0,9 para GMAW, 1,0 para SAW).",
+        "ar": "عامل الكفاءة الحرارية لعملية اللحام (مثل 0.8 لـ SMAW، 0.9 لـ GMAW، 1.0 لـ SAW)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Datenpunkt 1",
         "fr": "Point de données 1",
         "es": "Punto de datos 1",
-        "ar": "Data Point 1"
+        "ar": "نقطة بيانات 1"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Datenpunkt 2",
         "fr": "Point de données 2",
         "es": "Punto de datos 2",
-        "ar": "Data Point 2"
+        "ar": "نقطة بيانات 2"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Datenpunkt 3",
         "fr": "Point de données 3",
         "es": "Punto de datos 3",
-        "ar": "Data Point 3"
+        "ar": "نقطة بيانات 3"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Datenpunkt 4",
         "fr": "Point de données 4",
         "es": "Punto de datos 4",
-        "ar": "Data Point 4"
+        "ar": "نقطة بيانات 4"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Datenpunkt 5",
         "fr": "Point de données 5",
         "es": "Punto de datos 5",
-        "ar": "Data Point 5"
+        "ar": "نقطة بيانات 5"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Datenpunkt 6",
         "fr": "Point de données 6",
         "es": "Punto de datos 6",
-        "ar": "Data Point 6"
+        "ar": "نقطة بيانات 6"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Datenpunkt 7",
         "fr": "Point de données 7",
         "es": "Punto de datos 7",
-        "ar": "Data Point 7"
+        "ar": "نقطة بيانات 7"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     },
     {
@@ -175,35 +182,39 @@
         "de": "Datenpunkt 8",
         "fr": "Point de données 8",
         "es": "Punto de datos 8",
-        "ar": "Data Point 8"
+        "ar": "نقطة بيانات 8"
       },
       "businessContext_i18n": {
         "en": "Individual observation value",
         "tr": "Bireysel gözlem değeri",
         "de": "Einzelner Beobachtungswert",
         "fr": "Valeur d'observation individuelle",
-        "es": "Valor de observación individual"
+        "es": "Valor de observación individual",
+        "ar": "قيمة الملاحظة الفردية"
       }
     }
   ],
   "formulas": {
-    "result": "dataPoint1 + dataPoint2 + dataPoint3",
-    "result_copy": "dataPoint1 + dataPoint2 + dataPoint3"
+    "normalized_product": "dataPoint1 * dataPoint2 * dataPoint3 * dataPoint4",
+    "result": "dataPoint1 * dataPoint2 * dataPoint3 * dataPoint4 * (dataPoint5 * dataPoint6 * dataPoint7 * dataPoint8)",
+    "adjustment_factor": "dataPoint5 * dataPoint6 * dataPoint7 * dataPoint8"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "mean",
-      "stdDev",
-      "variance",
-      "sumCubedDev"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "skewness",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Bilişim & Yazılım",

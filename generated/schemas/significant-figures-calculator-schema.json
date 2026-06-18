@@ -14,14 +14,15 @@
         "de": "Anzahl",
         "fr": "Nombre",
         "es": "Número",
-        "ar": "Number"
+        "ar": "العدد"
       },
       "businessContext_i18n": {
         "en": "The number to be rounded to the specified significant figures.",
         "tr": "Belirtilen anlamlı basamaklara yuvarlanacak sayı.",
         "de": "Die Zahl, die auf die angegebenen signifikanten Stellen gerundet werden soll.",
         "fr": "Le nombre à arrondir au nombre de chiffres significatifs spécifié.",
-        "es": "El número que se redondeará a las cifras significativas especificadas."
+        "es": "El número que se redondeará a las cifras significativas especificadas.",
+        "ar": "الرقم المراد تقريبه إلى عدد الأرقام المعنوية المحدد."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Signifikante Stellen",
         "fr": "Chiffres significatifs",
         "es": "Cifras significativas",
-        "ar": "Significant Figures"
+        "ar": "الأرقام المعنوية"
       },
       "businessContext_i18n": {
         "en": "Number of significant digits desired in the result.",
         "tr": "Sonuçta istenen anlamlı basamak sayısı.",
         "de": "Anzahl der gewünschten signifikanten Stellen im Ergebnis.",
         "fr": "Nombre de chiffres significatifs souhaité dans le résultat.",
-        "es": "Número de dígitos significativos deseados en el resultado."
+        "es": "Número de dígitos significativos deseados en el resultado.",
+        "ar": "عدد الأرقام المعنوية المطلوبة في النتيجة."
       }
     },
     {
@@ -56,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -68,26 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "value + sigFigs + auto_input_3",
-    "result_copy": "value + sigFigs + auto_input_3"
+    "normalized_product": "value * sigFigs * auto_input_3",
+    "result": "value * sigFigs * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "order",
-      "factor"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "rounded",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",

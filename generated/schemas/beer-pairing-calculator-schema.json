@@ -14,14 +14,15 @@
         "de": "Bier-IBU",
         "fr": "IBU de la bière",
         "es": "IBU de la cerveza",
-        "ar": "Bira IBU"
+        "ar": "IBU البيرة"
       },
       "businessContext_i18n": {
         "en": "Biranın Uluslararası Acılık Birimi cinsinden acılık derecesi",
         "tr": "Biranın Uluslararası Acılık Birimi cinsinden acılık derecesi",
         "de": "Bitterkeit des Bieres in Internationalen Bitterkeitseinheiten",
         "fr": "Degré d'amertume de la bière en unités internationales d'amertume",
-        "es": "Grado de amargor de la cerveza en Unidades Internacionales de Amargor"
+        "es": "Grado de amargor de la cerveza en Unidades Internacionales de Amargor",
+        "ar": "درجة المرارة الدولية للبيرة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Alkoholgehalt des Bieres",
         "fr": "Taux d'alcool de la bière",
         "es": "Contenido de alcohol de la cerveza",
-        "ar": "Bira Alkol Oranı"
+        "ar": "نسبة الكحول في البيرة"
       },
       "businessContext_i18n": {
         "en": "Biranın alkol oranı (% hacim)",
         "tr": "Biranın alkol oranı (% hacim)",
         "de": "Alkoholgehalt des Bieres (Vol.-%)",
         "fr": "Alcool volumique de la bière (% vol.)",
-        "es": "Alcohol by volume (%)"
+        "es": "Alcohol by volume (%)",
+        "ar": "نسبة الكحول في البيرة (% حجم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nahrungsmittel-Reichhaltigkeit/Dichte",
         "fr": "Richesse/Densité des aliments",
         "es": "Food Richness/Density",
-        "ar": "Yiyecek Zenginlik/Yoğunluk"
+        "ar": "كثافة/ثقل الطعام"
       },
       "businessContext_i18n": {
         "en": "1 (hafif) ile 10 (ağır/yoğun) arasında yiyecek yoğunluğu",
         "tr": "1 (hafif) ile 10 (ağır/yoğun) arasında yiyecek yoğunluğu",
         "de": "Nahrungsmitteldichte von 1 (leicht) bis 10 (schwer/dicht)",
         "fr": "Densité des aliments de 1 (léger) à 10 (lourd/dense)",
-        "es": "Food density from 1 (light) to 10 (heavy/dense)"
+        "es": "Food density from 1 (light) to 10 (heavy/dense)",
+        "ar": "كثافة الطعام من 1 (خفيف) إلى 10 (ثقيل/كثيف)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Nahrungsmittel-Schärfegrad",
         "fr": "Niveau d'épices des aliments",
         "es": "Food Spiciness Level",
-        "ar": "Yiyecek Baharat Seviyesi"
+        "ar": "مستوى توابل الطعام"
       },
       "businessContext_i18n": {
         "en": "1 (baharatsız) ile 10 (çok baharatlı) arasında",
         "tr": "1 (baharatsız) ile 10 (çok baharatlı) arasında",
         "de": "Von 1 (nicht scharf) bis 10 (sehr scharf)",
         "fr": "De 1 (non épicé) à 10 (très épicé)",
-        "es": "From 1 (not spicy) to 10 (very spicy)"
+        "es": "From 1 (not spicy) to 10 (very spicy)",
+        "ar": "من 1 (غير حار) إلى 10 (حار جداً)"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Nahrungsmittel-Säuregehalt",
         "fr": "Acidité des aliments",
         "es": "Food Acidity",
-        "ar": "Yiyecek Asidite"
+        "ar": "حموضة الطعام"
       },
       "businessContext_i18n": {
         "en": "1 (düşük) ile 10 (yüksek) asidite seviyesi",
         "tr": "1 (düşük) ile 10 (yüksek) asidite seviyesi",
         "de": "Säuregehalt von 1 (niedrig) bis 10 (hoch)",
         "fr": "Niveau d'acidité de 1 (faible) à 10 (élevé)",
-        "es": "Acidity level from 1 (low) to 10 (high)"
+        "es": "Acidity level from 1 (low) to 10 (high)",
+        "ar": "مستوى الحموضة من 1 (منخفض) إلى 10 (مرتفع)"
       }
     }
   ],
   "formulas": {
-    "result": "beerIBU + beerABV + foodRichness",
-    "result_copy": "beerIBU + beerABV + foodRichness"
+    "normalized_product": "beerIBU * (beerABV / 100) * foodRichness * foodSpiciness",
+    "result": "beerIBU * (beerABV / 100) * foodRichness * foodSpiciness * (foodAcidity)",
+    "adjustment_factor": "foodAcidity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "bitternessMatch",
-      "alcoholMatch",
-      "spiceMatch",
-      "acidityMatch"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "pairingScore",
-    "unit": "IBU"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

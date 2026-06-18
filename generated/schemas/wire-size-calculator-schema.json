@@ -13,14 +13,16 @@
         "tr": "Nominal Akım",
         "de": "Nennstrom",
         "fr": "Courant nominal",
-        "es": "Nominal Current",
-        "ar": "Nominal Current"
+        "es": "Corriente nominal",
+        "ar": "التيار الاسمي"
       },
       "businessContext_i18n": {
         "en": "Continuous load current",
         "tr": "Sürekli yük akımı",
         "de": "Dauerlaststrom",
-        "fr": "Courant de charge continu"
+        "fr": "Courant de charge continu",
+        "es": "Corriente de carga continua",
+        "ar": "تيار الحمل المستمر"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Systemspannung",
         "fr": "Tension du système",
         "es": "Tensión del sistema",
-        "ar": "System Voltage"
+        "ar": "جهد النظام"
       },
       "businessContext_i18n": {
         "en": "Nominal system voltage",
         "tr": "Nominal sistem voltajı",
         "de": "Nennspannung des Systems",
-        "fr": "Tension nominale du système"
+        "fr": "Tension nominale du système",
+        "es": "Tensión nominal del sistema",
+        "ar": "الجهد الاسمي للنظام"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Kabellänge",
         "fr": "Longueur du câble",
         "es": "Longitud del cable",
-        "ar": "Cable Length"
+        "ar": "طول الكابل"
       },
       "businessContext_i18n": {
         "en": "One-way cable length",
         "tr": "Tek yönlü kablo uzunluğu",
         "de": "Einfache Kabellänge",
-        "fr": "Longueur du câble aller simple"
+        "fr": "Longueur du câble aller simple",
+        "es": "Longitud del cable de ida",
+        "ar": "طول الكابل باتجاه واحد"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "İletken Malzemesi",
         "de": "Leitermaterial",
         "fr": "Matériau du conducteur",
-        "es": "Conductor Material",
-        "ar": "Conductor Material"
+        "es": "Material del conductor",
+        "ar": "مادة الموصل"
       },
       "businessContext_i18n": {
         "en": "0: Copper, 1: Aluminum",
         "tr": "0: Bakır, 1: Alüminyum",
         "de": "0: Kupfer, 1: Aluminium",
-        "fr": "0: Cuivre, 1: Aluminium"
+        "fr": "0: Cuivre, 1: Aluminium",
+        "es": "0: Cobre, 1: Aluminio",
+        "ar": "0: نحاس، 1: ألومنيوم"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Maksimum Gerilim Düşümü Yüzdesi",
         "de": "Maximaler Spannungsabfall in Prozent",
         "fr": "Pourcentage maximal de chute de tension",
-        "es": "Max Voltage Drop Percentage",
-        "ar": "Max Voltage Drop Percentage"
+        "es": "Porcentaje máximo de caída de tensión",
+        "ar": "الحد الأقصى لنسبة انخفاض الجهد"
       },
       "businessContext_i18n": {
         "en": "Allowable voltage drop",
         "tr": "İzin verilen voltaj düşümü",
         "de": "Zulässiger Spannungsabfall",
-        "fr": "Chute de tension admissible"
+        "fr": "Chute de tension admissible",
+        "es": "Caída de tensión admisible",
+        "ar": "انخفاض الجهد المسموح به"
       }
     },
     {
@@ -124,33 +134,39 @@
         "de": "Anzahl der Phasen",
         "fr": "Nombre de phases",
         "es": "Número de fases",
-        "ar": "Number of Phases"
+        "ar": "عدد الأطوار"
       },
       "businessContext_i18n": {
         "en": "1: Single-phase/DC, 3: Three-phase",
         "tr": "1: Tek fazlı/DC, 3: Üç fazlı",
         "de": "1: Einphasig/Gleichstrom, 3: Dreiphasig",
-        "fr": "1 : Monophasé/CC, 3 : Triphasé"
+        "fr": "1 : Monophasé/CC, 3 : Triphasé",
+        "es": "1: Monofásico/CC, 3: Trifásico",
+        "ar": "1: أحادي الطور/تيار مستمر، 3: ثلاثي الطور"
       }
     }
   ],
   "formulas": {
-    "result": "current + voltage + length",
-    "result_copy": "current + voltage + length"
+    "normalized_product": "current * voltage * length * material",
+    "result": "current * voltage * length * material * ((voltageDropPercent / 100) * phases)",
+    "adjustment_factor": "(voltageDropPercent / 100) * phases"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "voltageDrop",
-      "powerLoss",
-      "recommendedSize"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "recommendedSize",
-    "unit": "A",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "voltageDrop": "V"
     }

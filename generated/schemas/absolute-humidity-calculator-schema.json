@@ -14,14 +14,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Air temperature in Celsius",
         "tr": "Santigrat cinsinden hava sıcaklığı",
         "de": "Lufttemperatur in Celsius",
         "fr": "Température de l'air en degrés Celsius",
-        "es": "Temperatura del aire en grados Celsius"
+        "es": "Temperatura del aire en grados Celsius",
+        "ar": "درجة حرارة الهواء بالدرجة المئوية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Relative Luftfeuchtigkeit",
         "fr": "Humidité relative",
         "es": "Humedad relativa",
-        "ar": "Relative Humidity"
+        "ar": "الرطوبة النسبية"
       },
       "businessContext_i18n": {
         "en": "Relative humidity percentage (0-100)",
         "tr": "Bağıl nem yüzdesi (0-100)",
         "de": "Relative Luftfeuchtigkeit in Prozent (0-100)",
         "fr": "Pourcentage d'humidité relative (0-100)",
-        "es": "Porcentaje de humedad relativa (0-100)"
+        "es": "Porcentaje de humedad relativa (0-100)",
+        "ar": "نسبة الرطوبة النسبية (0-100)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Molmasse von Wasser",
         "fr": "Masse molaire de l'eau",
         "es": "Masa molar del agua",
-        "ar": "Molar Mass of Water"
+        "ar": "الكتلة المولية للماء"
       },
       "businessContext_i18n": {
         "en": "Molar mass of water vapor, standard value 18.015 g/mol",
         "tr": "Su buharının molar kütlesi, standart değer 18,015 g/mol",
         "de": "Molmasse von Wasserdampf, Standardwert 18,015 g/mol",
         "fr": "Masse molaire de la vapeur d'eau, valeur standard 18,015 g/mol",
-        "es": "Masa molar del vapor de agua, valor estándar 18.015 g/mol"
+        "es": "Masa molar del vapor de agua, valor estándar 18.015 g/mol",
+        "ar": "الكتلة المولية لبخار الماء، القيمة القياسية 18.015 جم/مول"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Universelle Gaskonstante",
         "fr": "Constante universelle des gaz",
         "es": "Constante universal de los gases",
-        "ar": "Universal Gas Constant"
+        "ar": "ثابت الغاز العام"
       },
       "businessContext_i18n": {
         "en": "Ideal gas constant R, standard value 8.314 J/(mol·K)",
         "tr": "İdeal gaz sabiti R, standart değer 8,314 J/(mol·K)",
         "de": "Ideale Gaskonstante R, Standardwert 8,314 J/(mol·K)",
         "fr": "Constante des gaz parfaits R, valeur standard 8,314 J/(mol·K)",
-        "es": "Constante de los gases ideales R, valor estándar 8.314 J/(mol·K)"
+        "es": "Constante de los gases ideales R, valor estándar 8.314 J/(mol·K)",
+        "ar": "ثابت الغاز المثالي R، القيمة القياسية 8.314 جول/(مول·كلفن)"
       }
     }
   ],
   "formulas": {
-    "kelvinTemperature": "temperature + 273.15",
-    "kelvinTemperature_aux": "temperature + 273.15"
+    "normalized_product": "temperature * (relativeHumidity / 100) * molarMassWater * gasConstant",
+    "result": "temperature * (relativeHumidity / 100) * molarMassWater * gasConstant"
   },
   "outputs": {
-    "primary": "kelvinTemperature_aux",
+    "primary": "result",
     "breakdown": [
-      "saturationVaporPressure",
-      "actualVaporPressure",
-      "kelvinTemperature"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "absoluteHumidity",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "saturationVaporPressure": "%",
       "kelvinTemperature": "°C"

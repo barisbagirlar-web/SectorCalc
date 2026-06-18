@@ -14,14 +14,15 @@
         "de": "Mittlere Schätzung",
         "fr": "Estimation moyenne",
         "es": "Estimación media",
-        "ar": "Ortalama Tahmin"
+        "ar": "متوسط التقدير"
       },
       "businessContext_i18n": {
         "en": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
         "tr": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
         "de": "Mittelwert der Vorhersagen des Modells über verschiedene Trainingsdatensätze.",
         "fr": "Moyenne des prédictions du modèle sur différents ensembles d'entraînement.",
-        "es": "Promedio de las predicciones del modelo en diferentes conjuntos de entrenamiento."
+        "es": "Promedio de las predicciones del modelo en diferentes conjuntos de entrenamiento.",
+        "ar": "متوسط تقديرات النموذج عبر مجموعات التدريب المختلفة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tatsächlicher Wert",
         "fr": "Valeur réelle",
         "es": "Valor real",
-        "ar": "Gerçek Değer"
+        "ar": "القيمة الفعلية"
       },
       "businessContext_i18n": {
         "en": "Hedef değişkenin gerçek değeri",
         "tr": "Hedef değişkenin gerçek değeri",
         "de": "Tatsächlicher Wert der Zielvariablen.",
         "fr": "Valeur réelle de la variable cible.",
-        "es": "Valor real de la variable objetivo."
+        "es": "Valor real de la variable objetivo.",
+        "ar": "القيمة الفعلية للمتغير المستهدف."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Varianz",
         "fr": "Variance",
         "es": "Varianza",
-        "ar": "Varyans"
+        "ar": "التباين"
       },
       "businessContext_i18n": {
         "en": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
         "tr": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
         "de": "Varianz der Vorhersagen, zeigt die Empfindlichkeit des Modells gegenüber den Daten.",
         "fr": "Variance des prédictions, indiquant la sensibilité du modèle aux données.",
-        "es": "Varianza de las predicciones, indica la sensibilidad del modelo a los datos."
+        "es": "Varianza de las predicciones, indica la sensibilidad del modelo a los datos.",
+        "ar": "تباين التقديرات، ويشير إلى حساسية النموذج للبيانات."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Unvermeidbarer Fehler",
         "fr": "Erreur irréductible",
         "es": "Error irreducible",
-        "ar": "İndirgenemez Hata"
+        "ar": "الخطأ غير القابل للاختزال"
       },
       "businessContext_i18n": {
         "en": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
         "tr": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
         "de": "Fehler durch Rauschen in den Daten, der vom Modell nicht erfasst werden kann.",
         "fr": "Erreur due au bruit dans les données, que le modèle ne peut pas capturer.",
-        "es": "Error debido al ruido en los datos que el modelo no puede capturar."
+        "es": "Error debido al ruido en los datos que el modelo no puede capturar.",
+        "ar": "الخطأ الناتج عن الضوضاء في البيانات والذي لا يمكن للنموذج التقاطه."
       }
     }
   ],
   "formulas": {
-    "result": "averagePrediction + trueValue + variance",
-    "result_copy": "averagePrediction + trueValue + variance"
+    "normalized_product": "averagePrediction * trueValue * variance * irreducibleError",
+    "result": "averagePrediction * trueValue * variance * irreducibleError"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "squaredBias",
-      "variance",
-      "irreducibleError"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "squaredBias",
-    "unit": "boyutsuz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

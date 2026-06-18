@@ -13,14 +13,16 @@
         "tr": "Toplam Fatura Tutarı",
         "de": "Gesamtrechnungsbetrag",
         "fr": "Montant total de la facture",
-        "es": "Total Bill Amount",
-        "ar": "Total Bill Amount"
+        "es": "Monto Total de la Factura",
+        "ar": "إجمالي مبلغ الفاتورة"
       },
       "businessContext_i18n": {
         "en": "Total amount of the bill including tax.",
         "tr": "Vergi dahil toplam fatura tutarı.",
         "de": "Gesamtbetrag der Rechnung inklusive Steuern.",
-        "fr": "Montant total de la facture, taxes comprises."
+        "fr": "Montant total de la facture, taxes comprises.",
+        "es": "Monto total de la factura incluido el impuesto.",
+        "ar": "إجمالي مبلغ الفاتورة شامل الضريبة."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Trinkgeldprozentsatz",
         "fr": "Pourcentage de pourboire",
         "es": "Porcentaje de propina",
-        "ar": "Tip Percentage"
+        "ar": "نسبة البقشيش"
       },
       "businessContext_i18n": {
         "en": "Percentage of the pre-tax amount to tip.",
         "tr": "Vergi öncesi tutarın bahşiş olarak verilecek yüzdesi.",
         "de": "Prozentsatz des Nettobetrags für Trinkgeld.",
-        "fr": "Pourcentage du montant avant impôt à donner en pourboire."
+        "fr": "Pourcentage du montant avant impôt à donner en pourboire.",
+        "es": "Porcentaje del monto antes de impuestos para la propina.",
+        "ar": "نسبة الإكرامية من المبلغ قبل الضريبة."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Anzahl der Personen",
         "fr": "Nombre de personnes",
         "es": "Número de personas",
-        "ar": "Number of People"
+        "ar": "عدد الأشخاص"
       },
       "businessContext_i18n": {
         "en": "Number of people sharing the bill.",
         "tr": "Faturayı paylaşan kişi sayısı.",
         "de": "Anzahl der Personen, die die Rechnung teilen.",
-        "fr": "Nombre de personnes partageant la facture."
+        "fr": "Nombre de personnes partageant la facture.",
+        "es": "Número de personas que comparten la cuenta.",
+        "ar": "عدد الأشخاص المشاركين في الفاتورة."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Vergi Tutarı",
         "de": "Steuerbetrag",
         "fr": "Montant de la taxe",
-        "es": "Tax Amount",
-        "ar": "Tax Amount"
+        "es": "Monto del Impuesto",
+        "ar": "مبلغ الضريبة"
       },
       "businessContext_i18n": {
         "en": "Amount of tax included in the total bill. Used to calculate pre-tax amount for tipping.",
         "tr": "Toplam faturadaki vergi tutarı. Bahşiş hesaplamak için vergi öncesi tutarı bulmada kullanılır.",
         "de": "Steuerbetrag in der Gesamtrechnung. Wird zur Berechnung des Nettobetrags für das Trinkgeld verwendet.",
-        "fr": "Montant de la taxe inclus dans la facture totale. Utilisé pour calculer le montant avant impôt pour le pourboire."
+        "fr": "Montant de la taxe inclus dans la facture totale. Utilisé pour calculer le montant avant impôt pour le pourboire.",
+        "es": "Monto del impuesto incluido en la factura total. Se utiliza para calcular el monto antes de impuestos para la propina.",
+        "ar": "مبلغ الضريبة المضمنة في إجمالي الفاتورة. يُستخدم لحساب المبلغ قبل الضريبة للإكرامية."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Kişi Başı Toplamı Yuvarla?",
         "de": "Gesamtbetrag pro Person aufrunden?",
         "fr": "Arrondir le total par personne ?",
-        "es": "Round Up Total Per Person?",
-        "ar": "Round Up Total Per Person?"
+        "es": "¿Redondear el total por persona?",
+        "ar": "تقريب الإجمالي لكل شخص؟"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to round the total cost per person up to the nearest whole dollar, otherwise 0.",
         "tr": "Kişi başı toplam maliyeti en yakın tam dolara yuvarlamak için 1, aksi halde 0.",
         "de": "Auf 1 setzen, um die Gesamtkosten pro Person auf den nächsten ganzen Dollar aufzurunden, sonst 0.",
-        "fr": "Mettre à 1 pour arrondir le coût total par personne au dollar supérieur, sinon 0."
+        "fr": "Mettre à 1 pour arrondir le coût total par personne au dollar supérieur, sinon 0.",
+        "es": "Establecer en 1 para redondear el coste total por persona al dólar entero más cercano, de lo contrario 0.",
+        "ar": "اضبط على 1 لتقريب التكلفة الإجمالية لكل شخص إلى أقرب دولار صحيح، وإلا 0."
       }
     }
   ],

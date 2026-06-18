@@ -14,13 +14,15 @@
         "de": "Angewandte Kraft",
         "fr": "Force appliquée",
         "es": "Fuerza aplicada",
-        "ar": "Applied Force"
+        "ar": "القوة المطبقة"
       },
       "businessContext_i18n": {
         "en": "Design force acting on the welded joint.",
         "tr": "Kaynaklı birleşime etki eden tasarım kuvveti.",
         "de": "Auf die Schweißverbindung wirkende Bemessungskraft.",
-        "fr": "Force de conception agissant sur le joint soudé."
+        "fr": "Force de conception agissant sur le joint soudé.",
+        "es": "Fuerza de diseño que actúa sobre la unión soldada.",
+        "ar": "قوة التصميم المؤثرة على وصلة اللحام."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zulässige Schubspannung",
         "fr": "Contrainte de cisaillement admissible",
         "es": "Esfuerzo cortante admisible",
-        "ar": "Allowable Shear Stress"
+        "ar": "إجهاد القص المسموح به"
       },
       "businessContext_i18n": {
         "en": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8).",
         "tr": "Kaynak malzemesi için izin verilen kayma gerilmesi, ilgili kaynak koduna göre (örn. AWS D1.1, EN 1993-1-8).",
         "de": "Zulässige Schubspannung für das Schweißmaterial gemäß geltender Schweißnorm (z. B. AWS D1.1, EN 1993-1-8).",
-        "fr": "Contrainte de cisaillement admissible pour le matériau de soudure, selon le code de soudure applicable (par exemple, AWS D1.1, EN 1993-1-8)."
+        "fr": "Contrainte de cisaillement admissible pour le matériau de soudure, selon le code de soudure applicable (par exemple, AWS D1.1, EN 1993-1-8).",
+        "es": "Esfuerzo cortante admisible para el material de soldadura, según el código de soldadura aplicable (p. ej., AWS D1.1, EN 1993-1-8).",
+        "ar": "إجهاد القص المسموح لمادة اللحام، وفقًا لكود اللحام المطبق (مثل AWS D1.1، EN 1993-1-8)."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kaynak Sayısı",
         "de": "Anzahl der Schweißnähte",
         "fr": "Nombre de soudures",
-        "es": "Number of Welds",
-        "ar": "Number of Welds"
+        "es": "Número de soldaduras",
+        "ar": "عدد اللحامات"
       },
       "businessContext_i18n": {
         "en": "Number of fillet welds sharing the load.",
         "tr": "Yükü paylaşan köşe kaynak sayısı.",
         "de": "Anzahl der Kehlnähte, die die Last teilen.",
-        "fr": "Nombre de soudures d'angle partageant la charge."
+        "fr": "Nombre de soudures d'angle partageant la charge.",
+        "es": "Número de soldaduras de filete que comparten la carga.",
+        "ar": "عدد لحامات الشرائح المشاركة في الحمل."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Kaynak Başına Uzunluk",
         "de": "Länge pro Schweißnaht",
         "fr": "Longueur par soudure",
-        "es": "Length per Weld",
-        "ar": "Length per Weld"
+        "es": "Longitud por soldadura",
+        "ar": "الطول لكل لحام"
       },
       "businessContext_i18n": {
         "en": "Effective length of each individual fillet weld.",
         "tr": "Her bir köşe kaynağının etkili uzunluğu.",
         "de": "Wirksame Länge jeder einzelnen Kehlnaht.",
-        "fr": "Longueur effective de chaque soudure d'angle individuelle."
+        "fr": "Longueur effective de chaque soudure d'angle individuelle.",
+        "es": "Longitud efectiva de cada soldadura de filete individual.",
+        "ar": "الطول الفعال لكل لحام شريحة فردي."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to account for uncertainties.",
         "tr": "Belirsizlikleri hesaba katmak için tasarım güvenlik faktörü.",
         "de": "Auslegungssicherheitsfaktor zur Berücksichtigung von Unsicherheiten.",
-        "fr": "Facteur de sécurité de conception pour tenir compte des incertitudes."
+        "fr": "Facteur de sécurité de conception pour tenir compte des incertitudes.",
+        "es": "Factor de seguridad de diseño para tener en cuenta incertidumbres.",
+        "ar": "عامل الأمان التصميمي لمراعاة حالات عدم اليقين."
       }
     }
   ],

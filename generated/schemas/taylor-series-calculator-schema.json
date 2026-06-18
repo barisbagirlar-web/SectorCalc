@@ -13,14 +13,16 @@
         "tr": "Genişleme Noktası (a)",
         "de": "Entwicklungspunkt (a)",
         "fr": "Point d'expansion (a)",
-        "es": "Expansion Point (a)",
-        "ar": "Expansion Point (a)"
+        "es": "Punto de expansión (a)",
+        "ar": "نقطة التمدد (a)"
       },
       "businessContext_i18n": {
         "en": "The point about which the Taylor series is expanded.",
         "tr": "Taylor serisinin açıldığı nokta",
         "de": "Der Punkt, um den die Taylor-Reihe entwickelt wird",
-        "fr": "Point autour duquel la série de Taylor est développée"
+        "fr": "Point autour duquel la série de Taylor est développée",
+        "es": "Punto alrededor del cual se expande la serie de Taylor.",
+        "ar": "النقطة التي يتم حولها توسيع متسلسلة تايلور."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Değerlendirme Noktası (x)",
         "de": "Auswertungspunkt (x)",
         "fr": "Point d'évaluation (x)",
-        "es": "Evaluation Point (x)",
-        "ar": "Evaluation Point (x)"
+        "es": "Punto de evaluación (x)",
+        "ar": "نقطة التقييم (x)"
       },
       "businessContext_i18n": {
         "en": "The point at which the function is approximated.",
         "tr": "Fonksiyonun yaklaşık olarak hesaplandığı nokta.",
         "de": "Der Punkt, an dem die Funktion approximiert wird",
-        "fr": "Point auquel la fonction est approximée."
+        "fr": "Point auquel la fonction est approximée.",
+        "es": "Punto en el que se aproxima la función.",
+        "ar": "النقطة التي يتم عندها تقريب الدالة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Polinom Derecesi",
         "de": "Polynomgrad",
         "fr": "Degré du polynôme",
-        "es": "Polynomial Degree",
-        "ar": "Polynomial Degree"
+        "es": "Grado del polinomio",
+        "ar": "درجة كثيرة الحدود"
       },
       "businessContext_i18n": {
         "en": "Highest order of the Taylor polynomial (0–3).",
         "tr": "Taylor polinomunun en yüksek derecesi (0–3).",
         "de": "Höchste Ordnung des Taylor-Polynoms (0–3).",
-        "fr": "Ordre le plus élevé du polynôme de Taylor (0–3)."
+        "fr": "Ordre le plus élevé du polynôme de Taylor (0–3).",
+        "es": "Orden más alto del polinomio de Taylor (0–3).",
+        "ar": "أعلى درجة لكثيرة حدود تايلور (0–3)."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "f(a)",
         "fr": "f(a)",
         "es": "f(a)",
-        "ar": "f(a)"
+        "ar": "ق(أ)"
       },
       "businessContext_i18n": {
         "en": "Function value at the expansion point.",
         "tr": "Açılım noktasındaki fonksiyon değeri.",
         "de": "Funktionswert am Entwicklungspunkt.",
-        "fr": "Valeur de la fonction au point d'expansion."
+        "fr": "Valeur de la fonction au point d'expansion.",
+        "es": "Valor de la función en el punto de expansión.",
+        "ar": "قيمة الدالة عند نقطة التمدد."
       }
     },
     {
@@ -108,7 +116,9 @@
         "en": "First derivative at the expansion point.",
         "tr": "Açılım noktasındaki birinci türev.",
         "de": "Erste Ableitung am Entwicklungspunkt.",
-        "fr": "Première dérivée au point d'expansion."
+        "fr": "Première dérivée au point d'expansion.",
+        "es": "Primera derivada en el punto de expansión.",
+        "ar": "المشتقة الأولى عند نقطة التمدد."
       }
     },
     {
@@ -130,7 +140,9 @@
         "en": "Second derivative at the expansion point.",
         "tr": "Açılım noktasındaki ikinci türev.",
         "de": "Zweite Ableitung am Entwicklungspunkt.",
-        "fr": "Seconde dérivée au point d'expansion."
+        "fr": "Seconde dérivée au point d'expansion.",
+        "es": "Segunda derivada en el punto de expansión.",
+        "ar": "المشتقة الثانية عند نقطة التمدد."
       }
     },
     {
@@ -152,7 +164,9 @@
         "en": "Third derivative at the expansion point.",
         "tr": "Açılım noktasındaki üçüncü türev.",
         "de": "Dritte Ableitung am Entwicklungspunkt.",
-        "fr": "Troisième dérivée au point d'expansion."
+        "fr": "Troisième dérivée au point d'expansion.",
+        "es": "Tercera derivada en el punto de expansión.",
+        "ar": "المشتقة الثالثة عند نقطة التمدد."
       }
     }
   ],

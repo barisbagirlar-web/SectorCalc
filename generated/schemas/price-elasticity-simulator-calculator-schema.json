@@ -25,14 +25,16 @@
         "tr": "Mevcut Birim Fiyat",
         "de": "Aktueller Preis pro Einheit",
         "fr": "Prix actuel par unité",
-        "es": "Precio actual por unidad"
+        "es": "Precio actual por unidad",
+        "ar": "السعر الحالي للوحدة"
       },
       "businessContext_i18n": {
         "en": "The current selling price of the product in USD.",
         "tr": "Ürünün USD cinsinden mevcut satış fiyatı.",
         "de": "Der aktuelle Verkaufspreis des Produkts in USD.",
         "fr": "Prix de vente actuel du produit en USD.",
-        "es": "El precio de venta actual del producto en USD."
+        "es": "El precio de venta actual del producto en USD.",
+        "ar": "سعر البيع الحالي للمنتج بالدولار الأمريكي."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Mevcut Satılan Miktar (adet/ay)",
         "de": "Aktuelle verkaufte Menge (Einheiten/Monat)",
         "fr": "Quantité vendue actuelle (unités/mois)",
-        "es": "Cantidad actual vendida (unidades/mes)"
+        "es": "Cantidad actual vendida (unidades/mes)",
+        "ar": "الكمية المباعة حالياً (وحدة/شهر)"
       },
       "businessContext_i18n": {
         "en": "Monthly sales volume at current price.",
         "tr": "Mevcut fiyattaki aylık satış hacmi.",
         "de": "Monatliches Verkaufsvolumen zum aktuellen Preis.",
         "fr": "Volume de ventes mensuel au prix actuel.",
-        "es": "Volumen de ventas mensual al precio actual."
+        "es": "Volumen de ventas mensual al precio actual.",
+        "ar": "حجم المبيعات الشهري بالسعر الحالي."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Önerilen Fiyat Değişimi (%)",
         "de": "Vorgeschlagene Preisänderung (%)",
         "fr": "Variation de prix proposée (%)",
-        "es": "Cambio de precio propuesto (%)"
+        "es": "Cambio de precio propuesto (%)",
+        "ar": "نسبة تغير السعر المقترحة (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage change in price (negative for decrease, positive for increase).",
         "tr": "Fiyattaki yüzde değişim (düşüş için negatif, artış için pozitif).",
         "de": "Prozentuale Preisänderung (negativ für Senkung, positiv für Erhöhung).",
         "fr": "Pourcentage de variation du prix (négatif pour une baisse, positif pour une hausse).",
-        "es": "Cambio porcentual en el precio (negativo para disminución, positivo para aumento)."
+        "es": "Cambio porcentual en el precio (negativo para disminución, positivo para aumento).",
+        "ar": "نسبة التغير في السعر (سالب للانخفاض، موجب للارتفاع)."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Fiyat Esnekliği (PED)",
         "de": "Preiselastizität der Nachfrage (PED)",
         "fr": "Élasticité-prix de la demande (PED)",
-        "es": "Elasticidad precio de la demanda (PED)"
+        "es": "Elasticidad precio de la demanda (PED)",
+        "ar": "مرونة الطلب السعرية (PED)"
       },
       "businessContext_i18n": {
         "en": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
         "tr": "Tahmini esneklik katsayısı (genellikle negatif). Mutlak değer >1 ise esnek talep.",
         "de": "Geschätzter Elastizitätskoeffizient (typischerweise negativ). Absolutwert >1 zeigt elastische Nachfrage an.",
         "fr": "Coefficient d'élasticité estimé (généralement négatif). Une valeur absolue >1 indique une demande élastique.",
-        "es": "Coeficiente de elasticidad estimado (típicamente negativo). Valor absoluto >1 indica demanda elástica."
+        "es": "Coeficiente de elasticidad estimado (típicamente negativo). Valor absoluto >1 indica demanda elástica.",
+        "ar": "معامل المرونة المقدر (عادة سالب). القيمة المطلقة >1 تشير إلى طلب مرن."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Birim Başına Değişken Maliyet",
         "de": "Variable Kosten pro Einheit",
         "fr": "Coût variable par unité",
-        "es": "Coste variable por unidad"
+        "es": "Coste variable por unidad",
+        "ar": "التكلفة المتغيرة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct variable cost per unit (materials, labor, etc.).",
         "tr": "Birim başına doğrudan değişken maliyet (malzeme, işçilik vb.).",
         "de": "Direkte variable Kosten pro Einheit (Material, Arbeit usw.).",
         "fr": "Coût variable direct par unité (matériaux, main-d'œuvre, etc.).",
-        "es": "Costo variable directo por unidad (materiales, mano de obra, etc.)."
+        "es": "Costo variable directo por unidad (materiales, mano de obra, etc.).",
+        "ar": "التكلفة المتغيرة المباشرة لكل وحدة (مواد، عمالة، إلخ)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Aylık Sabit Maliyet",
         "de": "Fixkosten pro Monat",
         "fr": "Coût fixe par mois",
-        "es": "Costo fijo por mes"
+        "es": "Costo fijo por mes",
+        "ar": "التكلفة الثابتة الشهرية"
       },
       "businessContext_i18n": {
         "en": "Total fixed costs allocated per month.",
         "tr": "Aylık tahsis edilen toplam sabit maliyetler.",
         "de": "Gesamte fixe Kosten pro Monat.",
         "fr": "Total des coûts fixes alloués par mois.",
-        "es": "Costos fijos totales asignados por mes."
+        "es": "Costos fijos totales asignados por mes.",
+        "ar": "إجمالي التكاليف الثابتة المخصصة شهرياً."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Talep Kaydırma Faktörü (mevsimsellik/piyasa)",
         "de": "Nachfrageverschiebungsfaktor (Saisonalität/Markt)",
         "fr": "Facteur de déplacement de la demande (saisonnalité/marché)",
-        "es": "Factor de cambio de demanda (estacionalidad/mercado)"
+        "es": "Factor de cambio de demanda (estacionalidad/mercado)",
+        "ar": "عامل تحول الطلب (الموسمية/السوق)"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
         "tr": "Temel talebi ayarlamak için çarpan (ör. %20 pazar büyümesi için 1.2).",
         "de": "Multiplikator zur Anpassung der Basismachfrage (z. B. 1,2 für 20 % Marktwachstum).",
         "fr": "Multiplicateur pour ajuster la demande de base (ex. : 1,2 pour une croissance de 20 % du marché).",
-        "es": "Multiplicador para ajustar la demanda base (ej. 1.2 para un crecimiento del 20% del mercado)."
+        "es": "Multiplicador para ajustar la demanda base (ej. 1.2 para un crecimiento del 20% del mercado).",
+        "ar": "مضاعف لتعديل الطلب الأساسي (مثال: 1.2 لنمو سوقي 20%)."
       }
     },
     {
@@ -196,14 +210,16 @@
         "tr": "Veri Güven Düzeyi",
         "de": "Datenvertrauensniveau",
         "fr": "Niveau de confiance des données",
-        "es": "Nivel de confianza de los datos"
+        "es": "Nivel de confianza de los datos",
+        "ar": "مستوى الثقة في البيانات"
       },
       "businessContext_i18n": {
         "en": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%.",
         "tr": "Girdi verisinin kalitesi: düşük = ±%20 hata, orta = ±%10, yüksek = ±%5.",
         "de": "Qualität der Eingabedaten: niedrig = ±20 % Fehler, mittel = ±10 %, hoch = ±5 %.",
         "fr": "Qualité des données d'entrée : faible = ±20 % d'erreur, moyenne = ±10 %, élevée = ±5 %.",
-        "es": "Calidad de los datos de entrada: baja = error ±20%, media = ±10%, alta = ±5%."
+        "es": "Calidad de los datos de entrada: baja = error ±20%, media = ±10%, alta = ±5%.",
+        "ar": "جودة بيانات الإدخال: منخفضة = خطأ ±20%، متوسطة = ±10%، عالية = ±5%."
       }
     }
   ],
@@ -256,15 +272,25 @@
     ]
   },
   "formulas": {
-    "result": "current_price + current_quantity + price_change_percent",
-    "result_copy": "current_price + current_quantity + price_change_percent"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "current_quantity * (price_change_percent / 100) * 1 * current_price",
+    "result": "current_quantity * (price_change_percent / 100) * 1 * current_price * (elasticity_coefficient)",
+    "factor_elasticity_coefficient": "elasticity_coefficient"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost",
+      "factor_elasticity_coefficient"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

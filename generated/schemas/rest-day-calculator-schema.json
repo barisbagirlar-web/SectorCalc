@@ -14,14 +14,15 @@
         "de": "Erforderliche Festigkeit",
         "fr": "Résistance requise",
         "es": "Resistencia requerida",
-        "ar": "Required Strength"
+        "ar": "المقاومة المطلوبة"
       },
       "businessContext_i18n": {
         "en": "Percentage of reference strength needed before loading",
         "tr": "Yükleme öncesinde referans dayanımın yüzde olarak gereken oranı",
         "de": "Prozentsatz der Referenzfestigkeit, der vor der Belastung benötigt wird",
         "fr": "Pourcentage de la résistance de référence nécessaire avant chargement",
-        "es": "Porcentaje de la resistencia de referencia necesario antes de la carga"
+        "es": "Porcentaje de la resistencia de referencia necesario antes de la carga",
+        "ar": "النسبة المئوية من المقاومة المرجعية المطلوبة قبل التحميل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenz-28-Tage-Festigkeit",
         "fr": "Résistance à 28 jours de référence",
         "es": "Resistencia de referencia a 28 días",
-        "ar": "Reference 28-Day Strength"
+        "ar": "المقاومة المرجعية عند 28 يومًا"
       },
       "businessContext_i18n": {
         "en": "Concrete strength at 28 days under standard conditions",
         "tr": "Standart koşullar altında 28 günde beton dayanımı",
         "de": "Betonfestigkeit nach 28 Tagen unter Standardbedingungen",
         "fr": "Résistance du béton à 28 jours dans des conditions standard",
-        "es": "Resistencia del concreto a 28 días bajo condiciones estándar"
+        "es": "Resistencia del concreto a 28 días bajo condiciones estándar",
+        "ar": "مقاومة الخرسانة عند 28 يومًا تحت الظروف القياسية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Temperaturfaktor",
         "fr": "Facteur de température",
         "es": "Factor de temperatura",
-        "ar": "Temperature Factor"
+        "ar": "عامل درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)",
         "tr": "Ortam sıcaklığı için düzeltme (20°C'de 1.0, soğukta artar)",
         "de": "Anpassung für Umgebungstemperatur (1,0 bei 20°C, erhöhen bei Kälte)",
         "fr": "Ajustement pour la température ambiante (1,0 à 20 °C, augmenter pour les températures plus froides)",
-        "es": "Ajuste por temperatura ambiente (1.0 a 20°C, aumentar para temperaturas más frías)"
+        "es": "Ajuste por temperatura ambiente (1.0 a 20°C, aumentar para temperaturas más frías)",
+        "ar": "تعديل درجة الحرارة المحيطة (1.0 عند 20°م، يزداد للبرودة)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Feuchtigkeitsfaktor",
         "fr": "Facteur d'humidité",
         "es": "Factor de humedad",
-        "ar": "Humidity Factor"
+        "ar": "عامل الرطوبة"
       },
       "businessContext_i18n": {
         "en": "Adjustment for relative humidity (1.0 at 60% RH)",
         "tr": "Bağıl nem için düzeltme (%60 RH'de 1.0)",
         "de": "Anpassung für relative Luftfeuchtigkeit (1,0 bei 60% RH)",
         "fr": "Ajustement pour l'humidité relative (1,0 à 60 % HR)",
-        "es": "Ajuste por humedad relativa (1.0 a 60% HR)"
+        "es": "Ajuste por humedad relativa (1.0 a 60% HR)",
+        "ar": "تعديل الرطوبة النسبية (1.0 عند 60% رطوبة نسبية)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Multiplier to ensure conservative estimate",
         "tr": "Muhafazakar tahmin sağlamak için çarpan",
         "de": "Multiplikator für konservative Schätzung",
         "fr": "Multiplicateur pour garantir une estimation prudente",
-        "es": "Multiplicador para asegurar una estimación conservadora"
+        "es": "Multiplicador para asegurar una estimación conservadora",
+        "ar": "مضاعف لضمان تقدير متحفظ"
       }
     }
   ],

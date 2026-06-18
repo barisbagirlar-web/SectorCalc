@@ -14,14 +14,15 @@
         "de": "Materialausschussrate",
         "fr": "Taux de rebut matière",
         "es": "Tasa de desperdicio de material",
-        "ar": "Material Waste Rate"
+        "ar": "معدل هدر المواد"
       },
       "businessContext_i18n": {
         "en": "Percentage of material wasted in production",
         "tr": "Üretimde israf edilen malzeme yüzdesi",
         "de": "Prozentsatz des in der Produktion verschwendeten Materials",
         "fr": "Pourcentage de matière gaspillée en production",
-        "es": "Porcentaje de material desperdiciado en la producción"
+        "es": "Porcentaje de material desperdiciado en la producción",
+        "ar": "نسبة المواد المهدرة في الإنتاج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Energieverbrauch",
         "fr": "Consommation énergétique",
         "es": "Consumo energético",
-        "ar": "Energy Consumption"
+        "ar": "استهلاك الطاقة"
       },
       "businessContext_i18n": {
         "en": "Energy consumed per unit produced",
         "tr": "Birim başına tüketilen enerji",
         "de": "Energieverbrauch pro produzierter Einheit",
         "fr": "Énergie consommée par unité produite",
-        "es": "Energía consumida por unidad producida"
+        "es": "Energía consumida por unidad producida",
+        "ar": "الطاقة المستهلكة لكل وحدة منتجة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Arbeitsproduktivität",
         "fr": "Productivité du travail",
         "es": "Productividad laboral",
-        "ar": "Labor Productivity"
+        "ar": "إنتاجية العمل"
       },
       "businessContext_i18n": {
         "en": "Units produced per labor hour",
         "tr": "İşgücü saati başına üretilen birim",
         "de": "Produzierte Einheiten pro Arbeitsstunde",
         "fr": "Unités produites par heure de travail",
-        "es": "Unidades producidas por hora de trabajo"
+        "es": "Unidades producidas por hora de trabajo",
+        "ar": "الوحدات المنتجة لكل ساعة عمل"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fehlerrate",
         "fr": "Taux de rebut",
         "es": "Tasa de defectos",
-        "ar": "Defect Rate"
+        "ar": "معدل العيوب"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective products",
         "tr": "Hatalı ürün yüzdesi",
         "de": "Prozentsatz fehlerhafter Produkte",
         "fr": "Pourcentage de produits défectueux",
-        "es": "Porcentaje de productos defectuosos"
+        "es": "Porcentaje de productos defectuosos",
+        "ar": "نسبة المنتجات المعيبة"
       }
     },
     {
@@ -106,35 +110,38 @@
         "de": "Maschinenauslastung",
         "fr": "Utilisation des machines",
         "es": "Utilización de la máquina",
-        "ar": "Machine Utilization"
+        "ar": "استغلال الآلة"
       },
       "businessContext_i18n": {
         "en": "Percentage of available time machines are running",
         "tr": "Makinelerin çalıştığı kullanılabilir zaman yüzdesi",
         "de": "Prozentsatz der verfügbaren Zeit, in der Maschinen laufen",
         "fr": "Pourcentage du temps disponible où les machines fonctionnent",
-        "es": "Porcentaje de tiempo disponible que las máquinas están en funcionamiento"
+        "es": "Porcentaje de tiempo disponible que las máquinas están en funcionamiento",
+        "ar": "النسبة المئوية للوقت الذي تعمل فيه الآلات"
       }
     }
   ],
   "formulas": {
-    "result": "materialWasteRate + energyConsumption + laborProductivity",
-    "result_copy": "materialWasteRate + energyConsumption + laborProductivity"
+    "normalized_product": "(materialWasteRate / 100) * energyConsumption * laborProductivity * (defectRate / 100)",
+    "result": "(materialWasteRate / 100) * energyConsumption * laborProductivity * (defectRate / 100) * ((machineUtilization / 100))",
+    "adjustment_factor": "(machineUtilization / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "scoreMaterial",
-      "scoreEnergy",
-      "scoreLabor",
-      "scoreDefect",
-      "scoreUtilization"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "meldScore",
+    "dataConfidenceAdjusted": "result",
     "unit": "%",
     "breakdownUnits": {
       "scoreUtilization": "%"

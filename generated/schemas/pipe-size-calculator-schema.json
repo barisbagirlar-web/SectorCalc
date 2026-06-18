@@ -14,14 +14,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Flow Rate"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the fluid",
         "tr": "Akışkanın hacimsel debisi",
         "de": "Volumenstrom des Fluids",
         "fr": "Débit volumétrique du fluide",
-        "es": "Caudal volumétrico del fluido"
+        "es": "Caudal volumétrico del fluido",
+        "ar": "معدل التدفق الحجمي للسائل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Auslegungsgeschwindigkeit",
         "fr": "Vitesse de conception",
         "es": "Velocidad de diseño",
-        "ar": "Design Velocity"
+        "ar": "سرعة التصميم"
       },
       "businessContext_i18n": {
         "en": "Allowable fluid velocity based on service and material",
         "tr": "Servis ve malzemeye bağlı olarak izin verilen akışkan hızı",
         "de": "Zulässige Strömungsgeschwindigkeit basierend auf Betrieb und Material",
         "fr": "Vitesse de fluide admissible selon le service et le matériau",
-        "es": "Velocidad de fluido admisible según servicio y material"
+        "es": "Velocidad de fluido admisible según servicio y material",
+        "ar": "سرعة السائل المسموح بها بناءً على الخدمة والمادة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Betriebsdruck",
         "fr": "Pression de service",
         "es": "Presión de operación",
-        "ar": "Operating Pressure"
+        "ar": "ضغط التشغيل"
       },
       "businessContext_i18n": {
         "en": "Internal design pressure of the pipe",
         "tr": "Boru iç tasarım basıncı",
         "de": "Innendruck des Rohres",
         "fr": "Pression interne de conception du tuyau",
-        "es": "Presión interna de diseño de la tubería"
+        "es": "Presión interna de diseño de la tubería",
+        "ar": "ضغط التصميم الداخلي للأنبوب"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zulässige Spannung",
         "fr": "Contrainte admissible",
         "es": "Esfuerzo admisible",
-        "ar": "Allowable Stress"
+        "ar": "الإجهاد المسموح به"
       },
       "businessContext_i18n": {
         "en": "Allowable stress of the pipe material at design temperature",
         "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi",
         "de": "Zulässige Spannung des Rohrmaterials bei Auslegungstemperatur",
         "fr": "Contrainte admissible du matériau du tuyau à la température de conception",
-        "es": "Esfuerzo admisible del material de la tubería a la temperatura de diseño"
+        "es": "Esfuerzo admisible del material de la tubería a la temperatura de diseño",
+        "ar": "الإجهاد المسموح به لمادة الأنبوب عند درجة حرارة التصميم"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verbindungswirkungsgrad",
         "fr": "Efficacité du joint",
         "es": "Eficiencia de junta",
-        "ar": "Joint Efficiency"
+        "ar": "كفاءة الوصلة"
       },
       "businessContext_i18n": {
         "en": "Longitudinal joint efficiency factor (0-1)",
         "tr": "Boyuna birleştirme verim faktörü (0-1)",
         "de": "Längsnahtwirkungsgrad (0-1)",
         "fr": "Facteur d'efficacité du joint longitudinal (0-1)",
-        "es": "Factor de eficiencia de junta longitudinal (0-1)"
+        "es": "Factor de eficiencia de junta longitudinal (0-1)",
+        "ar": "عامل كفاءة الوصلة الطولية (0-1)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Korrosionszugabe",
         "fr": "Surépaisseur de corrosion",
         "es": "Margen de corrosión",
-        "ar": "Corrosion Allowance"
+        "ar": "بدل التآكل"
       },
       "businessContext_i18n": {
         "en": "Additional thickness to compensate for material loss due to corrosion",
         "tr": "Korozyon nedeniyle malzeme kaybını telafi etmek için ek kalınlık",
         "de": "Zusätzliche Dicke zum Ausgleich von Materialverlust durch Korrosion",
         "fr": "Épaisseur supplémentaire pour compenser la perte de matériau due à la corrosion",
-        "es": "Espesor adicional para compensar la pérdida de material por corrosión"
+        "es": "Espesor adicional para compensar la pérdida de material por corrosión",
+        "ar": "سمك إضافي لتعويض فقدان المواد بسبب التآكل"
       }
     }
   ],
   "formulas": {
-    "result": "flowRate + velocity + pressure",
-    "result_copy": "flowRate + velocity + pressure"
+    "normalized_product": "flowRate * velocity * pressure * allowableStress",
+    "result": "flowRate * velocity * pressure * allowableStress * ((jointEfficiency / 100) * corrosionAllowance)",
+    "adjustment_factor": "(jointEfficiency / 100) * corrosionAllowance"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "t_mm",
-      "od_mm",
-      "area_mm2"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "area_mm2",
-    "unit": "m³/h",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "t_mm": "mm",
       "od_mm": "mm"

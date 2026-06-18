@@ -14,14 +14,15 @@
         "de": "Monatliches Bruttogehalt",
         "fr": "Salaire brut mensuel",
         "es": "Salario bruto mensual",
-        "ar": "Aylık Brüt Maaş"
+        "ar": "الراتب الشهري الإجمالي"
       },
       "businessContext_i18n": {
         "en": "Çalışanın aylık brüt maaşı",
         "tr": "Çalışanın aylık brüt maaşı",
         "de": "Monatliches Bruttogehalt des Arbeitnehmers",
         "fr": "Salaire brut mensuel du salarié",
-        "es": "Salario bruto mensual del empleado"
+        "es": "Salario bruto mensual del empleado",
+        "ar": "الراتب الشهري الإجمالي للموظف"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Arbeitnehmeranteil (%)",
         "fr": "Taux de part salariale (%)",
         "es": "Tasa de contribución del trabajador (%)",
-        "ar": "İşçi Payı Oranı (%)"
+        "ar": "نسبة حصة العامل (%)"
       },
       "businessContext_i18n": {
         "en": "SGK işçi prim oranı",
         "tr": "SGK işçi prim oranı",
         "de": "Sozialversicherungsbeitragssatz Arbeitnehmer",
         "fr": "Taux de cotisation salariale SGK",
-        "es": "Tasa de prima del trabajador al SGK"
+        "es": "Tasa de prima del trabajador al SGK",
+        "ar": "نسبة قسط العامل للضمان الاجتماعي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Arbeitgeberanteil (%)",
         "fr": "Taux de part patronale (%)",
         "es": "Tasa de contribución del empleador (%)",
-        "ar": "İşveren Payı Oranı (%)"
+        "ar": "نسبة حصة صاحب العمل (%)"
       },
       "businessContext_i18n": {
         "en": "SGK işveren prim oranı",
         "tr": "SGK işveren prim oranı",
         "de": "Sozialversicherungsbeitragssatz Arbeitgeber",
         "fr": "Taux de cotisation patronale SGK",
-        "es": "Tasa de prima del empleador al SGK"
+        "es": "Tasa de prima del empleador al SGK",
+        "ar": "نسبة قسط صاحب العمل للضمان الاجتماعي"
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Beitragsbemessungsgrenze (TL)",
         "fr": "Plafond (TL)",
         "es": "Salario máximo (TL)",
-        "ar": "Tavan Ücret (TL)"
+        "ar": "الحد الأقصى للراتب (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "SGK primine esas kazanç üst sınırı",
         "tr": "SGK primine esas kazanç üst sınırı",
         "de": "Obergrenze des beitragspflichtigen Entgelts",
         "fr": "Plafond de revenu soumis à cotisation SGK",
-        "es": "Límite superior de ingresos sujetos a prima del SGK"
+        "es": "Límite superior de ingresos sujetos a prima del SGK",
+        "ar": "الحد الأعلى للأجر الخاضع لقسط الضمان الاجتماعي"
       }
     }
   ],
   "formulas": {
-    "result": "monthlyGrossSalary + employeeRate + employerRate",
-    "result_copy": "monthlyGrossSalary + employeeRate + employerRate"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "employeeRate * (employeeRate / 100) * 1 * monthlyGrossSalary",
+    "result": "employeeRate * (employeeRate / 100) * 1 * monthlyGrossSalary * capAmount"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "employeeContribution",
-      "employerContribution"
+      "annual_exposure_hours",
+      "direct_labor_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
-    "dataConfidenceAdjusted": "toplamSGKPrimi",
-    "unit": "TL"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

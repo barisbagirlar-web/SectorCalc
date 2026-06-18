@@ -14,14 +14,15 @@
         "de": "Kalorienaufnahme an normalen Tagen",
         "fr": "Apport calorique d'un jour normal",
         "es": "Ingesta calórica en día normal",
-        "ar": "Normal Day Calorie Intake"
+        "ar": "السعرات الحرارية اليومية العادية"
       },
       "businessContext_i18n": {
         "en": "Average calorie consumption on normal eating days.",
         "tr": "Normal yeme günlerinde ortalama kalori tüketimi.",
         "de": "Durchschnittliche Kalorienaufnahme an normalen Esstagen.",
         "fr": "Consommation calorique moyenne lors des jours d'alimentation normale.",
-        "es": "Consumo calórico promedio en días de alimentación normal."
+        "es": "Consumo calórico promedio en días de alimentación normal.",
+        "ar": "متوسط استهلاك السعرات الحرارية في أيام الأكل العادية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalorienaufnahme an Fastentagen",
         "fr": "Apport calorique d'un jour de jeûne",
         "es": "Ingesta calórica en día de ayuno",
-        "ar": "Fasting Day Calorie Intake"
+        "ar": "السعرات الحرارية في يوم الصيام"
       },
       "businessContext_i18n": {
         "en": "Calorie intake on fasting days (often 0-500 kcal).",
         "tr": "Oruç günlerinde kalori alımı (genellikle 0-500 kcal).",
         "de": "Kalorienaufnahme an Fastentagen (oft 0-500 kcal).",
         "fr": "Apport calorique lors des jours de jeûne (souvent 0-500 kcal).",
-        "es": "Ingesta calórica en días de ayuno (a menudo 0-500 kcal)."
+        "es": "Ingesta calórica en días de ayuno (a menudo 0-500 kcal).",
+        "ar": "استهلاك السعرات الحرارية في أيام الصيام (غالبًا 0-500 سعرة حرارية)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
         "es": "Número de días",
-        "ar": "Number of Days"
+        "ar": "عدد الأيام"
       },
       "businessContext_i18n": {
         "en": "Total number of days to calculate for the regimen.",
         "tr": "Rejim için hesaplanacak toplam gün sayısı.",
         "de": "Gesamtzahl der Tage für die Berechnung des Regimes.",
         "fr": "Nombre total de jours pour calculer le régime.",
-        "es": "Número total de días para calcular el régimen."
+        "es": "Número total de días para calcular el régimen.",
+        "ar": "إجمالي عدد الأيام للحساب في النظام."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Starttag-Typ",
         "fr": "Type de jour de départ",
         "es": "Tipo de día inicial",
-        "ar": "Starting Day Type"
+        "ar": "نوع اليوم البادئ"
       },
       "businessContext_i18n": {
         "en": "0 if starting with a normal day, 1 if starting with a fasting day.",
         "tr": "Normal günle başlıyorsa 0, oruç günüyle başlıyorsa 1.",
         "de": "0, wenn mit einem normalen Tag begonnen wird, 1, wenn mit einem Fastentag begonnen wird.",
         "fr": "0 si commence par un jour normal, 1 si commence par un jour de jeûne.",
-        "es": "0 si comienza con un día normal, 1 si comienza con un día de ayuno."
+        "es": "0 si comienza con un día normal, 1 si comienza con un día de ayuno.",
+        "ar": "0 إذا بدأ بيوم عادي، 1 إذا بدأ بيوم صيام."
       }
     }
   ],
   "formulas": {
-    "result": "normalCal + fastingCal + totalDays",
-    "result_copy": "normalCal + fastingCal + totalDays"
+    "normalized_product": "normalCal * fastingCal * totalDays * startDay",
+    "result": "normalCal * fastingCal * totalDays * startDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "averageDailyCalories",
-      "fastingDays"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "averageDailyCalories",
-    "unit": "kcal/day"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

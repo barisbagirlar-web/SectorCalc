@@ -30,8 +30,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Taguchi_quality_loss_function_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.target_value + input.lower_spec_limit + input.upper_spec_limit; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.target_value + input.lower_spec_limit + input.upper_spec_limit; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.target_value * input.cost_at_limit; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.target_value * input.cost_at_limit; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.target_value * input.cost_at_limit * 1 * (input.lower_spec_limit * input.upper_spec_limit); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.lower_spec_limit; results["factor_lower_spec_limit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_lower_spec_limit"] = 0; }
+  try { const v = input.upper_spec_limit; results["factor_upper_spec_limit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_upper_spec_limit"] = 0; }
   return results;
 }
 
@@ -46,8 +49,8 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

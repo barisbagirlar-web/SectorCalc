@@ -14,14 +14,15 @@
         "de": "Einzugsgebiet",
         "fr": "Zone de captage",
         "es": "Área de captación",
-        "ar": "Catchment Area"
+        "ar": "منطقة التجميع"
       },
       "businessContext_i18n": {
         "en": "The surface area of the catchment contributing to runoff.",
         "tr": "Akışa katkıda bulunan toplama alanının yüzey alanı.",
         "de": "Die Oberfläche des Einzugsgebiets, die zum Abfluss beiträgt.",
         "fr": "La surface de la zone de captage contribuant au ruissellement.",
-        "es": "Superficie del área de captación que contribuye a la escorrentía."
+        "es": "Superficie del área de captación que contribuye a la escorrentía.",
+        "ar": "مساحة سطح منطقة التجميع المساهمة في الجريان السطحي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abflussbeiwert (C)",
         "fr": "Coefficient de ruissellement (C)",
         "es": "Coeficiente de escorrentía (C)",
-        "ar": "Runoff Coefficient (C)"
+        "ar": "معامل الجريان السطحي (C)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope.",
         "tr": "Yüzey tipine ve eğime bağlı olarak yağışın akışa dönüşen kısmını temsil eden boyutsuz katsayı.",
         "de": "Dimensionsloser Beiwert, der den Anteil des Niederschlags darstellt, der zum Abfluss wird, abhängig von Oberflächentyp und Neigung.",
         "fr": "Coefficient sans dimension représentant la fraction des précipitations qui devient ruissellement, dépendant du type de surface et de la pente.",
-        "es": "Coeficiente adimensional que representa la fracción de lluvia que se convierte en escorrentía, dependiendo del tipo de superficie y pendiente."
+        "es": "Coeficiente adimensional que representa la fracción de lluvia que se convierte en escorrentía, dependiendo del tipo de superficie y pendiente.",
+        "ar": "معامل بلا أبعاد يمثل جزء هطول الأمطار الذي يتحول إلى جريان سطحي، اعتمادًا على نوع السطح والانحدار."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Regenintensität (I)",
         "fr": "Intensité des précipitations (I)",
         "es": "Intensidad de lluvia (I)",
-        "ar": "Rainfall Intensity (I)"
+        "ar": "شدة هطول الأمطار (I)"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period.",
         "tr": "Belirtilen süre ve dönüş periyodu için genellikle IDF eğrilerinden türetilen, milimetre/saat cinsinden tasarım yağış şiddeti.",
         "de": "Bemessungsregenintensität in Millimetern pro Stunde, typischerweise aus IDF-Kurven für die angegebene Dauer und Wiederkehrperiode abgeleitet.",
         "fr": "Intensité de précipitation de conception en millimètres par heure, généralement dérivée des courbes IDF pour la durée et la période de retour spécifiées.",
-        "es": "Intensidad de lluvia de diseño en milímetros por hora, típicamente derivada de curvas IDF para la duración y período de retorno especificados."
+        "es": "Intensidad de lluvia de diseño en milímetros por hora, típicamente derivada de curvas IDF para la duración y período de retorno especificados.",
+        "ar": "شدة هطول الأمطار التصميمية بالمليمتر في الساعة، تُشتق عادةً من منحنيات IDF للمدة وفترة العودة المحددتين."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions.",
         "tr": "Belirsizlikleri ve toplama alanı koşullarındaki gelecekteki değişiklikleri hesaba katmak için hesaplanan akışa uygulanan çarpan.",
         "de": "Multiplikator, der auf den berechneten Abfluss angewendet wird, um Unsicherheiten und zukünftige Änderungen der Einzugsgebietsbedingungen zu berücksichtigen.",
         "fr": "Multiplicateur appliqué au ruissellement calculé pour tenir compte des incertitudes et des changements futurs des conditions du bassin versant.",
-        "es": "Multiplicador aplicado a la escorrentía calculada para tener en cuenta incertidumbres y cambios futuros en las condiciones de la cuenca."
+        "es": "Multiplicador aplicado a la escorrentía calculada para tener en cuenta incertidumbres y cambios futuros en las condiciones de la cuenca.",
+        "ar": "مُضاعف يُطبق على الجريان السطحي المحسوب لمراعاة حالات عدم اليقين والتغيرات المستقبلية في ظروف منطقة التجميع."
       }
     }
   ],

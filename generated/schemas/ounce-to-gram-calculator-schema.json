@@ -14,14 +14,15 @@
         "de": "Gewicht (oz)",
         "fr": "Poids (oz)",
         "es": "Peso (oz)",
-        "ar": "Weight (oz)"
+        "ar": "الوزن (أونصة)"
       },
       "businessContext_i18n": {
         "en": "Enter weight in avoirdupois ounces",
         "tr": "Avoirdupois ons cinsinden ağırlık girin",
         "de": "Gewicht in Avoirdupois-Unzen eingeben",
         "fr": "Saisir le poids en onces avoirdupois",
-        "es": "Ingrese el peso en onzas avoirdupois"
+        "es": "Ingrese el peso en onzas avoirdupois",
+        "ar": "أدخل الوزن بالأونصة الأفردوبوا"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (g/oz)",
         "fr": "Facteur de conversion (g/oz)",
         "es": "Factor de conversión (g/oz)",
-        "ar": "Conversion Factor (g/oz)"
+        "ar": "عامل التحويل (جم/أونصة)"
       },
       "businessContext_i18n": {
         "en": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768",
         "tr": "Ons başına gram. Varsayılan avoirdupois onsudur. Troy ons için 31,1034768 kullanın",
         "de": "Gramm pro Unze. Standard ist die Avoirdupois-Unze. Für die Feinunze 31,1034768 verwenden.",
         "fr": "Grammes par once. La valeur par défaut est l'once avoirdupois. Pour l'once troy, utiliser 31,1034768",
-        "es": "Gramos por onza. El valor predeterminado es para onza avoirdupois. Para onza troy, use 31.1034768"
+        "es": "Gramos por onza. El valor predeterminado es para onza avoirdupois. Para onza troy, use 31.1034768",
+        "ar": "الجرام لكل أونصة. الافتراضي هو الأونصة الأفردوبوا. للأونصة التروي، استخدم 31.1034768"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Artikel",
         "fr": "Nombre d'articles",
         "es": "Número de artículos",
-        "ar": "Number of Items"
+        "ar": "عدد العناصر"
       },
       "businessContext_i18n": {
         "en": "If converting total weight of multiple identical items, enter quantity",
         "tr": "Birden fazla özdeş öğenin toplam ağırlığını dönüştürüyorsanız, miktarı girin",
         "de": "Bei Umrechnung des Gesamtgewichts mehrerer identischer Artikel Anzahl eingeben",
         "fr": "Si conversion du poids total de plusieurs articles identiques, saisir la quantité",
-        "es": "Si convierte el peso total de varios artículos idénticos, ingrese la cantidad"
+        "es": "Si convierte el peso total de varios artículos idénticos, ingrese la cantidad",
+        "ar": "إذا كنت تحول الوزن الإجمالي لعدة عناصر متطابقة، أدخل الكمية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for result rounding",
         "tr": "Sonuç yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة"
       }
     }
   ],

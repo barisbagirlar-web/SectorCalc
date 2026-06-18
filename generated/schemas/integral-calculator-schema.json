@@ -14,14 +14,15 @@
         "de": "Kubischer Koeffizient (a)",
         "fr": "Coefficient cubique (a)",
         "es": "Coeficiente cúbico (a)",
-        "ar": "Kübik katsayı (a)"
+        "ar": "المعامل التكعيبي (أ)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x³ terimi katsayısı",
         "tr": "Polinomun x³ terimi katsayısı",
         "de": "Koeffizient des x³-Terms des Polynoms",
         "fr": "Coefficient du terme x³ du polynôme",
-        "es": "Coeficiente del término x³ del polinomio"
+        "es": "Coeficiente del término x³ del polinomio",
+        "ar": "معامل حد x³ في كثيرة الحدود"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Quadratischer Koeffizient (b)",
         "fr": "Coefficient quadratique (b)",
         "es": "Coeficiente cuadrático (b)",
-        "ar": "Kare katsayı (b)"
+        "ar": "المعامل التربيعي (ب)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x² terimi katsayısı",
         "tr": "Polinomun x² terimi katsayısı",
         "de": "Koeffizient des x²-Terms des Polynoms",
         "fr": "Coefficient du terme x² du polynôme",
-        "es": "Coeficiente del término x² del polinomio"
+        "es": "Coeficiente del término x² del polinomio",
+        "ar": "معامل حد x² في كثيرة الحدود"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Linearer Koeffizient (c)",
         "fr": "Coefficient linéaire (c)",
         "es": "Coeficiente lineal (c)",
-        "ar": "Doğrusal katsayı (c)"
+        "ar": "المعامل الخطي (ج)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x terimi katsayısı",
         "tr": "Polinomun x terimi katsayısı",
         "de": "Koeffizient des x-Terms des Polynoms",
         "fr": "Coefficient du terme x du polynôme",
-        "es": "Coeficiente del término x del polinomio"
+        "es": "Coeficiente del término x del polinomio",
+        "ar": "معامل حد x في كثيرة الحدود"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Konstantes Glied (d)",
         "fr": "Terme constant (d)",
         "es": "Término constante (d)",
-        "ar": "Sabit terim (d)"
+        "ar": "الحد الثابت (d)"
       },
       "businessContext_i18n": {
         "en": "Polinomun sabit terimi",
         "tr": "Polinomun sabit terimi",
         "de": "Konstanter Term des Polynoms",
         "fr": "Terme constant du polynôme",
-        "es": "Término constante del polinomio"
+        "es": "Término constante del polinomio",
+        "ar": "الحد الثابت في كثيرة الحدود"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Untere Grenze (x₁)",
         "fr": "Limite inférieure (x₁)",
         "es": "Límite inferior (x₁)",
-        "ar": "Alt sınır (x₁)"
+        "ar": "الحد الأدنى (x₁)"
       },
       "businessContext_i18n": {
         "en": "İntegral alt sınırı",
         "tr": "İntegral alt sınırı",
         "de": "Untere Integrationsgrenze",
         "fr": "Limite inférieure de l'intégrale",
-        "es": "Límite inferior de la integral"
+        "es": "Límite inferior de la integral",
+        "ar": "الحد الأدنى للتكامل"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Obere Grenze (x₂)",
         "fr": "Limite supérieure (x₂)",
         "es": "Límite superior (x₂)",
-        "ar": "Üst sınır (x₂)"
+        "ar": "الحد الأعلى (x₂)"
       },
       "businessContext_i18n": {
         "en": "İntegral üst sınırı",
         "tr": "İntegral üst sınırı",
         "de": "Obere Integrationsgrenze",
         "fr": "Limite supérieure de l'intégrale",
-        "es": "Límite superior de la integral"
+        "es": "Límite superior de la integral",
+        "ar": "الحد الأعلى للتكامل"
       }
     }
   ],
   "formulas": {
-    "result": "a + b + c",
-    "result_copy": "a + b + c"
+    "normalized_product": "a * b * c * d",
+    "result": "a * b * c * d * (x1 * x2)",
+    "adjustment_factor": "x1 * x2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "F(x₂)",
-      "F(x₁)"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "integral",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

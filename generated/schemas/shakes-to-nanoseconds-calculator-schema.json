@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Shakes",
         "tr": "Shake",
-        "de": "Shakes",
-        "fr": "Shakes",
-        "es": "Shakes",
-        "ar": "Shakes"
+        "de": "Schüttelt",
+        "fr": "Secousses",
+        "es": "Agitaciones",
+        "ar": "شيكات"
       },
       "businessContext_i18n": {
         "en": "Enter the number of shakes to convert.",
         "tr": "Dönüştürülecek shake sayısını girin.",
         "de": "Geben Sie die Anzahl der Shakes zur Umrechnung ein.",
         "fr": "Entrez le nombre de shakes à convertir.",
-        "es": "Ingrese el número de shakes a convertir."
+        "es": "Ingrese el número de shakes a convertir.",
+        "ar": "أدخل عدد الشيكات للتحويل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
         "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Umrechnungsfaktor (ns/Shake)",
         "fr": "Facteur de conversion (ns/shake)",
         "es": "Factor de conversión (ns/shake)",
-        "ar": "Conversion Factor (ns/shake)"
+        "ar": "عامل التحويل (نانو ثانية/شيكة)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion: 1 shake = 10 nanoseconds. Change if needed.",
         "tr": "Standart dönüşüm: 1 shake = 10 nanosaniye. Gerekirse değiştirin.",
         "de": "Standardumrechnung: 1 Shake = 10 Nanosekunden. Bei Bedarf ändern.",
         "fr": "Conversion standard : 1 shake = 10 nanosecondes. Modifiez si nécessaire.",
-        "es": "Conversión estándar: 1 shake = 10 nanosegundos. Cambiar si es necesario."
+        "es": "Conversión estándar: 1 shake = 10 nanosegundos. Cambiar si es necesario.",
+        "ar": "التحويل القياسي: 1 شيكة = 10 نانو ثانية. غيّر إذا لزم الأمر."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ausgabeskalierungsfaktor",
         "fr": "Facteur d'échelle de sortie",
         "es": "Factor de escala de salida",
-        "ar": "Output Scale Factor"
+        "ar": "عامل مقياس الإخراج"
       },
       "businessContext_i18n": {
         "en": "Multiply the resulting nanoseconds by this factor, e.g., 1e3 for picoseconds, 1e-3 for microseconds.",
         "tr": "Ortaya çıkan nanosaniyeyi bu faktörle çarpın, örn. pikosaniye için 1e3, mikrosaniye için 1e-3.",
         "de": "Multiplizieren Sie die resultierenden Nanosekunden mit diesem Faktor, z. B. 1e3 für Pikosekunden, 1e-3 für Mikrosekunden.",
         "fr": "Multipliez les nanosecondes résultantes par ce facteur, par ex. 1e3 pour des picosecondes, 1e-3 pour des microsecondes.",
-        "es": "Multiplique los nanosegundos resultantes por este factor, p. ej., 1e3 para picosegundos, 1e-3 para microsegundos."
+        "es": "Multiplique los nanosegundos resultantes por este factor, p. ej., 1e3 para picosegundos, 1e-3 para microsegundos.",
+        "ar": "اضرب الناتج بالنانو ثانية بهذا العامل، مثلاً 1e3 للبيكو ثانية، 1e-3 للميكرو ثانية."
       }
     }
   ],

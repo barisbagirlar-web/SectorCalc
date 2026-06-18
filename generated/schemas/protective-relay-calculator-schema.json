@@ -14,14 +14,15 @@
         "de": "CT-Verhältnis",
         "fr": "Rapport TC",
         "es": "Relación de TC",
-        "ar": "CT Ratio"
+        "ar": "نسبة CT"
       },
       "businessContext_i18n": {
         "en": "Current transformer ratio (primary to secondary)",
         "tr": "Akım trafosu dönüşüm oranı (primerden sekondere)",
         "de": "Stromwandlerverhältnis (primär zu sekundär)",
         "fr": "Rapport du transformateur de courant (primaire/secondaire)",
-        "es": "Relación del transformador de corriente (primario a secundario)"
+        "es": "Relación del transformador de corriente (primario a secundario)",
+        "ar": "نسبة محول التيار (الابتدائي إلى الثانوي)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Relais-Ansprechstrom",
         "fr": "Courant de pick-up du relais",
         "es": "Corriente de arranque del relé",
-        "ar": "Relay Pickup Current"
+        "ar": "تيار التقاط المرحل"
       },
       "businessContext_i18n": {
         "en": "Relay pickup setting in Amps at secondary side",
         "tr": "Sekonder tarafta röle çekme ayarı (Amper)",
         "de": "Relais-Einstellwert in Ampere auf der Sekundärseite",
         "fr": "Réglage de pick-up du relais en ampères côté secondaire",
-        "es": "Ajuste de captación del relé en amperios en el lado secundario"
+        "es": "Ajuste de captación del relé en amperios en el lado secundario",
+        "ar": "إعداد التقاط المرحل بالأمبير على الجانب الثانوي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Primärer Fehlerstrom",
         "fr": "Courant de défaut primaire",
         "es": "Corriente de falla primaria",
-        "ar": "Primary Fault Current"
+        "ar": "تيار العطل الابتدائي"
       },
       "businessContext_i18n": {
         "en": "Fault current in the primary circuit",
         "tr": "Primer devredeki arıza akımı",
         "de": "Fehlerstrom im Primärkreis",
         "fr": "Courant de défaut dans le circuit primaire",
-        "es": "Corriente de falla en el circuito primario"
+        "es": "Corriente de falla en el circuito primario",
+        "ar": "تيار العطل في الدائرة الابتدائية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zeitmultiplizierer-Einstellung (TMS)",
         "fr": "Réglage du multiplicateur de temps (TMS)",
         "es": "Ajuste del multiplicador de tiempo (TMS)",
-        "ar": "Time Multiplier Setting (TMS)"
+        "ar": "إعداد مضاعف الوقت (TMS)"
       },
       "businessContext_i18n": {
         "en": "Time multiplier setting of the relay",
         "tr": "Rölenin zaman çarpan ayarı",
         "de": "Zeitmultiplizierer-Einstellung des Relais",
         "fr": "Réglage du multiplicateur de temps du relais",
-        "es": "Ajuste del multiplicador de tiempo del relé"
+        "es": "Ajuste del multiplicador de tiempo del relé",
+        "ar": "إعداد مضاعف الوقت للمرحل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kurvenkonstante k",
         "fr": "Constante de courbe k",
         "es": "Constante k de la curva",
-        "ar": "Curve Constant k"
+        "ar": "ثابت المنحنى k"
       },
       "businessContext_i18n": {
         "en": "k factor for the IEC inverse-time curve equation",
         "tr": "IEC ters zaman eğrisi denklemi için k faktörü",
         "de": "k-Faktor für die IEC-Inverse-Zeit-Kurvengleichung",
         "fr": "Facteur k pour l'équation de courbe inverse IEC",
-        "es": "Factor k para la ecuación de la curva de tiempo inverso IEC"
+        "es": "Factor k para la ecuación de la curva de tiempo inverso IEC",
+        "ar": "عامل k لمعادلة المنحنى العكسي IEC"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kurvenkonstante α",
         "fr": "Constante de courbe α",
         "es": "Constante α de la curva",
-        "ar": "Curve Constant α"
+        "ar": "ثابت المنحنى α"
       },
       "businessContext_i18n": {
         "en": "α exponent for the IEC inverse-time curve equation",
         "tr": "IEC ters zaman eğrisi denklemi için α üssü",
         "de": "α-Exponent für die IEC-Inverse-Zeit-Kurvengleichung",
         "fr": "Exposant α pour l'équation de courbe inverse IEC",
-        "es": "Exponente α para la ecuación de la curva de tiempo inverso IEC"
+        "es": "Exponente α para la ecuación de la curva de tiempo inverso IEC",
+        "ar": "أس α لمعادلة المنحنى العكسي IEC"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Kurvenkonstante c",
         "fr": "Constante de courbe c",
         "es": "Constante c de la curva",
-        "ar": "Curve Constant c"
+        "ar": "ثابت المنحنى c"
       },
       "businessContext_i18n": {
         "en": "c additive constant for the IEC inverse-time curve equation",
         "tr": "IEC ters zaman eğrisi denklemi için c toplama sabiti",
         "de": "c-additive Konstante für die IEC-Inverse-Zeit-Kurvengleichung",
         "fr": "Constante additive c pour l'équation de courbe inverse IEC",
-        "es": "Constante aditiva c para la ecuación de la curva de tiempo inverso IEC"
+        "es": "Constante aditiva c para la ecuación de la curva de tiempo inverso IEC",
+        "ar": "ثابت الإضافة c لمعادلة المنحنى العكسي IEC"
       }
     }
   ],

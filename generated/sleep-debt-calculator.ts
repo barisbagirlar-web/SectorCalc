@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Sleep_debt_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.requiredSleepPerDay + input.actualSleepDay1 + input.actualSleepDay2; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.requiredSleepPerDay + input.actualSleepDay1 + input.actualSleepDay2; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.requiredSleepPerDay * input.actualSleepDay1 * input.actualSleepDay2 * input.actualSleepDay3; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.requiredSleepPerDay * input.actualSleepDay1 * input.actualSleepDay2 * input.actualSleepDay3 * (input.actualSleepDay4 * input.actualSleepDay5 * input.actualSleepDay6 * input.actualSleepDay7); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.actualSleepDay4 * input.actualSleepDay5 * input.actualSleepDay6 * input.actualSleepDay7; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -46,8 +47,8 @@ export function calculateSleep_debt_calculator(input: Sleep_debt_calculatorInput
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

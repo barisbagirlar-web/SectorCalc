@@ -14,14 +14,15 @@
         "de": "Designbreite",
         "fr": "Largeur du motif",
         "es": "Ancho del diseño",
-        "ar": "Design Width"
+        "ar": "عرض التصميم"
       },
       "businessContext_i18n": {
         "en": "Width of the embroidery design in centimeters.",
         "tr": "Nakış tasarımının santimetre cinsinden genişliği.",
         "de": "Breite des Stickdesigns in Zentimetern.",
         "fr": "Largeur du motif de broderie en centimètres.",
-        "es": "Ancho del diseño de bordado en centímetros."
+        "es": "Ancho del diseño de bordado en centímetros.",
+        "ar": "عرض تصميم التطريز بالسنتيمتر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Designhöhe",
         "fr": "Hauteur du motif",
         "es": "Alto del diseño",
-        "ar": "Design Height"
+        "ar": "ارتفاع التصميم"
       },
       "businessContext_i18n": {
         "en": "Height of the embroidery design in centimeters.",
         "tr": "Nakış tasarımının santimetre cinsinden yüksekliği.",
         "de": "Höhe des Stickdesigns in Zentimetern.",
         "fr": "Hauteur du motif de broderie en centimètres.",
-        "es": "Alto del diseño de bordado en centímetros."
+        "es": "Alto del diseño de bordado en centímetros.",
+        "ar": "ارتفاع تصميم التطريز بالسنتيمتر."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stickdichte",
         "fr": "Densité de points",
         "es": "Densidad de puntadas",
-        "ar": "Stitch Density"
+        "ar": "كثافة الغرز"
       },
       "businessContext_i18n": {
         "en": "Average number of stitches per square centimeter for the design.",
         "tr": "Tasarım için santimetrekare başına ortalama dikiş sayısı.",
         "de": "Durchschnittliche Anzahl Stiche pro Quadratzentimeter für das Design.",
         "fr": "Nombre moyen de points par centimètre carré pour le motif.",
-        "es": "Número promedio de puntadas por centímetro cuadrado para el diseño."
+        "es": "Número promedio de puntadas por centímetro cuadrado para el diseño.",
+        "ar": "متوسط عدد الغرز لكل سنتيمتر مربع للتصميم."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Garnverbrauchsfaktor",
         "fr": "Facteur de consommation de fil",
         "es": "Factor de consumo de hilo",
-        "ar": "Thread Consumption Factor"
+        "ar": "عامل استهلاك الخيط"
       },
       "businessContext_i18n": {
         "en": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight.",
         "tr": "Dikiş tipi ve iplik ağırlığına bağlı olarak 1000 dikiş başına tüketilen metre cinsinden iplik.",
         "de": "Meter Garnverbrauch pro 1000 Stiche, basierend auf Stichtyp und Garnstärke.",
         "fr": "Mètres de fil consommés par 1000 points, basés sur le type de point et le poids du fil.",
-        "es": "Metros de hilo consumidos por cada 1000 puntadas, según el tipo de puntada y el grosor del hilo."
+        "es": "Metros de hilo consumidos por cada 1000 puntadas, según el tipo de puntada y el grosor del hilo.",
+        "ar": "أمتار الخيط المستهلكة لكل 1000 غرزة، بناءً على نوع الغرزة ووزن الخيط."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Garnkosten pro Meter",
         "fr": "Coût du fil par mètre",
         "es": "Costo del hilo por metro",
-        "ar": "Thread Cost per Meter"
+        "ar": "تكلفة الخيط لكل متر"
       },
       "businessContext_i18n": {
         "en": "Cost of thread per meter in your local currency.",
         "tr": "Yerel para biriminizde metre başına iplik maliyeti.",
         "de": "Kosten des Garns pro Meter in Ihrer Landeswährung.",
         "fr": "Coût du fil par mètre dans votre devise locale.",
-        "es": "Costo del hilo por metro en su moneda local."
+        "es": "Costo del hilo por metro en su moneda local.",
+        "ar": "تكلفة الخيط لكل متر بعملتك المحلية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Maschineneffizienz",
         "fr": "Efficacité de la machine",
         "es": "Eficiencia de la máquina",
-        "ar": "Machine Efficiency"
+        "ar": "كفاءة الماكينة"
       },
       "businessContext_i18n": {
         "en": "Average machine speed in stitches per minute, including downtime.",
         "tr": "Duruşlar dahil makinenin dakikadaki ortalama dikiş hızı.",
         "de": "Durchschnittliche Maschinengeschwindigkeit in Stichen pro Minute, inklusive Ausfallzeiten.",
         "fr": "Vitesse moyenne de la machine en points par minute, y compris les temps d'arrêt.",
-        "es": "Velocidad promedio de la máquina en puntadas por minuto, incluyendo tiempo de inactividad."
+        "es": "Velocidad promedio de la máquina en puntadas por minuto, incluyendo tiempo de inactividad.",
+        "ar": "متوسط سرعة الماكينة بالغرز في الدقيقة، بما في ذلك وقت التوقف."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Stündlicher Arbeitslohn",
         "fr": "Taux horaire de main-d'œuvre",
         "es": "Tarifa horaria de mano de obra",
-        "ar": "Labor Hourly Rate"
+        "ar": "أجر العمالة بالساعة"
       },
       "businessContext_i18n": {
         "en": "Hourly labor cost for the machine operator.",
         "tr": "Makine operatörü için saatlik işçilik maliyeti.",
         "de": "Stündliche Arbeitskosten für den Maschinenbediener.",
         "fr": "Coût horaire de la main-d'œuvre pour l'opérateur de la machine.",
-        "es": "Costo laboral por hora del operador de la máquina."
+        "es": "Costo laboral por hora del operador de la máquina.",
+        "ar": "تكلفة العمالة بالساعة لمشغل الماكينة."
       }
     }
   ],

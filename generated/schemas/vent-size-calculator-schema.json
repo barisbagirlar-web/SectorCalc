@@ -13,14 +13,16 @@
         "tr": "Oda Hacmi",
         "de": "Raumvolumen",
         "fr": "Volume de la pièce",
-        "es": "Oda Hacmi",
-        "ar": "Oda Hacmi"
+        "es": "Volumen de la habitación",
+        "ar": "حجم الغرفة"
       },
       "businessContext_i18n": {
         "en": "Havalandırma yapılacak odanın toplam iç hacmi",
         "tr": "Havalandırma yapılacak odanın toplam iç hacmi",
         "de": "Gesamtes Innenvolumen des zu belüftenden Raums",
-        "fr": "Volume intérieur total de la pièce à ventiler"
+        "fr": "Volume intérieur total de la pièce à ventiler",
+        "es": "Volumen interior total de la habitación a ventilar",
+        "ar": "الحجم الداخلي الكلي للغرفة المراد تهويتها"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Hava Değişim Sayısı (ACH)",
         "de": "Luftwechselrate (ACH)",
         "fr": "Taux de renouvellement d'air (ACH)",
-        "es": "Hava Değişim Sayısı (ACH)",
-        "ar": "Hava Değişim Sayısı (ACH)"
+        "es": "Tasa de Cambio de Aire (ACH)",
+        "ar": "عدد مرات تغيير الهواء في الساعة (ACH)"
       },
       "businessContext_i18n": {
         "en": "Saatte istenen hava değişim sayısı",
         "tr": "Saatte istenen hava değişim sayısı",
         "de": "Gewünschte Anzahl von Luftwechseln pro Stunde",
-        "fr": "Nombre de renouvellements d'air souhaité par heure"
+        "fr": "Nombre de renouvellements d'air souhaité par heure",
+        "es": "Número deseado de cambios de aire por hora",
+        "ar": "عدد مرات تغيير الهواء المطلوبة في الساعة"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Luftgeschwindigkeit",
         "fr": "Vitesse de l'air",
         "es": "Velocidad del aire",
-        "ar": "Hava Hızı"
+        "ar": "سرعة الهواء"
       },
       "businessContext_i18n": {
         "en": "Menfezden geçen havanın ortalama hızı",
         "tr": "Menfezden geçen havanın ortalama hızı",
         "de": "Durchschnittliche Luftgeschwindigkeit durch die Öffnung",
-        "fr": "Vitesse moyenne de l'air à travers la bouche"
+        "fr": "Vitesse moyenne de l'air à travers la bouche",
+        "es": "Velocidad promedio del aire a través de la rejilla",
+        "ar": "متوسط سرعة الهواء عبر الفتحة"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Emniyet Katsayısı"
+        "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Hesaplamaya eklenen emniyet payı",
         "tr": "Hesaplamaya eklenen emniyet payı",
         "de": "Sicherheitszuschlag zur Berechnung",
-        "fr": "Marge de sécurité ajoutée au calcul"
+        "fr": "Marge de sécurité ajoutée au calcul",
+        "es": "Factor de seguridad añadido al cálculo",
+        "ar": "عامل الأمان المضاف إلى الحساب"
       }
     }
   ],

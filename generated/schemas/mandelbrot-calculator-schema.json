@@ -14,14 +14,15 @@
         "de": "Realteil (cx)",
         "fr": "Partie réelle (cx)",
         "es": "Parte real (cx)",
-        "ar": "Real part (cx)"
+        "ar": "الجزء الحقيقي (cx)"
       },
       "businessContext_i18n": {
         "en": "The real component of the complex parameter c.",
         "tr": "Karmaşık parametre c'nin gerçek bileşeni.",
         "de": "Die reelle Komponente des komplexen Parameters c.",
         "fr": "La composante réelle du paramètre complexe c.",
-        "es": "Componente real del parámetro complejo c."
+        "es": "Componente real del parámetro complejo c.",
+        "ar": "المكون الحقيقي للمعامل المركب c."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Imaginärteil (cy)",
         "fr": "Partie imaginaire (cy)",
         "es": "Parte imaginaria (cy)",
-        "ar": "Imaginary part (cy)"
+        "ar": "الجزء التخيلي (cy)"
       },
       "businessContext_i18n": {
         "en": "The imaginary component of the complex parameter c.",
         "tr": "Karmaşık parametre c'nin sanal bileşeni.",
         "de": "Die imaginäre Komponente des komplexen Parameters c.",
         "fr": "La composante imaginaire du paramètre complexe c.",
-        "es": "Componente imaginaria del parámetro complejo c."
+        "es": "Componente imaginaria del parámetro complejo c.",
+        "ar": "المكون التخيلي للمعامل المركب c."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maximale Iterationen",
         "fr": "Itérations maximales",
         "es": "Iteraciones máximas",
-        "ar": "Maximum Iterations"
+        "ar": "الحد الأقصى للتكرارات"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations before considering the point as part of the Mandelbrot set.",
         "tr": "Noktanın Mandelbrot kümesinin parçası olarak kabul edilmeden önceki maksimum yineleme sayısı.",
         "de": "Maximale Anzahl von Iterationen, bevor der Punkt als Teil der Mandelbrot-Menge betrachtet wird.",
         "fr": "Nombre maximal d'itérations avant de considérer le point comme faisant partie de l'ensemble de Mandelbrot.",
-        "es": "Número máximo de iteraciones antes de considerar el punto como parte del conjunto de Mandelbrot."
+        "es": "Número máximo de iteraciones antes de considerar el punto como parte del conjunto de Mandelbrot.",
+        "ar": "الحد الأقصى لعدد التكرارات قبل اعتبار النقطة جزءًا من مجموعة ماندلبروت."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Fluchtradius",
         "fr": "Rayon d'évasion",
         "es": "Radio de escape",
-        "ar": "Escape Radius"
+        "ar": "نصف قطر الهروب"
       },
       "businessContext_i18n": {
         "en": "Radius threshold for escape condition; typically 2.",
         "tr": "Kaçış koşulu için yarıçap eşiği; genellikle 2.",
         "de": "Radius-Schwellenwert für Fluchtbedingung; typischerweise 2.",
         "fr": "Seuil de rayon pour la condition d'évasion ; généralement 2.",
-        "es": "Umbral de radio para condición de escape; típicamente 2."
+        "es": "Umbral de radio para condición de escape; típicamente 2.",
+        "ar": "عتبة نصف القطر لشرط الهروب؛ عادة 2."
       }
     }
   ],
   "formulas": {
-    "result": "real + imag + maxIter",
-    "result_copy": "real + imag + maxIter"
+    "normalized_product": "real * imag * maxIter * escapeRadius",
+    "result": "real * imag * maxIter * escapeRadius"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "result.escaped",
-      "result.magnitude"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

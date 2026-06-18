@@ -14,14 +14,15 @@
         "de": "Zähler",
         "fr": "Numérateur",
         "es": "Numerador",
-        "ar": "Numerator"
+        "ar": "البسط"
       },
       "businessContext_i18n": {
         "en": "The value to be divided (the top of the fraction).",
         "tr": "Bölünecek değer (kesrin üst kısmı).",
         "de": "Der zu teilende Wert (der Zähler des Bruchs).",
         "fr": "La valeur à diviser (le numérateur de la fraction).",
-        "es": "El valor a dividir (numerador de la fracción)."
+        "es": "El valor a dividir (numerador de la fracción).",
+        "ar": "القيمة المراد قسمتها (بسط الكسر)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nenner",
         "fr": "Dénominateur",
         "es": "Denominador",
-        "ar": "Denominator"
+        "ar": "المقام"
       },
       "businessContext_i18n": {
         "en": "The value to divide by (the bottom of the fraction). Must not be zero.",
         "tr": "Bölen değer (kesrin alt kısmı). Sıfır olamaz.",
         "de": "Der Wert, durch den geteilt wird (der Nenner des Bruchs). Darf nicht null sein.",
         "fr": "La valeur par laquelle diviser (le dénominateur de la fraction). Ne doit pas être zéro.",
-        "es": "El valor divisor (denominador de la fracción). No debe ser cero."
+        "es": "El valor divisor (denominador de la fracción). No debe ser cero.",
+        "ar": "القيمة المقسوم عليها (مقام الكسر). يجب ألا تكون صفرًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Multiplikator",
         "fr": "Multiplicateur",
         "es": "Multiplicador",
-        "ar": "Multiplier"
+        "ar": "المضاعف"
       },
       "businessContext_i18n": {
         "en": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio.",
         "tr": "Orana uygulanacak çarpan, örn. yüzde için 100, ham oran için 1.",
         "de": "Multiplikator für das Verhältnis, z. B. 100 für Prozent, 1 für rohes Verhältnis.",
         "fr": "Multiplicateur à appliquer au rapport, par exemple 100 pour un pourcentage, 1 pour un rapport brut.",
-        "es": "Multiplicador para aplicar a la razón, ej., 100 para porcentaje, 1 para razón simple."
+        "es": "Multiplicador para aplicar a la razón, ej., 100 para porcentaje, 1 para razón simple.",
+        "ar": "المضاعف المطبق على النسبة، مثل 100 للنسبة المئوية، أو 1 للنسبة الخام."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the final output.",
         "tr": "Nihai çıktının yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung des Endergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat final.",
-        "es": "Número de decimales para redondear el resultado final."
+        "es": "Número de decimales para redondear el resultado final.",
+        "ar": "عدد المنازل العشرية لتقريب الناتج النهائي."
       }
     }
   ],

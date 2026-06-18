@@ -14,14 +14,15 @@
         "de": "Anzahl übereinstimmender Wörter",
         "fr": "Nombre de mots correspondants",
         "es": "Número de palabras coincidentes",
-        "ar": "Eşleşen Kelime Sayısı"
+        "ar": "عدد الكلمات المتطابقة"
       },
       "businessContext_i18n": {
         "en": "Her iki belgede bulunan aynı kelimelerin sayısı",
         "tr": "Her iki belgede bulunan aynı kelimelerin sayısı",
         "de": "Anzahl identischer Wörter in beiden Dokumenten",
         "fr": "Nombre de mots identiques trouvés dans les deux documents",
-        "es": "Número de palabras iguales encontradas en ambos documentos"
+        "es": "Número de palabras iguales encontradas en ambos documentos",
+        "ar": "عدد الكلمات المتطابقة الموجودة في كلا المستندين"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gesamtwörter Dokument A",
         "fr": "Total de mots du document A",
         "es": "Total de palabras del documento A",
-        "ar": "Belge A Toplam Kelime"
+        "ar": "إجمالي كلمات المستند أ"
       },
       "businessContext_i18n": {
         "en": "Belge A'nın toplam kelime sayısı",
         "tr": "Belge A'nın toplam kelime sayısı",
         "de": "Gesamtzahl der Wörter in Dokument A",
         "fr": "Nombre total de mots dans le document A",
-        "es": "Número total de palabras del documento A"
+        "es": "Número total de palabras del documento A",
+        "ar": "إجمالي عدد كلمات المستند أ"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtwörter Dokument B",
         "fr": "Total de mots du document B",
         "es": "Total de palabras del documento B",
-        "ar": "Belge B Toplam Kelime"
+        "ar": "إجمالي كلمات المستند ب"
       },
       "businessContext_i18n": {
         "en": "Belge B'nin toplam kelime sayısı",
         "tr": "Belge B'nin toplam kelime sayısı",
         "de": "Gesamtzahl der Wörter in Dokument B",
         "fr": "Nombre total de mots dans le document B",
-        "es": "Número total de palabras del documento B"
+        "es": "Número total de palabras del documento B",
+        "ar": "إجمالي عدد الكلمات في المستند ب"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl übereinstimmender Zitate",
         "fr": "Nombre de citations correspondantes",
         "es": "Número de citas coincidentes",
-        "ar": "Eşleşen Atıf Sayısı"
+        "ar": "عدد الاستشهادات المتطابقة"
       },
       "businessContext_i18n": {
         "en": "İki belge arasındaki ortak atıf sayısı",
         "tr": "İki belge arasındaki ortak atıf sayısı",
         "de": "Anzahl gemeinsamer Zitate zwischen den beiden Dokumenten",
         "fr": "Nombre de citations communes entre les deux documents",
-        "es": "Número de citas comunes entre los dos documentos"
+        "es": "Número de citas comunes entre los dos documentos",
+        "ar": "عدد الاستشهادات المشتركة بين المستندين"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gesamtzitate Dokument A",
         "fr": "Total de citations du document A",
         "es": "Total de citas del documento A",
-        "ar": "Belge A Toplam Atıf"
+        "ar": "إجمالي استشهادات المستند أ"
       },
       "businessContext_i18n": {
         "en": "Belge A'daki toplam atıf sayısı",
         "tr": "Belge A'daki toplam atıf sayısı",
         "de": "Gesamtzahl der Zitate in Dokument A",
         "fr": "Nombre total de citations dans le document A",
-        "es": "Número total de citas del documento A"
+        "es": "Número total de citas del documento A",
+        "ar": "إجمالي عدد الاستشهادات في المستند أ"
       }
     },
     {
@@ -129,43 +134,39 @@
         "de": "Gesamtzitate Dokument B",
         "fr": "Total de citations du document B",
         "es": "Total de citas del documento B",
-        "ar": "Belge B Toplam Atıf"
+        "ar": "إجمالي استشهادات المستند ب"
       },
       "businessContext_i18n": {
         "en": "Belge B'deki toplam atıf sayısı",
         "tr": "Belge B'deki toplam atıf sayısı",
         "de": "Gesamtzahl der Zitate in Dokument B",
         "fr": "Nombre total de citations dans le document B",
-        "es": "Número total de citas del documento B"
+        "es": "Número total de citas del documento B",
+        "ar": "إجمالي عدد الاستشهادات في المستند ب"
       }
     }
   ],
   "formulas": {
-    "result": "matchingWords + totalWordsDocA + totalWordsDocB",
-    "result_copy": "matchingWords + totalWordsDocA + totalWordsDocB"
+    "normalized_product": "matchingWords * totalWordsDocA * totalWordsDocB * matchingCitations",
+    "result": "matchingWords * totalWordsDocA * totalWordsDocB * matchingCitations * (totalCitationsA * totalCitationsB)",
+    "adjustment_factor": "totalCitationsA * totalCitationsB"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "wordSimilarity",
-        "label": "Kelime Benzerliği",
-        "unit": "%",
-        "formula": "wordSimilarity"
-      },
-      {
-        "id": "citationOverlap",
-        "label": "Atıf Örtüşmesi",
-        "unit": "%",
-        "formula": "citationOverlap"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "overallSimilarity",
-    "unit": "kelime"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",

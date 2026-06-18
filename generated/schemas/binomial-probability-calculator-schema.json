@@ -14,14 +14,15 @@
         "de": "Anzahl der Versuche (n)",
         "fr": "Nombre d'essais (n)",
         "es": "Número de ensayos (n)",
-        "ar": "Deneme Sayısı (n)"
+        "ar": "عدد المحاولات (n)"
       },
       "businessContext_i18n": {
         "en": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
         "tr": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
         "de": "Gesamtzahl der unabhängigen Versuche. Muss eine positive ganze Zahl sein.",
         "fr": "Nombre total d'essais indépendants. Doit être un entier positif.",
-        "es": "Número total de ensayos independientes. Debe ser un entero positivo."
+        "es": "Número total de ensayos independientes. Debe ser un entero positivo.",
+        "ar": "إجمالي عدد المحاولات المستقلة. يجب أن يكون عددًا صحيحًا موجبًا."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Erfolge (k)",
         "fr": "Nombre de succès (k)",
         "es": "Número de éxitos (k)",
-        "ar": "Başarı Sayısı (k)"
+        "ar": "عدد النجاحات (k)"
       },
       "businessContext_i18n": {
         "en": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
         "tr": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
         "de": "Gewünschte Anzahl von Erfolgen. Muss eine ganze Zahl zwischen 0 und n sein.",
         "fr": "Nombre de succès souhaité. Doit être un entier entre 0 et n.",
-        "es": "Número de éxitos deseado. Debe ser un entero entre 0 y n."
+        "es": "Número de éxitos deseado. Debe ser un entero entre 0 y n.",
+        "ar": "عدد النجاحات المطلوب تحقيقها. يجب أن يكون عددًا صحيحًا بين 0 و n."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Erfolgswahrscheinlichkeit (p)",
         "fr": "Probabilité de succès (p)",
         "es": "Probabilidad de éxito (p)",
-        "ar": "Başarı Olasılığı (p)"
+        "ar": "احتمال النجاح (p)"
       },
       "businessContext_i18n": {
         "en": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
         "tr": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
         "de": "Wahrscheinlichkeit eines Erfolgs in einem einzelnen Versuch. Muss zwischen 0 und 1 liegen.",
         "fr": "Probabilité de succès pour un seul essai. Doit être comprise entre 0 et 1.",
-        "es": "Probabilidad de éxito en un solo ensayo. Debe estar entre 0 y 1."
+        "es": "Probabilidad de éxito en un solo ensayo. Debe estar entre 0 y 1.",
+        "ar": "احتمال النجاح في محاولة واحدة. يجب أن يكون بين 0 و 1."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Ondalık Basamak"
+        "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen. Standard: 4.",
         "fr": "Nombre de décimales à afficher dans le résultat. Par défaut 4.",
-        "es": "Número de decimales a mostrar en el resultado. Valor predeterminado: 4."
+        "es": "Número de decimales a mostrar en el resultado. Valor predeterminado: 4.",
+        "ar": "عدد المنازل العشرية المعروضة في النتيجة. الافتراضي 4."
       }
     }
   ],
   "formulas": {
-    "result": "n + k + p",
-    "result_copy": "n + k + p"
+    "normalized_product": "n * k * p * precision",
+    "result": "n * k * p * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "logCombination",
-      "exactProbability"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "probability",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

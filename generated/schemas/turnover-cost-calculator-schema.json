@@ -25,13 +25,16 @@
         "tr": "Çalışan Sayısı",
         "de": "Anzahl der Mitarbeiter",
         "fr": "Nombre d'employés",
-        "es": "Número de empleados"
+        "es": "Número de empleados",
+        "ar": "عدد الموظفين"
       },
       "businessContext_i18n": {
         "en": "Total headcount at the start of the period.",
         "tr": "Dönem başındaki toplam çalışan sayısı.",
         "de": "Gesamtpersonalbestand zu Beginn des Zeitraums.",
-        "fr": "Effectif total au début de la période."
+        "fr": "Effectif total au début de la période.",
+        "es": "Plantilla total al inicio del período.",
+        "ar": "إجمالي عدد الموظفين في بداية الفترة."
       }
     },
     {
@@ -47,13 +50,17 @@
         "en": "Annual Turnover Rate",
         "tr": "Yıllık İşgücü Devir Oranı",
         "de": "Jährliche Fluktuationsrate",
-        "fr": "Taux de rotation annuel"
+        "fr": "Taux de rotation annuel",
+        "es": "Tasa de rotación anual",
+        "ar": "معدل الدوران السنوي"
       },
       "businessContext_i18n": {
         "en": "Percentage of employees leaving per year (voluntary + involuntary).",
         "tr": "Yılda ayrılan çalışan yüzdesi (gönüllü + gönülsüz).",
         "de": "Prozentsatz der Mitarbeiter, die pro Jahr ausscheiden (freiwillig + unfreiwillig).",
-        "fr": "Pourcentage d'employés quittant l'entreprise par an (volontaire + involontaire)."
+        "fr": "Pourcentage d'employés quittant l'entreprise par an (volontaire + involontaire).",
+        "es": "Porcentaje de empleados que se van por año (voluntario + involuntario).",
+        "ar": "النسبة المئوية للموظفين الذين يغادرون سنويًا (طوعي + غير طوعي)."
       }
     },
     {
@@ -69,13 +76,17 @@
         "en": "Average Annual Salary per Employee",
         "tr": "Çalışan Başına Ortalama Yıllık Maaş",
         "de": "Durchschnittliches Jahresgehalt pro Mitarbeiter",
-        "fr": "Salaire annuel moyen par employé"
+        "fr": "Salaire annuel moyen par employé",
+        "es": "Salario anual promedio por empleado",
+        "ar": "متوسط الراتب السنوي لكل موظف"
       },
       "businessContext_i18n": {
         "en": "Average total compensation (base + benefits) per employee.",
         "tr": "Çalışan başına ortalama toplam ücret (temel maaş + yan haklar).",
         "de": "Durchschnittliche Gesamtvergütung (Grundgehalt + Zusatzleistungen) pro Mitarbeiter.",
-        "fr": "Rémunération totale moyenne (salaire + avantages) par employé."
+        "fr": "Rémunération totale moyenne (salaire + avantages) par employé.",
+        "es": "Compensación total promedio (salario base + beneficios) por empleado.",
+        "ar": "متوسط إجمالي التعويضات (الراتب الأساسي + المزايا) لكل موظف."
       }
     },
     {
@@ -91,13 +102,17 @@
         "en": "Recruitment Cost per Hire",
         "tr": "İşe Alım Maliyeti (kişi başı)",
         "de": "Rekrutierungskosten pro Einstellung",
-        "fr": "Coût de recrutement par embauche"
+        "fr": "Coût de recrutement par embauche",
+        "es": "Costo de contratación por contratación",
+        "ar": "تكلفة التوظيف لكل موظف"
       },
       "businessContext_i18n": {
         "en": "Advertising, agency fees, screening, interviewing.",
         "tr": "Reklam, ajans ücretleri, tarama, mülakat.",
         "de": "Werbung, Agenturgebühren, Screening, Vorstellungsgespräche.",
-        "fr": "Publicité, frais d'agence, sélection, entretiens."
+        "fr": "Publicité, frais d'agence, sélection, entretiens.",
+        "es": "Publicidad, honorarios de agencia, selección, entrevistas.",
+        "ar": "الإعلانات، رسوم الوكالات، الفحص، المقابلات."
       }
     },
     {
@@ -113,13 +128,17 @@
         "en": "Onboarding Cost per Hire",
         "tr": "İşe Başlatma Maliyeti (kişi başı)",
         "de": "Onboarding-Kosten pro Einstellung",
-        "fr": "Coût d'intégration par embauche"
+        "fr": "Coût d'intégration par embauche",
+        "es": "Costo de incorporación por contratación",
+        "ar": "تكلفة الإعداد لكل موظف"
       },
       "businessContext_i18n": {
         "en": "Training materials, orientation, IT setup, mentor time.",
         "tr": "Eğitim materyalleri, oryantasyon, BT kurulumu, mentor süresi.",
         "de": "Schulungsmaterialien, Einarbeitung, IT-Einrichtung, Mentorenzeit.",
-        "fr": "Matériel de formation, orientation, configuration informatique, temps du mentor."
+        "fr": "Matériel de formation, orientation, configuration informatique, temps du mentor.",
+        "es": "Materiales de formación, orientación, configuración de TI, tiempo del mentor.",
+        "ar": "مواد التدريب، التوجيه، إعداد تكنولوجيا المعلومات، وقت المرشد."
       }
     },
     {
@@ -135,13 +154,17 @@
         "en": "Training Cost per Hire (first year)",
         "tr": "Eğitim Maliyeti (ilk yıl, kişi başı)",
         "de": "Schulungskosten pro Einstellung (erstes Jahr)",
-        "fr": "Coût de formation par embauche (première année)"
+        "fr": "Coût de formation par embauche (première année)",
+        "es": "Costo de formación por contratación (primer año)",
+        "ar": "تكلفة التدريب لكل موظف (السنة الأولى)"
       },
       "businessContext_i18n": {
         "en": "Formal training, certifications, on-the-job learning.",
         "tr": "Resmi eğitim, sertifikalar, iş başında öğrenme.",
         "de": "Formelle Schulungen, Zertifizierungen, Lernen am Arbeitsplatz.",
-        "fr": "Formation formelle, certifications, apprentissage en situation de travail."
+        "fr": "Formation formelle, certifications, apprentissage en situation de travail.",
+        "es": "Formación formal, certificaciones, aprendizaje en el trabajo.",
+        "ar": "التدريب الرسمي، الشهادات، التعلم أثناء العمل."
       }
     },
     {
@@ -157,13 +180,17 @@
         "en": "Lost Productivity Duration",
         "tr": "Kayıp Verimlilik Süresi",
         "de": "Dauer der Produktivitätseinbuße",
-        "fr": "Durée de perte de productivité"
+        "fr": "Durée de perte de productivité",
+        "es": "Duración de la pérdida de productividad",
+        "ar": "مدة فقدان الإنتاجية"
       },
       "businessContext_i18n": {
         "en": "Average months of reduced output per new hire (ramp-up period).",
         "tr": "Yeni işe alınan başına düşen ortalama düşük çıktı süresi (alışma dönemi).",
         "de": "Durchschnittliche Monate mit reduzierter Leistung pro Neueinstellung (Einarbeitungszeit).",
-        "fr": "Nombre moyen de mois de rendement réduit par nouvelle embauche (période de montée en compétence)."
+        "fr": "Nombre moyen de mois de rendement réduit par nouvelle embauche (période de montée en compétence).",
+        "es": "Meses promedio de producción reducida por nuevo empleado (período de adaptación).",
+        "ar": "متوسط أشهر الإنتاج المنخفض لكل موظف جديد (فترة التكيف)."
       }
     },
     {
@@ -179,13 +206,17 @@
         "en": "Productivity Factor during Ramp-up",
         "tr": "Rampa Çıkışı Sırasında Verimlilik Faktörü",
         "de": "Produktivitätsfaktor während des Hochlaufs",
-        "fr": "Facteur de productivité pendant la montée en régime"
+        "fr": "Facteur de productivité pendant la montée en régime",
+        "es": "Factor de productividad durante la adaptación",
+        "ar": "عامل الإنتاجية أثناء التكيف"
       },
       "businessContext_i18n": {
         "en": "Average productivity level during ramp-up (e.g., 50% means half output).",
         "tr": "Rampa çıkışı sırasındaki ortalama verimlilik seviyesi (örneğin, %50 yarı çıktı anlamına gelir).",
         "de": "Durchschnittliches Produktivitätsniveau während des Hochlaufs (z.B. 50% bedeutet halbe Ausbeute).",
-        "fr": "Niveau de productivité moyen pendant la montée en régime (ex. : 50 % signifie moitié de la production)."
+        "fr": "Niveau de productivité moyen pendant la montée en régime (ex. : 50 % signifie moitié de la production).",
+        "es": "Nivel de productividad promedio durante la adaptación (ej., 50% significa la mitad de la producción).",
+        "ar": "متوسط مستوى الإنتاجية أثناء التكيف (مثلاً 50% يعني نصف الإنتاج)."
       }
     }
   ],
@@ -239,18 +270,26 @@
     ]
   },
   "formulas": {
-    "result": "num_employees + annual_turnover_rate + avg_salary",
-    "result_copy": "num_employees + annual_turnover_rate + avg_salary"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "num_employees * (annual_turnover_rate / 100) * 1 * avg_salary",
+    "result": "num_employees * (annual_turnover_rate / 100) * 1 * avg_salary * productivity_factor"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "employees"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

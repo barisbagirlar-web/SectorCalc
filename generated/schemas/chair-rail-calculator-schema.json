@@ -14,14 +14,15 @@
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
         "es": "Largo de la habitación",
-        "ar": "Room Length"
+        "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
         "en": "Total length of the room in feet",
         "tr": "Odanın fit cinsinden toplam uzunluğu",
         "de": "Gesamtlänge des Raumes in Fuß",
         "fr": "Longueur totale de la pièce en pieds",
-        "es": "Longitud total de la habitación en pies"
+        "es": "Longitud total de la habitación en pies",
+        "ar": "الطول الإجمالي للغرفة بالقدم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
         "es": "Ancho de la habitación",
-        "ar": "Room Width"
+        "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
         "en": "Total width of the room in feet",
         "tr": "Odanın fit cinsinden toplam genişliği",
         "de": "Gesamtbreite des Raumes in Fuß",
         "fr": "Largeur totale de la pièce en pieds",
-        "es": "Ancho total de la habitación en pies"
+        "es": "Ancho total de la habitación en pies",
+        "ar": "العرض الإجمالي للغرفة بالقدم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Türen",
         "fr": "Nombre de portes",
         "es": "Número de puertas",
-        "ar": "Number of Doors"
+        "ar": "عدد الأبواب"
       },
       "businessContext_i18n": {
         "en": "Count of door openings where chair rail will not be installed",
         "tr": "Sandalye rayı döşenmeyecek kapı açıklıklarının sayısı",
         "de": "Anzahl der Türöffnungen, an denen keine Sockelleiste installiert wird",
         "fr": "Nombre d'ouvertures de portes où la plinthe ne sera pas installée",
-        "es": "Cantidad de aberturas de puertas donde no se instalará el guardasillas"
+        "es": "Cantidad de aberturas de puertas donde no se instalará el guardasillas",
+        "ar": "عدد فتحات الأبواب التي لن يتم تركيب حاجز الكرسي فيها"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Standard-Türbreite",
         "fr": "Largeur standard de porte",
         "es": "Ancho estándar de puerta",
-        "ar": "Standard Door Width"
+        "ar": "عرض الباب القياسي"
       },
       "businessContext_i18n": {
         "en": "Width of each door opening to be subtracted, in feet (typical interior door: 3 ft)",
         "tr": "Çıkarılacak her bir kapı açıklığının fit cinsinden genişliği (tipik iç kapı: 3 ft)",
         "de": "Breite jeder Türöffnung, die abgezogen wird, in Fuß (typische Innentür: 3 ft)",
         "fr": "Largeur de chaque ouverture de porte à soustraire, en pieds (porte intérieure typique : 3 pi)",
-        "es": "Ancho de cada abertura de puerta a restar, en pies (puerta interior típica: 3 pies)"
+        "es": "Ancho de cada abertura de puerta a restar, en pies (puerta interior típica: 3 pies)",
+        "ar": "عرض كل فتحة باب سيتم طرحها، بالقدم (الباب الداخلي النموذجي: 3 قدم)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl der Fenster",
         "fr": "Nombre de fenêtres",
         "es": "Número de ventanas",
-        "ar": "Number of Windows"
+        "ar": "عدد النوافذ"
       },
       "businessContext_i18n": {
         "en": "Count of window openings where chair rail will not be installed",
         "tr": "Sandalye rayı döşenmeyecek pencere açıklıklarının sayısı",
         "de": "Anzahl der Fensteröffnungen, an denen keine Sockelleiste installiert wird",
         "fr": "Nombre d'ouvertures de fenêtres où la plinthe ne sera pas installée",
-        "es": "Cantidad de aberturas de ventanas donde no se instalará el guardasillas"
+        "es": "Cantidad de aberturas de ventanas donde no se instalará el guardasillas",
+        "ar": "عدد فتحات النوافذ التي لن يتم تركيب حاجز الكرسي فيها"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Standard-Fensterbreite",
         "fr": "Largeur standard de la fenêtre",
         "es": "Ancho estándar de ventana",
-        "ar": "Standard Window Width"
+        "ar": "عرض النافذة القياسي"
       },
       "businessContext_i18n": {
         "en": "Width of each window opening to be subtracted, in feet (typical window: 4 ft)",
         "tr": "Çıkarılacak her pencere açıklığının genişliği, fit cinsinden (tipik pencere: 4 ft)",
         "de": "Breite jeder Fensteröffnung, die abgezogen wird, in Fuß (typisches Fenster: 4 ft)",
         "fr": "Largeur de chaque ouverture de fenêtre à soustraire, en pieds (fenêtre typique : 4 pi)",
-        "es": "Ancho de cada abertura de ventana a restar, en pies (ventana típica: 4 pies)"
+        "es": "Ancho de cada abertura de ventana a restar, en pies (ventana típica: 4 pies)",
+        "ar": "عرض كل فتحة نافذة سيتم طرحها، بالقدم (النافذة النموذجية: 4 قدم)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage to account for cutting waste and miter errors",
         "tr": "Kesim atığı ve gönye hatalarını karşılamak için ek malzeme yüzdesi",
         "de": "Zusätzlicher Materialprozentsatz für Verschnitt und Gehrungsfehler",
         "fr": "Pourcentage de matériau supplémentaire pour tenir compte des chutes de coupe et des erreurs d'onglet",
-        "es": "Porcentaje de material adicional para compensar desperdicios de corte y errores de inglete"
+        "es": "Porcentaje de material adicional para compensar desperdicios de corte y errores de inglete",
+        "ar": "نسبة المواد الإضافية لمراعاة هدر القطع وأخطاء الزوايا"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Preis pro laufendem Fuß",
         "fr": "Prix par pied linéaire",
         "es": "Precio por pie lineal",
-        "ar": "Price per Linear Foot"
+        "ar": "السعر لكل قدم طولي"
       },
       "businessContext_i18n": {
         "en": "Cost of chair rail material per linear foot",
         "tr": "Lineer fit başına süpürgelik malzemesi maliyeti",
         "de": "Kosten des Sockelleistenmaterials pro laufendem Fuß",
         "fr": "Coût du matériau de la barre d'appui par pied linéaire",
-        "es": "Costo del material de la moldura de silla por pie lineal"
+        "es": "Costo del material de la moldura de silla por pie lineal",
+        "ar": "تكلفة مادة حاجز الكرسي لكل قدم طولي"
       }
     }
   ],

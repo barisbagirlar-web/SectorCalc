@@ -14,14 +14,15 @@
         "de": "Auflösung (Bit)",
         "fr": "Résolution (bits)",
         "es": "Resolución (bits)",
-        "ar": "Çözünürlük (bit)"
+        "ar": "الدقة (بت)"
       },
       "businessContext_i18n": {
         "en": "ADC'nin bit çözünürlüğü",
         "tr": "ADC'nin bit çözünürlüğü",
         "de": "Bit-Auflösung des ADC",
         "fr": "Résolution en bits du CAN",
-        "es": "Resolución en bits del ADC"
+        "es": "Resolución en bits del ADC",
+        "ar": "دقة البت للمحول التناظري الرقمي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenzspannung",
         "fr": "Tension de référence",
         "es": "Tensión de referencia",
-        "ar": "Referans Gerilimi"
+        "ar": "الجهد المرجعي"
       },
       "businessContext_i18n": {
         "en": "Tam ölçek referans gerilimi",
         "tr": "Tam ölçek referans gerilimi",
         "de": "Vollausschlags-Referenzspannung",
         "fr": "Tension de référence pleine échelle",
-        "es": "Tensión de referencia a fondo de escala"
+        "es": "Tensión de referencia a fondo de escala",
+        "ar": "الجهد المرجعي للنطاق الكامل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Eingangsspannung",
         "fr": "Tension d'entrée",
         "es": "Tensión de entrada",
-        "ar": "Giriş Gerilimi"
+        "ar": "جهد الدخل"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek analog giriş gerilimi",
         "tr": "Dönüştürülecek analog giriş gerilimi",
         "de": "Analoge Eingangsspannung, die umgewandelt werden soll",
         "fr": "Tension d'entrée analogique à convertir",
-        "es": "Tensión de entrada analógica a convertir"
+        "es": "Tensión de entrada analógica a convertir",
+        "ar": "جهد الدخل التناظري المراد تحويله"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Verstärkung",
         "fr": "Gain",
         "es": "Ganancia",
-        "ar": "Kazanç"
+        "ar": "الكسب"
       },
       "businessContext_i18n": {
         "en": "Sinyal kazancı",
         "tr": "Sinyal kazancı",
         "de": "Signalverstärkung",
         "fr": "Gain du signal",
-        "es": "Ganancia de la señal"
+        "es": "Ganancia de la señal",
+        "ar": "كسب الإشارة"
       }
     }
   ],
   "formulas": {
-    "result": "resolutionBits + referenceVoltage + inputVoltage",
-    "result_copy": "resolutionBits + referenceVoltage + inputVoltage"
+    "normalized_product": "resolutionBits * referenceVoltage * inputVoltage * gain",
+    "result": "resolutionBits * referenceVoltage * inputVoltage * gain"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "lsb",
-      "quantizationError",
-      "reconvertedVoltage"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reconvertedVoltage",
-    "unit": "bit",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "reconvertedVoltage": "V"
     }

@@ -14,14 +14,15 @@
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
         "es": "Largo de la habitación",
-        "ar": "Room Length"
+        "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
         "en": "Length of the room in feet.",
         "tr": "Odanın fit cinsinden uzunluğu.",
         "de": "Länge des Raums in Fuß.",
         "fr": "Longueur de la pièce en pieds.",
-        "es": "Longitud de la habitación en pies."
+        "es": "Longitud de la habitación en pies.",
+        "ar": "طول الغرفة بالقدم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
         "es": "Ancho de la habitación",
-        "ar": "Room Width"
+        "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
         "en": "Width of the room in feet.",
         "tr": "Odanın fit cinsinden genişliği.",
         "de": "Breite des Raums in Fuß.",
         "fr": "Largeur de la pièce en pieds.",
-        "es": "Ancho de la habitación en pies."
+        "es": "Ancho de la habitación en pies.",
+        "ar": "عرض الغرفة بالقدم."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Raumhöhe",
         "fr": "Hauteur de la pièce",
         "es": "Altura de la habitación",
-        "ar": "Room Height"
+        "ar": "ارتفاع الغرفة"
       },
       "businessContext_i18n": {
         "en": "Height of the walls in feet.",
         "tr": "Duvarların fit cinsinden yüksekliği.",
         "de": "Höhe der Wände in Fuß.",
         "fr": "Hauteur des murs en pieds.",
-        "es": "Altura de las paredes en pies."
+        "es": "Altura de las paredes en pies.",
+        "ar": "ارتفاع الجدران بالقدم."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Plattenlänge",
         "fr": "Longueur du panneau",
         "es": "Longitud de la placa",
-        "ar": "Sheet Length"
+        "ar": "طول اللوح"
       },
       "businessContext_i18n": {
         "en": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
         "tr": "Tek bir alçıpan panelin uzunluğu (genellikle 8, 10 veya 12 ft).",
         "de": "Länge einer einzelnen Gipskartonplatte (üblich: 8, 10 oder 12 ft).",
         "fr": "Longueur d'un panneau de placoplâtre (généralement 8, 10 ou 12 pi).",
-        "es": "Longitud de un panel de yeso individual (comúnmente 8, 10 o 12 pies)."
+        "es": "Longitud de un panel de yeso individual (comúnmente 8, 10 o 12 pies).",
+        "ar": "طول لوح الجبس الواحد (شائع 8 أو 10 أو 12 قدمًا)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Plattenbreite",
         "fr": "Largeur du panneau",
         "es": "Ancho de la placa",
-        "ar": "Sheet Width"
+        "ar": "عرض اللوح"
       },
       "businessContext_i18n": {
         "en": "Width of a single sheetrock panel (typically 4 ft).",
         "tr": "Tek bir alçıpan panelin genişliği (genellikle 4 ft).",
         "de": "Breite einer einzelnen Gipskartonplatte (typischerweise 4 ft).",
         "fr": "Largeur d'un panneau de placoplâtre (généralement 4 pi).",
-        "es": "Ancho de un panel de yeso individual (típicamente 4 pies)."
+        "es": "Ancho de un panel de yeso individual (típicamente 4 pies).",
+        "ar": "عرض لوح الجبس الواحد (عادة 4 أقدام)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage to account for offcuts and damage.",
         "tr": "Kesim artıkları ve hasarı hesaba katmak için ek malzeme yüzdesi.",
         "de": "Zusätzlicher Materialanteil für Verschnitt und Beschädigung.",
         "fr": "Pourcentage de matériau supplémentaire pour tenir compte des chutes et des dommages.",
-        "es": "Porcentaje de material adicional para compensar recortes y daños."
+        "es": "Porcentaje de material adicional para compensar recortes y daños.",
+        "ar": "نسبة المواد الإضافية لمراعاة القصاصات والتلف."
       }
     },
     {
@@ -152,39 +158,39 @@
         "de": "Abzugsfläche",
         "fr": "Surface de déduction",
         "es": "Área de deducción",
-        "ar": "Deduction Area"
+        "ar": "مساحة الخصم"
       },
       "businessContext_i18n": {
         "en": "Total area of openings (doors, windows) to be subtracted from wall area.",
         "tr": "Duvar alanından çıkarılacak toplam açıklık alanı (kapılar, pencereler).",
         "de": "Gesamtfläche der Öffnungen (Türen, Fenster), die von der Wandfläche abgezogen wird.",
         "fr": "Surface totale des ouvertures (portes, fenêtres) à soustraire de la surface murale.",
-        "es": "Área total de aberturas (puertas, ventanas) a restar del área de pared."
+        "es": "Área total de aberturas (puertas, ventanas) a restar del área de pared.",
+        "ar": "المساحة الإجمالية للفتحات (الأبواب والنوافذ) التي ستطرح من مساحة الجدار."
       }
     }
   ],
   "formulas": {
-    "result": "roomLength + roomWidth + roomHeight",
-    "result_copy": "roomLength + roomWidth + roomHeight"
+    "normalized_product": "roomLength * roomWidth * roomHeight * sheetLength",
+    "result": "roomLength * roomWidth * roomHeight * sheetLength * (sheetWidth * (wasteFactor / 100) * deductionArea)",
+    "adjustment_factor": "sheetWidth * (wasteFactor / 100) * deductionArea"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "wallArea",
-      "ceilingArea",
-      "totalArea",
-      "sheetsWalls",
-      "sheetsCeiling",
-      "jointCompoundGallons",
-      "jointTapeFeet",
-      "screwsCount"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "screwsCount",
-    "unit": "ft",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "jointCompoundGallons": "lb"
     }

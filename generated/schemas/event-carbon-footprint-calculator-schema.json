@@ -14,14 +14,15 @@
         "de": "Anzahl der Teilnehmer",
         "fr": "Nombre de participants",
         "es": "Número de asistentes",
-        "ar": "Number of Attendees"
+        "ar": "عدد الحضور"
       },
       "businessContext_i18n": {
         "en": "Total number of people attending the event.",
         "tr": "Etkinliğe katılan toplam kişi sayısı.",
         "de": "Gesamtzahl der Teilnehmer der Veranstaltung.",
         "fr": "Nombre total de personnes assistant à l'événement.",
-        "es": "Número total de personas que asisten al evento."
+        "es": "Número total de personas que asisten al evento.",
+        "ar": "إجمالي عدد الأشخاص الحاضرين للفعالية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Durchschnittliche Reisedistanz pro Teilnehmer (einfache Fahrt)",
         "fr": "Distance de déplacement moyenne par participant (aller simple)",
         "es": "Distancia media de viaje por asistente (ida)",
-        "ar": "Average Travel Distance per Attendee (one-way)"
+        "ar": "متوسط مسافة السفر لكل حاضر (ذهاب)"
       },
       "businessContext_i18n": {
         "en": "One-way distance travelled by each attendee (return trip considered automatically).",
         "tr": "Her katılımcının kat ettiği tek yön mesafe (dönüş yolculuğu otomatik olarak dikkate alınır).",
         "de": "Einfache Distanz, die jeder Teilnehmer zurücklegt (Hin- und Rückfahrt wird automatisch berücksichtigt).",
         "fr": "Distance parcourue par chaque participant en aller simple (le trajet retour est pris en compte automatiquement).",
-        "es": "Distancia de ida recorrida por cada asistente (el viaje de vuelta se considera automáticamente)."
+        "es": "Distancia de ida recorrida por cada asistente (el viaje de vuelta se considera automáticamente).",
+        "ar": "مسافة السفر ذهابًا لكل حاضر (تُحتسب رحلة العودة تلقائيًا)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Emissionsfaktor Reise",
         "fr": "Facteur d'émission de déplacement",
         "es": "Factor de emisión de viaje",
-        "ar": "Travel Emission Factor"
+        "ar": "عامل انبعاثات السفر"
       },
       "businessContext_i18n": {
         "en": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight).",
         "tr": "Yolcu-km başına salınan CO2 (araba için 0.2, tren için 0.04, uçuş için 0.255).",
         "de": "CO₂ pro Personenkilometer (0,2 für Auto, 0,04 für Zug, 0,255 für Flug).",
         "fr": "CO2 émis par passager-km (0,2 pour la voiture, 0,04 pour le train, 0,255 pour l'avion).",
-        "es": "CO2 emitido por pasajero-km (0.2 para coche, 0.04 para tren, 0.255 para vuelo)."
+        "es": "CO2 emitido por pasajero-km (0.2 para coche, 0.04 para tren, 0.255 para vuelo).",
+        "ar": "ثاني أكسيد الكربون المنبعث لكل كيلومتر-راكب (0.2 للسيارة، 0.04 للقطار، 0.255 للطيران)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Energieverbrauch des Veranstaltungsorts pro Tag",
         "fr": "Consommation énergétique du lieu par jour",
         "es": "Consumo energético del recinto por día",
-        "ar": "Venue Energy Consumption per Day"
+        "ar": "استهلاك الطاقة في المكان يوميًا"
       },
       "businessContext_i18n": {
         "en": "Daily electricity and heating consumption of the event venue.",
         "tr": "Etkinlik mekanının günlük elektrik ve ısıtma tüketimi.",
         "de": "Täglicher Strom- und Heizverbrauch des Veranstaltungsorts.",
         "fr": "Consommation quotidienne d'électricité et de chauffage du lieu de l'événement.",
-        "es": "Consumo diario de electricidad y calefacción del recinto del evento."
+        "es": "Consumo diario de electricidad y calefacción del recinto del evento.",
+        "ar": "الاستهلاك اليومي للكهرباء والتدفئة في مكان الفعالية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Veranstaltungsdauer",
         "fr": "Durée de l'événement",
         "es": "Duración del evento",
-        "ar": "Event Duration"
+        "ar": "مدة الفعالية"
       },
       "businessContext_i18n": {
         "en": "Number of days the event takes place.",
         "tr": "Etkinliğin gerçekleştiği gün sayısı.",
         "de": "Anzahl der Tage, an denen die Veranstaltung stattfindet.",
         "fr": "Nombre de jours pendant lesquels l'événement a lieu.",
-        "es": "Número de días que dura el evento."
+        "es": "Número de días que dura el evento.",
+        "ar": "عدد أيام الفعالية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Abfall pro Teilnehmer pro Tag",
         "fr": "Déchets par participant par jour",
         "es": "Residuos por asistente por día",
-        "ar": "Waste per Attendee per Day"
+        "ar": "النفايات لكل حاضر يوميًا"
       },
       "businessContext_i18n": {
         "en": "Average waste generated per attendee per day.",
         "tr": "Katılımcı başına günlük ortalama atık miktarı.",
         "de": "Durchschnittlicher Abfall, der pro Teilnehmer und Tag anfällt.",
         "fr": "Quantité moyenne de déchets générés par participant par jour.",
-        "es": "Promedio de residuos generados por asistente por día."
+        "es": "Promedio de residuos generados por asistente por día.",
+        "ar": "متوسط النفايات الناتجة لكل حاضر يوميًا."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Übernachtungen pro Teilnehmer",
         "fr": "Nuits d'hébergement par participant",
         "es": "Noches de Alojamiento por Asistente",
-        "ar": "Accommodation Nights per Attendee"
+        "ar": "ليالي الإقامة لكل حاضر"
       },
       "businessContext_i18n": {
         "en": "Number of hotel nights per attendee.",
         "tr": "Katılımcı başına düşen otel gecesi sayısı.",
         "de": "Anzahl der Hotelnächte pro Teilnehmer.",
         "fr": "Nombre de nuits d'hôtel par participant.",
-        "es": "Número de noches de hotel por asistente."
+        "es": "Número de noches de hotel por asistente.",
+        "ar": "عدد ليالي الفنادق لكل حاضر."
       }
     }
   ],

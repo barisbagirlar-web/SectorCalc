@@ -24,13 +24,17 @@
         "en": "Material Thickness (mm)",
         "tr": "Malzeme Kalınlığı (mm)",
         "de": "Materialdicke (mm)",
-        "fr": "Épaisseur du matériau (mm)"
+        "fr": "Épaisseur du matériau (mm)",
+        "es": "Espesor del material (mm)",
+        "ar": "سمك المادة (مم)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the base metal to be welded, measured in millimeters.",
         "tr": "Kaynak yapılacak ana metalin kalınlığı, milimetre cinsinden.",
         "de": "Dicke des zu schweißenden Grundmetalls, gemessen in Millimetern.",
-        "fr": "Épaisseur du métal de base à souder, mesurée en millimètres."
+        "fr": "Épaisseur du métal de base à souder, mesurée en millimètres.",
+        "es": "Espesor del metal base a soldar, medido en milímetros.",
+        "ar": "سمك المعدن الأساسي المراد لحامه، مقاسًا بالمليمترات."
       }
     },
     {
@@ -46,13 +50,17 @@
         "en": "Carbon Equivalent (CE)",
         "tr": "Karbon Eşdeğeri (CE)",
         "de": "Kohlenstoffäquivalent (CE)",
-        "fr": "Carbone équivalent (CE)"
+        "fr": "Carbone équivalent (CE)",
+        "es": "Carbono equivalente (CE)",
+        "ar": "مكافئ الكربون (CE)"
       },
       "businessContext_i18n": {
         "en": "Carbon equivalent value calculated from material composition (IIW formula).",
         "tr": "Malzeme bileşiminden hesaplanan karbon eşdeğeri değeri (IIW formülü).",
         "de": "Aus der Materialzusammensetzung berechneter Kohlenstoffäquivalentwert (IIW-Formel).",
-        "fr": "Valeur du carbone équivalent calculée à partir de la composition du matériau (formule IIW)."
+        "fr": "Valeur du carbone équivalent calculée à partir de la composition du matériau (formule IIW).",
+        "es": "Valor de carbono equivalente calculado a partir de la composición del material (fórmula IIW).",
+        "ar": "قيمة مكافئ الكربون المحسوبة من تركيب المادة (معادلة IIW)."
       }
     },
     {
@@ -71,13 +79,17 @@
         "en": "Hydrogen Level (ml/100g weld metal)",
         "tr": "Hidrojen Seviyesi (ml/100g kaynak metali)",
         "de": "Wasserstoffgehalt (ml/100g Schweißgut)",
-        "fr": "Niveau d'hydrogène (ml/100g de métal déposé)"
+        "fr": "Niveau d'hydrogène (ml/100g de métal déposé)",
+        "es": "Nivel de hidrógeno (ml/100g de metal soldado)",
+        "ar": "مستوى الهيدروجين (مل/100 جم من معدن اللحام)"
       },
       "businessContext_i18n": {
         "en": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
         "tr": "Kaynak sarf malzemesinin difüze olabilir hidrojen içeriği, ISO 3690'a göre.",
         "de": "Diffusibler Wasserstoffgehalt des Schweißzusatzes nach ISO 3690.",
-        "fr": "Teneur en hydrogène diffusible du produit d'apport, selon ISO 3690."
+        "fr": "Teneur en hydrogène diffusible du produit d'apport, selon ISO 3690.",
+        "es": "Contenido de hidrógeno difusible del consumible de soldadura, según ISO 3690.",
+        "ar": "محتوى الهيدروجين المنتشر لمستهلك اللحام، وفقًا لـ ISO 3690."
       }
     },
     {
@@ -93,13 +105,17 @@
         "en": "Heat Input (kJ/mm)",
         "tr": "Isı Girdisi (kJ/mm)",
         "de": "Wärmeeinbringung (kJ/mm)",
-        "fr": "Apport thermique (kJ/mm)"
+        "fr": "Apport thermique (kJ/mm)",
+        "es": "Aporte térmico (kJ/mm)",
+        "ar": "مدخلات الحرارة (كيلوجول/مم)"
       },
       "businessContext_i18n": {
         "en": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
         "tr": "Voltaj, akım ve ilerleme hızından hesaplanan birim kaynak uzunluğu başına ark enerjisi.",
         "de": "Lichtbogenenergie pro Längeneinheit der Schweißnaht, berechnet aus Spannung, Strom und Verfahrgeschwindigkeit.",
-        "fr": "Énergie d'arc par unité de longueur de soudure, calculée à partir de la tension, du courant et de la vitesse de déplacement."
+        "fr": "Énergie d'arc par unité de longueur de soudure, calculée à partir de la tension, du courant et de la vitesse de déplacement.",
+        "es": "Energía de arco por unidad de longitud de soldadura, calculada a partir de voltaje, corriente y velocidad de avance.",
+        "ar": "طاقة القوس لكل وحدة طول من اللحام، محسوبة من الجهد والتيار وسرعة الحركة."
       }
     },
     {
@@ -118,13 +134,17 @@
         "en": "Joint Restraint Factor",
         "tr": "Birleştirme Sınırlama Faktörü",
         "de": "Einspannfaktor der Verbindung",
-        "fr": "Facteur de contrainte du joint"
+        "fr": "Facteur de contrainte du joint",
+        "es": "Factor de restricción de la junta",
+        "ar": "عامل تقييد الوصلة"
       },
       "businessContext_i18n": {
         "en": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
         "tr": "Kaynak birleştirmesindeki mekanik sınırlama derecesi, çatlak duyarlılığını etkiler.",
         "de": "Grad der mechanischen Einspannung der Schweißverbindung, beeinflusst die Rissanfälligkeit.",
-        "fr": "Degré de contrainte mécanique sur le joint soudé, affectant la sensibilité à la fissuration."
+        "fr": "Degré de contrainte mécanique sur le joint soudé, affectant la sensibilité à la fissuration.",
+        "es": "Grado de restricción mecánica en la junta soldada, que afecta la susceptibilidad a grietas.",
+        "ar": "درجة التقييد الميكانيكي على وصلة اللحام، مما يؤثر على قابلية التشقق."
       }
     },
     {
@@ -143,13 +163,17 @@
         "en": "Preheat Method",
         "tr": "Ön Isıtma Yöntemi",
         "de": "Vorwärmmethode",
-        "fr": "Méthode de préchauffage"
+        "fr": "Méthode de préchauffage",
+        "es": "Método de precalentamiento",
+        "ar": "طريقة التسخين المسبق"
       },
       "businessContext_i18n": {
         "en": "Method used to apply preheat, influences heating rate and uniformity.",
         "tr": "Ön ısıtmayı uygulamak için kullanılan yöntem, ısıtma hızını ve homojenliğini etkiler.",
         "de": "Methode zur Vorwärmung, beeinflusst Aufheizrate und Gleichmäßigkeit.",
-        "fr": "Méthode utilisée pour appliquer le préchauffage, influence la vitesse et l'uniformité du chauffage."
+        "fr": "Méthode utilisée pour appliquer le préchauffage, influence la vitesse et l'uniformité du chauffage.",
+        "es": "Método utilizado para aplicar el precalentamiento, influye en la velocidad de calentamiento y la uniformidad.",
+        "ar": "الطريقة المستخدمة لتطبيق التسخين المسبق، تؤثر على معدل التسخين والتجانس."
       }
     }
   ],
@@ -180,18 +204,24 @@
     ]
   },
   "formulas": {
-    "result": "material_thickness + carbon_equivalent + hydrogen_level",
-    "result_copy": "material_thickness + carbon_equivalent + hydrogen_level"
+    "normalized_product": "material_thickness * (carbon_equivalent / 100) * heat_input",
+    "result": "material_thickness * (carbon_equivalent / 100) * heat_input"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "%"
   },
   "toolName": "wps-preheat-temperature-calculator",
   "catalogCategory": "everyday-life",

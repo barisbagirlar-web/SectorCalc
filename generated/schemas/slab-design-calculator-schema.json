@@ -14,14 +14,15 @@
         "de": "Stützweite",
         "fr": "Longueur de la portée",
         "es": "Longitud del vano",
-        "ar": "Span Length"
+        "ar": "طول الامتداد"
       },
       "businessContext_i18n": {
         "en": "Clear span of the slab (simply supported)",
         "tr": "Döşemenin açık açıklığı (basit mesnetli)",
         "de": "Stützweite der Platte (einfach gelagert)",
         "fr": "Portée libre de la dalle (simplement appuyée)",
-        "es": "Luz libre de la losa (simplemente apoyada)"
+        "es": "Luz libre de la losa (simplemente apoyada)",
+        "ar": "الامتداد الصافي للبلاطة (ببساطة مدعومة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nutzlast",
         "fr": "Charge vive",
         "es": "Carga viva",
-        "ar": "Live Load"
+        "ar": "الحمل الحي"
       },
       "businessContext_i18n": {
         "en": "Imposed load (occupancy)",
         "tr": "Hareketli yük (kullanım yükü)",
         "de": "Nutzlast (Nutzung)",
         "fr": "Charge d'exploitation (occupation)",
-        "es": "Carga de uso (ocupación)"
+        "es": "Carga de uso (ocupación)",
+        "ar": "الحمل المطبق (الإشغال)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Eigengewicht (ohne Eigenlast)",
         "fr": "Charge permanente (hors poids propre)",
         "es": "Carga muerta (excluyendo peso propio)",
-        "ar": "Dead Load (excluding self-weight)"
+        "ar": "الحمل الميت (باستثناء الوزن الذاتي)"
       },
       "businessContext_i18n": {
         "en": "Superimposed dead load (finishes, services)",
         "tr": "Sabit ek yük (kaplamalar, servisler)",
         "de": "Zusätzliche ständige Last (Oberflächen, Installationen)",
         "fr": "Charge permanente additionnelle (finition, services)",
-        "es": "Carga muerta superpuesta (acabados, instalaciones)"
+        "es": "Carga muerta superpuesta (acabados, instalaciones)",
+        "ar": "الحمل الميت الإضافي (التشطيبات، الخدمات)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Plattendicke",
         "fr": "Épaisseur de la dalle",
         "es": "Espesor de la losa",
-        "ar": "Slab Thickness"
+        "ar": "سمك البلاطة"
       },
       "businessContext_i18n": {
         "en": "Total depth of slab",
         "tr": "Toplam döşeme derinliği",
         "de": "Gesamtdicke der Platte",
         "fr": "Hauteur totale de la dalle",
-        "es": "Canto total de la losa"
+        "es": "Canto total de la losa",
+        "ar": "العمق الكلي للبلاطة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Charakteristische Betondruckfestigkeit (fck)",
         "fr": "Résistance caractéristique du béton (fck)",
         "es": "Resistencia característica del hormigón (fck)",
-        "ar": "Concrete Characteristic Strength (fck)"
+        "ar": "مقاومة الخرسانة المميزة (fck)"
       },
       "businessContext_i18n": {
         "en": "28-day cylinder compressive strength",
         "tr": "28 günlük silindir basınç dayanımı",
         "de": "Zylinderdruckfestigkeit nach 28 Tagen",
         "fr": "Résistance à la compression sur cylindre à 28 jours",
-        "es": "Resistencia a compresión cilíndrica a 28 días"
+        "es": "Resistencia a compresión cilíndrica a 28 días",
+        "ar": "مقاومة الانضغاط للأسطوانة بعمر 28 يومًا"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Streckgrenze des Betonstahls (fyk)",
         "fr": "Limite d'élasticité de l'acier (fyk)",
         "es": "Límite elástico del acero (fyk)",
-        "ar": "Steel Yield Strength (fyk)"
+        "ar": "مقاومة خضوع الفولاذ (fyk)"
       },
       "businessContext_i18n": {
         "en": "Characteristic yield strength of reinforcement",
         "tr": "Donatının karakteristik akma dayanımı",
         "de": "Charakteristische Streckgrenze der Bewehrung",
         "fr": "Limite d'élasticité caractéristique des armatures",
-        "es": "Límite elástico característico de la armadura"
+        "es": "Límite elástico característico de la armadura",
+        "ar": "مقاومة الخضوع المميزة للتسليح"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Betondeckung",
         "fr": "Enrobage du béton",
         "es": "Recubrimiento de hormigón",
-        "ar": "Concrete Cover"
+        "ar": "الغطاء الخرساني"
       },
       "businessContext_i18n": {
         "en": "Clear cover to reinforcement",
         "tr": "Donatıya net örtü",
         "de": "Lichte Betondeckung der Bewehrung",
         "fr": "Enrobage minimal des armatures",
-        "es": "Recubrimiento libre de la armadura"
+        "es": "Recubrimiento libre de la armadura",
+        "ar": "الغطاء الصافي للتسليح"
       }
     }
   ],

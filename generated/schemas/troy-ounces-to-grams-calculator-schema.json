@@ -13,14 +13,16 @@
         "tr": "Troy Ons",
         "de": "Troy Unze",
         "fr": "Once Troy",
-        "es": "Troy Ons",
-        "ar": "Troy Ons"
+        "es": "Onzas troy",
+        "ar": "أونصة تروي"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)",
         "tr": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)",
         "de": "Umzurechnender Gewichtswert (in Troy-Unzen)",
-        "fr": "Valeur de poids à convertir (en onces troy)"
+        "fr": "Valeur de poids à convertir (en onces troy)",
+        "es": "Valor de peso a convertir (en onzas troy)",
+        "ar": "قيمة الوزن المراد تحويله (بوحدات أونصة تروي)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Taux de conversion",
         "es": "Tasa de conversión",
-        "ar": "Dönüşüm Oranı"
+        "ar": "معدل التحويل"
       },
       "businessContext_i18n": {
         "en": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
         "tr": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
         "de": "Gramm pro Troy-Unze. Standardmäßiger internationaler Wert.",
-        "fr": "Équivalent en grammes d'une once troy. Valeur standard internationale par défaut."
+        "fr": "Équivalent en grammes d'une once troy. Valeur standard internationale par défaut.",
+        "es": "Equivalente en gramos de una onza troy. Valor estándar internacional por defecto.",
+        "ar": "ما يعادل أونصة تروي واحدة بالجرام. القيمة الافتراضية هي المعيار الدولي."
       }
     },
     {
@@ -58,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Ondalık Basamak"
+        "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",
-        "es": "Número de decimales a mostrar en el resultado"
+        "es": "Número de decimales a mostrar en el resultado",
+        "ar": "عدد المنازل العشرية المعروضة في النتيجة"
       }
     },
     {
@@ -78,16 +83,18 @@
       "label_i18n": {
         "en": "Adet",
         "tr": "Adet",
-        "de": "Adet",
+        "de": "Stück",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Adet"
+        "ar": "عدد"
       },
       "businessContext_i18n": {
         "en": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır.",
         "tr": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır.",
         "de": "Anzahl identischer Artikel. Wird zur Berechnung des Gesamtgewichts verwendet.",
-        "fr": "Nombre d'articles de même poids. Utilisé pour calculer le poids total."
+        "fr": "Nombre d'articles de même poids. Utilisé pour calculer le poids total.",
+        "es": "Cantidad de artículos idénticos con el mismo peso. Se usa para calcular el total en gramos.",
+        "ar": "عدد القطع المتطابقة بنفس الوزن. يُستخدم لحساب الوزن الإجمالي."
       }
     }
   ],

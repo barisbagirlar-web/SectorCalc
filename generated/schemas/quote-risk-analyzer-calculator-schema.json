@@ -26,14 +26,16 @@
         "tr": "Sipariş Hacmi (birim)",
         "de": "Bestellvolumen (Einheiten)",
         "fr": "Volume de commande (unités)",
-        "es": "Volumen del pedido (unidades)"
+        "es": "Volumen del pedido (unidades)",
+        "ar": "حجم الطلب (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
         "tr": "Teklifteki toplam ürün miktarı. Yüksek hacimler birim maliyeti düşürebilir ancak risk maruziyetini artırabilir.",
         "de": "Gesamtmenge der Artikel im Angebot. Höhere Volumina können die Stückkosten senken, erhöhen aber das Risiko.",
         "fr": "Quantité totale d'articles dans le devis. Des volumes plus élevés peuvent réduire le coût unitaire mais augmenter l'exposition au risque.",
-        "es": "Cantidad total de artículos en la cotización. Volúmenes más altos pueden reducir el costo unitario pero aumentan la exposición al riesgo."
+        "es": "Cantidad total de artículos en la cotización. Volúmenes más altos pueden reducir el costo unitario pero aumentan la exposición al riesgo.",
+        "ar": "الكمية الإجمالية للعناصر في عرض السعر. قد تؤدي الأحجام الأكبر إلى تقليل تكلفة الوحدة ولكنها تزيد من التعرض للمخاطر."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Birim Fiyat ($)",
         "de": "Stückpreis ($)",
         "fr": "Prix unitaire ($)",
-        "es": "Precio unitario ($)"
+        "es": "Precio unitario ($)",
+        "ar": "سعر الوحدة ($)"
       },
       "businessContext_i18n": {
         "en": "Price per unit quoted to the customer.",
         "tr": "Müşteriye teklif edilen birim fiyat.",
         "de": "Preis pro Einheit, der dem Kunden angeboten wird.",
         "fr": "Prix par unité proposé au client.",
-        "es": "Precio por unidad cotizado al cliente."
+        "es": "Precio por unidad cotizado al cliente.",
+        "ar": "السعر لكل وحدة تم عرضه على العميل."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Üretim Teslim Süresi (gün)",
         "de": "Produktionsvorlaufzeit (Tage)",
         "fr": "Délai de production (jours)",
-        "es": "Plazo de producción (días)"
+        "es": "Plazo de producción (días)",
+        "ar": "زمن التصنيع (أيام)"
       },
       "businessContext_i18n": {
         "en": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
         "tr": "Siparişten teslimata kadar geçen süre. Uzun teslim süreleri talep tahmin riskini artırır.",
         "de": "Zeit von der Bestellung bis zur Lieferung. Längere Vorlaufzeiten erhöhen das Nachfrageprognoserisiko.",
         "fr": "Temps entre la commande et la livraison. Des délais plus longs augmentent le risque de prévision de la demande.",
-        "es": "Tiempo desde la colocación del pedido hasta la entrega. Plazos más largos aumentan el riesgo de pronóstico de demanda."
+        "es": "Tiempo desde la colocación del pedido hasta la entrega. Plazos más largos aumentan el riesgo de pronóstico de demanda.",
+        "ar": "الوقت من تقديم الطلب إلى التسليم. زيادة زمن التصنيع تزيد من مخاطر توقع الطلب."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Malzeme Maliyet Değişkenliği (%)",
         "de": "Materialkostenvariabilität (%)",
         "fr": "Variabilité du coût des matières (%)",
-        "es": "Variabilidad del costo de materiales (%)"
+        "es": "Variabilidad del costo de materiales (%)",
+        "ar": "تقلب تكلفة المواد (%)"
       },
       "businessContext_i18n": {
         "en": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
         "tr": "Teslim süresi boyunca hammadde maliyetlerinde beklenen dalgalanma. Geçmiş volatiliteye dayanır.",
         "de": "Erwartete Schwankung der Rohstoffkosten während der Vorlaufzeit. Basierend auf historischer Volatilität.",
         "fr": "Fluctuation attendue des coûts des matières premières pendant le délai. Basée sur la volatilité historique.",
-        "es": "Fluctuación esperada en los costos de materias primas durante el plazo de entrega. Basado en la volatilidad histórica."
+        "es": "Fluctuación esperada en los costos de materias primas durante el plazo de entrega. Basado en la volatilidad histórica.",
+        "ar": "التقلب المتوقع في تكاليف المواد الخام خلال زمن التصنيع. بناءً على التقلبات التاريخية."
       }
     },
     {
@@ -127,14 +135,16 @@
         "tr": "İşçilik Beceri Seviyesi",
         "de": "Arbeitsfähigkeitsniveau",
         "fr": "Niveau de compétence de la main-d'œuvre",
-        "es": "Nivel de habilidad laboral"
+        "es": "Nivel de habilidad laboral",
+        "ar": "مستوى مهارة العمالة"
       },
       "businessContext_i18n": {
         "en": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
         "tr": "Projeye atanan iş gücünün beceri seviyesi. Düşük beceri kusur riskini artırır.",
         "de": "Fähigkeitsniveau der dem Projekt zugewiesenen Arbeitskräfte. Niedrige Qualifikation erhöht das Fehlerrisiko.",
         "fr": "Niveau de compétence de la main-d'œuvre affectée au projet. Un faible niveau augmente le risque de défauts.",
-        "es": "Nivel de habilidad de la fuerza laboral asignada al proyecto. Baja habilidad aumenta el riesgo de defectos."
+        "es": "Nivel de habilidad de la fuerza laboral asignada al proyecto. Baja habilidad aumenta el riesgo de defectos.",
+        "ar": "مستوى مهارة القوى العاملة المخصصة للمشروع. انخفاض المهارة يزيد من مخاطر العيوب."
       }
     },
     {
@@ -151,14 +161,16 @@
         "tr": "Geçmiş Kusur Oranı (%)",
         "de": "Historische Ausschussrate (%)",
         "fr": "Taux de défauts historiques (%)",
-        "es": "Tasa histórica de defectos (%)"
+        "es": "Tasa histórica de defectos (%)",
+        "ar": "معدل العيوب التاريخي (%)"
       },
       "businessContext_i18n": {
         "en": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation.",
         "tr": "Benzer üretim serilerinden geçmiş kusurlu birim yüzdesi. Altı Sigma DPMO hesaplaması için kullanılır.",
         "de": "Historischer Prozentsatz fehlerhafter Einheiten aus ähnlichen Produktionsläufen. Wird für die Six Sigma DPMO-Berechnung verwendet.",
         "fr": "Pourcentage historique d'unités défectueuses issues de séries de production similaires. Utilisé pour le calcul DPMO Six Sigma.",
-        "es": "Porcentaje histórico de unidades defectuosas de lotes de producción similares. Se utiliza para el cálculo de DPMO de Seis Sigma."
+        "es": "Porcentaje histórico de unidades defectuosas de lotes de producción similares. Se utiliza para el cálculo de DPMO de Seis Sigma.",
+        "ar": "النسبة التاريخية للوحدات المعيبة من عمليات إنتاج مماثلة. تُستخدم لحساب DPMO في ستة سيجما."
       }
     },
     {
@@ -175,14 +187,16 @@
         "tr": "Lojistik Karmaşıklık Puanı",
         "de": "Logistikkomplexitäts-Score",
         "fr": "Score de complexité logistique",
-        "es": "Puntaje de complejidad logística"
+        "es": "Puntaje de complejidad logística",
+        "ar": "درجة تعقيد اللوجستيات"
       },
       "businessContext_i18n": {
         "en": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
         "tr": "Nakliye modları, gümrük gereksinimleri ve mesafe sayısına dayalı puan. Yüksek puan riski artırır.",
         "de": "Punktzahl basierend auf Anzahl der Versandarten, Zollanforderungen und Entfernung. Höhere Punktzahl erhöht das Risiko.",
         "fr": "Score basé sur le nombre de modes d'expédition, les exigences douanières et la distance. Un score plus élevé augmente le risque.",
-        "es": "Puntaje basado en el número de modos de envío, requisitos aduaneros y distancia. Un puntaje más alto aumenta el riesgo."
+        "es": "Puntaje basado en el número de modos de envío, requisitos aduaneros y distancia. Un puntaje más alto aumenta el riesgo.",
+        "ar": "درجة تعتمد على عدد وسائل الشحن ومتطلبات الجمارك والمسافة. الدرجة الأعلى تزيد المخاطر."
       }
     },
     {
@@ -209,14 +223,16 @@
         "tr": "Müşteri Kredi Notu",
         "de": "Kundenbonität",
         "fr": "Note de crédit du client",
-        "es": "Calificación crediticia del cliente"
+        "es": "Calificación crediticia del cliente",
+        "ar": "تصنيف الائتمان للعميل"
       },
       "businessContext_i18n": {
         "en": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
         "tr": "Müşterinin standart kredi notu. Düşük notlar ödeme temerrüt riskini artırır.",
         "de": "Standard-Kreditbewertung des Kunden. Niedrigere Bewertungen erhöhen das Zahlungsausfallrisiko.",
         "fr": "Note de crédit standard du client. Des notes plus faibles augmentent le risque de défaut de paiement.",
-        "es": "Calificación crediticia estándar del cliente. Calificaciones más bajas aumentan el riesgo de incumplimiento de pago."
+        "es": "Calificación crediticia estándar del cliente. Calificaciones más bajas aumentan el riesgo de incumplimiento de pago.",
+        "ar": "التصنيف الائتماني القياسي للعميل. التصنيفات المنخفضة تزيد من مخاطر التخلف عن السداد."
       }
     }
   ],
@@ -259,15 +275,25 @@
     ]
   },
   "formulas": {
-    "result": "order_volume + unit_price + production_lead_time_days",
-    "result_copy": "order_volume + unit_price + production_lead_time_days"
+    "base_cost": "order_volume * unit_price",
+    "adjusted_cost": "order_volume * unit_price * (1 + (material_cost_variability / 100))",
+    "result": "order_volume * unit_price * (1 + (material_cost_variability / 100)) * (production_lead_time_days)",
+    "factor_production_lead_time_days": "production_lead_time_days"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_production_lead_time_days"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

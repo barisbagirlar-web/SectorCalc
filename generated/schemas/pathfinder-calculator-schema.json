@@ -14,14 +14,15 @@
         "de": "Distanz (km)",
         "fr": "Distance (km)",
         "es": "Distancia (km)",
-        "ar": "Mesafe (km)"
+        "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
         "en": "Kat edilecek toplam mesafe",
         "tr": "Kat edilecek toplam mesafe",
         "de": "Zu fahrende Gesamtstrecke",
         "fr": "Distance totale à parcourir",
-        "es": "Distancia total a recorrer"
+        "es": "Distancia total a recorrer",
+        "ar": "المسافة الإجمالية المراد قطعها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Durchschnittsgeschwindigkeit (km/h)",
         "fr": "Vitesse moyenne (km/h)",
         "es": "Velocidad media (km/h)",
-        "ar": "Ortalama Hız (km/sa)"
+        "ar": "متوسط السرعة (كم/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Seyir hızı",
         "tr": "Seyir hızı",
         "de": "Reisegeschwindigkeit",
         "fr": "Vitesse de croisière",
-        "es": "Velocidad de crucero"
+        "es": "Velocidad de crucero",
+        "ar": "سرعة السير"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
         "es": "Consumo de combustible (L/100 km)",
-        "ar": "Yakıt Tüketimi (L/100km)"
+        "ar": "استهلاك الوقود (لتر/100 كم)"
       },
       "businessContext_i18n": {
         "en": "Aracın 100 km'de tükettiği yakıt",
         "tr": "Aracın 100 km'de tükettiği yakıt",
         "de": "Vom Fahrzeug verbrauchter Kraftstoff pro 100 km",
         "fr": "Carburant consommé par le véhicule sur 100 km",
-        "es": "Combustible consumido por el vehículo cada 100 km"
+        "es": "Combustible consumido por el vehículo cada 100 km",
+        "ar": "الوقود الذي تستهلكه المركبة لكل 100 كم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kraftstoffeinheitspreis (TL/L)",
         "fr": "Prix unitaire du carburant (TL/L)",
         "es": "Precio unitario del combustible (TL/L)",
-        "ar": "Yakıt Birim Fiyatı (TL/L)"
+        "ar": "سعر وحدة الوقود (ليرة تركية/لتر)"
       },
       "businessContext_i18n": {
         "en": "Yakıtın litre fiyatı",
         "tr": "Yakıtın litre fiyatı",
         "de": "Literpreis des Kraftstoffs",
         "fr": "Prix du carburant au litre",
-        "es": "Precio por litro de combustible"
+        "es": "Precio por litro de combustible",
+        "ar": "سعر اللتر من الوقود"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl der Pausen",
         "fr": "Nombre de pauses",
         "es": "Número de paradas",
-        "ar": "Mola Sayısı"
+        "ar": "عدد فترات الراحة"
       },
       "businessContext_i18n": {
         "en": "Yolculuk sırasında verilen mola sayısı",
         "tr": "Yolculuk sırasında verilen mola sayısı",
         "de": "Anzahl der während der Fahrt eingelegten Pausen",
         "fr": "Nombre de pauses pendant le trajet",
-        "es": "Número de paradas durante el viaje"
+        "es": "Número de paradas durante el viaje",
+        "ar": "عدد فترات الراحة أثناء الرحلة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Pausendauer (Min.)",
         "fr": "Temps de pause (min)",
         "es": "Duración de la parada (min)",
-        "ar": "Mola Süresi (dk)"
+        "ar": "مدة الراحة (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Her mola için harcanan süre",
         "tr": "Her mola için harcanan süre",
         "de": "Zeitaufwand pro Pause",
         "fr": "Temps passé pour chaque pause",
-        "es": "Tiempo empleado en cada parada"
+        "es": "Tiempo empleado en cada parada",
+        "ar": "الوقت المستغرق لكل راحة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Mautgebühr (TL)",
         "fr": "Frais de péage (€)",
         "es": "Peaje (TL)",
-        "ar": "Geçiş Ücreti (TL)"
+        "ar": "رسوم العبور (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "Otoyol/geçiş ücretleri toplamı",
         "tr": "Otoyol/geçiş ücretleri toplamı",
         "de": "Summe der Autobahn-/Mautgebühren",
         "fr": "Total des frais d'autoroute/péage",
-        "es": "Total de peajes/tasas de paso"
+        "es": "Total de peajes/tasas de paso",
+        "ar": "إجمالي رسوم الطريق السريع/العبور"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Fahrertagegeld (TL/Tag)",
         "fr": "Indemnité journalière du conducteur (€/jour)",
         "es": "Dieta del conductor (TL/día)",
-        "ar": "Sürücü Yevmiyesi (TL/gün)"
+        "ar": "الأجر اليومي للسائق (ليرة تركية/يوم)"
       },
       "businessContext_i18n": {
         "en": "Sürücünün günlük maliyeti",
         "tr": "Sürücünün günlük maliyeti",
         "de": "Tägliche Fahrerkosten",
         "fr": "Coût journalier du conducteur",
-        "es": "Costo diario del conductor"
+        "es": "Costo diario del conductor",
+        "ar": "التكلفة اليومية للسائق"
       }
     }
   ],

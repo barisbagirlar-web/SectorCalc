@@ -14,14 +14,15 @@
         "de": "P(A) - A-priori-Wahrscheinlichkeit",
         "fr": "P(A) - Probabilité a priori",
         "es": "P(A) - Probabilidad a priori",
-        "ar": "P(A) - Prior Probability"
+        "ar": "P(A) - الاحتمال القبلي"
       },
       "businessContext_i18n": {
         "en": "Base rate or prevalence of the condition (between 0 and 1)",
         "tr": "Durumun temel oranı veya yaygınlığı (0 ile 1 arasında)",
         "de": "Grundrate oder Prävalenz der Erkrankung (zwischen 0 und 1)",
         "fr": "Taux de base ou prévalence de la condition (entre 0 et 1)",
-        "es": "Tasa base o prevalencia de la condición (entre 0 y 1)"
+        "es": "Tasa base o prevalencia de la condición (entre 0 y 1)",
+        "ar": "المعدل الأساسي أو انتشار الحالة (بين 0 و1)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "P(B|A) - Sensitivität",
         "fr": "P(B|A) - Sensibilité",
         "es": "P(B|A) - Sensibilidad",
-        "ar": "P(B|A) - Sensitivity"
+        "ar": "P(B|A) - الحساسية"
       },
       "businessContext_i18n": {
         "en": "True positive rate: probability of a positive test given condition present (between 0 and 1)",
         "tr": "Gerçek pozitif oranı: durum varken pozitif test olasılığı (0 ile 1 arasında)",
         "de": "Richtig-Positiv-Rate: Wahrscheinlichkeit eines positiven Tests bei Vorliegen der Erkrankung (zwischen 0 und 1)",
         "fr": "Taux de vrais positifs : probabilité d'un test positif sachant la condition présente (entre 0 et 1)",
-        "es": "Tasa de verdaderos positivos: probabilidad de una prueba positiva dada la condición presente (entre 0 y 1)"
+        "es": "Tasa de verdaderos positivos: probabilidad de una prueba positiva dada la condición presente (entre 0 y 1)",
+        "ar": "معدل الإيجابية الحقيقية: احتمال اختبار إيجابي بوجود الحالة (بين 0 و1)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "P(¬B|¬A) - Spezifität",
         "fr": "P(¬B|¬A) - Spécificité",
         "es": "P(¬B|¬A) - Especificidad",
-        "ar": "P(¬B|¬A) - Specificity"
+        "ar": "P(¬B|¬A) - النوعية"
       },
       "businessContext_i18n": {
         "en": "True negative rate: probability of a negative test given condition absent (between 0 and 1)",
         "tr": "Gerçek negatif oranı: durum yokken negatif test olasılığı (0 ile 1 arasında)",
         "de": "Richtig-Negativ-Rate: Wahrscheinlichkeit eines negativen Tests bei Abwesenheit der Erkrankung (zwischen 0 und 1)",
         "fr": "Taux de vrais négatifs : probabilité d'un test négatif sachant la condition absente (entre 0 et 1)",
-        "es": "Tasa de verdaderos negativos: probabilidad de una prueba negativa dada la condición ausente (entre 0 y 1)"
+        "es": "Tasa de verdaderos negativos: probabilidad de una prueba negativa dada la condición ausente (entre 0 y 1)",
+        "ar": "معدل السلبية الحقيقية: احتمال اختبار سلبي بغياب الحالة (بين 0 و1)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Testergebnis (1=Positiv, 0=Negativ)",
         "fr": "Résultat du test (1=Positif, 0=Négatif)",
         "es": "Resultado de la prueba (1=Positivo, 0=Negativo)",
-        "ar": "Test Result (1=Positive, 0=Negative)"
+        "ar": "نتيجة الاختبار (1=إيجابي، 0=سلبي)"
       },
       "businessContext_i18n": {
         "en": "Indicate whether the observed test result is positive (1) or negative (0).",
         "tr": "Gözlemlenen test sonucunun pozitif (1) mi yoksa negatif (0) mı olduğunu belirtin.",
         "de": "Geben Sie an, ob das beobachtete Testergebnis positiv (1) oder negativ (0) ist.",
         "fr": "Indiquez si le résultat observé du test est positif (1) ou négatif (0).",
-        "es": "Indique si el resultado de la prueba observado es positivo (1) o negativo (0)."
+        "es": "Indique si el resultado de la prueba observado es positivo (1) o negativo (0).",
+        "ar": "حدد ما إذا كانت نتيجة الاختبار المرصودة إيجابية (1) أم سلبية (0)."
       }
     }
   ],

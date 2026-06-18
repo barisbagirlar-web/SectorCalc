@@ -25,14 +25,16 @@
         "tr": "Hedef Değer (T)",
         "de": "Zielwert (T)",
         "fr": "Valeur cible (T)",
-        "es": "Valor objetivo (T)"
+        "es": "Valor objetivo (T)",
+        "ar": "القيمة المستهدفة (T)"
       },
       "businessContext_i18n": {
         "en": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage).",
         "tr": "Ürün karakteristiği için ideal nominal spesifikasyon (örn. uzunluk, ağırlık, voltaj).",
         "de": "Ideale Nennspezifikation des Produktmerkmals (z. B. Länge, Gewicht, Spannung)",
         "fr": "La spécification nominale idéale pour la caractéristique du produit (ex. longueur, poids, tension).",
-        "es": "La especificación nominal ideal para la característica del producto (p. ej., longitud, peso, voltaje)"
+        "es": "La especificación nominal ideal para la característica del producto (p. ej., longitud, peso, voltaje)",
+        "ar": "المواصفة الاسمية المثالية لخاصية المنتج (مثل الطول، الوزن، الجهد)"
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Alt Spesifikasyon Limiti (LSL)",
         "de": "Untere Spezifikationsgrenze (USG)",
         "fr": "Limite de spécification inférieure (LSL)",
-        "es": "Límite de especificación inferior (LSL)"
+        "es": "Límite de especificación inferior (LSL)",
+        "ar": "حد المواصفات الأدنى (LSL)"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value per engineering or customer requirement.",
         "tr": "Mühendislik veya müşteri gereksinimine göre kabul edilebilir minimum değer.",
         "de": "Minimal akzeptabler Wert gemäß technischer oder Kundenanforderung",
         "fr": "Valeur minimale acceptable selon les exigences techniques ou client.",
-        "es": "Valor mínimo aceptable según requisitos de ingeniería o del cliente"
+        "es": "Valor mínimo aceptable según requisitos de ingeniería o del cliente",
+        "ar": "الحد الأدنى المقبول وفقًا للمتطلبات الهندسية أو متطلبات العميل"
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Üst Spesifikasyon Limiti (USL)",
         "de": "Obere Spezifikationsgrenze (OSG)",
         "fr": "Limite de spécification supérieure (USL)",
-        "es": "Límite superior de especificación (LSE)"
+        "es": "Límite superior de especificación (LSE)",
+        "ar": "حد المواصفات الأعلى (USL)"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value per engineering or customer requirement.",
         "tr": "Mühendislik veya müşteri gereksinimine göre kabul edilebilir maksimum değer.",
         "de": "Maximal akzeptabler Wert gemäß technischer oder Kundenanforderung",
         "fr": "Valeur maximale acceptable selon les exigences techniques ou client.",
-        "es": "Valor máximo aceptable según requisitos de ingeniería o del cliente"
+        "es": "Valor máximo aceptable según requisitos de ingeniería o del cliente",
+        "ar": "الحد الأقصى المقبول وفقًا للمتطلبات الهندسية أو متطلبات العميل"
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Proses Ortalaması (μ)",
         "de": "Prozessmittelwert (μ)",
         "fr": "Moyenne du processus (μ)",
-        "es": "Media del proceso (μ)"
+        "es": "Media del proceso (μ)",
+        "ar": "متوسط العملية (μ)"
       },
       "businessContext_i18n": {
         "en": "Current average of the process output.",
         "tr": "Proses çıktısının mevcut ortalaması.",
         "de": "Aktueller Durchschnitt der Prozessausgabe",
         "fr": "Moyenne actuelle de la sortie du processus.",
-        "es": "Promedio actual de la salida del proceso"
+        "es": "Promedio actual de la salida del proceso",
+        "ar": "المتوسط الحالي لمخرجات العملية"
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Proses Standart Sapması (σ)",
         "de": "Prozessstandardabweichung (σ)",
         "fr": "Écart type du processus (σ)",
-        "es": "Desviación estándar del proceso (σ)"
+        "es": "Desviación estándar del proceso (σ)",
+        "ar": "الانحراف المعياري للعملية (σ)"
       },
       "businessContext_i18n": {
         "en": "Measure of process variation.",
         "tr": "Proses değişkenliğinin ölçüsü.",
         "de": "Maß der Prozessvariation",
         "fr": "Mesure de la variation du processus.",
-        "es": "Medida de la variación del proceso."
+        "es": "Medida de la variación del proceso.",
+        "ar": "مقياس تباين العملية"
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Spesifikasyon Sınırında Maliyet (A₀)",
         "de": "Kosten an der Spezifikationsgrenze (A₀)",
         "fr": "Coût à la limite de spécification (A₀)",
-        "es": "Coste en el Límite de Especificación (A₀)"
+        "es": "Coste en el Límite de Especificación (A₀)",
+        "ar": "التكلفة عند حد المواصفة (A₀)"
       },
       "businessContext_i18n": {
         "en": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit.",
         "tr": "Bir birim tam spesifikasyon sınırında olduğunda tahmini finansal kayıp (yeniden işleme, fire, garanti).",
         "de": "Geschätzter finanzieller Verlust (Nacharbeit, Ausschuss, Garantie), wenn eine Einheit genau an der Spezifikationsgrenze liegt",
         "fr": "Perte financière estimée (reprise, rebut, garantie) lorsqu'une unité est exactement à la limite de spécification.",
-        "es": "Pérdida financiera estimada (desperdicio, retrabajo, garantía) cuando una unidad está exactamente en el límite de especificación."
+        "es": "Pérdida financiera estimada (desperdicio, retrabajo, garantía) cuando una unidad está exactamente en el límite de especificación.",
+        "ar": "الخسارة المالية المقدرة (إعادة العمل، الهدر، الضمان) عندما تكون الوحدة عند حد المواصفة تمامًا"
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Sınırdaki Sapma (Δ)",
         "de": "Abweichung an der Grenze (Δ)",
         "fr": "Écart à la limite (Δ)",
-        "es": "Desviación en el Límite (Δ)"
+        "es": "Desviación en el Límite (Δ)",
+        "ar": "الانحراف عند الحد (Δ)"
       },
       "businessContext_i18n": {
         "en": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T)).",
         "tr": "Hedeften en yakın spesifikasyon sınırına olan mesafe (Δ = min(T-ASL, ÜSL-T)).",
         "de": "Abstand vom Zielwert zur nächsten Spezifikationsgrenze (Δ = min(T-LSL, USL-T))",
         "fr": "Distance de la cible à la limite de spécification la plus proche (Δ = min(T-LSL, USL-T)).",
-        "es": "Distancia desde el objetivo hasta el límite de especificación más cercano (Δ = min(T-LSL, USL-T))."
+        "es": "Distancia desde el objetivo hasta el límite de especificación más cercano (Δ = min(T-LSL, USL-T)).",
+        "ar": "المسافة من الهدف إلى أقرب حد مواصفة (Δ = min(T-LSL, USL-T))"
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Üretim Hacmi (N)",
         "de": "Produktionsvolumen (N)",
         "fr": "Volume de production (N)",
-        "es": "Volumen de Producción (N)"
+        "es": "Volumen de Producción (N)",
+        "ar": "حجم الإنتاج (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the period.",
         "tr": "Dönemde üretilen toplam birim sayısı.",
         "de": "Gesamtzahl der im Zeitraum produzierten Einheiten",
         "fr": "Nombre total d'unités produites sur la période.",
-        "es": "Número total de unidades producidas en el período."
+        "es": "Número total de unidades producidas en el período.",
+        "ar": "إجمالي عدد الوحدات المنتجة في الفترة"
       }
     }
   ],
@@ -270,18 +286,30 @@
     ]
   },
   "formulas": {
-    "result": "target_value + lower_spec_limit + upper_spec_limit",
-    "result_copy": "target_value + lower_spec_limit + upper_spec_limit"
+    "base_cost": "target_value * cost_at_limit",
+    "adjusted_cost": "target_value * cost_at_limit * 1",
+    "result": "target_value * cost_at_limit * 1 * (lower_spec_limit * upper_spec_limit)",
+    "factor_lower_spec_limit": "lower_spec_limit",
+    "factor_upper_spec_limit": "upper_spec_limit"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_lower_spec_limit",
+      "factor_upper_spec_limit"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "currency"
+    "unit": "USD"
   },
   "toolName": "taguchi-quality-loss-function-calculator",
   "catalogCategory": "everyday-life",

@@ -14,14 +14,15 @@
         "de": "Gesamtlänge",
         "fr": "Longueur totale",
         "es": "Longitud total",
-        "ar": "Total Length"
+        "ar": "الطول الإجمالي"
       },
       "businessContext_i18n": {
         "en": "The total length of the segment to be divided in golden ratio",
         "tr": "Altın orana bölünecek parçanın toplam uzunluğu",
         "de": "Die Gesamtlänge des zu teilenden Segments im Goldenen Schnitt",
         "fr": "Longueur totale du segment à diviser selon le nombre d'or",
-        "es": "Longitud total del segmento a dividir en la proporción áurea"
+        "es": "Longitud total del segmento a dividir en la proporción áurea",
+        "ar": "الطول الإجمالي للقطعة المراد تقسيمها حسب النسبة الذهبية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Langes Segment",
         "fr": "Segment long",
         "es": "Segmento largo",
-        "ar": "Long Segment"
+        "ar": "القطعة الطويلة"
       },
       "businessContext_i18n": {
         "en": "The longer segment (approximately 0.618 of total)",
         "tr": "Daha uzun parça (toplamın yaklaşık 0.618'i)",
         "de": "Das längere Segment (ca. 0,618 der Gesamtlänge)",
         "fr": "Le segment le plus long (environ 0,618 du total)",
-        "es": "El segmento más largo (aproximadamente 0.618 del total)"
+        "es": "El segmento más largo (aproximadamente 0.618 del total)",
+        "ar": "الجزء الأطول (حوالي 0.618 من الإجمالي)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kurzes Segment",
         "fr": "Segment court",
         "es": "Segmento corto",
-        "ar": "Short Segment"
+        "ar": "الجزء القصير"
       },
       "businessContext_i18n": {
         "en": "The shorter segment (approximately 0.382 of total)",
         "tr": "Daha kısa parça (toplamın yaklaşık 0.382'si)",
         "de": "Das kürzere Segment (ca. 0,382 der Gesamtlänge)",
         "fr": "Le segment le plus court (environ 0,382 du total)",
-        "es": "El segmento más corto (aproximadamente 0.382 del total)"
+        "es": "El segmento más corto (aproximadamente 0.382 del total)",
+        "ar": "الجزء الأقصر (حوالي 0.382 من الإجمالي)"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Allowed deviation for golden ratio check",
         "tr": "Altın oran kontrolü için izin verilen sapma",
         "de": "Zulässige Abweichung für die Prüfung des Goldenen Schnitts",
         "fr": "Écart autorisé pour la vérification du nombre d'or",
-        "es": "Desviación permitida para la verificación de la proporción áurea"
+        "es": "Desviación permitida para la verificación de la proporción áurea",
+        "ar": "الانحراف المسموح به للتحقق من النسبة الذهبية"
       }
     }
   ],
   "formulas": {
-    "result": "totalLength + longSegment + shortSegment",
-    "result_copy": "totalLength + longSegment + shortSegment"
+    "normalized_product": "totalLength * longSegment * shortSegment * tolerance",
+    "result": "totalLength * longSegment * shortSegment * tolerance"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "expectedLong",
-      "expectedShort",
-      "longDeviation",
-      "shortDeviation"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "goldenRatioStatus",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Makine & Üretim",

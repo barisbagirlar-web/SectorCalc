@@ -13,14 +13,16 @@
         "tr": "Mevcut Parametre Değeri",
         "de": "Aktueller Parameterwert",
         "fr": "Valeur actuelle du paramètre",
-        "es": "Current Parameter Value",
-        "ar": "Current Parameter Value"
+        "es": "Valor actual del parámetro",
+        "ar": "قيمة المعامل الحالية"
       },
       "businessContext_i18n": {
         "en": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature).",
         "tr": "Ayarlanacak parametrenin ölçülen mevcut değeri (örneğin, basınç, hız, sıcaklık).",
         "de": "Gemessener aktueller Wert des anzupassenden Parameters (z.B. Druck, Geschwindigkeit, Temperatur).",
-        "fr": "Valeur mesurée actuelle du paramètre à ajuster (ex. : pression, vitesse, température)."
+        "fr": "Valeur mesurée actuelle du paramètre à ajuster (ex. : pression, vitesse, température).",
+        "es": "Valor medido actual del parámetro a ajustar (ej., presión, velocidad, temperatura).",
+        "ar": "القيمة المقاسة الحالية للمعامل المراد ضبطه (مثل الضغط، السرعة، درجة الحرارة)."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zielwert",
         "fr": "Valeur cible",
         "es": "Valor objetivo",
-        "ar": "Target Value"
+        "ar": "القيمة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Desired target value for the parameter after adjustment.",
         "tr": "Ayarlama sonrası parametre için istenen hedef değer.",
         "de": "Gewünschter Zielwert des Parameters nach der Anpassung.",
-        "fr": "Valeur cible souhaitée pour le paramètre après ajustement."
+        "fr": "Valeur cible souhaitée pour le paramètre après ajustement.",
+        "es": "Valor objetivo deseado para el parámetro después del ajuste.",
+        "ar": "القيمة المستهدفة المطلوبة للمعامل بعد الضبط."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Effizienzfaktor",
         "fr": "Facteur d'efficacité",
         "es": "Factor de eficiencia",
-        "ar": "Efficiency Factor"
+        "ar": "عامل الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Current process efficiency affecting the parameter response (0-100).",
         "tr": "Parametre yanıtını etkileyen mevcut proses verimliliği (0-100).",
         "de": "Aktuelle Prozesseffizienz, die das Parameteransprechen beeinflusst (0-100).",
-        "fr": "Efficacité actuelle du processus affectant la réponse du paramètre (0-100)."
+        "fr": "Efficacité actuelle du processus affectant la réponse du paramètre (0-100).",
+        "es": "Eficiencia actual del proceso que afecta la respuesta del parámetro (0-100).",
+        "ar": "كفاءة العملية الحالية المؤثرة على استجابة المعامل (0-100)."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sicherheitsmarge",
         "fr": "Marge de sécurité",
         "es": "Margen de seguridad",
-        "ar": "Safety Margin"
+        "ar": "هامش الأمان"
       },
       "businessContext_i18n": {
         "en": "Safety factor applied to the adjustment to prevent overshoot (typically >=100).",
         "tr": "Aşmayı önlemek için ayarlamaya uygulanan güvenlik faktörü (tipik olarak >=100).",
         "de": "Sicherheitsfaktor, der auf die Anpassung angewendet wird, um Überschwingen zu verhindern (typischerweise >=100).",
-        "fr": "Facteur de sécurité appliqué à l'ajustement pour éviter un dépassement (généralement >=100)."
+        "fr": "Facteur de sécurité appliqué à l'ajustement pour éviter un dépassement (généralement >=100).",
+        "es": "Factor de seguridad aplicado al ajuste para evitar sobrepaso (típicamente >=100).",
+        "ar": "عامل الأمان المطبق على الضبط لمنع التجاوز (عادة >=100)."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Ayarlama Toleransı",
         "de": "Anpassungstoleranz",
         "fr": "Tolérance d'ajustement",
-        "es": "Adjustment Tolerance",
-        "ar": "Adjustment Tolerance"
+        "es": "Tolerancia de ajuste",
+        "ar": "تفاوت الضبط"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible tweak percentage variation before issuing a warning.",
         "tr": "Uyarı vermeden önce izin verilen maksimum ince ayar yüzdesi değişimi.",
         "de": "Maximal zulässige prozentuale Abweichung der Anpassung, bevor eine Warnung ausgegeben wird.",
-        "fr": "Variation maximale autorisée en pourcentage avant émission d'un avertissement."
+        "fr": "Variation maximale autorisée en pourcentage avant émission d'un avertissement.",
+        "es": "Variación porcentual máxima permitida antes de emitir una advertencia.",
+        "ar": "أقصى تباين مسموح به في نسبة التعديل قبل إصدار تحذير."
       }
     }
   ],

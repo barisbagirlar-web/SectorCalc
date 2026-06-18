@@ -14,14 +14,15 @@
         "de": "Zu faktorisierende Zahl",
         "fr": "Nombre à factoriser",
         "es": "Número a factorizar",
-        "ar": "Number to Factorize"
+        "ar": "العدد المراد تحليله"
       },
       "businessContext_i18n": {
         "en": "The integer to be decomposed into prime factors.",
         "tr": "Asal çarpanlarına ayrılacak tam sayı.",
         "de": "Die ganze Zahl, die in Primfaktoren zerlegt werden soll.",
         "fr": "L'entier à décomposer en facteurs premiers.",
-        "es": "El entero a descomponer en factores primos."
+        "es": "El entero a descomponer en factores primos.",
+        "ar": "العدد الصحيح المراد تحليله إلى عوامله الأولية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Maximale Iterationen",
         "fr": "Itérations maximales",
         "es": "Máximo de iteraciones",
-        "ar": "Max Iterations"
+        "ar": "الحد الأقصى للتكرارات"
       },
       "businessContext_i18n": {
         "en": "Safety limit to prevent infinite loops for large numbers.",
         "tr": "Büyük sayılar için sonsuz döngüyü önleyen güvenlik sınırı.",
         "de": "Sicherheitsgrenze, um Endlosschleifen bei großen Zahlen zu verhindern.",
         "fr": "Limite de sécurité pour éviter les boucles infinies pour les grands nombres.",
-        "es": "Límite de seguridad para evitar bucles infinitos en números grandes."
+        "es": "Límite de seguridad para evitar bucles infinitos en números grandes.",
+        "ar": "حد الأمان لمنع الحلقات اللانهائية للأعداد الكبيرة."
       }
     },
     {
@@ -56,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -68,28 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "number + maxIterations + auto_input_3",
-    "result_aux": "number + maxIterations + auto_input_3"
+    "normalized_product": "number * maxIterations * auto_input_3",
+    "result": "number * maxIterations * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Prime factors: {primeFactors}",
-      "Number of distinct primes: {distinctCount}",
-      "Total number of prime factors (with multiplicity): {totalCount}",
-      "Is the original number prime? {isPrime}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "isPrime",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Matematik & Geometri",

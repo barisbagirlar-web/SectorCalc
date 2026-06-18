@@ -14,14 +14,15 @@
         "de": "Gesamte Anschlussleistung",
         "fr": "Charge totale connectée",
         "es": "Carga total conectada",
-        "ar": "Toplam Bağlı Yük"
+        "ar": "إجمالي الحمل المرتبط"
       },
       "businessContext_i18n": {
         "en": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)",
         "tr": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)",
         "de": "Summe der Nennleistungen aller Anlagen im Werk (in kW)",
         "fr": "Somme des puissances nominales de tous les équipements de l'installation (en kW)",
-        "es": "Suma de las potencias nominales de todos los equipos en la instalación (en kW)"
+        "es": "Suma de las potencias nominales de todos los equipos en la instalación (en kW)",
+        "ar": "مجموع القدرات المقدرة لجميع المعدات في المنشأة (بالكيلوواط)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gleichzeitigkeitsfaktor",
         "fr": "Facteur de demande",
         "es": "Factor de demanda",
-        "ar": "Talep Faktörü"
+        "ar": "عامل الطلب"
       },
       "businessContext_i18n": {
         "en": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır",
         "tr": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır",
         "de": "Verhältnis von maximaler Nachfrage zur gesamten Anschlusslast, typischerweise zwischen 0 und 1",
         "fr": "Rapport entre la demande maximale et la charge totale connectée, généralement compris entre 0 et 1",
-        "es": "Relación entre la demanda máxima y la carga total conectada, típicamente entre 0 y 1"
+        "es": "Relación entre la demanda máxima y la carga total conectada, típicamente entre 0 y 1",
+        "ar": "نسبة أقصى طلب إلى إجمالي الحمل المرتبط، تتراوح عادة بين 0 و1"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Güç Faktörü"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır",
         "tr": "Güç Faktörü",
         "de": "Verhältnis von Wirkleistung zu Scheinleistung, typischerweise zwischen 0 und 1",
         "fr": "Rapport entre la puissance active et la puissance apparente, généralement compris entre 0 et 1",
-        "es": "Relación entre la potencia activa y la potencia aparente, típicamente entre 0 y 1"
+        "es": "Relación entre la potencia activa y la potencia aparente, típicamente entre 0 y 1",
+        "ar": "نسبة القدرة الفعالة إلى القدرة الظاهرية، تتراوح عادة بين 0 و1"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Reservekapazitätsmarge",
         "fr": "Marge de capacité de réserve",
         "es": "Margen de capacidad de reserva",
-        "ar": "Yedek Kapasite Marjı"
+        "ar": "هامش السعة الاحتياطية"
       },
       "businessContext_i18n": {
         "en": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj",
         "tr": "Yedek Kapasite Marjı",
         "de": "Zusätzliche prozentuale Marge für zukünftiges Wachstum oder Unsicherheit",
         "fr": "Pourcentage de marge ajouté pour la croissance future ou l'incertitude",
-        "es": "Porcentaje adicional para crecimiento futuro o incertidumbre"
+        "es": "Porcentaje adicional para crecimiento futuro o incertidumbre",
+        "ar": "نسبة مئوية إضافية للنمو المستقبلي أو عدم اليقين"
       }
     }
   ],

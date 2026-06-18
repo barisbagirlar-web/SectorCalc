@@ -14,14 +14,15 @@
         "de": "Anzahl der Cocktails",
         "fr": "Nombre de cocktails",
         "es": "Número de cócteles",
-        "ar": "Number of Cocktails"
+        "ar": "عدد الكوكتيلات"
       },
       "businessContext_i18n": {
         "en": "Total number of cocktails to prepare",
         "tr": "Hazırlanacak toplam kokteyl sayısı",
         "de": "Gesamtzahl der zuzubereitenden Cocktails",
         "fr": "Nombre total de cocktails à préparer",
-        "es": "Número total de cócteles a preparar"
+        "es": "Número total de cócteles a preparar",
+        "ar": "إجمالي عدد الكوكتيلات المراد تحضيرها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Getränkevolumen pro Cocktail",
         "fr": "Volume par cocktail",
         "es": "Volumen por cóctel",
-        "ar": "Drink Volume per Cocktail"
+        "ar": "حجم المشروب لكل كوكتيل"
       },
       "businessContext_i18n": {
         "en": "Volume of each cocktail",
         "tr": "Her bir kokteylin hacmi",
         "de": "Volumen jedes Cocktails",
         "fr": "Volume de chaque cocktail",
-        "es": "Volumen de cada cóctel"
+        "es": "Volumen de cada cóctel",
+        "ar": "حجم كل كوكتيل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anteil Zutat 1",
         "fr": "Proportion de l'ingrédient 1",
         "es": "Proporción del ingrediente 1",
-        "ar": "Ingredient 1 Proportion"
+        "ar": "نسبة المكون 1"
       },
       "businessContext_i18n": {
         "en": "Parts of first ingredient in the recipe",
         "tr": "Tarifteki ilk malzemenin parça sayısı",
         "de": "Teile der ersten Zutat im Rezept",
         "fr": "Parts du premier ingrédient dans la recette",
-        "es": "Partes del primer ingrediente en la receta"
+        "es": "Partes del primer ingrediente en la receta",
+        "ar": "أجزاء المكون الأول في الوصفة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anteil Zutat 2",
         "fr": "Proportion de l'ingrédient 2",
         "es": "Proporción del ingrediente 2",
-        "ar": "Ingredient 2 Proportion"
+        "ar": "نسبة المكون 2"
       },
       "businessContext_i18n": {
         "en": "Parts of second ingredient",
         "tr": "İkinci malzemenin parça sayısı",
         "de": "Teile der zweiten Zutat",
         "fr": "Parts du deuxième ingrédient",
-        "es": "Partes del segundo ingrediente"
+        "es": "Partes del segundo ingrediente",
+        "ar": "أجزاء المكون الثاني"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anteil Zutat 3",
         "fr": "Proportion de l'ingrédient 3",
         "es": "Proporción del ingrediente 3",
-        "ar": "Ingredient 3 Proportion"
+        "ar": "نسبة المكون 3"
       },
       "businessContext_i18n": {
         "en": "Parts of third ingredient",
         "tr": "Üçüncü malzemenin parça sayısı",
         "de": "Teile der dritten Zutat",
         "fr": "Parts du troisième ingrédient",
-        "es": "Partes del tercer ingrediente"
+        "es": "Partes del tercer ingrediente",
+        "ar": "أجزاء المكون الثالث"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Anteil Zutat 4",
         "fr": "Proportion de l'ingrédient 4",
         "es": "Proporción del ingrediente 4",
-        "ar": "Ingredient 4 Proportion"
+        "ar": "نسبة المكون 4"
       },
       "businessContext_i18n": {
         "en": "Parts of fourth ingredient (optional)",
         "tr": "Dördüncü malzemenin parça sayısı (isteğe bağlı)",
         "de": "Teile der vierten Zutat (optional)",
         "fr": "Parts du quatrième ingrédient (optionnel)",
-        "es": "Partes del cuarto ingrediente (opcional)"
+        "es": "Partes del cuarto ingrediente (opcional)",
+        "ar": "أجزاء المكون الرابع (اختياري)"
       }
     },
     {
@@ -152,35 +158,39 @@
         "de": "Verschnittprozentsatz",
         "fr": "Pourcentage de perte",
         "es": "Porcentaje de desperdicio",
-        "ar": "Wastage Percentage"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Extra volume to account for spillage/waste",
         "tr": "Dökülme/atık için ekstra hacim",
         "de": "Zusätzliches Volumen für Verschütten/Abfall",
         "fr": "Volume supplémentaire pour tenir compte des pertes/déchets",
-        "es": "Volumen extra para derrames/desperdicio"
+        "es": "Volumen extra para derrames/desperdicio",
+        "ar": "حجم إضافي لتعويض الانسكاب/الهدر"
       }
     }
   ],
   "formulas": {
-    "result": "numberOfCocktails + drinkVolume + ingredient1Part",
-    "result_copy": "numberOfCocktails + drinkVolume + ingredient1Part"
+    "normalized_product": "numberOfCocktails * drinkVolume * ingredient1Part * ingredient2Part",
+    "result": "numberOfCocktails * drinkVolume * ingredient1Part * ingredient2Part * (ingredient3Part * ingredient4Part * (wastagePercentage / 100))",
+    "adjustment_factor": "ingredient3Part * ingredient4Part * (wastagePercentage / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "ingredient1Total",
-      "ingredient2Total",
-      "ingredient3Total",
-      "ingredient4Total"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "ingredient4Total",
-    "unit": "servings"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

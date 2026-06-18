@@ -14,13 +14,15 @@
         "de": "Gewicht",
         "fr": "Poids",
         "es": "Peso",
-        "ar": "Weight"
+        "ar": "الوزن"
       },
       "businessContext_i18n": {
         "en": "Body weight of the user",
         "tr": "Kullanıcının vücut ağırlığı",
         "de": "Körpergewicht des Benutzers",
-        "fr": "Poids corporel de l'utilisateur"
+        "fr": "Poids corporel de l'utilisateur",
+        "es": "Peso corporal del usuario",
+        "ar": "وزن جسم المستخدم"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Geschwindigkeit",
         "fr": "Vitesse",
         "es": "Velocidad",
-        "ar": "Speed"
+        "ar": "السرعة"
       },
       "businessContext_i18n": {
         "en": "Treadmill speed in km/h",
         "tr": "Koşu bandı hızı (km/sa)",
         "de": "Laufbandgeschwindigkeit in km/h",
-        "fr": "Vitesse du tapis roulant en km/h"
+        "fr": "Vitesse du tapis roulant en km/h",
+        "es": "Velocidad de la cinta en km/h",
+        "ar": "سرعة جهاز المشي بالكيلومتر في الساعة"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Eğim",
         "de": "Steigung",
         "fr": "Inclinaison",
-        "es": "Incline",
-        "ar": "Incline"
+        "es": "Inclinación",
+        "ar": "الانحدار"
       },
       "businessContext_i18n": {
         "en": "Incline percentage (e.g., 5 for 5%)",
         "tr": "Eğim yüzdesi (örneğin %5 için 5)",
         "de": "Steigungsprozentsatz (z. B. 5 für 5 %)",
-        "fr": "Pourcentage d'inclinaison (ex. 5 pour 5%)"
+        "fr": "Pourcentage d'inclinaison (ex. 5 pour 5%)",
+        "es": "Porcentaje de inclinación (ej. 5 para 5%)",
+        "ar": "نسبة الانحدار (مثال: 5 تعني 5%)"
       }
     },
     {
@@ -80,14 +86,15 @@
         "de": "Dauer",
         "fr": "Durée",
         "es": "Duración",
-        "ar": "Duration"
+        "ar": "المدة"
       },
       "businessContext_i18n": {
         "en": "Exercise duration in minutes",
         "tr": "Dakika cinsinden egzersiz süresi",
         "de": "Trainingsdauer in Minuten",
         "fr": "Durée de l'exercice en minutes",
-        "es": "Duración del ejercicio en minutos"
+        "es": "Duración del ejercicio en minutos",
+        "ar": "مدة التمرين بالدقائق"
       }
     },
     {
@@ -102,14 +109,16 @@
         "tr": "Egzersiz Türü",
         "de": "Übungsart",
         "fr": "Type d'exercice",
-        "es": "Exercise Type",
-        "ar": "Exercise Type"
+        "es": "Tipo de ejercicio",
+        "ar": "نوع التمرين"
       },
       "businessContext_i18n": {
         "en": "Type of exercise: 0 for walking, 1 for running",
         "tr": "Egzersiz türü: 0 yürüyüş, 1 koşu",
         "de": "Art der Übung: 0 für Gehen, 1 für Laufen",
-        "fr": "Type d'exercice : 0 pour la marche, 1 pour la course"
+        "fr": "Type d'exercice : 0 pour la marche, 1 pour la course",
+        "es": "Tipo de ejercicio: 0 para caminar, 1 para correr",
+        "ar": "نوع التمرين: 0 للمشي، 1 للجري"
       }
     }
   ],

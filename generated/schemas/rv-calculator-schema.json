@@ -14,14 +14,15 @@
         "de": "Ausfallrate",
         "fr": "Arıza Oranı",
         "es": "Tasa de fallos",
-        "ar": "Failure Rate"
+        "ar": "معدل الفشل"
       },
       "businessContext_i18n": {
         "en": "Number of expected failures per year for the equipment/system.",
         "tr": "Ekipman/sistem için yıllık beklenen arıza sayısı.",
         "de": "Erwartete Anzahl von Ausfällen pro Jahr für die Anlage/das System.",
         "fr": "Ekipman/sistem için yıllık beklenen arıza sayısı.",
-        "es": "Número esperado de fallos por año para el equipo/sistema."
+        "es": "Número esperado de fallos por año para el equipo/sistema.",
+        "ar": "عدد حالات الفشل المتوقعة سنويًا للمعدات/النظام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ausfallzeit pro Ausfall",
         "fr": "Arıza Başına Durma Süresi",
         "es": "Tiempo de inactividad por fallo",
-        "ar": "Downtime per Failure"
+        "ar": "وقت التوقف لكل فشل"
       },
       "businessContext_i18n": {
         "en": "Average downtime in hours per failure event.",
         "tr": "Arıza başına ortalama duruş süresi (saat).",
         "de": "Durchschnittliche Ausfallzeit in Stunden pro Ausfallereignis.",
         "fr": "Arıza başına ortalama durma süresi (saat).",
-        "es": "Tiempo de inactividad promedio en horas por evento de fallo."
+        "es": "Tiempo de inactividad promedio en horas por evento de fallo.",
+        "ar": "متوسط وقت التوقف بالساعات لكل حادثة فشل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kosten pro Stillstandsstunde",
         "fr": "Coût par heure d'arrêt",
         "es": "Costo por Hora de Inactividad",
-        "ar": "Cost per Downtime Hour"
+        "ar": "التكلفة لكل ساعة توقف"
       },
       "businessContext_i18n": {
         "en": "Cost incurred per hour of downtime, including lost production, labor, etc.",
         "tr": "Duruş saati başına maliyet (kayıp üretim, işçilik vb.).",
         "de": "Kosten pro Stunde Ausfallzeit, einschließlich Produktionsausfall, Arbeitskosten usw.",
         "fr": "Durma saati başına maliyet (kayıp üretim, işçilik vb.).",
-        "es": "Costo incurrido por hora de inactividad, incluyendo producción perdida, mano de obra, etc."
+        "es": "Costo incurrido por hora de inactividad, incluyendo producción perdida, mano de obra, etc.",
+        "ar": "التكلفة المتكبدة لكل ساعة توقف، بما في ذلك الإنتاج المفقود والعمالة وغيرها."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Erkennungswahrscheinlichkeit",
         "fr": "Algılama Olasılığı",
         "es": "Probabilidad de detección",
-        "ar": "Detection Probability"
+        "ar": "احتمالية الكشف"
       },
       "businessContext_i18n": {
         "en": "Probability of detecting a failure before it causes downtime (0 to 1).",
         "tr": "Arızanın duruşa neden olmadan önce tespit edilme olasılığı (0-1).",
         "de": "Wahrscheinlichkeit, einen Ausfall zu erkennen, bevor er zu Ausfallzeiten führt (0 bis 1).",
         "fr": "Arızanın duruşa neden olmadan önce algılanma olasılığı (0 ile 1 arası).",
-        "es": "Probabilidad de detectar un fallo antes de que cause tiempo de inactividad (0 a 1)."
+        "es": "Probabilidad de detectar un fallo antes de que cause tiempo de inactividad (0 a 1).",
+        "ar": "احتمالية اكتشاف الفشل قبل أن يتسبب في توقف (0 إلى 1)."
       }
     }
   ],

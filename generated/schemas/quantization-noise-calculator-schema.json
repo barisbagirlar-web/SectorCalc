@@ -14,14 +14,15 @@
         "de": "Vollaussteuerungs-Spannungsbereich (V)",
         "fr": "Plage de tension pleine échelle (V)",
         "es": "Rango de voltaje a escala completa (V)",
-        "ar": "Full-Scale Voltage Range (V)"
+        "ar": "نطاق الجهد الكامل (V)"
       },
       "businessContext_i18n": {
         "en": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5.",
         "tr": "ADC giriş geriliminin toplam aralığı (maks - min). Tek kutuplu 0-5V için 5 girin; çift kutuplu ±2.5V için 5 girin.",
         "de": "Die gesamte Spanne der ADC-Eingangsspannung (max - min). Für unipolaren 0-5V-Bereich geben Sie 5 ein; für bipolaren ±2,5V-Bereich geben Sie 5 ein.",
         "fr": "L'étendue totale de la tension d'entrée du CAN (max - min). Pour unipolaire 0-5V, entrez 5 ; pour bipolaire ±2,5V, entrez 5.",
-        "es": "El intervalo total del voltaje de entrada del ADC (máx - mín). Para unipolar 0-5V, ingrese 5; para bipolar ±2.5V, ingrese 5."
+        "es": "El intervalo total del voltaje de entrada del ADC (máx - mín). Para unipolar 0-5V, ingrese 5; para bipolar ±2.5V, ingrese 5.",
+        "ar": "المدى الكلي لجهد دخل المحول التناظري الرقمي (الحد الأقصى - الحد الأدنى). للقطبية الواحدة 0-5V، أدخل 5؛ للقطبية المزدوجة ±2.5V، أدخل 5."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Bits",
         "fr": "Nombre de bits",
         "es": "Número de bits",
-        "ar": "Number of Bits"
+        "ar": "عدد البتات"
       },
       "businessContext_i18n": {
         "en": "Resolution of the ADC.",
         "tr": "ADC'nin çözünürlüğü.",
         "de": "Auflösung des ADC.",
         "fr": "Résolution du CAN.",
-        "es": "Resolución del ADC."
+        "es": "Resolución del ADC.",
+        "ar": "دقة المحول التناظري الرقمي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Signal-Spitzenamplitude (V)",
         "fr": "Amplitude crête du signal (V)",
         "es": "Amplitud máxima de la señal (V)",
-        "ar": "Signal Peak Amplitude (V)"
+        "ar": "سعة ذروة الإشارة (V)"
       },
       "businessContext_i18n": {
         "en": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale.",
         "tr": "Giriş sinüs dalgasının tepe genliği. Genellikle tam ölçek için voltageRange/2 değerine eşit veya küçüktür.",
         "de": "Spitzenamplitude der Eingangssinuswelle. Typischerweise ≤ Spannungsbereich/2 für Vollaussteuerung.",
         "fr": "Amplitude crête de l'onde sinusoïdale d'entrée. Généralement ≤ plageTension/2 pour pleine échelle.",
-        "es": "Amplitud máxima de la onda sinusoidal de entrada. Normalmente ≤ rangoDeVoltaje/2 para escala completa."
+        "es": "Amplitud máxima de la onda sinusoidal de entrada. Normalmente ≤ rangoDeVoltaje/2 para escala completa.",
+        "ar": "سعة الذروة للموجة الجيبية الداخلة. عادة ≤ voltageRange/2 للحصول على النطاق الكامل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Lastwiderstand (Ω)",
         "fr": "Résistance de charge (Ω)",
         "es": "Resistencia de carga (Ω)",
-        "ar": "Load Resistance (Ω)"
+        "ar": "مقاومة الحمل (Ω)"
       },
       "businessContext_i18n": {
         "en": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed.",
         "tr": "Güç hesaplamaları için referans direnç. Yalnızca gerilim büyüklükleri gerekiyorsa 1 kullanın.",
         "de": "Referenzwiderstand für Leistungsberechnungen. Verwenden Sie 1, wenn nur Spannungsgrößen benötigt werden.",
         "fr": "Résistance de référence pour les calculs de puissance. Utilisez 1 si seules les grandeurs de tension sont nécessaires.",
-        "es": "Resistencia de referencia para cálculos de potencia. Use 1 si solo se necesitan cantidades de voltaje."
+        "es": "Resistencia de referencia para cálculos de potencia. Use 1 si solo se necesitan cantidades de voltaje.",
+        "ar": "مقاومة مرجعية لحسابات القدرة. استخدم 1 إذا كانت كميات الجهد فقط مطلوبة."
       }
     }
   ],

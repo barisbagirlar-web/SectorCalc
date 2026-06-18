@@ -14,13 +14,15 @@
         "de": "Lastmasse",
         "fr": "Masse de la charge",
         "es": "Masa de la carga",
-        "ar": "Load Mass"
+        "ar": "كتلة الحمولة"
       },
       "businessContext_i18n": {
         "en": "Mass of the load to be supported",
         "tr": "Desteklenecek yük kütlesi",
         "de": "Masse der zu tragenden Last",
-        "fr": "Masse de la charge à supporter"
+        "fr": "Masse de la charge à supporter",
+        "es": "Masa de la carga a soportar",
+        "ar": "كتلة الحملة المراد دعمها"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Schwerkraft",
         "fr": "Gravité",
         "es": "Gravedad",
-        "ar": "Gravity"
+        "ar": "الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration (standard 9.81 m/s²)",
         "tr": "Yerçekimi ivmesi (standart 9,81 m/s²)",
         "de": "Erdbeschleunigung (Standard 9,81 m/s²)",
-        "fr": "Accélération gravitationnelle (standard 9,81 m/s²)"
+        "fr": "Accélération gravitationnelle (standard 9,81 m/s²)",
+        "es": "Aceleración gravitacional (estándar 9.81 m/s²)",
+        "ar": "تسارع الجاذبية (المعيار 9.81 م/ث²)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Yataydan Açı",
         "de": "Winkel zur Horizontalen",
         "fr": "Angle par rapport à l'horizontale",
-        "es": "Angle from Horizontal",
-        "ar": "Angle from Horizontal"
+        "es": "Ángulo desde la horizontal",
+        "ar": "الزاوية من الأفقي"
       },
       "businessContext_i18n": {
         "en": "Angle of ropes/cables from horizontal",
         "tr": "Halat/kablo yataydan açısı",
         "de": "Winkel der Seile/Kabel zur Horizontalen",
-        "fr": "Angle des câbles par rapport à l'horizontale"
+        "fr": "Angle des câbles par rapport à l'horizontale",
+        "es": "Ángulo de las cuerdas/cables desde la horizontal",
+        "ar": "زاوية الحبال/الكابلات من الأفقي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Halat Sayısı",
         "de": "Anzahl der Seile",
         "fr": "Nombre de câbles",
-        "es": "Number of Ropes",
-        "ar": "Number of Ropes"
+        "es": "Número de cuerdas",
+        "ar": "عدد الحبال"
       },
       "businessContext_i18n": {
         "en": "Number of supporting ropes or cables",
         "tr": "Destekleyici halat veya kablo sayısı",
         "de": "Anzahl der tragenden Seile oder Kabel",
-        "fr": "Nombre de câbles de support"
+        "fr": "Nombre de câbles de support",
+        "es": "Número de cuerdas o cables de soporte",
+        "ar": "عدد الحبال أو الكابلات الداعمة"
       }
     },
     {
@@ -102,32 +110,39 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Engineering safety factor per relevant standards",
         "tr": "İlgili standartlara göre mühendislik güvenlik faktörü",
         "de": "Technischer Sicherheitsfaktor gemäß relevanter Normen",
-        "fr": "Coefficient de sécurité technique selon les normes applicables"
+        "fr": "Coefficient de sécurité technique selon les normes applicables",
+        "es": "Factor de seguridad de ingeniería según normas aplicables",
+        "ar": "عامل الأمان الهندسي حسب المعايير ذات الصلة"
       }
     }
   ],
   "formulas": {
-    "result": "mass + gravity + angle",
-    "result_copy": "mass + gravity + angle"
+    "normalized_product": "mass * gravity * angle * numberOfRopes",
+    "result": "mass * gravity * angle * numberOfRopes * (safetyFactor)",
+    "adjustment_factor": "safetyFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "tensionPerRope",
-      "tensionWithSafety"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "tensionWithSafety",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

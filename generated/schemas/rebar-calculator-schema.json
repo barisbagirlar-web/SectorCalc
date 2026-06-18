@@ -14,14 +14,15 @@
         "de": "Bewehrungsdurchmesser (mm)",
         "fr": "Diamètre de la barre d'armature (mm)",
         "es": "Diámetro de la barra de refuerzo (mm)",
-        "ar": "Rebar Diameter (mm)"
+        "ar": "قطر حديد التسليح (مم)"
       },
       "businessContext_i18n": {
         "en": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided.",
         "tr": "Milimetre cinsinden standart inşaat demiri çapı; özel ağırlık sağlanmazsa metre başına ağırlığı otomatik hesaplamak için kullanılır.",
         "de": "Standard-Bewehrungsdurchmesser in Millimetern, zur automatischen Berechnung des Gewichts pro Meter, falls kein benutzerdefiniertes Gewicht angegeben wird.",
         "fr": "Diamètre standard de la barre d'armature en millimètres, utilisé pour calculer automatiquement le poids par mètre si un poids personnalisé n'est pas fourni.",
-        "es": "Diámetro estándar de la barra de refuerzo en milímetros, usado para calcular automáticamente el peso por metro si no se proporciona un peso personalizado."
+        "es": "Diámetro estándar de la barra de refuerzo en milímetros, usado para calcular automáticamente el peso por metro si no se proporciona un peso personalizado.",
+        "ar": "قطر حديد التسليح القياسي بالمليمترات، يُستخدم لحساب الوزن لكل متر تلقائيًا إذا لم يتم توفير وزن مخصص."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Länge pro Stab (m)",
         "fr": "Longueur par barre (m)",
         "es": "Longitud por barra (m)",
-        "ar": "Length per Bar (m)"
+        "ar": "طول القضيب (م)"
       },
       "businessContext_i18n": {
         "en": "Typical standard factory bar length before any laps or cuts.",
         "tr": "Herhangi bir bindirme veya kesimden önce tipik standart fabrika çubuk uzunluğu.",
         "de": "Typische Standard-Werkslänge vor Überlappungen oder Kürzungen.",
         "fr": "Longueur standard typique d'une barre en usine avant tout recouvrement ou coupe.",
-        "es": "Longitud estándar típica de fábrica antes de cualquier empalme o corte."
+        "es": "Longitud estándar típica de fábrica antes de cualquier empalme o corte.",
+        "ar": "طول القضيب القياسي النموذجي من المصنع قبل أي وصلات أو قص."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Stäbe",
         "fr": "Nombre de barres",
         "es": "Número de barras",
-        "ar": "Number of Bars"
+        "ar": "عدد القضبان"
       },
       "businessContext_i18n": {
         "en": "Total quantity of bars required for the project.",
         "tr": "Proje için gereken toplam çubuk miktarı.",
         "de": "Gesamtmenge der für das Projekt benötigten Stäbe.",
         "fr": "Quantité totale de barres requises pour le projet.",
-        "es": "Cantidad total de barras requeridas para el proyecto."
+        "es": "Cantidad total de barras requeridas para el proyecto.",
+        "ar": "الكمية الإجمالية للقضبان المطلوبة للمشروع."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Überlappungslänge (m)",
         "fr": "Longueur de recouvrement (m)",
         "es": "Longitud de empalme (m)",
-        "ar": "Lap Length (m)"
+        "ar": "طول الوصلة (م)"
       },
       "businessContext_i18n": {
         "en": "Additional splicing length added per bar for overlap joints.",
         "tr": "Bindirmeli ek yerleri için çubuk başına eklenen ek birleştirme uzunluğu.",
         "de": "Zusätzliche Stoßlänge pro Stab für Überlappungsverbindungen.",
         "fr": "Longueur de jonction supplémentaire ajoutée par barre pour les joints de recouvrement.",
-        "es": "Longitud adicional de empalme añadida por barra para uniones traslapadas."
+        "es": "Longitud adicional de empalme añadida por barra para uniones traslapadas.",
+        "ar": "طول إضافي للتراكب يُضاف لكل قضيب للوصلات المتداخلة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verschnitt (%)",
         "fr": "Pertes (%)",
         "es": "Desperdicio (%)",
-        "ar": "Wastage (%)"
+        "ar": "الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage overage for cutting waste, bending loss and site damage.",
         "tr": "Kesim atığı, bükme kaybı ve saha hasarı için yüzde fazlalık.",
         "de": "Prozentualer Zuschlag für Schnittverlust, Biegeverlust und Bauschäden.",
         "fr": "Pourcentage de surplus pour les chutes de coupe, les pertes de cintrage et les dommages sur site.",
-        "es": "Porcentaje de sobremedida por pérdidas de corte, pérdidas por doblado y daños en obra."
+        "es": "Porcentaje de sobremedida por pérdidas de corte, pérdidas por doblado y daños en obra.",
+        "ar": "نسبة الزيادة لفقدان القص، وفقدان الثني، والتلف في الموقع."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Benutzerdefiniertes Gewicht pro Meter (kg/m)",
         "fr": "Poids personnalisé par mètre (kg/m)",
         "es": "Peso personalizado por metro (kg/m)",
-        "ar": "Custom Weight per Meter (kg/m)"
+        "ar": "الوزن المخصص لكل متر (كجم/م)"
       },
       "businessContext_i18n": {
         "en": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d².",
         "tr": "Teorik ağırlık için isteğe bağlı geçersiz kılma; 0 veya boş ise ağırlık, 0.006165 × d² formülü kullanılarak çaptan hesaplanır.",
         "de": "Optionaler Überschreibwert für das theoretische Gewicht; bei 0 oder leer wird das Gewicht aus dem Durchmesser mit der Formel 0,006165 × d² berechnet.",
         "fr": "Remplacement facultatif du poids théorique ; si 0 ou vide, le poids est calculé à partir du diamètre selon la formule 0,006165 × d².",
-        "es": "Sobrescritura opcional para el peso teórico; si es 0 o está en blanco, el peso se calcula a partir del diámetro usando la fórmula 0.006165 × d²."
+        "es": "Sobrescritura opcional para el peso teórico; si es 0 o está en blanco, el peso se calcula a partir del diámetro usando la fórmula 0.006165 × d².",
+        "ar": "تجاوز اختياري للوزن النظري؛ إذا كان 0 أو فارغًا، يُحسب الوزن من القطر باستخدام الصيغة 0.006165 × d²."
       }
     }
   ],

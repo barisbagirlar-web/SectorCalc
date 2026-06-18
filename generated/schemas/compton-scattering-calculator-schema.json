@@ -14,14 +14,15 @@
         "de": "Einfallende Photonenenergie",
         "fr": "Énergie du photon incident",
         "es": "Energía del fotón incidente",
-        "ar": "Incident Photon Energy"
+        "ar": "طاقة الفوتون الساقط"
       },
       "businessContext_i18n": {
         "en": "Energy of incoming photon before scattering",
         "tr": "Saçılmadan önce gelen fotonun enerjisi.",
         "de": "Energie des einfallenden Photons vor der Streuung.",
         "fr": "Énergie du photon entrant avant diffusion",
-        "es": "Energía del fotón entrante antes de la dispersión"
+        "es": "Energía del fotón entrante antes de la dispersión",
+        "ar": "طاقة الفوتون الوارد قبل التشتت"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wellenlänge des einfallenden Photons",
         "fr": "Longueur d'onde du photon incident",
         "es": "Longitud de onda del fotón incidente",
-        "ar": "Incident Photon Wavelength"
+        "ar": "الطول الموجي للفوتون الساقط"
       },
       "businessContext_i18n": {
         "en": "Wavelength of incoming photon (if known); overrides energy when provided",
         "tr": "Gelen fotonun dalga boyu (biliniyorsa); sağlandığında enerjiyi geçersiz kılar.",
         "de": "Wellenlänge des eingehenden Photons (falls bekannt); überschreibt Energie, wenn angegeben",
         "fr": "Longueur d'onde du photon entrant (si connue) ; remplace l'énergie lorsqu'elle est fournie",
-        "es": "Longitud de onda del fotón entrante (si se conoce); anula la energía cuando se proporciona"
+        "es": "Longitud de onda del fotón entrante (si se conoce); anula la energía cuando se proporciona",
+        "ar": "الطول الموجي للفوتون الوارد (إذا كان معروفًا)؛ يتجاوز الطاقة عند توفيره"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Streuwinkel",
         "fr": "Angle de diffusion",
         "es": "Ángulo de dispersión",
-        "ar": "Scattering Angle"
+        "ar": "زاوية التشتت"
       },
       "businessContext_i18n": {
         "en": "Angle between incident and scattered photon directions",
         "tr": "Gelen ve saçılan foton yönleri arasındaki açı.",
         "de": "Winkel zwischen einfallender und gestreuter Photonenrichtung",
         "fr": "Angle entre les directions du photon incident et diffusé",
-        "es": "Ángulo entre las direcciones del fotón incidente y dispersado"
+        "es": "Ángulo entre las direcciones del fotón incidente y dispersado",
+        "ar": "الزاوية بين اتجاهي الفوتون الساقط والمشتت"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ruheenergie des Elektrons",
         "fr": "Énergie de repos de l'électron",
         "es": "Energía de reposo del electrón",
-        "ar": "Electron Rest Energy"
+        "ar": "طاقة سكون الإلكترون"
       },
       "businessContext_i18n": {
         "en": "Rest mass energy of the scattering particle (electron: 511 keV)",
         "tr": "Saçılan parçacığın durgun kütle enerjisi (elektron: 511 keV).",
         "de": "Ruhemassenenergie des streuenden Teilchens (Elektron: 511 keV)",
         "fr": "Énergie de masse au repos de la particule diffusante (électron : 511 keV)",
-        "es": "Energía de masa en reposo de la partícula dispersora (electrón: 511 keV)"
+        "es": "Energía de masa en reposo de la partícula dispersora (electrón: 511 keV)",
+        "ar": "طاقة السكون للجسيم المشتت (الإلكترون: 511 كيلو إلكترون فولت)"
       }
     }
   ],

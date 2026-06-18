@@ -14,14 +14,15 @@
         "de": "Außendurchmesser (OD)",
         "fr": "Diamètre extérieur (DE)",
         "es": "Diámetro exterior (OD)",
-        "ar": "Dış Çap (OD)"
+        "ar": "القطر الخارجي (OD)"
       },
       "businessContext_i18n": {
         "en": "Flanşın dış çapı, milimetre cinsinden.",
         "tr": "Flanşın dış çapı, milimetre cinsinden.",
         "de": "Außendurchmesser des Flansches in Millimetern.",
         "fr": "Diamètre extérieur de la bride, en millimètres.",
-        "es": "Diámetro exterior de la brida, en milímetros."
+        "es": "Diámetro exterior de la brida, en milímetros.",
+        "ar": "القطر الخارجي للفلنجة، بالمليمتر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dicke",
         "fr": "Épaisseur",
         "es": "Grosor",
-        "ar": "Kalınlık"
+        "ar": "السماكة"
       },
       "businessContext_i18n": {
         "en": "Flanş kalınlığı.",
         "tr": "Flanş kalınlığı.",
         "de": "Flanschdicke.",
         "fr": "Épaisseur de la bride.",
-        "es": "Espesor de la brida."
+        "es": "Espesor de la brida.",
+        "ar": "سمك الفلنجة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Schraubenkreisdurchmesser",
         "fr": "Diamètre du cercle de boulons",
         "es": "Diámetro del círculo de pernos",
-        "ar": "Cıvata Dairesi Çapı"
+        "ar": "قطر دائرة المسامير"
       },
       "businessContext_i18n": {
         "en": "Cıvata deliklerinin merkezinden geçen dairenin çapı.",
         "tr": "Cıvata deliklerinin merkezinden geçen dairenin çapı.",
         "de": "Durchmesser des Kreises durch die Mitte der Schraubenlöcher.",
         "fr": "Diamètre du cercle passant par les centres des trous de boulons.",
-        "es": "Diámetro del círculo que pasa por los centros de los agujeros de los pernos."
+        "es": "Diámetro del círculo que pasa por los centros de los agujeros de los pernos.",
+        "ar": "قطر الدائرة المارة بمراكز فتحات المسامير."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Schrauben",
         "fr": "Nombre de boulons",
         "es": "Número de pernos",
-        "ar": "Cıvata Sayısı"
+        "ar": "عدد المسامير"
       },
       "businessContext_i18n": {
         "en": "Cıvata deliği sayısı.",
         "tr": "Cıvata deliği sayısı.",
         "de": "Anzahl der Schraubenlöcher.",
         "fr": "Nombre de trous de boulons.",
-        "es": "Número de agujeros para pernos."
+        "es": "Número de agujeros para pernos.",
+        "ar": "عدد فتحات المسامير."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schraubenlochdurchmesser",
         "fr": "Diamètre du trou de boulon",
         "es": "Diámetro del agujero del perno",
-        "ar": "Cıvata Deliği Çapı"
+        "ar": "قطر فتحة المسمار"
       },
       "businessContext_i18n": {
         "en": "Her bir cıvata deliğinin çapı.",
         "tr": "Her bir cıvata deliğinin çapı.",
         "de": "Durchmesser jedes Schraubenlochs.",
         "fr": "Diamètre de chaque trou de boulon.",
-        "es": "Diámetro de cada agujero de perno."
+        "es": "Diámetro de cada agujero de perno.",
+        "ar": "قطر كل فتحة مسمار."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Malzeme Yoğunluğu"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³).",
         "tr": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³).",
         "de": "Dichte des Flanschmaterials (z. B. Stahl 7850 kg/m³).",
         "fr": "Densité du matériau de la bride (ex: acier 7850 kg/m³).",
-        "es": "Densidad del material de la brida (ej: acero 7850 kg/m³)."
+        "es": "Densidad del material de la brida (ej: acero 7850 kg/m³).",
+        "ar": "كثافة مادة الفلنجة (مثل: الصلب 7850 كجم/م³)."
       }
     }
   ],
   "formulas": {
-    "result": "outerDiameter + thickness + boltCircleDiameter",
-    "result_copy": "outerDiameter + thickness + boltCircleDiameter"
+    "normalized_product": "outerDiameter * thickness * boltCircleDiameter * numberOfBolts",
+    "result": "outerDiameter * thickness * boltCircleDiameter * numberOfBolts * (boltHoleDiameter * density)",
+    "adjustment_factor": "boltHoleDiameter * density"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "solidVolume",
-      "totalHoleVolume"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "weight",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",

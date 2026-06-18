@@ -14,14 +14,15 @@
         "de": "Schmelztemperatur",
         "fr": "Température du métal en fusion",
         "es": "Temperatura del fundido",
-        "ar": "Eriyik Sıcaklığı"
+        "ar": "درجة حرارة المصهور"
       },
       "businessContext_i18n": {
         "en": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
         "tr": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
         "de": "Metallschmelztemperatur beeinflusst Gaslöslichkeit und Fließfähigkeit. Hohe Temperatur kann Porenrisiko erhöhen.",
         "fr": "Température du métal en fusion, affecte la solubilité des gaz et la fluidité. Une température élevée peut augmenter le risque de porosité.",
-        "es": "Temperatura del metal fundido, afecta la solubilidad del gas y la fluidez. Una temperatura alta puede aumentar el riesgo de porosidad."
+        "es": "Temperatura del metal fundido, afecta la solubilidad del gas y la fluidez. Una temperatura alta puede aumentar el riesgo de porosidad.",
+        "ar": "درجة حرارة المصهور المعدني، تؤثر على ذوبانية الغاز والسيولة. قد تزيد الحرارة العالية من خطر المسامية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Formtemperatur",
         "fr": "Température du moule",
         "es": "Temperatura del molde",
-        "ar": "Kalıp Sıcaklığı"
+        "ar": "درجة حرارة القالب"
       },
       "businessContext_i18n": {
         "en": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
         "tr": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
         "de": "Formtemperatur bestimmt die Erstarrungsgeschwindigkeit. Ungeeignete Formtemperatur führt zu Lunkern.",
         "fr": "La température du moule détermine la vitesse de solidification. Une température de moule inappropriée entraîne des retassures.",
-        "es": "La temperatura del molde determina la velocidad de solidificación. Una temperatura inadecuada del molde provoca cavidades de contracción."
+        "es": "La temperatura del molde determina la velocidad de solidificación. Una temperatura inadecuada del molde provoca cavidades de contracción.",
+        "ar": "تحدد درجة حرارة القالب سرعة التصلب. قد تؤدي درجة حرارة القالب غير المناسبة إلى فراغات انكماش."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Einspritzdruck",
         "fr": "Pression d'injection",
         "es": "Presión de inyección",
-        "ar": "Enjeksiyon Basıncı"
+        "ar": "ضغط الحقن"
       },
       "businessContext_i18n": {
         "en": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
         "tr": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
         "de": "Druck stellt sicher, dass das Metall die Form vollständig füllt. Niedriger Druck verursacht Lunkerbildung.",
         "fr": "La pression assure le remplissage complet du moule. Une pression faible provoque des vides.",
-        "es": "La presión asegura que el metal llene completamente el molde. Una presión baja provoca porosidad."
+        "es": "La presión asegura que el metal llene completamente el molde. Una presión baja provoca porosidad.",
+        "ar": "يضمن الضغط ملء القالب بالكامل. يؤدي الضغط المنخفض إلى تكوين فراغات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Abkühlgeschwindigkeit",
         "fr": "Vitesse de refroidissement",
         "es": "Velocidad de enfriamiento",
-        "ar": "Soğuma Hızı"
+        "ar": "معدل التبريد"
       },
       "businessContext_i18n": {
         "en": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
         "tr": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
         "de": "Schnelle Abkühlung kann zur Erstarrung ohne Nachspeisung und zu Mikrolunkern führen.",
         "fr": "Un refroidissement rapide peut solidifier le métal avant qu'il ne puisse alimenter, créant des microporosités.",
-        "es": "Un enfriamiento rápido puede solidificar el metal antes de que alimente, generando microporos."
+        "es": "Un enfriamiento rápido puede solidificar el metal antes de que alimente, generando microporos.",
+        "ar": "قد يؤدي التبريد السريع إلى تصلب المعدن دون تغذية كافية، مما يسبب فراغات دقيقة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Legierungsreinheit",
         "fr": "Pureté de l'alliage",
         "es": "Pureza de la aleación",
-        "ar": "Alaşım Saflığı"
+        "ar": "نقاء السبيكة"
       },
       "businessContext_i18n": {
         "en": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
         "tr": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
         "de": "Verunreinigungen verursachen Gasblasen und Strukturfehler. Mit steigender Reinheit sinkt das Risiko.",
         "fr": "Les impuretés provoquent des bulles de gaz et des défauts structurels. Plus la pureté est élevée, plus le risque est faible.",
-        "es": "Las impurezas causan burbujas de gas y defectos estructurales. A mayor pureza, menor riesgo."
+        "es": "Las impurezas causan burbujas de gas y defectos estructurales. A mayor pureza, menor riesgo.",
+        "ar": "تسبب الشوائب فقاعات غازية وعيوبًا هيكلية. يقل الخطر بزيادة النقاء."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Entlüftungseffizienz",
         "fr": "Efficacité de la ventilation",
         "es": "Eficiencia de ventilación",
-        "ar": "Havalandırma Verimi"
+        "ar": "كفاءة التهوية"
       },
       "businessContext_i18n": {
         "en": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
         "tr": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
         "de": "Entlüftung ermöglicht den Abtransport von Luft aus der Form. Unzureichende Entlüftung erzeugt gasbedingte Lunker.",
         "fr": "La ventilation évacue l'air du moule. Une ventilation insuffisante crée des vides dus au gaz emprisonné.",
-        "es": "La ventilación evacua el aire del molde. Una ventilación insuficiente provoca porosidad por gas atrapado."
+        "es": "La ventilación evacua el aire del molde. Una ventilación insuficiente provoca porosidad por gas atrapado.",
+        "ar": "تضمن التهوية طرد الهواء من القالب. تؤدي التهوية غير الكافية إلى فراغات ناتجة عن احتباس الغاز."
       }
     }
   ],

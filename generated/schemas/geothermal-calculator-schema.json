@@ -14,14 +14,15 @@
         "de": "Reservoirtemperatur (°C)",
         "fr": "Température du réservoir (°C)",
         "es": "Temperatura del reservorio (°C)",
-        "ar": "Reservoir Temperature (°C)"
+        "ar": "درجة حرارة الخزان (°م)"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal reservoir",
         "tr": "Jeotermal rezervuarın sıcaklığı",
         "de": "Temperatur des geothermischen Reservoirs",
         "fr": "Température du réservoir géothermique",
-        "es": "Temperatura del reservorio geotérmico"
+        "es": "Temperatura del reservorio geotérmico",
+        "ar": "درجة حرارة الخزان الجوفي الحراري"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
         "es": "Temperatura ambiente (°C)",
-        "ar": "Ambient Temperature (°C)"
+        "ar": "درجة الحرارة المحيطة (°م)"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at the surface",
         "tr": "Yüzeydeki ortam sıcaklığı",
         "de": "Umgebungstemperatur an der Oberfläche",
         "fr": "Température ambiante en surface",
-        "es": "Temperatura ambiente en la superficie"
+        "es": "Temperatura ambiente en la superficie",
+        "ar": "درجة الحرارة المحيطة على السطح"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchflussrate (kg/s)",
         "fr": "Débit massique (kg/s)",
         "es": "Caudal másico (kg/s)",
-        "ar": "Flow Rate (kg/s)"
+        "ar": "معدل التدفق (كجم/ثانية)"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of geothermal fluid",
         "tr": "Jeotermal akışkanın kütlesel debisi",
         "de": "Massenstrom des geothermischen Fluids",
         "fr": "Débit massique du fluide géothermique",
-        "es": "Caudal másico del fluido geotérmico"
+        "es": "Caudal másico del fluido geotérmico",
+        "ar": "معدل تدفق كتلة السائل الجوفي الحراري"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Spezifische Wärmekapazität (kJ/kg·K)",
         "fr": "Capacité thermique massique (kJ/kg·K)",
         "es": "Capacidad calorífica específica (kJ/kg·K)",
-        "ar": "Specific Heat Capacity (kJ/kg·K)"
+        "ar": "السعة الحرارية النوعية (كيلوجول/كجم·كلفن)"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the geothermal fluid",
         "tr": "Jeotermal akışkanın özgül ısı kapasitesi",
         "de": "Spezifische Wärmekapazität des geothermischen Fluids",
         "fr": "Capacité thermique massique du fluide géothermique",
-        "es": "Capacidad calorífica específica del fluido geotérmico"
+        "es": "Capacidad calorífica específica del fluido geotérmico",
+        "ar": "السعة الحرارية النوعية للسائل الجوفي الحراري"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Umwandlungswirkungsgrad (%)",
         "fr": "Rendement de conversion (%)",
         "es": "Eficiencia de conversión (%)",
-        "ar": "Conversion Efficiency (%)"
+        "ar": "كفاءة التحويل (%)"
       },
       "businessContext_i18n": {
         "en": "Efficiency of converting thermal energy to electricity",
         "tr": "Termal enerjinin elektriğe dönüşüm verimliliği",
         "de": "Wirkungsgrad der Umwandlung von Wärmeenergie in Elektrizität",
         "fr": "Rendement de conversion de l'énergie thermique en électricité",
-        "es": "Eficiencia de conversión de energía térmica a eléctrica"
+        "es": "Eficiencia de conversión de energía térmica a eléctrica",
+        "ar": "كفاءة تحويل الطاقة الحرارية إلى كهرباء"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kapazitätsfaktor (%)",
         "fr": "Facteur de capacité (%)",
         "es": "Factor de capacidad (%)",
-        "ar": "Capacity Factor (%)"
+        "ar": "معامل السعة (%)"
       },
       "businessContext_i18n": {
         "en": "Fraction of time the plant operates at full capacity",
         "tr": "Santralin tam kapasitede çalıştığı sürenin oranı",
         "de": "Anteil der Zeit, in der die Anlage mit voller Kapazität arbeitet",
         "fr": "Fraction du temps où l'usine fonctionne à pleine capacité",
-        "es": "Fracción de tiempo que la planta opera a plena capacidad"
+        "es": "Fracción de tiempo que la planta opera a plena capacidad",
+        "ar": "جزء الوقت الذي يعمل فيه المصنع بكامل طاقته"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Betriebsstunden pro Jahr (h)",
         "fr": "Heures de fonctionnement par an (heures)",
         "es": "Horas de operación por año (horas)",
-        "ar": "Operating Hours per Year (hours)"
+        "ar": "ساعات التشغيل سنويًا (ساعة)"
       },
       "businessContext_i18n": {
         "en": "Total operating hours per year",
         "tr": "Yıllık toplam çalışma saati",
         "de": "Gesamtbetriebsstunden pro Jahr",
         "fr": "Nombre total d'heures de fonctionnement par an",
-        "es": "Total de horas de operación por año"
+        "es": "Total de horas de operación por año",
+        "ar": "إجمالي ساعات التشغيل سنويًا"
       }
     }
   ],

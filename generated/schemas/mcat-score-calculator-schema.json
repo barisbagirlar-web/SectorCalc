@@ -14,14 +14,15 @@
         "de": "CPBS Richtige Anzahl",
         "fr": "Nombre de réponses correctes CPBS",
         "es": "Número de aciertos CPBS",
-        "ar": "CPBS Doğru Sayısı"
+        "ar": "عدد الإجابات الصحيحة في CPBS"
       },
       "businessContext_i18n": {
         "en": "Chemical and Physical Foundations of Biological Systems bölümünde doğru cevap sayısı (0-59)",
         "tr": "Biyolojik Sistemlerin Kimyasal ve Fiziksel Temelleri bölümünde doğru cevap sayısı (0-59)",
         "de": "Anzahl der richtigen Antworten im Bereich Chemical and Physical Foundations of Biological Systems (0-59)",
         "fr": "Nombre de réponses correctes dans la section Chemical and Physical Foundations of Biological Systems (0-59)",
-        "es": "Número de respuestas correctas en la sección de Fundamentos Químicos y Físicos de los Sistemas Biológicos (0-59)"
+        "es": "Número de respuestas correctas en la sección de Fundamentos Químicos y Físicos de los Sistemas Biológicos (0-59)",
+        "ar": "عدد الإجابات الصحيحة في قسم الأسس الكيميائية والفيزيائية للأنظمة البيولوجية (0-59)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "CARS Richtige Anzahl",
         "fr": "Nombre de réponses correctes CARS",
         "es": "Número de aciertos CARS",
-        "ar": "CARS Doğru Sayısı"
+        "ar": "عدد الإجابات الصحيحة في CARS"
       },
       "businessContext_i18n": {
         "en": "Critical Analysis and Reasoning Skills bölümünde doğru cevap sayısı (0-53)",
         "tr": "Kritik Analiz ve Akıl Yürütme Becerileri bölümünde doğru cevap sayısı (0-53)",
         "de": "Anzahl der richtigen Antworten im Bereich Critical Analysis and Reasoning Skills (0-53)",
         "fr": "Nombre de réponses correctes dans la section Critical Analysis and Reasoning Skills (0-53)",
-        "es": "Número de respuestas correctas en la sección de Análisis Crítico y Razonamiento (0-53)"
+        "es": "Número de respuestas correctas en la sección de Análisis Crítico y Razonamiento (0-53)",
+        "ar": "عدد الإجابات الصحيحة في قسم مهارات التفكير النقدي والتحليل (0-53)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "BBLS Richtige Anzahl",
         "fr": "Nombre de réponses correctes BBLS",
         "es": "Número de aciertos BBLS",
-        "ar": "BBLS Doğru Sayısı"
+        "ar": "عدد الإجابات الصحيحة في BBLS"
       },
       "businessContext_i18n": {
         "en": "Biological and Biochemical Foundations of Living Systems bölümünde doğru cevap sayısı (0-59)",
         "tr": "Canlı Sistemlerin Biyolojik ve Biyokimyasal Temelleri bölümünde doğru cevap sayısı (0-59)",
         "de": "Anzahl der richtigen Antworten im Bereich Biological and Biochemical Foundations of Living Systems (0-59)",
         "fr": "Nombre de réponses correctes dans la section Biological and Biochemical Foundations of Living Systems (0-59)",
-        "es": "Número de respuestas correctas en la sección de Fundamentos Biológicos y Bioquímicos de los Sistemas Vivos (0-59)"
+        "es": "Número de respuestas correctas en la sección de Fundamentos Biológicos y Bioquímicos de los Sistemas Vivos (0-59)",
+        "ar": "عدد الإجابات الصحيحة في قسم الأسس البيولوجية والكيميائية الحيوية للأنظمة الحية (0-59)"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "PSBB Richtige Anzahl",
         "fr": "Nombre de réponses correctes PSBB",
         "es": "Número de aciertos PSBB",
-        "ar": "PSBB Doğru Sayısı"
+        "ar": "عدد الإجابات الصحيحة في PSBB"
       },
       "businessContext_i18n": {
         "en": "Psychological, Social, and Biological Foundations of Behavior bölümünde doğru cevap sayısı (0-59)",
         "tr": "Davranışın Psikolojik, Sosyal ve Biyolojik Temelleri bölümünde doğru cevap sayısı (0-59)",
         "de": "Anzahl der richtigen Antworten im Bereich Psychological, Social, and Biological Foundations of Behavior (0-59)",
         "fr": "Nombre de réponses correctes dans la section Psychological, Social, and Biological Foundations of Behavior (0-59)",
-        "es": "Número de respuestas correctas en la sección de Fundamentos Psicológicos, Sociales y Biológicos del Comportamiento (0-59)"
+        "es": "Número de respuestas correctas en la sección de Fundamentos Psicológicos, Sociales y Biológicos del Comportamiento (0-59)",
+        "ar": "عدد الإجابات الصحيحة في قسم الأسس النفسية والاجتماعية والبيولوجية للسلوك (0-59)"
       }
     }
   ],
   "formulas": {
-    "result": "raw-cpbs + raw-cars + raw-bbls",
-    "result_copy": "raw-cpbs + raw-cars + raw-bbls"
+    "normalized_product": "raw-cpbs * raw-cars * raw-bbls * raw-psbb",
+    "result": "raw-cpbs * raw-cars * raw-bbls * raw-psbb"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "scaledCPBS",
-      "scaledCARS",
-      "scaledBBLS",
-      "scaledPSBB"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalScore",
-    "unit": "correct answers"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Kimya & Proses",

@@ -14,14 +14,15 @@
         "de": "Geschlecht (0=Männlich, 1=Weiblich)",
         "fr": "Sexe (0=Masculin, 1=Féminin)",
         "es": "Sexo (0=Hombre, 1=Mujer)",
-        "ar": "Sex (0=Male, 1=Female)"
+        "ar": "الجنس (0=ذكر، 1=أنثى)"
       },
       "businessContext_i18n": {
         "en": "Enter 0 for male, 1 for female",
         "tr": "Erkek için 0, kadın için 1 girin",
         "de": "Geben Sie 0 für männlich, 1 für weiblich ein",
         "fr": "Entrez 0 pour masculin, 1 pour féminin",
-        "es": "Ingrese 0 para hombre, 1 para mujer"
+        "es": "Ingrese 0 para hombre, 1 para mujer",
+        "ar": "أدخل 0 للذكر، 1 للأنثى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Alter (Monate)",
         "fr": "Âge (mois)",
         "es": "Edad (meses)",
-        "ar": "Age (months)"
+        "ar": "العمر (أشهر)"
       },
       "businessContext_i18n": {
         "en": "Age in completed months",
         "tr": "Tamamlanmış ay cinsinden yaş",
         "de": "Alter in vollendeten Monaten",
         "fr": "Âge en mois révolus",
-        "es": "Edad en meses cumplidos"
+        "es": "Edad en meses cumplidos",
+        "ar": "العمر بالأشهر المكتملة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Körpergröße (Länge)",
         "fr": "Taille (Longueur)",
         "es": "Altura (Longitud)",
-        "ar": "Height (Length)"
+        "ar": "الطول (الطول الكلي)"
       },
       "businessContext_i18n": {
         "en": "Recumbent length for infants under 2 years",
         "tr": "2 yaş altı bebekler için sırtüstü boy",
         "de": "Liege-Länge für Säuglinge unter 2 Jahren",
         "fr": "Longueur couchée pour les nourrissons de moins de 2 ans",
-        "es": "Longitud en decúbito para bebés menores de 2 años"
+        "es": "Longitud en decúbito para bebés menores de 2 años",
+        "ar": "الطول الراقد للرضع أقل من سنتين"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "L (Box-Cox-Potenz)",
         "fr": "L (puissance Box-Cox)",
         "es": "L (potencia Box-Cox)",
-        "ar": "L (Box-Cox power)"
+        "ar": "L (قوة Box-Cox)"
       },
       "businessContext_i18n": {
         "en": "Skewness parameter from WHO growth standards for given age and sex",
         "tr": "WHO büyüme standartlarına göre belirli yaş ve cinsiyet için çarpıklık parametresi",
         "de": "Schiefeparameter aus WHO-Wachstumsstandards für gegebenes Alter und Geschlecht",
         "fr": "Paramètre d'asymétrie des normes de croissance OMS pour l'âge et le sexe donnés",
-        "es": "Parámetro de asimetría de los estándares de crecimiento de la OMS para edad y sexo dados"
+        "es": "Parámetro de asimetría de los estándares de crecimiento de la OMS para edad y sexo dados",
+        "ar": "معامل الالتواء من معايير النمو لمنظمة الصحة العالمية حسب العمر والجنس"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "M (Median)",
         "fr": "M (Médiane)",
         "es": "M (Mediana)",
-        "ar": "M (Median)"
+        "ar": "M (الوسيط)"
       },
       "businessContext_i18n": {
         "en": "Median height for given age and sex from reference growth chart",
         "tr": "Referans büyüme tablosundan belirli yaş ve cinsiyet için medyan boy",
         "de": "Median-Körpergröße für gegebenes Alter und Geschlecht aus Referenz-Wachstumskurve",
         "fr": "Taille médiane pour l'âge et le sexe donnés selon la courbe de croissance de référence",
-        "es": "Altura mediana para edad y sexo dados según gráfico de crecimiento de referencia"
+        "es": "Altura mediana para edad y sexo dados según gráfico de crecimiento de referencia",
+        "ar": "متوسط الطول لعمر وجنس معينين من مخطط النمو المرجعي"
       }
     },
     {
@@ -129,32 +134,39 @@
         "de": "S (Variationskoeffizient)",
         "fr": "S (Coefficient de variation)",
         "es": "S (Coeficiente de variación)",
-        "ar": "S (Coefficient of variation)"
+        "ar": "S (معامل الاختلاف)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of variation from WHO growth standards",
         "tr": "WHO büyüme standartlarından değişim katsayısı",
         "de": "Variationskoeffizient aus WHO-Wachstumsstandards",
         "fr": "Coefficient de variation des normes de croissance OMS",
-        "es": "Coeficiente de variación de los estándares de crecimiento de la OMS"
+        "es": "Coeficiente de variación de los estándares de crecimiento de la OMS",
+        "ar": "معامل الاختلاف من معايير النمو لمنظمة الصحة العالمية"
       }
     }
   ],
   "formulas": {
-    "result": "sex + ageMonths + heightCm",
-    "result_copy": "sex + ageMonths + heightCm"
+    "normalized_product": "sex * ageMonths * heightCm * L",
+    "result": "sex * ageMonths * heightCm * L * (M * S)",
+    "adjustment_factor": "M * S"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "zScore"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "percentile",
-    "unit": "months"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

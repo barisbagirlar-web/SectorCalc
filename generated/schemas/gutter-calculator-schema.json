@@ -14,14 +14,15 @@
         "de": "Dachfläche",
         "fr": "Surface de toit",
         "es": "Área del techo",
-        "ar": "Roof Area"
+        "ar": "مساحة السطح"
       },
       "businessContext_i18n": {
         "en": "Total catchment area of the roof.",
         "tr": "Çatının toplam toplama alanı.",
         "de": "Gesamte Auffangfläche des Daches.",
         "fr": "Surface totale de captage du toit.",
-        "es": "Área total de captación del tejado."
+        "es": "Área total de captación del tejado.",
+        "ar": "إجمالي مساحة تجميع مياه السطح."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Breite der Dachfläche, die zum Fallrohr entwässert.",
         "fr": "Intensité des précipitations",
         "es": "Intensidad de lluvia",
-        "ar": "Rainfall Intensity"
+        "ar": "شدة هطول الأمطار"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity based on local climate data.",
         "tr": "Yerel iklim verilerine dayalı tasarım yağış yoğunluğu.",
         "de": "Bemessungs-Regenintensität basierend auf lokalen Klimadaten.",
         "fr": "Intensité de pluie de projet basée sur les données climatiques locales.",
-        "es": "Intensidad de lluvia de diseño basada en datos climáticos locales."
+        "es": "Intensidad de lluvia de diseño basada en datos climáticos locales.",
+        "ar": "شدة هطول الأمطار التصميمية بناءً على بيانات المناخ المحلي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dachrinnengefälle",
         "fr": "Pente de gouttière",
         "es": "Pendiente del canalón",
-        "ar": "Gutter Slope"
+        "ar": "انحدار الميزاب"
       },
       "businessContext_i18n": {
         "en": "Slope of the gutter per meter length.",
         "tr": "Metre başına oluğun eğimi.",
         "de": "Gefälle der Dachrinne pro Meter Länge.",
         "fr": "Pente de la gouttière par mètre de longueur.",
-        "es": "Pendiente del canalón por metro de longitud."
+        "es": "Pendiente del canalón por metro de longitud.",
+        "ar": "انحدار الميزاب لكل متر طول."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dachrinnenlänge",
         "fr": "Longueur de gouttière",
         "es": "Longitud del canalón",
-        "ar": "Gutter Length"
+        "ar": "طول الميزاب"
       },
       "businessContext_i18n": {
         "en": "Length of the gutter section.",
         "tr": "Oluk bölümünün uzunluğu.",
         "de": "Länge des Dachrinnenabschnitts.",
         "fr": "Longueur du tronçon de gouttière.",
-        "es": "Longitud de la sección del canalón."
+        "es": "Longitud de la sección del canalón.",
+        "ar": "طول مقطع الميزاب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dachrinnenbreite",
         "fr": "Largeur de gouttière",
         "es": "Ancho del canalón",
-        "ar": "Gutter Width"
+        "ar": "عرض الميزاب"
       },
       "businessContext_i18n": {
         "en": "Internal width of the gutter.",
         "tr": "Oluğun iç genişliği.",
         "de": "Innere Breite der Dachrinne.",
         "fr": "Largeur intérieure de la gouttière.",
-        "es": "Ancho interno del canalón."
+        "es": "Ancho interno del canalón.",
+        "ar": "العرض الداخلي للميزاب."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Dachrinnentiefe",
         "fr": "Profondeur de gouttière",
         "es": "Profundidad del canalón",
-        "ar": "Gutter Depth"
+        "ar": "عمق الميزاب"
       },
       "businessContext_i18n": {
         "en": "Internal depth of the gutter.",
         "tr": "Oluğun iç derinliği.",
         "de": "Innere Tiefe der Dachrinne.",
         "fr": "Profondeur intérieure de la gouttière.",
-        "es": "Profundidad interna del canalón."
+        "es": "Profundidad interna del canalón.",
+        "ar": "العمق الداخلي للميزاب."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Abflussbeiwert",
         "fr": "Coefficient de ruissellement",
         "es": "Coeficiente de escorrentía",
-        "ar": "Runoff Coefficient"
+        "ar": "معامل الجريان السطحي"
       },
       "businessContext_i18n": {
         "en": "Coefficient accounting for roof material and slope.",
         "tr": "Çatı malzemesi ve eğimini hesaba katan katsayı.",
         "de": "Beiwert für Dachmaterial und Neigung.",
         "fr": "Coefficient tenant compte du matériau et de la pente du toit.",
-        "es": "Coeficiente que considera el material y la pendiente del tejado."
+        "es": "Coeficiente que considera el material y la pendiente del tejado.",
+        "ar": "معامل يأخذ في الاعتبار مادة السقف وانحداره."
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Zusätzliche Fläche",
         "fr": "Surface supplémentaire",
         "es": "Área adicional",
-        "ar": "Additional Area"
+        "ar": "مساحة إضافية"
       },
       "businessContext_i18n": {
         "en": "Additional contributing area from adjacent surfaces.",
         "tr": "Bitişik yüzeylerden gelen ek katkı alanı.",
         "de": "Zusätzliche beitragende Fläche von angrenzenden Oberflächen.",
         "fr": "Surface contributive supplémentaire provenant de surfaces adjacentes.",
-        "es": "Área contribuyente adicional de superficies adyacentes."
+        "es": "Área contribuyente adicional de superficies adyacentes.",
+        "ar": "مساحة إضافية مساهمة من الأسطح المجاورة."
       }
     }
   ],

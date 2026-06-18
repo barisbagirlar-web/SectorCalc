@@ -14,14 +14,15 @@
         "de": "Toleranz 1",
         "fr": "Tolérance 1",
         "es": "Tolerancia 1",
-        "ar": "Tolerance 1"
+        "ar": "التسامح 1"
       },
       "businessContext_i18n": {
         "en": "Tolerance of component 1 in the tolerance stack",
         "tr": "Tolerans yığınındaki bileşen 1'in toleransı",
         "de": "Toleranz von Komponente 1 in der Toleranzkette",
         "fr": "Tolérance du composant 1 dans la chaîne de tolérance",
-        "es": "Tolerancia del componente 1 en la acumulación de tolerancias"
+        "es": "Tolerancia del componente 1 en la acumulación de tolerancias",
+        "ar": "تسامح المكون 1 في سلسلة التسامح."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Toleranz 2",
         "fr": "Tolérance 2",
         "es": "Tolerancia 2",
-        "ar": "Tolerance 2"
+        "ar": "التسامح 2"
       },
       "businessContext_i18n": {
         "en": "Tolerance of component 2 in the tolerance stack",
         "tr": "Tolerans yığınındaki bileşen 2'nin toleransı",
         "de": "Toleranz von Komponente 2 in der Toleranzkette",
         "fr": "Tolérance du composant 2 dans la chaîne de tolérance",
-        "es": "Tolerancia del componente 2 en la acumulación de tolerancias"
+        "es": "Tolerancia del componente 2 en la acumulación de tolerancias",
+        "ar": "تسامح المكون 2 في سلسلة التسامح."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Toleranz 3",
         "fr": "Tolérance 3",
         "es": "Tolerancia 3",
-        "ar": "Tolerance 3"
+        "ar": "التسامح 3"
       },
       "businessContext_i18n": {
         "en": "Tolerance of component 3 in the tolerance stack",
         "tr": "Tolerans yığınındaki bileşen 3'ün toleransı",
         "de": "Toleranz von Komponente 3 in der Toleranzkette",
         "fr": "Tolérance du composant 3 dans la chaîne de tolérance",
-        "es": "Tolerancia del componente 3 en la acumulación de tolerancias"
+        "es": "Tolerancia del componente 3 en la acumulación de tolerancias",
+        "ar": "تسامح المكون 3 في سلسلة التسامح."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Toleranz 4",
         "fr": "Tolérance 4",
         "es": "Tolerancia 4",
-        "ar": "Tolerance 4"
+        "ar": "التسامح 4"
       },
       "businessContext_i18n": {
         "en": "Tolerance of component 4 in the tolerance stack",
         "tr": "Tolerans yığınındaki bileşen 4'ün toleransı",
         "de": "Toleranz von Komponente 4 in der Toleranzkette",
         "fr": "Tolérance du composant 4 dans la chaîne de tolérance",
-        "es": "Tolerancia del componente 4 en la acumulación de tolerancias"
+        "es": "Tolerancia del componente 4 en la acumulación de tolerancias",
+        "ar": "تسامح المكون 4 في سلسلة التسامح."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Nennmaß",
         "fr": "Dimension nominale",
         "es": "Dimensión nominal",
-        "ar": "Nominal Dimension"
+        "ar": "البعد الاسمي"
       },
       "businessContext_i18n": {
         "en": "Nominal dimension of the assembly for reference",
         "tr": "Referans için montajın nominal boyutu",
         "de": "Nennmaß der Baugruppe als Referenz",
         "fr": "Dimension nominale de l'assemblage pour référence",
-        "es": "Dimensión nominal del conjunto para referencia"
+        "es": "Dimensión nominal del conjunto para referencia",
+        "ar": "البعد الاسمي للتجميع كمرجع."
       }
     }
   ],
   "formulas": {
-    "atl": "t1 + t2 + t3 + t4",
-    "atl_aux": "t1 + t2 + t3 + t4"
+    "normalized_product": "t1 * t2 * t3 * t4",
+    "result": "t1 * t2 * t3 * t4 * (nominal)",
+    "adjustment_factor": "nominal"
   },
   "outputs": {
-    "primary": "atl_aux",
+    "primary": "result",
     "breakdown": [
-      "`Worst-Case Tolerance (ATL): ${atl.toFixed(3)} mm`",
-      "`Safety Factor (TSB): ${tsb.toFixed(2)}`"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "tsb",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",

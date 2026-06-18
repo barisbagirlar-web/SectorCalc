@@ -14,14 +14,15 @@
         "de": "Fluiddichte (ρ)",
         "fr": "Densité du fluide (ρ)",
         "es": "Densidad del fluido (ρ)",
-        "ar": "Fluid Density (ρ)"
+        "ar": "كثافة المائع (ρ)"
       },
       "businessContext_i18n": {
         "en": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³.",
         "tr": "Nesnenin içinde hareket ettiği akışkanın yoğunluğu. Deniz seviyesinde ve 15°C'de hava için 1,225 kg/m³ kullanın.",
         "de": "Die Dichte des Fluids, durch das sich das Objekt bewegt. Für Luft auf Meereshöhe und 15 °C verwenden Sie 1,225 kg/m³.",
         "fr": "La densité du fluide dans lequel l'objet se déplace. Pour l'air au niveau de la mer et à 15°C, utiliser 1,225 kg/m³.",
-        "es": "La densidad del fluido a través del cual se mueve el objeto. Para aire a nivel del mar y 15°C, use 1.225 kg/m³."
+        "es": "La densidad del fluido a través del cual se mueve el objeto. Para aire a nivel del mar y 15°C, use 1.225 kg/m³.",
+        "ar": "كثافة المائع الذي يتحرك من خلاله الجسم. للهواء عند مستوى سطح البحر و15 درجة مئوية، استخدم 1.225 كجم/م³."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strömungsgeschwindigkeit (v)",
         "fr": "Vitesse d'écoulement (v)",
         "es": "Velocidad del flujo (v)",
-        "ar": "Flow Velocity (v)"
+        "ar": "سرعة التدفق (v)"
       },
       "businessContext_i18n": {
         "en": "Relative velocity between the object and the fluid.",
         "tr": "Nesne ile akışkan arasındaki bağıl hız.",
         "de": "Relativgeschwindigkeit zwischen Objekt und Fluid.",
         "fr": "Vitesse relative entre l'objet et le fluide.",
-        "es": "Velocidad relativa entre el objeto y el fluido."
+        "es": "Velocidad relativa entre el objeto y el fluido.",
+        "ar": "السرعة النسبية بين الجسم والمائع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Widerstandsbeiwert (Cd)",
         "fr": "Coefficient de traînée (Cd)",
         "es": "Coeficiente de arrastre (Cd)",
-        "ar": "Drag Coefficient (Cd)"
+        "ar": "معامل السحب (Cd)"
       },
       "businessContext_i18n": {
         "en": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05.",
         "tr": "Nesnenin şekline bağlı ampirik katsayı. Tipik değerler: düzgün küre 0,47, aerodinamik gövde 0,04, küp 1,05.",
         "de": "Empirischer Koeffizient, der von der Form des Objekts abhängt. Typische Werte: glatte Kugel 0,47, stromlinienförmiger Körper 0,04, Würfel 1,05.",
         "fr": "Coefficient empirique dépendant de la forme de l'objet. Valeurs typiques : sphère lisse 0,47, corps profilé 0,04, cube 1,05.",
-        "es": "Coeficiente empírico que depende de la forma del objeto. Valores típicos: esfera lisa 0.47, cuerpo aerodinámico 0.04, cubo 1.05."
+        "es": "Coeficiente empírico que depende de la forma del objeto. Valores típicos: esfera lisa 0.47, cuerpo aerodinámico 0.04, cubo 1.05.",
+        "ar": "معامل تجريبي يعتمد على شكل الجسم. القيم النموذجية: كرة ملساء 0.47، جسم انسيابي 0.04، مكعب 1.05."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bezugsfläche (A)",
         "fr": "Surface de référence (A)",
         "es": "Área de referencia (A)",
-        "ar": "Reference Area (A)"
+        "ar": "المساحة المرجعية (A)"
       },
       "businessContext_i18n": {
         "en": "The frontal area of the object perpendicular to the flow, or other appropriate reference area.",
         "tr": "Nesnenin akışa dik ön alanı veya uygun başka bir referans alanı.",
         "de": "Die Stirnfläche des Objekts senkrecht zur Strömung oder eine andere geeignete Bezugsfläche.",
         "fr": "La surface frontale de l'objet perpendiculaire à l'écoulement, ou autre surface de référence appropriée.",
-        "es": "El área frontal del objeto perpendicular al flujo, u otra área de referencia apropiada."
+        "es": "El área frontal del objeto perpendicular al flujo, u otra área de referencia apropiada.",
+        "ar": "المساحة الأمامية للجسم العمودية على التدفق، أو أي مساحة مرجعية أخرى مناسبة."
       }
     }
   ],

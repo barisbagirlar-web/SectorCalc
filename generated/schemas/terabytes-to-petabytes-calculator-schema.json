@@ -13,14 +13,16 @@
         "tr": "Toplam Ham Kapasite (TB)",
         "de": "Gesamte Bruttokapazität (TB)",
         "fr": "Capacité brute totale (TB)",
-        "es": "Toplam Ham Kapasite (TB)",
-        "ar": "Toplam Ham Kapasite (TB)"
+        "es": "Capacidad bruta total (TB)",
+        "ar": "السعة الإجمالية الخام (TB)"
       },
       "businessContext_i18n": {
         "en": "Tüm disklerin toplam ham depolama kapasitesi.",
         "tr": "Tüm disklerin toplam ham depolama kapasitesi.",
         "de": "Gesamte Bruttospeicherkapazität aller Festplatten.",
-        "fr": "Capacité de stockage brute totale de tous les disques."
+        "fr": "Capacité de stockage brute totale de tous les disques.",
+        "es": "Capacidad de almacenamiento bruta total de todos los discos.",
+        "ar": "إجمالي سعة التخزين الخام لجميع الأقراص."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "RAID Kullanılabilirlik Oranı",
         "de": "RAID-Nutzungsverhältnis",
         "fr": "Taux d'utilisation RAID",
-        "es": "RAID Kullanılabilirlik Oranı",
-        "ar": "RAID Kullanılabilirlik Oranı"
+        "es": "Relación de disponibilidad RAID",
+        "ar": "نسبة توفر RAID"
       },
       "businessContext_i18n": {
         "en": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
         "tr": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0,5.",
         "de": "Verhältnis der nutzbaren Kapazität zur Bruttokapazität in Abhängigkeit von der RAID-Konfiguration. Z.B. RAID 5 (n-1)/n, RAID 10 = 0,5.",
-        "fr": "Rapport entre la capacité utilisable et la capacité brute selon la configuration RAID. Ex : RAID 5 (n-1)/n, RAID 10 = 0,5."
+        "fr": "Rapport entre la capacité utilisable et la capacité brute selon la configuration RAID. Ex : RAID 5 (n-1)/n, RAID 10 = 0,5.",
+        "es": "Relación de capacidad disponible respecto a capacidad bruta según configuración RAID. Ej: RAID 5 (n-1)/n, RAID 10 = 0.5.",
+        "ar": "نسبة السعة المتاحة إلى السعة الخام بناءً على تكوين RAID. مثال: RAID 5 (n-1)/n، RAID 10 = 0.5."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Formatlama Kaybı (%)",
         "de": "Formatierungsverlust (%)",
         "fr": "Perte due au formatage (%)",
-        "es": "Formatlama Kaybı (%)",
-        "ar": "Formatlama Kaybı (%)"
+        "es": "Pérdida por formateo (%)",
+        "ar": "خسارة التنسيق (%)"
       },
       "businessContext_i18n": {
         "en": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
         "tr": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
         "de": "Prozentsatz des für Dateisystemformatierung und Metadaten reservierten Speicherplatzes.",
-        "fr": "Pourcentage d'espace alloué au formatage du système de fichiers et aux métadonnées."
+        "fr": "Pourcentage d'espace alloué au formatage du système de fichiers et aux métadonnées.",
+        "es": "Porcentaje de espacio asignado al formateo del sistema de archivos y metadatos.",
+        "ar": "النسبة المئوية للمساحة المخصصة لتنسيق نظام الملفات والبيانات الوصفية."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "PB Dönüşüm Katsayısı",
         "de": "PB-Umrechnungsfaktor",
         "fr": "Coefficient de conversion PB",
-        "es": "PB Dönüşüm Katsayısı",
-        "ar": "PB Dönüşüm Katsayısı"
+        "es": "Factor de conversión PB",
+        "ar": "معامل تحويل PB"
       },
       "businessContext_i18n": {
         "en": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
         "tr": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
         "de": "Anzahl der Terabyte pro Petabyte. SI: 1000, Binär: 1024.",
-        "fr": "Nombre de téraoctets dans un pétaoctet. SI : 1000, Binaire : 1024."
+        "fr": "Nombre de téraoctets dans un pétaoctet. SI : 1000, Binaire : 1024.",
+        "es": "Cuántos terabytes tiene un petabyte. SI: 1000, Binario: 1024.",
+        "ar": "كم تيرابايت في بيتابايت واحد. SI: 1000، ثنائي: 1024."
       }
     }
   ],

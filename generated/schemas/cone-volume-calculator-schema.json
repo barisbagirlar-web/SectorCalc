@@ -14,14 +14,15 @@
         "de": "Basisradius",
         "fr": "Rayon de base",
         "es": "Radio de la base",
-        "ar": "Base Radius"
+        "ar": "نصف قطر القاعدة"
       },
       "businessContext_i18n": {
         "en": "Radius of the circular base of the cone.",
         "tr": "Koninin dairesel tabanının yarıçapı.",
         "de": "Radius der kreisförmigen Basis des Kegels.",
         "fr": "Rayon de la base circulaire du cône.",
-        "es": "Radio de la base circular del cono."
+        "es": "Radio de la base circular del cono.",
+        "ar": "نصف قطر القاعدة الدائرية للمخروط."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Perpendicular height from base to apex.",
         "tr": "Tabandan tepeye dik yükseklik.",
         "de": "Senkrechte Höhe von der Basis zur Spitze.",
         "fr": "Hauteur perpendiculaire de la base au sommet.",
-        "es": "Altura perpendicular desde la base hasta el vértice."
+        "es": "Altura perpendicular desde la base hasta el vértice.",
+        "ar": "الارتفاع العمودي من القاعدة إلى القمة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mantellinie (optional, 0 für automatische Berechnung)",
         "fr": "Hauteur inclinée (optionnelle, 0 pour auto-calcul)",
         "es": "Altura inclinada (opcional, 0 para cálculo automático)",
-        "ar": "Slant Height (optional, 0 to auto-calc)"
+        "ar": "الارتفاع الجانبي (اختياري، 0 للحساب التلقائي)"
       },
       "businessContext_i18n": {
         "en": "Slant height along lateral surface; if 0, it will be computed as sqrt(radius^2 + height^2).",
         "tr": "Yanal yüzey boyunca eğik yükseklik; 0 ise sqrt(yarıçap^2 + yükseklik^2) olarak hesaplanır.",
         "de": "Mantellinie entlang der Seitenfläche; bei 0 wird sie als sqrt(Radius^2 + Höhe^2) berechnet.",
         "fr": "Hauteur inclinée le long de la surface latérale ; si 0, calculée comme sqrt(rayon^2 + hauteur^2).",
-        "es": "Altura inclinada a lo largo de la superficie lateral; si es 0, se calculará como sqrt(radio^2 + altura^2)."
+        "es": "Altura inclinada a lo largo de la superficie lateral; si es 0, se calculará como sqrt(radio^2 + altura^2).",
+        "ar": "الارتفاع الجانبي على طول السطح الجانبي؛ إذا كان 0، سيتم حسابه كجذر(نصف القطر^2 + الارتفاع^2)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Basisdurchmesser (Alternative zum Radius)",
         "fr": "Diamètre de base (alternative au rayon)",
         "es": "Diámetro de la base (alternativa al radio)",
-        "ar": "Base Diameter (alternative to radius)"
+        "ar": "قطر القاعدة (بديل لنصف القطر)"
       },
       "businessContext_i18n": {
         "en": "Diameter of base; if >0, radius is overridden as diameter/2.",
         "tr": "Taban çapı; >0 ise yarıçap, çap/2 olarak geçersiz kılınır.",
         "de": "Durchmesser der Basis; falls >0, wird der Radius als Durchmesser/2 überschrieben.",
         "fr": "Diamètre de la base ; si >0, le rayon est remplacé par diamètre/2.",
-        "es": "Diámetro de la base; si >0, el radio se anula como diámetro/2."
+        "es": "Diámetro de la base; si >0, el radio se anula como diámetro/2.",
+        "ar": "قطر القاعدة؛ إذا كان >0، يتم تجاوز نصف القطر كقطر/2."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs.",
         "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben.",
         "fr": "Nombre de décimales pour l'arrondi des résultats.",
-        "es": "Número de decimales para redondear los resultados."
+        "es": "Número de decimales para redondear los resultados.",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات."
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Oberfläche einschließen (1=ja, 0=nein)",
         "fr": "Inclure la surface (1=oui, 0=non)",
         "es": "Incluir área superficial (1=sí, 0=no)",
-        "ar": "Include Surface Area (1=yes, 0=no)"
+        "ar": "تضمين مساحة السطح (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "If 1, outputs also include lateral surface area and total surface area.",
         "tr": "1 ise, çıktılar yanal yüzey alanı ve toplam yüzey alanını da içerir.",
         "de": "Bei 1 werden auch Mantelfläche und Gesamtoberfläche ausgegeben.",
         "fr": "Si 1, les résultats incluent également la surface latérale et la surface totale.",
-        "es": "Si es 1, los resultados también incluyen el área de la superficie lateral y el área de la superficie total."
+        "es": "Si es 1, los resultados también incluyen el área de la superficie lateral y el área de la superficie total.",
+        "ar": "إذا كان 1، تشمل المخرجات أيضًا مساحة السطح الجانبية والمساحة الكلية."
       }
     }
   ],
   "formulas": {
-    "result": "radius + height + slantHeight",
-    "result_copy": "radius + height + slantHeight"
+    "normalized_product": "radius * height * slantHeight * diameter",
+    "result": "radius * height * slantHeight * diameter * (precision * calcSurface)",
+    "adjustment_factor": "precision * calcSurface"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "volume",
-      "lateralSurface",
-      "totalSurface"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalSurface",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

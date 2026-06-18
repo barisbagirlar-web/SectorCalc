@@ -14,14 +14,15 @@
         "de": "a₅ (x⁵-Koeffizient)",
         "fr": "a₅ (coefficient de x⁵)",
         "es": "a₅ (coeficiente de x⁵)",
-        "ar": "a₅ (x⁵ coefficient)"
+        "ar": "a₅ (معامل x⁵)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the x⁵ term in the polynomial",
         "tr": "Polinomdaki x⁵ teriminin katsayısı",
         "de": "Koeffizient des x⁵-Terms im Polynom",
         "fr": "Coefficient du terme x⁵ dans le polynôme.",
-        "es": "Coeficiente del término x⁵ en el polinomio"
+        "es": "Coeficiente del término x⁵ en el polinomio",
+        "ar": "معامل حد x⁵ في كثيرة الحدود"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "a₄ (x⁴-Koeffizient)",
         "fr": "a₄ (coefficient de x⁴)",
         "es": "a₄ (coeficiente de x⁴)",
-        "ar": "a₄ (x⁴ coefficient)"
+        "ar": "a₄ (معامل x⁴)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the x⁴ term",
         "tr": "x⁴ teriminin katsayısı",
         "de": "Koeffizient des x⁴-Terms",
         "fr": "Coefficient du terme x⁴.",
-        "es": "Coeficiente del término x⁴"
+        "es": "Coeficiente del término x⁴",
+        "ar": "معامل حد x⁴"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "a₃ (x³-Koeffizient)",
         "fr": "a₃ (coefficient de x³)",
         "es": "a₃ (coeficiente de x³)",
-        "ar": "a₃ (x³ coefficient)"
+        "ar": "a₃ (معامل x³)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the x³ term",
         "tr": "x³ teriminin katsayısı",
         "de": "Koeffizient des x³-Terms",
         "fr": "Coefficient du terme x³.",
-        "es": "Coeficiente del término x³"
+        "es": "Coeficiente del término x³",
+        "ar": "معامل حد x³"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "a₂ (x²-Koeffizient)",
         "fr": "a₂ (coefficient de x²)",
         "es": "a₂ (coeficiente de x²)",
-        "ar": "a₂ (x² coefficient)"
+        "ar": "a₂ (معامل x²)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the x² term",
         "tr": "x² teriminin katsayısı",
         "de": "Koeffizient des x²-Terms",
         "fr": "Coefficient du terme x².",
-        "es": "Coeficiente del término x²"
+        "es": "Coeficiente del término x²",
+        "ar": "معامل حد x²"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "a₁ (x-Koeffizient)",
         "fr": "a₁ (coefficient de x)",
         "es": "a₁ (coeficiente de x)",
-        "ar": "a₁ (x coefficient)"
+        "ar": "a₁ (معامل x)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the x term",
         "tr": "x teriminin katsayısı",
         "de": "Koeffizient des x-Terms",
         "fr": "Coefficient du terme x.",
-        "es": "Coeficiente del término x"
+        "es": "Coeficiente del término x",
+        "ar": "معامل حد x"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "a₀ (Konstante)",
         "fr": "a₀ (terme constant)",
         "es": "a₀ (término constante)",
-        "ar": "a₀ (constant term)"
+        "ar": "a₀ (الحد الثابت)"
       },
       "businessContext_i18n": {
         "en": "Constant term of the polynomial",
         "tr": "Polinomun sabit terimi",
         "de": "Konstanter Term des Polynoms",
         "fr": "Terme constant du polynôme",
-        "es": "Término constante del polinomio"
+        "es": "Término constante del polinomio",
+        "ar": "الحد الثابت لكثيرة الحدود"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "x (Auswertungspunkt)",
         "fr": "x (point d'évaluation)",
         "es": "x (punto de evaluación)",
-        "ar": "x (evaluation point)"
+        "ar": "x (نقطة التقييم)"
       },
       "businessContext_i18n": {
         "en": "Point at which the antiderivative is evaluated",
         "tr": "Ters türevin değerlendirildiği nokta",
         "de": "Punkt, an dem die Stammfunktion ausgewertet wird",
         "fr": "Point auquel la primitive est évaluée",
-        "es": "Punto en el que se evalúa la antiderivada"
+        "es": "Punto en el que se evalúa la antiderivada",
+        "ar": "النقطة التي يتم عندها تقييم المشتق العكسي"
       }
     },
     {
@@ -175,39 +182,39 @@
         "de": "C (Integrationskonstante)",
         "fr": "C (constante d'intégration)",
         "es": "C (constante de integración)",
-        "ar": "C (integration constant)"
+        "ar": "C (ثابت التكامل)"
       },
       "businessContext_i18n": {
         "en": "Arbitrary constant of integration",
         "tr": "Keyfi integral sabiti",
         "de": "Beliebige Integrationskonstante",
         "fr": "Constante arbitraire d'intégration",
-        "es": "Constante arbitraria de integración"
+        "es": "Constante arbitraria de integración",
+        "ar": "ثابت التكامل الاختياري"
       }
     }
   ],
   "formulas": {
-    "result": "a5 + a4 + a3",
-    "result_copy": "a5 + a4 + a3"
+    "normalized_product": "a5 * a4 * a3 * a2",
+    "result": "a5 * a4 * a3 * a2 * (a1 * a0 * x * C)",
+    "adjustment_factor": "a1 * a0 * x * C"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Integrated term a₅x⁵ → (a₅/6)x⁶ evaluated: term6",
-      "Integrated term a₄x⁴ → (a₄/5)x⁵ evaluated: term5",
-      "Integrated term a₃x³ → (a₃/4)x⁴ evaluated: term4",
-      "Integrated term a₂x² → (a₂/3)x³ evaluated: term3",
-      "Integrated term a₁x → (a₁/2)x² evaluated: term2",
-      "Integrated constant a₀ → a₀x evaluated: term1",
-      "Added integration constant C: termC",
-      "Total antiderivative value: total"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "total",
-    "unit": "—",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Added integration constant C: termC": "%"
     }

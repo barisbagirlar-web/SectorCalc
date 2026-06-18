@@ -14,14 +14,15 @@
         "de": "Dezimalzahl",
         "fr": "Nombre décimal",
         "es": "Número decimal",
-        "ar": "Decimal Number"
+        "ar": "رقم عشري"
       },
       "businessContext_i18n": {
         "en": "Number to convert to scientific notation (when converting from decimal).",
         "tr": "Bilimsel gösterime dönüştürülecek sayı (ondalıktan dönüştürürken).",
         "de": "Zahl zur Umwandlung in wissenschaftliche Notation (bei Umwandlung von Dezimalzahl).",
         "fr": "Nombre à convertir en notation scientifique (lors de la conversion depuis le décimal).",
-        "es": "Número a convertir a notación científica (cuando se convierte desde decimal)."
+        "es": "Número a convertir a notación científica (cuando se convierte desde decimal).",
+        "ar": "العدد المراد تحويله إلى ترميز علمي (عند التحويل من عشري)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wissenschaftlicher Koeffizient",
         "fr": "Coefficient scientifique",
         "es": "Coeficiente científico",
-        "ar": "Scientific Coefficient"
+        "ar": "المعامل العلمي"
       },
       "businessContext_i18n": {
         "en": "Coefficient in scientific notation (when converting from scientific).",
         "tr": "Bilimsel gösterimde katsayı (bilimselden dönüştürürken).",
         "de": "Koeffizient in wissenschaftlicher Notation (bei Umwandlung von wissenschaftlicher Notation).",
         "fr": "Coefficient en notation scientifique (lors de la conversion depuis le scientifique).",
-        "es": "Coeficiente en notación científica (cuando se convierte desde notación científica)."
+        "es": "Coeficiente en notación científica (cuando se convierte desde notación científica).",
+        "ar": "المعامل في الترميز العلمي (عند التحويل من علمي)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wissenschaftlicher Exponent",
         "fr": "Exposant scientifique",
         "es": "Exponente científico",
-        "ar": "Scientific Exponent"
+        "ar": "الأس العلمي"
       },
       "businessContext_i18n": {
         "en": "Exponent in scientific notation (when converting from scientific).",
         "tr": "Bilimsel gösterimde üs (bilimselden dönüştürürken).",
         "de": "Exponent in wissenschaftlicher Notation (bei Umwandlung von wissenschaftlicher Notation).",
         "fr": "Exposant en notation scientifique (lors de la conversion depuis le scientifique).",
-        "es": "Exponente en notación científica (al convertir desde notación científica)."
+        "es": "Exponente en notación científica (al convertir desde notación científica).",
+        "ar": "الأس في الترميز العلمي (عند التحويل من علمي)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Umrechnungsmodus",
         "fr": "Mode de conversion",
         "es": "Modo de conversión",
-        "ar": "Conversion Mode"
+        "ar": "وضع التحويل"
       },
       "businessContext_i18n": {
         "en": "Select conversion direction.",
         "tr": "Dönüştürme yönünü seçin.",
         "de": "Wählen Sie die Umrechnungsrichtung.",
         "fr": "Sélectionnez la direction de conversion.",
-        "es": "Seleccione la dirección de conversión."
+        "es": "Seleccione la dirección de conversión.",
+        "ar": "اختر اتجاه التحويل."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in output.",
         "tr": "Çıktıdaki ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen in der Ausgabe.",
         "fr": "Nombre de décimales dans le résultat.",
-        "es": "Número de decimales en el resultado."
+        "es": "Número de decimales en el resultado.",
+        "ar": "عدد المنازل العشرية في المخرجات."
       }
     }
   ],
   "formulas": {
-    "result": "decimalNumber + scientificCoefficient + scientificExponent",
-    "result_aux": "decimalNumber + scientificCoefficient + scientificExponent"
+    "normalized_product": "decimalNumber * scientificCoefficient * scientificExponent * conversionMode",
+    "result": "decimalNumber * scientificCoefficient * scientificExponent * conversionMode * (precision)",
+    "adjustment_factor": "precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
-      "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "0=Decimal to Sci, 1=Sci to Decimal"
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

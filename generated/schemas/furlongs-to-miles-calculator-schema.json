@@ -14,14 +14,15 @@
         "de": "Furlongs",
         "fr": "Furlongs",
         "es": "Furlongs",
-        "ar": "Furlongs"
+        "ar": "الفيرلونغ"
       },
       "businessContext_i18n": {
         "en": "Distance measured in furlongs (1 furlong = 1/8 mile)",
         "tr": "Furlong cinsinden mesafe (1 furlong = 1/8 mil)",
         "de": "Entfernung gemessen in Furlongs (1 Furlong = 1/8 Meile)",
         "fr": "Distance mesurée en furlongs (1 furlong = 1/8 mile)",
-        "es": "Distancia medida en furlongs (1 furlong = 1/8 milla)"
+        "es": "Distancia medida en furlongs (1 furlong = 1/8 milla)",
+        "ar": "المسافة المقاسة بالفيرلونغ (1 فيرلونغ = 1/8 ميل)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (mi/fur)",
         "fr": "Facteur de conversion (mi/fur)",
         "es": "Factor de conversión (mi/fur)",
-        "ar": "Conversion Factor (mi/fur)"
+        "ar": "عامل التحويل (ميل/فيرلونغ)"
       },
       "businessContext_i18n": {
         "en": "Custom conversion factor; default 0.125 mi/fur",
         "tr": "Özel dönüşüm faktörü; varsayılan 0,125 mil/fur",
         "de": "Benutzerdefinierter Umrechnungsfaktor; Standard 0,125 mi/fur",
         "fr": "Facteur de conversion personnalisé ; par défaut 0,125 mi/fur",
-        "es": "Factor de conversión personalizado; valor predeterminado 0.125 mi/fur"
+        "es": "Factor de conversión personalizado; valor predeterminado 0.125 mi/fur",
+        "ar": "عامل تحويل مخصص؛ الافتراضي 0.125 ميل/فيرلونغ"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Rounding precision for output",
         "tr": "Çıktı için yuvarlama hassasiyeti",
         "de": "Rundungsgenauigkeit für die Ausgabe",
         "fr": "Précision d'arrondi pour la sortie",
-        "es": "Precisión de redondeo para la salida"
+        "es": "Precisión de redondeo para la salida",
+        "ar": "دقة التقريب للمخرجات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Batch-Multiplikator",
         "fr": "Multiplicateur de lot",
         "es": "Multiplicador de lote",
-        "ar": "Batch Multiplier"
+        "ar": "مضاعف الدفعة"
       },
       "businessContext_i18n": {
         "en": "Multiply result for batch conversions (e.g., number of furlong segments)",
         "tr": "Parti dönüşümleri için sonucu çarp (örneğin, furlong segment sayısı)",
         "de": "Ergebnis für Batch-Umrechnungen multiplizieren (z. B. Anzahl der Furlong-Segmente)",
         "fr": "Multiplier le résultat pour les conversions par lot (par exemple, nombre de segments de furlong)",
-        "es": "Multiplicar resultado para conversiones por lote (p. ej., número de segmentos de furlong)"
+        "es": "Multiplicar resultado para conversiones por lote (p. ej., número de segmentos de furlong)",
+        "ar": "ضرب النتيجة لتحويلات الدفعات (مثل عدد أجزاء الفيرلونغ)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Zusätzliche Meilen",
         "fr": "Kilomètres supplémentaires",
         "es": "Millas adicionales",
-        "ar": "Additional Miles"
+        "ar": "أميال إضافية"
       },
       "businessContext_i18n": {
         "en": "Add a fixed mileage (e.g., access road distance)",
         "tr": "Sabit bir mesafe ekle (örneğin, bağlantı yolu mesafesi)",
         "de": "Feste Kilometerzahl hinzufügen (z. B. Zufahrtsstraßenentfernung)",
         "fr": "Ajouter un kilométrage fixe (par exemple, distance de route d'accès)",
-        "es": "Agregar un kilometraje fijo (p. ej., distancia de camino de acceso)"
+        "es": "Agregar un kilometraje fijo (p. ej., distancia de camino de acceso)",
+        "ar": "إضافة مسافة ثابتة (مثل مسافة الطريق الفرعي)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kosten pro Meile",
         "fr": "Coût par kilomètre",
         "es": "Costo por milla",
-        "ar": "Cost per Mile"
+        "ar": "التكلفة لكل ميل"
       },
       "businessContext_i18n": {
         "en": "Optional cost per mile for total cost calculation",
         "tr": "Toplam maliyet hesaplaması için isteğe bağlı mil başına maliyet",
         "de": "Optionale Kosten pro Meile für die Gesamtkostenberechnung",
         "fr": "Coût optionnel par kilomètre pour le calcul du coût total",
-        "es": "Costo opcional por milla para el cálculo del costo total"
+        "es": "Costo opcional por milla para el cálculo del costo total",
+        "ar": "تكلفة اختيارية لكل ميل لحساب التكلفة الإجمالية"
       }
     }
   ],

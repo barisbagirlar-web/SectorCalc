@@ -14,14 +14,15 @@
         "de": "Druckmesswert (Pa)",
         "fr": "Lecture de pression (Pa)",
         "es": "Lectura de presión (Pa)",
-        "ar": "Pressure Reading (Pa)"
+        "ar": "قراءة الضغط (باسكال)"
       },
       "businessContext_i18n": {
         "en": "Actual pressure reading from sensor in pascals.",
         "tr": "Sensörden paskal cinsinden gerçek basınç okuması.",
         "de": "Tatsächlicher Druckmesswert vom Sensor in Pascal.",
         "fr": "Lecture de pression réelle du capteur en pascals.",
-        "es": "Lectura de presión real del sensor en pascales."
+        "es": "Lectura de presión real del sensor en pascales.",
+        "ar": "قراءة الضغط الفعلية من المستشعر بالباسكال."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalibrierfaktor",
         "fr": "Facteur d'étalonnage",
         "es": "Factor de calibración",
-        "ar": "Calibration Factor"
+        "ar": "عامل المعايرة"
       },
       "businessContext_i18n": {
         "en": "Multiplier for sensor calibration, typically 0.95-1.05.",
         "tr": "Sensör kalibrasyonu için çarpan, tipik olarak 0,95-1,05.",
         "de": "Multiplikator für Sensorkalibrierung, typischerweise 0,95–1,05.",
         "fr": "Multiplicateur d'étalonnage du capteur, généralement 0,95-1,05.",
-        "es": "Multiplicador para calibración del sensor, típicamente 0.95-1.05."
+        "es": "Multiplicador para calibración del sensor, típicamente 0.95-1.05.",
+        "ar": "مضاعف معايرة المستشعر، عادة 0.95-1.05."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Sensor-Endwert (Pa)",
         "fr": "Pleine échelle du capteur (Pa)",
         "es": "Fondo de escala del sensor (Pa)",
-        "ar": "Sensor Full Scale (Pa)"
+        "ar": "المدى الكامل للمستشعر (باسكال)"
       },
       "businessContext_i18n": {
         "en": "Maximum pressure rating of the sensor.",
         "tr": "Sensörün maksimum basınç değeri.",
         "de": "Maximale Druckbewertung des Sensors.",
         "fr": "Pression maximale nominale du capteur.",
-        "es": "Clasificación máxima de presión del sensor."
+        "es": "Clasificación máxima de presión del sensor.",
+        "ar": "أقصى تصنيف ضغط للمستشعر."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sensor-Genauigkeitsklasse",
         "fr": "Classe de précision du capteur",
         "es": "Clase de precisión del sensor",
-        "ar": "Sensor Accuracy Class"
+        "ar": "فئة دقة المستشعر"
       },
       "businessContext_i18n": {
         "en": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS).",
         "tr": "Tam ölçeğin yüzdesi olarak doğruluk (örn. %0,5 FS için 0,5).",
         "de": "Genauigkeit als Prozentsatz des Endwerts (z. B. 0,5 für 0,5 % FS).",
         "fr": "Précision en pourcentage de la pleine échelle (ex. 0,5 pour 0,5 % FS).",
-        "es": "Precisión como porcentaje del fondo de escala (ej., 0.5 para 0.5% FS)."
+        "es": "Precisión como porcentaje del fondo de escala (ej., 0.5 para 0.5% FS).",
+        "ar": "الدقة كنسبة مئوية من المدى الكامل (مثل 0.5 لـ 0.5% من المدى الكامل)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Ausgabe Dezimalstellen",
         "fr": "Décimales de sortie",
         "es": "Decimales de salida",
-        "ar": "Output Decimal Places"
+        "ar": "عدد المنازل العشرية للمخرجات"
       },
       "businessContext_i18n": {
         "en": "Number of decimal digits for psi output; must be integer >=0.",
         "tr": "psi çıktısı için ondalık basamak sayısı; tamsayı >=0 olmalıdır.",
         "de": "Anzahl der Dezimalstellen für psi-Ausgabe; muss ganze Zahl >=0 sein.",
         "fr": "Nombre de décimales pour la sortie en psi ; doit être un entier >= 0.",
-        "es": "Número de dígitos decimales para la salida en psi; debe ser entero >=0."
+        "es": "Número de dígitos decimales para la salida en psi; debe ser entero >=0.",
+        "ar": "عدد الأرقام العشرية لمخرجات psi؛ يجب أن يكون عددًا صحيحًا >= 0."
       }
     }
   ],

@@ -26,14 +26,16 @@
         "tr": "Birim Başına Satın Alma Fiyatı",
         "de": "Kaufpreis pro Einheit",
         "fr": "Prix d'achat unitaire",
-        "es": "Precio de compra por unidad"
+        "es": "Precio de compra por unidad",
+        "ar": "سعر الشراء لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Negotiated unit price from supplier contract.",
         "tr": "Tedarikçi sözleşmesinden müzakere edilen birim fiyat.",
         "de": "Ausgehandelter Stückpreis aus dem Lieferantenvertrag.",
         "fr": "Prix unitaire négocié dans le contrat fournisseur.",
-        "es": "Precio unitario negociado del contrato con el proveedor."
+        "es": "Precio unitario negociado del contrato con el proveedor.",
+        "ar": "سعر الوحدة المتفاوض عليه من عقد المورد."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Yıllık Sipariş Miktarı",
         "de": "Jährliche Bestellmenge",
         "fr": "Quantité annuelle commandée",
-        "es": "Cantidad de pedido anual"
+        "es": "Cantidad de pedido anual",
+        "ar": "كمية الطلب السنوية"
       },
       "businessContext_i18n": {
         "en": "Total units purchased per year.",
         "tr": "Yılda satın alınan toplam birim.",
         "de": "Gesamte jährlich gekaufte Einheiten.",
         "fr": "Nombre total d'unités achetées par an.",
-        "es": "Total de unidades compradas por año."
+        "es": "Total de unidades compradas por año.",
+        "ar": "إجمالي الوحدات المشتراة سنوياً."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Hata Oranı (ppm)",
         "de": "Fehlerrate (ppm)",
         "fr": "Taux de défauts (ppm)",
-        "es": "Tasa de defectos (ppm)"
+        "es": "Tasa de defectos (ppm)",
+        "ar": "معدل العيوب (جزء في المليون)"
       },
       "businessContext_i18n": {
         "en": "Parts per million defective, Six Sigma metric.",
         "tr": "Milyonda hatalı parça sayısı, Altı Sigma metriği.",
         "de": "Teile pro Million fehlerhaft, Six Sigma-Kennzahl.",
         "fr": "Pièces par million défectueuses, métrique Six Sigma.",
-        "es": "Partes por millón defectuosas, métrica de Seis Sigma."
+        "es": "Partes por millón defectuosas, métrica de Seis Sigma.",
+        "ar": "الأجزاء المعيبة لكل مليون، مقياس ستة سيجما."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Birim Muayene Maliyeti",
         "de": "Prüfkosten pro Einheit",
         "fr": "Coût d'inspection par unité",
-        "es": "Costo de inspección por unidad"
+        "es": "Costo de inspección por unidad",
+        "ar": "تكلفة الفحص لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Cost of incoming quality inspection per unit.",
         "tr": "Birim başına gelen kalite muayene maliyeti.",
         "de": "Kosten der Eingangsqualitätsprüfung pro Einheit.",
         "fr": "Coût de l'inspection qualité à l'arrivée par unité.",
-        "es": "Costo de inspección de calidad entrante por unidad."
+        "es": "Costo de inspección de calidad entrante por unidad.",
+        "ar": "تكلفة فحص الجودة الواردة لكل وحدة."
       }
     },
     {
@@ -122,14 +130,16 @@
         "tr": "Birim Başına Navlun Maliyeti",
         "de": "Frachtkosten pro Einheit",
         "fr": "Coût de fret par unité",
-        "es": "Costo de flete por unidad"
+        "es": "Costo de flete por unidad",
+        "ar": "تكلفة الشحن لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Average shipping cost per unit from supplier.",
         "tr": "Tedarikçiden birim başına ortalama nakliye maliyeti.",
         "de": "Durchschnittliche Versandkosten pro Einheit vom Lieferanten.",
         "fr": "Coût d'expédition moyen par unité depuis le fournisseur.",
-        "es": "Costo promedio de envío por unidad desde el proveedor."
+        "es": "Costo promedio de envío por unidad desde el proveedor.",
+        "ar": "متوسط تكلفة الشحن لكل وحدة من المورد."
       }
     },
     {
@@ -146,14 +156,16 @@
         "tr": "Teslim Süresi (gün)",
         "de": "Lieferzeit (Tage)",
         "fr": "Délai de livraison (jours)",
-        "es": "Tiempo de entrega (días)"
+        "es": "Tiempo de entrega (días)",
+        "ar": "وقت التوريد (أيام)"
       },
       "businessContext_i18n": {
         "en": "Supplier lead time from order to delivery.",
         "tr": "Tedarikçinin siparişten teslimata kadar geçen süresi.",
         "de": "Lieferzeit vom Lieferanten von Bestellung bis Lieferung.",
         "fr": "Délai de livraison du fournisseur de la commande à la livraison.",
-        "es": "Plazo de entrega del proveedor desde el pedido hasta la entrega."
+        "es": "Plazo de entrega del proveedor desde el pedido hasta la entrega.",
+        "ar": "المهلة الزمنية للمورد من الطلب إلى التسليم."
       }
     },
     {
@@ -170,14 +182,16 @@
         "tr": "Stok Taşıma Maliyeti Oranı",
         "de": "Lagerhaltungskostensatz",
         "fr": "Taux de coût de possession des stocks",
-        "es": "Tasa de costo de mantenimiento de inventario"
+        "es": "Tasa de costo de mantenimiento de inventario",
+        "ar": "معدل تكلفة الاحتفاظ بالمخزون"
       },
       "businessContext_i18n": {
         "en": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
         "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (Yalın metrik).",
         "de": "Jährliche Lagerhaltungskosten als Prozentsatz der Stückkosten (Lean-Kennzahl).",
         "fr": "Coût annuel de détention des stocks en pourcentage du coût unitaire (métrique Lean).",
-        "es": "Costo anual de mantenimiento de inventario como porcentaje del costo unitario (métrica Lean)."
+        "es": "Costo anual de mantenimiento de inventario como porcentaje del costo unitario (métrica Lean).",
+        "ar": "نسبة تكلفة الاحتفاظ بالمخزون السنوية كجزء من تكلفة الوحدة (مقياس اللين)."
       }
     },
     {
@@ -194,14 +208,16 @@
         "tr": "Garanti Talep Oranı",
         "de": "Garantieanspruchsrate",
         "fr": "Taux de réclamation sous garantie",
-        "es": "Tasa de reclamaciones de garantía"
+        "es": "Tasa de reclamaciones de garantía",
+        "ar": "معدل المطالبات بالضمان"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that result in warranty claims.",
         "tr": "Garanti talebiyle sonuçlanan birimlerin yüzdesi.",
         "de": "Prozentsatz der Einheiten, die zu Garantieansprüchen führen.",
         "fr": "Pourcentage d'unités donnant lieu à des réclamations sous garantie.",
-        "es": "Porcentaje de unidades que resultan en reclamaciones de garantía."
+        "es": "Porcentaje de unidades que resultan en reclamaciones de garantía.",
+        "ar": "نسبة الوحدات التي تؤدي إلى مطالبات بالضمان."
       }
     }
   ],
@@ -245,15 +261,23 @@
     ]
   },
   "formulas": {
-    "result": "purchase_price + annual_quantity + defect_rate",
-    "result_copy": "purchase_price + annual_quantity + defect_rate"
+    "annual_exposure_hours": "lead_time_days",
+    "direct_labor_cost": "annual_quantity * (defect_rate / 100) * lead_time_days * purchase_price",
+    "result": "annual_quantity * (defect_rate / 100) * lead_time_days * purchase_price"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

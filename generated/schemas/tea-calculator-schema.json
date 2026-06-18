@@ -14,13 +14,15 @@
         "de": "Anzahl der Tassen",
         "fr": "Nombre de tasses",
         "es": "Número de tazas",
-        "ar": "Number of Cups"
+        "ar": "عدد الأكواب"
       },
       "businessContext_i18n": {
         "en": "The number of cups of tea to be prepared.",
         "tr": "Hazırlanacak çay fincanı sayısı.",
         "de": "Anzahl der zuzubereitenden Tassen Tee.",
-        "fr": "Le nombre de tasses de thé à préparer."
+        "fr": "Le nombre de tasses de thé à préparer.",
+        "es": "Número de tazas de té a preparar.",
+        "ar": "عدد أكواب الشاي المراد تحضيرها."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Fincan Başına Su",
         "de": "Wasser pro Tasse",
         "fr": "Eau par tasse",
-        "es": "Water per Cup",
-        "ar": "Water per Cup"
+        "es": "Agua por taza",
+        "ar": "الماء لكل كوب"
       },
       "businessContext_i18n": {
         "en": "Standard volume of water per cup.",
         "tr": "Fincan başına standart su hacmi.",
         "de": "Standard-Wasservolumen pro Tasse.",
-        "fr": "Volume standard d'eau par tasse."
+        "fr": "Volume standard d'eau par tasse.",
+        "es": "Volumen estándar de agua por taza.",
+        "ar": "الحجم القياسي للماء لكل كوب."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Fincan Başına Çay Yaprağı",
         "de": "Teeblätter pro Tasse",
         "fr": "Feuilles de thé par tasse",
-        "es": "Tea Leaves per Cup",
-        "ar": "Tea Leaves per Cup"
+        "es": "Hojas de té por taza",
+        "ar": "أوراق الشاي لكل كوب"
       },
       "businessContext_i18n": {
         "en": "Standard weight of tea leaves per cup for medium strength.",
         "tr": "Orta sertlik için fincan başına standart çay yaprağı ağırlığı.",
         "de": "Standardgewicht der Teeblätter pro Tasse für mittlere Stärke.",
-        "fr": "Poids standard des feuilles de thé par tasse pour une infusion moyenne."
+        "fr": "Poids standard des feuilles de thé par tasse pour une infusion moyenne.",
+        "es": "Peso estándar de hojas de té por taza para intensidad media.",
+        "ar": "الوزن القياسي لأوراق الشاي لكل كوب للقوة المتوسطة."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Sertlik Faktörü",
         "de": "Stärkefaktor",
         "fr": "Facteur d'intensité",
-        "es": "Strength Factor",
-        "ar": "Strength Factor"
+        "es": "Factor de intensidad",
+        "ar": "عامل القوة"
       },
       "businessContext_i18n": {
         "en": "Multiplier for tea amount: 1 for normal, 1.5 for strong, 0.5 for light.",
         "tr": "Çay miktarı çarpanı: normal için 1, sert için 1.5, hafif için 0.5.",
         "de": "Multiplikator für die Teemenge: 1 für normal, 1,5 für stark, 0,5 für leicht.",
-        "fr": "Multiplicateur pour la quantité de thé : 1 pour normal, 1,5 pour fort, 0,5 pour léger."
+        "fr": "Multiplicateur pour la quantité de thé : 1 pour normal, 1,5 pour fort, 0,5 pour léger.",
+        "es": "Multiplicador de cantidad de té: 1 para normal, 1.5 para fuerte, 0.5 para suave.",
+        "ar": "مضاعف كمية الشاي: 1 للعادي، 1.5 للقوي، 0.5 للخفيف."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Su Emme Oranı",
         "de": "Wasserabsorptionsrate",
         "fr": "Taux d'absorption d'eau",
-        "es": "Water Absorption Rate",
-        "ar": "Water Absorption Rate"
+        "es": "Tasa de absorción de agua",
+        "ar": "معدل امتصاص الماء"
       },
       "businessContext_i18n": {
         "en": "Amount of water (ml) absorbed by 1 gram of tea leaves.",
         "tr": "1 gram çay yaprağı tarafından emilen su miktarı (ml).",
         "de": "Wassermenge (ml), die von 1 g Teeblättern absorbiert wird.",
-        "fr": "Quantité d'eau (ml) absorbée par 1 gramme de feuilles de thé."
+        "fr": "Quantité d'eau (ml) absorbée par 1 gramme de feuilles de thé.",
+        "es": "Cantidad de agua (ml) absorbida por 1 gramo de hojas de té.",
+        "ar": "كمية الماء (مل) التي يمتصها 1 غرام من أوراق الشاي."
       }
     }
   ],

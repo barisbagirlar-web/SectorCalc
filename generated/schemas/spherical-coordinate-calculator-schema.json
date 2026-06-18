@@ -14,14 +14,15 @@
         "de": "Radius (r)",
         "fr": "Rayon (r)",
         "es": "Radio (r)",
-        "ar": "Radius (r)"
+        "ar": "نصف القطر (r)"
       },
       "businessContext_i18n": {
         "en": "Radial distance from the origin (spherical coordinate).",
         "tr": "Orijinden radyal uzaklık (küresel koordinat)",
         "de": "Radialer Abstand vom Ursprung (Kugelkoordinate).",
         "fr": "Distance radiale depuis l'origine (coordonnée sphérique)",
-        "es": "Distancia radial desde el origen (coordenada esférica)."
+        "es": "Distancia radial desde el origen (coordenada esférica).",
+        "ar": "المسافة الشعاعية من نقطة الأصل (إحداثي كروي)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Polarwinkel (θ)",
         "fr": "Angle polaire (θ)",
         "es": "Ángulo polar (θ)",
-        "ar": "Polar Angle (θ)"
+        "ar": "الزاوية القطبية (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle from the positive z‑axis, 0° to 180°.",
         "tr": "Pozitif z ekseninden açı, 0° ila 180°",
         "de": "Winkel von der positiven z-Achse, 0° bis 180°.",
         "fr": "Angle depuis l'axe z positif, 0° à 180°",
-        "es": "Ángulo desde el eje z positivo, 0° a 180°."
+        "es": "Ángulo desde el eje z positivo, 0° a 180°.",
+        "ar": "الزاوية من المحور z الموجب، من 0° إلى 180°"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Azimutwinkel (φ)",
         "fr": "Angle azimutal (φ)",
         "es": "Ángulo acimutal (φ)",
-        "ar": "Azimuthal Angle (φ)"
+        "ar": "الزاوية السميتية (φ)"
       },
       "businessContext_i18n": {
         "en": "Angle in the xy‑plane from the positive x‑axis, 0° to 360°.",
         "tr": "Pozitif x ekseninden xy düzlemindeki açı, 0° ila 360°",
         "de": "Winkel in der xy-Ebene von der positiven x-Achse, 0° bis 360°.",
         "fr": "Angle dans le plan xy depuis l'axe x positif, 0° à 360°",
-        "es": "Ángulo en el plano xy desde el eje x positivo, 0° a 360°."
+        "es": "Ángulo en el plano xy desde el eje x positivo, 0° a 360°.",
+        "ar": "الزاوية في المستوى xy من المحور x الموجب، من 0° إلى 360°"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kartesisch x",
         "fr": "Cartésien x",
         "es": "x cartesiana",
-        "ar": "Cartesian x"
+        "ar": "x الديكارتي"
       },
       "businessContext_i18n": {
         "en": "x‑coordinate of the point (Cartesian input for reverse conversion).",
         "tr": "Noktanın x koordinatı (ters dönüşüm için Kartezyen giriş)",
         "de": "x-Koordinate des Punktes (kartesische Eingabe für Rückwärtsumrechnung).",
         "fr": "Coordonnée x du point (entrée cartésienne pour conversion inverse)",
-        "es": "Coordenada x del punto (entrada cartesiana para conversión inversa)."
+        "es": "Coordenada x del punto (entrada cartesiana para conversión inversa).",
+        "ar": "إحداثي x للنقطة (إدخال ديكارتي للتحويل العكسي)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kartesisch y",
         "fr": "Cartésien y",
         "es": "Cartesiano y",
-        "ar": "Cartesian y"
+        "ar": "y الديكارتي"
       },
       "businessContext_i18n": {
         "en": "y‑coordinate of the point (Cartesian input for reverse conversion).",
         "tr": "Noktanın y koordinatı (ters dönüşüm için Kartezyen giriş)",
         "de": "y-Koordinate des Punktes (kartesische Eingabe für Rückwärtsumrechnung).",
         "fr": "Coordonnée y du point (entrée cartésienne pour conversion inverse)",
-        "es": "Coordenada y del punto (entrada cartesiana para conversión inversa)."
+        "es": "Coordenada y del punto (entrada cartesiana para conversión inversa).",
+        "ar": "إحداثي y للنقطة (إدخال ديكارتي للتحويل العكسي)"
       }
     },
     {
@@ -129,36 +134,39 @@
         "de": "Kartesisch z",
         "fr": "Cartésien z",
         "es": "Cartesiano z",
-        "ar": "Cartesian z"
+        "ar": "z الديكارتي"
       },
       "businessContext_i18n": {
         "en": "z‑coordinate of the point (Cartesian input for reverse conversion).",
         "tr": "Noktanın z koordinatı (ters dönüşüm için Kartezyen giriş)",
         "de": "z-Koordinate des Punktes (kartesische Eingabe für Rückwärtsumrechnung).",
         "fr": "Coordonnée z du point (entrée cartésienne pour conversion inverse)",
-        "es": "Coordenada z del punto (entrada cartesiana para conversión inversa)."
+        "es": "Coordenada z del punto (entrada cartesiana para conversión inversa).",
+        "ar": "إحداثي z للنقطة (إدخال ديكارتي للتحويل العكسي)"
       }
     }
   ],
   "formulas": {
-    "result": "r + theta + phi",
-    "result_copy": "r + theta + phi"
+    "normalized_product": "r * theta * phi * x",
+    "result": "r * theta * phi * x * (y * z)",
+    "adjustment_factor": "y * z"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "y_calculated",
-      "z_calculated",
-      "r_calculated",
-      "theta_calculated",
-      "phi_calculated"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "phi_calculated",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -14,14 +14,15 @@
         "de": "Marktwert pro Aktie",
         "fr": "Juste valeur de marché par action",
         "es": "Valor Justo de Mercado por Acción",
-        "ar": "Fair Market Value per Share"
+        "ar": "القيمة السوقية العادلة للسهم"
       },
       "businessContext_i18n": {
         "en": "Current market price per share at purchase date",
         "tr": "Satın alma tarihindeki güncel piyasa fiyatı (hisse başına)",
         "de": "Aktueller Marktpreis pro Aktie zum Kaufdatum",
         "fr": "Prix de marché actuel par action à la date d'achat",
-        "es": "Precio de mercado actual por acción en la fecha de compra"
+        "es": "Precio de mercado actual por acción en la fecha de compra",
+        "ar": "سعر السوق الحالي للسهم في تاريخ الشراء"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "ESPP-Rabatt",
         "fr": "Remise ESPP",
         "es": "Descuento ESPP",
-        "ar": "ESPP Discount"
+        "ar": "خصم ESPP"
       },
       "businessContext_i18n": {
         "en": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)",
         "tr": "Plan tarafından sunulan indirim yüzdesi (örneğin, 15, FMV'nin %15'i anlamına gelir)",
         "de": "Rabattprozentsatz des Plans (z.B. 15 bedeutet 15% Rabatt auf den Marktwert)",
         "fr": "Pourcentage de remise offert par le plan (ex. 15 signifie 15% de réduction sur la JVM)",
-        "es": "Porcentaje de descuento ofrecido por el plan (ej., 15 significa 15% de descuento sobre el FMV)"
+        "es": "Porcentaje de descuento ofrecido por el plan (ej., 15 significa 15% de descuento sobre el FMV)",
+        "ar": "نسبة الخصم التي تقدمها الخطة (مثل 15 تعني خصم 15% من القيمة السوقية العادلة)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl gekaufter Aktien",
         "fr": "Nombre d'actions achetées",
         "es": "Número de Acciones Compradas",
-        "ar": "Number of Shares Purchased"
+        "ar": "عدد الأسهم المشتراة"
       },
       "businessContext_i18n": {
         "en": "Total number of shares bought through the ESPP",
         "tr": "ESPP aracılığıyla satın alınan toplam hisse sayısı",
         "de": "Gesamtzahl der über das ESPP gekauften Aktien",
         "fr": "Nombre total d'actions achetées via l'ESPP",
-        "es": "Número total de acciones compradas a través del ESPP"
+        "es": "Número total de acciones compradas a través del ESPP",
+        "ar": "إجمالي عدد الأسهم المشتراة من خلال برنامج شراء أسهم الموظفين"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Haltedauer in Monaten",
         "fr": "Période de détention en mois",
         "es": "Período de Tenencia en Meses",
-        "ar": "Holding Period in Months"
+        "ar": "فترة الاحتفاظ بالأشهر"
       },
       "businessContext_i18n": {
         "en": "Number of months held before selling; 0 for immediate sale",
         "tr": "Satmadan önce elde tutulan ay sayısı; anında satış için 0",
         "de": "Anzahl der Monate vor Verkauf; 0 für sofortigen Verkauf",
         "fr": "Nombre de mois détenus avant la vente ; 0 pour vente immédiate",
-        "es": "Número de meses mantenido antes de vender; 0 para venta inmediata"
+        "es": "Número de meses mantenido antes de vender; 0 para venta inmediata",
+        "ar": "عدد الأشهر المحتفظ بها قبل البيع؛ 0 للبيع الفوري"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Steuersatz für ordentliches Einkommen",
         "fr": "Taux d'imposition du revenu ordinaire",
         "es": "Tasa Impositiva sobre Ingresos Ordinarios",
-        "ar": "Ordinary Income Tax Rate"
+        "ar": "معدل ضريبة الدخل العادي"
       },
       "businessContext_i18n": {
         "en": "Applicable marginal tax rate for ordinary income",
         "tr": "Olağan gelir için geçerli marjinal vergi oranı",
         "de": "Anwendbarer Grenzsteuersatz für ordentliches Einkommen",
         "fr": "Taux marginal d'imposition applicable pour le revenu ordinaire",
-        "es": "Tasa marginal aplicable para ingresos ordinarios"
+        "es": "Tasa marginal aplicable para ingresos ordinarios",
+        "ar": "معدل الضريبة الهامشي المطبق على الدخل العادي"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Steuersatz für langfristige Kapitalgewinne",
         "fr": "Taux d'imposition des plus-values à long terme",
         "es": "Tasa Impositiva sobre Ganancias de Capital a Largo Plazo",
-        "ar": "Long-Term Capital Gains Tax Rate"
+        "ar": "معدل ضريبة أرباح رأس المال طويلة الأجل"
       },
       "businessContext_i18n": {
         "en": "Tax rate for long-term capital gains (if holding period > 12 months)",
         "tr": "Uzun vadeli sermaye kazançları için vergi oranı (tutma süresi > 12 ay ise)",
         "de": "Steuersatz für langfristige Kapitalgewinne (bei Haltedauer > 12 Monate)",
         "fr": "Taux d'imposition pour les plus-values à long terme (si période de détention > 12 mois)",
-        "es": "Tasa impositiva para ganancias de capital a largo plazo (si el período de tenencia > 12 meses)"
+        "es": "Tasa impositiva para ganancias de capital a largo plazo (si el período de tenencia > 12 meses)",
+        "ar": "معدل الضريبة لأرباح رأس المال طويلة الأجل (إذا كانت فترة الاحتفاظ > 12 شهرًا)"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Erster Term (a)",
         "fr": "Premier terme (a)",
         "es": "Primer término (a)",
-        "ar": "First Term (a)"
+        "ar": "الحد الأول (أ)"
       },
       "businessContext_i18n": {
         "en": "The initial value of the arithmetic progression.",
         "tr": "Aritmetik dizinin başlangıç değeri.",
         "de": "Der Anfangswert der arithmetischen Folge.",
         "fr": "Valeur initiale de la progression arithmétique.",
-        "es": "Valor inicial de la progresión aritmética."
+        "es": "Valor inicial de la progresión aritmética.",
+        "ar": "القيمة الأولية للمتتالية الحسابية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gemeinsame Differenz (d)",
         "fr": "Différence commune (d)",
         "es": "Diferencia común (d)",
-        "ar": "Common Difference (d)"
+        "ar": "الفرق المشترك (د)"
       },
       "businessContext_i18n": {
         "en": "The constant increment between consecutive terms.",
         "tr": "Ardışık terimler arasındaki sabit artış.",
         "de": "Der konstante Zuwachs zwischen aufeinanderfolgenden Gliedern.",
         "fr": "Incrément constant entre les termes consécutifs.",
-        "es": "El incremento constante entre términos consecutivos."
+        "es": "El incremento constante entre términos consecutivos.",
+        "ar": "الزيادة الثابتة بين الحدود المتتالية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Glieder (n)",
         "fr": "Nombre de termes (n)",
         "es": "Número de términos (n)",
-        "ar": "Number of Terms (n)"
+        "ar": "عدد الحدود (ن)"
       },
       "businessContext_i18n": {
         "en": "The total count of terms in the sequence.",
         "tr": "Dizideki toplam terim sayısı.",
         "de": "Die Gesamtzahl der Glieder in der Folge.",
         "fr": "Nombre total de termes dans la séquence.",
-        "es": "El número total de términos en la secuencia."
+        "es": "El número total de términos en la secuencia.",
+        "ar": "العدد الإجمالي للحدود في المتتالية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gliedposition (k)",
         "fr": "Position du terme (k)",
         "es": "Posición del término (k)",
-        "ar": "Term Position (k)"
+        "ar": "موقع الحد (ك)"
       },
       "businessContext_i18n": {
         "en": "The position of the term to find (1-indexed).",
         "tr": "Bulunacak terimin sırası (1'den başlayarak).",
         "de": "Die Position des zu findenden Glieds (1-basiert).",
         "fr": "Position du terme à trouver (indexé à partir de 1).",
-        "es": "La posición del término a encontrar (indexado desde 1)."
+        "es": "La posición del término a encontrar (indexado desde 1).",
+        "ar": "موقع الحد المراد إيجاده (يبدأ من 1)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the results.",
         "tr": "Sonuçlar için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ergebnisse.",
         "fr": "Nombre de décimales pour les résultats.",
-        "es": "Número de decimales para los resultados."
+        "es": "Número de decimales para los resultados.",
+        "ar": "عدد المنازل العشرية للنتائج"
       }
     }
   ],
   "formulas": {
-    "result": "firstTerm + commonDifference + numberOfTerms",
-    "result_copy": "firstTerm + commonDifference + numberOfTerms"
+    "normalized_product": "firstTerm * commonDifference * numberOfTerms * termPosition",
+    "result": "firstTerm * commonDifference * numberOfTerms * termPosition * (decimals)",
+    "adjustment_factor": "decimals"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sumOfTerms",
-      "kthTerm"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "kthTerm",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

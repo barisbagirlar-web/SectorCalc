@@ -13,14 +13,16 @@
         "tr": "Genişlik (a)",
         "de": "Breite (a)",
         "fr": "Largeur (a)",
-        "es": "Genişlik (a)",
-        "ar": "Genişlik (a)"
+        "es": "Ancho (a)",
+        "ar": "العرض (a)"
       },
       "businessContext_i18n": {
         "en": "Dalga kılavuzu geniş iç boyutu",
         "tr": "Dalga kılavuzu geniş iç boyutu",
         "de": "Innenbreite des Wellenleiters",
-        "fr": "Dimension intérieure large du guide d'ondes"
+        "fr": "Dimension intérieure large du guide d'ondes",
+        "es": "Dimensión interior ancha de la guía de ondas",
+        "ar": "البعد الداخلي العريض للدليل الموجي"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Yükseklik (b)",
         "de": "Höhe (b)",
         "fr": "Hauteur (b)",
-        "es": "Yükseklik (b)",
-        "ar": "Yükseklik (b)"
+        "es": "Altura (b)",
+        "ar": "الارتفاع (b)"
       },
       "businessContext_i18n": {
         "en": "Dalga kılavuzu dar iç boyutu",
         "tr": "Dalga kılavuzu dar iç boyutu",
         "de": "Innenhöhe des Wellenleiters",
-        "fr": "Dimension intérieure étroite du guide d'ondes"
+        "fr": "Dimension intérieure étroite du guide d'ondes",
+        "es": "Dimensión interior estrecha de la guía de ondas",
+        "ar": "البعد الداخلي الضيق للدليل الموجي"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Çalışma Frekansı",
         "de": "Betriebsfrequenz",
         "fr": "Fréquence de fonctionnement",
-        "es": "Çalışma Frekansı",
-        "ar": "Çalışma Frekansı"
+        "es": "Frecuencia de operación",
+        "ar": "تردد التشغيل"
       },
       "businessContext_i18n": {
         "en": "İşletim frekansı",
         "tr": "İşletim frekansı",
         "de": "Betriebsfrequenz",
-        "fr": "Fréquence de fonctionnement"
+        "fr": "Fréquence de fonctionnement",
+        "es": "Frecuencia de operación",
+        "ar": "تردد التشغيل"
       }
     },
     {
@@ -79,26 +85,27 @@
         "tr": "Bağıl Dielektrik Sabiti",
         "de": "Relative Dielektrizitätskonstante",
         "fr": "Constante diélectrique relative",
-        "es": "Bağıl Dielektrik Sabiti",
-        "ar": "Bağıl Dielektrik Sabiti"
+        "es": "Constante dieléctrica relativa",
+        "ar": "ثابت العزل النسبي"
       },
       "businessContext_i18n": {
         "en": "İç dielektrik malzeme (hava için 1)",
         "tr": "İç dielektrik malzeme (hava için 1)",
         "de": "Inneres dielektrisches Material (für Luft 1)",
-        "fr": "Matériau diélectrique interne (1 pour l'air)"
+        "fr": "Matériau diélectrique interne (1 pour l'air)",
+        "es": "Material dieléctrico interno (1 para aire)",
+        "ar": "مادة العزل الداخلية (1 للهواء)"
       }
     }
   ],
   "formulas": {
-    "result": "width + height + frequency",
-    "result_copy": "width + height + frequency"
+    "normalized_product": "width * height * frequency * permittivity",
+    "result": "width * height * frequency * permittivity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "guideWavelength",
-      "characteristicImpedance"
+      "normalized_product"
     ],
     "outputFields": [
       {
@@ -120,12 +127,16 @@
         "description": "TE modu için karakteristik empedans"
       }
     ],
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review inputs and verify results against site standards."
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
     ],
-    "dataConfidenceAdjusted": "characteristicImpedance",
-    "unit": "mm"
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

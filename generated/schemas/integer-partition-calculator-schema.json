@@ -14,14 +14,15 @@
         "de": "Zu partitionierende Ganzzahl",
         "fr": "Entier à partitionner",
         "es": "Entero a particionar",
-        "ar": "Integer to Partition"
+        "ar": "العدد الصحيح المراد تقسيمه"
       },
       "businessContext_i18n": {
         "en": "Positive integer n (n ≥ 1) for which the number of integer partitions is approximated. Used in combinatorics, inventory partitioning, and resource distribution modeling.",
         "tr": "Pozitif tam sayı n (n ≥ 1) için tamsayı bölümlerinin sayısı yaklaşık olarak hesaplanır. Kombinatorik, envanter bölümleme ve kaynak dağıtım modellemesinde kullanılır.",
         "de": "Positive ganze Zahl n (n ≥ 1), für die die Anzahl der ganzzahligen Partitionen approximiert wird. Verwendet in Kombinatorik, Bestandspartitionierung und Ressourcenverteilungsmodellierung.",
         "fr": "Entier positif n (n ≥ 1) pour lequel le nombre de partitions entières est approximé. Utilisé en combinatoire, partitionnement d'inventaire et modélisation de distribution de ressources.",
-        "es": "Entero positivo n (n ≥ 1) para el cual se aproxima el número de particiones enteras. Se usa en combinatoria, partición de inventarios y modelado de distribución de recursos."
+        "es": "Entero positivo n (n ≥ 1) para el cual se aproxima el número de particiones enteras. Se usa en combinatoria, partición de inventarios y modelado de distribución de recursos.",
+        "ar": "عدد صحيح موجب n (n ≥ 1) يتم تقريب عدد تقسيماته الصحيحة. يُستخدم في التوافقيات، وتقسيم المخزون، ونمذجة توزيع الموارد."
       }
     },
     {
@@ -33,7 +34,7 @@
         "de": "auto_input_2",
         "fr": "entrée_auto_2",
         "es": "entrada_auto_2",
-        "ar": "auto_input_2"
+        "ar": "المدخل التلقائي 2"
       },
       "type": "number",
       "unit": "unit",
@@ -45,7 +46,7 @@
         "de": "Automatisch generierte Eingabe 2.",
         "fr": "Entrée générée automatiquement 2.",
         "es": "Entrada generada automáticamente 2.",
-        "ar": "Auto-generated input 2."
+        "ar": "المدخل التلقائي 2."
       }
     },
     {
@@ -57,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -69,27 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "n + auto_input_2 + auto_input_3",
-    "result_copy": "n + auto_input_2 + auto_input_3"
+    "normalized_product": "n * auto_input_2 * auto_input_3",
+    "result": "n * auto_input_2 * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sqrtTerm",
-      "expTerm",
-      "denominator"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "estimatedPartitions",
-    "unit": "integer"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

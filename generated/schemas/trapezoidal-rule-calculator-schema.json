@@ -14,13 +14,15 @@
         "de": "Untere Grenze (a)",
         "fr": "Limite inférieure (a)",
         "es": "Límite inferior (a)",
-        "ar": "Alt Sınır (a)"
+        "ar": "الحد الأدنى (أ)"
       },
       "businessContext_i18n": {
         "en": "İntegrasyon başlangıç noktası",
         "tr": "İntegrasyon başlangıç noktası",
         "de": "Integrationsstartpunkt",
-        "fr": "Point de départ de l'intégration"
+        "fr": "Point de départ de l'intégration",
+        "es": "Punto de inicio de integración",
+        "ar": "نقطة بداية التكامل"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Obere Grenze (b)",
         "fr": "Limite supérieure (b)",
         "es": "Límite superior (b)",
-        "ar": "Üst Sınır (b)"
+        "ar": "الحد الأعلى (ب)"
       },
       "businessContext_i18n": {
         "en": "İntegrasyon bitiş noktası",
         "tr": "İntegrasyon bitiş noktası",
         "de": "Integrationsendpunkt",
-        "fr": "Point de fin de l'intégration"
+        "fr": "Point de fin de l'intégration",
+        "es": "Punto final de integración",
+        "ar": "نقطة نهاية التكامل"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Aralık Sayısı (n)",
         "de": "Anzahl der Intervalle (n)",
         "fr": "Nombre d'intervalles (n)",
-        "es": "Aralık Sayısı (n)",
-        "ar": "Aralık Sayısı (n)"
+        "es": "Número de intervalos (n)",
+        "ar": "عدد الفترات (n)"
       },
       "businessContext_i18n": {
         "en": "Trapezoid bölme sayısı",
         "tr": "Trapezoid bölme sayısı",
         "de": "Anzahl der Trapezunterteilungen",
-        "fr": "Nombre de divisions du trapèze"
+        "fr": "Nombre de divisions du trapèze",
+        "es": "Número de divisiones del trapecio",
+        "ar": "عدد تقسيمات شبه المنحرف"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "f(a) Değeri",
         "de": "f(a)-Wert",
         "fr": "Valeur de f(a)",
-        "es": "f(a) Değeri",
-        "ar": "f(a) Değeri"
+        "es": "Valor de f(a)",
+        "ar": "قيمة f(a)"
       },
       "businessContext_i18n": {
         "en": "Alt sınırda fonksiyon değeri",
         "tr": "Alt sınırda fonksiyon değeri",
         "de": "Funktionswert an der unteren Grenze",
-        "fr": "Valeur de la fonction à la limite inférieure"
+        "fr": "Valeur de la fonction à la limite inférieure",
+        "es": "Valor de la función en el límite inferior",
+        "ar": "قيمة الدالة عند الحد الأدنى"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "f(b) Değeri",
         "de": "f(b)-Wert",
         "fr": "Valeur de f(b)",
-        "es": "f(b) Değeri",
-        "ar": "f(b) Değeri"
+        "es": "Valor de f(b)",
+        "ar": "قيمة f(b)"
       },
       "businessContext_i18n": {
         "en": "Üst sınırda fonksiyon değeri",
         "tr": "Üst sınırda fonksiyon değeri",
         "de": "Funktionswert an der oberen Grenze",
-        "fr": "Valeur de la fonction à la limite supérieure"
+        "fr": "Valeur de la fonction à la limite supérieure",
+        "es": "Valor de la función en el límite superior",
+        "ar": "قيمة الدالة عند الحد الأعلى"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "İç Nokta Değerleri Toplamı",
         "de": "Summe der inneren Punktwerte",
         "fr": "Somme des valeurs aux points intérieurs",
-        "es": "İç Nokta Değerleri Toplamı",
-        "ar": "İç Nokta Değerleri Toplamı"
+        "es": "Suma de valores en puntos interiores",
+        "ar": "مجموع قيم النقاط الداخلية"
       },
       "businessContext_i18n": {
         "en": "Tüm ara noktalardaki f(x) değerleri toplamı",
         "tr": "Tüm ara noktalardaki f(x) değerleri toplamı",
         "de": "Summe der f(x)-Werte an allen Zwischenpunkten",
-        "fr": "Somme des valeurs f(x) à tous les points intermédiaires"
+        "fr": "Somme des valeurs f(x) à tous les points intermédiaires",
+        "es": "Suma de valores f(x) en todos los puntos intermedios",
+        "ar": "مجموع قيم f(x) في جميع النقاط الوسيطة"
       }
     }
   ],

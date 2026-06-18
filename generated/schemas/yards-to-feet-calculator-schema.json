@@ -13,14 +13,16 @@
         "tr": "Yarda",
         "de": "Yards",
         "fr": "Yards",
-        "es": "Yards",
-        "ar": "Yards"
+        "es": "Yardas",
+        "ar": "ياردات"
       },
       "businessContext_i18n": {
         "en": "Length measured in yards to be converted to feet",
         "tr": "Feete dönüştürülecek yarda cinsinden uzunluk",
         "de": "In Yards gemessene Länge, die in Fuß umgerechnet werden soll",
-        "fr": "Longueur mesurée en yards à convertir en pieds"
+        "fr": "Longueur mesurée en yards à convertir en pieds",
+        "es": "Longitud medida en yardas para convertir a pies",
+        "ar": "الطول المقاس بالياردات المراد تحويله إلى أقدام"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from yards to feet; 3 feet per yard",
         "tr": "Yarddan feete standart dönüşüm faktörü; yard başına 3 feet",
         "de": "Standardumrechnungsfaktor von Yards in Fuß; 3 Fuß pro Yard",
-        "fr": "Facteur de conversion standard des yards en pieds ; 3 pieds par yard"
+        "fr": "Facteur de conversion standard des yards en pieds ; 3 pieds par yard",
+        "es": "Factor de conversión estándar de yardas a pies; 3 pies por yarda",
+        "ar": "عامل التحويل القياسي من ياردات إلى أقدام؛ 3 أقدام لكل ياردة"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result; must be integer ≥ 0",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı; ≥ 0 tam sayı olmalı",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses; muss ganze Zahl ≥ 0 sein",
-        "fr": "Nombre de décimales pour arrondir le résultat ; doit être un entier ≥ 0"
+        "fr": "Nombre de décimales pour arrondir le résultat ; doit être un entier ≥ 0",
+        "es": "Número de decimales para redondear el resultado; debe ser entero ≥ 0",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة؛ يجب أن يكون عددًا صحيحًا ≥ 0"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
         "es": "Método de redondeo",
-        "ar": "Rounding Method"
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)",
         "tr": "0 = Standart yuvarlama, 1 = Taban (aşağı yuvarla), 2 = Tavan (yukarı yuvarla)",
         "de": "0 = Standardrundung, 1 = Abrunden, 2 = Aufrunden",
-        "fr": "0 = Arrondi standard, 1 = Plancher (arrondi inférieur), 2 = Plafond (arrondi supérieur)"
+        "fr": "0 = Arrondi standard, 1 = Plancher (arrondi inférieur), 2 = Plafond (arrondi supérieur)",
+        "es": "0 = Redondeo estándar, 1 = Suelo (redondear hacia abajo), 2 = Techo (redondear hacia arriba)",
+        "ar": "0 = تقريب قياسي، 1 = أرضية (تقريب لأسفل)، 2 = سقف (تقريب لأعلى)"
       }
     }
   ],

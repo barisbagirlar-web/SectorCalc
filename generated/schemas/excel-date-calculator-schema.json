@@ -14,14 +14,15 @@
         "de": "Startdatum Seriennummer",
         "fr": "Numéro de série de la date de début",
         "es": "Número de Serie de Fecha de Inicio",
-        "ar": "Başlangıç Tarihi Seri Numarası"
+        "ar": "الرقم التسلسلي لتاريخ البداية"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
         "tr": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
         "de": "Excel-Seriennummer des Startdatums (z.B. 44927 = 2023-01-01)",
         "fr": "Numéro de série Excel de la date de début (ex. 44927 = 2023-01-01)",
-        "es": "Número de serie de Excel de la fecha de inicio (ej. 44927 = 2023-01-01)"
+        "es": "Número de serie de Excel de la fecha de inicio (ej. 44927 = 2023-01-01)",
+        "ar": "الرقم التسلسلي لتاريخ البداية في Excel (مثال: 44927 = 2023-01-01)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Enddatum Seriennummer",
         "fr": "Numéro de série de la date de fin",
         "es": "Número de Serie de Fecha de Fin",
-        "ar": "Bitiş Tarihi Seri Numarası"
+        "ar": "الرقم التسلسلي لتاريخ النهاية"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihinin Excel seri numarası",
         "tr": "Bitiş tarihinin Excel seri numarası",
         "de": "Excel-Seriennummer des Enddatums",
         "fr": "Numéro de série Excel de la date de fin",
-        "es": "Número de serie de Excel de la fecha de fin"
+        "es": "Número de serie de Excel de la fecha de fin",
+        "ar": "الرقم التسلسلي لتاريخ النهاية في Excel"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Tage verschieben",
         "fr": "Décalage en jours",
         "es": "Desplazamiento de días",
-        "ar": "Gün Kaydırma"
+        "ar": "إزاحة الأيام"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
         "tr": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
         "de": "Anzahl der Tage, die zum Startdatum hinzugefügt (positiv) oder abgezogen (negativ) werden sollen",
         "fr": "Nombre de jours à ajouter (positif) ou soustraire (négatif) à la date de début",
-        "es": "Número de días a añadir (positivo) o restar (negativo) a la fecha de inicio"
+        "es": "Número de días a añadir (positivo) o restar (negativo) a la fecha de inicio",
+        "ar": "عدد الأيام المضافة (موجب) أو المطروحة (سالب) من تاريخ البداية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Starttag einschließen",
         "fr": "Inclure le début",
         "es": "Incluir inicio",
-        "ar": "Başlangıcı Dahil Et"
+        "ar": "تضمين البداية"
       },
       "businessContext_i18n": {
         "en": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
         "tr": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
         "de": "Starttag in die Tagesdifferenzberechnung einschließen: 0 = Nein, 1 = Ja",
         "fr": "Inclure le jour de début dans le calcul de la différence : 0 = Non, 1 = Oui",
-        "es": "Incluir el día de inicio en el cálculo de diferencia de días: 0 = No, 1 = Sí"
+        "es": "Incluir el día de inicio en el cálculo de diferencia de días: 0 = No, 1 = Sí",
+        "ar": "تضمين يوم البداية في حساب فرق الأيام: 0 = لا، 1 = نعم"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Periode (T)",
         "fr": "Période (T)",
         "es": "Período (T)",
-        "ar": "Period (T)"
+        "ar": "الفترة (T)"
       },
       "businessContext_i18n": {
         "en": "Time for one complete cycle. Used in f = 1/T.",
         "tr": "Bir tam döngü için geçen süre. f = 1/T formülünde kullanılır.",
         "de": "Zeit für einen vollständigen Zyklus. Verwendet in f = 1/T.",
         "fr": "Temps pour un cycle complet. Utilisé dans f = 1/T.",
-        "es": "Tiempo para un ciclo completo. Se utiliza en f = 1/T."
+        "es": "Tiempo para un ciclo completo. Se utiliza en f = 1/T.",
+        "ar": "الزمن لدورة كاملة واحدة. يُستخدم في f = 1/T."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Zyklen",
         "fr": "Nombre de cycles",
         "es": "Número de ciclos",
-        "ar": "Number of Cycles"
+        "ar": "عدد الدورات"
       },
       "businessContext_i18n": {
         "en": "Number of cycles observed. Used with Total Time to compute frequency.",
         "tr": "Gözlemlenen döngü sayısı. Frekansı hesaplamak için Toplam Süre ile birlikte kullanılır.",
         "de": "Anzahl der beobachteten Zyklen. Wird mit der Gesamtzeit zur Berechnung der Frequenz verwendet.",
         "fr": "Nombre de cycles observés. Utilisé avec le temps total pour calculer la fréquence.",
-        "es": "Número de ciclos observados. Se utiliza con el tiempo total para calcular la frecuencia."
+        "es": "Número de ciclos observados. Se utiliza con el tiempo total para calcular la frecuencia.",
+        "ar": "عدد الدورات الملاحظة. يُستخدم مع الزمن الإجمالي لحساب التردد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtzeit",
         "fr": "Temps total",
         "es": "Tiempo total",
-        "ar": "Total Time"
+        "ar": "الوقت الإجمالي"
       },
       "businessContext_i18n": {
         "en": "Total time over which cycles were counted. Used in f = cycles / time.",
         "tr": "Döngülerin sayıldığı toplam süre. f = döngü/süre formülünde kullanılır.",
         "de": "Gesamtzeit, über die Zyklen gezählt wurden. Verwendet in f = Zyklen / Zeit.",
         "fr": "Temps total pendant lequel les cycles ont été comptés. Utilisé dans f = cycles / temps.",
-        "es": "Tiempo total durante el cual se contaron los ciclos. Se utiliza en f = ciclos / tiempo."
+        "es": "Tiempo total durante el cual se contaron los ciclos. Se utiliza en f = ciclos / tiempo.",
+        "ar": "الوقت الإجمالي الذي تم خلاله عد الدورات. يُستخدم في f = دورات / زمن."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Geschwindigkeit (v)",
         "fr": "Vitesse (v)",
         "es": "Velocidad (v)",
-        "ar": "Velocity (v)"
+        "ar": "السرعة (v)"
       },
       "businessContext_i18n": {
         "en": "Wave propagation speed. Used with Wavelength to compute frequency.",
         "tr": "Dalga yayılma hızı. Frekansı hesaplamak için Dalga Boyu ile birlikte kullanılır.",
         "de": "Wellenausbreitungsgeschwindigkeit. Wird mit der Wellenlänge zur Berechnung der Frequenz verwendet.",
         "fr": "Vitesse de propagation de l'onde. Utilisée avec la longueur d'onde pour calculer la fréquence.",
-        "es": "Velocidad de propagación de la onda. Se utiliza con la longitud de onda para calcular la frecuencia."
+        "es": "Velocidad de propagación de la onda. Se utiliza con la longitud de onda para calcular la frecuencia.",
+        "ar": "سرعة انتشار الموجة. تُستخدم مع الطول الموجي لحساب التردد."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Wellenlänge (λ)",
         "fr": "Longueur d'onde (λ)",
         "es": "Longitud de onda (λ)",
-        "ar": "Wavelength (λ)"
+        "ar": "الطول الموجي (λ)"
       },
       "businessContext_i18n": {
         "en": "Distance between successive peaks. Used with Velocity in f = v/λ.",
         "tr": "Ardışık tepeler arasındaki mesafe. f = v/λ formülünde Hız ile birlikte kullanılır.",
         "de": "Abstand zwischen aufeinanderfolgenden Wellenbergen. Wird mit der Geschwindigkeit in f = v/λ verwendet.",
         "fr": "Distance entre pics successifs. Utilisée avec la vitesse dans f = v/λ.",
-        "es": "Distancia entre picos sucesivos. Se utiliza con la velocidad en f = v/λ."
+        "es": "Distancia entre picos sucesivos. Se utiliza con la velocidad en f = v/λ.",
+        "ar": "المسافة بين القمم المتتالية. تُستخدم مع السرعة في f = v/λ."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Winkelgeschwindigkeit (ω)",
         "fr": "Fréquence angulaire (ω)",
         "es": "Frecuencia angular (ω)",
-        "ar": "Angular Frequency (ω)"
+        "ar": "التردد الزاوي (ω)"
       },
       "businessContext_i18n": {
         "en": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π).",
         "tr": "Radyan/saniye cinsinden açısal frekans. f = ω/(2π) ile Hz'e dönüştürülür.",
         "de": "Winkelgeschwindigkeit in Radiant pro Sekunde. Umrechnung in Hz über f = ω/(2π).",
         "fr": "Fréquence angulaire en radians par seconde. Convertie en Hz via f = ω/(2π).",
-        "es": "Frecuencia angular en radianes por segundo. Convertida a Hz mediante f = ω/(2π)."
+        "es": "Frecuencia angular en radianes por segundo. Convertida a Hz mediante f = ω/(2π).",
+        "ar": "التردد الزاوي بوحدة راديان في الثانية. يُحول إلى هرتز عبر f = ω/(2π)."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Umdrehungen pro Minute (RPM)",
         "fr": "Tours par minute (RPM)",
         "es": "Revoluciones por minuto (RPM)",
-        "ar": "Revolutions per Minute (RPM)"
+        "ar": "دورة في الدقيقة (RPM)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60.",
         "tr": "Dakikadaki devir cinsinden dönüş hızı. f = RPM/60 ile Hz'e dönüştürülür.",
         "de": "Drehzahl in Umdrehungen pro Minute. Umrechnung in Hz über f = RPM/60.",
         "fr": "Vitesse de rotation en tours par minute. Convertie en Hz via f = RPM/60.",
-        "es": "Velocidad de rotación en revoluciones por minuto. Convertida a Hz mediante f = RPM/60."
+        "es": "Velocidad de rotación en revoluciones por minuto. Convertida a Hz mediante f = RPM/60.",
+        "ar": "السرعة الدورانية بوحدة دورة في الدقيقة. تُحول إلى هرتز عبر f = RPM/60."
       }
     }
   ],

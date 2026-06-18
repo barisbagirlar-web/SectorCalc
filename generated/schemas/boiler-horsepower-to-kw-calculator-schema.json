@@ -14,14 +14,15 @@
         "de": "Kesselleistung (pro Einheit)",
         "fr": "Puissance chaudière (par unité)",
         "es": "Caballos de caldera (por unidad)",
-        "ar": "Boiler Horsepower (per unit)"
+        "ar": "القدرة الحصانية للمرجل (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications.",
         "tr": "Tek bir kazan ünitesinin üretici spesifikasyonlarına göre anma beygir gücü.",
         "de": "Nenn-Kesselleistung einer einzelnen Kesseleinheit gemäß Herstellerangaben.",
         "fr": "Puissance nominale en chevaux-vapeur (BHP) d'une seule unité de chaudière, selon les spécifications du fabricant.",
-        "es": "Caballos de caldera nominales de una sola unidad de caldera, según especificaciones del fabricante."
+        "es": "Caballos de caldera nominales de una sola unidad de caldera, según especificaciones del fabricante.",
+        "ar": "القدرة الحصانية المقدرة لوحدة مرجل واحدة، وفقًا لمواصفات الشركة المصنعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Kessel",
         "fr": "Nombre de chaudières",
         "es": "Número de calderas",
-        "ar": "Number of Boilers"
+        "ar": "عدد المراجل"
       },
       "businessContext_i18n": {
         "en": "Total number of identical boiler units operating in parallel.",
         "tr": "Paralel çalışan özdeş kazan ünitelerinin toplam sayısı.",
         "de": "Gesamtzahl identischer Kesseleinheiten, die parallel betrieben werden.",
         "fr": "Nombre total d'unités de chaudière identiques fonctionnant en parallèle.",
-        "es": "Número total de unidades de caldera idénticas operando en paralelo."
+        "es": "Número total de unidades de caldera idénticas operando en paralelo.",
+        "ar": "إجمالي عدد وحدات المرجل المتطابقة العاملة بالتوازي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lastfaktor",
         "fr": "Facteur de charge",
         "es": "Factor de carga",
-        "ar": "Load Factor"
+        "ar": "عامل الحمولة"
       },
       "businessContext_i18n": {
         "en": "Average operating load as a percentage of full rated capacity.",
         "tr": "Tam anma kapasitesinin yüzdesi olarak ortalama işletme yükü.",
         "de": "Durchschnittliche Betriebslast als Prozentsatz der vollen Nennleistung.",
         "fr": "Charge de fonctionnement moyenne en pourcentage de la capacité nominale maximale.",
-        "es": "Carga operativa promedio como porcentaje de la capacidad nominal total."
+        "es": "Carga operativa promedio como porcentaje de la capacidad nominal total.",
+        "ar": "متوسط حمولة التشغيل كنسبة مئوية من السعة المقدرة الكاملة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kesselwirkungsgrad",
         "fr": "Rendement de la chaudière",
         "es": "Eficiencia de la caldera",
-        "ar": "Boiler Efficiency"
+        "ar": "كفاءة المرجل"
       },
       "businessContext_i18n": {
         "en": "Overall thermal efficiency of the boiler system, based on fuel input to steam output.",
         "tr": "Yakıt girişinden buhar çıkışına kadar kazan sisteminin genel termal verimliliği.",
         "de": "Gesamtwirkungsgrad des Kesselsystems, basierend auf Brennstoffeinsatz zu Dampfausstoß.",
         "fr": "Rendement thermique global du système de chaudière, basé sur l'entrée de carburant et la sortie de vapeur.",
-        "es": "Eficiencia térmica global del sistema de caldera, basada en la entrada de combustible a la salida de vapor."
+        "es": "Eficiencia térmica global del sistema de caldera, basada en la entrada de combustible a la salida de vapor.",
+        "ar": "الكفاءة الحرارية الكلية لنظام المرجل، بناءً على مدخلات الوقود إلى مخرجات البخار."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jährliche Betriebsstunden",
         "fr": "Heures de fonctionnement annuelles",
         "es": "Horas de operación anuales",
-        "ar": "Annual Operating Hours"
+        "ar": "ساعات التشغيل السنوية"
       },
       "businessContext_i18n": {
         "en": "Total number of hours per year the boilers are in operation.",
         "tr": "Kazanların yılda toplam çalışma saati sayısı.",
         "de": "Gesamtzahl der Stunden pro Jahr, in denen die Kessel in Betrieb sind.",
         "fr": "Nombre total d'heures par an pendant lesquelles les chaudières sont en fonctionnement.",
-        "es": "Número total de horas al año que las calderas están en operación."
+        "es": "Número total de horas al año que las calderas están en operación.",
+        "ar": "إجمالي عدد الساعات في السنة التي تكون فيها المراجل قيد التشغيل."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Umrechnungsfaktor (kW pro BHP)",
         "fr": "Facteur de conversion (kW par BHP)",
         "es": "Factor de conversión (kW por BHP)",
-        "ar": "Conversion Factor (kW per BHP)"
+        "ar": "عامل التحويل (كيلوواط لكل حصان بخاري)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output).",
         "tr": "Standart dönüşüm faktörü: 1 kazan beygir gücü = 9,8095 kilovat (termal çıkış).",
         "de": "Standard-Umrechnungsfaktor: 1 Kessel-PS = 9,8095 Kilowatt (thermische Leistung).",
         "fr": "Facteur de conversion standard : 1 cheval-vapeur chaudière = 9,8095 kilowatts (puissance thermique).",
-        "es": "Factor de conversión estándar: 1 caballo de caldera = 9,8095 kilovatios (salida térmica)."
+        "es": "Factor de conversión estándar: 1 caballo de caldera = 9,8095 kilovatios (salida térmica).",
+        "ar": "عامل التحويل القياسي: 1 حصان بخاري = 9.8095 كيلوواط (خرج حراري)."
       }
     }
   ],

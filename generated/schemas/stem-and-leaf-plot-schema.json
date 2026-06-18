@@ -14,14 +14,15 @@
         "de": "Datenwerte (kommagetrennt)",
         "fr": "Valeurs des données (séparées par des virgules)",
         "es": "Valores de datos (separados por comas)",
-        "ar": "Data Values (comma-separated)"
+        "ar": "قيم البيانات (مفصولة بفواصل)"
       },
       "businessContext_i18n": {
         "en": "Raw numerical data points for constructing the stem-and-leaf plot.",
         "tr": "Gövde-yaprak grafiği oluşturmak için ham sayısal veri noktaları.",
         "de": "Rohdatenpunkte zur Erstellung des Stamm-Blatt-Diagramms.",
         "fr": "Points de données numériques bruts pour construire le diagramme en tige et feuilles.",
-        "es": "Puntos de datos numéricos brutos para construir el diagrama de tallo y hojas."
+        "es": "Puntos de datos numéricos brutos para construir el diagrama de tallo y hojas.",
+        "ar": "نقاط البيانات الرقمية الخام لإنشاء مخطط الساق والورقة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Blatteinheit",
         "fr": "Unité de la feuille",
         "es": "Unidad de la hoja",
-        "ar": "Leaf Unit"
+        "ar": "وحدة الورقة"
       },
       "businessContext_i18n": {
         "en": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths).",
         "tr": "Yaprak basamağının birimi (örneğin, 1 birler için, 0.1 onda birler için).",
         "de": "Die Einheit der Blattziffer (z. B. 1 für Einer, 0,1 für Zehntel).",
         "fr": "L'unité du chiffre de la feuille (par exemple, 1 pour les unités, 0,1 pour les dixièmes).",
-        "es": "La unidad del dígito de la hoja (ej. 1 para unidades, 0.1 para décimas)."
+        "es": "La unidad del dígito de la hoja (ej. 1 para unidades, 0.1 para décimas).",
+        "ar": "وحدة رقم الورقة (مثل 1 للآحاد، 0.1 للأعشار)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stamm-Einheit",
         "fr": "Unité de la tige",
         "es": "Unidad del tallo",
-        "ar": "Stem Unit"
+        "ar": "وحدة الجذع"
       },
       "businessContext_i18n": {
         "en": "The unit of the stem (e.g., 10 for tens, 100 for hundreds).",
         "tr": "Gövdenin birimi (örneğin, 10 onlar için, 100 yüzler için).",
         "de": "Die Einheit des Stamms (z. B. 10 für Zehner, 100 für Hunderter).",
         "fr": "L'unité de la tige (par exemple, 10 pour les dizaines, 100 pour les centaines).",
-        "es": "La unidad del tallo (ej. 10 para decenas, 100 para centenas)."
+        "es": "La unidad del tallo (ej. 10 para decenas, 100 para centenas).",
+        "ar": "وحدة الجذع (مثل 10 للعشرات، 100 للمئات)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Sortierreihenfolge (1=aufsteigend, -1=absteigend)",
         "fr": "Ordre de tri (1=croissant, -1=décroissant)",
         "es": "Orden de clasificación (1=ascendente, -1=descendente)",
-        "ar": "Sort Order (1=ascending, -1=descending)"
+        "ar": "ترتيب الفرز (1=تصاعدي، -1=تنازلي)"
       },
       "businessContext_i18n": {
         "en": "Order to sort the leaves within each stem.",
         "tr": "Her gövde içindeki yaprakların sıralanma düzeni.",
         "de": "Reihenfolge zum Sortieren der Blätter innerhalb jedes Stamms.",
         "fr": "Ordre de tri des feuilles dans chaque tige.",
-        "es": "Orden para clasificar las hojas dentro de cada tallo."
+        "es": "Orden para clasificar las hojas dentro de cada tallo.",
+        "ar": "ترتيب فرز الأوراق داخل كل جذع."
       }
     }
   ],
   "formulas": {
-    "result": "data + leafUnit + stemUnit",
-    "result_copy": "data + leafUnit + stemUnit"
+    "normalized_product": "data * leafUnit * stemUnit * sortOrder",
+    "result": "data * leafUnit * stemUnit * sortOrder"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Stems: list of unique stems",
-      "Leaves: sorted leaves per stem"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sortedLeaves",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Bilişim & Yazılım",

@@ -14,14 +14,15 @@
         "de": "Anzahl der Geräte",
         "fr": "Nombre de dispositifs",
         "es": "Número de dispositivos",
-        "ar": "Number of Devices"
+        "ar": "عدد الأجهزة"
       },
       "businessContext_i18n": {
         "en": "Total count of devices with standby mode.",
         "tr": "Bekleme moduna sahip toplam cihaz sayısı.",
         "de": "Gesamtzahl der Geräte mit Standby-Modus",
         "fr": "Nombre total d'appareils en mode veille.",
-        "es": "Número total de dispositivos con modo de espera."
+        "es": "Número total de dispositivos con modo de espera.",
+        "ar": "إجمالي عدد الأجهزة في وضع الاستعداد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Standby-Leistung pro Gerät",
         "fr": "Puissance en veille par appareil",
         "es": "Potencia en espera por dispositivo",
-        "ar": "Standby Power per Device"
+        "ar": "طاقة الاستعداد لكل جهاز"
       },
       "businessContext_i18n": {
         "en": "Power consumed per device in standby mode (watts).",
         "tr": "Cihazın bekleme modunda tükettiği güç (watt).",
         "de": "Leistungsaufnahme pro Gerät im Standby-Modus (Watt).",
         "fr": "Puissance consommée par appareil en mode veille (watts).",
-        "es": "Potencia consumida por dispositivo en modo de espera (vatios)."
+        "es": "Potencia consumida por dispositivo en modo de espera (vatios).",
+        "ar": "الطاقة المستهلكة لكل جهاز في وضع الاستعداد (واط)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Standby-Stunden pro Tag",
         "fr": "Heures en veille par jour",
         "es": "Horas en espera por día",
-        "ar": "Hours in Standby per Day"
+        "ar": "ساعات الاستعداد يوميًا"
       },
       "businessContext_i18n": {
         "en": "Average hours per day the device is in standby (not active).",
         "tr": "Cihazın günde ortalama bekleme süresi (aktif değil) (saat).",
         "de": "Durchschnittliche Stunden pro Tag, in denen das Gerät im Standby ist (nicht aktiv).",
         "fr": "Nombre moyen d'heures par jour où l'appareil est en veille (non actif).",
-        "es": "Promedio de horas por día que el dispositivo está en espera (no activo)."
+        "es": "Promedio de horas por día que el dispositivo está en espera (no activo).",
+        "ar": "متوسط الساعات اليومية التي يكون فيها الجهاز في وضع الاستعداد (غير نشط)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Tage pro Monat",
         "fr": "Jours par mois",
         "es": "Días por mes",
-        "ar": "Days per Month"
+        "ar": "الأيام شهريًا"
       },
       "businessContext_i18n": {
         "en": "Number of days in billing period (typically 30).",
         "tr": "Fatura dönemindeki gün sayısı (genellikle 30).",
         "de": "Anzahl der Tage im Abrechnungszeitraum (typischerweise 30).",
         "fr": "Nombre de jours dans la période de facturation (généralement 30).",
-        "es": "Número de días en el período de facturación (típicamente 30)."
+        "es": "Número de días en el período de facturación (típicamente 30).",
+        "ar": "عدد أيام فترة الفاتورة (عادة 30 يومًا)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
         "es": "Coste de electricidad",
-        "ar": "Electricity Cost"
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour in local currency.",
         "tr": "Kilovatsaat başına yerel para birimi cinsinden maliyet.",
         "de": "Kosten pro Kilowattstunde in lokaler Währung.",
         "fr": "Coût par kilowattheure en devise locale.",
-        "es": "Costo por kilovatio-hora en moneda local."
+        "es": "Costo por kilovatio-hora en moneda local.",
+        "ar": "التكلفة لكل كيلوواط ساعة بالعملة المحلية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "CO₂-Emissionsfaktor",
         "fr": "Facteur d'émission de CO2",
         "es": "Factor de emisión de CO₂",
-        "ar": "CO2 Emission Factor"
+        "ar": "عامل انبعاثات ثاني أكسيد الكربون"
       },
       "businessContext_i18n": {
         "en": "Carbon intensity of grid electricity (kg CO2 per kWh).",
         "tr": "Şebeke elektriğinin karbon yoğunluğu (kg CO2/kWh).",
         "de": "CO₂-Intensität des Netzstroms (kg CO₂ pro kWh).",
         "fr": "Intensité carbone de l'électricité du réseau (kg CO2 par kWh).",
-        "es": "Intensidad de carbono de la electricidad de la red (kg CO2 por kWh)."
+        "es": "Intensidad de carbono de la electricidad de la red (kg CO2 por kWh).",
+        "ar": "كثافة الكربون للكهرباء من الشبكة (كجم CO2 لكل كيلوواط ساعة)."
       }
     }
   ],

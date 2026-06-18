@@ -14,14 +14,15 @@
         "de": "Referenznoten-MIDI-Nummer",
         "fr": "Numéro MIDI de la note de référence",
         "es": "Número MIDI de nota de referencia",
-        "ar": "Reference Note MIDI Number"
+        "ar": "رقم النوتة المرجعية MIDI"
       },
       "businessContext_i18n": {
         "en": "MIDI note number of the reference pitch (e.g., A4 = 69).",
         "tr": "Referans perdenin MIDI nota numarası (ör. A4 = 69).",
         "de": "MIDI-Notennummer der Referenztonhöhe (z. B. A4 = 69).",
         "fr": "Numéro MIDI de la note de référence (ex. : A4 = 69).",
-        "es": "Número de nota MIDI del tono de referencia (ej., A4 = 69)."
+        "es": "Número de nota MIDI del tono de referencia (ej., A4 = 69).",
+        "ar": "رقم نوتة MIDI للطبقة المرجعية (مثل A4 = 69)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenzfrequenz",
         "fr": "Fréquence de référence",
         "es": "Frecuencia de referencia",
-        "ar": "Reference Frequency"
+        "ar": "التردد المرجعي"
       },
       "businessContext_i18n": {
         "en": "Standard tuning frequency of the reference note in Hertz.",
         "tr": "Referans notanın standart akort frekansı (Hertz cinsinden).",
         "de": "Standard-Stimmfrequenz der Referenznote in Hertz.",
         "fr": "Fréquence d'accord standard de la note de référence en Hertz.",
-        "es": "Frecuencia de afinación estándar de la nota de referencia en Hertz."
+        "es": "Frecuencia de afinación estándar de la nota de referencia en Hertz.",
+        "ar": "تردد الضبط القياسي للنوتة المرجعية بالهرتز."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielnoten-MIDI-Nummer",
         "fr": "Numéro MIDI de la note cible",
         "es": "Número MIDI de nota objetivo",
-        "ar": "Target Note MIDI Number"
+        "ar": "رقم نوتة MIDI الهدف"
       },
       "businessContext_i18n": {
         "en": "MIDI note number of the key to tune.",
         "tr": "Akort edilecek tuşun MIDI nota numarası.",
         "de": "MIDI-Notennummer der zu stimmenden Taste.",
         "fr": "Numéro MIDI de la note à accorder.",
-        "es": "Número de nota MIDI de la tecla a afinar."
+        "es": "Número de nota MIDI de la tecla a afinar.",
+        "ar": "رقم نوتة MIDI للمفتاح المراد ضبطه."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Verstimmungsoffset",
         "fr": "Décalage de désaccord",
         "es": "Desviación de afinación",
-        "ar": "Detuning Offset"
+        "ar": "إزاحة الانحراف"
       },
       "businessContext_i18n": {
         "en": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment.",
         "tr": "Tarihsel mizaçlar veya sanatsal ayarlama için sent (1/100 yarım ton) cinsinden akort sapması.",
         "de": "Stimmungsversatz in Cent (1/100 Halbton) für historische Stimmungen oder künstlerische Anpassung.",
         "fr": "Décalage d'accord en cents (1/100 de demi-ton) pour les tempéraments historiques ou l'ajustement artistique.",
-        "es": "Desviación de afinación en cents (1/100 de semitono) para temperamentos históricos o ajuste artístico."
+        "es": "Desviación de afinación en cents (1/100 de semitono) para temperamentos históricos o ajuste artístico.",
+        "ar": "إزاحة الضبط بالسنت (1/100 نصف نغمة) للمزاجات التاريخية أو التعديل الفني."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Inharmonizitätskoeffizient (B)",
         "fr": "Coefficient d'inharmonicité (B)",
         "es": "Coeficiente de inarmonicidad (B)",
-        "ar": "Inharmonicity Coefficient (B)"
+        "ar": "معامل اللاتوافقية (B)"
       },
       "businessContext_i18n": {
         "en": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament.",
         "tr": "Germe akort için armonik olmayanlık katsayısı. Piyano için tipik: B ≈ 0.0004. Saf eşit mizaç için 0'a ayarlayın.",
         "de": "Inharmonizitätskoeffizient für Streckstimmung. Typisch für ein Klavier: B ≈ 0,0004. Auf 0 setzen für reine gleichschwebende Stimmung.",
         "fr": "Coefficient d'inharmonicité pour l'accord étiré. Typique pour un piano : B ≈ 0,0004. Mettre à 0 pour un tempérament égal pur.",
-        "es": "Coeficiente de inarmonicidad para afinación estirada. Típico para un piano: B ≈ 0.0004. Establecer en 0 para temperamento igual puro."
+        "es": "Coeficiente de inarmonicidad para afinación estirada. Típico para un piano: B ≈ 0.0004. Establecer en 0 para temperamento igual puro.",
+        "ar": "معامل اللاتوافقية لضبط التمدد. نموذجي للبيانو: B ≈ 0.0004. اضبط على 0 للمزاج المتساوي النقي."
       }
     }
   ],
   "formulas": {
-    "result": "referenceMidi + referenceFreq + targetMidi",
-    "result_copy": "referenceMidi + referenceFreq + targetMidi"
+    "normalized_product": "referenceMidi * referenceFreq * targetMidi * detuneCents",
+    "result": "referenceMidi * referenceFreq * targetMidi * detuneCents * (inharmonicityCoeff)",
+    "adjustment_factor": "inharmonicityCoeff"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "baseEqFrequency",
-      "stretchFactor",
-      "finalFrequency"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "finalFrequency",
-    "unit": "MIDI"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Fizik & Mekanik",

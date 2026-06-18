@@ -14,14 +14,15 @@
         "de": "Koeffizient (a)",
         "fr": "Coefficient (a)",
         "es": "Coeficiente (a)",
-        "ar": "Coefficient (a)"
+        "ar": "المعامل (a)"
       },
       "businessContext_i18n": {
         "en": "The significant digits of the number, typically between 1 and 10.",
         "tr": "Sayının anlamlı basamakları, genellikle 1 ile 10 arasında.",
         "de": "Die signifikanten Stellen der Zahl, typischerweise zwischen 1 und 10.",
         "fr": "Les chiffres significatifs du nombre, généralement entre 1 et 10.",
-        "es": "Los dígitos significativos del número, típicamente entre 1 y 10."
+        "es": "Los dígitos significativos del número, típicamente entre 1 y 10.",
+        "ar": "الأرقام المعنوية للعدد، عادة بين 1 و10."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Exponent (b)",
         "fr": "Exposant (b)",
         "es": "Exponente (b)",
-        "ar": "Exponent (b)"
+        "ar": "الأس (ب)"
       },
       "businessContext_i18n": {
         "en": "The power of 10 multiplier.",
         "tr": "10'un kuvveti çarpanı.",
         "de": "Der Multiplikator als Zehnerpotenz.",
         "fr": "Le multiplicateur de puissance de 10.",
-        "es": "El multiplicador de potencia de 10."
+        "es": "El multiplicador de potencia de 10.",
+        "ar": "مضاعف القوة 10."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wert (optional)",
         "fr": "Valeur (optionnelle)",
         "es": "Valor (opcional)",
-        "ar": "Value (optional)"
+        "ar": "القيمة (اختياري)"
       },
       "businessContext_i18n": {
         "en": "If provided, the calculator will convert this value to scientific notation.",
         "tr": "Sağlanırsa, hesap aracı bu değeri bilimsel gösterime dönüştürür.",
         "de": "Wenn angegeben, konvertiert der Rechner diesen Wert in wissenschaftliche Notation.",
         "fr": "Si fourni, le calculateur convertira cette valeur en notation scientifique.",
-        "es": "Si se proporciona, la calculadora convertirá este valor a notación científica."
+        "es": "Si se proporciona, la calculadora convertirá este valor a notación científica.",
+        "ar": "إذا تم توفيرها، ستقوم الحاسبة بتحويل هذه القيمة إلى الترميز العلمي."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the coefficient.",
         "tr": "Katsayı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den Koeffizienten.",
         "fr": "Nombre de décimales pour le coefficient.",
-        "es": "Número de decimales para el coeficiente."
+        "es": "Número de decimales para el coeficiente.",
+        "ar": "عدد المنازل العشرية للمعامل."
       }
     }
   ],
   "formulas": {
-    "result": "coefficient + exponent + value",
-    "result_copy": "coefficient + exponent + value"
+    "normalized_product": "coefficient * exponent * value * precision",
+    "result": "coefficient * exponent * value * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Coefficient: {coefficient}",
-      "Exponent: {exponent}",
-      "Standard Form: {value}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fromScientific_aux",
-    "unit": "digits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

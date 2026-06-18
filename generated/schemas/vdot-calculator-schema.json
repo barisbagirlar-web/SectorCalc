@@ -13,14 +13,16 @@
         "tr": "Titreşim Frekansı (Hz)",
         "de": "Schwingungsfrequenz (Hz)",
         "fr": "Fréquence de vibration (Hz)",
-        "es": "Titreşim Frekansı (Hz)",
-        "ar": "Titreşim Frekansı (Hz)"
+        "es": "Frecuencia de vibración (Hz)",
+        "ar": "تردد الاهتزاز (هرتز)"
       },
       "businessContext_i18n": {
         "en": "Makinanın çalışma frekansı",
         "tr": "Makinanın çalışma frekansı",
         "de": "Betriebsfrequenz der Maschine",
-        "fr": "Fréquence de fonctionnement de la machine"
+        "fr": "Fréquence de fonctionnement de la machine",
+        "es": "Frecuencia de funcionamiento de la máquina",
+        "ar": "تردد تشغيل الماكينة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Genlik (mm)",
         "de": "Amplitude (mm)",
         "fr": "Amplitude (mm)",
-        "es": "Genlik (mm)",
-        "ar": "Genlik (mm)"
+        "es": "Amplitud (mm)",
+        "ar": "السعة (مم)"
       },
       "businessContext_i18n": {
         "en": "Ölçülen titreşim genliği",
         "tr": "Ölçülen titreşim genliği",
         "de": "Gemessene Schwingungsamplitude",
-        "fr": "Amplitude de vibration mesurée"
+        "fr": "Amplitude de vibration mesurée",
+        "es": "Amplitud de vibración medida",
+        "ar": "سعة الاهتزاز المقاسة"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Sönümleme Katsayısı",
         "de": "Dämpfungskoeffizient",
         "fr": "Coefficient d'amortissement",
-        "es": "Sönümleme Katsayısı",
-        "ar": "Sönümleme Katsayısı"
+        "es": "Coeficiente de amortiguamiento",
+        "ar": "معامل التخميد"
       },
       "businessContext_i18n": {
         "en": "Sistem sönümleme karakteristiği",
         "tr": "Sistem sönümleme karakteristiği",
         "de": "Systemdämpfungscharakteristik",
-        "fr": "Caractéristique d'amortissement du système"
+        "fr": "Caractéristique d'amortissement du système",
+        "es": "Característica de amortiguamiento del sistema",
+        "ar": "خاصية تخميد النظام"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Malzeme Faktörü (GPa)",
         "de": "Materialfaktor (GPa)",
         "fr": "Facteur matériau (GPa)",
-        "es": "Malzeme Faktörü (GPa)",
-        "ar": "Malzeme Faktörü (GPa)"
+        "es": "Factor de material (GPa)",
+        "ar": "عامل المادة (GPa)"
       },
       "businessContext_i18n": {
         "en": "Kullanılan malzemenin elastisite modülü",
         "tr": "Kullanılan malzemenin elastisite modülü",
         "de": "Elastizitätsmodul des verwendeten Materials",
-        "fr": "Module d'élasticité du matériau utilisé"
+        "fr": "Module d'élasticité du matériau utilisé",
+        "es": "Módulo de elasticidad del material utilizado",
+        "ar": "معامل مرونة المادة المستخدمة"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Faktörü"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Operasyonel güvenlik payı",
         "tr": "Operasyonel güvenlik payı",
         "de": "Operativer Sicherheitsfaktor",
-        "fr": "Marge de sécurité opérationnelle"
+        "fr": "Marge de sécurité opérationnelle",
+        "es": "Margen de seguridad operacional",
+        "ar": "هامش الأمان التشغيلي"
       }
     }
   ],

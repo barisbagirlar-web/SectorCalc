@@ -13,14 +13,16 @@
         "tr": "Kaynak Uzunluğu (mm)",
         "de": "Schweißnahtlänge (mm)",
         "fr": "Longueur de soudure (mm)",
-        "es": "Weld Length (mm)",
-        "ar": "Weld Length (mm)"
+        "es": "Longitud de soldadura (mm)",
+        "ar": "طول اللحام (مم)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam",
         "tr": "Kaynak dikişinin toplam uzunluğu",
         "de": "Gesamtlänge der Schweißnaht",
-        "fr": "Longueur totale du cordon de soudure"
+        "fr": "Longueur totale du cordon de soudure",
+        "es": "Longitud total del cordón de soldadura",
+        "ar": "الطول الإجمالي لخط اللحام"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Boğaz Kalınlığı (mm)",
         "de": "Kehlnahtdicke (mm)",
         "fr": "Épaisseur de gorge (mm)",
-        "es": "Throat Thickness (mm)",
-        "ar": "Throat Thickness (mm)"
+        "es": "Espesor de garganta (mm)",
+        "ar": "سمك الحلق (مم)"
       },
       "businessContext_i18n": {
         "en": "Effective throat thickness of the weld",
         "tr": "Kaynağın etkin boğaz kalınlığı",
         "de": "Effektive Kehlnahtdicke der Schweißnaht",
-        "fr": "Épaisseur effective de la gorge de la soudure"
+        "fr": "Épaisseur effective de la gorge de la soudure",
+        "es": "Espesor efectivo de garganta de la soldadura",
+        "ar": "سمك الحلق الفعال للحام"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Elektrot Çapı (mm)",
         "de": "Elektrodendurchmesser (mm)",
         "fr": "Diamètre de l'électrode (mm)",
-        "es": "Electrode Diameter (mm)",
-        "ar": "Electrode Diameter (mm)"
+        "es": "Diámetro del electrodo (mm)",
+        "ar": "قطر القطب (مم)"
       },
       "businessContext_i18n": {
         "en": "Diameter of the welding electrode",
         "tr": "Kaynak elektrotunun çapı",
         "de": "Durchmesser der Schweißelektrode",
-        "fr": "Diamètre de l'électrode de soudage"
+        "fr": "Diamètre de l'électrode de soudage",
+        "es": "Diámetro del electrodo de soldadura",
+        "ar": "قطر قطب اللحام"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Biriktirme Verimliliği (%)",
         "de": "Abscheideeffizienz (%)",
         "fr": "Efficacité de dépôt (%)",
-        "es": "Deposition Efficiency (%)",
-        "ar": "Deposition Efficiency (%)"
+        "es": "Eficiencia de deposición (%)",
+        "ar": "كفاءة الترسيب (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of electrode material deposited as weld metal",
         "tr": "Kaynak metali olarak biriktirilen elektrot malzemesi yüzdesi",
         "de": "Prozentsatz des Elektrodenmaterials, das als Schweißgut abgeschieden wird",
-        "fr": "Pourcentage de métal d'électrode déposé comme métal de soudure"
+        "fr": "Pourcentage de métal d'électrode déposé comme métal de soudure",
+        "es": "Porcentaje de material del electrodo depositado como metal de soldadura",
+        "ar": "النسبة المئوية لمادة القطب المترسبة كمعدن لحام"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Elektrot Yoğunluğu (g/cm³)",
         "de": "Elektrodendichte (g/cm³)",
         "fr": "Densité de l'électrode (g/cm³)",
-        "es": "Electrode Density (g/cm³)",
-        "ar": "Electrode Density (g/cm³)"
+        "es": "Densidad del electrodo (g/cm³)",
+        "ar": "كثافة القطب (جم/سم³)"
       },
       "businessContext_i18n": {
         "en": "Density of the electrode material",
         "tr": "Elektrot malzemesinin yoğunluğu",
         "de": "Dichte des Elektrodenmaterials",
-        "fr": "Densité du matériau de l'électrode"
+        "fr": "Densité du matériau de l'électrode",
+        "es": "Densidad del material del electrodo",
+        "ar": "كثافة مادة القطب"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Saatlik İşçilik Maliyeti (€)",
         "de": "Arbeitskosten pro Stunde (€)",
         "fr": "Coût de main-d'œuvre par heure (€)",
-        "es": "Labor Cost per Hour (€)",
-        "ar": "Labor Cost per Hour (€)"
+        "es": "Costo de mano de obra por hora (€)",
+        "ar": "تكلفة العمل لكل ساعة (€)"
       },
       "businessContext_i18n": {
         "en": "Hourly labor cost including overhead",
         "tr": "Genel giderler dahil saatlik işçilik maliyeti",
         "de": "Stündliche Arbeitskosten inkl. Gemeinkosten",
-        "fr": "Coût horaire de main-d'œuvre incluant les frais généraux"
+        "fr": "Coût horaire de main-d'œuvre incluant les frais généraux",
+        "es": "Costo horario de mano de obra, incluidos gastos generales",
+        "ar": "تكلفة العمل بالساعة بما في ذلك التكاليف العامة"
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Elektrot kg Maliyeti (€)",
         "de": "Elektrodenkosten pro kg (€)",
         "fr": "Coût de l'électrode par kg (€)",
-        "es": "Electrode Cost per kg (€)",
-        "ar": "Electrode Cost per kg (€)"
+        "es": "Costo del electrodo por kg (€)",
+        "ar": "تكلفة القطب لكل كجم (€)"
       },
       "businessContext_i18n": {
         "en": "Cost per kilogram of electrode",
         "tr": "Kilogram elektrot başına maliyet",
         "de": "Kosten pro Kilogramm Elektrode",
-        "fr": "Coût par kilogramme d'électrode"
+        "fr": "Coût par kilogramme d'électrode",
+        "es": "Costo por kilogramo de electrodo",
+        "ar": "تكلفة الكيلوغرام من القطب"
       }
     },
     {
@@ -167,14 +181,16 @@
         "tr": "Kaynak Hızı (mm/dk)",
         "de": "Schweißgeschwindigkeit (mm/min)",
         "fr": "Vitesse de soudage (mm/min)",
-        "es": "Welding Speed (mm/min)",
-        "ar": "Welding Speed (mm/min)"
+        "es": "Velocidad de soldadura (mm/min)",
+        "ar": "سرعة اللحام (مم/دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Travel speed of the welding process",
         "tr": "Kaynak prosesinin ilerleme hızı",
         "de": "Vorschubgeschwindigkeit des Schweißprozesses",
-        "fr": "Vitesse de déplacement du procédé de soudage"
+        "fr": "Vitesse de déplacement du procédé de soudage",
+        "es": "Velocidad de avance del proceso de soldadura",
+        "ar": "سرعة حركة عملية اللحام"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Durchmesser des Durchlasses",
         "fr": "Diamètre du ponceau",
         "es": "Diámetro del conducto",
-        "ar": "Culvert Diameter"
+        "ar": "قطر البالوعة"
       },
       "businessContext_i18n": {
         "en": "The internal diameter of the circular culvert.",
         "tr": "Dairesel menfezin iç çapı.",
         "de": "Der Innendurchmesser des kreisförmigen Durchlasses.",
         "fr": "Le diamètre intérieur du ponceau circulaire.",
-        "es": "El diámetro interno del conducto circular."
+        "es": "El diámetro interno del conducto circular.",
+        "ar": "القطر الداخلي للبالوعة الدائرية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ausflusskoeffizient",
         "fr": "Coefficient de décharge",
         "es": "Coeficiente de descarga",
-        "ar": "Discharge Coefficient"
+        "ar": "معامل التصريف"
       },
       "businessContext_i18n": {
         "en": "Coefficient of discharge for the culvert inlet, typically 0.6-0.8.",
         "tr": "Menfez girişi için debi katsayısı, tipik olarak 0,6-0,8.",
         "de": "Ausflussbeiwert für den Einlass des Durchlasses, typischerweise 0,6–0,8.",
         "fr": "Coefficient de débit à l'entrée du ponceau, généralement 0,6-0,8.",
-        "es": "Coeficiente de descarga para la entrada del conducto, típicamente 0,6-0,8."
+        "es": "Coeficiente de descarga para la entrada del conducto, típicamente 0,6-0,8.",
+        "ar": "معامل التصريف لمدخل البالوعة، عادةً 0.6-0.8."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wirksame Druckhöhe",
         "fr": "Hauteur de charge effective",
         "es": "Carga efectiva",
-        "ar": "Effective Head"
+        "ar": "الضغط الفعال"
       },
       "businessContext_i18n": {
         "en": "Difference between upstream water surface elevation and the center of the culvert outlet (for outlet control) or inlet (for inlet control). For submerged inlet control, H = HW - D/2.",
         "tr": "Memba su yüzeyi kotu ile menfez çıkışının (çıkış kontrolü için) veya girişinin (giriş kontrolü için) merkezi arasındaki fark. Batık giriş kontrolü için H = HW - D/2.",
         "de": "Differenz zwischen der Wasserspiegelhöhe oberstrom und der Mitte des Auslasses (bei Auslasssteuerung) oder Einlasses (bei Einlasssteuerung) des Durchlasses. Für überflutete Einlasssteuerung: H = HW - D/2.",
         "fr": "Différence entre l'élévation de la surface de l'eau amont et le centre de la sortie du ponceau (pour contrôle à la sortie) ou de l'entrée (pour contrôle à l'entrée). Pour contrôle à l'entrée noyé, H = HW - D/2.",
-        "es": "Diferencia entre la elevación de la superficie del agua aguas arriba y el centro de la salida del conducto (para control de salida) o la entrada (para control de entrada). Para control de entrada sumergida, H = HW - D/2."
+        "es": "Diferencia entre la elevación de la superficie del agua aguas arriba y el centro de la salida del conducto (para control de salida) o la entrada (para control de entrada). Para control de entrada sumergida, H = HW - D/2.",
+        "ar": "الفرق بين ارتفاع سطح الماء العلوي ومركز مخرج البالوعة (للتحكم بالمخرج) أو المدخل (للتحكم بالمدخل). للتحكم بالمدخل المغمور، H = HW - D/2."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Erdbeschleunigung",
         "fr": "Accélération gravitationnelle",
         "es": "Aceleración gravitacional",
-        "ar": "Gravitational Acceleration"
+        "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Standard gravity, can be adjusted if needed.",
         "tr": "Standart yerçekimi, gerektiğinde ayarlanabilir.",
         "de": "Standard-Erdbeschleunigung, kann bei Bedarf angepasst werden.",
         "fr": "Gravité standard, peut être ajustée si nécessaire.",
-        "es": "Gravedad estándar, se puede ajustar si es necesario."
+        "es": "Gravedad estándar, se puede ajustar si es necesario.",
+        "ar": "الجاذبية القياسية، يمكن تعديلها إذا لزم الأمر."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl der Röhren",
         "fr": "Nombre de barils",
         "es": "Número de barriles",
-        "ar": "Number of Barrels"
+        "ar": "عدد القنوات"
       },
       "businessContext_i18n": {
         "en": "Number of identical culvert barrels in parallel.",
         "tr": "Paralel olarak aynı menfez varil sayısı.",
         "de": "Anzahl identischer Durchlassröhren parallel.",
         "fr": "Nombre de barils de ponceau identiques en parallèle.",
-        "es": "Número de barriles de conducto idénticos en paralelo."
+        "es": "Número de barriles de conducto idénticos en paralelo.",
+        "ar": "عدد قنوات البالوعة المتطابقة المتوازية."
       }
     }
   ],

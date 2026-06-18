@@ -25,14 +25,16 @@
         "tr": "Debi",
         "de": "Durchflussrate",
         "fr": "Débit",
-        "es": "Caudal"
+        "es": "Caudal",
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min.",
         "tr": "Sistemden geçen hidrolik akışkanın hacimsel debisi. Endüstriyel sistemler için tipik aralık: 10-500 L/dak.",
         "de": "Volumetrische Durchflussrate des Hydrauliköls durch das System. Typischer Bereich für Industrieanlagen: 10-500 L/min.",
         "fr": "Débit volumétrique du fluide hydraulique dans le système. Plage typique pour les systèmes industriels : 10-500 L/min.",
-        "es": "Caudal volumétrico del fluido hidráulico a través del sistema. Rango típico para sistemas industriales: 10-500 L/min."
+        "es": "Caudal volumétrico del fluido hidráulico a través del sistema. Rango típico para sistemas industriales: 10-500 L/min.",
+        "ar": "معدل التدفق الحجمي للسائل الهيدروليكي عبر النظام. النطاق النموذجي للأنظمة الصناعية: 10-500 لتر/دقيقة."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Toplam Basınç Düşüşü",
         "de": "Gesamtdruckabfall",
         "fr": "Perte de charge totale",
-        "es": "Caída de presión total"
+        "es": "Caída de presión total",
+        "ar": "إجمالي انخفاض الضغط"
       },
       "businessContext_i18n": {
         "en": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state.",
         "tr": "Bileşenler (borular, vanalar, bağlantı parçaları) genelindeki tüm basınç kayıplarının toplamı. ISO 4409, kararlı durumda ölçüm yapılmasını önerir.",
         "de": "Summe aller Druckverluste über Komponenten (Rohre, Ventile, Fittings). ISO 4409 empfiehlt Messung im stationären Zustand.",
         "fr": "Somme de toutes les pertes de pression à travers les composants (tuyaux, vannes, raccords). La norme ISO 4409 recommande la mesure en régime permanent.",
-        "es": "Suma de todas las pérdidas de presión a través de componentes (tuberías, válvulas, accesorios). La norma ISO 4409 recomienda la medición en estado estacionario."
+        "es": "Suma de todas las pérdidas de presión a través de componentes (tuberías, válvulas, accesorios). La norma ISO 4409 recomienda la medición en estado estacionario.",
+        "ar": "مجموع خسائر الضغط عبر المكونات (الأنابيب، الصمامات، الوصلات). توصي ISO 4409 بالقياس في حالة مستقرة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du fluide",
-        "es": "Densidad del fluido"
+        "es": "Densidad del fluido",
+        "ar": "كثافة السائل"
       },
       "businessContext_i18n": {
         "en": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³.",
         "tr": "Çalışma sıcaklığında hidrolik akışkanın yoğunluğu. Tipik mineral yağ: 850-900 kg/m³.",
         "de": "Dichte des Hydrauliköls bei Betriebstemperatur. Typisches Mineralöl: 850-900 kg/m³.",
         "fr": "Densité du fluide hydraulique à la température de fonctionnement. Huile minérale typique : 850-900 kg/m³.",
-        "es": "Densidad del fluido hidráulico a temperatura de operación. Aceite mineral típico: 850-900 kg/m³."
+        "es": "Densidad del fluido hidráulico a temperatura de operación. Aceite mineral típico: 850-900 kg/m³.",
+        "ar": "كثافة السائل الهيدروليكي عند درجة حرارة التشغيل. الزيت المعدني النموذجي: 850-900 كجم/م³."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Kinematik Viskozite",
         "de": "Kinematische Viskosität",
         "fr": "Viscosité cinématique",
-        "es": "Viscosidad cinemática"
+        "es": "Viscosidad cinemática",
+        "ar": "اللزوجة الحركية"
       },
       "businessContext_i18n": {
         "en": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics.",
         "tr": "Çalışma sıcaklığında akışkan viskozitesi. Endüstriyel hidrolikte ISO VG 46 yaygındır.",
         "de": "Viskosität des Fluids bei Betriebstemperatur. ISO VG 46 ist üblich für Industriehydraulik.",
         "fr": "Viscosité du fluide à la température de fonctionnement. ISO VG 46 est courant pour l'hydraulique industrielle.",
-        "es": "Viscosidad del fluido a temperatura de operación. ISO VG 46 es común en hidráulica industrial."
+        "es": "Viscosidad del fluido a temperatura de operación. ISO VG 46 es común en hidráulica industrial.",
+        "ar": "لزوجة السائل عند درجة حرارة التشغيل. ISO VG 46 شائع في الأنظمة الهيدروليكية الصناعية."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Toplam Boru Uzunluğu",
         "de": "Gesamtrohrlänge",
         "fr": "Longueur totale des tuyaux",
-        "es": "Longitud total de la tubería"
+        "es": "Longitud total de la tubería",
+        "ar": "إجمالي طول الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Total length of hydraulic piping in the system. Longer runs increase friction losses.",
         "tr": "Sistemdeki hidrolik boruların toplam uzunluğu. Uzun hatlar sürtünme kayıplarını artırır.",
         "de": "Gesamtlänge der Hydraulikrohrleitungen im System. Längere Strecken erhöhen die Reibungsverluste.",
         "fr": "Longueur totale de la tuyauterie hydraulique dans le système. Les longues distances augmentent les pertes par frottement.",
-        "es": "Longitud total de las tuberías hidráulicas en el sistema. Recorridos más largos aumentan las pérdidas por fricción."
+        "es": "Longitud total de las tuberías hidráulicas en el sistema. Recorridos más largos aumentan las pérdidas por fricción.",
+        "ar": "الطول الإجمالي لأنابيب الهيدروليك في النظام. المسافات الأطول تزيد من خسائر الاحتكاك."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Boru İç Çapı",
         "de": "Rohrinnendurchmesser",
         "fr": "Diamètre intérieur du tuyau",
-        "es": "Diámetro interior de la tubería"
+        "es": "Diámetro interior de la tubería",
+        "ar": "القطر الداخلي للأنبوب"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number.",
         "tr": "Ana hidrolik borunun iç çapı. Akış hızını ve Reynolds sayısını etkiler.",
         "de": "Innendurchmesser des Haupt-Hydraulikrohrs. Beeinflusst Strömungsgeschwindigkeit und Reynolds-Zahl.",
         "fr": "Diamètre intérieur du tuyau hydraulique principal. Affecte la vitesse d'écoulement et le nombre de Reynolds.",
-        "es": "Diámetro interior de la tubería hidráulica principal. Afecta la velocidad del flujo y el número de Reynolds."
+        "es": "Diámetro interior de la tubería hidráulica principal. Afecta la velocidad del flujo y el número de Reynolds.",
+        "ar": "القطر الداخلي للأنبوب الهيدروليكي الرئيسي. يؤثر على سرعة التدفق ورقم رينولدز."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Vana Sayısı",
         "de": "Anzahl der Ventile",
         "fr": "Nombre de vannes",
-        "es": "Número de válvulas"
+        "es": "Número de válvulas",
+        "ar": "عدد الصمامات"
       },
       "businessContext_i18n": {
         "en": "Total number of directional, pressure, and flow control valves in the system.",
         "tr": "Sistemdeki yön, basınç ve akış kontrol valflerinin toplam sayısı.",
         "de": "Gesamtzahl der Wege-, Druck- und Stromregelventile im System.",
         "fr": "Nombre total de vannes directionnelles, de pression et de débit dans le système.",
-        "es": "Número total de válvulas direccionales, de presión y de control de caudal en el sistema."
+        "es": "Número total de válvulas direccionales, de presión y de control de caudal en el sistema.",
+        "ar": "إجمالي عدد صمامات الاتجاه والضغط والتحكم في التدفق في النظام."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Bağlantı Elemanı Sayısı",
         "de": "Anzahl der Fittings",
         "fr": "Nombre de raccords",
-        "es": "Número de accesorios"
+        "es": "Número de accesorios",
+        "ar": "عدد الوصلات"
       },
       "businessContext_i18n": {
         "en": "Total number of elbows, tees, reducers, and other fittings.",
         "tr": "Dirsek, te, redüksiyon ve diğer bağlantı elemanlarının toplam sayısı.",
         "de": "Gesamtzahl der Bögen, T-Stücke, Reduzierstücke und anderer Fittings.",
         "fr": "Nombre total de coudes, tés, réducteurs et autres raccords.",
-        "es": "Número total de codos, tes, reductores y otros accesorios."
+        "es": "Número total de codos, tes, reductores y otros accesorios.",
+        "ar": "إجمالي عدد الكوعات والتفرعات والمخفضات والوصلات الأخرى."
       }
     }
   ],
@@ -250,18 +266,26 @@
     ]
   },
   "formulas": {
-    "result": "flow_rate + pressure_drop_total + fluid_density",
-    "result_copy": "flow_rate + pressure_drop_total + fluid_density"
+    "normalized_product": "(flow_rate / 100) * pressure_drop_total * fluid_density * kinematic_viscosity",
+    "result": "(flow_rate / 100) * pressure_drop_total * fluid_density * kinematic_viscosity * (pipe_length * pipe_diameter * valve_count * fitting_count)",
+    "adjustment_factor": "pipe_length * pipe_diameter * valve_count * fitting_count"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "L/min"
+    "unit": "USD"
   },
   "toolName": "hydraulic-system-energy-loss-calculator",
   "catalogCategory": "energy-carbon",

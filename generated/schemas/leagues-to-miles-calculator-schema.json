@@ -14,14 +14,15 @@
         "de": "Meilen",
         "fr": "Ligues",
         "es": "Leguas",
-        "ar": "Leagues"
+        "ar": "الفراسخ"
       },
       "businessContext_i18n": {
         "en": "Distance in leagues to convert",
         "tr": "Dönüştürülecek lig cinsinden mesafe",
         "de": "Entfernung in Meilen zur Umrechnung",
         "fr": "Distance en ligues à convertir",
-        "es": "Distancia en leguas a convertir"
+        "es": "Distancia en leguas a convertir",
+        "ar": "المسافة بالفراسخ للتحويل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Meilentyp",
         "fr": "Type de ligue",
         "es": "Tipo de Legua",
-        "ar": "League Type"
+        "ar": "نوع الفراسخ"
       },
       "businessContext_i18n": {
         "en": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)",
         "tr": "0: Kara (3 mil/lg), 1: Deniz (3.452 mil/lg), 2: Metrik (2.485 mil/lg)",
         "de": "0: Statute (3 mi/lg), 1: Nautisch (3,452 mi/lg), 2: Metrisch (2,485 mi/lg)",
         "fr": "0 : Statutaire (3 mi/lg), 1 : Nautique (3,452 mi/lg), 2 : Métrique (2,485 mi/lg)",
-        "es": "0: Estatutaria (3 mi/lg), 1: Náutica (3.452 mi/lg), 2: Métrica (2.485 mi/lg)"
+        "es": "0: Estatutaria (3 mi/lg), 1: Náutica (3.452 mi/lg), 2: Métrica (2.485 mi/lg)",
+        "ar": "0: قانوني (3 ميل/فرسخ)، 1: بحري (3.452 ميل/فرسخ)، 2: متري (2.485 ميل/فرسخ)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
         "fr": "Nombre de décimales pour le résultat arrondi",
-        "es": "Número de decimales para la salida redondeada"
+        "es": "Número de decimales para la salida redondeada",
+        "ar": "عدد المنازل العشرية للمخرجات المقربة"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Benutzerdefinierter Faktor (0 = Typ verwenden)",
         "fr": "Facteur personnalisé (0 = utiliser le type)",
         "es": "Factor Personalizado (0=usar tipo)",
-        "ar": "Custom Factor (0=use type)"
+        "ar": "معامل مخصص (0=استخدام النوع)"
       },
       "businessContext_i18n": {
         "en": "Override miles per league; if zero, uses league type default",
         "tr": "Mil/lig değerini geçersiz kılar; sıfırsa lig türü varsayılanını kullanır",
         "de": "Überschreibt Meilen pro Liga; wenn Null, wird der Standard des Ligentyps verwendet",
         "fr": "Remplacer les miles par ligue ; si zéro, utilise la valeur par défaut du type de ligue",
-        "es": "Anular millas por legua; si es cero, usa el valor predeterminado del tipo de legua"
+        "es": "Anular millas por legua; si es cero, usa el valor predeterminado del tipo de legua",
+        "ar": "تجاوز الأميال لكل فرسخ؛ إذا كان صفرًا، يستخدم الإعداد الافتراضي لنوع الفراسخ"
       }
     }
   ],
   "formulas": {
-    "result": "leagues + leagueType + decimals",
-    "result_aux": "leagues + leagueType + decimals"
+    "normalized_product": "leagues * leagueType * decimals * conversionFactorOverride",
+    "result": "leagues * leagueType * decimals * conversionFactorOverride"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Factor used: {{factor}} mi/lg",
-      "Raw value: {{miles}} mi",
-      "Rounded to {{decimals}} decimal places"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "roundedMiles",
-    "unit": "lg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

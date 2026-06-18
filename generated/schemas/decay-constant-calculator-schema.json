@@ -14,14 +14,15 @@
         "de": "Halbwertszeit",
         "fr": "Demi-vie",
         "es": "Vida media",
-        "ar": "Half-life"
+        "ar": "عمر النصف"
       },
       "businessContext_i18n": {
         "en": "Half-life of the radioactive substance",
         "tr": "Radyoaktif maddenin yarılanma süresi",
         "de": "Halbwertszeit der radioaktiven Substanz",
         "fr": "Demi-vie de la substance radioactive",
-        "es": "Vida media de la sustancia radiactiva"
+        "es": "Vida media de la sustancia radiactiva",
+        "ar": "عمر النصف للمادة المشعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mittlere Lebensdauer",
         "fr": "Durée de vie moyenne",
         "es": "Vida media promedio",
-        "ar": "Mean Lifetime"
+        "ar": "متوسط العمر"
       },
       "businessContext_i18n": {
         "en": "Average lifetime (tau)",
         "tr": "Ortalama ömür (tau)",
         "de": "Mittlere Lebensdauer (Tau)",
         "fr": "Durée de vie moyenne (tau)",
-        "es": "Vida media promedio (tau)"
+        "es": "Vida media promedio (tau)",
+        "ar": "متوسط العمر (تاو)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangsmenge",
         "fr": "Quantité initiale",
         "es": "Cantidad inicial",
-        "ar": "Initial Quantity"
+        "ar": "الكمية الأولية"
       },
       "businessContext_i18n": {
         "en": "Initial amount of substance",
         "tr": "Maddenin başlangıç miktarı",
         "de": "Anfangsmenge der Substanz",
         "fr": "Quantité initiale de substance",
-        "es": "Cantidad inicial de sustancia"
+        "es": "Cantidad inicial de sustancia",
+        "ar": "الكمية الأولية للمادة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Endmenge",
         "fr": "Quantité finale",
         "es": "Cantidad final",
-        "ar": "Final Quantity"
+        "ar": "الكمية النهائية"
       },
       "businessContext_i18n": {
         "en": "Final amount after time t",
         "tr": "t süresi sonundaki madde miktarı",
         "de": "Endmenge nach Zeit t",
         "fr": "Quantité finale après le temps t",
-        "es": "Cantidad final después del tiempo t"
+        "es": "Cantidad final después del tiempo t",
+        "ar": "الكمية النهائية بعد الزمن t"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verstrichene Zeit",
         "fr": "Temps écoulé",
         "es": "Tiempo transcurrido",
-        "ar": "Time Elapsed"
+        "ar": "الوقت المنقضي"
       },
       "businessContext_i18n": {
         "en": "Elapsed time between measurements",
         "tr": "Ölçümler arasında geçen süre",
         "de": "Verstrichene Zeit zwischen Messungen",
         "fr": "Temps écoulé entre les mesures",
-        "es": "Tiempo transcurrido entre mediciones"
+        "es": "Tiempo transcurrido entre mediciones",
+        "ar": "الزمن المنقضي بين القياسات"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Zeiteinheiten-Umrechnungsfaktor",
         "fr": "Facteur de conversion d'unité de temps",
         "es": "Factor de conversión de unidad de tiempo",
-        "ar": "Time Unit Conversion Factor"
+        "ar": "معامل تحويل وحدة الزمن"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit).",
         "tr": "Zaman birimlerini dönüştürmek için çarpan (örn. saniye için 1, dakika için 60, saat için 3600, gün için 86400) ile bozunma sabiti istenen ters zaman biriminde elde edilir. Çıktı 1/(dönüştürülmüş birim) cinsinden olacaktır.",
         "de": "Multiplikator zur Umrechnung der Zeiteinheiten (z. B. 1 für Sekunden, 60 für Minuten, 3600 für Stunden, 86400 für Tage), um die Zerfallskonstante in der gewünschten reziproken Zeiteinheit zu erhalten. Ausgabe erfolgt in 1/(umgerechnete Einheit).",
         "fr": "Multiplicateur pour convertir les unités de temps (ex. : 1 pour secondes, 60 pour minutes, 3600 pour heures, 86400 pour jours) afin d'obtenir la constante de désintégration dans l'unité réciproque souhaitée. Le résultat sera en 1/(unité convertie).",
-        "es": "Multiplicador para convertir unidades de tiempo (ej., 1 para segundos, 60 para minutos, 3600 para horas, 86400 para días) para obtener la constante de desintegración en la unidad de tiempo recíproca deseada. La salida estará en 1/(unidad convertida)."
+        "es": "Multiplicador para convertir unidades de tiempo (ej., 1 para segundos, 60 para minutos, 3600 para horas, 86400 para días) para obtener la constante de desintegración en la unidad de tiempo recíproca deseada. La salida estará en 1/(unidad convertida).",
+        "ar": "المضاعف لتحويل وحدات الزمن (مثل 1 للثواني، 60 للدقائق، 3600 للساعات، 86400 للأيام) للحصول على ثابت الاضمحلال بالوحدة الزمنية العكسية المطلوبة. سيكون الناتج بوحدة 1/(الوحدة المحولة)."
       }
     }
   ],

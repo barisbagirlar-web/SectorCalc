@@ -14,14 +14,15 @@
         "de": "Nanosekunden (ns)",
         "fr": "Nanosecondes (ns)",
         "es": "Nanosegundos (ns)",
-        "ar": "Nanoseconds (ns)"
+        "ar": "نانو ثانية (ns)"
       },
       "businessContext_i18n": {
         "en": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit.",
         "tr": "Giriş zaman değeri nanosaniye cinsinden, örn. osiloskop ölçümü veya zamanlama devresinden.",
         "de": "Eingabezeitwert in Nanosekunden, z. B. aus einer Oszilloskopmessung oder Zeitmessschaltung.",
         "fr": "Valeur temporelle d'entrée en nanosecondes, par exemple d'une mesure d'oscilloscope ou d'un circuit de temporisation.",
-        "es": "Valor de tiempo de entrada en nanosegundos, ej. de una medición de osciloscopio o circuito de temporización."
+        "es": "Valor de tiempo de entrada en nanosegundos, ej. de una medición de osciloscopio o circuito de temporización.",
+        "ar": "قيمة الوقت المدخلة بالنانو ثانية، مثلاً من قياس راسم الذبذبات أو دائرة توقيت."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns.",
         "tr": "Nanosecond başına pikosecond sayısı. Standart 1000 ps/ns.",
         "de": "Anzahl der Pikosekunden pro Nanosekunde. Standard ist 1000 ps/ns.",
         "fr": "Nombre de picosecondes par nanoseconde. La norme est de 1000 ps/ns.",
-        "es": "Número de picosegundos por nanosegundo. El estándar es 1000 ps/ns."
+        "es": "Número de picosegundos por nanosegundo. El estándar es 1000 ps/ns.",
+        "ar": "عدد البيكو ثانية لكل نانو ثانية. المعيار هو 1000 ps/ns."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the formatted output. Set according to measurement precision.",
         "tr": "Biçimlendirilmiş çıktı için ondalık basamak sayısı. Ölçüm hassasiyetine göre ayarlayın.",
         "de": "Anzahl der Dezimalstellen für die formatierte Ausgabe. Entsprechend der Messgenauigkeit einstellen.",
         "fr": "Nombre de décimales pour la sortie formatée. Définir selon la précision de mesure.",
-        "es": "Número de decimales para la salida formateada. Se ajusta según la precisión de la medición."
+        "es": "Número de decimales para la salida formateada. Se ajusta según la precisión de la medición.",
+        "ar": "عدد المنازل العشرية للمخرجات المنسقة. يُضبط حسب دقة القياس."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de escala",
-        "ar": "Scale Factor"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Multiplier for the converted value, e.g., for array measurements or normalization.",
         "tr": "Dönüştürülen değer için çarpan, örn. dizi ölçümleri veya normalizasyon için.",
         "de": "Multiplikator für den umgerechneten Wert, z. B. für Array-Messungen oder Normalisierung.",
         "fr": "Multiplicateur pour la valeur convertie, par exemple pour des mesures de réseau ou une normalisation.",
-        "es": "Multiplicador para el valor convertido, por ejemplo, para mediciones de matriz o normalización."
+        "es": "Multiplicador para el valor convertido, por ejemplo, para mediciones de matriz o normalización.",
+        "ar": "مضاعف القيمة المحولة، مثلاً لقياسات المصفوفات أو التطبيع."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Offset (ps)",
         "fr": "Décalage (ps)",
         "es": "Desplazamiento (ps)",
-        "ar": "Offset (ps)"
+        "ar": "الإزاحة (ps)"
       },
       "businessContext_i18n": {
         "en": "Additive offset applied after conversion and scaling. Useful for calibration adjustments.",
         "tr": "Dönüşüm ve ölçeklemeden sonra uygulanan toplamsal ofset. Kalibrasyon ayarlamaları için kullanışlıdır.",
         "de": "Additiver Offset, der nach Umrechnung und Skalierung angewendet wird. Nützlich für Kalibrierungsanpassungen.",
         "fr": "Décalage additif appliqué après conversion et mise à l'échelle. Utile pour les ajustements d'étalonnage.",
-        "es": "Desplazamiento aditivo aplicado después de la conversión y el escalado. Útil para ajustes de calibración."
+        "es": "Desplazamiento aditivo aplicado después de la conversión y el escalado. Útil para ajustes de calibración.",
+        "ar": "إزاحة إضافية تُطبق بعد التحويل والقياس. مفيدة لضبط المعايرة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Wissenschaftliche Notation (0/1)",
         "fr": "Notation scientifique (0/1)",
         "es": "Notación científica (0/1)",
-        "ar": "Scientific Notation (0/1)"
+        "ar": "الترميز العلمي (0/1)"
       },
       "businessContext_i18n": {
         "en": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on.",
         "tr": "Biçimlendirilmiş çıktı için bilimsel gösterimi aç/kapa: 0 = kapalı (sabit), 1 = açık.",
         "de": "Wissenschaftliche Notation für die formatierte Ausgabe umschalten: 0 = aus (fest), 1 = an.",
         "fr": "Activer la notation scientifique pour la sortie formatée : 0 = désactivé (fixe), 1 = activé.",
-        "es": "Activar notación científica para la salida formateada: 0 = desactivada (fija), 1 = activada."
+        "es": "Activar notación científica para la salida formateada: 0 = desactivada (fija), 1 = activada.",
+        "ar": "تبديل الترميز العلمي للمخرجات المنسقة: 0 = إيقاف (ثابت)، 1 = تشغيل."
       }
     }
   ],

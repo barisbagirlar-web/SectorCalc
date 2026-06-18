@@ -14,14 +14,15 @@
         "de": "t-Wert",
         "fr": "Valeur t",
         "es": "Valor t",
-        "ar": "t Değeri"
+        "ar": "قيمة t"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan t istatistiği",
         "tr": "Hesaplanan t istatistiği",
         "de": "Berechnete t-Statistik",
         "fr": "Statistique t calculée",
-        "es": "Estadístico t calculado"
+        "es": "Estadístico t calculado",
+        "ar": "إحصائية t المحسوبة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Freiheitsgrade",
         "fr": "Degré de liberté",
         "es": "Grados de Libertad",
-        "ar": "Serbestlik Derecesi"
+        "ar": "درجات الحرية"
       },
       "businessContext_i18n": {
         "en": "Örneklem büyüklüğü eksi bir",
         "tr": "Örneklem büyüklüğü eksi bir",
         "de": "Stichprobengröße minus eins",
         "fr": "Taille de l'échantillon moins un",
-        "es": "Tamaño de muestra menos uno"
+        "es": "Tamaño de muestra menos uno",
+        "ar": "حجم العينة ناقص واحد"
       }
     },
     {
@@ -60,33 +62,37 @@
         "de": "Anzahl der Enden",
         "fr": "Nombre de queues",
         "es": "Número de Colas",
-        "ar": "Kuyruk Sayısı"
+        "ar": "عدد الأطراف"
       },
       "businessContext_i18n": {
         "en": "1 veya 2 kuyruklu test",
         "tr": "1 veya 2 kuyruklu test",
         "de": "1- oder 2-seitiger Test",
         "fr": "Test à 1 ou 2 queues",
-        "es": "Prueba de 1 o 2 colas"
+        "es": "Prueba de 1 o 2 colas",
+        "ar": "اختبار ذو ذيل واحد أو ذيلين"
       }
     }
   ],
   "formulas": {
-    "result": "t_value + degrees_of_freedom + tails",
-    "result_copy": "t_value + degrees_of_freedom + tails"
+    "normalized_product": "t_value * degrees_of_freedom * tails",
+    "result": "t_value * degrees_of_freedom * tails"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "p_değeri: {p_value}",
-      "Kritik t değeri (α=0.05): {critical_value}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "p_value",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

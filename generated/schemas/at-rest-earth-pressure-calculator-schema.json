@@ -14,14 +14,15 @@
         "de": "Effektive Vertikalspannung (σ'ᵥ)",
         "fr": "Contrainte verticale effective (σ'ᵥ)",
         "es": "Esfuerzo vertical efectivo (σ'ᵥ)",
-        "ar": "Efektif Düşey Gerilme (σ'ᵥ)"
+        "ar": "الإجهاد الرأسي الفعال (σ'ᵥ)"
       },
       "businessContext_i18n": {
         "en": "Effective vertical stress at the point of interest.",
         "tr": "İlgili noktadaki efektif düşey gerilme.",
         "de": "Effektive Vertikalspannung am interessierenden Punkt.",
         "fr": "Contrainte verticale effective au point d'intérêt.",
-        "es": "Esfuerzo vertical efectivo en el punto de interés."
+        "es": "Esfuerzo vertical efectivo en el punto de interés.",
+        "ar": "الإجهاد الرأسي الفعال عند نقطة الاهتمام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Innerer Reibungswinkel (φ)",
         "fr": "Angle de frottement interne (φ)",
         "es": "Ángulo de fricción interna (φ)",
-        "ar": "İçsel Sürtünme Açısı (φ)"
+        "ar": "زاوية الاحتكاك الداخلي (φ)"
       },
       "businessContext_i18n": {
         "en": "Effective friction angle of the soil.",
         "tr": "Zeminin efektif içsel sürtünme açısı.",
         "de": "Effektiver Reibungswinkel des Bodens.",
         "fr": "Angle de frottement effectif du sol.",
-        "es": "Ángulo de fricción efectivo del suelo."
+        "es": "Ángulo de fricción efectivo del suelo.",
+        "ar": "زاوية الاحتكاك الفعالة للتربة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Überkonsolidierungsverhältnis (OCR)",
         "fr": "Taux de surconsolidation (OCR)",
         "es": "Relación de sobreconsolidación (OCR)",
-        "ar": "Ön Konsolidasyon Oranı (OCR)"
+        "ar": "نسبة ما قبل التحميل (OCR)"
       },
       "businessContext_i18n": {
         "en": "Overconsolidation ratio (OCR > 1 for overconsolidated soils).",
         "tr": "Ön konsolidasyon oranı (aşırı konsolide zeminler için OCR > 1).",
         "de": "Überkonsolidierungsverhältnis (OCR > 1 für überkonsolidierte Böden).",
         "fr": "Rapport de surconsolidation (OCR > 1 pour les sols surconsolidés).",
-        "es": "Relación de sobreconsolidación (OCR > 1 para suelos sobreconsolidados)."
+        "es": "Relación de sobreconsolidación (OCR > 1 para suelos sobreconsolidados).",
+        "ar": "نسبة ما قبل التحميل (OCR > 1 للتربة المفرطة التحميل)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Faktörü"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Factor of safety for design.",
         "tr": "Tasarım için güvenlik faktörü.",
         "de": "Sicherheitsfaktor für die Bemessung.",
         "fr": "Facteur de sécurité pour la conception.",
-        "es": "Factor de seguridad para diseño."
+        "es": "Factor de seguridad para diseño.",
+        "ar": "عامل الأمان للتصميم."
       }
     }
   ],
   "formulas": {
-    "result": "sigma_v + phi + OCR",
-    "result_copy": "sigma_v + phi + OCR"
+    "normalized_product": "sigma_v * phi * OCR * SF",
+    "result": "sigma_v * phi * OCR * SF"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "K0",
-      "sigma_h"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sigma_h_design",
-    "unit": "kPa",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "sigma_h": "h"
     }

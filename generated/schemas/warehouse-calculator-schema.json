@@ -13,14 +13,16 @@
         "tr": "Toplam Depo Alanı",
         "de": "Gesamtlagerfläche",
         "fr": "Surface totale de l'entrepôt",
-        "es": "Total Warehouse Area",
-        "ar": "Total Warehouse Area"
+        "es": "Área total del almacén",
+        "ar": "إجمالي مساحة المستودع"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the warehouse",
         "tr": "Deponun toplam taban alanı",
         "de": "Gesamte Grundfläche des Lagers",
-        "fr": "Surface au sol totale de l'entrepôt"
+        "fr": "Surface au sol totale de l'entrepôt",
+        "es": "Área total del piso del almacén",
+        "ar": "إجمالي مساحة أرضية المستودع"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Depolama Alanı",
         "de": "Lagerbereich",
         "fr": "Zone de stockage",
-        "es": "Storage Area",
-        "ar": "Storage Area"
+        "es": "Área de almacenamiento",
+        "ar": "منطقة التخزين"
       },
       "businessContext_i18n": {
         "en": "Area used for storage",
         "tr": "Depolama için kullanılan alan",
         "de": "Für die Lagerung genutzte Fläche",
-        "fr": "Surface utilisée pour le stockage"
+        "fr": "Surface utilisée pour le stockage",
+        "es": "Área utilizada para almacenamiento",
+        "ar": "المساحة المستخدمة للتخزين"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Maksimum Palet Pozisyonu",
         "de": "Maximale Palettenstellplätze",
         "fr": "Nombre max d'emplacements palette",
-        "es": "Max Pallet Positions",
-        "ar": "Max Pallet Positions"
+        "es": "Máximo de posiciones de pallets",
+        "ar": "الحد الأقصى لمواقع البالتات"
       },
       "businessContext_i18n": {
         "en": "Maximum number of pallet positions available",
         "tr": "Mevcut maksimum palet pozisyonu sayısı",
         "de": "Maximale Anzahl verfügbarer Palettenstellplätze",
-        "fr": "Nombre maximum d'emplacements palette disponibles"
+        "fr": "Nombre maximum d'emplacements palette disponibles",
+        "es": "Número máximo de posiciones de pallets disponibles",
+        "ar": "الحد الأقصى لعدد مواقع البالتات المتاحة"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Mevcut Depolanan Palet Sayısı",
         "de": "Aktuell eingelagerte Paletten",
         "fr": "Palettes actuellement stockées",
-        "es": "Current Pallets Stored",
-        "ar": "Current Pallets Stored"
+        "es": "Pallets almacenados actualmente",
+        "ar": "البالتات المخزنة حالياً"
       },
       "businessContext_i18n": {
         "en": "Current number of pallets stored",
         "tr": "Şu anda depolanan palet sayısı",
         "de": "Aktuelle Anzahl eingelagerter Paletten",
-        "fr": "Nombre actuel de palettes stockées"
+        "fr": "Nombre actuel de palettes stockées",
+        "es": "Número actual de pallets almacenados",
+        "ar": "العدد الحالي للبالتات المخزنة"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Günlük İşlem Hacmi",
         "de": "Täglicher Durchsatz",
         "fr": "Débit quotidien",
-        "es": "Daily Throughput",
-        "ar": "Daily Throughput"
+        "es": "Rendimiento diario",
+        "ar": "الإنتاجية اليومية"
       },
       "businessContext_i18n": {
         "en": "Pallets processed per day",
         "tr": "Günde işlenen palet sayısı",
         "de": "Pro Tag bearbeitete Paletten",
-        "fr": "Palettes traitées par jour"
+        "fr": "Palettes traitées par jour",
+        "es": "Pallets procesados por día",
+        "ar": "المنصات المعالجة يوميًا"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Betriebstage pro Jahr",
         "fr": "Jours d'exploitation par an",
         "es": "Días operativos por año",
-        "ar": "Operating Days per Year"
+        "ar": "أيام التشغيل في السنة"
       },
       "businessContext_i18n": {
         "en": "Number of working days in a year",
         "tr": "Bir yıldaki çalışma günü sayısı",
         "de": "Anzahl Arbeitstage pro Jahr",
-        "fr": "Nombre de jours ouvrables dans une année"
+        "fr": "Nombre de jours ouvrables dans une année",
+        "es": "Número de días laborables en un año",
+        "ar": "عدد أيام العمل في السنة"
       }
     },
     {
@@ -146,13 +158,15 @@
         "de": "Jährliche Fixkosten",
         "fr": "Coûts fixes annuels",
         "es": "Costes Fijos Anuales",
-        "ar": "Annual Fixed Costs"
+        "ar": "التكاليف الثابتة السنوية"
       },
       "businessContext_i18n": {
         "en": "Annual fixed costs (rent, maintenance)",
         "tr": "Yıllık sabit maliyetler (kira, bakım)",
         "de": "Jährliche Fixkosten (Miete, Instandhaltung)",
-        "fr": "Coûts fixes annuels (loyer, entretien)"
+        "fr": "Coûts fixes annuels (loyer, entretien)",
+        "es": "Costos fijos anuales (alquiler, mantenimiento)",
+        "ar": "التكاليف الثابتة السنوية (الإيجار، الصيانة)"
       }
     },
     {
@@ -167,14 +181,16 @@
         "tr": "Palet Başına Değişken Maliyet",
         "de": "Variable Kosten pro Palette",
         "fr": "Coût variable par palette",
-        "es": "Variable Cost per Pallet",
-        "ar": "Variable Cost per Pallet"
+        "es": "Costo variable por pallet",
+        "ar": "التكلفة المتغيرة لكل منصة"
       },
       "businessContext_i18n": {
         "en": "Variable cost for handling one pallet",
         "tr": "Bir paletin elleçlenmesi için değişken maliyet",
         "de": "Variable Kosten für die Handhabung einer Palette",
-        "fr": "Coût variable pour la manutention d'une palette"
+        "fr": "Coût variable pour la manutention d'une palette",
+        "es": "Costo variable por manejo de un pallet",
+        "ar": "التكلفة المتغيرة لمناولة منصة واحدة"
       }
     }
   ],

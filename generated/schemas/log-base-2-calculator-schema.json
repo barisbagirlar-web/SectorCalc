@@ -14,14 +14,15 @@
         "de": "Vorzeichen (0: positiv, 1: negativ)",
         "fr": "Signe (0 : positif, 1 : négatif)",
         "es": "Signo (0: positivo, 1: negativo)",
-        "ar": "Sign (0: positive, 1: negative)"
+        "ar": "الإشارة (0: موجبة، 1: سالبة)"
       },
       "businessContext_i18n": {
         "en": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)",
         "tr": "Kayan noktalı sayının işaret biti (log2 tanımsız olduğu için pozitif girdi için 0 olmalıdır).",
         "de": "Vorzeichenbit der Gleitkommazahl (muss 0 für positive Eingabe sein, da log2 für nicht-positive Zahlen undefiniert ist)",
         "fr": "Bit de signe du nombre à virgule flottante (doit être 0 pour une entrée positive car log2 n'est pas défini pour les nombres non positifs)",
-        "es": "Bit de signo del número de punto flotante (debe ser 0 para entrada positiva, ya que log2 no está definido para números no positivos)"
+        "es": "Bit de signo del número de punto flotante (debe ser 0 para entrada positiva, ya que log2 no está definido para números no positivos)",
+        "ar": "بت الإشارة للعدد ذي الفاصلة العائمة (يجب أن يكون 0 للمدخلات الموجبة لأن log2 غير معرف للأعداد غير الموجبة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bruch (Mantisse)",
         "fr": "Fraction (mantisse)",
         "es": "Fracción (mantisa)",
-        "ar": "Fraction (mantissa)"
+        "ar": "الجزء الكسري (المانتيسا)"
       },
       "businessContext_i18n": {
         "en": "Fractional part of the mantissa, in range [0, 1) for normalized numbers.",
         "tr": "Normalize sayılar için [0, 1) aralığında mantisin kesirli kısmı.",
         "de": "Bruchteil der Mantisse im Bereich [0, 1) für normalisierte Zahlen.",
         "fr": "Partie fractionnaire de la mantisse, dans l'intervalle [0, 1) pour les nombres normalisés.",
-        "es": "Parte fraccionaria de la mantisa, en el rango [0, 1) para números normalizados."
+        "es": "Parte fraccionaria de la mantisa, en el rango [0, 1) para números normalizados.",
+        "ar": "الجزء الكسري من المانتيسا، في النطاق [0, 1) للأعداد المعيارية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exponent",
         "fr": "Exposant",
         "es": "Exponente",
-        "ar": "Exponent"
+        "ar": "الأس"
       },
       "businessContext_i18n": {
         "en": "Exponent value before bias adjustment.",
         "tr": "Bias ayarı öncesi üs değeri.",
         "de": "Exponentenwert vor Bias-Anpassung.",
         "fr": "Valeur de l'exposant avant ajustement du biais.",
-        "es": "Valor del exponente antes del ajuste de sesgo."
+        "es": "Valor del exponente antes del ajuste de sesgo.",
+        "ar": "قيمة الأس قبل تعديل الانحياز."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bias",
         "fr": "Biais",
         "es": "Sesgo",
-        "ar": "Bias"
+        "ar": "الانحياز"
       },
       "businessContext_i18n": {
         "en": "Bias value (e.g., 127 for single-precision IEEE 754).",
         "tr": "Bias değeri (örneğin, tek duyarlıklı IEEE 754 için 127).",
         "de": "Bias-Wert (z. B. 127 für einfache Genauigkeit IEEE 754).",
         "fr": "Valeur du biais (par exemple, 127 pour la simple précision IEEE 754).",
-        "es": "Valor de sesgo (por ejemplo, 127 para precisión simple IEEE 754)."
+        "es": "Valor de sesgo (por ejemplo, 127 para precisión simple IEEE 754).",
+        "ar": "قيمة الانحياز (مثل 127 للدقة المفردة IEEE 754)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Ausgabegenauigkeit (Dezimalstellen)",
         "fr": "Précision de sortie (décimales)",
         "es": "Precisión de salida (decimales)",
-        "ar": "Output Precision (decimal places)"
+        "ar": "دقة المخرجات (المنازل العشرية)"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
         "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     }
   ],

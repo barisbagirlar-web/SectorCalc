@@ -13,14 +13,16 @@
         "tr": "Güç (Watt)",
         "de": "Leistung (Watt)",
         "fr": "Puissance (Watts)",
-        "es": "Power (Watts)",
-        "ar": "Power (Watts)"
+        "es": "Potencia (vatios)",
+        "ar": "الطاقة (واط)"
       },
       "businessContext_i18n": {
         "en": "Input power in watts (e.g., electrical device rating).",
         "tr": "Watt cinsinden giriş gücü (örneğin, elektrikli cihaz değeri).",
         "de": "Eingangsleistung in Watt (z. B. elektrische Geräteleistung).",
-        "fr": "Puissance d'entrée en watts (ex. puissance nominale d'un appareil électrique)."
+        "fr": "Puissance d'entrée en watts (ex. puissance nominale d'un appareil électrique).",
+        "es": "Potencia de entrada en vatios (por ejemplo, clasificación del dispositivo eléctrico).",
+        "ar": "طاقة الإدخال بالواط (مثل تصنيف الجهاز الكهربائي)."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zeit (Sekunden)",
         "fr": "Temps (secondes)",
         "es": "Tiempo (segundos)",
-        "ar": "Time (seconds)"
+        "ar": "الوقت (ثوانٍ)"
       },
       "businessContext_i18n": {
         "en": "Duration of power application in seconds.",
         "tr": "Güç uygulama süresi saniye cinsinden.",
         "de": "Dauer der Leistungsanwendung in Sekunden.",
-        "fr": "Durée d'application de la puissance en secondes."
+        "fr": "Durée d'application de la puissance en secondes.",
+        "es": "Duración de la aplicación de potencia en segundos.",
+        "ar": "مدة تطبيق الطاقة بالثواني."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kalori başına joule",
         "de": "Joule pro Kalorie",
         "fr": "Joules par calorie",
-        "es": "Joules per calorie",
-        "ar": "Joules per calorie"
+        "es": "Julios por caloría",
+        "ar": "جول لكل سعرة حرارية"
       },
       "businessContext_i18n": {
         "en": "Energy equivalent: 4.184 J per small calorie, 4184 J per kilocalorie (dietary Calorie).",
         "tr": "Enerji eşdeğeri: 1 küçük kalori için 4.184 J, 1 kilokalori (diyet Kalorisi) için 4184 J.",
         "de": "Energieäquivalent: 4,184 J pro kleine Kalorie, 4184 J pro Kilokalorie (Nahrungskalorie).",
-        "fr": "Équivalent énergétique : 4,184 J par petite calorie, 4184 J par kilocalorie (Calorie alimentaire)."
+        "fr": "Équivalent énergétique : 4,184 J par petite calorie, 4184 J par kilocalorie (Calorie alimentaire).",
+        "es": "Equivalente energético: 4,184 J por caloría pequeña, 4184 J por kilocaloría (Caloría dietética).",
+        "ar": "معادل الطاقة: 4.184 جول لكل سعرة حرارية صغيرة، 4184 جول لكل كيلو سعرة حرارية (سعرة غذائية)."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Wirkungsgrad (%)",
         "fr": "Rendement (%)",
         "es": "Eficiencia (%)",
-        "ar": "Efficiency (%)"
+        "ar": "الكفاءة (%)"
       },
       "businessContext_i18n": {
         "en": "Conversion efficiency from electrical power to heat/calories. 100% means all watts converted.",
         "tr": "Elektrik gücünden ısıya/kaloriye dönüşüm verimliliği. %100, tüm wattların dönüştürüldüğü anlamına gelir.",
         "de": "Umwandlungswirkungsgrad von elektrischer Leistung in Wärme/Kalorien. 100% bedeutet, dass alle Watt umgewandelt werden.",
-        "fr": "Rendement de conversion de la puissance électrique en chaleur/calories. 100% signifie que tous les watts sont convertis."
+        "fr": "Rendement de conversion de la puissance électrique en chaleur/calories. 100% signifie que tous les watts sont convertis.",
+        "es": "Eficiencia de conversión de energía eléctrica a calor/calorías. 100% significa que todos los vatios se convierten.",
+        "ar": "كفاءة التحويل من الطاقة الكهربائية إلى حرارة/سعرات حرارية. 100% تعني تحويل كل الواط."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Ölvolumen",
         "fr": "Volume d'huile",
         "es": "Volumen de aceite",
-        "ar": "Oil Volume"
+        "ar": "حجم الزيت"
       },
       "businessContext_i18n": {
         "en": "Volume of frying oil in the fryer",
         "tr": "Fritözdeki kızartma yağı hacmi",
         "de": "Volumen des Frittieröls in der Fritteuse",
         "fr": "Volume d'huile de friture dans la friteuse",
-        "es": "Volumen de aceite de fritura en la freidora"
+        "es": "Volumen de aceite de fritura en la freidora",
+        "ar": "حجم زيت القلي في المقلاة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anfängliche Öltemperatur",
         "fr": "Température initiale de l'huile",
         "es": "Temperatura inicial del aceite",
-        "ar": "Initial Oil Temperature"
+        "ar": "درجة حرارة الزيت الأولية"
       },
       "businessContext_i18n": {
         "en": "Starting temperature of oil before heating",
         "tr": "Isıtmadan önce yağın başlangıç sıcaklığı",
         "de": "Starttemperatur des Öls vor dem Erhitzen",
         "fr": "Température de départ de l'huile avant chauffage",
-        "es": "Temperatura inicial del aceite antes de calentar"
+        "es": "Temperatura inicial del aceite antes de calentar",
+        "ar": "درجة حرارة بدء الزيت قبل التسخين"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Frittiertemperatur",
         "fr": "Température de friture",
         "es": "Temperatura de fritura",
-        "ar": "Frying Temperature"
+        "ar": "درجة حرارة القلي"
       },
       "businessContext_i18n": {
         "en": "Target frying temperature",
         "tr": "Hedef kızartma sıcaklığı",
         "de": "Ziel-Frittiertemperatur",
         "fr": "Température de friture cible",
-        "es": "Temperatura objetivo de fritura"
+        "es": "Temperatura objetivo de fritura",
+        "ar": "درجة حرارة القلي المستهدفة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Frittierzeit pro Charge",
         "fr": "Temps de friture par lot",
         "es": "Tiempo de fritura por lote",
-        "ar": "Frying Time per Batch"
+        "ar": "زمن القلي لكل دفعة"
       },
       "businessContext_i18n": {
         "en": "Duration of frying one batch of food",
         "tr": "Bir parti yiyeceği kızartma süresi",
         "de": "Dauer des Frittierens einer Charge Lebensmittel",
         "fr": "Durée de friture d'un lot d'aliments",
-        "es": "Duración de la fritura de un lote de alimentos"
+        "es": "Duración de la fritura de un lote de alimentos",
+        "ar": "مدة قلي دفعة واحدة من الطعام"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Fritteusenleistung",
         "fr": "Puissance de la friteuse",
         "es": "Potencia de la freidora",
-        "ar": "Fryer Power"
+        "ar": "قدرة المقلاة"
       },
       "businessContext_i18n": {
         "en": "Rated power of the deep fryer",
         "tr": "Derin fritözün anma gücü",
         "de": "Nennleistung der Fritteuse",
         "fr": "Puissance nominale de la friteuse",
-        "es": "Potencia nominal de la freidora"
+        "es": "Potencia nominal de la freidora",
+        "ar": "الطاقة المقدرة للمقلاة العميقة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
         "es": "Coste de electricidad",
-        "ar": "Electricity Cost"
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
         "tr": "Kilovatsaat başına elektrik maliyeti",
         "de": "Stromkosten pro Kilowattstunde",
         "fr": "Coût de l'électricité par kilowattheure",
-        "es": "Coste de la electricidad por kilovatio-hora"
+        "es": "Coste de la electricidad por kilovatio-hora",
+        "ar": "تكلفة الكهرباء لكل كيلوواط ساعة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Ölkosten pro Liter",
         "fr": "Coût de l'huile par litre",
         "es": "Coste del aceite por litro",
-        "ar": "Oil Cost per Liter"
+        "ar": "تكلفة الزيت لكل لتر"
       },
       "businessContext_i18n": {
         "en": "Purchase price of frying oil per liter",
         "tr": "Litre başına kızartma yağı satın alma fiyatı",
         "de": "Kaufpreis des Frittieröls pro Liter",
         "fr": "Prix d'achat de l'huile de friture par litre",
-        "es": "Precio de compra del aceite de fritura por litro"
+        "es": "Precio de compra del aceite de fritura por litro",
+        "ar": "سعر شراء زيت القلي لكل لتر"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Öllebensdauer (Chargen)",
         "fr": "Durée de vie de l'huile (lots)",
         "es": "Vida útil del aceite (lotes)",
-        "ar": "Oil Life (Batches)"
+        "ar": "عمر الزيت (عدد الدفعات)"
       },
       "businessContext_i18n": {
         "en": "Number of frying batches before oil replacement",
         "tr": "Yağ değişiminden önceki kızartma partisi sayısı",
         "de": "Anzahl der Frittierchargen vor Ölwechsel",
         "fr": "Nombre de lots de friture avant remplacement de l'huile",
-        "es": "Número de lotes de fritura antes de reemplazar el aceite"
+        "es": "Número de lotes de fritura antes de reemplazar el aceite",
+        "ar": "عدد دفعات القلي قبل استبدال الزيت"
       }
     }
   ],

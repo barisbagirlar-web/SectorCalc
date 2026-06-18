@@ -14,14 +14,15 @@
         "de": "Bootspreis",
         "fr": "Prix du bateau",
         "es": "Precio del barco",
-        "ar": "Boat Price"
+        "ar": "سعر القارب"
       },
       "businessContext_i18n": {
         "en": "The total price of the boat.",
         "tr": "Teknenin toplam fiyatı.",
         "de": "Der Gesamtpreis des Bootes.",
         "fr": "Le prix total du bateau.",
-        "es": "El precio total del barco."
+        "es": "El precio total del barco.",
+        "ar": "السعر الإجمالي للقارب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahlung",
         "fr": "Acompte",
         "es": "Pago inicial",
-        "ar": "Down Payment"
+        "ar": "الدفعة الأولى"
       },
       "businessContext_i18n": {
         "en": "Amount paid upfront.",
         "tr": "Peşin ödenen miktar.",
         "de": "Anzahlung.",
         "fr": "Montant payé d'avance.",
-        "es": "Cantidad pagada por adelantado."
+        "es": "Cantidad pagada por adelantado.",
+        "ar": "المبلغ المدفوع مقدمًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Inzahlungnahmewert",
         "fr": "Valeur de reprise",
         "es": "Valor de intercambio",
-        "ar": "Trade-In Value"
+        "ar": "قيمة المبادلة"
       },
       "businessContext_i18n": {
         "en": "Value of any traded-in boat.",
         "tr": "Takas edilen teknenin değeri.",
         "de": "Wert eines in Zahlung gegebenen Bootes.",
         "fr": "Valeur de tout bateau repris.",
-        "es": "Valor de cualquier barco entregado como parte de pago."
+        "es": "Valor de cualquier barco entregado como parte de pago.",
+        "ar": "قيمة أي قارب تم استبداله."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Umsatzsteuersatz",
         "fr": "Taux de taxe de vente",
         "es": "Tasa de impuesto a las ventas",
-        "ar": "Sales Tax Rate"
+        "ar": "نسبة ضريبة المبيعات"
       },
       "businessContext_i18n": {
         "en": "Sales tax rate applied to the boat purchase.",
         "tr": "Tekne satın alımına uygulanan satış vergisi oranı.",
         "de": "Mehrwertsteuersatz, der auf den Bootskauf angewendet wird.",
         "fr": "Taux de taxe de vente appliqué à l'achat du bateau.",
-        "es": "Tasa de impuesto a las ventas aplicada a la compra del barco."
+        "es": "Tasa de impuesto a las ventas aplicada a la compra del barco.",
+        "ar": "نسبة ضريبة المبيعات المطبقة على شراء القارب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Darlehenslaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
-        "ar": "Loan Term"
+        "ar": "مدة القرض"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan in years.",
         "tr": "Kredi süresi (yıl).",
         "de": "Laufzeit des Darlehens in Jahren.",
         "fr": "Durée du prêt en années.",
-        "es": "Duración del préstamo en años."
+        "es": "Duración del préstamo en años.",
+        "ar": "مدة القرض بالسنوات."
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate as a percentage.",
         "tr": "Yıllık faiz oranı yüzde olarak.",
         "de": "Jährlicher Zinssatz in Prozent.",
         "fr": "Taux d'intérêt annuel en pourcentage.",
-        "es": "Tasa de interés anual como porcentaje."
+        "es": "Tasa de interés anual como porcentaje.",
+        "ar": "معدل الفائدة السنوي كنسبة مئوية."
       }
     }
   ],
   "formulas": {
-    "result": "boatPrice + downPayment + tradeInValue",
-    "result_copy": "boatPrice + downPayment + tradeInValue"
+    "base_cost": "downPayment * boatPrice",
+    "adjusted_cost": "downPayment * boatPrice * (1 + (salesTaxRate / 100))",
+    "result": "downPayment * boatPrice * (1 + (salesTaxRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalInterest",
-      "totalCost",
-      "principal"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "principal",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

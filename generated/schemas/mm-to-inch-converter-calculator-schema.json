@@ -25,14 +25,16 @@
         "tr": "Milimetre cinsinden değer",
         "de": "Wert in Millimetern",
         "fr": "Valeur en millimètres",
-        "es": "Valor en milímetros"
+        "es": "Valor en milímetros",
+        "ar": "القيمة بالميليمتر"
       },
       "businessContext_i18n": {
         "en": "The linear dimension to be converted from millimeters to inches. Typical range for industrial parts: 0.1 mm to 10,000 mm.",
         "tr": "Milimetreden inçe dönüştürülecek doğrusal boyut. Endüstriyel parçalar için tipik aralık: 0,1 mm - 10.000 mm.",
         "de": "Die lineare Abmessung, die von Millimetern in Zoll umgerechnet werden soll. Typischer Bereich für Industriekomponenten: 0,1 mm bis 10.000 mm.",
         "fr": "Dimension linéaire à convertir de millimètres en pouces. Plage typique pour pièces industrielles : 0,1 mm à 10 000 mm.",
-        "es": "Dimensión lineal a convertir de milímetros a pulgadas. Rango típico para piezas industriales: 0.1 mm a 10,000 mm."
+        "es": "Dimensión lineal a convertir de milímetros a pulgadas. Rango típico para piezas industriales: 0.1 mm a 10,000 mm.",
+        "ar": "البعد الخطي المراد تحويله من الميليمتر إلى البوصة. النطاق النموذجي للأجزاء الصناعية: 0.1 مم إلى 10,000 مم."
       }
     },
     {
@@ -58,14 +60,16 @@
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
-        "es": "Precisión decimal"
+        "es": "Precisión decimal",
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the inch result. ISO 2768-m standard suggests 2-4 decimals for general tolerances.",
         "tr": "İnç sonucu için ondalık basamak sayısı. ISO 2768-m standardı genel toleranslar için 2-4 ondalık basamak önerir.",
         "de": "Anzahl der Dezimalstellen für das Zoll-Ergebnis. Die Norm ISO 2768-m empfiehlt 2–4 Dezimalstellen für allgemeine Toleranzen.",
         "fr": "Nombre de décimales pour le résultat en pouces. La norme ISO 2768-m recommande 2 à 4 décimales pour les tolérances générales.",
-        "es": "Número de decimales para el resultado en pulgadas. El estándar ISO 2768-m sugiere 2-4 decimales para tolerancias generales."
+        "es": "Número de decimales para el resultado en pulgadas. El estándar ISO 2768-m sugiere 2-4 decimales para tolerancias generales.",
+        "ar": "عدد المنازل العشرية لنتيجة البوصة. معيار ISO 2768-m يقترح 2-4 منازل عشرية للتفاوتات العامة."
       }
     },
     {
@@ -82,14 +86,16 @@
         "tr": "Tolerans (mm)",
         "de": "Toleranz (mm)",
         "fr": "Tolérance (mm)",
-        "es": "Tolerancia (mm)"
+        "es": "Tolerancia (mm)",
+        "ar": "التفاوت (مم)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance in millimeters. Used to compute tolerance in inches and assess quality thresholds.",
         "tr": "Milimetre cinsinden üretim toleransı. İnç cinsinden toleransı hesaplamak ve kalite eşiklerini değerlendirmek için kullanılır.",
         "de": "Fertigungstoleranz in Millimetern. Wird verwendet, um die Toleranz in Zoll zu berechnen und Qualitätsschwellen zu bewerten.",
         "fr": "Tolérance de fabrication en millimètres. Utilisée pour calculer la tolérance en pouces et évaluer les seuils de qualité.",
-        "es": "Tolerancia de fabricación en milímetros. Se utiliza para calcular la tolerancia en pulgadas y evaluar umbrales de calidad."
+        "es": "Tolerancia de fabricación en milímetros. Se utiliza para calcular la tolerancia en pulgadas y evaluar umbrales de calidad.",
+        "ar": "تفاوت التصنيع بالميليمتر. يُستخدم لحساب التفاوت بالبوصة وتقييم حدود الجودة."
       }
     },
     {
@@ -108,14 +114,16 @@
         "tr": "Hedef Birim Sistemi",
         "de": "Ziel-Einheitensystem",
         "fr": "Système d'unités cible",
-        "es": "Sistema de unidades objetivo"
+        "es": "Sistema de unidades objetivo",
+        "ar": "نظام الوحدة المستهدف"
       },
       "businessContext_i18n": {
         "en": "Select the output unit system. Imperial outputs inches; metric outputs millimeters (for cross-check).",
         "tr": "Çıktı birim sistemini seçin. Imperial inç çıktısı verir; metrik milimetre çıktısı verir (çapraz kontrol için).",
         "de": "Wählen Sie das Ausgabeeinheitensystem. Imperial gibt Zoll aus; metrisch gibt Millimeter aus (zur Gegenprüfung).",
         "fr": "Sélectionnez le système d'unités de sortie. Impérial donne des pouces ; métrique donne des millimètres (pour vérification croisée).",
-        "es": "Seleccione el sistema de unidades de salida. Imperial produce pulgadas; métrico produce milímetros (para verificación cruzada)."
+        "es": "Seleccione el sistema de unidades de salida. Imperial produce pulgadas; métrico produce milímetros (para verificación cruzada).",
+        "ar": "اختر نظام الوحدات للإخراج. النظام الإمبراطوري ينتج البوصات؛ النظام المتري ينتج المليمترات (للتحقق المتبادل)."
       }
     },
     {
@@ -130,14 +138,16 @@
         "tr": "Altı Sigma Ayarlamasını Uygula",
         "de": "Six Sigma-Anpassung anwenden",
         "fr": "Appliquer l'ajustement Six Sigma",
-        "es": "Aplicar ajuste Seis Sigma"
+        "es": "Aplicar ajuste Seis Sigma",
+        "ar": "تطبيق تعديل ستة سيجما"
       },
       "businessContext_i18n": {
         "en": "If true, applies a 1.5 sigma shift to account for process drift (Six Sigma DMAIC methodology).",
         "tr": "Doğruysa, proses kaymasını hesaba katmak için 1,5 sigma kayması uygular (Altı Sigma DMAIC metodolojisi).",
         "de": "Wenn aktiviert, wird eine 1,5-Sigma-Verschiebung zur Berücksichtigung von Prozessdrift angewendet (Six Sigma DMAIC-Methodik).",
         "fr": "Si vrai, applique un décalage de 1,5 sigma pour tenir compte de la dérive du processus (méthodologie Six Sigma DMAIC).",
-        "es": "Si es verdadero, aplica un desplazamiento de 1.5 sigma para tener en cuenta la deriva del proceso (metodología DMAIC de Seis Sigma)."
+        "es": "Si es verdadero, aplica un desplazamiento de 1.5 sigma para tener en cuenta la deriva del proceso (metodología DMAIC de Seis Sigma).",
+        "ar": "إذا كان صحيحًا، يطبق إزاحة 1.5 سيجما لمراعاة انحراف العملية (منهجية DMAIC لستة سيجما)."
       }
     }
   ],
@@ -186,18 +196,24 @@
     ]
   },
   "formulas": {
-    "result": "value_mm + precision + tolerance_mm",
-    "result_copy": "value_mm + precision + tolerance_mm"
+    "normalized_product": "value_mm * tolerance_mm",
+    "result": "value_mm * tolerance_mm"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "USD"
   },
   "toolName": "mm-to-inch-converter-calculator",
   "catalogCategory": "conversion",

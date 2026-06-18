@@ -14,14 +14,15 @@
         "de": "Kassapreis",
         "fr": "Prix au comptant",
         "es": "Precio al contado",
-        "ar": "Spot Price"
+        "ar": "السعر الفوري"
       },
       "businessContext_i18n": {
         "en": "Current market price of the underlying asset per unit.",
         "tr": "Dayanak varlığın birim başına güncel piyasa fiyatı.",
         "de": "Aktueller Marktpreis des Basiswerts pro Einheit.",
         "fr": "Prix actuel du marché de l'actif sous-jacent par unité.",
-        "es": "Precio actual de mercado del activo subyacente por unidad."
+        "es": "Precio actual de mercado del activo subyacente por unidad.",
+        "ar": "سعر السوق الحالي للأصل الأساسي لكل وحدة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Terminpreis",
         "fr": "Prix à terme",
         "es": "Precio de futuros",
-        "ar": "Futures Price"
+        "ar": "السعر الآجل"
       },
       "businessContext_i18n": {
         "en": "Futures contract price for delivery at a future date.",
         "tr": "Gelecekteki bir teslimat için vadeli işlem sözleşme fiyatı.",
         "de": "Terminkontraktpreis für Lieferung zu einem zukünftigen Zeitpunkt.",
         "fr": "Prix du contrat à terme pour livraison à une date future.",
-        "es": "Precio del contrato de futuros para entrega en una fecha futura."
+        "es": "Precio del contrato de futuros para entrega en una fecha futura.",
+        "ar": "سعر العقد الآجل للتسليم في تاريخ مستقبلي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kassavolatilität (σ)",
         "fr": "Volatilité au comptant (σ)",
         "es": "Volatilidad al contado (σ)",
-        "ar": "Spot Volatility (σ)"
+        "ar": "التقلب الفوري (σ)"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of spot price returns.",
         "tr": "Spot fiyat getirilerinin yıllıklandırılmış standart sapması.",
         "de": "Annualisierte Standardabweichung der Kassapreisrenditen.",
         "fr": "Écart type annualisé des rendements du prix au comptant.",
-        "es": "Desviación estándar anualizada de los rendimientos del precio al contado."
+        "es": "Desviación estándar anualizada de los rendimientos del precio al contado.",
+        "ar": "الانحراف المعياري السنوي لعوائد السعر الفوري."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Terminvolatilität (σ)",
         "fr": "Volatilité du contrat à terme (σ)",
         "es": "Volatilidad de futuros (σ)",
-        "ar": "Futures Volatility (σ)"
+        "ar": "التقلب الآجل (σ)"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of futures price returns.",
         "tr": "Vadeli işlem fiyat getirilerinin yıllıklandırılmış standart sapması.",
         "de": "Annualisierte Standardabweichung der Terminpreisrenditen.",
         "fr": "Écart type annualisé des rendements du prix du contrat à terme.",
-        "es": "Desviación estándar anualizada de los rendimientos del precio de futuros."
+        "es": "Desviación estándar anualizada de los rendimientos del precio de futuros.",
+        "ar": "الانحراف المعياري السنوي لعوائد السعر الآجل."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Korrelation",
         "fr": "Corrélation",
         "es": "Correlación",
-        "ar": "Correlation"
+        "ar": "الارتباط"
       },
       "businessContext_i18n": {
         "en": "Correlation coefficient between spot and futures returns.",
         "tr": "Spot ve vadeli işlem getirileri arasındaki korelasyon katsayısı.",
         "de": "Korrelationskoeffizient zwischen Kassakurs- und Terminrenditen.",
         "fr": "Coefficient de corrélation entre les rendements du comptant et du contrat à terme.",
-        "es": "Coeficiente de correlación entre los rendimientos del activo al contado y de futuros."
+        "es": "Coeficiente de correlación entre los rendimientos del activo al contado y de futuros.",
+        "ar": "معامل الارتباط بين عوائد السعر الفوري والآجل."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Exposition (Einheiten)",
         "fr": "Exposition (unités)",
         "es": "Exposición (unidades)",
-        "ar": "Exposure (Units)"
+        "ar": "التعرض (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total quantity of the asset to hedge (e.g., bushels, barrels).",
         "tr": "Korunacak varlığın toplam miktarı (ör. kile, varil).",
         "de": "Gesamtmenge des abzusichernden Vermögenswerts (z. B. Scheffel, Barrel).",
         "fr": "Quantité totale de l'actif à couvrir (ex. boisseaux, barils).",
-        "es": "Cantidad total del activo a cubrir (p. ej., bushels, barriles)."
+        "es": "Cantidad total del activo a cubrir (p. ej., bushels, barriles).",
+        "ar": "الكمية الإجمالية للأصل المراد التحوط (مثل البوشل، البراميل)."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Kontraktgröße",
         "fr": "Taille du contrat",
         "es": "Tamaño del contrato",
-        "ar": "Contract Size"
+        "ar": "حجم العقد"
       },
       "businessContext_i18n": {
         "en": "Number of units of the underlying asset per futures contract.",
         "tr": "Vadeli işlem sözleşmesi başına dayanak varlığın birim sayısı.",
         "de": "Anzahl der Einheiten des Basiswerts pro Terminkontrakt.",
         "fr": "Nombre d'unités de l'actif sous-jacent par contrat à terme.",
-        "es": "Número de unidades del activo subyacente por contrato de futuros."
+        "es": "Número de unidades del activo subyacente por contrato de futuros.",
+        "ar": "عدد وحدات الأصل الأساسي لكل عقد آجل."
       }
     }
   ],

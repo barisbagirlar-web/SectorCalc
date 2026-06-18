@@ -14,13 +14,15 @@
         "de": "Dicke",
         "fr": "Épaisseur",
         "es": "Grosor",
-        "ar": "Kalınlık"
+        "ar": "السماكة"
       },
       "businessContext_i18n": {
         "en": "Sac malzemenin kalınlığı",
         "tr": "Sac malzemenin kalınlığı",
         "de": "Blechdicke",
-        "fr": "Épaisseur du matériau de la tôle"
+        "fr": "Épaisseur du matériau de la tôle",
+        "es": "Espesor del material de chapa",
+        "ar": "سمك الصفيحة المعدنية"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Blank Çapı",
         "de": "Ronden-Durchmesser",
         "fr": "Diamètre du flan",
-        "es": "Blank Çapı",
-        "ar": "Blank Çapı"
+        "es": "Diámetro del disco",
+        "ar": "قطر الفراغ"
       },
       "businessContext_i18n": {
         "en": "Başlangıç sac çapı (blanck çapı)",
         "tr": "Başlangıç sac çapı (blank çapı)",
         "de": "Anfänglicher Blechdurchmesser (Rondendurchmesser)",
-        "fr": "Diamètre initial de la tôle (diamètre du flan)"
+        "fr": "Diamètre initial de la tôle (diamètre du flan)",
+        "es": "Diámetro inicial de la chapa (diámetro del disco)",
+        "ar": "قطر الصفيحة الأولي (قطر الفراغ)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Zımba Çapı",
         "de": "Stempeldurchmesser",
         "fr": "Diamètre du poinçon",
-        "es": "Zımba Çapı",
-        "ar": "Zımba Çapı"
+        "es": "Diámetro del punzón",
+        "ar": "قطر المكبس"
       },
       "businessContext_i18n": {
         "en": "Deep drawing zımba çapı",
         "tr": "Derin çekme zımba çapı",
         "de": "Tiefzieh-Stempeldurchmesser",
-        "fr": "Diamètre du poinçon d'emboutissage profond"
+        "fr": "Diamètre du poinçon d'emboutissage profond",
+        "es": "Diámetro del punzón de embutición profunda",
+        "ar": "قطر مكبس السحب العميق"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Çekme Derinliği",
         "de": "Ziehtiefe",
         "fr": "Profondeur d'emboutissage",
-        "es": "Çekme Derinliği",
-        "ar": "Çekme Derinliği"
+        "es": "Profundidad de embutición",
+        "ar": "عمق السحب"
       },
       "businessContext_i18n": {
         "en": "Deep drawing derinliği",
         "tr": "Derin çekme derinliği",
         "de": "Tiefzieh-Tiefe",
-        "fr": "Profondeur d'emboutissage profond"
+        "fr": "Profondeur d'emboutissage profond",
+        "es": "Profundidad de embutición profunda",
+        "ar": "عمق السحب العميق"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Streckgrenze",
         "fr": "Limite d'élasticité",
         "es": "Límite elástico",
-        "ar": "Akma Dayanımı"
+        "ar": "قوة الخضوع"
       },
       "businessContext_i18n": {
         "en": "Malzemenin akma dayanımı (Re)",
         "tr": "Malzemenin akma dayanımı (Re)",
         "de": "Streckgrenze des Materials (Re)",
-        "fr": "Limite d'élasticité du matériau (Re)"
+        "fr": "Limite d'élasticité du matériau (Re)",
+        "es": "Límite elástico del material (Re)",
+        "ar": "مقاومة الخضوع للمادة (Re)"
       }
     },
     {
@@ -123,33 +133,40 @@
         "tr": "Elastisite Modülü",
         "de": "Elastizitätsmodul",
         "fr": "Module d'élasticité",
-        "es": "Elastisite Modülü",
-        "ar": "Elastisite Modülü"
+        "es": "Módulo de elasticidad",
+        "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
         "en": "Malzemenin elastisite modülü (E)",
         "tr": "Malzemenin elastisite modülü (E)",
         "de": "Elastizitätsmodul des Materials (E)",
-        "fr": "Module d'élasticité du matériau (E)"
+        "fr": "Module d'élasticité du matériau (E)",
+        "es": "Módulo de elasticidad del material (E)",
+        "ar": "معامل المرونة للمادة (E)"
       }
     }
   ],
   "formulas": {
-    "result": "thickness + blankDiameter + punchDiameter",
-    "result_copy": "thickness + blankDiameter + punchDiameter"
+    "normalized_product": "thickness * blankDiameter * punchDiameter * drawDepth",
+    "result": "thickness * blankDiameter * punchDiameter * drawDepth * (yieldStrength * elasticModulus)",
+    "adjustment_factor": "yieldStrength * elasticModulus"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "drawAngle_deg",
-      "requiredThickness"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "safetyMargin",
-    "unit": "mm",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "drawAngle_deg": "°"
     }

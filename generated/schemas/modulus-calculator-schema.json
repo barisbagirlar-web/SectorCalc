@@ -14,14 +14,15 @@
         "de": "Gesamtmenge",
         "fr": "Quantité totale",
         "es": "Cantidad total",
-        "ar": "Toplam Miktar"
+        "ar": "الكمية الإجمالية"
       },
       "businessContext_i18n": {
         "en": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
         "tr": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
         "de": "Gesamtzahl der zu produzierenden oder zu teilenden Produkte/Teile.",
         "fr": "Nombre total de produits/pièces à produire ou à diviser.",
-        "es": "Número total de productos/piezas a producir o dividir."
+        "es": "Número total de productos/piezas a producir o dividir.",
+        "ar": "إجمالي عدد المنتجات/القطع المراد إنتاجها أو تقسيمها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Parti Büyüklüğü"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Her bir partide yer alan ürün/parça sayısı.",
         "tr": "Her bir partide yer alan ürün/parça sayısı.",
         "de": "Anzahl der Produkte/Teile pro Charge.",
         "fr": "Nombre de produits/pièces par lot.",
-        "es": "Número de productos/piezas en cada lote."
+        "es": "Número de productos/piezas en cada lote.",
+        "ar": "عدد المنتجات/القطع في كل دفعة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielrest",
         "fr": "Reste cible",
         "es": "Resto objetivo",
-        "ar": "Hedef Kalan"
+        "ar": "الباقي المستهدف"
       },
       "businessContext_i18n": {
         "en": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
         "tr": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
         "de": "Restwert, der mit dem Ergebnis der Mod-Operation verglichen wird; für Übereinstimmungsprüfung.",
         "fr": "Valeur de reste à comparer avec le résultat du modulo ; pour vérification de correspondance.",
-        "es": "Valor de resto con el que comparar el resultado de la operación módulo; para verificación de coincidencia."
+        "es": "Valor de resto con el que comparar el resultado de la operación módulo; para verificación de coincidencia.",
+        "ar": "قيمة الباقي المراد مقارنتها بنتيجة عملية المودولو؛ للتحقق من التطابق."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Startverschiebung",
         "fr": "Décalage initial",
         "es": "Desplazamiento inicial",
-        "ar": "Başlangıç Kaydırma"
+        "ar": "الإزاحة الأولية"
       },
       "businessContext_i18n": {
         "en": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
         "tr": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
         "de": "Feste Verschiebung, die zur Gesamtmenge addiert wird; z. B. bei Anfangsrest.",
         "fr": "Décalage fixe à ajouter à la quantité totale ; par exemple si un reste initial existe.",
-        "es": "Desplazamiento fijo a añadir a la cantidad total; por ejemplo, si hay un residuo inicial."
+        "es": "Desplazamiento fijo a añadir a la cantidad total; por ejemplo, si hay un residuo inicial.",
+        "ar": "إزاحة ثابتة تضاف إلى الكمية الإجمالية؛ مثلاً إذا كان هناك باقي ابتدائي."
       }
     }
   ],

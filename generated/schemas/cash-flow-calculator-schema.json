@@ -14,14 +14,15 @@
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión inicial",
-        "ar": "Initial Investment"
+        "ar": "الاستثمار الأولي"
       },
       "businessContext_i18n": {
         "en": "Initial cash outflow at time 0",
         "tr": "0. zamandaki ilk nakit çıkışı",
         "de": "Anfänglicher Mittelabfluss zum Zeitpunkt 0",
         "fr": "Sortie de trésorerie initiale au temps 0",
-        "es": "Salida de efectivo inicial en el tiempo 0"
+        "es": "Salida de efectivo inicial en el tiempo 0",
+        "ar": "التدفق النقدي الأولي عند الوقت 0"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Periodischer Cashflow",
         "fr": "Flux de trésorerie périodique",
         "es": "Flujo de efectivo periódico",
-        "ar": "Periodic Cash Flow"
+        "ar": "التدفق النقدي الدوري"
       },
       "businessContext_i18n": {
         "en": "Net cash generated each period",
         "tr": "Her dönemde üretilen net nakit",
         "de": "Netto-Cashflow pro Periode",
         "fr": "Trésorerie nette générée chaque période",
-        "es": "Efectivo neto generado cada período"
+        "es": "Efectivo neto generado cada período",
+        "ar": "صافي النقد الناتج كل فترة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Perioden",
         "fr": "Nombre de périodes",
         "es": "Número de períodos",
-        "ar": "Number of Periods"
+        "ar": "عدد الفترات"
       },
       "businessContext_i18n": {
         "en": "Number of time periods (e.g., years)",
         "tr": "Zaman dönemi sayısı (örneğin, yıl)",
         "de": "Anzahl der Zeitperioden (z. B. Jahre)",
         "fr": "Nombre de périodes (ex. années)",
-        "es": "Número de períodos de tiempo (ej., años)"
+        "es": "Número de períodos de tiempo (ej., años)",
+        "ar": "عدد الفترات الزمنية (مثل السنوات)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rabattsatz",
         "fr": "Taux de remise",
         "es": "Tasa de descuento",
-        "ar": "Discount Rate"
+        "ar": "نسبة الخصم"
       },
       "businessContext_i18n": {
         "en": "Cost of capital or required rate of return",
         "tr": "Sermaye maliyeti veya gerekli getiri oranı",
         "de": "Kapitalkosten oder erforderliche Rendite",
         "fr": "Coût du capital ou taux de rendement requis",
-        "es": "Costo de capital o tasa de rendimiento requerida"
+        "es": "Costo de capital o tasa de rendimiento requerida",
+        "ar": "تكلفة رأس المال أو معدل العائد المطلوب"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Restwert",
         "fr": "Valeur de récupération",
         "es": "Valor de rescate",
-        "ar": "Salvage Value"
+        "ar": "قيمة الإنقاذ"
       },
       "businessContext_i18n": {
         "en": "Cash value at end of project",
         "tr": "Proje sonundaki nakit değeri",
         "de": "Barwert am Projektende",
         "fr": "Valeur de trésorerie en fin de projet",
-        "es": "Valor en efectivo al final del proyecto"
+        "es": "Valor en efectivo al final del proyecto",
+        "ar": "القيمة النقدية في نهاية المشروع"
       }
     }
   ],
   "formulas": {
-    "result": "initialInvestment + periodicCashFlow + periods",
-    "result_copy": "initialInvestment + periodicCashFlow + periods"
+    "normalized_product": "initialInvestment * periodicCashFlow * periods * (discountRate / 100)",
+    "result": "initialInvestment * periodicCashFlow * periods * (discountRate / 100) * (salvageValue)",
+    "adjustment_factor": "salvageValue"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "payback",
-      "profitabilityIndex"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "profitabilityIndex",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

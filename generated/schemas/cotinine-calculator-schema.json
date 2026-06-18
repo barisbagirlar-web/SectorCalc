@@ -14,14 +14,15 @@
         "de": "Plasma-Cotinin",
         "fr": "Cotinine plasmatique",
         "es": "Cotinina plasmática",
-        "ar": "Plasma Cotinine"
+        "ar": "الكوتينين في البلازما"
       },
       "businessContext_i18n": {
         "en": "Measured concentration of cotinine in plasma.",
         "tr": "Plazmada ölçülen kotinin konsantrasyonu.",
         "de": "Gemessene Konzentration von Cotinin im Plasma.",
         "fr": "Concentration mesurée de cotinine dans le plasma.",
-        "es": "Concentración medida de cotinina en plasma."
+        "es": "Concentración medida de cotinina en plasma.",
+        "ar": "التركيز المقاس للكوتينين في البلازما."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalibrationssteigung",
         "fr": "Pente d'étalonnage",
         "es": "Pendiente de calibración",
-        "ar": "Calibration Slope"
+        "ar": "ميل المعايرة"
       },
       "businessContext_i18n": {
         "en": "Slope of the cotinine vs cigarettes per day linear model.",
         "tr": "Kotinin vs günlük sigara sayısı doğrusal modelinin eğimi.",
         "de": "Steigung des linearen Modells Cotinin vs. Zigaretten pro Tag.",
         "fr": "Pente du modèle linéaire cotinine vs cigarettes par jour.",
-        "es": "Pendiente del modelo lineal de cotinina vs. cigarrillos por día."
+        "es": "Pendiente del modelo lineal de cotinina vs. cigarrillos por día.",
+        "ar": "ميل النموذج الخطي للكوتينين مقابل عدد السجائر يوميًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kalibrationsachsenabschnitt",
         "fr": "Ordonnée à l'origine de l'étalonnage",
         "es": "Intersección de calibración",
-        "ar": "Calibration Intercept"
+        "ar": "تقاطع المعايرة"
       },
       "businessContext_i18n": {
         "en": "Intercept of the linear model.",
         "tr": "Doğrusal modelin kesişimi.",
         "de": "Achsenabschnitt des linearen Modells.",
         "fr": "Ordonnée à l'origine du modèle linéaire.",
-        "es": "Intersección del modelo lineal."
+        "es": "Intersección del modelo lineal.",
+        "ar": "تقاطع النموذج الخطي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Körpergewicht",
         "fr": "Poids corporel",
         "es": "Peso corporal",
-        "ar": "Body Weight"
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Subject's body weight for dose normalization.",
         "tr": "Doz normalizasyonu için deneğin vücut ağırlığı.",
         "de": "Körpergewicht des Probanden zur Dosisnormalisierung.",
         "fr": "Poids corporel du sujet pour la normalisation de la dose.",
-        "es": "Peso corporal del sujeto para normalización de dosis."
+        "es": "Peso corporal del sujeto para normalización de dosis.",
+        "ar": "وزن الجسم للشخص لتطبيع الجرعة."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Nikotin pro Zigarette",
         "fr": "Nicotine par cigarette",
         "es": "Nicotina por cigarrillo",
-        "ar": "Nicotine per Cigarette"
+        "ar": "النيكوتين لكل سيجارة"
       },
       "businessContext_i18n": {
         "en": "Average nicotine delivered per cigarette.",
         "tr": "Sigara başına ortalama nikotin miktarı.",
         "de": "Durchschnittlich abgegebenes Nikotin pro Zigarette.",
         "fr": "Nicotine moyenne délivrée par cigarette.",
-        "es": "Nicotina promedio entregada por cigarrillo."
+        "es": "Nicotina promedio entregada por cigarrillo.",
+        "ar": "متوسط النيكوتين الموصّل لكل سيجارة."
       }
     }
   ],
   "formulas": {
-    "result": "cotininePlasma + slope + intercept",
-    "result_aux": "cotininePlasma + slope + intercept"
+    "normalized_product": "cotininePlasma * slope * intercept * bodyWeight",
+    "result": "cotininePlasma * slope * intercept * bodyWeight * (nicotinePerCig)",
+    "adjustment_factor": "nicotinePerCig"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Nicotine Intake (mg/day)",
-      "Nicotine Intake (mg/kg/day)"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "nicotineIntakeMgPerKg",
-    "unit": "ng/mL"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

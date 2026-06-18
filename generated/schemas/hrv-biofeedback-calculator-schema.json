@@ -14,14 +14,15 @@
         "de": "Atemfrequenz",
         "fr": "Fréquence respiratoire",
         "es": "Frecuencia respiratoria",
-        "ar": "Breathing Rate"
+        "ar": "معدل التنفس"
       },
       "businessContext_i18n": {
         "en": "Breathing rate in breaths per minute (typical resonance is 6 bpm)",
         "tr": "Dakikadaki solunum sayısı (tipik rezonans 6 nefes/dk)",
         "de": "Atemfrequenz in Atemzügen pro Minute (typische Resonanz bei 6 bpm)",
         "fr": "Fréquence respiratoire en respirations par minute (résonance typique à 6 rpm)",
-        "es": "Frecuencia respiratoria en respiraciones por minuto (la resonancia típica es 6 rpm)"
+        "es": "Frecuencia respiratoria en respiraciones por minuto (la resonancia típica es 6 rpm)",
+        "ar": "معدل التنفس بالأنفاس في الدقيقة (التردد النموذجي هو 6 نفس/دقيقة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Herzfrequenz",
         "fr": "Fréquence cardiaque",
         "es": "Frecuencia cardíaca",
-        "ar": "Heart Rate"
+        "ar": "معدل ضربات القلب"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate",
         "tr": "Dinlenme kalp atış hızı",
         "de": "Ruhepuls",
         "fr": "Fréquence cardiaque au repos",
-        "es": "Frecuencia cardíaca en reposo"
+        "es": "Frecuencia cardíaca en reposo",
+        "ar": "معدل ضربات القلب أثناء الراحة"
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "Ardışık farkların karekök ortalaması",
         "de": "Quadratwurzel des Mittelwerts der quadrierten aufeinanderfolgenden Differenzen",
         "fr": "Racine carrée de la moyenne des carrés des différences successives",
-        "es": "Raíz cuadrada de la media de las diferencias sucesivas"
+        "es": "Raíz cuadrada de la media de las diferencias sucesivas",
+        "ar": "الجذر التربيعي لمتوسط مربعات الفروق المتتالية"
       }
     },
     {
@@ -90,7 +93,8 @@
         "tr": "NN aralıklarının standart sapması",
         "de": "Standardabweichung der NN-Intervalle",
         "fr": "Écart type des intervalles NN",
-        "es": "Desviación estándar de los intervalos NN"
+        "es": "Desviación estándar de los intervalos NN",
+        "ar": "الانحراف المعياري للفترات بين النبضات"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sitzungsdauer",
         "fr": "Durée de la session",
         "es": "Duración de la sesión",
-        "ar": "Session Duration"
+        "ar": "مدة الجلسة"
       },
       "businessContext_i18n": {
         "en": "Duration of biofeedback session in minutes",
         "tr": "Biyogeribildirim seansının dakika cinsinden süresi",
         "de": "Dauer der Biofeedback-Sitzung in Minuten",
         "fr": "Durée de la session de biofeedback en minutes",
-        "es": "Duración de la sesión de biorretroalimentación en minutos"
+        "es": "Duración de la sesión de biorretroalimentación en minutos",
+        "ar": "مدة جلسة التغذية الحيوية بالدقائق"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "User age for heart rate max calculation",
         "tr": "Maksimum kalp atış hızı hesaplaması için kullanıcı yaşı",
         "de": "Alter des Benutzers für die Berechnung der maximalen Herzfrequenz",
         "fr": "Âge de l'utilisateur pour le calcul de la fréquence cardiaque maximale",
-        "es": "Edad del usuario para el cálculo de la frecuencia cardíaca máxima"
+        "es": "Edad del usuario para el cálculo de la frecuencia cardíaca máxima",
+        "ar": "عمر المستخدم لحساب الحد الأقصى لمعدل ضربات القلب"
       }
     }
   ],

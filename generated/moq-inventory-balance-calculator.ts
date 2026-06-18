@@ -30,8 +30,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.annual_demand + input.ordering_cost + input.holding_cost_per_unit; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.annual_demand + input.ordering_cost + input.holding_cost_per_unit; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.annual_demand * input.ordering_cost; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)) * (input.holding_cost_per_unit); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.holding_cost_per_unit; results["factor_holding_cost_per_unit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_holding_cost_per_unit"] = 0; }
   return results;
 }
 
@@ -46,8 +48,8 @@ export function calculateMoq_inventory_balance_calculator(input: Moq_inventory_b
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

@@ -14,13 +14,15 @@
         "de": "Eigenschaftswert",
         "fr": "Valeur du bien",
         "es": "Valor de la propiedad",
-        "ar": "Property Value"
+        "ar": "قيمة العقار"
       },
       "businessContext_i18n": {
         "en": "The market value or purchase price of the property.",
         "tr": "Mülkün piyasa değeri veya satın alma fiyatı.",
         "de": "Der Marktwert oder Kaufpreis der Immobilie.",
-        "fr": "La valeur marchande ou le prix d'achat de la propriété."
+        "fr": "La valeur marchande ou le prix d'achat de la propriété.",
+        "es": "El valor de mercado o precio de compra de la propiedad.",
+        "ar": "القيمة السوقية أو سعر شراء العقار."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Deckungssumme",
         "fr": "Montant de la couverture",
         "es": "Monto de cobertura",
-        "ar": "Coverage Amount"
+        "ar": "مبلغ التغطية"
       },
       "businessContext_i18n": {
         "en": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk.",
         "tr": "Genellikle mülk değerine eşit olan tapu sigortası teminat tutarı. Ek risk varsa daha yüksek olabilir.",
         "de": "Die Höhe der Eigentumsversicherung, in der Regel gleich dem Immobilienwert. Kann bei zusätzlichem Risiko höher sein.",
-        "fr": "Le montant de la couverture d'assurance titres, généralement égal à la valeur de la propriété. Peut être plus élevé en cas de risque supplémentaire."
+        "fr": "Le montant de la couverture d'assurance titres, généralement égal à la valeur de la propriété. Peut être plus élevé en cas de risque supplémentaire.",
+        "es": "El monto de la cobertura del seguro de título, típicamente igual al valor de la propiedad. Puede ser mayor si hay riesgo adicional.",
+        "ar": "مبلغ تأمين الملكية، عادةً ما يساوي قيمة العقار. يمكن أن يكون أعلى في حالة وجود مخاطر إضافية."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "1000$ başına oran",
         "de": "Satz pro 1000 €",
         "fr": "Taux par 1000 $",
-        "es": "Rate per $1000",
-        "ar": "Rate per $1000"
+        "es": "Tarifa por $1000",
+        "ar": "السعر لكل 1000 دولار"
       },
       "businessContext_i18n": {
         "en": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer.",
         "tr": "1000$ teminat başına tapu sigortası prim oranı. Eyalete ve sigortacıya göre değişir.",
         "de": "Der Prämien-Satz der Eigentumsversicherung pro 1000 € Deckung. Variiert je nach Bundesland und Versicherer.",
-        "fr": "Le taux de prime d'assurance titres par 1000 $ de couverture. Varie selon l'État et l'assureur."
+        "fr": "Le taux de prime d'assurance titres par 1000 $ de couverture. Varie selon l'État et l'assureur.",
+        "es": "La tarifa de prima del seguro de título por $1000 de cobertura. Varía según el estado y la aseguradora.",
+        "ar": "سعر قسط تأمين الملكية لكل 1000 دولار من التغطية. يختلف حسب الولاية وشركة التأمين."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Poliçe Ücreti",
         "de": "Police-Gebühr",
         "fr": "Frais de police",
-        "es": "Policy Fee",
-        "ar": "Policy Fee"
+        "es": "Tarifa de póliza",
+        "ar": "رسوم السياسة"
       },
       "businessContext_i18n": {
         "en": "Fixed administrative fee for issuing the title insurance policy.",
         "tr": "Tapu sigortası poliçesi düzenlenmesi için sabit idari ücret.",
         "de": "Feste Verwaltungsgebühr für die Ausstellung der Eigentumsversicherungspolice.",
-        "fr": "Frais administratifs fixes pour l'émission de la police d'assurance titres."
+        "fr": "Frais administratifs fixes pour l'émission de la police d'assurance titres.",
+        "es": "Tarifa administrativa fija por la emisión de la póliza de seguro de título.",
+        "ar": "رسوم إدارية ثابتة لإصدار بوليصة تأمين الملكية."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Steuersatz des Bundesstaats",
         "fr": "Taux d'imposition de l'État",
         "es": "Tasa impositiva estatal",
-        "ar": "State Tax Rate"
+        "ar": "معدل الضريبة الولائية"
       },
       "businessContext_i18n": {
         "en": "State tax rate applied to the premium, expressed as a percentage.",
         "tr": "Prime uygulanan eyalet vergi oranı, yüzde olarak ifade edilir.",
         "de": "Staatlicher Steuersatz auf die Prämie, ausgedrückt als Prozentsatz.",
-        "fr": "Taux d'imposition de l'État appliqué à la prime, exprimé en pourcentage."
+        "fr": "Taux d'imposition de l'État appliqué à la prime, exprimé en pourcentage.",
+        "es": "Tasa impositiva estatal aplicada a la prima, expresada como porcentaje.",
+        "ar": "معدل ضريبة الولاية المطبق على القسط، معبرًا عنه كنسبة مئوية."
       }
     }
   ],

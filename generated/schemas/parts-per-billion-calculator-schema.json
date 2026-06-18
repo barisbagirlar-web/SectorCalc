@@ -14,14 +14,15 @@
         "de": "Masse des gelösten Stoffes",
         "fr": "Masse du soluté",
         "es": "Masa del soluto",
-        "ar": "Mass of Solute"
+        "ar": "كتلة المذاب"
       },
       "businessContext_i18n": {
         "en": "Mass of the solute substance in milligrams, used for mass/volume calculations.",
         "tr": "Çözünen maddenin miligram cinsinden kütlesi, kütle/hacim hesaplamaları için kullanılır.",
         "de": "Masse des gelösten Stoffes in Milligramm, für Massen-/Volumenberechnungen.",
         "fr": "Masse de la substance solutée en milligrammes, utilisée pour les calculs masse/volume.",
-        "es": "Masa del soluto en miligramos, para cálculos de masa/volumen."
+        "es": "Masa del soluto en miligramos, para cálculos de masa/volumen.",
+        "ar": "كتلة المادة المذابة بالملليغرام، تستخدم لحسابات الكتلة/الحجم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lösungsvolumen",
         "fr": "Volume de solution",
         "es": "Volumen de solución",
-        "ar": "Solution Volume"
+        "ar": "حجم المحلول"
       },
       "businessContext_i18n": {
         "en": "Total volume of the liquid solution in liters.",
         "tr": "Sıvı çözeltinin litre cinsinden toplam hacmi.",
         "de": "Gesamtvolumen der flüssigen Lösung in Litern.",
         "fr": "Volume total de la solution liquide en litres.",
-        "es": "Volumen total de la solución líquida en litros."
+        "es": "Volumen total de la solución líquida en litros.",
+        "ar": "الحجم الكلي للمحلول السائل باللتر."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lösungsdichte",
         "fr": "Densité de la solution",
         "es": "Densidad de la solución",
-        "ar": "Solution Density"
+        "ar": "كثافة المحلول"
       },
       "businessContext_i18n": {
         "en": "Density of the solution; default is 1 kg/L for water.",
         "tr": "Çözeltinin yoğunluğu; su için varsayılan 1 kg/L'dir.",
         "de": "Dichte der Lösung; Standardwert 1 kg/L für Wasser.",
         "fr": "Densité de la solution ; par défaut 1 kg/L pour l'eau.",
-        "es": "Densidad de la solución; por defecto 1 kg/L para agua."
+        "es": "Densidad de la solución; por defecto 1 kg/L para agua.",
+        "ar": "كثافة المحلول؛ القيمة الافتراضية 1 كجم/لتر للماء."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gasförmiges Lösungsvolumen",
         "fr": "Volume de soluté gazeux",
         "es": "Volumen del soluto gaseoso",
-        "ar": "Gas Solute Volume"
+        "ar": "حجم المذاب الغازي"
       },
       "businessContext_i18n": {
         "en": "Volume of the solute gas in milliliters, for gas-phase ppb calculations.",
         "tr": "Çözünen gazın mililitre cinsinden hacmi, gaz fazı ppb hesaplamaları için.",
         "de": "Volumen des gasförmigen gelösten Stoffes in Millilitern, für gasförmige ppb-Berechnungen.",
         "fr": "Volume du gaz soluté en millilitres, pour les calculs de ppb en phase gazeuse.",
-        "es": "Volumen del soluto gaseoso en mililitros, para cálculos de ppb en fase gaseosa."
+        "es": "Volumen del soluto gaseoso en mililitros, para cálculos de ppb en fase gaseosa.",
+        "ar": "حجم المذاب الغازي بالميليلتر، لحسابات ppb في الطور الغازي."
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Gesamtgasvolumen",
         "fr": "Volume total de gaz",
         "es": "Volumen total de gas",
-        "ar": "Total Gas Volume"
+        "ar": "الحجم الكلي للغاز"
       },
       "businessContext_i18n": {
         "en": "Total volume of the gas mixture in liters.",
         "tr": "Gaz karışımının litre cinsinden toplam hacmi.",
         "de": "Gesamtvolumen der Gasmischung in Litern.",
         "fr": "Volume total du mélange gazeux en litres.",
-        "es": "Volumen total de la mezcla gaseosa en litros."
+        "es": "Volumen total de la mezcla gaseosa en litros.",
+        "ar": "الحجم الكلي لخليط الغاز باللتر."
       }
     }
   ],
   "formulas": {
-    "result": "solute_mass_mg + solution_volume_L + solution_density_kg_per_L",
-    "result_copy": "solute_mass_mg + solution_volume_L + solution_density_kg_per_L"
+    "normalized_product": "solute_mass_mg * solution_volume_L * solution_density_kg_per_L * gas_solute_volume_mL",
+    "result": "solute_mass_mg * solution_volume_L * solution_density_kg_per_L * gas_solute_volume_mL * (total_gas_volume_L)",
+    "adjustment_factor": "total_gas_volume_L"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "mass_based_ppb",
-      "gas_based_ppb",
-      "concentration_mg_per_L",
-      "concentration_ppm"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "concentration_ppm",
-    "unit": "mg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "concentration_mg_per_L": "%",
       "concentration_ppm": "%"

@@ -14,14 +14,15 @@
         "de": "Optionsart (1=Call, 0=Put)",
         "fr": "Type d'option (1=Call, 0=Put)",
         "es": "Tipo de opción (1=Call, 0=Put)",
-        "ar": "Option Type (1=Call, 0=Put)"
+        "ar": "نوع الخيار (1=شراء، 0=بيع)"
       },
       "businessContext_i18n": {
         "en": "Specify 1 for a call option, 0 for a put option.",
         "tr": "Alım opsiyonu için 1, satım opsiyonu için 0 belirtin.",
         "de": "Geben Sie 1 für eine Call-Option, 0 für eine Put-Option an.",
         "fr": "Spécifiez 1 pour une option d'achat, 0 pour une option de vente.",
-        "es": "Especifique 1 para una opción de compra, 0 para una opción de venta."
+        "es": "Especifique 1 para una opción de compra, 0 para una opción de venta.",
+        "ar": "حدد 1 لخيار الشراء، 0 لخيار البيع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktueller Aktienkurs",
         "fr": "Cours actuel de l'action",
         "es": "Precio actual de la acción",
-        "ar": "Current Stock Price"
+        "ar": "سعر السهم الحالي"
       },
       "businessContext_i18n": {
         "en": "The current market price of the underlying asset.",
         "tr": "Dayanak varlığın güncel piyasa fiyatı.",
         "de": "Aktueller Marktpreis des Basiswerts.",
         "fr": "Prix actuel du marché de l'actif sous-jacent.",
-        "es": "El precio de mercado actual del activo subyacente."
+        "es": "El precio de mercado actual del activo subyacente.",
+        "ar": "سعر السوق الحالي للأصل الأساسي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Basispreis",
         "fr": "Prix d'exercice",
         "es": "Precio de ejercicio",
-        "ar": "Strike Price"
+        "ar": "سعر التنفيذ"
       },
       "businessContext_i18n": {
         "en": "The price at which the option can be exercised.",
         "tr": "Opsiyonun kullanılabileceği fiyat.",
         "de": "Preis, zu dem die Option ausgeübt werden kann.",
         "fr": "Prix auquel l'option peut être exercée.",
-        "es": "El precio al que se puede ejercer la opción."
+        "es": "El precio al que se puede ejercer la opción.",
+        "ar": "السعر الذي يمكن عنده ممارسة الخيار."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Restlaufzeit",
         "fr": "Temps jusqu'à l'échéance",
         "es": "Tiempo hasta el vencimiento",
-        "ar": "Time to Maturity"
+        "ar": "الوقت حتى الاستحقاق"
       },
       "businessContext_i18n": {
         "en": "Time remaining until option expiration, expressed in years.",
         "tr": "Opsiyon vadesine kalan süre, yıl cinsinden ifade edilir.",
         "de": "Verbleibende Zeit bis zum Optionsverfall, ausgedrückt in Jahren.",
         "fr": "Temps restant jusqu'à l'expiration de l'option, exprimé en années.",
-        "es": "Tiempo restante hasta el vencimiento de la opción, expresado en años."
+        "es": "Tiempo restante hasta el vencimiento de la opción, expresado en años.",
+        "ar": "الوقت المتبقي حتى انتهاء صلاحية الخيار، معبرًا عنه بالسنوات."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Risikofreier Zinssatz",
         "fr": "Taux d'intérêt sans risque",
         "es": "Tasa de interés libre de riesgo",
-        "ar": "Risk-Free Interest Rate"
+        "ar": "سعر الفائدة الخالي من المخاطر"
       },
       "businessContext_i18n": {
         "en": "Annual risk-free interest rate (e.g., 5 for 5%).",
         "tr": "Yıllık risksiz faiz oranı (örneğin %5 için 5).",
         "de": "Jährlicher risikofreier Zinssatz (z. B. 5 für 5%).",
         "fr": "Taux d'intérêt annuel sans risque (ex. 5 pour 5%).",
-        "es": "Tasa de interés anual libre de riesgo (por ejemplo, 5 para 5%)."
+        "es": "Tasa de interés anual libre de riesgo (por ejemplo, 5 para 5%).",
+        "ar": "سعر الفائدة السنوي الخالي من المخاطر (مثال: 5 لـ 5%)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Volatilität",
         "fr": "Volatilité",
         "es": "Volatilidad",
-        "ar": "Volatility"
+        "ar": "التقلب"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%).",
         "tr": "Dayanak varlık getirilerinin yıllık standart sapması (örneğin %20 için 20).",
         "de": "Annualisierte Standardabweichung der Renditen des Basiswerts (z. B. 20 für 20%).",
         "fr": "Écart-type annualisé des rendements du sous-jacent (ex. 20 pour 20%).",
-        "es": "Desviación estándar anualizada de los rendimientos del subyacente (por ejemplo, 20 para 20%)."
+        "es": "Desviación estándar anualizada de los rendimientos del subyacente (por ejemplo, 20 para 20%).",
+        "ar": "الانحراف المعياري السنوي لعوائد الأصل الأساسي (مثال: 20 لـ 20%)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Länge (cm)",
         "fr": "Longueur (cm)",
         "es": "Longitud (cm)",
-        "ar": "Length (cm)"
+        "ar": "الطول (سم)"
       },
       "businessContext_i18n": {
         "en": "Measured length at reference temperature (20°C) in centimeters.",
         "tr": "Referans sıcaklıkta (20°C) santimetre cinsinden ölçülen uzunluk.",
         "de": "Gemessene Länge bei Referenztemperatur (20°C) in Zentimetern.",
         "fr": "Longueur mesurée à température de référence (20°C) en centimètres.",
-        "es": "Longitud medida a temperatura de referencia (20°C) en centímetros."
+        "es": "Longitud medida a temperatura de referencia (20°C) en centímetros.",
+        "ar": "الطول المقاس عند درجة الحرارة المرجعية (20°م) بالسنتيمتر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Korrekturfaktor",
         "fr": "Facteur de correction",
         "es": "Factor de corrección",
-        "ar": "Correction Factor"
+        "ar": "عامل التصحيح"
       },
       "businessContext_i18n": {
         "en": "Systematic measurement correction factor (dimensionless).",
         "tr": "Sistematik ölçüm düzeltme faktörü (boyutsuz).",
         "de": "Systematischer Messkorrekturfaktor (dimensionslos).",
         "fr": "Facteur de correction systématique de mesure (sans dimension).",
-        "es": "Factor de corrección de medición sistemática (adimensional)."
+        "es": "Factor de corrección de medición sistemática (adimensional).",
+        "ar": "عامل تصحيح القياس المنتظم (بدون أبعاد)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Temperatur (°C)",
         "fr": "Température (°C)",
         "es": "Temperatura (°C)",
-        "ar": "Temperature (°C)"
+        "ar": "درجة الحرارة (°م)"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature in degrees Celsius.",
         "tr": "Santigrat derece cinsinden ortam sıcaklığı.",
         "de": "Umgebungstemperatur in Grad Celsius.",
         "fr": "Température ambiante en degrés Celsius.",
-        "es": "Temperatura ambiente en grados Celsius."
+        "es": "Temperatura ambiente en grados Celsius.",
+        "ar": "درجة الحرارة المحيطة بالدرجات المئوية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ausdehnungskoeffizient",
         "fr": "Coefficient de dilatation",
         "es": "Coeficiente de expansión",
-        "ar": "Expansion Coefficient"
+        "ar": "معامل التمدد"
       },
       "businessContext_i18n": {
         "en": "Linear thermal expansion coefficient of material in per degree Celsius.",
         "tr": "Malzemenin santigrat derece başına doğrusal termal genleşme katsayısı.",
         "de": "Linearer thermischer Ausdehnungskoeffizient des Materials in pro Grad Celsius.",
         "fr": "Coefficient de dilatation thermique linéaire du matériau en par degré Celsius.",
-        "es": "Coeficiente de expansión térmica lineal del material en por grado Celsius."
+        "es": "Coeficiente de expansión térmica lineal del material en por grado Celsius.",
+        "ar": "معامل التمدد الحراري الخطي للمادة لكل درجة مئوية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Toleranz (cm)",
         "fr": "Tolérance (cm)",
         "es": "Tolerancia (cm)",
-        "ar": "Tolerance (cm)"
+        "ar": "التسامح (سم)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance limit in centimeters.",
         "tr": "Santimetre cinsinden üretim tolerans sınırı.",
         "de": "Fertigungstoleranzgrenze in Zentimetern.",
         "fr": "Limite de tolérance de fabrication en centimètres.",
-        "es": "Límite de tolerancia de fabricación en centímetros."
+        "es": "Límite de tolerancia de fabricación en centímetros.",
+        "ar": "حد التسامح التصنيعي بالسنتيمتر."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Chargenmenge",
         "fr": "Quantité de lot",
         "es": "Cantidad del lote",
-        "ar": "Batch Quantity"
+        "ar": "كمية الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of identical pieces.",
         "tr": "Özdeş parça sayısı.",
         "de": "Anzahl identischer Teile.",
         "fr": "Nombre de pièces identiques.",
-        "es": "Número de piezas idénticas."
+        "es": "Número de piezas idénticas.",
+        "ar": "عدد القطع المتطابقة."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output formatting.",
         "tr": "Çıktı biçimlendirmesi için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabeformatierung.",
         "fr": "Nombre de décimales pour le formatage de la sortie.",
-        "es": "Número de decimales para el formato de salida."
+        "es": "Número de decimales para el formato de salida.",
+        "ar": "عدد المنازل العشرية لتنسيق المخرجات."
       }
     }
   ],

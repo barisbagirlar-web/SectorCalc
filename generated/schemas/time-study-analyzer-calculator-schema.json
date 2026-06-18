@@ -22,13 +22,17 @@
         "en": "Observed Time (seconds)",
         "tr": "Gözlemlenen Süre (saniye)",
         "de": "Beobachtete Zeit (Sekunden)",
-        "fr": "Temps observé (secondes)"
+        "fr": "Temps observé (secondes)",
+        "es": "Tiempo observado (segundos)",
+        "ar": "الزمن الملاحظ (ثوانٍ)"
       },
       "businessContext_i18n": {
         "en": "Average cycle time recorded during direct observation, excluding any abnormal delays.",
         "tr": "Doğrudan gözlem sırasında kaydedilen, anormal gecikmeler hariç ortalama çevrim süresi.",
         "de": "Durchschnittliche Zykluszeit, aufgezeichnet während direkter Beobachtung, ohne abnormale Verzögerungen.",
-        "fr": "Temps de cycle moyen enregistré lors de l'observation directe, hors délais anormaux."
+        "fr": "Temps de cycle moyen enregistré lors de l'observation directe, hors délais anormaux.",
+        "es": "Tiempo de ciclo promedio registrado durante la observación directa, excluyendo demoras anormales.",
+        "ar": "متوسط زمن الدورة المسجل أثناء الملاحظة المباشرة، باستثناء أي تأخيرات غير طبيعية."
       }
     },
     {
@@ -44,13 +48,17 @@
         "en": "Performance Rating (%)",
         "tr": "Performans Değerlendirmesi (%)",
         "de": "Leistungsgrad (%)",
-        "fr": "Taux de performance (%)"
+        "fr": "Taux de performance (%)",
+        "es": "Índice de rendimiento (%)",
+        "ar": "نسبة الأداء (%)"
       },
       "businessContext_i18n": {
         "en": "Operator pace relative to normal (100% = standard pace). Based on Westinghouse or similar rating system.",
         "tr": "Operatör hızının normale göre oranı (%100 = standart hız). Westinghouse veya benzeri değerlendirme sistemine dayanır.",
         "de": "Arbeitstempo relativ zur Norm (100% = Standardtempo). Basierend auf Westinghouse oder ähnlichem Bewertungssystem.",
-        "fr": "Allure de l'opérateur par rapport à la normale (100 % = allure standard). Basé sur le système Westinghouse ou similaire."
+        "fr": "Allure de l'opérateur par rapport à la normale (100 % = allure standard). Basé sur le système Westinghouse ou similaire.",
+        "es": "Ritmo del operador en relación con lo normal (100% = ritmo estándar). Basado en el sistema Westinghouse o similar.",
+        "ar": "سرعة المشغل بالنسبة للسرعة الطبيعية (100% = السرعة القياسية). بناءً على نظام ويستنغهاوس أو نظام تقييم مشابه."
       }
     },
     {
@@ -66,13 +74,17 @@
         "en": "Allowance Percentage (%)",
         "tr": "İzin Yüzdesi (%)",
         "de": "Erholungszuschlag (%)",
-        "fr": "Pourcentage de majoration (%)"
+        "fr": "Pourcentage de majoration (%)",
+        "es": "Porcentaje de tolerancia (%)",
+        "ar": "نسبة السماح (%)"
       },
       "businessContext_i18n": {
         "en": "Total allowance for fatigue, personal needs, and unavoidable delays (ISO 9001 / ILO guidelines).",
         "tr": "Yorgunluk, kişisel ihtiyaçlar ve kaçınılmaz gecikmeler için toplam izin (ISO 9001 / ILO yönergeleri).",
         "de": "Gesamtzuschlag für Ermüdung, persönliche Bedürfnisse und unvermeidbare Verzögerungen (ISO 9001 / ILO-Richtlinien).",
-        "fr": "Majoration totale pour fatigue, besoins personnels et retards inévitables (normes ISO 9001 / OIT)."
+        "fr": "Majoration totale pour fatigue, besoins personnels et retards inévitables (normes ISO 9001 / OIT).",
+        "es": "Tolerancia total por fatiga, necesidades personales y demoras inevitables (directrices ISO 9001 / OIT).",
+        "ar": "إجمالي السماح للإرهاق والاحتياجات الشخصية والتأخيرات الحتمية (إرشادات ISO 9001 / منظمة العمل الدولية)."
       }
     },
     {
@@ -88,13 +100,17 @@
         "en": "Frequency per Cycle",
         "tr": "Çevrim Başına Frekans",
         "de": "Häufigkeit pro Zyklus",
-        "fr": "Fréquence par cycle"
+        "fr": "Fréquence par cycle",
+        "es": "Frecuencia por ciclo",
+        "ar": "التكرار لكل دورة"
       },
       "businessContext_i18n": {
         "en": "How many times the observed element occurs per complete work cycle (e.g., 2 inspections per assembly).",
         "tr": "Gözlemlenen elemanın tam bir iş çevriminde kaç kez gerçekleştiği (örneğin, montaj başına 2 muayene).",
         "de": "Wie oft das beobachtete Element pro vollständigem Arbeitszyklus vorkommt (z.B. 2 Prüfungen pro Montage).",
-        "fr": "Nombre de fois que l'élément observé se produit par cycle de travail complet (ex. 2 inspections par assemblage)."
+        "fr": "Nombre de fois que l'élément observé se produit par cycle de travail complet (ex. 2 inspections par assemblage).",
+        "es": "Cuántas veces ocurre el elemento observado por ciclo de trabajo completo (ej. 2 inspecciones por ensamblaje).",
+        "ar": "عدد مرات حدوث العنصر المرصود لكل دورة عمل كاملة (مثال: فحصان لكل تجميع)."
       }
     },
     {
@@ -113,13 +129,17 @@
         "en": "Work Measurement Method",
         "tr": "İş Ölçüm Yöntemi",
         "de": "Arbeitsmessmethode",
-        "fr": "Méthode de mesure du travail"
+        "fr": "Méthode de mesure du travail",
+        "es": "Método de medición del trabajo",
+        "ar": "طريقة قياس العمل"
       },
       "businessContext_i18n": {
         "en": "The technique used to obtain the observed time; affects confidence and adjustment factors.",
         "tr": "Gözlemlenen süreyi elde etmek için kullanılan teknik; güven ve düzeltme faktörlerini etkiler.",
         "de": "Die Technik zur Ermittlung der beobachteten Zeit; beeinflusst Konfidenz- und Anpassungsfaktoren.",
-        "fr": "Technique utilisée pour obtenir le temps observé ; affecte les facteurs de confiance et d'ajustement."
+        "fr": "Technique utilisée pour obtenir le temps observé ; affecte les facteurs de confiance et d'ajustement.",
+        "es": "Técnica utilizada para obtener el tiempo observado; afecta los factores de confianza y ajuste.",
+        "ar": "التقنية المستخدمة للحصول على الوقت المرصود؛ تؤثر على عوامل الثقة والتعديل."
       },
       "unit": "unit"
     },
@@ -133,13 +153,17 @@
         "en": "Include Learning Curve Adjustment",
         "tr": "Öğrenme Eğrisi Ayarlamasını Dahil Et",
         "de": "Lernkurvenanpassung einschließen",
-        "fr": "Inclure l'ajustement de la courbe d'apprentissage"
+        "fr": "Inclure l'ajustement de la courbe d'apprentissage",
+        "es": "Incluir ajuste por curva de aprendizaje",
+        "ar": "تضمين تعديل منحنى التعلم"
       },
       "businessContext_i18n": {
         "en": "If true, applies a learning curve factor (80% slope) for new or changed processes.",
         "tr": "Doğruysa, yeni veya değiştirilmiş süreçler için bir öğrenme eğrisi faktörü (%80 eğim) uygular.",
         "de": "Wenn wahr, wird ein Lernkurvenfaktor (80% Steigung) für neue oder geänderte Prozesse angewendet.",
-        "fr": "Si vrai, applique un facteur de courbe d'apprentissage (pente de 80 %) pour les processus nouveaux ou modifiés."
+        "fr": "Si vrai, applique un facteur de courbe d'apprentissage (pente de 80 %) pour les processus nouveaux ou modifiés.",
+        "es": "Si es verdadero, aplica un factor de curva de aprendizaje (pendiente del 80%) para procesos nuevos o modificados.",
+        "ar": "إذا كان صحيحًا، يطبق عامل منحنى التعلم (ميل 80%) للعمليات الجديدة أو المتغيرة."
       },
       "unit": "unit"
     }
@@ -189,18 +213,24 @@
     ]
   },
   "formulas": {
-    "result": "observed_time + performance_rating + allowance_percentage",
-    "result_copy": "observed_time + performance_rating + allowance_percentage"
+    "normalized_product": "observed_time * (performance_rating / 100) * (allowance_percentage / 100) * frequency_per_cycle",
+    "result": "observed_time * (performance_rating / 100) * (allowance_percentage / 100) * frequency_per_cycle"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "s"
+    "unit": "%"
   },
   "toolName": "time-study-analyzer-calculator",
   "catalogCategory": "everyday-life",

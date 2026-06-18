@@ -14,14 +14,15 @@
         "de": "Frequenz",
         "fr": "Fréquence",
         "es": "Frecuencia",
-        "ar": "Frequency"
+        "ar": "التردد"
       },
       "businessContext_i18n": {
         "en": "AC supply frequency or operating frequency",
         "tr": "AC besleme frekansı veya çalışma frekansı",
         "de": "AC-Versorgungsfrequenz oder Betriebsfrequenz",
         "fr": "Fréquence d'alimentation CA ou fréquence de fonctionnement",
-        "es": "Frecuencia de alimentación CA o frecuencia de operación"
+        "es": "Frecuencia de alimentación CA o frecuencia de operación",
+        "ar": "تردد مصدر التيار المتردد أو تردد التشغيل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Induktivität",
         "fr": "Inductance",
         "es": "Inductancia",
-        "ar": "Inductance"
+        "ar": "الحث"
       },
       "businessContext_i18n": {
         "en": "Inductance of the coil or inductor",
         "tr": "Bobin veya indüktörün endüktansı",
         "de": "Induktivität der Spule oder des Induktors",
         "fr": "Inductance de la bobine ou de l'inducteur",
-        "es": "Inductancia de la bobina o inductor"
+        "es": "Inductancia de la bobina o inductor",
+        "ar": "حث الملف أو المحث"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gemessene Spannung",
         "fr": "Tension mesurée",
         "es": "Tensión medida",
-        "ar": "Measured Voltage"
+        "ar": "الجهد المقاس"
       },
       "businessContext_i18n": {
         "en": "RMS voltage measured across the inductor (optional for experimental verification)",
         "tr": "İndüktör üzerinde ölçülen RMS gerilimi (deneysel doğrulama için isteğe bağlı)",
         "de": "RMS-Spannung gemessen über der Induktivität (optional für experimentelle Überprüfung)",
         "fr": "Tension efficace mesurée aux bornes de l'inducteur (optionnel pour vérification expérimentale)",
-        "es": "Tensión RMS medida en el inductor (opcional para verificación experimental)"
+        "es": "Tensión RMS medida en el inductor (opcional para verificación experimental)",
+        "ar": "جهد RMS المقاس عبر المحث (اختياري للتحقق التجريبي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gemessener Strom",
         "fr": "Courant mesuré",
         "es": "Corriente medida",
-        "ar": "Measured Current"
+        "ar": "التيار المقاس"
       },
       "businessContext_i18n": {
         "en": "RMS current through the inductor (optional for experimental verification)",
         "tr": "İndüktörden geçen RMS akımı (deneysel doğrulama için isteğe bağlı)",
         "de": "RMS-Strom durch die Induktivität (optional für experimentelle Überprüfung)",
         "fr": "Courant efficace traversant l'inducteur (optionnel pour vérification expérimentale)",
-        "es": "Corriente RMS a través del inductor (opcional para verificación experimental)"
+        "es": "Corriente RMS a través del inductor (opcional para verificación experimental)",
+        "ar": "تيار RMS عبر المحث (اختياري للتحقق التجريبي)"
       }
     }
   ],

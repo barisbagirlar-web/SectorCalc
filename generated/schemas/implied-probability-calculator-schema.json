@@ -14,14 +14,15 @@
         "de": "Quotenformat",
         "fr": "Format des cotes",
         "es": "Formato de cuotas",
-        "ar": "Odds Format"
+        "ar": "تنسيق الاحتمالات"
       },
       "businessContext_i18n": {
         "en": "1: Decimal, 2: Fractional, 3: American",
         "tr": "1: Ondalık, 2: Kesirli, 3: Amerikan",
         "de": "1: Dezimal, 2: Bruch, 3: Amerikanisch",
         "fr": "1: Décimal, 2: Fractionnaire, 3: Américain",
-        "es": "1: Decimal, 2: Fraccionario, 3: Americano"
+        "es": "1: Decimal, 2: Fraccionario, 3: Americano",
+        "ar": "1: عشري، 2: كسري، 3: أمريكي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dezimalquote",
         "fr": "Cotes décimales",
         "es": "Cuotas decimales",
-        "ar": "Decimal Odds"
+        "ar": "الاحتمالات العشرية"
       },
       "businessContext_i18n": {
         "en": "Enter decimal odds",
         "tr": "Ondalık oranı girin",
         "de": "Dezimalquote eingeben",
         "fr": "Saisir les cotes décimales",
-        "es": "Ingrese cuotas decimales"
+        "es": "Ingrese cuotas decimales",
+        "ar": "أدخل الاحتمالات العشرية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bruch-Zähler",
         "fr": "Numérateur fractionnaire",
         "es": "Numerador fraccionario",
-        "ar": "Fractional Numerator"
+        "ar": "بسط الكسر"
       },
       "businessContext_i18n": {
         "en": "Numerator of fractional odds",
         "tr": "Kesirli oranın payı",
         "de": "Zähler der Bruchquote",
         "fr": "Numérateur des cotes fractionnaires",
-        "es": "Numerador de las cuotas fraccionarias"
+        "es": "Numerador de las cuotas fraccionarias",
+        "ar": "بسط الاحتمالات الكسرية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bruch-Nenner",
         "fr": "Dénominateur fractionnaire",
         "es": "Denominador fraccionario",
-        "ar": "Fractional Denominator"
+        "ar": "مقام الكسر"
       },
       "businessContext_i18n": {
         "en": "Denominator of fractional odds",
         "tr": "Kesirli oranın paydası",
         "de": "Nenner der Bruchquote",
         "fr": "Dénominateur des cotes fractionnaires",
-        "es": "Denominador de las cuotas fraccionarias"
+        "es": "Denominador de las cuotas fraccionarias",
+        "ar": "مقام الاحتمالات الكسرية"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Amerikanische Quoten",
         "fr": "Cotes américaines",
         "es": "Cuotas americanas",
-        "ar": "American Odds"
+        "ar": "الاحتمالات الأمريكية"
       },
       "businessContext_i18n": {
         "en": "Positive for underdog, negative for favorite",
         "tr": "Sürpriz için pozitif, favori için negatif",
         "de": "Positiv für Außenseiter, negativ für Favorit",
         "fr": "Positif pour outsider, négatif pour favori",
-        "es": "Positivo para el no favorito, negativo para el favorito"
+        "es": "Positivo para el no favorito, negativo para el favorito",
+        "ar": "موجب للمستضعف، سالب للمفضل"
       }
     }
   ],
   "formulas": {
-    "result": "oddsType + decimalOdds + fractionalNumerator",
-    "result_copy": "oddsType + decimalOdds + fractionalNumerator"
+    "normalized_product": "oddsType * decimalOdds * fractionalNumerator * fractionalDenominator",
+    "result": "oddsType * decimalOdds * fractionalNumerator * fractionalDenominator * (americanOdds)",
+    "adjustment_factor": "americanOdds"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "probabilityDecimal",
-      "fairDecimalOdds"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fairDecimalOdds",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

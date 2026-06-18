@@ -14,14 +14,15 @@
         "de": "Chargengröße (g)",
         "fr": "Taille de lot (g)",
         "es": "Tamaño de lote (g)",
-        "ar": "Batch Size (g)"
+        "ar": "حجم الدفعة (غ)"
       },
       "businessContext_i18n": {
         "en": "Production batch size in grams, typical lab scale is 1000g.",
         "tr": "Gram cinsinden üretim parti büyüklüğü, tipik laboratuvar ölçeği 1000g'dir.",
         "de": "Produktionschargengröße in Gramm, typischer Labormaßstab 1000 g.",
         "fr": "Taille de lot de production en grammes, l'échelle laboratoire typique est de 1000 g.",
-        "es": "Tamaño de lote de producción en gramos, escala típica de laboratorio es 1000 g."
+        "es": "Tamaño de lote de producción en gramos, escala típica de laboratorio es 1000 g.",
+        "ar": "حجم دفعة الإنتاج بالغرامات، المقياس المخبري النموذجي هو 1000غ."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stückgewicht (g)",
         "fr": "Poids unitaire (g)",
         "es": "Peso unitario (g)",
-        "ar": "Unit Weight (g)"
+        "ar": "وزن الوحدة (غ)"
       },
       "businessContext_i18n": {
         "en": "Weight per finished product unit (e.g., a foundation is 30g, a lipstick 4g).",
         "tr": "Bitmiş ürün birimi başına ağırlık (örneğin, bir fondöten 30g, bir ruj 4g).",
         "de": "Gewicht pro fertigem Produkt (z. B. eine Foundation 30 g, ein Lippenstift 4 g).",
         "fr": "Poids par unité de produit fini (ex. un fond de teint fait 30 g, un rouge à lèvres 4 g).",
-        "es": "Peso por unidad de producto terminado (ej., una base es 30 g, un labial 4 g)."
+        "es": "Peso por unidad de producto terminado (ej., una base es 30 g, un labial 4 g).",
+        "ar": "الوزن لكل وحدة منتج نهائي (مثل كريم الأساس 30غ، أحمر الشفاه 4غ)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Materialkosten pro Gramm",
         "fr": "Coût matière par gramme",
         "es": "Coste de material por gramo",
-        "ar": "Material Cost per Gram"
+        "ar": "تكلفة المواد لكل جرام"
       },
       "businessContext_i18n": {
         "en": "Average bulk raw material cost per gram including all ingredients.",
         "tr": "Tüm bileşenler dahil gram başına ortalama toplu hammadde maliyeti.",
         "de": "Durchschnittliche Rohmaterialkosten pro Gramm inklusive aller Inhaltsstoffe.",
         "fr": "Coût moyen des matières premières en vrac par gramme, tous ingrédients compris.",
-        "es": "Coste medio de materia prima a granel por gramo, incluyendo todos los ingredientes."
+        "es": "Coste medio de materia prima a granel por gramo, incluyendo todos los ingredientes.",
+        "ar": "متوسط تكلفة المواد الخام السائبة لكل جرام بما في ذلك جميع المكونات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Behälterkosten pro Stück",
         "fr": "Coût du contenant par unité",
         "es": "Coste de envase por unidad",
-        "ar": "Container Cost per Unit"
+        "ar": "تكلفة الحاوية لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Packaging and container cost per finished product unit.",
         "tr": "Bitmiş ürün birimi başına ambalaj ve kap maliyeti.",
         "de": "Verpackungs- und Behälterkosten pro fertigem Produkt.",
         "fr": "Coût de l'emballage et du contenant par unité de produit fini.",
-        "es": "Coste de embalaje y envase por unidad de producto terminado."
+        "es": "Coste de embalaje y envase por unidad de producto terminado.",
+        "ar": "تكلفة التغليف والحاوية لكل وحدة منتج نهائي."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Arbeitskosten pro Stück",
         "fr": "Coût de main-d'œuvre par unité",
         "es": "Coste de mano de obra por unidad",
-        "ar": "Labor Cost per Unit"
+        "ar": "تكلفة العمالة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost allocated per finished product unit.",
         "tr": "Bitmiş ürün birimi başına tahsis edilen doğrudan işçilik maliyeti.",
         "de": "Direkte Arbeitskosten, die pro fertigem Produkt anfallen.",
         "fr": "Coût direct de main-d'œuvre alloué par unité de produit fini.",
-        "es": "Coste de mano de obra directa asignado por unidad de producto terminado."
+        "es": "Coste de mano de obra directa asignado por unidad de producto terminado.",
+        "ar": "تكلفة العمالة المباشرة المخصصة لكل وحدة منتج نهائي."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gemeinkosten (%)",
         "fr": "Frais généraux (%)",
         "es": "Gastos generales (%)",
-        "ar": "Overhead (%)"
+        "ar": "النسبة العامة (%)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing overhead as a percentage of total direct cost.",
         "tr": "Toplam doğrudan maliyetin yüzdesi olarak üretim genel gideri.",
         "de": "Fertigungsgemeinkosten als Prozentsatz der gesamten direkten Kosten.",
         "fr": "Frais généraux de fabrication en pourcentage du coût direct total.",
-        "es": "Gastos generales de fabricación como porcentaje del coste directo total."
+        "es": "Gastos generales de fabricación como porcentaje del coste directo total.",
+        "ar": "النفقات العامة للتصنيع كنسبة مئوية من التكلفة المباشرة الإجمالية."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Gewünschte Marge (%)",
         "fr": "Marge souhaitée (%)",
         "es": "Margen deseado (%)",
-        "ar": "Desired Margin (%)"
+        "ar": "الهامش المطلوب (%)"
       },
       "businessContext_i18n": {
         "en": "Profit margin markup on total cost per unit to determine selling price.",
         "tr": "Satış fiyatını belirlemek için birim başına toplam maliyet üzerine kâr marjı.",
         "de": "Gewinnmargenaufschlag auf die Gesamtkosten pro Stück zur Bestimmung des Verkaufspreises.",
         "fr": "Majoration de marge bénéficiaire sur le coût total par unité pour déterminer le prix de vente.",
-        "es": "Margen de beneficio sobre el coste total por unidad para determinar el precio de venta."
+        "es": "Margen de beneficio sobre el coste total por unidad para determinar el precio de venta.",
+        "ar": "زيادة هامش الربح على التكلفة الإجمالية لكل وحدة لتحديد سعر البيع."
       }
     }
   ],

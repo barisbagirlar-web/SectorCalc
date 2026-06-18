@@ -14,14 +14,15 @@
         "de": "Datenmenge",
         "fr": "Taille des données",
         "es": "Tamaño de datos",
-        "ar": "Data Size"
+        "ar": "حجم البيانات"
       },
       "businessContext_i18n": {
         "en": "Total data volume to be transferred",
         "tr": "Aktarılacak Toplam Veri Hacmi",
         "de": "Zu übertragendes Gesamtdatenvolumen",
         "fr": "Volume total de données à transférer",
-        "es": "Volumen total de datos a transferir"
+        "es": "Volumen total de datos a transferir",
+        "ar": "إجمالي حجم البيانات المراد نقلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Übertragungsgeschwindigkeit",
         "fr": "Vitesse de transfert",
         "es": "Velocidad de transferencia",
-        "ar": "Transfer Speed"
+        "ar": "سرعة النقل"
       },
       "businessContext_i18n": {
         "en": "Available network bandwidth",
         "tr": "Mevcut ağ bant genişliği",
         "de": "Verfügbare Netzwerkbandbreite",
         "fr": "Bande passante réseau disponible",
-        "es": "Ancho de banda de red disponible"
+        "es": "Ancho de banda de red disponible",
+        "ar": "عرض النطاق الترددي المتاح للشبكة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Protokoll-Overhead",
         "fr": "Surcharge de protocole",
         "es": "Sobrecarga de protocolo",
-        "ar": "Protocol Overhead"
+        "ar": "النفقات العامة للبروتوكول"
       },
       "businessContext_i18n": {
         "en": "Percentage of bandwidth lost due to protocol overhead",
         "tr": "Protokol yükü nedeniyle kaybedilen bant genişliği yüzdesi",
         "de": "Prozentsatz der durch Protokoll-Overhead verlorenen Bandbreite",
         "fr": "Pourcentage de bande passante perdu en raison des frais généraux de protocole",
-        "es": "Porcentaje de ancho de banda perdido debido a sobrecarga de protocolo"
+        "es": "Porcentaje de ancho de banda perdido debido a sobrecarga de protocolo",
+        "ar": "نسبة عرض النطاق الترددي المفقود بسبب الحمل الزائد للبروتوكول"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Dateien",
         "fr": "Nombre de fichiers",
         "es": "Número de archivos",
-        "ar": "Number of Files"
+        "ar": "عدد الملفات"
       },
       "businessContext_i18n": {
         "en": "Number of separate files, each incurring transfer latency",
         "tr": "Her biri aktarım gecikmesine neden olan ayrı dosya sayısı",
         "de": "Anzahl der einzelnen Dateien, die jeweils eine Übertragungslatenz verursachen",
         "fr": "Nombre de fichiers distincts, chacun entraînant une latence de transfert",
-        "es": "Número de archivos separados, cada uno incurre en latencia de transferencia"
+        "es": "Número de archivos separados, cada uno incurre en latencia de transferencia",
+        "ar": "عدد الملفات المنفصلة، كل منها يتسبب في تأخير النقل"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Latenz pro Datei",
         "fr": "Latence par fichier",
         "es": "Latencia por archivo",
-        "ar": "Latency per File"
+        "ar": "زمن الانتظار لكل ملف"
       },
       "businessContext_i18n": {
         "en": "Handshake latency incurred per file (e.g., RTT for request/response)",
         "tr": "Dosya başına oluşan el sıkışma gecikmesi (ör. istek/yanıt için RTT)",
         "de": "Handshake-Latenz pro Datei (z. B. RTT für Anfrage/Antwort)",
         "fr": "Latence d'établissement de connexion par fichier (ex. RTT pour requête/réponse)",
-        "es": "Latencia de negociación incurrida por archivo (p. ej., RTT para solicitud/respuesta)"
+        "es": "Latencia de negociación incurrida por archivo (p. ej., RTT para solicitud/respuesta)",
+        "ar": "زمن انتظار المصافحة المتكبّد لكل ملف (مثل زمن الرحلة ذهابًا وإيابًا للطلب/الاستجابة)"
       }
     }
   ],
   "formulas": {
-    "result": "dataSize + transferSpeed + overheadPercent",
-    "result_copy": "dataSize + transferSpeed + overheadPercent"
+    "normalized_product": "dataSize * transferSpeed * (overheadPercent / 100) * numberOfFiles",
+    "result": "dataSize * transferSpeed * (overheadPercent / 100) * numberOfFiles * (latencyPerFile)",
+    "adjustment_factor": "latencyPerFile"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalTimeSeconds",
-      "totalTimeHours",
-      "effectiveSpeedMbps",
-      "dataTransferSeconds"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalTimeHours",
-    "unit": "GB",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "totalTimeHours": "h"
     }

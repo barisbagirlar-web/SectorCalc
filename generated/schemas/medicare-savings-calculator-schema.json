@@ -14,14 +14,15 @@
         "de": "Aktuelles Alter",
         "fr": "Âge actuel",
         "es": "Edad actual",
-        "ar": "Current Age"
+        "ar": "العمر الحالي"
       },
       "businessContext_i18n": {
         "en": "The individual's current age in years.",
         "tr": "Bireyin yıl cinsinden mevcut yaşı.",
         "de": "Das aktuelle Alter der Person in Jahren.",
         "fr": "Âge actuel de l'individu en années.",
-        "es": "La edad actual del individuo en años."
+        "es": "La edad actual del individuo en años.",
+        "ar": "العمر الحالي للفرد بالسنوات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rentenalter",
         "fr": "Âge de la retraite",
         "es": "Edad de jubilación",
-        "ar": "Retirement Age"
+        "ar": "سن التقاعد"
       },
       "businessContext_i18n": {
         "en": "Age at which individual plans to retire and become eligible for Medicare.",
         "tr": "Bireyin emekli olmayı ve Medicare'e hak kazanmayı planladığı yaş.",
         "de": "Alter, in dem die Person plant, in Rente zu gehen und Anspruch auf Medicare zu haben.",
         "fr": "Âge auquel l'individu prévoit de prendre sa retraite et de devenir éligible à Medicare.",
-        "es": "Edad a la que el individuo planea jubilarse y ser elegible para Medicare."
+        "es": "Edad a la que el individuo planea jubilarse y ser elegible para Medicare.",
+        "ar": "العمر الذي يخطط فيه الفرد للتقاعد ويصبح مؤهلاً لـ Medicare."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aktuelle jährliche medizinische Ausgaben",
         "fr": "Dépenses médicales annuelles actuelles",
         "es": "Gastos médicos anuales actuales",
-        "ar": "Current Annual Medical Expenses"
+        "ar": "المصروفات الطبية السنوية الحالية"
       },
       "businessContext_i18n": {
         "en": "Current annual out-of-pocket medical expenses in US dollars.",
         "tr": "ABD doları cinsinden mevcut yıllık cepten yapılan tıbbi harcamalar.",
         "de": "Aktuelle jährliche Eigenanteilskosten für medizinische Ausgaben in US-Dollar.",
         "fr": "Dépenses médicales annuelles actuelles à votre charge en dollars américains.",
-        "es": "Gastos médicos anuales actuales de bolsillo en dólares estadounidenses."
+        "es": "Gastos médicos anuales actuales de bolsillo en dólares estadounidenses.",
+        "ar": "المصروفات الطبية السنوية الحالية من الجيب بالدولار الأمريكي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Erwartete Inflationsrate im Gesundheitswesen",
         "fr": "Taux d'inflation des soins de santé attendu",
         "es": "Tasa de inflación sanitaria esperada",
-        "ar": "Expected Healthcare Inflation Rate"
+        "ar": "معدل التضخم المتوقع للرعاية الصحية"
       },
       "businessContext_i18n": {
         "en": "Annual expected growth rate of medical costs in percent.",
         "tr": "Tıbbi maliyetlerin yıllık beklenen büyüme oranı (yüzde).",
         "de": "Jährliche erwartete Wachstumsrate der medizinischen Kosten in Prozent.",
         "fr": "Taux de croissance annuel attendu des coûts médicaux en pourcentage.",
-        "es": "Tasa de crecimiento anual esperada de los costos médicos en porcentaje."
+        "es": "Tasa de crecimiento anual esperada de los costos médicos en porcentaje.",
+        "ar": "معدل النمو السنوي المتوقع للتكاليف الطبية بالنسبة المئوية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jahre im Ruhestand",
         "fr": "Années de retraite",
         "es": "Años en jubilación",
-        "ar": "Years in Retirement"
+        "ar": "سنوات التقاعد"
       },
       "businessContext_i18n": {
         "en": "Expected number of years in retirement during which medical expenses will be incurred.",
         "tr": "Tıbbi giderlerin oluşacağı beklenen emeklilik yılı sayısı.",
         "de": "Erwartete Anzahl der Jahre im Ruhestand, in denen medizinische Ausgaben anfallen.",
         "fr": "Nombre d'années de retraite prévues pendant lesquelles des dépenses médicales seront engagées.",
-        "es": "Número esperado de años en jubilación durante los cuales se incurrirán en gastos médicos."
+        "es": "Número esperado de años en jubilación durante los cuales se incurrirán en gastos médicos.",
+        "ar": "العدد المتوقع لسنوات التقاعد التي ستتحمل خلالها المصروفات الطبية."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Erwartete Kapitalrendite",
         "fr": "Taux de rendement attendu des investissements",
         "es": "Tasa de rendimiento esperada de la inversión",
-        "ar": "Expected Investment Return Rate"
+        "ar": "معدل العائد المتوقع على الاستثمار"
       },
       "businessContext_i18n": {
         "en": "Annual expected rate of return on savings in percent, used to discount future expenses.",
         "tr": "Gelecekteki giderleri iskonto etmek için kullanılan yıllık beklenen tasarruf getiri oranı (yüzde).",
         "de": "Jährliche erwartete Rendite auf Ersparnisse in Prozent, zur Diskontierung zukünftiger Ausgaben.",
         "fr": "Taux de rendement annuel attendu sur l'épargne en pourcentage, utilisé pour actualiser les dépenses futures.",
-        "es": "Tasa de rendimiento anual esperada de los ahorros en porcentaje, utilizada para descontar gastos futuros."
+        "es": "Tasa de rendimiento anual esperada de los ahorros en porcentaje, utilizada para descontar gastos futuros.",
+        "ar": "معدل العائد السنوي المتوقع على المدخرات بالنسبة المئوية، يستخدم لخصم المصروفات المستقبلية."
       }
     }
   ],
   "formulas": {
-    "result": "currentAge + retirementAge + currentAnnualMedicalCost",
-    "result_copy": "currentAge + retirementAge + currentAnnualMedicalCost"
+    "base_cost": "currentAge * currentAnnualMedicalCost",
+    "adjusted_cost": "currentAge * currentAnnualMedicalCost * (1 + (inflationRate / 100))",
+    "result": "currentAge * currentAnnualMedicalCost * (1 + (inflationRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "futureAnnualCost",
-      "totalLifetimeCostWithoutDiscount"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalLifetimeCostWithoutDiscount",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & Muhasebe",

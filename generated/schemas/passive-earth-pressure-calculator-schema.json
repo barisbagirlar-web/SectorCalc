@@ -14,14 +14,15 @@
         "de": "Bodenwichte (γ)",
         "fr": "Poids volumique du sol (γ)",
         "es": "Peso unitario del suelo (γ)",
-        "ar": "Soil Unit Weight (γ)"
+        "ar": "وزن التربة النوعي (γ)"
       },
       "businessContext_i18n": {
         "en": "Weight of soil per unit volume",
         "tr": "Birim hacim başına zemin ağırlığı",
         "de": "Gewicht des Bodens pro Volumeneinheit",
         "fr": "Poids du sol par unité de volume",
-        "es": "Peso del suelo por unidad de volumen"
+        "es": "Peso del suelo por unidad de volumen",
+        "ar": "وزن التربة لكل وحدة حجم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Höhe der Stützmauer (H)",
         "fr": "Hauteur du mur de soutènement (H)",
         "es": "Altura del muro de contención (H)",
-        "ar": "Height of Retaining Wall (H)"
+        "ar": "ارتفاع الجدار الاستنادي (H)"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the retaining wall",
         "tr": "İstinat duvarının dikey yüksekliği",
         "de": "Vertikale Höhe der Stützmauer",
         "fr": "Hauteur verticale du mur de soutènement",
-        "es": "Altura vertical del muro de contención"
+        "es": "Altura vertical del muro de contención",
+        "ar": "الارتفاع الرأسي للجدار الاستنادي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Innerer Reibungswinkel (φ)",
         "fr": "Angle de frottement interne (φ)",
         "es": "Ángulo de fricción interna (φ)",
-        "ar": "Internal Friction Angle (φ)"
+        "ar": "زاوية الاحتكاك الداخلي (φ)"
       },
       "businessContext_i18n": {
         "en": "Angle of internal friction of the backfill soil",
         "tr": "Dolgu zeminin içsel sürtünme açısı",
         "de": "Winkel der inneren Reibung des Hinterfüllbodens",
         "fr": "Angle de frottement interne du sol de remblai",
-        "es": "Ángulo de fricción interna del suelo de relleno"
+        "es": "Ángulo de fricción interna del suelo de relleno",
+        "ar": "زاوية الاحتكاك الداخلي لتربة الردم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kohäsion (c)",
         "fr": "Cohésion (c)",
         "es": "Cohesión (c)",
-        "ar": "Cohesion (c)"
+        "ar": "التماسك (c)"
       },
       "businessContext_i18n": {
         "en": "Cohesion intercept of the soil",
         "tr": "Zeminin kohezyon kesişimi",
         "de": "Kohäsionsintercept des Bodens",
         "fr": "Cohésion du sol",
-        "es": "Intersección de cohesión del suelo"
+        "es": "Intersección de cohesión del suelo",
+        "ar": "قيمة التماسك للتربة"
       }
     },
     {
@@ -106,61 +110,39 @@
         "de": "Auflastdruck (q)",
         "fr": "Pression de surcharge (q)",
         "es": "Presión de sobrecarga (q)",
-        "ar": "Surcharge Pressure (q)"
+        "ar": "ضغط الحمولة الإضافية (q)"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load on the backfill surface",
         "tr": "Dolgu yüzeyindeki düzgün yayılı sürşarj yükü",
         "de": "Gleichmäßige Auflast auf der Hinterfüllungsoberfläche",
         "fr": "Charge de surcharge uniforme sur la surface du remblai",
-        "es": "Carga de sobrecarga uniforme sobre la superficie del relleno"
+        "es": "Carga de sobrecarga uniforme sobre la superficie del relleno",
+        "ar": "حمولة إضافية منتظمة على سطح الردم"
       }
     }
   ],
   "formulas": {
-    "result": "soilUnitWeight + heightOfWall + frictionAngle",
-    "result_copy": "soilUnitWeight + heightOfWall + frictionAngle"
+    "normalized_product": "soilUnitWeight * heightOfWall * frictionAngle * cohesion",
+    "result": "soilUnitWeight * heightOfWall * frictionAngle * cohesion * (surcharge)",
+    "adjustment_factor": "surcharge"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "kp",
-        "label": "Passive Pressure Coefficient (Kp)",
-        "unit": "dimensionless",
-        "value": "kp"
-      },
-      {
-        "id": "passivePressureBase",
-        "label": "Passive Pressure at Base",
-        "unit": "kPa",
-        "value": "passivePressureBase"
-      },
-      {
-        "id": "forceFromSoil",
-        "label": "Force Contribution from Soil Weight",
-        "unit": "kN/m",
-        "value": "forceFromSoil"
-      },
-      {
-        "id": "forceFromSurcharge",
-        "label": "Force Contribution from Surcharge",
-        "unit": "kN/m",
-        "value": "forceFromSurcharge"
-      },
-      {
-        "id": "forceFromCohesion",
-        "label": "Force Contribution from Cohesion",
-        "unit": "kN/m",
-        "value": "forceFromCohesion"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalPassiveForce",
-    "unit": "kN/m³"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

@@ -14,14 +14,15 @@
         "de": "Grundgehalt (monatlich)",
         "fr": "Salaire de base (mensuel)",
         "es": "Salario básico (mensual)",
-        "ar": "Basic Salary (Monthly)"
+        "ar": "الراتب الأساسي (شهريًا)"
       },
       "businessContext_i18n": {
         "en": "Monthly basic salary component",
         "tr": "Aylık temel maaş bileşeni",
         "de": "Monatlicher Grundgehaltsbestandteil",
         "fr": "Composante mensuelle du salaire de base",
-        "es": "Componente del salario básico mensual"
+        "es": "Componente del salario básico mensual",
+        "ar": "مكون الراتب الأساسي الشهري"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Teuerungszulage (monatlich)",
         "fr": "Allocation de cherté de vie (mensuelle)",
         "es": "Asignación por carestía (mensual)",
-        "ar": "Dearness Allowance (Monthly)"
+        "ar": "بدل الغلاء (شهريًا)"
       },
       "businessContext_i18n": {
         "en": "Monthly dearness allowance, if applicable",
         "tr": "Varsa aylık yardım ödeneği",
         "de": "Monatliche Teuerungszulage, falls zutreffend",
         "fr": "Allocation mensuelle de cherté de vie, si applicable",
-        "es": "Asignación mensual por carestía, si aplica"
+        "es": "Asignación mensual por carestía, si aplica",
+        "ar": "بدل الغلاء الشهري، إن وجد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Erhaltene Mietzulage (monatlich)",
         "fr": "Allocation de logement reçue (mensuelle)",
         "es": "HRA recibido (mensual)",
-        "ar": "HRA Received (Monthly)"
+        "ar": "بدل الإيجار المستلم (شهريًا)"
       },
       "businessContext_i18n": {
         "en": "Actual House Rent Allowance received per month",
         "tr": "Aylık alınan fiili kira yardımı",
         "de": "Tatsächlich erhaltene Mietzulage pro Monat",
         "fr": "Allocation réelle de logement reçue par mois",
-        "es": "Asignación real por alquiler de vivienda recibida por mes"
+        "es": "Asignación real por alquiler de vivienda recibida por mes",
+        "ar": "بدل الإيجار الفعلي المستلم شهريًا"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gezahlte Miete (monatlich)",
         "fr": "Loyer payé (mensuel)",
         "es": "Alquiler pagado (mensual)",
-        "ar": "Rent Paid (Monthly)"
+        "ar": "الإيجار المدفوع (شهريًا)"
       },
       "businessContext_i18n": {
         "en": "Monthly rent actually paid",
         "tr": "Gerçekte ödenen aylık kira",
         "de": "Tatsächlich gezahlte Monatsmiete",
         "fr": "Loyer mensuel réellement payé",
-        "es": "Alquiler mensual realmente pagado"
+        "es": "Alquiler mensual realmente pagado",
+        "ar": "الإيجار الفعلي المدفوع شهريًا"
       }
     },
     {
@@ -106,33 +110,41 @@
         "de": "Stadttyp",
         "fr": "Type de ville",
         "es": "Tipo de ciudad",
-        "ar": "City Type"
+        "ar": "نوع المدينة"
       },
       "businessContext_i18n": {
         "en": "Indicates whether the city of residence is a metro (1) or non-metro (0)",
         "tr": "İkamet edilen şehrin büyükşehir (1) veya büyükşehir olmayan (0) olduğunu belirtir",
         "de": "Gibt an, ob der Wohnort eine Metropole (1) oder keine Metropole (0) ist",
         "fr": "Indique si la ville de résidence est une métropole (1) ou non (0)",
-        "es": "Indica si la ciudad de residencia es metropolitana (1) o no metropolitana (0)"
+        "es": "Indica si la ciudad de residencia es metropolitana (1) o no metropolitana (0)",
+        "ar": "يشير إلى ما إذا كانت مدينة السكن حضرية (1) أو غير حضرية (0)"
       }
     }
   ],
   "formulas": {
-    "result": "basicSalary + da + hraReceived",
-    "result_copy": "basicSalary + da + hraReceived"
+    "base_cost": "da * basicSalary",
+    "adjusted_cost": "da * basicSalary * 1",
+    "result": "da * basicSalary * 1 * (hraReceived)",
+    "factor_hraReceived": "hraReceived"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "exemption",
-      "annualTaxableHRA"
+      "base_cost",
+      "adjusted_cost",
+      "factor_hraReceived"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "annualTaxableHRA",
-    "unit": "INR"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "İK & Personel",
   "sector": "Finans & Muhasebe",

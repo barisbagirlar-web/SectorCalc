@@ -14,13 +14,15 @@
         "de": "Drahtdurchmesser",
         "fr": "Diamètre du fil",
         "es": "Diámetro del alambre",
-        "ar": "Wire Diameter"
+        "ar": "قطر السلك"
       },
       "businessContext_i18n": {
         "en": "Wire diameter of the torsion spring (mm).",
         "tr": "Burulma yayının tel çapı (mm).",
         "de": "Drahtdurchmesser der Torsionsfeder (mm).",
-        "fr": "Diamètre du fil du ressort de torsion (mm)"
+        "fr": "Diamètre du fil du ressort de torsion (mm)",
+        "es": "Diámetro del alambre del resorte de torsión (mm).",
+        "ar": "قطر السلك لنابض الالتواء (مم)."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Mittlerer Windungsdurchmesser",
         "fr": "Diamètre moyen de la spire",
         "es": "Diámetro medio de la bobina",
-        "ar": "Mean Coil Diameter"
+        "ar": "متوسط قطر الملف"
       },
       "businessContext_i18n": {
         "en": "Mean diameter of the spring coil (mm).",
         "tr": "Yay sarımının ortalama çapı (mm).",
         "de": "Mittlerer Durchmesser der Federwindung (mm).",
-        "fr": "Diamètre moyen de la spire du ressort (mm)"
+        "fr": "Diamètre moyen de la spire du ressort (mm)",
+        "es": "Diámetro medio de la espiral del resorte (mm).",
+        "ar": "القطر المتوسط لملف النابض (مم)."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Aktif Sarımlar",
         "de": "Aktive Windungen",
         "fr": "Spires actives",
-        "es": "Active Coils",
-        "ar": "Active Coils"
+        "es": "Espiras activas",
+        "ar": "اللفات النشطة"
       },
       "businessContext_i18n": {
         "en": "Number of active coils in the spring.",
         "tr": "Yaydaki aktif sarım sayısı.",
         "de": "Anzahl der aktiven Windungen der Feder.",
-        "fr": "Nombre de spires actives du ressort."
+        "fr": "Nombre de spires actives du ressort.",
+        "es": "Número de espiras activas del resorte.",
+        "ar": "عدد اللفات النشطة في النابض."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Sapma Açısı",
         "de": "Auslenkungswinkel",
         "fr": "Angle de déflexion",
-        "es": "Deflection Angle",
-        "ar": "Deflection Angle"
+        "es": "Ángulo de deflexión",
+        "ar": "زاوية الانحراف"
       },
       "businessContext_i18n": {
         "en": "Angular deflection from free position (degrees).",
         "tr": "Serbest konumdan açısal sapma (derece).",
         "de": "Winkelauslenkung aus der freien Position (Grad).",
-        "fr": "Déflexion angulaire depuis la position libre (degrés)."
+        "fr": "Déflexion angulaire depuis la position libre (degrés).",
+        "es": "Deflexión angular desde la posición libre (grados).",
+        "ar": "الانحراف الزاوي من الوضع الحر (بالدرجات)."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Schubmodul",
         "fr": "Module de cisaillement",
         "es": "Módulo de corte",
-        "ar": "Shear Modulus"
+        "ar": "معامل القص"
       },
       "businessContext_i18n": {
         "en": "Shear modulus of the spring material (e.g., steel ≈ 79 300 MPa).",
         "tr": "Yay malzemesinin kayma modülü (örneğin çelik ≈ 79 300 MPa).",
         "de": "Schubmodul des Federwerkstoffs (z. B. Stahl ≈ 79.300 MPa).",
-        "fr": "Module de cisaillement du matériau du ressort (ex. acier ≈ 79 300 MPa)."
+        "fr": "Module de cisaillement du matériau du ressort (ex. acier ≈ 79 300 MPa).",
+        "es": "Módulo de corte del material del resorte (ej., acero ≈ 79 300 MPa).",
+        "ar": "معامل القص لمادة النابض (مثلاً الفولاذ ≈ 79,300 ميجا باسكال)."
       }
     }
   ],

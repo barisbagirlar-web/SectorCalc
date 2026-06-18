@@ -13,14 +13,16 @@
         "tr": "Ölçü Başına Vuruş",
         "de": "Schläge pro Takt",
         "fr": "Temps par mesure",
-        "es": "Beats per Measure",
-        "ar": "Beats per Measure"
+        "es": "Pulsos por compás",
+        "ar": "عدد النبضات في المازورة"
       },
       "businessContext_i18n": {
         "en": "Top number of time signature (number of beats per measure)",
         "tr": "Zaman işaretinin üst sayısı (ölçü başına vuruş sayısı)",
         "de": "Obere Zahl der Taktart (Anzahl der Schläge pro Takt)",
-        "fr": "Chiffre supérieur de la signature rythmique (nombre de temps par mesure)"
+        "fr": "Chiffre supérieur de la signature rythmique (nombre de temps par mesure)",
+        "es": "Número superior del compás (número de pulsos por compás)",
+        "ar": "الرقم العلوي لتوقيع الزمن (عدد النبضات في المازورة)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Nota Değeri",
         "de": "Notenwert",
         "fr": "Valeur de note",
-        "es": "Note Value",
-        "ar": "Note Value"
+        "es": "Valor de nota",
+        "ar": "قيمة النوتة"
       },
       "businessContext_i18n": {
         "en": "Bottom number of time signature (which note value gets one beat, e.g., 4=quarter, 8=eighth)",
         "tr": "Zaman işaretinin alt sayısı (hangi nota değerinin bir vuruş aldığı, örn. 4=dörtlük, 8=sekizlik)",
         "de": "Untere Zahl der Taktart (welcher Notenwert einen Schlag erhält, z.B. 4=Viertel, 8=Achtel)",
-        "fr": "Chiffre inférieur de la signature rythmique (quelle note vaut un temps, ex. 4=noire, 8=croche)"
+        "fr": "Chiffre inférieur de la signature rythmique (quelle note vaut un temps, ex. 4=noire, 8=croche)",
+        "es": "Número inferior del compás (qué nota recibe un pulso, ej. 4=negra, 8=corchea)",
+        "ar": "الرقم السفلي لتوقيع الزمن (أي قيمة نوتة تحصل على نبضة واحدة، مثلاً 4=ربع، 8=ثمن)"
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Tempo",
         "tr": "Tempo",
-        "de": "Tempo",
-        "fr": "Tempo",
+        "de": "Geschwindigkeit",
+        "fr": "Temps",
         "es": "Tempo",
-        "ar": "Tempo"
+        "ar": "الإيقاع"
       },
       "businessContext_i18n": {
         "en": "Beats per minute (typically the beat unit equals the denominator note value)",
         "tr": "Dakikadaki vuruş sayısı (genellikle vuruş birimi payda nota değerine eşittir)",
         "de": "Schläge pro Minute (typischerweise entspricht die Schlageinheit dem Nenner-Notenwert)",
-        "fr": "Temps par minute (généralement l'unité de temps correspond à la note du dénominateur)"
+        "fr": "Temps par minute (généralement l'unité de temps correspond à la note du dénominateur)",
+        "es": "Pulsos por minuto (normalmente la unidad de pulso es igual al valor de nota del denominador)",
+        "ar": "نبضة في الدقيقة (عادةً ما تساوي وحدة النبضة قيمة النوتة في المقام)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ölçü Sayısı",
         "de": "Anzahl der Takte",
         "fr": "Nombre de mesures",
-        "es": "Number of Measures",
-        "ar": "Number of Measures"
+        "es": "Número de compases",
+        "ar": "عدد المازورات"
       },
       "businessContext_i18n": {
         "en": "Number of measures to calculate total duration",
         "tr": "Toplam süreyi hesaplamak için ölçü sayısı",
         "de": "Anzahl der Takte zur Berechnung der Gesamtdauer",
-        "fr": "Nombre de mesures pour calculer la durée totale"
+        "fr": "Nombre de mesures pour calculer la durée totale",
+        "es": "Número de compases para calcular la duración total",
+        "ar": "عدد المازورات لحساب المدة الإجمالية"
       }
     }
   ],

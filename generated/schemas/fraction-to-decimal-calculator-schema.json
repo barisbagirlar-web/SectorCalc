@@ -25,14 +25,16 @@
         "tr": "Pay",
         "de": "Zähler",
         "fr": "Numérateur",
-        "es": "Numerador"
+        "es": "Numerador",
+        "ar": "البسط"
       },
       "businessContext_i18n": {
         "en": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
         "tr": "Kesrin üst kısmı (bölünen). Tam sayılı kesirlerde yalnızca kesirli kısmı kullanın.",
         "de": "Der obere Teil des Bruchs (Dividend). Bei gemischten Zahlen nur den Bruchteil angeben.",
         "fr": "La partie supérieure de la fraction (dividende). Pour les nombres fractionnaires, utilisez uniquement la partie fractionnaire.",
-        "es": "La parte superior de la fracción (dividendo). Para números mixtos, use solo la parte fraccionaria."
+        "es": "La parte superior de la fracción (dividendo). Para números mixtos, use solo la parte fraccionaria.",
+        "ar": "الجزء العلوي من الكسر (المقسوم). للأعداد الكسرية، استخدم الجزء الكسري فقط."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Payda",
         "de": "Nenner",
         "fr": "Dénominateur",
-        "es": "Denominador"
+        "es": "Denominador",
+        "ar": "المقام"
       },
       "businessContext_i18n": {
         "en": "The bottom part of the fraction (divisor). Must be non-zero.",
         "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır.",
         "de": "Der untere Teil des Bruchs (Divisor). Muss ungleich Null sein.",
         "fr": "La partie inférieure de la fraction (diviseur). Doit être non nul.",
-        "es": "La parte inferior de la fracción (divisor). Debe ser distinto de cero."
+        "es": "La parte inferior de la fracción (divisor). Debe ser distinto de cero.",
+        "ar": "الجزء السفلي من الكسر (المقسوم عليه). يجب أن يكون غير صفري."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Tam Sayı (tam sayılı kesirler için)",
         "de": "Ganze Zahl (bei gemischten Brüchen)",
         "fr": "Partie entière (pour fractions mixtes)",
-        "es": "Número entero (para fracciones mixtas)"
+        "es": "Número entero (para fracciones mixtas)",
+        "ar": "العدد الصحيح (للكسور المختلطة)"
       },
       "businessContext_i18n": {
         "en": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
         "tr": "Tam sayı kısmı (ör. 3 1/4'te 3). Basit kesirler için 0 girin.",
         "de": "Ganzzahliger Teil einer gemischten Zahl (z. B. 3 bei 3 1/4). Bei echten Brüchen auf 0 setzen.",
         "fr": "Partie entière d'un nombre fractionnaire (ex. 3 dans 3 1/4). Mettre 0 pour les fractions propres.",
-        "es": "Parte entera de un número mixto (ej., 3 en 3 1/4). Establezca 0 para fracciones propias."
+        "es": "Parte entera de un número mixto (ej., 3 en 3 1/4). Establezca 0 para fracciones propias.",
+        "ar": "الجزء الصحيح من العدد الكسري (مثل 3 في 3 1/4). اضبط على 0 للكسور العادية."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Ondalık basamak sayısı (hassasiyet)",
         "de": "Dezimalstellen (Genauigkeit)",
         "fr": "Décimales (précision)",
-        "es": "Decimales (precisión)"
+        "es": "Decimales (precisión)",
+        "ar": "عدد المنازل العشرية (الدقة)"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
         "tr": "Sonuç için ondalık basamak sayısı. ISO 80000-1 yuvarlama kurallarına uyar.",
         "de": "Anzahl der Dezimalstellen für das Ergebnis. Folgt den Rundungsregeln nach ISO 80000-1.",
         "fr": "Nombre de décimales pour le résultat. Suit les règles d'arrondi ISO 80000-1.",
-        "es": "Número de decimales para el resultado. Sigue las reglas de redondeo ISO 80000-1."
+        "es": "Número de decimales para el resultado. Sigue las reglas de redondeo ISO 80000-1.",
+        "ar": "عدد المنازل العشرية للنتيجة. يتبع قواعد التقريب ISO 80000-1."
       }
     },
     {
@@ -127,14 +135,16 @@
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
-        "es": "Método de redondeo"
+        "es": "Método de redondeo",
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
         "tr": "ISO 80000-1'e göre yuvarlama kuralı (istatistiksel çalışmalar için half_even önerilir).",
         "de": "Rundungsregel nach ISO 80000-1 (half_even für statistische Arbeiten empfohlen).",
         "fr": "Règle d'arrondi selon ISO 80000-1 (half_even recommandé pour les travaux statistiques).",
-        "es": "Regla de redondeo según ISO 80000-1 (se recomienda half_even para trabajo estadístico)."
+        "es": "Regla de redondeo según ISO 80000-1 (se recomienda half_even para trabajo estadístico).",
+        "ar": "قاعدة التقريب وفقًا لـ ISO 80000-1 (يوصى بـ half_even للعمل الإحصائي)."
       }
     },
     {
@@ -151,14 +161,16 @@
         "tr": "Ölçüm belirsizliği (±)",
         "de": "Messunsicherheit (±)",
         "fr": "Incertitude de mesure (±)",
-        "es": "Incertidumbre de medición (±)"
+        "es": "Incertidumbre de medición (±)",
+        "ar": "عدم اليقين في القياس (±)"
       },
       "businessContext_i18n": {
         "en": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
         "tr": "Paydaki mutlak belirsizlik (ör. ölçüm toleransından). Altı Sigma belirsizlik yayılımı için kullanılır.",
         "de": "Absolute Unsicherheit im Zähler (z. B. aus Messtoleranz). Für Six Sigma Unsicherheitsfortpflanzung.",
         "fr": "Incertitude absolue au numérateur (ex. tolérance de mesure). Utilisée pour la propagation d'incertitude Six Sigma.",
-        "es": "Incertidumbre absoluta en el numerador (p. ej., de la tolerancia de medición). Se utiliza para la propagación de incertidumbre en Seis Sigma."
+        "es": "Incertidumbre absoluta en el numerador (p. ej., de la tolerancia de medición). Se utiliza para la propagación de incertidumbre en Seis Sigma.",
+        "ar": "عدم اليقين المطلق في البسط (مثل من تفاوت القياس). يُستخدم لانتشار عدم اليقين في ستة سيجما."
       }
     }
   ],
@@ -199,18 +211,26 @@
     ]
   },
   "formulas": {
-    "result": "numerator + denominator + wholeNumber",
-    "result_copy": "numerator + denominator + wholeNumber"
+    "normalized_product": "numerator * denominator * wholeNumber * decimalPlaces",
+    "result": "numerator * denominator * wholeNumber * decimalPlaces * (uncertaintyInput)",
+    "adjustment_factor": "uncertaintyInput"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "—"
+    "unit": "units"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

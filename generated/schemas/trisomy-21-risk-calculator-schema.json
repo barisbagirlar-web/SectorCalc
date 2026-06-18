@@ -14,13 +14,15 @@
         "de": "Mütterliches Alter",
         "fr": "Âge maternel",
         "es": "Edad materna",
-        "ar": "Maternal Age"
+        "ar": "عمر الأم"
       },
       "businessContext_i18n": {
         "en": "Mother's age at expected delivery date",
         "tr": "Annenin beklenen doğum tarihindeki yaşı",
         "de": "Alter der Mutter zum voraussichtlichen Geburtstermin",
-        "fr": "Âge de la mère à la date prévue d'accouchement"
+        "fr": "Âge de la mère à la date prévue d'accouchement",
+        "es": "Edad de la madre en la fecha prevista de parto",
+        "ar": "عمر الأم في تاريخ الولادة المتوقع"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Gestationsalter",
         "fr": "Âge gestationnel",
         "es": "Edad gestacional",
-        "ar": "Gestational Age"
+        "ar": "العمر الحملي"
       },
       "businessContext_i18n": {
         "en": "Weeks of pregnancy",
         "tr": "Gebelik haftası",
         "de": "Schwangerschaftswochen",
-        "fr": "Semaines de grossesse"
+        "fr": "Semaines de grossesse",
+        "es": "Semanas de embarazo",
+        "ar": "أسابيع الحمل"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Nackentransparenz (NT)",
         "fr": "Clarté nucale (CN)",
         "es": "Translucencia nucal (TN)",
-        "ar": "Nuchal Translucency (NT)"
+        "ar": "الشفافية القفوية (NT)"
       },
       "businessContext_i18n": {
         "en": "NT thickness measured via ultrasound",
         "tr": "Ultrason ile ölçülen NT kalınlığı",
         "de": "NT-Dicke gemessen mittels Ultraschall",
-        "fr": "Épaisseur de la clarté nucale mesurée par échographie"
+        "fr": "Épaisseur de la clarté nucale mesurée par échographie",
+        "es": "Grosor de la TN medido por ecografía",
+        "ar": "سمك الشفافية القفوية (NT) المقاس بالموجات فوق الصوتية"
       }
     },
     {
@@ -86,7 +92,9 @@
         "en": "Pregnancy-associated plasma protein A in multiples of median",
         "tr": "Medyan katları cinsinden gebelikle ilişkili plazma protein A",
         "de": "Schwangerschafts-assoziiertes Plasmaprotein A in Vielfachen des Medians",
-        "fr": "Protéine plasmatique A associée à la grossesse en multiples de la médiane"
+        "fr": "Protéine plasmatique A associée à la grossesse en multiples de la médiane",
+        "es": "Proteína plasmática A asociada al embarazo en múltiplos de la mediana",
+        "ar": "بروتين البلازما المرتبط بالحمل A بوحدات مضاعفات الوسيط"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Serbest β-hCG",
         "de": "Freies β-hCG",
         "fr": "β-hCG libre",
-        "es": "Free β-hCG",
+        "es": "β-hCG libre",
         "ar": "Free β-hCG"
       },
       "businessContext_i18n": {
         "en": "Free beta human chorionic gonadotropin in multiples of median",
         "tr": "Medyan katları cinsinden serbest beta insan koryonik gonadotropin",
         "de": "Freies Beta-humanes Choriongonadotropin in Vielfachen des Medians",
-        "fr": "Gonadotrophine chorionique humaine bêta libre en multiples de la médiane"
+        "fr": "Gonadotrophine chorionique humaine bêta libre en multiples de la médiane",
+        "es": "Gonadotropina coriónica humana beta libre en múltiplos de la mediana",
+        "ar": "موجهة الغدد التناسلية المشيمائية البشرية بيتا الحرة بوحدات مضاعفات الوسيط"
       }
     },
     {
@@ -123,33 +133,40 @@
         "tr": "Önceki Trizomi 21",
         "de": "Vorherige Trisomie 21",
         "fr": "Antécédent de trisomie 21",
-        "es": "Previous Trisomy 21",
-        "ar": "Previous Trisomy 21"
+        "es": "Trisomía 21 anterior",
+        "ar": "تاريخ متلازمة داون السابق"
       },
       "businessContext_i18n": {
         "en": "Number of prior pregnancies affected by trisomy 21",
         "tr": "Trizomi 21'den etkilenen önceki gebelik sayısı",
         "de": "Anzahl früherer Schwangerschaften mit Trisomie 21",
-        "fr": "Nombre de grossesses antérieures affectées par la trisomie 21"
+        "fr": "Nombre de grossesses antérieures affectées par la trisomie 21",
+        "es": "Número de embarazos previos afectados por trisomía 21",
+        "ar": "عدد حالات الحمل السابقة المتأثرة بمتلازمة داون"
       }
     }
   ],
   "formulas": {
-    "result": "maternalAge + gestationalAge + nuchalTranslucency",
-    "result_copy": "maternalAge + gestationalAge + nuchalTranslucency"
+    "normalized_product": "maternalAge * gestationalAge * nuchalTranslucency * pappA",
+    "result": "maternalAge * gestationalAge * nuchalTranslucency * pappA * (freeBetaHCG * previousTrisomy)",
+    "adjustment_factor": "freeBetaHCG * previousTrisomy"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "baseRiskPercent",
-      "adjustedRiskPercent"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "oneInN",
-    "unit": "years",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "baseRiskPercent": "%",
       "adjustedRiskPercent": "%"

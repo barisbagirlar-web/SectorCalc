@@ -14,14 +14,15 @@
         "de": "Umwandlungstyp (1: Kartesisch→Polar, 2: Polar→Kartesisch)",
         "fr": "Type de conversion (1 : Cartésien→Polaire, 2 : Polaire→Cartésien)",
         "es": "Tipo de conversión (1: Cartesiano→Polar, 2: Polar→Cartesiano)",
-        "ar": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)"
+        "ar": "نوع التحويل (1: ديكارتي→قطبي، 2: قطبي→ديكارتي)"
       },
       "businessContext_i18n": {
         "en": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
         "tr": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
         "de": "Bestimmt die Umwandlungsrichtung: 1 von Kartesisch zu Polar, 2 von Polar zu Kartesisch",
         "fr": "Détermine la direction de la conversion : 1 de Cartésien à Polaire, 2 de Polaire à Cartésien",
-        "es": "Determina la dirección de la conversión: 1 de Cartesiano a Polar, 2 de Polar a Cartesiano"
+        "es": "Determina la dirección de la conversión: 1 de Cartesiano a Polar, 2 de Polar a Cartesiano",
+        "ar": "يحدد اتجاه التحويل: 1 من ديكارتي إلى قطبي، 2 من قطبي إلى ديكارتي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "X-Koordinate",
         "fr": "Coordonnée X",
         "es": "Coordenada X",
-        "ar": "X koordinatı"
+        "ar": "الإحداثي X"
       },
       "businessContext_i18n": {
         "en": "Kartezyen sistemde yatay bileşen (boyutsuz)",
         "tr": "Kartezyen sistemde yatay bileşen (boyutsuz)",
         "de": "Horizontale Komponente im kartesischen System (dimensionslos)",
         "fr": "Composante horizontale dans le système cartésien (sans dimension)",
-        "es": "Componente horizontal en el sistema cartesiano (adimensional)"
+        "es": "Componente horizontal en el sistema cartesiano (adimensional)",
+        "ar": "المركب الأفقي في النظام الديكارتي (بدون أبعاد)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Y-Koordinate",
         "fr": "Coordonnée Y",
         "es": "Coordenada Y",
-        "ar": "Y koordinatı"
+        "ar": "الإحداثي Y"
       },
       "businessContext_i18n": {
         "en": "Kartezyen sistemde düşey bileşen (boyutsuz)",
         "tr": "Kartezyen sistemde düşey bileşen (boyutsuz)",
         "de": "Vertikale Komponente im kartesischen System (dimensionslos)",
         "fr": "Composante verticale dans le système cartésien (sans dimension)",
-        "es": "Componente vertical en el sistema cartesiano (adimensional)"
+        "es": "Componente vertical en el sistema cartesiano (adimensional)",
+        "ar": "المركب الرأسي في النظام الديكارتي (بدون أبعاد)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Radialer Abstand (r)",
         "fr": "Distance radiale (r)",
         "es": "Distancia radial (r)",
-        "ar": "Radyal uzaklık (r)"
+        "ar": "المسافة الشعاعية (r)"
       },
       "businessContext_i18n": {
         "en": "Polar koordinatlarda orijine uzaklık",
         "tr": "Polar koordinatlarda orijine uzaklık",
         "de": "Abstand zum Ursprung in Polarkoordinaten",
         "fr": "Distance à l'origine en coordonnées polaires",
-        "es": "Distancia al origen en coordenadas polares"
+        "es": "Distancia al origen en coordenadas polares",
+        "ar": "المسافة من نقطة الأصل في الإحداثيات القطبية"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
         "es": "Ángulo (θ)",
-        "ar": "Açı (θ)"
+        "ar": "الزاوية (θ)"
       },
       "businessContext_i18n": {
         "en": "Polar açı, derece cinsinden pozitif x eksenine göre",
         "tr": "Polar açı, derece cinsinden pozitif x eksenine göre",
         "de": "Polarwinkel in Grad, bezogen auf die positive x-Achse",
         "fr": "Angle polaire, en degrés par rapport à l'axe x positif",
-        "es": "Ángulo polar, en grados, con respecto al eje x positivo"
+        "es": "Ángulo polar, en grados, con respecto al eje x positivo",
+        "ar": "الزاوية القطبية بالدرجات بالنسبة للمحور السيني الموجب"
       }
     }
   ],
   "formulas": {
-    "result": "conversionType + x + y",
-    "result_copy": "conversionType + x + y"
+    "normalized_product": "conversionType * x * y * r",
+    "result": "conversionType * x * y * r * (theta)",
+    "adjustment_factor": "theta"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Bileşen değerlerini ayrı ayrı listeler",
-      "Hesaplama detayı sağlar"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "derece"
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

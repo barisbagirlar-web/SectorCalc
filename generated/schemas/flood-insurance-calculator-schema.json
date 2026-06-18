@@ -14,14 +14,15 @@
         "de": "Eigenschaftswert",
         "fr": "Valeur du bien",
         "es": "Valor de la propiedad",
-        "ar": "Property Value"
+        "ar": "قيمة العقار"
       },
       "businessContext_i18n": {
         "en": "The total value of the insured property including buildings and contents.",
         "tr": "Binalar ve içindekiler dahil sigortalı mülkün toplam değeri.",
         "de": "Gesamtwert der versicherten Immobilie einschließlich Gebäude und Inhalt.",
         "fr": "Valeur totale du bien assuré, y compris les bâtiments et le contenu.",
-        "es": "Valor total de la propiedad asegurada, incluyendo edificios y contenido"
+        "es": "Valor total de la propiedad asegurada, incluyendo edificios y contenido",
+        "ar": "القيمة الإجمالية للممتلكات المؤمن عليها بما في ذلك المباني والمحتويات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Risikofaktor Überschwemmungszone",
         "fr": "Facteur de risque de zone inondable",
         "es": "Factor de riesgo de zona inundable",
-        "ar": "Flood Zone Risk Factor"
+        "ar": "عامل مخاطر منطقة الفيضانات"
       },
       "businessContext_i18n": {
         "en": "A factor representing the flood risk: 0.01 for low risk, 0.05 for high risk. Based on FEMA flood maps.",
         "tr": "Sel riskini temsil eden faktör: düşük risk için 0.01, yüksek risk için 0.05. FEMA sel haritalarına dayanır.",
         "de": "Ein Faktor, der das Überschwemmungsrisiko darstellt: 0,01 für geringes Risiko, 0,05 für hohes Risiko. Basierend auf FEMA-Überschwemmungskarten.",
         "fr": "Facteur représentant le risque d'inondation : 0,01 pour risque faible, 0,05 pour risque élevé. Basé sur les cartes d'inondation FEMA.",
-        "es": "Factor que representa el riesgo de inundación: 0.01 para riesgo bajo, 0.05 para riesgo alto. Basado en mapas FEMA."
+        "es": "Factor que representa el riesgo de inundación: 0.01 para riesgo bajo, 0.05 para riesgo alto. Basado en mapas FEMA.",
+        "ar": "عامل يمثل مخاطر الفيضانات: 0.01 للمخاطر المنخفضة، 0.05 للمخاطر العالية. بناءً على خرائط الفيضانات FEMA"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Deckungssumme",
         "fr": "Montant de la couverture",
         "es": "Monto de cobertura",
-        "ar": "Coverage Amount"
+        "ar": "مبلغ التغطية"
       },
       "businessContext_i18n": {
         "en": "The maximum amount the insurance will pay out.",
         "tr": "Sigortanın ödeyeceği maksimum tutar.",
         "de": "Der maximale Betrag, den die Versicherung auszahlt.",
         "fr": "Montant maximum que l'assurance paiera.",
-        "es": "El monto máximo que pagará el seguro."
+        "es": "El monto máximo que pagará el seguro.",
+        "ar": "الحد الأقصى الذي ستدفعه شركة التأمين"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Selbstbehalt",
         "fr": "Franchise",
         "es": "Deducible",
-        "ar": "Deductible"
+        "ar": "الخصم"
       },
       "businessContext_i18n": {
         "en": "The amount the policyholder pays out-of-pocket before insurance coverage kicks in.",
         "tr": "Sigorta kapsamı devreye girmeden önce poliçe sahibinin cepten ödediği tutar.",
         "de": "Der Betrag, den der Versicherungsnehmer aus eigener Tasche zahlt, bevor die Versicherung greift.",
         "fr": "Montant que l'assuré paie de sa poche avant que la couverture d'assurance ne s'applique.",
-        "es": "El monto que paga el asegurado de su bolsillo antes de que el seguro cubra los gastos."
+        "es": "El monto que paga el asegurado de su bolsillo antes de que el seguro cubra los gastos.",
+        "ar": "المبلغ الذي يدفعه حامل البوليصة من جيبه قبل بدء التغطية التأمينية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gebäudetyp-Faktor",
         "fr": "Facteur de type de bâtiment",
         "es": "Factor de tipo de edificio",
-        "ar": "Building Type Factor"
+        "ar": "عامل نوع المبنى"
       },
       "businessContext_i18n": {
         "en": "Multiplier based on building type: 1.0 for residential, 1.2 for commercial, 1.5 for industrial.",
         "tr": "Bina tipine göre çarpan: konut için 1.0, ticari için 1.2, endüstriyel için 1.5.",
         "de": "Multiplikator basierend auf Gebäudetyp: 1,0 für Wohngebäude, 1,2 für Gewerbe, 1,5 für Industrie.",
         "fr": "Multiplicateur basé sur le type de bâtiment : 1,0 pour résidentiel, 1,2 pour commercial, 1,5 pour industriel.",
-        "es": "Multiplicador según el tipo de edificio: 1.0 para residencial, 1.2 para comercial, 1.5 para industrial."
+        "es": "Multiplicador según el tipo de edificio: 1.0 para residencial, 1.2 para comercial, 1.5 para industrial.",
+        "ar": "مضاعف يعتمد على نوع المبنى: 1.0 للسكني، 1.2 للتجاري، 1.5 للصناعي"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gebäudealter",
         "fr": "Âge du bâtiment",
         "es": "Antigüedad del edificio",
-        "ar": "Building Age"
+        "ar": "عمر المبنى"
       },
       "businessContext_i18n": {
         "en": "Age of the building in years, used to calculate depreciation factor.",
         "tr": "Yıl cinsinden bina yaşı, amortisman faktörünü hesaplamak için kullanılır.",
         "de": "Alter des Gebäudes in Jahren, zur Berechnung des Abschreibungsfaktors.",
         "fr": "Âge du bâtiment en années, utilisé pour calculer le facteur d'amortissement.",
-        "es": "Antigüedad del edificio en años, utilizada para calcular el factor de depreciación."
+        "es": "Antigüedad del edificio en años, utilizada para calcular el factor de depreciación.",
+        "ar": "عمر المبنى بالسنوات، يستخدم لحساب عامل الاستهلاك"
       }
     }
   ],

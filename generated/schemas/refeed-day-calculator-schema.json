@@ -13,15 +13,16 @@
         "tr": "Üretim Hızı",
         "de": "Produktionsrate",
         "fr": "Taux de production",
-        "es": "Production Rate",
-        "ar": "Production Rate"
+        "es": "Tasa de producción",
+        "ar": "معدل الإنتاج"
       },
       "businessContext_i18n": {
         "en": "Daily number of good units produced",
         "tr": "Günlük üretilen iyi birim sayısı",
         "de": "Tägliche Anzahl guter produzierter Einheiten",
         "fr": "Nombre quotidien d'unités bonnes produites",
-        "es": "Número diario de unidades buenas producidas"
+        "es": "Número diario de unidades buenas producidas",
+        "ar": "عدد الوحدات الجيدة المنتجة يوميًا"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ausschussrate",
         "fr": "Taux de rebut",
         "es": "Tasa de desperdicio",
-        "ar": "Scrap Rate"
+        "ar": "معدل الهدر"
       },
       "businessContext_i18n": {
         "en": "Scrap generated as percentage of good output",
         "tr": "İyi çıktının yüzdesi olarak oluşan fire",
         "de": "Ausschuss als Prozentsatz der guten Ausbringung",
         "fr": "Rebut généré en pourcentage de la production bonne",
-        "es": "Desperdicio generado como porcentaje de la producción buena"
+        "es": "Desperdicio generado como porcentaje de la producción buena",
+        "ar": "الهدر الناتج كنسبة مئوية من الإنتاج الجيد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Sollverhältnis Rückführung",
         "fr": "Ratio cible de ré-alimentation",
         "es": "Relación objetivo de realimentación",
-        "ar": "Refeed Target Ratio"
+        "ar": "نسبة إعادة التغذية المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Target percentage of total input material from refeed",
         "tr": "Toplam girdi malzemenin geri beslemeden gelmesi hedeflenen yüzdesi",
         "de": "Zielprozentsatz des gesamten Einsatzmaterials aus Rückführung",
         "fr": "Pourcentage cible de la matière totale d'entrée provenant de la ré-alimentation",
-        "es": "Porcentaje objetivo del material total de entrada proveniente de realimentación"
+        "es": "Porcentaje objetivo del material total de entrada proveniente de realimentación",
+        "ar": "النسبة المئوية المستهدفة من إجمالي المواد المدخلة من إعادة التغذية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Verfügbarkeit Rückführmaterial",
         "fr": "Disponibilité de la matière de ré-alimentation",
         "es": "Disponibilidad de material de realimentación",
-        "ar": "Refeed Material Availability"
+        "ar": "توفر مواد إعادة التغذية"
       },
       "businessContext_i18n": {
         "en": "Total refeed material available in inventory",
         "tr": "Stokta bulunan toplam geri besleme malzemesi miktarı",
         "de": "Gesamtes verfügbares Rückführmaterial im Bestand",
         "fr": "Quantité totale de matière de ré-alimentation disponible en stock",
-        "es": "Total de material de realimentación disponible en inventario"
+        "es": "Total de material de realimentación disponible en inventario",
+        "ar": "إجمالي مواد إعادة التغذية المتاحة في المخزون"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Maximale Rückführungskapazität",
         "fr": "Capacité maximale de ré-alimentation",
         "es": "Capacidad máxima de realimentación",
-        "ar": "Max Refeed Capacity"
+        "ar": "الحد الأقصى لسعة إعادة التغذية"
       },
       "businessContext_i18n": {
         "en": "Maximum refeed processing capacity per day (0 for unlimited)",
         "tr": "Günlük maksimum geri besleme işleme kapasitesi (sınırsız için 0)",
         "de": "Maximale tägliche Verarbeitungskapazität für Rückführung (0 für unbegrenzt)",
         "fr": "Capacité maximale de traitement de recharge par jour (0 pour illimité)",
-        "es": "Capacidad máxima de procesamiento de realimentación por día (0 para ilimitado)"
+        "es": "Capacidad máxima de procesamiento de realimentación por día (0 para ilimitado)",
+        "ar": "الحد الأقصى لسعة معالجة إعادة التغذية يوميًا (0 يعني غير محدود)"
       }
     }
   ],

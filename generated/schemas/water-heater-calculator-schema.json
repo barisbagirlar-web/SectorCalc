@@ -14,13 +14,15 @@
         "de": "Tankvolumen",
         "fr": "Volume du réservoir",
         "es": "Volumen del tanque",
-        "ar": "Tank Volume"
+        "ar": "حجم الحوض"
       },
       "businessContext_i18n": {
         "en": "Total water volume to heat",
         "tr": "Isıtılacak Toplam Su Hacmi",
         "de": "Gesamtes zu erwärmendes Wasservolumen",
-        "fr": "Volume total d'eau à chauffer"
+        "fr": "Volume total d'eau à chauffer",
+        "es": "Volumen total de agua a calentar",
+        "ar": "إجمالي حجم المياه المراد تسخينها"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Soğuk Su Sıcaklığı",
         "de": "Kaltwassertemperatur",
         "fr": "Température de l'eau froide",
-        "es": "Cold Water Temperature",
-        "ar": "Cold Water Temperature"
+        "es": "Temperatura del agua fría",
+        "ar": "درجة حرارة الماء البارد"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold water supply",
         "tr": "Soğuk su besleme sıcaklığı",
         "de": "Temperatur der Kaltwasserzufuhr",
-        "fr": "Température de l'alimentation en eau froide"
+        "fr": "Température de l'alimentation en eau froide",
+        "es": "Temperatura del suministro de agua fría",
+        "ar": "درجة حرارة مصدر الماء البارد"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Sıcak su sıcaklığı",
         "de": "Heißwassertemperatur",
         "fr": "Température de l'eau chaude",
-        "es": "Hot Water Temperature",
-        "ar": "Hot Water Temperature"
+        "es": "Temperatura del agua caliente",
+        "ar": "درجة حرارة الماء الساخن"
       },
       "businessContext_i18n": {
         "en": "Target temperature for hot water",
         "tr": "Sıcak su için hedef sıcaklık",
         "de": "Zieltemperatur für Warmwasser",
-        "fr": "Température cible pour l'eau chaude"
+        "fr": "Température cible pour l'eau chaude",
+        "es": "Temperatura objetivo para el agua caliente",
+        "ar": "درجة الحرارة المستهدفة للماء الساخن"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Isıtıcı güç değeri",
         "de": "Heizleistung",
         "fr": "Puissance nominale du chauffage",
-        "es": "Heater Power Rating",
-        "ar": "Heater Power Rating"
+        "es": "Potencia nominal del calentador",
+        "ar": "قدرة السخان"
       },
       "businessContext_i18n": {
         "en": "Power rating of the heating element",
         "tr": "Isıtma elemanının güç değeri",
         "de": "Leistung des Heizelements",
-        "fr": "Puissance nominale de l'élément chauffant"
+        "fr": "Puissance nominale de l'élément chauffant",
+        "es": "Potencia nominal del elemento calefactor",
+        "ar": "قدرة عنصر التسخين"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Isıtıcı verimliliği",
         "de": "Heizungswirkungsgrad",
         "fr": "Rendement du chauffage",
-        "es": "Heater Efficiency",
-        "ar": "Heater Efficiency"
+        "es": "Eficiencia del calentador",
+        "ar": "كفاءة السخان"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the heating system (0-100%)",
         "tr": "Isıtma sisteminin verimliliği (%0-100)",
         "de": "Wirkungsgrad des Heizsystems (0-100%)",
-        "fr": "Rendement du système de chauffage (0-100%)"
+        "fr": "Rendement du système de chauffage (0-100%)",
+        "es": "Eficiencia del sistema de calefacción (0-100%)",
+        "ar": "كفاءة نظام التسخين (0-100%)"
       }
     },
     {
@@ -124,32 +134,39 @@
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
         "es": "Coste de electricidad",
-        "ar": "Electricity Cost"
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour of electricity",
         "tr": "Kilovatsaat başına elektrik maliyeti",
         "de": "Kosten pro Kilowattstunde Strom",
-        "fr": "Coût par kilowattheure d'électricité"
+        "fr": "Coût par kilowattheure d'électricité",
+        "es": "Coste por kilovatio-hora de electricidad",
+        "ar": "تكلفة كل كيلوواط ساعة من الكهرباء"
       }
     }
   ],
   "formulas": {
-    "result": "volume + coldTemp + hotTemp",
-    "result_copy": "volume + coldTemp + hotTemp"
+    "base_cost": "volume * electricityCost",
+    "adjusted_cost": "volume * electricityCost * (1 + (efficiency / 100))",
+    "result": "volume * electricityCost * (1 + (efficiency / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "energyRequired",
-      "heatUpTime"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalCost",
-    "unit": "liters"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

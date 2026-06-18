@@ -14,14 +14,15 @@
         "de": "Lastgewicht",
         "fr": "Poids de la charge",
         "es": "Peso de la carga",
-        "ar": "Load Weight"
+        "ar": "وزن الحمل"
       },
       "businessContext_i18n": {
         "en": "Weight of the load to be pulled up.",
         "tr": "Yukarı çekilecek yükün ağırlığı.",
         "de": "Gewicht der zu ziehenden Last.",
         "fr": "Poids de la charge à tirer vers le haut.",
-        "es": "Peso de la carga a levantar."
+        "es": "Peso de la carga a levantar.",
+        "ar": "وزن الحمولة المراد سحبها لأعلى."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Neigungswinkel",
         "fr": "Angle d'inclinaison",
         "es": "Ángulo de inclinación",
-        "ar": "Incline Angle"
+        "ar": "زاوية الميل"
       },
       "businessContext_i18n": {
         "en": "Angle of the incline from horizontal.",
         "tr": "Eğimin yataydan açısı.",
         "de": "Winkel der Neigung zur Horizontalen.",
         "fr": "Angle de l'inclinaison par rapport à l'horizontale.",
-        "es": "Ángulo de la inclinación desde la horizontal."
+        "es": "Ángulo de la inclinación desde la horizontal.",
+        "ar": "زاوية الميل من الأفقي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
-        "ar": "Friction Coefficient"
+        "ar": "معامل الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between load and surface.",
         "tr": "Yük ile yüzey arasındaki sürtünme katsayısı.",
         "de": "Reibungskoeffizient zwischen Last und Oberfläche.",
         "fr": "Coefficient de frottement entre la charge et la surface.",
-        "es": "Coeficiente de fricción entre la carga y la superficie."
+        "es": "Coeficiente de fricción entre la carga y la superficie.",
+        "ar": "معامل الاحتكاك بين الحمولة والسطح."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Mechanischer Vorteil",
         "fr": "Avantage mécanique",
         "es": "Ventaja mecánica",
-        "ar": "Mechanical Advantage"
+        "ar": "الميزة الميكانيكية"
       },
       "businessContext_i18n": {
         "en": "Mechanical advantage from pulley systems (1 for direct pull).",
         "tr": "Makara sistemlerinden mekanik avantaj (doğrudan çekme için 1).",
         "de": "Mechanischer Vorteil durch Flaschenzüge (1 für direkten Zug).",
         "fr": "Avantage mécanique des systèmes de poulies (1 pour traction directe).",
-        "es": "Ventaja mecánica de los sistemas de poleas (1 para tracción directa)."
+        "es": "Ventaja mecánica de los sistemas de poleas (1 para tracción directa).",
+        "ar": "الميزة الميكانيكية من أنظمة البكرات (1 للسحب المباشر)."
       }
     }
   ],
   "formulas": {
-    "result": "loadWeight + inclineAngle + frictionCoefficient",
-    "result_copy": "loadWeight + inclineAngle + frictionCoefficient"
+    "normalized_product": "loadWeight * inclineAngle * frictionCoefficient * mechanicalAdvantage",
+    "result": "loadWeight * inclineAngle * frictionCoefficient * mechanicalAdvantage"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "gravitationalForceComponent",
-      "frictionForce",
-      "totalRequiredForce"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalRequiredForce",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

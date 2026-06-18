@@ -14,14 +14,15 @@
         "de": "Arbeitsintervall (s)",
         "fr": "Intervalle de travail (s)",
         "es": "Intervalo de trabajo (s)",
-        "ar": "Work Interval (s)"
+        "ar": "فترة العمل (ثانية)"
       },
       "businessContext_i18n": {
         "en": "Duration of high-intensity work interval",
         "tr": "Yüksek yoğunluklu çalışma aralığının süresi",
         "de": "Dauer des hochintensiven Arbeitsintervalls",
         "fr": "Durée de l'intervalle de travail à haute intensité",
-        "es": "Duración del intervalo de trabajo de alta intensidad"
+        "es": "Duración del intervalo de trabajo de alta intensidad",
+        "ar": "مدة فترة العمل عالية الكثافة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ruheintervall (s)",
         "fr": "Intervalle de repos (s)",
         "es": "Intervalo de descanso (s)",
-        "ar": "Rest Interval (s)"
+        "ar": "فترة الراحة (ثانية)"
       },
       "businessContext_i18n": {
         "en": "Duration of rest interval between work intervals",
         "tr": "Çalışma aralıkları arasındaki dinlenme süresi",
         "de": "Dauer des Ruheintervalls zwischen den Arbeitsintervallen",
         "fr": "Durée de l'intervalle de repos entre les intervalles de travail",
-        "es": "Duración del intervalo de descanso entre intervalos de trabajo"
+        "es": "Duración del intervalo de descanso entre intervalos de trabajo",
+        "ar": "مدة فترة الراحة بين فترات العمل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Runden",
         "fr": "Nombre de tours",
         "es": "Número de rondas",
-        "ar": "Number of Rounds"
+        "ar": "عدد الجولات"
       },
       "businessContext_i18n": {
         "en": "Number of work-rest cycles",
         "tr": "Çalışma-dinlenme döngü sayısı",
         "de": "Anzahl der Arbeits-Ruhe-Zyklen",
         "fr": "Nombre de cycles travail-repos",
-        "es": "Número de ciclos trabajo-descanso"
+        "es": "Número de ciclos trabajo-descanso",
+        "ar": "عدد دورات العمل والراحة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Vorbereitungszeit (s)",
         "fr": "Temps de préparation (s)",
         "es": "Tiempo de preparación (s)",
-        "ar": "Preparation Time (s)"
+        "ar": "وقت التحضير (ثانية)"
       },
       "businessContext_i18n": {
         "en": "Time allocated before the first work interval",
         "tr": "İlk çalışma aralığından önce ayrılan süre",
         "de": "Zeit, die vor dem ersten Arbeitsintervall eingeplant wird",
         "fr": "Temps alloué avant le premier intervalle de travail",
-        "es": "Tiempo asignado antes del primer intervalo de trabajo"
+        "es": "Tiempo asignado antes del primer intervalo de trabajo",
+        "ar": "الوقت المخصص قبل فترة العمل الأولى"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Abkühlzeit (s)",
         "fr": "Temps de refroidissement (s)",
         "es": "Tiempo de enfriamiento (s)",
-        "ar": "Cool Down Time (s)"
+        "ar": "وقت التهدئة (ثانية)"
       },
       "businessContext_i18n": {
         "en": "Time allocated after the last rest interval",
         "tr": "Son dinlenme aralığından sonra ayrılan süre",
         "de": "Zeit nach der letzten Ruhepause",
         "fr": "Temps alloué après le dernier intervalle de repos",
-        "es": "Tiempo asignado después del último intervalo de descanso"
+        "es": "Tiempo asignado después del último intervalo de descanso",
+        "ar": "الوقت المخصص بعد آخر فترة راحة"
       }
     }
   ],

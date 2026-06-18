@@ -14,14 +14,15 @@
         "de": "Bereinigtes Bruttoergebnis",
         "fr": "Score brut ajusté",
         "es": "Puntuación bruta ajustada",
-        "ar": "Adjusted Gross Score"
+        "ar": "النتيجة الإجمالية المعدلة"
       },
       "businessContext_i18n": {
         "en": "Player's adjusted gross score for the round (actual strokes taken after any adjustments).",
         "tr": "Oyuncunun tur için düzeltilmiş brüt skoru (herhangi bir düzeltmeden sonra atılan gerçek vuruşlar).",
         "de": "Bereinigtes Bruttoergebnis des Spielers für die Runde (tatsächliche Schläge nach etwaigen Anpassungen).",
         "fr": "Score brut ajusté du joueur pour la ronde (coups réels après ajustements).",
-        "es": "Puntuación bruta ajustada del jugador para la ronda (golpes reales después de cualquier ajuste)."
+        "es": "Puntuación bruta ajustada del jugador para la ronda (golpes reales después de cualquier ajuste).",
+        "ar": "النتيجة الإجمالية المعدلة للاعب للجولة (الضربات الفعلية بعد أي تعديلات)."
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Course Rating",
         "tr": "Saha Derecesi",
-        "de": "Course Rating",
+        "de": "Platzbewertung",
         "fr": "Indice de difficulté du parcours",
         "es": "Valoración del campo",
-        "ar": "Course Rating"
+        "ar": "تصنيف الملعب"
       },
       "businessContext_i18n": {
         "en": "Course rating from scorecard, representing difficulty for a scratch golfer.",
         "tr": "Skor kartından saha derecesi, sıfır handikaplı golfçü için zorluğu temsil eder.",
         "de": "Course Rating vom Scorecard, das den Schwierigkeitsgrad für einen Scratch-Golfer angibt.",
         "fr": "Indice de difficulté du parcours sur la carte de score, représentant la difficulté pour un joueur scratch.",
-        "es": "Valoración del campo de la tarjeta de puntuación, que representa la dificultad para un golfista scratch."
+        "es": "Valoración del campo de la tarjeta de puntuación, que representa la dificultad para un golfista scratch.",
+        "ar": "تصنيف الملعب من بطاقة النتائج، يمثل الصعوبة للاعب من فئة الصفر."
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Slope Rating",
         "tr": "Eğim Derecesi",
-        "de": "Slope Rating",
+        "de": "Neigungsbewertung",
         "fr": "Indice de pente",
         "es": "Pendiente",
-        "ar": "Slope Rating"
+        "ar": "تصنيف الانحدار"
       },
       "businessContext_i18n": {
         "en": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers.",
         "tr": "Skor kartından eğim derecesi (genellikle 55-155), boği golfçüler için göreceli zorluğu gösterir.",
         "de": "Slope Rating vom Scorecard (typischerweise 55-155), das den relativen Schwierigkeitsgrad für Bogey-Golfer angibt.",
         "fr": "Indice de pente de la carte de score (généralement 55-155), indiquant la difficulté relative pour les joueurs bogey.",
-        "es": "Pendiente de la tarjeta de puntuación (típicamente 55-155), indica la dificultad relativa para golfistas bogey."
+        "es": "Pendiente de la tarjeta de puntuación (típicamente 55-155), indica la dificultad relativa para golfistas bogey.",
+        "ar": "تصنيف الانحدار من بطاقة النتائج (عادة 55-155)، يشير إلى الصعوبة النسبية للاعبي البوغي."
       }
     },
     {
@@ -81,16 +84,17 @@
         "en": "Par",
         "tr": "Par",
         "de": "Par",
-        "fr": "Par",
+        "fr": "Paire",
         "es": "Par",
-        "ar": "Par"
+        "ar": "البار"
       },
       "businessContext_i18n": {
         "en": "Par for the course, used in course handicap calculation.",
         "tr": "Sahanın parı, saha handikap hesaplamasında kullanılır.",
         "de": "Par des Platzes, wird bei der Berechnung des Course Handicaps verwendet.",
         "fr": "Par du parcours, utilisé dans le calcul du handicap de parcours.",
-        "es": "Par del campo, utilizado en el cálculo del hándicap del campo."
+        "es": "Par del campo, utilizado en el cálculo del hándicap del campo.",
+        "ar": "بار الملعب، يستخدم في حساب الإعاقة للملعب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Handicap-Index",
         "fr": "Indice de handicap",
         "es": "Índice de Hándicap",
-        "ar": "Handicap Index"
+        "ar": "مؤشر الإعاقة"
       },
       "businessContext_i18n": {
         "en": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown).",
         "tr": "Oyuncunun mevcut Handikap İndeksi (saha handikap hesaplaması için; bilinmiyorsa 0 olarak ayarlayın).",
         "de": "Aktueller Handicap-Index des Spielers (für die Course-Handicap-Berechnung; auf 0 setzen, falls unbekannt).",
         "fr": "Indice de handicap actuel du joueur (pour le calcul du handicap de parcours ; mettre à 0 si inconnu).",
-        "es": "Índice de Hándicap actual del jugador (para calcular el hándicap del campo; establecer en 0 si se desconoce)."
+        "es": "Índice de Hándicap actual del jugador (para calcular el hándicap del campo; establecer en 0 si se desconoce).",
+        "ar": "مؤشر الإعاقة الحالي للاعب (لحساب إعاقة الملعب؛ اضبط على 0 إذا غير معروف)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Dachlänge",
         "fr": "Longueur du toit",
         "es": "Longitud del techo",
-        "ar": "Roof Length"
+        "ar": "طول السقف"
       },
       "businessContext_i18n": {
         "en": "Length of a single roof plane along the eave (horizontal).",
         "tr": "Bir çatı yüzeyinin saçak boyunca yatay uzunluğu.",
         "de": "Länge einer einzelnen Dachfläche entlang der Traufe (horizontal).",
         "fr": "Longueur d'un plan de toit le long de l'avant-toit (horizontale).",
-        "es": "Longitud de un plano de techo a lo largo del alero (horizontal)."
+        "es": "Longitud de un plano de techo a lo largo del alero (horizontal).",
+        "ar": "طول سطح السقف الواحد على طول الأفريز (أفقي)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dachbreite",
         "fr": "Largeur du toit",
         "es": "Ancho del techo",
-        "ar": "Roof Width"
+        "ar": "عرض السقف"
       },
       "businessContext_i18n": {
         "en": "Horizontal span from eave to ridge of one roof plane.",
         "tr": "Bir çatı yüzeyinin saçaktan mahyaya yatay açıklığı.",
         "de": "Horizontaler Abstand von Traufe bis First einer Dachfläche.",
         "fr": "Portée horizontale de l'avant-toit au faîte d'un plan de toit.",
-        "es": "Tramo horizontal desde el alero hasta la cumbrera de un plano de techo."
+        "es": "Tramo horizontal desde el alero hasta la cumbrera de un plano de techo.",
+        "ar": "المسافة الأفقية من الأفريز إلى الحافة العلوية لسطح سقف واحد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Neigung (Anstieg pro 12'')",
         "fr": "Pente (élévation par 12'')",
         "es": "Pendiente (elevación por 12'')",
-        "ar": "Pitch (rise per 12'')"
+        "ar": "الانحدار (الارتفاع لكل 12 بوصة)"
       },
       "businessContext_i18n": {
         "en": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch).",
         "tr": "12 inç yatay mesafede yükselme miktarı (örneğin 4/12 eğim için 4).",
         "de": "Dachneigung ausgedrückt als Anstieg in Zoll pro 12 Zoll Grundlinie (z.B. 4 für eine 4/12-Neigung).",
         "fr": "Pente du toit exprimée en pouces d'élévation par 12 pouces de course (ex. 4 pour une pente 4/12).",
-        "es": "Pendiente del techo expresada como elevación en pulgadas por cada 12 pulgadas de recorrido (ej., 4 para una pendiente 4/12)."
+        "es": "Pendiente del techo expresada como elevación en pulgadas por cada 12 pulgadas de recorrido (ej., 4 para una pendiente 4/12).",
+        "ar": "انحدار السقف معبرًا عنه بالارتفاع بالبوصة لكل 12 بوصة من الامتداد (مثل 4 لميل 4/12)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Flächen",
         "fr": "Nombre de plans",
         "es": "Número de planos",
-        "ar": "Number of Planes"
+        "ar": "عدد الأسطح"
       },
       "businessContext_i18n": {
         "en": "Number of identical roof planes (e.g., 2 for a standard gable roof).",
         "tr": "Özdeş çatı yüzeylerinin sayısı (örneğin standart beşik çatı için 2).",
         "de": "Anzahl identischer Dachflächen (z.B. 2 für ein Standard-Satteldach).",
         "fr": "Nombre de plans de toit identiques (ex. 2 pour un toit à pignon standard).",
-        "es": "Número de planos de techo idénticos (ej., 2 para un techo a dos aguas estándar)."
+        "es": "Número de planos de techo idénticos (ej., 2 para un techo a dos aguas estándar).",
+        "ar": "عدد أسطح السقف المتطابقة (مثل 2 لسقف الجملون القياسي)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to account for cutting waste and errors.",
         "tr": "Kesim ve hata payı için ek malzeme yüzdesi.",
         "de": "Prozentsatz an zusätzlichem Material für Verschnitt und Fehler.",
         "fr": "Pourcentage de matériel supplémentaire pour tenir compte des chutes et erreurs.",
-        "es": "Porcentaje de material extra para tener en cuenta el desperdicio por corte y errores."
+        "es": "Porcentaje de material extra para tener en cuenta el desperdicio por corte y errores.",
+        "ar": "نسبة المواد الإضافية لتعويض الهدر في القطع والأخطاء."
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Bündelabdeckung",
         "fr": "Couverture par paquet",
         "es": "Cobertura por paquete",
-        "ar": "Bundle Coverage"
+        "ar": "تغطية الربطة"
       },
       "businessContext_i18n": {
         "en": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares.",
         "tr": "Bir paket shingle'ın kapladığı alan (ft²); tipik olarak 3 paketlik kare için 33.33 ft².",
         "de": "Fläche, die von einem Bündel Schindeln abgedeckt wird (Quadratfuß); typischerweise 33,33 sq ft für 3-Bündel-Quadrat.",
         "fr": "Surface couverte par un paquet de bardeaux (pi²) ; généralement 33,33 pi² pour des carrés de 3 paquets.",
-        "es": "Área cubierta por un paquete de tejas (pies cuadrados); típicamente 33.33 pies cuadrados para cuadrados de 3 paquetes."
+        "es": "Área cubierta por un paquete de tejas (pies cuadrados); típicamente 33.33 pies cuadrados para cuadrados de 3 paquetes.",
+        "ar": "المساحة التي تغطيها ربطة واحدة من القرميد (قدم مربع)؛ عادة 33.33 قدم مربع لربطة 3 لكل مربع."
       }
     }
   ],
   "formulas": {
-    "result": "roofLength + roofWidth + pitch",
-    "result_copy": "roofLength + roofWidth + pitch"
+    "normalized_product": "roofLength * roofWidth * pitch * numberOfPlanes",
+    "result": "roofLength * roofWidth * pitch * numberOfPlanes * ((wasteFactor / 100) * bundleCoverage)",
+    "adjustment_factor": "(wasteFactor / 100) * bundleCoverage"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalArea",
-      "areaWithWaste",
-      "squares"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "squares",
-    "unit": "ft"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

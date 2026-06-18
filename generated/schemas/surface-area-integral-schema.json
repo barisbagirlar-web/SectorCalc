@@ -14,14 +14,15 @@
         "de": "Radius (r)",
         "fr": "Rayon (r)",
         "es": "Radio (r)",
-        "ar": "Radius (r)"
+        "ar": "نصف القطر (r)"
       },
       "businessContext_i18n": {
         "en": "Radius of the sphere or cylinder",
         "tr": "Küre veya silindirin yarıçapı",
         "de": "Radius der Kugel oder des Zylinders",
         "fr": "Rayon de la sphère ou du cylindre",
-        "es": "Radio de la esfera o cilindro"
+        "es": "Radio de la esfera o cilindro",
+        "ar": "نصف قطر الكرة أو الأسطوانة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Höhe (h)",
         "fr": "Hauteur (h)",
         "es": "Altura (h)",
-        "ar": "Height (h)"
+        "ar": "الارتفاع (h)"
       },
       "businessContext_i18n": {
         "en": "Height for cylindrical surface area",
         "tr": "Silindirik yüzey alanı için yükseklik",
         "de": "Höhe für die Zylinderoberfläche",
         "fr": "Hauteur pour la surface latérale du cylindre",
-        "es": "Altura para el área de superficie cilíndrica"
+        "es": "Altura para el área de superficie cilíndrica",
+        "ar": "الارتفاع لحساب مساحة السطح الأسطواني"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Form (0=Kugel, 1=Zylinder)",
         "fr": "Forme (0=sphère, 1=cylindre)",
         "es": "Forma (0=esfera, 1=cilindro)",
-        "ar": "Shape (0=sphere, 1=cylinder)"
+        "ar": "الشكل (0=كرة، 1=أسطوانة)"
       },
       "businessContext_i18n": {
         "en": "0 for sphere, 1 for cylinder (lateral surface)",
         "tr": "0 küre, 1 silindir (yan yüzey) için",
         "de": "0 für Kugel, 1 für Zylinder (Mantelfläche)",
         "fr": "0 pour sphère, 1 pour cylindre (surface latérale)",
-        "es": "0 para esfera, 1 para cilindro (superficie lateral)"
+        "es": "0 para esfera, 1 para cilindro (superficie lateral)",
+        "ar": "0 للكرة، 1 للأسطوانة (السطح الجانبي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Theta min (θ_min)",
         "fr": "Theta min (θ_min)",
         "es": "Theta mín (θ_min)",
-        "ar": "Theta min (θ_min)"
+        "ar": "ثيتا الأدنى (θ_min)"
       },
       "businessContext_i18n": {
         "en": "Lower bound of polar angle for sphere",
         "tr": "Küre için kutup açısının alt sınırı",
         "de": "Untere Grenze des Polarwinkels für Kugel",
         "fr": "Borne inférieure de l'angle polaire pour la sphère",
-        "es": "Límite inferior del ángulo polar para la esfera"
+        "es": "Límite inferior del ángulo polar para la esfera",
+        "ar": "الحد الأدنى للزاوية القطبية للكرة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Theta max (θ_max)",
         "fr": "Theta max (θ_max)",
         "es": "Theta máx (θ_max)",
-        "ar": "Theta max (θ_max)"
+        "ar": "ثيتا الأقصى (θ_max)"
       },
       "businessContext_i18n": {
         "en": "Upper bound of polar angle for sphere (π)",
         "tr": "Küre için kutup açısının üst sınırı (π)",
         "de": "Obere Grenze des Polarwinkels für Kugel (π)",
         "fr": "Borne supérieure de l'angle polaire pour la sphère (π)",
-        "es": "Límite superior del ángulo polar para la esfera (π)"
+        "es": "Límite superior del ángulo polar para la esfera (π)",
+        "ar": "الحد الأعلى للزاوية القطبية للكرة (π)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Phi min (φ_min)",
         "fr": "Phi min (φ_min)",
         "es": "Phi mín (φ_min)",
-        "ar": "Phi min (φ_min)"
+        "ar": "فاي الأدنى (φ_min)"
       },
       "businessContext_i18n": {
         "en": "Lower bound of azimuthal angle",
         "tr": "Azimut açısının alt sınırı",
         "de": "Untere Grenze des Azimutwinkels",
         "fr": "Borne inférieure de l'angle azimutal",
-        "es": "Límite inferior del ángulo azimutal"
+        "es": "Límite inferior del ángulo azimutal",
+        "ar": "الحد الأدنى للزاوية السميتية"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Phi max (φ_max)",
         "fr": "Phi max (φ_max)",
         "es": "Phi máx (φ_max)",
-        "ar": "Phi max (φ_max)"
+        "ar": "فاي الأقصى (φ_max)"
       },
       "businessContext_i18n": {
         "en": "Upper bound of azimuthal angle (2π)",
         "tr": "Azimut açısının üst sınırı (2π)",
         "de": "Obere Grenze des Azimutwinkels (2π)",
         "fr": "Borne supérieure de l'angle azimutal (2π)",
-        "es": "Límite superior del ángulo azimutal (2π)"
+        "es": "Límite superior del ángulo azimutal (2π)",
+        "ar": "الحد الأعلى للزاوية السميتية (2π)"
       }
     }
   ],

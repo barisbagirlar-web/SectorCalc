@@ -33,14 +33,16 @@
         "tr": "Sapma Türü",
         "de": "Abweichungstyp",
         "fr": "Type d'écart",
-        "es": "Tipo de desviación"
+        "es": "Tipo de desviación",
+        "ar": "نوع الانحراف"
       },
       "businessContext_i18n": {
         "en": "Select the category of HACCP deviation to apply appropriate cost multipliers and regulatory thresholds.",
         "tr": "Uygun maliyet çarpanları ve düzenleyici eşikleri uygulamak için HACCP sapma kategorisini seçin.",
         "de": "Wählen Sie die Kategorie der HACCP-Abweichung aus, um geeignete Kostenmultiplikatoren und regulatorische Schwellenwerte anzuwenden.",
         "fr": "Sélectionnez la catégorie d'écart HACCP pour appliquer les multiplicateurs de coûts et les seuils réglementaires appropriés.",
-        "es": "Seleccione la categoría de desviación HACCP para aplicar multiplicadores de coste y umbrales regulatorios adecuados."
+        "es": "Seleccione la categoría de desviación HACCP para aplicar multiplicadores de coste y umbrales regulatorios adecuados.",
+        "ar": "اختر فئة انحراف نظام تحليل المخاطر ونقاط التحكم الحرجة (HACCP) لتطبيق مضاعفات التكلفة والحدود التنظيمية المناسبة."
       }
     },
     {
@@ -57,14 +59,16 @@
         "tr": "Etkilenen Parti Ağırlığı (kg)",
         "de": "Betroffene Chargenmenge (kg)",
         "fr": "Poids du lot affecté (kg)",
-        "es": "Peso del lote afectado (kg)"
+        "es": "Peso del lote afectado (kg)",
+        "ar": "وزن الدفعة المتأثرة (كجم)"
       },
       "businessContext_i18n": {
         "en": "Total mass of product that was exposed to the deviation. Used to calculate material loss and rework costs.",
         "tr": "Sapmaya maruz kalan toplam ürün kütlesi. Malzeme kaybı ve yeniden işleme maliyetlerini hesaplamak için kullanılır.",
         "de": "Gesamtmasse des Produkts, das der Abweichung ausgesetzt war. Wird zur Berechnung von Materialverlust und Nacharbeitskosten verwendet.",
         "fr": "Masse totale du produit exposé à l'écart. Utilisée pour calculer la perte de matière et les coûts de retouche.",
-        "es": "Masa total de producto expuesta a la desviación. Se utiliza para calcular la pérdida de material y los costes de retrabajo."
+        "es": "Masa total de producto expuesta a la desviación. Se utiliza para calcular la pérdida de material y los costes de retrabajo.",
+        "ar": "الكتلة الإجمالية للمنتج المعرض للانحراف. تُستخدم لحساب خسارة المواد وتكاليف إعادة العمل."
       }
     },
     {
@@ -81,14 +85,16 @@
         "tr": "Birim Maliyet (kg başına $)",
         "de": "Stückkosten pro kg ($)",
         "fr": "Coût unitaire par kg ($)",
-        "es": "Coste unitario por kg ($)"
+        "es": "Coste unitario por kg ($)",
+        "ar": "تكلفة الوحدة لكل كجم ($)"
       },
       "businessContext_i18n": {
         "en": "Standard cost of raw materials per kilogram, including ingredients and packaging.",
         "tr": "İçerik ve ambalaj dahil olmak üzere kilogram başına standart hammadde maliyeti.",
         "de": "Standardkosten für Rohmaterialien pro Kilogramm, einschließlich Zutaten und Verpackung.",
         "fr": "Coût standard des matières premières par kilogramme, incluant ingrédients et emballage.",
-        "es": "Coste estándar de materias primas por kilogramo, incluyendo ingredientes y empaque."
+        "es": "Coste estándar de materias primas por kilogramo, incluyendo ingredientes y empaque.",
+        "ar": "التكلفة القياسية للمواد الخام لكل كيلوغرام، بما في ذلك المكونات والتغليف."
       }
     },
     {
@@ -105,14 +111,16 @@
         "tr": "Yeniden İşleme Yüzdesi (%)",
         "de": "Nacharbeitsanteil (%)",
         "fr": "Pourcentage de reprise (%)",
-        "es": "Porcentaje de retrabajo (%)"
+        "es": "Porcentaje de retrabajo (%)",
+        "ar": "نسبة إعادة العمل (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated fraction of the affected batch that can be reworked (e.g., reprocessed, repackaged) instead of being scrapped.",
         "tr": "Etkilenen partinin hurdaya ayrılmak yerine yeniden işlenebilecek (örneğin, yeniden işlenmiş, yeniden paketlenmiş) tahmini oranı.",
         "de": "Geschätzter Anteil der betroffenen Charge, der nachbearbeitet (z. B. neu verarbeitet, neu verpackt) statt verschrottet werden kann.",
         "fr": "Fraction estimée du lot affecté pouvant être retravaillée (ex. retransformée, reconditionnée) au lieu d'être mise au rebut.",
-        "es": "Fracción estimada del lote afectado que puede ser retrabajada (ej., reprocesada, reempaquetada) en lugar de ser desechada."
+        "es": "Fracción estimada del lote afectado que puede ser retrabajada (ej., reprocesada, reempaquetada) en lugar de ser desechada.",
+        "ar": "نسبة إعادة العمل المقدرة"
       }
     },
     {
@@ -129,14 +137,16 @@
         "tr": "Yeniden İşleme Maliyeti (kg başına $)",
         "de": "Nacharbeitskosten pro kg ($)",
         "fr": "Coût de retouche par kg ($)",
-        "es": "Coste de retrabajo por kg ($)"
+        "es": "Coste de retrabajo por kg ($)",
+        "ar": "تكلفة إعادة العمل لكل كجم ($)"
       },
       "businessContext_i18n": {
         "en": "Additional cost per kilogram for rework activities (labor, energy, extra materials).",
         "tr": "Yeniden işleme faaliyetleri (işçilik, enerji, ek malzemeler) için kilogram başına ek maliyet.",
         "de": "Zusätzliche Kosten pro Kilogramm für Nacharbeit (Arbeit, Energie, zusätzliche Materialien).",
         "fr": "Coût supplémentaire par kilogramme pour les activités de retouche (main-d'œuvre, énergie, matières supplémentaires).",
-        "es": "Coste adicional por kilogramo para actividades de retrabajo (mano de obra, energía, materiales extra)."
+        "es": "Coste adicional por kilogramo para actividades de retrabajo (mano de obra, energía, materiales extra).",
+        "ar": "التكلفة الإضافية لكل كيلوغرام لأنشطة إعادة العمل (العمالة، الطاقة، المواد الإضافية)."
       }
     },
     {
@@ -153,14 +163,16 @@
         "tr": "Durma Süresi (saat)",
         "de": "Stillstandszeit (Stunden)",
         "fr": "Temps d'arrêt (heures)",
-        "es": "Tiempo de inactividad (horas)"
+        "es": "Tiempo de inactividad (horas)",
+        "ar": "وقت التوقف (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Total production downtime caused by the deviation, including investigation, cleaning, and corrective actions.",
         "tr": "Sapmadan kaynaklanan toplam üretim durma süresi (araştırma, temizlik ve düzeltici faaliyetler dahil).",
         "de": "Gesamte Produktionsstillstandszeit durch die Abweichung, einschließlich Untersuchung, Reinigung und Korrekturmaßnahmen.",
         "fr": "Temps d'arrêt total de production causé par l'écart, incluant investigation, nettoyage et actions correctives.",
-        "es": "Tiempo total de inactividad de producción causado por la desviación, incluyendo investigación, limpieza y acciones correctivas."
+        "es": "Tiempo total de inactividad de producción causado por la desviación, incluyendo investigación, limpieza y acciones correctivas.",
+        "ar": "إجمالي وقت التوقف الإنتاجي الناتج عن الانحراف، بما في ذلك التحقيق والتنظيف والإجراءات التصحيحية."
       }
     },
     {
@@ -177,14 +189,16 @@
         "tr": "Saatlik Genel Gider Oranı ($/saat)",
         "de": "Stündlicher Gemeinkostensatz ($/h)",
         "fr": "Taux de frais généraux horaire ($/h)",
-        "es": "Tasa de gastos generales por hora ($/h)"
+        "es": "Tasa de gastos generales por hora ($/h)",
+        "ar": "معدل التكاليف العامة للساعة ($/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Burdened overhead cost per hour of production downtime (includes labor, utilities, facility costs).",
         "tr": "Üretim duruşu saat başına genel gider maliyeti (işçilik, kamu hizmetleri, tesis maliyetlerini içerir).",
         "de": "Belasteter Gemeinkostensatz pro Stunde Produktionsstillstand (einschließlich Arbeit, Betriebskosten, Anlagenkosten).",
         "fr": "Coût de charge complet par heure d'arrêt de production (inclut main-d'œuvre, services publics, coûts d'installation).",
-        "es": "Coste general por hora de inactividad de producción (incluye mano de obra, servicios públicos, costes de instalaciones)."
+        "es": "Coste general por hora de inactividad de producción (incluye mano de obra, servicios públicos, costes de instalaciones).",
+        "ar": "التكلفة العامة المثقلة لكل ساعة من توقف الإنتاج (تشمل العمالة والمرافق وتكاليف المنشأة)."
       }
     },
     {
@@ -201,14 +215,16 @@
         "tr": "Düzenleyici Ceza Uygulanabilir mi?",
         "de": "Regulatorische Strafe anwendbar?",
         "fr": "Amende réglementaire applicable ?",
-        "es": "¿Aplica penalización regulatoria?"
+        "es": "¿Aplica penalización regulatoria?",
+        "ar": "هل الغرامة التنظيمية قابلة للتطبيق؟"
       },
       "businessContext_i18n": {
         "en": "Indicates if the deviation is likely to trigger a regulatory fine or citation (e.g., FDA, USDA).",
         "tr": "Sapmanın düzenleyici bir para cezası veya ihtarı tetikleme olasılığını belirtir (örn. FDA, USDA).",
         "de": "Gibt an, ob die Abweichung wahrscheinlich eine behördliche Geldstrafe oder Anordnung auslöst (z. B. FDA, USDA).",
         "fr": "Indique si l'écart est susceptible de déclencher une amende ou une citation réglementaire (ex. FDA, USDA).",
-        "es": "Indica si es probable que la desviación genere una multa o citación regulatoria (ej., FDA, USDA)."
+        "es": "Indica si es probable que la desviación genere una multa o citación regulatoria (ej., FDA, USDA).",
+        "ar": "يشير إلى ما إذا كان الانحراف من المحتمل أن يؤدي إلى غرامة تنظيمية أو مخالفة (مثل إدارة الغذاء والدواء الأمريكية (FDA)، وزارة الزراعة الأمريكية (USDA))."
       }
     }
   ],
@@ -254,18 +270,28 @@
     ]
   },
   "formulas": {
-    "result": "deviation_type + affected_batch_kg + unit_cost_per_kg",
-    "result_copy": "deviation_type + affected_batch_kg + unit_cost_per_kg"
+    "base_cost": "regulatory_penalty_flag * unit_cost_per_kg",
+    "adjusted_cost": "regulatory_penalty_flag * unit_cost_per_kg * (1 + (rework_percentage / 100))",
+    "result": "regulatory_penalty_flag * unit_cost_per_kg * (1 + (rework_percentage / 100)) * (affected_batch_kg)",
+    "factor_affected_batch_kg": "affected_batch_kg"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_affected_batch_kg"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg"
+    "unit": "USD"
   },
   "toolName": "haccp-deviation-cost-calculator",
   "catalogCategory": "everyday-life",

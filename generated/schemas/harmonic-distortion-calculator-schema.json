@@ -14,14 +14,15 @@
         "de": "Grundspannung (Vrms)",
         "fr": "Tension fondamentale (Veff)",
         "es": "Tensión fundamental (Vrms)",
-        "ar": "Fundamental Voltage (Vrms)"
+        "ar": "الجهد الأساسي (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage at the fundamental frequency (e.g., 50 Hz or 60 Hz)",
         "tr": "Temel frekanstaki RMS gerilimi (örn. 50 Hz veya 60 Hz)",
         "de": "RMS-Spannung bei der Grundfrequenz (z. B. 50 Hz oder 60 Hz)",
         "fr": "Tension efficace à la fréquence fondamentale (ex. 50 Hz ou 60 Hz)",
-        "es": "Tensión RMS a la frecuencia fundamental (ej. 50 Hz o 60 Hz)"
+        "es": "Tensión RMS a la frecuencia fundamental (ej. 50 Hz o 60 Hz)",
+        "ar": "جهد RMS عند التردد الأساسي (مثل 50 هرتز أو 60 هرتز)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "2. Harmonische Spannung (Vrms)",
         "fr": "Tension du 2e harmonique (Veff)",
         "es": "Tensión del 2º armónico (Vrms)",
-        "ar": "2nd Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي الثاني (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 2nd harmonic component, typically from nonlinear loads",
         "tr": "2. harmonik bileşenin RMS gerilimi, genellikle doğrusal olmayan yüklerden kaynaklanır",
         "de": "RMS-Spannung der 2. Harmonischen, typischerweise von nichtlinearen Lasten",
         "fr": "Tension efficace de la composante du 2e harmonique, généralement due aux charges non linéaires",
-        "es": "Tensión RMS del componente del 2º armónico, típicamente de cargas no lineales"
+        "es": "Tensión RMS del componente del 2º armónico, típicamente de cargas no lineales",
+        "ar": "جهد RMS للمكون التوافقي الثاني، عادة من الأحمال غير الخطية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "3. Harmonische Spannung (Vrms)",
         "fr": "Tension du 3e harmonique (Veff)",
         "es": "Tensión del 3er armónico (Vrms)",
-        "ar": "3rd Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي الثالث (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 3rd harmonic component, common in industrial systems",
         "tr": "3. harmonik bileşenin RMS gerilimi, endüstriyel sistemlerde yaygındır",
         "de": "RMS-Spannung der 3. Harmonischen, häufig in industriellen Systemen",
         "fr": "Tension efficace de la composante du 3e harmonique, courante dans les systèmes industriels",
-        "es": "Tensión RMS del componente del 3er armónico, común en sistemas industriales"
+        "es": "Tensión RMS del componente del 3er armónico, común en sistemas industriales",
+        "ar": "جهد RMS للمكون التوافقي الثالث، شائع في الأنظمة الصناعية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "4. Harmonische Spannung (Vrms)",
         "fr": "Tension du 4e harmonique (Veff)",
         "es": "Tensión del 4º armónico (Vrms)",
-        "ar": "4th Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي الرابع (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 4th harmonic component",
         "tr": "4. harmonik bileşenin RMS gerilimi",
         "de": "RMS-Spannung der 4. Harmonischen",
         "fr": "Tension efficace de la composante du 4e harmonique",
-        "es": "Tensión RMS del componente del 4º armónico"
+        "es": "Tensión RMS del componente del 4º armónico",
+        "ar": "جهد RMS للمكون التوافقي الرابع"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "5. Harmonische Spannung (Vrms)",
         "fr": "Tension harmonique de 5e rang (Veff)",
         "es": "Tensión del 5º armónico (Vrms)",
-        "ar": "5th Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي الخامس (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 5th harmonic component",
         "tr": "5. harmonik bileşenin RMS gerilimi",
         "de": "RMS-Spannung der 5. Harmonischen",
         "fr": "Tension efficace de la composante harmonique de rang 5",
-        "es": "Tensión RMS del componente del 5º armónico"
+        "es": "Tensión RMS del componente del 5º armónico",
+        "ar": "جهد RMS للمكون التوافقي الخامس"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "6. Harmonische Spannung (Vrms)",
         "fr": "Tension harmonique de 6e rang (Veff)",
         "es": "Tensión del 6º armónico (Vrms)",
-        "ar": "6th Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي السادس (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 6th harmonic component",
         "tr": "6. harmonik bileşenin RMS gerilimi",
         "de": "RMS-Spannung der 6. Harmonischen",
         "fr": "Tension efficace de la composante harmonique de rang 6",
-        "es": "Tensión RMS del 6º componente armónico"
+        "es": "Tensión RMS del 6º componente armónico",
+        "ar": "جهد RMS للمكون التوافقي السادس"
       }
     },
     {
@@ -152,32 +158,39 @@
         "de": "7. Harmonische Spannung (Vrms)",
         "fr": "Tension harmonique de 7e rang (Veff)",
         "es": "7º Armónico de Tensión (Vrms)",
-        "ar": "7th Harmonic Voltage (Vrms)"
+        "ar": "جهد التوافقي السابع (Vrms)"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the 7th harmonic component",
         "tr": "7. harmonik bileşenin RMS gerilimi",
         "de": "RMS-Spannung der 7. Harmonischen",
         "fr": "Tension efficace de la composante harmonique de rang 7",
-        "es": "Tensión RMS del 7º componente armónico"
+        "es": "Tensión RMS del 7º componente armónico",
+        "ar": "جهد RMS للمكون التوافقي السابع"
       }
     }
   ],
   "formulas": {
-    "result": "vFund + v2 + v3",
-    "result_copy": "vFund + v2 + v3"
+    "normalized_product": "vFund * v2 * v3 * v4",
+    "result": "vFund * v2 * v3 * v4 * (v5 * v6 * v7)",
+    "adjustment_factor": "v5 * v6 * v7"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "harmonicRmsSum"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "thdPercent",
-    "unit": "V"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Metal & Kaynak",

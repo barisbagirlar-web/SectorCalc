@@ -14,14 +14,15 @@
         "de": "Durchschnittliche Ereignisanzahl (λ)",
         "fr": "Taux d'occurrence moyen (λ)",
         "es": "Número promedio de eventos (λ)",
-        "ar": "Ortalama Olay Sayısı (λ)"
+        "ar": "متوسط عدد الأحداث (λ)"
       },
       "businessContext_i18n": {
         "en": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
         "tr": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
         "de": "Erwartete durchschnittliche Anzahl von Ereignissen in einem bestimmten Zeitintervall",
         "fr": "Nombre moyen d'événements attendus dans un intervalle de temps donné",
-        "es": "Número promedio de eventos esperados en un intervalo de tiempo específico"
+        "es": "Número promedio de eventos esperados en un intervalo de tiempo específico",
+        "ar": "متوسط عدد الأحداث المتوقعة في فترة زمنية معينة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zielereignisanzahl (k)",
         "fr": "Nombre d'événements cible (k)",
         "es": "Número de eventos objetivo (k)",
-        "ar": "Hedef Olay Sayısı (k)"
+        "ar": "عدد الأحداث المستهدف (ك)"
       },
       "businessContext_i18n": {
         "en": "Olasılığı hesaplanacak tam olay sayısı",
         "tr": "Olasılığı hesaplanacak tam olay sayısı",
         "de": "Exakte Anzahl von Ereignissen, deren Wahrscheinlichkeit berechnet werden soll",
         "fr": "Nombre exact d'événements dont on calcule la probabilité",
-        "es": "Número exacto de eventos para calcular la probabilidad"
+        "es": "Número exacto de eventos para calcular la probabilidad",
+        "ar": "العدد الدقيق للأحداث لحساب الاحتمالية"
       }
     },
     {
@@ -60,32 +62,37 @@
         "de": "Kumulativ (k oder weniger)",
         "fr": "Cumulatif (k ou moins)",
         "es": "Acumulativo (k o menos)",
-        "ar": "Kümülatif (k veya daha az)"
+        "ar": "تراكمي (ك أو أقل)"
       },
       "businessContext_i18n": {
         "en": "Kümülatif olasılık için üst sınır (k dahil)",
         "tr": "Kümülatif olasılık için üst sınır (k dahil)",
         "de": "Obergrenze für kumulative Wahrscheinlichkeit (k eingeschlossen)",
         "fr": "Limite supérieure pour la probabilité cumulative (k inclus)",
-        "es": "Límite superior para la probabilidad acumulativa (incluyendo k)"
+        "es": "Límite superior para la probabilidad acumulativa (incluyendo k)",
+        "ar": "الحد الأعلى للاحتمال التراكمي (بما في ذلك ك)"
       }
     }
   ],
   "formulas": {
-    "result": "lambda + k + kumulatif",
-    "result_copy": "lambda + k + kumulatif"
+    "normalized_product": "lambda * k * kumulatif",
+    "result": "lambda * k * kumulatif"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "kumulatifOlasilik"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "kumulatifOlasilik",
-    "unit": "adet"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

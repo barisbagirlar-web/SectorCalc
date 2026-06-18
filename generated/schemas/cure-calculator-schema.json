@@ -14,14 +14,15 @@
         "de": "Aushärtetemperatur",
         "fr": "Température de cure",
         "es": "Temperatura de curado",
-        "ar": "Curing Temperature"
+        "ar": "درجة حرارة المعالجة"
       },
       "businessContext_i18n": {
         "en": "Average temperature during the curing period.",
         "tr": "Kür süresi boyunca ortalama sıcaklık.",
         "de": "Durchschnittstemperatur während der Aushärtezeit.",
         "fr": "Température moyenne pendant la période de cure.",
-        "es": "Temperatura promedio durante el período de curado."
+        "es": "Temperatura promedio durante el período de curado.",
+        "ar": "متوسط درجة الحرارة خلال فترة المعالجة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aushärtezeit",
         "fr": "Durée de cure",
         "es": "Tiempo de curado",
-        "ar": "Curing Time"
+        "ar": "وقت المعالجة"
       },
       "businessContext_i18n": {
         "en": "Total duration of curing in hours.",
         "tr": "Kürün toplam süresi (saat).",
         "de": "Gesamtdauer der Aushärtung in Stunden.",
         "fr": "Durée totale de cure en heures.",
-        "es": "Duración total del curado en horas."
+        "es": "Duración total del curado en horas.",
+        "ar": "المدة الإجمالية للمعالجة بالساعات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Datumstemperatur",
         "fr": "Température de référence",
         "es": "Temperatura de referencia",
-        "ar": "Datum Temperature"
+        "ar": "درجة حرارة الأساس"
       },
       "businessContext_i18n": {
         "en": "Temperature below which hydration ceases for the specific concrete mix.",
         "tr": "Belirli beton karışımı için hidratasyonun durduğu sıcaklık.",
         "de": "Temperatur, unterhalb derer die Hydratation für die spezifische Betonmischung aufhört.",
         "fr": "Température en dessous de laquelle l'hydratation cesse pour le mélange de béton spécifique.",
-        "es": "Temperatura por debajo de la cual cesa la hidratación para la mezcla de concreto específica."
+        "es": "Temperatura por debajo de la cual cesa la hidratación para la mezcla de concreto específica.",
+        "ar": "درجة الحرارة التي تتوقف عندها عملية الإماهة لخليط الخرسانة المحدد."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Festigkeitskoeffizient A",
         "fr": "Coefficient de résistance A",
         "es": "Coeficiente de resistencia A",
-        "ar": "Strength Coefficient A"
+        "ar": "معامل القوة A"
       },
       "businessContext_i18n": {
         "en": "Intercept of the maturity-strength logarithmic relationship.",
         "tr": "Olgunluk-mukavemet logaritmik ilişkisinin kesişimi.",
         "de": "Achsenabschnitt der logarithmischen Reife-Festigkeits-Beziehung.",
         "fr": "Ordonnée à l'origine de la relation logarithmique maturité-résistance.",
-        "es": "Intersección de la relación logarítmica madurez-resistencia."
+        "es": "Intersección de la relación logarítmica madurez-resistencia.",
+        "ar": "تقاطع العلاقة اللوغاريتمية بين النضج والقوة."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Festigkeitskoeffizient B",
         "fr": "Coefficient de résistance B",
         "es": "Coeficiente de resistencia B",
-        "ar": "Strength Coefficient B"
+        "ar": "معامل القوة B"
       },
       "businessContext_i18n": {
         "en": "Slope of the maturity-strength logarithmic relationship.",
         "tr": "Olgunluk-mukavemet logaritmik ilişkisinin eğimi.",
         "de": "Steigung der logarithmischen Reife-Festigkeits-Beziehung.",
         "fr": "Pente de la relation logarithmique maturité-résistance.",
-        "es": "Pendiente de la relación logarítmica madurez-resistencia."
+        "es": "Pendiente de la relación logarítmica madurez-resistencia.",
+        "ar": "ميل العلاقة اللوغاريتمية بين النضج والقوة."
       }
     }
   ],
   "formulas": {
-    "result": "curingTemperature + curingTimeHours + datumTemperature",
-    "result_copy": "curingTemperature + curingTimeHours + datumTemperature"
+    "normalized_product": "curingTemperature * curingTimeHours * datumTemperature * strengthCoefficientA",
+    "result": "curingTemperature * curingTimeHours * datumTemperature * strengthCoefficientA * (strengthCoefficientB)",
+    "adjustment_factor": "strengthCoefficientB"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "maturityIndex",
-      "estimatedStrength"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "estimatedStrength",
-    "unit": "°C"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

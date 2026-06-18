@@ -14,14 +14,15 @@
         "de": "Mütterliches Alter",
         "fr": "Âge maternel",
         "es": "Edad materna",
-        "ar": "Maternal Age"
+        "ar": "عمر الأم"
       },
       "businessContext_i18n": {
         "en": "Age of the mother at delivery",
         "tr": "Doğum anında annenin yaşı",
         "de": "Alter der Mutter bei der Geburt",
         "fr": "Âge de la mère à l'accouchement",
-        "es": "Edad de la madre al momento del parto"
+        "es": "Edad de la madre al momento del parto",
+        "ar": "عمر الأم عند الولادة"
       }
     },
     {
@@ -37,13 +38,15 @@
         "de": "BMI",
         "fr": "IMC",
         "es": "IMC",
-        "ar": "BMI"
+        "ar": "مؤشر كتلة الجسم"
       },
       "businessContext_i18n": {
         "en": "Body Mass Index before pregnancy",
         "tr": "Hamilelik öncesi Vücut Kitle İndeksi",
         "de": "Body-Mass-Index vor der Schwangerschaft",
-        "fr": "Indice de masse corporelle avant la grossesse"
+        "fr": "Indice de masse corporelle avant la grossesse",
+        "es": "Índice de masa corporal antes del embarazo",
+        "ar": "مؤشر كتلة الجسم قبل الحمل"
       }
     },
     {
@@ -58,14 +61,16 @@
         "tr": "Önceki Vajinal Doğum",
         "de": "Vorherige vaginale Geburt",
         "fr": "Accouchement vaginal antérieur",
-        "es": "Previous Vaginal Birth",
-        "ar": "Previous Vaginal Birth"
+        "es": "Parto vaginal previo",
+        "ar": "ولادة مهبلية سابقة"
       },
       "businessContext_i18n": {
         "en": "1 if previous vaginal birth, 0 otherwise",
         "tr": "Önceki vajinal doğum varsa 1, yoksa 0",
         "de": "1 bei vorheriger vaginaler Geburt, sonst 0",
-        "fr": "1 si accouchement vaginal antérieur, 0 sinon"
+        "fr": "1 si accouchement vaginal antérieur, 0 sinon",
+        "es": "1 si hubo parto vaginal previo, 0 en caso contrario",
+        "ar": "1 إذا كانت ولادة مهبلية سابقة، 0 خلاف ذلك"
       }
     },
     {
@@ -80,14 +85,16 @@
         "tr": "Önceki Sezaryen Endikasyonu Tekrarlayan",
         "de": "Vorheriger Kaiserschnitt-Indikation rezidivierend",
         "fr": "Indication de césarienne antérieure récurrente",
-        "es": "Previous CS Indication Recurrent",
-        "ar": "Previous CS Indication Recurrent"
+        "es": "Indicación de cesárea previa recurrente",
+        "ar": "مؤشر قيصرية سابقة متكرر"
       },
       "businessContext_i18n": {
         "en": "1 if previous cesarean indication is recurrent, 0 otherwise",
         "tr": "Önceki sezaryen endikasyonu tekrarlayan ise 1, değilse 0",
         "de": "1 wenn vorherige Kaiserschnitt-Indikation rezidivierend ist, sonst 0",
-        "fr": "1 si l'indication de césarienne antérieure est récurrente, 0 sinon"
+        "fr": "1 si l'indication de césarienne antérieure est récurrente, 0 sinon",
+        "es": "1 si la indicación de cesárea previa es recurrente, 0 en caso contrario",
+        "ar": "1 إذا كان مؤشر القيصرية السابقة متكررًا، 0 خلاف ذلك"
       }
     },
     {
@@ -103,13 +110,15 @@
         "de": "Gestationsalter",
         "fr": "Âge gestationnel",
         "es": "Edad gestacional",
-        "ar": "Gestational Age"
+        "ar": "العمر الحملي"
       },
       "businessContext_i18n": {
         "en": "Gestational age at delivery in weeks",
         "tr": "Doğumdaki gebelik haftası",
         "de": "Gestationsalter bei Entbindung in Wochen",
-        "fr": "Âge gestationnel à l'accouchement en semaines"
+        "fr": "Âge gestationnel à l'accouchement en semaines",
+        "es": "Edad gestacional al parto en semanas",
+        "ar": "عمر الحمل عند الولادة بالأسابيع"
       }
     },
     {
@@ -124,14 +133,16 @@
         "tr": "Servikal Dilatasyon",
         "de": "Zervixdilatation",
         "fr": "Dilatation cervicale",
-        "es": "Cervical Dilation",
-        "ar": "Cervical Dilation"
+        "es": "Dilatación cervical",
+        "ar": "تمدد عنق الرحم"
       },
       "businessContext_i18n": {
         "en": "Cervical dilation at admission in cm",
         "tr": "Başvuru anında servikal dilatasyon (cm)",
         "de": "Zervixdilatation bei Aufnahme in cm",
-        "fr": "Dilatation cervicale à l'admission en cm"
+        "fr": "Dilatation cervicale à l'admission en cm",
+        "es": "Dilatación cervical al ingreso en cm",
+        "ar": "تمدد عنق الرحم عند الدخول بالسنتيمتر"
       }
     }
   ],

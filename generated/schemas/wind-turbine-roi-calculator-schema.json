@@ -22,13 +22,17 @@
         "en": "Turbine Rated Capacity (MW)",
         "tr": "Türbin Nominal Kapasitesi (MW)",
         "de": "Nennleistung der Turbine (MW)",
-        "fr": "Capacité nominale de l'éolienne (MW)"
+        "fr": "Capacité nominale de l'éolienne (MW)",
+        "es": "Capacidad nominal de la turbina (MW)",
+        "ar": "السعة المقدرة للتوربين (ميجاواط)"
       },
       "businessContext_i18n": {
         "en": "Nameplate capacity of the wind turbine model under evaluation.",
         "tr": "Değerlendirilen rüzgar türbini modelinin etiket kapasitesi.",
         "de": "Typenschildleistung des zu bewertenden Windturbinenmodells.",
-        "fr": "Puissance nominale du modèle d'éolienne évalué."
+        "fr": "Puissance nominale du modèle d'éolienne évalué.",
+        "es": "Capacidad nominal del modelo de turbina eólica bajo evaluación.",
+        "ar": "السعة الاسمية لنموذج التوربين قيد التقييم."
       }
     },
     {
@@ -45,13 +49,16 @@
         "tr": "Kapasite Faktörü (%)",
         "de": "Kapazitätsfaktor (%)",
         "fr": "Facteur de capacité (%)",
-        "es": "Factor de capacidad (%)"
+        "es": "Factor de capacidad (%)",
+        "ar": "معامل السعة (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1).",
         "tr": "Saha rüzgar kaynağı değerlendirmesine (IEC 61400-1) dayalı beklenen yıllık kapasite faktörü.",
         "de": "Erwarteter jährlicher Kapazitätsfaktor basierend auf der Standort-Windressourcenbewertung (IEC 61400-1).",
-        "fr": "Facteur de capacité annuel attendu basé sur l'évaluation de la ressource éolienne du site (IEC 61400-1)."
+        "fr": "Facteur de capacité annuel attendu basé sur l'évaluation de la ressource éolienne du site (IEC 61400-1).",
+        "es": "Factor de capacidad anual esperado basado en la evaluación del recurso eólico del sitio (IEC 61400-1).",
+        "ar": "معامل السعة السنوي المتوقع بناءً على تقييم موارد الرياح في الموقع (IEC 61400-1)."
       }
     },
     {
@@ -67,13 +74,17 @@
         "en": "Capital Cost per MW (USD)",
         "tr": "MW başına Sermaye Maliyeti (USD)",
         "de": "Kapitalkosten pro MW (USD)",
-        "fr": "Coût d'investissement par MW (USD)"
+        "fr": "Coût d'investissement par MW (USD)",
+        "es": "Costo de capital por MW (USD)",
+        "ar": "التكلفة الرأسمالية لكل ميجاواط (دولار أمريكي)"
       },
       "businessContext_i18n": {
         "en": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics.",
         "tr": "Türbin, temel, şebeke bağlantısı ve lojistik dahil MW başına toplam kurulum maliyeti.",
         "de": "Gesamtinstallationskosten pro MW, einschließlich Turbine, Fundament, Netzanschluss und Logistik.",
-        "fr": "Coût total installé par MW, incluant l'éolienne, les fondations, le raccordement au réseau et la logistique."
+        "fr": "Coût total installé par MW, incluant l'éolienne, les fondations, le raccordement au réseau et la logistique.",
+        "es": "Costo total instalado por MW, incluyendo turbina, cimentación, conexión a la red y logística.",
+        "ar": "إجمالي التكلفة المركبة لكل ميجاواط، بما في ذلك التوربين والأساس وربط الشبكة والخدمات اللوجستية."
       }
     },
     {
@@ -89,13 +100,17 @@
         "en": "Operating Expenditure (USD/MWh)",
         "tr": "İşletme Gideri (USD/MWh)",
         "de": "Betriebskosten (USD/MWh)",
-        "fr": "Dépenses d'exploitation (USD/MWh)"
+        "fr": "Dépenses d'exploitation (USD/MWh)",
+        "es": "Gasto operativo (USD/MWh)",
+        "ar": "النفقات التشغيلية (دولار أمريكي/ميجاواط ساعي)"
       },
       "businessContext_i18n": {
         "en": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance).",
         "tr": "Üretilen MWh başına yıllık işletme ve bakım maliyeti (planlı ve plansız bakım dahil).",
         "de": "Jährliche Betriebs- und Wartungskosten pro erzeugter MWh (umfasst planmäßige und außerplanmäßige Wartung).",
-        "fr": "Coût annuel d'exploitation et de maintenance par MWh produit (inclut maintenance programmée et non programmée)."
+        "fr": "Coût annuel d'exploitation et de maintenance par MWh produit (inclut maintenance programmée et non programmée).",
+        "es": "Costo anual de operación y mantenimiento por MWh generado (incluye mantenimiento programado y no programado).",
+        "ar": "تكلفة التشغيل والصيانة السنوية لكل ميجاواط ساعي مولدة (تشمل الصيانة المجدولة وغير المجدولة)."
       }
     },
     {
@@ -111,13 +126,17 @@
         "en": "Electricity Selling Price (USD/MWh)",
         "tr": "Elektrik Satış Fiyatı (USD/MWh)",
         "de": "Stromverkaufspreis (USD/MWh)",
-        "fr": "Prix de vente de l'électricité (USD/MWh)"
+        "fr": "Prix de vente de l'électricité (USD/MWh)",
+        "es": "Precio de venta de electricidad (USD/MWh)",
+        "ar": "سعر بيع الكهرباء (دولار أمريكي/ميجاواط ساعي)"
       },
       "businessContext_i18n": {
         "en": "Power purchase agreement price or wholesale market price per MWh.",
         "tr": "MWh başına güç satın alma anlaşması fiyatı veya toptan satış piyasa fiyatı.",
         "de": "Stromabnahmevertragspreis oder Großhandelsmarktpreis pro MWh.",
-        "fr": "Prix du contrat d'achat d'électricité ou prix du marché de gros par MWh."
+        "fr": "Prix du contrat d'achat d'électricité ou prix du marché de gros par MWh.",
+        "es": "Precio del acuerdo de compra de energía o precio del mercado mayorista por MWh.",
+        "ar": "سعر اتفاقية شراء الطاقة أو سعر السوق بالجملة لكل ميجاواط ساعي."
       }
     },
     {
@@ -134,13 +153,16 @@
         "tr": "İskonto Oranı (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
-        "es": "Tasa de descuento (%)"
+        "es": "Tasa de descuento (%)",
+        "ar": "معدل الخصم (%)"
       },
       "businessContext_i18n": {
         "en": "Weighted average cost of capital (WACC) used for net present value calculation.",
         "tr": "Net bugünkü değer hesaplaması için kullanılan ağırlıklı ortalama sermaye maliyeti (WACC).",
         "de": "Gewichteter durchschnittlicher Kapitalkostensatz (WACC) für die Nettobarwertberechnung.",
-        "fr": "Coût moyen pondéré du capital (CMPC) utilisé pour le calcul de la valeur actualisée nette."
+        "fr": "Coût moyen pondéré du capital (CMPC) utilisé pour le calcul de la valeur actualisée nette.",
+        "es": "Costo promedio ponderado del capital (WACC) utilizado para el cálculo del valor presente neto.",
+        "ar": "متوسط التكلفة المرجح لرأس المال (WACC) المستخدم لحساب صافي القيمة الحالية."
       }
     },
     {
@@ -156,13 +178,17 @@
         "en": "Project Lifetime (years)",
         "tr": "Proje Ömrü (yıl)",
         "de": "Projektlebensdauer (Jahre)",
-        "fr": "Durée de vie du projet (années)"
+        "fr": "Durée de vie du projet (années)",
+        "es": "Vida útil del proyecto (años)",
+        "ar": "عمر المشروع (سنوات)"
       },
       "businessContext_i18n": {
         "en": "Expected operational life of the wind farm (typically 20-25 years).",
         "tr": "Rüzgar çiftliğinin beklenen işletme ömrü (tipik olarak 20-25 yıl).",
         "de": "Erwartete Betriebsdauer des Windparks (typischerweise 20-25 Jahre).",
-        "fr": "Durée de vie opérationnelle prévue du parc éolien (généralement 20-25 ans)."
+        "fr": "Durée de vie opérationnelle prévue du parc éolien (généralement 20-25 ans).",
+        "es": "Vida operativa esperada del parque eólico (típicamente 20-25 años).",
+        "ar": "العمر التشغيلي المتوقع لمزرعة الرياح (عادة 20-25 سنة)."
       }
     },
     {
@@ -178,13 +204,17 @@
         "en": "Annual Degradation Rate (%)",
         "tr": "Yıllık Bozulma Oranı (%)",
         "de": "Jährliche Degradationsrate (%)",
-        "fr": "Taux de dégradation annuel (%)"
+        "fr": "Taux de dégradation annuel (%)",
+        "es": "Tasa de degradación anual (%)",
+        "ar": "معدل التدهور السنوي (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors.",
         "tr": "Kanat aşınması, dişli kutusu yaşlanması ve diğer faktörler nedeniyle enerji üretiminde beklenen yıllık azalma.",
         "de": "Erwartete jährliche Verringerung der Energieproduktion aufgrund von Blattverschleiß, Getriebealterung und anderen Faktoren.",
-        "fr": "Réduction annuelle attendue de la production d'énergie due à l'usure des pales, au vieillissement du multiplicateur et à d'autres facteurs."
+        "fr": "Réduction annuelle attendue de la production d'énergie due à l'usure des pales, au vieillissement du multiplicateur et à d'autres facteurs.",
+        "es": "Reducción anual esperada en la producción de energía debido al desgaste de las palas, envejecimiento de la caja de engranajes y otros factores.",
+        "ar": "الانخفاض السنوي المتوقع في إنتاج الطاقة بسبب تآكل الشفرات، وتقادم علبة التروس، وعوامل أخرى."
       }
     }
   ],
@@ -225,18 +255,28 @@
     ]
   },
   "formulas": {
-    "result": "turbine_capacity + capacity_factor + capital_cost_per_mw",
-    "result_copy": "turbine_capacity + capacity_factor + capital_cost_per_mw"
+    "base_cost": "project_lifetime * capital_cost_per_mw",
+    "adjusted_cost": "project_lifetime * capital_cost_per_mw * (1 + (capacity_factor / 100))",
+    "result": "project_lifetime * capital_cost_per_mw * (1 + (capacity_factor / 100)) * (turbine_capacity)",
+    "factor_turbine_capacity": "turbine_capacity"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_turbine_capacity"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "MW"
+    "unit": "USD"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

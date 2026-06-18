@@ -14,14 +14,15 @@
         "de": "Opener-Gewicht",
         "fr": "Poids d'ouverture",
         "es": "Peso de apertura",
-        "ar": "Opener Weight"
+        "ar": "وزن الافتتاح"
       },
       "businessContext_i18n": {
         "en": "Your planned opening weight on the platform",
         "tr": "Platformda planlanan açılış ağırlığınız",
         "de": "Ihr geplantes Opener-Gewicht auf der Plattform",
         "fr": "Poids d'ouverture prévu sur la plateforme",
-        "es": "Tu peso de apertura planificado en la plataforma"
+        "es": "Tu peso de apertura planificado en la plataforma",
+        "ar": "وزن الافتتاح المخطط له على المنصة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Faktor für zweiten Versuch",
         "fr": "Facteur de deuxième tentative",
         "es": "Factor de segundo intento",
-        "ar": "Second Attempt Factor"
+        "ar": "عامل المحاولة الثانية"
       },
       "businessContext_i18n": {
         "en": "Percentage of opener for second attempt",
         "tr": "İkinci deneme için açılış yüzdesi",
         "de": "Prozentsatz des Openers für den zweiten Versuch",
         "fr": "Pourcentage de l'ouverture pour la deuxième tentative",
-        "es": "Porcentaje de apertura para el segundo intento"
+        "es": "Porcentaje de apertura para el segundo intento",
+        "ar": "نسبة من وزن الافتتاح للمحاولة الثانية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Faktor für dritten Versuch",
         "fr": "Facteur de troisième tentative",
         "es": "Factor de tercer intento",
-        "ar": "Third Attempt Factor"
+        "ar": "عامل المحاولة الثالثة"
       },
       "businessContext_i18n": {
         "en": "Percentage of opener for third attempt",
         "tr": "Üçüncü deneme için açılış yüzdesi",
         "de": "Prozentsatz des Openers für den dritten Versuch",
         "fr": "Pourcentage de l'ouverture pour la troisième tentative",
-        "es": "Porcentaje de apertura para el tercer intento"
+        "es": "Porcentaje de apertura para el tercer intento",
+        "ar": "نسبة من وزن الافتتاح للمحاولة الثالثة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Startprozentsatz Aufwärmen",
         "fr": "Pourcentage de départ de l'échauffement",
         "es": "Porcentaje de inicio de calentamiento",
-        "ar": "Warm-up Start Percent"
+        "ar": "نسبة بدء الإحماء"
       },
       "businessContext_i18n": {
         "en": "Percentage of opener to start warm-up sets",
         "tr": "Isınma setlerine başlamak için açılış yüzdesi",
         "de": "Prozentsatz des Openers zum Starten der Aufwärmsätze",
         "fr": "Pourcentage de l'ouverture pour commencer les séries d'échauffement",
-        "es": "Porcentaje de apertura para iniciar series de calentamiento"
+        "es": "Porcentaje de apertura para iniciar series de calentamiento",
+        "ar": "نسبة من وزن الافتتاح لبدء مجموعات الإحماء"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Endprozentsatz Aufwärmen",
         "fr": "Pourcentage de fin de l'échauffement",
         "es": "Porcentaje de fin de calentamiento",
-        "ar": "Warm-up End Percent"
+        "ar": "نسبة نهاية الإحماء"
       },
       "businessContext_i18n": {
         "en": "Percentage of opener for last warm-up set",
         "tr": "Son ısınma seti için açılış yüzdesi",
         "de": "Prozentsatz des Openers für den letzten Aufwärmsatz",
         "fr": "Pourcentage de l'ouverture pour la dernière série d'échauffement",
-        "es": "Porcentaje de apertura para la última serie de calentamiento"
+        "es": "Porcentaje de apertura para la última serie de calentamiento",
+        "ar": "نسبة الافتتاحية لآخر مجموعة إحماء"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Schrittprozentsatz Aufwärmen",
         "fr": "Pas d'incrément de l'échauffement",
         "es": "Porcentaje de paso de calentamiento",
-        "ar": "Warm-up Step Percent"
+        "ar": "نسبة خطوة الإحماء"
       },
       "businessContext_i18n": {
         "en": "Increment between warm-up sets as percentage of opener",
         "tr": "Isınma setleri arasındaki artış (açılış yüzdesi olarak)",
         "de": "Erhöhung zwischen Aufwärmsätzen als Prozentsatz des Openers",
         "fr": "Incrément entre les séries d'échauffement en pourcentage de l'ouverture",
-        "es": "Incremento entre series de calentamiento como porcentaje de apertura"
+        "es": "Incremento entre series de calentamiento como porcentaje de apertura",
+        "ar": "الزيادة بين مجموعات الإحماء كنسبة من الافتتاحية"
       }
     }
   ],
   "formulas": {
-    "result": "openerWeight + secondAttemptFactor + thirdAttemptFactor",
-    "result_aux": "openerWeight + secondAttemptFactor + thirdAttemptFactor"
+    "normalized_product": "openerWeight * (secondAttemptFactor / 100) * (thirdAttemptFactor / 100) * (warmUpStartPercent / 100)",
+    "result": "openerWeight * (secondAttemptFactor / 100) * (thirdAttemptFactor / 100) * (warmUpStartPercent / 100) * ((warmUpEndPercent / 100) * (warmUpStepPercent / 100))",
+    "adjustment_factor": "(warmUpEndPercent / 100) * (warmUpStepPercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Competition Attempts",
-      "Warm-up Sets"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg",
+    "unit": "%",
     "breakdownUnits": {
       "Competition Attempts": "°C"
     }

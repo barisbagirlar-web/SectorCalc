@@ -14,14 +14,15 @@
         "de": "Emissionsgrad (ε)",
         "fr": "Émissivité (ε)",
         "es": "Emisividad (ε)",
-        "ar": "Yayma Oranı (ε)"
+        "ar": "معامل الانبعاثية (ε)"
       },
       "businessContext_i18n": {
         "en": "Yüzeyin siyah cisim idealine göre yayma oranı",
         "tr": "Yüzeyin siyah cisim idealine göre yayma oranı",
         "de": "Emissionsgrad der Oberfläche im Vergleich zum schwarzen Körper.",
         "fr": "Rapport d'émission de la surface par rapport à l'idéal du corps noir.",
-        "es": "Emisividad de la superficie con respecto al cuerpo negro ideal."
+        "es": "Emisividad de la superficie con respecto al cuerpo negro ideal.",
+        "ar": "معامل انبعاثية السطح مقارنة بالجسم الأسود المثالي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Oberfläche",
         "fr": "Surface",
         "es": "Área de superficie",
-        "ar": "Yüzey Alanı"
+        "ar": "مساحة السطح"
       },
       "businessContext_i18n": {
         "en": "Işınım yapan yüzeyin alanı",
         "tr": "Işınım yapan yüzeyin alanı",
         "de": "Fläche der strahlenden Oberfläche",
         "fr": "Surface de la zone émettrice",
-        "es": "Área de la superficie que irradia."
+        "es": "Área de la superficie que irradia.",
+        "ar": "مساحة السطح المشع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Sıcaklık"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Mutlak sıcaklık (Kelvin cinsinden)",
         "tr": "Mutlak sıcaklık (Kelvin cinsinden)",
         "de": "Absolute Temperatur (in Kelvin)",
         "fr": "Température absolue (en Kelvin)",
-        "es": "Temperatura absoluta (en Kelvin)"
+        "es": "Temperatura absoluta (en Kelvin)",
+        "ar": "درجة الحرارة المطلقة (بالكلفن)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Stefan-Boltzmann-Konstante",
         "fr": "Constante de Stefan-Boltzmann",
         "es": "Constante de Stefan-Boltzmann",
-        "ar": "Stefan-Boltzmann Sabiti"
+        "ar": "ثابت ستيفان-بولتزمان"
       },
       "businessContext_i18n": {
         "en": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
         "tr": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
         "de": "Grundlegende physikalische Konstante, Standardwert TÜV-geprüft",
         "fr": "Constante physique fondamentale, valeur par défaut approuvée par TÜV.",
-        "es": "Constante física fundamental, valor predeterminado aprobado por TÜV"
+        "es": "Constante física fundamental, valor predeterminado aprobado por TÜV",
+        "ar": "ثابت فيزيائي أساسي، القيمة الافتراضية معتمدة من TÜV."
       }
     }
   ],
   "formulas": {
-    "result": "emissivity + area + temperature",
-    "result_copy": "emissivity + area + temperature"
+    "normalized_product": "emissivity * area * temperature * stefanConstant",
+    "result": "emissivity * area * temperature * stefanConstant"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "intensity",
-      "power"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "intensity",
-    "unit": "boyutsuz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",

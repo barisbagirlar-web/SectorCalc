@@ -14,14 +14,15 @@
         "de": "Jährliches Familieneinkommen",
         "fr": "Revenu familial annuel",
         "es": "Ingreso familiar anual",
-        "ar": "Annual Family Income"
+        "ar": "الدخل السنوي للأسرة"
       },
       "businessContext_i18n": {
         "en": "Total gross annual income of the family before taxes",
         "tr": "Vergi öncesi ailenin brüt yıllık toplam geliri",
         "de": "Gesamtes jährliches Bruttoeinkommen der Familie vor Steuern",
         "fr": "Revenu annuel brut total de la famille avant impôts",
-        "es": "Ingreso bruto anual total de la familia antes de impuestos"
+        "es": "Ingreso bruto anual total de la familia antes de impuestos",
+        "ar": "إجمالي الدخل السنوي الإجمالي للأسرة قبل الضرائب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gesamtvermögen",
         "fr": "Actif total",
         "es": "Activos totales",
-        "ar": "Total Assets"
+        "ar": "إجمالي الأصول"
       },
       "businessContext_i18n": {
         "en": "Total value of family assets including savings, investments, and property equity",
         "tr": "Birikimler, yatırımlar ve mülk öz sermayesi dahil aile varlıklarının toplam değeri",
         "de": "Gesamtwert des Familienvermögens einschließlich Ersparnisse, Investitionen und Immobilienkapital",
         "fr": "Valeur totale des actifs familiaux, y compris l'épargne, les investissements et la valeur nette immobilière",
-        "es": "Valor total de los activos familiares, incluyendo ahorros, inversiones y patrimonio inmobiliario"
+        "es": "Valor total de los activos familiares, incluyendo ahorros, inversiones y patrimonio inmobiliario",
+        "ar": "القيمة الإجمالية لأصول الأسرة بما في ذلك المدخرات والاستثمارات وحقوق الملكية العقارية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Angehörigen",
         "fr": "Nombre de personnes à charge",
         "es": "Número de dependientes",
-        "ar": "Number of Dependents"
+        "ar": "عدد المعالين"
       },
       "businessContext_i18n": {
         "en": "Number of dependent family members including the student",
         "tr": "Öğrenci dahil bağımlı aile üyelerinin sayısı",
         "de": "Anzahl der abhängigen Familienmitglieder einschließlich des Studenten",
         "fr": "Nombre de membres de la famille à charge, y compris l'étudiant",
-        "es": "Número de miembros dependientes de la familia, incluido el estudiante"
+        "es": "Número de miembros dependientes de la familia, incluido el estudiante",
+        "ar": "عدد أفراد الأسرة المعالين بما في ذلك الطالب"
       }
     },
     {
@@ -83,32 +86,38 @@
         "de": "Jährliche Studienkosten",
         "fr": "Coût annuel de la fréquentation",
         "es": "Costo anual de asistencia",
-        "ar": "Annual Cost of Attendance"
+        "ar": "التكلفة السنوية للحضور"
       },
       "businessContext_i18n": {
         "en": "Total annual cost of attending the educational institution including tuition, fees, room, and board",
         "tr": "Eğitim kurumuna devam etmenin yıllık toplam maliyeti (öğrenim ücreti, harçlar, oda ve yemek dahil)",
         "de": "Gesamte jährliche Kosten für den Besuch der Bildungseinrichtung einschließlich Studiengebühren, Gebühren, Unterkunft und Verpflegung",
         "fr": "Coût annuel total de la fréquentation de l'établissement d'enseignement, y compris les frais de scolarité, les frais annexes, le logement et la pension.",
-        "es": "Costo anual total de asistir a la institución educativa, incluyendo matrícula, cuotas, alojamiento y comida"
+        "es": "Costo anual total de asistir a la institución educativa, incluyendo matrícula, cuotas, alojamiento y comida",
+        "ar": "التكلفة السنوية الإجمالية للالتحاق بالمؤسسة التعليمية بما في ذلك الرسوم الدراسية والرسوم والسكن والطعام"
       }
     }
   ],
   "formulas": {
-    "result": "annualIncome + totalAssets + dependents",
-    "result_copy": "annualIncome + totalAssets + dependents"
+    "base_cost": "dependents * annualIncome",
+    "adjusted_cost": "dependents * annualIncome * 1",
+    "result": "dependents * annualIncome * 1"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "efc",
-      "costOfAttendance"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "financialAid",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

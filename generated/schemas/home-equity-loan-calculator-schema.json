@@ -14,14 +14,15 @@
         "de": "Aktueller Immobilienwert",
         "fr": "Valeur actuelle du logement",
         "es": "Valor actual de la vivienda",
-        "ar": "Current Home Value"
+        "ar": "القيمة الحالية للمنزل"
       },
       "businessContext_i18n": {
         "en": "The current market value of the home.",
         "tr": "Evin güncel piyasa değeri.",
         "de": "Der aktuelle Marktwert des Hauses.",
         "fr": "La valeur marchande actuelle du logement.",
-        "es": "El valor de mercado actual de la vivienda."
+        "es": "El valor de mercado actual de la vivienda.",
+        "ar": "القيمة السوقية الحالية للمنزل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verbleibender Hypothekensaldo",
         "fr": "Solde hypothécaire restant",
         "es": "Saldo restante de la hipoteca",
-        "ar": "Remaining Mortgage Balance"
+        "ar": "الرصيد المتبقي من الرهن العقاري"
       },
       "businessContext_i18n": {
         "en": "Outstanding principal on existing mortgage(s).",
         "tr": "Mevcut ipotek(ler) üzerindeki anapara bakiyesi.",
         "de": "Ausstehender Kapitalbetrag der bestehenden Hypothek(en).",
         "fr": "Capital restant dû sur la ou les hypothèques existantes.",
-        "es": "Saldo pendiente de la(s) hipoteca(s) existente(s)."
+        "es": "Saldo pendiente de la(s) hipoteca(s) existente(s).",
+        "ar": "الرصيد المستحق على الرهن (الرهون) العقاري الحالي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gewünschter Kreditbetrag",
         "fr": "Montant du prêt souhaité",
         "es": "Monto del préstamo deseado",
-        "ar": "Desired Loan Amount"
+        "ar": "مبلغ القرض المطلوب"
       },
       "businessContext_i18n": {
         "en": "The amount the borrower wants to take out.",
         "tr": "Borçlunun çekmek istediği tutar.",
         "de": "Der Betrag, den der Kreditnehmer aufnehmen möchte.",
         "fr": "Le montant que l'emprunteur souhaite retirer.",
-        "es": "La cantidad que el prestatario desea retirar."
+        "es": "La cantidad que el prestatario desea retirar.",
+        "ar": "المبلغ الذي يرغب المقترض في سحبه."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate for the home equity loan.",
         "tr": "Ev kredisi için yıllık nominal faiz oranı.",
         "de": "Jährlicher Nominalzinssatz für das Eigenheimdarlehen.",
         "fr": "Taux d'intérêt nominal annuel pour le prêt sur valeur domiciliaire.",
-        "es": "Tasa de interés nominal anual del préstamo sobre el valor líquido de la vivienda."
+        "es": "Tasa de interés nominal anual del préstamo sobre el valor líquido de la vivienda.",
+        "ar": "معدل الفائدة الاسمي السنوي لقرض ملكية المنزل."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Darlehenslaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
-        "ar": "Loan Term"
+        "ar": "مدة القرض"
       },
       "businessContext_i18n": {
         "en": "Repayment period in years.",
         "tr": "Yıl cinsinden geri ödeme süresi.",
         "de": "Rückzahlungszeitraum in Jahren.",
         "fr": "Durée de remboursement en années.",
-        "es": "Período de amortización en años."
+        "es": "Período de amortización en años.",
+        "ar": "فترة السداد بالسنوات."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Maximales Beleihungsverhältnis",
         "fr": "Ratio prêt-valeur maximal",
         "es": "Relación máxima préstamo-valor",
-        "ar": "Max Loan-to-Value Ratio"
+        "ar": "نسبة القرض إلى القيمة القصوى"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable combined loan-to-value ratio (CLTV) as a percentage. CLTV = (remaining mortgage + new loan) / home value.",
         "tr": "İzin verilen maksimum birleşik kredi-değer oranı (CLTV) yüzdesi. CLTV = (kalan ipotek + yeni kredi) / ev değeri.",
         "de": "Maximal zulässiges kombiniertes Beleihungsverhältnis (CLTV) in Prozent. CLTV = (bestehende Hypothek + neues Darlehen) / Immobilienwert.",
         "fr": "Ratio prêt-valeur combiné maximal autorisé (CLTV) en pourcentage. CLTV = (hypothèque restante + nouveau prêt) / valeur du logement.",
-        "es": "Relación máxima combinada préstamo-valor (CLTV) permitida como porcentaje. CLTV = (hipoteca restante + nuevo préstamo) / valor de la vivienda."
+        "es": "Relación máxima combinada préstamo-valor (CLTV) permitida como porcentaje. CLTV = (hipoteca restante + nuevo préstamo) / valor de la vivienda.",
+        "ar": "الحد الأقصى المسموح به لنسبة القرض المجمع إلى القيمة (CLTV) كنسبة مئوية. CLTV = (الرهن العقاري المتبقي + القرض الجديد) / قيمة المنزل."
       }
     }
   ],

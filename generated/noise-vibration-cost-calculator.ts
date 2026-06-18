@@ -30,8 +30,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Noise_vibration_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.num_workers_exposed + input.avg_daily_exposure_hours + input.noise_level_dba; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.num_workers_exposed + input.avg_daily_exposure_hours + input.noise_level_dba; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.avg_daily_exposure_hours; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.num_workers_exposed * 1 * input.avg_daily_exposure_hours * input.avg_worker_annual_salary; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = (input.num_workers_exposed * 1 * input.avg_daily_exposure_hours * input.avg_worker_annual_salary) + (input.number_of_machines * input.maintenance_cost_per_machine_per_year); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.number_of_machines * input.maintenance_cost_per_machine_per_year; results["machine_maintenance_annual"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["machine_maintenance_annual"] = 0; }
+  try { const v = input.number_of_machines * input.avg_daily_exposure_hours; results["machine_runtime_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["machine_runtime_hours"] = 0; }
   return results;
 }
 
@@ -46,8 +49,8 @@ export function calculateNoise_vibration_cost_calculator(input: Noise_vibration_
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
+  const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

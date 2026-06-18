@@ -27,13 +27,16 @@
         "tr": "Boy (cm)",
         "de": "Länge (cm)",
         "fr": "Longueur (cm)",
-        "es": "Longitud (cm)"
+        "es": "Longitud (cm)",
+        "ar": "الطول (سم)"
       },
       "businessContext_i18n": {
         "en": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications.",
         "tr": "Paketin fiziksel uzunluğu (cm). Geometrik ürün özellikleri için ISO 1:2016 standardı.",
         "de": "Physische Länge der Verpackung in Zentimetern. ISO 1:2016-Norm für geometrische Produktspezifikationen.",
-        "fr": "Longueur physique du colis en centimètres. Norme ISO 1:2016 pour les spécifications géométriques des produits."
+        "fr": "Longueur physique du colis en centimètres. Norme ISO 1:2016 pour les spécifications géométriques des produits.",
+        "es": "Longitud física del paquete en centímetros. Norma ISO 1:2016 para especificaciones geométricas de productos.",
+        "ar": "الطول الفعلي للطرد بالسنتيمتر. معيار ISO 1:2016 لمواصفات المنتج الهندسية."
       }
     },
     {
@@ -49,13 +52,17 @@
         "en": "Width (cm)",
         "tr": "Genişlik (cm)",
         "de": "Breite (cm)",
-        "fr": "Largeur (cm)"
+        "fr": "Largeur (cm)",
+        "es": "Ancho (cm)",
+        "ar": "العرض (سم)"
       },
       "businessContext_i18n": {
         "en": "Physical width of the package in centimeters.",
         "tr": "Paketin fiziksel genişliği (cm).",
         "de": "Physische Breite der Verpackung in Zentimetern.",
-        "fr": "Largeur physique du colis en centimètres."
+        "fr": "Largeur physique du colis en centimètres.",
+        "es": "Ancho físico del paquete en centímetros.",
+        "ar": "العرض الفعلي للطرد بالسنتيمتر."
       }
     },
     {
@@ -72,13 +79,16 @@
         "tr": "Boy (cm)",
         "de": "Größe (cm)",
         "fr": "Taille (cm)",
-        "es": "Altura (cm)"
+        "es": "Altura (cm)",
+        "ar": "الطول (سم)"
       },
       "businessContext_i18n": {
         "en": "Physical height of the package in centimeters.",
         "tr": "Paketin fiziksel yüksekliği (cm).",
         "de": "Physische Höhe der Verpackung in Zentimetern.",
-        "fr": "Hauteur physique du colis en centimètres."
+        "fr": "Hauteur physique du colis en centimètres.",
+        "es": "Altura física del paquete en centímetros.",
+        "ar": "الارتفاع الفعلي للطرد بالسنتيمتر."
       }
     },
     {
@@ -94,13 +104,17 @@
         "en": "Actual Weight (kg)",
         "tr": "Gerçek ağırlık (kg)",
         "de": "Tatsächliches Gewicht (kg)",
-        "fr": "Poids réel (kg)"
+        "fr": "Poids réel (kg)",
+        "es": "Peso real (kg)",
+        "ar": "الوزن الفعلي (كجم)"
       },
       "businessContext_i18n": {
         "en": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
         "tr": "Paketleme dahil brüt ağırlık. ISO 80000-4:2006 standardına göre.",
         "de": "Bruttogewicht der Verpackung inklusive Verpackungsmaterial. Gemäß ISO 80000-4:2006.",
-        "fr": "Poids brut du colis, emballage inclus. Selon ISO 80000-4:2006."
+        "fr": "Poids brut du colis, emballage inclus. Selon ISO 80000-4:2006.",
+        "es": "Peso bruto del paquete incluido el embalaje. Según ISO 80000-4:2006.",
+        "ar": "الوزن الإجمالي للطرد بما في ذلك التغليف. وفقًا لمعيار ISO 80000-4:2006."
       }
     },
     {
@@ -122,13 +136,17 @@
         "en": "Carrier DIM Factor",
         "tr": "Taşıyıcı DIM Faktörü",
         "de": "Volumengewichtsfaktor des Frachtführers",
-        "fr": "Facteur DIM du transporteur"
+        "fr": "Facteur DIM du transporteur",
+        "es": "Factor DIM del transportista",
+        "ar": "عامل الأبعاد للناقل"
       },
       "businessContext_i18n": {
         "en": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard.",
         "tr": "Taşıyıcı tarafından kullanılan hacimsel bölen (örn. FedEx/UPS: 5000, DHL: 5000, Hava kargo: 6000). WERC standardı.",
         "de": "Volumengewichtsdivisor des Frachtführers (z. B. FedEx/UPS: 5000, DHL: 5000, Luftfracht: 6000). WERC-Standard.",
-        "fr": "Diviseur volumétrique utilisé par le transporteur (ex. : FedEx/UPS : 5000, DHL : 5000, Fret aérien : 6000). Norme WERC."
+        "fr": "Diviseur volumétrique utilisé par le transporteur (ex. : FedEx/UPS : 5000, DHL : 5000, Fret aérien : 6000). Norme WERC.",
+        "es": "Divisor volumétrico utilizado por el transportista (ej.: FedEx/UPS: 5000, DHL: 5000, Carga aérea: 6000). Estándar WERC.",
+        "ar": "المقسوم الحجمي الذي يستخدمه الناقل (مثل FedEx/UPS: 5000، DHL: 5000، الشحن الجوي: 6000). معيار WERC."
       }
     },
     {
@@ -150,13 +168,17 @@
         "en": "Package Type",
         "tr": "Paket türü",
         "de": "Verpackungsart",
-        "fr": "Type de colis"
+        "fr": "Type de colis",
+        "es": "Tipo de paquete",
+        "ar": "نوع التغليف"
       },
       "businessContext_i18n": {
         "en": "Type of packaging influences dimensional stability and handling. Lean packaging standard.",
         "tr": "Paketleme türü boyutsal stabiliteyi ve taşımayı etkiler. Yalın paketleme standardı.",
         "de": "Art der Verpackung beeinflusst Dimensionsstabilität und Handhabung. Lean-Verpackungsstandard.",
-        "fr": "Le type d'emballage influence la stabilité dimensionnelle et la manutention. Norme d'emballage Lean."
+        "fr": "Le type d'emballage influence la stabilité dimensionnelle et la manutention. Norme d'emballage Lean.",
+        "es": "El tipo de embalaje influye en la estabilidad dimensional y la manipulación. Estándar de embalaje Lean.",
+        "ar": "نوع التغليف يؤثر على الاستقرار البعدي والمناولة. معيار التغليف اللين."
       }
     },
     {
@@ -172,13 +194,17 @@
         "en": "Stackable",
         "tr": "İstiflenebilir",
         "de": "Stapelbar",
-        "fr": "Empilable"
+        "fr": "Empilable",
+        "es": "Apilable",
+        "ar": "قابل للتكديس"
       },
       "businessContext_i18n": {
         "en": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
         "tr": "Paketin istiflenip istiflenemeyeceğini belirtir. Depolama yoğunluğunu ve taşıma maliyetini etkiler. Altı Sigma malzeme akışı optimizasyonu.",
         "de": "Gibt an, ob die Verpackung gestapelt werden kann. Beeinflusst Lagerdichte und Handhabungskosten. Six Sigma-Materialflussoptimierung.",
-        "fr": "Indique si le colis peut être empilé. Affecte la densité de stockage et le coût de manutention. Optimisation du flux de matières Six Sigma."
+        "fr": "Indique si le colis peut être empilé. Affecte la densité de stockage et le coût de manutention. Optimisation du flux de matières Six Sigma.",
+        "es": "Indica si el paquete se puede apilar. Afecta la densidad de almacenamiento y el costo de manipulación. Optimización de flujo de material Seis Sigma.",
+        "ar": "يشير إلى إمكانية تكديس الطرد. يؤثر على كثافة التخزين وتكلفة المناولة. تحسين تدفق المواد وفقًا لستة سيجما."
       }
     },
     {
@@ -195,13 +221,16 @@
         "tr": "Tehlikeli Madde",
         "de": "Gefahrgut",
         "fr": "Matière dangereuse",
-        "es": "Material peligroso"
+        "es": "Material peligroso",
+        "ar": "مواد خطرة"
       },
       "businessContext_i18n": {
         "en": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions.",
         "tr": "İçeriğin tehlikeli olup olmadığını belirtir (IMO/ADR/IATA). Ek ücretleri ve taşıma kısıtlamalarını etkiler.",
         "de": "Gefahrgut (IMO/ADR/IATA). Beeinflusst Zuschläge und Handhabungsbeschränkungen.",
-        "fr": "Indique si le contenu est dangereux (IMO/ADR/IATA). Affecte les surtaxes et les restrictions de manutention."
+        "fr": "Indique si le contenu est dangereux (IMO/ADR/IATA). Affecte les surtaxes et les restrictions de manutention.",
+        "es": "Indica si el contenido es peligroso (IMO/ADR/IATA). Afecta recargos y restricciones de manipulación.",
+        "ar": "يشير إلى ما إذا كانت المحتويات خطرة (IMO/ADR/IATA). يؤثر على الرسوم الإضافية وقيود المناولة."
       }
     }
   ],
@@ -266,18 +295,24 @@
     ]
   },
   "formulas": {
-    "result": "length_cm + width_cm + height_cm",
-    "result_copy": "length_cm + width_cm + height_cm"
+    "normalized_product": "length_cm * width_cm * height_cm * actual_weight_kg",
+    "result": "length_cm * width_cm * height_cm * actual_weight_kg"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "cm"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

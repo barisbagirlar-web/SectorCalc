@@ -23,14 +23,16 @@
         "tr": "Ortalama Fatura Değeri",
         "de": "Durchschnittlicher Rechnungswert",
         "fr": "Valeur moyenne des factures",
-        "es": "Valor promedio de factura"
+        "es": "Valor promedio de factura",
+        "ar": "متوسط قيمة الفاتورة"
       },
       "businessContext_i18n": {
         "en": "Average monetary value of a single invoice issued to customers.",
         "tr": "Müşterilere kesilen tek bir faturanın ortalama parasal değeri.",
         "de": "Durchschnittlicher Geldwert einer einzelnen an Kunden ausgestellten Rechnung.",
         "fr": "Valeur monétaire moyenne d'une seule facture émise aux clients.",
-        "es": "Valor monetario promedio de una sola factura emitida a los clientes."
+        "es": "Valor monetario promedio de una sola factura emitida a los clientes.",
+        "ar": "متوسط القيمة النقدية لفاتورة واحدة صادرة للعملاء."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Yıllık Fatura Sayısı",
         "de": "Jährliche Rechnungsanzahl",
         "fr": "Nombre annuel de factures",
-        "es": "Cantidad anual de facturas"
+        "es": "Cantidad anual de facturas",
+        "ar": "عدد الفواتير السنوي"
       },
       "businessContext_i18n": {
         "en": "Total number of invoices issued per year.",
         "tr": "Yılda kesilen toplam fatura sayısı.",
         "de": "Gesamtzahl der pro Jahr ausgestellten Rechnungen.",
         "fr": "Nombre total de factures émises par an.",
-        "es": "Número total de facturas emitidas por año."
+        "es": "Número total de facturas emitidas por año.",
+        "ar": "إجمالي عدد الفواتير الصادرة سنويًا."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Mevcut Ödeme Vadesi (Gün)",
         "de": "Aktuelle Zahlungsbedingungen (Tage)",
         "fr": "Conditions de paiement actuelles (jours)",
-        "es": "Plazos de pago actuales (días)"
+        "es": "Plazos de pago actuales (días)",
+        "ar": "شروط الدفع الحالية (أيام)"
       },
       "businessContext_i18n": {
         "en": "Current net payment term offered to customers (e.g., Net 30).",
         "tr": "Müşterilere sunulan mevcut net ödeme vadesi (örn. Net 30).",
         "de": "Aktuelle Netto-Zahlungsfrist für Kunden (z. B. Netto 30).",
         "fr": "Délai de paiement net actuel offert aux clients (par exemple, Net 30).",
-        "es": "Plazo neto de pago actual ofrecido a los clientes (ej. Neto 30)."
+        "es": "Plazo neto de pago actual ofrecido a los clientes (ej. Neto 30).",
+        "ar": "مدة السداد الحالية المقدمة للعملاء (مثل: صافي 30 يومًا)."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Önerilen Ödeme Vadesi (Gün)",
         "de": "Vorgeschlagene Zahlungsbedingungen (Tage)",
         "fr": "Conditions de paiement proposées (jours)",
-        "es": "Plazos de pago propuestos (días)"
+        "es": "Plazos de pago propuestos (días)",
+        "ar": "مدة السداد المقترحة (أيام)"
       },
       "businessContext_i18n": {
         "en": "New net payment term to be evaluated (e.g., Net 15).",
         "tr": "Değerlendirilecek yeni net ödeme vadesi (örn. Net 15).",
         "de": "Neue Netto-Zahlungsfrist, die bewertet werden soll (z. B. Netto 15).",
         "fr": "Nouveau délai de paiement net à évaluer (par exemple, Net 15).",
-        "es": "Nuevo plazo neto de pago a evaluar (ej. Neto 15)."
+        "es": "Nuevo plazo neto de pago a evaluar (ej. Neto 15).",
+        "ar": "مدة سداد جديدة يتم تقييمها (مثل: صافي 15 يومًا)."
       }
     },
     {
@@ -119,14 +127,16 @@
         "tr": "Erken Ödeme İskontosu (%)",
         "de": "Skonto (%)",
         "fr": "Remise pour paiement anticipé (%)",
-        "es": "Descuento por pago anticipado (%)"
+        "es": "Descuento por pago anticipado (%)",
+        "ar": "خصم السداد المبكر (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
         "tr": "Erken ödeme için sunulan yüzde iskonto (örn. 2/10 Net 30).",
         "de": "Prozentualer Rabatt für vorzeitige Zahlung (z. B. 2/10 Netto 30).",
         "fr": "Pourcentage de remise offert pour paiement anticipé (par exemple, 2/10 Net 30).",
-        "es": "Porcentaje de descuento ofrecido por pago anticipado (ej. 2/10 Neto 30)."
+        "es": "Porcentaje de descuento ofrecido por pago anticipado (ej. 2/10 Neto 30).",
+        "ar": "نسبة الخصم المقدمة للسداد المبكر (مثل: 2/10 صافي 30)."
       }
     },
     {
@@ -143,14 +153,16 @@
         "tr": "İskonto Penceresi (Gün)",
         "de": "Skontofrist (Tage)",
         "fr": "Fenêtre de remise (jours)",
-        "es": "Ventana de descuento (días)"
+        "es": "Ventana de descuento (días)",
+        "ar": "نافذة الخصم (أيام)"
       },
       "businessContext_i18n": {
         "en": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
         "tr": "İskontonun kullanılabileceği gün sayısı (örn. 2/10 için 10 gün).",
         "de": "Anzahl der Tage, innerhalb derer der Rabatt in Anspruch genommen werden kann (z. B. 10 Tage bei 2/10).",
         "fr": "Nombre de jours pendant lesquels la remise peut être prise (par exemple, 10 jours pour 2/10).",
-        "es": "Número de días dentro de los cuales se puede aplicar el descuento (ej. 10 días para 2/10)."
+        "es": "Número de días dentro de los cuales se puede aplicar el descuento (ej. 10 días para 2/10).",
+        "ar": "عدد الأيام التي يمكن خلالها الحصول على الخصم (مثل: 10 أيام لـ 2/10)."
       }
     },
     {
@@ -167,14 +179,16 @@
         "tr": "Sermaye Maliyeti (%)",
         "de": "Kapitalkosten (%)",
         "fr": "Coût du capital (%)",
-        "es": "Costo de capital (%)"
+        "es": "Costo de capital (%)",
+        "ar": "تكلفة رأس المال (%)"
       },
       "businessContext_i18n": {
         "en": "Annual weighted average cost of capital (WACC) for the company.",
         "tr": "Şirket için yıllık ağırlıklı ortalama sermaye maliyeti (WACC).",
         "de": "Jährlicher gewichteter durchschnittlicher Kapitalkostensatz (WACC) des Unternehmens.",
         "fr": "Coût moyen pondéré du capital annuel (CMPC) de l'entreprise.",
-        "es": "Costo de capital promedio ponderado anual (WACC) de la empresa."
+        "es": "Costo de capital promedio ponderado anual (WACC) de la empresa.",
+        "ar": "متوسط التكلفة المرجح لرأس المال السنوي للشركة."
       }
     },
     {
@@ -191,14 +205,16 @@
         "tr": "Müşteri Kabul Oranı (%)",
         "de": "Kundenakzeptanzrate (%)",
         "fr": "Taux d'acceptation des clients (%)",
-        "es": "Tasa de aceptación del cliente (%)"
+        "es": "Tasa de aceptación del cliente (%)",
+        "ar": "معدل قبول العملاء (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of customers who will take the early payment discount.",
         "tr": "Erken ödeme iskontosunu kullanacak müşterilerin tahmini yüzdesi.",
         "de": "Geschätzter Prozentsatz der Kunden, die den Skonto in Anspruch nehmen.",
         "fr": "Pourcentage estimé de clients qui prendront la remise pour paiement anticipé.",
-        "es": "Porcentaje estimado de clientes que tomarán el descuento por pago anticipado."
+        "es": "Porcentaje estimado de clientes que tomarán el descuento por pago anticipado.",
+        "ar": "النسبة المئوية المقدرة للعملاء الذين سيستفيدون من خصم السداد المبكر."
       }
     }
   ],
@@ -239,15 +255,25 @@
     ]
   },
   "formulas": {
-    "result": "avg_invoice_value + annual_invoice_count + current_terms_days",
-    "result_copy": "avg_invoice_value + annual_invoice_count + current_terms_days"
+    "base_cost": "annual_invoice_count * avg_invoice_value",
+    "adjusted_cost": "annual_invoice_count * avg_invoice_value * (1 + (early_payment_discount_pct / 100))",
+    "result": "annual_invoice_count * avg_invoice_value * (1 + (early_payment_discount_pct / 100)) * (current_terms_days)",
+    "factor_current_terms_days": "current_terms_days"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_current_terms_days"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

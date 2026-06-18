@@ -14,14 +14,15 @@
         "de": "Jahrhunderte",
         "fr": "Siècles",
         "es": "Siglos",
-        "ar": "Centuries"
+        "ar": "قرون"
       },
       "businessContext_i18n": {
         "en": "Number of centuries to convert to millennia.",
         "tr": "Milenyuma dönüştürülecek yüzyıl sayısı.",
         "de": "Anzahl der Jahrhunderte zur Umrechnung in Jahrtausende.",
         "fr": "Nombre de siècles à convertir en millénaires.",
-        "es": "Número de siglos a convertir en milenios"
+        "es": "Número de siglos a convertir en milenios",
+        "ar": "عدد القرون المراد تحويلها إلى آلاف السنين."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jahre pro Jahrhundert",
         "fr": "Années par siècle",
         "es": "Años por siglo",
-        "ar": "Years per Century"
+        "ar": "سنوات لكل قرن"
       },
       "businessContext_i18n": {
         "en": "Definition of a century in years. Normally 100.",
         "tr": "Bir yüzyılın yıl cinsinden tanımı. Normalde 100.",
         "de": "Definition eines Jahrhunderts in Jahren. Normalerweise 100.",
         "fr": "Définition d'un siècle en années. Normalement 100.",
-        "es": "Definición de un siglo en años. Normalmente 100."
+        "es": "Definición de un siglo en años. Normalmente 100.",
+        "ar": "تعريف القرن بالسنوات. عادة 100."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Jahre pro Jahrtausend",
         "fr": "Années par millénaire",
         "es": "Años por milenio",
-        "ar": "Years per Millennium"
+        "ar": "سنوات لكل ألفية"
       },
       "businessContext_i18n": {
         "en": "Definition of a millennium in years. Normally 1000.",
         "tr": "Bir milenyumun yıl cinsinden tanımı. Normalde 1000.",
-        "de": "Definition of a millennium in years. Normally 1000.",
+        "de": "Definition eines Jahrtausends in Jahren. Normalerweise 1000.",
         "fr": "Définition d'un millénaire en années. Normalement 1000.",
-        "es": "Definición de un milenio en años. Normalmente 1000."
+        "es": "Definición de un milenio en años. Normalmente 1000.",
+        "ar": "تعريف الألفية بالسنوات. عادة 1000."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
         "tr": "Sonuç için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für das Ergebnis.",
         "fr": "Nombre de décimales pour le résultat.",
-        "es": "Número de decimales para el resultado."
+        "es": "Número de decimales para el resultado.",
+        "ar": "عدد الأماكن العشرية للنتيجة."
       }
     }
   ],
   "formulas": {
-    "result": "centuries + centuryYears + millenniumYears",
-    "result_copy": "centuries + centuryYears + millenniumYears"
+    "normalized_product": "centuries * centuryYears * millenniumYears * precision",
+    "result": "centuries * centuryYears * millenniumYears * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rawMillennia"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "millennia",
-    "unit": "century"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

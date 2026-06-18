@@ -14,13 +14,15 @@
         "de": "Reisedauer (Tage)",
         "fr": "Durée du voyage (jours)",
         "es": "Duración del viaje (días)",
-        "ar": "Trip Duration (Days)"
+        "ar": "مدة الرحلة (أيام)"
       },
       "businessContext_i18n": {
         "en": "Number of days of the trip",
         "tr": "Seyahat gün sayısı",
         "de": "Anzahl der Reisetage",
-        "fr": "Nombre de jours du voyage"
+        "fr": "Nombre de jours du voyage",
+        "es": "Número de días del viaje",
+        "ar": "عدد أيام الرحلة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Gezgin Yaşı",
         "de": "Alter des Reisenden",
         "fr": "Âge du voyageur",
-        "es": "Traveler Age",
-        "ar": "Traveler Age"
+        "es": "Edad del viajero",
+        "ar": "عمر المسافر"
       },
       "businessContext_i18n": {
         "en": "Age of the primary traveler",
         "tr": "Ana gezginin yaşı",
         "de": "Alter des Hauptreisenden",
-        "fr": "Âge du voyageur principal"
+        "fr": "Âge du voyageur principal",
+        "es": "Edad del viajero principal",
+        "ar": "عمر المسافر الأساسي"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Tıbbi Teminat Tutarı",
         "de": "Medizinischer Deckungsbetrag",
         "fr": "Montant de la couverture médicale",
-        "es": "Medical Coverage Amount",
-        "ar": "Medical Coverage Amount"
+        "es": "Monto de cobertura médica",
+        "ar": "مبلغ التغطية الطبية"
       },
       "businessContext_i18n": {
         "en": "Maximum medical expense coverage",
         "tr": "Azami tıbbi masraf teminatı",
         "de": "Maximale medizinische Kostenübernahme",
-        "fr": "Couverture maximale des frais médicaux"
+        "fr": "Couverture maximale des frais médicaux",
+        "es": "Cobertura máxima de gastos médicos",
+        "ar": "الحد الأقصى لتغطية النفقات الطبية"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Varış Yeri Risk Faktörü",
         "de": "Risikofaktor des Reiseziels",
         "fr": "Facteur de risque de la destination",
-        "es": "Destination Risk Factor",
-        "ar": "Destination Risk Factor"
+        "es": "Factor de riesgo del destino",
+        "ar": "عامل مخاطر الوجهة"
       },
       "businessContext_i18n": {
         "en": "Risk factor based on destination (1.0 = standard)",
         "tr": "Varış yerine göre risk faktörü (1.0 = standart)",
         "de": "Risikofaktor basierend auf dem Reiseziel (1,0 = Standard)",
-        "fr": "Facteur de risque basé sur la destination (1,0 = standard)"
+        "fr": "Facteur de risque basé sur la destination (1,0 = standard)",
+        "es": "Factor de riesgo según el destino (1.0 = estándar)",
+        "ar": "عامل المخاطر بناءً على الوجهة (1.0 = قياسي)"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Selbstbehalt",
         "fr": "Franchise",
         "es": "Deducible",
-        "ar": "Deductible"
+        "ar": "الخصم"
       },
       "businessContext_i18n": {
         "en": "Amount the traveler pays before insurance covers",
         "tr": "Sigorta kapsamına girmeden önce gezginin ödediği tutar",
         "de": "Betrag, den der Reisende vor Versicherungsdeckung zahlt",
-        "fr": "Montant que le voyageur paie avant que l'assurance ne couvre"
+        "fr": "Montant que le voyageur paie avant que l'assurance ne couvre",
+        "es": "Monto que paga el viajero antes de que el seguro cubra",
+        "ar": "المبلغ الذي يدفعه المسافر قبل أن تغطي التأمين"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Anzahl der Reisenden",
         "fr": "Nombre de voyageurs",
         "es": "Número de viajeros",
-        "ar": "Number of Travelers"
+        "ar": "عدد المسافرين"
       },
       "businessContext_i18n": {
         "en": "Total number of insured travelers",
         "tr": "Toplam sigortalı gezgin sayısı",
         "de": "Gesamtzahl der versicherten Reisenden",
-        "fr": "Nombre total de voyageurs assurés"
+        "fr": "Nombre total de voyageurs assurés",
+        "es": "Número total de viajeros asegurados",
+        "ar": "إجمالي عدد المسافرين المؤمن عليهم"
       }
     }
   ],

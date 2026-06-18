@@ -14,14 +14,15 @@
         "de": "Gesamtanzahl (n)",
         "fr": "Nombre total d'éléments (n)",
         "es": "Total de elementos (n)",
-        "ar": "Total Items (n)"
+        "ar": "إجمالي العناصر (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of distinct items to choose from.",
         "tr": "Seçilebilecek toplam farklı öğe sayısı.",
         "de": "Gesamtzahl der verschiedenen auswählbaren Elemente.",
         "fr": "Nombre total d'éléments distincts à choisir.",
-        "es": "Número total de elementos distintos para elegir."
+        "es": "Número total de elementos distintos para elegir.",
+        "ar": "إجمالي عدد العناصر المميزة للاختيار منها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ausgewählte Elemente (r)",
         "fr": "Éléments sélectionnés (r)",
         "es": "Elementos seleccionados (r)",
-        "ar": "Selected Items (r)"
+        "ar": "العناصر المحددة (r)"
       },
       "businessContext_i18n": {
         "en": "Number of items to select and arrange.",
         "tr": "Seçilecek ve düzenlenecek öğe sayısı.",
         "de": "Anzahl der auszuwählenden und anzuordnenden Elemente.",
         "fr": "Nombre d'éléments à sélectionner et à organiser.",
-        "es": "Número de elementos a seleccionar y ordenar."
+        "es": "Número de elementos a seleccionar y ordenar.",
+        "ar": "عدد العناصر المراد اختيارها وترتيبها."
       }
     },
     {
@@ -56,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -68,26 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "n + r + auto_input_3",
-    "result_copy": "n + r + auto_input_3"
+    "normalized_product": "n * r * auto_input_3",
+    "result": "n * r * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "permutationsWithRepetition",
-      "circularPermutations"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "circularPermutations",
-    "unit": "items"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",

@@ -14,14 +14,15 @@
         "de": "Stützenlänge",
         "fr": "Longueur de la colonne",
         "es": "Longitud de la columna",
-        "ar": "Column Length"
+        "ar": "طول العمود"
       },
       "businessContext_i18n": {
         "en": "Unbraced length of the column",
         "tr": "Kolonun desteklenmeyen uzunluğu",
         "de": "Knicklänge der Stütze",
         "fr": "Longueur libre de la colonne.",
-        "es": "Longitud no arriostrada de la columna"
+        "es": "Longitud no arriostrada de la columna",
+        "ar": "الطول غير المدعوم للعمود"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de la sección transversal",
-        "ar": "Cross-sectional Area"
+        "ar": "مساحة المقطع العرضي"
       },
       "businessContext_i18n": {
         "en": "Area of the column cross-section",
         "tr": "Kolon kesit alanı",
         "de": "Fläche des Stützenquerschnitts",
         "fr": "Aire de la section transversale de la colonne.",
-        "es": "Área de la sección transversal de la columna"
+        "es": "Área de la sección transversal de la columna",
+        "ar": "مساحة المقطع العرضي للعمود"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Trägheitsmoment",
         "fr": "Moment d'inertie",
         "es": "Momento de inercia",
-        "ar": "Moment of Inertia"
+        "ar": "عزم القصور الذاتي"
       },
       "businessContext_i18n": {
         "en": "Minimum moment of inertia about buckling axis",
         "tr": "Burkulma ekseni etrafındaki minimum atalet momenti",
         "de": "Minimales Flächenträgheitsmoment um die Knickachse",
         "fr": "Moment d'inertie minimal autour de l'axe de flambement",
-        "es": "Momento de inercia mínimo respecto al eje de pandeo"
+        "es": "Momento de inercia mínimo respecto al eje de pandeo",
+        "ar": "أدنى عزم قصور ذاتي حول محور الانبعاج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Elastizitätsmodul",
         "fr": "Module d'élasticité",
         "es": "Módulo de elasticidad",
-        "ar": "Modulus of Elasticity"
+        "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
         "en": "Young's modulus of the material",
         "tr": "Malzemenin Young modülü",
         "de": "Elastizitätsmodul des Materials",
         "fr": "Module d'Young du matériau",
-        "es": "Módulo de Young del material"
+        "es": "Módulo de Young del material",
+        "ar": "معامل يونغ للمادة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Streckgrenze",
         "fr": "Limite d'élasticité",
         "es": "Límite elástico",
-        "ar": "Yield Strength"
+        "ar": "مقاومة الخضوع"
       },
       "businessContext_i18n": {
         "en": "Yield stress of the material",
         "tr": "Malzemenin akma gerilmesi",
         "de": "Streckgrenze des Materials",
         "fr": "Contrainte d'élasticité du matériau.",
-        "es": "Tensión de fluencia del material"
+        "es": "Tensión de fluencia del material",
+        "ar": "إجهاد الخضوع للمادة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Knicklängenbeiwert K",
         "fr": "Coefficient de longueur effective K",
         "es": "Factor de longitud efectiva K",
-        "ar": "Effective Length Factor K"
+        "ar": "معامل الطول الفعال K"
       },
       "businessContext_i18n": {
         "en": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)",
         "tr": "Etkin uzunluk faktörü (ör. 1.0 mafsallı-mafsallı, 2.0 ankastre-serbest)",
         "de": "Knicklängenbeiwert (z.B. 1,0 für gelenkig-gelenkig, 2,0 für eingespannt-frei)",
         "fr": "Coefficient de longueur effective (ex. 1,0 pour articulé-articulé, 2,0 pour encastré-libre).",
-        "es": "Factor de longitud efectiva (ej., 1.0 para articulado-articulado, 2.0 para empotrado-libre)"
+        "es": "Factor de longitud efectiva (ej., 1.0 para articulado-articulado, 2.0 para empotrado-libre)",
+        "ar": "معامل الطول الفعال (مثلاً 1.0 لمفصل-مفصل، 2.0 لتثبيت-حر)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Factor of safety for design load",
         "tr": "Tasarım yükü için güvenlik faktörü",
         "de": "Sicherheitsfaktor für die Bemessungslast",
         "fr": "Coefficient de sécurité pour la charge de conception",
-        "es": "Factor de seguridad para la carga de diseño"
+        "es": "Factor de seguridad para la carga de diseño",
+        "ar": "عامل الأمان لحمل التصميم"
       }
     }
   ],

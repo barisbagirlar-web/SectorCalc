@@ -13,14 +13,16 @@
         "tr": "Hız (km/s)",
         "de": "Geschwindigkeit (km/s)",
         "fr": "Vitesse (km/s)",
-        "es": "Velocity (km/s)",
-        "ar": "Velocity (km/s)"
+        "es": "Velocidad (km/s)",
+        "ar": "السرعة (كم/ث)"
       },
       "businessContext_i18n": {
         "en": "Enter the velocity of the moving object in kilometers per second.",
         "tr": "Hareket eden nesnenin saniyede kilometre cinsinden hızını girin.",
         "de": "Geben Sie die Geschwindigkeit des sich bewegenden Objekts in Kilometern pro Sekunde ein.",
-        "fr": "Saisissez la vitesse de l'objet en mouvement en kilomètres par seconde."
+        "fr": "Saisissez la vitesse de l'objet en mouvement en kilomètres par seconde.",
+        "es": "Ingrese la velocidad del objeto en movimiento en kilómetros por segundo.",
+        "ar": "أدخل سرعة الجسم المتحرك بالكيلومتر في الثانية."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Öz Zaman (s)",
         "de": "Eigenzeit (s)",
         "fr": "Temps propre (s)",
-        "es": "Proper Time (s)",
-        "ar": "Proper Time (s)"
+        "es": "Tiempo propio (s)",
+        "ar": "الزمن الذاتي (ث)"
       },
       "businessContext_i18n": {
         "en": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer.",
         "tr": "Hareket eden gözlemci tarafından deneyimlenen saniye cinsinden öz zaman aralığını girin.",
         "de": "Geben Sie das Eigenzeitintervall in Sekunden ein, d. h. die vom bewegten Beobachter gemessene Zeit.",
-        "fr": "Saisissez l'intervalle de temps propre en secondes, c'est-à-dire le temps vécu par l'observateur en mouvement."
+        "fr": "Saisissez l'intervalle de temps propre en secondes, c'est-à-dire le temps vécu par l'observateur en mouvement.",
+        "es": "Ingrese el intervalo de tiempo propio en segundos, es decir, el tiempo experimentado por el observador en movimiento.",
+        "ar": "أدخل الفاصل الزمني الذاتي بالثواني، أي الزمن الذي يختبره الراصد المتحرك."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Lichtgeschwindigkeit (m/s)",
         "fr": "Vitesse de la lumière (m/s)",
         "es": "Velocidad de la luz (m/s)",
-        "ar": "Speed of Light (m/s)"
+        "ar": "سرعة الضوء (م/ث)"
       },
       "businessContext_i18n": {
         "en": "Enter the speed of light in meters per second (default is vacuum speed).",
         "tr": "Işık hızını saniyede metre cinsinden girin (varsayılan vakum hızıdır).",
         "de": "Geben Sie die Lichtgeschwindigkeit in Metern pro Sekunde ein (Standard ist Vakuumgeschwindigkeit).",
-        "fr": "Saisissez la vitesse de la lumière en mètres par seconde (par défaut, vitesse dans le vide)."
+        "fr": "Saisissez la vitesse de la lumière en mètres par seconde (par défaut, vitesse dans le vide).",
+        "es": "Ingrese la velocidad de la luz en metros por segundo (por defecto es la velocidad en el vacío).",
+        "ar": "أدخل سرعة الضوء بالمتر في الثانية (الافتراضي هو سرعة الفراغ)."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Çıktı Zaman Birimi Faktörü",
         "de": "Faktor für die Ausgabezeiteinheit",
         "fr": "Facteur d'unité de temps de sortie",
-        "es": "Output Time Unit Factor",
-        "ar": "Output Time Unit Factor"
+        "es": "Factor de unidad de tiempo de salida",
+        "ar": "معامل وحدة الزمن الناتج"
       },
       "businessContext_i18n": {
         "en": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours).",
         "tr": "Genişlemiş zamanı saniyeden istenen birime dönüştürmek için dönüşüm faktörünü girin (örneğin, saniye için 1, dakika için 1/60, saat için 1/3600).",
         "de": "Geben Sie den Umrechnungsfaktor ein, um die dilatierte Zeit von Sekunden in die gewünschte Einheit umzurechnen (z. B. 1 für Sekunden, 1/60 für Minuten, 1/3600 für Stunden).",
-        "fr": "Saisissez le facteur de conversion pour convertir le temps dilaté des secondes vers l'unité souhaitée (ex. : 1 pour les secondes, 1/60 pour les minutes, 1/3600 pour les heures)."
+        "fr": "Saisissez le facteur de conversion pour convertir le temps dilaté des secondes vers l'unité souhaitée (ex. : 1 pour les secondes, 1/60 pour les minutes, 1/3600 pour les heures).",
+        "es": "Ingrese el factor de conversión para convertir el tiempo dilatado de segundos a la unidad deseada (por ejemplo, 1 para segundos, 1/60 para minutos, 1/3600 para horas).",
+        "ar": "أدخل معامل التحويل لتحويل الزمن المتمدّد من الثواني إلى الوحدة المطلوبة (مثل 1 للثواني، 1/60 للدقائق، 1/3600 للساعات)."
       }
     }
   ],

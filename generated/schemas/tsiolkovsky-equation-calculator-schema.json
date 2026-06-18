@@ -13,14 +13,16 @@
         "tr": "Etkin Egzoz Hızı",
         "de": "Effektive Ausströmgeschwindigkeit",
         "fr": "Vitesse d'éjection effective",
-        "es": "Effective Exhaust Velocity",
-        "ar": "Effective Exhaust Velocity"
+        "es": "Velocidad de escape efectiva",
+        "ar": "سرعة العادم الفعالة"
       },
       "businessContext_i18n": {
         "en": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets.",
         "tr": "Egzoz gazlarının rokete göre hızı, kimyasal roketler için tipik olarak 2000-4500 m/s.",
         "de": "Geschwindigkeit der Abgase relativ zur Rakete, typischerweise 2000-4500 m/s für chemische Raketen.",
-        "fr": "Vitesse des gaz d'échappement par rapport à la fusée, typiquement 2000-4500 m/s pour les fusées chimiques."
+        "fr": "Vitesse des gaz d'échappement par rapport à la fusée, typiquement 2000-4500 m/s pour les fusées chimiques.",
+        "es": "Velocidad de los gases de escape respecto al cohete, típicamente 2000-4500 m/s para cohetes químicos.",
+        "ar": "سرعة غازات العادم بالنسبة للصاروخ، عادة 2000-4500 م/ث للصواريخ الكيميائية."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Anfangsmasse",
         "fr": "Masse initiale",
         "es": "Masa inicial",
-        "ar": "Initial Mass"
+        "ar": "الكتلة الأولية"
       },
       "businessContext_i18n": {
         "en": "Total mass of the rocket at launch including propellant.",
         "tr": "Roketin fırlatma anındaki toplam kütlesi (yakıt dahil).",
         "de": "Gesamtmasse der Rakete beim Start einschließlich Treibstoff.",
-        "fr": "Masse totale de la fusée au lancement, y compris le propergol."
+        "fr": "Masse totale de la fusée au lancement, y compris le propergol.",
+        "es": "Masa total del cohete en el lanzamiento, incluido el propelente.",
+        "ar": "الكتلة الكلية للصاروخ عند الإطلاق بما في ذلك الوقود."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Endmasse",
         "fr": "Masse finale",
         "es": "Masa final",
-        "ar": "Final Mass"
+        "ar": "الكتلة النهائية"
       },
       "businessContext_i18n": {
         "en": "Mass of the rocket after propellant is burned, excluding any discarded stages.",
         "tr": "Yakıt yandıktan sonra roketin kütlesi, atılan aşamalar hariç.",
         "de": "Masse der Rakete nach dem Verbrennen des Treibstoffs, ohne ausgestoßene Stufen.",
-        "fr": "Masse de la fusée après combustion du propergol, sans les étages largués."
+        "fr": "Masse de la fusée après combustion du propergol, sans les étages largués.",
+        "es": "Masa del cohete después de quemar el propelente, excluyendo etapas desechadas.",
+        "ar": "كتلة الصاروخ بعد حرق الوقود، باستثناء أي مراحل منفصلة."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin).",
         "tr": "Delta-V hesaplamasına uygulanan tasarım güvenlik faktörü, normalde 1.0 (marj yok).",
         "de": "Auslegungssicherheitsfaktor für die Delta-V-Berechnung, normalerweise 1,0 (keine Reserve).",
-        "fr": "Coefficient de sécurité de conception appliqué au calcul du delta-V, normalement 1,0 (sans marge)."
+        "fr": "Coefficient de sécurité de conception appliqué au calcul du delta-V, normalement 1,0 (sans marge).",
+        "es": "Factor de seguridad de diseño aplicado al cálculo de delta-V, normalmente 1.0 (sin margen).",
+        "ar": "عامل الأمان التصميمي المطبق على حساب دلتا-V، عادة 1.0 (بدون هامش)."
       }
     }
   ],

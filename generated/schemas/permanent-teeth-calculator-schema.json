@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Yaş"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Hastanın kronolojik yaşı (yıl olarak)",
         "tr": "Hastanın kronolojik yaşı (yıl olarak)",
         "de": "Chronologisches Alter des Patienten (in Jahren)",
         "fr": "Âge chronologique du patient (en années)",
-        "es": "Edad cronológica del paciente (en años)"
+        "es": "Edad cronológica del paciente (en años)",
+        "ar": "العمر الزمني للمريض (بالسنوات)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Entfernte Zähne",
         "fr": "Dents extraites",
         "es": "Dientes Extraídos",
-        "ar": "Çekilen Dişler"
+        "ar": "الأسنان المقلوعة"
       },
       "businessContext_i18n": {
         "en": "Geçmişte çekilmiş daimi dişlerin sayısı",
         "tr": "Geçmişte çekilmiş daimi dişlerin sayısı",
         "de": "Anzahl der in der Vergangenheit entfernten bleibenden Zähne",
         "fr": "Nombre de dents permanentes extraites dans le passé",
-        "es": "Número de dientes permanentes extraídos en el pasado"
+        "es": "Número de dientes permanentes extraídos en el pasado",
+        "ar": "عدد الأسنان الدائمة المقلوعة سابقًا"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fehlende Zähne",
         "fr": "Dents manquantes",
         "es": "Dientes Ausentes",
-        "ar": "Eksik Dişler"
+        "ar": "الأسنان المفقودة"
       },
       "businessContext_i18n": {
         "en": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
         "tr": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
         "de": "Anzahl der bleibenden Zähne, die von Geburt an fehlen oder verloren gegangen sind",
         "fr": "Nombre de dents permanentes absentes de la bouche (congénitales ou perdues)",
-        "es": "Número de dientes permanentes ausentes por causas congénitas o pérdida"
+        "es": "Número de dientes permanentes ausentes por causas congénitas o pérdida",
+        "ar": "عدد الأسنان الدائمة غير الموجودة في الفم خلقيًا أو بسبب الفقد"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Weisheitszähne erzwingen",
         "fr": "Dents de sagesse forcées",
         "es": "Incluir Muelas del Juicio",
-        "ar": "Yirmilik Diş Zorla"
+        "ar": "إجبار ضرس العقل"
       },
       "businessContext_i18n": {
         "en": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
         "tr": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
         "de": "1, um alle Weisheitszähne unabhängig vom Alter einzubeziehen, sonst 0",
         "fr": "Mettre 1 pour inclure toutes les dents de sagesse quel que soit l'âge, 0 sinon",
-        "es": "1 para incluir todas las muelas del juicio independientemente de la edad, 0 en caso contrario"
+        "es": "1 para incluir todas las muelas del juicio independientemente de la edad, 0 en caso contrario",
+        "ar": "1 لتضمين جميع أضراس العقل بغض النظر عن العمر، وإلا 0"
       }
     }
   ],

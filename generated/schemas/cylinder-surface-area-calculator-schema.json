@@ -14,14 +14,15 @@
         "de": "Außenradius",
         "fr": "Rayon extérieur",
         "es": "Radio exterior",
-        "ar": "Outer Radius"
+        "ar": "نصف القطر الخارجي"
       },
       "businessContext_i18n": {
         "en": "Outer radius of the cylinder (pipe/tank)",
         "tr": "Silindirin dış yarıçapı (boru/tank)",
         "de": "Außenradius des Zylinders (Rohr/Tank)",
         "fr": "Rayon extérieur du cylindre (tuyau/réservoir)",
-        "es": "Radio exterior del cilindro (tubería/tanque)"
+        "es": "Radio exterior del cilindro (tubería/tanque)",
+        "ar": "نصف القطر الخارجي للأسطوانة (أنبوب/خزان)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Innenradius",
         "fr": "Rayon intérieur",
         "es": "Radio interior",
-        "ar": "Inner Radius"
+        "ar": "نصف القطر الداخلي"
       },
       "businessContext_i18n": {
         "en": "Inner radius of the cylinder (set to 0 for solid cylinder)",
         "tr": "Silindirin iç yarıçapı (dolu silindir için 0 girin)",
         "de": "Innenradius des Zylinders (bei Vollzylinder auf 0 setzen)",
         "fr": "Rayon intérieur du cylindre (0 pour cylindre plein)",
-        "es": "Radio interior del cilindro (0 para cilindro macizo)"
+        "es": "Radio interior del cilindro (0 para cilindro macizo)",
+        "ar": "نصف القطر الداخلي للأسطوانة (اضبط على 0 للأسطوانة الصلبة)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Höhe / Länge",
         "fr": "Hauteur / Longueur",
         "es": "Altura / Longitud",
-        "ar": "Height / Length"
+        "ar": "الارتفاع / الطول"
       },
       "businessContext_i18n": {
         "en": "Height or length of the cylinder",
         "tr": "Silindirin yüksekliği veya uzunluğu",
         "de": "Höhe oder Länge des Zylinders",
         "fr": "Hauteur ou longueur du cylindre",
-        "es": "Altura o longitud del cilindro"
+        "es": "Altura o longitud del cilindro",
+        "ar": "ارتفاع أو طول الأسطوانة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ringflächen einschließen",
         "fr": "Inclure les extrémités annulaires",
         "es": "Incluir extremos anulares",
-        "ar": "Include Annular Ends"
+        "ar": "تضمين الأطراف الحلقية"
       },
       "businessContext_i18n": {
         "en": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)",
         "tr": "1 = her iki halka şeklindeki uç yüzeyinin alanını dahil et, 0 = hariç tut (örn. açık boru)",
         "de": "1 = Oberfläche beider ringförmiger Stirnflächen einschließen, 0 = ausschließen (z. B. offenes Rohr)",
         "fr": "1 = inclure la surface des deux faces d'extrémité annulaires, 0 = exclure (ex. tuyau ouvert)",
-        "es": "1 = incluir área superficial de ambas caras anulares, 0 = excluir (ej. tubería abierta)"
+        "es": "1 = incluir área superficial de ambas caras anulares, 0 = excluir (ej. tubería abierta)",
+        "ar": "1 = تضمين مساحة سطح كلا الطرفين الحلقيين، 0 = استبعاد (مثل أنبوب مفتوح)"
       }
     }
   ],

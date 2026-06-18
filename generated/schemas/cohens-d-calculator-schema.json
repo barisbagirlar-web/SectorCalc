@@ -14,14 +14,15 @@
         "de": "Mittelwert von Gruppe 1",
         "fr": "Moyenne du groupe 1",
         "es": "Media del Grupo 1",
-        "ar": "Mean of Group 1"
+        "ar": "متوسط المجموعة 1"
       },
       "businessContext_i18n": {
         "en": "Average value of the first group",
         "tr": "Birinci grubun ortalama değeri",
         "de": "Durchschnittswert der ersten Gruppe",
         "fr": "Valeur moyenne du premier groupe",
-        "es": "Valor promedio del primer grupo"
+        "es": "Valor promedio del primer grupo",
+        "ar": "متوسط قيمة المجموعة الأولى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mittelwert von Gruppe 2",
         "fr": "Moyenne du groupe 2",
         "es": "Media del Grupo 2",
-        "ar": "Mean of Group 2"
+        "ar": "متوسط المجموعة 2"
       },
       "businessContext_i18n": {
         "en": "Average value of the second group",
         "tr": "İkinci grubun ortalama değeri",
         "de": "Durchschnittswert der zweiten Gruppe",
         "fr": "Valeur moyenne du deuxième groupe",
-        "es": "Valor promedio del segundo grupo"
+        "es": "Valor promedio del segundo grupo",
+        "ar": "متوسط قيمة المجموعة الثانية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Standardabweichung von Gruppe 1",
         "fr": "Écart type du groupe 1",
         "es": "Desviación estándar del Grupo 1",
-        "ar": "Standard Deviation of Group 1"
+        "ar": "الانحراف المعياري للمجموعة 1"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the first group",
         "tr": "Birinci grubun standart sapması",
         "de": "Standardabweichung der ersten Gruppe",
         "fr": "Écart type du premier groupe",
-        "es": "Desviación estándar del primer grupo"
+        "es": "Desviación estándar del primer grupo",
+        "ar": "الانحراف المعياري للمجموعة الأولى"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Standardabweichung von Gruppe 2",
         "fr": "Écart type du groupe 2",
         "es": "Desviación estándar del grupo 2",
-        "ar": "Standard Deviation of Group 2"
+        "ar": "الانحراف المعياري للمجموعة 2"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the second group",
         "tr": "İkinci grubun standart sapması",
         "de": "Standardabweichung der zweiten Gruppe",
         "fr": "Écart type du deuxième groupe",
-        "es": "Desviación estándar del segundo grupo"
+        "es": "Desviación estándar del segundo grupo",
+        "ar": "الانحراف المعياري للمجموعة الثانية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Stichprobengröße von Gruppe 1",
         "fr": "Taille de l'échantillon du groupe 1",
         "es": "Tamaño de la muestra del grupo 1",
-        "ar": "Sample Size of Group 1"
+        "ar": "حجم العينة للمجموعة 1"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the first group",
         "tr": "Birinci gruptaki gözlem sayısı",
         "de": "Anzahl der Beobachtungen in der ersten Gruppe",
         "fr": "Nombre d'observations dans le premier groupe",
-        "es": "Número de observaciones en el primer grupo"
+        "es": "Número de observaciones en el primer grupo",
+        "ar": "عدد المشاهدات في المجموعة الأولى"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Stichprobengröße von Gruppe 2",
         "fr": "Taille de l'échantillon du groupe 2",
         "es": "Tamaño de la muestra del grupo 2",
-        "ar": "Sample Size of Group 2"
+        "ar": "حجم العينة للمجموعة 2"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the second group",
         "tr": "İkinci gruptaki gözlem sayısı",
         "de": "Anzahl der Beobachtungen in der zweiten Gruppe",
         "fr": "Nombre d'observations dans le deuxième groupe",
-        "es": "Número de observaciones en el segundo grupo"
+        "es": "Número de observaciones en el segundo grupo",
+        "ar": "عدد المشاهدات في المجموعة الثانية"
       }
     }
   ],
   "formulas": {
-    "result": "mean1 + mean2 + sd1",
-    "result_copy": "mean1 + mean2 + sd1"
+    "normalized_product": "mean1 * mean2 * sd1 * sd2",
+    "result": "mean1 * mean2 * sd1 * sd2 * (n1 * n2)",
+    "adjustment_factor": "n1 * n2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "pooledSD",
-      "effectSize",
-      "interpretation"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "interpretation",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İstatistik & Olasılık",

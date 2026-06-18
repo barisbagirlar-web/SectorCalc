@@ -23,14 +23,16 @@
         "tr": "Malzeme Maliyeti (kg başına)",
         "de": "Materialkosten pro kg",
         "fr": "Coût matière par kg",
-        "es": "Coste del material por kg"
+        "es": "Coste del material por kg",
+        "ar": "تكلفة المواد لكل كجم"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index.",
         "tr": "Tedarikçi sözleşmelerinden veya piyasa endeksinden alınan ana malzemenin kilogram başına direkt malzeme maliyeti.",
         "de": "Direkte Materialkosten pro Kilogramm der Hauptzutat, basierend auf Lieferantenverträgen oder Marktindex.",
         "fr": "Coût direct des matières par kilogramme de l'ingrédient principal, issu des contrats fournisseurs ou de l'indice de marché.",
-        "es": "Coste directo de material por kilogramo del ingrediente principal, obtenido de contratos con proveedores o índice de mercado."
+        "es": "Coste directo de material por kilogramo del ingrediente principal, obtenido de contratos con proveedores o índice de mercado.",
+        "ar": "تكلفة المواد المباشرة لكل كيلوغرام من المكون الرئيسي، مستمدة من عقود الموردين أو مؤشر السوق."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Tarif Verimi (%)",
         "de": "Rezeptausbeute (%)",
         "fr": "Rendement de la recette (%)",
-        "es": "Rendimiento de la receta (%)"
+        "es": "Rendimiento de la receta (%)",
+        "ar": "نسبة العائد من الوصفة (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data.",
         "tr": "İşleme kayıplarından (örn. buharlaşma, düzeltme) sonra kullanılabilir çıktı yüzdesi. Geçmiş proses verilerine dayanır.",
         "de": "Prozentsatz der nutzbaren Ausgabe nach Verarbeitungsverlusten (z. B. Verdunstung, Zuschnitt). Basierend auf historischen Prozessdaten.",
         "fr": "Pourcentage de production utilisable après les pertes de transformation (par exemple, évaporation, parage). Basé sur les données historiques du procédé.",
-        "es": "Porcentaje de producción utilizable después de pérdidas de procesamiento (p. ej., evaporación, recorte). Basado en datos históricos del proceso."
+        "es": "Porcentaje de producción utilizable después de pérdidas de procesamiento (p. ej., evaporación, recorte). Basado en datos históricos del proceso.",
+        "ar": "نسبة المخرجات القابلة للاستخدام بعد خسائر المعالجة (مثل التبخر والتشذيب). بناءً على بيانات العملية التاريخية."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Saatlik İşçilik Ücreti",
         "de": "Stundensatz",
         "fr": "Taux de main-d'œuvre par heure",
-        "es": "Tarifa de mano de obra por hora"
+        "es": "Tarifa de mano de obra por hora",
+        "ar": "سعر الساعة للعمالة"
       },
       "businessContext_i18n": {
         "en": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead.",
         "tr": "Operatör başına saat başına tam yüklü işçilik maliyeti (ücretler, yan haklar ve genel giderler dahil).",
         "de": "Voll belastete Arbeitskosten pro Bedienstundenstunde, einschließlich Löhne, Sozialleistungen und Gemeinkosten.",
         "fr": "Coût de main-d'œuvre entièrement chargé par heure d'opérateur, incluant salaires, avantages sociaux et frais généraux.",
-        "es": "Coste de mano de obra totalmente cargado por hora de operario, incluyendo salarios, beneficios y gastos generales."
+        "es": "Coste de mano de obra totalmente cargado por hora de operario, incluyendo salarios, beneficios y gastos generales.",
+        "ar": "تكلفة العمالة الكاملة لكل ساعة مشغل، بما في ذلك الأجور والمزايا والتكاليف العامة."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Parti Büyüklüğü (kg)",
         "de": "Chargengröße (kg)",
         "fr": "Taille du lot (kg)",
-        "es": "Tamaño del lote (kg)"
+        "es": "Tamaño del lote (kg)",
+        "ar": "حجم الدفعة (كجم)"
       },
       "businessContext_i18n": {
         "en": "Total input weight of the recipe batch before processing.",
         "tr": "İşlemeden önce tarif partisinin toplam girdi ağırlığı.",
         "de": "Gesamtes Eingangsgewicht der Rezeptcharge vor der Verarbeitung.",
         "fr": "Poids total d'entrée du lot de recette avant transformation.",
-        "es": "Peso total de entrada del lote de receta antes del procesamiento."
+        "es": "Peso total de entrada del lote de receta antes del procesamiento.",
+        "ar": "الوزن الإجمالي للمكونات المدخلة للوصفة قبل المعالجة."
       }
     },
     {
@@ -119,14 +127,16 @@
         "tr": "İşleme Süresi (dakika)",
         "de": "Verarbeitungszeit (Minuten)",
         "fr": "Temps de traitement (minutes)",
-        "es": "Tiempo de procesamiento (minutos)"
+        "es": "Tiempo de procesamiento (minutos)",
+        "ar": "وقت المعالجة (دقائق)"
       },
       "businessContext_i18n": {
         "en": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging.",
         "tr": "Bir parti için başlangıçtan bitişe kadar toplam çevrim süresi (karıştırma, ısıtma, soğutma ve paketleme dahil).",
         "de": "Gesamte Zykluszeit von Anfang bis Ende für eine Charge, einschließlich Mischen, Erhitzen, Kühlen und Verpacken.",
         "fr": "Temps de cycle total du début à la fin pour un lot, incluant le mélange, le chauffage, le refroidissement et l'emballage.",
-        "es": "Tiempo total de ciclo desde el inicio hasta el final de un lote, incluyendo mezclado, calentamiento, enfriamiento y empaque."
+        "es": "Tiempo total de ciclo desde el inicio hasta el final de un lote, incluyendo mezclado, calentamiento, enfriamiento y empaque.",
+        "ar": "إجمالي وقت الدورة من البداية إلى النهاية لدفعة واحدة، بما في ذلك الخلط والتسخين والتبريد والتعبئة."
       }
     },
     {
@@ -143,14 +153,16 @@
         "tr": "kWh başına Enerji Maliyeti",
         "de": "Energiekosten pro kWh",
         "fr": "Coût énergétique par kWh",
-        "es": "Costo energético por kWh"
+        "es": "Costo energético por kWh",
+        "ar": "تكلفة الطاقة لكل كيلوواط ساعة"
       },
       "businessContext_i18n": {
         "en": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates.",
         "tr": "Kilovat-saat başına ortalama elektrik veya termal enerji maliyeti (tarife oranlarına göre).",
         "de": "Durchschnittliche Kosten für Strom oder thermische Energie pro Kilowattstunde, basierend auf Versorgungstarifen.",
         "fr": "Coût moyen de l'électricité ou de l'énergie thermique par kilowattheure, basé sur les tarifs des services publics.",
-        "es": "Costo promedio de electricidad o energía térmica por kilovatio-hora, basado en tarifas de servicios públicos."
+        "es": "Costo promedio de electricidad o energía térmica por kilovatio-hora, basado en tarifas de servicios públicos.",
+        "ar": "متوسط تكلفة الكهرباء أو الطاقة الحرارية لكل كيلوواط ساعة، بناءً على أسعار المرافق."
       }
     },
     {
@@ -167,14 +179,16 @@
         "tr": "Enerji Tüketimi (kWh)",
         "de": "Energieverbrauch (kWh)",
         "fr": "Consommation d'énergie (kWh)",
-        "es": "Consumo de energía (kWh)"
+        "es": "Consumo de energía (kWh)",
+        "ar": "استهلاك الطاقة (كيلوواط ساعة)"
       },
       "businessContext_i18n": {
         "en": "Total energy used per batch, measured by submeters or equipment nameplate ratings.",
         "tr": "Parti başına kullanılan toplam enerji (alt sayaçlar veya ekipman etiket değerleri ile ölçülür).",
         "de": "Gesamte Energie pro Charge, gemessen durch Unterzähler oder Geräte-Nennleistung.",
         "fr": "Énergie totale utilisée par lot, mesurée par des sous-compteurs ou les valeurs nominales des équipements.",
-        "es": "Energía total utilizada por lote, medida por submedidores o clasificaciones de placa de equipo."
+        "es": "Energía total utilizada por lote, medida por submedidores o clasificaciones de placa de equipo.",
+        "ar": "إجمالي الطاقة المستخدمة لكل دفعة، مقاسة بواسطة العدادات الفرعية أو تصنيفات لوحة المعدات."
       }
     },
     {
@@ -191,14 +205,16 @@
         "tr": "Genel Gider Oranı (%)",
         "de": "Gemeinkostensatz (%)",
         "fr": "Taux de frais généraux (%)",
-        "es": "Tasa de gastos generales (%)"
+        "es": "Tasa de gastos generales (%)",
+        "ar": "معدل التكاليف العامة (%)"
       },
       "businessContext_i18n": {
         "en": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting.",
         "tr": "Direkt işçilik ve malzeme maliyetlerinin yüzdesi olarak tahsis edilen üretim genel gideri (standart maliyet muhasebesine göre).",
         "de": "Zugewiesene Fertigungsgemeinkosten als Prozentsatz der direkten Arbeits- und Materialkosten, gemäß Standardkostenrechnung.",
         "fr": "Frais généraux de fabrication alloués en pourcentage des coûts directs de main-d'œuvre et de matières, selon la comptabilité analytique standard.",
-        "es": "Gastos generales de fabricación asignados como porcentaje de los costos directos de mano de obra y materiales, siguiendo la contabilidad de costos estándar."
+        "es": "Gastos generales de fabricación asignados como porcentaje de los costos directos de mano de obra y materiales, siguiendo la contabilidad de costos estándar.",
+        "ar": "التكاليف العامة للتصنيع المخصصة كنسبة مئوية من تكاليف العمالة المباشرة والمواد، وفقًا لمحاسبة التكاليف القياسية."
       }
     }
   ],
@@ -240,18 +256,26 @@
     ]
   },
   "formulas": {
-    "result": "material_cost_per_kg + recipe_yield_percent + labor_rate_per_hour",
-    "result_copy": "material_cost_per_kg + recipe_yield_percent + labor_rate_per_hour"
+    "normalized_product": "material_cost_per_kg * (recipe_yield_percent / 100) * (labor_rate_per_hour / 100) * batch_size_kg",
+    "result": "material_cost_per_kg * (recipe_yield_percent / 100) * (labor_rate_per_hour / 100) * batch_size_kg * (processing_time_minutes * energy_cost_per_kwh * energy_consumption_kwh * (overhead_rate_percent / 100))",
+    "adjustment_factor": "processing_time_minutes * energy_cost_per_kwh * energy_consumption_kwh * (overhead_rate_percent / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "USD/kg"
+    "unit": "USD"
   },
   "toolName": "recipe-cost-check-calculator",
   "catalogCategory": "everyday-life",

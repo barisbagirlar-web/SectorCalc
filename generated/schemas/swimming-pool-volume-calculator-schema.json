@@ -14,14 +14,15 @@
         "de": "Beckenlänge",
         "fr": "Longueur du bassin",
         "es": "Largo de la piscina",
-        "ar": "Pool Length"
+        "ar": "طول المسبح"
       },
       "businessContext_i18n": {
         "en": "Length of the swimming pool",
         "tr": "Yüzme havuzunun uzunluğu",
         "de": "Länge des Schwimmbeckens",
         "fr": "Longueur de la piscine",
-        "es": "Longitud de la piscina"
+        "es": "Longitud de la piscina",
+        "ar": "طول حوض السباحة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Beckenbreite",
         "fr": "Largeur du bassin",
         "es": "Ancho de la piscina",
-        "ar": "Pool Width"
+        "ar": "عرض المسبح"
       },
       "businessContext_i18n": {
         "en": "Width of the swimming pool",
         "tr": "Yüzme havuzunun genişliği",
         "de": "Breite des Schwimmbeckens",
         "fr": "Largeur de la piscine",
-        "es": "Ancho de la piscina"
+        "es": "Ancho de la piscina",
+        "ar": "عرض حوض السباحة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Tiefe am flachen Ende",
         "fr": "Profondeur de la partie peu profonde",
         "es": "Profundidad del extremo poco profundo",
-        "ar": "Shallow End Depth"
+        "ar": "عمق الطرف الضحل"
       },
       "businessContext_i18n": {
         "en": "Depth at the shallow end",
         "tr": "Sığ uçtaki derinlik",
         "de": "Tiefe am flachen Ende",
         "fr": "Profondeur à l'extrémité peu profonde",
-        "es": "Profundidad en el extremo poco profundo"
+        "es": "Profundidad en el extremo poco profundo",
+        "ar": "العمق عند الطرف الضحل"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Tiefe am tiefen Ende",
         "fr": "Profondeur de la partie profonde",
         "es": "Profundidad del extremo profundo",
-        "ar": "Deep End Depth"
+        "ar": "عمق الطرف العميق"
       },
       "businessContext_i18n": {
         "en": "Depth at the deep end",
         "tr": "Derin uçtaki derinlik",
         "de": "Tiefe am tiefen Ende",
         "fr": "Profondeur à l'extrémité profonde",
-        "es": "Profundidad en el extremo profundo"
+        "es": "Profundidad en el extremo profundo",
+        "ar": "العمق عند الطرف العميق"
       }
     }
   ],
   "formulas": {
-    "result": "poolLength + poolWidth + shallowDepth",
-    "result_copy": "poolLength + poolWidth + shallowDepth"
+    "normalized_product": "poolLength * poolWidth * shallowDepth * deepDepth",
+    "result": "poolLength * poolWidth * shallowDepth * deepDepth"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "waterMass",
-      "surfaceArea",
-      "volumeLiters"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "volumeLiters",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "volumeLiters": "L"
     }

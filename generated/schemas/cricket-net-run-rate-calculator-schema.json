@@ -14,14 +14,15 @@
         "de": "Erzielte Läufe insgesamt",
         "fr": "Total de points marqués",
         "es": "Total de carreras anotadas",
-        "ar": "Total Runs Scored"
+        "ar": "إجمالي الجري المسجل"
       },
       "businessContext_i18n": {
         "en": "Runs scored by the team in the tournament.",
         "tr": "Takımın turnuvada attığı koşu sayısı.",
         "de": "Vom Team im Turnier erzielte Läufe.",
         "fr": "Points marqués par l'équipe dans le tournoi.",
-        "es": "Carreras anotadas por el equipo en el torneo."
+        "es": "Carreras anotadas por el equipo en el torneo.",
+        "ar": "الجري الذي سجله الفريق في البطولة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gespielte Over",
         "fr": "Overs affrontés",
         "es": "Overs enfrentados",
-        "ar": "Overs Faced"
+        "ar": "الأوفر التي واجهها الفريق"
       },
       "businessContext_i18n": {
         "en": "Total overs faced by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls).",
         "tr": "Takımın karşılaştığı toplam over sayısı, ondalık olarak ifade edilir (örneğin, 50 over ve 3 top için 50.3).",
         "de": "Vom Team insgesamt gespielte Over, als Dezimalzahl (z.B. 50,3 für 50 Over und 3 Bälle).",
         "fr": "Total des overs affrontés par l'équipe, exprimé sous forme décimale (par exemple, 50,3 pour 50 overs et 3 balles).",
-        "es": "Total de overs enfrentados por el equipo, expresado como decimal (ej., 50.3 para 50 overs y 3 bolas)."
+        "es": "Total de overs enfrentados por el equipo, expresado como decimal (ej., 50.3 para 50 overs y 3 bolas).",
+        "ar": "إجمالي الأوفر التي واجهها الفريق، معبرًا عنها كرقم عشري (مثل 50.3 لـ 50 أوفر و3 كرات)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kassierte Läufe insgesamt",
         "fr": "Total de points concédés",
         "es": "Total de carreras concedidas",
-        "ar": "Total Runs Conceded"
+        "ar": "إجمالي الجري المسجل ضد الفريق"
       },
       "businessContext_i18n": {
         "en": "Runs conceded by the team in the tournament.",
         "tr": "Takımın turnuvada yediği koşular.",
         "de": "Vom Team im Turnier kassierte Läufe.",
         "fr": "Points concédés par l'équipe dans le tournoi.",
-        "es": "Carreras concedidas por el equipo en el torneo."
+        "es": "Carreras concedidas por el equipo en el torneo.",
+        "ar": "الجري الذي سجله الخصم ضد الفريق في البطولة."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Geworfene Over",
         "fr": "Overs lancés",
         "es": "Overs lanzados",
-        "ar": "Overs Bowled"
+        "ar": "الأوفر التي ألقاها الفريق"
       },
       "businessContext_i18n": {
         "en": "Total overs bowled by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls).",
         "tr": "Takımın attığı toplam over, ondalık olarak ifade edilir (ör. 50.3, 50 over ve 3 top).",
         "de": "Vom Team insgesamt geworfene Over, als Dezimalzahl (z.B. 50,3 für 50 Over und 3 Bälle).",
         "fr": "Total des overs lancés par l'équipe, exprimé en décimal (ex. : 50,3 pour 50 overs et 3 balles).",
-        "es": "Total de overs lanzados por el equipo, expresado como decimal (ej., 50.3 para 50 overs y 3 bolas)."
+        "es": "Total de overs lanzados por el equipo, expresado como decimal (ej., 50.3 para 50 overs y 3 bolas).",
+        "ar": "إجمالي الأوفر التي ألقاها الفريق، معبرًا عنها كرقم عشري (مثل 50.3 لـ 50 أوفر و3 كرات)."
       }
     }
   ],
   "formulas": {
-    "result": "runsScored + oversFaced + runsConceded",
-    "result_copy": "runsScored + oversFaced + runsConceded"
+    "normalized_product": "runsScored * oversFaced * runsConceded * oversBowled",
+    "result": "runsScored * oversFaced * runsConceded * oversBowled"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "battingRunRate",
-      "bowlingRunRate"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "netRunRate",
-    "unit": "runs"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

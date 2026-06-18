@@ -14,14 +14,15 @@
         "de": "Batch-Mischvolumen",
         "fr": "Volume du lot de mélange",
         "es": "Volumen de mezcla por lote",
-        "ar": "Batch Mix Volume"
+        "ar": "حجم خلطة الدفعة"
       },
       "businessContext_i18n": {
         "en": "Volume of liquid ice cream mix before freezing/aeration",
         "tr": "Dondurma/şişirme öncesi sıvı dondurma karışımının hacmi",
         "de": "Volumen der flüssigen Eismischung vor dem Gefrieren/Belüften",
         "fr": "Volume du mélange liquide de crème glacée avant congélation/aération",
-        "es": "Volumen de mezcla líquida de helado antes de congelación/aireación"
+        "es": "Volumen de mezcla líquida de helado antes de congelación/aireación",
+        "ar": "حجم خلطة الآيس كريم السائلة قبل التجميد/التهوية"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Overrun",
         "tr": "Şişirme Oranı",
-        "de": "Overrun",
+        "de": "Überlauf",
         "fr": "Foisonnement",
-        "es": "Overrun",
-        "ar": "Overrun"
+        "es": "Sobrante",
+        "ar": "الزيادة الحجمية"
       },
       "businessContext_i18n": {
         "en": "Percentage increase in volume due to air incorporation during freezing",
         "tr": "Dondurma sırasında hava katılımı nedeniyle hacim artış yüzdesi",
         "de": "Prozentuale Volumenzunahme durch Lufteinbringung während des Gefrierens",
         "fr": "Pourcentage d'augmentation du volume dû à l'incorporation d'air pendant la congélation",
-        "es": "Aumento porcentual en volumen debido a la incorporación de aire durante la congelación"
+        "es": "Aumento porcentual en volumen debido a la incorporación de aire durante la congelación",
+        "ar": "النسبة المئوية للزيادة في الحجم نتيجة إدخال الهواء أثناء التجميد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mischungskosten pro Liter",
         "fr": "Coût du mélange par litre",
         "es": "Costo de mezcla por litro",
-        "ar": "Mix Cost per Liter"
+        "ar": "تكلفة الخلطة لكل لتر"
       },
       "businessContext_i18n": {
         "en": "Cost of ingredients for one liter of liquid mix",
         "tr": "Bir litre sıvı karışım için malzeme maliyeti",
         "de": "Kosten der Zutaten für einen Liter flüssige Mischung",
         "fr": "Coût des ingrédients pour un litre de mélange liquide",
-        "es": "Costo de ingredientes por litro de mezcla líquida"
+        "es": "Costo de ingredientes por litro de mezcla líquida",
+        "ar": "تكلفة المكونات للتر الواحد من الخلطة السائلة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Verpackungskosten pro Liter",
         "fr": "Coût d'emballage par litre",
         "es": "Costo de empaque por litro",
-        "ar": "Packaging Cost per Liter"
+        "ar": "تكلفة التعبئة لكل لتر"
       },
       "businessContext_i18n": {
         "en": "Cost of packaging materials per liter of final ice cream",
         "tr": "Bir litre nihai dondurma için ambalaj malzemesi maliyeti",
         "de": "Kosten des Verpackungsmaterials pro Liter fertiges Eis",
         "fr": "Coût des matériaux d'emballage par litre de crème glacée finale",
-        "es": "Costo de materiales de empaque por litro de helado final"
+        "es": "Costo de materiales de empaque por litro de helado final",
+        "ar": "تكلفة مواد التعبئة لكل لتر من الآيس كريم النهائي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sonstige Kosten pro Batch",
         "fr": "Autres coûts par lot",
         "es": "Otros costos por lote",
-        "ar": "Other Costs per Batch"
+        "ar": "تكاليف أخرى لكل دفعة"
       },
       "businessContext_i18n": {
         "en": "Fixed costs per batch (labor, energy, etc.)",
         "tr": "Parti başına sabit maliyetler (işçilik, enerji vb.)",
         "de": "Fixkosten pro Batch (Arbeit, Energie usw.)",
         "fr": "Coûts fixes par lot (main-d'œuvre, énergie, etc.)",
-        "es": "Costos fijos por lote (mano de obra, energía, etc.)"
+        "es": "Costos fijos por lote (mano de obra, energía, etc.)",
+        "ar": "التكاليف الثابتة لكل دفعة (عمالة، طاقة، إلخ)"
       }
     },
     {
@@ -129,37 +134,39 @@
         "de": "Gewünschte Gewinnspanne",
         "fr": "Marge bénéficiaire souhaitée",
         "es": "Margen de beneficio deseado",
-        "ar": "Desired Profit Margin"
+        "ar": "هامش الربح المطلوب"
       },
       "businessContext_i18n": {
         "en": "Target profit margin as a percentage of selling price",
         "tr": "Satış fiyatının yüzdesi olarak hedef kar marjı",
         "de": "Zielgewinnmarge als Prozentsatz des Verkaufspreises",
         "fr": "Marge bénéficiaire cible en pourcentage du prix de vente",
-        "es": "Margen de beneficio objetivo como porcentaje del precio de venta"
+        "es": "Margen de beneficio objetivo como porcentaje del precio de venta",
+        "ar": "هامش الربح المستهدف كنسبة مئوية من سعر البيع"
       }
     }
   ],
   "formulas": {
-    "result": "batchMixVolume + overrunPercent + mixCostPerLiter",
-    "result_copy": "batchMixVolume + overrunPercent + mixCostPerLiter"
+    "base_cost": "batchMixVolume * mixCostPerLiter",
+    "adjusted_cost": "batchMixVolume * mixCostPerLiter * (1 + (overrunPercent / 100))",
+    "result": "batchMixVolume * mixCostPerLiter * (1 + (overrunPercent / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "finalVolume",
-      "totalMixCost",
-      "totalPackagingCost",
-      "totalCost",
-      "costPerLiter",
-      "sellingPricePerLiter"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "L",
+    "unit": "USD",
     "breakdownUnits": {
       "costPerLiter": "L",
       "sellingPricePerLiter": "L"

@@ -14,14 +14,15 @@
         "de": "Zahl 1",
         "fr": "Nombre 1",
         "es": "Número 1",
-        "ar": "Number 1"
+        "ar": "الرقم 1"
       },
       "businessContext_i18n": {
         "en": "First number for arithmetic",
         "tr": "Aritmetik için ilk sayı",
         "de": "Erste Zahl für Arithmetik",
         "fr": "Premier nombre pour l'arithmétique",
-        "es": "Primer número para aritmética"
+        "es": "Primer número para aritmética",
+        "ar": "الرقم الأول للعملية الحسابية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nummer 2",
         "fr": "Nombre 2",
         "es": "Número 2",
-        "ar": "Number 2"
+        "ar": "الرقم 2"
       },
       "businessContext_i18n": {
         "en": "Second number for arithmetic",
         "tr": "Aritmetik için ikinci sayı",
         "de": "Zweite Zahl für Arithmetik",
         "fr": "Deuxième nombre pour l'arithmétique",
-        "es": "Segundo número para aritmética"
+        "es": "Segundo número para aritmética",
+        "ar": "الرقم الثاني للعملية الحسابية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nummer 3",
         "fr": "Nombre 3",
         "es": "Número 3",
-        "ar": "Number 3"
+        "ar": "الرقم 3"
       },
       "businessContext_i18n": {
         "en": "Third number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
         "tr": "Üçüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)",
         "de": "Dritte Zahl (optional, auf 1 setzen, wenn nicht in Multiplikation verwendet, oder 0, wenn nicht in Addition verwendet)",
         "fr": "Troisième nombre (facultatif, mettre 1 si non utilisé dans la multiplication, ou 0 si non utilisé dans l'addition)",
-        "es": "Tercer número (opcional, establecer en 1 si no se usa en multiplicación, o 0 si no se usa en suma)"
+        "es": "Tercer número (opcional, establecer en 1 si no se usa en multiplicación, o 0 si no se usa en suma)",
+        "ar": "الرقم الثالث (اختياري، يُضبط على 1 إذا لم يُستخدم في الضرب، أو 0 إذا لم يُستخدم في الجمع)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Nummer 4",
         "fr": "Nombre 4",
         "es": "Número 4",
-        "ar": "Number 4"
+        "ar": "الرقم 4"
       },
       "businessContext_i18n": {
         "en": "Fourth number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
         "tr": "Dördüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)",
         "de": "Vierte Zahl (optional, auf 1 setzen, wenn nicht in Multiplikation verwendet, oder 0, wenn nicht in Addition verwendet)",
         "fr": "Quatrième nombre (facultatif, mettre 1 si non utilisé dans la multiplication, ou 0 si non utilisé dans l'addition)",
-        "es": "Cuarto número (opcional, establecer en 1 si no se usa en multiplicación, o 0 si no se usa en suma)"
+        "es": "Cuarto número (opcional, establecer en 1 si no se usa en multiplicación, o 0 si no se usa en suma)",
+        "ar": "الرقم الرابع (اختياري، يُضبط على 1 إذا لم يُستخدم في الضرب، أو 0 إذا لم يُستخدم في الجمع)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Operation",
         "fr": "Opération",
         "es": "Operación",
-        "ar": "Operation"
+        "ar": "العملية"
       },
       "businessContext_i18n": {
         "en": "1 = addition/subtraction (rounds to fewest decimal places), 2 = multiplication/division (rounds to fewest significant figures)",
         "tr": "1 = toplama/çıkarma (en az ondalık basamağa yuvarlar), 2 = çarpma/bölme (en az anlamlı basamağa yuvarlar)",
         "de": "1 = Addition/Subtraktion (rundet auf die wenigsten Dezimalstellen), 2 = Multiplikation/Division (rundet auf die wenigsten signifikanten Stellen)",
         "fr": "1 = addition/soustraction (arrondit au plus petit nombre de décimales), 2 = multiplication/division (arrondit au plus petit nombre de chiffres significatifs)",
-        "es": "1 = suma/resta (redondea al menor número de decimales), 2 = multiplicación/división (redondea al menor número de cifras significativas)"
+        "es": "1 = suma/resta (redondea al menor número de decimales), 2 = multiplicación/división (redondea al menor número de cifras significativas)",
+        "ar": "1 = الجمع/الطرح (التقريب لأقل عدد من المنازل العشرية)، 2 = الضرب/القسمة (التقريب لأقل عدد من الأرقام المعنوية)"
       }
     }
   ],

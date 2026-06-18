@@ -10,17 +10,19 @@
       "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
       "label_i18n": {
         "en": "Akış Uzunluğu",
-        "tr": "Akış Uzunluğu",
-        "de": "Akış Uzunluğu",
+        "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+        "de": "Fließlänge",
         "fr": "Longueur d'écoulement",
-        "es": "Akış Uzunluğu",
-        "ar": "Akış Uzunluğu"
+        "es": "Longitud de flujo",
+        "ar": "طول التدفق"
       },
       "businessContext_i18n": {
         "en": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
-        "tr": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
-        "de": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
-        "fr": "Longueur du trajet d'écoulement du point le plus éloigné du bassin versant jusqu'à la sortie (mètres)"
+        "tr": "Akış Uzunluğu",
+        "de": "Länge des Fließwegs vom entferntesten Punkt des Einzugsgebiets bis zum Auslass (in Metern)",
+        "fr": "Longueur du trajet d'écoulement du point le plus éloigné du bassin versant jusqu'à la sortie (mètres)",
+        "es": "Longitud del recorrido del flujo desde el punto más lejano de la cuenca hasta la salida (metros)",
+        "ar": "طول مسار التدفق من أبعد نقطة في الحوض إلى المخرج (بالمتر)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Steigung (%)",
         "fr": "Pente (%)",
         "es": "Pendiente (%)",
-        "ar": "Eğim (%)"
+        "ar": "الانحدار (%)"
       },
       "businessContext_i18n": {
         "en": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
-        "tr": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
-        "de": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
-        "fr": "Pente moyenne en pourcentage (%) le long du trajet d'écoulement"
+        "tr": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
+        "de": "Durchschnittliches Gefälle entlang des Fließwegs in Prozent (%)",
+        "fr": "Pente moyenne en pourcentage (%) le long du trajet d'écoulement",
+        "es": "Pendiente promedio a lo largo del recorrido del flujo (%)",
+        "ar": "متوسط نسبة الانحدار (%) على طول مسار التدفق"
       }
     },
     {
@@ -54,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -66,7 +70,7 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],

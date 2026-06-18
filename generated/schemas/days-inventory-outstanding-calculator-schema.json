@@ -14,14 +14,15 @@
         "de": "Durchschnittlicher Lagerbestand",
         "fr": "Stock moyen",
         "es": "Inventario promedio",
-        "ar": "Average Inventory"
+        "ar": "متوسط المخزون"
       },
       "businessContext_i18n": {
         "en": "The average value of inventory held during the period. Typically (Beginning Inventory + Ending Inventory) / 2.",
         "tr": "Dönem boyunca elde tutulan ortalama stok değeri. Genellikle (Dönem Başı Stok + Dönem Sonu Stok) / 2.",
         "de": "Der durchschnittliche Lagerbestandswert während des Zeitraums. Typischerweise (Anfangsbestand + Endbestand) / 2.",
         "fr": "Valeur moyenne des stocks détenus pendant la période. Généralement (Stock début + Stock fin) / 2.",
-        "es": "El valor promedio del inventario mantenido durante el período. Típicamente (Inventario Inicial + Inventario Final) / 2."
+        "es": "El valor promedio del inventario mantenido durante el período. Típicamente (Inventario Inicial + Inventario Final) / 2.",
+        "ar": "متوسط قيمة المخزون خلال الفترة. عادةً (مخزون أول المدة + مخزون آخر المدة) / 2"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umsatzkosten (COGS)",
         "fr": "Coût des marchandises vendues (COGS)",
         "es": "Costo de bienes vendidos (COGS)",
-        "ar": "Cost of Goods Sold (COGS)"
+        "ar": "تكلفة البضائع المباعة (COGS)"
       },
       "businessContext_i18n": {
         "en": "The total cost of goods sold during the period.",
         "tr": "Dönem boyunca satılan malların toplam maliyeti.",
         "de": "Die Gesamtkosten der verkauften Waren während des Zeitraums.",
         "fr": "Coût total des marchandises vendues pendant la période.",
-        "es": "El costo total de los bienes vendidos durante el período."
+        "es": "El costo total de los bienes vendidos durante el período.",
+        "ar": "إجمالي تكلفة البضاعة المباعة خلال الفترة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Periodenlänge (Tage)",
         "fr": "Durée de la période (jours)",
         "es": "Duración del Período (Días)",
-        "ar": "Period Length (Days)"
+        "ar": "طول الفترة (أيام)"
       },
       "businessContext_i18n": {
         "en": "Number of days in the measurement period. Standard is 365 for annual calculation.",
         "tr": "Ölçüm dönemindeki gün sayısı. Yıllık hesaplama için standart 365'tir.",
         "de": "Anzahl der Tage im Messzeitraum. Standard ist 365 für die jährliche Berechnung.",
         "fr": "Nombre de jours dans la période de mesure. La norme est 365 pour un calcul annuel.",
-        "es": "Número de días en el período de medición. El estándar es 365 para el cálculo anual."
+        "es": "Número de días en el período de medición. El estándar es 365 para el cálculo anual.",
+        "ar": "عدد أيام فترة القياس. المعيار هو 365 للحساب السنوي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Lagerumschlagshäufigkeit (optional)",
         "fr": "Taux de rotation des stocks (optionnel)",
         "es": "Índice de Rotación de Inventario (Opcional)",
-        "ar": "Inventory Turnover Ratio (Optional)"
+        "ar": "نسبة دوران المخزون (اختياري)"
       },
       "businessContext_i18n": {
         "en": "If known, enter the inventory turnover ratio (COGS / Average Inventory). If provided, DIO will be calculated as Period Days / Turnover Ratio. Leave 0 to calculate from Average Inventory and COGS.",
         "tr": "Biliniyorsa, stok devir hızını (SMM / Ortalama Stok) girin. Sağlanırsa, DIO = Dönem Günü / Devir Hızı olarak hesaplanır. Ortalama Stok ve SMM'den hesaplamak için 0 bırakın.",
         "de": "Falls bekannt, geben Sie die Lagerumschlagshäufigkeit ein (COGS / Durchschnittlicher Lagerbestand). Falls angegeben, wird DIO als Periodentage / Umschlagshäufigkeit berechnet. Lassen Sie 0, um aus durchschnittlichem Lagerbestand und COGS zu berechnen.",
         "fr": "Si connu, saisissez le taux de rotation des stocks (COGS / Stock moyen). S'il est fourni, le DIO sera calculé comme Jours de période / Taux de rotation. Laissez 0 pour calculer à partir du Stock moyen et du COGS.",
-        "es": "Si se conoce, ingrese el índice de rotación de inventario (COGS / Inventario Promedio). Si se proporciona, el DIO se calculará como Días del Período / Índice de Rotación. Deje 0 para calcular a partir del Inventario Promedio y COGS."
+        "es": "Si se conoce, ingrese el índice de rotación de inventario (COGS / Inventario Promedio). Si se proporciona, el DIO se calculará como Días del Período / Índice de Rotación. Deje 0 para calcular a partir del Inventario Promedio y COGS.",
+        "ar": "إذا كانت معروفة، أدخل نسبة دوران المخزون (تكلفة البضاعة المباعة / متوسط المخزون). إذا تم توفيرها، سيتم حساب DIO على أنها أيام الفترة / نسبة الدوران. اترك 0 للحساب من متوسط المخزون وتكلفة البضاعة المباعة"
       }
     }
   ],

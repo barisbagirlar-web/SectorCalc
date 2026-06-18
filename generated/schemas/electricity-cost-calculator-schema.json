@@ -14,14 +14,15 @@
         "de": "Stromverbrauch",
         "fr": "Consommation électrique",
         "es": "Consumo de energía",
-        "ar": "Power Consumption"
+        "ar": "استهلاك الطاقة"
       },
       "businessContext_i18n": {
         "en": "Average power draw of the equipment or facility in kilowatts.",
         "tr": "Ekipmanın veya tesisin kilovat cinsinden ortalama güç tüketimi.",
         "de": "Durchschnittliche Leistungsaufnahme der Anlage in Kilowatt.",
         "fr": "Puissance moyenne consommée par l'équipement ou l'installation en kilowatts.",
-        "es": "Potencia media del equipo o instalación en kilovatios."
+        "es": "Potencia media del equipo o instalación en kilovatios.",
+        "ar": "متوسط استهلاك الطاقة للمعدات أو المنشأة بالكيلوواط."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Betriebsstunden pro Tag",
         "fr": "Heures de fonctionnement par jour",
         "es": "Horas de operación por día",
-        "ar": "Operating Hours per Day"
+        "ar": "ساعات التشغيل يوميًا"
       },
       "businessContext_i18n": {
         "en": "Number of hours the equipment operates each day.",
         "tr": "Ekipmanın her gün çalıştığı saat sayısı.",
         "de": "Anzahl der Betriebsstunden pro Tag.",
         "fr": "Nombre d'heures de fonctionnement de l'équipement par jour.",
-        "es": "Número de horas que el equipo opera cada día."
+        "es": "Número de horas que el equipo opera cada día.",
+        "ar": "عدد ساعات تشغيل المعدات يومياً."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Betriebstage pro Monat",
         "fr": "Jours de fonctionnement par mois",
         "es": "Días operativos por mes",
-        "ar": "Operating Days per Month"
+        "ar": "أيام التشغيل في الشهر"
       },
       "businessContext_i18n": {
         "en": "Typical number of operating days in a month.",
         "tr": "Bir aydaki tipik çalışma günü sayısı.",
         "de": "Typische Anzahl der Betriebstage in einem Monat.",
         "fr": "Nombre typique de jours de fonctionnement dans un mois.",
-        "es": "Número típico de días operativos en un mes."
+        "es": "Número típico de días operativos en un mes.",
+        "ar": "عدد أيام التشغيل النموذجية في الشهر."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stromtarif",
         "fr": "Tarif électrique",
         "es": "Tarifa eléctrica",
-        "ar": "Electricity Rate"
+        "ar": "سعر الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour of energy consumed.",
         "tr": "Tüketilen enerjinin kilovat-saat başına maliyeti.",
         "de": "Kosten pro Kilowattstunde verbrauchter Energie.",
         "fr": "Coût par kilowattheure d'énergie consommée.",
-        "es": "Costo por kilovatio-hora de energía consumida."
+        "es": "Costo por kilovatio-hora de energía consumida.",
+        "ar": "التكلفة لكل كيلوواط ساعة من الطاقة المستهلكة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Spitzenlast",
         "fr": "Pic de demande",
         "es": "Demanda máxima",
-        "ar": "Peak Demand"
+        "ar": "ذروة الطلب"
       },
       "businessContext_i18n": {
         "en": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge.",
         "tr": "Fatura döneminde 15 dakikalık bir aralıkta kW cinsinden en yüksek ortalama talep. Talep ücreti yoksa 0 olarak ayarlayın.",
         "de": "Höchste durchschnittliche Last in kW während eines 15-Minuten-Intervalls im Abrechnungszeitraum. Auf 0 setzen, wenn keine Leistungspreiskomponente.",
         "fr": "Demande moyenne la plus élevée en kW sur un intervalle de 15 minutes au cours de la période de facturation. Mettre à 0 s'il n'y a pas de charge de demande.",
-        "es": "Demanda promedio más alta en kW durante un intervalo de 15 minutos en el período de facturación. Establecer en 0 si no hay cargo por demanda."
+        "es": "Demanda promedio más alta en kW durante un intervalo de 15 minutos en el período de facturación. Establecer en 0 si no hay cargo por demanda.",
+        "ar": "أعلى متوسط طلب بالكيلوواط خلال فترة 15 دقيقة في فترة الفوترة. اضبط على 0 إذا لم تكن هناك رسوم طلب."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Leistungspreis",
         "fr": "Taux de charge de demande",
         "es": "Tarifa de cargo por demanda",
-        "ar": "Demand Charge Rate"
+        "ar": "معدل رسوم الطلب"
       },
       "businessContext_i18n": {
         "en": "Cost per kW of peak demand. Set to 0 if no demand charge.",
         "tr": "Pik talep başına kW maliyeti. Talep ücreti yoksa 0 olarak ayarlayın.",
         "de": "Kosten pro kW Spitzenlast. Auf 0 setzen, wenn keine Leistungspreiskomponente.",
         "fr": "Coût par kW de pic de demande. Mettre à 0 s'il n'y a pas de charge de demande.",
-        "es": "Costo por kW de demanda máxima. Establecer en 0 si no hay cargo por demanda."
+        "es": "Costo por kW de demanda máxima. Establecer en 0 si no hay cargo por demanda.",
+        "ar": "التكلفة لكل كيلوواط من ذروة الطلب. اضبط على 0 إذا لم تكن هناك رسوم طلب."
       }
     }
   ],

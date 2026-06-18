@@ -30,8 +30,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Haccp_deviation_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.deviation_type + input.affected_batch_kg + input.unit_cost_per_kg; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.deviation_type + input.affected_batch_kg + input.unit_cost_per_kg; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)) * (input.affected_batch_kg); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.affected_batch_kg; results["factor_affected_batch_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_affected_batch_kg"] = 0; }
   return results;
 }
 
@@ -46,8 +48,8 @@ export function calculateHaccp_deviation_cost_calculator(input: Haccp_deviation_
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

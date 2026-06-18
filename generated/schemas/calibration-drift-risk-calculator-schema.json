@@ -23,14 +23,16 @@
         "tr": "Kalibrasyon Aralığı (gün)",
         "de": "Kalibrierintervall (Tage)",
         "fr": "Intervalle d'étalonnage (jours)",
-        "es": "Intervalo de calibración (días)"
+        "es": "Intervalo de calibración (días)",
+        "ar": "فترة المعايرة (أيام)"
       },
       "businessContext_i18n": {
         "en": "Standard calibration frequency per ISO 17025 or manufacturer recommendation.",
         "tr": "ISO 17025 veya üretici tavsiyesine göre standart kalibrasyon sıklığı.",
         "de": "Standard-Kalibrierhäufigkeit gemäß ISO 17025 oder Herstellerempfehlung.",
         "fr": "Fréquence d'étalonnage standard selon ISO 17025 ou recommandation du fabricant.",
-        "es": "Frecuencia de calibración estándar según ISO 17025 o recomendación del fabricante."
+        "es": "Frecuencia de calibración estándar según ISO 17025 o recomendación del fabricante.",
+        "ar": "تردد المعايرة القياسي وفقًا لـ ISO 17025 أو توصية الشركة المصنعة."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Son Kalibrasyondan Bu Yana Geçen Gün",
         "de": "Tage seit letzter Kalibrierung",
         "fr": "Jours depuis le dernier étalonnage",
-        "es": "Días desde la última calibración"
+        "es": "Días desde la última calibración",
+        "ar": "الأيام منذ آخر معايرة"
       },
       "businessContext_i18n": {
         "en": "Actual elapsed time since the most recent calibration event.",
         "tr": "En son kalibrasyon olayından bu yana geçen fiili süre.",
         "de": "Tatsächliche vergangene Zeit seit dem letzten Kalibrierungsereignis.",
         "fr": "Temps écoulé réel depuis le dernier événement d'étalonnage.",
-        "es": "Tiempo real transcurrido desde el evento de calibración más reciente."
+        "es": "Tiempo real transcurrido desde el evento de calibración más reciente.",
+        "ar": "الوقت الفعلي المنقضي منذ آخر حدث معايرة."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Ölçüm Toleransı (%)",
         "de": "Messtoleranz (%)",
         "fr": "Tolérance de mesure (%)",
-        "es": "Tolerancia de medición (%)"
+        "es": "Tolerancia de medición (%)",
+        "ar": "تفاوت القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits.",
         "tr": "Nominal değerden izin verilen maksimum sapma, genellikle proses spesifikasyonları veya Altı Sigma limitleri ile tanımlanır.",
         "de": "Maximal zulässige Abweichung vom Nennwert, typischerweise definiert durch Prozessspezifikationen oder Six Sigma-Grenzen.",
         "fr": "Écart maximal autorisé par rapport à la valeur nominale, généralement défini par les spécifications du procédé ou les limites Six Sigma.",
-        "es": "Desviación máxima permitida del valor nominal, típicamente definida por especificaciones de proceso o límites de Seis Sigma."
+        "es": "Desviación máxima permitida del valor nominal, típicamente definida por especificaciones de proceso o límites de Seis Sigma.",
+        "ar": "أقصى انحراف مسموح به عن القيمة الاسمية، يُحدد عادةً حسب مواصفات العملية أو حدود سيجما الستة."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Gözlemlenen Sürüklenme (%)",
         "de": "Beobachtete Drift (%)",
         "fr": "Dérive observée (%)",
-        "es": "Deriva observada (%)"
+        "es": "Deriva observada (%)",
+        "ar": "الانحراف الملاحظ (%)"
       },
       "businessContext_i18n": {
         "en": "Measured deviation from nominal at last verification, expressed as percentage of full scale.",
         "tr": "Son doğrulamada nominal değerden ölçülen sapma, tam skalaya göre yüzde olarak ifade edilir.",
         "de": "Gemessene Abweichung vom Nennwert bei der letzten Überprüfung, ausgedrückt als Prozentsatz des Vollausschlags.",
         "fr": "Écart mesuré par rapport à la valeur nominale lors de la dernière vérification, exprimé en pourcentage de la pleine échelle.",
-        "es": "Desviación medida del valor nominal en la última verificación, expresada como porcentaje de la escala completa."
+        "es": "Desviación medida del valor nominal en la última verificación, expresada como porcentaje de la escala completa.",
+        "ar": "الانحراف المقاس عن القيمة الاسمية في آخر تحقق، معبرًا عنه كنسبة مئوية من المقياس الكامل."
       }
     },
     {
@@ -125,14 +133,16 @@
         "tr": "Çevresel Stres Faktörü",
         "de": "Umgebungsstressfaktor",
         "fr": "Facteur de stress environnemental",
-        "es": "Factor de estrés ambiental"
+        "es": "Factor de estrés ambiental",
+        "ar": "عامل الإجهاد البيئي"
       },
       "businessContext_i18n": {
         "en": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate.",
         "tr": "Sıcaklık, nem, titreşim ve kirlenmenin sürüklenme hızı üzerindeki etkilerinin nitel değerlendirmesi.",
         "de": "Qualitative Bewertung der Auswirkungen von Temperatur, Feuchtigkeit, Vibration und Kontamination auf die Driftrate.",
         "fr": "Évaluation qualitative des effets de la température, de l'humidité, des vibrations et de la contamination sur le taux de dérive.",
-        "es": "Evaluación cualitativa de los efectos de temperatura, humedad, vibración y contaminación en la tasa de deriva."
+        "es": "Evaluación cualitativa de los efectos de temperatura, humedad, vibración y contaminación en la tasa de deriva.",
+        "ar": "تقييم نوعي لتأثيرات درجة الحرارة والرطوبة والاهتزاز والتلوث على معدل الانحراف."
       }
     },
     {
@@ -155,14 +165,16 @@
         "tr": "Kritiklik Seviyesi",
         "de": "Kritikalitätsstufe",
         "fr": "Niveau de criticité",
-        "es": "Nivel de criticidad"
+        "es": "Nivel de criticidad",
+        "ar": "مستوى الأهمية"
       },
       "businessContext_i18n": {
         "en": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking).",
         "tr": "Ölçüm hatasının ürün kalitesi, güvenlik veya mevzuat uyumluluğu üzerindeki etkisi (ISO 9001 risk temelli düşünceye göre).",
         "de": "Auswirkung des Messfehlers auf Produktqualität, Sicherheit oder regulatorische Compliance (gemäß ISO 9001 risikobasiertem Denken).",
         "fr": "Impact de l'erreur de mesure sur la qualité du produit, la sécurité ou la conformité réglementaire (selon la pensée basée sur les risques de l'ISO 9001).",
-        "es": "Impacto del error de medición en la calidad del producto, seguridad o cumplimiento normativo (según el pensamiento basado en riesgos de ISO 9001)."
+        "es": "Impacto del error de medición en la calidad del producto, seguridad o cumplimiento normativo (según el pensamiento basado en riesgos de ISO 9001).",
+        "ar": "تأثير خطأ القياس على جودة المنتج أو السلامة أو الامتثال التنظيمي (وفقًا للتفكير القائم على المخاطر في ISO 9001)."
       }
     },
     {
@@ -179,14 +191,16 @@
         "tr": "Geçmiş Arıza Oranı (100 kalibrasyon başına)",
         "de": "Historische Ausfallrate (pro 100 Kalibrierungen)",
         "fr": "Taux de défaillance historique (pour 100 étalonnages)",
-        "es": "Tasa histórica de fallos (por cada 100 calibraciones)"
+        "es": "Tasa histórica de fallos (por cada 100 calibraciones)",
+        "ar": "معدل الفشل التاريخي (لكل 100 معايرة)"
       },
       "businessContext_i18n": {
         "en": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending.",
         "tr": "Son 100 kalibrasyon olayında cihazın toleransı aştığı sayı, güvenilirlik trendi için kullanılır.",
         "de": "Anzahl der Male, die das Instrument in den letzten 100 Kalibrierungsereignissen die Toleranz überschritten hat, verwendet für Zuverlässigkeitstrends.",
         "fr": "Nombre de fois où l'instrument a dépassé la tolérance lors des 100 derniers étalonnages, utilisé pour l'analyse de tendance de fiabilité.",
-        "es": "Número de veces que el instrumento superó la tolerancia en los últimos 100 eventos de calibración, utilizado para la tendencia de confiabilidad."
+        "es": "Número de veces que el instrumento superó la tolerancia en los últimos 100 eventos de calibración, utilizado para la tendencia de confiabilidad.",
+        "ar": "عدد المرات التي تجاوز فيها الجهاز التفاوت المسموح به في آخر 100 حدث معايرة، يُستخدم لتحليل اتجاهات الموثوقية."
       }
     },
     {
@@ -203,14 +217,16 @@
         "tr": "Veri Güven Skoru (0-100)",
         "de": "Datenvertrauensbewertung (0-100)",
         "fr": "Score de confiance des données (0-100)",
-        "es": "Puntuación de confianza de datos (0-100)"
+        "es": "Puntuación de confianza de datos (0-100)",
+        "ar": "درجة ثقة البيانات (0-100)"
       },
       "businessContext_i18n": {
         "en": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual.",
         "tr": "AIAG MSA kılavuzuna göre ölçüm sistemi analizine (MSA) dayalı, öznel veya hesaplanmış veri kalitesi ölçüsü.",
         "de": "Subjektives oder berechnetes Maß der Datenqualität basierend auf der Messsystemanalyse (MSA) gemäß AIAG MSA-Handbuch.",
         "fr": "Mesure subjective ou calculée de la qualité des données basée sur l'analyse du système de mesure (MSA) selon le manuel MSA de l'AIAG.",
-        "es": "Medida subjetiva o calculada de la calidad de los datos basada en el análisis del sistema de medición (MSA) según el manual MSA de AIAG."
+        "es": "Medida subjetiva o calculada de la calidad de los datos basada en el análisis del sistema de medición (MSA) según el manual MSA de AIAG.",
+        "ar": "مقياس شخصي أو محسوب لجودة البيانات بناءً على تحليل نظام القياس (MSA) وفقًا لدليل AIAG MSA."
       }
     }
   ],
@@ -257,18 +273,26 @@
     ]
   },
   "formulas": {
-    "result": "calibration_interval_days + days_since_last_calibration + measurement_tolerance_pct",
-    "result_copy": "calibration_interval_days + days_since_last_calibration + measurement_tolerance_pct"
+    "normalized_product": "calibration_interval_days * days_since_last_calibration * (measurement_tolerance_pct / 100) * (observed_drift_pct / 100)",
+    "result": "calibration_interval_days * days_since_last_calibration * (measurement_tolerance_pct / 100) * (observed_drift_pct / 100) * ((historical_failure_rate / 100) * data_confidence_score)",
+    "adjustment_factor": "(historical_failure_rate / 100) * data_confidence_score"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "days"
+    "unit": "%"
   },
   "toolName": "calibration-drift-risk-calculator",
   "catalogCategory": "everyday-life",

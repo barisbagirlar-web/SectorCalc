@@ -14,14 +14,15 @@
         "de": "Elastizitätsmodul (E)",
         "fr": "Module d'élasticité (E)",
         "es": "Módulo de elasticidad (E)",
-        "ar": "Elastic Modulus (E)"
+        "ar": "معامل المرونة (E)"
       },
       "businessContext_i18n": {
         "en": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel.",
         "tr": "Malzemenin elastisite modülü, örn. çelik için 200 GPa = 200.000 MPa.",
         "de": "Elastizitätsmodul des Materials, z. B. 200 GPa = 200.000 MPa für Stahl.",
         "fr": "Module d'élasticité du matériau, ex. 200 GPa = 200 000 MPa pour l'acier.",
-        "es": "Módulo de elasticidad del material, p. ej., 200 GPa = 200.000 MPa para acero."
+        "es": "Módulo de elasticidad del material, p. ej., 200 GPa = 200.000 MPa para acero.",
+        "ar": "معامل مرونة المادة، مثل 200 جيجا باسكال = 200,000 ميجا باسكال للصلب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Flächenträgheitsmoment (I)",
         "fr": "Moment d'inertie (I)",
         "es": "Momento de inercia (I)",
-        "ar": "Moment of Inertia (I)"
+        "ar": "عزم القصور الذاتي (I)"
       },
       "businessContext_i18n": {
         "en": "Second moment of area of column cross-section.",
         "tr": "Kolon kesitinin alan atalet momenti.",
         "de": "Flächenträgheitsmoment des Stützenquerschnitts.",
         "fr": "Moment d'inertie de la section transversale du poteau.",
-        "es": "Segundo momento de área de la sección transversal de la columna."
+        "es": "Segundo momento de área de la sección transversal de la columna.",
+        "ar": "العزم الثاني لمساحة مقطع العمود."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Querschnittsfläche (A)",
         "fr": "Section transversale (A)",
         "es": "Área de la sección transversal (A)",
-        "ar": "Cross-Sectional Area (A)"
+        "ar": "مساحة المقطع العرضي (A)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the column.",
         "tr": "Kolon kesitinin alanı.",
         "de": "Querschnittsfläche der Stütze.",
         "fr": "Aire de la section transversale du poteau.",
-        "es": "Área de la sección transversal de la columna."
+        "es": "Área de la sección transversal de la columna.",
+        "ar": "مساحة المقطع العرضي للعمود."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Unverschiebliche Länge (L)",
         "fr": "Longueur non contreventée (L)",
         "es": "Longitud no arriostrada (L)",
-        "ar": "Unbraced Length (L)"
+        "ar": "الطول غير المدعم (L)"
       },
       "businessContext_i18n": {
         "en": "Length of column between lateral supports.",
         "tr": "Yanal destekler arasındaki kolon boyu.",
         "de": "Länge der Stütze zwischen seitlichen Abstützungen.",
         "fr": "Longueur du poteau entre appuis latéraux.",
-        "es": "Longitud de la columna entre soportes laterales."
+        "es": "Longitud de la columna entre soportes laterales.",
+        "ar": "طول العمود بين الدعامات الجانبية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Knicklängenbeiwert (K)",
         "fr": "Coefficient de longueur effective (K)",
         "es": "Factor de longitud efectiva (K)",
-        "ar": "Effective Length Factor (K)"
+        "ar": "معامل الطول الفعال (K)"
       },
       "businessContext_i18n": {
         "en": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free.",
         "tr": "K=0,5 ankastre-ankastre, 1 mafsallı-mafsallı, 2 ankastre-serbest.",
         "de": "K=0,5 eingespannt-eingespannt, 1 gelenkig-gelenkig, 2 eingespannt-frei.",
         "fr": "K=0,5 encastré-encastré, 1 articulé-articulé, 2 encastré-libre.",
-        "es": "K=0,5 empotrado-empotrado, 1 articulado-articulado, 2 empotrado-libre."
+        "es": "K=0,5 empotrado-empotrado, 1 articulado-articulado, 2 empotrado-libre.",
+        "ar": "K=0.5 مثبت-مثبت، 1 مفصلي-مفصلي، 2 مثبت-حر."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Angewandte Axiallast (P)",
         "fr": "Charge axiale appliquée (P)",
         "es": "Carga axial aplicada (P)",
-        "ar": "Applied Axial Load (P)"
+        "ar": "الحمل المحوري المطبق (P)"
       },
       "businessContext_i18n": {
         "en": "Compressive load applied to the column.",
         "tr": "Kolona uygulanan basınç yükü.",
         "de": "Auf die Stütze wirkende Drucklast.",
         "fr": "Charge de compression appliquée au poteau.",
-        "es": "Carga de compresión aplicada a la columna."
+        "es": "Carga de compresión aplicada a la columna.",
+        "ar": "الحمل الانضغاطي المطبق على العمود."
       }
     }
   ],

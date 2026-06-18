@@ -13,14 +13,16 @@
         "tr": "Miktar (therm)",
         "de": "Menge (Therm)",
         "fr": "Quantité (therms)",
-        "es": "Quantity (therms)",
-        "ar": "Quantity (therms)"
+        "es": "Cantidad (termias)",
+        "ar": "الكمية (therms)"
       },
       "businessContext_i18n": {
         "en": "Amount of energy in therms to be converted to BTU.",
         "tr": "BTU'ya dönüştürülecek enerji miktarı (therm cinsinden).",
         "de": "Energiemenge in Therm, die in BTU umgerechnet werden soll.",
-        "fr": "Quantité d'énergie en thers à convertir en BTU."
+        "fr": "Quantité d'énergie en thers à convertir en BTU.",
+        "es": "Cantidad de energía en termias a convertir a BTU.",
+        "ar": "كمية الطاقة بالثيرمات المراد تحويلها إلى BTU."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU).",
         "tr": "Therm'den BTU'ya standart dönüşüm faktörü (1 therm = 100.000 BTU).",
         "de": "Standard-Umrechnungsfaktor von Therm zu BTU (1 Therm = 100.000 BTU).",
-        "fr": "Facteur de conversion standard des thers en BTU (1 therm = 100 000 BTU)."
+        "fr": "Facteur de conversion standard des thers en BTU (1 therm = 100 000 BTU).",
+        "es": "Factor de conversión estándar de termias a BTU (1 termia = 100,000 BTU).",
+        "ar": "عامل التحويل القياسي من الثيرمات إلى BTU (1 ثيرم = 100,000 BTU)."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Enerji İçeriği Ayarı",
         "de": "Energiegehalt-Anpassung",
         "fr": "Ajustement du contenu énergétique",
-        "es": "Energy Content Adjustment",
-        "ar": "Energy Content Adjustment"
+        "es": "Ajuste del contenido energético",
+        "ar": "تعديل محتوى الطاقة"
       },
       "businessContext_i18n": {
         "en": "Adjustment to the conversion factor for fuel-specific energy content variations, if any.",
         "tr": "Yakıta özgü enerji içeriği farklılıkları için dönüşüm faktörüne yapılan ayar (varsa).",
         "de": "Anpassung des Umrechnungsfaktors für brennstoffspezifische Energiegehaltsabweichungen, falls vorhanden.",
-        "fr": "Ajustement du facteur de conversion pour les variations de contenu énergétique spécifiques au combustible, le cas échéant."
+        "fr": "Ajustement du facteur de conversion pour les variations de contenu énergétique spécifiques au combustible, le cas échéant.",
+        "es": "Ajuste al factor de conversión para variaciones específicas del contenido energético del combustible, si las hay.",
+        "ar": "تعديل عامل التحويل لاختلافات محتوى الطاقة حسب نوع الوقود، إن وجد."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output.",
         "tr": "Çıktının yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
-        "fr": "Nombre de décimales pour arrondir le résultat."
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear la salida.",
+        "ar": "عدد المنازل العشرية لتقريب الناتج."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Çıktı Birim Ölçek Faktörü",
         "de": "Skalierungsfaktor der Ausgabeeinheit",
         "fr": "Facteur d'échelle de l'unité de sortie",
-        "es": "Output Unit Scale Factor",
-        "ar": "Output Unit Scale Factor"
+        "es": "Factor de escala de unidad de salida",
+        "ar": "عامل مقياس وحدة الإخراج"
       },
       "businessContext_i18n": {
         "en": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU).",
         "tr": "BTU'yu istenen çıktı birimine dönüştüren faktör (ör. BTU için 1, MMBTU için 1e-6).",
         "de": "Faktor zur Umrechnung von BTU in die gewünschte Ausgabeeinheit (z.B. 1 für BTU, 1e-6 für MMBTU).",
-        "fr": "Facteur pour convertir les BTU en unité de sortie souhaitée (ex. : 1 pour BTU, 1e-6 pour MMBTU)."
+        "fr": "Facteur pour convertir les BTU en unité de sortie souhaitée (ex. : 1 pour BTU, 1e-6 pour MMBTU).",
+        "es": "Factor para convertir BTU a la unidad de salida deseada (ej., 1 para BTU, 1e-6 para MMBTU).",
+        "ar": "عامل تحويل BTU إلى وحدة الإخراج المطلوبة (مثل 1 لـ BTU، 1e-6 لـ MMBTU)."
       }
     }
   ],

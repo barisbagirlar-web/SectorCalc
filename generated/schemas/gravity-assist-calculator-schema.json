@@ -14,14 +14,15 @@
         "de": "Planetenbahngeschwindigkeit",
         "fr": "Vitesse orbitale de la planète",
         "es": "Velocidad orbital del planeta",
-        "ar": "Planet Orbital Speed"
+        "ar": "سرعة المدار الكوكبي"
       },
       "businessContext_i18n": {
         "en": "The orbital speed of the planet relative to the Sun.",
         "tr": "Gezegenin Güneş'e göre yörünge hızı.",
         "de": "Die Umlaufgeschwindigkeit des Planeten relativ zur Sonne.",
         "fr": "Vitesse orbitale de la planète par rapport au Soleil.",
-        "es": "La velocidad orbital del planeta relativa al Sol."
+        "es": "La velocidad orbital del planeta relativa al Sol.",
+        "ar": "السرعة المدارية للكوكب بالنسبة للشمس."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hyperbolische Überschussgeschwindigkeit",
         "fr": "Vitesse hyperbolique excédentaire",
         "es": "Velocidad de exceso hiperbólico",
-        "ar": "Hyperbolic Excess Speed"
+        "ar": "سرعة الفائض الزائدي"
       },
       "businessContext_i18n": {
         "en": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity).",
         "tr": "Uzay aracının gezegene sonsuz uzaklıktaki hızı (yaklaşma hızı).",
         "de": "Die Geschwindigkeit des Raumfahrzeugs relativ zum Planeten in unendlicher Entfernung (Annäherungsgeschwindigkeit).",
         "fr": "Vitesse du vaisseau spatial par rapport à la planète à une distance infinie (vitesse d'approche).",
-        "es": "La velocidad de la nave espacial relativa al planeta a una distancia infinita (velocidad de aproximación)."
+        "es": "La velocidad de la nave espacial relativa al planeta a una distancia infinita (velocidad de aproximación).",
+        "ar": "سرعة المركبة الفضائية بالنسبة للكوكب على مسافة لا نهائية (سرعة الاقتراب)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Periapsis-Entfernung",
         "fr": "Distance au périapse",
         "es": "Distancia de periapsis",
-        "ar": "Periapsis Distance"
+        "ar": "مسافة الحضيض"
       },
       "businessContext_i18n": {
         "en": "Distance from planet center at closest approach.",
         "tr": "En yakın yaklaşmada gezegen merkezine uzaklık.",
         "de": "Entfernung vom Planetenmittelpunkt beim nächsten Vorbeiflug.",
         "fr": "Distance du centre de la planète au point d'approche le plus proche.",
-        "es": "Distancia desde el centro del planeta en el punto de máximo acercamiento."
+        "es": "Distancia desde el centro del planeta en el punto de máximo acercamiento.",
+        "ar": "المسافة من مركز الكوكب عند أقرب نقطة."
       }
     },
     {
@@ -83,43 +86,37 @@
         "de": "Gravitationsparameter",
         "fr": "Paramètre gravitationnel",
         "es": "Parámetro gravitacional",
-        "ar": "Gravitational Parameter"
+        "ar": "المعامل الجاذبي"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational parameter (GM) of the planet.",
         "tr": "Gezegenin standart yerçekim parametresi (GM).",
         "de": "Standard-Gravitationsparameter (GM) des Planeten.",
         "fr": "Paramètre gravitationnel standard (GM) de la planète.",
-        "es": "Parámetro gravitacional estándar (GM) del planeta."
+        "es": "Parámetro gravitacional estándar (GM) del planeta.",
+        "ar": "المعامل الجاذبي القياسي (GM) للكوكب."
       }
     }
   ],
   "formulas": {
-    "result": "v_planet + v_inf + r_p",
-    "result_copy": "v_planet + v_inf + r_p"
+    "normalized_product": "v_planet * v_inf * r_p * mu",
+    "result": "v_planet * v_inf * r_p * mu"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "delta",
-        "label": "Deflection Angle",
-        "unit": "rad",
-        "formula": "delta"
-      },
-      {
-        "id": "dv",
-        "label": "Delta-V Relative to Planet",
-        "unit": "km/s",
-        "formula": "dv"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dv",
-    "unit": "km/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Havacılık & Uzay",

@@ -14,14 +14,15 @@
         "de": "Testdauer (Min.)",
         "fr": "Durée du test (min)",
         "es": "Duración de la prueba (min)",
-        "ar": "Test Duration (min)"
+        "ar": "مدة الاختبار (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Duration of the test in minutes (typically 20 or 60).",
         "tr": "Testin dakika cinsinden süresi (genellikle 20 veya 60).",
         "de": "Dauer des Tests in Minuten (normalerweise 20 oder 60).",
         "fr": "Durée du test en minutes (généralement 20 ou 60).",
-        "es": "Duración de la prueba en minutos (normalmente 20 o 60)."
+        "es": "Duración de la prueba en minutos (normalmente 20 o 60).",
+        "ar": "مدة الاختبار بالدقائق (عادة 20 أو 60)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Durchschnittsleistung (W)",
         "fr": "Puissance moyenne (W)",
         "es": "Potencia promedio (W)",
-        "ar": "Average Power (W)"
+        "ar": "متوسط القدرة (واط)"
       },
       "businessContext_i18n": {
         "en": "Average power output during the test in watts.",
         "tr": "Test sırasında watt cinsinden ortalama güç çıkışı.",
         "de": "Durchschnittliche Leistungsabgabe während des Tests in Watt.",
         "fr": "Puissance moyenne délivrée pendant le test en watts.",
-        "es": "Potencia promedio durante la prueba en vatios."
+        "es": "Potencia promedio durante la prueba en vatios.",
+        "ar": "متوسط خرج القدرة أثناء الاختبار بالواط."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fahrergewicht (kg)",
         "fr": "Poids du cycliste (kg)",
         "es": "Peso del ciclista (kg)",
-        "ar": "Rider Weight (kg)"
+        "ar": "وزن الراكب (كجم)"
       },
       "businessContext_i18n": {
         "en": "Rider's body weight in kilograms.",
         "tr": "Sürücünün kilogram cinsinden vücut ağırlığı.",
         "de": "Körpergewicht des Fahrers in Kilogramm.",
         "fr": "Poids corporel du cycliste en kilogrammes.",
-        "es": "Peso corporal del ciclista en kilogramos."
+        "es": "Peso corporal del ciclista en kilogramos.",
+        "ar": "وزن جسم الراكب بالكيلوغرام."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
         "es": "Temperatura ambiente (°C)",
-        "ar": "Ambient Temperature (°C)"
+        "ar": "درجة الحرارة المحيطة (°م)"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature during the test in degrees Celsius.",
         "tr": "Test sırasında santigrat derece cinsinden ortam sıcaklığı.",
         "de": "Umgebungstemperatur während des Tests in Grad Celsius.",
         "fr": "Température ambiante pendant le test en degrés Celsius.",
-        "es": "Temperatura ambiente durante la prueba en grados Celsius."
+        "es": "Temperatura ambiente durante la prueba en grados Celsius.",
+        "ar": "درجة الحرارة المحيطة أثناء الاختبار بالدرجات المئوية."
       }
     }
   ],
   "formulas": {
-    "result": "testDuration + averagePower + weight",
-    "result_aux": "testDuration + averagePower + weight"
+    "normalized_product": "testDuration * averagePower * weight * ambientTemperature",
+    "result": "testDuration * averagePower * weight * ambientTemperature"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Power-to-Weight Ratio (W/kg)",
-      "Overall Adjustment Factor"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "powerToWeight",
-    "unit": "min",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Power-to-Weight Ratio (W/kg)": "%"
     }

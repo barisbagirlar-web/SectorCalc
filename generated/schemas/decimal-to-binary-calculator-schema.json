@@ -14,14 +14,15 @@
         "de": "Dezimalzahl",
         "fr": "Nombre décimal",
         "es": "Número decimal",
-        "ar": "Decimal Number"
+        "ar": "رقم عشري"
       },
       "businessContext_i18n": {
         "en": "The non-negative decimal integer to convert to binary.",
         "tr": "İkiliye dönüştürülecek negatif olmayan ondalık tam sayı.",
         "de": "Die nicht-negative ganze Dezimalzahl, die in Binär umgewandelt werden soll.",
         "fr": "L'entier décimal non négatif à convertir en binaire.",
-        "es": "El entero decimal no negativo a convertir a binario."
+        "es": "El entero decimal no negativo a convertir a binario.",
+        "ar": "العدد العشري غير السالب للتحويل إلى ثنائي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mindestbits",
         "fr": "Bits minimum",
         "es": "Bits Mínimos",
-        "ar": "Minimum Bits"
+        "ar": "الحد الأدنى للبتات"
       },
       "businessContext_i18n": {
         "en": "Minimum number of bits in the output binary string. Shorter results are padded with leading zeros.",
         "tr": "İkili çıktı dizisindeki minimum bit sayısı. Kısa sonuçlar başa sıfır eklenerek doldurulur.",
         "de": "Mindestanzahl von Bits in der ausgegebenen Binärzeichenfolge. Kürzere Ergebnisse werden mit führenden Nullen aufgefüllt.",
         "fr": "Nombre minimum de bits dans la chaîne binaire de sortie. Les résultats plus courts sont complétés par des zéros en tête.",
-        "es": "Número mínimo de bits en la cadena binaria de salida. Los resultados más cortos se rellenan con ceros a la izquierda."
+        "es": "Número mínimo de bits en la cadena binaria de salida. Los resultados más cortos se rellenan con ceros a la izquierda.",
+        "ar": "الحد الأدنى لعدد البتات في السلسلة الثنائية الناتجة. يتم حشو النتائج الأقصر بالأصفار البادئة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gruppengröße",
         "fr": "Taille du groupe",
         "es": "Tamaño de Grupo",
-        "ar": "Group Size"
+        "ar": "حجم المجموعة"
       },
       "businessContext_i18n": {
         "en": "Number of bits per group separated by a space. 0 means no grouping.",
         "tr": "Boşlukla ayrılmış grup başına bit sayısı. 0 gruplama yapılmaz.",
         "de": "Anzahl der Bits pro Gruppe, getrennt durch ein Leerzeichen. 0 bedeutet keine Gruppierung.",
         "fr": "Nombre de bits par groupe séparés par un espace. 0 signifie aucun regroupement.",
-        "es": "Número de bits por grupo separados por un espacio. 0 significa sin agrupación."
+        "es": "Número de bits por grupo separados por un espacio. 0 significa sin agrupación.",
+        "ar": "عدد البتات لكل مجموعة مفصولة بمسافة. 0 يعني عدم التجميع."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "0b-Präfix einschließen",
         "fr": "Inclure le préfixe 0b",
         "es": "Incluir Prefijo 0b",
-        "ar": "Include 0b Prefix"
+        "ar": "تضمين البادئة 0b"
       },
       "businessContext_i18n": {
         "en": "1 to prepend '0b' prefix, 0 to omit. Only effective when output is a string.",
         "tr": "1 ise '0b' önekini ekle, 0 ise atla. Yalnızca çıktı dize olduğunda etkilidir.",
         "de": "1, um das Präfix '0b' voranzustellen, 0, um es wegzulassen. Nur wirksam, wenn die Ausgabe eine Zeichenfolge ist.",
         "fr": "1 pour ajouter le préfixe '0b', 0 pour l'omettre. Efficace uniquement lorsque la sortie est une chaîne.",
-        "es": "1 para anteponer el prefijo '0b', 0 para omitirlo. Solo efectivo cuando la salida es una cadena."
+        "es": "1 para anteponer el prefijo '0b', 0 para omitirlo. Solo efectivo cuando la salida es una cadena.",
+        "ar": "1 لإضافة البادئة '0b'، 0 لحذفها. فعال فقط عندما يكون الناتج سلسلة."
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Als Zahl ausgeben",
         "fr": "Sortie sous forme de nombre",
         "es": "Salida como Número",
-        "ar": "Output as Number"
+        "ar": "الإخراج كرقم"
       },
       "businessContext_i18n": {
         "en": "1 to output the binary value as a base-10 number (loosing leading zeros and formatting), 0 to output as a formatted string.",
         "tr": "1 ise ikili değeri ondalık sayı olarak çıkar (baştaki sıfırlar ve biçimlendirme kaybolur), 0 ise biçimlendirilmiş dize olarak çıkar.",
         "de": "1 um den Binärwert als Dezimalzahl auszugeben (führende Nullen und Formatierung verlieren), 0 um als formatierte Zeichenfolge auszugeben.",
         "fr": "1 pour afficher la valeur binaire sous forme de nombre en base 10 (perdant les zéros en tête et le formatage), 0 pour afficher sous forme de chaîne formatée.",
-        "es": "1 para mostrar el valor binario como un número en base 10 (perdiendo ceros a la izquierda y formato), 0 para mostrar como una cadena formateada."
+        "es": "1 para mostrar el valor binario como un número en base 10 (perdiendo ceros a la izquierda y formato), 0 para mostrar como una cadena formateada.",
+        "ar": "1 لإخراج القيمة الثنائية كرقم أساسه 10 (مع فقدان الأصفار البادئة والتنسيق)، 0 لإخراجها كسلسلة منسقة."
       }
     }
   ],
   "formulas": {
-    "result": "decimalValue + minBits + groupSize",
-    "result_copy": "decimalValue + minBits + groupSize"
+    "normalized_product": "decimalValue * minBits * groupSize * includePrefix",
+    "result": "decimalValue * minBits * groupSize * includePrefix * (outputNumberFormat)",
+    "adjustment_factor": "outputNumberFormat"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "binaryUnpadded",
-      "paddedBinary",
-      "groupedBinary",
-      "withPrefix",
-      "binaryAsNumber"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "primaryOutput",
-    "unit": "bits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

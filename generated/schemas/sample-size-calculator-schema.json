@@ -14,14 +14,15 @@
         "de": "Grundgesamtheit",
         "fr": "Taille de la population",
         "es": "Tamaño de la población",
-        "ar": "Population Size"
+        "ar": "حجم المجتمع"
       },
       "businessContext_i18n": {
         "en": "The total number of individuals in the population.",
         "tr": "Popülasyondaki toplam birey sayısı.",
         "de": "Gesamtzahl der Personen in der Grundgesamtheit.",
         "fr": "Le nombre total d'individus dans la population.",
-        "es": "Número total de individuos en la población."
+        "es": "Número total de individuos en la población.",
+        "ar": "إجمالي عدد الأفراد في المجتمع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Erwarteter Anteil",
         "fr": "Proportion attendue",
         "es": "Proporción esperada",
-        "ar": "Expected Proportion"
+        "ar": "النسبة المتوقعة"
       },
       "businessContext_i18n": {
         "en": "The estimated proportion of the population possessing the attribute of interest. If unsure, use 0.5 for maximum variability.",
         "tr": "İlgilenilen özelliğe sahip popülasyonun tahmini oranı. Emin değilseniz maksimum değişkenlik için 0,5 kullanın.",
         "de": "Der geschätzte Anteil der Grundgesamtheit, der das interessierende Merkmal besitzt. Bei Unsicherheit 0,5 für maximale Variabilität verwenden.",
         "fr": "La proportion estimée de la population possédant l'attribut d'intérêt. En cas de doute, utilisez 0,5 pour une variabilité maximale.",
-        "es": "La proporción estimada de la población que posee el atributo de interés. Si no está seguro, use 0.5 para máxima variabilidad."
+        "es": "La proporción estimada de la población que posee el atributo de interés. Si no está seguro, use 0.5 para máxima variabilidad.",
+        "ar": "النسبة المقدرة للمجتمع التي تمتلك الخاصية محل الاهتمام. إذا كنت غير متأكد، استخدم 0.5 لأقصى تباين."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fehlermarge",
         "fr": "Marge d'erreur",
         "es": "Margen de error",
-        "ar": "Margin of Error"
+        "ar": "هامش الخطأ"
       },
       "businessContext_i18n": {
         "en": "The maximum acceptable difference between the sample estimate and the true population value.",
         "tr": "Örneklem tahmini ile gerçek popülasyon değeri arasındaki kabul edilebilir maksimum fark.",
         "de": "Maximal akzeptable Differenz zwischen Stichprobenschätzung und wahrem Populationswert.",
         "fr": "La différence maximale acceptable entre l'estimation de l'échantillon et la valeur réelle de la population.",
-        "es": "La diferencia máxima aceptable entre la estimación de la muestra y el valor verdadero de la población."
+        "es": "La diferencia máxima aceptable entre la estimación de la muestra y el valor verdadero de la población.",
+        "ar": "أقصى فرق مقبول بين تقدير العينة وقيمة المجتمع الحقيقية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
-        "ar": "Z-score"
+        "ar": "قيمة Z"
       },
       "businessContext_i18n": {
         "en": "The Z-value corresponding to the desired confidence level (e.g., 1.96 for 95% confidence).",
         "tr": "İstenen güven düzeyine karşılık gelen Z-değeri (ör. %95 güven için 1,96).",
         "de": "Der Z-Wert, der dem gewünschten Konfidenzniveau entspricht (z. B. 1,96 für 95% Konfidenz).",
         "fr": "La valeur Z correspondant au niveau de confiance souhaité (par exemple, 1,96 pour un intervalle de confiance de 95 %).",
-        "es": "El valor Z correspondiente al nivel de confianza deseado (ej. 1.96 para 95% de confianza)."
+        "es": "El valor Z correspondiente al nivel de confianza deseado (ej. 1.96 para 95% de confianza).",
+        "ar": "قيمة Z المقابلة لمستوى الثقة المطلوب (مثل 1.96 لثقة 95%)."
       }
     }
   ],

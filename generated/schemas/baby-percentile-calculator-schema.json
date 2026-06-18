@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Baby's age in months, 0-36",
         "tr": "Bebeğin ay cinsinden yaşı, 0-36",
         "de": "Alter des Babys in Monaten, 0-36",
         "fr": "Âge du bébé en mois, 0-36",
-        "es": "Edad del bebé en meses, 0-36"
+        "es": "Edad del bebé en meses, 0-36",
+        "ar": "عمر الطفل بالأشهر، 0-36"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gewicht",
         "fr": "Poids",
         "es": "Peso",
-        "ar": "Weight"
+        "ar": "الوزن"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
         "de": "Körpergewicht in Kilogramm",
         "fr": "Poids corporel en kilogrammes",
-        "es": "Peso corporal en kilogramos"
+        "es": "Peso corporal en kilogramos",
+        "ar": "وزن الجسم بالكيلوجرام"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Länge",
         "fr": "Longueur",
         "es": "Longitud",
-        "ar": "Length"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Body length in centimeters",
         "tr": "Santimetre cinsinden vücut uzunluğu",
         "de": "Körperlänge in Zentimetern",
         "fr": "Longueur du corps en centimètres",
-        "es": "Longitud corporal en centímetros"
+        "es": "Longitud corporal en centímetros",
+        "ar": "طول الجسم بالسنتيمتر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kopfumfang",
         "fr": "Périmètre crânien",
         "es": "Perímetro cefálico",
-        "ar": "Head Circumference"
+        "ar": "محيط الرأس"
       },
       "businessContext_i18n": {
         "en": "Head circumference in centimeters",
         "tr": "Santimetre cinsinden baş çevresi",
         "de": "Kopfumfang in Zentimetern",
         "fr": "Périmètre crânien en centimètres",
-        "es": "Perímetro cefálico en centímetros"
+        "es": "Perímetro cefálico en centímetros",
+        "ar": "محيط الرأس بالسنتيمتر"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "0 for boy, 1 for girl",
         "tr": "0 erkek, 1 kız",
         "de": "0 für Junge, 1 für Mädchen",
         "fr": "0 pour garçon, 1 pour fille",
-        "es": "0 para niño, 1 para niña"
+        "es": "0 para niño, 1 para niña",
+        "ar": "0 للذكر، 1 للأنثى"
       }
     }
   ],
   "formulas": {
-    "result": "age + weight + length",
-    "result_copy": "age + weight + length"
+    "normalized_product": "age * weight * length * head",
+    "result": "age * weight * length * head * (gender)",
+    "adjustment_factor": "gender"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "lengthPercentile",
-      "headPercentile"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "headPercentile",
-    "unit": "months",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "lengthPercentile": "%",
       "headPercentile": "%"

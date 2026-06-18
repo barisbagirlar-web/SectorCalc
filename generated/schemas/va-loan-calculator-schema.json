@@ -14,13 +14,15 @@
         "de": "Darlehensbetrag",
         "fr": "Montant du prêt",
         "es": "Monto del préstamo",
-        "ar": "Loan Amount"
+        "ar": "مبلغ القرض"
       },
       "businessContext_i18n": {
         "en": "Total amount borrowed, typically equal to the home purchase price if 0% down payment.",
         "tr": "Toplam borç alınan miktar, genellikle %0 peşinat durumunda ev satın alma fiyatına eşittir.",
         "de": "Gesamter geliehener Betrag, in der Regel gleich dem Kaufpreis des Hauses bei 0% Anzahlung.",
-        "fr": "Montant total emprunté, généralement égal au prix d'achat de la maison si 0% d'apport."
+        "fr": "Montant total emprunté, généralement égal au prix d'achat de la maison si 0% d'apport.",
+        "es": "Monto total prestado, típicamente igual al precio de compra de la vivienda si el pago inicial es 0%.",
+        "ar": "إجمالي المبلغ المقترض، عادةً ما يساوي سعر شراء المنزل إذا كانت الدفعة الأولى 0%."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zinssatz",
         "fr": "Taux d'intérêt",
         "es": "Tasa de interés",
-        "ar": "Interest Rate"
+        "ar": "سعر الفائدة"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate for the VA loan, typically lower than conventional loans.",
         "tr": "VA kredisi için yıllık faiz oranı, genellikle geleneksel kredilerden daha düşüktür.",
         "de": "Jährlicher Zinssatz für das VA-Darlehen, in der Regel niedriger als bei konventionellen Darlehen.",
-        "fr": "Taux d'intérêt annuel du prêt VA, généralement inférieur aux prêts conventionnels."
+        "fr": "Taux d'intérêt annuel du prêt VA, généralement inférieur aux prêts conventionnels.",
+        "es": "Tasa de interés anual para el préstamo VA, típicamente más baja que los préstamos convencionales.",
+        "ar": "معدل الفائدة السنوي لقرض VA، عادةً أقل من القروض التقليدية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Darlehenslaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
-        "ar": "Loan Term"
+        "ar": "مدة القرض"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan in years; VA loans are commonly 30-year fixed-rate mortgages.",
         "tr": "Kredinin yıl cinsinden süresi; VA kredileri genellikle 30 yıl sabit faizli ipoteklerdir.",
         "de": "Laufzeit des Darlehens in Jahren; VA-Darlehen sind üblicherweise 30-jährige Festzinshypotheken.",
-        "fr": "Durée du prêt en années ; les prêts VA sont généralement des prêts hypothécaires à taux fixe sur 30 ans."
+        "fr": "Durée du prêt en années ; les prêts VA sont généralement des prêts hypothécaires à taux fixe sur 30 ans.",
+        "es": "Duración del préstamo en años; los préstamos VA suelen ser hipotecas de tasa fija a 30 años.",
+        "ar": "مدة القرض بالسنوات؛ قروض VA عادةً ما تكون رهون عقارية ثابتة لمدة 30 عامًا."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Fon Ücreti Oranı",
         "de": "Gebührensatz für die Finanzierung",
         "fr": "Taux de frais de financement",
-        "es": "Funding Fee Rate",
-        "ar": "Funding Fee Rate"
+        "es": "Tasa de comisión de financiamiento",
+        "ar": "معدل رسوم التمويل"
       },
       "businessContext_i18n": {
         "en": "VA funding fee as a percentage of the loan amount; varies based on down payment and service history; can be financed into the loan.",
         "tr": "Kredi tutarının yüzdesi olarak VA fon ücreti; peşinat ve hizmet geçmişine göre değişir; krediye dahil edilebilir.",
         "de": "VA-Finanzierungsgebühr als Prozentsatz des Darlehensbetrags; variiert je nach Anzahlung und Dienstgeschichte; kann in das Darlehen finanziert werden.",
-        "fr": "Frais de financement VA en pourcentage du montant du prêt ; varie selon l'apport et l'historique de service ; peut être financé dans le prêt."
+        "fr": "Frais de financement VA en pourcentage du montant du prêt ; varie selon l'apport et l'historique de service ; peut être financé dans le prêt.",
+        "es": "Comisión de financiamiento VA como porcentaje del monto del préstamo; varía según el pago inicial y el historial de servicio; puede financiarse en el préstamo.",
+        "ar": "رسوم تمويل VA كنسبة مئوية من مبلغ القرض؛ تختلف حسب الدفعة الأولى وتاريخ الخدمة؛ يمكن تمويلها ضمن القرض."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Grundsteuersatz",
         "fr": "Taux d'imposition foncière",
         "es": "Tasa de impuesto a la propiedad",
-        "ar": "Property Tax Rate"
+        "ar": "معدل ضريبة الأملاك"
       },
       "businessContext_i18n": {
         "en": "Annual property tax rate assessed on the home value (assumed equal to loan amount).",
         "tr": "Ev değeri üzerinden değerlendirilen yıllık emlak vergisi oranı (kredi tutarına eşit olduğu varsayılır).",
         "de": "Jährlicher Grundsteuersatz, bewertet auf den Hauswert (angenommen gleich dem Darlehensbetrag).",
-        "fr": "Taux annuel de taxe foncière évalué sur la valeur de la maison (supposé égal au montant du prêt)."
+        "fr": "Taux annuel de taxe foncière évalué sur la valeur de la maison (supposé égal au montant du prêt).",
+        "es": "Tasa anual de impuesto a la propiedad evaluada sobre el valor de la vivienda (se asume igual al monto del préstamo).",
+        "ar": "معدل ضريبة الأملاك السنوي المفروض على قيمة المنزل (يفترض أنه يساوي مبلغ القرض)."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Yıllık Ev Sigortası",
         "de": "Jährliche Hausratversicherung",
         "fr": "Assurance habitation annuelle",
-        "es": "Home Insurance Annual",
-        "ar": "Home Insurance Annual"
+        "es": "Seguro de hogar anual",
+        "ar": "التأمين على المنزل سنويًا"
       },
       "businessContext_i18n": {
         "en": "Annual homeowners insurance premium.",
         "tr": "Yıllık ev sahibi sigortası primi.",
         "de": "Jährliche Hausratversicherungsprämie.",
-        "fr": "Prime annuelle d'assurance habitation."
+        "fr": "Prime annuelle d'assurance habitation.",
+        "es": "Prima anual del seguro de propietarios de vivienda.",
+        "ar": "قسط التأمين السنوي لأصحاب المنازل."
       }
     }
   ],

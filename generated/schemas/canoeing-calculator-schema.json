@@ -14,14 +14,15 @@
         "de": "Paddel-Leistung",
         "fr": "Puissance de la pale",
         "es": "Potencia del remo",
-        "ar": "Paddle Power"
+        "ar": "قوة المجداف"
       },
       "businessContext_i18n": {
         "en": "Power applied by the paddler in watts.",
         "tr": "Pala tarafından uygulanan watt cinsinden güç.",
         "de": "Vom Paddler aufgebrachte Leistung in Watt.",
         "fr": "Puissance appliquée par la pale en watts.",
-        "es": "Potencia aplicada por el remero en vatios."
+        "es": "Potencia aplicada por el remero en vatios.",
+        "ar": "الطاقة المطبقة بواسطة المجداف بالواط."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Widerstandsbeiwert",
         "fr": "Coefficient de traînée",
         "es": "Coeficiente de arrastre",
-        "ar": "Drag Coefficient"
+        "ar": "معامل السحب"
       },
       "businessContext_i18n": {
         "en": "Drag coefficient of the canoe.",
         "tr": "Kano'nun sürükleme katsayısı.",
         "de": "Widerstandsbeiwert des Kanus.",
         "fr": "Coefficient de traînée du canoë.",
-        "es": "Coeficiente de arrastre de la canoa."
+        "es": "Coeficiente de arrastre de la canoa.",
+        "ar": "معامل السحب للقارب."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wasserdichte",
         "fr": "Densité de l'eau",
         "es": "Densidad del agua",
-        "ar": "Water Density"
+        "ar": "كثافة الماء"
       },
       "businessContext_i18n": {
         "en": "Density of water, typically 1000 kg/m³ for freshwater.",
         "tr": "Tatlı su için tipik olarak 1000 kg/m³ olan su yoğunluğu.",
         "de": "Dichte des Wassers, typischerweise 1000 kg/m³ für Süßwasser.",
         "fr": "Densité de l'eau, typiquement 1000 kg/m³ pour l'eau douce.",
-        "es": "Densidad del agua, típicamente 1000 kg/m³ para agua dulce."
+        "es": "Densidad del agua, típicamente 1000 kg/m³ para agua dulce.",
+        "ar": "كثافة الماء، عادة 1000 كجم/م³ للمياه العذبة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stirnfläche",
         "fr": "Surface frontale",
         "es": "Área frontal",
-        "ar": "Frontal Area"
+        "ar": "المساحة الأمامية"
       },
       "businessContext_i18n": {
         "en": "Effective frontal area of canoe in water.",
         "tr": "Kanounun su içindeki etkili ön alanı.",
         "de": "Effektive Stirnfläche des Kanus im Wasser.",
         "fr": "Surface frontale effective du canoë dans l'eau.",
-        "es": "Área frontal efectiva de la canoa en el agua."
+        "es": "Área frontal efectiva de la canoa en el agua.",
+        "ar": "المساحة الأمامية الفعالة للقارب في الماء."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kanu-Gewicht",
         "fr": "Poids du canoë",
         "es": "Peso de la canoa",
-        "ar": "Canoe Weight"
+        "ar": "وزن القارب"
       },
       "businessContext_i18n": {
         "en": "Weight of the canoe.",
         "tr": "Kanounun ağırlığı.",
         "de": "Gewicht des Kanus.",
         "fr": "Poids du canoë.",
-        "es": "Peso de la canoa."
+        "es": "Peso de la canoa.",
+        "ar": "وزن القارب."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Paddler-Gewicht",
         "fr": "Poids du pagayeur",
         "es": "Peso del remero",
-        "ar": "Paddler Weight"
+        "ar": "وزن المجدف"
       },
       "businessContext_i18n": {
         "en": "Weight of the paddler.",
         "tr": "Kürekçinin ağırlığı.",
         "de": "Gewicht des Stampfers.",
         "fr": "Poids du pagayeur.",
-        "es": "Peso del remero."
+        "es": "Peso del remero.",
+        "ar": "وزن المجدف."
       }
     }
   ],
   "formulas": {
-    "totalWeight": "canoeWeight + paddlerWeight",
-    "totalWeight_aux": "canoeWeight + paddlerWeight"
+    "normalized_product": "paddlePower * dragCoefficient * waterDensity * frontalArea",
+    "result": "paddlePower * dragCoefficient * waterDensity * frontalArea * (canoeWeight * paddlerWeight)",
+    "adjustment_factor": "canoeWeight * paddlerWeight"
   },
   "outputs": {
-    "primary": "totalWeight_aux",
+    "primary": "result",
     "breakdown": [
-      "dragForce",
-      "totalWeight"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalWeight",
-    "unit": "W"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Enerji & Elektrik",

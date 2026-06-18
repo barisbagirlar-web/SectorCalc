@@ -11,16 +11,18 @@
       "label_i18n": {
         "en": "Value 1",
         "tr": "Değer 1",
-        "de": "Value 1",
+        "de": "Wert 1",
         "fr": "Valeur 1",
         "es": "Valor 1",
-        "ar": "Value 1"
+        "ar": "القيمة 1"
       },
       "businessContext_i18n": {
         "en": "First sample data point.",
         "tr": "Birinci örnek veri noktası.",
         "de": "Erster Datenpunkt der Stichprobe.",
-        "fr": "Premier point de données de l'échantillon."
+        "fr": "Premier point de données de l'échantillon.",
+        "es": "Primer punto de datos de muestra.",
+        "ar": "نقطة البيانات الأولى."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Wert 2",
         "fr": "Valeur 2",
         "es": "Valor 2",
-        "ar": "Value 2"
+        "ar": "القيمة 2"
       },
       "businessContext_i18n": {
         "en": "Second sample data point.",
         "tr": "İkinci örnek veri noktası.",
         "de": "Zweiter Datenpunkt der Stichprobe.",
-        "fr": "Deuxième point de données de l'échantillon."
+        "fr": "Deuxième point de données de l'échantillon.",
+        "es": "Segundo punto de datos de muestra.",
+        "ar": "نقطة البيانات الثانية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Wert 3",
         "fr": "Valeur 3",
         "es": "Valor 3",
-        "ar": "Value 3"
+        "ar": "القيمة 3"
       },
       "businessContext_i18n": {
         "en": "Third sample data point.",
         "tr": "Üçüncü örnek veri noktası.",
         "de": "Dritter Datenpunkt der Stichprobe.",
-        "fr": "Troisième point de données de l'échantillon."
+        "fr": "Troisième point de données de l'échantillon.",
+        "es": "Tercer punto de datos de muestra.",
+        "ar": "نقطة البيانات الثالثة."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Wert 4",
         "fr": "Valeur 4",
         "es": "Valor 4",
-        "ar": "Value 4"
+        "ar": "القيمة 4"
       },
       "businessContext_i18n": {
         "en": "Fourth sample data point.",
         "tr": "Dördüncü örnek veri noktası.",
         "de": "Vierter Datenpunkt der Stichprobe.",
-        "fr": "Quatrième point de données de l'échantillon."
+        "fr": "Quatrième point de données de l'échantillon.",
+        "es": "Cuarto punto de datos de muestra.",
+        "ar": "نقطة البيانات الرابعة."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Wert 5",
         "fr": "Valeur 5",
         "es": "Valor 5",
-        "ar": "Value 5"
+        "ar": "القيمة 5"
       },
       "businessContext_i18n": {
         "en": "Fifth sample data point.",
         "tr": "Beşinci örnek veri noktası.",
         "de": "Fünfter Datenpunkt der Stichprobe.",
-        "fr": "Cinquième point de données de l'échantillon."
+        "fr": "Cinquième point de données de l'échantillon.",
+        "es": "Quinto punto de datos de muestra.",
+        "ar": "نقطة البيانات الخامسة."
       }
     },
     {
@@ -123,32 +133,39 @@
         "tr": "Kırpma Yüzdesi",
         "de": "Trim-Prozentsatz",
         "fr": "Pourcentage de rognage",
-        "es": "Trim Percentage",
-        "ar": "Trim Percentage"
+        "es": "Porcentaje de Recorte",
+        "ar": "نسبة القص"
       },
       "businessContext_i18n": {
         "en": "Symmetric percentage of extreme values to exclude (0 ≤ trim < 50).",
         "tr": "Hariç tutulacak uç değerlerin simetrik yüzdesi (0 ≤ kırpma < 50).",
         "de": "Symmetrischer Prozentsatz der auszuschließenden Extremwerte (0 ≤ Trim < 50).",
-        "fr": "Pourcentage symétrique des valeurs extrêmes à exclure (0 ≤ rognage < 50)."
+        "fr": "Pourcentage symétrique des valeurs extrêmes à exclure (0 ≤ rognage < 50).",
+        "es": "Porcentaje simétrico de valores extremos a excluir (0 ≤ recorte < 50).",
+        "ar": "النسبة المئوية المتناظرة من القيم المتطرفة لاستبعادها (0 ≤ القص < 50)."
       }
     }
   ],
   "formulas": {
-    "result": "value1 + value2 + value3",
-    "result_copy": "value1 + value2 + value3"
+    "normalized_product": "value1 * value2 * value3 * value4",
+    "result": "value1 * value2 * value3 * value4 * (value5 * (trimPercent / 100))",
+    "adjustment_factor": "value5 * (trimPercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "originalMean",
-      "countUsed"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "countUsed",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Matematik & Analiz",

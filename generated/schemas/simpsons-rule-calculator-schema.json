@@ -14,14 +14,15 @@
         "de": "Untere Grenze (a)",
         "fr": "Limite inférieure (a)",
         "es": "Límite inferior (a)",
-        "ar": "Lower limit (a)"
+        "ar": "الحد الأدنى (a)"
       },
       "businessContext_i18n": {
         "en": "Integration lower bound",
         "tr": "İntegral alt sınırı",
         "de": "Untere Integrationsgrenze",
         "fr": "Borne inférieure d'intégration",
-        "es": "Límite inferior de integración"
+        "es": "Límite inferior de integración",
+        "ar": "الحد الأدنى للتكامل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Obere Grenze (b)",
         "fr": "Limite supérieure (b)",
         "es": "Límite superior (b)",
-        "ar": "Upper limit (b)"
+        "ar": "الحد الأعلى (b)"
       },
       "businessContext_i18n": {
         "en": "Integration upper bound",
         "tr": "İntegral üst sınırı",
         "de": "Obere Integrationsgrenze",
         "fr": "Borne supérieure d'intégration",
-        "es": "Límite superior de integración"
+        "es": "Límite superior de integración",
+        "ar": "الحد الأعلى للتكامل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Teilintervalle (n)",
         "fr": "Nombre de sous-intervalles (n)",
         "es": "Número de subintervalos (n)",
-        "ar": "Number of subintervals (n)"
+        "ar": "عدد الفترات الفرعية (n)"
       },
       "businessContext_i18n": {
         "en": "Must be even for Simpson's rule",
         "tr": "Simpson kuralı için çift olmalıdır",
         "de": "Muss für Simpson-Regel gerade sein",
         "fr": "Doit être pair pour la règle de Simpson",
-        "es": "Debe ser par para la regla de Simpson"
+        "es": "Debe ser par para la regla de Simpson",
+        "ar": "يجب أن يكون زوجيًا لقاعدة سيمبسون"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Funktionstyp",
         "fr": "Type de fonction",
         "es": "Tipo de función",
-        "ar": "Function type"
+        "ar": "نوع الدالة"
       },
       "businessContext_i18n": {
         "en": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
         "tr": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: eˣ, 6: log(x)",
         "de": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
         "fr": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
-        "es": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
+        "es": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
+        "ar": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: exp(x), 6: log(x)"
       }
     }
   ],

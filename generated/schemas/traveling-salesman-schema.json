@@ -13,14 +13,16 @@
         "tr": "Şehir Sayısı",
         "de": "Anzahl der Städte",
         "fr": "Nombre de villes",
-        "es": "Number of Cities",
-        "ar": "Number of Cities"
+        "es": "Número de ciudades",
+        "ar": "عدد المدن"
       },
       "businessContext_i18n": {
         "en": "Total number of cities to visit in the tour.",
         "tr": "Turda ziyaret edilecek toplam şehir sayısı.",
         "de": "Gesamtzahl der zu besuchenden Städte auf der Tour.",
-        "fr": "Nombre total de villes à visiter dans le circuit."
+        "fr": "Nombre total de villes à visiter dans le circuit.",
+        "es": "Número total de ciudades a visitar en el recorrido.",
+        "ar": "إجمالي عدد المدن المراد زيارتها في الجولة."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Şehirler Arası Ortalama Mesafe",
         "de": "Durchschnittliche Entfernung zwischen Städten",
         "fr": "Distance moyenne entre les villes",
-        "es": "Average Distance Between Cities",
-        "ar": "Average Distance Between Cities"
+        "es": "Distancia promedio entre ciudades",
+        "ar": "متوسط المسافة بين المدن"
       },
       "businessContext_i18n": {
         "en": "Average straight-line distance between any two cities.",
         "tr": "Herhangi iki şehir arasındaki ortalama kuş uçuşu mesafe.",
         "de": "Durchschnittliche Luftlinienentfernung zwischen zwei beliebigen Städten.",
-        "fr": "Distance moyenne en ligne droite entre deux villes quelconques."
+        "fr": "Distance moyenne en ligne droite entre deux villes quelconques.",
+        "es": "Distancia promedio en línea recta entre dos ciudades cualesquiera.",
+        "ar": "متوسط المسافة الخطية المستقيمة بين أي مدينتين."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Mesafe Standart Sapması",
         "de": "Standardabweichung der Entfernung",
         "fr": "Écart type des distances",
-        "es": "Distance Standard Deviation",
-        "ar": "Distance Standard Deviation"
+        "es": "Desviación estándar de la distancia",
+        "ar": "الانحراف المعياري للمسافة"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of distances to model variability.",
         "tr": "Değişkenliği modellemek için mesafelerin standart sapması.",
         "de": "Standardabweichung der Entfernungen zur Modellierung der Variabilität.",
-        "fr": "Écart type des distances pour modéliser la variabilité."
+        "fr": "Écart type des distances pour modéliser la variabilité.",
+        "es": "Desviación estándar de las distancias para modelar la variabilidad.",
+        "ar": "الانحراف المعياري للمسافات لنمذجة التباين."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Seyahat Hızı",
         "de": "Reisegeschwindigkeit",
         "fr": "Vitesse de déplacement",
-        "es": "Travel Speed",
-        "ar": "Travel Speed"
+        "es": "Velocidad de viaje",
+        "ar": "سرعة السفر"
       },
       "businessContext_i18n": {
         "en": "Average speed of the vehicle.",
         "tr": "Aracın ortalama hızı.",
         "de": "Durchschnittsgeschwindigkeit des Fahrzeugs.",
-        "fr": "Vitesse moyenne du véhicule."
+        "fr": "Vitesse moyenne du véhicule.",
+        "es": "Velocidad promedio del vehículo.",
+        "ar": "متوسط سرعة المركبة."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Kosten pro Kilometer",
         "fr": "Coût par kilomètre",
         "es": "Coste por kilómetro",
-        "ar": "Cost per Kilometer"
+        "ar": "التكلفة لكل كيلومتر"
       },
       "businessContext_i18n": {
         "en": "Operational cost per kilometer including fuel, maintenance, etc.",
         "tr": "Yakıt, bakım vb. dahil kilometre başına operasyonel maliyet.",
         "de": "Betriebskosten pro Kilometer inkl. Treibstoff, Wartung usw.",
-        "fr": "Coût opérationnel par kilomètre incluant carburant, entretien, etc."
+        "fr": "Coût opérationnel par kilomètre incluant carburant, entretien, etc.",
+        "es": "Coste operativo por kilómetro, incluyendo combustible, mantenimiento, etc.",
+        "ar": "التكلفة التشغيلية لكل كيلومتر تشمل الوقود والصيانة وغيرها."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Durak Başına Sabit Maliyet",
         "de": "Fixkosten pro Halt",
         "fr": "Coût fixe par arrêt",
-        "es": "Fixed Cost per Stop",
-        "ar": "Fixed Cost per Stop"
+        "es": "Coste fijo por parada",
+        "ar": "التكلفة الثابتة لكل توقف"
       },
       "businessContext_i18n": {
         "en": "Fixed cost incurred each time the vehicle stops at a city.",
         "tr": "Aracın bir şehirde durduğunda oluşan sabit maliyet.",
         "de": "Fixkosten, die jedes Mal anfallen, wenn das Fahrzeug an einer Stadt anhält.",
-        "fr": "Coût fixe encouru à chaque arrêt du véhicule dans une ville."
+        "fr": "Coût fixe encouru à chaque arrêt du véhicule dans une ville.",
+        "es": "Coste fijo incurrido cada vez que el vehículo se detiene en una ciudad.",
+        "ar": "التكلفة الثابتة المتكبدة في كل مرة تتوقف فيها المركبة عند مدينة."
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Araç Sayısı",
         "de": "Anzahl der Fahrzeuge",
         "fr": "Nombre de véhicules",
-        "es": "Number of Vehicles",
-        "ar": "Number of Vehicles"
+        "es": "Número de vehículos",
+        "ar": "عدد المركبات"
       },
       "businessContext_i18n": {
         "en": "Number of vehicles available for the tour.",
         "tr": "Tur için mevcut araç sayısı.",
         "de": "Anzahl der für die Tour verfügbaren Fahrzeuge.",
-        "fr": "Nombre de véhicules disponibles pour la tournée."
+        "fr": "Nombre de véhicules disponibles pour la tournée.",
+        "es": "Número de vehículos disponibles para el recorrido.",
+        "ar": "عدد المركبات المتاحة للجولة."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Anfangsgeschwindigkeit",
         "fr": "Vitesse initiale",
         "es": "Velocidad inicial",
-        "ar": "Initial Velocity"
+        "ar": "السرعة الابتدائية"
       },
       "businessContext_i18n": {
         "en": "Muzzle velocity of projectile",
         "tr": "Merminin namlu çıkış hızı",
         "de": "Mündungsgeschwindigkeit des Projektils",
         "fr": "Vitesse initiale du projectile",
-        "es": "Velocidad de salida del proyectil"
+        "es": "Velocidad de salida del proyectil",
+        "ar": "سرعة القذيفة عند الفوهة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abflugwinkel",
         "fr": "Angle de lancement",
         "es": "Ángulo de lanzamiento",
-        "ar": "Launch Angle"
+        "ar": "زاوية الانطلاق"
       },
       "businessContext_i18n": {
         "en": "Launch angle relative to horizontal",
         "tr": "Yataya göre atış açısı",
         "de": "Abwurfwinkel relativ zur Horizontalen",
         "fr": "Angle de lancement par rapport à l'horizontale",
-        "es": "Ángulo de lanzamiento respecto a la horizontal"
+        "es": "Ángulo de lanzamiento respecto a la horizontal",
+        "ar": "زاوية الإطلاق بالنسبة للأفقي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangshöhe",
         "fr": "Hauteur initiale",
         "es": "Altura inicial",
-        "ar": "Initial Height"
+        "ar": "الارتفاع الابتدائي"
       },
       "businessContext_i18n": {
         "en": "Initial height from ground",
         "tr": "Yerden başlangıç yüksekliği",
         "de": "Anfangshöhe über Grund",
         "fr": "Hauteur initiale par rapport au sol",
-        "es": "Altura inicial desde el suelo"
+        "es": "Altura inicial desde el suelo",
+        "ar": "الارتفاع الابتدائي عن الأرض"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Schwerkraft",
         "fr": "Gravité",
         "es": "Gravedad",
-        "ar": "Gravity"
+        "ar": "الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (typically 9.81 m/s²)",
         "tr": "Yerçekimi ivmesi (tipik olarak 9.81 m/s²)",
         "de": "Erdbeschleunigung (typischerweise 9,81 m/s²)",
         "fr": "Accélération due à la gravité (généralement 9,81 m/s²)",
-        "es": "Aceleración debida a la gravedad (típicamente 9.81 m/s²)"
+        "es": "Aceleración debida a la gravedad (típicamente 9.81 m/s²)",
+        "ar": "تسارع الجاذبية الأرضية (عادة 9.81 م/ث²)"
       }
     }
   ],
   "formulas": {
-    "result": "initialVelocity + launchAngle + initialHeight",
-    "result_copy": "initialVelocity + launchAngle + initialHeight"
+    "normalized_product": "initialVelocity * launchAngle * initialHeight * gravity",
+    "result": "initialVelocity * launchAngle * initialHeight * gravity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "maxHeight",
-      "timeOfFlight"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "maxHeight",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

@@ -23,13 +23,17 @@
         "en": "Annual Shipping Volume (units)",
         "tr": "Yıllık Sevkiyat Hacmi (birim)",
         "de": "Jährliches Versandvolumen (Einheiten)",
-        "fr": "Volume annuel d'expédition (unités)"
+        "fr": "Volume annuel d'expédition (unités)",
+        "es": "Volumen anual de envíos (unidades)",
+        "ar": "حجم الشحن السنوي (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total number of units shipped per year across all modes.",
         "tr": "Tüm modlarda yılda sevk edilen toplam birim sayısı.",
         "de": "Gesamtzahl der pro Jahr über alle Verkehrsträger versendeten Einheiten.",
-        "fr": "Nombre total d'unités expédiées par an tous modes confondus."
+        "fr": "Nombre total d'unités expédiées par an tous modes confondus.",
+        "es": "Número total de unidades enviadas por año en todos los modos.",
+        "ar": "إجمالي عدد الوحدات المشحونة سنويًا عبر جميع الوسائط."
       }
     },
     {
@@ -45,13 +49,17 @@
         "en": "Average Shipment Weight (kg)",
         "tr": "Ortalama Sevkiyat Ağırlığı (kg)",
         "de": "Durchschnittliches Sendungsgewicht (kg)",
-        "fr": "Poids moyen par envoi (kg)"
+        "fr": "Poids moyen par envoi (kg)",
+        "es": "Peso promedio del envío (kg)",
+        "ar": "متوسط وزن الشحنة (كجم)"
       },
       "businessContext_i18n": {
         "en": "Average weight per shipment, used to compute freight cost and risk exposure.",
         "tr": "Sevkiyat başına ortalama ağırlık, navlun maliyeti ve risk maruziyetini hesaplamak için kullanılır.",
         "de": "Durchschnittliches Gewicht pro Sendung, zur Berechnung von Frachtkosten und Risikoexposition.",
-        "fr": "Poids moyen par envoi, utilisé pour calculer le coût de fret et l'exposition au risque."
+        "fr": "Poids moyen par envoi, utilisé pour calculer le coût de fret et l'exposition au risque.",
+        "es": "Peso promedio por envío, utilizado para calcular el coste de flete y la exposición al riesgo.",
+        "ar": "متوسط وزن الشحنة، يُستخدم لحساب تكلفة الشحن والتعرض للمخاطر."
       }
     },
     {
@@ -67,13 +75,17 @@
         "en": "Average Distance per Shipment (km)",
         "tr": "Sevkiyat Başına Ortalama Mesafe (km)",
         "de": "Durchschnittliche Entfernung pro Sendung (km)",
-        "fr": "Distance moyenne par envoi (km)"
+        "fr": "Distance moyenne par envoi (km)",
+        "es": "Distancia promedio por envío (km)",
+        "ar": "متوسط المسافة لكل شحنة (كم)"
       },
       "businessContext_i18n": {
         "en": "Average haul distance for each shipment, influences fuel cost and transit risk.",
         "tr": "Her sevkiyat için ortalama taşıma mesafesi, yakıt maliyetini ve transit riskini etkiler.",
         "de": "Durchschnittliche Transportentfernung pro Sendung, beeinflusst Treibstoffkosten und Transitrisiko.",
-        "fr": "Distance moyenne de transport pour chaque envoi, influence le coût de carburant et le risque de transit."
+        "fr": "Distance moyenne de transport pour chaque envoi, influence le coût de carburant et le risque de transit.",
+        "es": "Distancia media de acarreo para cada envío, influye en el coste de combustible y el riesgo de tránsito.",
+        "ar": "متوسط مسافة النقل لكل شحنة، يؤثر على تكلفة الوقود ومخاطر النقل."
       }
     },
     {
@@ -96,13 +108,16 @@
         "tr": "Taşıma Modu",
         "de": "Transportart",
         "fr": "Mode de transport",
-        "es": "Modo de transporte"
+        "es": "Modo de transporte",
+        "ar": "وسيلة النقل"
       },
       "businessContext_i18n": {
         "en": "Primary mode of transport: truck, rail, ocean, air.",
         "tr": "Birincil taşıma modu: kamyon, tren, okyanus, hava.",
         "de": "Primärer Verkehrsträger: LKW, Bahn, See, Luft.",
-        "fr": "Mode de transport principal : camion, rail, maritime, aérien."
+        "fr": "Mode de transport principal : camion, rail, maritime, aérien.",
+        "es": "Modo principal de transporte: camión, ferrocarril, marítimo, aéreo.",
+        "ar": "وسيلة النقل الأساسية: شاحنة، سكة حديد، بحر، جو."
       }
     },
     {
@@ -118,13 +133,17 @@
         "en": "Fuel Price (USD per liter)",
         "tr": "Yakıt Fiyatı (USD/litre)",
         "de": "Treibstoffpreis (USD pro Liter)",
-        "fr": "Prix du carburant (USD par litre)"
+        "fr": "Prix du carburant (USD par litre)",
+        "es": "Precio del combustible (USD por litro)",
+        "ar": "سعر الوقود (دولار أمريكي لكل لتر)"
       },
       "businessContext_i18n": {
         "en": "Current diesel or bunker fuel price, used for variable cost estimation.",
         "tr": "Güncel dizel veya bunker yakıt fiyatı, değişken maliyet tahmini için kullanılır.",
         "de": "Aktueller Diesel- oder Bunkerölpreis, zur Schätzung variabler Kosten.",
-        "fr": "Prix actuel du diesel ou du fioul lourd, utilisé pour l'estimation des coûts variables."
+        "fr": "Prix actuel du diesel ou du fioul lourd, utilisé pour l'estimation des coûts variables.",
+        "es": "Precio actual del diésel o combustible de búnker, utilizado para la estimación de costes variables.",
+        "ar": "سعر الديزل أو وقود السفن الحالي، يُستخدم لتقدير التكلفة المتغيرة."
       }
     },
     {
@@ -140,13 +159,17 @@
         "en": "Labor Rate (USD per hour)",
         "tr": "İşçilik Ücreti (USD/saat)",
         "de": "Stundensatz (USD pro Stunde)",
-        "fr": "Taux de main-d'œuvre (USD par heure)"
+        "fr": "Taux de main-d'œuvre (USD par heure)",
+        "es": "Tarifa laboral (USD por hora)",
+        "ar": "معدل الأجر (دولار أمريكي لكل ساعة)"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage for drivers/operators, used in labor cost calculation.",
         "tr": "Sürücü/operatörler için ortalama saatlik ücret, işçilik maliyeti hesaplamasında kullanılır.",
         "de": "Durchschnittlicher Stundenlohn für Fahrer/Betreiber, zur Berechnung der Arbeitskosten.",
-        "fr": "Salaire horaire moyen des conducteurs/opérateurs, utilisé dans le calcul du coût de main-d'œuvre."
+        "fr": "Salaire horaire moyen des conducteurs/opérateurs, utilisé dans le calcul du coût de main-d'œuvre.",
+        "es": "Salario promedio por hora para conductores/operadores, utilizado en el cálculo del coste laboral.",
+        "ar": "متوسط الأجر بالساعة للسائقين/المشغلين، يُستخدم في حساب تكلفة العمالة."
       }
     },
     {
@@ -162,13 +185,17 @@
         "en": "Transit Time (days)",
         "tr": "Transit Süresi (gün)",
         "de": "Transitzeit (Tage)",
-        "fr": "Temps de transit (jours)"
+        "fr": "Temps de transit (jours)",
+        "es": "Tiempo de tránsito (días)",
+        "ar": "وقت العبور (أيام)"
       },
       "businessContext_i18n": {
         "en": "Expected door-to-door transit time, affects inventory carrying cost and risk.",
         "tr": "Beklenen kapıdan kapıya transit süresi, envanter taşıma maliyetini ve riski etkiler.",
         "de": "Erwartete Tür-zu-Tür-Transitzeit, beeinflusst Lagerhaltungskosten und Risiko.",
-        "fr": "Temps de transit porte-à-porte prévu, affecte le coût de possession des stocks et le risque."
+        "fr": "Temps de transit porte-à-porte prévu, affecte le coût de possession des stocks et le risque.",
+        "es": "Tiempo de tránsito puerta a puerta esperado, afecta el coste de mantenimiento de inventario y el riesgo.",
+        "ar": "وقت العبور المتوقع من الباب إلى الباب، يؤثر على تكلفة الاحتفاظ بالمخزون والمخاطر."
       }
     },
     {
@@ -184,13 +211,17 @@
         "en": "Historical Damage Rate (%)",
         "tr": "Geçmiş Hasar Oranı (%)",
         "de": "Historische Schadensrate (%)",
-        "fr": "Taux de dommages historique (%)"
+        "fr": "Taux de dommages historique (%)",
+        "es": "Tasa histórica de daños (%)",
+        "ar": "معدل التلف التاريخي (٪)"
       },
       "businessContext_i18n": {
         "en": "Percentage of shipments damaged in transit, based on historical data.",
         "tr": "Transit sırasında hasar gören sevkiyatların yüzdesi, geçmiş verilere dayanır.",
         "de": "Prozentsatz der im Transit beschädigten Sendungen, basierend auf historischen Daten.",
-        "fr": "Pourcentage d'envois endommagés en transit, basé sur des données historiques."
+        "fr": "Pourcentage d'envois endommagés en transit, basé sur des données historiques.",
+        "es": "Porcentaje de envíos dañados en tránsito, basado en datos históricos.",
+        "ar": "نسبة الشحنات التالفة أثناء النقل، بناءً على البيانات التاريخية."
       }
     }
   ],
@@ -239,18 +270,28 @@
     ]
   },
   "formulas": {
-    "result": "annual_volume + avg_shipment_weight + distance_km",
-    "result_copy": "annual_volume + avg_shipment_weight + distance_km"
+    "base_cost": "annual_volume * fuel_price_per_liter",
+    "adjusted_cost": "annual_volume * fuel_price_per_liter * (1 + (labor_rate_per_hour / 100))",
+    "result": "annual_volume * fuel_price_per_liter * (1 + (labor_rate_per_hour / 100)) * (avg_shipment_weight)",
+    "factor_avg_shipment_weight": "avg_shipment_weight"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_avg_shipment_weight"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg"
+    "unit": "USD"
   },
   "toolName": "transport-mode-cost-risk-calculator",
   "catalogCategory": "everyday-life",

@@ -14,14 +14,15 @@
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión inicial",
-        "ar": "Initial Investment"
+        "ar": "الاستثمار الأولي"
       },
       "businessContext_i18n": {
         "en": "The upfront cost of the investment project.",
         "tr": "Yatırım projesinin başlangıç maliyeti.",
         "de": "Die anfänglichen Kosten des Investitionsprojekts.",
         "fr": "Coût initial du projet d'investissement.",
-        "es": "Costo inicial del proyecto de inversión."
+        "es": "Costo inicial del proyecto de inversión.",
+        "ar": "التكلفة المقدمة لمشروع الاستثمار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rabattsatz",
         "fr": "Taux de remise",
         "es": "Tasa de descuento",
-        "ar": "Discount Rate"
+        "ar": "نسبة الخصم"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate used to calculate present value of future cash flows.",
         "tr": "Gelecekteki nakit akışlarının bugünkü değerini hesaplamak için kullanılan yıllık iskonto oranı.",
         "de": "Jährlicher Abzinsungssatz zur Berechnung des Barwerts zukünftiger Cashflows.",
         "fr": "Taux d'actualisation annuel utilisé pour calculer la valeur actuelle des flux de trésorerie futurs.",
-        "es": "Tasa de descuento anual utilizada para calcular el valor presente de los flujos de efectivo futuros."
+        "es": "Tasa de descuento anual utilizada para calcular el valor presente de los flujos de efectivo futuros.",
+        "ar": "معدل الخصم السنوي المستخدم لحساب القيمة الحالية للتدفقات النقدية المستقبلية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Cashflow Jahr 1",
         "fr": "Flux de trésorerie Année 1",
         "es": "Flujo de efectivo año 1",
-        "ar": "Cash Flow Year 1"
+        "ar": "التدفق النقدي السنة الأولى"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow expected at the end of Year 1.",
         "tr": "1. Yıl sonunda beklenen net nakit girişi.",
         "de": "Erwarteter Netto-Cashflow am Ende von Jahr 1.",
         "fr": "Entrée nette de trésorerie attendue à la fin de l'Année 1.",
-        "es": "Entrada neta de efectivo esperada al final del año 1."
+        "es": "Entrada neta de efectivo esperada al final del año 1.",
+        "ar": "صافي التدفق النقدي المتوقع في نهاية السنة الأولى."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Cashflow Jahr 2",
         "fr": "Flux de trésorerie Année 2",
         "es": "Flujo de efectivo año 2",
-        "ar": "Cash Flow Year 2"
+        "ar": "التدفق النقدي السنة الثانية"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow expected at the end of Year 2.",
         "tr": "2. Yıl sonunda beklenen net nakit girişi.",
         "de": "Erwarteter Netto-Cashflow am Ende von Jahr 2.",
         "fr": "Entrée nette de trésorerie attendue à la fin de l'Année 2.",
-        "es": "Entrada neta de efectivo esperada al final del año 2."
+        "es": "Entrada neta de efectivo esperada al final del año 2.",
+        "ar": "صافي التدفق النقدي المتوقع في نهاية السنة الثانية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Cashflow Jahr 3",
         "fr": "Flux de trésorerie Année 3",
         "es": "Flujo de efectivo año 3",
-        "ar": "Cash Flow Year 3"
+        "ar": "التدفق النقدي السنة الثالثة"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow expected at the end of Year 3.",
         "tr": "3. Yıl sonunda beklenen net nakit girişi.",
         "de": "Erwarteter Netto-Cashflow am Ende von Jahr 3.",
         "fr": "Entrée nette de trésorerie attendue à la fin de l'Année 3.",
-        "es": "Entrada neta de efectivo esperada al final del año 3."
+        "es": "Entrada neta de efectivo esperada al final del año 3.",
+        "ar": "صافي التدفق النقدي المتوقع في نهاية السنة الثالثة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Cashflow Jahr 4",
         "fr": "Flux de trésorerie Année 4",
         "es": "Flujo de efectivo año 4",
-        "ar": "Cash Flow Year 4"
+        "ar": "التدفق النقدي السنة الرابعة"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow expected at the end of Year 4.",
         "tr": "4. Yıl sonunda beklenen net nakit girişi.",
         "de": "Erwarteter Netto-Cashflow am Ende von Jahr 4.",
         "fr": "Entrée nette de trésorerie attendue à la fin de l'Année 4.",
-        "es": "Entrada neta de efectivo esperada al final del año 4."
+        "es": "Entrada neta de efectivo esperada al final del año 4.",
+        "ar": "صافي التدفق النقدي المتوقع في نهاية السنة الرابعة."
       }
     },
     {
@@ -152,33 +158,39 @@
         "de": "Cashflow Jahr 5",
         "fr": "Flux de trésorerie Année 5",
         "es": "Flujo de efectivo año 5",
-        "ar": "Cash Flow Year 5"
+        "ar": "التدفق النقدي السنة الخامسة"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow expected at the end of Year 5.",
         "tr": "5. Yıl sonunda beklenen net nakit girişi.",
         "de": "Erwarteter Netto-Cashflow am Ende von Jahr 5.",
         "fr": "Entrée nette de trésorerie attendue à la fin de l'Année 5.",
-        "es": "Entrada neta de efectivo esperada al final del año 5."
+        "es": "Entrada neta de efectivo esperada al final del año 5.",
+        "ar": "صافي التدفق النقدي المتوقع في نهاية السنة الخامسة."
       }
     }
   ],
   "formulas": {
-    "result": "initialInvestment + discountRate + cashFlowYear1",
-    "result_copy": "initialInvestment + discountRate + cashFlowYear1"
+    "normalized_product": "initialInvestment * (discountRate / 100) * cashFlowYear1 * cashFlowYear2",
+    "result": "initialInvestment * (discountRate / 100) * cashFlowYear1 * cashFlowYear2 * (cashFlowYear3 * cashFlowYear4 * cashFlowYear5)",
+    "adjustment_factor": "cashFlowYear3 * cashFlowYear4 * cashFlowYear5"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalPresentValue",
-      "initialInvestment"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "profitabilityIndex",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & Muhasebe",

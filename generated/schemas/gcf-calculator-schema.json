@@ -14,14 +14,15 @@
         "de": "Zahl 1",
         "fr": "Nombre 1",
         "es": "Número 1",
-        "ar": "Number 1"
+        "ar": "الرقم 1"
       },
       "businessContext_i18n": {
         "en": "First number for GCF calculation",
         "tr": "EBOB hesaplaması için birinci sayı",
         "de": "Erste Zahl für die GCF-Berechnung",
         "fr": "Premier nombre pour le calcul du PGCD",
-        "es": "Primer número para el cálculo del MCD"
+        "es": "Primer número para el cálculo del MCD",
+        "ar": "الرقم الأول لحساب القاسم المشترك الأكبر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nummer 2",
         "fr": "Nombre 2",
         "es": "Número 2",
-        "ar": "Number 2"
+        "ar": "الرقم 2"
       },
       "businessContext_i18n": {
         "en": "Second number for GCF calculation",
         "tr": "EBOB hesaplaması için ikinci sayı",
         "de": "Zweite Zahl für die GCF-Berechnung",
         "fr": "Deuxième nombre pour le calcul du PGCD",
-        "es": "Segundo número para el cálculo del MCD"
+        "es": "Segundo número para el cálculo del MCD",
+        "ar": "الرقم الثاني لحساب القاسم المشترك الأكبر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nummer 3",
         "fr": "Nombre 3",
         "es": "Número 3",
-        "ar": "Number 3"
+        "ar": "الرقم 3"
       },
       "businessContext_i18n": {
         "en": "Third number for GCF calculation (optional)",
         "tr": "EBOB hesaplaması için üçüncü sayı (isteğe bağlı)",
         "de": "Dritte Zahl für die GCF-Berechnung (optional)",
         "fr": "Troisième nombre pour le calcul du PGCD (optionnel)",
-        "es": "Tercer número para el cálculo del MCD (opcional)"
+        "es": "Tercer número para el cálculo del MCD (opcional)",
+        "ar": "الرقم الثالث لحساب القاسم المشترك الأكبر (اختياري)"
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Nummer 4",
         "fr": "Nombre 4",
         "es": "Número 4",
-        "ar": "Number 4"
+        "ar": "الرقم 4"
       },
       "businessContext_i18n": {
         "en": "Fourth number for GCF calculation (optional)",
         "tr": "EBOB hesaplaması için dördüncü sayı (isteğe bağlı)",
         "de": "Vierte Zahl für die GCF-Berechnung (optional)",
         "fr": "Quatrième nombre pour le calcul du PGCD (optionnel)",
-        "es": "Cuarto número para el cálculo del MCD (opcional)"
+        "es": "Cuarto número para el cálculo del MCD (opcional)",
+        "ar": "الرقم الرابع لحساب القاسم المشترك الأكبر (اختياري)"
       }
     }
   ],
   "formulas": {
-    "result": "number1 + number2 + number3",
-    "result_copy": "number1 + number2 + number3"
+    "normalized_product": "number1 * number2 * number3 * number4",
+    "result": "number1 * number2 * number3 * number4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "breakdown"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

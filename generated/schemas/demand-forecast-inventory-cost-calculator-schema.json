@@ -25,14 +25,16 @@
         "tr": "Geçmiş Talep Ortalaması (birim/dönem)",
         "de": "Historischer Bedarfsmittelwert (Einheiten/Periode)",
         "fr": "Moyenne de la demande historique (unités/période)",
-        "es": "Media de demanda histórica (unidades/período)"
+        "es": "Media de demanda histórica (unidades/período)",
+        "ar": "متوسط الطلب التاريخي (وحدة/فترة)"
       },
       "businessContext_i18n": {
         "en": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
         "tr": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama).",
         "de": "Durchschnittlicher Bedarf der letzten 12 Perioden (ISO 9001:2015 Datenerhebung).",
         "fr": "Demande moyenne observée sur les 12 dernières périodes (collecte de données ISO 9001:2015).",
-        "es": "Demanda promedio observada en los últimos 12 períodos (recopilación de datos ISO 9001:2015)."
+        "es": "Demanda promedio observada en los últimos 12 períodos (recopilación de datos ISO 9001:2015).",
+        "ar": "متوسط الطلب الملاحظ خلال الـ 12 فترة الماضية (جمع البيانات وفق ISO 9001:2015)."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Talep Standart Sapması (birim)",
         "de": "Bedarfsstandardabweichung (Einheiten)",
         "fr": "Écart type de la demande (unités)",
-        "es": "Desviación estándar de la demanda (unidades)"
+        "es": "Desviación estándar de la demanda (unidades)",
+        "ar": "الانحراف المعياري للطلب (وحدة)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
         "tr": "Talebin standart sapması, emniyet stoğu hesaplaması için kullanılır (Yalın Altı Sigma DMAIC).",
         "de": "Standardabweichung des Bedarfs, verwendet für Sicherheitsbestand (Lean Six Sigma DMAIC).",
         "fr": "Écart type de la demande, utilisé pour le calcul du stock de sécurité (Lean Six Sigma DMAIC).",
-        "es": "Desviación estándar de la demanda, utilizada para el cálculo del stock de seguridad (Lean Seis Sigma DMAIC)."
+        "es": "Desviación estándar de la demanda, utilizada para el cálculo del stock de seguridad (Lean Seis Sigma DMAIC).",
+        "ar": "الانحراف المعياري للطلب، يستخدم لحساب مخزون الأمان (Six Sigma DMAIC اللين)."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Teslim Süresi (gün)",
         "de": "Lieferzeit (Tage)",
         "fr": "Délai de livraison (jours)",
-        "es": "Tiempo de entrega (días)"
+        "es": "Tiempo de entrega (días)",
+        "ar": "وقت التوريد (أيام)"
       },
       "businessContext_i18n": {
         "en": "Average replenishment lead time from supplier (WERC DC Metrics).",
         "tr": "Tedarikçiden ortalama yenileme teslim süresi (WERC DC Metrikleri).",
         "de": "Durchschnittliche Wiederbeschaffungszeit vom Lieferanten (WERC DC Metriken).",
         "fr": "Délai moyen de réapprovisionnement fournisseur (WERC DC Metrics).",
-        "es": "Tiempo medio de reaprovisionamiento del proveedor (Métricas WERC de centro de distribución)."
+        "es": "Tiempo medio de reaprovisionamiento del proveedor (Métricas WERC de centro de distribución).",
+        "ar": "متوسط وقت التوريد للتجديد من المورد (مقاييس WERC للمستودعات)."
       }
     },
     {
@@ -103,14 +109,16 @@
         "tr": "Hedef Hizmet Seviyesi",
         "de": "Zielservicegrad",
         "fr": "Niveau de service cible",
-        "es": "Nivel de servicio objetivo"
+        "es": "Nivel de servicio objetivo",
+        "ar": "مستوى الخدمة المستهدف"
       },
       "businessContext_i18n": {
         "en": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
         "tr": "Teslim süresi boyunca stokta kalmama olasılığı (Altı Sigma DPMO hedefi).",
         "de": "Wahrscheinlichkeit, während der Lieferzeit keinen Fehlbestand zu haben (Six Sigma DPMO-Ziel).",
         "fr": "Probabilité de ne pas être en rupture pendant le délai de livraison (cible DPMO Six Sigma).",
-        "es": "Probabilidad de no quedarse sin stock durante el tiempo de entrega (objetivo DPMO de Seis Sigma)."
+        "es": "Probabilidad de no quedarse sin stock durante el tiempo de entrega (objetivo DPMO de Seis Sigma).",
+        "ar": "احتمال عدم نفاد المخزون خلال وقت التوريد (هدف DPMO لستة سيجما)."
       }
     },
     {
@@ -127,14 +135,16 @@
         "tr": "Birim Maliyet ($)",
         "de": "Stückkosten ($)",
         "fr": "Coût unitaire ($)",
-        "es": "Coste unitario ($)"
+        "es": "Coste unitario ($)",
+        "ar": "التكلفة لكل وحدة ($)"
       },
       "businessContext_i18n": {
         "en": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
         "tr": "Birim başına satın alma maliyeti (ISO 14051 malzeme akış maliyet muhasebesi).",
         "de": "Einkaufskosten pro Einheit (ISO 14051 Materialflusskostenrechnung).",
         "fr": "Coût d'achat par unité (comptabilité des flux de matières ISO 14051).",
-        "es": "Coste de compra por unidad (contabilidad de costes de flujo de materiales ISO 14051)."
+        "es": "Coste de compra por unidad (contabilidad de costes de flujo de materiales ISO 14051).",
+        "ar": "تكلفة الشراء لكل وحدة (محاسبة تدفق المواد ISO 14051)."
       }
     },
     {
@@ -151,14 +161,16 @@
         "tr": "Yıllık Elde Tutma Maliyeti Oranı (%)",
         "de": "Jährlicher Lagerhaltungskostensatz (%)",
         "fr": "Taux de possession annuel (%)",
-        "es": "Tasa anual de coste de mantenimiento (%)"
+        "es": "Tasa anual de coste de mantenimiento (%)",
+        "ar": "معدل تكلفة الاحتفاظ السنوي (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
         "tr": "Yıllık birim maliyet yüzdesi (WERC DC Ölçüleri, tipik %20-30).",
         "de": "Prozentsatz der Stückkosten pro Jahr (WERC DC Kennzahlen, typisch 20-30%).",
         "fr": "Pourcentage du coût unitaire par an (WERC DC Measures, typiquement 20-30%).",
-        "es": "Porcentaje del coste unitario por año (Medidas WERC de centro de distribución, típicamente 20-30%)."
+        "es": "Porcentaje del coste unitario por año (Medidas WERC de centro de distribución, típicamente 20-30%).",
+        "ar": "نسبة مئوية من تكلفة الوحدة سنويًا (مقاييس WERC للمستودعات، عادة 20-30%)."
       }
     },
     {
@@ -175,14 +187,16 @@
         "tr": "Sipariş Maliyeti ($/sipariş)",
         "de": "Bestellkosten ($/Bestellung)",
         "fr": "Coût de passation de commande ($/commande)",
-        "es": "Coste de pedido ($/pedido)"
+        "es": "Coste de pedido ($/pedido)",
+        "ar": "تكلفة الطلب ($/طلب)"
       },
       "businessContext_i18n": {
         "en": "Fixed cost per purchase order (Lean transactional cost reduction).",
         "tr": "Satın alma emri başına sabit maliyet (Yalın işlem maliyeti azaltma).",
         "de": "Fixe Kosten pro Bestellung (Lean transaktionale Kostenreduktion).",
         "fr": "Coût fixe par bon de commande (réduction des coûts transactionnels Lean).",
-        "es": "Coste fijo por orden de compra (reducción de costes transaccionales Lean)."
+        "es": "Coste fijo por orden de compra (reducción de costes transaccionales Lean).",
+        "ar": "التكلفة الثابتة لكل أمر شراء (تقليل التكاليف اللينة في المعاملات)."
       }
     },
     {
@@ -199,14 +213,16 @@
         "tr": "Stokta Olmama Maliyeti Birim Başına ($)",
         "de": "Fehlmengenkosten pro Einheit ($)",
         "fr": "Coût de rupture par unité ($)",
-        "es": "Coste de rotura de stock por unidad ($)"
+        "es": "Coste de rotura de stock por unidad ($)",
+        "ar": "تكلفة نفاد المخزون لكل وحدة ($)"
       },
       "businessContext_i18n": {
         "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
         "tr": "Karşılanamayan talep birimi başına kayıp kâr + ceza (Altı Sigma kalitesizlik maliyeti).",
         "de": "Entgangener Gewinn + Strafe pro Einheit nicht gedeckter Nachfrage (Six Sigma Kosten schlechter Qualität).",
         "fr": "Perte de profit + pénalité par unité de demande non satisfaite (coût de la non-qualité Six Sigma).",
-        "es": "Beneficio perdido + penalización por unidad de demanda insatisfecha (coste de mala calidad de Seis Sigma)."
+        "es": "Beneficio perdido + penalización por unidad de demanda insatisfecha (coste de mala calidad de Seis Sigma).",
+        "ar": "الربح المفقود + الغرامة لكل وحدة طلب غير مُلبى (تكلفة الجودة الرديئة وفقًا لستة سيجما)."
       }
     }
   ],
@@ -276,18 +292,28 @@
     ]
   },
   "formulas": {
-    "result": "historical_demand_mean + demand_std_dev + lead_time_days",
-    "result_copy": "historical_demand_mean + demand_std_dev + lead_time_days"
+    "base_cost": "historical_demand_mean * unit_cost",
+    "adjusted_cost": "historical_demand_mean * unit_cost * (1 + (holding_cost_rate / 100))",
+    "result": "historical_demand_mean * unit_cost * (1 + (holding_cost_rate / 100)) * (demand_std_dev)",
+    "factor_demand_std_dev": "demand_std_dev"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_demand_std_dev"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "days"
+    "unit": "USD"
   },
   "toolName": "demand-forecast-inventory-cost-calculator",
   "catalogCategory": "everyday-life",

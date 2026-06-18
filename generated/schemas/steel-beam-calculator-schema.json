@@ -14,14 +14,15 @@
         "de": "Stützweite (mm)",
         "fr": "Longueur de portée (mm)",
         "es": "Longitud del vano (mm)",
-        "ar": "Span Length (mm)"
+        "ar": "طول الامتداد (مم)"
       },
       "businessContext_i18n": {
         "en": "Distance between supports of the simply supported beam.",
         "tr": "Basit mesnetli kirişin destekleri arasındaki mesafe.",
         "de": "Abstand zwischen den Auflagern des einfach gelagerten Trägers.",
         "fr": "Distance entre les appuis de la poutre simplement appuyée.",
-        "es": "Distancia entre apoyos de la viga simplemente apoyada."
+        "es": "Distancia entre apoyos de la viga simplemente apoyada.",
+        "ar": "المسافة بين دعامات الكمرة البسيطة الإسناد."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gleichmäßig verteilte Last (N/mm)",
         "fr": "Charge uniformément répartie (N/mm)",
         "es": "Carga uniformemente distribuida (N/mm)",
-        "ar": "Uniformly Distributed Load (N/mm)"
+        "ar": "الحمل الموزع بشكل منتظم (نيوتن/مم)"
       },
       "businessContext_i18n": {
         "en": "Constant load per unit length along the beam.",
         "tr": "Kiriş boyunca birim uzunluk başına sabit yük.",
         "de": "Konstante Last pro Längeneinheit entlang des Trägers.",
         "fr": "Charge constante par unité de longueur le long de la poutre.",
-        "es": "Carga constante por unidad de longitud a lo largo de la viga."
+        "es": "Carga constante por unidad de longitud a lo largo de la viga.",
+        "ar": "حمل ثابت لكل وحدة طول على طول الكمرة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Elastizitätsmodul (MPa)",
         "fr": "Module d'élasticité (MPa)",
         "es": "Módulo de elasticidad (MPa)",
-        "ar": "Modulus of Elasticity (MPa)"
+        "ar": "معامل المرونة (ميجا باسكال)"
       },
       "businessContext_i18n": {
         "en": "Material's stiffness (Young's modulus).",
         "tr": "Malzemenin sertliği (Young modülü).",
         "de": "Steifigkeit des Materials (E-Modul).",
         "fr": "Rigidité du matériau (module de Young).",
-        "es": "Rigidez del material (módulo de Young)."
+        "es": "Rigidez del material (módulo de Young).",
+        "ar": "صلابة المادة (معامل يونغ)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Flächenträgheitsmoment (mm⁴)",
         "fr": "Moment d'inertie (mm⁴)",
         "es": "Momento de inercia (mm⁴)",
-        "ar": "Moment of Inertia (mm⁴)"
+        "ar": "عزم القصور الذاتي (مم⁴)"
       },
       "businessContext_i18n": {
         "en": "Second moment of area of the beam cross-section.",
         "tr": "Kiriş kesitinin ikinci alan momenti.",
         "de": "Zweites Flächenmoment des Trägerquerschnitts.",
         "fr": "Second moment de la section transversale de la poutre.",
-        "es": "Segundo momento de área de la sección transversal de la viga."
+        "es": "Segundo momento de área de la sección transversal de la viga.",
+        "ar": "العزم الثاني لمساحة المقطع العرضي للكمرة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Streckgrenze (MPa)",
         "fr": "Limite d'élasticité (MPa)",
         "es": "Límite elástico (MPa)",
-        "ar": "Yield Strength (MPa)"
+        "ar": "مقاومة الخضوع (ميجا باسكال)"
       },
       "businessContext_i18n": {
         "en": "Material yield stress, used for safety factor.",
         "tr": "Malzeme akma gerilimi, güvenlik faktörü için kullanılır.",
         "de": "Materialfließspannung, wird für den Sicherheitsfaktor verwendet.",
         "fr": "Contrainte d'élasticité du matériau, utilisée pour le coefficient de sécurité.",
-        "es": "Tensión de fluencia del material, utilizada para el factor de seguridad."
+        "es": "Tensión de fluencia del material, utilizada para el factor de seguridad.",
+        "ar": "إجهاد الخضوع للمادة، يُستخدم لعامل الأمان."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Widerstandsmoment (mm³)",
         "fr": "Module de section (mm³)",
         "es": "Módulo de sección (mm³)",
-        "ar": "Section Modulus (mm³)"
+        "ar": "معامل المقطع (مم³)"
       },
       "businessContext_i18n": {
         "en": "Elastic section modulus of the beam.",
         "tr": "Kirişin elastik kesit modülü.",
         "de": "Elastisches Widerstandsmoment des Trägers.",
         "fr": "Module de section élastique de la poutre.",
-        "es": "Módulo de sección elástico de la viga."
+        "es": "Módulo de sección elástico de la viga.",
+        "ar": "معامل المقطع المرن للعارضة."
       }
     }
   ],

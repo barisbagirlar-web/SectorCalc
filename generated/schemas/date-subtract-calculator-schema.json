@@ -14,14 +14,15 @@
         "de": "Startdatum (Seriennummer)",
         "fr": "Date de début (numéro de série)",
         "es": "Fecha de inicio (Número de serie)",
-        "ar": "Başlangıç Tarihi (Seri No)"
+        "ar": "تاريخ البداية (رقم تسلسلي)"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
         "tr": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
         "de": "Startdatum als Seriennummer (z. B. 44927 = 2023-01-01)",
         "fr": "Numéro de série de la date de début (ex. 44927 = 2023-01-01)",
-        "es": "Número de serie de la fecha de inicio (ej. 44927 = 2023-01-01)"
+        "es": "Número de serie de la fecha de inicio (ej. 44927 = 2023-01-01)",
+        "ar": "رقم تسلسلي لتاريخ البدء (مثال: 44927 = 2023-01-01)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Enddatum (Seriennummer)",
         "fr": "Date de fin (numéro de série)",
         "es": "Fecha de fin (Número de serie)",
-        "ar": "Bitiş Tarihi (Seri No)"
+        "ar": "تاريخ الانتهاء (رقم تسلسلي)"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihi seri numarası",
         "tr": "Bitiş tarihi seri numarası",
         "de": "Enddatum als Seriennummer",
         "fr": "Numéro de série de la date de fin",
-        "es": "Número de serie de la fecha de fin"
+        "es": "Número de serie de la fecha de fin",
+        "ar": "رقم تسلسلي لتاريخ الانتهاء"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Letzten Tag einschließen",
         "fr": "Inclure le dernier jour",
         "es": "Incluir último día",
-        "ar": "Son Gün Dahil"
+        "ar": "تضمين اليوم الأخير"
       },
       "businessContext_i18n": {
         "en": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
         "tr": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
         "de": "Einbeziehung des Endtages (1: ja, 0: nein)",
         "fr": "Inclusion du dernier jour (1 : oui, 0 : non)",
-        "es": "Incluir el día de fin (1: sí, 0: no)"
+        "es": "Incluir el día de fin (1: sí, 0: no)",
+        "ar": "تضمين يوم الانتهاء (1: نعم، 0: لا)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ausgabe-Einheitenfaktor",
         "fr": "Facteur d'unité de sortie",
         "es": "Factor de unidad de salida",
-        "ar": "Çıktı Birim Çarpanı"
+        "ar": "مضاعف وحدة الإخراج"
       },
       "businessContext_i18n": {
         "en": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
         "tr": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
         "de": "Ausgabe-Einheitenmultiplikator (1: Tage, 24: Stunden, 1440: Minuten, 86400: Sekunden)",
         "fr": "Multiplicateur d'unité de sortie (1 : jour, 24 : heure, 1440 : minute, 86400 : seconde)",
-        "es": "Multiplicador de unidad de salida (1: día, 24: hora, 1440: minuto, 86400: segundo)"
+        "es": "Multiplicador de unidad de salida (1: día, 24: hora, 1440: minuto, 86400: segundo)",
+        "ar": "مضاعف وحدة الإخراج (1: يوم، 24: ساعة، 1440: دقيقة، 86400: ثانية)"
       }
     }
   ],

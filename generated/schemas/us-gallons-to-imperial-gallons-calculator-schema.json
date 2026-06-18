@@ -13,14 +13,16 @@
         "tr": "ABD Galonu",
         "de": "US-Gallonen",
         "fr": "Gallons US",
-        "es": "US Gallons",
-        "ar": "US Gallons"
+        "es": "Galones estadounidenses",
+        "ar": "جالون أمريكي"
       },
       "businessContext_i18n": {
         "en": "Volume in US liquid gallons to be converted.",
         "tr": "Dönüştürülecek ABD sıvı galonu cinsinden hacim.",
         "de": "Volumen in US-Flüssiggallonen, das umgerechnet werden soll.",
-        "fr": "Volume en gallons liquides US à convertir."
+        "fr": "Volume en gallons liquides US à convertir.",
+        "es": "Volumen en galones líquidos estadounidenses a convertir.",
+        "ar": "الحجم بالجالون السائل الأمريكي المراد تحويله."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration.",
         "tr": "Standart dönüşüm faktörü: 1 ABD galonu = 0,832674 İngiliz galonu. Özel kalibrasyon için düzenlenebilir.",
         "de": "Standard-Umrechnungsfaktor: 1 US-Gallone = 0,832674 Imperial-Gallonen. Für individuelle Kalibrierung bearbeitbar.",
-        "fr": "Facteur de conversion standard : 1 gallon US = 0,832674 gallon impérial. Modifiable pour étalonnage personnalisé."
+        "fr": "Facteur de conversion standard : 1 gallon US = 0,832674 gallon impérial. Modifiable pour étalonnage personnalisé.",
+        "es": "Factor de conversión estándar: 1 galón estadounidense = 0.832674 galones imperiales. Editable para calibración personalizada.",
+        "ar": "عامل التحويل القياسي: 1 جالون أمريكي = 0.832674 جالون إمبراطوري. قابل للتعديل للمعايرة المخصصة."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Rundungsgenauigkeit",
         "fr": "Précision d'arrondi",
         "es": "Precisión de redondeo",
-        "ar": "Rounding Precision"
+        "ar": "دقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output Imperial gallons. Must be integer.",
         "tr": "Çıktı İngiliz galonu için ondalık basamak sayısı. Tam sayı olmalıdır.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe in Imperial-Gallonen. Muss eine ganze Zahl sein.",
-        "fr": "Nombre de décimales pour le résultat en gallons impériaux. Doit être un entier."
+        "fr": "Nombre de décimales pour le résultat en gallons impériaux. Doit être un entier.",
+        "es": "Número de decimales para la salida de galones imperiales. Debe ser entero.",
+        "ar": "عدد المنازل العشرية لمخرج الجالون الإمبراطوري. يجب أن يكون عددًا صحيحًا."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Chargenmenge",
         "fr": "Quantité de lot",
         "es": "Cantidad del lote",
-        "ar": "Batch Quantity"
+        "ar": "كمية الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of identical volume units to calculate total Imperial gallons.",
         "tr": "Toplam İngiliz galonunu hesaplamak için özdeş hacim birimlerinin sayısı.",
         "de": "Anzahl identischer Volumeneinheiten zur Berechnung der gesamten Imperial-Gallonen.",
-        "fr": "Nombre d'unités de volume identiques pour calculer le total en gallons impériaux."
+        "fr": "Nombre d'unités de volume identiques pour calculer le total en gallons impériaux.",
+        "es": "Número de unidades de volumen idénticas para calcular el total de galones imperiales.",
+        "ar": "عدد وحدات الحجم المتطابقة لحساب إجمالي الجالونات الإمبراطورية."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation.",
         "tr": "Hacim düzeltmesi için sıcaklık. Standart referans sıcaklığı 20°C'dir. Şu anda hesaplamada kullanılmamaktadır ancak gelecekteki termal genleşme telafisi için ayrılmıştır.",
         "de": "Temperatur zur Volumenkorrektur. Standard-Referenztemperatur ist 20 °C. Wird derzeit nicht in der Berechnung verwendet, aber für zukünftige thermische Ausdehnungskompensation reserviert.",
-        "fr": "Température pour correction de volume. La température de référence standard est 20°C. Actuellement non utilisée dans le calcul mais réservée pour une future compensation de dilatation thermique."
+        "fr": "Température pour correction de volume. La température de référence standard est 20°C. Actuellement non utilisée dans le calcul mais réservée pour une future compensation de dilatation thermique.",
+        "es": "Temperatura para corrección de volumen. La temperatura de referencia estándar es 20°C. Actualmente no se usa en el cálculo, pero se reserva para futura compensación por expansión térmica.",
+        "ar": "درجة الحرارة لتصحيح الحجم. درجة الحرارة المرجعية القياسية هي 20 درجة مئوية. غير مستخدمة حاليًا في الحساب ولكنها محفوظة للتعويض المستقبلي عن التمدد الحراري."
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
         "es": "Incertidumbre de medición",
-        "ar": "Measurement Uncertainty"
+        "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
         "en": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability.",
         "tr": "ABD galonu hacim ölçümü için genişletilmiş belirsizlik (k=2). Dokümantasyon ve izlenebilirlik içindir.",
         "de": "Erweiterte Unsicherheit (k=2) für die US-Gallonen-Volumenmessung. Für Dokumentation und Rückverfolgbarkeit.",
-        "fr": "Incertitude élargie (k=2) pour la mesure du volume en gallons US. Pour documentation et traçabilité."
+        "fr": "Incertitude élargie (k=2) pour la mesure du volume en gallons US. Pour documentation et traçabilité.",
+        "es": "Incertidumbre expandida (k=2) para la medición del volumen en galones estadounidenses. Para documentación y trazabilidad.",
+        "ar": "عدم اليقين الموسع (k=2) لقياس حجم الجالون الأمريكي. للتوثيق وإمكانية التتبع."
       }
     }
   ],

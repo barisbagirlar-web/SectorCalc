@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Amplitüd (A)",
         "tr": "Amplitüd (A)",
-        "de": "Amplitüd (A)",
+        "de": "Amplitude (A)",
         "fr": "Amplitude (A)",
         "es": "Amplitud (A)",
-        "ar": "Amplitüd (A)"
+        "ar": "السعة (A)"
       },
       "businessContext_i18n": {
         "en": "Integrand genlik çarpanı",
         "tr": "İntegrand genlik çarpanı",
-        "de": "Integrand genlik çarpanı",
+        "de": "Amplitudenfaktor des Integranden",
         "fr": "Multiplicateur d'amplitude de l'intégrande",
-        "es": "Factor de amplitud del integrando"
+        "es": "Factor de amplitud del integrando",
+        "ar": "مضاعف سعة التكامل"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Bozunum katsayısı (B, >0)",
         "tr": "Bozunum katsayısı (B, >0)",
-        "de": "Bozunum katsayısı (B, >0)",
+        "de": "Dämpfungskoeffizient (B, >0)",
         "fr": "Coefficient d'amortissement (B, >0)",
         "es": "Coeficiente de amortiguamiento (B, >0)",
-        "ar": "Bozunum katsayısı (B, >0)"
+        "ar": "معامل التضاؤل (B، >0)"
       },
       "businessContext_i18n": {
         "en": "Üstel bozunma hızı",
         "tr": "Üstel bozunma hızı",
-        "de": "Üstel bozunma hızı",
+        "de": "Exponentielle Abklingrate",
         "fr": "Taux de décroissance exponentielle",
-        "es": "Tasa de decaimiento exponencial"
+        "es": "Tasa de decaimiento exponencial",
+        "ar": "معدل التضاؤل الأسي"
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Alt sınır (a)",
         "tr": "Alt sınır (a)",
-        "de": "Alt sınır (a)",
+        "de": "Untere Grenze (a)",
         "fr": "Limite inférieure (a)",
         "es": "Límite inferior (a)",
-        "ar": "Alt sınır (a)"
+        "ar": "الحد الأدنى (a)"
       },
       "businessContext_i18n": {
         "en": "İntegral başlangıcı",
         "tr": "İntegral başlangıcı",
-        "de": "İntegral başlangıcı",
+        "de": "Integrationsbeginn",
         "fr": "Début de l'intégrale",
-        "es": "Inicio de la integral"
+        "es": "Inicio de la integral",
+        "ar": "بداية التكامل"
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Kayma (x₀)",
         "tr": "Kayma (x₀)",
-        "de": "Kayma (x₀)",
+        "de": "Verschiebung (x₀)",
         "fr": "Décalage (x₀)",
         "es": "Desplazamiento (x₀)",
-        "ar": "Kayma (x₀)"
+        "ar": "الإزاحة (x₀)"
       },
       "businessContext_i18n": {
         "en": "Üssün kayma noktası",
         "tr": "Üssün kayma noktası",
-        "de": "Üssün kayma noktası",
+        "de": "Verschiebungspunkt des Exponenten",
         "fr": "Point de décalage de l'exposant",
-        "es": "Punto de desplazamiento del exponente"
+        "es": "Punto de desplazamiento del exponente",
+        "ar": "نقطة إزاحة الأس"
       }
     }
   ],

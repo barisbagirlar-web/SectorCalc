@@ -26,14 +26,16 @@
         "tr": "Toplam Üretilen Birim",
         "de": "Gesamtproduzierte Einheiten",
         "fr": "Nombre total d'unités produites",
-        "es": "Unidades totales producidas"
+        "es": "Unidades totales producidas",
+        "ar": "إجمالي الوحدات المنتجة"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the reporting period (e.g., shift, day, week).",
         "tr": "Raporlama döneminde üretilen toplam birim sayısı (örneğin, vardiya, gün, hafta).",
         "de": "Gesamtzahl der im Berichtszeitraum produzierten Einheiten (z. B. Schicht, Tag, Woche).",
         "fr": "Nombre total d'unités produites au cours de la période de reporting (par exemple, équipe, jour, semaine).",
-        "es": "Número total de unidades producidas en el período de reporte (ej., turno, día, semana)."
+        "es": "Número total de unidades producidas en el período de reporte (ej., turno, día, semana).",
+        "ar": "إجمالي عدد الوحدات المنتجة في الفترة المشمولة بالتقرير (مثل الوردية، اليوم، الأسبوع)."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Hatalı Birimler",
         "de": "Fehlerhafte Einheiten",
         "fr": "Unités défectueuses",
-        "es": "Unidades defectuosas"
+        "es": "Unidades defectuosas",
+        "ar": "الوحدات المعيبة"
       },
       "businessContext_i18n": {
         "en": "Number of units that failed quality inspection or are non-conforming.",
         "tr": "Kalite kontrolünden geçemeyen veya uygunsuz olan birim sayısı.",
         "de": "Anzahl der Einheiten, die die Qualitätsprüfung nicht bestanden haben oder nicht konform sind.",
         "fr": "Nombre d'unités ayant échoué au contrôle qualité ou non conformes.",
-        "es": "Número de unidades que fallaron la inspección de calidad o no son conformes."
+        "es": "Número de unidades que fallaron la inspección de calidad o no son conformes.",
+        "ar": "عدد الوحدات التي فشلت في فحص الجودة أو غير مطابقة."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Yeniden İşleme Birimleri",
         "de": "Nacharbeits-Einheiten",
         "fr": "Unités de reprise",
-        "es": "Unidades retrabajadas"
+        "es": "Unidades retrabajadas",
+        "ar": "وحدات إعادة العمل"
       },
       "businessContext_i18n": {
         "en": "Units that were reworked to meet specifications (counted separately from scrap).",
         "tr": "Şartnameye uygun hale getirilmek üzere yeniden işlenen birimler (fireden ayrı olarak sayılır).",
         "de": "Einheiten, die nachbearbeitet wurden, um die Spezifikationen zu erfüllen (getrennt von Ausschuss gezählt).",
         "fr": "Unités retravaillées pour répondre aux spécifications (comptées séparément du rebut).",
-        "es": "Unidades que fueron retrabajadas para cumplir especificaciones (contadas por separado del desperdicio)."
+        "es": "Unidades que fueron retrabajadas para cumplir especificaciones (contadas por separado del desperdicio).",
+        "ar": "الوحدات التي أعيدت معالجتها لتلبية المواصفات (تُحتسب بشكل منفصل عن الهدر)."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Birim Başına Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
         "fr": "Coût matière par unité",
-        "es": "Coste de material por unidad"
+        "es": "Coste de material por unidad",
+        "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit in USD.",
         "tr": "Birim başına doğrudan malzeme maliyeti (USD).",
         "de": "Direkte Materialkosten pro Einheit in USD.",
         "fr": "Coût direct des matériaux par unité en USD.",
-        "es": "Costo de material directo por unidad en USD."
+        "es": "Costo de material directo por unidad en USD.",
+        "ar": "تكلفة المواد المباشرة لكل وحدة بالدولار الأمريكي."
       }
     },
     {
@@ -122,14 +130,16 @@
         "tr": "Birim başına işçilik maliyeti",
         "de": "Arbeitskosten pro Stück",
         "fr": "Coût de main-d'œuvre par unité",
-        "es": "Coste de mano de obra por unidad"
+        "es": "Coste de mano de obra por unidad",
+        "ar": "تكلفة العمالة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit in USD.",
         "tr": "Birim başına doğrudan işçilik maliyeti (USD).",
         "de": "Direkte Arbeitskosten pro Einheit in USD.",
         "fr": "Coût direct de la main-d'œuvre par unité en USD.",
-        "es": "Costo de mano de obra directa por unidad en USD."
+        "es": "Costo de mano de obra directa por unidad en USD.",
+        "ar": "تكلفة العمالة المباشرة لكل وحدة بالدولار الأمريكي."
       }
     },
     {
@@ -146,14 +156,16 @@
         "tr": "Birim Başına Genel Gider Maliyeti",
         "de": "Gemeinkosten pro Einheit",
         "fr": "Coût des frais généraux par unité",
-        "es": "Coste general por unidad"
+        "es": "Coste general por unidad",
+        "ar": "التكلفة العامة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Allocated overhead cost per unit in USD.",
         "tr": "Birim başına dağıtılan genel gider maliyeti (USD).",
         "de": "Zugeordnete Gemeinkosten pro Einheit in USD.",
         "fr": "Coût indirect alloué par unité en USD.",
-        "es": "Costo indirecto asignado por unidad en USD."
+        "es": "Costo indirecto asignado por unidad en USD.",
+        "ar": "تكلفة النفقات العامة المخصصة لكل وحدة بالدولار الأمريكي."
       }
     },
     {
@@ -177,14 +189,16 @@
         "tr": "Proses Aşaması",
         "de": "Prozessstufe",
         "fr": "Étape du processus",
-        "es": "Etapa del proceso"
+        "es": "Etapa del proceso",
+        "ar": "مرحلة العملية"
       },
       "businessContext_i18n": {
         "en": "Stage in the production process where scrap is measured.",
         "tr": "Firenin ölçüldüğü üretim sürecindeki aşama.",
         "de": "Stufe im Produktionsprozess, in der der Ausschuss gemessen wird.",
         "fr": "Étape du processus de production où le rebut est mesuré.",
-        "es": "Etapa del proceso productivo donde se mide el desperdicio."
+        "es": "Etapa del proceso productivo donde se mide el desperdicio.",
+        "ar": "المرحلة في عملية الإنتاج حيث يتم قياس الهدر."
       }
     },
     {
@@ -209,14 +223,16 @@
         "tr": "Birincil Kusur Türü",
         "de": "Primärer Fehlertyp",
         "fr": "Type de défaut principal",
-        "es": "Tipo de defecto principal"
+        "es": "Tipo de defecto principal",
+        "ar": "نوع العيب الرئيسي"
       },
       "businessContext_i18n": {
         "en": "Most common defect category observed.",
         "tr": "Gözlemlenen en yaygın kusur kategorisi.",
         "de": "Häufigste beobachtete Fehlerkategorie.",
         "fr": "Catégorie de défaut la plus courante observée.",
-        "es": "Categoría de defecto más común observada."
+        "es": "Categoría de defecto más común observada.",
+        "ar": "فئة العيب الأكثر شيوعًا التي تم ملاحظتها."
       }
     }
   ],
@@ -260,15 +276,27 @@
     ]
   },
   "formulas": {
-    "result": "total_units_produced + defective_units + rework_units",
-    "result_copy": "total_units_produced + defective_units + rework_units"
+    "base_cost": "total_units_produced * material_cost_per_unit",
+    "adjusted_cost": "total_units_produced * material_cost_per_unit * 1",
+    "result": "total_units_produced * material_cost_per_unit * 1 * (defective_units * rework_units)",
+    "factor_defective_units": "defective_units",
+    "factor_rework_units": "rework_units"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_defective_units",
+      "factor_rework_units"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

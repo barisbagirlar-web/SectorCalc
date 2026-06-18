@@ -14,13 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age of the insured person",
         "tr": "Sigortalının yaşı",
         "de": "Alter der versicherten Person",
-        "fr": "Âge de la personne assurée"
+        "fr": "Âge de la personne assurée",
+        "es": "Edad de la persona asegurada",
+        "ar": "عمر الشخص المؤمن عليه"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Raucher",
         "fr": "Fumeur",
         "es": "Fumador",
-        "ar": "Smoker"
+        "ar": "مدخن"
       },
       "businessContext_i18n": {
         "en": "Indicates if the insured is a smoker",
         "tr": "Sigortalının sigara içip içmediğini belirtir",
         "de": "Gibt an, ob die versicherte Person raucht",
-        "fr": "Indique si l'assuré est fumeur"
+        "fr": "Indique si l'assuré est fumeur",
+        "es": "Indica si el asegurado es fumador",
+        "ar": "يشير إلى ما إذا كان المؤمن عليه مدخنًا"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Deckungssumme",
         "fr": "Montant de la couverture",
         "es": "Monto de cobertura",
-        "ar": "Coverage Amount"
+        "ar": "مبلغ التغطية"
       },
       "businessContext_i18n": {
         "en": "Death benefit amount",
         "tr": "Ölüm yardımı tutarı",
         "de": "Todesfallleistung",
-        "fr": "Montant du capital décès"
+        "fr": "Montant du capital décès",
+        "es": "Monto del beneficio por fallecimiento",
+        "ar": "مبلغ استحقاق الوفاة"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Vade (Yıl)",
         "de": "Laufzeit (Jahre)",
         "fr": "Durée (années)",
-        "es": "Term (Years)",
-        "ar": "Term (Years)"
+        "es": "Plazo (años)",
+        "ar": "المدة (بالسنوات)"
       },
       "businessContext_i18n": {
         "en": "Policy term length",
         "tr": "Poliçe vadesi",
         "de": "Vertragslaufzeit",
-        "fr": "Durée de la police"
+        "fr": "Durée de la police",
+        "es": "Duración del plazo de la póliza",
+        "ar": "طول مدة الوثيقة"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Zinssatz",
         "fr": "Taux d'intérêt",
         "es": "Tasa de interés",
-        "ar": "Interest Rate"
+        "ar": "سعر الفائدة"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate for present value calculation",
         "tr": "Bugünkü değer hesaplaması için yıllık iskonto oranı",
         "de": "Jährlicher Abzinsungssatz für die Barwertberechnung",
-        "fr": "Taux d'actualisation annuel pour le calcul de la valeur actuelle"
+        "fr": "Taux d'actualisation annuel pour le calcul de la valeur actuelle",
+        "es": "Tasa de descuento anual para el cálculo del valor presente",
+        "ar": "معدل الخصم السنوي لحساب القيمة الحالية"
       }
     }
   ],

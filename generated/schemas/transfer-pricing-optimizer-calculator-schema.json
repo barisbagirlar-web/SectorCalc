@@ -24,13 +24,17 @@
         "en": "Production Cost per Unit (USD)",
         "tr": "Birim Başına Üretim Maliyeti (USD)",
         "de": "Produktionskosten pro Einheit (USD)",
-        "fr": "Coût de production par unité (USD)"
+        "fr": "Coût de production par unité (USD)",
+        "es": "Coste de producción por unidad (USD)",
+        "ar": "تكلفة الإنتاج لكل وحدة (دولار أمريكي)"
       },
       "businessContext_i18n": {
         "en": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity.",
         "tr": "Üretici işletmede birim başına doğrudan üretim maliyeti (malzeme, işçilik, genel gider).",
         "de": "Direkte Fertigungskosten pro Einheit (Material, Arbeit, Gemeinkosten) beim produzierenden Unternehmen.",
-        "fr": "Coût de fabrication direct par unité (matériaux, main-d'œuvre, frais généraux) chez l'entité productrice."
+        "fr": "Coût de fabrication direct par unité (matériaux, main-d'œuvre, frais généraux) chez l'entité productrice.",
+        "es": "Coste directo de fabricación por unidad (materiales, mano de obra, gastos generales) en la entidad productora.",
+        "ar": "تكلفة التصنيع المباشرة لكل وحدة (مواد، عمالة، تكاليف عامة) في الكيان المنتج."
       }
     },
     {
@@ -46,13 +50,17 @@
         "en": "Market Price per Unit (USD)",
         "tr": "Birim Başına Piyasa Fiyatı (USD)",
         "de": "Marktpreis pro Einheit (USD)",
-        "fr": "Prix de marché par unité (USD)"
+        "fr": "Prix de marché par unité (USD)",
+        "es": "Precio de mercado por unidad (USD)",
+        "ar": "سعر السوق لكل وحدة (دولار أمريكي)"
       },
       "businessContext_i18n": {
         "en": "Arm's length market price for comparable uncontrolled transactions.",
         "tr": "Karşılaştırılabilir kontrolsüz işlemler için geçerli piyasa fiyatı.",
         "de": "Fremdvergleichspreis für vergleichbare unkontrollierte Transaktionen.",
-        "fr": "Prix de marché de pleine concurrence pour des transactions comparables non contrôlées."
+        "fr": "Prix de marché de pleine concurrence pour des transactions comparables non contrôlées.",
+        "es": "Precio de mercado en condiciones de plena competencia para transacciones no controladas comparables.",
+        "ar": "سعر السوق على أساس ذراع الطول للمعاملات غير الخاضعة للرقابة المماثلة."
       }
     },
     {
@@ -68,13 +76,17 @@
         "en": "Transaction Volume (units)",
         "tr": "İşlem Hacmi (birim)",
         "de": "Transaktionsvolumen (Einheiten)",
-        "fr": "Volume de transactions (unités)"
+        "fr": "Volume de transactions (unités)",
+        "es": "Volumen de transacciones (unidades)",
+        "ar": "حجم المعاملة (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total number of units transferred between entities in the period.",
         "tr": "Dönem içinde işletmeler arasında transfer edilen toplam birim sayısı.",
         "de": "Gesamtzahl der zwischen den Unternehmen übertragenen Einheiten im Zeitraum.",
-        "fr": "Nombre total d'unités transférées entre entités sur la période."
+        "fr": "Nombre total d'unités transférées entre entités sur la période.",
+        "es": "Número total de unidades transferidas entre entidades en el período.",
+        "ar": "إجمالي عدد الوحدات المنقولة بين الكيانات في الفترة."
       }
     },
     {
@@ -90,13 +102,17 @@
         "en": "Producer Entity Tax Rate (%)",
         "tr": "Üretici İşletme Vergi Oranı (%)",
         "de": "Steuersatz des produzierenden Unternehmens (%)",
-        "fr": "Taux d'imposition de l'entité productrice (%)"
+        "fr": "Taux d'imposition de l'entité productrice (%)",
+        "es": "Tasa impositiva de la entidad productora (%)",
+        "ar": "معدل ضريبة الكيان المنتج (%)"
       },
       "businessContext_i18n": {
         "en": "Effective corporate tax rate of the producing entity's jurisdiction.",
         "tr": "Üretici işletmenin bulunduğu ülkedeki efektif kurumlar vergisi oranı.",
         "de": "Effektiver Körperschaftsteuersatz der Gerichtsbarkeit des produzierenden Unternehmens.",
-        "fr": "Taux effectif d'impôt sur les sociétés de la juridiction de l'entité productrice."
+        "fr": "Taux effectif d'impôt sur les sociétés de la juridiction de l'entité productrice.",
+        "es": "Tasa efectiva del impuesto de sociedades de la jurisdicción de la entidad productora.",
+        "ar": "معدل ضريبة الشركات الفعلي للولاية القضائية للكيان المنتج."
       }
     },
     {
@@ -112,13 +128,17 @@
         "en": "Distributor Entity Tax Rate (%)",
         "tr": "Dağıtıcı İşletme Vergi Oranı (%)",
         "de": "Steuersatz des vertreibenden Unternehmens (%)",
-        "fr": "Taux d'imposition de l'entité distributrice (%)"
+        "fr": "Taux d'imposition de l'entité distributrice (%)",
+        "es": "Tasa impositiva de la entidad distribuidora (%)",
+        "ar": "معدل ضريبة الكيان الموزع (%)"
       },
       "businessContext_i18n": {
         "en": "Effective corporate tax rate of the distributing entity's jurisdiction.",
         "tr": "Dağıtıcı işletmenin bulunduğu ülkedeki efektif kurumlar vergisi oranı.",
         "de": "Effektiver Körperschaftsteuersatz der Gerichtsbarkeit des vertreibenden Unternehmens.",
-        "fr": "Taux effectif d'impôt sur les sociétés de la juridiction de l'entité distributrice."
+        "fr": "Taux effectif d'impôt sur les sociétés de la juridiction de l'entité distributrice.",
+        "es": "Tasa efectiva del impuesto de sociedades de la jurisdicción de la entidad distribuidora.",
+        "ar": "معدل ضريبة الشركات الفعلي للولاية القضائية للكيان الموزع."
       }
     },
     {
@@ -134,13 +154,17 @@
         "en": "Current Transfer Price (USD)",
         "tr": "Mevcut Transfer Fiyatı (USD)",
         "de": "Aktueller Verrechnungspreis (USD)",
-        "fr": "Prix de transfert actuel (USD)"
+        "fr": "Prix de transfert actuel (USD)",
+        "es": "Precio de transferencia actual (USD)",
+        "ar": "سعر التحويل الحالي (دولار أمريكي)"
       },
       "businessContext_i18n": {
         "en": "Existing transfer price used for intercompany transactions.",
         "tr": "Şirketler arası işlemlerde kullanılan mevcut transfer fiyatı.",
         "de": "Bestehender Verrechnungspreis für konzerninterne Transaktionen.",
-        "fr": "Prix de transfert existant utilisé pour les transactions interentreprises."
+        "fr": "Prix de transfert existant utilisé pour les transactions interentreprises.",
+        "es": "Precio de transferencia existente utilizado para transacciones entre compañías.",
+        "ar": "سعر التحويل الحالي المستخدم للمعاملات بين الشركات."
       }
     },
     {
@@ -161,13 +185,17 @@
         "en": "Compliance Risk Tolerance (Low/Medium/High)",
         "tr": "Uyum Risk Toleransı (Düşük/Orta/Yüksek)",
         "de": "Compliance-Risikotoleranz (Niedrig/Mittel/Hoch)",
-        "fr": "Tolérance au risque de conformité (Faible/Moyen/Élevé)"
+        "fr": "Tolérance au risque de conformité (Faible/Moyen/Élevé)",
+        "es": "Tolerancia al riesgo de cumplimiento (Baja/Media/Alta)",
+        "ar": "تحمل مخاطر الامتثال (منخفض/متوسط/مرتفع)"
       },
       "businessContext_i18n": {
         "en": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range.",
         "tr": "Şirketin denetim riskine karşı toleransı; Düşük = dar emsallere uygunluk aralığı, Yüksek = geniş aralık.",
         "de": "Risikobereitschaft des Unternehmens in Bezug auf Prüfungsrisiken; Niedrig = enger Fremdvergleichsbereich, Hoch = weiterer Bereich.",
-        "fr": "Appétit de l'entreprise pour le risque de contrôle ; Faible = fourchette de pleine concurrence serrée, Élevé = fourchette plus large."
+        "fr": "Appétit de l'entreprise pour le risque de contrôle ; Faible = fourchette de pleine concurrence serrée, Élevé = fourchette plus large.",
+        "es": "Apetito de la empresa por el riesgo de auditoría; Bajo = rango de plena competencia ajustado, Alto = rango más amplio.",
+        "ar": "رغبة الشركة في تحمل مخاطر التدقيق؛ منخفض = نطاق ذراع ضيق، مرتفع = نطاق أوسع."
       }
     },
     {
@@ -183,13 +211,17 @@
         "en": "Include Lean Waste Factor",
         "tr": "Yalın İsraf Faktörünü Dahil Et",
         "de": "Lean-Verschwendungsfaktor einbeziehen",
-        "fr": "Inclure le facteur de gaspillage Lean"
+        "fr": "Inclure le facteur de gaspillage Lean",
+        "es": "Incluir factor de desperdicio Lean",
+        "ar": "تضمين عامل الهدر اللين"
       },
       "businessContext_i18n": {
         "en": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability.",
         "tr": "Doğruysa, Altı Sigma proses yeteneğine göre üretim maliyetine bir israf azaltma faktörü (muda) uygulanır.",
         "de": "Wenn wahr, wird ein Verschwendungsreduktionsfaktor (Muda) auf die Produktionskosten basierend auf der Six-Sigma-Prozessfähigkeit angewendet.",
-        "fr": "Si vrai, applique un facteur de réduction des déchets (muda) au coût de production basé sur la capabilité Six Sigma du procédé."
+        "fr": "Si vrai, applique un facteur de réduction des déchets (muda) au coût de production basé sur la capabilité Six Sigma du procédé.",
+        "es": "Si es verdadero, aplica un factor de reducción de desperdicio (muda) al coste de producción basado en la capacidad del proceso Seis Sigma.",
+        "ar": "إذا كان صحيحًا، يطبق عامل تقليل الهدر (مودا) على تكلفة الإنتاج بناءً على قدرة عملية ستة سيجما."
       }
     }
   ],
@@ -248,15 +280,25 @@
     ]
   },
   "formulas": {
-    "result": "production_cost_per_unit + market_price_per_unit + volume_units",
-    "result_copy": "production_cost_per_unit + market_price_per_unit + volume_units"
+    "base_cost": "volume_units * production_cost_per_unit",
+    "adjusted_cost": "volume_units * production_cost_per_unit * (1 + (tax_rate_producer / 100))",
+    "result": "volume_units * production_cost_per_unit * (1 + (tax_rate_producer / 100)) * (market_price_per_unit)",
+    "factor_market_price_per_unit": "market_price_per_unit"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_market_price_per_unit"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

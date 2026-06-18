@@ -14,14 +14,15 @@
         "de": "Spannweite",
         "fr": "Portée",
         "es": "Abertura (Span)",
-        "ar": "Açıklık (Span)"
+        "ar": "الامتداد (Span)"
       },
       "businessContext_i18n": {
         "en": "Yatay mesafe",
         "tr": "Yatay mesafe",
         "de": "Horizontaler Abstand",
         "fr": "Distance horizontale",
-        "es": "Distancia horizontal"
+        "es": "Distancia horizontal",
+        "ar": "المسافة الأفقية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Höhe",
         "fr": "Hauteur",
         "es": "Altura",
-        "ar": "Yükseklik (Height)"
+        "ar": "الارتفاع (Height)"
       },
       "businessContext_i18n": {
         "en": "Dikey mesafe",
         "tr": "Dikey mesafe",
         "de": "Vertikaler Abstand",
         "fr": "Distance verticale",
-        "es": "Distancia vertical"
+        "es": "Distancia vertical",
+        "ar": "المسافة الرأسية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Fächer",
         "fr": "Nombre de divisions",
         "es": "Número de divisiones",
-        "ar": "Bölme Sayısı"
+        "ar": "عدد الأقسام"
       },
       "businessContext_i18n": {
         "en": "Brace takılacak bölme sayısı",
         "tr": "Brace takılacak bölme sayısı",
         "de": "Anzahl der Fächer, in denen Streben angebracht werden",
         "fr": "Nombre de divisions pour l'installation des entretoises",
-        "es": "Número de divisiones para colocar el refuerzo"
+        "es": "Número de divisiones para colocar el refuerzo",
+        "ar": "عدد الأقسام التي سيتم تركيب الدعامة فيها"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de la sección transversal",
-        "ar": "Kesit Alanı"
+        "ar": "مساحة المقطع"
       },
       "businessContext_i18n": {
         "en": "Bir brace'in enine kesit alanı",
         "tr": "Bir brace'in enine kesit alanı",
         "de": "Querschnittsfläche einer Strebe",
         "fr": "Aire de la section transversale d'une attache",
-        "es": "Área de sección transversal del brace"
+        "es": "Área de sección transversal del brace",
+        "ar": "مساحة المقطع العرضي للدعامة"
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Malzeme Yoğunluğu"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Brace malzemesinin yoğunluğu (ör. çelik)",
         "tr": "Brace malzemesinin yoğunluğu (ör. çelik)",
         "de": "Dichte des Strebenmaterials (z. B. Stahl)",
         "fr": "Densité du matériau de l'attache (ex. acier)",
-        "es": "Densidad del material del brace (ej. acero)"
+        "es": "Densidad del material del brace (ej. acero)",
+        "ar": "كثافة مادة الدعامة (مثل الفولاذ)"
       }
     }
   ],
   "formulas": {
-    "result": "span + height + bays",
-    "result_copy": "span + height + bays"
+    "normalized_product": "span * height * bays * crossSectionArea",
+    "result": "span * height * bays * crossSectionArea * (materialDensity)",
+    "adjustment_factor": "materialDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "braceLength",
-      "angleDeg",
-      "totalBraceLength",
-      "braceVolume",
-      "braceWeight"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalWeight",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

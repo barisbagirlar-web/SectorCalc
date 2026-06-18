@@ -25,14 +25,16 @@
         "tr": "Alt Grup Boyutu (n)",
         "de": "Stichprobengröße (n)",
         "fr": "Taille du sous-groupe (n)",
-        "es": "Tamaño del subgrupo (n)"
+        "es": "Tamaño del subgrupo (n)",
+        "ar": "حجم المجموعة الفرعية (n)"
       },
       "businessContext_i18n": {
         "en": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
         "tr": "X-bar ve R grafikleri için alt grup başına örnek sayısı. Tipik değerler: 3-10.",
         "de": "Anzahl der Proben pro Untergruppe für X-Quer- und R-Karten. Typische Werte: 3-10.",
         "fr": "Nombre d'échantillons par sous-groupe pour les cartes X-barre et R. Valeurs typiques : 3-10.",
-        "es": "Número de muestras por subgrupo para gráficos X-barra y R. Valores típicos: 3-10."
+        "es": "Número de muestras por subgrupo para gráficos X-barra y R. Valores típicos: 3-10.",
+        "ar": "عدد العينات لكل مجموعة فرعية لمخططي X-bar وR. القيم النموذجية: 3-10."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Alt Grup Sayısı (k)",
         "de": "Anzahl der Untergruppen (k)",
         "fr": "Nombre de sous-groupes (k)",
-        "es": "Número de subgrupos (k)"
+        "es": "Número de subgrupos (k)",
+        "ar": "عدد المجموعات الفرعية (k)"
       },
       "businessContext_i18n": {
         "en": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
         "tr": "Proses değişkenliğini tahmin etmek için kullanılan toplam alt grup sayısı. Güvenilir limitler için minimum 10.",
         "de": "Gesamtzahl der Untergruppen zur Schätzung der Prozessstreuung. Mindestens 10 für zuverlässige Grenzen.",
         "fr": "Total des sous-groupes utilisés pour estimer la variation du processus. Minimum 10 pour des limites fiables.",
-        "es": "Total de subgrupos utilizados para estimar la variación del proceso. Mínimo 10 para límites fiables."
+        "es": "Total de subgrupos utilizados para estimar la variación del proceso. Mínimo 10 para límites fiables.",
+        "ar": "إجمالي المجموعات الفرعية المستخدمة لتقدير تباين العملية. الحد الأدنى 10 للحصول على حدود موثوقة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Genel Ortalama (X-çift-çizgi)",
         "de": "Gesamtmittelwert (X-Doppelquer)",
         "fr": "Moyenne globale (X-double-barre)",
-        "es": "Media general (X-doble-barra)"
+        "es": "Media general (X-doble-barra)",
+        "ar": "المتوسط الكلي (X-double-bar)"
       },
       "businessContext_i18n": {
         "en": "Average of subgroup means. Central line for X-bar chart.",
         "tr": "Alt grup ortalamalarının ortalaması. X-bar grafiği için merkez çizgisi.",
         "de": "Mittelwert der Untergruppenmittelwerte. Mittellinie der X-Quer-Karte.",
         "fr": "Moyenne des moyennes des sous-groupes. Ligne centrale pour la carte X-barre.",
-        "es": "Promedio de las medias de los subgrupos. Línea central para el gráfico X-barra."
+        "es": "Promedio de las medias de los subgrupos. Línea central para el gráfico X-barra.",
+        "ar": "متوسط متوسطات المجموعات الفرعية. الخط المركزي لمخطط X-bar."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Ortalama Aralık (R-bar)",
         "de": "Mittlere Spannweite (R-Quer)",
         "fr": "Étendue moyenne (R-barre)",
-        "es": "Rango promedio (R-barra)"
+        "es": "Rango promedio (R-barra)",
+        "ar": "متوسط المدى (R-bar)"
       },
       "businessContext_i18n": {
         "en": "Mean of subgroup ranges. Used to estimate process sigma.",
         "tr": "Alt grup aralıklarının ortalaması. Proses sigmasını tahmin etmek için kullanılır.",
         "de": "Mittelwert der Untergruppenspannweiten. Wird zur Schätzung der Prozess-Sigma verwendet.",
         "fr": "Moyenne des étendues des sous-groupes. Utilisée pour estimer le sigma du processus.",
-        "es": "Media de los rangos de los subgrupos. Se utiliza para estimar la sigma del proceso."
+        "es": "Media de los rangos de los subgrupos. Se utiliza para estimar la sigma del proceso.",
+        "ar": "متوسط مدى المجموعات الفرعية. يستخدم لتقدير سيجما العملية."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Üst Spesifikasyon Limiti (USL)",
         "de": "Obere Spezifikationsgrenze (OSG)",
         "fr": "Limite de spécification supérieure (USL)",
-        "es": "Límite superior de especificación (LSE)"
+        "es": "Límite superior de especificación (LSE)",
+        "ar": "حد المواصفات الأعلى (USL)"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value per customer or design requirement.",
         "tr": "Müşteri veya tasarım gereksinimine göre izin verilen maksimum değer.",
         "de": "Maximal akzeptabler Wert gemäß Kunden- oder Konstruktionsanforderung.",
         "fr": "Valeur maximale acceptable selon le client ou la spécification.",
-        "es": "Valor máximo aceptable según el cliente o requisito de diseño."
+        "es": "Valor máximo aceptable según el cliente o requisito de diseño.",
+        "ar": "القيمة القصوى المقبولة حسب متطلبات العميل أو التصميم."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Alt Spesifikasyon Limiti (LSL)",
         "de": "Untere Spezifikationsgrenze (USG)",
         "fr": "Limite de spécification inférieure (LSL)",
-        "es": "Límite de especificación inferior (LSL)"
+        "es": "Límite de especificación inferior (LSL)",
+        "ar": "حد المواصفات الأدنى (LSL)"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value per customer or design requirement.",
         "tr": "Müşteri veya tasarım gereksinimine göre izin verilen minimum değer.",
         "de": "Minimal akzeptabler Wert gemäß Kunden- oder Konstruktionsanforderung.",
         "fr": "Valeur minimale acceptable selon le client ou la spécification.",
-        "es": "Valor mínimo aceptable según el cliente o requisito de diseño."
+        "es": "Valor mínimo aceptable según el cliente o requisito de diseño.",
+        "ar": "القيمة الدنيا المقبولة حسب متطلبات العميل أو التصميم."
       }
     },
     {
@@ -172,14 +184,16 @@
         "tr": "Grafik Türü",
         "de": "Kartentyp",
         "fr": "Type de graphique",
-        "es": "Tipo de gráfico"
+        "es": "Tipo de gráfico",
+        "ar": "نوع المخطط"
       },
       "businessContext_i18n": {
         "en": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
         "tr": "Kontrol grafiği türünü seçin. Küçük alt gruplar için Xbar-R, büyük alt gruplar için Xbar-s, bireysel ölçümler için I-MR.",
         "de": "Wählen Sie den Regelkartentyp. Xbar-R für kleine Untergruppen, Xbar-s für größere, I-MR für Einzelmessungen.",
         "fr": "Sélectionnez le type de carte de contrôle. Xbar-R pour petits sous-groupes, Xbar-s pour plus grands, I-MR pour mesures individuelles.",
-        "es": "Seleccione el tipo de gráfico de control. Xbar-R para subgrupos pequeños, Xbar-s para más grandes, I-MR para mediciones individuales."
+        "es": "Seleccione el tipo de gráfico de control. Xbar-R para subgrupos pequeños, Xbar-s para más grandes, I-MR para mediciones individuales.",
+        "ar": "اختر نوع مخطط التحكم. Xbar-R للمجموعات الفرعية الصغيرة، Xbar-s للمجموعات الأكبر، I-MR للقياسات الفردية."
       }
     },
     {
@@ -194,14 +208,16 @@
         "tr": "R-bar'dan Tahmini Sigma Kullan",
         "de": "Verwende geschätztes Sigma aus R-Balken",
         "fr": "Utiliser l'écart-type estimé à partir de R-bar",
-        "es": "Usar sigma estimada a partir de R-barra"
+        "es": "Usar sigma estimada a partir de R-barra",
+        "ar": "استخدام سيغما المقدرة من R-bar"
       },
       "businessContext_i18n": {
         "en": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
         "tr": "Doğruysa, sigma R-bar/d2'den tahmin edilir. Yanlışsa, havuzlanmış standart sapma kullanılır.",
         "de": "Wenn wahr, wird Sigma aus R-Balken/d2 geschätzt. Wenn falsch, wird die gepoolte Standardabweichung verwendet.",
         "fr": "Si vrai, l'écart-type est estimé à partir de R-bar/d2. Si faux, utiliser l'écart-type poolé.",
-        "es": "Si es verdadero, la sigma se estima a partir de R-barra/d2. Si es falso, se usa la desviación estándar combinada."
+        "es": "Si es verdadero, la sigma se estima a partir de R-barra/d2. Si es falso, se usa la desviación estándar combinada.",
+        "ar": "إذا كان صحيحًا، يتم تقدير سيغما من R-bar/d2. إذا كان خطأ، استخدم الانحراف المعياري المجمع."
       }
     }
   ],
@@ -257,18 +273,26 @@
     ]
   },
   "formulas": {
-    "result": "subgroup_size + num_subgroups + overall_mean",
-    "result_copy": "subgroup_size + num_subgroups + overall_mean"
+    "normalized_product": "subgroup_size * num_subgroups * overall_mean * average_range",
+    "result": "subgroup_size * num_subgroups * overall_mean * average_range * (usl * lsl)",
+    "adjustment_factor": "usl * lsl"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "subgroups"
+    "unit": "units"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

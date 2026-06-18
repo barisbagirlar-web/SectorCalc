@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Sıcaklık (°C)",
         "tr": "Sıcaklık (°C)",
-        "de": "Sıcaklık (°C)",
+        "de": "Temperatur (°C)",
         "fr": "Température (°C)",
         "es": "Temperatura (°C)",
-        "ar": "Sıcaklık (°C)"
+        "ar": "درجة الحرارة (°م)"
       },
       "businessContext_i18n": {
         "en": "Dry bulb temperature in Celsius",
         "tr": "Kuru termometre sıcaklığı (°C)",
         "de": "Trockenkugeltemperatur in Celsius",
         "fr": "Température sèche en degrés Celsius",
-        "es": "Temperatura de bulbo seco en grados Celsius"
+        "es": "Temperatura de bulbo seco en grados Celsius",
+        "ar": "درجة حرارة البصيلة الجافة بالدرجة المئوية"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Bağıl Nem (%)",
         "tr": "Bağıl Nem (%)",
-        "de": "Bağıl Nem (%)",
+        "de": "Relative Luftfeuchtigkeit (%)",
         "fr": "Humidité relative (%)",
         "es": "Humedad relativa (%)",
-        "ar": "Bağıl Nem (%)"
+        "ar": "الرطوبة النسبية (%)"
       },
       "businessContext_i18n": {
         "en": "Relative humidity percentage",
         "tr": "Bağıl nem yüzdesi",
         "de": "Relative Luftfeuchtigkeit in Prozent",
         "fr": "Pourcentage d'humidité relative",
-        "es": "Porcentaje de humedad relativa"
+        "es": "Porcentaje de humedad relativa",
+        "ar": "نسبة الرطوبة النسبية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Atmosphärendruck (hPa)",
         "fr": "Pression atmosphérique (hPa)",
         "es": "Presión atmosférica (hPa)",
-        "ar": "Atmosfer Basıncı (hPa)"
+        "ar": "الضغط الجوي (hPa)"
       },
       "businessContext_i18n": {
         "en": "Actual atmospheric pressure in hPa",
         "tr": "Gerçek atmosfer basıncı (hPa)",
         "de": "Tatsächlicher atmosphärischer Druck in hPa",
         "fr": "Pression atmosphérique réelle en hPa",
-        "es": "Presión atmosférica real en hPa"
+        "es": "Presión atmosférica real en hPa",
+        "ar": "الضغط الجوي الفعلي بالهكتوباسكال"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Höhe über dem Meeresspiegel (m)",
         "fr": "Altitude (m)",
         "es": "Altitud (m)",
-        "ar": "Rakım (m)"
+        "ar": "الارتفاع (م)"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level in meters (for pressure estimation if pressure not available)",
         "tr": "Deniz seviyesinden yükseklik (m) (basınç tahmini için, basınç mevcut değilse)",
         "de": "Höhe über dem Meeresspiegel in Metern (für die Druckschätzung, falls Druck nicht verfügbar)",
         "fr": "Altitude au-dessus du niveau de la mer en mètres (pour estimation de la pression si la pression n'est pas disponible)",
-        "es": "Altitud sobre el nivel del mar en metros (para estimación de presión si no se dispone de ella)"
+        "es": "Altitud sobre el nivel del mar en metros (para estimación de presión si no se dispone de ella)",
+        "ar": "الارتفاع عن سطح البحر بالأمتار (لتقدير الضغط إذا لم يتوفر الضغط)"
       }
     }
   ],
   "formulas": {
-    "result": "temperature + relativeHumidity + pressure",
-    "result_copy": "temperature + relativeHumidity + pressure"
+    "normalized_product": "temperature * (relativeHumidity / 100) * pressure * altitude",
+    "result": "temperature * (relativeHumidity / 100) * pressure * altitude"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "absoluteHumidity",
-      "specificHumidity",
-      "mixingRatio"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "mixingRatio",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "mixingRatio": "%"
     }

@@ -14,14 +14,15 @@
         "de": "Masse des Zentralkörpers",
         "fr": "Masse du corps central",
         "es": "Masa del cuerpo central",
-        "ar": "Central Body Mass"
+        "ar": "كتلة الجسم المركزي"
       },
       "businessContext_i18n": {
         "en": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)",
         "tr": "Merkezi cismin kütlesi (ör. Dünya: 5.972×10^24 kg)",
         "de": "Masse des Zentralkörpers (z. B. Erde: 5,972×10^24 kg)",
         "fr": "Masse du corps central (par exemple, Terre : 5,972×10^24 kg)",
-        "es": "Masa del cuerpo central (ej. Tierra: 5.972×10^24 kg)"
+        "es": "Masa del cuerpo central (ej. Tierra: 5.972×10^24 kg)",
+        "ar": "كتلة الجسم المركزي (مثال: الأرض: 5.972×10^24 كجم)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Radius des Zentralkörpers",
         "fr": "Rayon du corps central",
         "es": "Radio del cuerpo central",
-        "ar": "Central Body Radius"
+        "ar": "نصف قطر الجسم المركزي"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (e.g., Earth: 6,371,000 m)",
         "tr": "Merkezi cismin yarıçapı (ör. Dünya: 6.371.000 m)",
         "de": "Radius des Zentralkörpers (z. B. Erde: 6.371.000 m)",
         "fr": "Rayon du corps central (par exemple, Terre : 6 371 000 m)",
-        "es": "Radio del cuerpo central (ej. Tierra: 6,371,000 m)"
+        "es": "Radio del cuerpo central (ej. Tierra: 6,371,000 m)",
+        "ar": "نصف قطر الجسم المركزي (مثال: الأرض: 6,371,000 م)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Umlaufbahnhöhe",
         "fr": "Altitude de l'orbite",
         "es": "Altitud orbital",
-        "ar": "Orbit Altitude"
+        "ar": "ارتفاع المدار"
       },
       "businessContext_i18n": {
         "en": "Altitude of the satellite above the central body's surface",
         "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği",
         "de": "Höhe des Satelliten über der Oberfläche des Zentralkörpers",
         "fr": "Altitude du satellite au-dessus de la surface du corps central",
-        "es": "Altitud del satélite sobre la superficie del cuerpo central"
+        "es": "Altitud del satélite sobre la superficie del cuerpo central",
+        "ar": "ارتفاع القمر الصناعي فوق سطح الجسم المركزي"
       }
     },
     {
@@ -83,41 +86,37 @@
         "de": "Gravitationskonstante",
         "fr": "Constante gravitationnelle",
         "es": "Constante gravitacional",
-        "ar": "Gravitational Constant"
+        "ar": "ثابت الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))",
         "tr": "Evrensel çekim sabiti (G = 6.67430×10^-11 m^3/(kg·s^2))",
         "de": "Universelle Gravitationskonstante (G = 6,67430×10^-11 m^3/(kg·s^2))",
         "fr": "Constante gravitationnelle universelle (G = 6,67430×10^-11 m^3/(kg·s^2))",
-        "es": "Constante gravitacional universal (G = 6.67430×10^-11 m^3/(kg·s^2))"
+        "es": "Constante gravitacional universal (G = 6.67430×10^-11 m^3/(kg·s^2))",
+        "ar": "ثابت الجاذبية العام (G = 6.67430×10^-11 م^3/(كجم·ث^2))"
       }
     }
   ],
   "formulas": {
-    "result": "centralBodyMass + centralBodyRadius + altitude",
-    "result_copy": "centralBodyMass + centralBodyRadius + altitude"
+    "normalized_product": "centralBodyMass * centralBodyRadius * altitude * gravitationalConstant",
+    "result": "centralBodyMass * centralBodyRadius * altitude * gravitationalConstant"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "label": "Orbital Velocity (km/s)",
-        "value": "orbitalVelocity_kmps",
-        "unit": "km/s"
-      },
-      {
-        "label": "Orbital Period",
-        "value": "orbitalPeriod_s",
-        "unit": "s"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "orbitalPeriod_s",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

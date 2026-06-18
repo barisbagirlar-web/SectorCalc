@@ -14,14 +14,15 @@
         "de": "Entfernung",
         "fr": "Distance",
         "es": "Distancia",
-        "ar": "Distance"
+        "ar": "المسافة"
       },
       "businessContext_i18n": {
         "en": "The total distance of the trip in miles.",
         "tr": "Seyahatin mil cinsinden toplam mesafesi.",
         "de": "Die Gesamtstrecke der Fahrt in Meilen.",
         "fr": "Distance totale du trajet en miles.",
-        "es": "Distancia total del viaje en millas."
+        "es": "Distancia total del viaje en millas.",
+        "ar": "المسافة الإجمالية للرحلة بالأميال."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dauer",
         "fr": "Durée",
         "es": "Duración",
-        "ar": "Duration"
+        "ar": "المدة"
       },
       "businessContext_i18n": {
         "en": "The total duration of the trip in minutes.",
         "tr": "Seyahatin dakika cinsinden toplam süresi.",
         "de": "Die Gesamtdauer der Fahrt in Minuten.",
         "fr": "Durée totale du trajet en minutes.",
-        "es": "Duración total del viaje en minutos."
+        "es": "Duración total del viaje en minutos.",
+        "ar": "المدة الإجمالية للرحلة بالدقائق."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Grundpreis",
         "fr": "Tarif de base",
         "es": "Tarifa base",
-        "ar": "Base Fare"
+        "ar": "الأجرة الأساسية"
       },
       "businessContext_i18n": {
         "en": "The fixed pickup charge applied to every ride.",
         "tr": "Her yolculukta uygulanan sabit alma ücreti.",
         "de": "Die feste Abholgebühr, die auf jede Fahrt erhoben wird.",
         "fr": "Frais de prise en charge fixes appliqués à chaque course.",
-        "es": "Cargo fijo de recogida aplicado a cada viaje."
+        "es": "Cargo fijo de recogida aplicado a cada viaje.",
+        "ar": "رسوم الاستلام الثابتة المطبقة على كل رحلة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kosten pro Meile",
         "fr": "Coût par kilomètre",
         "es": "Costo por milla",
-        "ar": "Cost per Mile"
+        "ar": "التكلفة لكل ميل"
       },
       "businessContext_i18n": {
         "en": "The rate charged per mile traveled.",
         "tr": "Gidilen mil başına ücretlendirilen oran.",
         "de": "Der Preis pro gefahrenem Kilometer.",
         "fr": "Tarif par mile parcouru.",
-        "es": "Tarifa cobrada por milla recorrida."
+        "es": "Tarifa cobrada por milla recorrida.",
+        "ar": "السعر المفروض لكل ميل يتم قطعه."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kosten pro Minute",
         "fr": "Coût par minute",
         "es": "Coste por minuto",
-        "ar": "Cost per Minute"
+        "ar": "التكلفة لكل دقيقة"
       },
       "businessContext_i18n": {
         "en": "The rate charged per minute of trip time.",
         "tr": "Seyahat süresinin dakikası başına ücretlendirilen oran.",
         "de": "Der Preis pro Minute Fahrzeit.",
         "fr": "Tarif par minute de trajet.",
-        "es": "Tarifa cobrada por minuto de tiempo de viaje."
+        "es": "Tarifa cobrada por minuto de tiempo de viaje.",
+        "ar": "المعدل المفروض لكل دقيقة من وقت الرحلة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Buchungsgebühr",
         "fr": "Frais de réservation",
         "es": "Tarifa de reserva",
-        "ar": "Booking Fee"
+        "ar": "رسوم الحجز"
       },
       "businessContext_i18n": {
         "en": "A flat service fee added to every ride.",
         "tr": "Her yolculuğa eklenen sabit hizmet ücreti.",
         "de": "Eine pauschale Servicegebühr, die auf jede Fahrt erhoben wird.",
         "fr": "Frais de service fixes ajoutés à chaque course.",
-        "es": "Tarifa de servicio fija añadida a cada viaje."
+        "es": "Tarifa de servicio fija añadida a cada viaje.",
+        "ar": "رسوم خدمة ثابتة تضاف إلى كل رحلة."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Nachfrage-Multiplikator",
         "fr": "Multiplicateur de demande",
         "es": "Multiplicador de aumento",
-        "ar": "Surge Multiplier"
+        "ar": "مضاعف الطلب"
       },
       "businessContext_i18n": {
         "en": "A demand-based multiplier applied to the sum of base, distance, and time charges.",
         "tr": "Taban, mesafe ve zaman ücretlerinin toplamına uygulanan talep bazlı çarpan.",
         "de": "Ein nachfragebasierter Multiplikator, der auf die Summe aus Grund-, Distanz- und Zeitgebühren angewendet wird.",
         "fr": "Multiplicateur basé sur la demande appliqué à la somme des frais de base, de distance et de temps.",
-        "es": "Multiplicador basado en la demanda aplicado a la suma de los cargos base, distancia y tiempo."
+        "es": "Multiplicador basado en la demanda aplicado a la suma de los cargos base, distancia y tiempo.",
+        "ar": "مضاعف يعتمد على الطلب يُطبق على مجموع الرسوم الأساسية ورسوم المسافة والوقت."
       }
     }
   ],

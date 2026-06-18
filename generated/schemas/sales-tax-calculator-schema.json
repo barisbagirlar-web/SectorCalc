@@ -21,14 +21,16 @@
         "tr": "Net Satış Tutarı",
         "de": "Nettoumsatzbetrag",
         "fr": "Montant net des ventes",
-        "es": "Monto neto de ventas"
+        "es": "Monto neto de ventas",
+        "ar": "صافي قيمة المبيعات"
       },
       "businessContext_i18n": {
         "en": "Total revenue from taxable sales before any tax or discounts.",
         "tr": "Herhangi bir vergi veya indirim öncesi vergiye tabi satışlardan elde edilen toplam gelir.",
         "de": "Gesamterlös aus steuerpflichtigen Verkäufen vor Steuern oder Rabatten.",
         "fr": "Revenu total des ventes imposables avant toute taxe ou remise.",
-        "es": "Ingresos totales de ventas gravables antes de cualquier impuesto o descuento."
+        "es": "Ingresos totales de ventas gravables antes de cualquier impuesto o descuento.",
+        "ar": "إجمالي الإيرادات من المبيعات الخاضعة للضريبة قبل أي ضريبة أو خصومات."
       }
     },
     {
@@ -45,14 +47,16 @@
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
         "fr": "Taux de taxe de vente",
-        "es": "Tasa de impuesto a las ventas"
+        "es": "Tasa de impuesto a las ventas",
+        "ar": "نسبة ضريبة المبيعات"
       },
       "businessContext_i18n": {
         "en": "Combined state and local sales tax rate as a percentage.",
         "tr": "Yüzde olarak birleşik eyalet ve yerel satış vergisi oranı.",
         "de": "Kombinierter staatlicher und lokaler Umsatzsteuersatz in Prozent.",
         "fr": "Taux combiné de taxe de vente étatique et locale en pourcentage.",
-        "es": "Tasa combinada de impuesto a las ventas estatal y local como porcentaje."
+        "es": "Tasa combinada de impuesto a las ventas estatal y local como porcentaje.",
+        "ar": "نسبة ضريبة المبيعات المجمعة للولاية والمحلية كنسبة مئوية."
       }
     },
     {
@@ -69,14 +73,16 @@
         "tr": "Muaf Satış Oranı",
         "de": "Steuerbefreiungsquote",
         "fr": "Ratio de ventes exonérées",
-        "es": "Proporción de ventas exentas"
+        "es": "Proporción de ventas exentas",
+        "ar": "نسبة المبيعات المعفاة"
       },
       "businessContext_i18n": {
         "en": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit).",
         "tr": "Vergiden muaf olan net satışların yüzdesi (örneğin, yeniden satış, kar amacı gütmeyen).",
         "de": "Prozentsatz des Nettoumsatzes, der steuerbefreit ist (z. B. Weiterverkauf, gemeinnützig).",
         "fr": "Pourcentage des ventes nettes exonérées de taxe (ex. revente, organisme sans but lucratif).",
-        "es": "Porcentaje de las ventas netas que están exentas de impuestos (ej., reventa, sin fines de lucro)."
+        "es": "Porcentaje de las ventas netas que están exentas de impuestos (ej., reventa, sin fines de lucro).",
+        "ar": "النسبة المئوية من صافي المبيعات المعفاة من الضريبة (مثل إعادة البيع، غير الربحية)."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Vergi Yargı Yetkisi",
         "de": "Steuerhoheit",
         "fr": "Juridiction fiscale",
-        "es": "Jurisdicción fiscal"
+        "es": "Jurisdicción fiscal",
+        "ar": "الولاية الضريبية"
       },
       "businessContext_i18n": {
         "en": "Level of tax authority: state only, state+county, or state+county+city.",
         "tr": "Vergi otoritesi seviyesi: yalnızca eyalet, eyalet+ilçe veya eyalet+ilçe+şehir.",
         "de": "Ebene der Steuerbehörde: nur Staat, Staat+Kreis oder Staat+Kreis+Stadt.",
         "fr": "Niveau d'autorité fiscale : état seulement, état+comté, ou état+comté+ville.",
-        "es": "Nivel de autoridad fiscal: solo estatal, estatal+condal, o estatal+condal+municipal."
+        "es": "Nivel de autoridad fiscal: solo estatal, estatal+condal, o estatal+condal+municipal.",
+        "ar": "مستوى السلطة الضريبية: الولاية فقط، الولاية+المقاطعة، أو الولاية+المقاطعة+المدينة."
       }
     },
     {
@@ -126,14 +134,16 @@
         "tr": "Kaynak Belirleme Yöntemi",
         "de": "Quellenmethode",
         "fr": "Méthode de sourcing",
-        "es": "Método de origen"
+        "es": "Método de origen",
+        "ar": "طريقة التحديد"
       },
       "businessContext_i18n": {
         "en": "Origin-based (seller's location) or destination-based (buyer's location) tax sourcing.",
         "tr": "Menşe bazlı (satıcının konumu) veya varış bazlı (alıcının konumu) vergi kaynağı belirleme.",
         "de": "Ursprungsbasiert (Standort des Verkäufers) oder zielbasiert (Standort des Käufers) Steuerquellen.",
         "fr": "Sourcing basé sur l'origine (lieu du vendeur) ou sur la destination (lieu de l'acheteur).",
-        "es": "Origen basado en la ubicación del vendedor o destino basado en la ubicación del comprador."
+        "es": "Origen basado en la ubicación del vendedor o destino basado en la ubicación del comprador.",
+        "ar": "تحديد الضريبة بناءً على المنشأ (موقع البائع) أو الوجهة (موقع المشتري)."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Vergi Matrahına Nakliyeyi Dahil Et",
         "de": "Versand in Steuerbemessungsgrundlage einbeziehen",
         "fr": "Inclure l'expédition dans la base imposable",
-        "es": "Incluir envío en base imponible"
+        "es": "Incluir envío en base imponible",
+        "ar": "تضمين الشحن في الوعاء الضريبي"
       },
       "businessContext_i18n": {
         "en": "Whether shipping and handling charges are subject to sales tax.",
         "tr": "Nakliye ve elleçleme ücretlerinin satış vergisine tabi olup olmadığı.",
         "de": "Ob Versand- und Bearbeitungskosten der Umsatzsteuer unterliegen.",
         "fr": "Si les frais d'expédition et de manutention sont soumis à la taxe de vente.",
-        "es": "Si los cargos de envío y manipulación están sujetos a impuesto sobre ventas."
+        "es": "Si los cargos de envío y manipulación están sujetos a impuesto sobre ventas.",
+        "ar": "ما إذا كانت رسوم الشحن والمناولة خاضعة لضريبة المبيعات."
       }
     },
     {
@@ -174,14 +186,16 @@
         "tr": "Nakliye ve Elleçleme Ücreti",
         "de": "Versand- und Bearbeitungsgebühr",
         "fr": "Frais d'expédition et de manutention",
-        "es": "Cargo de envío y manipulación"
+        "es": "Cargo de envío y manipulación",
+        "ar": "رسوم الشحن والمناولة"
       },
       "businessContext_i18n": {
         "en": "Total shipping and handling fees charged to customers.",
         "tr": "Müşterilere yansıtılan toplam nakliye ve elleçleme ücretleri.",
         "de": "Gesamte Versand- und Bearbeitungsgebühren, die den Kunden berechnet werden.",
         "fr": "Total des frais d'expédition et de manutention facturés aux clients.",
-        "es": "Total de cargos de envío y manipulación cobrados a los clientes."
+        "es": "Total de cargos de envío y manipulación cobrados a los clientes.",
+        "ar": "إجمالي رسوم الشحن والمناولة المفروضة على العملاء."
       }
     }
   ],
@@ -230,15 +244,25 @@
     ]
   },
   "formulas": {
-    "result": "net_sales + tax_rate + exempt_ratio",
-    "result_copy": "net_sales + tax_rate + exempt_ratio"
+    "base_cost": "include_shipping * net_sales",
+    "adjusted_cost": "include_shipping * net_sales * (1 + (tax_rate / 100))",
+    "result": "include_shipping * net_sales * (1 + (tax_rate / 100)) * ((exempt_ratio / 100))",
+    "factor_exempt_ratio": "(exempt_ratio / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_exempt_ratio"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

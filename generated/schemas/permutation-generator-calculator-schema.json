@@ -14,14 +14,15 @@
         "de": "Gesamtanzahl (n)",
         "fr": "Nombre total d'éléments (n)",
         "es": "Total de elementos (n)",
-        "ar": "Total Items (n)"
+        "ar": "إجمالي العناصر (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of distinct items in the set.",
         "tr": "Kümedeki toplam farklı öğe sayısı.",
         "de": "Gesamtzahl unterschiedlicher Elemente in der Menge.",
         "fr": "Nombre total d'éléments distincts dans l'ensemble.",
-        "es": "Número total de elementos distintos en el conjunto."
+        "es": "Número total de elementos distintos en el conjunto.",
+        "ar": "إجمالي عدد العناصر المميزة في المجموعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzuordnende Elemente (r)",
         "fr": "Éléments à arranger (r)",
         "es": "Elementos a disponer (r)",
-        "ar": "Items to Arrange (r)"
+        "ar": "العناصر المراد ترتيبها (r)"
       },
       "businessContext_i18n": {
         "en": "Number of items to select and arrange.",
         "tr": "Seçilecek ve düzenlenecek öğe sayısı.",
         "de": "Anzahl der auszuwählenden und anzuordnenden Elemente.",
         "fr": "Nombre d'éléments à sélectionner et à organiser.",
-        "es": "Número de elementos a seleccionar y ordenar."
+        "es": "Número de elementos a seleccionar y ordenar.",
+        "ar": "عدد العناصر المراد اختيارها وترتيبها."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reihenfolge wichtig (1=Ja, 0=Nein)",
         "fr": "L'ordre compte (1=Oui, 0=Non)",
         "es": "El orden importa (1=Sí, 0=No)",
-        "ar": "Order Matters (1=Yes, 0=No)"
+        "ar": "الترتيب مهم (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "Whether the order of selection matters (permutation vs combination).",
         "tr": "Seçim sırasının önemli olup olmadığı (permütasyon vs kombinasyon).",
         "de": "Ob die Reihenfolge der Auswahl wichtig ist (Permutation vs. Kombination).",
         "fr": "Si l'ordre de sélection compte (permutation vs combinaison).",
-        "es": "Si el orden de selección importa (permutación vs combinación)."
+        "es": "Si el orden de selección importa (permutación vs combinación).",
+        "ar": "ما إذا كان ترتيب الاختيار مهمًا (تبديل مقابل توافيق)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wiederholung erlaubt (1=Ja, 0=Nein)",
         "fr": "Répétition autorisée (1=Oui, 0=Non)",
         "es": "Repetición permitida (1=Sí, 0=No)",
-        "ar": "Repetition Allowed (1=Yes, 0=No)"
+        "ar": "التكرار مسموح (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "Whether the same item can be selected more than once.",
         "tr": "Aynı öğenin birden fazla kez seçilip seçilemeyeceği.",
         "de": "Ob dasselbe Element mehrfach ausgewählt werden kann.",
         "fr": "Si le même élément peut être sélectionné plusieurs fois.",
-        "es": "Si el mismo elemento puede seleccionarse más de una vez."
+        "es": "Si el mismo elemento puede seleccionarse más de una vez.",
+        "ar": "ما إذا كان يمكن اختيار نفس العنصر أكثر من مرة."
       }
     }
   ],

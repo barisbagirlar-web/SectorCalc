@@ -13,14 +13,16 @@
         "tr": "Kazanan Ortalama (μ)",
         "de": "Gewinner Mittelwert (μ)",
         "fr": "Moyenne du gagnant (μ)",
-        "es": "Winner Mean (μ)",
-        "ar": "Winner Mean (μ)"
+        "es": "Media del ganador (μ)",
+        "ar": "متوسط الفائز (μ)"
       },
       "businessContext_i18n": {
         "en": "Initial skill estimate of the winning player/team",
         "tr": "Kazanan oyuncu/takımın başlangıç beceri tahmini",
         "de": "Anfängliche Fähigkeitsschätzung des Gewinners/Teams",
-        "fr": "Estimation initiale du niveau de compétence du joueur/équipe gagnant"
+        "fr": "Estimation initiale du niveau de compétence du joueur/équipe gagnant",
+        "es": "Estimación inicial de habilidad del jugador/equipo ganador",
+        "ar": "تقدير المهارة الأولي للاعب/الفريق الفائز"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kazanan Standart Sapma (σ)",
         "de": "Gewinner Standardabweichung (σ)",
         "fr": "Écart-type du gagnant (σ)",
-        "es": "Winner Std Dev (σ)",
-        "ar": "Winner Std Dev (σ)"
+        "es": "Desviación estándar del ganador (σ)",
+        "ar": "الانحراف المعياري للفائز (σ)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty in winner's skill",
         "tr": "Kazananın becerisindeki belirsizlik",
         "de": "Unsicherheit in der Fähigkeit des Gewinners",
-        "fr": "Incertitude sur le niveau de compétence du gagnant"
+        "fr": "Incertitude sur le niveau de compétence du gagnant",
+        "es": "Incertidumbre en la habilidad del ganador",
+        "ar": "عدم اليقين في مهارة الفائز"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kaybeden Ortalama (μ)",
         "de": "Verlierer Mittelwert (μ)",
         "fr": "Moyenne du perdant (μ)",
-        "es": "Loser Mean (μ)",
-        "ar": "Loser Mean (μ)"
+        "es": "Media del perdedor (μ)",
+        "ar": "متوسط الخاسر (μ)"
       },
       "businessContext_i18n": {
         "en": "Initial skill estimate of the losing player/team",
         "tr": "Kaybeden oyuncu/takımın başlangıç beceri tahmini",
         "de": "Anfängliche Fähigkeitsschätzung des Verlierers/Teams",
-        "fr": "Estimation initiale du niveau de compétence du joueur/équipe perdant"
+        "fr": "Estimation initiale du niveau de compétence du joueur/équipe perdant",
+        "es": "Estimación inicial de habilidad del jugador/equipo perdedor",
+        "ar": "تقدير المهارة الأولي للاعب/الفريق الخاسر"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Kaybeden Standart Sapma (σ)",
         "de": "Verlierer Standardabweichung (σ)",
         "fr": "Écart-type du perdant (σ)",
-        "es": "Loser Std Dev (σ)",
-        "ar": "Loser Std Dev (σ)"
+        "es": "Desviación estándar del perdedor (σ)",
+        "ar": "الانحراف المعياري للخاسر (σ)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty in loser's skill",
         "tr": "Kaybedenin becerisindeki belirsizlik",
         "de": "Unsicherheit in der Fähigkeit des Verlierers",
-        "fr": "Incertitude sur le niveau de compétence du perdant"
+        "fr": "Incertitude sur le niveau de compétence du perdant",
+        "es": "Incertidumbre en la habilidad del perdedor",
+        "ar": "عدم اليقين في مهارة الخاسر"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Beta (oyun rastgeleliği)",
         "de": "Beta (Spielzufälligkeit)",
         "fr": "Bêta (aléatoire du jeu)",
-        "es": "Beta (game randomness)",
-        "ar": "Beta (game randomness)"
+        "es": "Beta (aleatoriedad del juego)",
+        "ar": "بيتا (عشوائية اللعبة)"
       },
       "businessContext_i18n": {
         "en": "Amount of randomness in the game; typical value is σ/2",
         "tr": "Oyundaki rastgelelik miktarı; tipik değer σ/2",
         "de": "Ausmaß der Zufälligkeit im Spiel; typischer Wert ist σ/2",
-        "fr": "Quantité d'aléatoire dans le jeu ; valeur typique σ/2"
+        "fr": "Quantité d'aléatoire dans le jeu ; valeur typique σ/2",
+        "es": "Cantidad de aleatoriedad en el juego; valor típico es σ/2",
+        "ar": "مقدار العشوائية في اللعبة؛ القيمة النموذجية هي σ/2"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Tau (dinamik faktörü)",
         "de": "Tau (Dynamikfaktor)",
         "fr": "Tau (facteur de dynamique)",
-        "es": "Tau (dynamics factor)",
-        "ar": "Tau (dynamics factor)"
+        "es": "Tau (factor de dinámica)",
+        "ar": "تاو (عامل الديناميكيات)"
       },
       "businessContext_i18n": {
         "en": "Factor to increase uncertainty over time; typical value is σ/100",
         "tr": "Zamanla belirsizliği artıran faktör; tipik değer σ/100",
         "de": "Faktor zur Erhöhung der Unsicherheit über die Zeit; typischer Wert ist σ/100",
-        "fr": "Facteur pour augmenter l'incertitude dans le temps ; valeur typique σ/100"
+        "fr": "Facteur pour augmenter l'incertitude dans le temps ; valeur typique σ/100",
+        "es": "Factor para aumentar la incertidumbre con el tiempo; valor típico es σ/100",
+        "ar": "عامل لزيادة عدم اليقين بمرور الوقت؛ القيمة النموذجية هي σ/100"
       }
     },
     {
@@ -146,33 +158,39 @@
         "de": "Unentschieden-Wahrscheinlichkeit",
         "fr": "Probabilité de match nul",
         "es": "Probabilidad de empate",
-        "ar": "Draw Probability"
+        "ar": "احتمالية التعادل"
       },
       "businessContext_i18n": {
         "en": "Assumed probability of a draw outcome",
         "tr": "Beraberlik sonucu varsayılan olasılık",
         "de": "Angenommene Wahrscheinlichkeit eines Unentschiedens",
-        "fr": "Probabilité supposée d'un résultat de match nul"
+        "fr": "Probabilité supposée d'un résultat de match nul",
+        "es": "Probabilidad asumida de un resultado de empate",
+        "ar": "الاحتمال المفترض لنتيجة التعادل"
       }
     }
   ],
   "formulas": {
-    "result": "mu_winner + sigma_winner + mu_loser",
-    "result_copy": "mu_winner + sigma_winner + mu_loser"
+    "normalized_product": "mu_winner * sigma_winner * mu_loser * sigma_loser",
+    "result": "mu_winner * sigma_winner * mu_loser * sigma_loser * (beta * tau * draw_probability)",
+    "adjustment_factor": "beta * tau * draw_probability"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Updated Winner Std Dev (σ): {sigma_winner_new_with_dynamics}",
-      "Updated Loser Mean (μ): {mu_loser_new_with_dynamics}",
-      "Updated Loser Std Dev (σ): {sigma_loser_new_with_dynamics}"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sigma_loser_new_with_dynamics",
-    "unit": "skill units"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "İstatistik & Olasılık",

@@ -23,14 +23,16 @@
         "tr": "Beygir Gücü (HP)",
         "de": "Leistung (PS)",
         "fr": "Puissance (HP)",
-        "es": "Caballos de fuerza (HP)"
+        "es": "Caballos de fuerza (HP)",
+        "ar": "القدرة الحصانية (HP)"
       },
       "businessContext_i18n": {
         "en": "Mechanical power rating of motor or engine. Typical range for industrial motors: 0.5–5000 hp.",
         "tr": "Motor veya makinenin mekanik güç değeri. Endüstriyel motorlar için tipik aralık: 0,5–5000 hp.",
         "de": "Mechanische Nennleistung des Motors oder Antriebs. Typischer Bereich für Industriemotoren: 0,5–5000 PS.",
         "fr": "Puissance mécanique nominale du moteur. Plage typique pour les moteurs industriels : 0,5–5000 hp.",
-        "es": "Clasificación de potencia mecánica del motor o máquina. Rango típico para motores industriales: 0.5–5000 hp."
+        "es": "Clasificación de potencia mecánica del motor o máquina. Rango típico para motores industriales: 0.5–5000 hp.",
+        "ar": "تصنيف القدرة الميكانيكية للمحرك. النطاق النموذجي للمحركات الصناعية: 0.5–5000 حصان."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Beygir Gücü Türü",
         "de": "PS-Typ",
         "fr": "Type de puissance",
-        "es": "Tipo de caballo de fuerza"
+        "es": "Tipo de caballo de fuerza",
+        "ar": "نوع القدرة الحصانية"
       },
       "businessContext_i18n": {
         "en": "Different horsepower definitions affect conversion factor. Mechanical HP = 745.7 W, Metric HP = 735.5 W, Electrical HP = 746 W.",
         "tr": "Farklı beygir gücü tanımları dönüşüm faktörünü etkiler. Mekanik HP = 745,7 W, Metrik HP = 735,5 W, Elektrik HP = 746 W.",
         "de": "Verschiedene PS-Definitionen beeinflussen den Umrechnungsfaktor. Mechanische PS = 745,7 W, metrische PS = 735,5 W, elektrische PS = 746 W.",
         "fr": "Différentes définitions de la puissance affectent le facteur de conversion. Puissance mécanique = 745,7 W, Puissance métrique = 735,5 W, Puissance électrique = 746 W.",
-        "es": "Diferentes definiciones de caballo de fuerza afectan el factor de conversión. HP mecánico = 745.7 W, HP métrico = 735.5 W, HP eléctrico = 746 W."
+        "es": "Diferentes definiciones de caballo de fuerza afectan el factor de conversión. HP mecánico = 745.7 W, HP métrico = 735.5 W, HP eléctrico = 746 W.",
+        "ar": "تؤثر تعريفات القدرة الحصانية المختلفة على عامل التحويل. القدرة الحصانية الميكانيكية = 745.7 واط، القدرة الحصانية المترية = 735.5 واط، القدرة الحصانية الكهربائية = 746 واط."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Motor verimliliği",
         "de": "Motorwirkungsgrad",
         "fr": "Rendement du moteur",
-        "es": "Eficiencia del motor"
+        "es": "Eficiencia del motor",
+        "ar": "كفاءة المحرك"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the motor at rated load. Typical IE3 motors: 90–95%, IE4: 95–97%.",
         "tr": "Motorun nominal yükteki verimliliği. Tipik IE3 motorlar: %90–95, IE4: %95–97.",
         "de": "Wirkungsgrad des Motors bei Nennlast. Typische IE3-Motoren: 90–95 %, IE4: 95–97 %.",
         "fr": "Rendement du moteur à charge nominale. Moteurs IE3 typiques : 90–95 %, IE4 : 95–97 %.",
-        "es": "Eficiencia del motor a carga nominal. Motores IE3 típicos: 90–95%, IE4: 95–97%."
+        "es": "Eficiencia del motor a carga nominal. Motores IE3 típicos: 90–95%, IE4: 95–97%.",
+        "ar": "كفاءة المحرك عند الحمل المقنن. محركات IE3 النموذجية: 90–95%، IE4: 95–97%."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Yük Faktörü",
         "de": "Lastfaktor",
         "fr": "Facteur de charge",
-        "es": "Factor de carga"
+        "es": "Factor de carga",
+        "ar": "عامل الحمولة"
       },
       "businessContext_i18n": {
         "en": "Percentage of rated load at which the motor operates. Underloaded motors reduce efficiency.",
         "tr": "Motorun çalıştığı nominal yük yüzdesi. Düşük yükte çalışan motorlar verimliliği azaltır.",
         "de": "Prozentsatz der Nennlast, mit der der Motor arbeitet. Unterlastete Motoren verringern den Wirkungsgrad.",
         "fr": "Pourcentage de la charge nominale auquel le moteur fonctionne. Les moteurs sous-chargés réduisent le rendement.",
-        "es": "Porcentaje de carga nominal al que opera el motor. Motores subcargados reducen la eficiencia."
+        "es": "Porcentaje de carga nominal al que opera el motor. Motores subcargados reducen la eficiencia.",
+        "ar": "النسبة المئوية للحمل المقنن الذي يعمل به المحرك. المحركات ذات التحميل المنخفض تقلل الكفاءة."
       }
     },
     {
@@ -123,14 +131,16 @@
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
-        "es": "Factor de potencia"
+        "es": "Factor de potencia",
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Ratio of real power to apparent power. Typical industrial motors: 0.8–0.95 lagging.",
         "tr": "Gerçek gücün görünür güce oranı. Tipik endüstriyel motorlar: 0,8–0,95 geri.",
         "de": "Verhältnis von Wirkleistung zu Scheinleistung. Typische Industriemotoren: 0,8–0,95 nacheilend.",
         "fr": "Rapport de la puissance réelle à la puissance apparente. Moteurs industriels typiques : 0,8–0,95 en retard.",
-        "es": "Relación entre potencia real y aparente. Motores industriales típicos: 0.8–0.95 en retraso."
+        "es": "Relación entre potencia real y aparente. Motores industriales típicos: 0.8–0.95 en retraso.",
+        "ar": "نسبة القدرة الفعلية إلى القدرة الظاهرية. المحركات الصناعية النموذجية: 0.8–0.95 متأخر."
       }
     },
     {
@@ -147,14 +157,16 @@
         "tr": "Yıllık Çalışma Saati",
         "de": "Betriebsstunden pro Jahr",
         "fr": "Heures de fonctionnement par an",
-        "es": "Horas de operación por año"
+        "es": "Horas de operación por año",
+        "ar": "ساعات التشغيل سنويًا"
       },
       "businessContext_i18n": {
         "en": "Annual runtime for energy cost calculations. Common values: 2000 (single shift), 4000 (two shifts), 8000 (continuous).",
         "tr": "Enerji maliyeti hesaplamaları için yıllık çalışma süresi. Yaygın değerler: 2000 (tek vardiya), 4000 (iki vardiya), 8000 (sürekli).",
         "de": "Jährliche Betriebszeit für Energiekostenberechnungen. Übliche Werte: 2000 (Einschichtbetrieb), 4000 (Zweischichtbetrieb), 8000 (Dauerbetrieb).",
         "fr": "Temps de fonctionnement annuel pour les calculs de coût énergétique. Valeurs courantes : 2000 (un quart), 4000 (deux quarts), 8000 (continu).",
-        "es": "Tiempo de funcionamiento anual para cálculos de coste energético. Valores comunes: 2000 (turno único), 4000 (dos turnos), 8000 (continuo)."
+        "es": "Tiempo de funcionamiento anual para cálculos de coste energético. Valores comunes: 2000 (turno único), 4000 (dos turnos), 8000 (continuo).",
+        "ar": "وقت التشغيل السنوي لحسابات تكلفة الطاقة. القيم الشائعة: 2000 (وردية واحدة)، 4000 (ورديتان)، 8000 (مستمر)."
       }
     },
     {
@@ -172,14 +184,16 @@
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
-        "es": "Coste de electricidad"
+        "es": "Coste de electricidad",
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Average industrial electricity rate. Range: $0.05–$0.30 in most regions.",
         "tr": "Ortalama endüstriyel elektrik tarifesi. Çoğu bölgede aralık: $0,05–$0,30.",
         "de": "Durchschnittlicher Industriestrompreis. Bereich: 0,05–0,30 $ in den meisten Regionen.",
         "fr": "Tarif moyen de l'électricité industrielle. Plage : 0,05–0,30 $ dans la plupart des régions.",
-        "es": "Tarifa eléctrica industrial promedio. Rango: $0.05–$0.30 en la mayoría de regiones."
+        "es": "Tarifa eléctrica industrial promedio. Rango: $0.05–$0.30 en la mayoría de regiones.",
+        "ar": "متوسط سعر الكهرباء الصناعي. النطاق: 0.05–0.30 دولار في معظم المناطق."
       }
     }
   ],
@@ -226,18 +240,26 @@
     ]
   },
   "formulas": {
-    "result": "horsepower + hp_type + motor_efficiency",
-    "result_copy": "horsepower + hp_type + motor_efficiency"
+    "annual_kwh": "1 * horsepower * operating_hours_per_year * (motor_efficiency / 100)",
+    "annual_energy_cost": "1 * horsepower * operating_hours_per_year * (motor_efficiency / 100) * electricity_cost_per_kwh",
+    "result": "1 * horsepower * operating_hours_per_year * (motor_efficiency / 100) * electricity_cost_per_kwh"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_kwh",
+      "annual_energy_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Off-shift idle load",
+      "Leak or standby losses"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Meter validate kWh per shift",
+      "Prioritize top leak sources"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "hp"
+    "unit": "USD"
   },
   "toolName": "hp-to-kw-converter-calculator",
   "catalogCategory": "energy-carbon",

@@ -14,14 +14,15 @@
         "de": "Sollwert (SP)",
         "fr": "Consigne (SP)",
         "es": "Punto de Consigna (SP)",
-        "ar": "Setpoint (SP)"
+        "ar": "نقطة الضبط (SP)"
       },
       "businessContext_i18n": {
         "en": "Desired process value",
         "tr": "İstenen proses değeri",
         "de": "Gewünschter Prozesswert",
         "fr": "Valeur de consigne souhaitée",
-        "es": "Valor deseado del proceso"
+        "es": "Valor deseado del proceso",
+        "ar": "قيمة العملية المطلوبة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Prozessgröße (PV)",
         "fr": "Variable de procédé (PV)",
         "es": "Variable de Proceso (PV)",
-        "ar": "Process Variable (PV)"
+        "ar": "متغير العملية (PV)"
       },
       "businessContext_i18n": {
         "en": "Measured process value",
         "tr": "Ölçülen proses değeri",
         "de": "Gemessener Prozesswert",
         "fr": "Valeur mesurée du procédé",
-        "es": "Valor medido del proceso"
+        "es": "Valor medido del proceso",
+        "ar": "قيمة العملية المقاسة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Proportionalverstärkung (Kp)",
         "fr": "Gain proportionnel (Kp)",
         "es": "Ganancia Proporcional (Kp)",
-        "ar": "Proportional Gain (Kp)"
+        "ar": "الكسب التناسبي (Kp)"
       },
       "businessContext_i18n": {
         "en": "Proportional controller gain",
         "tr": "Oransal kontrolör kazancı",
         "de": "Verstärkung des Proportionalreglers",
         "fr": "Gain du contrôleur proportionnel",
-        "es": "Ganancia del controlador proporcional"
+        "es": "Ganancia del controlador proporcional",
+        "ar": "كسب المتحكم التناسبي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Integralzeit (Ti)",
         "fr": "Temps intégral (Ti)",
         "es": "Tiempo Integral (Ti)",
-        "ar": "Integral Time (Ti)"
+        "ar": "زمن التكامل (Ti)"
       },
       "businessContext_i18n": {
         "en": "Integral time constant",
         "tr": "İntegral zaman sabiti",
         "de": "Integralzeitkonstante",
         "fr": "Constante de temps intégrale",
-        "es": "Constante de tiempo integral"
+        "es": "Constante de tiempo integral",
+        "ar": "ثابت زمن التكامل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Differenzialzeit (Td)",
         "fr": "Temps dérivé (Td)",
         "es": "Tiempo Derivativo (Td)",
-        "ar": "Derivative Time (Td)"
+        "ar": "زمن الاشتقاق (Td)"
       },
       "businessContext_i18n": {
         "en": "Derivative time constant",
         "tr": "Türev zaman sabiti",
         "de": "Differenzialzeitkonstante",
         "fr": "Constante de temps dérivée",
-        "es": "Constante de tiempo derivativo"
+        "es": "Constante de tiempo derivativo",
+        "ar": "ثابت زمن الاشتقاق"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Abtastzeit (Ts)",
         "fr": "Temps d'échantillonnage (Ts)",
         "es": "Tiempo de muestreo (Ts)",
-        "ar": "Sample Time (Ts)"
+        "ar": "زمن العينة (Ts)"
       },
       "businessContext_i18n": {
         "en": "Controller sample interval",
         "tr": "Kontrolör örnekleme aralığı",
         "de": "Abtastintervall des Reglers",
         "fr": "Intervalle d'échantillonnage du contrôleur",
-        "es": "Intervalo de muestreo del controlador"
+        "es": "Intervalo de muestreo del controlador",
+        "ar": "فاصل أخذ العينات للمتحكم"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Vorheriger Fehler (e_prev)",
         "fr": "Erreur précédente (e_prev)",
         "es": "Error anterior (e_prev)",
-        "ar": "Previous Error (e_prev)"
+        "ar": "الخطأ السابق (e_prev)"
       },
       "businessContext_i18n": {
         "en": "Error from previous sample",
         "tr": "Bir önceki örnekten hata",
         "de": "Fehler aus vorheriger Abtastung",
         "fr": "Erreur de l'échantillon précédent",
-        "es": "Error de la muestra anterior"
+        "es": "Error de la muestra anterior",
+        "ar": "الخطأ من العينة السابقة"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Integralsumme (sum_e)",
         "fr": "Somme intégrale (sum_e)",
         "es": "Suma integral (sum_e)",
-        "ar": "Integral Sum (sum_e)"
+        "ar": "مجموع التكامل (sum_e)"
       },
       "businessContext_i18n": {
         "en": "Accumulated integral error",
         "tr": "Birikmiş integral hatası",
         "de": "Aufsummierter Integralfehler",
         "fr": "Erreur intégrale accumulée",
-        "es": "Error integral acumulado"
+        "es": "Error integral acumulado",
+        "ar": "الخطأ التكاملي المتراكم"
       }
     }
   ],

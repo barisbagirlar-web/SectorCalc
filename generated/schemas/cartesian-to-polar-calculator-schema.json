@@ -14,14 +14,15 @@
         "de": "X-Koordinate des Punkts",
         "fr": "Coordonnée X du point",
         "es": "Coordenada X del punto",
-        "ar": "Point X-coordinate"
+        "ar": "إحداثي X للنقطة"
       },
       "businessContext_i18n": {
         "en": "X coordinate of the point to convert",
         "tr": "Dönüştürülecek noktanın X koordinatı",
         "de": "X-Koordinate des umzurechnenden Punkts",
         "fr": "Coordonnée X du point à convertir",
-        "es": "Coordenada X del punto a convertir"
+        "es": "Coordenada X del punto a convertir",
+        "ar": "إحداثي X للنقطة المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Y-Koordinate des Punkts",
         "fr": "Coordonnée Y du point",
         "es": "Coordenada Y del punto",
-        "ar": "Point Y-coordinate"
+        "ar": "إحداثي Y للنقطة"
       },
       "businessContext_i18n": {
         "en": "Y coordinate of the point to convert",
         "tr": "Dönüştürülecek noktanın Y koordinatı",
         "de": "Y-Koordinate des umzurechnenden Punkts",
         "fr": "Coordonnée Y du point à convertir",
-        "es": "Coordenada Y del punto a convertir"
+        "es": "Coordenada Y del punto a convertir",
+        "ar": "إحداثي Y للنقطة المراد تحويلها"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ursprungs-X-Koordinate",
         "fr": "Coordonnée X de l'origine",
         "es": "Coordenada X del origen",
-        "ar": "Origin X-coordinate"
+        "ar": "إحداثي X للأصل"
       },
       "businessContext_i18n": {
         "en": "X coordinate of the polar origin",
         "tr": "Kutupsal başlangıcın X koordinatı",
         "de": "X-Koordinate des Pol-Ursprungs",
         "fr": "Coordonnée X de l'origine polaire",
-        "es": "Coordenada X del origen polar"
+        "es": "Coordenada X del origen polar",
+        "ar": "إحداثي X لأصل الإحداثيات القطبية"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Ursprungs-Y-Koordinate",
         "fr": "Coordonnée Y de l'origine",
         "es": "Coordenada Y del origen",
-        "ar": "Origin Y-coordinate"
+        "ar": "إحداثي Y للأصل"
       },
       "businessContext_i18n": {
         "en": "Y coordinate of the polar origin",
         "tr": "Kutupsal başlangıcın Y koordinatı",
         "de": "Y-Koordinate des Pol-Ursprungs",
         "fr": "Coordonnée Y de l'origine polaire",
-        "es": "Coordenada Y del origen polar"
+        "es": "Coordenada Y del origen polar",
+        "ar": "إحداثي Y لأصل الإحداثيات القطبية"
       }
     }
   ],
   "formulas": {
-    "result": "pointX + pointY + originX",
-    "result_copy": "pointX + pointY + originX"
+    "normalized_product": "pointX * pointY * originX * originY",
+    "result": "pointX * pointY * originX * originY"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "theta_rad",
-      "theta_deg"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "theta_deg",
-    "unit": "—",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "theta_deg": "°"
     }

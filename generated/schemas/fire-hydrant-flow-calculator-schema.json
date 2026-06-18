@@ -25,14 +25,16 @@
         "tr": "Statik basınç",
         "de": "Statischer Druck",
         "fr": "Pression statique",
-        "es": "Presión estática"
+        "es": "Presión estática",
+        "ar": "الضغط الساكن"
       },
       "businessContext_i18n": {
         "en": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291.",
         "tr": "Hidrant çıkışında akış yokken ölçülür. NFPA 291'e göre mevcut sistem basıncını belirlemek için kullanılır.",
         "de": "Gemessen am Hydrantenauslass ohne Durchfluss. Wird verwendet, um den verfügbaren Systemdruck gemäß NFPA 291 zu bestimmen.",
         "fr": "Mesurée à la sortie de la bouche d'incendie sans débit. Utilisée pour déterminer la pression disponible du système selon la NFPA 291.",
-        "es": "Medido en la salida del hidrante sin flujo. Se utiliza para determinar la presión disponible del sistema según NFPA 291."
+        "es": "Medido en la salida del hidrante sin flujo. Se utiliza para determinar la presión disponible del sistema según NFPA 291.",
+        "ar": "يقاس عند مخرج الحنفية بدون تدفق. يستخدم لتحديد ضغط النظام المتاح وفقًا لـ NFPA 291."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Artık Basınç",
         "de": "Restdruck",
         "fr": "Pression résiduelle",
-        "es": "Presión residual"
+        "es": "Presión residual",
+        "ar": "الضغط المتبقي"
       },
       "businessContext_i18n": {
         "en": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand.",
         "tr": "Hidrant test debisinde akarken ölçülen basınç. Talep altında sistem kapasitesini gösterir.",
         "de": "Druck, der am Hydranten gemessen wird, während er mit der Testdurchflussrate fließt. Zeigt die Systemkapazität unter Last an.",
         "fr": "Pression mesurée pendant que la bouche d'incendie débite au débit d'essai. Indique la capacité du système en situation de demande.",
-        "es": "Presión medida mientras el hidrante fluye a la tasa de prueba. Indica la capacidad del sistema bajo demanda."
+        "es": "Presión medida mientras el hidrante fluye a la tasa de prueba. Indica la capacidad del sistema bajo demanda.",
+        "ar": "الضغط المقاس أثناء تدفق الحنفية بمعدل الاختبار. يشير إلى سعة النظام تحت الطلب."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Test Debisi",
         "de": "Testdurchflussrate",
         "fr": "Débit d'essai",
-        "es": "Caudal de prueba"
+        "es": "Caudal de prueba",
+        "ar": "معدل تدفق الاختبار"
       },
       "businessContext_i18n": {
         "en": "Flow rate measured during hydrant flow test using pitot gauge or flow meter.",
         "tr": "Hidrant akış testi sırasında pitot göstergesi veya debimetre kullanılarak ölçülen debi.",
         "de": "Durchflussrate, die während des Hydranten-Durchflusstests mit einem Pitot-Rohr oder Durchflussmesser gemessen wird.",
         "fr": "Débit mesuré lors de l'essai de débit de la bouche d'incendie à l'aide d'un tube de Pitot ou d'un débitmètre.",
-        "es": "Caudal medido durante la prueba de flujo del hidrante usando un tubo de pitot o caudalímetro."
+        "es": "Caudal medido durante la prueba de flujo del hidrante usando un tubo de pitot o caudalímetro.",
+        "ar": "معدل التدفق المقاس أثناء اختبار تدفق الحنفية باستخدام مقياس بيتوت أو مقياس التدفق."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Besleme Borusu Çapı",
         "de": "Versorgungsrohrdurchmesser",
         "fr": "Diamètre de la conduite d'alimentation",
-        "es": "Diámetro de la tubería de suministro"
+        "es": "Diámetro de la tubería de suministro",
+        "ar": "قطر أنبوب الإمداد"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss.",
         "tr": "Hidrantı besleyen ana besleme borusunun nominal çapı. Sürtünme kaybını etkiler.",
         "de": "Nenndurchmesser des Hauptversorgungsrohrs, das den Hydranten speist. Beeinflusst den Reibungsverlust.",
         "fr": "Diamètre nominal de la conduite principale alimentant la bouche d'incendie. Affecte la perte de charge.",
-        "es": "Diámetro nominal de la tubería principal que alimenta al hidrante. Afecta la pérdida por fricción."
+        "es": "Diámetro nominal de la tubería principal que alimenta al hidrante. Afecta la pérdida por fricción.",
+        "ar": "القطر الاسمي لأنبوب الإمداد الرئيسي الذي يغذي الحنفية. يؤثر على فقد الاحتكاك."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Besleme Borusu Uzunluğu",
         "de": "Versorgungsrohrlänge",
         "fr": "Longueur de la conduite d'alimentation",
-        "es": "Longitud de la tubería de suministro"
+        "es": "Longitud de la tubería de suministro",
+        "ar": "طول أنبوب الإمداد"
       },
       "businessContext_i18n": {
         "en": "Distance from water main to hydrant. Used in friction loss calculations.",
         "tr": "Su kaynağından hidrant mesafesi. Sürtünme kaybı hesaplamalarında kullanılır.",
         "de": "Entfernung von der Wasserhauptleitung zum Hydranten. Wird für Reibungsverlustberechnungen verwendet.",
         "fr": "Distance entre la conduite d'eau et le bouche d'incendie. Utilisée dans les calculs de perte de charge.",
-        "es": "Distancia desde la red de agua hasta el hidrante. Se utiliza en cálculos de pérdida por fricción."
+        "es": "Distancia desde la red de agua hasta el hidrante. Se utiliza en cálculos de pérdida por fricción.",
+        "ar": "المسافة من خط المياه الرئيسي إلى الحنفية. تستخدم في حسابات فقد الاحتكاك."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Hazen-Williams C Faktörü",
         "de": "Hazen-Williams C-Faktor",
         "fr": "Coefficient C de Hazen-Williams",
-        "es": "Factor C de Hazen-Williams"
+        "es": "Factor C de Hazen-Williams",
+        "ar": "معامل هازن-ويليامز C"
       },
       "businessContext_i18n": {
         "en": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13.",
         "tr": "Boru pürüzlülük katsayısı. Yeni çelik için 140, eski dökme demir için 100. ISO 10803 ve NFPA 13'e göre.",
         "de": "Rohrrauigkeitskoeffizient. 140 für neuen Stahl, 100 für alten Gusseisen. Gemäß ISO 10803 und NFPA 13.",
         "fr": "Coefficient de rugosité de la conduite. 140 pour l'acier neuf, 100 pour la fonte ancienne. Selon ISO 10803 et NFPA 13.",
-        "es": "Coeficiente de rugosidad de la tubería. 140 para acero nuevo, 100 para hierro fundido viejo. Según ISO 10803 y NFPA 13."
+        "es": "Coeficiente de rugosidad de la tubería. 140 para acero nuevo, 100 para hierro fundido viejo. Según ISO 10803 y NFPA 13.",
+        "ar": "معامل خشونة الأنبوب. 140 للصلب الجديد، 100 للحديد الزهر القديم. وفقًا لـ ISO 10803 و NFPA 13."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Yükseklik Farkı",
         "de": "Höhenunterschied",
         "fr": "Différence d'altitude",
-        "es": "Diferencia de elevación"
+        "es": "Diferencia de elevación",
+        "ar": "فرق الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Height difference between water source and hydrant. Positive if hydrant is above source.",
         "tr": "Su kaynağı ile hidrant arasındaki yükseklik farkı. Hidrant kaynaktan yüksekte ise pozitif.",
         "de": "Höhendifferenz zwischen Wasserquelle und Hydrant. Positiv, wenn der Hydrant oberhalb der Quelle liegt.",
         "fr": "Différence de hauteur entre la source d'eau et le bouche d'incendie. Positive si le bouche est au-dessus de la source.",
-        "es": "Diferencia de altura entre la fuente de agua y el hidrante. Positivo si el hidrante está por encima de la fuente."
+        "es": "Diferencia de altura entre la fuente de agua y el hidrante. Positivo si el hidrante está por encima de la fuente.",
+        "ar": "فرق الارتفاع بين مصدر المياه والحنفية. موجب إذا كانت الحنفية أعلى من المصدر."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Testteki Hidrant Sayısı",
         "de": "Anzahl der Hydranten im Test",
         "fr": "Nombre de bouches d'incendie en essai",
-        "es": "Número de hidrantes en prueba"
+        "es": "Número de hidrantes en prueba",
+        "ar": "عدد الحنفيات في الاختبار"
       },
       "businessContext_i18n": {
         "en": "Number of hydrants flowing simultaneously during test. Affects total demand.",
         "tr": "Test sırasında aynı anda akan hidrant sayısı. Toplam talebi etkiler.",
         "de": "Anzahl der gleichzeitig während des Tests fließenden Hydranten. Beeinflusst den Gesamtbedarf.",
         "fr": "Nombre de bouches d'incendie coulant simultanément pendant l'essai. Affecte la demande totale.",
-        "es": "Número de hidrantes fluyendo simultáneamente durante la prueba. Afecta la demanda total."
+        "es": "Número de hidrantes fluyendo simultáneamente durante la prueba. Afecta la demanda total.",
+        "ar": "عدد الحنفيات المتدفقة في وقت واحد أثناء الاختبار. يؤثر على إجمالي الطلب."
       }
     }
   ],
@@ -260,18 +276,26 @@
     ]
   },
   "formulas": {
-    "result": "static_pressure + residual_pressure + flow_rate_test",
-    "result_copy": "static_pressure + residual_pressure + flow_rate_test"
+    "normalized_product": "static_pressure * residual_pressure * (flow_rate_test / 100) * pipe_diameter",
+    "result": "static_pressure * residual_pressure * (flow_rate_test / 100) * pipe_diameter * (pipe_length * hazen_williams_coefficient * elevation_difference * number_of_hydrants)",
+    "adjustment_factor": "pipe_length * hazen_williams_coefficient * elevation_difference * number_of_hydrants"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "psi"
+    "unit": "USD"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

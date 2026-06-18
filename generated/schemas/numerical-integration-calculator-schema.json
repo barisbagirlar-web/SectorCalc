@@ -14,14 +14,15 @@
         "de": "Untere Grenze",
         "fr": "Limite inférieure",
         "es": "Límite inferior",
-        "ar": "Lower Limit"
+        "ar": "الحد الأدنى"
       },
       "businessContext_i18n": {
         "en": "Lower bound of integration",
         "tr": "İntegralin alt sınırı",
         "de": "Untere Integrationsgrenze",
         "fr": "Borne inférieure d'intégration",
-        "es": "Límite inferior de integración"
+        "es": "Límite inferior de integración",
+        "ar": "الحد الأدنى للتكامل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Obere Grenze",
         "fr": "Limite supérieure",
         "es": "Límite superior",
-        "ar": "Upper Limit"
+        "ar": "الحد الأعلى"
       },
       "businessContext_i18n": {
         "en": "Upper bound of integration",
         "tr": "İntegralin üst sınırı",
         "de": "Obere Integrationsgrenze",
         "fr": "Borne supérieure d'intégration",
-        "es": "Límite superior de integración"
+        "es": "Límite superior de integración",
+        "ar": "الحد الأعلى للتكامل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Intervalle",
         "fr": "Nombre d'intervalles",
         "es": "Número de intervalos",
-        "ar": "Number of Intervals"
+        "ar": "عدد الفترات"
       },
       "businessContext_i18n": {
         "en": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)",
         "tr": "Alt aralık sayısı (Simpson kuralı için en yakın çift sayıya yuvarlanır)",
         "de": "Anzahl der Teilintervalle (wird für die Simpson-Regel auf die nächste gerade Zahl gerundet)",
         "fr": "Nombre de sous-intervalles (sera arrondi au nombre pair le plus proche pour la règle de Simpson)",
-        "es": "Número de subintervalos (se redondeará al número par más cercano para la regla de Simpson)"
+        "es": "Número de subintervalos (se redondeará al número par más cercano para la regla de Simpson)",
+        "ar": "عدد الفترات الفرعية (سيتم تقريبه إلى أقرب عدد زوجي لقاعدة سيمبسون)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Koeffizient a (quadratisch)",
         "fr": "Coefficient a (quadratique)",
         "es": "Coeficiente a (cuadrático)",
-        "ar": "Coefficient a (quadratic)"
+        "ar": "المعامل a (تربيعي)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for x² term in f(x) = a·x² + b·x + c",
         "tr": "f(x) = a·x² + b·x + c'deki x² teriminin katsayısı",
         "de": "Koeffizient für x²-Term in f(x) = a·x² + b·x + c",
         "fr": "Coefficient du terme x² dans f(x) = a·x² + b·x + c",
-        "es": "Coeficiente para el término x² en f(x) = a·x² + b·x + c"
+        "es": "Coeficiente para el término x² en f(x) = a·x² + b·x + c",
+        "ar": "معامل x² في الدالة f(x) = a·x² + b·x + c"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Koeffizient b (linear)",
         "fr": "Coefficient b (linéaire)",
         "es": "Coeficiente b (lineal)",
-        "ar": "Coefficient b (linear)"
+        "ar": "المعامل b (خطي)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for x term in f(x) = a·x² + b·x + c",
         "tr": "f(x) = a·x² + b·x + c'deki x teriminin katsayısı",
         "de": "Koeffizient für x-Term in f(x) = a·x² + b·x + c",
         "fr": "Coefficient du terme x dans f(x) = a·x² + b·x + c",
-        "es": "Coeficiente para el término x en f(x) = a·x² + b·x + c"
+        "es": "Coeficiente para el término x en f(x) = a·x² + b·x + c",
+        "ar": "معامل x في الدالة f(x) = a·x² + b·x + c"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Koeffizient c (konstant)",
         "fr": "Coefficient c (constante)",
         "es": "Coeficiente c (constante)",
-        "ar": "Coefficient c (constant)"
+        "ar": "المعامل c (ثابت)"
       },
       "businessContext_i18n": {
         "en": "Constant term in f(x) = a·x² + b·x + c",
         "tr": "f(x) = a·x² + b·x + c'deki sabit terim",
         "de": "Konstanter Term in f(x) = a·x² + b·x + c",
         "fr": "Terme constant dans f(x) = a·x² + b·x + c",
-        "es": "Término constante en f(x) = a·x² + b·x + c"
+        "es": "Término constante en f(x) = a·x² + b·x + c",
+        "ar": "الحد الثابت في الدالة f(x) = a·x² + b·x + c"
       }
     }
   ],
   "formulas": {
-    "result": "lowerLimit + upperLimit + numIntervals",
-    "result_copy": "lowerLimit + upperLimit + numIntervals"
+    "normalized_product": "lowerLimit * upperLimit * numIntervals * coeffA",
+    "result": "lowerLimit * upperLimit * numIntervals * coeffA * (coeffB * coeffC)",
+    "adjustment_factor": "coeffB * coeffC"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "trapezoidalIntegral",
-      "difference"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "difference",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

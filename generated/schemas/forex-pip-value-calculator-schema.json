@@ -14,14 +14,15 @@
         "de": "Handelsgröße (Lots)",
         "fr": "Taille de la transaction (lots)",
         "es": "Tamaño de la operación (lotes)",
-        "ar": "Trade Size (Lots)"
+        "ar": "حجم الصفقة (عقود)"
       },
       "businessContext_i18n": {
         "en": "Trade size in standard lots (1 lot = 100,000 units typically)",
         "tr": "Standart lot cinsinden işlem büyüklüğü (1 lot = genellikle 100.000 birim)",
         "de": "Handelsgröße in Standard-Lots (1 Lot = 100.000 Einheiten typischerweise)",
         "fr": "Taille de la transaction en lots standard (1 lot = 100 000 unités généralement)",
-        "es": "Tamaño de la operación en lotes estándar (1 lote = 100.000 unidades normalmente)"
+        "es": "Tamaño de la operación en lotes estándar (1 lote = 100.000 unidades normalmente)",
+        "ar": "حجم الصفقة بالعقود القياسية (1 عقد = 100,000 وحدة عادةً)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kontraktgröße (Einheiten pro Lot)",
         "fr": "Taille du contrat (unités par lot)",
         "es": "Tamaño del contrato (unidades por lote)",
-        "ar": "Contract Size (Units per Lot)"
+        "ar": "حجم العقد (وحدات لكل لوت)"
       },
       "businessContext_i18n": {
         "en": "Number of base currency units per standard lot",
         "tr": "Standart lot başına baz para birimi sayısı",
         "de": "Anzahl der Basiswährungseinheiten pro Standard-Lot",
         "fr": "Nombre d'unités de devise de base par lot standard",
-        "es": "Número de unidades de la moneda base por lote estándar"
+        "es": "Número de unidades de la moneda base por lote estándar",
+        "ar": "عدد وحدات العملة الأساسية لكل لوت قياسي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Pip-Größe (Kurswährung)",
         "fr": "Taille du pip (devise de cotation)",
         "es": "Tamaño del pip (moneda de cotización)",
-        "ar": "Pip Size (Quote Currency)"
+        "ar": "حجم النقطة (عملة التسعير)"
       },
       "businessContext_i18n": {
         "en": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
         "tr": "Karşıt para biriminde pip tanımı (ör. çoğu parite için 0.0001, JPY pariteleri için 0.01)",
         "de": "Pip-Definition in Kurswährung (z. B. 0,0001 für die meisten Paare, 0,01 für JPY-Paare)",
         "fr": "Définition du pip dans la devise de cotation (ex. 0,0001 pour la plupart des paires, 0,01 pour les paires JPY)",
-        "es": "Definición del pip en la moneda de cotización (p. ej., 0.0001 para la mayoría de pares, 0.01 para pares JPY)"
+        "es": "Definición del pip en la moneda de cotización (p. ej., 0.0001 para la mayoría de pares, 0.01 para pares JPY)",
+        "ar": "تعريف النقطة بعملة التسعير (مثل 0.0001 لمعظم الأزواج، 0.01 لأزواج الين)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kurs Kurswährung zu Kontowährung",
         "fr": "Taux de change devise de cotation vers devise du compte",
         "es": "Tipo de cambio de la moneda de cotización a la moneda de la cuenta",
-        "ar": "Quote to Account Currency Rate"
+        "ar": "سعر صرف عملة التسعير إلى عملة الحساب"
       },
       "businessContext_i18n": {
         "en": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)",
         "tr": "Karşıt para biriminden hesap para birimine döviz kuru (1 birim karşıt para birimi başına hesap para birimi miktarı)",
         "de": "Wechselkurs von Kurswährung zu Kontowährung (Betrag der Kontowährung pro 1 Einheit Kurswährung)",
         "fr": "Taux de change de la devise de cotation vers la devise du compte (montant de devise du compte pour 1 unité de devise de cotation)",
-        "es": "Tipo de cambio de la moneda de cotización a la moneda de la cuenta (cantidad de moneda de la cuenta por 1 unidad de moneda de cotización)"
+        "es": "Tipo de cambio de la moneda de cotización a la moneda de la cuenta (cantidad de moneda de la cuenta por 1 unidad de moneda de cotización)",
+        "ar": "سعر الصرف من عملة التسعير إلى عملة الحساب (مقدار عملة الحساب لكل وحدة واحدة من عملة التسعير)"
       }
     }
   ],

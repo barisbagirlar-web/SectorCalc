@@ -25,14 +25,16 @@
         "tr": "Bütçe Tamamlanma",
         "de": "Budget bei Fertigstellung",
         "fr": "Budget à l'achèvement",
-        "es": "Presupuesto al Finalizar"
+        "es": "Presupuesto al Finalizar",
+        "ar": "الميزانية عند الإنجاز"
       },
       "businessContext_i18n": {
         "en": "Total authorized budget for the work scope (PMBOK).",
         "tr": "İş kapsamı için toplam yetkilendirilmiş bütçe (PMBOK).",
         "de": "Gesamtes genehmigtes Budget für den Arbeitsumfang (PMBOK).",
         "fr": "Budget total autorisé pour le périmètre des travaux (PMBOK).",
-        "es": "Presupuesto total autorizado para el alcance del trabajo (PMBOK)."
+        "es": "Presupuesto total autorizado para el alcance del trabajo (PMBOK).",
+        "ar": "إجمالي الميزانية المعتمدة لنطاق العمل (PMBOK)."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Kazanılan Değer",
         "de": "Ertragswert",
         "fr": "Valeur acquise",
-        "es": "Valor Ganado"
+        "es": "Valor Ganado",
+        "ar": "القيمة المكتسبة"
       },
       "businessContext_i18n": {
         "en": "Value of work actually performed, measured in budgeted cost.",
         "tr": "Gerçekleştirilen işin bütçelenmiş maliyet cinsinden değeri.",
         "de": "Wert der tatsächlich geleisteten Arbeit, gemessen in budgetierten Kosten.",
         "fr": "Valeur des travaux réellement effectués, mesurée en coût budgété.",
-        "es": "Valor del trabajo realmente realizado, medido en costo presupuestado."
+        "es": "Valor del trabajo realmente realizado, medido en costo presupuestado.",
+        "ar": "قيمة العمل المنفذ فعليًا، مقاسة بالتكلفة المدرجة في الميزانية."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Gerçek Maliyet",
         "de": "Tatsächliche Kosten",
         "fr": "Coût réel",
-        "es": "Costo Real"
+        "es": "Costo Real",
+        "ar": "التكلفة الفعلية"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred for the work performed.",
         "tr": "Gerçekleştirilen iş için oluşan toplam maliyet.",
         "de": "Gesamtkosten für die durchgeführte Arbeit.",
         "fr": "Coût total encouru pour les travaux effectués.",
-        "es": "Costo total incurrido por el trabajo realizado."
+        "es": "Costo total incurrido por el trabajo realizado.",
+        "ar": "إجمالي التكلفة المتكبدة للعمل المنفذ."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Planlanan Değer",
         "de": "Planwert",
         "fr": "Valeur planifiée",
-        "es": "Valor Planificado"
+        "es": "Valor Planificado",
+        "ar": "القيمة المخططة"
       },
       "businessContext_i18n": {
         "en": "Authorized budget for the work scheduled to be completed.",
         "tr": "Tamamlanması planlanan iş için yetkilendirilmiş bütçe.",
         "de": "Genehmigtes Budget für die planmäßig abzuschließende Arbeit.",
         "fr": "Budget autorisé pour les travaux planifiés à réaliser.",
-        "es": "Presupuesto autorizado para el trabajo programado a completar."
+        "es": "Presupuesto autorizado para el trabajo programado a completar.",
+        "ar": "الميزانية المعتمدة للعمل المقرر إنجازه."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Fiziksel Tamamlanma Yüzdesi",
         "de": "Fertigstellungsgrad (physisch)",
         "fr": "Pourcentage d'avancement (physique)",
-        "es": "Porcentaje de Avance (físico)"
+        "es": "Porcentaje de Avance (físico)",
+        "ar": "النسبة المئوية للإنجاز (المادي)"
       },
       "businessContext_i18n": {
         "en": "Objective physical progress estimate (e.g., via earned value rules).",
         "tr": "Nesnel fiziksel ilerleme tahmini (örn. kazanılan değer kuralları ile).",
         "de": "Objektiver physischer Fortschrittsschätzung (z. B. über Earned-Value-Regeln).",
         "fr": "Estimation objective de l'avancement physique (par ex., via les règles de la valeur acquise).",
-        "es": "Estimación objetiva del progreso físico (ej. mediante reglas de valor ganado)."
+        "es": "Estimación objetiva del progreso físico (ej. mediante reglas de valor ganado).",
+        "ar": "تقدير التقدم المادي الموضوعي (مثل قواعد القيمة المكتسبة)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Maliyet Performans Endeksi (geçersiz kılma)",
         "de": "Kostenleistungsindex (Überschreibung)",
         "fr": "Indice de performance des coûts (surcharge)",
-        "es": "Índice de Desempeño de Costos (anulación)"
+        "es": "Índice de Desempeño de Costos (anulación)",
+        "ar": "مؤشر أداء التكلفة (تجاوز)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated CPI. CPI = EV/AC.",
         "tr": "Sağlanırsa, hesaplanan MPI'yi geçersiz kılar. MPI = KD/BM.",
         "de": "Falls angegeben, überschreibt den berechneten CPI. CPI = EV/AC.",
         "fr": "Si fourni, remplace l'IPC calculé. IPC = EV/AC.",
-        "es": "Si se proporciona, anula el CPI calculado. CPI = EV/AC."
+        "es": "Si se proporciona, anula el CPI calculado. CPI = EV/AC.",
+        "ar": "إذا تم توفيره، فإنه يتجاوز مؤشر أداء التكلفة المحسوب. CPI = EV / AC."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Program Performans Endeksi (geçersiz kılma)",
         "de": "Terminplan-Leistungsindex (Überschreibung)",
         "fr": "Indice de performance du calendrier (surcharge)",
-        "es": "Índice de Desempeño del Cronograma (anulación)"
+        "es": "Índice de Desempeño del Cronograma (anulación)",
+        "ar": "مؤشر أداء الجدول الزمني (تجاوز)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated SPI. SPI = EV/PV.",
         "tr": "Sağlanırsa, hesaplanan PPE'yi geçersiz kılar. PPE = KD/PD.",
         "de": "Falls angegeben, überschreibt den berechneten SPI. SPI = EV/PV.",
         "fr": "Si fourni, remplace l'ISP calculé. ISP = EV/PV.",
-        "es": "Si se proporciona, anula el SPI calculado. SPI = EV/PV."
+        "es": "Si se proporciona, anula el SPI calculado. SPI = EV/PV.",
+        "ar": "إذا تم توفيره، فإنه يتجاوز مؤشر أداء الجدول الزمني المحسوب. SPI = EV / PV."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "TBM için ağırlıklı MPI/PPE kullan",
         "de": "Gewichteten CPI/SPI für EAC verwenden",
         "fr": "Utiliser IPC/ISP pondéré pour l'EAC",
-        "es": "Usar CPI/SPI ponderado para EAC"
+        "es": "Usar CPI/SPI ponderado para EAC",
+        "ar": "استخدام مؤشر أداء التكلفة/الجدول الزمني الموزون لتقدير التكلفة عند الإنجاز"
       },
       "businessContext_i18n": {
         "en": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
         "tr": "Doğruysa, TBM için 0.8*MPI + 0.2*PPE ağırlıklandırması uygular (endüstri uygulaması).",
         "de": "Wenn wahr, wendet 0,8*CPI + 0,2*SPI-Gewichtung für EAC an (Branchenpraxis).",
         "fr": "Si vrai, applique une pondération 0,8*IPC + 0,2*ISP pour l'EAC (pratique industrielle).",
-        "es": "Si es verdadero, aplica ponderación 0.8*CPI + 0.2*SPI para EAC (práctica industrial)."
+        "es": "Si es verdadero, aplica ponderación 0.8*CPI + 0.2*SPI para EAC (práctica industrial).",
+        "ar": "إذا كان صحيحًا، يطبق ترجيح 0.8*CPI + 0.2*SPI لتقدير التكلفة عند الإنجاز (ممارسة صناعية)."
       }
     }
   ],
@@ -262,18 +278,26 @@
     ]
   },
   "formulas": {
-    "result": "bac + ev + ac",
-    "result_copy": "bac + ev + ac"
+    "normalized_product": "bac * ev * ac * pv",
+    "result": "bac * ev * ac * pv * ((percentComplete / 100) * cpi * spi)",
+    "adjustment_factor": "(percentComplete / 100) * cpi * spi"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "currency"
+    "unit": "USD"
   },
   "toolName": "evm-cost-forecast-calculator",
   "catalogCategory": "everyday-life",

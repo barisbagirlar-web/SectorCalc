@@ -14,14 +14,15 @@
         "de": "Einzugsgebiet",
         "fr": "Zone de captage",
         "es": "Área de captación",
-        "ar": "Catchment Area"
+        "ar": "منطقة التجميع"
       },
       "businessContext_i18n": {
         "en": "Area of the catchment in hectares.",
         "tr": "Toplama alanının hektar cinsinden alanı.",
         "de": "Fläche des Einzugsgebiets in Hektar.",
         "fr": "Superficie du bassin versant en hectares.",
-        "es": "Área de la cuenca en hectáreas."
+        "es": "Área de la cuenca en hectáreas.",
+        "ar": "مساحة حوض التجميع بالهكتار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abflussbeiwert",
         "fr": "Coefficient de ruissellement",
         "es": "Coeficiente de escorrentía",
-        "ar": "Runoff Coefficient"
+        "ar": "معامل الجريان السطحي"
       },
       "businessContext_i18n": {
         "en": "Dimensionless runoff coefficient (0-1).",
         "tr": "Boyutsuz akış katsayısı (0-1).",
         "de": "Dimensionsloser Abflussbeiwert (0-1).",
         "fr": "Coefficient de ruissellement sans dimension (0-1).",
-        "es": "Coeficiente de escorrentía adimensional (0-1)."
+        "es": "Coeficiente de escorrentía adimensional (0-1).",
+        "ar": "معامل الجريان السطحي بدون أبعاد (0-1)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Breite der Dachfläche, die zum Fallrohr entwässert.",
         "fr": "Intensité des précipitations",
         "es": "Intensidad de lluvia",
-        "ar": "Rainfall Intensity"
+        "ar": "شدة هطول الأمطار"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity in mm per hour.",
         "tr": "Tasarım yağış şiddeti, mm/saat cinsinden.",
         "de": "Bemessungsregenintensität in mm pro Stunde.",
         "fr": "Intensité de pluie de projet en mm par heure.",
-        "es": "Intensidad de lluvia de diseño en mm por hora."
+        "es": "Intensidad de lluvia de diseño en mm por hora.",
+        "ar": "شدة هطول الأمطار التصميمية مم/ساعة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rohrdurchmesser",
         "fr": "Diamètre du tuyau",
         "es": "Diámetro de la tubería",
-        "ar": "Pipe Diameter"
+        "ar": "قطر الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the circular sewer pipe in meters.",
         "tr": "Dairesel kanalizasyon borusunun iç çapı, metre cinsinden.",
         "de": "Innendurchmesser des kreisförmigen Abwasserrohrs in Metern.",
         "fr": "Diamètre intérieur du tuyau d'égout circulaire en mètres.",
-        "es": "Diámetro interno de la tubería de alcantarillado circular en metros."
+        "es": "Diámetro interno de la tubería de alcantarillado circular en metros.",
+        "ar": "القطر الداخلي لأنبوب الصرف الصحي الدائري بالأمتار."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rohrgefälle",
         "fr": "Pente de la canalisation",
         "es": "Pendiente de la tubería",
-        "ar": "Pipe Slope"
+        "ar": "ميل الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Longitudinal slope of the pipe (rise/run).",
         "tr": "Boru boyuna eğimi (yükselti/uzunluk).",
         "de": "Längsgefälle des Rohrs (Steigung/Länge).",
         "fr": "Pente longitudinale du tuyau (montée/descente).",
-        "es": "Pendiente longitudinal de la tubería (elevación/distancia)."
+        "es": "Pendiente longitudinal de la tubería (elevación/distancia).",
+        "ar": "الانحدار الطولي للأنبوب (الارتفاع/المسافة)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Manning-Rauheit",
         "fr": "Rugosité de Manning",
         "es": "Rugosidad de Manning",
-        "ar": "Manning's Roughness"
+        "ar": "خشونة مانينغ"
       },
       "businessContext_i18n": {
         "en": "Manning's roughness coefficient for the pipe material.",
         "tr": "Boru malzemesi için Manning pürüzlülük katsayısı.",
         "de": "Manning-Rauheitsbeiwert für das Rohrmaterial.",
         "fr": "Coefficient de rugosité de Manning pour le matériau du tuyau.",
-        "es": "Coeficiente de rugosidad de Manning para el material de la tubería."
+        "es": "Coeficiente de rugosidad de Manning para el material de la tubería.",
+        "ar": "معامل خشونة مانينغ لمادة الأنبوب."
       }
     }
   ],

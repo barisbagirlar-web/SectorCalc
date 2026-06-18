@@ -25,14 +25,16 @@
         "tr": "Rota Mesafesi (km)",
         "de": "Routendistanz (km)",
         "fr": "Distance de route (km)",
-        "es": "Distancia de ruta (km)"
+        "es": "Distancia de ruta (km)",
+        "ar": "مسافة المسار (كم)"
       },
       "businessContext_i18n": {
         "en": "Total distance of the route from origin to destination.",
         "tr": "Rota mesafesi, başlangıç noktasından varış noktasına toplam mesafe.",
         "de": "Gesamtdistanz der Route vom Start zum Ziel.",
         "fr": "Distance totale du trajet de l'origine à la destination.",
-        "es": "Distancia total de la ruta desde el origen hasta el destino."
+        "es": "Distancia total de la ruta desde el origen hasta el destino.",
+        "ar": "المسافة الإجمالية للمسار من نقطة البداية إلى الوجهة."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Ortalama Hız (km/s)",
         "de": "Durchschnittsgeschwindigkeit (km/h)",
         "fr": "Vitesse moyenne (km/h)",
-        "es": "Velocidad media (km/h)"
+        "es": "Velocidad media (km/h)",
+        "ar": "متوسط السرعة (كم/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Expected average speed under normal conditions.",
         "tr": "Normal koşullar altında beklenen ortalama hız.",
         "de": "Erwartete Durchschnittsgeschwindigkeit unter normalen Bedingungen.",
         "fr": "Vitesse moyenne attendue dans des conditions normales.",
-        "es": "Velocidad media esperada en condiciones normales."
+        "es": "Velocidad media esperada en condiciones normales.",
+        "ar": "متوسط السرعة المتوقعة في الظروف العادية."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Planlı Duraklar",
         "de": "Geplante Stopps",
         "fr": "Arrêts planifiés",
-        "es": "Paradas planificadas"
+        "es": "Paradas planificadas",
+        "ar": "التوقفات المخطط لها"
       },
       "businessContext_i18n": {
         "en": "Number of planned stops along the route (e.g., for pickup/delivery).",
         "tr": "Rota boyunca planlı durak sayısı (örneğin, yükleme/boşaltma için).",
         "de": "Anzahl der geplanten Stopps entlang der Route (z. B. für Abholung/Lieferung).",
         "fr": "Nombre d'arrêts planifiés le long du trajet (ex. pour ramassage/livraison).",
-        "es": "Número de paradas planificadas en la ruta (p. ej., para recogida/entrega)."
+        "es": "Número de paradas planificadas en la ruta (p. ej., para recogida/entrega).",
+        "ar": "عدد التوقفات المخطط لها على طول المسار (مثل التحميل/التفريغ)."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Ortalama Durak Süresi (dk)",
         "de": "Durchschnittliche Stoppzeit (Min.)",
         "fr": "Temps d'arrêt moyen (min)",
-        "es": "Tiempo medio de parada (min)"
+        "es": "Tiempo medio de parada (min)",
+        "ar": "متوسط وقت التوقف (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Average time spent per stop, including waiting and handling.",
         "tr": "Bekleme ve elleçleme dahil, durak başına ortalama süre.",
         "de": "Durchschnittliche Zeit pro Stopp, einschließlich Warte- und Bearbeitungszeit.",
         "fr": "Temps moyen passé par arrêt, y compris l'attente et la manutention.",
-        "es": "Tiempo medio por parada, incluyendo espera y manipulación."
+        "es": "Tiempo medio por parada, incluyendo espera y manipulación.",
+        "ar": "متوسط الوقت المستغرق لكل توقف، بما في ذلك الانتظار والمناولة."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Trafik Gecikme Faktörü",
         "de": "Verkehrsverzögerungsfaktor",
         "fr": "Facteur de retard dû au trafic",
-        "es": "Factor de demora por tráfico"
+        "es": "Factor de demora por tráfico",
+        "ar": "عامل تأخير المرور"
       },
       "businessContext_i18n": {
         "en": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
         "tr": "Trafik sıkışıklığı nedeniyle kaybedilen sürüş süresinin oranı (0 = yok, 1 = %100 gecikme).",
         "de": "Anteil der Fahrzeit, der durch Verkehrsstaus verloren geht (0 = keine, 1 = 100 % Verzögerung).",
         "fr": "Fraction du temps de conduite perdue à cause des embouteillages (0 = aucun, 1 = 100 % de retard).",
-        "es": "Fracción del tiempo de conducción perdida por congestión (0 = ninguna, 1 = 100% de demora)."
+        "es": "Fracción del tiempo de conducción perdida por congestión (0 = ninguna, 1 = 100% de demora).",
+        "ar": "جزء من وقت القيادة المفقود بسبب الازدحام المروري (0 = لا شيء، 1 = تأخير 100%)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "km Başına Yakıt Maliyeti",
         "de": "Kraftstoffkosten pro km",
         "fr": "Coût du carburant par km",
-        "es": "Coste de combustible por km"
+        "es": "Coste de combustible por km",
+        "ar": "تكلفة الوقود لكل كم"
       },
       "businessContext_i18n": {
         "en": "Average fuel cost per kilometer for the vehicle type.",
         "tr": "Araç tipi için km başına ortalama yakıt maliyeti.",
         "de": "Durchschnittliche Kraftstoffkosten pro Kilometer für den Fahrzeugtyp.",
         "fr": "Coût moyen du carburant par kilomètre pour le type de véhicule.",
-        "es": "Coste medio de combustible por kilómetro para el tipo de vehículo."
+        "es": "Coste medio de combustible por kilómetro para el tipo de vehículo.",
+        "ar": "متوسط تكلفة الوقود لكل كيلومتر لنوع المركبة."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Sürücü Saatlik Ücreti",
         "de": "Fahrerlohn pro Stunde",
         "fr": "Salaire du conducteur par heure",
-        "es": "Salario del conductor por hora"
+        "es": "Salario del conductor por hora",
+        "ar": "أجر السائق في الساعة"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of the driver (including benefits).",
         "tr": "Sürücünün saatlik ücreti (yan haklar dahil).",
         "de": "Stundenlohn des Fahrers (einschließlich Zusatzleistungen).",
         "fr": "Salaire horaire du conducteur (incluant les avantages).",
-        "es": "Salario por hora del conductor (incluyendo prestaciones)."
+        "es": "Salario por hora del conductor (incluyendo prestaciones).",
+        "ar": "الأجر بالساعة للسائق (بما في ذلك المزايا)."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "km Başına Araç İşletme Maliyeti",
         "de": "Fahrzeugbetriebskosten pro km",
         "fr": "Coût d'exploitation du véhicule par km",
-        "es": "Coste operativo del vehículo por km"
+        "es": "Coste operativo del vehículo por km",
+        "ar": "تكلفة تشغيل المركبة لكل كيلومتر"
       },
       "businessContext_i18n": {
         "en": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
         "tr": "km başına yakıt dışı işletme maliyetleri (bakım, lastik, amortisman).",
         "de": "Nicht-kraftstoffbezogene Betriebskosten pro km (Wartung, Reifen, Abschreibung).",
         "fr": "Coûts d'exploitation hors carburant par km (entretien, pneus, amortissement).",
-        "es": "Costes operativos no relacionados con combustible por km (mantenimiento, neumáticos, depreciación)."
+        "es": "Costes operativos no relacionados con combustible por km (mantenimiento, neumáticos, depreciación).",
+        "ar": "تكاليف التشغيل غير المتعلقة بالوقود لكل كيلومتر (الصيانة، الإطارات، الاستهلاك)."
       }
     }
   ],
@@ -260,18 +276,30 @@
     ]
   },
   "formulas": {
-    "result": "route_distance_km + average_speed_kmh + planned_stops",
-    "result_copy": "route_distance_km + average_speed_kmh + planned_stops"
+    "base_cost": "planned_stops * fuel_cost_per_km",
+    "adjusted_cost": "planned_stops * fuel_cost_per_km * 1",
+    "result": "planned_stops * fuel_cost_per_km * 1 * (route_distance_km * average_speed_kmh)",
+    "factor_route_distance_km": "route_distance_km",
+    "factor_average_speed_kmh": "average_speed_kmh"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_route_distance_km",
+      "factor_average_speed_kmh"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "km"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

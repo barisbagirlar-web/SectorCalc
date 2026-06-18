@@ -14,14 +14,15 @@
         "de": "Verbrauch",
         "fr": "Consommation",
         "es": "Consumo",
-        "ar": "Consumption"
+        "ar": "الاستهلاك"
       },
       "businessContext_i18n": {
         "en": "Total energy consumption in kilowatt-hours for the billing period",
         "tr": "Fatura dönemi için toplam enerji tüketimi (kilowatt-saat cinsinden)",
         "de": "Gesamtenergieverbrauch in Kilowattstunden für den Abrechnungszeitraum",
         "fr": "Consommation totale d'énergie en kilowattheures pour la période de facturation",
-        "es": "Consumo total de energía en kilovatios-hora para el período de facturación"
+        "es": "Consumo total de energía en kilovatios-hora para el período de facturación",
+        "ar": "إجمالي استهلاك الطاقة بالكيلوواط ساعة لفترة الفاتورة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Spitzentarif",
         "fr": "Tarif de pointe",
         "es": "Tarifa punta",
-        "ar": "Peak Rate"
+        "ar": "سعر الذروة"
       },
       "businessContext_i18n": {
         "en": "Price per kilowatt-hour during peak usage hours",
         "tr": "Yoğun kullanım saatlerinde kilowatt-saat başına fiyat",
         "de": "Preis pro Kilowattstunde während der Spitzenlastzeiten",
         "fr": "Prix par kilowattheure en heures de pointe",
-        "es": "Precio por kilovatio-hora en horas punta"
+        "es": "Precio por kilovatio-hora en horas punta",
+        "ar": "سعر الكيلوواط ساعة خلال ساعات الذروة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Schwachlasttarif",
         "fr": "Tarif hors pointe",
         "es": "Tarifa valle",
-        "ar": "Off-Peak Rate"
+        "ar": "سعر خارج الذروة"
       },
       "businessContext_i18n": {
         "en": "Price per kilowatt-hour during off-peak usage hours",
         "tr": "Yoğun olmayan kullanım saatlerinde kilowatt-saat başına fiyat",
         "de": "Preis pro Kilowattstunde während der Schwachlastzeiten",
         "fr": "Prix par kilowattheure en heures creuses",
-        "es": "Precio por kilovatio-hora en horas valle"
+        "es": "Precio por kilovatio-hora en horas valle",
+        "ar": "سعر الكيلوواط ساعة خارج ساعات الذروة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Spitzenlastanteil",
         "fr": "Fraction d'utilisation en pointe",
         "es": "Fracción de uso punta",
-        "ar": "Peak Usage Fraction"
+        "ar": "نسبة الاستهلاك في الذروة"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of total consumption that occurs during peak hours (0-100)",
         "tr": "Toplam tüketimin yoğun saatlerde gerçekleşen tahmini yüzdesi (0-100)",
         "de": "Geschätzter Prozentsatz des Gesamtverbrauchs während der Spitzenlastzeiten (0-100)",
         "fr": "Pourcentage estimé de la consommation totale en heures de pointe (0-100)",
-        "es": "Porcentaje estimado del consumo total que ocurre en horas punta (0-100)"
+        "es": "Porcentaje estimado del consumo total que ocurre en horas punta (0-100)",
+        "ar": "النسبة المئوية المقدرة من إجمالي الاستهلاك التي تحدث خلال ساعات الذروة (0-100)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Grundgebühr",
         "fr": "Abonnement fixe",
         "es": "Cargo fijo",
-        "ar": "Standing Charge"
+        "ar": "الرسوم الثابتة"
       },
       "businessContext_i18n": {
         "en": "Fixed daily charge applied by the energy supplier regardless of consumption",
         "tr": "Tüketimden bağımsız olarak enerji tedarikçisi tarafından uygulanan sabit günlük ücret",
         "de": "Tägliche Grundgebühr des Energieversorgers, unabhängig vom Verbrauch",
         "fr": "Frais fixes quotidiens appliqués par le fournisseur d'énergie, quelle que soit la consommation",
-        "es": "Cargo fijo diario aplicado por el proveedor de energía independientemente del consumo"
+        "es": "Cargo fijo diario aplicado por el proveedor de energía independientemente del consumo",
+        "ar": "الرسوم اليومية الثابتة التي تفرضها شركة الطاقة بغض النظر عن الاستهلاك"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Abrechnungstage",
         "fr": "Jours de facturation",
         "es": "Días de facturación",
-        "ar": "Billing Days"
+        "ar": "أيام الفاتورة"
       },
       "businessContext_i18n": {
         "en": "Number of days in the billing period",
         "tr": "Fatura dönemindeki gün sayısı",
         "de": "Anzahl der Tage im Abrechnungszeitraum",
         "fr": "Nombre de jours dans la période de facturation",
-        "es": "Número de días en el período de facturación"
+        "es": "Número de días en el período de facturación",
+        "ar": "عدد أيام فترة الفاتورة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Steuersatz",
         "fr": "Taux de taxe",
         "es": "Tasa de impuesto",
-        "ar": "Tax Rate"
+        "ar": "نسبة الضريبة"
       },
       "businessContext_i18n": {
         "en": "Value-added tax (VAT) or similar tax percentage applied to the subtotal",
         "tr": "Ara toplama uygulanan katma değer vergisi (KDV) veya benzeri vergi yüzdesi",
         "de": "Mehrwertsteuer (MwSt.) oder ähnlicher Steuersatz in Prozent, angewendet auf die Zwischensumme",
         "fr": "Taxe sur la valeur ajoutée (TVA) ou taxe similaire en pourcentage appliquée au sous-total",
-        "es": "Porcentaje de impuesto al valor agregado (IVA) o similar aplicado al subtotal"
+        "es": "Porcentaje de impuesto al valor agregado (IVA) o similar aplicado al subtotal",
+        "ar": "ضريبة القيمة المضافة أو نسبة ضريبية مماثلة مطبقة على المجموع الفرعي"
       }
     }
   ],

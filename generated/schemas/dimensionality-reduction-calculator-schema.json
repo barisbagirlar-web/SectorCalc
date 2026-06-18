@@ -14,14 +14,15 @@
         "de": "Anzahl der ursprünglichen Dimensionen",
         "fr": "Nombre de dimensions originales",
         "es": "Número de dimensiones originales",
-        "ar": "Number of Original Dimensions"
+        "ar": "عدد الأبعاد الأصلية"
       },
       "businessContext_i18n": {
         "en": "Total number of features or variables in the original dataset.",
         "tr": "Orijinal veri kümesindeki toplam özellik veya değişken sayısı.",
         "de": "Gesamtzahl der Merkmale oder Variablen im ursprünglichen Datensatz.",
         "fr": "Nombre total de caractéristiques ou variables dans l'ensemble de données original.",
-        "es": "Número total de características o variables en el conjunto de datos original."
+        "es": "Número total de características o variables en el conjunto de datos original.",
+        "ar": "إجمالي عدد الميزات أو المتغيرات في مجموعة البيانات الأصلية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Eigenwert-Abfallrate",
         "fr": "Taux de décroissance des valeurs propres",
         "es": "Tasa de decaimiento de valores propios",
-        "ar": "Eigenvalue Decay Rate"
+        "ar": "معدل انحلال القيمة الذاتية"
       },
       "businessContext_i18n": {
         "en": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1).",
         "tr": "Geometrik dizi modelinde özdeğerlerin azalma hızı (0 < r < 1).",
         "de": "Rate, mit der Eigenwerte in einem geometrischen Progressionsmodell abnehmen (0 < r < 1).",
         "fr": "Taux auquel les valeurs propres diminuent dans un modèle de progression géométrique (0 < r < 1).",
-        "es": "Tasa a la que los valores propios disminuyen en un modelo de progresión geométrica (0 < r < 1)."
+        "es": "Tasa a la que los valores propios disminuyen en un modelo de progresión geométrica (0 < r < 1).",
+        "ar": "معدل تناقص القيم الذاتية في نموذج التقدم الهندسي (0 < r < 1)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfänglicher Eigenwert",
         "fr": "Valeur propre initiale",
         "es": "Valor propio inicial",
-        "ar": "Initial Eigenvalue"
+        "ar": "القيمة الذاتية الأولية"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the largest eigenvalue.",
         "tr": "En büyük özdeğerin büyüklüğü.",
         "de": "Größe des größten Eigenwerts.",
         "fr": "Ampleur de la plus grande valeur propre.",
-        "es": "Magnitud del valor propio más grande."
+        "es": "Magnitud del valor propio más grande.",
+        "ar": "حجم أكبر قيمة ذاتية."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Kumulative Varianzschwelle",
         "fr": "Seuil de variance cumulée",
         "es": "Umbral de varianza acumulada",
-        "ar": "Cumulative Variance Threshold"
+        "ar": "حد التباين التراكمي"
       },
       "businessContext_i18n": {
         "en": "Target proportion of total variance to be retained (0 to 1).",
         "tr": "Korunacak toplam varyansın hedef oranı (0 ile 1 arasında).",
         "de": "Zielanteil der Gesamtvarianz, der beibehalten werden soll (0 bis 1).",
         "fr": "Proportion cible de la variance totale à conserver (0 à 1).",
-        "es": "Proporción objetivo de varianza total a retener (0 a 1)."
+        "es": "Proporción objetivo de varianza total a retener (0 a 1).",
+        "ar": "النسبة المستهدفة من التباين الكلي المراد الاحتفاظ بها (0 إلى 1)."
       }
     }
   ],
   "formulas": {
-    "result": "n + r + a",
-    "result_copy": "n + r + a"
+    "normalized_product": "n * r * a * threshold",
+    "result": "n * r * a * threshold"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalVariance",
-      "cumulativeVariance",
-      "reductionRatio"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reductionRatio",
-    "unit": "count",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "reductionRatio": "%"
     }

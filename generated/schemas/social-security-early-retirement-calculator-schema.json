@@ -14,14 +14,15 @@
         "de": "Geburtsjahr",
         "fr": "Année de naissance",
         "es": "Año de nacimiento",
-        "ar": "Birth Year"
+        "ar": "سنة الميلاد"
       },
       "businessContext_i18n": {
         "en": "Your birth year determines your full retirement age (FRA). Enter year as integer (e.g., 1965).",
         "tr": "Doğum yılınız tam emeklilik yaşınızı (TEY) belirler. Yılı tam sayı olarak girin (ör. 1965).",
         "de": "Ihr Geburtsjahr bestimmt Ihr Regelrentenalter. Geben Sie das Jahr als ganze Zahl ein (z. B. 1965).",
         "fr": "Votre année de naissance détermine votre âge de retraite à taux plein (ATRP). Saisissez l'année sous forme d'entier (ex. 1965).",
-        "es": "Su año de nacimiento determina su edad de jubilación completa (FRA). Ingrese el año como entero (ej., 1965)."
+        "es": "Su año de nacimiento determina su edad de jubilación completa (FRA). Ingrese el año como entero (ej., 1965).",
+        "ar": "سنة ميلادك تحدد سن التقاعد الكامل (FRA). أدخل السنة كرقم صحيح (مثل 1965)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Vorzeitiges Rentenalter",
         "fr": "Âge de retraite anticipée",
         "es": "Edad de jubilación anticipada",
-        "ar": "Early Retirement Age"
+        "ar": "سن التقاعد المبكر"
       },
       "businessContext_i18n": {
         "en": "The age at which you plan to start receiving benefits (minimum 62, maximum 70). Use decimal for months (e.g., 62 and 6 months = 62.5).",
         "tr": "Fayda almaya başlamayı planladığınız yaş (minimum 62, maksimum 70). Aylar için ondalık kullanın (ör. 62 yıl 6 ay = 62.5).",
         "de": "Das Alter, in dem Sie planen, Leistungen zu beziehen (mindestens 62, maximal 70). Verwenden Sie Dezimalzahlen für Monate (z. B. 62 Jahre und 6 Monate = 62,5).",
         "fr": "Âge auquel vous prévoyez de commencer à percevoir les prestations (minimum 62, maximum 70). Utilisez un nombre décimal pour les mois (ex. 62 ans et 6 mois = 62,5).",
-        "es": "La edad a la que planea comenzar a recibir beneficios (mínimo 62, máximo 70). Use decimal para meses (ej., 62 años y 6 meses = 62.5)."
+        "es": "La edad a la que planea comenzar a recibir beneficios (mínimo 62, máximo 70). Use decimal para meses (ej., 62 años y 6 meses = 62.5).",
+        "ar": "العمر الذي تخطط لبدء تلقي المزايا عنده (الحد الأدنى 62، الحد الأقصى 70). استخدم الكسور العشرية للأشهر (مثل 62 سنة و6 أشهر = 62.5)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Monatliche Leistung bei vollem Rentenalter",
         "fr": "Prestation mensuelle à l'âge de la retraite à taux plein",
         "es": "Beneficio mensual a la edad de jubilación completa",
-        "ar": "Monthly Benefit at Full Retirement Age"
+        "ar": "المعاش الشهري عند سن التقاعد الكامل"
       },
       "businessContext_i18n": {
         "en": "The monthly benefit you would receive if you wait until full retirement age (primary insurance amount).",
         "tr": "Tam emeklilik yaşına kadar beklerseniz alacağınız aylık fayda (temel sigorta tutarı).",
         "de": "Die monatliche Leistung, die Sie erhalten würden, wenn Sie bis zum vollen Rentenalter warten (primärer Versicherungsbetrag).",
         "fr": "Prestation mensuelle que vous recevriez si vous attendiez l'âge de la retraite à taux plein (montant de l'assurance primaire).",
-        "es": "El beneficio mensual que recibiría si espera hasta la edad de jubilación completa (monto del seguro primario)."
+        "es": "El beneficio mensual que recibiría si espera hasta la edad de jubilación completa (monto del seguro primario).",
+        "ar": "المعاش الشهري الذي ستحصل عليه إذا انتظرت حتى سن التقاعد الكامل (مبلغ التأمين الأساسي)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anpassungsfaktor für Lebenshaltungskosten (COLA)",
         "fr": "Facteur d'ajustement au coût de la vie",
         "es": "Factor de ajuste por costo de vida",
-        "ar": "Cost-of-Living Adjustment Factor"
+        "ar": "عامل تعديل تكلفة المعيشة"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust for COLA (1 = no adjustment). Usually 1 for current benefit calculations.",
         "tr": "COLA'ya göre ayarlama çarpanı (1 = ayarlama yok). Genellikle mevcut fayda hesaplamaları için 1.",
         "de": "Multiplikator zur Anpassung an COLA (1 = keine Anpassung). Normalerweise 1 für aktuelle Leistungsberechnungen.",
         "fr": "Multiplicateur pour ajuster selon l'ACV (1 = pas d'ajustement). Généralement 1 pour les calculs de prestations actuels.",
-        "es": "Multiplicador para ajustar por COLA (1 = sin ajuste). Generalmente 1 para cálculos de beneficios actuales."
+        "es": "Multiplicador para ajustar por COLA (1 = sin ajuste). Generalmente 1 para cálculos de beneficios actuales.",
+        "ar": "مضاعف لتعديل تكلفة المعيشة (1 = بدون تعديل). عادةً 1 لحسابات المعاش الحالية."
       }
     }
   ],

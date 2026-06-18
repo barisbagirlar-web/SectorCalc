@@ -28,8 +28,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Hp_to_kw_converter_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.horsepower + input.hp_type + input.motor_efficiency; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.horsepower + input.hp_type + input.motor_efficiency; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_kwh"] = 0; }
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -44,8 +45,8 @@ export function calculateHp_to_kw_converter_calculator(input: Hp_to_kw_converter
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
+  const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

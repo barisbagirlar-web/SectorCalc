@@ -14,14 +14,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations or respondents in the sample.",
         "tr": "Örneklemdeki toplam gözlem veya yanıt sayısı.",
         "de": "Gesamtzahl der Beobachtungen oder Befragten in der Stichprobe.",
         "fr": "Nombre total d'observations ou de répondants dans l'échantillon.",
-        "es": "Número total de observaciones o encuestados en la muestra."
+        "es": "Número total de observaciones o encuestados en la muestra.",
+        "ar": "إجمالي عدد المشاهدات أو المستجيبين في العينة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Konfidenzniveau (%)",
         "fr": "Niveau de confiance (%)",
         "es": "Nivel de confianza (%)",
-        "ar": "Confidence Level (%)"
+        "ar": "مستوى الثقة (%)"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually.",
         "tr": "Yüzde olarak istenen güven düzeyi (ör. 95, 99). Not: Karşılık gelen Z-skoru manuel olarak girilmelidir.",
         "de": "Gewünschtes Konfidenzniveau in Prozent (z. B. 95, 99). Hinweis: Der entsprechende Z-Wert muss manuell eingegeben werden.",
         "fr": "Niveau de confiance souhaité en pourcentage (ex. 95, 99). Remarque : le Z-score correspondant doit être saisi manuellement.",
-        "es": "Nivel de confianza deseado como porcentaje (ej. 95, 99). Nota: El puntaje Z correspondiente debe ingresarse manualmente."
+        "es": "Nivel de confianza deseado como porcentaje (ej. 95, 99). Nota: El puntaje Z correspondiente debe ingresarse manualmente.",
+        "ar": "مستوى الثقة المطلوب كنسبة مئوية (مثل 95، 99). ملاحظة: يجب إدخال قيمة Z المقابلة يدويًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
-        "ar": "Z-Score"
+        "ar": "درجة Z"
       },
       "businessContext_i18n": {
         "en": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%).",
         "tr": "Güven düzeyine karşılık gelen standart normal dağılımdan kritik değer (ör. %95 için 1,96, %99 için 2,576).",
         "de": "Kritischer Wert aus der Standardnormalverteilung entsprechend dem Konfidenzniveau (z. B. 1,96 für 95 %, 2,576 für 99 %).",
         "fr": "Valeur critique de la distribution normale standard correspondant au niveau de confiance (ex. 1,96 pour 95 %, 2,576 pour 99 %).",
-        "es": "Valor crítico de la distribución normal estándar correspondiente al nivel de confianza (ej. 1.96 para 95%, 2.576 para 99%)."
+        "es": "Valor crítico de la distribución normal estándar correspondiente al nivel de confianza (ej. 1.96 para 95%, 2.576 para 99%).",
+        "ar": "القيمة الحرجة من التوزيع الطبيعي المعياري المقابلة لمستوى الثقة (مثل 1.96 لمستوى 95%، 2.576 لمستوى 99%)."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Stichprobenanteil (p)",
         "fr": "Proportion de l'échantillon (p)",
         "es": "Proporción muestral (p)",
-        "ar": "Sample Proportion (p)"
+        "ar": "نسبة العينة (p)"
       },
       "businessContext_i18n": {
         "en": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error.",
         "tr": "İlgilenilen özelliğe sahip örneklem oranı; maksimum hata payı için 0,5 kullanın.",
         "de": "Anteil der Stichprobe mit dem interessierenden Merkmal; verwenden Sie 0,5 für den maximalen Stichprobenfehler.",
         "fr": "Proportion de l'échantillon présentant la caractéristique d'intérêt ; utiliser 0,5 pour une marge d'erreur maximale.",
-        "es": "Proporción de la muestra con la característica de interés; use 0.5 para el máximo margen de error."
+        "es": "Proporción de la muestra con la característica de interés; use 0.5 para el máximo margen de error.",
+        "ar": "نسبة العينة التي تمتلك الخاصية محل الاهتمام؛ استخدم 0.5 للحصول على أقصى هامش خطأ."
       }
     }
   ],
   "formulas": {
-    "result": "sample_size + confidence_level + z_score",
-    "result_copy": "sample_size + confidence_level + z_score"
+    "normalized_product": "sample_size * (confidence_level / 100) * z_score * sample_proportion",
+    "result": "sample_size * (confidence_level / 100) * z_score * sample_proportion"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "standard_error",
-      "margin_of_error",
-      "margin_of_error_percent"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "margin_of_error_percent",
-    "unit": "%",
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD",
     "breakdownUnits": {
       "margin_of_error": "%",
       "margin_of_error_percent": "%"

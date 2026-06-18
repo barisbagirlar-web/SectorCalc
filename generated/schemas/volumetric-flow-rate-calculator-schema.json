@@ -14,13 +14,15 @@
         "de": "Innendurchmesser",
         "fr": "Diamètre intérieur",
         "es": "Diámetro interior",
-        "ar": "Inner Diameter"
+        "ar": "القطر الداخلي"
       },
       "businessContext_i18n": {
         "en": "Boru iç çapı",
         "tr": "Boru iç çapı",
         "de": "Rohrinnendurchmesser",
-        "fr": "Diamètre intérieur du tuyau"
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior del tubo",
+        "ar": "القطر الداخلي للأنبوب"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Strömungsgeschwindigkeit",
         "fr": "Vitesse d'écoulement",
         "es": "Velocidad de flujo",
-        "ar": "Flow Velocity"
+        "ar": "سرعة التدفق"
       },
       "businessContext_i18n": {
         "en": "Akışkan hızı",
         "tr": "Akışkan hızı",
         "de": "Strömungsgeschwindigkeit",
-        "fr": "Vitesse du fluide"
+        "fr": "Vitesse du fluide",
+        "es": "Velocidad del fluido",
+        "ar": "سرعة المائع"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de sección transversal",
-        "ar": "Cross-Sectional Area"
+        "ar": "مساحة المقطع العرضي"
       },
       "businessContext_i18n": {
         "en": "Kesit alanı (çap yerine kullanılabilir)",
         "tr": "Kesit alanı (çap yerine kullanılabilir)",
         "de": "Querschnittsfläche (kann anstelle des Durchmessers verwendet werden)",
-        "fr": "Section transversale (peut être utilisée à la place du diamètre)"
+        "fr": "Section transversale (peut être utilisée à la place du diamètre)",
+        "es": "Área de sección transversal (se puede usar en lugar del diámetro)",
+        "ar": "مساحة المقطع (يمكن استخدامها بدلاً من القطر)"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
-        "ar": "Fluid Density"
+        "ar": "كثافة السائل"
       },
       "businessContext_i18n": {
         "en": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)",
         "tr": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)",
         "de": "Fluiddichte (für Umrechnung in Massenstrom)",
-        "fr": "Densité du fluide (pour la conversion du débit massique)"
+        "fr": "Densité du fluide (pour la conversion du débit massique)",
+        "es": "Densidad del fluido (para conversión de caudal másico)",
+        "ar": "كثافة المائع (لتحويل التدفق الكتلي)"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Massenstrom",
         "fr": "Débit massique",
         "es": "Caudal másico",
-        "ar": "Mass Flow Rate"
+        "ar": "معدل التدفق الكتلي"
       },
       "businessContext_i18n": {
         "en": "Kütlesel debi (hacimsel debiye dönüştürülür)",
         "tr": "Kütlesel debi (hacimsel debiye dönüştürülür)",
         "de": "Massenstrom (wird in Volumenstrom umgerechnet)",
-        "fr": "Débit massique (converti en débit volumique)"
+        "fr": "Débit massique (converti en débit volumique)",
+        "es": "Caudal másico (se convierte a caudal volumétrico)",
+        "ar": "التدفق الكتلي (يُحول إلى تدفق حجمي)"
       }
     }
   ],

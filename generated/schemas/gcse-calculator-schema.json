@@ -14,14 +14,15 @@
         "de": "Duvar Uzunluğu",
         "fr": "Longueur du mur",
         "es": "Longitud del muro",
-        "ar": "Wall Length"
+        "ar": "طول الجدار"
       },
       "businessContext_i18n": {
         "en": "The horizontal length of the wall in meters.",
         "tr": "Duvarın metre cinsinden yatay uzunluğu.",
         "de": "Die horizontale Länge der Wand in Metern.",
         "fr": "La longueur horizontale du mur en mètres.",
-        "es": "La longitud horizontal del muro en metros."
+        "es": "La longitud horizontal del muro en metros.",
+        "ar": "الطول الأفقي للجدار بالأمتار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
         "es": "Altura del muro",
-        "ar": "Wall Height"
+        "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
         "en": "The height of the wall from base to top in meters.",
         "tr": "Duvarın tabandan tepeye metre cinsinden yüksekliği.",
         "de": "Die Höhe der Wand von der Basis bis zur Spitze in Metern.",
         "fr": "La hauteur du mur de la base au sommet en mètres.",
-        "es": "La altura del muro desde la base hasta la parte superior en metros."
+        "es": "La altura del muro desde la base hasta la parte superior en metros.",
+        "ar": "ارتفاع الجدار من القاعدة إلى القمة بالأمتار."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Blätter",
         "fr": "Nombre de feuilles",
         "es": "Número de hojas",
-        "ar": "Number of Leaves"
+        "ar": "عدد الطبقات"
       },
       "businessContext_i18n": {
         "en": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.).",
         "tr": "Duvarın tuğla sırası cinsinden kalınlığı (1 yarım tuğla, 2 tam tuğla vb.).",
         "de": "Die Dicke der Wand in Ziegelblättern (1 für Halbziegel, 2 für Vollziegel usw.).",
         "fr": "L'épaisseur du mur en nombre de feuilles de briques (1 pour demi-brique, 2 pour brique entière, etc.).",
-        "es": "El espesor del muro en términos de hojas de ladrillo (1 para medio ladrillo, 2 para ladrillo completo, etc.)."
+        "es": "El espesor del muro en términos de hojas de ladrillo (1 para medio ladrillo, 2 para ladrillo completo, etc.).",
+        "ar": "سمك الجدار بعدد طبقات الطوب (1 لنصف طوبة، 2 لطوبة كاملة، إلخ)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ziegellänge",
         "fr": "Longueur de la brique",
         "es": "Longitud del ladrillo",
-        "ar": "Brick Length"
+        "ar": "طول الطوبة"
       },
       "businessContext_i18n": {
         "en": "Standard brick length (e.g., 215mm for UK format).",
         "tr": "Standart tuğla uzunluğu (örneğin, İngiltere formatı için 215mm).",
         "de": "Standard-Ziegellänge (z. B. 215 mm für UK-Format).",
         "fr": "Longueur standard de la brique (ex. 215 mm pour le format UK).",
-        "es": "Longitud estándar del ladrillo (ej., 215 mm para formato UK)."
+        "es": "Longitud estándar del ladrillo (ej., 215 mm para formato UK).",
+        "ar": "طول الطوب القياسي (مثل 215 مم للنظام البريطاني)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Ziegelhöhe",
         "fr": "Hauteur de la brique",
         "es": "Altura del ladrillo",
-        "ar": "Brick Height"
+        "ar": "ارتفاع الطوبة"
       },
       "businessContext_i18n": {
         "en": "Standard brick height (e.g., 65mm for UK format).",
         "tr": "Standart tuğla yüksekliği (örneğin, İngiltere formatı için 65mm).",
         "de": "Standard-Ziegelhöhe (z. B. 65 mm für UK-Format).",
         "fr": "Hauteur standard de la brique (ex. 65 mm pour le format UK).",
-        "es": "Altura estándar del ladrillo (ej., 65 mm para formato UK)."
+        "es": "Altura estándar del ladrillo (ej., 65 mm para formato UK).",
+        "ar": "ارتفاع الطوب القياسي (مثل 65 مم للنظام البريطاني)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Mörtelfugendicke",
         "fr": "Épaisseur du joint de mortier",
         "es": "Espesor de la junta de mortero",
-        "ar": "Mortar Joint Thickness"
+        "ar": "سمك وصلة الملاط"
       },
       "businessContext_i18n": {
         "en": "Typical mortar joint thickness between bricks (e.g., 10mm).",
         "tr": "Tuğlalar arasındaki tipik harç derz kalınlığı (örneğin, 10mm).",
         "de": "Typische Mörtelfugendicke zwischen Ziegeln (z. B. 10 mm).",
         "fr": "Épaisseur typique du joint de mortier entre les briques (ex. 10 mm).",
-        "es": "Grosor típico de la junta de mortero entre ladrillos (ej., 10 mm)."
+        "es": "Grosor típico de la junta de mortero entre ladrillos (ej., 10 mm).",
+        "ar": "سمك وصلة الملاط النموذجية بين الطوب (مثل 10 مم)."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Verschnittprozentsatz",
         "fr": "Pourcentage de perte",
         "es": "Porcentaje de desperdicio",
-        "ar": "Wastage Percentage"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%).",
         "tr": "Kesim ve kırılma payı yüzdesi (örneğin, %5 => ek %5).",
         "de": "Zuschlag für Schnitt und Bruch als Prozentsatz (z. B. 5 % => zusätzlich 5 %).",
         "fr": "Marge pour coupe et casse en pourcentage (ex. 5% => 5% supplémentaire).",
-        "es": "Margen para corte y rotura como porcentaje (ej., 5% => 5% extra)."
+        "es": "Margen para corte y rotura como porcentaje (ej., 5% => 5% extra).",
+        "ar": "بدل القطع والكسر كنسبة مئوية (مثال: 5% يعني إضافة 5%)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Hundegewicht",
         "fr": "Poids du chien",
         "es": "Peso del perro",
-        "ar": "Dog Weight"
+        "ar": "وزن الكلب"
       },
       "businessContext_i18n": {
         "en": "The weight of the dog in kilograms.",
         "tr": "Köpeğin kilogram cinsinden ağırlığı.",
         "de": "Das Gewicht des Hundes in Kilogramm.",
         "fr": "Le poids du chien en kilogrammes.",
-        "es": "El peso del perro en kilogramos."
+        "es": "El peso del perro en kilogramos.",
+        "ar": "وزن الكلب بالكيلوغرام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktivitätsfaktor",
         "fr": "Facteur d'activité",
         "es": "Factor de actividad",
-        "ar": "Activity Factor"
+        "ar": "عامل النشاط"
       },
       "businessContext_i18n": {
         "en": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity.",
         "tr": "Aktivite seviyesine göre çarpan: hareketsiz için 1.2, tipik için 1.6, yüksek aktivite için 2.0.",
         "de": "Multiplikator basierend auf Aktivitätsniveau: 1,2 für sitzend, 1,6 für typisch, 2,0 für hohe Aktivität.",
         "fr": "Multiplicateur basé sur le niveau d'activité : 1,2 pour sédentaire, 1,6 pour typique, 2,0 pour activité élevée.",
-        "es": "Multiplicador basado en el nivel de actividad: 1.2 para sedentario, 1.6 para típico, 2.0 para alta actividad."
+        "es": "Multiplicador basado en el nivel de actividad: 1.2 para sedentario, 1.6 para típico, 2.0 para alta actividad.",
+        "ar": "المضاعف حسب مستوى النشاط: 1.2 للخامل، 1.6 للمعتدل، 2.0 للنشط."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Altersmultiplikator",
         "fr": "Multiplicateur d'âge",
         "es": "Multiplicador de edad",
-        "ar": "Age Multiplier"
+        "ar": "مضاعف العمر"
       },
       "businessContext_i18n": {
         "en": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior.",
         "tr": "Yaşam evresi ayarlaması: yavru için 1.8, yetişkin için 1.0, yaşlı için 0.8.",
         "de": "Lebensphasenanpassung: 1,8 für Welpen, 1,0 für Erwachsene, 0,8 für Senioren.",
         "fr": "Ajustement selon le stade de vie : 1,8 pour chiot, 1,0 pour adulte, 0,8 pour senior.",
-        "es": "Ajuste por etapa de vida: 1.8 para cachorro, 1.0 para adulto, 0.8 para senior."
+        "es": "Ajuste por etapa de vida: 1.8 para cachorro, 1.0 para adulto, 0.8 para senior.",
+        "ar": "تعديل مرحلة الحياة: 1.8 للجرو، 1.0 للبالغ، 0.8 للمسن."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Energiedichte des Futters",
         "fr": "Densité énergétique de l'aliment",
         "es": "Densidad energética del alimento",
-        "ar": "Food Energy Density"
+        "ar": "كثافة الطاقة في الطعام"
       },
       "businessContext_i18n": {
         "en": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging.",
         "tr": "Köpek mamasının ambalajında belirtilen, 100 gram başına kilokalori cinsinden enerji içeriği.",
         "de": "Energiegehalt des Hundefutters in Kilokalorien pro 100 Gramm, wie auf der Verpackung angegeben.",
         "fr": "Contenu énergétique de l'aliment pour chien en kilocalories pour 100 grammes, tel qu'indiqué sur l'emballage.",
-        "es": "Contenido energético del alimento para perros en kilocalorías por 100 gramos, según el empaque."
+        "es": "Contenido energético del alimento para perros en kilocalorías por 100 gramos, según el empaque.",
+        "ar": "محتوى الطاقة في طعام الكلاب بالسعرات الحرارية لكل 100 جرام، كما هو مذكور على العبوة."
       }
     }
   ],
   "formulas": {
-    "result": "weight + activityFactor + ageMultiplier",
-    "result_copy": "weight + activityFactor + ageMultiplier"
+    "normalized_product": "weight * activityFactor * ageMultiplier * foodEnergyDensity",
+    "result": "weight * activityFactor * ageMultiplier * foodEnergyDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rer",
-      "der"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dailyFoodGrams",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

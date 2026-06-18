@@ -14,14 +14,15 @@
         "de": "Delisle-Temperatur",
         "fr": "Température Delisle",
         "es": "Temperatura Delisle",
-        "ar": "Delisle Temperature"
+        "ar": "درجة حرارة ديلايل"
       },
       "businessContext_i18n": {
         "en": "Temperature reading on the Delisle scale.",
         "tr": "Delisle ölçeğindeki sıcaklık okuması.",
         "de": "Temperaturmesswert auf der Delisle-Skala.",
         "fr": "Lecture de température sur l'échelle Delisle.",
-        "es": "Lectura de temperatura en la escala Delisle."
+        "es": "Lectura de temperatura en la escala Delisle.",
+        "ar": "قراءة درجة الحرارة على مقياس ديلايل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gefrierpunkt (Delisle)",
         "fr": "Point de congélation (Delisle)",
         "es": "Punto de congelación (Delisle)",
-        "ar": "Freezing Point (Delisle)"
+        "ar": "نقطة التجمد (ديلايل)"
       },
       "businessContext_i18n": {
         "en": "Delisle value at the freezing point of water (0°C). Historically 150°De.",
         "tr": "Suyun donma noktasındaki Delisle değeri (0°C). Tarihsel olarak 150°De.",
         "de": "Delisle-Wert am Gefrierpunkt von Wasser (0°C). Historisch 150°De.",
         "fr": "Valeur Delisle au point de congélation de l'eau (0°C). Historiquement 150°De.",
-        "es": "Valor Delisle en el punto de congelación del agua (0°C). Históricamente 150°De."
+        "es": "Valor Delisle en el punto de congelación del agua (0°C). Históricamente 150°De.",
+        "ar": "قيمة ديلايل عند نقطة تجمد الماء (0°م). تاريخيًا 150°De."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Siedepunkt (Delisle)",
         "fr": "Point d'ébullition (Delisle)",
         "es": "Punto de ebullición (Delisle)",
-        "ar": "Boiling Point (Delisle)"
+        "ar": "نقطة الغليان (ديلايل)"
       },
       "businessContext_i18n": {
         "en": "Delisle value at the boiling point of water (100°C). Historically 0°De.",
         "tr": "Suyun kaynama noktasındaki Delisle değeri (100°C). Tarihsel olarak 0°De.",
         "de": "Delisle-Wert am Siedepunkt von Wasser (100°C). Historisch 0°De.",
         "fr": "Valeur Delisle au point d'ébullition de l'eau (100°C). Historiquement 0°De.",
-        "es": "Valor Delisle en el punto de ebullición del agua (100°C). Históricamente 0°De."
+        "es": "Valor Delisle en el punto de ebullición del agua (100°C). Históricamente 0°De.",
+        "ar": "قيمة ديلايل عند نقطة غليان الماء (100°م). تاريخيًا 0°De."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe.",
         "fr": "Nombre de décimales pour le résultat.",
-        "es": "Número de decimales para la salida."
+        "es": "Número de decimales para la salida.",
+        "ar": "عدد المنازل العشرية للمخرجات."
       }
     }
   ],
   "formulas": {
-    "result": "delisleTemp + freezingDe + boilingDe",
-    "result_copy": "delisleTemp + freezingDe + boilingDe"
+    "normalized_product": "delisleTemp * freezingDe * boilingDe * decimals",
+    "result": "delisleTemp * freezingDe * boilingDe * decimals"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "celsiusRaw",
-      "factor"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "factor",
-    "unit": "°De",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "celsiusRaw": "°C"
     }

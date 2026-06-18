@@ -14,14 +14,15 @@
         "de": "Jahresgehalt",
         "fr": "Salaire annuel",
         "es": "Salario anual",
-        "ar": "Annual Salary"
+        "ar": "الراتب السنوي"
       },
       "businessContext_i18n": {
         "en": "Gross annual salary",
         "tr": "Brüt yıllık maaş",
         "de": "Bruttojahresgehalt",
         "fr": "Salaire annuel brut",
-        "es": "Salario bruto anual"
+        "es": "Salario bruto anual",
+        "ar": "الراتب السنوي الإجمالي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Abrechnungszeiträume pro Jahr",
         "fr": "Nombre de périodes de paie par an",
         "es": "Número de períodos de pago por año",
-        "ar": "Number of Pay Periods per Year"
+        "ar": "عدد فترات الدفع في السنة"
       },
       "businessContext_i18n": {
         "en": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly",
         "tr": "Maaş çeklerinin sıklığı, örn. aylık için 12, iki haftada bir için 26, haftalık için 52",
         "de": "Häufigkeit der Gehaltszahlungen, z. B. 12 für monatlich, 26 für zweiwöchentlich, 52 für wöchentlich",
         "fr": "Fréquence des chèques de paie, ex. 12 pour mensuel, 26 pour bimensuel, 52 pour hebdomadaire",
-        "es": "Frecuencia de los cheques de pago, p. ej., 12 para mensual, 26 para quincenal, 52 para semanal"
+        "es": "Frecuencia de los cheques de pago, p. ej., 12 para mensual, 26 para quincenal, 52 para semanal",
+        "ar": "تكرار شيكات الراتب، مثل 12 للشهري، 26 لنصف الشهري، 52 للأسبوعي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Überstunden",
         "fr": "Heures supplémentaires",
         "es": "Horas extra",
-        "ar": "Overtime Hours"
+        "ar": "ساعات العمل الإضافي"
       },
       "businessContext_i18n": {
         "en": "Total overtime hours worked in the pay period",
         "tr": "Ödeme döneminde çalışılan toplam fazla mesai saati",
         "de": "Insgesamt geleistete Überstunden im Abrechnungszeitraum",
         "fr": "Total des heures supplémentaires travaillées dans la période de paie",
-        "es": "Total de horas extra trabajadas en el período de pago"
+        "es": "Total de horas extra trabajadas en el período de pago",
+        "ar": "إجمالي ساعات العمل الإضافي في فترة الدفع"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Überstundenzuschlag",
         "fr": "Multiplicateur du taux des heures supplémentaires",
         "es": "Multiplicador de tarifa de horas extra",
-        "ar": "Overtime Rate Multiplier"
+        "ar": "مضاعف أجر العمل الإضافي"
       },
       "businessContext_i18n": {
         "en": "Multiplier for overtime pay relative to regular hourly rate",
         "tr": "Fazla mesai ücretinin normal saatlik ücrete göre çarpanı",
         "de": "Multiplikator für Überstundenvergütung im Verhältnis zum regulären Stundenlohn",
         "fr": "Multiplicateur pour la rémunération des heures supplémentaires par rapport au taux horaire normal",
-        "es": "Multiplicador para el pago de horas extra en relación con la tarifa horaria regular"
+        "es": "Multiplicador para el pago de horas extra en relación con la tarifa horaria regular",
+        "ar": "مضاعف أجر العمل الإضافي مقارنة بالساعة العادية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Stunden pro Abrechnungszeitraum",
         "fr": "Heures par période de paie",
         "es": "Horas por período de pago",
-        "ar": "Hours per Pay Period"
+        "ar": "ساعات العمل في فترة الدفع"
       },
       "businessContext_i18n": {
         "en": "Standard working hours in one pay period",
         "tr": "Bir ödeme dönemindeki standart çalışma saatleri",
         "de": "Reguläre Arbeitsstunden in einem Abrechnungszeitraum",
         "fr": "Heures de travail standard dans une période de paie",
-        "es": "Horas estándar de trabajo en un período de pago"
+        "es": "Horas estándar de trabajo en un período de pago",
+        "ar": "ساعات العمل القياسية في فترة دفع واحدة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Abzüge",
         "fr": "Déductions",
         "es": "Deducciones",
-        "ar": "Deductions"
+        "ar": "الخصومات"
       },
       "businessContext_i18n": {
         "en": "Total pre-tax deductions per period",
         "tr": "Dönem başına toplam vergi öncesi kesinti",
         "de": "Gesamte Vorsteuerabzüge pro Zeitraum",
         "fr": "Total des déductions avant impôt par période",
-        "es": "Total de deducciones antes de impuestos por período"
+        "es": "Total de deducciones antes de impuestos por período",
+        "ar": "إجمالي الخصومات قبل الضريبة لكل فترة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Steuersatz",
         "fr": "Taux de taxe",
         "es": "Tasa de impuesto",
-        "ar": "Tax Rate"
+        "ar": "نسبة الضريبة"
       },
       "businessContext_i18n": {
         "en": "Income tax rate applied after deductions",
         "tr": "Kesintiler sonrası uygulanan gelir vergisi oranı",
         "de": "Einkommensteuersatz nach Abzügen",
         "fr": "Taux d'imposition sur le revenu appliqué après déductions",
-        "es": "Tasa de impuesto sobre la renta aplicada después de las deducciones"
+        "es": "Tasa de impuesto sobre la renta aplicada después de las deducciones",
+        "ar": "نسبة ضريبة الدخل المطبقة بعد الخصومات"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Sonstige Einbehalte",
         "fr": "Autres retenues",
         "es": "Otras retenciones",
-        "ar": "Other Withholdings"
+        "ar": "الاستقطاعات الأخرى"
       },
       "businessContext_i18n": {
         "en": "Additional withholdings like insurance, union dues",
         "tr": "Sigorta, sendika aidatı gibi ek kesintiler",
         "de": "Zusätzliche Einbehalte wie Versicherungen, Gewerkschaftsbeiträge",
         "fr": "Retenues supplémentaires comme l'assurance, les cotisations syndicales",
-        "es": "Retenciones adicionales como seguros, cuotas sindicales"
+        "es": "Retenciones adicionales como seguros, cuotas sindicales",
+        "ar": "استقطاعات إضافية مثل التأمين ورسوم النقابة"
       }
     }
   ],

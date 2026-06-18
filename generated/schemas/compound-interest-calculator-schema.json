@@ -25,14 +25,16 @@
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
         "fr": "Montant principal",
-        "es": "Monto principal"
+        "es": "Monto principal",
+        "ar": "المبلغ الأساسي"
       },
       "businessContext_i18n": {
         "en": "Initial investment or loan amount in base currency.",
         "tr": "Başlangıç yatırımı veya kredi tutarı (temel para birimi cinsinden).",
         "de": "Anfangsinvestition oder Darlehensbetrag in Basiswährung.",
         "fr": "Investissement initial ou montant du prêt dans la devise de base.",
-        "es": "Inversión inicial o monto del préstamo en moneda base."
+        "es": "Inversión inicial o monto del préstamo en moneda base.",
+        "ar": "الاستثمار الأولي أو مبلغ القرض بالعملة الأساسية."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
-        "es": "Tasa de Interés Anual"
+        "es": "Tasa de Interés Anual",
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate as a percentage.",
         "tr": "Nominal yıllık faiz oranı (yüzde olarak).",
         "de": "Nominaler jährlicher Zinssatz in Prozent.",
         "fr": "Taux d'intérêt nominal annuel en pourcentage.",
-        "es": "Tasa de interés nominal anual como porcentaje."
+        "es": "Tasa de interés nominal anual como porcentaje.",
+        "ar": "معدل الفائدة السنوي الاسمي كنسبة مئوية."
       }
     },
     {
@@ -81,14 +85,16 @@
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de capitalización"
+        "es": "Frecuencia de capitalización",
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily).",
         "tr": "Yıllık bileşik dönem sayısı (örneğin, 1=yıllık, 12=aylık, 365=günlük).",
         "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
         "fr": "Nombre de périodes de capitalisation par an (ex. : 1=annuel, 12=mensuel, 365=quotidien).",
-        "es": "Número de períodos de capitalización por año (ej., 1=anual, 12=mensual, 365=diario)."
+        "es": "Número de períodos de capitalización por año (ej., 1=anual, 12=mensual, 365=diario).",
+        "ar": "عدد فترات التركيب في السنة (مثل 1=سنوي، 12=شهري، 365=يومي)."
       }
     },
     {
@@ -105,14 +111,16 @@
         "tr": "Zaman Periyodu",
         "de": "Zeitraum",
         "fr": "Période",
-        "es": "Período de tiempo"
+        "es": "Período de tiempo",
+        "ar": "الفترة الزمنية"
       },
       "businessContext_i18n": {
         "en": "Total duration of investment or loan in years.",
         "tr": "Yatırım veya kredinin toplam süresi (yıl olarak).",
         "de": "Gesamtdauer der Anlage oder des Darlehens in Jahren.",
         "fr": "Durée totale de l'investissement ou du prêt en années.",
-        "es": "Duración total de la inversión o préstamo en años."
+        "es": "Duración total de la inversión o préstamo en años.",
+        "ar": "المدة الإجمالية للاستثمار أو القرض بالسنوات."
       }
     },
     {
@@ -129,14 +137,16 @@
         "tr": "Dönem Başına Ek Katkı",
         "de": "Zusätzlicher Beitrag pro Periode",
         "fr": "Apport supplémentaire par période",
-        "es": "Contribución adicional por período"
+        "es": "Contribución adicional por período",
+        "ar": "المساهمة الإضافية لكل فترة"
       },
       "businessContext_i18n": {
         "en": "Fixed amount added at the end of each compounding period.",
         "tr": "Her bileşik döneminin sonunda eklenen sabit tutar.",
         "de": "Fester Betrag, der am Ende jeder Zinsperiode hinzugefügt wird.",
         "fr": "Montant fixe ajouté à la fin de chaque période de capitalisation.",
-        "es": "Cantidad fija añadida al final de cada período de capitalización."
+        "es": "Cantidad fija añadida al final de cada período de capitalización.",
+        "ar": "مبلغ ثابت يضاف في نهاية كل فترة تركيب."
       }
     },
     {
@@ -153,14 +163,16 @@
         "tr": "Enflasyon Oranı",
         "de": "Inflationsrate",
         "fr": "Taux d'inflation",
-        "es": "Tasa de inflación"
+        "es": "Tasa de inflación",
+        "ar": "معدل التضخم"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate for real value adjustment.",
         "tr": "Reel değer ayarlaması için beklenen yıllık enflasyon oranı.",
         "de": "Erwartete jährliche Inflationsrate für die reale Wertanpassung.",
         "fr": "Taux d'inflation annuel attendu pour l'ajustement de la valeur réelle.",
-        "es": "Tasa de inflación anual esperada para el ajuste del valor real."
+        "es": "Tasa de inflación anual esperada para el ajuste del valor real.",
+        "ar": "معدل التضخم السنوي المتوقع لتعديل القيمة الحقيقية."
       }
     },
     {
@@ -177,14 +189,16 @@
         "tr": "Faiz Üzerindeki Vergi Oranı",
         "de": "Steuersatz auf Zinsen",
         "fr": "Taux d'imposition des intérêts",
-        "es": "Tasa impositiva sobre intereses"
+        "es": "Tasa impositiva sobre intereses",
+        "ar": "معدل الضريبة على الفائدة"
       },
       "businessContext_i18n": {
         "en": "Percentage of interest earnings taxed annually.",
         "tr": "Yıllık olarak vergilendirilen faiz kazancının yüzdesi.",
         "de": "Prozentsatz der Zinserträge, der jährlich besteuert wird.",
         "fr": "Pourcentage des gains d'intérêts imposé annuellement.",
-        "es": "Porcentaje de ganancias por intereses gravado anualmente."
+        "es": "Porcentaje de ganancias por intereses gravado anualmente.",
+        "ar": "نسبة أرباح الفائدة الخاضعة للضريبة سنويًا."
       }
     }
   ],
@@ -238,18 +252,26 @@
     ]
   },
   "formulas": {
-    "result": "principal + annualInterestRate + compoundingFrequency",
-    "result_copy": "principal + annualInterestRate + compoundingFrequency"
+    "normalized_product": "principal * annualInterestRate * timePeriod * additionalContribution",
+    "result": "principal * annualInterestRate * timePeriod * additionalContribution * (inflationRate * taxRate)",
+    "adjustment_factor": "inflationRate * taxRate"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "currency"
+    "unit": "units"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

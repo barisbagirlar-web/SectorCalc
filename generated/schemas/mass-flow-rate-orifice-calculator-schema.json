@@ -14,14 +14,15 @@
         "de": "Ausflussbeiwert (C)",
         "fr": "Coefficient de décharge (C)",
         "es": "Coeficiente de descarga (C)",
-        "ar": "Discharge Coefficient (C)"
+        "ar": "معامل التصريف (C)"
       },
       "businessContext_i18n": {
         "en": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates.",
         "tr": "Akış daralması ve sürtünme kayıplarını hesaba katan deşarj katsayısı, orifis plakaları için tipik olarak 0.6-0.7.",
         "de": "Ausflussbeiwert zur Berücksichtigung von Strahlkontraktion und Reibungsverlusten, typischerweise 0,6-0,7 für Blenden.",
         "fr": "Coefficient de décharge tenant compte de la contraction de l'écoulement et des pertes par frottement, généralement 0,6-0,7 pour les plaques à orifice.",
-        "es": "Coeficiente de descarga que considera la contracción del flujo y pérdidas por fricción, típicamente 0.6-0.7 para placas de orificio."
+        "es": "Coeficiente de descarga que considera la contracción del flujo y pérdidas por fricción, típicamente 0.6-0.7 para placas de orificio.",
+        "ar": "معامل التصريف الذي يأخذ في الاعتبار انقباض التدفق وفقدان الاحتكاك، عادةً 0.6-0.7 للوحات الفتحات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Öffnungsfläche (A)",
         "fr": "Surface de l'orifice (A)",
         "es": "Área del orificio (A)",
-        "ar": "Orifice Area (A)"
+        "ar": "مساحة الفتحة (A)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the orifice or restriction.",
         "tr": "Orifis veya kısıtlamanın kesit alanı.",
         "de": "Querschnittsfläche der Öffnung oder Drossel.",
         "fr": "Section transversale de l'orifice ou de la restriction.",
-        "es": "Área transversal del orificio o restricción."
+        "es": "Área transversal del orificio o restricción.",
+        "ar": "مساحة المقطع العرضي للفتحة أو التضييق."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fluiddichte (ρ)",
         "fr": "Densité du fluide (ρ)",
         "es": "Densidad del fluido (ρ)",
-        "ar": "Fluid Density (ρ)"
+        "ar": "كثافة المائع (ρ)"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid. For water at 20°C, 998 kg/m³.",
         "tr": "Akışkanın yoğunluğu. 20°C'de su için 998 kg/m³.",
         "de": "Dichte des Fluids. Für Wasser bei 20°C: 998 kg/m³.",
         "fr": "Densité du fluide. Pour l'eau à 20°C, 998 kg/m³.",
-        "es": "Densidad del fluido. Para agua a 20°C, 998 kg/m³."
+        "es": "Densidad del fluido. Para agua a 20°C, 998 kg/m³.",
+        "ar": "كثافة المائع. للماء عند 20°م، 998 كجم/م³."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Druckdifferenz (ΔP)",
         "fr": "Différence de pression (ΔP)",
         "es": "Diferencia de presión (ΔP)",
-        "ar": "Pressure Difference (ΔP)"
+        "ar": "فرق الضغط (ΔP)"
       },
       "businessContext_i18n": {
         "en": "Differential pressure across the orifice, measured in Pascals.",
         "tr": "Orifis boyunca diferansiyel basınç, Pascal cinsinden ölçülür.",
         "de": "Differenzdruck über der Öffnung, gemessen in Pascal.",
         "fr": "Pression différentielle à travers l'orifice, mesurée en Pascals.",
-        "es": "Presión diferencial a través del orificio, medida en Pascales."
+        "es": "Presión diferencial a través del orificio, medida en Pascales.",
+        "ar": "فرق الضغط عبر الفتحة، مقاسًا بالباسكال."
       }
     }
   ],
   "formulas": {
-    "result": "dischargeCoefficient + orificeArea + fluidDensity",
-    "result_copy": "dischargeCoefficient + orificeArea + fluidDensity"
+    "normalized_product": "dischargeCoefficient * orificeArea * fluidDensity * pressureDifference",
+    "result": "dischargeCoefficient * orificeArea * fluidDensity * pressureDifference"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "massFlowRate"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "massFlowRate_copy",
-    "unit": "m²"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

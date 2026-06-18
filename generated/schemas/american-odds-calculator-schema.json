@@ -14,14 +14,15 @@
         "de": "Berechnungsmodus",
         "fr": "Mode de calcul",
         "es": "Modo de cálculo",
-        "ar": "Calculation Mode"
+        "ar": "Hesaplama Modu"
       },
       "businessContext_i18n": {
         "en": "0 = Calculate Payout, 1 = Calculate Required Wager",
         "tr": "0 = Ödeme Hesapla, 1 = Gerekli Bahis Hesapla",
         "de": "0 = Auszahlung berechnen, 1 = Erforderlichen Einsatz berechnen",
         "fr": "0 = Calculer le paiement, 1 = Calculer la mise requise",
-        "es": "0 = Calcular pago, 1 = Calcular apuesta requerida"
+        "es": "0 = Calcular pago, 1 = Calcular apuesta requerida",
+        "ar": "0 = حساب الدفع، 1 = حساب الرهان المطلوب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Amerikanische Quoten",
         "fr": "Cotes américaines",
         "es": "Cuotas americanas",
-        "ar": "American Odds"
+        "ar": "الاحتمالات الأمريكية"
       },
       "businessContext_i18n": {
         "en": "Negative for favorites, positive for underdogs",
         "tr": "Favoriler için negatif, sürprizler için pozitif",
         "de": "Negativ für Favoriten, positiv für Außenseiter",
         "fr": "Négatif pour les favoris, positif pour les outsiders",
-        "es": "Negativo para favoritos, positivo para no favoritos"
+        "es": "Negativo para favoritos, positivo para no favoritos",
+        "ar": "سالب للمفضل، موجب للمغمور"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Einsatz ($)",
         "fr": "Montant de la mise ($)",
         "es": "Monto de la apuesta ($)",
-        "ar": "Wager Amount ($)"
+        "ar": "مبلغ الرهان ($)"
       },
       "businessContext_i18n": {
         "en": "Amount bet (used in mode 0 for profit calculation, and always for breakdown)",
         "tr": "Yatırılan miktar (mod 0'da kar hesaplaması için ve her zaman döküm için kullanılır)",
         "de": "Gesetzter Betrag (wird in Modus 0 für die Gewinnberechnung und immer für die Aufschlüsselung verwendet)",
         "fr": "Montant misé (utilisé en mode 0 pour le calcul du profit, et toujours pour la répartition)",
-        "es": "Cantidad apostada (usada en modo 0 para cálculo de ganancia, y siempre para desglose)"
+        "es": "Cantidad apostada (usada en modo 0 para cálculo de ganancia, y siempre para desglose)",
+        "ar": "المبلغ المراهن به (يستخدم في الوضع 0 لحساب الربح، ودائمًا للتحليل التفصيلي)"
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Gewünschter Gewinn ($)",
         "fr": "Profit souhaité ($)",
         "es": "Ganancia deseada ($)",
-        "ar": "Desired Profit ($)"
+        "ar": "الربح المطلوب ($)"
       },
       "businessContext_i18n": {
         "en": "Target profit when mode is 1",
         "tr": "Mod 1'de hedef kar",
         "de": "Zielgewinn bei Modus 1",
         "fr": "Profit cible lorsque le mode est 1",
-        "es": "Ganancia objetivo cuando el modo es 1"
+        "es": "Ganancia objetivo cuando el modo es 1",
+        "ar": "الربح المستهدف عندما يكون الوضع 1"
       }
     }
   ],
   "formulas": {
-    "result": "mode + americanOdds + wager",
-    "result_copy": "mode + americanOdds + wager"
+    "base_cost": "mode * wager",
+    "adjusted_cost": "mode * wager * 1",
+    "result": "mode * wager * 1"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "impliedProbability",
-      "payout"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "none"
+    "unit": "USD"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

@@ -14,14 +14,15 @@
         "de": "Gesamtanzahl",
         "fr": "Quantité totale",
         "es": "Cantidad total",
-        "ar": "Toplam Adet"
+        "ar": "العدد الإجمالي"
       },
       "businessContext_i18n": {
         "en": "Sevk edilecek toplam birim sayısı",
         "tr": "Sevk edilecek toplam birim sayısı",
         "de": "Gesamtzahl der zu versendenden Einheiten",
         "fr": "Nombre total d'unités à expédier",
-        "es": "Número total de unidades a enviar"
+        "es": "Número total de unidades a enviar",
+        "ar": "إجمالي عدد الوحدات المراد شحنها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Einheiten pro Palette",
         "fr": "Unités par palette",
         "es": "Unidades por palé",
-        "ar": "Palet Başına Adet"
+        "ar": "عدد الوحدات لكل منصة نقالة"
       },
       "businessContext_i18n": {
         "en": "Bir palete sığan birim sayısı",
         "tr": "Bir palete sığan birim sayısı",
         "de": "Anzahl der Einheiten, die auf eine Palette passen",
         "fr": "Nombre d'unités pouvant tenir sur une palette",
-        "es": "Número de unidades que caben en un palé"
+        "es": "Número de unidades que caben en un palé",
+        "ar": "عدد الوحدات التي تسعها المنصة النقالة الواحدة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Paletten pro Container",
         "fr": "Palettes par conteneur",
         "es": "Palés por contenedor",
-        "ar": "Konteyner Başına Palet"
+        "ar": "عدد المنصات النقالة لكل حاوية"
       },
       "businessContext_i18n": {
         "en": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
         "tr": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
         "de": "Anzahl der Paletten, die in einen Container geladen werden können (z.B. 20 Paletten = TEU)",
         "fr": "Nombre de palettes pouvant être chargées dans un conteneur (ex: 20 palettes = EVP)",
-        "es": "Número de palés que se pueden cargar en un contenedor (ej: 20 palés = TEU)"
+        "es": "Número de palés que se pueden cargar en un contenedor (ej: 20 palés = TEU)",
+        "ar": "عدد المنصات النقالة التي يمكن تحميلها في حاوية واحدة (مثال: 20 منصة = TEU)"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Reservequote (%)",
         "fr": "Taux de réserve (%)",
         "es": "Tasa de reserva (%)",
-        "ar": "Yedek Oranı (%)"
+        "ar": "نسبة الاحتياطي (%)"
       },
       "businessContext_i18n": {
         "en": "Hasar, kayıp vb. için ek yedek yüzdesi",
         "tr": "Hasar, kayıp vb. için ek yedek yüzdesi",
         "de": "Zusätzlicher Prozentsatz für Ausschuss, Verlust usw.",
         "fr": "Pourcentage de réserve supplémentaire pour dommages, pertes, etc.",
-        "es": "Porcentaje adicional de reserva para daños, pérdidas, etc."
+        "es": "Porcentaje adicional de reserva para daños, pérdidas, etc.",
+        "ar": "نسبة احتياطي إضافية للتلف والفقدان وغيرها"
       }
     }
   ],
   "formulas": {
-    "result": "totalQuantity + itemsPerPallet + palletsPerContainer",
-    "result_aux": "totalQuantity + itemsPerPallet + palletsPerContainer"
+    "normalized_product": "totalQuantity * itemsPerPallet * palletsPerContainer * (reservePercent / 100)",
+    "result": "totalQuantity * itemsPerPallet * palletsPerContainer * (reservePercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "İhtiyaç Duyulan Palet: ${palletsNeeded}",
-      "Yedeksiz Konteyner: ${containersWithoutReserve}",
-      "Yedekli Konteyner: ${containersWithReserve}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "containersWithReserve",
-    "unit": "adet"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Denizcilik & Gemi",

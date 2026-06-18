@@ -14,14 +14,15 @@
         "de": "Zulaufkonzentration",
         "fr": "Concentration d'alimentation",
         "es": "Concentración de alimentación",
-        "ar": "Feed Concentration"
+        "ar": "تركيز التغذية"
       },
       "businessContext_i18n": {
         "en": "Concentration of the solute in the incoming feed stream.",
         "tr": "Gelen besleme akışındaki çözünen madde konsantrasyonu.",
         "de": "Konzentration des gelösten Stoffs im eingehenden Zulaufstrom.",
         "fr": "Concentration du soluté dans le flux d'alimentation entrant.",
-        "es": "Concentración del soluto en la corriente de alimentación entrante."
+        "es": "Concentración del soluto en la corriente de alimentación entrante.",
+        "ar": "تركيز المذاب في تيار التغذية الوارد."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Permeatkonzentration",
         "fr": "Concentration du perméat",
         "es": "Concentración de permeado",
-        "ar": "Permeate Concentration"
+        "ar": "تركيز النفاذية"
       },
       "businessContext_i18n": {
         "en": "Concentration of the solute in the permeate (filtered) stream.",
         "tr": "Permeat (filtrelenmiş) akışındaki çözünen madde konsantrasyonu.",
         "de": "Konzentration des gelösten Stoffes im Permeat (Filtrat).",
         "fr": "Concentration du soluté dans le flux de perméat (filtré).",
-        "es": "Concentración del soluto en la corriente de permeado (filtrada)."
+        "es": "Concentración del soluto en la corriente de permeado (filtrada).",
+        "ar": "تركيز المذاب في تيار النفاذية (المرشح)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Feed-Durchflussrate",
         "fr": "Débit d'alimentation",
         "es": "Caudal de alimentación",
-        "ar": "Feed Flow Rate"
+        "ar": "معدل تدفق التغذية"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the feed stream.",
         "tr": "Besleme Akış Hızı",
         "de": "Volumenstrom der Zulaufströmung.",
         "fr": "Débit volumétrique du flux d'alimentation.",
-        "es": "Caudal volumétrico de la corriente de alimentación."
+        "es": "Caudal volumétrico de la corriente de alimentación.",
+        "ar": "معدل التدفق الحجمي لتيار التغذية."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Permeat-Durchflussrate",
         "fr": "Débit du perméat",
         "es": "Caudal de permeado",
-        "ar": "Permeate Flow Rate"
+        "ar": "معدل تدفق النفاذية"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the permeate stream.",
         "tr": "Permeat akışının hacimsel debisi.",
         "de": "Volumenstrom der Permeatströmung.",
         "fr": "Débit volumétrique du flux de perméat.",
-        "es": "Caudal volumétrico de la corriente de permeado."
+        "es": "Caudal volumétrico de la corriente de permeado.",
+        "ar": "معدل التدفق الحجمي لتيار النفاذية."
       }
     }
   ],
   "formulas": {
-    "result": "feedConc + permeateConc + feedFlow",
-    "result_copy": "feedConc + permeateConc + feedFlow"
+    "normalized_product": "feedConc * permeateConc * feedFlow * permeateFlow",
+    "result": "feedConc * permeateConc * feedFlow * permeateFlow"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "recoveryRate",
-      "concentrateConc",
-      "concentrateFlow"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "concentrateFlow",
-    "unit": "mg/L"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

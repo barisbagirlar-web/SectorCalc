@@ -14,14 +14,15 @@
         "de": "Makine Sayısı",
         "fr": "Nombre de machines",
         "es": "Número de máquinas",
-        "ar": "Makine Sayısı"
+        "ar": "عدد الآلات"
       },
       "businessContext_i18n": {
         "en": "Üretim hattındaki toplam makine sayısı",
         "tr": "Üretim hattındaki toplam makine sayısı",
         "de": "Üretim hattındaki toplam makine sayısı",
         "fr": "Nombre total de machines sur la ligne de production",
-        "es": "Número total de máquinas en la línea de producción"
+        "es": "Número total de máquinas en la línea de producción",
+        "ar": "إجمالي عدد الآلات في خط الإنتاج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Günlük Çalışma Saati",
         "fr": "Heures de travail par jour",
         "es": "Horas de trabajo diarias",
-        "ar": "Günlük Çalışma Saati"
+        "ar": "ساعات العمل اليومية"
       },
       "businessContext_i18n": {
         "en": "Vardiya başına günlük çalışma süresi",
         "tr": "Vardiya başına günlük çalışma süresi",
         "de": "Vardiya başına günlük çalışma süresi",
         "fr": "Durée de travail quotidienne par équipe",
-        "es": "Tiempo de trabajo diario por turno"
+        "es": "Tiempo de trabajo diario por turno",
+        "ar": "مدة العمل اليومية لكل وردية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aylık Çalışma Günü",
         "fr": "Jours ouvrables par mois",
         "es": "Días laborables mensuales",
-        "ar": "Aylık Çalışma Günü"
+        "ar": "أيام العمل الشهرية"
       },
       "businessContext_i18n": {
         "en": "Bir ayda üretimin yapıldığı iş günü sayısı",
         "tr": "Bir ayda üretimin yapıldığı iş günü sayısı",
         "de": "Bir ayda üretimin yapıldığı iş günü sayısı",
         "fr": "Nombre de jours ouvrables de production dans le mois",
-        "es": "Número de días laborables en un mes en los que se realiza la producción"
+        "es": "Número de días laborables en un mes en los que se realiza la producción",
+        "ar": "عدد أيام العمل في الشهر التي يتم فيها الإنتاج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wirkungsgrad",
         "fr": "Efficacité",
         "es": "Eficiencia",
-        "ar": "Verimlilik"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
         "tr": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
         "de": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
         "fr": "Taux de rendement net après arrêts planifiés, réglages et pannes",
-        "es": "Tasa de eficiencia neta después de paradas planificadas, ajustes y averías"
+        "es": "Tasa de eficiencia neta después de paradas planificadas, ajustes y averías",
+        "ar": "نسبة الكفاءة الصافية بعد التوقفات المخطط لها والإعدادات والأعطال"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Aylık Talep",
         "fr": "Demande mensuelle",
         "es": "Demanda mensual",
-        "ar": "Aylık Talep"
+        "ar": "الطلب الشهري"
       },
       "businessContext_i18n": {
         "en": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
         "tr": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
-        "de": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
+        "de": "Monatlich zu produzierende Stückzahl basierend auf Kundenaufträgen",
         "fr": "Quantité mensuelle à produire selon les commandes clients",
-        "es": "Cantidad mensual de productos a fabricar según pedidos de clientes"
+        "es": "Cantidad mensual de productos a fabricar según pedidos de clientes",
+        "ar": "عدد المنتجات التي يجب إنتاجها شهريًا حسب طلبات العملاء"
       }
     },
     {
@@ -126,17 +131,18 @@
       "label_i18n": {
         "en": "Birim İşlem Süresi",
         "tr": "Birim İşlem Süresi",
-        "de": "Birim İşlem Süresi",
+        "de": "Bearbeitungszeit pro Einheit",
         "fr": "Temps de cycle unitaire",
         "es": "Tiempo de ciclo unitario",
-        "ar": "Birim İşlem Süresi"
+        "ar": "وقت المعالجة للوحدة"
       },
       "businessContext_i18n": {
         "en": "Bir ürünün makineden geçiş süresi (cycle time)",
         "tr": "Bir ürünün makineden geçiş süresi (cycle time)",
-        "de": "Bir ürünün makineden geçiş süresi (cycle time)",
+        "de": "Durchlaufzeit eines Produkts durch die Maschine (Zykluszeit)",
         "fr": "Temps de passage d'un produit dans la machine (cycle time)",
-        "es": "Tiempo de paso de un producto por la máquina (tiempo de ciclo)"
+        "es": "Tiempo de paso de un producto por la máquina (tiempo de ciclo)",
+        "ar": "وقت مرور المنتج عبر الماكينة (زمن الدورة)"
       }
     }
   ],

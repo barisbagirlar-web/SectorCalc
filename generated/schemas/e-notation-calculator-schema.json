@@ -14,14 +14,15 @@
         "de": "Koeffizient 1",
         "fr": "Coefficient 1",
         "es": "Coeficiente 1",
-        "ar": "Coefficient 1"
+        "ar": "المعامل 1"
       },
       "businessContext_i18n": {
         "en": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
         "tr": "Birinci sayının anlamlı basamakları (örneğin, 1 ≤ |katsayı| < 10 önerilir)",
         "de": "Signifikante Stellen der ersten Zahl (z. B. 1 ≤ |Koeff| < 10 empfohlen)",
         "fr": "Chiffres significatifs du premier nombre (par exemple, 1 ≤ |coeff| < 10 recommandé)",
-        "es": "Dígitos significativos del primer número (ej. 1 ≤ |coef| < 10 recomendado)"
+        "es": "Dígitos significativos del primer número (ej. 1 ≤ |coef| < 10 recomendado)",
+        "ar": "الأرقام المعنوية للرقم الأول (مثال: 1 ≤ |المعامل| < 10 موصى به)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Exponent 1",
         "fr": "Exposant 1",
         "es": "Exponente 1",
-        "ar": "Exponent 1"
+        "ar": "الأس 1"
       },
       "businessContext_i18n": {
         "en": "Exponent of 10 for the first number",
         "tr": "Birinci sayı için 10'un üssü",
         "de": "Exponent der ersten Zahl (Basis 10)",
         "fr": "Exposant de 10 pour le premier nombre",
-        "es": "Exponente de 10 para el primer número"
+        "es": "Exponente de 10 para el primer número",
+        "ar": "أس العشرة للرقم الأول"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Koeffizient 2",
         "fr": "Coefficient 2",
         "es": "Coeficiente 2",
-        "ar": "Coefficient 2"
+        "ar": "المعامل 2"
       },
       "businessContext_i18n": {
         "en": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
         "tr": "İkinci sayının anlamlı basamakları (örneğin, 1 ≤ |katsayı| < 10 önerilir)",
         "de": "Signifikante Stellen der zweiten Zahl (z. B. 1 ≤ |Koeffizient| < 10 empfohlen)",
         "fr": "Chiffres significatifs du deuxième nombre (par exemple, 1 ≤ |coeff| < 10 recommandé)",
-        "es": "Dígitos significativos del segundo número (ej. 1 ≤ |coef| < 10 recomendado)"
+        "es": "Dígitos significativos del segundo número (ej. 1 ≤ |coef| < 10 recomendado)",
+        "ar": "الأرقام المعنوية للرقم الثاني (مثال: 1 ≤ |المعامل| < 10 موصى به)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Exponent 2",
         "fr": "Exposant 2",
         "es": "Exponente 2",
-        "ar": "Exponent 2"
+        "ar": "الأس 2"
       },
       "businessContext_i18n": {
         "en": "Exponent of 10 for the second number",
         "tr": "İkinci sayı için 10'un üssü",
         "de": "Exponent der zweiten Zahl (Basis 10)",
         "fr": "Exposant de 10 pour le deuxième nombre",
-        "es": "Exponente de 10 para el segundo número"
+        "es": "Exponente de 10 para el segundo número",
+        "ar": "أس العشرة للرقم الثاني"
       }
     }
   ],
   "formulas": {
-    "result": "coeff1 + exp1 + coeff2",
-    "result_copy": "coeff1 + exp1 + coeff2"
+    "normalized_product": "coeff1 * exp1 * coeff2 * exp2",
+    "result": "coeff1 * exp1 * coeff2 * exp2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "`Decimal value: ${decimalValue}`",
-      "`Scientific notation: ${eNotation}`"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "decimalValue_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

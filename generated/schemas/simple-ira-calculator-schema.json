@@ -14,14 +14,15 @@
         "de": "Aktuelles Alter",
         "fr": "Âge actuel",
         "es": "Edad actual",
-        "ar": "Current Age"
+        "ar": "العمر الحالي"
       },
       "businessContext_i18n": {
         "en": "Current age of the individual",
         "tr": "Bireyin mevcut yaşı",
         "de": "Aktuelles Alter der Person",
         "fr": "Âge actuel de l'individu",
-        "es": "Edad actual del individuo"
+        "es": "Edad actual del individuo",
+        "ar": "العمر الحالي للفرد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rentenalter",
         "fr": "Âge de la retraite",
         "es": "Edad de jubilación",
-        "ar": "Retirement Age"
+        "ar": "سن التقاعد"
       },
       "businessContext_i18n": {
         "en": "Planned retirement age",
         "tr": "Planlanan emeklilik yaşı",
         "de": "Geplantes Renteneintrittsalter",
         "fr": "Âge de retraite prévu",
-        "es": "Edad de jubilación planificada"
+        "es": "Edad de jubilación planificada",
+        "ar": "سن التقاعد المخطط"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Jährlicher Beitrag",
         "fr": "Cotisation annuelle",
         "es": "Contribución anual",
-        "ar": "Annual Contribution"
+        "ar": "المساهمة السنوية"
       },
       "businessContext_i18n": {
         "en": "Annual contribution amount",
         "tr": "Yıllık katkı tutarı",
         "de": "Jährlicher Beitragsbetrag",
         "fr": "Montant de la cotisation annuelle",
-        "es": "Monto de contribución anual"
+        "es": "Monto de contribución anual",
+        "ar": "مبلغ المساهمة السنوية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Aktueller IRA-Kontostand",
         "fr": "Solde actuel du compte IRA",
         "es": "Saldo actual de la IRA",
-        "ar": "Current IRA Balance"
+        "ar": "رصيد حساب IRA الحالي"
       },
       "businessContext_i18n": {
         "en": "Current IRA balance",
         "tr": "Mevcut IRA bakiyesi",
         "de": "Aktueller IRA-Kontostand",
         "fr": "Solde actuel du compte IRA",
-        "es": "Saldo actual de la IRA"
+        "es": "Saldo actual de la IRA",
+        "ar": "الرصيد الحالي في حساب التقاعد"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Erwartete jährliche Rendite (%)",
         "fr": "Rendement annuel attendu (%)",
         "es": "Rendimiento anual esperado (%)",
-        "ar": "Expected Annual Return (%)"
+        "ar": "العائد السنوي المتوقع (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average annual return rate (e.g., 7 for 7%)",
         "tr": "Beklenen ortalama yıllık getiri oranı (ör. 7 için %7)",
         "de": "Erwartete durchschnittliche jährliche Rendite (z.B. 7 für 7%)",
         "fr": "Taux de rendement annuel moyen attendu (ex. 7 pour 7%)",
-        "es": "Tasa de rendimiento anual promedio esperada (ej., 7 para 7%)"
+        "es": "Tasa de rendimiento anual promedio esperada (ej., 7 para 7%)",
+        "ar": "معدل العائد السنوي المتوقع (مثال: 7 لـ 7%)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Erwartete Inflationsrate (%)",
         "fr": "Taux d'inflation attendu (%)",
         "es": "Tasa de inflación esperada (%)",
-        "ar": "Expected Inflation Rate (%)"
+        "ar": "معدل التضخم المتوقع (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average inflation rate (e.g., 2.5 for 2.5%)",
         "tr": "Beklenen ortalama enflasyon oranı (ör. 2,5 için %2,5)",
         "de": "Erwartete durchschnittliche Inflationsrate (z.B. 2,5 für 2,5%)",
         "fr": "Taux d'inflation annuel moyen attendu (ex. 2,5 pour 2,5%)",
-        "es": "Tasa de inflación promedio esperada (ej., 2.5 para 2.5%)"
+        "es": "Tasa de inflación promedio esperada (ej., 2.5 para 2.5%)",
+        "ar": "معدل التضخم المتوقع (مثال: 2.5 لـ 2.5%)"
       }
     }
   ],
   "formulas": {
-    "result": "currentAge + retirementAge + annualContribution",
-    "result_copy": "currentAge + retirementAge + annualContribution"
+    "base_cost": "currentAge * annualContribution",
+    "adjusted_cost": "currentAge * annualContribution * (1 + (annualReturnRate / 100))",
+    "result": "currentAge * annualContribution * (1 + (annualReturnRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "realBalance",
-      "contributions",
-      "earnings"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "earnings",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

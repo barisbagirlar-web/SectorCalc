@@ -14,14 +14,15 @@
         "de": "Mütterliches Alter",
         "fr": "Âge maternel",
         "es": "Edad materna",
-        "ar": "Maternal Age"
+        "ar": "عمر الأم"
       },
       "businessContext_i18n": {
         "en": "Age of the mother in years",
         "tr": "Annenin yaşı (yıl)",
         "de": "Alter der Mutter in Jahren",
         "fr": "Âge de la mère en années",
-        "es": "Edad de la madre en años"
+        "es": "Edad de la madre en años",
+        "ar": "عمر الأم بالسنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "NT-Messung",
         "fr": "Mesure NT",
         "es": "Medición NT",
-        "ar": "NT Measurement"
+        "ar": "قياس الشفافية القفوية"
       },
       "businessContext_i18n": {
         "en": "Nuchal translucency thickness in millimeters",
         "tr": "Ense kalınlığı (milimetre)",
         "de": "Nackentransparenz-Dicke in Millimetern",
         "fr": "Épaisseur de la clarté nucale en millimètres",
-        "es": "Grosor de la translucencia nucal en milímetros"
+        "es": "Grosor de la translucencia nucal en milímetros",
+        "ar": "سمك الشفافية القفوية بالمليمترات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "SSL",
         "fr": "LCC",
         "es": "LCC",
-        "ar": "CRL"
+        "ar": "طول الجنين من الرأس إلى الردف"
       },
       "businessContext_i18n": {
         "en": "Crown-rump length in millimeters for gestational age",
         "tr": "Baş-popo uzunluğu (gebelik yaşı için milimetre)",
         "de": "Scheitel-Steiß-Länge in Millimetern für das Gestationsalter",
         "fr": "Longueur cranio-caudale en millimètres pour l'âge gestationnel",
-        "es": "Longitud cráneo-nalga en milímetros para la edad gestacional"
+        "es": "Longitud cráneo-nalga en milímetros para la edad gestacional",
+        "ar": "طول الجنين من الرأس إلى الردف بالمليمترات لتحديد عمر الحمل"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Vorheriges Risiko",
         "fr": "Risque antérieur",
         "es": "Riesgo previo",
-        "ar": "Prior Risk"
+        "ar": "المخاطر السابقة"
       },
       "businessContext_i18n": {
         "en": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)",
         "tr": "Anne yaşına bağlı temel risk (örneğin 1/250 için 0.004)",
         "de": "Basisrisiko aus dem mütterlichen Alter (z. B. 0,004 für 1:250)",
         "fr": "Risque de base lié à l'âge maternel (ex. 0,004 pour 1 sur 250)",
-        "es": "Riesgo basal por edad materna (ej. 0.004 para 1 en 250)"
+        "es": "Riesgo basal por edad materna (ej. 0.004 para 1 en 250)",
+        "ar": "المخاطر الأساسية من عمر الأم (مثل 0.004 لـ 1 من 250)"
       }
     }
   ],
   "formulas": {
-    "result": "maternalAge + ntMeasurement + crl",
-    "result_copy": "maternalAge + ntMeasurement + crl"
+    "normalized_product": "maternalAge * ntMeasurement * crl * priorRisk",
+    "result": "maternalAge * ntMeasurement * crl * priorRisk"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "baseRiskPercent",
-      "adjustedRiskPercent"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "riskPercent",
-    "unit": "years",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "baseRiskPercent": "%",
       "adjustedRiskPercent": "%"

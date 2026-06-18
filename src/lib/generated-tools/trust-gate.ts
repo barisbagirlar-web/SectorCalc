@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import { validateIndustrialSchema } from "@/lib/generated-tools/validate-industrial-schema";
 
 export type TrustGateStatus = "PASS" | "WARN" | "FAIL" | "RUNTIME_FAIL" | "QUARANTINE";
@@ -15,15 +13,6 @@ export type TrustGateResult = {
 const FORBIDDEN_FUNCTION_MARKERS = ["f(", "g(", "calc(", "calculate("] as const;
 
 const DEFAULT_CATEGORY = "Üretim & İmalat";
-const SCHEMAS_DIR = path.join(process.cwd(), "generated/schemas");
-
-function readSlug(schema: Record<string, unknown>, fileName: string): string {
-  const toolName = schema.toolName;
-  if (typeof toolName === "string" && toolName.trim()) {
-    return toolName.trim();
-  }
-  return fileName.replace(/-schema\.json$/, "");
-}
 
 function hasForbiddenFunctions(formulas: Record<string, unknown> | undefined): boolean {
   if (!formulas) {
@@ -89,8 +78,15 @@ export function evaluateSchemaTrust(
       (issue) => issue === "No formulas" || issue === "No primary output" || issue === "No inputs",
     );
 
+  const hasStubOrCriticalIssue = issues.some(
+    (issue) =>
+      issue.includes("stub sum placeholder") ||
+      issue.includes("incomplete domain model") ||
+      issue.includes("output unit mismatch"),
+  );
+
   let status: TrustGateStatus = "PASS";
-  if (!hasFormulas || !hasOutputs || !hasValidInputs) {
+  if (!hasFormulas || !hasOutputs || !hasValidInputs || hasStubOrCriticalIssue) {
     status = "QUARANTINE";
   } else if (issues.length > 0) {
     status = "WARN";
@@ -105,31 +101,6 @@ export function evaluateSchemaTrust(
     issues,
     fixable,
   };
-}
-
-export function runTrustGate(): TrustGateResult[] {
-  if (!fs.existsSync(SCHEMAS_DIR)) {
-    return [];
-  }
-
-  const files = fs.readdirSync(SCHEMAS_DIR).filter((file) => file.endsWith("-schema.json"));
-  const results: TrustGateResult[] = [];
-
-  for (const file of files) {
-    const filePath = path.join(SCHEMAS_DIR, file);
-    const schema = JSON.parse(fs.readFileSync(filePath, "utf8")) as Record<string, unknown>;
-    const slug = readSlug(schema, file);
-    results.push(evaluateSchemaTrust(schema, slug));
-  }
-
-  return results;
-}
-
-export function getActiveSlugs(): string[] {
-  return runTrustGate()
-    .filter((result) => result.status === "PASS" || result.status === "WARN")
-    .map((result) => result.slug)
-    .sort((left, right) => left.localeCompare(right));
 }
 
 export function getDefaultCategoryFallback(): string {

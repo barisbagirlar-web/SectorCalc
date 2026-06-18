@@ -13,14 +13,16 @@
         "tr": "Başlatılan Toplam Birim",
         "de": "Gestartete Einheiten gesamt",
         "fr": "Total d'unités lancées",
-        "es": "Total Units Started",
-        "ar": "Total Units Started"
+        "es": "Unidades iniciadas totales",
+        "ar": "إجمالي الوحدات التي بدأت"
       },
       "businessContext_i18n": {
         "en": "Total number of units that entered the production process.",
         "tr": "Üretim sürecine giren toplam birim sayısı.",
         "de": "Gesamtzahl der Einheiten, die in den Produktionsprozess eingegangen sind.",
-        "fr": "Nombre total d'unités entrées dans le processus de production."
+        "fr": "Nombre total d'unités entrées dans le processus de production.",
+        "es": "Número total de unidades que ingresaron al proceso de producción.",
+        "ar": "إجمالي عدد الوحدات التي دخلت عملية الإنتاج."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İyi Birim (İlk Geçiş)",
         "de": "Gute Einheiten (Erster Durchlauf)",
         "fr": "Bonnes unités (première passe)",
-        "es": "Good Units (First Pass)",
-        "ar": "Good Units (First Pass)"
+        "es": "Unidades buenas (primer paso)",
+        "ar": "الوحدات الجيدة (المرور الأول)"
       },
       "businessContext_i18n": {
         "en": "Number of units that passed quality inspection on the first attempt without rework.",
         "tr": "Yeniden işleme gerek kalmadan ilk denemede kalite kontrolünden geçen birim sayısı.",
         "de": "Anzahl der Einheiten, die die Qualitätsprüfung beim ersten Versuch ohne Nacharbeit bestanden haben.",
-        "fr": "Nombre d'unités ayant passé le contrôle qualité dès la première tentative sans reprise."
+        "fr": "Nombre d'unités ayant passé le contrôle qualité dès la première tentative sans reprise.",
+        "es": "Número de unidades que pasaron la inspección de calidad en el primer intento sin retrabajo.",
+        "ar": "عدد الوحدات التي اجتازت فحص الجودة من المحاولة الأولى دون إعادة عمل."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Yeniden İşlenen Birim",
         "de": "Nachgearbeitete Einheiten",
         "fr": "Unités reprises",
-        "es": "Reworked Units",
-        "ar": "Reworked Units"
+        "es": "Unidades retrabajadas",
+        "ar": "الوحدات المعاد العمل عليها"
       },
       "businessContext_i18n": {
         "en": "Number of units that required rework to meet quality standards.",
         "tr": "Kalite standartlarını karşılamak için yeniden işleme gerektiren birim sayısı.",
         "de": "Anzahl der Einheiten, die nachgearbeitet werden mussten, um die Qualitätsstandards zu erfüllen.",
-        "fr": "Nombre d'unités ayant nécessité une reprise pour atteindre les normes de qualité."
+        "fr": "Nombre d'unités ayant nécessité une reprise pour atteindre les normes de qualité.",
+        "es": "Número de unidades que requirieron retrabajo para cumplir con los estándares de calidad.",
+        "ar": "عدد الوحدات التي تطلبت إعادة عمل لتحقيق معايير الجودة."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Ausschuss-Einheiten",
         "fr": "Unités de rebut",
         "es": "Unidades de desperdicio",
-        "ar": "Scrap Units"
+        "ar": "وحدات الهدر"
       },
       "businessContext_i18n": {
         "en": "Number of units that were scrapped or deemed irreparable.",
         "tr": "Hurda veya onarılamaz olarak değerlendirilen birim sayısı.",
         "de": "Anzahl der Einheiten, die verschrottet oder als irreparabel eingestuft wurden.",
-        "fr": "Nombre d'unités mises au rebut ou jugées irréparables."
+        "fr": "Nombre d'unités mises au rebut ou jugées irréparables.",
+        "es": "Número de unidades que fueron desechadas o consideradas irreparables.",
+        "ar": "عدد الوحدات التي تم هدرها أو اعتبارها غير قابلة للإصلاح."
       }
     }
   ],

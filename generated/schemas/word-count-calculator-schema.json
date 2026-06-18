@@ -13,14 +13,16 @@
         "tr": "Toplam Karakter (boşluklar dahil)",
         "de": "Gesamtzeichen (inkl. Leerzeichen)",
         "fr": "Nombre total de caractères (espaces inclus)",
-        "es": "Total Characters (including spaces)",
-        "ar": "Total Characters (including spaces)"
+        "es": "Caracteres totales (incluyendo espacios)",
+        "ar": "إجمالي الأحرف (بما في ذلك المسافات)"
       },
       "businessContext_i18n": {
         "en": "The total number of characters in the text, including spaces and punctuation.",
         "tr": "Metindeki toplam karakter sayısı, boşluklar ve noktalama işaretleri dahil.",
         "de": "Die Gesamtzahl der Zeichen im Text, einschließlich Leerzeichen und Satzzeichen.",
-        "fr": "Le nombre total de caractères dans le texte, espaces et ponctuation inclus."
+        "fr": "Le nombre total de caractères dans le texte, espaces et ponctuation inclus.",
+        "es": "Número total de caracteres en el texto, incluyendo espacios y puntuación.",
+        "ar": "إجمالي عدد الأحرف في النص، بما في ذلك المسافات وعلامات الترقيم"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Toplam Kelime (biliniyorsa, aksi halde 0 bırakın)",
         "de": "Gesamtwörter (falls bekannt, sonst 0)",
         "fr": "Nombre total de mots (si connu, sinon laisser 0)",
-        "es": "Total Words (if known, otherwise leave 0)",
-        "ar": "Total Words (if known, otherwise leave 0)"
+        "es": "Palabras totales (si se conocen, de lo contrario dejar 0)",
+        "ar": "إجمالي الكلمات (إذا كان معروفًا، وإلا اترك 0)"
       },
       "businessContext_i18n": {
         "en": "If you already know the exact word count, enter it here; otherwise, it will be estimated.",
         "tr": "Tam kelime sayısını biliyorsanız buraya girin; aksi halde tahmin edilecektir.",
         "de": "Wenn Sie die genaue Wortanzahl bereits kennen, geben Sie sie hier ein; andernfalls wird sie geschätzt.",
-        "fr": "Si vous connaissez le nombre exact de mots, saisissez-le ici ; sinon, il sera estimé."
+        "fr": "Si vous connaissez le nombre exact de mots, saisissez-le ici ; sinon, il sera estimé.",
+        "es": "Si ya conoces el recuento exacto de palabras, introdúcelo aquí; de lo contrario, se estimará.",
+        "ar": "إذا كنت تعرف عدد الكلمات الدقيق، أدخله هنا؛ وإلا فسيتم تقديره"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Ortalama Kelime Uzunluğu",
         "de": "Durchschnittliche Wortlänge",
         "fr": "Longueur moyenne des mots",
-        "es": "Average Word Length",
-        "ar": "Average Word Length"
+        "es": "Longitud media de palabra",
+        "ar": "متوسط طول الكلمة"
       },
       "businessContext_i18n": {
         "en": "Typical average word length in English is about 5 characters. Adjust based on language/content.",
         "tr": "İngilizce'de tipik ortalama kelime uzunluğu yaklaşık 5 karakterdir. Dile/içeriğe göre ayarlayın.",
         "de": "Die typische durchschnittliche Wortlänge im Englischen beträgt etwa 5 Zeichen. Passen Sie sie je nach Sprache/Inhalt an.",
-        "fr": "La longueur moyenne des mots en anglais est d'environ 5 caractères. Ajustez selon la langue/contenu."
+        "fr": "La longueur moyenne des mots en anglais est d'environ 5 caractères. Ajustez selon la langue/contenu.",
+        "es": "La longitud media típica de una palabra en español es de unos 5 caracteres. Ajusta según el idioma/contenido.",
+        "ar": "متوسط طول الكلمة في اللغة الإنجليزية حوالي 5 أحرف. اضبط حسب اللغة/المحتوى"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Lesegeschwindigkeit",
         "fr": "Vitesse de lecture",
         "es": "Velocidad de lectura",
-        "ar": "Reading Speed"
+        "ar": "سرعة القراءة"
       },
       "businessContext_i18n": {
         "en": "Average reading speed for adults is around 200-250 words per minute.",
         "tr": "Yetişkinler için ortalama okuma hızı dakikada yaklaşık 200-250 kelimedir.",
         "de": "Die durchschnittliche Lesegeschwindigkeit für Erwachsene liegt bei etwa 200–250 Wörtern pro Minute.",
-        "fr": "La vitesse de lecture moyenne pour les adultes est d'environ 200-250 mots par minute."
+        "fr": "La vitesse de lecture moyenne pour les adultes est d'environ 200-250 mots par minute.",
+        "es": "La velocidad media de lectura para adultos es de unas 200-250 palabras por minuto.",
+        "ar": "سرعة القراءة المتوسطة للبالغين حوالي 200-250 كلمة في الدقيقة"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Gesamtseiten",
         "fr": "Nombre total de pages",
         "es": "Páginas totales",
-        "ar": "Total Pages"
+        "ar": "إجمالي الصفحات"
       },
       "businessContext_i18n": {
         "en": "If known, number of pages, used for page-based estimates (average 250-300 words per page).",
         "tr": "Biliniyorsa sayfa sayısı, sayfa bazlı tahminler için kullanılır (sayfa başına ortalama 250-300 kelime).",
         "de": "Falls bekannt, Anzahl der Seiten, verwendet für seitenbasierte Schätzungen (durchschnittlich 250–300 Wörter pro Seite).",
-        "fr": "Si connu, nombre de pages, utilisé pour les estimations basées sur les pages (moyenne de 250-300 mots par page)."
+        "fr": "Si connu, nombre de pages, utilisé pour les estimations basées sur les pages (moyenne de 250-300 mots par page).",
+        "es": "Si se conoce, número de páginas, utilizado para estimaciones basadas en páginas (media de 250-300 palabras por página).",
+        "ar": "إذا كان معروفًا، عدد الصفحات، يُستخدم للتقديرات المستندة إلى الصفحات (متوسط 250-300 كلمة لكل صفحة)"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Sayfa Başına Kelime",
         "de": "Wörter pro Seite",
         "fr": "Mots par page",
-        "es": "Words Per Page",
-        "ar": "Words Per Page"
+        "es": "Palabras por página",
+        "ar": "الكلمات لكل صفحة"
       },
       "businessContext_i18n": {
         "en": "Standard words per page assuming double-spaced, 12pt font.",
         "tr": "Çift aralıklı, 12 punto yazı tipi varsayılarak standart sayfa başına kelime.",
         "de": "Standardwörter pro Seite bei doppeltem Zeilenabstand und 12-Punkt-Schrift.",
-        "fr": "Nombre standard de mots par page en supposant un double interligne, police 12pt."
+        "fr": "Nombre standard de mots par page en supposant un double interligne, police 12pt.",
+        "es": "Palabras estándar por página asumiendo interlineado doble, fuente de 12 puntos.",
+        "ar": "الكلمات القياسية لكل صفحة بافتراض تباعد مزدوج وخط 12 نقطة"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Zelle a (oben links)",
         "fr": "Cellule a (haut-gauche)",
         "es": "Celda a (superior izquierda)",
-        "ar": "Cell a (top-left)"
+        "ar": "الخلية أ (أعلى اليسار)"
       },
       "businessContext_i18n": {
         "en": "Number of successes in group 1",
         "tr": "Grup 1'deki başarı sayısı",
         "de": "Anzahl der Erfolge in Gruppe 1",
         "fr": "Nombre de succès dans le groupe 1",
-        "es": "Número de éxitos en el grupo 1"
+        "es": "Número de éxitos en el grupo 1",
+        "ar": "عدد النجاحات في المجموعة 1"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zelle b (oben rechts)",
         "fr": "Cellule b (haut-droite)",
         "es": "Celda b (superior derecha)",
-        "ar": "Cell b (top-right)"
+        "ar": "الخلية ب (أعلى اليمين)"
       },
       "businessContext_i18n": {
         "en": "Number of failures in group 1",
         "tr": "Grup 1'deki başarısızlık sayısı",
         "de": "Anzahl der Fehlschläge in Gruppe 1",
         "fr": "Nombre d'échecs dans le groupe 1",
-        "es": "Número de fallos en el grupo 1"
+        "es": "Número de fallos en el grupo 1",
+        "ar": "عدد الإخفاقات في المجموعة 1"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zelle c (unten links)",
         "fr": "Cellule c (bas-gauche)",
         "es": "Celda c (inferior izquierda)",
-        "ar": "Cell c (bottom-left)"
+        "ar": "الخلية ج (أسفل اليسار)"
       },
       "businessContext_i18n": {
         "en": "Number of successes in group 2",
         "tr": "Grup 2'deki başarı sayısı",
         "de": "Grup 2'deki başarı sayısı",
         "fr": "Nombre de succès dans le groupe 2",
-        "es": "Número de éxitos en el grupo 2"
+        "es": "Número de éxitos en el grupo 2",
+        "ar": "عدد النجاحات في المجموعة 2"
       }
     },
     {
@@ -83,39 +86,37 @@
         "de": "Hücre d (sağ alt)",
         "fr": "Cellule d (bas-droite)",
         "es": "Celda d (inferior derecha)",
-        "ar": "Cell d (bottom-right)"
+        "ar": "الخلية د (أسفل اليمين)"
       },
       "businessContext_i18n": {
         "en": "Number of failures in group 2",
         "tr": "Grup 2'deki başarısızlık sayısı",
         "de": "Grup 2'deki başarısızlık sayısı",
         "fr": "Nombre d'échecs dans le groupe 2",
-        "es": "Número de fallos en el grupo 2"
+        "es": "Número de fallos en el grupo 2",
+        "ar": "عدد الإخفاقات في المجموعة 2"
       }
     }
   ],
   "formulas": {
-    "n": "a + b + c + d",
-    "row1": "a + b",
-    "row2": "c + d",
-    "col1": "a + c",
-    "col2": "b + d"
+    "normalized_product": "a * b * c * d",
+    "result": "a * b * c * d"
   },
   "outputs": {
-    "primary": "col2",
+    "primary": "result",
     "breakdown": [
-      "n",
-      "row1",
-      "row2",
-      "col1",
-      "col2"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "pValue",
-    "unit": "count"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",

@@ -14,14 +14,15 @@
         "de": "Wellendurchmesser (mm)",
         "fr": "Diamètre de l'arbre (mm)",
         "es": "Diámetro del eje (mm)",
-        "ar": "Shaft Diameter (mm)"
+        "ar": "قطر العمود (مم)"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the shaft",
         "tr": "Mil nominal çapı",
         "de": "Nenndurchmesser der Welle",
         "fr": "Diamètre nominal de l'arbre",
-        "es": "Diámetro nominal del eje"
+        "es": "Diámetro nominal del eje",
+        "ar": "القطر الاسمي للعمود"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Außendurchmesser der Nabe (mm)",
         "fr": "Diamètre extérieur du moyeu (mm)",
         "es": "Diámetro exterior del cubo (mm)",
-        "ar": "Hub Outer Diameter (mm)"
+        "ar": "القطر الخارجي للمحور (مم)"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the hub",
         "tr": "Göbek dış çapı",
         "de": "Außendurchmesser der Nabe",
         "fr": "Diamètre extérieur du moyeu",
-        "es": "Diámetro exterior del cubo"
+        "es": "Diámetro exterior del cubo",
+        "ar": "القطر الخارجي للمحور"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Presspassung (mm)",
         "fr": "Interférence (mm)",
         "es": "Interferencia (mm)",
-        "ar": "Interference (mm)"
+        "ar": "التداخل (مم)"
       },
       "businessContext_i18n": {
         "en": "Radial interference between shaft and hub",
         "tr": "Mil ile göbek arasındaki radyal sıkı geçme",
         "de": "Radiale Presspassung zwischen Welle und Nabe",
         "fr": "Interférence radiale entre l'arbre et le moyeu",
-        "es": "Interferencia radial entre eje y cubo"
+        "es": "Interferencia radial entre eje y cubo",
+        "ar": "التداخل الشعاعي بين العمود والمحور"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Elastizitätsmodul Welle (GPa)",
         "fr": "Module d'Young de l'arbre (GPa)",
         "es": "Módulo de Young del eje (GPa)",
-        "ar": "Young's Modulus Shaft (GPa)"
+        "ar": "معامل يونغ للعمود (GPa)"
       },
       "businessContext_i18n": {
         "en": "Elastic modulus of shaft material",
         "tr": "Mil malzemesinin elastisite modülü",
         "de": "Elastizitätsmodul des Wellenmaterials",
         "fr": "Module d'élasticité du matériau de l'arbre",
-        "es": "Módulo elástico del material del eje"
+        "es": "Módulo elástico del material del eje",
+        "ar": "معامل المرونة لمادة العمود"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Elastizitätsmodul Nabe (GPa)",
         "fr": "Module d'Young du moyeu (GPa)",
         "es": "Módulo de Young del cubo (GPa)",
-        "ar": "Young's Modulus Hub (GPa)"
+        "ar": "معامل يونغ للمحور (GPa)"
       },
       "businessContext_i18n": {
         "en": "Elastic modulus of hub material",
         "tr": "Göbek malzemesinin elastisite modülü",
         "de": "Elastizitätsmodul des Nabenmaterials",
         "fr": "Module d'élasticité du matériau du moyeu",
-        "es": "Módulo elástico del material del cubo"
+        "es": "Módulo elástico del material del cubo",
+        "ar": "معامل المرونة لمادة المحور"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Poissonzahl Welle",
         "fr": "Coefficient de Poisson de l'arbre",
         "es": "Coeficiente de Poisson del eje",
-        "ar": "Poisson's Ratio Shaft"
+        "ar": "نسبة بواسون للعمود"
       },
       "businessContext_i18n": {
         "en": "Poisson's ratio of shaft material",
         "tr": "Mil malzemesinin Poisson oranı",
         "de": "Poissonzahl des Wellenmaterials",
         "fr": "Coefficient de Poisson du matériau de l'arbre",
-        "es": "Coeficiente de Poisson del material del eje"
+        "es": "Coeficiente de Poisson del material del eje",
+        "ar": "نسبة بواسون لمادة العمود"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Poissonzahl Nabe",
         "fr": "Coefficient de Poisson du moyeu",
         "es": "Coeficiente de Poisson del cubo",
-        "ar": "Poisson's Ratio Hub"
+        "ar": "نسبة بواسون للمحور"
       },
       "businessContext_i18n": {
         "en": "Poisson's ratio of hub material",
         "tr": "Göbek malzemesinin Poisson oranı",
         "de": "Poissonzahl des Nabenmaterials",
         "fr": "Coefficient de Poisson du matériau du moyeu",
-        "es": "Coeficiente de Poisson del material del cubo"
+        "es": "Coeficiente de Poisson del material del cubo",
+        "ar": "نسبة بواسون لمادة المحور"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
-        "ar": "Friction Coefficient"
+        "ar": "معامل الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between mating surfaces",
         "tr": "Birleşme yüzeyleri arasındaki sürtünme katsayısı",
         "de": "Reibungskoeffizient zwischen den Passflächen",
         "fr": "Coefficient de frottement entre les surfaces en contact",
-        "es": "Coeficiente de fricción entre superficies de contacto"
+        "es": "Coeficiente de fricción entre superficies de contacto",
+        "ar": "معامل الاحتكاك بين الأسطح المتزاوجة"
       }
     }
   ],

@@ -13,14 +13,16 @@
         "tr": "Şekil Parametresi (β)",
         "de": "Formparameter (β)",
         "fr": "Paramètre de forme (β)",
-        "es": "Shape Parameter (β)",
-        "ar": "Shape Parameter (β)"
+        "es": "Parámetro de forma (β)",
+        "ar": "معامل الشكل (β)"
       },
       "businessContext_i18n": {
         "en": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing).",
         "tr": "Weibull dağılımının şekil parametresi. > 0 olmalıdır. Arıza oranı davranışını belirler (β<1: azalan, β=1: üstel, β>1: artan).",
         "de": "Formparameter der Weibull-Verteilung. Muss > 0 sein. Bestimmt das Ausfallratenverhalten (β<1: abnehmend, β=1: exponentiell, β>1: zunehmend).",
-        "fr": "Paramètre de forme de la distribution de Weibull. Doit être > 0. Détermine le comportement du taux de défaillance (β<1 : décroissant, β=1 : exponentiel, β>1 : croissant)."
+        "fr": "Paramètre de forme de la distribution de Weibull. Doit être > 0. Détermine le comportement du taux de défaillance (β<1 : décroissant, β=1 : exponentiel, β>1 : croissant).",
+        "es": "Parámetro de forma de la distribución Weibull. Debe ser > 0. Determina el comportamiento de la tasa de fallos (β<1: decreciente, β=1: exponencial, β>1: creciente).",
+        "ar": "معامل الشكل لتوزيع ويبل. يجب أن يكون > 0. يحدد سلوك معدل الفشل (β<1: متناقص، β=1: أسي، β>1: متزايد)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Ölçek Parametresi (η)",
         "de": "Skalenparameter (η)",
         "fr": "Paramètre d'échelle (η)",
-        "es": "Scale Parameter (η)",
-        "ar": "Scale Parameter (η)"
+        "es": "Parámetro de escala (η)",
+        "ar": "معامل المقياس (η)"
       },
       "businessContext_i18n": {
         "en": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0.",
         "tr": "Karakteristik ömür veya ölçek parametresi. Konum=0 olduğunda öğelerin %63,2'sinin arızalandığı süre. > 0 olmalıdır.",
         "de": "Charakteristische Lebensdauer oder Skalenparameter. Zeit, zu der 63,2 % der Einheiten ausgefallen sind, wenn Lage=0. Muss > 0 sein.",
-        "fr": "Durée de vie caractéristique ou paramètre d'échelle. Temps auquel 63,2 % des articles ont échoué lorsque l'emplacement = 0. Doit être > 0."
+        "fr": "Durée de vie caractéristique ou paramètre d'échelle. Temps auquel 63,2 % des articles ont échoué lorsque l'emplacement = 0. Doit être > 0.",
+        "es": "Vida característica o parámetro de escala. Tiempo en el que el 63.2% de los elementos han fallado cuando ubicación=0. Debe ser > 0.",
+        "ar": "العمر المميز أو معامل المقياس. الوقت الذي يفشل فيه 63.2% من العناصر عندما يكون الموقع = 0. يجب أن يكون > 0."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Time at which to compute reliability and failure metrics.",
         "tr": "Güvenilirlik ve arıza metriklerinin hesaplanacağı süre.",
         "de": "Zeitpunkt, für den Zuverlässigkeits- und Ausfallkennzahlen berechnet werden.",
-        "fr": "Temps auquel calculer les métriques de fiabilité et de défaillance."
+        "fr": "Temps auquel calculer les métriques de fiabilité et de défaillance.",
+        "es": "Tiempo en el que se calculan las métricas de fiabilidad y fallo.",
+        "ar": "الوقت الذي يتم عنده حساب الموثوقية ومقاييس الفشل."
       }
     },
     {
@@ -79,46 +85,38 @@
         "tr": "Konum Parametresi (γ)",
         "de": "Lageparameter (γ)",
         "fr": "Paramètre de position (γ)",
-        "es": "Location Parameter (γ)",
-        "ar": "Location Parameter (γ)"
+        "es": "Parámetro de ubicación (γ)",
+        "ar": "معامل الموقع (γ)"
       },
       "businessContext_i18n": {
         "en": "Shift parameter for failure-free period. Reliable before this time. Typically 0.",
         "tr": "Hataya kadar geçen süresiz dönem için kaydırma parametresi. Bu saatten önce güvenilirdir. Tipik olarak 0.",
         "de": "Verschiebungsparameter für den ausfallfreien Zeitraum. Vor dieser Zeit zuverlässig. Typischerweise 0.",
-        "fr": "Paramètre de décalage pour la période sans défaillance. Fiable avant ce moment. Généralement 0."
+        "fr": "Paramètre de décalage pour la période sans défaillance. Fiable avant ce moment. Généralement 0.",
+        "es": "Parámetro de desplazamiento para el período libre de fallos. Fiable antes de este tiempo. Normalmente 0.",
+        "ar": "معامل الإزاحة لفترة خالية من الفشل. موثوق قبل هذا الوقت. عادة 0."
       }
     }
   ],
   "formulas": {
-    "result": "shape + scale + time",
-    "result_copy": "shape + scale + time"
+    "normalized_product": "shape * scale * time * location",
+    "result": "shape * scale * time * location"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "failureProbability",
-        "label": "Failure Probability F(t)",
-        "unit": ""
-      },
-      {
-        "id": "failureRate",
-        "label": "Failure Rate h(t)",
-        "unit": "failures/hour"
-      },
-      {
-        "id": "b10Life",
-        "label": "B10 Life",
-        "unit": "hours"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "b10Life",
-    "unit": "hours"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

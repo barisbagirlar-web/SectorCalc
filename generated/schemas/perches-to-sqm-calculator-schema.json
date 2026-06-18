@@ -14,14 +14,15 @@
         "de": "Fläche in Perches",
         "fr": "Superficie en perches",
         "es": "Área en perchas",
-        "ar": "Area in perches"
+        "ar": "المساحة بالبيرش"
       },
       "businessContext_i18n": {
         "en": "Land area measurement in perches (1 perch = 25.29285264 m²)",
         "tr": "Perch cinsinden arazi alanı ölçümü (1 perch = 25,29285264 m²)",
         "de": "Landflächenmaß in Perches (1 Perch = 25,29285264 m²)",
         "fr": "Mesure de superficie en perches (1 perche = 25,29285264 m²)",
-        "es": "Medición de área de terreno en perchas (1 percha = 25.29285264 m²)"
+        "es": "Medición de área de terreno en perchas (1 percha = 25.29285264 m²)",
+        "ar": "قياس مساحة الأرض بالبيرش (1 بيرش = 25.29285264 م²)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (qm pro Rute)",
         "fr": "Facteur de conversion (m² par perche)",
         "es": "Factor de conversión (m² por perch)",
-        "ar": "Conversion factor (sqm per perch)"
+        "ar": "عامل التحويل (م² لكل بيرش)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor; can be overridden for historical variants",
         "tr": "Standart dönüşüm faktörü; tarihsel varyantlar için geçersiz kılınabilir",
         "de": "Standard-Umrechnungsfaktor; kann für historische Varianten überschrieben werden",
         "fr": "Facteur de conversion standard ; peut être modifié pour les variantes historiques",
-        "es": "Factor de conversión estándar; se puede sobrescribir para variantes históricas"
+        "es": "Factor de conversión estándar; se puede sobrescribir para variantes históricas",
+        "ar": "عامل التحويل القياسي؛ يمكن تجاوزه للأنواع التاريخية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rückwärtsprüfung: bekannte Fläche in qm",
         "fr": "Vérification inverse : superficie connue en m²",
         "es": "Verificar inversa: área conocida en m²",
-        "ar": "Verify reverse: known area in sqm"
+        "ar": "تحقق عكسي: مساحة معروفة بالمتر المربع"
       },
       "businessContext_i18n": {
         "en": "Optional input to compute equivalent perches for validation",
         "tr": "Doğrulama için eşdeğer perch hesaplamak üzere isteğe bağlı girdi",
         "de": "Optionale Eingabe zur Berechnung der entsprechenden Ruten für die Validierung",
         "fr": "Entrée facultative pour calculer les perches équivalentes à des fins de validation",
-        "es": "Entrada opcional para calcular perches equivalentes para validación"
+        "es": "Entrada opcional para calcular perches equivalentes para validación",
+        "ar": "إدخال اختياري لحساب البيرش المكافئ للتحقق"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Offset-Anpassung (qm)",
         "fr": "Ajustement de décalage (m²)",
         "es": "Ajuste de compensación (m²)",
-        "ar": "Offset adjustment (sqm)"
+        "ar": "تعديل الإزاحة (م²)"
       },
       "businessContext_i18n": {
         "en": "Calibration offset added to the result",
         "tr": "Sonuca eklenen kalibrasyon ofseti",
         "de": "Kalibrierungs-Offset, der zum Ergebnis addiert wird",
         "fr": "Décalage d'étalonnage ajouté au résultat",
-        "es": "Compensación de calibración añadida al resultado"
+        "es": "Compensación de calibración añadida al resultado",
+        "ar": "إزاحة المعايرة المضافة إلى النتيجة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dezimalgenauigkeit für die Anzeige",
         "fr": "Précision décimale pour l'affichage",
         "es": "Precisión decimal para visualización",
-        "ar": "Decimal precision for display"
+        "ar": "الدقة العشرية للعرض"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding display (not used in raw calculation)",
         "tr": "Görüntüleme yuvarlaması için ondalık basamak sayısı (ham hesaplamada kullanılmaz)",
         "de": "Anzahl der Dezimalstellen für die Rundung der Anzeige (nicht in der Rohberechnung verwendet)",
         "fr": "Nombre de décimales pour l'arrondi de l'affichage (non utilisé dans le calcul brut)",
-        "es": "Número de decimales para redondear la visualización (no se usa en el cálculo bruto)"
+        "es": "Número de decimales para redondear la visualización (no se usa en el cálculo bruto)",
+        "ar": "عدد المنازل العشرية لتقريب العرض (لا يُستخدم في الحساب الخام)"
       }
     }
   ],

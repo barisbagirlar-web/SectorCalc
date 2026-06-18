@@ -14,14 +14,15 @@
         "de": "Mittelwert der Differenzen",
         "fr": "Moyenne des différences",
         "es": "Media de las diferencias",
-        "ar": "Mean of Differences"
+        "ar": "متوسط الفروق"
       },
       "businessContext_i18n": {
         "en": "The average of the differences between the paired observations.",
         "tr": "Eşleştirilmiş gözlemler arasındaki farkların ortalaması.",
         "de": "Der Durchschnitt der Differenzen zwischen den gepaarten Beobachtungen.",
         "fr": "La moyenne des différences entre les observations appariées.",
-        "es": "El promedio de las diferencias entre las observaciones pareadas."
+        "es": "El promedio de las diferencias entre las observaciones pareadas.",
+        "ar": "متوسط الفروق بين الملاحظات المزدوجة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Standardabweichung der Differenzen",
         "fr": "Écart-type des différences",
         "es": "Desviación estándar de las diferencias",
-        "ar": "Standard Deviation of Differences"
+        "ar": "الانحراف المعياري للفروق"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the differences between the paired observations.",
         "tr": "Eşleştirilmiş gözlemler arasındaki farkların standart sapması.",
         "de": "Die Standardabweichung der Differenzen zwischen den gepaarten Beobachtungen.",
         "fr": "L'écart-type des différences entre les observations appariées.",
-        "es": "La desviación estándar de las diferencias entre las observaciones pareadas."
+        "es": "La desviación estándar de las diferencias entre las observaciones pareadas.",
+        "ar": "الانحراف المعياري للفروق بين الملاحظات المزدوجة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stichprobengröße (Anzahl der Paare)",
         "fr": "Taille de l'échantillon (nombre de paires)",
         "es": "Tamaño de la muestra (número de pares)",
-        "ar": "Sample Size (Number of Pairs)"
+        "ar": "حجم العينة (عدد الأزواج)"
       },
       "businessContext_i18n": {
         "en": "The number of paired observations in the sample.",
         "tr": "Örneklemdeki eşleştirilmiş gözlem sayısı.",
         "de": "Die Anzahl der gepaarten Beobachtungen in der Stichprobe.",
         "fr": "Le nombre d'observations appariées dans l'échantillon.",
-        "es": "El número de observaciones pareadas en la muestra."
+        "es": "El número de observaciones pareadas en la muestra.",
+        "ar": "عدد الملاحظات المزدوجة في العينة."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Hypothetische Differenz (μ₀)",
         "fr": "Différence hypothétique (μ₀)",
         "es": "Diferencia hipotética (μ₀)",
-        "ar": "Hypothesized Difference (μ₀)"
+        "ar": "الفرق المفترض (μ₀)"
       },
       "businessContext_i18n": {
         "en": "The hypothesized mean difference under the null hypothesis (commonly 0).",
         "tr": "Sıfır hipotezi altında hipotez edilen ortalama fark (genellikle 0).",
         "de": "Die hypothetische mittlere Differenz unter der Nullhypothese (üblicherweise 0).",
         "fr": "La différence moyenne hypothétique sous l'hypothèse nulle (généralement 0).",
-        "es": "La diferencia media hipotética bajo la hipótesis nula (comúnmente 0)."
+        "es": "La diferencia media hipotética bajo la hipótesis nula (comúnmente 0).",
+        "ar": "متوسط الفرق المفترض تحت الفرضية الصفرية (عادة 0)."
       }
     }
   ],
   "formulas": {
-    "result": "meanDifference + standardDeviationDifference + sampleSize",
-    "result_copy": "meanDifference + standardDeviationDifference + sampleSize"
+    "normalized_product": "meanDifference * standardDeviationDifference * sampleSize * hypothesizedDifference",
+    "result": "meanDifference * standardDeviationDifference * sampleSize * hypothesizedDifference"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "degreesOfFreedom",
-      "standardError",
-      "meanDifference"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "standardError",
-    "unit": "—",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "degreesOfFreedom": "°"
     }

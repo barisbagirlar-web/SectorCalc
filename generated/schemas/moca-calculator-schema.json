@@ -14,14 +14,15 @@
         "de": "Prozessmittelwert",
         "fr": "Moyenne du processus",
         "es": "Media del proceso",
-        "ar": "Process Mean"
+        "ar": "متوسط العملية"
       },
       "businessContext_i18n": {
         "en": "The arithmetic mean of the process measurements from the capability study.",
         "tr": "Yetenek çalışmasından alınan proses ölçümlerinin aritmetik ortalaması.",
         "de": "Das arithmetische Mittel der Prozessmessungen aus der Fähigkeitsstudie.",
         "fr": "Moyenne arithmétique des mesures du processus issues de l'étude de capabilité.",
-        "es": "Media aritmética de las mediciones del proceso del estudio de capacidad."
+        "es": "Media aritmética de las mediciones del proceso del estudio de capacidad.",
+        "ar": "المتوسط الحسابي لقياسات العملية من دراسة القدرة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación estándar",
-        "ar": "Standard Deviation"
+        "ar": "الانحراف المعياري"
       },
       "businessContext_i18n": {
         "en": "The standard deviation (overall or within) of the process. Use long-term for Pp/Ppk; short-term for Cp/Cpk.",
         "tr": "Prosesin (genel veya grup içi) standart sapması. Pp/Ppk için uzun vadeli; Cp/Cpk için kısa vadeli kullanın.",
         "de": "Die Standardabweichung (gesamt oder innerhalb) des Prozesses. Für Pp/Ppk langfristig, für Cp/Cpk kurzfristig verwenden.",
         "fr": "L'écart type (global ou intra-série) du processus. Utilisez le long terme pour Pp/Ppk ; le court terme pour Cp/Cpk.",
-        "es": "Desviación estándar (general o dentro) del proceso. Use a largo plazo para Pp/Ppk; a corto plazo para Cp/Cpk."
+        "es": "Desviación estándar (general o dentro) del proceso. Use a largo plazo para Pp/Ppk; a corto plazo para Cp/Cpk.",
+        "ar": "الانحراف المعياري (الكلي أو الداخلي) للعملية. استخدم طويل المدى لـ Pp/Ppk وقصير المدى لـ Cp/Cpk."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Obere Spezifikationsgrenze (OSG)",
         "fr": "Limite de spécification supérieure (USL)",
         "es": "Límite superior de especificación (LSE)",
-        "ar": "Upper Specification Limit (USL)"
+        "ar": "حد المواصفات الأعلى (USL)"
       },
       "businessContext_i18n": {
         "en": "The upper tolerance boundary; parts above this are defective.",
         "tr": "Üst tolerans sınırı; bunun üzerindeki parçalar hatalıdır.",
         "de": "Die obere Toleranzgrenze; Teile darüber sind fehlerhaft.",
         "fr": "La limite de tolérance supérieure ; les pièces au-dessus sont défectueuses.",
-        "es": "El límite de tolerancia superior; las piezas por encima de este son defectuosas."
+        "es": "El límite de tolerancia superior; las piezas por encima de este son defectuosas.",
+        "ar": "حد التسامح الأعلى؛ الأجزاء فوق هذا الحد تعتبر معيبة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Untere Spezifikationsgrenze (USG)",
         "fr": "Limite de spécification inférieure (LSL)",
         "es": "Límite de especificación inferior (LSL)",
-        "ar": "Lower Specification Limit (LSL)"
+        "ar": "حد المواصفات الأدنى (LSL)"
       },
       "businessContext_i18n": {
         "en": "The lower tolerance boundary; parts below this are defective.",
         "tr": "Alt tolerans sınırı; bunun altındaki parçalar hatalıdır.",
         "de": "Die untere Toleranzgrenze; Teile darunter sind fehlerhaft.",
         "fr": "La limite de tolérance inférieure ; les pièces en dessous sont défectueuses.",
-        "es": "El límite de tolerancia inferior; las piezas por debajo de este son defectuosas."
+        "es": "El límite de tolerancia inferior; las piezas por debajo de este son defectuosas.",
+        "ar": "حد التسامح الأدنى؛ الأجزاء تحت هذا الحد تعتبر معيبة."
       }
     }
   ],

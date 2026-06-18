@@ -14,14 +14,15 @@
         "de": "Länge (m)",
         "fr": "Longueur (m)",
         "es": "Longitud (m)",
-        "ar": "Length (m)"
+        "ar": "الطول (م)"
       },
       "businessContext_i18n": {
         "en": "Effective length of the pendulum from pivot to center of mass.",
         "tr": "Sarkacın pivot noktasından kütle merkezine etkin uzunluk.",
         "de": "Effektive Länge des Pendels vom Drehpunkt bis zum Massenschwerpunkt.",
         "fr": "Longueur effective du pendule du pivot au centre de masse.",
-        "es": "Longitud efectiva del péndulo desde el pivote hasta el centro de masa."
+        "es": "Longitud efectiva del péndulo desde el pivote hasta el centro de masa.",
+        "ar": "الطول الفعال للبندول من نقطة الارتكاز إلى مركز الكتلة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schwerkraft (m/s²)",
         "fr": "Gravité (m/s²)",
         "es": "Gravedad (m/s²)",
-        "ar": "Gravity (m/s²)"
+        "ar": "الجاذبية (م/ث²)"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (standard Earth gravity is 9.81 m/s²).",
         "tr": "Yerçekimi ivmesi (standart Dünya yerçekimi 9.81 m/s²'dir).",
         "de": "Erdbeschleunigung (Standard-Erdbeschleunigung beträgt 9,81 m/s²).",
         "fr": "Accélération due à la gravité (gravité terrestre standard 9,81 m/s²).",
-        "es": "Aceleración debida a la gravedad (gravedad terrestre estándar es 9.81 m/s²)."
+        "es": "Aceleración debida a la gravedad (gravedad terrestre estándar es 9.81 m/s²).",
+        "ar": "تسارع الجاذبية (جاذبية الأرض القياسية هي 9.81 م/ث²)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangswinkel (Grad)",
         "fr": "Angle initial (degrés)",
         "es": "Ángulo inicial (grados)",
-        "ar": "Initial Angle (deg)"
+        "ar": "الزاوية الابتدائية (درجة)"
       },
       "businessContext_i18n": {
         "en": "Initial release angle from vertical in degrees. Keep small for accurate simple harmonic approximation.",
         "tr": "Dikeyden itibaren başlangıç bırakma açısı derece cinsinden. Doğru basit harmonik yaklaşım için küçük tutun.",
         "de": "Anfänglicher Auslenkwinkel von der Senkrechten in Grad. Für genaue harmonische Näherung klein halten.",
         "fr": "Angle de lâcher initial par rapport à la verticale en degrés. Garder petit pour une bonne approximation harmonique simple.",
-        "es": "Ángulo de liberación inicial desde la vertical en grados. Mantenga pequeño para una aproximación armónica simple precisa."
+        "es": "Ángulo de liberación inicial desde la vertical en grados. Mantenga pequeño para una aproximación armónica simple precisa.",
+        "ar": "زاوية الإطلاق الابتدائية من العمودي بالدرجات. حافظ على صغرها للحصول على تقريب توافقي بسيط دقيق."
       }
     },
     {
@@ -83,37 +86,37 @@
         "de": "Anzahl der Schwingungen",
         "fr": "Nombre d'oscillations",
         "es": "Número de oscilaciones",
-        "ar": "Number of Oscillations"
+        "ar": "عدد التذبذبات"
       },
       "businessContext_i18n": {
         "en": "Number of full oscillations for total time calculation.",
         "tr": "Toplam süre hesaplaması için tam salınım sayısı.",
         "de": "Anzahl der vollständigen Schwingungen für die Gesamtzeitberechnung.",
         "fr": "Nombre d'oscillations complètes pour le calcul du temps total.",
-        "es": "Número de oscilaciones completas para el cálculo del tiempo total."
+        "es": "Número de oscilaciones completas para el cálculo del tiempo total.",
+        "ar": "عدد التذبذبات الكاملة لحساب الوقت الإجمالي."
       }
     }
   ],
   "formulas": {
-    "result": "length + gravity + initialAngle",
-    "result_copy": "length + gravity + initialAngle"
+    "normalized_product": "length * gravity * initialAngle * numberOfOscillations",
+    "result": "length * gravity * initialAngle * numberOfOscillations"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "period",
-      "frequency",
-      "angularFrequency",
-      "maxSpeed",
-      "totalTime",
-      "maxHeight"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "maxHeight",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

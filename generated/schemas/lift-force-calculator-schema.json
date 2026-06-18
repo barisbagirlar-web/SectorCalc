@@ -14,14 +14,15 @@
         "de": "Fluiddichte (ρ)",
         "fr": "Densité du fluide (ρ)",
         "es": "Densidad del fluido (ρ)",
-        "ar": "Fluid Density (ρ)"
+        "ar": "كثافة المائع (ρ)"
       },
       "businessContext_i18n": {
         "en": "Air density at sea level; varies with altitude, temperature, and humidity. For aerodynamic lift, typical range 0.4–1.2 kg/m³.",
         "tr": "Deniz seviyesinde hava yoğunluğu; rakım, sıcaklık ve neme göre değişir. Aerodinamik kaldırma için tipik aralık 0.4–1.2 kg/m³.",
         "de": "Luftdichte auf Meereshöhe; variiert mit Höhe, Temperatur und Luftfeuchtigkeit. Für aerodynamischen Auftrieb typischer Bereich 0,4–1,2 kg/m³.",
         "fr": "Densité de l'air au niveau de la mer ; varie avec l'altitude, la température et l'humidité. Pour la portance aérodynamique, plage typique 0,4–1,2 kg/m³.",
-        "es": "Densidad del aire a nivel del mar; varía con altitud, temperatura y humedad. Para sustentación aerodinámica, rango típico 0.4–1.2 kg/m³."
+        "es": "Densidad del aire a nivel del mar; varía con altitud, temperatura y humedad. Para sustentación aerodinámica, rango típico 0.4–1.2 kg/m³.",
+        "ar": "كثافة الهواء عند مستوى سطح البحر؛ تختلف مع الارتفاع ودرجة الحرارة والرطوبة. للرفع الهوائي، النطاق النموذجي 0.4–1.2 كجم/م³."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strömungsgeschwindigkeit (v)",
         "fr": "Vitesse d'écoulement (v)",
         "es": "Velocidad del flujo (v)",
-        "ar": "Flow Velocity (v)"
+        "ar": "سرعة التدفق (v)"
       },
       "businessContext_i18n": {
         "en": "Relative speed between air and the lifting surface (e.g., aircraft true airspeed, wind tunnel flow speed).",
         "tr": "Hava ile kaldırma yüzeyi arasındaki bağıl hız (örneğin, uçak gerçek hava hızı, rüzgar tüneli akış hızı).",
         "de": "Relativgeschwindigkeit zwischen Luft und Auftriebsfläche (z. B. wahre Fluggeschwindigkeit, Windkanalströmungsgeschwindigkeit).",
         "fr": "Vitesse relative entre l'air et la surface portante (par exemple, vitesse vraie de l'avion, vitesse d'écoulement en soufflerie).",
-        "es": "Velocidad relativa entre el aire y la superficie sustentadora (p. ej., velocidad aerodinámica real de la aeronave, velocidad de flujo en túnel de viento)."
+        "es": "Velocidad relativa entre el aire y la superficie sustentadora (p. ej., velocidad aerodinámica real de la aeronave, velocidad de flujo en túnel de viento).",
+        "ar": "السرعة النسبية بين الهواء وسطح الرفع (مثل السرعة الحقيقية للطائرة، سرعة تدفق نفق الرياح)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bezugsfläche (A)",
         "fr": "Surface de référence (A)",
         "es": "Área de referencia (A)",
-        "ar": "Reference Area (A)"
+        "ar": "المساحة المرجعية (A)"
       },
       "businessContext_i18n": {
         "en": "Planform area of the wing or lifting surface used for aerodynamic analysis (e.g., gross wing area).",
         "tr": "Kanat veya kaldırma yüzeyinin planform alanı (örneğin, brüt kanat alanı).",
         "de": "Grundrissfläche des Flügels oder der Auftriebsfläche für aerodynamische Analyse (z. B. Bruttoflügelfläche).",
         "fr": "Surface alaire de l'aile ou de la surface portante utilisée pour l'analyse aérodynamique (par exemple, surface alaire brute).",
-        "es": "Área en planta del ala o superficie sustentadora utilizada para análisis aerodinámico (p. ej., área alar bruta)."
+        "es": "Área en planta del ala o superficie sustentadora utilizada para análisis aerodinámico (p. ej., área alar bruta).",
+        "ar": "مساحة سطح الجناح أو سطح الرفع المستخدمة للتحليل الديناميكي الهوائي (مثل مساحة الجناح الإجمالية)."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Auftriebsbeiwert (CL)",
         "fr": "Coefficient de portance (CL)",
         "es": "Coeficiente de sustentación (CL)",
-        "ar": "Lift Coefficient (CL)"
+        "ar": "معامل الرفع (CL)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless coefficient capturing the effect of angle of attack, airfoil shape, and flow conditions. Typical range 0.2–1.5 for aircraft.",
         "tr": "Hücum açısı, kanat profili şekli ve akış koşullarının etkisini yakalayan boyutsuz katsayı. Uçaklar için tipik aralık 0.2–1.5.",
         "de": "Dimensionsloser Beiwert, der den Einfluss von Anstellwinkel, Tragflügelform und Strömungsbedingungen erfasst. Typischer Bereich 0,2–1,5 für Flugzeuge.",
         "fr": "Coefficient sans dimension capturant l'effet de l'angle d'attaque, de la forme du profil et des conditions d'écoulement. Plage typique 0,2–1,5 pour les aéronefs.",
-        "es": "Coeficiente adimensional que captura el efecto del ángulo de ataque, la forma del perfil aerodinámico y las condiciones del flujo. Rango típico 0.2–1.5 para aeronaves."
+        "es": "Coeficiente adimensional que captura el efecto del ángulo de ataque, la forma del perfil aerodinámico y las condiciones del flujo. Rango típico 0.2–1.5 para aeronaves.",
+        "ar": "معامل بلا أبعاد يلتقط تأثير زاوية الهجوم وشكل الجنيح وظروف التدفق. النطاق النموذجي 0.2–1.5 للطائرات."
       }
     }
   ],
   "formulas": {
-    "result": "density + velocity + area",
-    "result_copy": "density + velocity + area"
+    "normalized_product": "density * velocity * area * liftCoefficient",
+    "result": "density * velocity * area * liftCoefficient"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "dynamicPressure"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "liftForce",
-    "unit": "kg/m³"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

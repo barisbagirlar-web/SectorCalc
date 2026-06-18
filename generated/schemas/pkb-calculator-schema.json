@@ -14,14 +14,15 @@
         "de": "Basendissoziationskonstante (Kb)",
         "fr": "Constante de dissociation basique (Kb)",
         "es": "Constante de Disociación de Base (Kb)",
-        "ar": "Base Dissociation Constant (Kb)"
+        "ar": "ثابت تفكك القاعدة (Kb)"
       },
       "businessContext_i18n": {
         "en": "Equilibrium constant for the base dissociation reaction.",
         "tr": "Baz ayrışma reaksiyonu için denge sabiti.",
         "de": "Gleichgewichtskonstante für die Basendissoziationsreaktion.",
         "fr": "Constante d'équilibre pour la réaction de dissociation de la base.",
-        "es": "Constante de equilibrio para la reacción de disociación de la base."
+        "es": "Constante de equilibrio para la reacción de disociación de la base.",
+        "ar": "ثابت التوازن لتفاعل تفكك القاعدة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Säuredissoziationskonstante (Ka)",
         "fr": "Constante de dissociation acide (Ka)",
         "es": "Constante de disociación del ácido (Ka)",
-        "ar": "Acid Dissociation Constant (Ka)"
+        "ar": "ثابت تفكك الحمض (Ka)"
       },
       "businessContext_i18n": {
         "en": "Equilibrium constant for the conjugate acid. Used if Kb is not provided.",
         "tr": "Konjuge asit için denge sabiti. Kb sağlanmadıysa kullanılır.",
         "de": "Gleichgewichtskonstante für die konjugierte Säure. Wird verwendet, wenn Kb nicht angegeben ist.",
         "fr": "Constante d'équilibre pour l'acide conjugué. Utilisée si Kb n'est pas fournie.",
-        "es": "Constante de equilibrio para el ácido conjugado. Se usa si no se proporciona Kb."
+        "es": "Constante de equilibrio para el ácido conjugado. Se usa si no se proporciona Kb.",
+        "ar": "ثابت التوازن للحمض المرافق. يُستخدم إذا لم يتم توفير Kb."
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "Ka'nın negatif baz-10 logaritması. Kb ve Ka sağlanmadıysa kullanılır.",
         "de": "Negativer dekadischer Logarithmus von Ka. Wird verwendet, wenn Kb und Ka nicht angegeben sind.",
         "fr": "Logarithme négatif en base 10 de Ka. Utilisé si Kb et Ka ne sont pas fournis.",
-        "es": "Logaritmo negativo en base 10 de Ka. Se usa si no se proporcionan Kb y Ka."
+        "es": "Logaritmo negativo en base 10 de Ka. Se usa si no se proporcionan Kb y Ka.",
+        "ar": "اللوغاريتم العشري السالب لـ Ka. يُستخدم إذا لم يتم توفير Kb و Ka."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Ionenprodukt des Wassers (Kw)",
         "fr": "Produit ionique de l'eau (Kw)",
         "es": "Producto iónico del agua (Kw)",
-        "ar": "Ion Product of Water (Kw)"
+        "ar": "حاصل أيون الماء (Kw)"
       },
       "businessContext_i18n": {
         "en": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka.",
         "tr": "25°C'de suyun kendi kendine iyonlaşma sabiti. Kb'yi Ka'dan türetirken kullanılır.",
         "de": "Autoprotolysekonstante des Wassers bei 25 °C. Wird verwendet, um Kb aus Ka abzuleiten.",
         "fr": "Constante d'auto-ionisation de l'eau à 25°C. Utilisée pour dériver Kb à partir de Ka.",
-        "es": "Constante de autoionización del agua a 25°C. Se usa al derivar Kb a partir de Ka."
+        "es": "Constante de autoionización del agua a 25°C. Se usa al derivar Kb a partir de Ka.",
+        "ar": "ثابت التأين الذاتي للماء عند 25 درجة مئوية. يُستخدم عند اشتقاق Kb من Ka."
       }
     }
   ],
   "formulas": {
-    "result": "kb + ka + pka",
-    "result_aux": "kb + ka + pka"
+    "normalized_product": "kb * ka * pka * kw",
+    "result": "kb * ka * pka * kw"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Kb value used: inputs.kb || (inputs.kw / inputs.ka)",
-      "Calculation: pKb = -log10(Kb)",
-      "Computed pKb value"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "pKb____log10_Kb_",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Sürdürülebilirlik",
   "sector": "Kimya & Proses",

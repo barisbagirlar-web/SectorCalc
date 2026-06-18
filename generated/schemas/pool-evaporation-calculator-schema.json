@@ -14,14 +14,15 @@
         "de": "Pool-Oberfläche",
         "fr": "Surface du bassin",
         "es": "Área de superficie de la piscina",
-        "ar": "Pool Surface Area"
+        "ar": "مساحة سطح المسبح"
       },
       "businessContext_i18n": {
         "en": "The water surface area of the pool exposed to air.",
         "tr": "Havuzun havaya maruz kalan su yüzey alanı.",
         "de": "Die Wasseroberfläche des Pools, die der Luft ausgesetzt ist.",
         "fr": "La surface de l'eau du bassin exposée à l'air.",
-        "es": "El área de la superficie del agua de la piscina expuesta al aire."
+        "es": "El área de la superficie del agua de la piscina expuesta al aire.",
+        "ar": "مساحة سطح الماء في المسبح المعرضة للهواء."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wassertemperatur",
         "fr": "Température de l'eau",
         "es": "Temperatura del agua",
-        "ar": "Water Temperature"
+        "ar": "درجة حرارة الماء"
       },
       "businessContext_i18n": {
         "en": "Average temperature of the pool water.",
         "tr": "Havuz suyunun ortalama sıcaklığı.",
         "de": "Durchschnittstemperatur des Poolwassers.",
         "fr": "Température moyenne de l'eau du bassin.",
-        "es": "Temperatura promedio del agua de la piscina."
+        "es": "Temperatura promedio del agua de la piscina.",
+        "ar": "متوسط درجة حرارة مياه المسبح."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lufttemperatur",
         "fr": "Température de l'air",
         "es": "Temperatura del aire",
-        "ar": "Air Temperature"
+        "ar": "درجة حرارة الهواء"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature above the pool.",
         "tr": "Havuzun üzerindeki ortam hava sıcaklığı.",
         "de": "Umgebungslufttemperatur über dem Pool.",
         "fr": "Température de l'air ambiant au-dessus du bassin.",
-        "es": "Temperatura del aire ambiente sobre la piscina."
+        "es": "Temperatura del aire ambiente sobre la piscina.",
+        "ar": "درجة حرارة الهواء المحيط فوق حوض السباحة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Relative Luftfeuchtigkeit",
         "fr": "Humidité relative",
         "es": "Humedad relativa",
-        "ar": "Relative Humidity"
+        "ar": "الرطوبة النسبية"
       },
       "businessContext_i18n": {
         "en": "Percentage of moisture in air relative to saturation at air temperature.",
         "tr": "Havanın doyma noktasına göre nem yüzdesi.",
         "de": "Prozentsatz der Feuchtigkeit in der Luft relativ zur Sättigung bei Lufttemperatur.",
         "fr": "Pourcentage d'humidité dans l'air par rapport à la saturation à la température de l'air.",
-        "es": "Porcentaje de humedad en el aire relativo a la saturación a la temperatura del aire."
+        "es": "Porcentaje de humedad en el aire relativo a la saturación a la temperatura del aire.",
+        "ar": "نسبة الرطوبة في الهواء مقارنة بالتشبع عند درجة حرارة الهواء."
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Windgeschwindigkeit",
         "fr": "Vitesse du vent",
         "es": "Velocidad del viento",
-        "ar": "Wind Speed"
+        "ar": "سرعة الرياح"
       },
       "businessContext_i18n": {
         "en": "Average wind speed above the pool surface.",
         "tr": "Havuz yüzeyi üzerindeki ortalama rüzgar hızı.",
         "de": "Durchschnittliche Windgeschwindigkeit über der Pooloberfläche.",
         "fr": "Vitesse moyenne du vent au-dessus de la surface du bassin.",
-        "es": "Velocidad promedio del viento sobre la superficie de la piscina."
+        "es": "Velocidad promedio del viento sobre la superficie de la piscina.",
+        "ar": "متوسط سرعة الرياح فوق سطح حوض السباحة."
       }
     }
   ],
   "formulas": {
-    "result": "surfaceArea + waterTemp + airTemp",
-    "result_copy": "surfaceArea + waterTemp + airTemp"
+    "normalized_product": "surfaceArea * waterTemp * airTemp * (relativeHumidity / 100)",
+    "result": "surfaceArea * waterTemp * airTemp * (relativeHumidity / 100) * (windSpeed)",
+    "adjustment_factor": "windSpeed"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "vaporPressureDeficit",
-      "saturationVaporPressureWater",
-      "saturationVaporPressureAir",
-      "actualVaporPressureAir"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "evaporationRateLPerH",
-    "unit": "m²",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "saturationVaporPressureWater": "%",
       "saturationVaporPressureAir": "%"

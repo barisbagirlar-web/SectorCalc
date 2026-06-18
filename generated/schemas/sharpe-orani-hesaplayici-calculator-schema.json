@@ -14,14 +14,15 @@
         "de": "Erwartete Rendite (Periode, %)",
         "fr": "Rendement attendu (période, %)",
         "es": "Rendimiento esperado (Período, %)",
-        "ar": "Beklenen Getiri (Dönem, %)"
+        "ar": "العائد المتوقع (الفترة، %)"
       },
       "businessContext_i18n": {
         "en": "Portföyün hesaplama dönemindeki yüzde getirisi",
         "tr": "Portföyün hesaplama dönemindeki yüzde getirisi",
         "de": "Prozentuale Rendite des Portfolios im Berechnungszeitraum",
         "fr": "Rendement en pourcentage du portefeuille sur la période de calcul",
-        "es": "Rendimiento porcentual del portafolio en el período de cálculo"
+        "es": "Rendimiento porcentual del portafolio en el período de cálculo",
+        "ar": "نسبة عائد المحفظة خلال فترة الحساب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Risikofreier Zinssatz (Periode, %)",
         "fr": "Taux sans risque (période, %)",
         "es": "Rendimiento libre de riesgo (Período, %)",
-        "ar": "Risksiz Getiri (Dönem, %)"
+        "ar": "العائد الخالي من المخاطر (الفترة، %)"
       },
       "businessContext_i18n": {
         "en": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
         "tr": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
         "de": "Risikofreier Zinssatz für denselben Zeitraum (z. B. Staatsanleihe)",
         "fr": "Taux d'intérêt sans risque pour la même période (ex. obligation d'État)",
-        "es": "Tasa libre de riesgo para el mismo período (p. ej., bono del gobierno)"
+        "es": "Tasa libre de riesgo para el mismo período (p. ej., bono del gobierno)",
+        "ar": "سعر الفائدة الخالي من المخاطر لنفس الفترة (مثل السندات الحكومية)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Portfoliostandardabweichung (Periode, %)",
         "fr": "Écart type du portefeuille (période, %)",
         "es": "Desviación estándar del portafolio (Período, %)",
-        "ar": "Portföy Standart Sapması (Dönem, %)"
+        "ar": "الانحراف المعياري للمحفظة (الفترة، %)"
       },
       "businessContext_i18n": {
         "en": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
         "tr": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
         "de": "Volatilität/Variabilität der Portfoliorendite im selben Zeitraum",
         "fr": "Volatilité/variabilité du rendement du portefeuille sur la même période",
-        "es": "Volatilidad/variabilidad del rendimiento del portafolio en el mismo período"
+        "es": "Volatilidad/variabilidad del rendimiento del portafolio en el mismo período",
+        "ar": "تقلب/تغير عائد المحفظة خلال نفس الفترة"
       }
     },
     {
@@ -83,32 +86,36 @@
         "de": "Anzahl der Perioden pro Jahr",
         "fr": "Nombre de périodes par an",
         "es": "Número de períodos por año",
-        "ar": "Yıllık Dönem Sayısı"
+        "ar": "عدد الفترات السنوية"
       },
       "businessContext_i18n": {
         "en": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
         "tr": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
         "de": "Anzahl der Berechnungsperioden pro Jahr (z. B. 12 für monatlich, 252 für täglich)",
         "fr": "Nombre de périodes de calcul dans une année (ex. 12 pour mensuel, 252 pour quotidien)",
-        "es": "Número de períodos de cálculo en un año (p. ej., 12 para mensual, 252 para diario)"
+        "es": "Número de períodos de cálculo en un año (p. ej., 12 para mensual, 252 para diario)",
+        "ar": "عدد فترات الحساب في السنة (مثل 12 للشهرية، 252 لليومية)"
       }
     }
   ],
   "formulas": {
-    "result": "expectedReturn + riskFreeRate + standardDeviation",
-    "result_aux": "expectedReturn + riskFreeRate + standardDeviation"
+    "normalized_product": "(expectedReturn / 100) * (riskFreeRate / 100) * (standardDeviation / 100) * periodsPerYear",
+    "result": "(expectedReturn / 100) * (riskFreeRate / 100) * (standardDeviation / 100) * periodsPerYear"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "excessReturn",
-      "annualSharpeRatio"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "annualSharpeRatio",
+    "dataConfidenceAdjusted": "result",
     "unit": "%",
     "breakdownUnits": {
       "annualSharpeRatio": "%"

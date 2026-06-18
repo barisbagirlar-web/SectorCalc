@@ -14,14 +14,15 @@
         "de": "Barwert",
         "fr": "Valeur actuelle",
         "es": "Valor presente",
-        "ar": "Present Value"
+        "ar": "القيمة الحالية"
       },
       "businessContext_i18n": {
         "en": "Lump sum amount invested today",
         "tr": "Bugün yatırılan toplu para miktarı",
         "de": "Heute investierter Einmalbetrag",
         "fr": "Montant forfaitaire investi aujourd'hui",
-        "es": "Monto único invertido hoy"
+        "es": "Monto único invertido hoy",
+        "ar": "المبلغ الإجمالي المستثمر اليوم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Fixed annual interest rate during both deferral and payout phases",
         "tr": "Hem erteleme hem de ödeme aşamalarında sabit yıllık faiz oranı",
         "de": "Fester jährlicher Zinssatz während der Aufschub- und Auszahlungsphase",
         "fr": "Taux d'intérêt annuel fixe pendant les phases de report et de versement",
-        "es": "Tasa de interés anual fija durante las fases de diferimiento y pago"
+        "es": "Tasa de interés anual fija durante las fases de diferimiento y pago",
+        "ar": "معدل الفائدة السنوي الثابت خلال مرحلتي التأجيل والسحب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aufschubjahre",
         "fr": "Années de report",
         "es": "Años de diferimiento",
-        "ar": "Deferral Years"
+        "ar": "سنوات التأجيل"
       },
       "businessContext_i18n": {
         "en": "Number of years the investment accumulates before payouts begin",
         "tr": "Yatırımın ödemeler başlamadan önce biriktiği yıl sayısı",
         "de": "Anzahl der Jahre, in denen die Anlage vor Auszahlungsbeginn anwächst",
         "fr": "Nombre d'années pendant lesquelles l'investissement s'accumule avant le début des versements",
-        "es": "Número de años que la inversión acumula antes de que comiencen los pagos"
+        "es": "Número de años que la inversión acumula antes de que comiencen los pagos",
+        "ar": "عدد السنوات التي يتراكم فيها الاستثمار قبل بدء المدفوعات"
       }
     },
     {
@@ -83,33 +86,38 @@
         "de": "Auszahlungsjahre",
         "fr": "Années de versement",
         "es": "Años de pago",
-        "ar": "Payout Years"
+        "ar": "سنوات الدفع"
       },
       "businessContext_i18n": {
         "en": "Number of years over which the accumulated value is paid out annually",
         "tr": "Birikmiş değerin yıllık olarak ödendiği yıl sayısı",
         "de": "Anzahl der Jahre, über die der angesammelte Betrag jährlich ausgezahlt wird",
         "fr": "Nombre d'années sur lesquelles la valeur accumulée est versée annuellement",
-        "es": "Número de años durante los cuales el valor acumulado se paga anualmente"
+        "es": "Número de años durante los cuales el valor acumulado se paga anualmente",
+        "ar": "عدد السنوات التي يتم خلالها دفع القيمة المتراكمة سنويًا"
       }
     }
   ],
   "formulas": {
-    "result": "presentValue + annualInterestRate + deferralYears",
-    "result_copy": "presentValue + annualInterestRate + deferralYears"
+    "base_cost": "deferralYears * presentValue",
+    "adjusted_cost": "deferralYears * presentValue * (1 + (annualInterestRate / 100))",
+    "result": "deferralYears * presentValue * (1 + (annualInterestRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "futureValue",
-      "totalPayoutAmount",
-      "totalInterestEarned"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalInterestEarned",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

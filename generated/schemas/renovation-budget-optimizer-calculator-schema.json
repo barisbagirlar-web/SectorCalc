@@ -23,14 +23,16 @@
         "tr": "Toplam Yenileme Alanı (ft²)",
         "de": "Gesamte Renovierungsfläche (Quadratfuß)",
         "fr": "Surface totale de rénovation (pi²)",
-        "es": "Área total de renovación (pies cuadrados)"
+        "es": "Área total de renovación (pies cuadrados)",
+        "ar": "إجمالي مساحة التجديد (قدم مربع)"
       },
       "businessContext_i18n": {
         "en": "Total floor area to be renovated, including all rooms and corridors.",
         "tr": "Tüm odalar ve koridorlar dahil olmak üzere yenilenecek toplam taban alanı",
         "de": "Gesamte zu renovierende Grundfläche, einschließlich aller Räume und Flure.",
         "fr": "Surface totale au sol à rénover, y compris toutes les pièces et couloirs.",
-        "es": "Superficie total a renovar, incluyendo todas las habitaciones y pasillos."
+        "es": "Superficie total a renovar, incluyendo todas las habitaciones y pasillos.",
+        "ar": "إجمالي مساحة الأرضية المراد تجديدها، بما في ذلك جميع الغرف والممرات."
       }
     },
     {
@@ -52,14 +54,16 @@
         "tr": "Kapsam Karmaşıklığı",
         "de": "Komplexität des Umfangs",
         "fr": "Complexité de la portée",
-        "es": "Complejidad del alcance"
+        "es": "Complejidad del alcance",
+        "ar": "تعقيد النطاق"
       },
       "businessContext_i18n": {
         "en": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems.",
         "tr": "Düşük: sadece kozmetik; Orta: yapısal ve MEP değişiklikleri; Yüksek: yeni sistemlerle tamamen boşaltma yenilemesi",
         "de": "Niedrig: nur kosmetisch; Mittel: strukturelle und MEP-Änderungen; Hoch: Komplettsanierung mit neuen Systemen.",
         "fr": "Faible : cosmétique uniquement ; Moyen : changements structurels et MEP ; Élevé : rénovation complète avec nouveaux systèmes.",
-        "es": "Baja: solo cosmética; Media: cambios estructurales y MEP; Alta: renovación completa con nuevos sistemas."
+        "es": "Baja: solo cosmética; Media: cambios estructurales y MEP; Alta: renovación completa con nuevos sistemas.",
+        "ar": "منخفضة: تجميلية فقط؛ متوسطة: تغييرات هيكلية وميكانيكية وكهربائية؛ عالية: تجديد كامل مع أنظمة جديدة."
       }
     },
     {
@@ -81,14 +85,16 @@
         "tr": "Malzeme Kalite Seviyesi",
         "de": "Materialqualitätsstufe",
         "fr": "Niveau de qualité des matériaux",
-        "es": "Nivel de calidad de materiales"
+        "es": "Nivel de calidad de materiales",
+        "ar": "مستوى جودة المواد"
       },
       "businessContext_i18n": {
         "en": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials.",
         "tr": "Ekonomi: bütçe kaplamaları; Standart: orta sınıf; Premium: yüksek kaliteli, sürdürülebilir malzemeler",
         "de": "Economy: günstige Oberflächen; Standard: mittlere Preisklasse; Premium: hochwertige, nachhaltige Materialien.",
         "fr": "Économique : finitions budgétaires ; Standard : milieu de gamme ; Premium : matériaux haut de gamme et durables.",
-        "es": "Económico: acabados básicos; Estándar: gama media; Premium: materiales sostenibles de alta gama."
+        "es": "Económico: acabados básicos; Estándar: gama media; Premium: materiales sostenibles de alta gama.",
+        "ar": "اقتصادي: تشطيبات محدودة؛ قياسي: متوسط؛ فاخر: مواد عالية الجودة ومستدامة."
       }
     },
     {
@@ -105,14 +111,16 @@
         "tr": "İşçilik Verimlilik Faktörü",
         "de": "Arbeitseffizienzfaktor",
         "fr": "Facteur d'efficacité de la main-d'œuvre",
-        "es": "Factor de eficiencia laboral"
+        "es": "Factor de eficiencia laboral",
+        "ar": "معامل كفاءة العمالة"
       },
       "businessContext_i18n": {
         "en": "Average labor hours per square foot based on historical data and crew productivity.",
         "tr": "Geçmiş verilere ve ekip verimliliğine dayalı olarak metrekare başına ortalama işçilik saati",
         "de": "Durchschnittliche Arbeitsstunden pro Quadratfuß basierend auf historischen Daten und Produktivität des Teams.",
         "fr": "Heures de main-d'œuvre moyennes par pied carré basées sur les données historiques et la productivité de l'équipe.",
-        "es": "Horas de mano de obra promedio por pie cuadrado basadas en datos históricos y productividad del equipo."
+        "es": "Horas de mano de obra promedio por pie cuadrado basadas en datos históricos y productividad del equipo.",
+        "ar": "متوسط ساعات العمل لكل قدم مربع بناءً على البيانات التاريخية وإنتاجية الفريق."
       }
     },
     {
@@ -129,14 +137,16 @@
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
         "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)"
+        "es": "Factor de desperdicio (%)",
+        "ar": "عامل الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Expected material waste percentage due to cutting, errors, and over-ordering.",
         "tr": "Kesim, hatalar ve fazla sipariş nedeniyle beklenen malzeme fire yüzdesi",
         "de": "Erwarteter Materialabfallprozentsatz durch Zuschnitt, Fehler und Überbestellung.",
         "fr": "Pourcentage de déchets de matériaux attendu dû à la coupe, aux erreurs et aux surcommandes.",
-        "es": "Porcentaje esperado de desperdicio de material debido a cortes, errores y pedidos excesivos."
+        "es": "Porcentaje esperado de desperdicio de material debido a cortes, errores y pedidos excesivos.",
+        "ar": "نسبة الهدر المتوقعة في المواد بسبب القطع والأخطاء والطلب الزائد."
       }
     },
     {
@@ -153,14 +163,16 @@
         "tr": "Beklenmeyen Gider Payı (%)",
         "de": "Rückstellung (%)",
         "fr": "Contingence (%)",
-        "es": "Contingencia (%)"
+        "es": "Contingencia (%)",
+        "ar": "الطوارئ (%)"
       },
       "businessContext_i18n": {
         "en": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades).",
         "tr": "Öngörülemeyen sorunlar (ör. gizli hasar, yönetmelik yükseltmeleri) için bütçe rezervi",
         "de": "Budgetreserve für unvorhergesehene Probleme (z. B. versteckte Schäden, Code-Upgrades).",
         "fr": "Réserve budgétaire pour les imprévus (par exemple, dommages cachés, mises à niveau du code).",
-        "es": "Reserva presupuestaria para imprevistos (p. ej., daños ocultos, actualizaciones de código)."
+        "es": "Reserva presupuestaria para imprevistos (p. ej., daños ocultos, actualizaciones de código).",
+        "ar": "احتياطي الميزانية للمشكلات غير المتوقعة (مثل الأضرار المخفية، تحديثات الكود)."
       }
     },
     {
@@ -177,14 +189,16 @@
         "tr": "Bölgesel Maliyet Endeksi",
         "de": "Regionaler Kostenindex",
         "fr": "Indice de coût régional",
-        "es": "Índice de coste regional"
+        "es": "Índice de coste regional",
+        "ar": "مؤشر التكلفة الإقليمي"
       },
       "businessContext_i18n": {
         "en": "Multiplier for local labor and material cost variations (1.0 = national average).",
         "tr": "Yerel işçilik ve malzeme maliyeti farklılıkları için çarpan (1,0 = ulusal ortalama)",
         "de": "Multiplikator für lokale Arbeits- und Materialkostenschwankungen (1,0 = nationaler Durchschnitt).",
         "fr": "Multiplicateur pour les variations locales des coûts de main-d'œuvre et de matériaux (1,0 = moyenne nationale).",
-        "es": "Multiplicador de variaciones locales de mano de obra y materiales (1,0 = media nacional)."
+        "es": "Multiplicador de variaciones locales de mano de obra y materiales (1,0 = media nacional).",
+        "ar": "مضاعف لتفاوت تكاليف العمالة والمواد المحلية (1.0 = المتوسط الوطني)."
       }
     },
     {
@@ -207,14 +221,16 @@
         "tr": "Sürdürülebilirlik Hedefi",
         "de": "Nachhaltigkeitsziel",
         "fr": "Objectif de durabilité",
-        "es": "Objetivo de sostenibilidad"
+        "es": "Objetivo de sostenibilidad",
+        "ar": "هدف الاستدامة"
       },
       "businessContext_i18n": {
         "en": "If pursuing certification, additional costs for documentation, commissioning, and materials.",
         "tr": "Sertifikasyon hedefleniyorsa, dokümantasyon, devreye alma ve malzemeler için ek maliyetler",
         "de": "Bei Zertifizierungsanstrengungen zusätzliche Kosten für Dokumentation, Inbetriebnahme und Materialien.",
         "fr": "Si poursuite de la certification, coûts supplémentaires pour la documentation, la mise en service et les matériaux.",
-        "es": "Si se busca certificación, costes adicionales por documentación, puesta en marcha y materiales."
+        "es": "Si se busca certificación, costes adicionales por documentación, puesta en marcha y materiales.",
+        "ar": "إذا كنت تسعى للحصول على شهادة، تكاليف إضافية للتوثيق والتشغيل والمواد."
       }
     }
   ],
@@ -255,18 +271,28 @@
     ]
   },
   "formulas": {
-    "result": "total_area_sqft + scope_complexity + material_quality",
-    "result_copy": "total_area_sqft + scope_complexity + material_quality"
+    "base_cost": "total_area_sqft * region_cost_index",
+    "adjusted_cost": "total_area_sqft * region_cost_index * (1 + (labor_efficiency_factor / 100))",
+    "result": "total_area_sqft * region_cost_index * (1 + (labor_efficiency_factor / 100)) * ((waste_factor_pct / 100))",
+    "factor_waste_factor_pct": "(waste_factor_pct / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_waste_factor_pct"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "sq ft"
+    "unit": "USD"
   },
   "toolName": "renovation-budget-optimizer-calculator",
   "catalogCategory": "everyday-life",

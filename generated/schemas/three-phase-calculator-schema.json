@@ -14,13 +14,15 @@
         "de": "Spannung (V)",
         "fr": "Tension (V)",
         "es": "Voltaje (V)",
-        "ar": "Voltage (V)"
+        "ar": "الجهد (فولت)"
       },
       "businessContext_i18n": {
         "en": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0.",
         "tr": "Gerilim Türü 1 ise fazlar arası gerilimi, 0 ise faz-nötr gerilimini girin.",
         "de": "Geben Sie die verkettete Spannung ein, wenn Spannungstyp 1 ist, oder die Sternspannung, wenn 0.",
-        "fr": "Saisir la tension entre phases si Type de tension est 1, ou phase-neutre si 0."
+        "fr": "Saisir la tension entre phases si Type de tension est 1, ou phase-neutre si 0.",
+        "es": "Ingrese el voltaje fase-fase si el Tipo de voltaje es 1, o fase-neutro si es 0.",
+        "ar": "أدخل الجهد بين الأطوار إذا كان نوع الجهد 1، أو بين الطور والمحايد إذا كان 0"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Strom (A)",
         "fr": "Courant (A)",
         "es": "Corriente (A)",
-        "ar": "Current (A)"
+        "ar": "التيار (أمبير)"
       },
       "businessContext_i18n": {
         "en": "Line current in amperes.",
         "tr": "Amper cinsinden hat akımı.",
         "de": "Leiterstrom in Ampere.",
-        "fr": "Courant de ligne en ampères."
+        "fr": "Courant de ligne en ampères.",
+        "es": "Corriente de línea en amperios.",
+        "ar": "تيار الخط بالأمبير"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Power Factor"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Power factor (0 to 1).",
         "tr": "Güç faktörü (0 ile 1 arası).",
         "de": "Leistungsfaktor (0 bis 1).",
-        "fr": "Facteur de puissance (0 à 1)."
+        "fr": "Facteur de puissance (0 à 1).",
+        "es": "Factor de potencia (0 a 1).",
+        "ar": "معامل القدرة (0 إلى 1)"
       }
     },
     {
@@ -79,33 +85,38 @@
         "tr": "Gerilim Türü",
         "de": "Spannungstyp",
         "fr": "Type de tension",
-        "es": "Voltage Type",
-        "ar": "Voltage Type"
+        "es": "Tipo de voltaje",
+        "ar": "نوع الجهد"
       },
       "businessContext_i18n": {
         "en": "1 for line-to-line, 0 for line-to-neutral.",
         "tr": "1 hat-hat için, 0 hat-nötr için.",
         "de": "1 für verkettet, 0 für Sternspannung.",
-        "fr": "1 pour ligne à ligne, 0 pour ligne à neutre."
+        "fr": "1 pour ligne à ligne, 0 pour ligne à neutre.",
+        "es": "1 para línea-línea, 0 para línea-neutro.",
+        "ar": "1 للخط-إلى-خط، 0 للخط-إلى-محايد."
       }
     }
   ],
   "formulas": {
-    "result": "voltage + current + powerFactor",
-    "result_copy": "voltage + current + powerFactor"
+    "normalized_product": "voltage * current * powerFactor * voltageType",
+    "result": "voltage * current * powerFactor * voltageType"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "apparentPower",
-      "reactivePower"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reactivePower",
-    "unit": "V"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

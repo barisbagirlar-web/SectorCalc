@@ -14,13 +14,15 @@
         "de": "Teelöffel",
         "fr": "Cuillères à café",
         "es": "Cucharaditas",
-        "ar": "Teaspoons"
+        "ar": "ملاعق شاي"
       },
       "businessContext_i18n": {
         "en": "Amount of substance in teaspoons",
         "tr": "Çay kaşığı cinsinden madde miktarı",
         "de": "Menge der Substanz in Teelöffeln",
-        "fr": "Quantité de substance en cuillères à café"
+        "fr": "Quantité de substance en cuillères à café",
+        "es": "Cantidad de sustancia en cucharaditas",
+        "ar": "كمية المادة بالملاعق الصغيرة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Mililitre Başına Çay Kaşığı",
         "de": "Milliliter pro Teelöffel",
         "fr": "Millilitres par cuillère à café",
-        "es": "Milliliters per Teaspoon",
-        "ar": "Milliliters per Teaspoon"
+        "es": "Mililitros por cucharadita",
+        "ar": "المليلتر لكل ملعقة صغيرة"
       },
       "businessContext_i18n": {
         "en": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial",
         "tr": "Dönüşüm faktörü; metrik için 5, ABD geleneksel için 4.92892, İngiltere emperyal için 5.91939",
         "de": "Umrechnungsfaktor; 5 für metrisch, 4,92892 für US-amerikanisch, 5,91939 für britisch imperial",
-        "fr": "Facteur de conversion ; 5 pour métrique, 4,92892 pour US customary, 5,91939 pour UK imperial"
+        "fr": "Facteur de conversion ; 5 pour métrique, 4,92892 pour US customary, 5,91939 pour UK imperial",
+        "es": "Factor de conversión; 5 para métrico, 4.92892 para estadounidense, 5.91939 para imperial del Reino Unido",
+        "ar": "عامل التحويل؛ 5 للنظام المتري، 4.92892 للنظام الأمريكي، 5.91939 للنظام الإمبراطوري البريطاني"
       }
     },
     {
@@ -58,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
         "fr": "Nombre de décimales pour arrondir le résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة"
       }
     },
     {
@@ -80,34 +85,38 @@
         "tr": "Dönüşüm Sayısı",
         "de": "Anzahl der Umrechnungen",
         "fr": "Nombre de conversions",
-        "es": "Number of Conversions",
-        "ar": "Number of Conversions"
+        "es": "Número de conversiones",
+        "ar": "عدد التحويلات"
       },
       "businessContext_i18n": {
         "en": "Multiplier for batch scaling (e.g., number of identical portions)",
         "tr": "Toplu ölçekleme çarpanı (örneğin, aynı porsiyon sayısı)",
         "de": "Multiplikator für die Batch-Skalierung (z. B. Anzahl identischer Portionen)",
-        "fr": "Multiplicateur pour mise à l'échelle par lots (ex. nombre de portions identiques)"
+        "fr": "Multiplicateur pour mise à l'échelle par lots (ex. nombre de portions identiques)",
+        "es": "Multiplicador para escalado por lotes (ej. número de porciones idénticas)",
+        "ar": "مضاعف تحجيم الدفعة (مثل عدد الحصص المتطابقة)"
       }
     }
   ],
   "formulas": {
-    "result": "teaspoons + mlPerTeaspoon + decimalPlaces",
-    "result_aux": "teaspoons + mlPerTeaspoon + decimalPlaces"
+    "normalized_product": "teaspoons * mlPerTeaspoon * decimalPlaces * numberOfConversions",
+    "result": "teaspoons * mlPerTeaspoon * decimalPlaces * numberOfConversions"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Step 1: Convert teaspoons to base milliliters (teaspoons × milliliters per teaspoon).",
-      "Step 2: Scale by the number of conversions (batch factor).",
-      "Step 3: Round the result to the specified decimal places."
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "primary_aux",
-    "unit": "tsp",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Step 1: Convert teaspoons to base milliliters (teaspoons × milliliters per teaspoon).": "L"
     }

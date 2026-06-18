@@ -14,14 +14,15 @@
         "de": "Fühlen Sie sich nervös, ängstlich oder angespannt",
         "fr": "Se sentir nerveux, anxieux ou tendu",
         "es": "Sentirse nervioso, ansioso o al límite",
-        "ar": "Feeling nervous, anxious, or on edge"
+        "ar": "الشعور بالتوتر أو القلق أو العصبية"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 1",
         "tr": "Anksiyete tarama sorusu 1",
         "de": "Angst-Screening-Frage 1",
         "fr": "Question de dépistage de l'anxiété 1",
-        "es": "Pregunta de detección de ansiedad 1"
+        "es": "Pregunta de detección de ansiedad 1",
+        "ar": "سؤال فحص القلق 1"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Sorgen nicht stoppen oder kontrollieren zu können",
         "fr": "Ne pas pouvoir arrêter ou contrôler les inquiétudes",
         "es": "No poder dejar de preocuparse o controlar la preocupación",
-        "ar": "Not being able to stop or control worrying"
+        "ar": "عدم القدرة على التوقف عن القلق أو السيطرة عليه"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 2",
         "tr": "Anksiyete tarama sorusu 2",
         "de": "Angst-Screening-Frage 2",
         "fr": "Question de dépistage de l'anxiété 2",
-        "es": "Pregunta de detección de ansiedad 2"
+        "es": "Pregunta de detección de ansiedad 2",
+        "ar": "سؤال فحص القلق 2"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zu viel Sorgen um verschiedene Dinge",
         "fr": "S'inquiéter trop de différentes choses",
         "es": "Preocuparse demasiado por diferentes cosas",
-        "ar": "Worrying too much about different things"
+        "ar": "القلق المفرط بشأن أشياء مختلفة"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 3",
         "tr": "Anksiyete tarama sorusu 3",
         "de": "Angst-Screening-Frage 3",
         "fr": "Question de dépistage de l'anxiété 3",
-        "es": "Pregunta de detección de ansiedad 3"
+        "es": "Pregunta de detección de ansiedad 3",
+        "ar": "سؤال فحص القلق 3"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Probleme beim Entspannen",
         "fr": "Difficulté à se détendre",
         "es": "Problemas para relajarse",
-        "ar": "Trouble relaxing"
+        "ar": "صعوبة في الاسترخاء"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 4",
         "tr": "Anksiyete tarama sorusu 4",
         "de": "Angst-Screening-Frage 4",
         "fr": "Question de dépistage de l'anxiété 4",
-        "es": "Pregunta de detección de ansiedad 4"
+        "es": "Pregunta de detección de ansiedad 4",
+        "ar": "سؤال فحص القلق 4"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "So ruhelos, dass schwer stillzusitzen",
         "fr": "Être si agité qu'il est difficile de rester assis",
         "es": "Estar tan inquieto que es difícil quedarse quieto",
-        "ar": "Being so restless that it is hard to sit still"
+        "ar": "الشعور بالتململ الشديد لدرجة صعوبة الجلوس ساكنًا"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 5",
         "tr": "Anksiyete tarama sorusu 5",
         "de": "Angst-Screening-Frage 5",
         "fr": "Question de dépistage de l'anxiété 5",
-        "es": "Pregunta de detección de ansiedad 5"
+        "es": "Pregunta de detección de ansiedad 5",
+        "ar": "سؤال فحص القلق 5"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Leicht gereizt oder verärgert sein",
         "fr": "Devenir facilement ennuyé ou irritable",
         "es": "Molestarse o irritarse fácilmente",
-        "ar": "Becoming easily annoyed or irritable"
+        "ar": "الانزعاج أو التهيج بسهولة"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 6",
         "tr": "Anksiyete tarama sorusu 6",
         "de": "Angst-Screening-Frage 6",
         "fr": "Question de dépistage de l'anxiété 6",
-        "es": "Pregunta de detección de ansiedad 6"
+        "es": "Pregunta de detección de ansiedad 6",
+        "ar": "سؤال فحص القلق 6"
       }
     },
     {
@@ -152,32 +158,39 @@
         "de": "Angst, als ob etwas Schlimmes passieren könnte",
         "fr": "Se sentir effrayé comme si quelque chose d'horrible allait arriver",
         "es": "Sentir miedo como si algo terrible fuera a suceder",
-        "ar": "Feeling afraid as if something awful might happen"
+        "ar": "الشعور بالخوف وكأن شيئًا فظيعًا قد يحدث"
       },
       "businessContext_i18n": {
         "en": "Anxiety screening question 7",
         "tr": "Anksiyete tarama sorusu 7",
         "de": "Angst-Screening-Frage 7",
         "fr": "Question de dépistage de l'anxiété 7",
-        "es": "Pregunta 7 de detección de ansiedad"
+        "es": "Pregunta 7 de detección de ansiedad",
+        "ar": "سؤال فحص القلق 7"
       }
     }
   ],
   "formulas": {
-    "totalScore": "q1 + q2 + q3 + q4 + q5 + q6 + q7",
-    "totalScore_aux": "q1 + q2 + q3 + q4 + q5 + q6 + q7"
+    "normalized_product": "q1 * q2 * q3 * q4",
+    "result": "q1 * q2 * q3 * q4 * (q5 * q6 * q7)",
+    "adjustment_factor": "q5 * q6 * q7"
   },
   "outputs": {
-    "primary": "totalScore",
+    "primary": "result",
     "breakdown": [
-      "Severity interpretation based on totalScore: 0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalScore_aux",
-    "unit": "points"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Emlak & Gayrimenkul",

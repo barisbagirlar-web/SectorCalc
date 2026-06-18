@@ -14,14 +14,15 @@
         "de": "Vorheriger Zufluss",
         "fr": "Débit entrant précédent",
         "es": "Caudal de entrada anterior",
-        "ar": "Previous Inflow"
+        "ar": "التدفق السابق"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - upstream inflow at previous time step",
         "tr": "Muskingum yönlendirmesi - önceki zaman adımında yukarı akış girişi",
         "de": "Muskingum-Routing - Oberwasserzufluss zum vorherigen Zeitschritt",
         "fr": "Propagation de Muskingum - débit entrant amont au pas de temps précédent",
-        "es": "Enrutamiento Muskingum - caudal de entrada aguas arriba en el paso de tiempo anterior"
+        "es": "Enrutamiento Muskingum - caudal de entrada aguas arriba en el paso de tiempo anterior",
+        "ar": "التدفق الوارد من المنبع في الخطوة الزمنية السابقة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktueller Zufluss",
         "fr": "Débit entrant actuel",
         "es": "Caudal de entrada actual",
-        "ar": "Current Inflow"
+        "ar": "التدفق الوارد الحالي"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - upstream inflow at current time step",
         "tr": "Muskingum yönlendirmesi - mevcut zaman adımında yukarı akış girişi",
         "de": "Muskingum-Routing - Oberwasserzufluss zum aktuellen Zeitschritt",
         "fr": "Propagation de Muskingum - débit entrant amont au pas de temps actuel",
-        "es": "Enrutamiento Muskingum - caudal de entrada aguas arriba en el paso de tiempo actual"
+        "es": "Enrutamiento Muskingum - caudal de entrada aguas arriba en el paso de tiempo actual",
+        "ar": "التدفق الوارد من المنبع في الخطوة الزمنية الحالية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Vorheriger Abfluss",
         "fr": "Débit sortant précédent",
         "es": "Caudal de salida anterior",
-        "ar": "Previous Outflow"
+        "ar": "التدفق الخارج السابق"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - downstream outflow at previous time step",
         "tr": "Muskingum yönlendirmesi - önceki zaman adımında aşağı akış çıkışı",
         "de": "Muskingum-Routing - Unterwasserabfluss zum vorherigen Zeitschritt",
         "fr": "Propagation de Muskingum - débit sortant aval au pas de temps précédent",
-        "es": "Enrutamiento Muskingum - caudal de salida aguas abajo en el paso de tiempo anterior"
+        "es": "Enrutamiento Muskingum - caudal de salida aguas abajo en el paso de tiempo anterior",
+        "ar": "التدفق الخارج من المصب في الخطوة الزمنية السابقة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zeitschritt",
         "fr": "Pas de temps",
         "es": "Paso de tiempo",
-        "ar": "Time Step"
+        "ar": "الخطوة الزمنية"
       },
       "businessContext_i18n": {
         "en": "Routing time step Δt, must be less than K",
         "tr": "Yönlendirme zaman adımı Δt, K'dan küçük olmalıdır",
         "de": "Routing-Zeitschritt Δt, muss kleiner als K sein",
         "fr": "Pas de temps de propagation Δt, doit être inférieur à K",
-        "es": "Paso de tiempo de enrutamiento Δt, debe ser menor que K"
+        "es": "Paso de tiempo de enrutamiento Δt, debe ser menor que K",
+        "ar": "الخطوة الزمنية Δt، يجب أن تكون أقل من K"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Speicherkonstante K",
         "fr": "Constante de stockage K",
         "es": "Constante de almacenamiento K",
-        "ar": "Storage Constant K"
+        "ar": "ثابت التخزين K"
       },
       "businessContext_i18n": {
         "en": "Muskingum parameter K, travel time of flood wave through reach",
         "tr": "Muskingum parametresi K, taşkın dalgasının kol boyunca seyahat süresi",
         "de": "Muskingum-Parameter K, Reisezeit der Hochwasserwelle durch den Flussabschnitt",
         "fr": "Paramètre K de Muskingum, temps de parcours de l'onde de crue dans le tronçon",
-        "es": "Parámetro K de Muskingum, tiempo de viaje de la onda de crecida a través del tramo"
+        "es": "Parámetro K de Muskingum, tiempo de viaje de la onda de crecida a través del tramo",
+        "ar": "معلمة Muskingum K، زمن انتقال موجة الفيضان عبر المقطع"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gewichtungsfaktor x",
         "fr": "Facteur de pondération x",
         "es": "Factor de ponderación x",
-        "ar": "Weighting Factor x"
+        "ar": "معامل الترجيح x"
       },
       "businessContext_i18n": {
         "en": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams",
         "tr": "Muskingum parametresi x, 0 ≤ x ≤ 0.5, doğal akarsular için tipik 0.1-0.3",
         "de": "Muskingum-Parameter x, 0 ≤ x ≤ 0,5, typisch 0,1-0,3 für natürliche Fließgewässer",
         "fr": "Paramètre x de Muskingum, 0 ≤ x ≤ 0,5, typiquement 0,1-0,3 pour les cours d'eau naturels",
-        "es": "Parámetro x de Muskingum, 0 ≤ x ≤ 0.5, típicamente 0.1-0.3 para cauces naturales"
+        "es": "Parámetro x de Muskingum, 0 ≤ x ≤ 0.5, típicamente 0.1-0.3 para cauces naturales",
+        "ar": "معلمة Muskingum x، 0 ≤ x ≤ 0.5، نموذجية 0.1-0.3 للجداول الطبيعية"
       }
     }
   ],

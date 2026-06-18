@@ -14,14 +14,15 @@
         "de": "Stammwürze-Messwert",
         "fr": "Lecture DG",
         "es": "Lectura de densidad original",
-        "ar": "OG Reading"
+        "ar": "قراءة الكثافة الأولية"
       },
       "businessContext_i18n": {
         "en": "Original gravity reading from hydrometer (unadjusted for temperature)",
         "tr": "Hidrometreden alınan ilk yoğunluk okuması (sıcaklık için düzeltilmemiş)",
         "de": "Ursprünglicher Stammwürze-Messwert vom Aräometer (nicht temperaturkorrigiert)",
         "fr": "Lecture de densité initiale au densimètre (non corrigée pour la température)",
-        "es": "Lectura de densidad original del hidrómetro (sin ajustar por temperatura)"
+        "es": "Lectura de densidad original del hidrómetro (sin ajustar por temperatura)",
+        "ar": "قراءة الكثافة الأولية من مقياس الكثافة (غير معدلة لدرجة الحرارة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "FG-Messwert",
         "fr": "Lecture DF",
         "es": "Lectura de FG",
-        "ar": "FG Reading"
+        "ar": "قراءة الكثافة النهائية"
       },
       "businessContext_i18n": {
         "en": "Final gravity reading from hydrometer (unadjusted for temperature)",
         "tr": "Hidrometreden alınan son yoğunluk okuması (sıcaklık için düzeltilmemiş)",
         "de": "Endvergärungsgrad-Messung mit Hydrometer (nicht temperaturkorrigiert)",
         "fr": "Lecture de densité finale au densimètre (non corrigée pour la température)",
-        "es": "Lectura de gravedad final del hidrómetro (sin ajustar por temperatura)"
+        "es": "Lectura de gravedad final del hidrómetro (sin ajustar por temperatura)",
+        "ar": "قراءة الكثافة النهائية من مقياس الكثافة (غير معدلة لدرجة الحرارة)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Temperatur bei OG-Messung",
         "fr": "Température à la lecture DG",
         "es": "Temperatura en la lectura de OG",
-        "ar": "Temperature at OG Reading"
+        "ar": "درجة الحرارة عند قراءة الكثافة الأولية"
       },
       "businessContext_i18n": {
         "en": "Temperature of the liquid when OG reading was taken",
         "tr": "OG okuması alındığında sıvının sıcaklığı",
         "de": "Temperatur der Flüssigkeit bei der OG-Messung",
         "fr": "Température du liquide lors de la lecture de la densité initiale",
-        "es": "Temperatura del líquido cuando se tomó la lectura de OG"
+        "es": "Temperatura del líquido cuando se tomó la lectura de OG",
+        "ar": "درجة حرارة السائل عند أخذ قراءة الكثافة الأولية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Temperatur bei FG-Messung",
         "fr": "Température à la lecture DF",
         "es": "Temperatura en la lectura de FG",
-        "ar": "Temperature at FG Reading"
+        "ar": "درجة الحرارة عند قراءة الكثافة النهائية"
       },
       "businessContext_i18n": {
         "en": "Temperature of the liquid when FG reading was taken",
         "tr": "SG okuması alındığında sıvının sıcaklığı",
         "de": "Temperatur der Flüssigkeit bei der FG-Messung",
         "fr": "Température du liquide lors de la lecture de la densité finale",
-        "es": "Temperatura del líquido cuando se tomó la lectura de FG"
+        "es": "Temperatura del líquido cuando se tomó la lectura de FG",
+        "ar": "درجة حرارة السائل عند أخذ قراءة الكثافة النهائية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kalibriertemperatur des Hydrometers",
         "fr": "Température d'étalonnage du densimètre",
         "es": "Temperatura de calibración del hidrómetro",
-        "ar": "Hydrometer Calibration Temperature"
+        "ar": "درجة حرارة معايرة مقياس الكثافة"
       },
       "businessContext_i18n": {
         "en": "Temperature at which the hydrometer is calibrated (usually 20°C)",
         "tr": "Hidrometrenin kalibre edildiği sıcaklık (genellikle 20°C)",
         "de": "Temperatur, bei der das Hydrometer kalibriert ist (normalerweise 20°C)",
         "fr": "Température à laquelle le densimètre est étalonné (généralement 20°C)",
-        "es": "Temperatura a la que está calibrado el hidrómetro (normalmente 20°C)"
+        "es": "Temperatura a la que está calibrado el hidrómetro (normalmente 20°C)",
+        "ar": "درجة الحرارة التي تمت بها معايرة مقياس الكثافة (عادة 20 درجة مئوية)"
       }
     }
   ],

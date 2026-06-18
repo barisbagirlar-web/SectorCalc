@@ -14,14 +14,15 @@
         "de": "Mindestwert",
         "fr": "Valeur minimale",
         "es": "Valor mínimo",
-        "ar": "Minimum Değer"
+        "ar": "الحد الأدنى"
       },
       "businessContext_i18n": {
         "en": "Üretilecek rastgele sayı için alt sınır",
         "tr": "Üretilecek rastgele sayı için alt sınır",
         "de": "Untere Grenze für die zu erzeugende Zufallszahl",
         "fr": "Limite inférieure pour le nombre aléatoire à générer",
-        "es": "Límite inferior para el número aleatorio a generar"
+        "es": "Límite inferior para el número aleatorio a generar",
+        "ar": "الحد الأدنى للرقم العشوائي المراد توليده"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Maximalwert",
         "fr": "Valeur maximale",
         "es": "Valor máximo",
-        "ar": "Maksimum Değer"
+        "ar": "الحد الأقصى"
       },
       "businessContext_i18n": {
         "en": "Üretilecek rastgele sayı için üst sınır",
         "tr": "Üretilecek rastgele sayı için üst sınır",
         "de": "Obere Grenze für die zu erzeugende Zufallszahl",
         "fr": "Limite supérieure pour le nombre aléatoire à générer",
-        "es": "Límite superior para el número aleatorio a generar"
+        "es": "Límite superior para el número aleatorio a generar",
+        "ar": "الحد الأعلى للرقم العشوائي المراد توليده"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Saat (Seed)",
         "fr": "Graine (Seed)",
         "es": "Semilla",
-        "ar": "Tohum (Seed)"
+        "ar": "البذرة (Seed)"
       },
       "businessContext_i18n": {
         "en": "Rastgele sayı üretimi için başlangıç tohumu. Aynı tohum aynı sonucu verir.",
         "tr": "Rastgele sayı üretimi için başlangıç tohumu. Aynı tohum aynı sonucu verir.",
         "de": "Startwert für die Zufallszahlenerzeugung. Gleicher Seed liefert gleiches Ergebnis.",
         "fr": "Graine initiale pour la génération de nombres aléatoires. La même graine donne le même résultat.",
-        "es": "Semilla inicial para la generación de números aleatorios. La misma semilla produce el mismo resultado."
+        "es": "Semilla inicial para la generación de números aleatorios. La misma semilla produce el mismo resultado.",
+        "ar": "البذرة الأولية لتوليد الأرقام العشوائية. نفس البذرة تعطي نفس النتيجة."
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Adet",
         "tr": "Adet",
-        "de": "Adet",
+        "de": "Stück",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Adet"
+        "ar": "عدد"
       },
       "businessContext_i18n": {
         "en": "Kaç adet rastgele sayı üretileceği (Bu sürümde yalnızca 1 desteklenir).",
         "tr": "Kaç adet rastgele sayı üretileceği (Bu sürümde yalnızca 1 desteklenir).",
         "de": "Anzahl der zu erzeugenden Zufallszahlen (In dieser Version wird nur 1 unterstützt).",
         "fr": "Nombre de nombres aléatoires à générer (cette version ne supporte que 1).",
-        "es": "Cantidad de números aleatorios a generar (en esta versión solo se admite 1)."
+        "es": "Cantidad de números aleatorios a generar (en esta versión solo se admite 1).",
+        "ar": "عدد الأرقام العشوائية المراد توليدها (في هذا الإصدار، يتم دعم رقم واحد فقط)."
       }
     }
   ],

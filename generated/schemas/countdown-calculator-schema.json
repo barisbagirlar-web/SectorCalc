@@ -14,14 +14,15 @@
         "de": "Gesamtdauer",
         "fr": "Durée totale",
         "es": "Duración total",
-        "ar": "Total Duration"
+        "ar": "المدة الإجمالية"
       },
       "businessContext_i18n": {
         "en": "The total allocated time for completion, e.g., planned maintenance duration.",
         "tr": "Tamamlanması için ayrılan toplam süre, örn. planlı bakım süresi.",
         "de": "Die gesamte zugewiesene Zeit für die Fertigstellung, z. B. geplante Wartungsdauer.",
         "fr": "Temps total alloué pour l'achèvement, par exemple durée de maintenance planifiée.",
-        "es": "Tiempo total asignado para completar, ej., duración de mantenimiento planificado."
+        "es": "Tiempo total asignado para completar, ej., duración de mantenimiento planificado.",
+        "ar": "إجمالي الوقت المخصص للإنجاز، مثل مدة الصيانة المخطط لها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verstrichene Dauer",
         "fr": "Durée écoulée",
         "es": "Duración transcurrida",
-        "ar": "Elapsed Duration"
+        "ar": "المدة المنقضية"
       },
       "businessContext_i18n": {
         "en": "The time already passed since the start.",
         "tr": "Başlangıçtan bu yana geçen süre.",
         "de": "Die seit dem Start bereits vergangene Zeit.",
         "fr": "Temps déjà écoulé depuis le début.",
-        "es": "Tiempo ya pasado desde el inicio."
+        "es": "Tiempo ya pasado desde el inicio.",
+        "ar": "الوقت الذي مضى منذ البداية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Pufferzeit",
         "fr": "Temps tampon",
         "es": "Tiempo de reserva",
-        "ar": "Buffer Time"
+        "ar": "وقت الاحتياطي"
       },
       "businessContext_i18n": {
         "en": "Additional safety margin added to total duration.",
         "tr": "Toplam süreye eklenen ek güvenlik marjı.",
         "de": "Zusätzliche Sicherheitsmarge, die zur Gesamtdauer hinzugefügt wird.",
         "fr": "Marge de sécurité supplémentaire ajoutée à la durée totale.",
-        "es": "Margen de seguridad adicional añadido a la duración total."
+        "es": "Margen de seguridad adicional añadido a la duración total.",
+        "ar": "هامش أمان إضافي يضاف إلى المدة الإجمالية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Warngrenze",
         "fr": "Seuil d'avertissement",
         "es": "Umbral de advertencia",
-        "ar": "Warning Threshold"
+        "ar": "حد التنبيه"
       },
       "businessContext_i18n": {
         "en": "When remaining time falls below this percent, trigger warning.",
         "tr": "Kalan süre bu yüzdenin altına düştüğünde uyarı tetiklenir.",
         "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, Warnung auslösen.",
         "fr": "Lorsque le temps restant tombe en dessous de ce pourcentage, déclencher un avertissement.",
-        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar advertencia."
+        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar advertencia.",
+        "ar": "عندما يقل الوقت المتبقي عن هذه النسبة المئوية، يتم إطلاق تحذير."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kritischer Schwellenwert",
         "fr": "Seuil critique",
         "es": "Umbral crítico",
-        "ar": "Critical Threshold"
+        "ar": "حد الحرج"
       },
       "businessContext_i18n": {
         "en": "When remaining time falls below this percent, trigger critical alert.",
         "tr": "Kalan süre bu yüzdenin altına düştüğünde kritik uyarı tetiklenir.",
         "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, kritischen Alarm auslösen.",
         "fr": "Lorsque le temps restant tombe en dessous de ce pourcentage, déclencher une alerte critique.",
-        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar alerta crítica."
+        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar alerta crítica.",
+        "ar": "عندما يقل الوقت المتبقي عن هذه النسبة المئوية، يتم إطلاق تنبيه حرج."
       }
     }
   ],

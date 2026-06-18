@@ -14,14 +14,15 @@
         "de": "Anzahl der Würfel",
         "fr": "Nombre de dés",
         "es": "Número de dados",
-        "ar": "Zar Sayısı"
+        "ar": "عدد النرد"
       },
       "businessContext_i18n": {
         "en": "Kullanılan zar adedi (Catan için 2)",
         "tr": "Kullanılan zar adedi (Catan için 2)",
         "de": "Anzahl der verwendeten Würfel (für Catan: 2)",
         "fr": "Nombre de dés utilisés (2 pour Catan)",
-        "es": "Cantidad de dados utilizados (2 para Catan)"
+        "es": "Cantidad de dados utilizados (2 para Catan)",
+        "ar": "عدد النرد المستخدم (2 في كاتان)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Augenzahl pro Würfel",
         "fr": "Nombre de faces par dé",
         "es": "Caras del dado",
-        "ar": "Zar Yüz Sayısı"
+        "ar": "عدد أوجه النرد"
       },
       "businessContext_i18n": {
         "en": "Her bir zarın yüz sayısı",
         "tr": "Her bir zarın yüz sayısı",
         "de": "Anzahl der Seiten jedes Würfels",
         "fr": "Nombre de faces de chaque dé",
-        "es": "Número de caras de cada dado"
+        "es": "Número de caras de cada dado",
+        "ar": "عدد أوجه كل نرد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielsumme",
         "fr": "Somme cible",
         "es": "Suma objetivo",
-        "ar": "Hedef Toplam"
+        "ar": "المجموع المستهدف"
       },
       "businessContext_i18n": {
         "en": "Hangi toplamın üretim tetiklediği",
         "tr": "Hangi toplamın üretim tetiklediği",
         "de": "Welche Summe die Produktion auslöst",
         "fr": "Quelle somme déclenche la production",
-        "es": "Qué suma desencadena la producción"
+        "es": "Qué suma desencadena la producción",
+        "ar": "المجموع الذي يحفز الإنتاج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Siedlungen",
         "fr": "Nombre de colonies",
         "es": "Número de asentamientos",
-        "ar": "Yerleşim Sayısı"
+        "ar": "عدد المستوطنات"
       },
       "businessContext_i18n": {
         "en": "Bu altıgen üzerindeki yerleşim sayısı",
         "tr": "Bu altıgen üzerindeki yerleşim sayısı",
         "de": "Anzahl der Siedlungen auf diesem Hexagon",
         "fr": "Nombre de colonies sur cet hexagone",
-        "es": "Número de asentamientos en este hexágono"
+        "es": "Número de asentamientos en este hexágono",
+        "ar": "عدد المستوطنات على هذا السداسي"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Anzahl der Runden",
         "fr": "Nombre de tours",
         "es": "Número de turnos",
-        "ar": "Tur Sayısı"
+        "ar": "عدد الأدوار"
       },
       "businessContext_i18n": {
         "en": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
         "tr": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
         "de": "Nach wie vielen Würfen (Runden) die Wahrscheinlichkeit berechnet wird",
         "fr": "Combien de lancers de dés (tours) pour calculer la probabilité",
-        "es": "Cuántas tiradas de dados (turnos) después de las cuales se calculará la probabilidad"
+        "es": "Cuántas tiradas de dados (turnos) después de las cuales se calculará la probabilidad",
+        "ar": "عدد رميات النرد (الأدوار) التي سيتم حساب الاحتمال بعدها"
       }
     }
   ],
   "formulas": {
-    "result": "diceCount + diceSides + targetSum",
-    "result_copy": "diceCount + diceSides + targetSum"
+    "normalized_product": "diceCount * diceSides * targetSum * settlementCount",
+    "result": "diceCount * diceSides * targetSum * settlementCount * (rolls)",
+    "adjustment_factor": "rolls"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "probabilityPerRoll",
-      "expectedPerRoll",
-      "probabilityAtLeastOne",
-      "expectedResources"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "expectedResources",
-    "unit": "adet"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

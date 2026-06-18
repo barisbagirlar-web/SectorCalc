@@ -14,14 +14,15 @@
         "de": "Erststückzeit",
         "fr": "Temps de première unité",
         "es": "Tiempo de la primera unidad",
-        "ar": "İlk Birim Zamanı"
+        "ar": "زمن الوحدة الأولى"
       },
       "businessContext_i18n": {
         "en": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
         "tr": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
         "de": "Produktionszeit des ersten Stücks. Basiswert für Lernkurvenberechnungen.",
         "fr": "Temps de production de la première unité. Valeur de base pour les calculs de courbe d'apprentissage.",
-        "es": "Tiempo de producción de la primera unidad. Es el valor base en los cálculos de la curva de aprendizaje."
+        "es": "Tiempo de producción de la primera unidad. Es el valor base en los cálculos de la curva de aprendizaje.",
+        "ar": "وقت إنتاج الوحدة الأولى. القيمة الأساسية في حسابات منحنى التعلم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lernrate",
         "fr": "Taux d'apprentissage",
         "es": "Tasa de aprendizaje",
-        "ar": "Öğrenme Oranı"
+        "ar": "معدل التعلم"
       },
       "businessContext_i18n": {
         "en": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
         "tr": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
         "de": "Prozentuale Verringerung der Stückzeit bei Verdopplung der kumulierten Produktion. Typische Werte zwischen 70 und 90.",
         "fr": "Pourcentage de réduction du temps unitaire lorsque la production cumulée double. Valeurs typiques entre 70 et 90.",
-        "es": "Porcentaje de reducción en el tiempo unitario cuando la producción acumulada se duplica. Valores típicos entre 70 y 90."
+        "es": "Porcentaje de reducción en el tiempo unitario cuando la producción acumulada se duplica. Valores típicos entre 70 y 90.",
+        "ar": "النسبة المئوية للانخفاض في زمن الوحدة عند مضاعفة الإنتاج التراكمي. القيم النموذجية بين 70-90."
       }
     },
     {
@@ -60,33 +62,37 @@
         "de": "Gesamtstückzahl",
         "fr": "Nombre total d'unités",
         "es": "Número total de unidades",
-        "ar": "Toplam Birim Sayısı"
+        "ar": "إجمالي عدد الوحدات"
       },
       "businessContext_i18n": {
         "en": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
         "tr": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
         "de": "Kumulierte Stückzahl, für die der Lerneffekt berechnet wird.",
         "fr": "Nombre cumulé d'unités pour lequel l'expérience est calculée.",
-        "es": "Cantidad acumulada de unidades para calcular la ganancia de experiencia."
+        "es": "Cantidad acumulada de unidades para calcular la ganancia de experiencia.",
+        "ar": "عدد الوحدات التراكمي الذي سيتم حساب اكتساب الخبرة عنده."
       }
     }
   ],
   "formulas": {
-    "result": "firstUnitTime + learningRate + cumulativeUnits",
-    "result_copy": "firstUnitTime + learningRate + cumulativeUnits"
+    "normalized_product": "firstUnitTime * (learningRate / 100) * cumulativeUnits",
+    "result": "firstUnitTime * (learningRate / 100) * cumulativeUnits"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalTimeApprox",
-      "timeLastUnit"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "timeLastUnit",
-    "unit": "saat"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -14,14 +14,15 @@
         "de": "Aktuelles Alter des Kindes",
         "fr": "Âge actuel de l'enfant",
         "es": "Edad actual del niño",
-        "ar": "Child's Current Age"
+        "ar": "العمر الحالي للطفل"
       },
       "businessContext_i18n": {
         "en": "Age of the beneficiary",
         "tr": "Yararlanıcının Yaşı",
         "de": "Alter des Begünstigten",
         "fr": "Âge du bénéficiaire",
-        "es": "Edad del beneficiario"
+        "es": "Edad del beneficiario",
+        "ar": "عمر المستفيد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Beitrag",
         "fr": "Cotisation annuelle",
         "es": "Contribución anual",
-        "ar": "Annual Contribution"
+        "ar": "المساهمة السنوية"
       },
       "businessContext_i18n": {
         "en": "Amount contributed each year",
         "tr": "Her Yıl Yatırılan Miktar",
         "de": "Jährlicher Beitragsbetrag",
         "fr": "Montant contribué chaque année",
-        "es": "Monto aportado cada año"
+        "es": "Monto aportado cada año",
+        "ar": "المبلغ المساهم به سنويًا"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Vorhandenes Guthaben",
         "fr": "Solde existant",
         "es": "Saldo existente",
-        "ar": "Existing Balance"
+        "ar": "الرصيد الحالي"
       },
       "businessContext_i18n": {
         "en": "Current balance in the 529 plan",
         "tr": "529 planındaki mevcut bakiye",
         "de": "Aktuelles Guthaben im 529-Plan",
         "fr": "Solde actuel du plan 529",
-        "es": "Saldo actual en el plan 529"
+        "es": "Saldo actual en el plan 529",
+        "ar": "الرصيد الحالي في خطة 529"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Jahre bis zum Studium",
         "fr": "Années avant l'université",
         "es": "Años hasta la universidad",
-        "ar": "Years Until College"
+        "ar": "السنوات المتبقية حتى الكلية"
       },
       "businessContext_i18n": {
         "en": "Number of years until college begins",
         "tr": "Üniversitenin başlamasına kalan yıl sayısı",
         "de": "Anzahl der Jahre bis zum Studienbeginn",
         "fr": "Nombre d'années avant le début des études universitaires",
-        "es": "Número de años hasta que comience la universidad"
+        "es": "Número de años hasta que comience la universidad",
+        "ar": "عدد السنوات حتى بدء الكلية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Erwartete jährliche Rendite",
         "fr": "Rendement annuel attendu",
         "es": "Rendimiento anual esperado",
-        "ar": "Expected Annual Return"
+        "ar": "العائد السنوي المتوقع"
       },
       "businessContext_i18n": {
         "en": "Expected annual investment return",
         "tr": "Beklenen yıllık yatırım getirisi",
         "de": "Erwartete jährliche Kapitalrendite",
         "fr": "Rendement annuel attendu des investissements",
-        "es": "Rendimiento anual esperado de la inversión"
+        "es": "Rendimiento anual esperado de la inversión",
+        "ar": "العائد السنوي المتوقع على الاستثمار"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Inflationsrate",
         "fr": "Taux d'inflation",
         "es": "Tasa de inflación",
-        "ar": "Inflation Rate"
+        "ar": "معدل التضخم"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate",
         "tr": "Beklenen yıllık enflasyon oranı",
         "de": "Erwartete jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel attendu",
-        "es": "Tasa de inflación anual esperada"
+        "es": "Tasa de inflación anual esperada",
+        "ar": "معدل التضخم السنوي المتوقع"
       }
     }
   ],
   "formulas": {
-    "result": "childAge + annualContribution + existingBalance",
-    "result_copy": "childAge + annualContribution + existingBalance"
+    "base_cost": "childAge * annualContribution",
+    "adjusted_cost": "childAge * annualContribution * (1 + (annualReturn / 100))",
+    "result": "childAge * annualContribution * (1 + (annualReturn / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalContributions",
-      "totalEarnings"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalEarnings",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",

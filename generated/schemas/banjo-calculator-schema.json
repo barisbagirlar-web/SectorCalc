@@ -14,14 +14,15 @@
         "de": "Bolzeninnendurchmesser",
         "fr": "Diamètre intérieur du boulon",
         "es": "Diámetro interior del perno",
-        "ar": "Bolt Inner Diameter"
+        "ar": "القطر الداخلي للبرغي"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the banjo bolt bore",
         "tr": "Banjo cıvata deliğinin iç çapı",
         "de": "Innendurchmesser der Banjobohrung",
         "fr": "Diamètre intérieur de l'alésage du boulon banjo",
-        "es": "Diámetro interior del orificio del perno hueco"
+        "es": "Diámetro interior del orificio del perno hueco",
+        "ar": "القطر الداخلي لتجويف البرغي المجوف"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lochdurchmesser",
         "fr": "Diamètre du trou",
         "es": "Diámetro del agujero",
-        "ar": "Hole Diameter"
+        "ar": "قطر الثقب"
       },
       "businessContext_i18n": {
         "en": "Diameter of each cross-drilled hole",
         "tr": "Her bir çapraz deliğin çapı",
         "de": "Durchmesser jedes Querbohrlochs",
         "fr": "Diamètre de chaque trou percé transversalement",
-        "es": "Diámetro de cada agujero taladrado transversalmente"
+        "es": "Diámetro de cada agujero taladrado transversalmente",
+        "ar": "قطر كل ثقب محفور بشكل عرضي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Löcher",
         "fr": "Nombre de trous",
         "es": "Número de agujeros",
-        "ar": "Number of Holes"
+        "ar": "عدد الثقوب"
       },
       "businessContext_i18n": {
         "en": "Number of flow holes in the banjo fitting",
         "tr": "Banjo bağlantı parçasındaki akış deliği sayısı",
         "de": "Anzahl der Durchflusslöcher im Banjo-Fitting",
         "fr": "Nombre de trous d'écoulement dans le raccord banjo",
-        "es": "Número de agujeros de flujo en el racor banjo"
+        "es": "Número de agujeros de flujo en el racor banjo",
+        "ar": "عدد ثقوب التدفق في التركيبة المجوفة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
-        "ar": "Fluid Density"
+        "ar": "كثافة السائل"
       },
       "businessContext_i18n": {
         "en": "Density of the hydraulic fluid",
         "tr": "Hidrolik akışkanın yoğunluğu",
         "de": "Dichte der Hydraulikflüssigkeit",
         "fr": "Densité du fluide hydraulique",
-        "es": "Densidad del fluido hidráulico"
+        "es": "Densidad del fluido hidráulico",
+        "ar": "كثافة السائل الهيدروليكي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dynamische Viskosität des Fluids",
         "fr": "Viscosité dynamique du fluide",
         "es": "Viscosidad dinámica del fluido",
-        "ar": "Fluid Dynamic Viscosity"
+        "ar": "اللزوجة الديناميكية للسائل"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid",
         "tr": "Akışkanın dinamik viskozitesi",
         "de": "Dynamische Viskosität des Fluids",
         "fr": "Viscosité dynamique du fluide",
-        "es": "Viscosidad dinámica del fluido"
+        "es": "Viscosidad dinámica del fluido",
+        "ar": "اللزوجة الديناميكية للسائل"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Druckdifferenz",
         "fr": "Différence de pression",
         "es": "Diferencia de presión",
-        "ar": "Pressure Difference"
+        "ar": "فرق الضغط"
       },
       "businessContext_i18n": {
         "en": "Pressure drop across the banjo fitting",
         "tr": "Banjo bağlantı parçası boyunca basınç düşüşü",
         "de": "Druckabfall über das Banjo-Fitting",
         "fr": "Perte de charge à travers le raccord banjo",
-        "es": "Caída de presión a través del racor banjo"
+        "es": "Caída de presión a través del racor banjo",
+        "ar": "انخفاض الضغط عبر التركيبة المجوفة"
       }
     },
     {
@@ -152,34 +158,39 @@
         "de": "Ausflusskoeffizient",
         "fr": "Coefficient de décharge",
         "es": "Coeficiente de descarga",
-        "ar": "Discharge Coefficient"
+        "ar": "معامل التصريف"
       },
       "businessContext_i18n": {
         "en": "Orifice discharge coefficient",
         "tr": "Orifis debi katsayısı",
         "de": "Düsenausflusskoeffizient",
         "fr": "Coefficient de décharge d'orifice",
-        "es": "Coeficiente de descarga del orificio"
+        "es": "Coeficiente de descarga del orificio",
+        "ar": "معامل تصريف الفتحة"
       }
     }
   ],
   "formulas": {
-    "result": "boltInnerDiameter + holeDiameter + numberOfHoles",
-    "result_copy": "boltInnerDiameter + holeDiameter + numberOfHoles"
+    "normalized_product": "boltInnerDiameter * holeDiameter * numberOfHoles * fluidDensity",
+    "result": "boltInnerDiameter * holeDiameter * numberOfHoles * fluidDensity * (fluidViscosity * pressureDifference * dischargeCoefficient)",
+    "adjustment_factor": "fluidViscosity * pressureDifference * dischargeCoefficient"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "effectiveArea",
-      "velocity",
-      "reynoldsNumber"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reynoldsNumber",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

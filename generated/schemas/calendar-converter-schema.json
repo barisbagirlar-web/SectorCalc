@@ -14,14 +14,15 @@
         "de": "Gregorianisches Jahr",
         "fr": "Année grégorienne",
         "es": "Año gregoriano",
-        "ar": "Gregorian Year"
+        "ar": "السنة الميلادية"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar year to convert",
         "tr": "Dönüştürülecek miladi takvim yılı",
         "de": "Umzurechnendes gregorianisches Kalenderjahr",
         "fr": "Année du calendrier grégorien à convertir",
-        "es": "Año del calendario gregoriano a convertir"
+        "es": "Año del calendario gregoriano a convertir",
+        "ar": "سنة التقويم الميلادي للتحويل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gregorianischer Monat",
         "fr": "Mois grégorien",
         "es": "Mes gregoriano",
-        "ar": "Gregorian Month"
+        "ar": "الشهر الميلادي"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar month (1-12)",
         "tr": "Miladi takvim ayı (1-12)",
         "de": "Gregorianischer Kalendermonat (1-12)",
         "fr": "Mois du calendrier grégorien (1-12)",
-        "es": "Mes del calendario gregoriano (1-12)"
+        "es": "Mes del calendario gregoriano (1-12)",
+        "ar": "الشهر الميلادي (1-12)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gregorianischer Tag",
         "fr": "Jour grégorien",
         "es": "Día gregoriano",
-        "ar": "Gregorian Day"
+        "ar": "اليوم الميلادي"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar day (1-31)",
         "tr": "Miladi takvim günü (1-31)",
         "de": "Gregorianischer Kalendertag (1-31)",
         "fr": "Jour du calendrier grégorien (1-31)",
-        "es": "Día del calendario gregoriano (1-31)"
+        "es": "Día del calendario gregoriano (1-31)",
+        "ar": "اليوم الميلادي (1-31)"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Zielkalender (0=Julianisch, 1=Islamisch, 2=Hebräisch)",
         "fr": "Calendrier cible (0=Julien, 1=Islamique, 2=Hébreu)",
         "es": "Calendario destino (0=Juliano, 1=Islámico, 2=Hebreo)",
-        "ar": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)"
+        "ar": "التقويم المستهدف (0=يولياني، 1=إسلامي، 2=عبري)"
       },
       "businessContext_i18n": {
         "en": "0 for Julian, 1 for Islamic, 2 for Hebrew",
         "tr": "0 Jülyen, 1 İslami, 2 İbrani",
         "de": "0 für Julianisch, 1 für Islamisch, 2 für Hebräisch",
         "fr": "0 pour Julien, 1 pour Islamique, 2 pour Hébreu",
-        "es": "0 para Juliano, 1 para Islámico, 2 para Hebreo"
+        "es": "0 para Juliano, 1 para Islámico, 2 para Hebreo",
+        "ar": "0 ليولياني، 1 لإسلامي، 2 لعبري"
       }
     }
   ],
   "formulas": {
-    "result": "gregorianYear + gregorianMonth + gregorianDay",
-    "result_aux": "gregorianYear + gregorianMonth + gregorianDay"
+    "normalized_product": "gregorianYear * gregorianMonth * gregorianDay * targetCalendar",
+    "result": "gregorianYear * gregorianMonth * gregorianDay * targetCalendar"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Julian: {julianYear}-{julianMonth}-{julianDayOfMonth}",
-      "Islamic: {islamicYear}-{islamicMonth}-{islamicDay}",
-      "Hebrew: {hebrewYear}-{hebrewMonth}-{hebrewDay}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "_hebrewYear___hebrewMonth___hebrewDay_",
-    "unit": "year"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

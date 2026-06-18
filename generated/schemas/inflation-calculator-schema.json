@@ -14,14 +14,15 @@
         "de": "Barwert",
         "fr": "Valeur actuelle",
         "es": "Valor presente",
-        "ar": "Present Value"
+        "ar": "القيمة الحالية"
       },
       "businessContext_i18n": {
         "en": "Bugünkü para miktarı.",
         "tr": "Bugünkü para miktarı.",
-        "de": "Bugünkü para miktarı.",
+        "de": "Heutiger Geldbetrag.",
         "fr": "Montant d'argent actuel.",
-        "es": "Cantidad de dinero actual."
+        "es": "Cantidad de dinero actual.",
+        "ar": "المبلغ النقدي الحالي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
         "es": "Tasa de inflación anual",
-        "ar": "Annual Inflation Rate"
+        "ar": "معدل التضخم السنوي"
       },
       "businessContext_i18n": {
         "en": "Yıllık enflasyon oranı.",
         "tr": "Yıllık enflasyon oranı.",
-        "de": "Yıllık enflasyon oranı.",
+        "de": "Jährliche Inflationsrate.",
         "fr": "Taux d'inflation annuel.",
-        "es": "Tasa de inflación anual."
+        "es": "Tasa de inflación anual.",
+        "ar": "معدل التضخم السنوي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
-        "ar": "Number of Years"
+        "ar": "عدد السنوات"
       },
       "businessContext_i18n": {
         "en": "Enflasyonun uygulanacağı süre.",
         "tr": "Enflasyonun uygulanacağı süre.",
-        "de": "Enflasyonun uygulanacağı süre.",
+        "de": "Zeitraum, über den die Inflation angewendet wird.",
         "fr": "Durée d'application de l'inflation.",
-        "es": "Período de aplicación de la inflación."
+        "es": "Período de aplicación de la inflación.",
+        "ar": "المدة التي يُطبق عليها التضخم."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de capitalización",
-        "ar": "Compounding Frequency"
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "Yıllık bileşikleme sıklığı.",
         "tr": "Yıllık bileşikleme sıklığı.",
-        "de": "Yıllık bileşikleme sıklığı.",
+        "de": "Jährliche Aufzinsungshäufigkeit.",
         "fr": "Fréquence de composition annuelle.",
-        "es": "Frecuencia de capitalización anual."
+        "es": "Frecuencia de capitalización anual.",
+        "ar": "تكرار المركبة السنوي."
       }
     }
   ],
   "formulas": {
-    "result": "present-value + inflation-rate + years",
-    "result_copy": "present-value + inflation-rate + years"
+    "normalized_product": "present-value * (inflation-rate / 100) * years * frequency",
+    "result": "present-value * (inflation-rate / 100) * years * frequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "inflationImpact",
-      "realValueReductionPercent"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "realValueReductionPercent",
-    "unit": "currency",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "realValueReductionPercent": "%"
     }

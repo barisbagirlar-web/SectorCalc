@@ -14,14 +14,15 @@
         "de": "Auflösungsbreite",
         "fr": "Largeur de résolution",
         "es": "Ancho de resolución",
-        "ar": "Resolution Width"
+        "ar": "عرض الدقة"
       },
       "businessContext_i18n": {
         "en": "Width of the output image in pixels for rendering.",
         "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden genişliği.",
         "de": "Breite des Ausgabebildes in Pixeln für das Rendering.",
         "fr": "Largeur de l'image de sortie en pixels pour le rendu.",
-        "es": "Ancho de la imagen de salida en píxeles para el renderizado."
+        "es": "Ancho de la imagen de salida en píxeles para el renderizado.",
+        "ar": "عرض الصورة الناتجة بالبكسل للعرض."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Auflösungshöhe",
         "fr": "Hauteur de résolution",
         "es": "Alto de resolución",
-        "ar": "Resolution Height"
+        "ar": "ارتفاع الدقة"
       },
       "businessContext_i18n": {
         "en": "Height of the output image in pixels for rendering.",
         "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden yüksekliği.",
         "de": "Höhe des Ausgabebildes in Pixeln für das Rendering.",
         "fr": "Hauteur de l'image de sortie en pixels pour le rendu.",
-        "es": "Alto de la imagen de salida en píxeles para el renderizado."
+        "es": "Alto de la imagen de salida en píxeles para el renderizado.",
+        "ar": "ارتفاع الصورة الناتجة بالبكسل للعرض."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Pixel-Samples",
         "fr": "Échantillons par pixel",
         "es": "Muestras por píxel",
-        "ar": "Samples per Pixel"
+        "ar": "عدد العينات لكل بكسل"
       },
       "businessContext_i18n": {
         "en": "Number of samples per pixel for anti-aliasing quality.",
         "tr": "Kenar yumuşatma kalitesi için piksel başına örnek sayısı.",
         "de": "Anzahl der Samples pro Pixel für die Anti-Aliasing-Qualität.",
         "fr": "Nombre d'échantillons par pixel pour la qualité anti-aliasing.",
-        "es": "Número de muestras por píxel para la calidad de anti-aliasing."
+        "es": "Número de muestras por píxel para la calidad de anti-aliasing.",
+        "ar": "عدد العينات لكل بكسل لجودة مقاومة التعرج."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bildanzahl",
         "fr": "Nombre d'images",
         "es": "Número de fotogramas",
-        "ar": "Frame Count"
+        "ar": "عدد الإطارات"
       },
       "businessContext_i18n": {
         "en": "Total number of frames to render, e.g., for animation.",
         "tr": "Örn. animasyon için oluşturulacak toplam kare sayısı.",
         "de": "Gesamtzahl der zu rendernden Bilder, z. B. für Animationen.",
         "fr": "Nombre total d'images à rendre, par exemple pour une animation.",
-        "es": "Número total de fotogramas a renderizar, por ejemplo, para animación."
+        "es": "Número total de fotogramas a renderizar, por ejemplo, para animación.",
+        "ar": "إجمالي عدد الإطارات المطلوب عرضها، مثلاً للرسوم المتحركة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Render-Engine-Geschwindigkeit",
         "fr": "Vitesse du moteur de rendu",
         "es": "Velocidad del motor de renderizado",
-        "ar": "Render Engine Speed"
+        "ar": "سرعة محرك العرض"
       },
       "businessContext_i18n": {
         "en": "Render engine throughput in rays per second. Adjust for hardware/software.",
         "tr": "Oluşturma motorunun saniyedeki ışın işleme hızı. Donanım/yazılıma göre ayarlayın.",
         "de": "Durchsatz der Render-Engine in Strahlen pro Sekunde. An Hardware/Software anpassen.",
         "fr": "Débit du moteur de rendu en rayons par seconde. Ajustez selon le matériel/logiciel.",
-        "es": "Rendimiento del motor de renderizado en rayos por segundo. Ajustar según hardware/software."
+        "es": "Rendimiento del motor de renderizado en rayos por segundo. Ajustar según hardware/software.",
+        "ar": "معدل إنتاجية محرك العرض بالأشعة في الثانية. اضبط حسب الأجهزة/البرامج."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Komplexitätsfaktor",
         "fr": "Facteur de complexité",
         "es": "Factor de complejidad",
-        "ar": "Complexity Factor"
+        "ar": "عامل التعقيد"
       },
       "businessContext_i18n": {
         "en": "Scene complexity multiplier. 1 for simple, 5 for highly complex.",
         "tr": "Sahne karmaşıklık çarpanı. Basit için 1, çok karmaşık için 5.",
         "de": "Szenenkomplexitäts-Multiplikator. 1 für einfach, 5 für sehr komplex.",
         "fr": "Multiplicateur de complexité de scène. 1 pour simple, 5 pour très complexe.",
-        "es": "Multiplicador de complejidad de la escena. 1 para simple, 5 para altamente compleja."
+        "es": "Multiplicador de complejidad de la escena. 1 para simple, 5 para altamente compleja.",
+        "ar": "مضاعف تعقيد المشهد. 1 للبسيط، 5 للمعقد جداً."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Maximale Strahlreflexionen",
         "fr": "Rebonds de rayons max",
         "es": "Máximo de rebotes de rayos",
-        "ar": "Max Ray Bounces"
+        "ar": "أقصى ارتدادات للأشعة"
       },
       "businessContext_i18n": {
         "en": "Maximum light bounces for global illumination. Higher increases realism and time.",
         "tr": "Küresel aydınlatma için maksimum ışık sıçraması. Yüksek değer gerçekçiliği ve süreyi artırır.",
         "de": "Maximale Lichtreflexionen für globale Beleuchtung. Höher erhöht Realismus und Zeit.",
         "fr": "Rebonds lumineux maximum pour l'illumination globale. Plus élevé augmente le réalisme et le temps.",
-        "es": "Máximo de rebotes de luz para iluminación global. Mayor aumenta realismo y tiempo."
+        "es": "Máximo de rebotes de luz para iluminación global. Mayor aumenta realismo y tiempo.",
+        "ar": "أقصى ارتدادات ضوئية للإضاءة العامة. الزيادة تزيد الواقعية والوقت."
       }
     }
   ],

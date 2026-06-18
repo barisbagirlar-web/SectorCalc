@@ -25,14 +25,16 @@
         "tr": "Toplam Alan (ft²)",
         "de": "Gesamtfläche (Quadratfuß)",
         "fr": "Surface totale (pi²)",
-        "es": "Área total (pies cuadrados)"
+        "es": "Área total (pies cuadrados)",
+        "ar": "المساحة الإجمالية (قدم مربع)"
       },
       "businessContext_i18n": {
         "en": "Total cleanable floor area in square feet. Basis for all labor and material calculations.",
         "tr": "Temizlenebilir toplam taban alanı fit kare cinsinden. Tüm işçilik ve malzeme hesaplamalarının temeli.",
         "de": "Gesamte reinigbare Bodenfläche in Quadratfuß. Grundlage für alle Arbeits- und Materialberechnungen.",
         "fr": "Surface totale nettoyable en pieds carrés. Base pour tous les calculs de main-d'œuvre et de matériaux.",
-        "es": "Área total de suelo limpiable en pies cuadrados. Base para todos los cálculos de mano de obra y materiales."
+        "es": "Área total de suelo limpiable en pies cuadrados. Base para todos los cálculos de mano de obra y materiales.",
+        "ar": "إجمالي مساحة الأرضية القابلة للتنظيف بالقدم المربع. أساس جميع حسابات العمالة والمواد."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Haftalık Temizlik Sıklığı",
         "de": "Reinigungshäufigkeit pro Woche",
         "fr": "Fréquence de nettoyage par semaine",
-        "es": "Frecuencia de limpieza por semana"
+        "es": "Frecuencia de limpieza por semana",
+        "ar": "تكرار التنظيف أسبوعيًا"
       },
       "businessContext_i18n": {
         "en": "Number of times the facility is cleaned per week. Affects labor and consumable usage.",
         "tr": "Tesisin haftada kaç kez temizlendiği. İşçilik ve sarf malzemesi kullanımını etkiler.",
         "de": "Anzahl der Reinigungen pro Woche. Beeinflusst Arbeitsaufwand und Verbrauchsmaterialien.",
         "fr": "Nombre de fois que l'installation est nettoyée par semaine. Affecte l'utilisation de main-d'œuvre et de consommables.",
-        "es": "Número de veces que se limpia la instalación por semana. Afecta el uso de mano de obra y consumibles."
+        "es": "Número de veces que se limpia la instalación por semana. Afecta el uso de mano de obra y consumibles.",
+        "ar": "عدد مرات تنظيف المنشأة أسبوعيًا. يؤثر على استهلاك العمالة والمواد الاستهلاكية."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "İşçilik Ücreti ($/saat)",
         "de": "Arbeitskosten (€/Stunde)",
         "fr": "Taux horaire de main-d'œuvre ($/heure)",
-        "es": "Tarifa de mano de obra ($/hora)"
+        "es": "Tarifa de mano de obra ($/hora)",
+        "ar": "أجر العمالة (دولار/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Hourly wage for cleaning staff. Includes base pay, not burden.",
         "tr": "Temizlik personelinin saatlik ücreti. Temel maaşı içerir, yan yükler hariç.",
         "de": "Stundenlohn für Reinigungspersonal. Inklusive Grundgehalt, ohne Nebenkosten.",
         "fr": "Salaire horaire du personnel de nettoyage. Inclut le salaire de base, pas les charges.",
-        "es": "Salario por hora del personal de limpieza. Incluye salario base, no cargas sociales."
+        "es": "Salario por hora del personal de limpieza. Incluye salario base, no cargas sociales.",
+        "ar": "الأجر بالساعة لعمال النظافة. يشمل الراتب الأساسي، وليس الأعباء."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "İşçilik Yan Yükü (%)",
         "de": "Lohnnebenkosten (%)",
         "fr": "Charges sociales (%)",
-        "es": "Carga social (%)"
+        "es": "Carga social (%)",
+        "ar": "نسبة أعباء العمالة (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage added to labor rate for taxes, insurance, benefits. Typical range 15-35%.",
         "tr": "Vergi, sigorta, yan haklar için işçilik ücretine eklenen yüzde. Tipik aralık %15-35.",
         "de": "Prozentsatz, der zu den Arbeitskosten für Steuern, Versicherungen, Sozialleistungen hinzugerechnet wird. Typischer Bereich 15-35%.",
         "fr": "Pourcentage ajouté au taux horaire pour les impôts, assurances, avantages. Plage typique 15-35%.",
-        "es": "Porcentaje añadido a la tarifa de mano de obra por impuestos, seguros, beneficios. Rango típico 15-35%."
+        "es": "Porcentaje añadido a la tarifa de mano de obra por impuestos, seguros, beneficios. Rango típico 15-35%.",
+        "ar": "النسبة المضافة إلى أجر العمالة للضرائب والتأمين والمزايا. النطاق النموذجي 15-35%."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Verimlilik Oranı (ft²/saat)",
         "de": "Produktivitätsrate (m²/Stunde)",
         "fr": "Taux de productivité (pi²/heure)",
-        "es": "Tasa de productividad (pies cuadrados/hora)"
+        "es": "Tasa de productividad (pies cuadrados/hora)",
+        "ar": "معدل الإنتاجية (قدم مربع/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Average area cleaned per person per hour. Based on industry benchmarks (ISSA, BSCAI).",
         "tr": "Kişi başı saatte temizlenen ortalama alan. Sektör kıyaslamalarına (ISSA, BSCAI) dayanır.",
         "de": "Durchschnittliche Fläche, die pro Person und Stunde gereinigt wird. Basierend auf Branchenbenchmarks (ISSA, BSCAI).",
         "fr": "Surface moyenne nettoyée par personne par heure. Basé sur les références de l'industrie (ISSA, BSCAI).",
-        "es": "Área promedio limpiada por persona por hora. Basado en referencias de la industria (ISSA, BSCAI)."
+        "es": "Área promedio limpiada por persona por hora. Basado en referencias de la industria (ISSA, BSCAI).",
+        "ar": "متوسط المساحة التي ينظفها الشخص الواحد في الساعة. بناءً على معايير الصناعة (ISSA، BSCAI)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Malzeme Maliyeti ($/ft²)",
         "de": "Materialkosten (€/m²)",
         "fr": "Coût des matériaux ($/pi²)",
-        "es": "Costo de materiales ($/pie cuadrado)"
+        "es": "Costo de materiales ($/pie cuadrado)",
+        "ar": "تكلفة المواد (دولار/قدم مربع)"
       },
       "businessContext_i18n": {
         "en": "Cost of cleaning chemicals, paper, and consumables per square foot per cleaning.",
         "tr": "Temizlik kimyasalları, kağıt ve sarf malzemelerinin metrekare başına temizlik başına maliyeti.",
         "de": "Kosten für Reinigungschemikalien, Papier und Verbrauchsmaterialien pro Quadratmeter pro Reinigung.",
         "fr": "Coût des produits chimiques de nettoyage, du papier et des consommables par pied carré par nettoyage.",
-        "es": "Costo de productos químicos de limpieza, papel y consumibles por pie cuadrado por limpieza."
+        "es": "Costo de productos químicos de limpieza, papel y consumibles por pie cuadrado por limpieza.",
+        "ar": "تكلفة مواد التنظيف الكيميائية والورق والمواد الاستهلاكية لكل قدم مربع لكل عملية تنظيف."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Ekipman Maliyeti ($/sq ft)",
         "de": "Gerätekosten (€/m²)",
         "fr": "Coût de l'équipement ($/pi²)",
-        "es": "Costo de equipo ($/pie cuadrado)"
+        "es": "Costo de equipo ($/pie cuadrado)",
+        "ar": "تكلفة المعدات (دولار/قدم مربع)"
       },
       "businessContext_i18n": {
         "en": "Amortized equipment cost (mops, vacuums, buffers) per square foot per cleaning.",
         "tr": "Amorti edilmiş ekipman maliyeti (paspaslar, elektrikli süpürgeler, cilalama makineleri) metrekare başına temizlik başına.",
         "de": "Amortisierte Gerätekosten (Mopps, Staubsauger, Bürsten) pro Quadratmeter pro Reinigung.",
         "fr": "Coût amorti de l'équipement (serpillières, aspirateurs, lustreuses) par pied carré par nettoyage.",
-        "es": "Costo amortizado del equipo (trapeadores, aspiradoras, pulidoras) por pie cuadrado por limpieza."
+        "es": "Costo amortizado del equipo (trapeadores, aspiradoras, pulidoras) por pie cuadrado por limpieza.",
+        "ar": "تكلفة المعدات المطفأة (مماسح، مكانس، ملمعات) لكل قدم مربع لكل عملية تنظيف."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Genel Giderler (%)",
         "de": "Gemeinkosten (%)",
         "fr": "Frais généraux (%)",
-        "es": "Gastos generales (%)"
+        "es": "Gastos generales (%)",
+        "ar": "النسبة العامة (%)"
       },
       "businessContext_i18n": {
         "en": "Indirect costs (management, office, insurance) as percentage of direct costs.",
         "tr": "Dolaylı maliyetler (yönetim, ofis, sigorta) doğrudan maliyetlerin yüzdesi olarak.",
         "de": "Indirekte Kosten (Verwaltung, Büro, Versicherung) als Prozentsatz der direkten Kosten.",
         "fr": "Coûts indirects (gestion, bureau, assurance) en pourcentage des coûts directs.",
-        "es": "Costes indirectos (gestión, oficina, seguros) como porcentaje de los costes directos."
+        "es": "Costes indirectos (gestión, oficina, seguros) como porcentaje de los costes directos.",
+        "ar": "التكاليف غير المباشرة (الإدارة، المكتب، التأمين) كنسبة مئوية من التكاليف المباشرة."
       }
     }
   ],
@@ -249,18 +265,26 @@
     ]
   },
   "formulas": {
-    "result": "total_sq_ft + cleaning_frequency + labor_rate_per_hour",
-    "result_copy": "total_sq_ft + cleaning_frequency + labor_rate_per_hour"
+    "annual_kwh": "1 * cleaning_frequency * productivity_sqft_per_hour * (labor_rate_per_hour / 100)",
+    "annual_energy_cost": "1 * cleaning_frequency * productivity_sqft_per_hour * (labor_rate_per_hour / 100) * material_cost_per_sqft",
+    "result": "1 * cleaning_frequency * productivity_sqft_per_hour * (labor_rate_per_hour / 100) * material_cost_per_sqft"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_kwh",
+      "annual_energy_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Off-shift idle load",
+      "Leak or standby losses"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Meter validate kWh per shift",
+      "Prioritize top leak sources"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "sq ft"
+    "unit": "USD"
   },
   "toolName": "cleaning-bid-optimizer-calculator",
   "catalogCategory": "everyday-life",

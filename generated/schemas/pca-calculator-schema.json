@@ -14,14 +14,15 @@
         "de": "Varianz von X",
         "fr": "Variance de X",
         "es": "Varianza de X",
-        "ar": "Variance of X"
+        "ar": "تباين X"
       },
       "businessContext_i18n": {
         "en": "Variance of the first variable",
         "tr": "Birinci değişkenin varyansı",
         "de": "Varianz der ersten Variable",
         "fr": "Variance de la première variable",
-        "es": "Varianza de la primera variable"
+        "es": "Varianza de la primera variable",
+        "ar": "تباين المتغير الأول"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Varianz von Y",
         "fr": "Variance de Y",
         "es": "Varianza de Y",
-        "ar": "Variance of Y"
+        "ar": "تباين Y"
       },
       "businessContext_i18n": {
         "en": "Variance of the second variable",
         "tr": "İkinci değişkenin varyansı",
         "de": "Varianz der zweiten Variable",
         "fr": "Variance de la deuxième variable",
-        "es": "Varianza de la segunda variable"
+        "es": "Varianza de la segunda variable",
+        "ar": "تباين المتغير الثاني"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kovarianz(X, Y)",
         "fr": "Covariance(X, Y)",
         "es": "Covarianza(X, Y)",
-        "ar": "Covariance(X, Y)"
+        "ar": "التباين المشترك (X, Y)"
       },
       "businessContext_i18n": {
         "en": "Covariance between X and Y",
         "tr": "X ve Y arasındaki kovaryans",
         "de": "Kovarianz zwischen X und Y",
         "fr": "Covariance entre X et Y",
-        "es": "Covarianza entre X y Y"
+        "es": "Covarianza entre X y Y",
+        "ar": "التباين المشترك بين X و Y"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de Escala",
-        "ar": "Scaling Factor"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to all matrix entries before eigendecomposition",
         "tr": "Özdeğer ayrışımı öncesinde tüm matris girişlerine uygulanan çarpan",
         "de": "Multiplikator für alle Matrixeinträge vor Eigenzerlegung",
         "fr": "Multiplicateur appliqué à toutes les entrées de la matrice avant décomposition en valeurs propres",
-        "es": "Multiplicador aplicado a todas las entradas de la matriz antes de la descomposición en valores propios"
+        "es": "Multiplicador aplicado a todas las entradas de la matriz antes de la descomposición en valores propios",
+        "ar": "المضاعف المطبق على جميع عناصر المصفوفة قبل تحليل القيم الذاتية"
       }
     }
   ],
   "formulas": {
-    "result": "varianceX + varianceY + covarianceXY",
-    "result_copy": "varianceX + varianceY + covarianceXY"
+    "normalized_product": "varianceX * varianceY * covarianceXY * scaling",
+    "result": "varianceX * varianceY * covarianceXY * scaling"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "eigenvalue2",
-      "proportionExplained"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "proportionExplained",
-    "unit": "unitless"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

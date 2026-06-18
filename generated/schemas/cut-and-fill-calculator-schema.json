@@ -14,14 +14,15 @@
         "de": "Schnittfläche an Station 1",
         "fr": "Zone de coupe au poste 1",
         "es": "Área de corte en la Estación 1",
-        "ar": "Cut Area at Station 1"
+        "ar": "مساحة القطع في المحطة 1"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of cut at the first station.",
         "tr": "Birinci istasyondaki kesitin kesit alanı.",
         "de": "Querschnittsfläche des Abtrags an der ersten Station.",
         "fr": "Section transversale de la coupe au premier poste.",
-        "es": "Área transversal del corte en la primera estación."
+        "es": "Área transversal del corte en la primera estación.",
+        "ar": "مساحة المقطع العرضي للقطع في المحطة الأولى."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abtragsfläche an Station 2",
         "fr": "Zone de coupe au poste 2",
         "es": "Área de corte en la Estación 2",
-        "ar": "Cut Area at Station 2"
+        "ar": "مساحة القطع في المحطة 2"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of cut at the second station.",
         "tr": "İkinci istasyondaki kesitin kesit alanı.",
         "de": "Querschnittsfläche des Abtrags an der zweiten Station.",
         "fr": "Section transversale de la coupe au deuxième poste.",
-        "es": "Área transversal del corte en la segunda estación."
+        "es": "Área transversal del corte en la segunda estación.",
+        "ar": "مساحة المقطع العرضي للقطع في المحطة الثانية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Auftragsfläche an Station 1",
         "fr": "Zone de remplissage au poste 1",
         "es": "Área de relleno en la Estación 1",
-        "ar": "Fill Area at Station 1"
+        "ar": "مساحة الردم في المحطة 1"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of fill at the first station.",
         "tr": "Birinci istasyondaki dolgunun kesit alanı.",
         "de": "Querschnittsfläche des Auftrags an der ersten Station.",
         "fr": "Section transversale du remplissage au premier poste.",
-        "es": "Área transversal del relleno en la primera estación."
+        "es": "Área transversal del relleno en la primera estación.",
+        "ar": "مساحة المقطع العرضي للردم في المحطة الأولى."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Auftragsfläche an Station 2",
         "fr": "Zone de remplissage au poste 2",
         "es": "Área de relleno en la Estación 2",
-        "ar": "Fill Area at Station 2"
+        "ar": "مساحة الردم في المحطة 2"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of fill at the second station.",
         "tr": "İkinci istasyondaki dolgunun kesit alanı.",
         "de": "Querschnittsfläche des Auftrags an der zweiten Station.",
         "fr": "Section transversale du remplissage au deuxième poste.",
-        "es": "Área transversal del relleno en la segunda estación."
+        "es": "Área transversal del relleno en la segunda estación.",
+        "ar": "مساحة المقطع العرضي للردم في المحطة الثانية."
       }
     },
     {
@@ -104,16 +108,17 @@
         "en": "Distance Between Stations",
         "tr": "İstasyonlar Arası Mesafe",
         "de": "Abstand zwischen den Stationen",
-        "fr": "Distance Between Stations",
+        "fr": "Distance entre les stations",
         "es": "Distancia entre estaciones",
-        "ar": "Distance Between Stations"
+        "ar": "المسافة بين المحطات"
       },
       "businessContext_i18n": {
         "en": "Distance along the alignment between the two cross-sections.",
         "tr": "İki kesit arasındaki hat boyunca mesafe.",
         "de": "Abstand entlang der Trasse zwischen den beiden Querschnitten.",
-        "fr": "Distance along the alignment between the two cross-sections.",
-        "es": "Distancia a lo largo del alineamiento entre las dos secciones transversales."
+        "fr": "Distance le long de l'alignement entre les deux sections transversales.",
+        "es": "Distancia a lo largo del alineamiento entre las dos secciones transversales.",
+        "ar": "المسافة على طول المحور بين المقطعين العرضيين."
       }
     },
     {
@@ -127,16 +132,17 @@
         "en": "Shrinkage Factor",
         "tr": "Büzülme Faktörü",
         "de": "Schwindfaktor",
-        "fr": "Shrinkage Factor",
+        "fr": "Coefficient de retrait",
         "es": "Factor de contracción",
-        "ar": "Shrinkage Factor"
+        "ar": "معامل الانكماش"
       },
       "businessContext_i18n": {
         "en": "Shrinkage factor (e.g., 0.9 for 10% shrinkage, 1.0 for no shrinkage).",
         "tr": "Büzülme faktörü (örneğin, %10 büzülme için 0.9, büzülme yoksa 1.0).",
         "de": "Schwindfaktor (z. B. 0,9 für 10 % Schwindung, 1,0 für keine Schwindung).",
-        "fr": "Shrinkage factor (e.g., 0.9 for 10% shrinkage, 1.0 for no shrinkage).",
-        "es": "Factor de contracción (ej. 0.9 para 10% de contracción, 1.0 sin contracción)."
+        "fr": "Coefficient de retrait (ex. 0,9 pour 10% de retrait, 1,0 pour aucun retrait).",
+        "es": "Factor de contracción (ej. 0.9 para 10% de contracción, 1.0 sin contracción).",
+        "ar": "معامل الانكماش (مثال: 0.9 يعني انكماش 10%، 1.0 يعني عدم وجود انكماش)."
       }
     }
   ],

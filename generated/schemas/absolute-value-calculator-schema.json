@@ -14,14 +14,15 @@
         "de": "Zahl 1",
         "fr": "Nombre 1",
         "es": "Número 1",
-        "ar": "Number 1"
+        "ar": "الرقم 1"
       },
       "businessContext_i18n": {
         "en": "First number to compute absolute value",
         "tr": "Mutlak değeri hesaplanacak ilk sayı",
         "de": "Erste Zahl zur Berechnung des Absolutbetrags",
         "fr": "Premier nombre pour calculer la valeur absolue",
-        "es": "Primer número para calcular el valor absoluto"
+        "es": "Primer número para calcular el valor absoluto",
+        "ar": "الرقم الأول لحساب القيمة المطلقة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Nummer 2",
         "fr": "Nombre 2",
         "es": "Número 2",
-        "ar": "Number 2"
+        "ar": "الرقم 2"
       },
       "businessContext_i18n": {
         "en": "Second number to compute absolute value",
         "tr": "Mutlak değer hesaplanacak ikinci sayı",
         "de": "Zweite Zahl zur Berechnung des Absolutwerts",
         "fr": "Deuxième nombre pour calculer la valeur absolue",
-        "es": "Segundo número para calcular el valor absoluto"
+        "es": "Segundo número para calcular el valor absoluto",
+        "ar": "الرقم الثاني لحساب القيمة المطلقة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nummer 3",
         "fr": "Nombre 3",
         "es": "Número 3",
-        "ar": "Number 3"
+        "ar": "الرقم 3"
       },
       "businessContext_i18n": {
         "en": "Third number to compute absolute value",
         "tr": "Mutlak değer hesaplanacak üçüncü sayı",
         "de": "Dritte Zahl zur Berechnung des Absolutwerts",
         "fr": "Troisième nombre pour calculer la valeur absolue",
-        "es": "Tercer número para calcular el valor absoluto"
+        "es": "Tercer número para calcular el valor absoluto",
+        "ar": "الرقم الثالث لحساب القيمة المطلقة"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Nummer 4",
         "fr": "Nombre 4",
         "es": "Número 4",
-        "ar": "Number 4"
+        "ar": "الرقم 4"
       },
       "businessContext_i18n": {
         "en": "Fourth number to compute absolute value",
         "tr": "Mutlak değer hesaplanacak dördüncü sayı",
         "de": "Vierte Zahl zur Berechnung des Absolutwerts",
         "fr": "Quatrième nombre pour calculer la valeur absolue",
-        "es": "Cuarto número para calcular el valor absoluto"
+        "es": "Cuarto número para calcular el valor absoluto",
+        "ar": "الرقم الرابع لحساب القيمة المطلقة"
       }
     }
   ],
   "formulas": {
-    "result": "value1 + value2 + value3",
-    "result_copy": "value1 + value2 + value3"
+    "normalized_product": "value1 * value2 * value3 * value4",
+    "result": "value1 * value2 * value3 * value4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "abs1",
-      "abs2",
-      "abs3",
-      "abs4"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "abs4",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

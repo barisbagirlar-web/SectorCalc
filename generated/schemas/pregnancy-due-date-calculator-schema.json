@@ -25,14 +25,16 @@
         "tr": "Son Adet Tarihi (SAT)",
         "de": "Datum der letzten Menstruation (LMP)",
         "fr": "Date des dernières règles (DDR)",
-        "es": "Fecha de la última menstruación (FUM)"
+        "es": "Fecha de la última menstruación (FUM)",
+        "ar": "تاريخ آخر دورة شهرية (LMP)"
       },
       "businessContext_i18n": {
         "en": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation.",
         "tr": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel olarak kullanılır.",
         "de": "Datum des ersten Tages der letzten Menstruation, dient als Basis für die Berechnung des Gestationsalters.",
         "fr": "Date du premier jour des dernières règles, utilisée comme référence pour le calcul de l'âge gestationnel.",
-        "es": "Fecha del primer día de la última menstruación, utilizada como base para el cálculo de la edad gestacional."
+        "es": "Fecha del primer día de la última menstruación, utilizada como base para el cálculo de la edad gestacional.",
+        "ar": "تاريخ أول يوم من آخر دورة شهرية، يستخدم كأساس لحساب عمر الحمل."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Ortalama Döngü Uzunluğu",
         "de": "Durchschnittliche Zykluslänge",
         "fr": "Durée moyenne du cycle",
-        "es": "Duración promedio del ciclo"
+        "es": "Duración promedio del ciclo",
+        "ar": "متوسط طول الدورة"
       },
       "businessContext_i18n": {
         "en": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate.",
         "tr": "Kadının adet döngüsünün gün cinsinden ortalama uzunluğu. 28 günden sapmalar tahmini doğum tarihini ayarlar.",
         "de": "Durchschnittliche Länge des Menstruationszyklus in Tagen. Abweichungen von 28 Tagen passen die Geburtsterminschätzung an.",
         "fr": "Durée moyenne du cycle menstruel en jours. Les écarts par rapport à 28 jours ajustent l'estimation de la date d'accouchement.",
-        "es": "Duración promedio del ciclo menstrual de la mujer en días. Las desviaciones de 28 días ajustan la estimación de la fecha de parto."
+        "es": "Duración promedio del ciclo menstrual de la mujer en días. Las desviaciones de 28 días ajustan la estimación de la fecha de parto.",
+        "ar": "متوسط طول دورة الحيض لدى المرأة بالأيام. الانحرافات عن 28 يومًا تعدل تقدير موعد الولادة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Luteal Faz Uzunluğu",
         "de": "Lutealphasenlänge",
         "fr": "Durée de la phase lutéale",
-        "es": "Duración de la fase lútea"
+        "es": "Duración de la fase lútea",
+        "ar": "طول المرحلة الأصفرية"
       },
       "businessContext_i18n": {
         "en": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date.",
         "tr": "Luteal fazın (yumurtlama sonrası) uzunluğu. Tipik olarak 14 gündür, ancak değişebilir. Yumurtlama tarihini hassaslaştırmak için kullanılır.",
         "de": "Länge der Lutealphase (nach dem Eisprung). Typischerweise 14 Tage, kann aber variieren. Wird zur Verfeinerung des Eisprungdatums verwendet.",
         "fr": "Durée de la phase lutéale (post-ovulation). Généralement 14 jours, mais peut varier. Utilisée pour affiner la date d'ovulation.",
-        "es": "Duración de la fase lútea (post-ovulación). Normalmente 14 días, pero puede variar. Se utiliza para refinar la fecha de ovulación."
+        "es": "Duración de la fase lútea (post-ovulación). Normalmente 14 días, pero puede variar. Se utiliza para refinar la fecha de ovulación.",
+        "ar": "طول المرحلة الأصفرية (ما بعد الإباضة). عادة 14 يومًا، ولكن يمكن أن تختلف. تستخدم لتحسين تاريخ الإباضة."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Ultrason Gebelik Yaşı (hafta)",
         "de": "Ultraschall-Gestationsalter (Wochen)",
         "fr": "Âge gestationnel échographique (semaines)",
-        "es": "Edad gestacional por ecografía (semanas)"
+        "es": "Edad gestacional por ecografía (semanas)",
+        "ar": "عمر الحمل بالموجات فوق الصوتية (أسابيع)"
       },
       "businessContext_i18n": {
         "en": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate.",
         "tr": "Ultrason ile ölçülen gebelik yaşı (baş-popo uzunluğu). Sağlanırsa, SAT tabanlı tahmini geçersiz kılar.",
         "de": "Per Ultraschall gemessenes Gestationsalter (Scheitel-Steiß-Länge). Falls angegeben, überschreibt es die LMP-basierte Schätzung.",
         "fr": "Âge gestationnel mesuré par échographie (longueur crânio-caudale). S'il est fourni, il remplace l'estimation basée sur la DDR.",
-        "es": "Edad gestacional medida por ecografía (longitud cráneo-caudal). Si se proporciona, anula la estimación basada en FUM."
+        "es": "Edad gestacional medida por ecografía (longitud cráneo-caudal). Si se proporciona, anula la estimación basada en FUM.",
+        "ar": "عمر الحمل المقاس بالموجات فوق الصوتية (طول الجنين من الرأس إلى الأرداف). إذا تم توفيره، فإنه يتجاوز التقدير المبني على LMP."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Ultrason Gebelik Yaşı (ek günler)",
         "de": "Ultraschall-Gestationsalter (zusätzliche Tage)",
         "fr": "Âge gestationnel échographique (jours supplémentaires)",
-        "es": "Edad gestacional por ecografía (días adicionales)"
+        "es": "Edad gestacional por ecografía (días adicionales)",
+        "ar": "عمر الحمل بالموجات فوق الصوتية (أيام إضافية)"
       },
       "businessContext_i18n": {
         "en": "Remaining days beyond weeks for ultrasound gestational age.",
         "tr": "Ultrason gebelik yaşı için haftaların ötesindeki kalan günler.",
         "de": "Verbleibende Tage über die Wochen hinaus für das Ultraschall-Gestationsalter.",
         "fr": "Jours restants au-delà des semaines pour l'âge gestationnel échographique.",
-        "es": "Días restantes más allá de las semanas para la edad gestacional por ecografía."
+        "es": "Días restantes más allá de las semanas para la edad gestacional por ecografía.",
+        "ar": "الأيام المتبقية بعد الأسابيع لعمر الحمل بالموجات فوق الصوتية."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Döngü Değişkenliği (standart sapma)",
         "de": "Zyklusvariabilität (Standardabweichung)",
         "fr": "Variabilité du cycle (écart-type)",
-        "es": "Variabilidad del ciclo (desviación estándar)"
+        "es": "Variabilidad del ciclo (desviación estándar)",
+        "ar": "تباين الدورة (الانحراف المعياري)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment.",
         "tr": "Döngü uzunluğunun standart sapması, güven aralıklarını ve veri güven ayarını hesaplamak için kullanılır.",
         "de": "Standardabweichung der Zykluslänge, wird zur Berechnung von Konfidenzintervallen und Datenkonfidenzanpassung verwendet.",
         "fr": "Écart-type de la durée du cycle, utilisé pour calculer les intervalles de confiance et l'ajustement de la confiance des données.",
-        "es": "Desviación estándar de la duración del ciclo, utilizada para calcular intervalos de confianza y ajuste de confianza de datos."
+        "es": "Desviación estándar de la duración del ciclo, utilizada para calcular intervalos de confianza y ajuste de confianza de datos.",
+        "ar": "الانحراف المعياري لطول الدورة، يستخدم لحساب فترات الثقة وتعديل موثوقية البيانات."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Parite (önceki doğum sayısı)",
         "de": "Parität (Anzahl vorheriger Geburten)",
         "fr": "Parité (nombre d'accouchements antérieurs)",
-        "es": "Paridad (número de partos anteriores)"
+        "es": "Paridad (número de partos anteriores)",
+        "ar": "عدد الولادات السابقة (الباريتي)"
       },
       "businessContext_i18n": {
         "en": "Number of previous live births. Used in risk stratification (e.g., grand multiparity).",
         "tr": "Önceki canlı doğum sayısı. Risk sınıflandırmasında kullanılır (örneğin, grand multiparite).",
         "de": "Anzahl vorheriger Lebendgeburten. Wird in der Risikostratifizierung verwendet (z. B. hohe Parität).",
         "fr": "Nombre d'accouchements antérieurs vivants. Utilisé dans la stratification du risque (ex. grande multiparité).",
-        "es": "Número de partos anteriores con vida. Se utiliza en la estratificación de riesgo (p. ej., gran multiparidad)."
+        "es": "Número de partos anteriores con vida. Se utiliza en la estratificación de riesgo (p. ej., gran multiparidad).",
+        "ar": "عدد الولادات الحية السابقة. يستخدم في تصنيف المخاطر (مثل تعدد الولادات الكبير)."
       }
     },
     {
@@ -199,14 +213,16 @@
         "tr": "Mevcut Risk Faktörleri",
         "de": "Vorhandene Risikofaktoren",
         "fr": "Facteurs de risque présents",
-        "es": "Factores de riesgo presentes"
+        "es": "Factores de riesgo presentes",
+        "ar": "عوامل الخطر الموجودة"
       },
       "businessContext_i18n": {
         "en": "Presence of known risk factors that may affect due date reliability or require additional monitoring.",
         "tr": "Tahmini doğum tarihi güvenilirliğini etkileyebilecek veya ek izleme gerektirecek bilinen risk faktörlerinin varlığı.",
         "de": "Vorhandensein bekannter Risikofaktoren, die die Zuverlässigkeit des Geburtstermins beeinträchtigen oder zusätzliche Überwachung erfordern können.",
         "fr": "Présence de facteurs de risque connus pouvant affecter la fiabilité de la date d'accouchement ou nécessitant une surveillance supplémentaire.",
-        "es": "Presencia de factores de riesgo conocidos que pueden afectar la fiabilidad de la fecha de parto o requerir monitoreo adicional."
+        "es": "Presencia de factores de riesgo conocidos que pueden afectar la fiabilidad de la fecha de parto o requerir monitoreo adicional.",
+        "ar": "وجود عوامل خطر معروفة قد تؤثر على موثوقية موعد الولادة أو تتطلب مراقبة إضافية."
       }
     }
   ],
@@ -267,18 +283,26 @@
     ]
   },
   "formulas": {
-    "result": "lmp_date + cycle_length + luteal_phase_length",
-    "result_copy": "lmp_date + cycle_length + luteal_phase_length"
+    "normalized_product": "lmp_date * cycle_length * luteal_phase_length * ultrasound_ga_weeks",
+    "result": "lmp_date * cycle_length * luteal_phase_length * ultrasound_ga_weeks * (ultrasound_ga_days * cycle_variability * parity)",
+    "adjustment_factor": "ultrasound_ga_days * cycle_variability * parity"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "days since epoch (Unix timestamp)"
+    "unit": "units"
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

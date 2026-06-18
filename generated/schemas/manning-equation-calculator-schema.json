@@ -14,14 +14,15 @@
         "de": "Manning-Rauheitsbeiwert (n)",
         "fr": "Coefficient de rugosité de Manning (n)",
         "es": "Coeficiente de rugosidad de Manning (n)",
-        "ar": "Manning Pürüzlülük Katsayısı (n)"
+        "ar": "معامل خشونة مانينغ (n)"
       },
       "businessContext_i18n": {
         "en": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
         "tr": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
         "de": "Oberflächenrauheitsbeiwert; für Beton 0,013, für Kies 0,025",
         "fr": "Coefficient de rugosité de surface ; 0,013 pour le béton, 0,025 pour le gravier",
-        "es": "Coeficiente de rugosidad superficial; para hormigón 0.013, para grava 0.025"
+        "es": "Coeficiente de rugosidad superficial; para hormigón 0.013, para grava 0.025",
+        "ar": "معامل خشونة السطح؛ للخرسانة 0.013، للحصى 0.025"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hydraulischer Radius (R)",
         "fr": "Rayon hydraulique (R)",
         "es": "Radio hidráulico (R)",
-        "ar": "Hidrolik Yarıçap (R)"
+        "ar": "نصف القطر الهيدروليكي (R)"
       },
       "businessContext_i18n": {
         "en": "Kesit alanının ıslak çevreye oranı",
         "tr": "Kesit alanının ıslak çevreye oranı",
         "de": "Verhältnis von Querschnittsfläche zu benetztem Umfang",
         "fr": "Rapport de la section mouillée au périmètre mouillé",
-        "es": "Relación del área de la sección con el perímetro mojado"
+        "es": "Relación del área de la sección con el perímetro mojado",
+        "ar": "نسبة مساحة المقطع إلى المحيط المبلل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Querschnittsfläche (A)",
         "fr": "Section transversale (A)",
         "es": "Área de la sección (A)",
-        "ar": "Kesit Alanı (A)"
+        "ar": "مساحة المقطع (A)"
       },
       "businessContext_i18n": {
         "en": "Akışın gerçekleştiği kesit alanı",
         "tr": "Akışın gerçekleştiği kesit alanı",
         "de": "Querschnittsfläche, durch die die Strömung stattfindet",
         "fr": "Section transversale où s'écoule le fluide",
-        "es": "Área de la sección donde ocurre el flujo"
+        "es": "Área de la sección donde ocurre el flujo",
+        "ar": "مساحة المقطع العرضي للتدفق"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Gerinnegefälle (S)",
         "fr": "Pente du canal (S)",
         "es": "Pendiente del canal (S)",
-        "ar": "Kanal Eğimi (S)"
+        "ar": "ميل القناة (S)"
       },
       "businessContext_i18n": {
         "en": "Enerji çizgisi eğimi, boyutsuz veya m/m",
         "tr": "Enerji çizgisi eğimi, boyutsuz veya m/m",
         "de": "Energieliniengefälle, dimensionslos oder m/m",
         "fr": "Pente de la ligne d'énergie, sans dimension ou en m/m",
-        "es": "Pendiente de la línea de energía, adimensional o m/m"
+        "es": "Pendiente de la línea de energía, adimensional o m/m",
+        "ar": "ميل خط الطاقة، بدون أبعاد أو م/م"
       }
     }
   ],
   "formulas": {
-    "result": "roughness + hydraulicRadius + area",
-    "result_copy": "roughness + hydraulicRadius + area"
+    "normalized_product": "roughness * hydraulicRadius * area * slope",
+    "result": "roughness * hydraulicRadius * area * slope"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "velocity",
-        "label": "Hız (m/s)"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "velocity",
-    "unit": "boyutsuz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

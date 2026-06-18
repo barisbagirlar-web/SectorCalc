@@ -14,13 +14,15 @@
         "de": "Strecke (Meter)",
         "fr": "Distance (mètres)",
         "es": "Distancia (metros)",
-        "ar": "Distance (meters)"
+        "ar": "المسافة (متر)"
       },
       "businessContext_i18n": {
         "en": "Total walking distance in meters, e.g., from one workstation to another in a factory layout.",
         "tr": "Metre cinsinden toplam yürüme mesafesi, örn. bir fabrika düzeninde bir iş istasyonundan diğerine.",
         "de": "Gesamtgehstrecke in Metern, z. B. von einem Arbeitsplatz zu einem anderen in einer Fabrikanordnung.",
-        "fr": "Distance totale de marche en mètres, par exemple d'un poste de travail à un autre dans un aménagement d'usine."
+        "fr": "Distance totale de marche en mètres, par exemple d'un poste de travail à un autre dans un aménagement d'usine.",
+        "es": "Distancia total de la caminata en metros, por ejemplo, de un puesto de trabajo a otro en un diseño de fábrica.",
+        "ar": "إجمالي مسافة المشي بالأمتار، على سبيل المثال، من محطة عمل إلى أخرى في تخطيط المصنع."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zeit (Stunden)",
         "fr": "Temps (heures)",
         "es": "Tiempo (horas)",
-        "ar": "Time (hours)"
+        "ar": "الوقت (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Hours part of the walking time.",
         "tr": "Yürüme süresinin saat kısmı.",
         "de": "Stundenanteil der Gehzeit.",
-        "fr": "Partie heures du temps de marche."
+        "fr": "Partie heures du temps de marche.",
+        "es": "Parte de horas del tiempo de caminata.",
+        "ar": "جزء الساعات من وقت المشي."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Zeit (Minuten)",
         "fr": "Temps (minutes)",
         "es": "Tiempo (minutos)",
-        "ar": "Time (minutes)"
+        "ar": "الوقت (دقائق)"
       },
       "businessContext_i18n": {
         "en": "Minutes part of the walking time.",
         "tr": "Yürüme süresinin dakika kısmı.",
         "de": "Minutenanteil der Gehzeit.",
-        "fr": "Partie minutes du temps de marche."
+        "fr": "Partie minutes du temps de marche.",
+        "es": "Parte de minutos del tiempo de caminata.",
+        "ar": "جزء الدقائق من وقت المشي."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Zeit (Sekunden)",
         "fr": "Temps (secondes)",
         "es": "Tiempo (segundos)",
-        "ar": "Time (seconds)"
+        "ar": "الوقت (ثوانٍ)"
       },
       "businessContext_i18n": {
         "en": "Seconds part of the walking time.",
         "tr": "Yürüme süresinin saniye kısmı.",
         "de": "Sekundenanteil der Gehzeit.",
-        "fr": "Partie secondes du temps de marche."
+        "fr": "Partie secondes du temps de marche.",
+        "es": "Parte de segundos del tiempo de caminata.",
+        "ar": "جزء الثواني من وقت المشي."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Adım Uzunluğu (cm)",
         "de": "Schrittlänge (cm)",
         "fr": "Longueur de foulée (cm)",
-        "es": "Stride Length (cm)",
-        "ar": "Stride Length (cm)"
+        "es": "Longitud de la zancada (cm)",
+        "ar": "طول الخطوة (سم)"
       },
       "businessContext_i18n": {
         "en": "Optional: average stride length in centimeters for step-based distance calculation.",
         "tr": "İsteğe bağlı: adım tabanlı mesafe hesaplaması için santimetre cinsinden ortalama adım uzunluğu.",
         "de": "Optional: durchschnittliche Schrittlänge in Zentimetern für schrittbasierte Distanzberechnung.",
-        "fr": "Optionnel : longueur moyenne de foulée en centimètres pour le calcul de distance basé sur les pas."
+        "fr": "Optionnel : longueur moyenne de foulée en centimètres pour le calcul de distance basé sur les pas.",
+        "es": "Opcional: longitud media de la zancada en centímetros para el cálculo de la distancia basada en pasos.",
+        "ar": "اختياري: متوسط طول الخطوة بالسنتيمتر لحساب المسافة بناءً على الخطوات."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Adımlar",
         "de": "Schritte",
         "fr": "Pas",
-        "es": "Steps",
-        "ar": "Steps"
+        "es": "Pasos",
+        "ar": "الخطوات"
       },
       "businessContext_i18n": {
         "en": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered.",
         "tr": "İsteğe bağlı: atılan adım sayısı. Mesafe doğrudan girilmezse adım uzunluğu ile mesafe tahmini için kullanılır.",
         "de": "Optional: Anzahl der zurückgelegten Schritte. Wird mit Schrittlänge verwendet, um die Distanz zu schätzen, falls die Distanz nicht direkt eingegeben wird.",
-        "fr": "Optionnel : nombre de pas effectués. Utilisé avec la longueur de foulée pour estimer la distance si la distance n'est pas saisie directement."
+        "fr": "Optionnel : nombre de pas effectués. Utilisé avec la longueur de foulée pour estimer la distance si la distance n'est pas saisie directement.",
+        "es": "Opcional: número de pasos dados. Se utiliza con la longitud de la zancada para estimar la distancia si no se introduce directamente la distancia.",
+        "ar": "اختياري: عدد الخطوات المتخذة. يُستخدم مع طول الخطوة لتقدير المسافة إذا لم يتم إدخال المسافة مباشرة."
       }
     }
   ],

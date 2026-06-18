@@ -14,14 +14,15 @@
         "de": "Stichprobenmittelwert (x̄)",
         "fr": "Moyenne de l'échantillon (x̄)",
         "es": "Media muestral (x̄)",
-        "ar": "Sample Mean (x̄)"
+        "ar": "متوسط العينة (x̄)"
       },
       "businessContext_i18n": {
         "en": "The arithmetic average of your sample observations.",
         "tr": "Örneklem gözlemlerinizin aritmetik ortalaması.",
         "de": "Der arithmetische Mittelwert Ihrer Stichprobenbeobachtungen.",
         "fr": "La moyenne arithmétique de vos observations d'échantillon.",
-        "es": "Promedio aritmético de las observaciones de su muestra."
+        "es": "Promedio aritmético de las observaciones de su muestra.",
+        "ar": "المتوسط الحسابي لمشاهدات العينة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Standardabweichung (σ oder s)",
         "fr": "Écart type (σ ou s)",
         "es": "Desviación estándar (σ o s)",
-        "ar": "Standard Deviation (σ or s)"
+        "ar": "الانحراف المعياري (σ أو s)"
       },
       "businessContext_i18n": {
         "en": "Population or sample standard deviation, measuring data dispersion.",
         "tr": "Veri dağılımını ölçen anakütle veya örneklem standart sapması.",
         "de": "Standardabweichung der Grundgesamtheit oder Stichprobe, misst die Streuung der Daten.",
         "fr": "Écart type de la population ou de l'échantillon, mesurant la dispersion des données.",
-        "es": "Desviación estándar poblacional o muestral, que mide la dispersión de los datos."
+        "es": "Desviación estándar poblacional o muestral, que mide la dispersión de los datos.",
+        "ar": "الانحراف المعياري للمجتمع أو العينة، يقيس تشتت البيانات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Number of independent observations in the sample.",
         "tr": "Örneklemdeki bağımsız gözlem sayısı.",
         "de": "Anzahl der unabhängigen Beobachtungen in der Stichprobe.",
         "fr": "Nombre d'observations indépendantes dans l'échantillon.",
-        "es": "Número de observaciones independientes en la muestra."
+        "es": "Número de observaciones independientes en la muestra.",
+        "ar": "عدد المشاهدات المستقلة في العينة."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Kritischer Wert (z oder t)",
         "fr": "Valeur critique (z ou t)",
         "es": "Valor crítico (z o t)",
-        "ar": "Critical Value (z or t)"
+        "ar": "القيمة الحرجة (z أو t)"
       },
       "businessContext_i18n": {
         "en": "Z-score or t-score corresponding to the desired confidence level (e.g., 1.96 for 95% confidence).",
         "tr": "İstenen güven düzeyine karşılık gelen Z-skoru veya t-skoru (ör. %95 güven için 1,96).",
         "de": "Z-Wert oder t-Wert entsprechend dem gewünschten Konfidenzniveau (z. B. 1,96 für 95 % Konfidenz).",
         "fr": "Score z ou t correspondant au niveau de confiance souhaité (ex. 1,96 pour 95 % de confiance).",
-        "es": "Puntuación z o t correspondiente al nivel de confianza deseado (ej., 1.96 para 95% de confianza)."
+        "es": "Puntuación z o t correspondiente al nivel de confianza deseado (ej., 1.96 para 95% de confianza).",
+        "ar": "درجة z أو درجة t المقابلة لمستوى الثقة المطلوب (مثل 1.96 لثقة 95%)."
       }
     }
   ],
   "formulas": {
-    "result": "sample_mean + standard_deviation + sample_size",
-    "result_copy": "sample_mean + standard_deviation + sample_size"
+    "normalized_product": "sample_mean * standard_deviation * sample_size * critical_value",
+    "result": "sample_mean * standard_deviation * sample_size * critical_value"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Margin of Error: {margin_of_error}",
-      "Lower Bound: {lower_bound}",
-      "Upper Bound: {upper_bound}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "upper_bound",
-    "unit": "—",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Margin of Error: {margin_of_error}": "%"
     }

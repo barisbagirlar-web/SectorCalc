@@ -14,14 +14,15 @@
         "de": "Anfangsgeschwindigkeit",
         "fr": "Vitesse initiale",
         "es": "Velocidad inicial",
-        "ar": "Initial Velocity"
+        "ar": "السرعة الابتدائية"
       },
       "businessContext_i18n": {
         "en": "Speed of the ball as it leaves the bat.",
         "tr": "Topun sopadan çıkış hızı.",
         "de": "Geschwindigkeit des Balls beim Verlassen des Schlägers",
         "fr": "Vitesse de la balle à la sortie de la batte.",
-        "es": "Velocidad de la pelota al salir del bate."
+        "es": "Velocidad de la pelota al salir del bate.",
+        "ar": "سرعة الكرة عند مغادرتها المضرب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abflugwinkel",
         "fr": "Angle de lancement",
         "es": "Ángulo de lanzamiento",
-        "ar": "Launch Angle"
+        "ar": "زاوية الانطلاق"
       },
       "businessContext_i18n": {
         "en": "Angle between the initial trajectory and the horizontal field.",
         "tr": "İlk yörünge ile yatay alan arasındaki açı.",
         "de": "Winkel zwischen der Anfangsflugbahn und der horizontalen Spielfläche.",
         "fr": "Angle entre la trajectoire initiale et le champ horizontal.",
-        "es": "Ángulo entre la trayectoria inicial y el campo horizontal."
+        "es": "Ángulo entre la trayectoria inicial y el campo horizontal.",
+        "ar": "الزاوية بين المسار الأولي والمستوى الأفقي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangshöhe",
         "fr": "Hauteur initiale",
         "es": "Altura inicial",
-        "ar": "Initial Height"
+        "ar": "الارتفاع الابتدائي"
       },
       "businessContext_i18n": {
         "en": "Height above ground at which the ball is hit.",
         "tr": "Topa vurulduğu anda yerden yükseklik.",
         "de": "Höhe über dem Boden, in der der Ball getroffen wird.",
         "fr": "Hauteur au-dessus du sol à laquelle la balle est frappée.",
-        "es": "Altura sobre el suelo a la que se golpea la pelota."
+        "es": "Altura sobre el suelo a la que se golpea la pelota.",
+        "ar": "الارتفاع عن الأرض عند ضرب الكرة."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Schwerkraft",
         "fr": "Gravité",
         "es": "Gravedad",
-        "ar": "Gravity"
+        "ar": "الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (9.81 m/s² on Earth).",
         "tr": "Yerçekimi ivmesi (Dünya'da 9.81 m/s²).",
         "de": "Erdbeschleunigung (9,81 m/s² auf der Erde).",
         "fr": "Accélération due à la gravité (9,81 m/s² sur Terre).",
-        "es": "Aceleración debida a la gravedad (9.81 m/s² en la Tierra)."
+        "es": "Aceleración debida a la gravedad (9.81 m/s² en la Tierra).",
+        "ar": "تسارع الجاذبية (9.81 م/ث² على الأرض)."
       }
     }
   ],
   "formulas": {
-    "result": "initialVelocity + launchAngle + initialHeight",
-    "result_copy": "initialVelocity + launchAngle + initialHeight"
+    "normalized_product": "initialVelocity * launchAngle * initialHeight * gravity",
+    "result": "initialVelocity * launchAngle * initialHeight * gravity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "hangTime",
-      "maxHeight",
-      "finalVelocity"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "finalVelocity",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

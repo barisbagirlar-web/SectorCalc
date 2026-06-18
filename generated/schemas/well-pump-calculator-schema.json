@@ -13,14 +13,16 @@
         "tr": "Statik Su Seviyesi",
         "de": "Statischer Wasserstand",
         "fr": "Niveau d'eau statique",
-        "es": "Static Water Level",
-        "ar": "Static Water Level"
+        "es": "Nivel estático del agua",
+        "ar": "مستوى الماء الساكن"
       },
       "businessContext_i18n": {
         "en": "Depth from ground surface to water level when not pumping.",
         "tr": "Pompalama yapılmadığında zemin yüzeyinden su seviyesine kadar olan derinlik.",
         "de": "Tiefe von der Geländeoberkante bis zum Wasserstand bei Nichtförderung.",
-        "fr": "Profondeur depuis la surface du sol jusqu'au niveau d'eau sans pompage."
+        "fr": "Profondeur depuis la surface du sol jusqu'au niveau d'eau sans pompage.",
+        "es": "Profundidad desde la superficie del suelo hasta el nivel del agua cuando no se bombea.",
+        "ar": "العمق من سطح الأرض إلى مستوى الماء عند عدم الضخ."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Düşüm",
         "de": "Absenkung",
         "fr": "Rabattement",
-        "es": "Drawdown",
-        "ar": "Drawdown"
+        "es": "Abatimiento",
+        "ar": "الخفض"
       },
       "businessContext_i18n": {
         "en": "Additional drop in water level during pumping.",
         "tr": "Pompalama sırasında su seviyesindeki ek düşüş.",
         "de": "Zusätzlicher Abfall des Wasserstands während des Pumpens.",
-        "fr": "Baisse supplémentaire du niveau d'eau pendant le pompage."
+        "fr": "Baisse supplémentaire du niveau d'eau pendant le pompage.",
+        "es": "Caída adicional del nivel del agua durante el bombeo.",
+        "ar": "انخفاض إضافي في مستوى الماء أثناء الضخ."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Basma Yüksekliği",
         "de": "Förderhöhe",
         "fr": "Hauteur de refoulement",
-        "es": "Discharge Head",
-        "ar": "Discharge Head"
+        "es": "Altura de descarga",
+        "ar": "رأس التفريغ"
       },
       "businessContext_i18n": {
         "en": "Pressure head required at discharge point (1 bar ≈ 10.2 m).",
         "tr": "Deşarj noktasında gereken basınç yüksekliği (1 bar ≈ 10.2 m).",
         "de": "Erforderlicher Druck am Austrittspunkt (1 bar ≈ 10,2 m).",
-        "fr": "Hauteur de pression requise au point de refoulement (1 bar ≈ 10,2 m)."
+        "fr": "Hauteur de pression requise au point de refoulement (1 bar ≈ 10,2 m).",
+        "es": "Altura de presión requerida en el punto de descarga (1 bar ≈ 10,2 m).",
+        "ar": "الضغط المطلوب عند نقطة التفريغ (1 بار ≈ 10.2 متر)."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Sürtünme Kaybı",
         "de": "Reibungsverlust",
         "fr": "Perte de charge",
-        "es": "Friction Loss",
-        "ar": "Friction Loss"
+        "es": "Pérdida por fricción",
+        "ar": "فقد الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Estimated friction loss in piping and fittings.",
         "tr": "Boru ve bağlantı elemanlarında tahmini sürtünme kaybı.",
         "de": "Geschätzter Reibungsverlust in Rohrleitungen und Formstücken.",
-        "fr": "Perte de charge estimée dans les canalisations et raccords."
+        "fr": "Perte de charge estimée dans les canalisations et raccords.",
+        "es": "Pérdida estimada por fricción en tuberías y accesorios.",
+        "ar": "فقد الاحتكاك المقدر في الأنابيب والتوصيلات."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Flow Rate"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Desired volumetric flow rate.",
         "tr": "İstenen hacimsel debi.",
         "de": "Gewünschter Volumenstrom.",
-        "fr": "Débit volumétrique souhaité."
+        "fr": "Débit volumétrique souhaité.",
+        "es": "Caudal volumétrico deseado.",
+        "ar": "معدل التدفق الحجمي المطلوب."
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Pumpenwirkungsgrad",
         "fr": "Rendement de la pompe",
         "es": "Eficiencia de la bomba",
-        "ar": "Pump Efficiency"
+        "ar": "كفاءة المضخة"
       },
       "businessContext_i18n": {
         "en": "Pump efficiency (typically 50–85%).",
         "tr": "Pompa verimliliği (tipik olarak %50–85).",
         "de": "Pumpenwirkungsgrad (typischerweise 50–85 %).",
-        "fr": "Rendement de la pompe (généralement 50–85 %)."
+        "fr": "Rendement de la pompe (généralement 50–85 %).",
+        "es": "Eficiencia de la bomba (típicamente 50–85%).",
+        "ar": "كفاءة المضخة (عادة 50-85%)."
       }
     }
   ],

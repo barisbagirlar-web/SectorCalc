@@ -14,14 +14,15 @@
         "de": "Durchschnittliche Rendite",
         "fr": "Rendement moyen",
         "es": "Rendimiento promedio",
-        "ar": "Average Return"
+        "ar": "متوسط العائد"
       },
       "businessContext_i18n": {
         "en": "Portfolio's average return over the period.",
         "tr": "Portföyün dönem boyunca ortalama getirisi.",
         "de": "Durchschnittliche Rendite des Portfolios über den Zeitraum.",
         "fr": "Rendement moyen du portefeuille sur la période.",
-        "es": "Rendimiento promedio de la cartera durante el período."
+        "es": "Rendimiento promedio de la cartera durante el período.",
+        "ar": "متوسط عائد المحفظة خلال الفترة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Risikofreier Zinssatz",
         "fr": "Taux sans risque",
         "es": "Tasa libre de riesgo",
-        "ar": "Risk-Free Rate"
+        "ar": "معدل العائد الخالي من المخاطر"
       },
       "businessContext_i18n": {
         "en": "Risk-free rate of return (e.g., government bond yield).",
         "tr": "Risksiz getiri oranı (örneğin devlet tahvili getirisi).",
         "de": "Risikofreier Zinssatz (z. B. Staatsanleiherendite).",
         "fr": "Taux de rendement sans risque (par exemple, rendement des obligations d'État).",
-        "es": "Tasa de rendimiento libre de riesgo (por ejemplo, rendimiento de bonos gubernamentales)."
+        "es": "Tasa de rendimiento libre de riesgo (por ejemplo, rendimiento de bonos gubernamentales).",
+        "ar": "معدل العائد الخالي من المخاطر (مثل عائد السندات الحكومية)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielrendite",
         "fr": "Rendement cible",
         "es": "Rendimiento objetivo",
-        "ar": "Target Return"
+        "ar": "العائد المستهدف"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable return (often equals risk-free rate).",
         "tr": "Minimum kabul edilebilir getiri (genellikle risksiz orana eşittir).",
         "de": "Mindestakzeptable Rendite (entspricht oft dem risikofreien Zinssatz).",
         "fr": "Rendement minimum acceptable (souvent égal au taux sans risque).",
-        "es": "Rendimiento mínimo aceptable (a menudo igual a la tasa libre de riesgo)."
+        "es": "Rendimiento mínimo aceptable (a menudo igual a la tasa libre de riesgo).",
+        "ar": "الحد الأدنى للعائد المقبول (غالبًا ما يساوي المعدل الخالي من المخاطر)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Abwärtsabweichung",
         "fr": "Écart à la baisse",
         "es": "Desviación a la baja",
-        "ar": "Downside Deviation"
+        "ar": "الانحراف السلبي"
       },
       "businessContext_i18n": {
         "en": "Downside deviation (standard deviation of returns below target).",
         "tr": "Aşağı yönlü sapma (hedefin altındaki getirilerin standart sapması).",
         "de": "Abwärtsabweichung (Standardabweichung der Renditen unter dem Zielwert).",
         "fr": "Écart à la baisse (écart-type des rendements inférieurs à la cible).",
-        "es": "Desviación a la baja (desviación estándar de rendimientos por debajo del objetivo)."
+        "es": "Desviación a la baja (desviación estándar de rendimientos por debajo del objetivo).",
+        "ar": "الانحراف السلبي (الانحراف المعياري للعوائد أقل من الهدف)."
       }
     }
   ],
   "formulas": {
-    "result": "averageReturn + riskFreeRate + targetReturn",
-    "result_aux": "averageReturn + riskFreeRate + targetReturn"
+    "normalized_product": "averageReturn * riskFreeRate * targetReturn * downsideDeviation",
+    "result": "averageReturn * riskFreeRate * targetReturn * downsideDeviation"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Excess Return = Average Return - Target Return",
-      "Sortino Ratio = Excess Return / Downside Deviation"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sortinoRatio",
-    "unit": "decimal",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Sortino Ratio = Excess Return / Downside Deviation": "%"
     }

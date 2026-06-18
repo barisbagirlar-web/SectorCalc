@@ -13,14 +13,16 @@
         "tr": "Şekerleme Süresi (dakika)",
         "de": "Nickerchen-Dauer (min)",
         "fr": "Durée de la sieste (min)",
-        "es": "Nap Duration (min)",
-        "ar": "Nap Duration (min)"
+        "es": "Duración de la siesta (min)",
+        "ar": "مدة القيلولة (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation.",
         "tr": "Uberman döngüsünde tipik şekerleme süresi 20 dakikadır. Kişisel adaptasyon için ayarlayın.",
         "de": "Typische Nickerchenlänge im Uberman-Zyklus beträgt 20 Minuten. Für persönliche Anpassung ändern.",
-        "fr": "La durée typique d'une sieste dans le cycle Uberman est de 20 minutes. Ajustez selon votre adaptation personnelle."
+        "fr": "La durée typique d'une sieste dans le cycle Uberman est de 20 minutes. Ajustez selon votre adaptation personnelle.",
+        "es": "La duración típica de la siesta en el ciclo Uberman es de 20 minutos. Ajuste según adaptación personal.",
+        "ar": "طول القيلولة النموذجي في دورة أوبرمان هو 20 دقيقة. اضبط حسب التكيف الشخصي."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Şekerlemeler Arası Süre (saat)",
         "de": "Intervall zwischen Nickerchen (h)",
         "fr": "Intervalle entre les siestes (h)",
-        "es": "Interval Between Naps (h)",
-        "ar": "Interval Between Naps (h)"
+        "es": "Intervalo entre siestas (h)",
+        "ar": "الفاصل الزمني بين القيلولات (ساعة)"
       },
       "businessContext_i18n": {
         "en": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals.",
         "tr": "Ardışık şekerlemeler arasındaki uyanık kalma süresi, saat cinsinden. Standart Uberman programı 4 saatlik aralıklar kullanır.",
         "de": "Die Wachzeit zwischen aufeinanderfolgenden Nickerchen in Stunden. Der Standard-Uberman-Plan verwendet 4-Stunden-Intervalle.",
-        "fr": "Le temps d'éveil entre deux siestes consécutives, en heures. Le cycle Uberman standard utilise des intervalles de 4 heures."
+        "fr": "Le temps d'éveil entre deux siestes consécutives, en heures. Le cycle Uberman standard utilise des intervalles de 4 heures.",
+        "es": "El tiempo de vigilia entre siestas consecutivas, en horas. El horario estándar Uberman utiliza intervalos de 4 horas.",
+        "ar": "وقت الاستيقاظ بين القيلولات المتتالية، بالساعات. الجدول القياسي لأوبرمان يستخدم فترات 4 ساعات."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Günlük Şekerleme Sayısı",
         "de": "Anzahl der Nickerchen pro Tag",
         "fr": "Nombre de siestes par jour",
-        "es": "Number of Naps per Day",
-        "ar": "Number of Naps per Day"
+        "es": "Número de siestas por día",
+        "ar": "عدد القيلولات في اليوم"
       },
       "businessContext_i18n": {
         "en": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day.",
         "tr": "24 saatlik bir dönemde yapılan toplam şekerleme sayısı. Standart Uberman programı günde 6 şekerleme içerir.",
         "de": "Gesamtzahl der Nickerchen in einem 24-Stunden-Zeitraum. Der Standard-Uberman-Plan umfasst 6 Nickerchen pro Tag.",
-        "fr": "Nombre total de siestes sur une période de 24 heures. Le cycle Uberman standard comprend 6 siestes par jour."
+        "fr": "Nombre total de siestes sur une période de 24 heures. Le cycle Uberman standard comprend 6 siestes par jour.",
+        "es": "Número total de siestas en un período de 24 horas. El horario estándar Uberman incluye 6 siestas por día.",
+        "ar": "إجمالي عدد القيلولات في فترة 24 ساعة. الجدول القياسي لأوبرمان يشمل 6 قيلولات في اليوم."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Başlangıç Saati (24s)",
         "de": "Startstunde (24h)",
         "fr": "Heure de début (24h)",
-        "es": "Start Hour (24h)",
-        "ar": "Start Hour (24h)"
+        "es": "Hora de inicio (24h)",
+        "ar": "ساعة البداية (24 ساعة)"
       },
       "businessContext_i18n": {
         "en": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM).",
         "tr": "İlk şekerlemenin ondalık formatta başlangıç saati (ör. 8:30 için 8,5).",
         "de": "Die Startstunde des ersten Nickerchens im Dezimalformat (z. B. 8,5 für 8:30 Uhr).",
-        "fr": "L'heure de début de la première sieste au format décimal (ex. 8,5 pour 8h30)."
+        "fr": "L'heure de début de la première sieste au format décimal (ex. 8,5 pour 8h30).",
+        "es": "La hora de inicio de la primera siesta en formato decimal (ej. 8.5 para las 8:30 AM).",
+        "ar": "ساعة بداية القيلولة الأولى بتنسيق عشري (مثل 8.5 للساعة 8:30 صباحًا)."
       }
     }
   ],

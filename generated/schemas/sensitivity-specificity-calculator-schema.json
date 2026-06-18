@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Doğru Pozitif (DP)",
         "tr": "Doğru Pozitif (DP)",
-        "de": "Doğru Pozitif (DP)",
+        "de": "Richtig Positiv (RP)",
         "fr": "Vrai Positif (VP)",
         "es": "Verdaderos Positivos (VP)",
-        "ar": "Doğru Pozitif (DP)"
+        "ar": "إيجابي حقيقي (TP)"
       },
       "businessContext_i18n": {
         "en": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
         "tr": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
-        "de": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
+        "de": "Anzahl der tatsächlich positiven Fälle, die der Test als positiv identifiziert.",
         "fr": "Nombre de cas réellement positifs que le test identifie comme positifs.",
-        "es": "Número de casos positivos reales que la prueba identificó como positivos."
+        "es": "Número de casos positivos reales que la prueba identificó como positivos.",
+        "ar": "عدد الحالات الإيجابية الحقيقية التي حددها الاختبار على أنها إيجابية."
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Yanlış Pozitif (YP)",
         "tr": "Yanlış Pozitif (YP)",
-        "de": "Yanlış Pozitif (YP)",
+        "de": "Falsch Positiv (FP)",
         "fr": "Faux Positif (FP)",
         "es": "Falsos Positivos (FP)",
-        "ar": "Yanlış Pozitif (YP)"
+        "ar": "إيجابي كاذب (FP)"
       },
       "businessContext_i18n": {
         "en": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
         "tr": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
-        "de": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
+        "de": "Anzahl der Fälle, die der Test als positiv identifiziert, die aber tatsächlich negativ sind.",
         "fr": "Nombre de cas que le test identifie comme positifs mais qui sont en réalité négatifs.",
-        "es": "Número de casos que la prueba identificó como positivos pero que en realidad son negativos."
+        "es": "Número de casos que la prueba identificó como positivos pero que en realidad son negativos.",
+        "ar": "عدد الحالات التي حددها الاختبار على أنها إيجابية ولكنها في الواقع سلبية."
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Yanlış Negatif (YN)",
         "tr": "Yanlış Negatif (YN)",
-        "de": "Yanlış Negatif (YN)",
+        "de": "Falsch Negativ (FN)",
         "fr": "Faux Négatif (FN)",
         "es": "Falsos Negativos (FN)",
-        "ar": "Yanlış Negatif (YN)"
+        "ar": "سلبي كاذب (FN)"
       },
       "businessContext_i18n": {
         "en": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
         "tr": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
-        "de": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
+        "de": "Anzahl der Fälle, die der Test als negativ identifiziert, die aber tatsächlich positiv sind.",
         "fr": "Nombre de cas que le test identifie comme négatifs mais qui sont en réalité positifs.",
-        "es": "Número de casos que la prueba identificó como negativos pero que en realidad son positivos."
+        "es": "Número de casos que la prueba identificó como negativos pero que en realidad son positivos.",
+        "ar": "عدد الحالات التي حددها الاختبار على أنها سلبية ولكنها في الواقع إيجابية."
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Doğru Negatif (DN)",
         "tr": "Doğru Negatif (DN)",
-        "de": "Doğru Negatif (DN)",
+        "de": "Richtig Negativ (RN)",
         "fr": "Vrai Négatif (VN)",
         "es": "Verdadero Negativo (VN)",
-        "ar": "Doğru Negatif (DN)"
+        "ar": "سلبي حقيقي (TN)"
       },
       "businessContext_i18n": {
         "en": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
         "tr": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
-        "de": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
+        "de": "Anzahl der tatsächlich negativen Fälle, die der Test als negativ identifiziert.",
         "fr": "Nombre de cas réellement négatifs que le test identifie comme négatifs.",
-        "es": "Número de casos negativos reales que la prueba identifica como negativos."
+        "es": "Número de casos negativos reales que la prueba identifica como negativos.",
+        "ar": "عدد الحالات السلبية الحقيقية التي حددها الاختبار على أنها سلبية."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Vertikaler Höhenunterschied",
         "fr": "Dénivelé vertical",
         "es": "Desnivel vertical",
-        "ar": "Vertical Drop"
+        "ar": "الانحدار الرأسي"
       },
       "businessContext_i18n": {
         "en": "Height difference between start and end of ski slope in meters",
         "tr": "Kayak pistinin başlangıcı ve bitişi arasındaki metre cinsinden yükseklik farkı",
         "de": "Höhenunterschied zwischen Start und Ende der Skipiste in Metern",
         "fr": "Différence de hauteur entre le début et la fin de la piste de ski en mètres",
-        "es": "Diferencia de altura entre el inicio y el final de la pista de esquí en metros"
+        "es": "Diferencia de altura entre el inicio y el final de la pista de esquí en metros",
+        "ar": "فرق الارتفاع بين بداية ونهاية منحدر التزلج بالمتر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Horizontale Entfernung",
         "fr": "Distance horizontale",
         "es": "Distancia horizontal",
-        "ar": "Horizontal Distance"
+        "ar": "المسافة الأفقية"
       },
       "businessContext_i18n": {
         "en": "Horizontal length of the ski slope in meters",
         "tr": "Kayak pistinin yatay uzunluğu (metre)",
         "de": "Horizontale Länge der Skipiste in Metern",
         "fr": "Longueur horizontale de la piste de ski en mètres",
-        "es": "Longitud horizontal de la pista de esquí en metros"
+        "es": "Longitud horizontal de la pista de esquí en metros",
+        "ar": "الطول الأفقي لمنحدر التزلج بالمتر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
-        "ar": "Friction Coefficient"
+        "ar": "معامل الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Snow friction coefficient (0.02-0.1), depending on snow conditions",
         "tr": "Kar sürtünme katsayısı (0.02-0.1), kar koşullarına bağlıdır",
         "de": "Schnee-Reibungskoeffizient (0,02-0,1), abhängig von den Schneebedingungen",
         "fr": "Coefficient de friction de la neige (0,02-0,1), selon les conditions de neige",
-        "es": "Coeficiente de fricción de la nieve (0.02-0.1), según las condiciones de la nieve"
+        "es": "Coeficiente de fricción de la nieve (0.02-0.1), según las condiciones de la nieve",
+        "ar": "معامل احتكاك الثلج (0.02-0.1)، حسب ظروف الثلج"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Anfangsgeschwindigkeit",
         "fr": "Vitesse initiale",
         "es": "Velocidad inicial",
-        "ar": "Initial Speed"
+        "ar": "السرعة الأولية"
       },
       "businessContext_i18n": {
         "en": "Initial speed at start of slope in meters per second",
         "tr": "Pist başlangıcındaki ilk hız (metre/saniye)",
         "de": "Anfangsgeschwindigkeit am Start der Piste in Metern pro Sekunde",
         "fr": "Vitesse initiale au départ de la piste en mètres par seconde",
-        "es": "Velocidad inicial al inicio de la pista en metros por segundo"
+        "es": "Velocidad inicial al inicio de la pista en metros por segundo",
+        "ar": "السرعة الابتدائية عند بداية المنحدر بالمتر في الثانية"
       }
     }
   ],
   "formulas": {
-    "result": "verticalDrop + horizontalDistance + frictionCoeff",
-    "result_copy": "verticalDrop + horizontalDistance + frictionCoeff"
+    "normalized_product": "verticalDrop * horizontalDistance * frictionCoeff * initialSpeed",
+    "result": "verticalDrop * horizontalDistance * frictionCoeff * initialSpeed"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "acceleration",
-      "slopeDistance",
-      "time"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "time",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "acceleration": "%"
     }

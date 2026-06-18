@@ -14,14 +14,15 @@
         "de": "Bemessungsdruckfestigkeit",
         "fr": "Résistance à la compression de calcul",
         "es": "Resistencia a compresión de diseño",
-        "ar": "Design Compressive Strength"
+        "ar": "مقاومة الانضغاط التصميمية"
       },
       "businessContext_i18n": {
         "en": "Required compressive strength from structural analysis (MPa)",
         "tr": "Yapısal analizden gerekli basınç dayanımı (MPa).",
         "de": "Erforderliche Druckfestigkeit aus der statischen Analyse (MPa).",
         "fr": "Résistance à la compression requise par l'analyse structurelle (MPa)",
-        "es": "Resistencia a compresión requerida del análisis estructural (MPa)"
+        "es": "Resistencia a compresión requerida del análisis estructural (MPa)",
+        "ar": "مقاومة الانضغاط المطلوبة من التحليل الإنشائي (ميجا باسكال)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Expositionsschwerefaktor",
         "fr": "Facteur de sévérité d'exposition",
         "es": "Factor de severidad de exposición",
-        "ar": "Exposure Severity Factor"
+        "ar": "عامل شدة التعرض"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for exposure conditions (1.0 mild, 1.3 moderate, 1.6 severe)",
         "tr": "Maruziyet koşullarını hesaba katan faktör (1.0 hafif, 1.3 orta, 1.6 şiddetli).",
         "de": "Faktor für Umgebungsbedingungen (1,0 mild, 1,3 mäßig, 1,6 stark).",
         "fr": "Facteur tenant compte des conditions d'exposition (1,0 doux, 1,3 modéré, 1,6 sévère)",
-        "es": "Factor que considera las condiciones de exposición (1.0 leve, 1.3 moderado, 1.6 severo)"
+        "es": "Factor que considera las condiciones de exposición (1.0 leve, 1.3 moderado, 1.6 severo)",
+        "ar": "عامل يأخذ في الاعتبار ظروف التعرض (1.0 خفيف، 1.3 متوسط، 1.6 شديد)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bewehrtes Mauerwerk",
         "fr": "Maçonnerie armée",
         "es": "Mampostería reforzada",
-        "ar": "Reinforced Masonry"
+        "ar": "البناء المسلح"
       },
       "businessContext_i18n": {
         "en": "1 if reinforced masonry, 0 if unreinforced",
         "tr": "Donatılı yığma ise 1, donatısız ise 0.",
         "de": "1 für bewehrtes Mauerwerk, 0 für unbewehrtes.",
         "fr": "1 si maçonnerie armée, 0 si non armée",
-        "es": "1 si es mampostería reforzada, 0 si no reforzada"
+        "es": "1 si es mampostería reforzada, 0 si no reforzada",
+        "ar": "1 إذا كان البناء مسلحًا، 0 إذا كان غير مسلح"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety factor per building code",
         "tr": "Bina yönetmeliğine göre tasarım güvenlik faktörü.",
         "de": "Sicherheitsbeiwert nach Bauvorschrift.",
         "fr": "Facteur de sécurité de calcul selon le code du bâtiment",
-        "es": "Factor de seguridad de diseño según código de construcción"
+        "es": "Factor de seguridad de diseño según código de construcción",
+        "ar": "عامل الأمان التصميمي وفقًا لكود البناء"
       }
     }
   ],

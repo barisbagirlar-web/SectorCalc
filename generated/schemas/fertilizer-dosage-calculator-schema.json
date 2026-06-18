@@ -30,14 +30,16 @@
         "tr": "Ürün Türü",
         "de": "Kulturart",
         "fr": "Type de culture",
-        "es": "Tipo de cultivo"
+        "es": "Tipo de cultivo",
+        "ar": "نوع المحصول"
       },
       "businessContext_i18n": {
         "en": "Determines the nitrogen (N), phosphorus (P), and potassium (K) uptake coefficients from agronomic tables.",
         "tr": "Tarım tablolarından azot (N), fosfor (P) ve potasyum (K) alım katsayılarını belirler.",
         "de": "Bestimmt die Aufnahmekoeffizienten für Stickstoff (N), Phosphor (P) und Kalium (K) aus agronomischen Tabellen.",
         "fr": "Détermine les coefficients d'absorption de l'azote (N), du phosphore (P) et du potassium (K) à partir des tables agronomiques.",
-        "es": "Determina los coeficientes de absorción de nitrógeno (N), fósforo (P) y potasio (K) a partir de tablas agronómicas."
+        "es": "Determina los coeficientes de absorción de nitrógeno (N), fósforo (P) y potasio (K) a partir de tablas agronómicas.",
+        "ar": "يحدد معاملات امتصاص النيتروجين (N) والفوسفور (P) والبوتاسيوم (K) من الجداول الزراعية."
       }
     },
     {
@@ -54,14 +56,16 @@
         "tr": "Hedef Verim",
         "de": "Zielertrag",
         "fr": "Rendement cible",
-        "es": "Rendimiento objetivo"
+        "es": "Rendimiento objetivo",
+        "ar": "المحصول المستهدف"
       },
       "businessContext_i18n": {
         "en": "Expected harvest per hectare, used to calculate total nutrient demand.",
         "tr": "Hektar başına beklenen hasat, toplam besin talebini hesaplamak için kullanılır.",
         "de": "Erwarteter Ertrag pro Hektar, zur Berechnung des gesamten Nährstoffbedarfs.",
         "fr": "Récolte attendue par hectare, utilisée pour calculer la demande totale en nutriments.",
-        "es": "Cosecha esperada por hectárea, utilizada para calcular la demanda total de nutrientes."
+        "es": "Cosecha esperada por hectárea, utilizada para calcular la demanda total de nutrientes.",
+        "ar": "الحصاد المتوقع لكل هكتار، يُستخدم لحساب إجمالي الطلب على المغذيات."
       }
     },
     {
@@ -78,14 +82,16 @@
         "tr": "Toprak Azot (N) İçeriği",
         "de": "Stickstoffgehalt (N) im Boden",
         "fr": "Teneur en azote (N) du sol",
-        "es": "Contenido de nitrógeno (N) del suelo"
+        "es": "Contenido de nitrógeno (N) del suelo",
+        "ar": "محتوى التربة من النيتروجين (N)"
       },
       "businessContext_i18n": {
         "en": "Measured from soil test; influences the amount of N fertilizer needed.",
         "tr": "Toprak testinden ölçülür; gerekli N gübresi miktarını etkiler.",
         "de": "Gemessen durch Bodenuntersuchung; beeinflusst die benötigte N-Düngermenge.",
         "fr": "Mesurée par analyse de sol ; influence la quantité d'engrais N nécessaire.",
-        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante nitrogenado necesario."
+        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante nitrogenado necesario.",
+        "ar": "يُقاس من اختبار التربة؛ يؤثر على كمية سماد النيتروجين المطلوبة."
       }
     },
     {
@@ -102,14 +108,16 @@
         "tr": "Toprak Fosfor (P) İçeriği",
         "de": "Phosphorgehalt (P) im Boden",
         "fr": "Teneur en phosphore (P) du sol",
-        "es": "Contenido de fósforo (P) del suelo"
+        "es": "Contenido de fósforo (P) del suelo",
+        "ar": "محتوى التربة من الفوسفور (P)"
       },
       "businessContext_i18n": {
         "en": "Measured from soil test; influences the amount of P fertilizer needed.",
         "tr": "Toprak testinden ölçülür; gerekli P gübresi miktarını etkiler.",
         "de": "Gemessen durch Bodenuntersuchung; beeinflusst die benötigte P-Düngermenge.",
         "fr": "Mesurée par analyse de sol ; influence la quantité d'engrais P nécessaire.",
-        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante fosforado necesario."
+        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante fosforado necesario.",
+        "ar": "يُقاس من اختبار التربة؛ يؤثر على كمية سماد الفوسفور المطلوبة."
       }
     },
     {
@@ -126,14 +134,16 @@
         "tr": "Toprak Potasyum (K) İçeriği",
         "de": "Kaliumgehalt (K) im Boden",
         "fr": "Teneur en potassium (K) du sol",
-        "es": "Contenido de potasio (K) del suelo"
+        "es": "Contenido de potasio (K) del suelo",
+        "ar": "محتوى التربة من البوتاسيوم (K)"
       },
       "businessContext_i18n": {
         "en": "Measured from soil test; influences the amount of K fertilizer needed.",
         "tr": "Toprak testinden ölçülür; gerekli K gübresi miktarını etkiler.",
         "de": "Gemessen durch Bodenuntersuchung; beeinflusst die benötigte K-Düngermenge.",
         "fr": "Mesurée par analyse de sol ; influence la quantité d'engrais K nécessaire.",
-        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante potásico necesario."
+        "es": "Medido mediante análisis de suelo; influye en la cantidad de fertilizante potásico necesario.",
+        "ar": "مقاسة من اختبار التربة؛ تؤثر على كمية سماد البوتاسيوم المطلوبة."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Uygulama Verimlilik Faktörü",
         "de": "Ausbringungseffizienzfaktor",
         "fr": "Coefficient d'efficacité d'application",
-        "es": "Factor de eficiencia de aplicación"
+        "es": "Factor de eficiencia de aplicación",
+        "ar": "معامل كفاءة التطبيق"
       },
       "businessContext_i18n": {
         "en": "Percentage of applied fertilizer that is actually taken up by the crop; affected by method, timing, and weather.",
         "tr": "Uygulanan gübrenin bitki tarafından alınan yüzdesi; yöntem, zamanlama ve hava koşullarından etkilenir.",
         "de": "Prozentsatz des ausgebrachten Düngers, der tatsächlich von der Kultur aufgenommen wird; beeinflusst durch Methode, Zeitpunkt und Wetter.",
         "fr": "Pourcentage de l'engrais appliqué réellement absorbé par la culture ; affecté par la méthode, le moment et les conditions météorologiques.",
-        "es": "Porcentaje del fertilizante aplicado que es realmente absorbido por el cultivo; afectado por el método, el momento y el clima."
+        "es": "Porcentaje del fertilizante aplicado que es realmente absorbido por el cultivo; afectado por el método, el momento y el clima.",
+        "ar": "النسبة المئوية للسماد المطبق الذي تمتصه المحصول فعليًا؛ تتأثر بالطريقة والتوقيت والطقس."
       }
     },
     {
@@ -178,14 +190,16 @@
         "tr": "Azot Gübre Türü",
         "de": "Stickstoffdünger-Typ",
         "fr": "Type d'engrais azoté",
-        "es": "Tipo de fertilizante nitrogenado"
+        "es": "Tipo de fertilizante nitrogenado",
+        "ar": "نوع سماد النيتروجين"
       },
       "businessContext_i18n": {
         "en": "Different sources have different N concentration and loss characteristics.",
         "tr": "Farklı kaynaklar farklı N konsantrasyonu ve kayıp özelliklerine sahiptir.",
         "de": "Verschiedene Quellen haben unterschiedliche N-Konzentrationen und Verlusteigenschaften.",
         "fr": "Différentes sources ont des concentrations en N et des caractéristiques de perte différentes.",
-        "es": "Diferentes fuentes tienen diferente concentración de N y características de pérdida."
+        "es": "Diferentes fuentes tienen diferente concentración de N y características de pérdida.",
+        "ar": "المصادر المختلفة لها تركيز نيتروجين وخصائص فقدان مختلفة."
       }
     },
     {
@@ -206,14 +220,16 @@
         "tr": "Fosfor Gübre Türü",
         "de": "Phosphordünger-Typ",
         "fr": "Type d'engrais phosphoré",
-        "es": "Tipo de fertilizante fosforado"
+        "es": "Tipo de fertilizante fosforado",
+        "ar": "نوع سماد الفوسفور"
       },
       "businessContext_i18n": {
         "en": "Different sources have different P concentration and solubility.",
         "tr": "Farklı kaynaklar farklı P konsantrasyonu ve çözünürlüğüne sahiptir.",
         "de": "Verschiedene Quellen haben unterschiedliche P-Konzentration und Löslichkeit.",
         "fr": "Différentes sources ont des concentrations en P et des solubilités différentes.",
-        "es": "Diferentes fuentes tienen diferente concentración de P y solubilidad."
+        "es": "Diferentes fuentes tienen diferente concentración de P y solubilidad.",
+        "ar": "المصادر المختلفة لها تركيز فوسفور وذوبانية مختلفة."
       }
     }
   ],
@@ -253,18 +269,26 @@
     ]
   },
   "formulas": {
-    "result": "crop_type + target_yield + soil_nitrogen",
-    "result_copy": "crop_type + target_yield + soil_nitrogen"
+    "normalized_product": "target_yield * soil_nitrogen * soil_phosphorus * soil_potassium",
+    "result": "target_yield * soil_nitrogen * soil_phosphorus * soil_potassium * ((application_efficiency / 100))",
+    "adjustment_factor": "(application_efficiency / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg/ha"
+    "unit": "%"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

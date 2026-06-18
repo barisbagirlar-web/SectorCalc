@@ -14,14 +14,15 @@
         "de": "Zoll",
         "fr": "Pouces",
         "es": "Pulgadas",
-        "ar": "Inches"
+        "ar": "بوصة"
       },
       "businessContext_i18n": {
         "en": "Length in inches, e.g., from machine dimensions or product specs",
         "tr": "İnç cinsinden uzunluk, örn. makine boyutları veya ürün özelliklerinden",
         "de": "Länge in Zoll, z. B. aus Maschinenabmessungen oder Produktspezifikationen",
         "fr": "Longueur en pouces, par exemple d'après les dimensions de la machine ou les spécifications produit",
-        "es": "Longitud en pulgadas, p. ej., de dimensiones de máquina o especificaciones de producto"
+        "es": "Longitud en pulgadas, p. ej., de dimensiones de máquina o especificaciones de producto",
+        "ar": "الطول بالبوصة، مثلاً من أبعاد الماكينة أو مواصفات المنتج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalibrierungsversatz",
         "fr": "Décalage d'étalonnage",
         "es": "Desviación de calibración",
-        "ar": "Calibration Offset"
+        "ar": "إزاحة المعايرة"
       },
       "businessContext_i18n": {
         "en": "Systematic measurement instrument offset in inches",
         "tr": "Sistematik ölçüm aleti ofseti (inç)",
         "de": "Systematischer Messgeräteversatz in Zoll",
         "fr": "Décalage systématique de l'instrument de mesure en pouces",
-        "es": "Desviación sistemática del instrumento de medición en pulgadas"
+        "es": "Desviación sistemática del instrumento de medición en pulgadas",
+        "ar": "إزاحة أداة القياس المنتظمة بالبوصة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
         "es": "Incertidumbre de medición (%)",
-        "ar": "Measurement Uncertainty (%)"
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty (k=2) to compute expanded uncertainty in cm",
         "tr": "Genişletilmiş belirsizliği cm cinsinden hesaplamak için bağıl belirsizlik (k=2)",
         "de": "Relative Unsicherheit (k=2) zur Berechnung der erweiterten Unsicherheit in cm",
         "fr": "Incertitude relative (k=2) pour calculer l'incertitude élargie en cm",
-        "es": "Incertidumbre relativa (k=2) para calcular la incertidumbre expandida en cm"
+        "es": "Incertidumbre relativa (k=2) para calcular la incertidumbre expandida en cm",
+        "ar": "عدم اليقين النسبي (k=2) لحساب عدم اليقين الموسع بالسنتيمتر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Fixed factor: 1 inch = 2.54 cm (ISO 80000-3)",
         "tr": "Sabit faktör: 1 inç = 2,54 cm (ISO 80000-3)",
         "de": "Fester Faktor: 1 Zoll = 2,54 cm (ISO 80000-3)",
         "fr": "Facteur fixe : 1 pouce = 2,54 cm (ISO 80000-3)",
-        "es": "Factor fijo: 1 pulgada = 2.54 cm (ISO 80000-3)"
+        "es": "Factor fijo: 1 pulgada = 2.54 cm (ISO 80000-3)",
+        "ar": "عامل ثابت: 1 بوصة = 2.54 سم (ISO 80000-3)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Toleranz (±)",
         "fr": "Tolérance (±)",
         "es": "Tolerancia (±)",
-        "ar": "Tolerance (±)"
+        "ar": "التسامح (±)"
       },
       "businessContext_i18n": {
         "en": "Acceptable deviation in mm, e.g., ISO 2768-m",
         "tr": "mm cinsinden kabul edilebilir sapma, örn. ISO 2768-m",
         "de": "Zulässige Abweichung in mm, z. B. ISO 2768-m",
         "fr": "Écart acceptable en mm, par exemple ISO 2768-m",
-        "es": "Desviación aceptable en mm, p. ej., ISO 2768-m"
+        "es": "Desviación aceptable en mm, p. ej., ISO 2768-m",
+        "ar": "الانحراف المقبول بالملليمتر، مثلاً ISO 2768-m"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Messtemperatur",
         "fr": "Température de mesure",
         "es": "Temperatura de medición",
-        "ar": "Measurement Temperature"
+        "ar": "درجة حرارة القياس"
       },
       "businessContext_i18n": {
         "en": "Temperature during measurement for steel (CTE ~11.5e-6/K)",
         "tr": "Çelik için ölçüm sırasındaki sıcaklık (CTE ~11,5e-6/K)",
         "de": "Temperatur während der Messung für Stahl (CTE ~11,5e-6/K)",
         "fr": "Température lors de la mesure pour l'acier (CTE ~11,5e-6/K)",
-        "es": "Temperatura durante la medición para acero (CTE ~11.5e-6/K)"
+        "es": "Temperatura durante la medición para acero (CTE ~11.5e-6/K)",
+        "ar": "درجة الحرارة أثناء القياس للصلب (معامل التمدد الحراري ~11.5e-6/K)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Wärmeausdehnungskoeffizient",
         "fr": "Coefficient de dilatation thermique",
         "es": "Coeficiente de expansión térmica",
-        "ar": "Thermal Expansion Coefficient"
+        "ar": "معامل التمدد الحراري"
       },
       "businessContext_i18n": {
         "en": "Linear CTE for material (steel ~11.5e-6, aluminum ~23e-6)",
         "tr": "Malzeme için doğrusal CTE (çelik ~11,5e-6, alüminyum ~23e-6)",
         "de": "Linearer CTE für Material (Stahl ~11,5e-6, Aluminium ~23e-6)",
         "fr": "CTE linéaire du matériau (acier ~11,5e-6, aluminium ~23e-6)",
-        "es": "CTE lineal del material (acero ~11.5e-6, aluminio ~23e-6)"
+        "es": "CTE lineal del material (acero ~11.5e-6, aluminio ~23e-6)",
+        "ar": "معامل التمدد الحراري الخطي للمادة (الصلب ~11.5e-6، الألومنيوم ~23e-6)"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Referenztemperatur",
         "fr": "Température de référence",
         "es": "Temperatura de referencia",
-        "ar": "Reference Temperature"
+        "ar": "درجة الحرارة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Reference for material dimensions (typically 20°C)",
         "tr": "Malzeme boyutları için referans (tipik olarak 20°C)",
         "de": "Referenz für Materialabmessungen (typischerweise 20°C)",
         "fr": "Référence pour les dimensions du matériau (généralement 20°C)",
-        "es": "Referencia para dimensiones del material (normalmente 20°C)"
+        "es": "Referencia para dimensiones del material (normalmente 20°C)",
+        "ar": "مرجع أبعاد المادة (عادة 20°C)"
       }
     }
   ],

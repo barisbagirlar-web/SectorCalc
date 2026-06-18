@@ -25,14 +25,16 @@
         "tr": "Mevcut Personel Sayısı (TZE)",
         "de": "Aktuelle Mitarbeiterzahl (Vollzeitäquivalente)",
         "fr": "Effectif actuel (ETP)",
-        "es": "Plantilla actual (ETC)"
+        "es": "Plantilla actual (ETC)",
+        "ar": "عدد الموظفين الحالي (مكافئ دوام كامل)"
       },
       "businessContext_i18n": {
         "en": "Number of full-time equivalent employees currently working in the department or line.",
         "tr": "Departman veya hatta şu anda çalışan tam zamanlı eşdeğer çalışan sayısı.",
         "de": "Anzahl der Vollzeitäquivalente, die derzeit in der Abteilung oder Linie arbeiten.",
         "fr": "Nombre d'équivalents temps plein travaillant actuellement dans le service ou la ligne.",
-        "es": "Número de empleados equivalentes a tiempo completo que trabajan actualmente en el departamento o línea."
+        "es": "Número de empleados equivalentes a tiempo completo que trabajan actualmente en el departamento o línea.",
+        "ar": "عدد الموظفين المكافئين بدوام كامل العاملين حاليًا في القسم أو الخط."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Ortalama Saatlik Ücret (Taban)",
         "de": "Durchschnittlicher Stundenlohn (Basis)",
         "fr": "Salaire horaire moyen (de base)",
-        "es": "Salario promedio por hora (base)"
+        "es": "Salario promedio por hora (base)",
+        "ar": "متوسط الأجر بالساعة (الأساسي)"
       },
       "businessContext_i18n": {
         "en": "Average base hourly wage for the role, excluding overtime premium.",
         "tr": "Fazla mesai primi hariç, pozisyon için ortalama taban saatlik ücret.",
         "de": "Durchschnittlicher Basisstundenlohn für die Rolle, ohne Überstundenzuschlag.",
         "fr": "Salaire horaire de base moyen pour le poste, hors prime d'heures supplémentaires.",
-        "es": "Salario base promedio por hora para el puesto, excluyendo prima de horas extra."
+        "es": "Salario base promedio por hora para el puesto, excluyendo prima de horas extra.",
+        "ar": "متوسط الأجر الأساسي بالساعة للدور، باستثناء علاوة العمل الإضافي."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Fazla Mesai Primi Çarpanı",
         "de": "Überstundenzuschlagsfaktor",
         "fr": "Multiplicateur de prime d'heures supplémentaires",
-        "es": "Multiplicador de prima de horas extra"
+        "es": "Multiplicador de prima de horas extra",
+        "ar": "مضاعف علاوة العمل الإضافي"
       },
       "businessContext_i18n": {
         "en": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time).",
         "tr": "Standart fazla mesai ücret çarpanı (ör. 1.5 bir buçuk kat, 2.0 çift kat).",
         "de": "Standard-Überstundenvergütungsmultiplikator (z. B. 1,5 für Zeit und Hälfte, 2,0 für doppelte Zeit).",
         "fr": "Multiplicateur standard de rémunération des heures supplémentaires (ex. 1,5 pour le tarif et demi, 2,0 pour le double tarif).",
-        "es": "Multiplicador de pago de horas extra estándar (ej., 1.5 para tiempo y medio, 2.0 para tiempo doble)."
+        "es": "Multiplicador de pago de horas extra estándar (ej., 1.5 para tiempo y medio, 2.0 para tiempo doble).",
+        "ar": "مضاعف أجر العمل الإضافي القياسي (مثل 1.5 للوقت ونصف، 2.0 للضعف)."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Haftalık Fazla Mesai Saati (TZE başına)",
         "de": "Überstunden pro Woche (pro VZÄ)",
         "fr": "Heures supplémentaires par semaine (par ETP)",
-        "es": "Horas extra por semana (por ETC)"
+        "es": "Horas extra por semana (por ETC)",
+        "ar": "ساعات العمل الإضافي في الأسبوع (لكل مكافئ دوام كامل)"
       },
       "businessContext_i18n": {
         "en": "Average overtime hours worked per full-time employee per week.",
         "tr": "Tam zamanlı çalışan başına haftalık ortalama fazla mesai saati.",
         "de": "Durchschnittliche Überstunden pro Vollzeitmitarbeiter und Woche.",
         "fr": "Nombre moyen d'heures supplémentaires travaillées par employé à temps plein par semaine.",
-        "es": "Promedio de horas extra trabajadas por empleado a tiempo completo por semana."
+        "es": "Promedio de horas extra trabajadas por empleado a tiempo completo por semana.",
+        "ar": "متوسط ساعات العمل الإضافي لكل موظف بدوام كامل في الأسبوع."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Çalışan Başına İşe Alım Maliyeti",
         "de": "Einstellungskosten pro VZÄ",
         "fr": "Coût d'embauche par ETP",
-        "es": "Costo de contratación por ETC"
+        "es": "Costo de contratación por ETC",
+        "ar": "تكلفة التوظيف لكل مكافئ دوام كامل"
       },
       "businessContext_i18n": {
         "en": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity).",
         "tr": "Yeni bir çalışanı işe almak, mülakat yapmak, işe yerleştirmek ve eğitmek için toplam maliyet (ajan ücretleri, eğitim materyalleri, kayıp verimlilik dahil).",
         "de": "Gesamtkosten für Rekrutierung, Vorstellungsgespräche, Einarbeitung und Schulung eines neuen Mitarbeiters (einschließlich Agenturgebühren, Schulungsmaterial, Produktivitätsverlust).",
         "fr": "Coût total pour recruter, interviewer, intégrer et former un nouvel employé (incluant frais d'agence, matériel de formation, perte de productivité).",
-        "es": "Costo total de reclutar, entrevistar, incorporar y capacitar a un nuevo empleado (incluyendo honorarios de agencia, materiales de capacitación, pérdida de productividad)."
+        "es": "Costo total de reclutar, entrevistar, incorporar y capacitar a un nuevo empleado (incluyendo honorarios de agencia, materiales de capacitación, pérdida de productividad).",
+        "ar": "التكلفة الإجمالية للتوظيف والمقابلة والتأهيل والتدريب لموظف جديد (بما في ذلك رسوم الوكالة ومواد التدريب والإنتاجية المفقودة)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Çalışan Başına Yıllık Yan Hak Maliyeti",
         "de": "Jährliche Nebenkosten pro VZÄ",
         "fr": "Coût annuel des avantages sociaux par ETP",
-        "es": "Costo anual de beneficios por ETC"
+        "es": "Costo anual de beneficios por ETC",
+        "ar": "تكلفة المزايا السنوية لكل مكافئ دوام كامل"
       },
       "businessContext_i18n": {
         "en": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee.",
         "tr": "Tam zamanlı çalışan başına yıllık yan hak maliyeti (sağlık sigortası, emeklilik, ücretli izin vb.).",
         "de": "Jährliche Kosten für Zusatzleistungen (Krankenversicherung, Rente, bezahlter Urlaub usw.) pro Vollzeitmitarbeiter.",
         "fr": "Coût annuel des avantages sociaux (assurance santé, retraite, congés payés, etc.) par employé à temps plein.",
-        "es": "Costo anual de prestaciones (seguro médico, jubilación, licencia remunerada, etc.) por empleado a tiempo completo."
+        "es": "Costo anual de prestaciones (seguro médico, jubilación, licencia remunerada, etc.) por empleado a tiempo completo.",
+        "ar": "التكلفة السنوية للمزايا (التأمين الصحي، التقاعد، الإجازة المدفوعة، إلخ) لكل موظف بدوام كامل."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Fazla Mesai Verimlilik Faktörü",
         "de": "Überstunden-Produktivitätsfaktor",
         "fr": "Facteur de productivité en heures supplémentaires",
-        "es": "Factor de productividad en horas extra"
+        "es": "Factor de productividad en horas extra",
+        "ar": "عامل إنتاجية العمل الإضافي"
       },
       "businessContext_i18n": {
         "en": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue).",
         "tr": "Fazla mesai sırasındaki verimliliğin normal vardiya verimliliğine yüzdesi (örneğin, yorgunluk nedeniyle %85).",
         "de": "Produktivität während Überstunden als Prozentsatz der normalen Schichtproduktivität (z. B. 85 % aufgrund von Ermüdung).",
         "fr": "Productivité pendant les heures supplémentaires en pourcentage de la productivité normale (ex. 85% en raison de la fatigue).",
-        "es": "Productividad durante horas extra como porcentaje de la productividad del turno normal (ej. 85% debido a fatiga)."
+        "es": "Productividad durante horas extra como porcentaje de la productividad del turno normal (ej. 85% debido a fatiga).",
+        "ar": "الإنتاجية أثناء العمل الإضافي كنسبة مئوية من إنتاجية الوردية العادية (مثل 85% بسبب الإرهاق)."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Yeni İşe Alınanın Verimliliğe Uyum Süresi",
         "de": "Produktivität neuer Mitarbeiter während der Einarbeitung",
         "fr": "Productivité de montée en charge des nouvelles recrues",
-        "es": "Productividad de nuevo empleado en período de adaptación"
+        "es": "Productividad de nuevo empleado en período de adaptación",
+        "ar": "إنتاجية الموظف الجديد خلال فترة التأهيل"
       },
       "businessContext_i18n": {
         "en": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee.",
         "tr": "Yeni bir işe alınanın ilk 3 aydaki ortalama verimliliğinin deneyimli bir çalışana yüzdesi.",
         "de": "Durchschnittliche Produktivität eines neuen Mitarbeiters in den ersten 3 Monaten als Prozentsatz eines erfahrenen Mitarbeiters.",
         "fr": "Productivité moyenne d'une nouvelle recrue au cours des 3 premiers mois en pourcentage d'un employé expérimenté.",
-        "es": "Productividad promedio de un nuevo empleado durante los primeros 3 meses como porcentaje de un empleado experimentado."
+        "es": "Productividad promedio de un nuevo empleado durante los primeros 3 meses como porcentaje de un empleado experimentado.",
+        "ar": "متوسط إنتاجية الموظف الجديد خلال الأشهر الثلاثة الأولى كنسبة مئوية من الموظف ذي الخبرة."
       }
     }
   ],
@@ -249,18 +265,28 @@
     ]
   },
   "formulas": {
-    "result": "current_headcount + avg_hourly_wage + overtime_premium",
-    "result_copy": "current_headcount + avg_hourly_wage + overtime_premium"
+    "annual_exposure_hours": "avg_hourly_wage",
+    "direct_labor_cost": "current_headcount * 1 * avg_hourly_wage * avg_hourly_wage",
+    "result": "current_headcount * 1 * avg_hourly_wage * avg_hourly_wage * productivity_factor_new_hire * (overtime_premium)",
+    "factor_overtime_premium": "overtime_premium"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost",
+      "factor_overtime_premium"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "FTEs"
+    "unit": "USD"
   },
   "toolName": "overtime-vs-hiring-breakeven-calculator",
   "catalogCategory": "everyday-life",

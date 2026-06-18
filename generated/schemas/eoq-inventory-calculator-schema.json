@@ -27,14 +27,16 @@
         "tr": "Yıllık Talep (birim)",
         "de": "Jahresbedarf (Einheiten)",
         "fr": "Demande annuelle (unités)",
-        "es": "Demanda anual (unidades)"
+        "es": "Demanda anual (unidades)",
+        "ar": "الطلب السنوي (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
         "tr": "Ürünün bir yıl boyunca toplam tahmini talebi. Sipariş sıklığı ve toplam çevrim stoğunu hesaplamak için kullanılır.",
         "de": "Gesamtprognose des Bedarfs für das Produkt über ein Jahr. Wird zur Berechnung der Bestellhäufigkeit und des gesamten Umlaufbestands verwendet.",
         "fr": "Demande totale prévue pour l'article sur un an. Utilisée pour calculer la fréquence des commandes et le stock de cycle total.",
-        "es": "Demanda total pronosticada para el artículo durante un año. Se utiliza para calcular la frecuencia de pedido y el stock de ciclo total."
+        "es": "Demanda total pronosticada para el artículo durante un año. Se utiliza para calcular la frecuencia de pedido y el stock de ciclo total.",
+        "ar": "إجمالي الطلب المتوقع للمنتج خلال عام واحد. يُستخدم لحساب تكرار الطلب وإجمالي المخزون الدوري."
       }
     },
     {
@@ -51,14 +53,16 @@
         "tr": "Sipariş Maliyeti (sipariş başına)",
         "de": "Bestellkosten pro Bestellung",
         "fr": "Coût de passation de commande par commande",
-        "es": "Costo de pedido por pedido"
+        "es": "Costo de pedido por pedido",
+        "ar": "تكلفة الطلب لكل طلب"
       },
       "businessContext_i18n": {
         "en": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
         "tr": "Satın alma siparişi başına sabit maliyet (ör. idari, muayene, nakliye kurulumu).",
         "de": "Fixe Kosten pro Bestellung (z. B. Verwaltung, Prüfung, Transporteinrichtung).",
         "fr": "Coût fixe engagé par commande d'achat (ex. : administratif, inspection, configuration du transport).",
-        "es": "Costo fijo incurrido por cada pedido de compra (por ejemplo, administrativo, inspección, configuración de transporte)."
+        "es": "Costo fijo incurrido por cada pedido de compra (por ejemplo, administrativo, inspección, configuración de transporte).",
+        "ar": "تكلفة ثابتة تتكبدها كل طلب شراء (مثل: إدارية، فحص، تجهيز النقل)."
       }
     },
     {
@@ -75,14 +79,16 @@
         "tr": "Birim Başına Yıllık Elde Tutma Maliyeti",
         "de": "Lagerkosten pro Einheit pro Jahr",
         "fr": "Coût de possession par unité par an",
-        "es": "Costo de mantenimiento por unidad por año"
+        "es": "Costo de mantenimiento por unidad por año",
+        "ar": "تكلفة الاحتفاظ لكل وحدة سنويًا"
       },
       "businessContext_i18n": {
         "en": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
         "tr": "Bir birimi bir yıl boyunca stokta tutmanın maliyeti; depolama, sigorta, eskime ve sermaye maliyetini içerir.",
         "de": "Kosten für die Lagerung einer Einheit für ein Jahr, einschließlich Lagerung, Versicherung, Veralterung und Kapitalkosten.",
         "fr": "Coût de détention d'une unité en stock pendant un an, incluant stockage, assurance, obsolescence et coût du capital.",
-        "es": "Costo de mantener una unidad en inventario durante un año, incluyendo almacenamiento, seguro, obsolescencia y costo de capital."
+        "es": "Costo de mantener una unidad en inventario durante un año, incluyendo almacenamiento, seguro, obsolescencia y costo de capital.",
+        "ar": "تكلفة الاحتفاظ بوحدة واحدة في المخزون لمدة عام، تشمل التخزين والتأمين والتقادم وتكلفة رأس المال."
       }
     },
     {
@@ -99,14 +105,16 @@
         "tr": "Birim Maliyet (Satın Alma Fiyatı)",
         "de": "Stückkosten (Einkaufspreis)",
         "fr": "Coût unitaire (prix d'achat)",
-        "es": "Coste unitario (precio de compra)"
+        "es": "Coste unitario (precio de compra)",
+        "ar": "تكلفة الوحدة (سعر الشراء)"
       },
       "businessContext_i18n": {
         "en": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
         "tr": "Tedarikçiden birim başına satın alma fiyatı. Yıllık toplam satın alma maliyeti ve bağlı sermayeyi hesaplamak için kullanılır.",
         "de": "Einkaufspreis pro Einheit vom Lieferanten. Wird zur Berechnung der gesamten jährlichen Einkaufskosten und des gebundenen Kapitals verwendet.",
         "fr": "Prix d'achat unitaire auprès du fournisseur. Utilisé pour calculer le coût total annuel d'achat et le capital immobilisé.",
-        "es": "Precio de compra por unidad del proveedor. Se utiliza para calcular el coste total anual de compra y el capital inmovilizado."
+        "es": "Precio de compra por unidad del proveedor. Se utiliza para calcular el coste total anual de compra y el capital inmovilizado.",
+        "ar": "سعر شراء الوحدة من المورد. يُستخدم لحساب إجمالي تكلفة الشراء السنوية ورأس المال المقيد."
       }
     },
     {
@@ -123,14 +131,16 @@
         "tr": "Teslim Süresi (gün)",
         "de": "Lieferzeit (Tage)",
         "fr": "Délai de livraison (jours)",
-        "es": "Tiempo de entrega (días)"
+        "es": "Tiempo de entrega (días)",
+        "ar": "وقت التوريد (أيام)"
       },
       "businessContext_i18n": {
         "en": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
         "tr": "Sipariş verme ile teslim alma arasındaki ortalama süre. Emniyet stoğu ve yeniden sipariş noktası hesaplamaları için kritiktir.",
         "de": "Durchschnittliche Zeit von der Bestellung bis zum Eingang. Entscheidend für die Berechnung von Sicherheitsbestand und Meldebestand.",
         "fr": "Délai moyen de la commande à la réception. Critique pour le calcul du stock de sécurité et du point de commande.",
-        "es": "Tiempo medio desde la realización del pedido hasta la recepción. Crítico para el cálculo del stock de seguridad y el punto de pedido."
+        "es": "Tiempo medio desde la realización del pedido hasta la recepción. Crítico para el cálculo del stock de seguridad y el punto de pedido.",
+        "ar": "متوسط الوقت من تقديم الطلب إلى الاستلام. ضروري لحساب مخزون الأمان ونقطة إعادة الطلب."
       }
     },
     {
@@ -147,14 +157,16 @@
         "tr": "Talep Değişkenliği (Günlük Talebin Standart Sapması)",
         "de": "Nachfrageschwankung (Standardabweichung des Tagesbedarfs)",
         "fr": "Variabilité de la demande (écart type de la demande quotidienne)",
-        "es": "Variabilidad de la demanda (desviación estándar de la demanda diaria)"
+        "es": "Variabilidad de la demanda (desviación estándar de la demanda diaria)",
+        "ar": "تباين الطلب (الانحراف المعياري للطلب اليومي)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
         "tr": "Günlük talebin standart sapması. Belirsizlik altında emniyet stoğu hesaplamak için kullanılır (Altı Sigma yaklaşımı).",
         "de": "Standardabweichung des täglichen Bedarfs. Wird zur Berechnung des Sicherheitsbestands unter Unsicherheit (Six Sigma-Ansatz) verwendet.",
         "fr": "Écart type de la demande quotidienne. Utilisé pour calculer le stock de sécurité en situation d'incertitude (approche Six Sigma).",
-        "es": "Desviación estándar de la demanda diaria. Se utiliza para calcular el stock de seguridad bajo incertidumbre (enfoque Seis Sigma)."
+        "es": "Desviación estándar de la demanda diaria. Se utiliza para calcular el stock de seguridad bajo incertidumbre (enfoque Seis Sigma).",
+        "ar": "الانحراف المعياري للطلب اليومي. يُستخدم لحساب مخزون الأمان في ظل عدم اليقين (منهج ستة سيجما)."
       }
     },
     {
@@ -175,14 +187,16 @@
         "tr": "İstenen Hizmet Seviyesi",
         "de": "Gewünschter Servicegrad",
         "fr": "Niveau de service souhaité",
-        "es": "Nivel de servicio deseado"
+        "es": "Nivel de servicio deseado",
+        "ar": "مستوى الخدمة المطلوب"
       },
       "businessContext_i18n": {
         "en": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
         "tr": "Teslim süresi boyunca stokta kalmama olasılığı hedefi. Daha yüksek hizmet seviyeleri emniyet stoğunu artırır.",
         "de": "Zielwahrscheinlichkeit, während der Lieferzeit keinen Fehlbestand zu haben. Höhere Servicegrade erhöhen den Sicherheitsbestand.",
         "fr": "Probabilité cible de ne pas être en rupture de stock pendant le délai de livraison. Des niveaux de service plus élevés augmentent le stock de sécurité.",
-        "es": "Probabilidad objetivo de no quedarse sin stock durante el plazo de entrega. Niveles de servicio más altos aumentan el stock de seguridad."
+        "es": "Probabilidad objetivo de no quedarse sin stock durante el plazo de entrega. Niveles de servicio más altos aumentan el stock de seguridad.",
+        "ar": "الاحتمال المستهدف لعدم نفاد المخزون خلال فترة التوريد. مستويات الخدمة الأعلى تزيد من مخزون الأمان."
       }
     },
     {
@@ -199,14 +213,16 @@
         "tr": "Birim Başına Geri Sipariş Maliyeti",
         "de": "Fehlmengenkosten pro Einheit",
         "fr": "Coût de rupture par unité",
-        "es": "Coste de rotura de stock por unidad"
+        "es": "Coste de rotura de stock por unidad",
+        "ar": "تكلفة الطلب المتأخر لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
         "tr": "Talep stoktan karşılanamadığında birim başına oluşan maliyet (kayıp satış, ceza, hızlandırma).",
         "de": "Kosten pro Einheit, wenn die Nachfrage nicht aus dem Lagerbestand gedeckt werden kann (entgangene Verkäufe, Strafen, Eilbeschaffung).",
         "fr": "Coût encouru par unité lorsque la demande ne peut être satisfaite à partir du stock (ventes perdues, pénalité, expédition accélérée).",
-        "es": "Coste incurrido por unidad cuando no se puede satisfacer la demanda desde el stock (ventas perdidas, penalización, envío urgente)."
+        "es": "Coste incurrido por unidad cuando no se puede satisfacer la demanda desde el stock (ventas perdidas, penalización, envío urgente).",
+        "ar": "التكلفة المتكبدة لكل وحدة عندما لا يمكن تلبية الطلب من المخزون (مبيعات مفقودة، غرامة، تسريع)."
       }
     }
   ],
@@ -266,18 +282,30 @@
     ]
   },
   "formulas": {
-    "result": "annual_demand + ordering_cost + holding_cost_per_unit",
-    "result_copy": "annual_demand + ordering_cost + holding_cost_per_unit"
+    "base_cost": "annual_demand * ordering_cost",
+    "adjusted_cost": "annual_demand * ordering_cost * 1",
+    "result": "annual_demand * ordering_cost * 1 * (holding_cost_per_unit * unit_cost)",
+    "factor_holding_cost_per_unit": "holding_cost_per_unit",
+    "factor_unit_cost": "unit_cost"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_holding_cost_per_unit",
+      "factor_unit_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units/year"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

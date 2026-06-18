@@ -23,13 +23,16 @@
         "tr": "Toplam Kat Alanı",
         "de": "Gesamte Geschossfläche",
         "fr": "Surface de plancher totale",
-        "es": "Área total construida"
+        "es": "Área total construida",
+        "ar": "إجمالي مساحة الطوابق"
       },
       "businessContext_i18n": {
         "en": "Total available warehouse floor space in square feet.",
         "tr": "Metrekare cinsinden toplam kullanılabilir depo taban alanı.",
         "de": "Verfügbare Gesamtlagerfläche in Quadratfuß",
-        "fr": "Surface totale disponible de l'entrepôt en pieds carrés."
+        "fr": "Surface totale disponible de l'entrepôt en pieds carrés.",
+        "es": "Espacio total disponible en el piso del almacén en pies cuadrados.",
+        "ar": "إجمالي مساحة أرضية المستودع المتاحة بالقدم المربع"
       }
     },
     {
@@ -45,13 +48,17 @@
         "en": "Storage Area Percentage",
         "tr": "Depolama Alanı Yüzdesi",
         "de": "Lagerflächenanteil (%)",
-        "fr": "Pourcentage de la zone de stockage"
+        "fr": "Pourcentage de la zone de stockage",
+        "es": "Porcentaje del área de almacenamiento",
+        "ar": "نسبة مساحة التخزين"
       },
       "businessContext_i18n": {
         "en": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
         "tr": "Toplam taban alanının depolamaya (palet rafları, raf sistemleri) ayrılan yüzdesi",
         "de": "Prozentsatz der Gesamtfläche, der für die Lagerung genutzt wird (Palettenregale, Regale)",
-        "fr": "Pourcentage de la surface totale dédié au stockage (racks à palettes, rayonnages)."
+        "fr": "Pourcentage de la surface totale dédié au stockage (racks à palettes, rayonnages).",
+        "es": "Porcentaje del área total del piso dedicada al almacenamiento (estanterías para pallets, anaqueles).",
+        "ar": "النسبة المئوية من إجمالي مساحة الأرضية المخصصة للتخزين (رفوف المنصات، الأرفف)"
       }
     },
     {
@@ -67,13 +74,17 @@
         "en": "Aisle Width",
         "tr": "Koridor Genişliği",
         "de": "Gangbreite",
-        "fr": "Largeur d'allée"
+        "fr": "Largeur d'allée",
+        "es": "Ancho del pasillo",
+        "ar": "عرض الممر"
       },
       "businessContext_i18n": {
         "en": "Width of main travel aisles in feet.",
         "tr": "Ana taşıma koridorlarının fit cinsinden genişliği.",
         "de": "Breite der Hauptverkehrsgänge in Fuß.",
-        "fr": "Largeur des allées de circulation principales en pieds."
+        "fr": "Largeur des allées de circulation principales en pieds.",
+        "es": "Ancho de los pasillos principales de circulación en pies.",
+        "ar": "عرض ممرات السير الرئيسية بالقدم"
       }
     },
     {
@@ -92,13 +103,17 @@
         "en": "Pallet Flow Type",
         "tr": "Palet Akış Türü",
         "de": "Paletten-Flow-Typ",
-        "fr": "Type de flux de palettes"
+        "fr": "Type de flux de palettes",
+        "es": "Tipo de flujo de pallets",
+        "ar": "نوع تدفق المنصات"
       },
       "businessContext_i18n": {
         "en": "Type of pallet storage system used.",
         "tr": "Kullanılan palet depolama sistemi türü.",
         "de": "Art des verwendeten Palettenlagersystems.",
-        "fr": "Type de système de stockage de palettes utilisé."
+        "fr": "Type de système de stockage de palettes utilisé.",
+        "es": "Tipo de sistema de almacenamiento de pallets utilizado.",
+        "ar": "نظام تخزين المنصات المستخدم"
       },
       "unit": "unit"
     },
@@ -115,13 +130,17 @@
         "en": "Average Pallet Size (footprint)",
         "tr": "Ortalama Palet Boyutu (ayak izi)",
         "de": "Durchschnittliche Palettengröße (Grundfläche)",
-        "fr": "Taille moyenne des palettes (empreinte au sol)"
+        "fr": "Taille moyenne des palettes (empreinte au sol)",
+        "es": "Tamaño promedio del pallet (huella)",
+        "ar": "متوسط حجم المنصة (البصمة)"
       },
       "businessContext_i18n": {
         "en": "Average footprint of a single pallet (length x width).",
         "tr": "Tek bir paletin ortalama ayak izi (uzunluk x genişlik).",
         "de": "Durchschnittliche Grundfläche einer einzelnen Palette (Länge x Breite).",
-        "fr": "Empreinte au sol moyenne d'une palette (longueur x largeur)."
+        "fr": "Empreinte au sol moyenne d'une palette (longueur x largeur).",
+        "es": "Huella promedio de un solo pallet (largo x ancho).",
+        "ar": "متوسط بصمة المنصة الواحدة (الطول × العرض)"
       }
     },
     {
@@ -137,13 +156,17 @@
         "en": "Average Inventory Turns per Year",
         "tr": "Yıllık Ortalama Envanter Devir Sayısı",
         "de": "Durchschnittliche Lagerumschlagshäufigkeit pro Jahr",
-        "fr": "Rotation moyenne des stocks par an"
+        "fr": "Rotation moyenne des stocks par an",
+        "es": "Rotaciones de inventario promedio por año",
+        "ar": "متوسط عدد دورات المخزون سنويًا"
       },
       "businessContext_i18n": {
         "en": "Number of times inventory is cycled annually.",
         "tr": "Envanterin yılda kaç kez döndüğü.",
         "de": "Anzahl der jährlichen Lagerumschläge.",
-        "fr": "Nombre de fois que le stock est renouvelé annuellement."
+        "fr": "Nombre de fois que le stock est renouvelé annuellement.",
+        "es": "Número de veces que el inventario se cicla anualmente.",
+        "ar": "عدد مرات تدوير المخزون سنويًا"
       }
     },
     {
@@ -160,13 +183,16 @@
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
         "fr": "Coût de la main-d'œuvre par heure",
-        "es": "Costo de mano de obra por hora"
+        "es": "Costo de mano de obra por hora",
+        "ar": "تكلفة العمالة لكل ساعة"
       },
       "businessContext_i18n": {
         "en": "Fully loaded hourly wage for warehouse operators.",
         "tr": "Depo operatörleri için tam yüklü saatlik ücret.",
         "de": "Voll belasteter Stundenlohn für Lagerarbeiter.",
-        "fr": "Salaire horaire chargé des opérateurs d'entrepôt."
+        "fr": "Salaire horaire chargé des opérateurs d'entrepôt.",
+        "es": "Salario por hora totalmente cargado para operadores de almacén.",
+        "ar": "الأجر بالساعة الكامل لعمال المستودع"
       }
     },
     {
@@ -182,13 +208,17 @@
         "en": "Equipment Cost per Hour",
         "tr": "Ekipman Saatlik Maliyeti",
         "de": "Gerätekosten pro Stunde",
-        "fr": "Coût horaire de l'équipement"
+        "fr": "Coût horaire de l'équipement",
+        "es": "Costo del equipo por hora",
+        "ar": "تكلفة المعدات في الساعة"
       },
       "businessContext_i18n": {
         "en": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
         "tr": "Malzeme taşıma ekipmanının (forklift, palet jakı) saatlik maliyeti.",
         "de": "Stündliche Kosten für Materialtransportgeräte (Gabelstapler, Hubwagen).",
-        "fr": "Coût horaire des équipements de manutention (chariots élévateurs, transpalettes)."
+        "fr": "Coût horaire des équipements de manutention (chariots élévateurs, transpalettes).",
+        "es": "Costo por hora del equipo de manejo de materiales (montacargas, transpaletas).",
+        "ar": "التكلفة بالساعة لمعدات مناولة المواد (الرافعات الشوكية، الرافعات اليدوية)"
       }
     }
   ],
@@ -232,18 +262,26 @@
     ]
   },
   "formulas": {
-    "result": "total_floor_area + storage_area_percent + aisle_width",
-    "result_copy": "total_floor_area + storage_area_percent + aisle_width"
+    "normalized_product": "total_floor_area * (storage_area_percent / 100) * aisle_width * avg_pallet_size",
+    "result": "total_floor_area * (storage_area_percent / 100) * aisle_width * avg_pallet_size * (avg_inventory_turns * labor_cost_per_hour * equipment_cost_per_hour)",
+    "adjustment_factor": "avg_inventory_turns * labor_cost_per_hour * equipment_cost_per_hour"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "sq_ft"
+    "unit": "%"
   },
   "toolName": "warehouse-layout-optimizer-calculator",
   "catalogCategory": "everyday-life",

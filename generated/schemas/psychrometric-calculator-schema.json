@@ -14,14 +14,15 @@
         "de": "Trockentemperatur",
         "fr": "Température sèche",
         "es": "Temperatura de bulbo seco",
-        "ar": "Dry Bulb Temperature"
+        "ar": "درجة حرارة البصيلة الجافة"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature measured by a standard thermometer.",
         "tr": "Standart bir termometre ile ölçülen ortam hava sıcaklığı.",
         "de": "Umgebungslufttemperatur, gemessen mit einem Standardthermometer.",
         "fr": "Température ambiante mesurée par un thermomètre standard.",
-        "es": "Temperatura del aire ambiente medida con un termómetro estándar."
+        "es": "Temperatura del aire ambiente medida con un termómetro estándar.",
+        "ar": "درجة حرارة الهواء المحيط المقاسة بمقياس حرارة قياسي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Relative Luftfeuchtigkeit",
         "fr": "Humidité relative",
         "es": "Humedad relativa",
-        "ar": "Relative Humidity"
+        "ar": "الرطوبة النسبية"
       },
       "businessContext_i18n": {
         "en": "Percentage of water vapor in the air relative to saturation.",
         "tr": "Havadaki su buharının doygunluğa göre yüzdesi.",
         "de": "Prozentsatz des Wasserdampfs in der Luft relativ zur Sättigung.",
         "fr": "Pourcentage de vapeur d'eau dans l'air par rapport à la saturation.",
-        "es": "Porcentaje de vapor de agua en el aire relativo a la saturación."
+        "es": "Porcentaje de vapor de agua en el aire relativo a la saturación.",
+        "ar": "نسبة بخار الماء في الهواء مقارنة بالإشباع."
       }
     },
     {
@@ -60,36 +62,37 @@
         "de": "Atmosphärendruck",
         "fr": "Pression atmosphérique",
         "es": "Presión atmosférica",
-        "ar": "Atmospheric Pressure"
+        "ar": "الضغط الجوي"
       },
       "businessContext_i18n": {
         "en": "Standard sea-level atmospheric pressure.",
         "tr": "Standart deniz seviyesi atmosfer basıncı.",
         "de": "Standard-Atmosphärendruck auf Meereshöhe.",
         "fr": "Pression atmosphérique standard au niveau de la mer.",
-        "es": "Presión atmosférica estándar a nivel del mar."
+        "es": "Presión atmosférica estándar a nivel del mar.",
+        "ar": "الضغط الجوي القياسي عند مستوى سطح البحر."
       }
     }
   ],
   "formulas": {
-    "result": "dryBulbTemp + relativeHumidity + atmosphericPressure",
-    "result_copy": "dryBulbTemp + relativeHumidity + atmosphericPressure"
+    "normalized_product": "dryBulbTemp * (relativeHumidity / 100) * atmosphericPressure",
+    "result": "dryBulbTemp * (relativeHumidity / 100) * atmosphericPressure"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "saturationVaporPressure",
-      "actualVaporPressure",
-      "humidityRatio",
-      "specificVolume",
-      "dewPoint"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dewPoint",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "saturationVaporPressure": "%",
       "humidityRatio": "%"

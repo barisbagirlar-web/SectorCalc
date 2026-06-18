@@ -13,14 +13,16 @@
         "tr": "Çözünen Hacmi",
         "de": "Lösungsmittelvolumen",
         "fr": "Volume du soluté",
-        "es": "Solute Volume",
-        "ar": "Solute Volume"
+        "es": "Volumen de soluto",
+        "ar": "حجم المذاب"
       },
       "businessContext_i18n": {
         "en": "Volume of the solute (substance being dissolved).",
         "tr": "Çözünen maddenin (çözünen) hacmi.",
         "de": "Volumen des gelösten Stoffes (Substanz, die gelöst wird).",
-        "fr": "Volume du soluté (substance dissoute)."
+        "fr": "Volume du soluté (substance dissoute).",
+        "es": "Volumen del soluto (sustancia que se disuelve).",
+        "ar": "حجم المذاب (المادة المراد إذابتها)."
       }
     },
     {
@@ -36,14 +38,15 @@
         "de": "Lösungsvolumen",
         "fr": "Volume de solution",
         "es": "Volumen de solución",
-        "ar": "Solution Volume"
+        "ar": "حجم المحلول"
       },
       "businessContext_i18n": {
         "en": "Total volume of the solution (solute + solvent).",
         "tr": "Çözeltinin toplam hacmi (çözünen + çözücü).",
         "de": "Gesamtvolumen der Lösung (gelöster Stoff + Lösungsmittel).",
         "fr": "Volume total de la solution (soluté + solvant).",
-        "es": "Volumen total de la solución (soluto + disolvente)."
+        "es": "Volumen total de la solución (soluto + disolvente).",
+        "ar": "الحجم الكلي للمحلول (مذاب + مذيب)."
       }
     },
     {
@@ -59,13 +62,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature at which volumes are measured. Not used in calculation; ensure volumes are at same temperature.",
         "tr": "Hacimlerin ölçüldüğü sıcaklık. Hesaplamada kullanılmaz; hacimlerin aynı sıcaklıkta olduğundan emin olun.",
         "de": "Temperatur, bei der die Volumina gemessen werden. Nicht in der Berechnung verwendet; stellen Sie sicher, dass die Volumina bei gleicher Temperatur sind.",
-        "fr": "Température à laquelle les volumes sont mesurés. Non utilisée dans le calcul ; assurez-vous que les volumes sont à la même température."
+        "fr": "Température à laquelle les volumes sont mesurés. Non utilisée dans le calcul ; assurez-vous que les volumes sont à la même température.",
+        "es": "Temperatura a la que se miden los volúmenes. No se usa en el cálculo; asegúrese de que los volúmenes estén a la misma temperatura.",
+        "ar": "درجة الحرارة التي تُقاس عندها الأحجام. لا تُستخدم في الحساب؛ تأكد من أن الأحجام عند نفس درجة الحرارة."
       }
     },
     {
@@ -81,13 +86,15 @@
         "de": "Druck",
         "fr": "Pression",
         "es": "Presión",
-        "ar": "Pressure"
+        "ar": "الضغط"
       },
       "businessContext_i18n": {
         "en": "Ambient pressure. Not used for incompressible liquids.",
         "tr": "Ortam basıncı. Sıkıştırılamaz sıvılar için kullanılmaz.",
         "de": "Umgebungsdruck. Nicht für inkompressible Flüssigkeiten verwendet.",
-        "fr": "Pression ambiante. Non utilisée pour les liquides incompressibles."
+        "fr": "Pression ambiante. Non utilisée pour les liquides incompressibles.",
+        "es": "Presión ambiente. No se usa para líquidos incompresibles.",
+        "ar": "الضغط المحيط. لا يُستخدم للسوائل غير القابلة للانضغاط."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Sıcaklık"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Proses sıcaklığı",
         "tr": "Proses sıcaklığı",
         "de": "Prozess-Temperatur",
         "fr": "Température du procédé",
-        "es": "Temperatura del proceso"
+        "es": "Temperatura del proceso",
+        "ar": "درجة حرارة العملية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schergeschwindigkeit",
         "fr": "Vitesse de cisaillement",
         "es": "Velocidad de cizallamiento",
-        "ar": "Kayma Hızı"
+        "ar": "معدل القص"
       },
       "businessContext_i18n": {
         "en": "Akışkanın maruz kaldığı kayma hızı",
         "tr": "Akışkanın maruz kaldığı kayma hızı",
         "de": "Schergeschwindigkeit, der das Fluid ausgesetzt ist",
         "fr": "Vitesse de cisaillement à laquelle le fluide est soumis",
-        "es": "Velocidad de cizallamiento a la que está sometido el fluido"
+        "es": "Velocidad de cizallamiento a la que está sometido el fluido",
+        "ar": "معدل القص الذي يتعرض له المائع"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Konsistenzindex",
         "fr": "Indice de consistance",
         "es": "Índice de consistencia",
-        "ar": "Kıvam İndisi"
+        "ar": "مؤشر القوام"
       },
       "businessContext_i18n": {
         "en": "Power-law modeli tutarlılık katsayısı",
         "tr": "Power-law modeli tutarlılık katsayısı",
         "de": "Konsistenzkoeffizient des Power-Law-Modells",
         "fr": "Coefficient de consistance du modèle loi de puissance",
-        "es": "Coeficiente de consistencia del modelo de ley de potencia"
+        "es": "Coeficiente de consistencia del modelo de ley de potencia",
+        "ar": "معامل الاتساق لنموذج قانون القوة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fließverhaltensindex",
         "fr": "Indice de comportement d'écoulement",
         "es": "Índice de comportamiento del flujo",
-        "ar": "Akış Davranış İndisi"
+        "ar": "مؤشر سلوك التدفق"
       },
       "businessContext_i18n": {
         "en": "Power-law modeli akışkanlık katsayısı",
         "tr": "Power-law modeli akışkanlık katsayısı",
         "de": "Fließfähigkeitskoeffizient des Power-Law-Modells",
         "fr": "Coefficient de consistance du modèle en loi de puissance",
-        "es": "Coeficiente de fluidez del modelo de ley de potencia"
+        "es": "Coeficiente de fluidez del modelo de ley de potencia",
+        "ar": "معامل السيولة لنموذج قانون القوة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dichte",
         "fr": "Densité",
         "es": "Densidad",
-        "ar": "Yoğunluk"
+        "ar": "الكثافة"
       },
       "businessContext_i18n": {
         "en": "Akışkan yoğunluğu",
         "tr": "Akışkan yoğunluğu",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
-        "es": "Densidad del fluido"
+        "es": "Densidad del fluido",
+        "ar": "كثافة المائع"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Debi"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Hacimsel akış hızı",
         "tr": "Hacimsel akış hızı",
         "de": "Volumenstrom",
         "fr": "Débit volumique",
-        "es": "Caudal volumétrico"
+        "es": "Caudal volumétrico",
+        "ar": "معدل التدفق الحجمي"
       }
     },
     {
@@ -152,33 +158,39 @@
         "de": "Rohrdurchmesser",
         "fr": "Diamètre du tuyau",
         "es": "Diámetro de la tubería",
-        "ar": "Boru Çapı"
+        "ar": "قطر الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Taşıma borusu iç çapı",
         "tr": "Taşıma borusu iç çapı",
         "de": "Innendurchmesser des Förderrohrs",
         "fr": "Diamètre intérieur du tuyau de transport",
-        "es": "Diámetro interior del conducto de transporte"
+        "es": "Diámetro interior del conducto de transporte",
+        "ar": "القطر الداخلي لأنبوب النقل"
       }
     }
   ],
   "formulas": {
-    "result": "temperature + shearRate + consistencyIndex",
-    "result_copy": "temperature + shearRate + consistencyIndex"
+    "normalized_product": "temperature * shearRate * consistencyIndex * flowBehaviorIndex",
+    "result": "temperature * shearRate * consistencyIndex * flowBehaviorIndex * (density * flowRate * pipeDiameter)",
+    "adjustment_factor": "density * flowRate * pipeDiameter"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "reynoldsNumber",
-      "flowRegime"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "flowRegime",
-    "unit": "°C"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

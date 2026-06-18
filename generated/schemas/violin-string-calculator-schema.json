@@ -14,13 +14,15 @@
         "de": "Mensurlänge",
         "fr": "Longueur de la corde vibrante",
         "es": "Longitud de escala",
-        "ar": "Scale Length"
+        "ar": "طول المقياس"
       },
       "businessContext_i18n": {
         "en": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin.",
         "tr": "Titreşen tel uzunluğu (somundan köprüye), tipik olarak tam boy bir keman için 0,33 m.",
         "de": "Schwingungslänge der Saite von Sattel bis Steg, typischerweise 0,33 m bei einer Violine in voller Größe.",
-        "fr": "Longueur vibrante de la corde du sillet au chevalet, typiquement 0,33 m pour un violon taille réelle."
+        "fr": "Longueur vibrante de la corde du sillet au chevalet, typiquement 0,33 m pour un violon taille réelle.",
+        "es": "Longitud vibrante de la cuerda desde la cejilla hasta el puente, típicamente 0.33 m para un violín de tamaño completo.",
+        "ar": "طول الاهتزاز للوتر من الجوز إلى الجسر، عادة 0.33 متر لكمان كامل الحجم."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İstenen Perde Frekansı",
         "de": "Gewünschte Tonfrequenz",
         "fr": "Fréquence de hauteur souhaitée",
-        "es": "Desired Pitch Frequency",
-        "ar": "Desired Pitch Frequency"
+        "es": "Frecuencia de tono deseada",
+        "ar": "تردد النغمة المطلوبة"
       },
       "businessContext_i18n": {
         "en": "Frequency of the desired pitch, e.g., A4 = 440 Hz.",
         "tr": "İstenen perdenin frekansı, örn. A4 = 440 Hz.",
         "de": "Frequenz des gewünschten Tons, z. B. A4 = 440 Hz.",
-        "fr": "Fréquence de la hauteur souhaitée, ex. La4 = 440 Hz."
+        "fr": "Fréquence de la hauteur souhaitée, ex. La4 = 440 Hz.",
+        "es": "Frecuencia del tono deseado, ej., A4 = 440 Hz.",
+        "ar": "تردد النغمة المطلوبة، مثلاً A4 = 440 هرتز."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Saitendurchmesser",
         "fr": "Diamètre de la corde",
         "es": "Diámetro de la cuerda",
-        "ar": "String Diameter"
+        "ar": "قطر الوتر"
       },
       "businessContext_i18n": {
         "en": "Diameter of the string, e.g., 0.5 mm = 0.0005 m.",
         "tr": "Tel çapı, örn. 0,5 mm = 0,0005 m.",
         "de": "Durchmesser der Saite, z. B. 0,5 mm = 0,0005 m.",
-        "fr": "Diamètre de la corde, ex. 0,5 mm = 0,0005 m."
+        "fr": "Diamètre de la corde, ex. 0,5 mm = 0,0005 m.",
+        "es": "Diámetro de la cuerda, ej., 0.5 mm = 0.0005 m.",
+        "ar": "قطر الوتر، مثلاً 0.5 مم = 0.0005 متر."
       }
     },
     {
@@ -80,31 +86,37 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Material Density"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³.",
         "tr": "Tel malzemesinin yoğunluğu, örn. bağırsak ~1000 kg/m³, çelik ~7800 kg/m³.",
         "de": "Dichte des Saitenmaterials, z. B. Darm ~1000 kg/m³, Stahl ~7800 kg/m³.",
-        "fr": "Densité du matériau de la corde, ex. boyau ~1000 kg/m³, acier ~7800 kg/m³."
+        "fr": "Densité du matériau de la corde, ex. boyau ~1000 kg/m³, acier ~7800 kg/m³.",
+        "es": "Densidad del material de la cuerda, ej., tripa ~1000 kg/m³, acero ~7800 kg/m³.",
+        "ar": "كثافة مادة الوتر، مثلاً الأمعاء ~1000 كجم/م³، الفولاذ ~7800 كجم/م³."
       }
     }
   ],
   "formulas": {
-    "result": "scaleLength + frequency + stringDiameter",
-    "result_copy": "scaleLength + frequency + stringDiameter"
+    "normalized_product": "scaleLength * frequency * stringDiameter * materialDensity",
+    "result": "scaleLength * frequency * stringDiameter * materialDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "linearDensity"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "tension",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

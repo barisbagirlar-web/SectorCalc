@@ -14,14 +14,15 @@
         "de": "Anzahl der Falten (k)",
         "fr": "Nombre de plis (k)",
         "es": "Número de pliegues (k)",
-        "ar": "Number of Folds (k)"
+        "ar": "عدد الطيات (k)"
       },
       "businessContext_i18n": {
         "en": "Number of folds used in cross-validation",
         "tr": "Çapraz doğrulamada kullanılan katlama sayısı",
         "de": "Anzahl der Faltungen für die Kreuzvalidierung",
         "fr": "Nombre de plis utilisés dans la validation croisée",
-        "es": "Número de pliegues utilizados en la validación cruzada"
+        "es": "Número de pliegues utilizados en la validación cruzada",
+        "ar": "عدد الطيات المستخدمة في التحقق المتقاطع"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations in the dataset",
         "tr": "Veri setindeki toplam gözlem sayısı",
         "de": "Gesamtzahl der Beobachtungen im Datensatz",
         "fr": "Nombre total d'observations dans l'ensemble de données",
-        "es": "Número total de observaciones en el conjunto de datos"
+        "es": "Número total de observaciones en el conjunto de datos",
+        "ar": "إجمالي عدد المشاهدات في مجموعة البيانات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mittlere Genauigkeit",
         "fr": "Précision moyenne",
         "es": "Precisión media",
-        "ar": "Mean Accuracy"
+        "ar": "متوسط الدقة"
       },
       "businessContext_i18n": {
         "en": "Average accuracy across all folds",
         "tr": "Tüm katlamalar arasındaki ortalama doğruluk",
         "de": "Durchschnittliche Genauigkeit über alle Faltungen",
         "fr": "Précision moyenne sur tous les plis",
-        "es": "Precisión promedio en todos los pliegues"
+        "es": "Precisión promedio en todos los pliegues",
+        "ar": "متوسط الدقة عبر جميع الطيات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Standardabweichung der Genauigkeit",
         "fr": "Écart type de la précision",
         "es": "Desviación estándar de la precisión",
-        "ar": "Standard Deviation of Accuracy"
+        "ar": "الانحراف المعياري للدقة"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of accuracy scores from each fold",
         "tr": "Her katlamadan alınan doğruluk puanlarının standart sapması",
         "de": "Standardabweichung der Genauigkeitswerte aus jedem Durchlauf",
         "fr": "Écart type des scores de précision de chaque pli",
-        "es": "Desviación estándar de las puntuaciones de precisión de cada pliegue"
+        "es": "Desviación estándar de las puntuaciones de precisión de cada pliegue",
+        "ar": "الانحراف المعياري لدرجات الدقة من كل طية"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
-        "ar": "Z-Score"
+        "ar": "درجة Z"
       },
       "businessContext_i18n": {
         "en": "Z-score for desired confidence level (e.g., 1.96 for 95%)",
         "tr": "İstenen güven düzeyi için Z-skoru (ör. %95 için 1,96)",
         "de": "Z-Score für das gewünschte Konfidenzniveau (z. B. 1,96 für 95 %)",
         "fr": "Score Z pour le niveau de confiance souhaité (ex. 1,96 pour 95 %)",
-        "es": "Puntuación Z para el nivel de confianza deseado (ej., 1.96 para 95%)"
+        "es": "Puntuación Z para el nivel de confianza deseado (ej., 1.96 para 95%)",
+        "ar": "درجة Z لمستوى الثقة المطلوب (مثل 1.96 لمستوى ثقة 95%)"
       }
     }
   ],
   "formulas": {
-    "result": "k + n + meanAccuracy",
-    "result_copy": "k + n + meanAccuracy"
+    "normalized_product": "k * n * (meanAccuracy / 100) * (stdDevAccuracy / 100)",
+    "result": "k * n * (meanAccuracy / 100) * (stdDevAccuracy / 100) * (zScore)",
+    "adjustment_factor": "zScore"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "marginOfError",
-      "lowerBoundCI",
-      "upperBoundCI"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "upperBoundCI",
-    "unit": "folds",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "marginOfError": "%"
     }

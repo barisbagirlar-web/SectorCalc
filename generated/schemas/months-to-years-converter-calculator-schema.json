@@ -14,14 +14,15 @@
         "de": "Monate",
         "fr": "Mois",
         "es": "Meses",
-        "ar": "Months"
+        "ar": "أشهر"
       },
       "businessContext_i18n": {
         "en": "Total number of months to convert to years",
         "tr": "Yıla dönüştürülecek toplam ay sayısı",
         "de": "Gesamtzahl der Monate zur Umrechnung in Jahre",
         "fr": "Nombre total de mois à convertir en années",
-        "es": "Número total de meses a convertir en años"
+        "es": "Número total de meses a convertir en años",
+        "ar": "إجمالي عدد الأشهر للتحويل إلى سنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Monate pro Jahr",
         "fr": "Mois par an",
         "es": "Meses por año",
-        "ar": "Months per Year"
+        "ar": "الأشهر في السنة"
       },
       "businessContext_i18n": {
         "en": "Number of months in a year (typically 12)",
         "tr": "Bir yıldaki ay sayısı (genellikle 12)",
         "de": "Anzahl der Monate in einem Jahr (normalerweise 12)",
         "fr": "Nombre de mois dans une année (généralement 12)",
-        "es": "Número de meses en un año (generalmente 12)"
+        "es": "Número de meses en un año (generalmente 12)",
+        "ar": "عدد الأشهر في السنة (عادة 12)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the years output",
         "tr": "Yıl çıktısı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Jahresausgabe",
         "fr": "Nombre de décimales pour le résultat en années",
-        "es": "Número de decimales para la salida en años"
+        "es": "Número de decimales para la salida en años",
+        "ar": "عدد المنازل العشرية لمخرجات السنوات"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Ausgabemodus",
         "fr": "Mode de sortie",
         "es": "Modo de salida",
-        "ar": "Output Mode"
+        "ar": "وضع الإخراج"
       },
       "businessContext_i18n": {
         "en": "0 = decimal years only, 1 = years and months breakdown (not used in primary)",
         "tr": "0 = yalnızca ondalık yıl, 1 = yıl ve ay dökümü (birincilde kullanılmaz)",
         "de": "0 = nur Dezimaljahre, 1 = Aufschlüsselung in Jahre und Monate (nicht im primären verwendet)",
         "fr": "0 = années décimales uniquement, 1 = décomposition années et mois (non utilisé en primaire)",
-        "es": "0 = solo años decimales, 1 = desglose en años y meses (no usado en principal)"
+        "es": "0 = solo años decimales, 1 = desglose en años y meses (no usado en principal)",
+        "ar": "0 = سنوات عشرية فقط، 1 = تفصيل السنوات والأشهر (غير مستخدم في الأساسي)"
       }
     }
   ],
   "formulas": {
-    "result": "months + monthsPerYear + decimalPlaces",
-    "result_copy": "months + monthsPerYear + decimalPlaces"
+    "normalized_product": "months * monthsPerYear * decimalPlaces * outputMode",
+    "result": "months * monthsPerYear * decimalPlaces * outputMode"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "yearsPart",
-      "monthsPart"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "yearsPart",
-    "unit": "months"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

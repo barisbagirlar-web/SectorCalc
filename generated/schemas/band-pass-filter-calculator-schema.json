@@ -14,14 +14,15 @@
         "de": "Mittenfrequenz",
         "fr": "Fréquence centrale",
         "es": "Frecuencia central",
-        "ar": "Center Frequency"
+        "ar": "تردد المركز"
       },
       "businessContext_i18n": {
         "en": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications.",
         "tr": "Geçiş bandının merkez frekansı; RF ve ses uygulamalarında istenen sinyale ayarlama için kritiktir.",
         "de": "Die Mittenfrequenz des Durchlassbereichs, entscheidend für die Abstimmung auf das gewünschte Signal in HF- und Audioanwendungen.",
         "fr": "La fréquence centrale de la bande passante, essentielle pour l'accord sur le signal souhaité dans les applications RF et audio.",
-        "es": "La frecuencia central de la banda de paso, crítica para sintonizar la señal deseada en aplicaciones de RF y audio."
+        "es": "La frecuencia central de la banda de paso, crítica para sintonizar la señal deseada en aplicaciones de RF y audio.",
+        "ar": "التردد المركزي لنطاق المرور، ضروري للضبط على الإشارة المطلوبة في تطبيقات الترددات اللاسلكية والصوتية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bandbreite",
         "fr": "Largeur de bande",
         "es": "Ancho de banda",
-        "ar": "Bandwidth"
+        "ar": "عرض النطاق"
       },
       "businessContext_i18n": {
         "en": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity.",
         "tr": "Sinyalin minimum zayıflama ile geçtiği frekans aralığının genişliği; filtre seçiciliğini belirler.",
         "de": "Breite des Frequenzbereichs, in dem das Signal mit minimaler Dämpfung durchgelassen wird; bestimmt die Filterselektivität.",
         "fr": "Largeur de la plage de fréquences où le signal passe avec une atténuation minimale ; détermine la sélectivité du filtre.",
-        "es": "Ancho del rango de frecuencia donde la señal pasa con atenuación mínima; determina la selectividad del filtro."
+        "es": "Ancho del rango de frecuencia donde la señal pasa con atenuación mínima; determina la selectividad del filtro.",
+        "ar": "عرض نطاق التردد الذي تمر فيه الإشارة مع أقل توهين؛ يحدد انتقائية المرشح."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchlassverstärkung",
         "fr": "Gain de la bande passante",
         "es": "Ganancia de banda de paso",
-        "ar": "Passband Gain"
+        "ar": "كسب نطاق المرور"
       },
       "businessContext_i18n": {
         "en": "Amplification in decibels within the passband; 0 dB means unity gain.",
         "tr": "Geçiş bandı içinde desibel cinsinden amplifikasyon; 0 dB birim kazanç anlamına gelir.",
         "de": "Verstärkung in Dezibel innerhalb des Durchlassbereichs; 0 dB bedeutet Verstärkung von 1.",
         "fr": "Amplification en décibels dans la bande passante ; 0 dB signifie un gain unitaire.",
-        "es": "Amplificación en decibelios dentro de la banda de paso; 0 dB significa ganancia unitaria."
+        "es": "Amplificación en decibelios dentro de la banda de paso; 0 dB significa ganancia unitaria.",
+        "ar": "التضخيم بالديسيبل داخل نطاق المرور؛ 0 ديسيبل يعني كسب الوحدة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Filterordnung",
         "fr": "Ordre du filtre",
         "es": "Orden del filtro",
-        "ar": "Filter Order"
+        "ar": "رتبة المرشح"
       },
       "businessContext_i18n": {
         "en": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context.",
         "tr": "Filtrenin derecesi, roll-off hızını ve karmaşıklığını etkiler; temel hesaplamada kullanılmaz ancak bağlam için sağlanmıştır.",
         "de": "Die Ordnung des Filters, die die Flankensteilheit und Komplexität beeinflusst; wird in der Basisberechnung nicht verwendet, aber zur Information angegeben.",
         "fr": "L'ordre du filtre, influençant la pente de coupure et la complexité ; non utilisé dans le calcul de base mais fourni pour contexte.",
-        "es": "El orden del filtro, que influye en la tasa de caída y la complejidad; no se usa en el cálculo básico pero se proporciona para contexto."
+        "es": "El orden del filtro, que influye en la tasa de caída y la complejidad; no se usa en el cálculo básico pero se proporciona para contexto.",
+        "ar": "رتبة المرشح، تؤثر على معدل الانحدار والتعقيد؛ لا تُستخدم في الحساب الأساسي ولكنها تُقدم للسياق."
       }
     }
   ],

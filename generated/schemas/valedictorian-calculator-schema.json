@@ -13,14 +13,16 @@
         "tr": "Kalite Oranı",
         "de": "Qualitätsrate",
         "fr": "Taux de qualité",
-        "es": "Quality Rate",
-        "ar": "Quality Rate"
+        "es": "Tasa de calidad",
+        "ar": "معدل الجودة"
       },
       "businessContext_i18n": {
         "en": "Percentage of defect-free outputs",
         "tr": "Hataya düşmeyen çıktıların yüzdesi",
         "de": "Prozentsatz der fehlerfreien Ausgaben",
-        "fr": "Pourcentage de produits sans défaut"
+        "fr": "Pourcentage de produits sans défaut",
+        "es": "Porcentaje de salidas sin defectos",
+        "ar": "نسبة المخرجات الخالية من العيوب"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Verimlilik Oranı",
         "de": "Effizienzrate",
         "fr": "Taux d'efficacité",
-        "es": "Efficiency Rate",
-        "ar": "Efficiency Rate"
+        "es": "Tasa de eficiencia",
+        "ar": "معدل الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Actual production rate vs. ideal rate",
         "tr": "Gerçek üretim hızının ideal hıza oranı",
         "de": "Tatsächliche Produktionsrate im Vergleich zur idealen Rate",
-        "fr": "Taux de production réel par rapport au taux idéal"
+        "fr": "Taux de production réel par rapport au taux idéal",
+        "es": "Tasa de producción real vs. tasa ideal",
+        "ar": "معدل الإنتاج الفعلي مقابل المعدل المثالي"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kullanılabilirlik Oranı",
         "de": "Verfügbarkeitsrate",
         "fr": "Taux de disponibilité",
-        "es": "Availability Rate",
-        "ar": "Availability Rate"
+        "es": "Tasa de disponibilidad",
+        "ar": "معدل التوفر"
       },
       "businessContext_i18n": {
         "en": "Percentage of scheduled uptime",
         "tr": "Planlanan çalışma süresinin yüzdesi",
         "de": "Prozentsatz der geplanten Betriebszeit",
-        "fr": "Pourcentage de temps de fonctionnement planifié"
+        "fr": "Pourcentage de temps de fonctionnement planifié",
+        "es": "Porcentaje de tiempo programado en funcionamiento",
+        "ar": "نسبة وقت التشغيل المجدول"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Maliyet Endeksi",
         "de": "Kostenindex",
         "fr": "Indice de coût",
-        "es": "Cost Index",
-        "ar": "Cost Index"
+        "es": "Índice de coste",
+        "ar": "مؤشر التكلفة"
       },
       "businessContext_i18n": {
         "en": "Cost index relative to standard (100 = standard, higher is worse)",
         "tr": "Standart değere göre maliyet endeksi (100 = standart, yüksek değer daha kötü)",
         "de": "Kostenindex relativ zum Standard (100 = Standard, höher ist schlechter)",
-        "fr": "Indice de coût par rapport à la norme (100 = standard, plus élevé = moins bon)"
+        "fr": "Indice de coût par rapport à la norme (100 = standard, plus élevé = moins bon)",
+        "es": "Índice de coste relativo al estándar (100 = estándar, mayor es peor)",
+        "ar": "مؤشر التكلفة نسبة إلى المعيار (100 = معياري، الأعلى أسوأ)"
       }
     },
     {
@@ -101,15 +109,16 @@
         "tr": "Güvenlik Puanı",
         "de": "Sicherheitsbewertung",
         "fr": "Score de sécurité",
-        "es": "Safety Score",
-        "ar": "Safety Score"
+        "es": "Puntuación de seguridad",
+        "ar": "درجة السلامة"
       },
       "businessContext_i18n": {
         "en": "Safety performance score (0–100)",
         "tr": "Güvenlik performans puanı (0–100)",
         "de": "Sicherheitsleistungswert (0–100)",
         "fr": "Score de performance sécurité (0–100)",
-        "es": "Puntuación de desempeño en seguridad (0–100)"
+        "es": "Puntuación de desempeño en seguridad (0–100)",
+        "ar": "درجة أداء السلامة (0–100)"
       }
     },
     {
@@ -124,14 +133,16 @@
         "tr": "Enerji Verimliliği",
         "de": "Energieeffizienz",
         "fr": "Efficacité énergétique",
-        "es": "Energy Efficiency",
-        "ar": "Energy Efficiency"
+        "es": "Eficiencia energética",
+        "ar": "كفاءة الطاقة"
       },
       "businessContext_i18n": {
         "en": "Energy consumption performance vs. baseline",
         "tr": "Taban değere göre enerji tüketim performansı",
         "de": "Energieverbrauchsleistung im Vergleich zum Basiswert",
-        "fr": "Performance de consommation d'énergie par rapport à la référence"
+        "fr": "Performance de consommation d'énergie par rapport à la référence",
+        "es": "Rendimiento del consumo energético vs. línea base",
+        "ar": "أداء استهلاك الطاقة مقابل خط الأساس"
       }
     }
   ],

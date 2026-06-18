@@ -14,14 +14,15 @@
         "de": "Cubits",
         "fr": "Coudées",
         "es": "Codos",
-        "ar": "Cubits"
+        "ar": "أذرع"
       },
       "businessContext_i18n": {
         "en": "Enter the number of cubits to convert.",
         "tr": "Dönüştürülecek kübit sayısını girin.",
         "de": "Geben Sie die Anzahl der Cubits zur Umrechnung ein.",
         "fr": "Saisissez le nombre de coudées à convertir.",
-        "es": "Ingrese el número de codos a convertir."
+        "es": "Ingrese el número de codos a convertir.",
+        "ar": "أدخل عدد الأذرع للتحويل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (m pro Cubit)",
         "fr": "Facteur de conversion (m par coudée)",
         "es": "Factor de conversión (m por codo)",
-        "ar": "Conversion Factor (m per cubit)"
+        "ar": "عامل التحويل (متر لكل ذراع)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition.",
         "tr": "Standart dönüşüm faktörü: 1 kübit = 0,4572 m. Farklı bir tanım kullanıyorsanız ayarlayın.",
         "de": "Standard-Umrechnungsfaktor: 1 Cubit = 0,4572 m. Bei abweichender Definition anpassen.",
         "fr": "Facteur de conversion standard : 1 coudée = 0,4572 m. Ajustez si vous utilisez une définition différente.",
-        "es": "Factor de conversión estándar: 1 codo = 0,4572 m. Ajuste si usa una definición diferente."
+        "es": "Factor de conversión estándar: 1 codo = 0,4572 m. Ajuste si usa una definición diferente.",
+        "ar": "عامل التحويل القياسي: 1 ذراع = 0.4572 متر. قم بالتعديل إذا كنت تستخدم تعريفًا مختلفًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for display (affects breakdown rounding).",
         "tr": "Görüntüleme için ondalık basamak sayısı (ara yuvarlamaları etkiler).",
         "de": "Anzahl der Dezimalstellen für die Anzeige (beeinflusst die Rundung der Aufschlüsselung).",
         "fr": "Nombre de décimales pour l'affichage (affecte l'arrondi de la décomposition).",
-        "es": "Número de decimales para la visualización (afecta el redondeo del desglose)."
+        "es": "Número de decimales para la visualización (afecta el redondeo del desglose).",
+        "ar": "عدد المنازل العشرية للعرض (يؤثر على تقريب التفاصيل)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
         "es": "Método de redondeo",
-        "ar": "Rounding Method"
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed.",
         "tr": "0: standart (formülde uygulanmaz; gelecekte kullanım için), 1: taban, 2: tavan. Şu anda yalnızca ham değer hesaplanır.",
         "de": "0: Standard (nicht in Formel implementiert; für zukünftige Verwendung), 1: Abrunden, 2: Aufrunden. Derzeit wird nur der Rohwert berechnet.",
         "fr": "0 : standard (non implémenté dans la formule ; pour usage futur), 1 : plancher, 2 : plafond. Actuellement seule la valeur brute est calculée.",
-        "es": "0: estándar (no implementado en la fórmula; para uso futuro), 1: suelo, 2: techo. Actualmente solo se calcula el valor bruto."
+        "es": "0: estándar (no implementado en la fórmula; para uso futuro), 1: suelo, 2: techo. Actualmente solo se calcula el valor bruto.",
+        "ar": "0: قياسي (غير مطبق في الصيغة؛ للاستخدام المستقبلي)، 1: تقريب للأسفل، 2: تقريب للأعلى. حاليًا يتم حساب القيمة الخام فقط."
       }
     }
   ],

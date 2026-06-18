@@ -14,14 +14,15 @@
         "de": "Mittenfrequenz",
         "fr": "Fréquence centrale",
         "es": "Frecuencia central",
-        "ar": "Center Frequency"
+        "ar": "تردد المركز"
       },
       "businessContext_i18n": {
         "en": "Notch frequency of the band-stop filter.",
         "tr": "Bant durdurma filtresinin çentik frekansı.",
         "de": "Notchfrequenz des Bandsperrfilters.",
         "fr": "Fréquence de réjection du filtre coupe-bande.",
-        "es": "Frecuencia de rechazo del filtro de banda eliminada."
+        "es": "Frecuencia de rechazo del filtro de banda eliminada.",
+        "ar": "تردد النقرة لمرشح إيقاف النطاق."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Untere Grenzfrequenz",
         "fr": "Fréquence de coupure inférieure",
         "es": "Frecuencia de corte inferior",
-        "ar": "Lower Cutoff Frequency"
+        "ar": "تردد القطع الأدنى"
       },
       "businessContext_i18n": {
         "en": "Lower -3 dB cutoff frequency of the stopband.",
         "tr": "Durdurma bandının alt -3 dB kesim frekansı.",
         "de": "Untere -3-dB-Grenzfrequenz des Sperrbereichs.",
         "fr": "Fréquence de coupure inférieure à -3 dB de la bande atténuée.",
-        "es": "Frecuencia de corte inferior a -3 dB de la banda de parada."
+        "es": "Frecuencia de corte inferior a -3 dB de la banda de parada.",
+        "ar": "تردد القطع الأدنى -3 ديسيبل لنطاق الإيقاف."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Obere Grenzfrequenz",
         "fr": "Fréquence de coupure supérieure",
         "es": "Frecuencia de corte superior",
-        "ar": "Upper Cutoff Frequency"
+        "ar": "تردد القطع الأعلى"
       },
       "businessContext_i18n": {
         "en": "Upper -3 dB cutoff frequency of the stopband.",
         "tr": "Durdurma bandının üst -3 dB kesim frekansı.",
         "de": "Obere -3-dB-Grenzfrequenz des Sperrbereichs.",
         "fr": "Fréquence de coupure supérieure à -3 dB de la bande atténuée.",
-        "es": "Frecuencia de corte superior a -3 dB de la banda de parada."
+        "es": "Frecuencia de corte superior a -3 dB de la banda de parada.",
+        "ar": "تردد القطع الأعلى -3 ديسيبل لنطاق الإيقاف."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bewertungsfrequenz",
         "fr": "Fréquence d'évaluation",
         "es": "Frecuencia de evaluación",
-        "ar": "Evaluation Frequency"
+        "ar": "تردد التقييم"
       },
       "businessContext_i18n": {
         "en": "Frequency at which the filter response is evaluated.",
         "tr": "Filtre yanıtının değerlendirildiği frekans.",
         "de": "Frequenz, bei der die Filterantwort bewertet wird.",
         "fr": "Fréquence à laquelle la réponse du filtre est évaluée.",
-        "es": "Frecuencia a la que se evalúa la respuesta del filtro."
+        "es": "Frecuencia a la que se evalúa la respuesta del filtro.",
+        "ar": "التردد الذي يتم عنده تقييم استجابة المرشح."
       }
     }
   ],

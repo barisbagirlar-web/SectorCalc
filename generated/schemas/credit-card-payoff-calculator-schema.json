@@ -14,14 +14,15 @@
         "de": "Aktueller Saldo",
         "fr": "Solde actuel",
         "es": "Saldo actual",
-        "ar": "Current Balance"
+        "ar": "الرصيد الحالي"
       },
       "businessContext_i18n": {
         "en": "Outstanding balance on the credit card.",
         "tr": "Kredi kartındaki kalan bakiye.",
         "de": "Ausstehender Saldo auf der Kreditkarte.",
         "fr": "Solde impayé sur la carte de crédit.",
-        "es": "Saldo pendiente en la tarjeta de crédito."
+        "es": "Saldo pendiente en la tarjeta de crédito.",
+        "ar": "الرصيد المستحق على بطاقة الائتمان."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate charged on the balance.",
         "tr": "Bakiyeye uygulanan yıllık faiz oranı.",
         "de": "Jährlicher Zinssatz auf den Saldo.",
         "fr": "Taux d'intérêt annuel appliqué au solde.",
-        "es": "Tasa de interés anual aplicada al saldo."
+        "es": "Tasa de interés anual aplicada al saldo.",
+        "ar": "معدل الفائدة السنوي المفروض على الرصيد."
       }
     },
     {
@@ -60,33 +62,37 @@
         "de": "Monatliche Zahlung",
         "fr": "Paiement mensuel",
         "es": "Pago mensual",
-        "ar": "Monthly Payment"
+        "ar": "الدفعة الشهرية"
       },
       "businessContext_i18n": {
         "en": "Fixed amount you plan to pay each month.",
         "tr": "Her ay ödemeyi planladığınız sabit tutar.",
         "de": "Fester Betrag, den Sie monatlich zahlen möchten.",
         "fr": "Montant fixe que vous prévoyez de payer chaque mois.",
-        "es": "Monto fijo que planea pagar cada mes."
+        "es": "Monto fijo que planea pagar cada mes.",
+        "ar": "المبلغ الثابت الذي تخطط لدفعه كل شهر."
       }
     }
   ],
   "formulas": {
-    "result": "balance + annualInterestRate + monthlyPayment",
-    "result_copy": "balance + annualInterestRate + monthlyPayment"
+    "normalized_product": "balance * (annualInterestRate / 100) * monthlyPayment",
+    "result": "balance * (annualInterestRate / 100) * monthlyPayment"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalInterestPaid",
-      "totalAmountPaid"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalInterestPaid",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -33,13 +33,17 @@
         "en": "Joint Type",
         "tr": "Birleştirme Türü",
         "de": "Verbindungsart",
-        "fr": "Type de joint"
+        "fr": "Type de joint",
+        "es": "Tipo de junta",
+        "ar": "نوع الوصلة"
       },
       "businessContext_i18n": {
         "en": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula.",
         "tr": "ISO 9692'ye göre kaynak birleştirme geometrisini seçin. Hacim hesaplama formülünü etkiler.",
         "de": "Wählen Sie die Schweißnahtgeometrie gemäß ISO 9692. Beeinflusst die Volumenberechnungsformel.",
-        "fr": "Sélectionnez la géométrie du joint soudé selon l'ISO 9692. Affecte la formule de calcul du volume."
+        "fr": "Sélectionnez la géométrie du joint soudé selon l'ISO 9692. Affecte la formule de calcul du volume.",
+        "es": "Seleccione la geometría de la junta soldada según ISO 9692. Afecta la fórmula de cálculo del volumen.",
+        "ar": "اختر هندسة وصلة اللحام وفقًا لـ ISO 9692. يؤثر على معادلة حساب الحجم."
       }
     },
     {
@@ -55,13 +59,17 @@
         "en": "Plate Thickness (t)",
         "tr": "Plaka Kalınlığı (t)",
         "de": "Blechdicke (t)",
-        "fr": "Épaisseur de la plaque (t)"
+        "fr": "Épaisseur de la plaque (t)",
+        "es": "Espesor de la chapa (t)",
+        "ar": "سمك اللوحة (t)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the base metal. Critical for groove volume calculation.",
         "tr": "Temel metalin kalınlığı. Oluk hacmi hesaplaması için kritiktir.",
         "de": "Dicke des Grundmetalls. Entscheidend für die Nutvolumenberechnung.",
-        "fr": "Épaisseur du métal de base. Critique pour le calcul du volume de la gorge."
+        "fr": "Épaisseur du métal de base. Critique pour le calcul du volume de la gorge.",
+        "es": "Espesor del metal base. Crítico para el cálculo del volumen del bisel.",
+        "ar": "سمك المعدن الأساسي. حاسم لحساب حجم الأخدود."
       }
     },
     {
@@ -77,13 +85,17 @@
         "en": "Root Face (f)",
         "tr": "Kök Yüzü (f)",
         "de": "Stegfläche (f)",
-        "fr": "Face de racine (f)"
+        "fr": "Face de racine (f)",
+        "es": "Cara de raíz (f)",
+        "ar": "الوجه الجذري (f)"
       },
       "businessContext_i18n": {
         "en": "Land at the root of the groove. Affects effective depth.",
         "tr": "Oluğun kökündeki düzlük. Etkili derinliği etkiler.",
         "de": "Steg an der Wurzel der Nut. Beeinflusst die effektive Tiefe.",
-        "fr": "Méplat à la racine de la gorge. Affecte la profondeur effective."
+        "fr": "Méplat à la racine de la gorge. Affecte la profondeur effective.",
+        "es": "Talón en la raíz del bisel. Afecta la profundidad efectiva.",
+        "ar": "الجزء المسطح عند جذر الأخدود. يؤثر على العمق الفعال."
       }
     },
     {
@@ -99,13 +111,17 @@
         "en": "Root Gap (g)",
         "tr": "Kök Aralığı (g)",
         "de": "Wurzelspalt (g)",
-        "fr": "Écartement à la racine (g)"
+        "fr": "Écartement à la racine (g)",
+        "es": "Separación de raíz (g)",
+        "ar": "الفجوة الجذرية (g)"
       },
       "businessContext_i18n": {
         "en": "Gap between plates at root. Increases weld volume.",
         "tr": "Kök seviyesinde plakalar arasındaki boşluk. Kaynak hacmini artırır.",
         "de": "Spalt zwischen den Blechen an der Wurzel. Erhöht das Schweißvolumen.",
-        "fr": "Espace entre les plaques à la racine. Augmente le volume de soudure."
+        "fr": "Espace entre les plaques à la racine. Augmente le volume de soudure.",
+        "es": "Separación entre chapas en la raíz. Aumenta el volumen de soldadura.",
+        "ar": "الفجوة بين اللوحتين عند الجذر. تزيد من حجم اللحام."
       }
     },
     {
@@ -121,13 +137,17 @@
         "en": "Groove Angle (α)",
         "tr": "Oluk Açısı (α)",
         "de": "Nutenwinkel (α)",
-        "fr": "Angle de la gorge (α)"
+        "fr": "Angle de la gorge (α)",
+        "es": "Ángulo de la ranura (α)",
+        "ar": "زاوية الأخدود (α)"
       },
       "businessContext_i18n": {
         "en": "Included angle of V-groove. Standard range per AWS D1.1.",
         "tr": "V-oluğun dahil açısı. AWS D1.1'e göre standart aralık.",
         "de": "Eingeschlossener Winkel der V-Nut. Standardbereich gemäß AWS D1.1.",
-        "fr": "Angle inclus de la gorge en V. Plage standard selon AWS D1.1."
+        "fr": "Angle inclus de la gorge en V. Plage standard selon AWS D1.1.",
+        "es": "Ángulo incluido de la ranura en V. Rango estándar según AWS D1.1.",
+        "ar": "الزاوية الداخلية للأخدود على شكل V. النطاق القياسي حسب AWS D1.1."
       }
     },
     {
@@ -143,13 +163,17 @@
         "en": "Weld Length (L)",
         "tr": "Kaynak Uzunluğu (L)",
         "de": "Schweißnahtlänge (L)",
-        "fr": "Longueur de soudure (L)"
+        "fr": "Longueur de soudure (L)",
+        "es": "Longitud de soldadura (L)",
+        "ar": "طول اللحام (L)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam.",
         "tr": "Kaynak dikişinin toplam uzunluğu.",
         "de": "Gesamtlänge der Schweißnaht.",
-        "fr": "Longueur totale du cordon de soudure."
+        "fr": "Longueur totale du cordon de soudure.",
+        "es": "Longitud total del cordón de soldadura.",
+        "ar": "الطول الإجمالي لخط اللحام."
       }
     },
     {
@@ -165,13 +189,17 @@
         "en": "Leg Length (for fillet)",
         "tr": "Bacak Uzunluğu (köşe kaynağı için)",
         "de": "Schenkellänge (für Kehlnaht)",
-        "fr": "Longueur de gorge (pour soudure d'angle)"
+        "fr": "Longueur de gorge (pour soudure d'angle)",
+        "es": "Longitud del lado (para filete)",
+        "ar": "طول الرجل (للحام الشرائحي)"
       },
       "businessContext_i18n": {
         "en": "Fillet weld leg size. Only used when joint_type = fillet.",
         "tr": "Köşe kaynağı bacak boyutu. Yalnızca joint_type = fillet olduğunda kullanılır.",
         "de": "Schenkellänge der Kehlnaht. Nur verwendet, wenn joint_type = fillet.",
-        "fr": "Taille de la soudure d'angle. Utilisé uniquement lorsque joint_type = angle."
+        "fr": "Taille de la soudure d'angle. Utilisé uniquement lorsque joint_type = angle.",
+        "es": "Tamaño del lado de la soldadura de filete. Solo se usa cuando joint_type = filete.",
+        "ar": "حجم رجل اللحام الشرائحي. يُستخدم فقط عندما يكون نوع الوصلة = شرائحي."
       }
     },
     {
@@ -194,13 +222,17 @@
         "en": "Welding Process",
         "tr": "Kaynak Prosesi",
         "de": "Schweißprozess",
-        "fr": "Procédé de soudage"
+        "fr": "Procédé de soudage",
+        "es": "Proceso de soldadura",
+        "ar": "عملية اللحام"
       },
       "businessContext_i18n": {
         "en": "Select the welding process. Affects deposition efficiency and labor rate.",
         "tr": "Kaynak prosesini seçin. Biriktirme verimliliğini ve işçilik ücretini etkiler.",
         "de": "Wählen Sie den Schweißprozess. Beeinflusst Abscheideeffizienz und Arbeitskostensatz.",
-        "fr": "Sélectionnez le procédé de soudage. Affecte l'efficacité de dépôt et le taux de main-d'œuvre."
+        "fr": "Sélectionnez le procédé de soudage. Affecte l'efficacité de dépôt et le taux de main-d'œuvre.",
+        "es": "Seleccione el proceso de soldadura. Afecta la eficiencia de deposición y la tasa de mano de obra.",
+        "ar": "اختر عملية اللحام. تؤثر على كفاءة الترسيب ومعدل العمل."
       }
     }
   ],
@@ -268,18 +300,26 @@
     ]
   },
   "formulas": {
-    "result": "joint_type + plate_thickness + root_face",
-    "result_copy": "joint_type + plate_thickness + root_face"
+    "normalized_product": "plate_thickness * root_face * root_gap * groove_angle",
+    "result": "plate_thickness * root_face * root_gap * groove_angle * (weld_length * leg_length)",
+    "adjustment_factor": "weld_length * leg_length"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

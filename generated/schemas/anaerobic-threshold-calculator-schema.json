@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years.",
         "tr": "Bireyin yıl cinsinden yaşı.",
         "de": "Alter der Person in Jahren.",
         "fr": "Âge de l'individu en années.",
-        "es": "Edad del individuo en años."
+        "es": "Edad del individuo en años.",
+        "ar": "عمر الفرد بالسنوات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ruhepuls",
         "fr": "Fréquence cardiaque au repos",
         "es": "Frecuencia cardíaca en reposo",
-        "ar": "Resting Heart Rate"
+        "ar": "معدل ضربات القلب أثناء الراحة"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate, typically measured upon waking.",
         "tr": "Genellikle uyanırken ölçülen dinlenme kalp atış hızı.",
         "de": "Ruhepuls, typischerweise nach dem Aufwachen gemessen.",
         "fr": "Fréquence cardiaque au repos, généralement mesurée au réveil.",
-        "es": "Frecuencia cardíaca en reposo, típicamente medida al despertar."
+        "es": "Frecuencia cardíaca en reposo, típicamente medida al despertar.",
+        "ar": "معدل ضربات القلب أثناء الراحة، يُقاس عادةً عند الاستيقاظ."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maximale Herzfrequenz",
         "fr": "Fréquence cardiaque maximale",
         "es": "Frecuencia cardíaca máxima",
-        "ar": "Maximum Heart Rate"
+        "ar": "أقصى معدل لضربات القلب"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in beats per minute. Enter 0 to estimate from age (220 - age).",
         "tr": "Dakikadaki atım cinsinden maksimum kalp atış hızı. Yaştan tahmin etmek için 0 girin (220 - yaş).",
         "de": "Maximale Herzfrequenz in Schlägen pro Minute. 0 eingeben, um aus dem Alter zu schätzen (220 - Alter).",
         "fr": "Fréquence cardiaque maximale en battements par minute. Entrez 0 pour estimer à partir de l'âge (220 - âge).",
-        "es": "Frecuencia cardíaca máxima en latidos por minuto. Ingrese 0 para estimar desde la edad (220 - edad)."
+        "es": "Frecuencia cardíaca máxima en latidos por minuto. Ingrese 0 para estimar desde la edad (220 - edad).",
+        "ar": "أقصى معدل لضربات القلب في الدقيقة. أدخل 0 للتقدير من العمر (220 - العمر)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Intensität",
         "fr": "Intensité",
         "es": "Intensidad",
-        "ar": "Intensity"
+        "ar": "الشدة"
       },
       "businessContext_i18n": {
         "en": "Percentage of heart rate reserve used for anaerobic threshold (commonly 80-90%).",
         "tr": "Anaerobik eşik için kullanılan kalp atış hızı rezervinin yüzdesi (genellikle %80-90).",
         "de": "Prozentsatz der Herzfrequenzreserve, der für die anaerobe Schwelle verwendet wird (üblich 80-90%).",
         "fr": "Pourcentage de la réserve de fréquence cardiaque utilisé pour le seuil anaérobie (généralement 80-90 %).",
-        "es": "Porcentaje de la reserva de frecuencia cardíaca utilizado para el umbral anaeróbico (comúnmente 80-90%)."
+        "es": "Porcentaje de la reserva de frecuencia cardíaca utilizado para el umbral anaeróbico (comúnmente 80-90%).",
+        "ar": "النسبة المئوية لاحتياطي معدل ضربات القلب المستخدمة للعتبة اللاهوائية (عادة 80-90%)."
       }
     }
   ],
   "formulas": {
-    "result": "age + restingHeartRate + maxHeartRate",
-    "result_copy": "age + restingHeartRate + maxHeartRate"
+    "normalized_product": "age * restingHeartRate * maxHeartRate * (intensity / 100)",
+    "result": "age * restingHeartRate * maxHeartRate * (intensity / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "maxHR",
-      "heartRateReserve"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "anaerobicThresholdHR",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fitness & Spor",

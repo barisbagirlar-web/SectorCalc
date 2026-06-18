@@ -25,13 +25,16 @@
         "tr": "Veri Noktaları (virgülle ayrılmış)",
         "de": "Datenpunkte (durch Komma getrennt)",
         "fr": "Points de données (séparés par des virgules)",
-        "es": "Puntos de datos (separados por comas)"
+        "es": "Puntos de datos (separados por comas)",
+        "ar": "نقاط البيانات (مفصولة بفواصل)"
       },
       "businessContext_i18n": {
         "en": "Raw sample measurements from the process. At least 2 values required for calculation.",
         "tr": "Prosesten alınan ham numune ölçümleri. Hesaplama için en az 2 değer gereklidir.",
         "de": "Rohmessungen aus dem Prozess. Für die Berechnung sind mindestens 2 Werte erforderlich.",
-        "fr": "Mesures brutes de l'échantillon. Au moins 2 valeurs requises pour le calcul."
+        "fr": "Mesures brutes de l'échantillon. Au moins 2 valeurs requises pour le calcul.",
+        "es": "Mediciones brutas de la muestra del proceso. Se requieren al menos 2 valores para el cálculo.",
+        "ar": "قياسات العينة الخام من العملية. مطلوب قيمتان على الأقل للحساب."
       }
     },
     {
@@ -47,13 +50,17 @@
         "en": "Population Mean (μ)",
         "tr": "Popülasyon Ortalaması (μ)",
         "de": "Grundgesamtheitsmittelwert (μ)",
-        "fr": "Moyenne de la population (μ)"
+        "fr": "Moyenne de la population (μ)",
+        "es": "Media poblacional (μ)",
+        "ar": "متوسط المجتمع (μ)"
       },
       "businessContext_i18n": {
         "en": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
         "tr": "Prosesin hedef veya geçmiş ortalaması. Bilinmiyorsa, örneklem ortalamasını kullanmak için boş bırakın.",
         "de": "Ziel- oder historischer Mittelwert des Prozesses. Falls unbekannt, leer lassen, um den Stichprobenmittelwert zu verwenden.",
-        "fr": "Moyenne cible ou historique du processus. Si inconnue, laisser vide pour utiliser la moyenne de l'échantillon."
+        "fr": "Moyenne cible ou historique du processus. Si inconnue, laisser vide pour utiliser la moyenne de l'échantillon.",
+        "es": "Media objetivo o histórica del proceso. Si se desconoce, dejar en blanco para usar la media muestral.",
+        "ar": "المتوسط المستهدف أو التاريخي للعملية. إذا كان غير معروف، اتركه فارغًا لاستخدام متوسط العينة."
       }
     },
     {
@@ -70,13 +77,16 @@
         "tr": "Popülasyon Standart Sapması (σ)",
         "de": "Populationsstandardabweichung (σ)",
         "fr": "Écart type de la population (σ)",
-        "es": "Desviación estándar poblacional (σ)"
+        "es": "Desviación estándar poblacional (σ)",
+        "ar": "الانحراف المعياري للمجتمع (σ)"
       },
       "businessContext_i18n": {
         "en": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
         "tr": "Bilinen proses standart sapması. Bilinmiyorsa, örneklem standart sapmasını kullanmak için boş bırakın.",
         "de": "Bekannte Standardabweichung des Prozesses. Falls unbekannt, leer lassen, um die Stichproben-Standardabweichung zu verwenden.",
-        "fr": "Écart-type connu du processus. Si inconnu, laisser vide pour utiliser l'écart-type de l'échantillon."
+        "fr": "Écart-type connu du processus. Si inconnu, laisser vide pour utiliser l'écart-type de l'échantillon.",
+        "es": "Desviación estándar conocida del proceso. Si se desconoce, dejar en blanco para usar la desviación estándar muestral.",
+        "ar": "الانحراف المعياري المعروف للعملية. إذا كان غير معروف، اتركه فارغًا لاستخدام الانحراف المعياري للعينة."
       }
     },
     {
@@ -98,13 +108,16 @@
         "tr": "Güven Düzeyi",
         "de": "Konfidenzniveau",
         "fr": "Niveau de confiance",
-        "es": "Nivel de confianza"
+        "es": "Nivel de confianza",
+        "ar": "مستوى الثقة"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%.",
         "tr": "Aralık tahmini için istenen güven düzeyi. Yaygın değerler: %90, %95, %99.",
         "de": "Gewünschtes Konfidenzniveau für die Intervallschätzung. Übliche Werte: 90 %, 95 %, 99 %.",
-        "fr": "Niveau de confiance souhaité pour l'estimation par intervalle. Valeurs courantes : 90 %, 95 %, 99 %."
+        "fr": "Niveau de confiance souhaité pour l'estimation par intervalle. Valeurs courantes : 90 %, 95 %, 99 %.",
+        "es": "Nivel de confianza deseado para la estimación por intervalo. Valores comunes: 90%, 95%, 99%.",
+        "ar": "مستوى الثقة المطلوب لتقدير الفترة. القيم الشائعة: 90%، 95%، 99%."
       }
     },
     {
@@ -126,13 +139,16 @@
         "tr": "Kuyruk Türü",
         "de": "Seitentyp",
         "fr": "Type de queue",
-        "es": "Tipo de cola"
+        "es": "Tipo de cola",
+        "ar": "نوع الذيل"
       },
       "businessContext_i18n": {
         "en": "Specifies whether the test is one-tailed (upper/lower) or two-tailed.",
         "tr": "Testin tek kuyruklu (üst/alt) veya çift kuyruklu olduğunu belirtir.",
         "de": "Gibt an, ob der Test einseitig (oben/unten) oder zweiseitig ist.",
-        "fr": "Spécifie si le test est unilatéral (supérieur/inférieur) ou bilatéral."
+        "fr": "Spécifie si le test est unilatéral (supérieur/inférieur) ou bilatéral.",
+        "es": "Especifica si la prueba es de una cola (superior/inferior) o de dos colas.",
+        "ar": "يحدد ما إذا كان الاختبار أحادي الطرف (علوي/سفلي) أم ثنائي الطرف."
       }
     },
     {
@@ -148,13 +164,17 @@
         "en": "Use Sample Standard Deviation (if σ unknown)",
         "tr": "Örneklem Standart Sapmasını Kullan (σ bilinmiyorsa)",
         "de": "Stichproben-Standardabweichung verwenden (falls σ unbekannt)",
-        "fr": "Utiliser l'écart-type de l'échantillon (si σ inconnu)"
+        "fr": "Utiliser l'écart-type de l'échantillon (si σ inconnu)",
+        "es": "Usar desviación estándar muestral (si se desconoce σ)",
+        "ar": "استخدام الانحراف المعياري للعينة (إذا كان σ غير معروف)"
       },
       "businessContext_i18n": {
         "en": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
         "tr": "Doğru olduğunda, hesaplama aracı σ'yı Bessel düzeltmesi kullanarak örneklem verisinden tahmin eder.",
         "de": "Wenn wahr, schätzt der Rechner σ aus den Stichprobendaten mit Bessel-Korrektur.",
-        "fr": "Si vrai, le calculateur estimera σ à partir des données de l'échantillon en utilisant la correction de Bessel."
+        "fr": "Si vrai, le calculateur estimera σ à partir des données de l'échantillon en utilisant la correction de Bessel.",
+        "es": "Cuando es verdadero, la calculadora estima σ a partir de los datos de la muestra usando la corrección de Bessel.",
+        "ar": "عند التفعيل، ستقدر الحاسبة σ من بيانات العينة باستخدام تصحيح بيسل."
       }
     }
   ],
@@ -195,18 +215,24 @@
     ]
   },
   "formulas": {
-    "result": "data_points + population_mean + population_stddev",
-    "result_copy": "data_points + population_mean + population_stddev"
+    "normalized_product": "data_points * population_mean * population_stddev",
+    "result": "data_points * population_mean * population_stddev"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "unitless"
+    "unit": "units"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

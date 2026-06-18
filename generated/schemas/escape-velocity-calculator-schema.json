@@ -14,14 +14,15 @@
         "de": "Masse",
         "fr": "Masse",
         "es": "Masa",
-        "ar": "Mass"
+        "ar": "الكتلة"
       },
       "businessContext_i18n": {
         "en": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)",
         "tr": "Gök cisminin kütlesi (örneğin, Dünya = 5,972 × 10^24 kg)",
         "de": "Masse des Himmelskörpers (z. B. Erde = 5,972 × 10^24 kg)",
         "fr": "Masse du corps céleste (ex. : Terre = 5,972 × 10^24 kg)",
-        "es": "Masa del cuerpo celeste (ej. Tierra = 5.972 × 10^24 kg)"
+        "es": "Masa del cuerpo celeste (ej. Tierra = 5.972 × 10^24 kg)",
+        "ar": "كتلة الجسم السماوي (مثل الأرض = 5.972 × 10^24 كجم)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Radius",
         "fr": "Rayon",
         "es": "Radio",
-        "ar": "Radius"
+        "ar": "نصف القطر"
       },
       "businessContext_i18n": {
         "en": "Radius of the celestial body (e.g., Earth = 6,371 km)",
         "tr": "Gök cisminin yarıçapı (örneğin, Dünya = 6.371 km)",
         "de": "Radius des Himmelskörpers (z. B. Erde = 6.371 km)",
         "fr": "Rayon du corps céleste (ex. : Terre = 6 371 km)",
-        "es": "Radio del cuerpo celeste (ej. Tierra = 6,371 km)"
+        "es": "Radio del cuerpo celeste (ej. Tierra = 6,371 km)",
+        "ar": "نصف قطر الجسم السماوي (مثل الأرض = 6,371 كم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitud",
-        "ar": "Altitude"
+        "ar": "الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Altitude above the surface (0 for surface launch)",
         "tr": "Yüzeyin üzerindeki yükseklik (yüzey fırlatması için 0)",
         "de": "Höhe über der Oberfläche (0 für Start von der Oberfläche)",
         "fr": "Altitude au-dessus de la surface (0 pour un lancement en surface)",
-        "es": "Altitud sobre la superficie (0 para lanzamiento desde superficie)"
+        "es": "Altitud sobre la superficie (0 para lanzamiento desde superficie)",
+        "ar": "الارتفاع فوق السطح (0 للإطلاق من السطح)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Gravitationskonstante",
         "fr": "Constante gravitationnelle",
         "es": "Constante gravitacional",
-        "ar": "Gravitational Constant"
+        "ar": "ثابت الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)",
         "tr": "Evrensel yerçekimi sabiti (varsayılan 6,67430×10^-11 m^3 kg^-1 s^-2)",
         "de": "Universelle Gravitationskonstante (Standard 6,67430×10^-11 m^3 kg^-1 s^-2)",
         "fr": "Constante gravitationnelle universelle (par défaut 6,67430×10^-11 m^3 kg^-1 s^-2)",
-        "es": "Constante gravitacional universal (por defecto 6.67430×10^-11 m^3 kg^-1 s^-2)"
+        "es": "Constante gravitacional universal (por defecto 6.67430×10^-11 m^3 kg^-1 s^-2)",
+        "ar": "ثابت الجاذبية الكونية (القيمة الافتراضية 6.67430×10^-11 م^3 كجم^-1 ث^-2)"
       }
     }
   ],
   "formulas": {
-    "effectiveRadius": "radius + altitude",
-    "effectiveRadius_aux": "radius + altitude"
+    "normalized_product": "mass * radius * altitude * G",
+    "result": "mass * radius * altitude * G"
   },
   "outputs": {
-    "primary": "effectiveRadius_aux",
+    "primary": "result",
     "breakdown": [
-      "effectiveRadius",
-      "escVelKMPS"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "escVelKMPS",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

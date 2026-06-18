@@ -14,14 +14,15 @@
         "de": "Menge des übergeordneten Artikels",
         "fr": "Quantité de l'article parent",
         "es": "Cantidad del artículo padre",
-        "ar": "Parent Item Quantity"
+        "ar": "كمية الصنف الأصلي"
       },
       "businessContext_i18n": {
         "en": "Production order quantity for the parent item.",
         "tr": "Ana ürün için üretim emri miktarı.",
         "de": "Produktionsauftragsmenge für den übergeordneten Artikel.",
         "fr": "Quantité de l'ordre de fabrication pour l'article parent.",
-        "es": "Cantidad de orden de producción para el artículo padre."
+        "es": "Cantidad de orden de producción para el artículo padre.",
+        "ar": "كمية أمر الإنتاج للصنف الأصلي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stücklistenmultiplikator",
         "fr": "Multiplicateur de nomenclature",
         "es": "Multiplicador de lista de materiales",
-        "ar": "BOM Multiplier"
+        "ar": "مضاعف قائمة المواد"
       },
       "businessContext_i18n": {
         "en": "Number of child items required per one parent item.",
         "tr": "Bir ana ürün başına gereken alt ürün sayısı.",
         "de": "Anzahl der benötigten untergeordneten Artikel pro übergeordnetem Artikel.",
         "fr": "Nombre d'articles enfants requis par article parent.",
-        "es": "Número de artículos hijos requeridos por cada artículo padre."
+        "es": "Número de artículos hijos requeridos por cada artículo padre.",
+        "ar": "عدد الأصناف الفرعية المطلوبة لكل صنف أصلي واحد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ausschussrate",
         "fr": "Taux de rebut",
         "es": "Tasa de desperdicio",
-        "ar": "Scrap Rate"
+        "ar": "معدل الهدر"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of child items scrapped during production.",
         "tr": "Üretim sırasında hurdaya çıkması beklenen alt ürünlerin yüzdesi.",
         "de": "Erwarteter Prozentsatz der untergeordneten Artikel, die während der Produktion ausgeschossen werden.",
         "fr": "Pourcentage attendu d'articles enfants mis au rebut pendant la production.",
-        "es": "Porcentaje esperado de artículos hijos desechados durante la producción."
+        "es": "Porcentaje esperado de artículos hijos desechados durante la producción.",
+        "ar": "النسبة المئوية المتوقعة للهدر في الأصناف الفرعية أثناء الإنتاج."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsbestandsfaktor",
         "fr": "Facteur de stock de sécurité",
         "es": "Factor de stock de seguridad",
-        "ar": "Safety Stock Factor"
+        "ar": "عامل مخزون الأمان"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for safety stock to cover uncertainties.",
         "tr": "Belirsizlikleri karşılamak için emniyet stoku olarak eklenen yüzde.",
         "de": "Zusätzlicher Prozentsatz für Sicherheitsbestand zur Abdeckung von Unsicherheiten.",
         "fr": "Pourcentage supplémentaire pour le stock de sécurité afin de couvrir les incertitudes.",
-        "es": "Porcentaje adicional para stock de seguridad para cubrir incertidumbres."
+        "es": "Porcentaje adicional para stock de seguridad para cubrir incertidumbres.",
+        "ar": "نسبة مئوية إضافية لمخزون الأمان لتغطية حالات عدم اليقين."
       }
     }
   ],

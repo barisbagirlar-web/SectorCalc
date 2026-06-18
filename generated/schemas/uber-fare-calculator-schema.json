@@ -14,13 +14,15 @@
         "de": "Grundpreis",
         "fr": "Tarif de base",
         "es": "Tarifa base",
-        "ar": "Base Fare"
+        "ar": "الأجرة الأساسية"
       },
       "businessContext_i18n": {
         "en": "Fixed fee for starting the ride",
         "tr": "Sürüş başlangıcı için sabit ücret",
         "de": "Festgebühr für Fahrtbeginn",
-        "fr": "Frais fixes de prise en charge"
+        "fr": "Frais fixes de prise en charge",
+        "es": "Tarifa fija por inicio del viaje",
+        "ar": "رسوم ثابتة لبدء الرحلة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Dakika Başına Maliyet",
         "de": "Kosten pro Minute",
         "fr": "Coût par minute",
-        "es": "Cost Per Minute",
-        "ar": "Cost Per Minute"
+        "es": "Coste por minuto",
+        "ar": "التكلفة لكل دقيقة"
       },
       "businessContext_i18n": {
         "en": "Charge per minute of travel time",
         "tr": "Seyahat süresi başına ücret",
         "de": "Gebühr pro Minute Fahrzeit",
-        "fr": "Tarif par minute de trajet"
+        "fr": "Tarif par minute de trajet",
+        "es": "Cargo por minuto de tiempo de viaje",
+        "ar": "الرسوم لكل دقيقة من وقت السفر"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Mil Başına Maliyet",
         "de": "Kosten pro Meile",
         "fr": "Coût par mile",
-        "es": "Cost Per Mile",
-        "ar": "Cost Per Mile"
+        "es": "Coste por milla",
+        "ar": "التكلفة لكل ميل"
       },
       "businessContext_i18n": {
         "en": "Charge per mile traveled",
         "tr": "Seyahat edilen mil başına ücret",
         "de": "Gebühr pro gefahrene Meile",
-        "fr": "Tarif par mile parcouru"
+        "fr": "Tarif par mile parcouru",
+        "es": "Cargo por milla recorrida",
+        "ar": "الرسوم لكل ميل يتم قطعه"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Mesafe (Mil)",
         "de": "Strecke (Meilen)",
         "fr": "Distance (miles)",
-        "es": "Distance (Miles)",
-        "ar": "Distance (Miles)"
+        "es": "Distancia (millas)",
+        "ar": "المسافة (أميال)"
       },
       "businessContext_i18n": {
         "en": "Total distance of the trip",
         "tr": "Toplam seyahat mesafesi",
         "de": "Gesamtstrecke der Fahrt",
-        "fr": "Distance totale du trajet"
+        "fr": "Distance totale du trajet",
+        "es": "Distancia total del viaje",
+        "ar": "المسافة الإجمالية للرحلة"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Süre (Dakika)",
         "de": "Dauer (Minuten)",
         "fr": "Durée (minutes)",
-        "es": "Duration (Minutes)",
-        "ar": "Duration (Minutes)"
+        "es": "Duración (minutos)",
+        "ar": "المدة (دقائق)"
       },
       "businessContext_i18n": {
         "en": "Total trip duration",
         "tr": "Toplam yolculuk süresi",
         "de": "Gesamte Reisedauer",
-        "fr": "Durée totale du trajet"
+        "fr": "Durée totale du trajet",
+        "es": "Duración total del viaje",
+        "ar": "المدة الإجمالية للرحلة"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Nachfrage-Multiplikator",
         "fr": "Multiplicateur de demande",
         "es": "Multiplicador de aumento",
-        "ar": "Surge Multiplier"
+        "ar": "مضاعف الطلب"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied during high demand (e.g., 1.5x)",
         "tr": "Yüksek talep sırasında uygulanan çarpan (ör. 1,5x)",
         "de": "Multiplikator bei hoher Nachfrage (z. B. 1,5x)",
-        "fr": "Multiplicateur appliqué en période de forte demande (ex. 1,5x)"
+        "fr": "Multiplicateur appliqué en période de forte demande (ex. 1,5x)",
+        "es": "Multiplicador aplicado durante alta demanda (ej. 1.5x)",
+        "ar": "المضاعف المطبق أثناء الطلب المرتفع (مثل 1.5x)"
       }
     },
     {
@@ -146,13 +158,15 @@
         "de": "Buchungsgebühr",
         "fr": "Frais de réservation",
         "es": "Tarifa de reserva",
-        "ar": "Booking Fee"
+        "ar": "رسوم الحجز"
       },
       "businessContext_i18n": {
         "en": "Fixed booking fee added to total",
         "tr": "Toplam tutara eklenen sabit rezervasyon ücreti",
         "de": "Feste Buchungsgebühr, die zum Gesamtbetrag hinzugefügt wird",
-        "fr": "Frais de réservation fixes ajoutés au total"
+        "fr": "Frais de réservation fixes ajoutés au total",
+        "es": "Tarifa de reserva fija añadida al total",
+        "ar": "رسوم الحجز الثابتة المضافة إلى الإجمالي"
       }
     }
   ],

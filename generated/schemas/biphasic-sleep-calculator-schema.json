@@ -14,14 +14,15 @@
         "de": "Aufwachzeit (24h-Dezimal)",
         "fr": "Heure de réveil (décimal 24h)",
         "es": "Hora de despertar (decimal 24h)",
-        "ar": "Wake-up time (24h decimal)"
+        "ar": "وقت الاستيقاظ (بالتوقيت العشري 24 ساعة)"
       },
       "businessContext_i18n": {
         "en": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM).",
         "tr": "İstenen uyanma zamanı ondalık saat cinsinden (ör. 7,5 = 07:30).",
         "de": "Die gewünschte Aufwachzeit in Dezimalstunden (z. B. 7,5 = 7:30 Uhr).",
         "fr": "Heure de réveil souhaitée en heures décimales (ex. 7,5 = 7h30).",
-        "es": "La hora de despertar deseada en horas decimales (ej. 7.5 = 7:30 AM)."
+        "es": "La hora de despertar deseada en horas decimales (ej. 7.5 = 7:30 AM).",
+        "ar": "وقت الاستيقاظ المطلوب بالساعات العشرية (مثال: 7.5 = 7:30 صباحًا)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kernschlafdauer",
         "fr": "Durée du sommeil principal",
         "es": "Duración del sueño principal",
-        "ar": "Core sleep duration"
+        "ar": "مدة النوم الأساسي"
       },
       "businessContext_i18n": {
         "en": "Duration of the core sleep segment in hours.",
         "tr": "Çekirdek uyku segmentinin saat cinsinden süresi.",
         "de": "Dauer des Kernschlafsegments in Stunden.",
         "fr": "Durée du segment de sommeil principal en heures.",
-        "es": "Duración del segmento de sueño principal en horas."
+        "es": "Duración del segmento de sueño principal en horas.",
+        "ar": "مدة جزء النوم الأساسي بالساعات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nickerchen-Dauer",
         "fr": "Durée de la sieste",
         "es": "Duración de la siesta",
-        "ar": "Nap duration"
+        "ar": "مدة القيلولة"
       },
       "businessContext_i18n": {
         "en": "Duration of the nap segment in hours.",
         "tr": "Şekerleme bölümünün saat cinsinden süresi.",
         "de": "Dauer des Nickerchensegments in Stunden.",
         "fr": "Durée du segment de sieste en heures.",
-        "es": "Duración del segmento de siesta en horas."
+        "es": "Duración del segmento de siesta en horas.",
+        "ar": "مدة النوم بالساعات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Startzeit des Nickerchens (24h-Dezimal)",
         "fr": "Heure de début de la sieste (décimale 24h)",
         "es": "Hora de inicio de la siesta (decimal 24h)",
-        "ar": "Nap start time (24h decimal)"
+        "ar": "وقت بدء النوم (عشري 24 ساعة)"
       },
       "businessContext_i18n": {
         "en": "The desired start time for the nap (e.g., 14.0 = 2:00 PM).",
         "tr": "Şekerleme için istenen başlangıç saati (ör. 14.0 = 14:00).",
         "de": "Die gewünschte Startzeit für das Nickerchen (z. B. 14.0 = 14:00 Uhr).",
         "fr": "Heure de début souhaitée pour la sieste (ex. 14,0 = 14h00).",
-        "es": "La hora deseada para iniciar la siesta (ej., 14.0 = 2:00 PM)."
+        "es": "La hora deseada para iniciar la siesta (ej., 14.0 = 2:00 PM).",
+        "ar": "وقت البدء المطلوب للقيلولة (مثال: 14.0 = 2:00 مساءً)."
       }
     }
   ],

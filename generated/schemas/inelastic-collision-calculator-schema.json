@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Mass of Object 1",
         "tr": "Nesne 1'in Kütlesi",
-        "de": "Mass of Object 1",
+        "de": "Masse von Objekt 1",
         "fr": "Masse de l'objet 1",
         "es": "Masa del objeto 1",
-        "ar": "Mass of Object 1"
+        "ar": "كتلة الجسم 1"
       },
       "businessContext_i18n": {
         "en": "Mass of the first object in the collision.",
         "tr": "Çarpışmadaki ilk nesnenin kütlesi.",
-        "de": "Mass of the first object in the collision.",
+        "de": "Masse des ersten Objekts im Stoß.",
         "fr": "Masse du premier objet dans la collision.",
-        "es": "Masa del primer objeto en la colisión."
+        "es": "Masa del primer objeto en la colisión.",
+        "ar": "كتلة الجسم الأول في التصادم."
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Initial Velocity of Object 1",
         "tr": "Nesne 1'in Başlangıç Hızı",
-        "de": "Initial Velocity of Object 1",
+        "de": "Anfangsgeschwindigkeit von Objekt 1",
         "fr": "Vitesse initiale de l'objet 1",
         "es": "Velocidad inicial del objeto 1",
-        "ar": "Initial Velocity of Object 1"
+        "ar": "السرعة الابتدائية للجسم 1"
       },
       "businessContext_i18n": {
         "en": "Initial velocity of object 1 before collision, positive direction.",
         "tr": "Nesne 1'in çarpışmadan önceki başlangıç hızı, pozitif yön.",
-        "de": "Initial velocity of object 1 before collision, positive direction.",
+        "de": "Anfangsgeschwindigkeit von Objekt 1 vor dem Stoß, positive Richtung.",
         "fr": "Vitesse initiale de l'objet 1 avant la collision, direction positive.",
-        "es": "Velocidad inicial del objeto 1 antes de la colisión, dirección positiva."
+        "es": "Velocidad inicial del objeto 1 antes de la colisión, dirección positiva.",
+        "ar": "السرعة الابتدائية للجسم الأول قبل التصادم، الاتجاه الموجب."
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Mass of Object 2",
         "tr": "Nesne 2'nin Kütlesi",
-        "de": "Mass of Object 2",
+        "de": "Masse von Objekt 2",
         "fr": "Masse de l'objet 2",
         "es": "Masa del objeto 2",
-        "ar": "Mass of Object 2"
+        "ar": "كتلة الجسم 2"
       },
       "businessContext_i18n": {
         "en": "Mass of the second object in the collision.",
         "tr": "Çarpışmadaki ikinci nesnenin kütlesi.",
-        "de": "Mass of the second object in the collision.",
+        "de": "Masse des zweiten Objekts im Stoß.",
         "fr": "Masse du second objet dans la collision.",
-        "es": "Masa del segundo objeto en la colisión."
+        "es": "Masa del segundo objeto en la colisión.",
+        "ar": "كتلة الجسم الثاني في التصادم."
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Initial Velocity of Object 2",
         "tr": "Nesne 2'nin Başlangıç Hızı",
-        "de": "Initial Velocity of Object 2",
+        "de": "Anfangsgeschwindigkeit von Objekt 2",
         "fr": "Vitesse initiale de l'objet 2",
         "es": "Velocidad inicial del objeto 2",
-        "ar": "Initial Velocity of Object 2"
+        "ar": "السرعة الابتدائية للجسم 2"
       },
       "businessContext_i18n": {
         "en": "Initial velocity of object 2 before collision, negative if opposite direction.",
         "tr": "Nesne 2'nin çarpışmadan önceki başlangıç hızı, ters yönde ise negatif.",
-        "de": "Initial velocity of object 2 before collision, negative if opposite direction.",
+        "de": "Anfangsgeschwindigkeit von Objekt 2 vor dem Stoß, negativ bei entgegengesetzter Richtung.",
         "fr": "Vitesse initiale de l'objet 2 avant la collision, négative si direction opposée.",
-        "es": "Velocidad inicial del objeto 2 antes de la colisión, negativa si es dirección opuesta."
+        "es": "Velocidad inicial del objeto 2 antes de la colisión, negativa si es dirección opuesta.",
+        "ar": "السرعة الابتدائية للجسم الثاني قبل التصادم، سالبة إذا كان الاتجاه معاكسًا."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Restitutionskoeffizient",
         "fr": "Coefficient de restitution",
         "es": "Coeficiente de restitución",
-        "ar": "Coefficient of Restitution"
+        "ar": "معامل الارتداد"
       },
       "businessContext_i18n": {
         "en": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
         "tr": "Çarpışma sonrası bağıl hızın çarpışma öncesine oranı. 0 ile 1 arasında.",
-        "de": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
+        "de": "Verhältnis der relativen Geschwindigkeit nach dem Stoß zu vor dem Stoß. Bereich 0 bis 1.",
         "fr": "Rapport de la vitesse relative après collision sur avant collision. Plage de 0 à 1.",
-        "es": "Relación de velocidad relativa después de la colisión respecto a antes. Rango 0 a 1."
+        "es": "Relación de velocidad relativa después de la colisión respecto a antes. Rango 0 a 1.",
+        "ar": "نسبة السرعة النسبية بعد التصادم إلى قبل التصادم. المدى من 0 إلى 1."
       }
     }
   ],

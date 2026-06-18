@@ -14,14 +14,15 @@
         "de": "Fahrzeugwert",
         "fr": "Valeur de la voiture",
         "es": "Valor del automóvil",
-        "ar": "Car Value"
+        "ar": "قيمة السيارة"
       },
       "businessContext_i18n": {
         "en": "The current market value of the insured vehicle.",
         "tr": "Sigortalı aracın güncel piyasa değeri.",
         "de": "Der aktuelle Marktwert des versicherten Fahrzeugs.",
         "fr": "Valeur actuelle sur le marché du véhicule assuré.",
-        "es": "El valor de mercado actual del vehículo asegurado."
+        "es": "El valor de mercado actual del vehículo asegurado.",
+        "ar": "القيمة السوقية الحالية للمركبة المؤمن عليها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Fahreralter",
         "fr": "Âge du conducteur",
         "es": "Edad del conductor",
-        "ar": "Driver Age"
+        "ar": "عمر السائق"
       },
       "businessContext_i18n": {
         "en": "Age of the primary driver; younger drivers often have higher risk.",
         "tr": "Ana sürücünün yaşı; genç sürücüler genellikle daha yüksek riske sahiptir.",
         "de": "Alter des Hauptfahrers; jüngere Fahrer haben oft ein höheres Risiko.",
         "fr": "Âge du conducteur principal ; les conducteurs plus jeunes ont souvent un risque plus élevé.",
-        "es": "Edad del conductor principal; los conductores más jóvenes suelen tener mayor riesgo."
+        "es": "Edad del conductor principal; los conductores más jóvenes suelen tener mayor riesgo.",
+        "ar": "عمر السائق الأساسي؛ السائقون الأصغر سنًا غالبًا ما يكونون أكثر عرضة للخطر."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fahrerfahrung",
         "fr": "Expérience de conduite",
         "es": "Experiencia de conducción",
-        "ar": "Driving Experience"
+        "ar": "خبرة القيادة"
       },
       "businessContext_i18n": {
         "en": "Number of years the driver has held a valid driving license.",
         "tr": "Sürücünün geçerli bir sürücü belgesine sahip olduğu yıl sayısı.",
         "de": "Anzahl der Jahre, die der Fahrer einen gültigen Führerschein besitzt.",
         "fr": "Nombre d'années pendant lesquelles le conducteur a détenu un permis de conduire valide.",
-        "es": "Número de años que el conductor ha tenido una licencia de conducir válida."
+        "es": "Número de años que el conductor ha tenido una licencia de conducir válida.",
+        "ar": "عدد السنوات التي حصل فيها السائق على رخصة قيادة سارية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schadenfreie Jahre",
         "fr": "Années sans sinistre",
         "es": "Años sin siniestros",
-        "ar": "No-Claims Years"
+        "ar": "سنوات عدم المطالبات"
       },
       "businessContext_i18n": {
         "en": "Consecutive claim-free years; affects no-claims discount.",
         "tr": "Ardışık hasarsız yıllar; hasarsızlık indirimini etkiler.",
         "de": "Aufeinanderfolgende schadenfreie Jahre; beeinflusst den Schadenfreiheitsrabatt.",
         "fr": "Années consécutives sans sinistre ; affecte la réduction pour absence de sinistre.",
-        "es": "Años consecutivos sin siniestros; afecta el descuento por no siniestros."
+        "es": "Años consecutivos sin siniestros; afecta el descuento por no siniestros.",
+        "ar": "السنوات المتتالية الخالية من المطالبات؛ تؤثر على خصم عدم المطالبات."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jährliche Fahrleistung",
         "fr": "Kilométrage annuel",
         "es": "Kilometraje anual",
-        "ar": "Annual Mileage"
+        "ar": "المسافة السنوية المقطوعة"
       },
       "businessContext_i18n": {
         "en": "Estimated annual distance driven; higher mileage increases risk.",
         "tr": "Tahmini yıllık sürüş mesafesi; yüksek kilometre riski artırır.",
         "de": "Geschätzte jährliche Fahrleistung; höhere Kilometerzahl erhöht das Risiko.",
         "fr": "Distance annuelle estimée parcourue ; un kilométrage plus élevé augmente le risque.",
-        "es": "Distancia anual estimada recorrida; un mayor kilometraje aumenta el riesgo."
+        "es": "Distancia anual estimada recorrida; un mayor kilometraje aumenta el riesgo.",
+        "ar": "المسافة السنوية المقدرة المقطوعة؛ زيادة عدد الكيلومترات تزيد من المخاطر."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Deckungsstufe",
         "fr": "Niveau de couverture",
         "es": "Nivel de cobertura",
-        "ar": "Coverage Level"
+        "ar": "مستوى التغطية"
       },
       "businessContext_i18n": {
         "en": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive.",
         "tr": "Teminat türü: 1=Üçüncü şahıs, 2=Üçüncü şahıs yangın ve hırsızlık, 3=Kapsamlı.",
         "de": "Deckungsart: 1=Haftpflicht, 2=Teilkasko, 3=Vollkasko.",
         "fr": "Type de couverture : 1=Tiers, 2=Tiers vol incendie, 3=Tous risques.",
-        "es": "Tipo de cobertura: 1=Terceros, 2=Terceros incendio y robo, 3=Todo riesgo."
+        "es": "Tipo de cobertura: 1=Terceros, 2=Terceros incendio y robo, 3=Todo riesgo.",
+        "ar": "نوع التغطية: 1=طرف ثالث، 2=طرف ثالث حريق وسرقة، 3=شامل."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Regionaler Risikofaktor",
         "fr": "Facteur de risque régional",
         "es": "Factor de riesgo regional",
-        "ar": "Region Risk Factor"
+        "ar": "عامل مخاطر المنطقة"
       },
       "businessContext_i18n": {
         "en": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest).",
         "tr": "Suç ve kaza istatistiklerine dayalı bölgesel risk faktörü (1=en düşük, 10=en yüksek).",
         "de": "Regionaler Risikofaktor basierend auf Kriminalitäts- und Unfallstatistiken (1=niedrigste, 10=höchste).",
         "fr": "Facteur de risque régional basé sur les statistiques de criminalité et d'accidents (1=le plus bas, 10=le plus élevé).",
-        "es": "Factor de riesgo regional basado en estadísticas de delincuencia y accidentes (1=más bajo, 10=más alto)."
+        "es": "Factor de riesgo regional basado en estadísticas de delincuencia y accidentes (1=más bajo, 10=más alto).",
+        "ar": "عامل المخاطر الإقليمي بناءً على إحصائيات الجرائم والحوادث (1=الأدنى، 10=الأعلى)."
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Fahrzeugalter",
         "fr": "Âge du véhicule",
         "es": "Antigüedad del vehículo",
-        "ar": "Vehicle Age"
+        "ar": "عمر المركبة"
       },
       "businessContext_i18n": {
         "en": "Age of the vehicle; older cars may have different risk profiles.",
         "tr": "Aracın yaşı; eski arabalar farklı risk profillerine sahip olabilir.",
         "de": "Alter des Fahrzeugs; ältere Autos können unterschiedliche Risikoprofile aufweisen.",
         "fr": "Âge du véhicule ; les voitures plus anciennes peuvent avoir des profils de risque différents.",
-        "es": "Antigüedad del vehículo; los autos más antiguos pueden tener diferentes perfiles de riesgo."
+        "es": "Antigüedad del vehículo; los autos más antiguos pueden tener diferentes perfiles de riesgo.",
+        "ar": "عمر المركبة؛ قد يكون للمركبات القديمة ملفات مخاطر مختلفة."
       }
     }
   ],

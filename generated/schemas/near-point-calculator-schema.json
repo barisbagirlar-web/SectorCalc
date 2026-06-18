@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude.",
         "tr": "Hastanın yaşı (yıl cinsinden). Hofstetter formüllerinde akomodasyon genliği için kullanılır.",
         "de": "Patientenalter in Jahren. Wird in den Hofstetter-Formeln für die Akkommodationsamplitude verwendet.",
         "fr": "Hastanın yaşı (yıl). Akomodasyon genliği için Hofstetter formüllerinde kullanılır.",
-        "es": "Edad del paciente en años. Se utiliza en las fórmulas de Hofstetter para la amplitud acomodativa."
+        "es": "Edad del paciente en años. Se utiliza en las fórmulas de Hofstetter para la amplitud acomodativa.",
+        "ar": "عمر المريض بالسنوات. يُستخدم في معادلات هوفستيتر لسعة التكيف."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Refraktionsfehler",
         "fr": "Refraktif Hata",
         "es": "Error refractivo",
-        "ar": "Refractive Error"
+        "ar": "الخطأ الانكساري"
       },
       "businessContext_i18n": {
         "en": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription.",
         "tr": "Diyoptri (D) cinsinden kırma kusuru. Miyopi için negatif, hipermetropi için pozitif. Genellikle uzak gözlük reçetesidir.",
         "de": "Refraktionsfehler in Dioptrien (D). Negativ für Myopie, positiv für Hyperopie. Typischerweise die Fernbrille.",
         "fr": "Diyoptri (D) cinsinden refraktif hata. Miyopi için negatif, hipermetropi için pozitif. Genellikle uzak gözlük reçetesi.",
-        "es": "Error refractivo en dioptrías (D). Negativo para miopía, positivo para hipermetropía. Generalmente la prescripción de lejos."
+        "es": "Error refractivo en dioptrías (D). Negativo para miopía, positivo para hipermetropía. Generalmente la prescripción de lejos.",
+        "ar": "الخطأ الانكساري بالديوبتر (D). سالب لقصر النظر، موجب لطول النظر. عادةً وصفة المسافة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Amplitudenmethode",
         "fr": "Méthode d'amplitude",
         "es": "Método de amplitud",
-        "ar": "Amplitude Method"
+        "ar": "طريقة السعة"
       },
       "businessContext_i18n": {
         "en": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'.",
         "tr": "Akomodatif genlik hesaplama yöntemini seçin. 1: Hofstetter minimum (15 - 0.25*yaş), 2: Hofstetter ortalama (18.5 - 0.30*yaş), 3: Hofstetter maksimum (25 - 0.40*yaş), 0: 'directAmplitude' kullanarak doğrudan giriş.",
         "de": "Methode zur Berechnung der Akkommodationsamplitude auswählen. 1: Hofstetter Minimum (15 - 0,25*Alter), 2: Hofstetter Durchschnitt (18,5 - 0,30*Alter), 3: Hofstetter Maximum (25 - 0,40*Alter), 0: Direkteingabe mit 'directAmplitude'.",
         "fr": "Sélectionnez la méthode de calcul de l'amplitude accommodative. 1 : Minimum de Hofstetter (15 - 0,25*âge), 2 : Moyenne de Hofstetter (18,5 - 0,30*âge), 3 : Maximum de Hofstetter (25 - 0,40*âge), 0 : Saisie directe via 'directAmplitude'.",
-        "es": "Seleccione el método para calcular la amplitud acomodativa. 1: Mínimo de Hofstetter (15 - 0.25*edad), 2: Promedio de Hofstetter (18.5 - 0.30*edad), 3: Máximo de Hofstetter (25 - 0.40*edad), 0: Entrada directa usando 'amplitudDirecta'."
+        "es": "Seleccione el método para calcular la amplitud acomodativa. 1: Mínimo de Hofstetter (15 - 0.25*edad), 2: Promedio de Hofstetter (18.5 - 0.30*edad), 3: Máximo de Hofstetter (25 - 0.40*edad), 0: Entrada directa usando 'amplitudDirecta'.",
+        "ar": "اختر طريقة حساب سعة التكيف. 1: هوفستيتر الأدنى (15 - 0.25*العمر)، 2: هوفستيتر المتوسط (18.5 - 0.30*العمر)، 3: هوفستيتر الأقصى (25 - 0.40*العمر)، 0: إدخال مباشر باستخدام 'directAmplitude'."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Direkte Amplitude",
         "fr": "Amplitude directe",
         "es": "Amplitud directa",
-        "ar": "Direct Amplitude"
+        "ar": "السعة المباشرة"
       },
       "businessContext_i18n": {
         "en": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0.",
         "tr": "Diyoptri (D) cinsinden doğrudan akomodatif genlik. Yalnızca Genlik Yöntemi 0 olduğunda kullanılır.",
         "de": "Direkte Akkommodationsamplitude in Dioptrien (D). Wird nur verwendet, wenn die Amplitudenmethode 0 ist.",
         "fr": "Amplitude accommodative directe en dioptries (D). Utilisée uniquement lorsque la méthode d'amplitude est 0.",
-        "es": "Amplitud acomodativa directa en dioptrías (D). Se usa solo cuando el Método de Amplitud es 0."
+        "es": "Amplitud acomodativa directa en dioptrías (D). Se usa solo cuando el Método de Amplitud es 0.",
+        "ar": "سعة التكيف المباشرة بالديوبتر (D). تُستخدم فقط عندما تكون طريقة السعة 0."
       }
     }
   ],

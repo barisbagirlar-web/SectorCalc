@@ -14,14 +14,15 @@
         "de": "Nennkapazität",
         "fr": "Capacité nominale",
         "es": "Capacidad nominal",
-        "ar": "Nominal Kapasite"
+        "ar": "السعة الاسمية"
       },
       "businessContext_i18n": {
         "en": "Forkliftin standart yük merkezindeki maksimum taşıma kapasitesi.",
         "tr": "Forkliftin standart yük merkezindeki maksimum taşıma kapasitesi.",
         "de": "Maximale Tragfähigkeit des Gabelstaplers bei standardmäßigem Lastschwerpunkt.",
         "fr": "Capacité de levage maximale du chariot élévateur au centre de charge standard.",
-        "es": "Capacidad máxima de carga del montacargas en el centro de carga estándar."
+        "es": "Capacidad máxima de carga del montacargas en el centro de carga estándar.",
+        "ar": "أقصى سعة رفع للرافعة الشوكية عند مركز الحمل القياسي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Standard-Lastschwerpunkt",
         "fr": "Centre de charge standard",
         "es": "Centro de carga estándar",
-        "ar": "Standart Yük Merkezi"
+        "ar": "مركز الحمل القياسي"
       },
       "businessContext_i18n": {
         "en": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi.",
         "tr": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi.",
         "de": "Standard-Lastschwerpunktabstand, für den die Nennkapazität des Gabelstaplers gilt.",
         "fr": "Distance standard du centre de charge pour laquelle la capacité nominale du chariot élévateur est valide.",
-        "es": "Distancia del centro de carga estándar donde la capacidad nominal del montacargas es válida."
+        "es": "Distancia del centro de carga estándar donde la capacidad nominal del montacargas es válida.",
+        "ar": "مسافة مركز الحمل القياسي التي تكون عندها السعة الاسمية للرافعة الشوكية سارية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Tatsächlicher Lastschwerpunkt",
         "fr": "Centre de charge réel",
         "es": "Centro de carga real",
-        "ar": "Gerçek Yük Merkezi"
+        "ar": "مركز الحمل الفعلي"
       },
       "businessContext_i18n": {
         "en": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi.",
         "tr": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi.",
         "de": "Tatsächlicher Abstand des Schwerpunkts der zu transportierenden Last zur Gabelrückseite.",
         "fr": "Distance réelle entre le centre de gravité de la charge et l'arrière des fourches.",
-        "es": "Distancia real desde la parte trasera de las horquillas hasta el centro de gravedad de la carga."
+        "es": "Distancia real desde la parte trasera de las horquillas hasta el centro de gravedad de la carga.",
+        "ar": "المسافة الفعلية من مركز ثقل الحمولة إلى الجزء الخلفي من الشوكة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Hubhöhe",
         "fr": "Hauteur de levage",
         "es": "Altura de elevación",
-        "ar": "Kaldırma Yüksekliği"
+        "ar": "ارتفاع الرفع"
       },
       "businessContext_i18n": {
         "en": "Yükün kaldırılacağı dikey yükseklik.",
         "tr": "Yükün kaldırılacağı dikey yükseklik.",
         "de": "Vertikale Höhe, auf die die Last angehoben wird.",
         "fr": "Hauteur verticale à laquelle la charge sera levée.",
-        "es": "Altura vertical a la que se elevará la carga."
+        "es": "Altura vertical a la que se elevará la carga.",
+        "ar": "الارتفاع الرأسي الذي سيتم رفع الحمولة إليه."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Maximale Hubhöhe",
         "fr": "Hauteur de levage maximale",
         "es": "Altura máxima de elevación",
-        "ar": "Maksimum Kaldırma Yüksekliği"
+        "ar": "أقصى ارتفاع للرفع"
       },
       "businessContext_i18n": {
         "en": "Forkliftin erişebileceği en yüksek nokta.",
         "tr": "Forkliftin erişebileceği en yüksek nokta.",
         "de": "Höchster Punkt, den der Gabelstapler erreichen kann.",
         "fr": "Point le plus élevé accessible par le chariot élévateur.",
-        "es": "Punto más alto al que puede llegar el montacargas."
+        "es": "Punto más alto al que puede llegar el montacargas.",
+        "ar": "أعلى نقطة يمكن للرافعة الشوكية الوصول إليها."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Faktörü"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Operasyonel emniyet için uygulanan güvenlik katsayısı.",
         "tr": "Operasyonel emniyet için uygulanan güvenlik katsayısı.",
         "de": "Sicherheitsfaktor für die Betriebssicherheit.",
         "fr": "Coefficient de sécurité appliqué pour la sécurité opérationnelle.",
-        "es": "Coeficiente de seguridad aplicado para la seguridad operacional."
+        "es": "Coeficiente de seguridad aplicado para la seguridad operacional.",
+        "ar": "معامل الأمان المطبق لضمان السلامة التشغيلية."
       }
     }
   ],

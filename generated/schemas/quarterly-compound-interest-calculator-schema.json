@@ -14,14 +14,15 @@
         "de": "Kapitalbetrag",
         "fr": "Montant principal",
         "es": "Monto principal",
-        "ar": "Principal Amount"
+        "ar": "المبلغ الأساسي"
       },
       "businessContext_i18n": {
         "en": "The initial sum of money invested or borrowed.",
         "tr": "Yatırılan veya borç alınan başlangıç para miktarı.",
         "de": "Der anfänglich investierte oder geliehene Geldbetrag.",
         "fr": "Somme d'argent initiale investie ou empruntée.",
-        "es": "La suma inicial de dinero invertida o prestada."
+        "es": "La suma inicial de dinero invertida o prestada.",
+        "ar": "المبلغ الأولي من الأموال المستثمرة أو المقترضة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "The nominal annual interest rate before compounding.",
         "tr": "Bileşik faiz öncesi nominal yıllık faiz oranı.",
         "de": "Der nominale jährliche Zinssatz vor Zinseszins.",
         "fr": "Taux d'intérêt annuel nominal avant capitalisation.",
-        "es": "La tasa de interés anual nominal antes de la capitalización."
+        "es": "La tasa de interés anual nominal antes de la capitalización.",
+        "ar": "معدل الفائدة السنوي الاسمي قبل المركبة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
-        "ar": "Number of Years"
+        "ar": "عدد السنوات"
       },
       "businessContext_i18n": {
         "en": "The total time the money is invested or borrowed for.",
         "tr": "Paranın yatırıldığı veya borç alındığı toplam süre.",
         "de": "Die gesamte Zeitdauer der Geldanlage oder -leihe.",
         "fr": "Durée totale pendant laquelle l'argent est investi ou emprunté.",
-        "es": "El tiempo total durante el cual el dinero está invertido o prestado."
+        "es": "El tiempo total durante el cual el dinero está invertido o prestado.",
+        "ar": "الوقت الإجمالي الذي يتم فيه استثمار الأموال أو اقتراضها."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de capitalización",
-        "ar": "Compounding Frequency"
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "The number of compounding periods per year. For quarterly, this is 4.",
         "tr": "Yıllık bileşik dönem sayısı. Üç aylık için bu 4'tür.",
         "de": "Die Anzahl der Zinseszinsperioden pro Jahr. Bei vierteljährlicher Verzinsung ist dies 4.",
         "fr": "Nombre de périodes de capitalisation par an. Pour un trimestre, c'est 4.",
-        "es": "El número de períodos de capitalización por año. Para trimestral, esto es 4."
+        "es": "El número de períodos de capitalización por año. Para trimestral, esto es 4.",
+        "ar": "عدد فترات المركبة في السنة. للربع سنوي، هذا الرقم هو 4."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
         "es": "Tasa de inflación anual",
-        "ar": "Annual Inflation Rate"
+        "ar": "معدل التضخم السنوي"
       },
       "businessContext_i18n": {
         "en": "The expected average annual inflation rate, used to calculate the real value of money.",
         "tr": "Beklenen ortalama yıllık enflasyon oranı, paranın reel değerini hesaplamak için kullanılır.",
         "de": "Die erwartete durchschnittliche jährliche Inflationsrate, zur Berechnung des realen Geldwerts.",
         "fr": "Taux d'inflation annuel moyen attendu, utilisé pour calculer la valeur réelle de l'argent.",
-        "es": "La tasa de inflación anual promedio esperada, utilizada para calcular el valor real del dinero."
+        "es": "La tasa de inflación anual promedio esperada, utilizada para calcular el valor real del dinero.",
+        "ar": "متوسط معدل التضخم السنوي المتوقع، يستخدم لحساب القيمة الحقيقية للنقود."
       }
     }
   ],

@@ -13,14 +13,16 @@
         "tr": "Yol Mesafesi (km)",
         "de": "Streckenentfernung (km)",
         "fr": "Distance du trajet (km)",
-        "es": "Yol Mesafesi (km)",
-        "ar": "Yol Mesafesi (km)"
+        "es": "Distancia de ruta (km)",
+        "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
         "en": "Kat edilen mesafe",
         "tr": "Kat edilen mesafe",
         "de": "Zurückgelegte Strecke",
-        "fr": "Distance parcourue"
+        "fr": "Distance parcourue",
+        "es": "Distancia recorrida",
+        "ar": "المسافة المقطوعة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Temel Geçiş Ücreti (TL/km)",
         "de": "Grundmaut (TL/km)",
         "fr": "Tarif de base du péage (TL/km)",
-        "es": "Temel Geçiş Ücreti (TL/km)",
-        "ar": "Temel Geçiş Ücreti (TL/km)"
+        "es": "Tarifa base de peaje (TL/km)",
+        "ar": "رسوم العبور الأساسية (ليرة تركية/كم)"
       },
       "businessContext_i18n": {
         "en": "Araç sınıfına göre km başına temel ücret",
         "tr": "Araç sınıfına göre km başına temel ücret",
         "de": "Grundgebühr pro km nach Fahrzeugklasse",
-        "fr": "Tarif de base par km selon la classe de véhicule"
+        "fr": "Tarif de base par km selon la classe de véhicule",
+        "es": "Tarifa base por km según clase de vehículo",
+        "ar": "الرسوم الأساسية لكل كيلومتر حسب فئة المركبة"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Aks/Köprü Çarpanı",
         "de": "Achsen-/Brückenmultiplikator",
         "fr": "Coefficient d'essieu/pont",
-        "es": "Aks/Köprü Çarpanı",
-        "ar": "Aks/Köprü Çarpanı"
+        "es": "Multiplicador de eje/puente",
+        "ar": "معامل المحور/الجسر"
       },
       "businessContext_i18n": {
         "en": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
         "tr": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
         "de": "Multiplikator nach Achsenzahl oder -klasse (z. B. 2 Achsen: 1,0, 3 Achsen: 1,5, 4 Achsen: 2,0)",
-        "fr": "Coefficient selon le nombre d'essieux ou la classe (ex. 2 essieux:1.0, 3 essieux:1.5, 4 essieux:2.0)"
+        "fr": "Coefficient selon le nombre d'essieux ou la classe (ex. 2 essieux:1.0, 3 essieux:1.5, 4 essieux:2.0)",
+        "es": "Multiplicador según número de ejes o clase (ej. 2 ejes:1.0, 3 ejes:1.5, 4 ejes:2.0)",
+        "ar": "المعامل حسب عدد المحاور أو الفئة (مثال: محوران: 1.0، 3 محاور: 1.5، 4 محاور: 2.0)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Sabit Geçiş Ücreti (TL)",
         "de": "Feste Mautgebühr (TL)",
         "fr": "Frais de péage fixes (TL)",
-        "es": "Sabit Geçiş Ücreti (TL)",
-        "ar": "Sabit Geçiş Ücreti (TL)"
+        "es": "Tarifa fija de peaje (TL)",
+        "ar": "رسوم العبور الثابتة (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "Varsa sabit köprü/otoyol giriş ücreti",
         "tr": "Varsa sabit köprü/otoyol giriş ücreti",
         "de": "Feste Brücken-/Autobahneinfahrtsgebühr, falls vorhanden",
-        "fr": "Frais d'entrée fixes pour pont/autoroute, le cas échéant"
+        "fr": "Frais d'entrée fixes pour pont/autoroute, le cas échéant",
+        "es": "Cargo fijo de entrada a puente/autopista, si aplica",
+        "ar": "رسوم دخول الجسر/الطريق السريع الثابتة إن وجدت"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Gewichtungsfaktor",
         "fr": "Facteur de pondération",
         "es": "Factor de peso",
-        "ar": "Ağırlık Faktörü"
+        "ar": "عامل الوزن"
       },
       "businessContext_i18n": {
         "en": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
         "tr": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
         "de": "Umwelt- oder Infrastrukturbeitragsmultiplikator basierend auf Fahrzeuggewicht (z. B. >10 t)",
-        "fr": "Multiplicateur de contribution environnementale ou d'infrastructure lié au poids du véhicule (ex. >10 tonnes)"
+        "fr": "Multiplicateur de contribution environnementale ou d'infrastructure lié au poids du véhicule (ex. >10 tonnes)",
+        "es": "Multiplicador de contribución ambiental o de infraestructura según peso del vehículo (p. ej., >10 t)",
+        "ar": "معامل المساهمة البيئية أو البنية التحتية حسب وزن المركبة (مثال: >10 طن)"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Mehrwertsteuersatz (%)",
         "fr": "Taux de TVA (%)",
         "es": "Tasa de IVA (%)",
-        "ar": "KDV Oranı (%)"
+        "ar": "نسبة ضريبة القيمة المضافة (%)"
       },
       "businessContext_i18n": {
         "en": "Uygulanan katma değer vergisi oranı",
         "tr": "Uygulanan katma değer vergisi oranı",
         "de": "Angewandter Mehrwertsteuersatz",
-        "fr": "Taux de taxe sur la valeur ajoutée appliqué"
+        "fr": "Taux de taxe sur la valeur ajoutée appliqué",
+        "es": "Tasa de IVA aplicada",
+        "ar": "نسبة ضريبة القيمة المضافة المطبقة"
       }
     }
   ],

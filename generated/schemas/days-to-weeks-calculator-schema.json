@@ -14,14 +14,15 @@
         "de": "Gesamttage",
         "fr": "Total des jours",
         "es": "Días totales",
-        "ar": "Total Days"
+        "ar": "إجمالي الأيام"
       },
       "businessContext_i18n": {
         "en": "Total number of days to be converted into weeks.",
         "tr": "Haftalara dönüştürülecek toplam gün sayısı.",
         "de": "Gesamtzahl der Tage, die in Wochen umgerechnet werden sollen.",
         "fr": "Nombre total de jours à convertir en semaines.",
-        "es": "Número total de días a convertir en semanas."
+        "es": "Número total de días a convertir en semanas.",
+        "ar": "إجمالي عدد الأيام المراد تحويلها إلى أسابيع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tage pro Woche",
         "fr": "Jours par semaine",
         "es": "Días por semana",
-        "ar": "Days per Week"
+        "ar": "أيام في الأسبوع"
       },
       "businessContext_i18n": {
         "en": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks).",
         "tr": "Dönüşüm için haftadaki standart gün sayısı (ör. takvim haftaları için 7, iş haftaları için 5).",
         "de": "Standardanzahl Tage pro Woche für die Umrechnung (z. B. 7 für Kalenderwochen, 5 für Arbeitswochen).",
         "fr": "Nombre standard de jours par semaine pour la conversion (ex. : 7 pour les semaines calendaires, 5 pour les semaines de travail).",
-        "es": "Número estándar de días por semana para la conversión (ej. 7 para semanas calendario, 5 para semanas laborales)."
+        "es": "Número estándar de días por semana para la conversión (ej. 7 para semanas calendario, 5 para semanas laborales).",
+        "ar": "العدد القياسي للأيام في الأسبوع للتحويل (مثل 7 للأسابيع التقويمية، 5 لأسابيع العمل)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary output (weeks).",
         "tr": "Ana çıktı (hafta) için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die primäre Ausgabe (Wochen).",
         "fr": "Nombre de décimales pour le résultat principal (semaines).",
-        "es": "Número de decimales para el resultado principal (semanas)."
+        "es": "Número de decimales para el resultado principal (semanas).",
+        "ar": "عدد المنازل العشرية للمخرجات الأساسية (الأسابيع)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Resttage anzeigen",
         "fr": "Afficher les jours restants",
         "es": "Mostrar días restantes",
-        "ar": "Show Remainder Days"
+        "ar": "عرض الأيام المتبقية"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks.",
         "tr": "Tam haftalar ve kalan günlerin dökümünü dahil etmek için 1, yalnızca ondalık hafta çıktısı için 0.",
         "de": "Auf 1 setzen, um die Aufschlüsselung in volle Wochen und Resttage einzuschließen; 0, um nur Dezimalwochen auszugeben.",
         "fr": "Mettre à 1 pour inclure la décomposition en semaines complètes et jours restants ; 0 pour afficher uniquement les semaines décimales.",
-        "es": "Establecer en 1 para incluir el desglose de semanas completas y días restantes; 0 para mostrar solo semanas decimales."
+        "es": "Establecer en 1 para incluir el desglose de semanas completas y días restantes; 0 para mostrar solo semanas decimales.",
+        "ar": "اضبط على 1 لتضمين تفصيل الأسابيع الكاملة والأيام المتبقية؛ 0 لإخراج الأسابيع العشرية فقط."
       }
     }
   ],
   "formulas": {
-    "result": "totalDays + daysPerWeek + precision",
-    "result_copy": "totalDays + daysPerWeek + precision"
+    "normalized_product": "totalDays * daysPerWeek * precision * showRemainder",
+    "result": "totalDays * daysPerWeek * precision * showRemainder"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "fullWeeks",
-      "remainderDays"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "remainderDays",
-    "unit": "days"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -14,14 +14,15 @@
         "de": "Bekannte Distanz",
         "fr": "Distance connue",
         "es": "Distancia conocida",
-        "ar": "Known Distance"
+        "ar": "المسافة المعروفة"
       },
       "businessContext_i18n": {
         "en": "Distance of a recent race or time trial in kilometers",
         "tr": "Son yarış veya zaman denemesinin kilometre cinsinden mesafesi",
         "de": "Strecke eines kürzlichen Rennens oder Zeitlaufs in Kilometern",
         "fr": "Distance d'une course récente ou contre-la-montre en kilomètres",
-        "es": "Distancia de una carrera reciente o contrarreloj en kilómetros"
+        "es": "Distancia de una carrera reciente o contrarreloj en kilómetros",
+        "ar": "مسافة سباق حديث أو سباق زمني بالكيلومتر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bekannte Zeit (Minuten)",
         "fr": "Temps connu (minutes)",
         "es": "Tiempo conocido (minutos)",
-        "ar": "Known Time (minutes)"
+        "ar": "الوقت المعروف (بالدقائق)"
       },
       "businessContext_i18n": {
         "en": "Minutes portion of the time achieved for the known distance",
         "tr": "Bilinen mesafe için elde edilen sürenin dakika kısmı",
         "de": "Minutenanteil der Zeit für die bekannte Distanz",
         "fr": "Partie minutes du temps réalisé pour la distance connue",
-        "es": "Porción de minutos del tiempo logrado para la distancia conocida"
+        "es": "Porción de minutos del tiempo logrado para la distancia conocida",
+        "ar": "جزء الدقائق من الوقت المحقق للمسافة المعروفة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bekannte Zeit (Sekunden)",
         "fr": "Temps connu (secondes)",
         "es": "Tiempo conocido (segundos)",
-        "ar": "Known Time (seconds)"
+        "ar": "الوقت المعروف (بالثواني)"
       },
       "businessContext_i18n": {
         "en": "Seconds portion of the time achieved for the known distance (0-59)",
         "tr": "Bilinen mesafe için elde edilen sürenin saniye kısmı (0-59)",
         "de": "Sekundenanteil der Zeit für die bekannte Distanz (0-59)",
         "fr": "Partie secondes du temps réalisé pour la distance connue (0-59)",
-        "es": "Porción de segundos del tiempo logrado para la distancia conocida (0-59)"
+        "es": "Porción de segundos del tiempo logrado para la distancia conocida (0-59)",
+        "ar": "جزء الثواني من الوقت المحقق للمسافة المعروفة (0-59)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zieldistanz",
         "fr": "Distance cible",
         "es": "Distancia objetivo",
-        "ar": "Target Distance"
+        "ar": "المسافة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Target race distance in kilometers for which to predict the equivalent time",
         "tr": "Eşdeğer sürenin tahmin edileceği hedef yarış mesafesi (kilometre)",
         "de": "Zielrenndistanz in Kilometern, für die die äquivalente Zeit vorhergesagt werden soll",
         "fr": "Distance cible de la course en kilomètres pour laquelle prédire le temps équivalent",
-        "es": "Distancia objetivo de la carrera en kilómetros para predecir el tiempo equivalente"
+        "es": "Distancia objetivo de la carrera en kilómetros para predecir el tiempo equivalente",
+        "ar": "مسافة السباق المستهدفة بالكيلومتر للتنبؤ بالوقت المكافئ"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Ermüdungsexponent",
         "fr": "Exposant de fatigue",
         "es": "Exponente de fatiga",
-        "ar": "Fatigue Exponent"
+        "ar": "أس التعب"
       },
       "businessContext_i18n": {
         "en": "Empirical exponent for predicting equivalent race times (typically 1.06 for runners)",
         "tr": "Eşdeğer yarış sürelerini tahmin etmek için ampirik üs (genellikle koşucular için 1.06)",
         "de": "Empirischer Exponent zur Vorhersage äquivalenter Rennzeiten (typischerweise 1,06 für Läufer)",
         "fr": "Exposant empirique pour prédire les temps de course équivalents (généralement 1,06 pour les coureurs)",
-        "es": "Exponente empírico para predecir tiempos equivalentes de carrera (normalmente 1.06 para corredores)"
+        "es": "Exponente empírico para predecir tiempos equivalentes de carrera (normalmente 1.06 para corredores)",
+        "ar": "الأس التجريبي للتنبؤ بأوقات السباقات المكافئة (عادة 1.06 للعدائين)"
       }
     }
   ],

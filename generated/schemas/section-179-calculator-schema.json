@@ -14,14 +14,15 @@
         "de": "Kosten des qualifizierten Eigentums",
         "fr": "Coût des biens éligibles",
         "es": "Costo de propiedad calificada",
-        "ar": "Cost of Qualifying Property"
+        "ar": "تكلفة الممتلكات المؤهلة"
       },
       "businessContext_i18n": {
         "en": "The purchase price of the asset (equipment, software, etc.)",
         "tr": "Varlığın (ekipman, yazılım vb.) satın alma fiyatı",
         "de": "Der Kaufpreis des Vermögenswerts (Ausrüstung, Software usw.)",
         "fr": "Prix d'achat de l'actif (équipement, logiciel, etc.)",
-        "es": "Precio de compra del activo (equipo, software, etc.)"
+        "es": "Precio de compra del activo (equipo, software, etc.)",
+        "ar": "سعر شراء الأصل (معدات، برمجيات، إلخ)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geschäftlicher Nutzungsanteil",
         "fr": "Pourcentage d'utilisation professionnelle",
         "es": "Porcentaje de uso empresarial",
-        "ar": "Business Use Percentage"
+        "ar": "نسبة الاستخدام التجاري"
       },
       "businessContext_i18n": {
         "en": "Percentage of the asset used for business purposes (0-100)",
         "tr": "Varlığın iş amaçlı kullanım yüzdesi (0-100)",
         "de": "Prozentsatz des Vermögenswerts, der für geschäftliche Zwecke genutzt wird (0-100)",
         "fr": "Pourcentage de l'actif utilisé à des fins professionnelles (0-100)",
-        "es": "Porcentaje del activo utilizado para fines comerciales (0-100)"
+        "es": "Porcentaje del activo utilizado para fines comerciales (0-100)",
+        "ar": "النسبة المئوية لاستخدام الأصل لأغراض تجارية (0-100)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Section 179 Abzugsgrenze",
         "fr": "Limite de déduction Section 179",
         "es": "Límite de deducción Sección 179",
-        "ar": "Section 179 Deduction Limit"
+        "ar": "حد خصم القسم 179"
       },
       "businessContext_i18n": {
         "en": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)",
         "tr": "IRS tarafından izin verilen maksimum yıllık Bölüm 179 indirimi (2025 limiti)",
         "de": "Maximaler jährlicher Section 179 Abzug gemäß IRS (Grenze 2025)",
         "fr": "Déduction annuelle maximale autorisée par l'IRS (limite 2025)",
-        "es": "Deducción máxima anual de la Sección 179 permitida por el IRS (límite 2025)"
+        "es": "Deducción máxima anual de la Sección 179 permitida por el IRS (límite 2025)",
+        "ar": "الحد الأقصى السنوي لخصم القسم 179 المسموح به من مصلحة الضرائب (حد 2025)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Phasen-Aus-Schwellenwert",
         "fr": "Seuil de suppression progressive",
         "es": "Umbral de eliminación gradual",
-        "ar": "Phase-Out Threshold"
+        "ar": "حد التخفيض التدريجي"
       },
       "businessContext_i18n": {
         "en": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar",
         "tr": "Bölüm 179 indiriminin dolar bazında azaltıldığı toplam varlık eklemeleri",
         "de": "Gesamte Vermögenszugänge, ab denen der Section 179 Abzug Dollar-für-Dollar reduziert wird",
         "fr": "Total des ajouts d'actifs au-delà duquel la déduction Section 179 est réduite dollar pour dollar",
-        "es": "Adiciones totales de activos por encima de las cuales la deducción de la Sección 179 se reduce dólar por dólar"
+        "es": "Adiciones totales de activos por encima de las cuales la deducción de la Sección 179 se reduce dólar por dólar",
+        "ar": "إجمالي إضافات الأصول التي يتم عندها تخفيض خصم القسم 179 دولارًا مقابل دولار"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Gesamte Vermögenszugänge",
         "fr": "Total des ajouts d'actifs",
         "es": "Adiciones totales de activos",
-        "ar": "Total Asset Additions"
+        "ar": "إجمالي إضافات الأصول"
       },
       "businessContext_i18n": {
         "en": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)",
         "tr": "Vergi yılı boyunca hizmete alınan tüm nitelikli varlıkların toplam maliyeti (aşamalı sona erme hesaplaması için)",
         "de": "Gesamtkosten aller qualifizierten Vermögenswerte, die im Steuerjahr in Betrieb genommen wurden (für Phasen-Aus-Berechnung)",
         "fr": "Coût total de tous les biens éligibles mis en service au cours de l'année fiscale (pour le calcul de la suppression progressive)",
-        "es": "Costo total de todas las propiedades calificadas puestas en servicio durante el año fiscal (para el cálculo de eliminación gradual)"
+        "es": "Costo total de todas las propiedades calificadas puestas en servicio durante el año fiscal (para el cálculo de eliminación gradual)",
+        "ar": "التكلفة الإجمالية لجميع الممتلكات المؤهلة الموضوعة في الخدمة خلال السنة الضريبية (لحساب التخفيض التدريجي)"
       }
     }
   ],
   "formulas": {
-    "result": "assetCost + businessUsePercent + section179Limit",
-    "result_copy": "assetCost + businessUsePercent + section179Limit"
+    "normalized_product": "assetCost * (businessUsePercent / 100) * section179Limit * phaseOutThreshold",
+    "result": "assetCost * (businessUsePercent / 100) * section179Limit * phaseOutThreshold * (totalAssetAdditions)",
+    "adjustment_factor": "totalAssetAdditions"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "reducedLimit",
-      "remainingBasis"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "remainingBasis",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Makine & Üretim",

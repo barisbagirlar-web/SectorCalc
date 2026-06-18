@@ -14,14 +14,15 @@
         "de": "Lage (μ)",
         "fr": "Emplacement (μ)",
         "es": "Ubicación (μ)",
-        "ar": "Location (μ)"
+        "ar": "الموقع (μ)"
       },
       "businessContext_i18n": {
         "en": "Location parameter of the GEV distribution (center).",
         "tr": "GEV dağılımının konum parametresi (merkez).",
         "de": "Lageparameter der GEV-Verteilung (Zentrum).",
         "fr": "Paramètre de localisation de la distribution GEV (centre).",
-        "es": "Parámetro de ubicación de la distribución GEV (centro)."
+        "es": "Parámetro de ubicación de la distribución GEV (centro).",
+        "ar": "معلمة الموقع لتوزيع القيم القصوى المعمم (المركز)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Skala (σ)",
         "fr": "Échelle (σ)",
         "es": "Escala (σ)",
-        "ar": "Scale (σ)"
+        "ar": "المقياس (σ)"
       },
       "businessContext_i18n": {
         "en": "Scale parameter, must be > 0. Controls spread.",
         "tr": "Ölçek parametresi, > 0 olmalıdır. Yayılımı kontrol eder.",
         "de": "Skalenparameter, muss > 0 sein. Steuert die Streuung.",
         "fr": "Paramètre d'échelle, doit être > 0. Contrôle la dispersion.",
-        "es": "Parámetro de escala, debe ser > 0. Controla la dispersión."
+        "es": "Parámetro de escala, debe ser > 0. Controla la dispersión.",
+        "ar": "معلمة المقياس، يجب أن تكون > 0. تتحكم في الانتشار."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Form (ξ)",
         "fr": "Forme (ξ)",
         "es": "Forma (ξ)",
-        "ar": "Shape (ξ)"
+        "ar": "الشكل (ξ)"
       },
       "businessContext_i18n": {
         "en": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded.",
         "tr": "Şekil parametresi. ξ>0 ağır kuyruklu, ξ=0 Gumbel, ξ<0 sınırlı.",
         "de": "Formparameter. ξ>0 schwerer Rand, ξ=0 Gumbel, ξ<0 begrenzt.",
         "fr": "Paramètre de forme. ξ>0 queue lourde, ξ=0 Gumbel, ξ<0 bornée.",
-        "es": "Parámetro de forma. ξ>0 cola pesada, ξ=0 Gumbel, ξ<0 acotado."
+        "es": "Parámetro de forma. ξ>0 cola pesada, ξ=0 Gumbel, ξ<0 acotado.",
+        "ar": "معلمة الشكل. ξ>0 ذيل ثقيل، ξ=0 غامبل، ξ<0 محدود."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wiederkehrperiode",
         "fr": "Période de retour",
         "es": "Período de retorno",
-        "ar": "Return Period"
+        "ar": "فترة العودة"
       },
       "businessContext_i18n": {
         "en": "Average recurrence interval in years (e.g., 100 for 100-year event).",
         "tr": "Yıl cinsinden ortalama yinelenme aralığı (ör. 100 yıllık olay için 100).",
         "de": "Durchschnittliches Wiederkehrintervall in Jahren (z. B. 100 für ein 100-jähriges Ereignis).",
         "fr": "Intervalle de récurrence moyen en années (ex. 100 pour un événement centennal).",
-        "es": "Intervalo de recurrencia promedio en años (ej. 100 para evento de 100 años)."
+        "es": "Intervalo de recurrencia promedio en años (ej. 100 para evento de 100 años).",
+        "ar": "متوسط فترة التكرار بالسنوات (مثل 100 لحدث 100 عام)."
       }
     }
   ],

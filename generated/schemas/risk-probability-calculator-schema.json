@@ -14,14 +14,15 @@
         "de": "Ausfallrate (λ)",
         "fr": "Taux de défaillance (λ)",
         "es": "Tasa de fallos (λ)",
-        "ar": "Failure Rate (λ)"
+        "ar": "معدل الفشل (λ)"
       },
       "businessContext_i18n": {
         "en": "Base failure rate of the component or system",
         "tr": "Bileşenin veya sistemin temel arıza oranı",
         "de": "Basisausfallrate der Komponente oder des Systems",
         "fr": "Taux de défaillance de base du composant ou du système",
-        "es": "Tasa de fallo base del componente o sistema"
+        "es": "Tasa de fallo base del componente o sistema",
+        "ar": "معدل الفشل الأساسي للمكون أو النظام"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Einsatzzeit",
         "fr": "Temps de mission",
         "es": "Tiempo de misión",
-        "ar": "Mission Time"
+        "ar": "وقت المهمة"
       },
       "businessContext_i18n": {
         "en": "Duration of operation or mission",
         "tr": "Operasyon veya görev süresi",
         "de": "Betriebsdauer oder Missionsdauer",
         "fr": "Durée de fonctionnement ou de mission",
-        "es": "Duración de la operación o misión"
+        "es": "Duración de la operación o misión",
+        "ar": "مدة التشغيل أو المهمة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Umgebungsstressfaktor",
         "fr": "Facteur de stress environnemental",
         "es": "Factor de estrés ambiental",
-        "ar": "Environmental Stress Factor"
+        "ar": "عامل الإجهاد البيئي"
       },
       "businessContext_i18n": {
         "en": "Factor increasing failure rate due to harsh conditions",
         "tr": "Zorlu koşullar nedeniyle arıza oranını artıran faktör",
         "de": "Faktor, der die Ausfallrate aufgrund rauer Bedingungen erhöht",
         "fr": "Facteur augmentant le taux de défaillance dû à des conditions difficiles",
-        "es": "Factor que aumenta la tasa de fallo debido a condiciones adversas"
+        "es": "Factor que aumenta la tasa de fallo debido a condiciones adversas",
+        "ar": "عامل يزيد معدل الفشل بسبب الظروف القاسية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wartungsqualitätsfaktor",
         "fr": "Facteur de qualité de maintenance",
         "es": "Factor de calidad del mantenimiento",
-        "ar": "Maintenance Quality Factor"
+        "ar": "عامل جودة الصيانة"
       },
       "businessContext_i18n": {
         "en": "Factor representing maintenance effectiveness; higher reduces failure rate",
         "tr": "Bakım etkinliğini temsil eden faktör; yüksek değer arıza oranını azaltır",
         "de": "Faktor, der die Wartungseffektivität darstellt; höher reduziert die Ausfallrate",
         "fr": "Facteur représentant l'efficacité de la maintenance ; plus élevé réduit le taux de défaillance",
-        "es": "Factor que representa la efectividad del mantenimiento; un valor más alto reduce la tasa de fallo"
+        "es": "Factor que representa la efectividad del mantenimiento; un valor más alto reduce la tasa de fallo",
+        "ar": "عامل يمثل فعالية الصيانة؛ القيمة الأعلى تقلل معدل الفشل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Fehlererkennungswahrscheinlichkeit",
         "fr": "Probabilité de détection de défaut",
         "es": "Probabilidad de detección de fallos",
-        "ar": "Fault Detection Probability"
+        "ar": "احتمالية اكتشاف العطل"
       },
       "businessContext_i18n": {
         "en": "Probability that a fault is detected before it leads to failure",
         "tr": "Bir arızanın hataya yol açmadan önce tespit edilme olasılığı",
         "de": "Wahrscheinlichkeit, dass ein Fehler erkannt wird, bevor er zu einem Ausfall führt",
         "fr": "Probabilité qu'un défaut soit détecté avant qu'il n'entraîne une défaillance",
-        "es": "Probabilidad de que un fallo sea detectado antes de que provoque una avería"
+        "es": "Probabilidad de que un fallo sea detectado antes de que provoque una avería",
+        "ar": "احتمالية اكتشاف العطل قبل أن يؤدي إلى فشل"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Redundanzgrad",
         "fr": "Niveau de redondance",
         "es": "Nivel de redundancia",
-        "ar": "Redundancy Level"
+        "ar": "مستوى التكرار"
       },
       "businessContext_i18n": {
         "en": "Number of independent redundant components in parallel (1 means no redundancy)",
         "tr": "Paralel bağlı bağımsız yedekli bileşen sayısı (1, yedeklilik olmadığı anlamına gelir)",
         "de": "Anzahl der unabhängigen redundanten Komponenten parallel (1 bedeutet keine Redundanz)",
         "fr": "Nombre de composants redondants indépendants en parallèle (1 signifie aucune redondance)",
-        "es": "Número de componentes redundantes independientes en paralelo (1 significa sin redundancia)"
+        "es": "Número de componentes redundantes independientes en paralelo (1 significa sin redundancia)",
+        "ar": "عدد المكونات المستقلة المكررة على التوازي (1 يعني عدم وجود تكرار)"
       }
     }
   ],

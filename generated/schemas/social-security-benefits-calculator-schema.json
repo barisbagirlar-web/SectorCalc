@@ -14,14 +14,15 @@
         "de": "Monatliches Bruttogehalt",
         "fr": "Salaire brut mensuel",
         "es": "Salario bruto mensual",
-        "ar": "Aylık Brüt Maaş"
+        "ar": "الراتب الشهري الإجمالي"
       },
       "businessContext_i18n": {
         "en": "Sigortalının aylık brüt maaşı",
         "tr": "Sigortalının aylık brüt maaşı",
         "de": "Monatliches Bruttogehalt des Versicherten",
         "fr": "Salaire brut mensuel de l'assuré",
-        "es": "Salario bruto mensual del asegurado"
+        "es": "Salario bruto mensual del asegurado",
+        "ar": "الراتب الشهري الإجمالي للمؤمن عليه"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Sozialversicherungsbeitragssatz Arbeitnehmer",
         "fr": "Taux de cotisation salariale SGK",
         "es": "Tasa de prima del trabajador al SGK",
-        "ar": "İşçi SGK Primi Oranı"
+        "ar": "نسبة قسط التأمين الاجتماعي للعامل"
       },
       "businessContext_i18n": {
         "en": "İşçinin Sosyal Güvenlik Kurumu prim oranı",
         "tr": "İşçinin Sosyal Güvenlik Kurumu prim oranı",
         "de": "Sozialversicherungsbeitragssatz des Arbeitnehmers",
         "fr": "Taux de cotisation salariale à la Sécurité sociale",
-        "es": "Tasa de prima del trabajador a la Seguridad Social"
+        "es": "Tasa de prima del trabajador a la Seguridad Social",
+        "ar": "نسبة قسط مؤسسة الضمان الاجتماعي للعامل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Sozialversicherungsbeitragssatz Arbeitgeber",
         "fr": "Taux de cotisation patronale SGK",
         "es": "Tasa de prima del empleador al SGK",
-        "ar": "İşveren SGK Primi Oranı"
+        "ar": "نسبة قسط التأمين الاجتماعي لصاحب العمل"
       },
       "businessContext_i18n": {
         "en": "İşverenin Sosyal Güvenlik Kurumu prim oranı",
         "tr": "İşverenin Sosyal Güvenlik Kurumu prim oranı",
         "de": "Sozialversicherungsbeitragssatz des Arbeitgebers",
         "fr": "Taux de cotisation patronale à la Sécurité sociale",
-        "es": "Tasa de prima del empleador a la Seguridad Social"
+        "es": "Tasa de prima del empleador a la Seguridad Social",
+        "ar": "نسبة قسط مؤسسة الضمان الاجتماعي لصاحب العمل"
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Monatliche Beitragsbemessungsgrenze",
         "fr": "Plafond mensuel",
         "es": "Salario máximo mensual",
-        "ar": "Aylık Tavan Ücret"
+        "ar": "الحد الأقصى للراتب الشهري"
       },
       "businessContext_i18n": {
         "en": "SGK primine esas kazanç üst sınırı",
         "tr": "SGK primine esas kazanç üst sınırı",
         "de": "Obergrenze des beitragspflichtigen Entgelts",
         "fr": "Plafond de revenu soumis à cotisation SGK",
-        "es": "Límite superior de ingresos sujetos a prima del SGK"
+        "es": "Límite superior de ingresos sujetos a prima del SGK",
+        "ar": "الحد الأعلى للأجر الخاضع لقسط الضمان الاجتماعي"
       }
     }
   ],
   "formulas": {
-    "result": "monthlySalary + employeeRate + employerRate",
-    "result_copy": "monthlySalary + employeeRate + employerRate"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "employeeRate * (employeeRate / 100) * 1 * monthlySalary",
+    "result": "employeeRate * (employeeRate / 100) * 1 * monthlySalary"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "employeeContribution",
-      "employerContribution"
+      "annual_exposure_hours",
+      "direct_labor_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
-    "dataConfidenceAdjusted": "totalMonthlySSContribution",
-    "unit": "TRY"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -14,14 +14,15 @@
         "de": "Rechnungsnettobetrag",
         "fr": "Montant net de la facture",
         "es": "Importe neto de la factura",
-        "ar": "Invoice Net Amount"
+        "ar": "صافي مبلغ الفاتورة"
       },
       "businessContext_i18n": {
         "en": "Net amount on the supplier's invoice in foreign currency.",
         "tr": "Tedarikçi faturasındaki yabancı para cinsinden net tutar.",
         "de": "Nettobetrag auf der Lieferantenrechnung in Fremdwährung.",
         "fr": "Montant net sur la facture du fournisseur en devise étrangère.",
-        "es": "Importe neto en la factura del proveedor en moneda extranjera."
+        "es": "Importe neto en la factura del proveedor en moneda extranjera.",
+        "ar": "صافي المبلغ على فاتورة المورد بالعملة الأجنبية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wechselkurs",
         "fr": "Taux de change",
         "es": "Tipo de cambio",
-        "ar": "Exchange Rate"
+        "ar": "سعر الصرف"
       },
       "businessContext_i18n": {
         "en": "Exchange rate to convert foreign currency to local currency for VAT calculation.",
         "tr": "KDV hesaplaması için yabancı parayı yerel paraya çeviren döviz kuru.",
         "de": "Wechselkurs zur Umrechnung der Fremdwährung in Landeswährung für die Umsatzsteuerberechnung.",
         "fr": "Taux de change pour convertir la devise étrangère en devise locale pour le calcul de la TVA.",
-        "es": "Tipo de cambio para convertir moneda extranjera a moneda local para el cálculo del IVA."
+        "es": "Tipo de cambio para convertir moneda extranjera a moneda local para el cálculo del IVA.",
+        "ar": "سعر الصرف لتحويل العملة الأجنبية إلى العملة المحلية لحساب ضريبة القيمة المضافة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Inländischer Umsatzsteuersatz",
         "fr": "Taux de TVA nationale",
         "es": "Tipo de IVA doméstico",
-        "ar": "Domestic VAT Rate"
+        "ar": "نسبة ضريبة القيمة المضافة المحلية"
       },
       "businessContext_i18n": {
         "en": "Your domestic VAT rate applicable to the received service.",
         "tr": "Alınan hizmete uygulanan yerel KDV oranı.",
         "de": "Ihr inländischer Umsatzsteuersatz, der auf die empfangene Dienstleistung anwendbar ist.",
         "fr": "Votre taux de TVA nationale applicable au service reçu.",
-        "es": "Tipo de IVA doméstico aplicable al servicio recibido."
+        "es": "Tipo de IVA doméstico aplicable al servicio recibido.",
+        "ar": "نسبة ضريبة القيمة المضافة المحلية المطبقة على الخدمة المستلمة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Grenzüberschreitende Transaktion",
         "fr": "Transaction transfrontalière",
         "es": "Transacción transfronteriza",
-        "ar": "Cross-Border Transaction"
+        "ar": "معاملة عبر الحدود"
       },
       "businessContext_i18n": {
         "en": "1 if the service is from a foreign supplier, 0 if domestic reverse charge.",
         "tr": "Hizmet yabancı bir tedarikçiden ise 1, yurt içi tersine KDV ise 0.",
         "de": "1, wenn die Dienstleistung von einem ausländischen Lieferanten stammt, 0 bei inländischem Reverse-Charge.",
         "fr": "1 si le service provient d'un fournisseur étranger, 0 si autoliquidation nationale.",
-        "es": "1 si el servicio es de un proveedor extranjero, 0 si es inversión del sujeto pasivo nacional."
+        "es": "1 si el servicio es de un proveedor extranjero, 0 si es inversión del sujeto pasivo nacional.",
+        "ar": "1 إذا كانت الخدمة من مورد أجنبي، 0 إذا كانت عكسية محلية."
       }
     }
   ],

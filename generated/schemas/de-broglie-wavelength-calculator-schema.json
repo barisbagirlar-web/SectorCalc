@@ -14,14 +14,15 @@
         "de": "Elektronenmasse",
         "fr": "Masse de l'électron",
         "es": "Masa del electrón",
-        "ar": "Electron Mass"
+        "ar": "كتلة الإلكترون"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle (default is electron mass)",
         "tr": "Parçacığın kütlesi (varsayılan elektron kütlesi)",
         "de": "Masse des Teilchens (Standard: Elektronenmasse)",
         "fr": "Masse de la particule (par défaut masse de l'électron)",
-        "es": "Masa de la partícula (por defecto, masa del electrón)"
+        "es": "Masa de la partícula (por defecto, masa del electrón)",
+        "ar": "كتلة الجسيم (الافتراضي هو كتلة الإلكترون)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Elementarladung",
         "fr": "Charge élémentaire",
         "es": "Carga elemental",
-        "ar": "Elementary Charge"
+        "ar": "الشحنة الأولية"
       },
       "businessContext_i18n": {
         "en": "Elementary electric charge (default is electron charge)",
         "tr": "Temel elektrik yükü (varsayılan elektron yükü)",
         "de": "Elementare elektrische Ladung (Standard: Elektronenladung)",
         "fr": "Charge électrique élémentaire (par défaut charge de l'électron)",
-        "es": "Carga eléctrica elemental (por defecto, carga del electrón)"
+        "es": "Carga eléctrica elemental (por defecto, carga del electrón)",
+        "ar": "الشحنة الكهربائية الأولية (الافتراضي هو شحنة الإلكترون)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Beschleunigungsspannung",
         "fr": "Tension d'accélération",
         "es": "Tensión de aceleración",
-        "ar": "Accelerating Voltage"
+        "ar": "جهد التسريع"
       },
       "businessContext_i18n": {
         "en": "Potential difference used to accelerate the particle",
         "tr": "Parçacığı hızlandırmak için kullanılan potansiyel farkı",
         "de": "Potenzialdifferenz zur Beschleunigung des Teilchens",
         "fr": "Différence de potentiel utilisée pour accélérer la particule",
-        "es": "Diferencia de potencial utilizada para acelerar la partícula"
+        "es": "Diferencia de potencial utilizada para acelerar la partícula",
+        "ar": "فرق الجهد المستخدم لتسريع الجسيم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Plancksches Wirkungsquantum",
         "fr": "Constante de Planck",
         "es": "Constante de Planck",
-        "ar": "Planck Constant"
+        "ar": "ثابت بلانك"
       },
       "businessContext_i18n": {
         "en": "Planck's constant (value in J·s)",
         "tr": "Planck sabiti (J·s cinsinden değer)",
         "de": "Plancksches Wirkungsquantum (Wert in J·s)",
         "fr": "Constante de Planck (valeur en J·s)",
-        "es": "Constante de Planck (valor en J·s)"
+        "es": "Constante de Planck (valor en J·s)",
+        "ar": "قيمة ثابت بلانك (بوحدة جول·ثانية)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Wellenlängen-Einheitenmultiplikator",
         "fr": "Multiplicateur d'unité de longueur d'onde",
         "es": "Multiplicador de unidad de longitud de onda",
-        "ar": "Wavelength Unit Multiplier"
+        "ar": "مضاعف وحدة الطول الموجي"
       },
       "businessContext_i18n": {
         "en": "Factor to convert output wavelength to desired unit (e.g., 1e9 for nm)",
         "tr": "Çıktı dalga boyunu istenen birime dönüştürme faktörü (örn. nm için 1e9)",
         "de": "Faktor zur Umrechnung der Ausgangswellenlänge in die gewünschte Einheit (z. B. 1e9 für nm)",
         "fr": "Facteur pour convertir la longueur d'onde de sortie dans l'unité souhaitée (ex. 1e9 pour nm)",
-        "es": "Factor para convertir la longitud de onda de salida a la unidad deseada (ej. 1e9 para nm)"
+        "es": "Factor para convertir la longitud de onda de salida a la unidad deseada (ej. 1e9 para nm)",
+        "ar": "عامل تحويل الطول الموجي الناتج إلى الوحدة المطلوبة (مثل 1e9 للنانومتر)"
       }
     }
   ],
   "formulas": {
-    "result": "electronMass + elementaryCharge + voltage",
-    "result_copy": "electronMass + elementaryCharge + voltage"
+    "normalized_product": "electronMass * elementaryCharge * voltage * planckConstant",
+    "result": "electronMass * elementaryCharge * voltage * planckConstant * (unitMultiplier)",
+    "adjustment_factor": "unitMultiplier"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "momentum",
-      "rawWavelength"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "rawWavelength",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

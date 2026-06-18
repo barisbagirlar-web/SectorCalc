@@ -14,14 +14,15 @@
         "de": "Gesamtzahl der Knoten",
         "fr": "Nombre total de nœuds",
         "es": "Número total de nodos",
-        "ar": "Toplam Düğüm Sayısı"
+        "ar": "إجمالي عدد العقد"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam düğüm (vertex) sayısı",
         "tr": "Grafikteki toplam düğüm (vertex) sayısı",
         "de": "Gesamtzahl der Knoten (Vertices) im Graphen",
         "fr": "Nombre total de nœuds (sommets) dans le graphe",
-        "es": "Número total de nodos (vértices) en el grafo"
+        "es": "Número total de nodos (vértices) en el grafo",
+        "ar": "إجمالي عدد العقد (الرؤوس) في الرسم البياني"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gesamtzahl der Kanten",
         "fr": "Nombre total d'arêtes",
         "es": "Número total de aristas",
-        "ar": "Toplam Kenar Sayısı"
+        "ar": "إجمالي عدد الحواف"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam kenar (edge) sayısı",
         "tr": "Grafikteki toplam kenar (edge) sayısı",
         "de": "Gesamtzahl der Kanten (Edges) im Graphen",
         "fr": "Nombre total d'arêtes dans le graphe",
-        "es": "Número total de aristas (edges) en el grafo"
+        "es": "Número total de aristas (edges) en el grafo",
+        "ar": "إجمالي عدد الحواف في الرسم البياني"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Knoten mit ungeradem Grad",
         "fr": "Nombre de nœuds de degré impair",
         "es": "Número de nodos de grado impar",
-        "ar": "Tek Dereceli Düğüm Sayısı"
+        "ar": "عدد العقد ذات الدرجة الفردية"
       },
       "businessContext_i18n": {
         "en": "Derecesi tek olan düğümlerin sayısı",
         "tr": "Derecesi tek olan düğümlerin sayısı",
         "de": "Anzahl der Knoten mit ungeradem Grad",
         "fr": "Nombre de nœuds dont le degré est impair",
-        "es": "Número de nodos con grado impar"
+        "es": "Número de nodos con grado impar",
+        "ar": "عدد العقد التي درجتها فردية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zusammenhängender Graph",
         "fr": "Graphe connexe",
         "es": "Grafo conexo",
-        "ar": "Bağlantılı Grafik"
+        "ar": "رسم بياني متصل"
       },
       "businessContext_i18n": {
         "en": "Grafik bağlı ise 1, değilse 0",
         "tr": "Grafik bağlı ise 1, değilse 0",
         "de": "1, wenn der Graph zusammenhängend ist, sonst 0",
         "fr": "1 si le graphe est connexe, 0 sinon",
-        "es": "1 si el grafo es conexo, 0 si no"
+        "es": "1 si el grafo es conexo, 0 si no",
+        "ar": "1 إذا كان الرسم البياني متصلاً، وإلا 0"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Minimaler Grad",
         "fr": "Degré minimum",
         "es": "Grado mínimo",
-        "ar": "Minimum Derece"
+        "ar": "الحد الأدنى للدرجة"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en küçük düğüm derecesi",
         "tr": "Grafikteki en küçük düğüm derecesi",
         "de": "Kleinster Knotengrad im Graphen",
         "fr": "Plus petit degré de nœud dans le graphe",
-        "es": "Grado de nodo más pequeño en el grafo"
+        "es": "Grado de nodo más pequeño en el grafo",
+        "ar": "أصغر درجة عقدة في الرسم البياني"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Maximaler Grad",
         "fr": "Degré maximum",
         "es": "Grado máximo",
-        "ar": "Maksimum Derece"
+        "ar": "الحد الأقصى للدرجة"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en büyük düğüm derecesi",
         "tr": "Grafikteki en büyük düğüm derecesi",
         "de": "Größter Knotengrad im Graphen",
         "fr": "Plus grand degré de nœud dans le graphe",
-        "es": "Grado de nodo más grande en el grafo"
+        "es": "Grado de nodo más grande en el grafo",
+        "ar": "أكبر درجة عقدة في الرسم البياني"
       }
     }
   ],

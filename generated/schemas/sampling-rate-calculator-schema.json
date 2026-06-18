@@ -14,14 +14,15 @@
         "de": "Bandbreite",
         "fr": "Largeur de bande",
         "es": "Ancho de banda",
-        "ar": "Bandwidth"
+        "ar": "عرض النطاق"
       },
       "businessContext_i18n": {
         "en": "The highest frequency component in the signal",
         "tr": "Sinyaldeki en yüksek frekans bileşeni",
         "de": "Höchste Frequenzkomponente im Signal",
         "fr": "La composante de fréquence la plus élevée du signal",
-        "es": "El componente de mayor frecuencia en la señal"
+        "es": "El componente de mayor frecuencia en la señal",
+        "ar": "أعلى مكون ترددي في الإشارة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abtastfaktor",
         "fr": "Facteur d'échantillonnage",
         "es": "Factor de muestreo",
-        "ar": "Sampling Factor"
+        "ar": "عامل أخذ العينات"
       },
       "businessContext_i18n": {
         "en": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)",
         "tr": "Bant genişliğine göre aşırı örnekleme faktörü (Nyquist için minimum 2)",
         "de": "Überabtastfaktor relativ zur Bandbreite (mindestens 2 für Nyquist)",
         "fr": "Facteur de suréchantillonnage par rapport à la bande passante (minimum 2 pour Nyquist)",
-        "es": "Factor de sobremuestreo relativo al ancho de banda (mínimo 2 para Nyquist)"
+        "es": "Factor de sobremuestreo relativo al ancho de banda (mínimo 2 para Nyquist)",
+        "ar": "عامل الإفراط في أخذ العينات بالنسبة لعرض النطاق (الحد الأدنى 2 لـ Nyquist)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bittiefe",
         "fr": "Profondeur de bits",
         "es": "Profundidad de bits",
-        "ar": "Bit Depth"
+        "ar": "عمق البت"
       },
       "businessContext_i18n": {
         "en": "Number of bits per sample for quantization",
         "tr": "Niceleme için örnek başına bit sayısı",
         "de": "Anzahl der Bits pro Abtastwert für die Quantisierung",
         "fr": "Nombre de bits par échantillon pour la quantification",
-        "es": "Número de bits por muestra para cuantización"
+        "es": "Número de bits por muestra para cuantización",
+        "ar": "عدد البتات لكل عينة للقياس الكمي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Kanäle",
         "fr": "Nombre de canaux",
         "es": "Número de canales",
-        "ar": "Number of Channels"
+        "ar": "عدد القنوات"
       },
       "businessContext_i18n": {
         "en": "Number of independent signal channels",
         "tr": "Bağımsız sinyal kanalı sayısı",
         "de": "Anzahl der unabhängigen Signalkanäle",
         "fr": "Nombre de canaux de signal indépendants",
-        "es": "Número de canales de señal independientes"
+        "es": "Número de canales de señal independientes",
+        "ar": "عدد قنوات الإشارة المستقلة"
       }
     }
   ],

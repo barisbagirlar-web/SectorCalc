@@ -23,14 +23,16 @@
         "tr": "Toplam İş İçeriği (TWC)",
         "de": "Gesamtarbeitsinhalt (TWC)",
         "fr": "Contenu total de travail (TWC)",
-        "es": "Contenido total de trabajo (TWC)"
+        "es": "Contenido total de trabajo (TWC)",
+        "ar": "إجمالي محتوى العمل (TWC)"
       },
       "businessContext_i18n": {
         "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
         "tr": "Dikiş hattındaki operasyonlar için tüm standart sürelerin toplamı (ISO 9001 zaman ölçümü).",
         "de": "Summe aller Standardzeiten für Arbeitsgänge in der Nählinie (ISO 9001 Zeitmessung).",
         "fr": "Somme de tous les temps standards pour les opérations de la ligne de couture (mesure de temps ISO 9001).",
-        "es": "Suma de todos los tiempos estándar para las operaciones en la línea de costura (medición de tiempo ISO 9001)."
+        "es": "Suma de todos los tiempos estándar para las operaciones en la línea de costura (medición de tiempo ISO 9001).",
+        "ar": "مجموع الأوقات القياسية لجميع العمليات في خط الخياطة (قياس الوقت وفق ISO 9001)."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Operatör Sayısı",
         "de": "Anzahl der Bediener",
         "fr": "Nombre d'opérateurs",
-        "es": "Número de operarios"
+        "es": "Número de operarios",
+        "ar": "عدد المشغلين"
       },
       "businessContext_i18n": {
         "en": "Total direct labor assigned to the line.",
         "tr": "Hatta atanan toplam direkt işgücü.",
         "de": "Gesamte direkte Arbeitskräfte, die der Linie zugewiesen sind.",
         "fr": "Main-d'œuvre directe totale affectée à la ligne.",
-        "es": "Mano de obra directa total asignada a la línea."
+        "es": "Mano de obra directa total asignada a la línea.",
+        "ar": "إجمالي العمالة المباشرة المخصصة للخط."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Takt Süresi",
         "de": "Taktzeit",
         "fr": "Temps de takt",
-        "es": "Tiempo de takt"
+        "es": "Tiempo de takt",
+        "ar": "وقت التاكت"
       },
       "businessContext_i18n": {
         "en": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
         "tr": "Müşteri talep hızı: mevcut üretim süresinin gerekli çıktıya bölünmesi (Yalın üretim).",
         "de": "Kundennachfragerate: verfügbare Produktionszeit geteilt durch erforderliche Ausbringung (Lean Manufacturing).",
         "fr": "Taux de demande client : temps de production disponible divisé par la production requise (Lean manufacturing).",
-        "es": "Tasa de demanda del cliente: tiempo de producción disponible dividido por la producción requerida (Lean manufacturing)."
+        "es": "Tasa de demanda del cliente: tiempo de producción disponible dividido por la producción requerida (Lean manufacturing).",
+        "ar": "معدل طلب العميل: وقت الإنتاج المتاح مقسومًا على الإنتاج المطلوب (التصنيع اللين)."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Darboğaz İstasyon Süresi",
         "de": "Engpass-Stationszeit",
         "fr": "Temps au goulot d'étranglement",
-        "es": "Tiempo del cuello de botella"
+        "es": "Tiempo del cuello de botella",
+        "ar": "وقت عنق الزجاجة"
       },
       "businessContext_i18n": {
         "en": "Longest operation time among all stations (Theory of Constraints).",
         "tr": "Tüm istasyonlar arasındaki en uzun operasyon süresi (Kısıtlar Teorisi).",
         "de": "Längste Bearbeitungszeit aller Stationen (Theory of Constraints).",
         "fr": "Temps d'opération le plus long parmi tous les postes (Théorie des contraintes).",
-        "es": "Tiempo de operación más largo entre todas las estaciones (Teoría de Restricciones)."
+        "es": "Tiempo de operación más largo entre todas las estaciones (Teoría de Restricciones).",
+        "ar": "أطول وقت تشغيل بين جميع المحطات (نظرية القيود)."
       }
     },
     {
@@ -124,14 +132,16 @@
         "tr": "Hat Dengeleme Türü",
         "de": "Linienausgleichstyp",
         "fr": "Type d'équilibrage de ligne",
-        "es": "Tipo de balanceo de línea"
+        "es": "Tipo de balanceo de línea",
+        "ar": "نوع توازن الخط"
       },
       "businessContext_i18n": {
         "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles).",
         "tr": "Dikiş hattının konfigürasyonu: düz, U-şekilli veya modüler (Yalın yerleşim prensipleri).",
         "de": "Konfiguration der Nählinie: gerade, U-förmig oder modular (Lean-Layout-Prinzipien).",
         "fr": "Configuration de la ligne de couture : droite, en U ou modulaire (principes Lean d'implantation).",
-        "es": "Configuración de la línea de costura: recta, en U o modular (principios Lean de distribución)."
+        "es": "Configuración de la línea de costura: recta, en U o modular (principios Lean de distribución).",
+        "ar": "تكوين خط الخياطة: مستقيم، شكل U، أو معياري (مبادئ التخطيط اللين)."
       }
     },
     {
@@ -148,14 +158,16 @@
         "tr": "Yeniden Dengelemeye İzin Ver",
         "de": "Neuausgleich zulassen",
         "fr": "Autoriser le rééquilibrage",
-        "es": "Permitir rebalanceo"
+        "es": "Permitir rebalanceo",
+        "ar": "السماح بإعادة التوازن"
       },
       "businessContext_i18n": {
         "en": "If true, the tool will suggest operator reassignment to improve balance.",
         "tr": "Doğruysa, araç dengeyi iyileştirmek için operatör yeniden ataması önerecektir.",
         "de": "Wenn wahr, schlägt das Tool eine Neuzuweisung von Bedienern vor, um den Ausgleich zu verbessern.",
         "fr": "Si vrai, l'outil suggérera une réaffectation des opérateurs pour améliorer l'équilibre.",
-        "es": "Si es verdadero, la herramienta sugerirá reasignación de operarios para mejorar el balance."
+        "es": "Si es verdadero, la herramienta sugerirá reasignación de operarios para mejorar el balance.",
+        "ar": "إذا كان صحيحًا، ستقوم الأداة باقتراح إعادة توزيع المشغلين لتحسين التوازن."
       }
     }
   ],
@@ -204,18 +216,24 @@
     ]
   },
   "formulas": {
-    "result": "total_work_content + number_of_operators + takt_time",
-    "result_copy": "total_work_content + number_of_operators + takt_time"
+    "normalized_product": "total_work_content * number_of_operators * takt_time * bottleneck_time",
+    "result": "total_work_content * number_of_operators * takt_time * bottleneck_time"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "seconds"
+    "unit": "units"
   },
   "toolName": "sewing-line-balancer-calculator",
   "catalogCategory": "everyday-life",

@@ -14,14 +14,15 @@
         "de": "Spannung",
         "fr": "Tension",
         "es": "Tensión",
-        "ar": "Voltage"
+        "ar": "الجهد الكهربائي"
       },
       "businessContext_i18n": {
         "en": "Nominal supply voltage",
         "tr": "Nominal besleme gerilimi",
         "de": "Nennversorgungsspannung",
         "fr": "Tension d'alimentation nominale",
-        "es": "Tensión nominal de alimentación"
+        "es": "Tensión nominal de alimentación",
+        "ar": "جهد الإمداد الاسمي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strom",
         "fr": "Courant",
         "es": "Corriente",
-        "ar": "Current"
+        "ar": "التيار"
       },
       "businessContext_i18n": {
         "en": "Measured line current",
         "tr": "Ölçülen hat akımı",
         "de": "Gemessener Leiterstrom",
         "fr": "Courant de ligne mesuré",
-        "es": "Corriente de línea medida"
+        "es": "Corriente de línea medida",
+        "ar": "تيار الخط المقاس"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungsfaktor (cos φ)",
         "fr": "Facteur de puissance (cos φ)",
         "es": "Factor de potencia (cos φ)",
-        "ar": "Power Factor (cos φ)"
+        "ar": "معامل القدرة (cos φ)"
       },
       "businessContext_i18n": {
         "en": "Motor nameplate power factor",
         "tr": "Motor etiket güç faktörü",
         "de": "Leistungsfaktor laut Motortypenschild",
         "fr": "Facteur de puissance nominal du moteur",
-        "es": "Factor de potencia nominal del motor"
+        "es": "Factor de potencia nominal del motor",
+        "ar": "معامل القدرة الاسمي للمحرك"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Motor efficiency at load point",
         "tr": "Yük noktasında motor verimliliği",
         "de": "Motorwirkungsgrad am Lastpunkt",
         "fr": "Rendement du moteur au point de charge",
-        "es": "Eficiencia del motor en el punto de carga"
+        "es": "Eficiencia del motor en el punto de carga",
+        "ar": "كفاءة المحرك عند نقطة التحميل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Drehzahl",
         "fr": "Vitesse de rotation",
         "es": "Velocidad de rotación",
-        "ar": "Rotational Speed"
+        "ar": "سرعة الدوران"
       },
       "businessContext_i18n": {
         "en": "Shaft rotational speed",
         "tr": "Mil dönüş hızı",
         "de": "Wellendrehzahl",
         "fr": "Vitesse de rotation de l'arbre",
-        "es": "Velocidad de rotación del eje"
+        "es": "Velocidad de rotación del eje",
+        "ar": "سرعة دوران العمود"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Anzahl der Phasen",
         "fr": "Nombre de phases",
         "es": "Número de fases",
-        "ar": "Number of Phases"
+        "ar": "عدد الأطوار"
       },
       "businessContext_i18n": {
         "en": "Motor phase configuration (1 or 3)",
         "tr": "Motor faz konfigürasyonu (1 veya 3)",
         "de": "Motorphasenkonfiguration (1 oder 3)",
         "fr": "Configuration de phase du moteur (1 ou 3)",
-        "es": "Configuración de fase del motor (1 o 3)"
+        "es": "Configuración de fase del motor (1 o 3)",
+        "ar": "توصيل أطوار المحرك (1 أو 3)"
       }
     }
   ],
   "formulas": {
-    "result": "voltage + current + powerFactor",
-    "result_copy": "voltage + current + powerFactor"
+    "normalized_product": "voltage * current * powerFactor * (efficiency / 100)",
+    "result": "voltage * current * powerFactor * (efficiency / 100) * (speed * numberOfPhases)",
+    "adjustment_factor": "speed * numberOfPhases"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "electricalPower",
-      "torque"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "torque",
-    "unit": "V"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Enerji & Elektrik",

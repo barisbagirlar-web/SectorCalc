@@ -14,14 +14,15 @@
         "de": "Termindex (n)",
         "fr": "Indice du terme (n)",
         "es": "Índice del término (n)",
-        "ar": "Terim indeksi (n)"
+        "ar": "مؤشر الحد (n)"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
         "tr": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
         "de": "Ordnungsnummer des zu berechnenden Terms (beginnt bei 0).",
         "fr": "Numéro d'ordre du terme à calculer (commence à 0).",
-        "es": "Número de orden del término a calcular (comienza desde 0)."
+        "es": "Número de orden del término a calcular (comienza desde 0).",
+        "ar": "الرقم التسلسلي للحد المراد حسابه (يبدأ من 0)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Startwert a0",
         "fr": "Valeur initiale a0",
         "es": "Valor inicial a0",
-        "ar": "Başlangıç değeri a0"
+        "ar": "القيمة الأولية a0"
       },
       "businessContext_i18n": {
         "en": "n=0 için dizi değeri.",
         "tr": "n=0 için dizi değeri.",
         "de": "Wert der Folge für n=0.",
         "fr": "Valeur de la suite pour n=0.",
-        "es": "Valor de la secuencia para n=0."
+        "es": "Valor de la secuencia para n=0.",
+        "ar": "قيمة المتتالية عند n=0."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Startwert a1",
         "fr": "Valeur initiale a1",
         "es": "Valor inicial a1",
-        "ar": "Başlangıç değeri a1"
+        "ar": "القيمة الأولية a1"
       },
       "businessContext_i18n": {
         "en": "n=1 için dizi değeri.",
         "tr": "n=1 için dizi değeri.",
         "de": "Wert der Folge für n=1.",
         "fr": "Valeur de la suite pour n=1.",
-        "es": "Valor de la secuencia para n=1."
+        "es": "Valor de la secuencia para n=1.",
+        "ar": "قيمة المتتالية عند n=1."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Koeffizient c1 (Multiplikator des vorherigen Terms)",
         "fr": "Coefficient c1 (multiplicateur du terme précédent)",
         "es": "Coeficiente c1 (multiplicador del término anterior)",
-        "ar": "Katsayı c1 (önceki terimin çarpanı)"
+        "ar": "المعامل c1 (معامل الحد السابق)"
       },
       "businessContext_i18n": {
         "en": "a_{n-1} teriminin katsayısı.",
         "tr": "a_{n-1} teriminin katsayısı.",
         "de": "Koeffizient des Terms a_{n-1}.",
         "fr": "Coefficient du terme a_{n-1}.",
-        "es": "Coeficiente del término a_{n-1}."
+        "es": "Coeficiente del término a_{n-1}.",
+        "ar": "معامل الحد a_{n-1}."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Koeffizient c2 (Multiplikator des vorletzten Terms)",
         "fr": "Coefficient c2 (multiplicateur du terme deux précédents)",
         "es": "Coeficiente c2 (multiplicador del término dos posiciones anterior)",
-        "ar": "Katsayı c2 (iki önceki terimin çarpanı)"
+        "ar": "المعامل c2 (معامل الحد الذي يسبقه باثنين)"
       },
       "businessContext_i18n": {
         "en": "a_{n-2} teriminin katsayısı.",
         "tr": "a_{n-2} teriminin katsayısı.",
         "de": "Koeffizient des Terms a_{n-2}.",
         "fr": "Coefficient du terme a_{n-2}.",
-        "es": "Coeficiente del término a_{n-2}."
+        "es": "Coeficiente del término a_{n-2}.",
+        "ar": "معامل الحد a_{n-2}."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Länge (m)",
         "fr": "Longueur (m)",
         "es": "Longitud (m)",
-        "ar": "Length (m)"
+        "ar": "الطول (م)"
       },
       "businessContext_i18n": {
         "en": "Nominal length in meters as per engineering drawing or measurement.",
         "tr": "Mühendislik çizimine veya ölçüme göre metre cinsinden nominal uzunluk.",
         "de": "Nennlänge in Metern gemäß technischer Zeichnung oder Messung.",
         "fr": "Longueur nominale en mètres selon le dessin technique ou la mesure.",
-        "es": "Longitud nominal en metros según dibujo de ingeniería o medición."
+        "es": "Longitud nominal en metros según dibujo de ingeniería o medición.",
+        "ar": "الطول الاسمي بالأمتار حسب الرسم الهندسي أو القياس."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (ft/m)",
         "fr": "Facteur de conversion (ft/m)",
         "es": "Factor de conversión (ft/m)",
-        "ar": "Conversion Factor (ft/m)"
+        "ar": "عامل التحويل (قدم/م)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from meters to feet per ISO 80000-3. Adjust if using US survey foot (3.280833333).",
         "tr": "ISO 80000-3'e göre metreden feet'e standart dönüşüm faktörü. ABD survey foot (3,280833333) kullanılıyorsa ayarlayın.",
         "de": "Standard-Umrechnungsfaktor von Metern in Fuß gemäß ISO 80000-3. Bei Verwendung des US Survey Foot (3,280833333) anpassen.",
         "fr": "Facteur de conversion standard des mètres en pieds selon l'ISO 80000-3. Ajuster si le pied d'arpentage américain (3,280833333) est utilisé.",
-        "es": "Factor de conversión estándar de metros a pies según ISO 80000-3. Ajuste si usa el pie de agrimensura estadounidense (3.280833333)."
+        "es": "Factor de conversión estándar de metros a pies según ISO 80000-3. Ajuste si usa el pie de agrimensura estadounidense (3.280833333).",
+        "ar": "عامل التحويل القياسي من الأمتار إلى الأقدام وفقًا لـ ISO 80000-3. قم بالتعديل إذا كنت تستخدم القدم المساحية الأمريكية (3.280833333)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Messunsicherheit (± m)",
         "fr": "Incertitude de mesure (± m)",
         "es": "Incertidumbre de medición (± m)",
-        "ar": "Measurement Uncertainty (± m)"
+        "ar": "عدم يقين القياس (± م)"
       },
       "businessContext_i18n": {
         "en": "Combined standard uncertainty of the length measurement per ISO/IEC 17025 calibration certificate.",
         "tr": "ISO/IEC 17025 kalibrasyon sertifikasına göre uzunluk ölçümünün birleşik standart belirsizliği.",
         "de": "Kombinierte Standardunsicherheit der Längenmessung gemäß ISO/IEC 17025 Kalibrierschein.",
         "fr": "Incertitude type combinée de la mesure de longueur selon le certificat d'étalonnage ISO/CEI 17025.",
-        "es": "Incertidumbre estándar combinada de la medición de longitud según certificado de calibración ISO/IEC 17025."
+        "es": "Incertidumbre estándar combinada de la medición de longitud según certificado de calibración ISO/IEC 17025.",
+        "ar": "عدم اليقين المعياري المشترك لقياس الطول وفقًا لشهادة معايرة ISO/IEC 17025."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Temperaturoffset (K)",
         "fr": "Écart de température (K)",
         "es": "Desviación de temperatura (K)",
-        "ar": "Temperature Offset (K)"
+        "ar": "فرق درجة الحرارة (كلفن)"
       },
       "businessContext_i18n": {
         "en": "Temperature deviation from reference 20°C. For steel tapes, expansion coefficient ~0.0000116/K. Enter difference in K (e.g., if 25°C, enter 5).",
         "tr": "Referans 20°C'den sıcaklık sapması. Çelik şerit metreler için genleşme katsayısı ~0,0000116/K'dir. Farkı K cinsinden girin (örneğin 25°C ise 5 girin).",
         "de": "Temperaturabweichung von der Referenz 20°C. Für Stahlbänder beträgt der Ausdehnungskoeffizient ~0,0000116/K. Geben Sie die Differenz in K ein (z. B. bei 25°C 5 eingeben).",
         "fr": "Écart de température par rapport à la référence 20°C. Pour les rubans en acier, coefficient de dilatation ~0,0000116/K. Saisir la différence en K (ex. : si 25°C, saisir 5).",
-        "es": "Desviación de temperatura respecto a la referencia de 20°C. Para cintas de acero, coeficiente de expansión ~0.0000116/K. Ingrese la diferencia en K (ej., si es 25°C, ingrese 5)."
+        "es": "Desviación de temperatura respecto a la referencia de 20°C. Para cintas de acero, coeficiente de expansión ~0.0000116/K. Ingrese la diferencia en K (ej., si es 25°C, ingrese 5).",
+        "ar": "انحراف درجة الحرارة عن المرجع 20 درجة مئوية. لأشرطة الصلب، معامل التمدد ~0.0000116/كلفن. أدخل الفرق بالكلفن (مثلًا، إذا كانت 25 درجة مئوية، أدخل 5)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dezimalstellen für Ausgabe",
         "fr": "Nombre de décimales pour le résultat",
         "es": "Decimales para el resultado",
-        "ar": "Decimal Places for Output"
+        "ar": "عدد المنازل العشرية للمخرجات"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output feet value as per project tolerance requirements.",
         "tr": "Proje tolerans gereksinimlerine göre çıktı fit değerinin yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen, auf die der Ausgabewert in Fuß gemäß den Projekt-Toleranzanforderungen gerundet wird.",
         "fr": "Nombre de décimales pour arrondir la valeur en pieds selon les exigences de tolérance du projet.",
-        "es": "Número de decimales para redondear el valor en pies según los requisitos de tolerancia del proyecto."
+        "es": "Número de decimales para redondear el valor en pies según los requisitos de tolerancia del proyecto.",
+        "ar": "عدد المنازل العشرية لتقريب قيمة القدم الناتجة وفقًا لمتطلبات التسامح في المشروع."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Korrektur anwenden? (1=Ja, 0=Nein)",
         "fr": "Appliquer la correction ? (1=Oui, 0=Non)",
         "es": "¿Aplicar corrección? (1=Sí, 0=No)",
-        "ar": "Apply Correction? (1=Yes, 0=No)"
+        "ar": "تطبيق التصحيح؟ (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "Toggle to apply temperature and uncertainty corrections. Set to 1 for calibrated results, 0 for nominal conversion only.",
         "tr": "Sıcaklık ve belirsizlik düzeltmelerini uygulamak için geçiş yapın. Kalibre edilmiş sonuçlar için 1, yalnızca nominal dönüşüm için 0 olarak ayarlayın.",
         "de": "Schalter zum Anwenden von Temperatur- und Unsicherheitskorrekturen. Auf 1 setzen für kalibrierte Ergebnisse, auf 0 für nominale Umrechnung.",
         "fr": "Activer/désactiver les corrections de température et d'incertitude. Mettre à 1 pour des résultats étalonnés, à 0 pour une conversion nominale uniquement.",
-        "es": "Activar para aplicar correcciones de temperatura e incertidumbre. Configure en 1 para resultados calibrados, 0 para conversión nominal únicamente."
+        "es": "Activar para aplicar correcciones de temperatura e incertidumbre. Configure en 1 para resultados calibrados, 0 para conversión nominal únicamente.",
+        "ar": "تبديل لتطبيق تصحيحات درجة الحرارة وعدم اليقين. اضبط على 1 للحصول على نتائج معايرة، و0 للتحويل الاسمي فقط."
       }
     }
   ],

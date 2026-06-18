@@ -14,14 +14,15 @@
         "de": "Radius (r)",
         "fr": "Rayon (r)",
         "es": "Radio (r)",
-        "ar": "Radius (r)"
+        "ar": "نصف القطر (r)"
       },
       "businessContext_i18n": {
         "en": "Radial distance from origin",
         "tr": "Orijinden radyal uzaklık",
         "de": "Radialer Abstand vom Ursprung",
         "fr": "Distance radiale depuis l'origine",
-        "es": "Distancia radial desde el origen"
+        "es": "Distancia radial desde el origen",
+        "ar": "المسافة الشعاعية من نقطة الأصل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
         "es": "Ángulo (θ)",
-        "ar": "Angle (θ)"
+        "ar": "الزاوية (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle in degrees",
         "tr": "Derece cinsinden açı",
         "de": "Winkel in Grad",
         "fr": "Angle en degrés",
-        "es": "Ángulo en grados"
+        "es": "Ángulo en grados",
+        "ar": "الزاوية بالدرجات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mitte X",
         "fr": "Centre X",
         "es": "Centro X",
-        "ar": "Center X"
+        "ar": "مركز X"
       },
       "businessContext_i18n": {
         "en": "X-coordinate of origin offset",
         "tr": "Orijin kaymasının X koordinatı",
         "de": "X-Koordinate des Ursprungsversatzes",
         "fr": "Coordonnée X du décalage d'origine",
-        "es": "Coordenada X del desplazamiento del origen"
+        "es": "Coordenada X del desplazamiento del origen",
+        "ar": "إحداثي X لإزاحة نقطة الأصل"
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Mitte Y",
         "fr": "Centre Y",
         "es": "Centro Y",
-        "ar": "Center Y"
+        "ar": "مركز Y"
       },
       "businessContext_i18n": {
         "en": "Y-coordinate of origin offset",
         "tr": "Orijin kaymasının Y koordinatı",
         "de": "Y-Koordinate des Ursprungsversatzes",
         "fr": "Coordonnée Y du décalage d'origine",
-        "es": "Coordenada Y del desplazamiento del origen"
+        "es": "Coordenada Y del desplazamiento del origen",
+        "ar": "إحداثي Y لإزاحة نقطة الأصل"
       }
     }
   ],
   "formulas": {
-    "result": "r + theta + cx",
-    "result_copy": "r + theta + cx"
+    "normalized_product": "r * theta * cx * cy",
+    "result": "r * theta * cx * cy"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "y"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "y",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -14,14 +14,15 @@
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
-        "ar": "Pressure (bar)"
+        "ar": "الضغط (بار)"
       },
       "businessContext_i18n": {
         "en": "Measured pressure value in bars.",
         "tr": "Bar cinsinden ölçülen basınç değeri.",
         "de": "Gemessener Druckwert in bar.",
         "fr": "Valeur de pression mesurée en bars.",
-        "es": "Valor de presión medido en bares."
+        "es": "Valor de presión medido en bares.",
+        "ar": "قيمة الضغط المقاسة بالبار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kalibrierungsversatz (bar)",
         "fr": "Offset d'étalonnage (bar)",
         "es": "Desviación de calibración (bar)",
-        "ar": "Calibration Offset (bar)"
+        "ar": "إزاحة المعايرة (bar)"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to apply to the measured pressure.",
         "tr": "Ölçülen basınca uygulanacak enstrüman kalibrasyon ofseti.",
         "de": "Instrumenten-Kalibrierungsversatz, der auf den gemessenen Druck angewendet wird.",
         "fr": "Offset d'étalonnage de l'instrument à appliquer à la pression mesurée.",
-        "es": "Desviación de calibración del instrumento a aplicar a la presión medida."
+        "es": "Desviación de calibración del instrumento a aplicar a la presión medida.",
+        "ar": "إزاحة معايرة الجهاز المطبقة على الضغط المقاس."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
         "es": "Incertidumbre de medición (%)",
-        "ar": "Measurement Uncertainty (%)"
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Expanded measurement uncertainty as a percentage of the reading (k=2).",
         "tr": "Okumanın yüzdesi olarak genişletilmiş ölçüm belirsizliği (k=2).",
         "de": "Erweiterte Messunsicherheit als Prozentsatz des Messwerts (k=2).",
         "fr": "Incertitude de mesure élargie en pourcentage de la lecture (k=2).",
-        "es": "Incertidumbre expandida de medición como porcentaje de la lectura (k=2)."
+        "es": "Incertidumbre expandida de medición como porcentaje de la lectura (k=2).",
+        "ar": "عدم يقين القياس الموسع كنسبة مئوية من القراءة (k=2)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output value.",
         "tr": "Çıktı değeri için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den Ausgabewert.",
         "fr": "Nombre de décimales pour la valeur de sortie.",
-        "es": "Número de decimales para el valor de salida."
+        "es": "Número de decimales para el valor de salida.",
+        "ar": "عدد المنازل العشرية لقيمة المخرجات."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Wahre Fluggeschwindigkeit",
         "fr": "Vitesse air vraie",
         "es": "Velocidad aerodinámica real",
-        "ar": "True Airspeed"
+        "ar": "السرعة الجوية الحقيقية"
       },
       "businessContext_i18n": {
         "en": "True airspeed of the object relative to the air in meters per second.",
         "tr": "Nesnenin havaya göre saniyede metre cinsinden gerçek hava hızı.",
         "de": "Wahre Fluggeschwindigkeit des Objekts relativ zur Luft in Metern pro Sekunde.",
         "fr": "Vitesse air vraie de l'objet par rapport à l'air en mètres par seconde.",
-        "es": "Velocidad aerodinámica real del objeto respecto al aire en metros por segundo."
+        "es": "Velocidad aerodinámica real del objeto respecto al aire en metros por segundo.",
+        "ar": "السرعة الجوية الحقيقية للجسم بالنسبة للهواء بوحدة متر في الثانية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
         "es": "Temperatura ambiente",
-        "ar": "Ambient Temperature"
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature in degrees Celsius.",
         "tr": "Santigrat derece cinsinden ortam hava sıcaklığı.",
         "de": "Umgebungslufttemperatur in Grad Celsius.",
         "fr": "Température ambiante de l'air en degrés Celsius.",
-        "es": "Temperatura ambiente del aire en grados Celsius."
+        "es": "Temperatura ambiente del aire en grados Celsius.",
+        "ar": "درجة حرارة الهواء المحيط بوحدة درجة مئوية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Isentropenexponent (γ)",
         "fr": "Rapport des chaleurs spécifiques (γ)",
         "es": "Relación de calores específicos (γ)",
-        "ar": "Specific Heat Ratio (γ)"
+        "ar": "نسبة الحرارة النوعية (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats; for air, γ = 1.4.",
         "tr": "Özgül ısı oranı; hava için γ = 1,4.",
         "de": "Verhältnis der spezifischen Wärmen; für Luft γ = 1,4.",
         "fr": "Rapport des chaleurs spécifiques ; pour l'air, γ = 1,4.",
-        "es": "Relación de calores específicos; para el aire, γ = 1.4."
+        "es": "Relación de calores específicos; para el aire, γ = 1.4.",
+        "ar": "نسبة الحرارة النوعية؛ للهواء، γ = 1.4."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Spezifische Gaskonstante",
         "fr": "Constante spécifique du gaz",
         "es": "Constante específica del gas",
-        "ar": "Specific Gas Constant"
+        "ar": "ثابت الغاز النوعي"
       },
       "businessContext_i18n": {
         "en": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K).",
         "tr": "Gaz için özgül gaz sabiti; kuru hava için R ≈ 287 J/(kg·K).",
         "de": "Spezifische Gaskonstante für das Gas; für trockene Luft R ≈ 287 J/(kg·K).",
         "fr": "Constante spécifique des gaz pour le gaz ; pour l'air sec, R ≈ 287 J/(kg·K).",
-        "es": "Constante específica del gas; para aire seco, R ≈ 287 J/(kg·K)."
+        "es": "Constante específica del gas; para aire seco, R ≈ 287 J/(kg·K).",
+        "ar": "ثابت الغاز النوعي للغاز؛ للهواء الجاف، R ≈ 287 جول/(كجم·كلفن)."
       }
     }
   ],
   "formulas": {
-    "result": "airspeed + temperature + gamma",
-    "result_copy": "airspeed + temperature + gamma"
+    "normalized_product": "airspeed * temperature * gamma * R",
+    "result": "airspeed * temperature * gamma * R"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "speed_of_sound",
-      "mach"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "mach",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Birim & Dönüşüm",

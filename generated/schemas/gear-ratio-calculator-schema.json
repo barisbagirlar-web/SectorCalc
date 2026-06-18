@@ -14,14 +14,15 @@
         "de": "Treibende Zähnezahl",
         "fr": "Dents de la roue menante",
         "es": "Dientes del engranaje conductor",
-        "ar": "Driving Gear Teeth"
+        "ar": "أسنان الترس المحرك"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driving (input) gear.",
         "tr": "Tahrik eden (giriş) dişlideki diş sayısı.",
         "de": "Anzahl der Zähne des treibenden (Eingangs-)Zahnrads.",
         "fr": "Nombre de dents de la roue menante (entrée).",
-        "es": "Número de dientes del engranaje conductor (entrada)."
+        "es": "Número de dientes del engranaje conductor (entrada).",
+        "ar": "عدد أسنان الترس المحرك (الداخل)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Getriebene Zähnezahl",
         "fr": "Dents de la roue menée",
         "es": "Dientes del Engranaje Conducido",
-        "ar": "Driven Gear Teeth"
+        "ar": "أسنان الترس المُدار"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driven (output) gear.",
         "tr": "Tahrik edilen (çıkış) dişlideki diş sayısı.",
         "de": "Anzahl der Zähne des getriebenen (Ausgangs-)Zahnrads.",
         "fr": "Nombre de dents de la roue menée (sortie).",
-        "es": "Número de dientes del engranaje conducido (salida)."
+        "es": "Número de dientes del engranaje conducido (salida).",
+        "ar": "عدد أسنان الترس المُدار (الخارج)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Eingangsdrehzahl",
         "fr": "Vitesse d'entrée",
         "es": "Velocidad de Entrada",
-        "ar": "Input Speed"
+        "ar": "سرعة الدخل"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the driving gear in revolutions per minute.",
         "tr": "Tahrik eden dişlinin dakikadaki devir cinsinden dönüş hızı.",
         "de": "Drehzahl des treibenden Zahnrads in Umdrehungen pro Minute.",
         "fr": "Vitesse de rotation de la roue menante en tours par minute.",
-        "es": "Velocidad de rotación del engranaje conductor en revoluciones por minuto."
+        "es": "Velocidad de rotación del engranaje conductor en revoluciones por minuto.",
+        "ar": "السرعة الدورانية للترس المحرك بعدد الدورات في الدقيقة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Eingangsdrehmoment",
         "fr": "Couple d'entrée",
         "es": "Par de Entrada",
-        "ar": "Input Torque"
+        "ar": "عزم الدخل"
       },
       "businessContext_i18n": {
         "en": "Torque applied to the driving gear in Newton-meters.",
         "tr": "Tahrik eden dişliye uygulanan Newton-metre cinsinden tork.",
         "de": "Auf das treibende Zahnrad wirkendes Drehmoment in Newtonmetern.",
         "fr": "Couple appliqué à la roue menante en Newton-mètres.",
-        "es": "Par aplicado al engranaje conductor en Newton-metros."
+        "es": "Par aplicado al engranaje conductor en Newton-metros.",
+        "ar": "العزم المطبق على الترس المحرك بوحدة نيوتن-متر."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal).",
         "tr": "Dişli çiftinin yüzde cinsinden verimi (0-100). Belirtilmezse %100 (ideal) varsayılır.",
         "de": "Wirkungsgrad des Zahnradpaares in Prozent (0-100). Falls nicht angegeben, wird 100 % (ideal) angenommen.",
         "fr": "Rendement de la paire d'engrenages en pourcentage (0-100). Si non fourni, suppose 100% (idéal).",
-        "es": "Eficiencia del par de engranajes en porcentaje (0-100). Si no se proporciona, asume 100% (ideal)."
+        "es": "Eficiencia del par de engranajes en porcentaje (0-100). Si no se proporciona, asume 100% (ideal).",
+        "ar": "كفاءة زوج التروس بالنسبة المئوية (0-100). إذا لم يتم توفيرها، يُفترض 100% (مثالية)."
       }
     }
   ],

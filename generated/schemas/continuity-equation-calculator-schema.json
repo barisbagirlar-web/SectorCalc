@@ -14,14 +14,15 @@
         "de": "Rohrinnendurchmesser",
         "fr": "Diamètre intérieur du tuyau",
         "es": "Diámetro interior de la tubería",
-        "ar": "Pipe Inner Diameter"
+        "ar": "القطر الداخلي للأنبوب"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pipe or duct",
         "tr": "Boru veya kanalın iç çapı",
         "de": "Innendurchmesser des Rohrs oder Kanals",
         "fr": "Diamètre intérieur du tuyau ou du conduit",
-        "es": "Diámetro interior de la tubería o conducto"
+        "es": "Diámetro interior de la tubería o conducto",
+        "ar": "القطر الداخلي للأنبوب أو القناة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strömungsgeschwindigkeit",
         "fr": "Vitesse d'écoulement",
         "es": "Velocidad de flujo",
-        "ar": "Flow Velocity"
+        "ar": "سرعة التدفق"
       },
       "businessContext_i18n": {
         "en": "Average flow velocity",
         "tr": "Ortalama akış hızı",
         "de": "Mittlere Strömungsgeschwindigkeit",
         "fr": "Vitesse d'écoulement moyenne",
-        "es": "Velocidad media del flujo"
+        "es": "Velocidad media del flujo",
+        "ar": "متوسط سرعة التدفق"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
-        "ar": "Fluid Density"
+        "ar": "كثافة السائل"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid (e.g., 1000 for water)",
         "tr": "Akışkanın yoğunluğu (örneğin su için 1000)",
         "de": "Dichte des Fluids (z. B. 1000 für Wasser)",
         "fr": "Densité du fluide (ex. 1000 pour l'eau)",
-        "es": "Densidad del fluido (ej. 1000 para agua)"
+        "es": "Densidad del fluido (ej. 1000 para agua)",
+        "ar": "كثافة المائع (مثل 1000 للماء)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety factor for flow rate capacity",
         "tr": "Akış kapasitesi için tasarım güvenlik faktörü",
         "de": "Auslegungssicherheitsfaktor für die Durchflusskapazität",
         "fr": "Coefficient de sécurité pour la capacité de débit",
-        "es": "Factor de seguridad de diseño para la capacidad de caudal"
+        "es": "Factor de seguridad de diseño para la capacidad de caudal",
+        "ar": "عامل الأمان التصميمي لسعة معدل التدفق"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Ausgabeeinheiten-Multiplikator",
         "fr": "Multiplicateur d'unité de sortie",
         "es": "Multiplicador de unidad de salida",
-        "ar": "Output Unit Multiplier"
+        "ar": "مضاعف وحدة الإخراج"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)",
         "tr": "m³/s'yi istenen birime dönüştürmek için çarpan (örneğin L/s için 1000)",
         "de": "Multiplikator zur Umrechnung von m³/s in die gewünschte Einheit (z. B. 1000 für L/s)",
         "fr": "Multiplicateur pour convertir m³/s en unité souhaitée (ex. 1000 pour L/s)",
-        "es": "Multiplicador para convertir m³/s a la unidad deseada (ej. 1000 para L/s)"
+        "es": "Multiplicador para convertir m³/s a la unidad deseada (ej. 1000 para L/s)",
+        "ar": "مضاعف لتحويل م³/ث إلى الوحدة المطلوبة (مثل 1000 لـ ل/ث)"
       }
     }
   ],
   "formulas": {
-    "result": "diameter + velocity + density",
-    "result_copy": "diameter + velocity + density"
+    "normalized_product": "diameter * velocity * density * safetyFactor",
+    "result": "diameter * velocity * density * safetyFactor * (outputUnitMultiplier)",
+    "adjustment_factor": "outputUnitMultiplier"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "crossSectionalArea",
-      "flowRateInCustomUnit",
-      "massFlowRate"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "massFlowRate",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

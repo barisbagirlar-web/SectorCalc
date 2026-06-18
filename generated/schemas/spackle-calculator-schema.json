@@ -14,14 +14,15 @@
         "de": "Wandfläche (m²)",
         "fr": "Surface murale (m²)",
         "es": "Área de pared (m²)",
-        "ar": "Wall Area (m²)"
+        "ar": "مساحة الجدار (م²)"
       },
       "businessContext_i18n": {
         "en": "Total surface area that requires spackling",
         "tr": "Macunlanması gereken toplam yüzey alanı",
         "de": "Gesamte zu spachtelnde Oberfläche",
         "fr": "Surface totale nécessitant un rebouchage",
-        "es": "Superficie total que requiere masilla"
+        "es": "Superficie total que requiere masilla",
+        "ar": "إجمالي مساحة السطح التي تتطلب المعجون"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Löcher",
         "fr": "Nombre de trous",
         "es": "Número de agujeros",
-        "ar": "Number of Holes"
+        "ar": "عدد الثقوب"
       },
       "businessContext_i18n": {
         "en": "Approximate count of holes to fill",
         "tr": "Doldurulacak deliklerin yaklaşık sayısı",
         "de": "Ungefähre Anzahl zu füllender Löcher",
         "fr": "Nombre approximatif de trous à reboucher",
-        "es": "Número aproximado de agujeros a rellenar"
+        "es": "Número aproximado de agujeros a rellenar",
+        "ar": "عدد تقريبي للثقوب المراد ملؤها"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchschnittlicher Lochdurchmesser (mm)",
         "fr": "Diamètre moyen des trous (mm)",
         "es": "Diámetro medio del agujero (mm)",
-        "ar": "Average Hole Diameter (mm)"
+        "ar": "متوسط قطر الثقب (مم)"
       },
       "businessContext_i18n": {
         "en": "Diameter of typical holes in millimeters",
         "tr": "Tipik deliklerin milimetre cinsinden çapı",
         "de": "Durchmesser typischer Löcher in Millimetern",
         "fr": "Diamètre des trous typiques en millimètres",
-        "es": "Diámetro de los agujeros típicos en milímetros"
+        "es": "Diámetro de los agujeros típicos en milímetros",
+        "ar": "قطر الثقوب النموذجية بالمليمترات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Durchschnittliche Lochtiefe (mm)",
         "fr": "Profondeur moyenne des trous (mm)",
         "es": "Profundidad media del agujero (mm)",
-        "ar": "Average Hole Depth (mm)"
+        "ar": "متوسط عمق الثقب (مم)"
       },
       "businessContext_i18n": {
         "en": "Depth of typical holes in millimeters",
         "tr": "Tipik deliklerin milimetre cinsinden derinliği",
         "de": "Tiefe typischer Löcher in Millimetern",
         "fr": "Profondeur des trous typiques en millimètres",
-        "es": "Profundidad de los agujeros típicos en milímetros"
+        "es": "Profundidad de los agujeros típicos en milímetros",
+        "ar": "عمق الثقوب النموذجية بالمليمترات"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Spachteldichte",
         "fr": "Densité de l'enduit",
         "es": "Densidad de la masilla",
-        "ar": "Spackle Density"
+        "ar": "كثافة المعجون"
       },
       "businessContext_i18n": {
         "en": "Density of the spackle compound used",
         "tr": "Kullanılan macun bileşiğinin yoğunluğu",
         "de": "Dichte des verwendeten Spachtelmaterials",
         "fr": "Densité du composé d'enduit utilisé",
-        "es": "Densidad del compuesto de masilla utilizado"
+        "es": "Densidad del compuesto de masilla utilizado",
+        "ar": "كثافة مركب المعجون المستخدم"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Behältergröße (kg)",
         "fr": "Taille du contenant (kg)",
         "es": "Tamaño del envase (kg)",
-        "ar": "Container Size (kg)"
+        "ar": "حجم العبوة (كجم)"
       },
       "businessContext_i18n": {
         "en": "Net weight of a single spackle container",
         "tr": "Tek bir macun konteynerinin net ağırlığı",
         "de": "Nettogewicht eines einzelnen Spachtelbehälters",
         "fr": "Poids net d'un seul contenant d'enduit",
-        "es": "Peso neto de un envase de masilla"
+        "es": "Peso neto de un envase de masilla",
+        "ar": "الوزن الصافي لعبوة المعجون الواحدة"
       }
     },
     {
@@ -152,34 +158,39 @@
         "de": "Verschnittfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
-        "ar": "Waste Factor (%)"
+        "ar": "عامل الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Extra material to account for waste and spillage",
         "tr": "Atık ve dökülmeyi hesaba katmak için ekstra malzeme",
         "de": "Zusätzliches Material für Abfall und Verschütten",
         "fr": "Matériau supplémentaire pour tenir compte des déchets et des débordements",
-        "es": "Material extra para desperdicios y derrames"
+        "es": "Material extra para desperdicios y derrames",
+        "ar": "مواد إضافية لمراعاة الهدر والانسكاب"
       }
     }
   ],
   "formulas": {
-    "result": "areaToCover + numberOfHoles + holeDiameter",
-    "result_copy": "areaToCover + numberOfHoles + holeDiameter"
+    "normalized_product": "areaToCover * numberOfHoles * holeDiameter * holeDepth",
+    "result": "areaToCover * numberOfHoles * holeDiameter * holeDepth * (spackleDensity * containerSize * (wasteFactor / 100))",
+    "adjustment_factor": "spackleDensity * containerSize * (wasteFactor / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "volumePerHole",
-      "totalVolume",
-      "containersNeeded"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "containersNeeded",
-    "unit": "m²"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

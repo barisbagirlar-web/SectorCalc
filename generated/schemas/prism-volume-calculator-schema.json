@@ -14,14 +14,15 @@
         "de": "Grundfläche",
         "fr": "Aire de la base",
         "es": "Área de la base",
-        "ar": "Base Area"
+        "ar": "مساحة القاعدة"
       },
       "businessContext_i18n": {
         "en": "If known, enter the prism's base area directly (set >0). If 0, base area is computed from sides and side length.",
         "tr": "Biliniyorsa, prizmanın taban alanını doğrudan girin (>0 ayarlayın). 0 ise, taban alanı kenar sayısı ve kenar uzunluğundan hesaplanır.",
         "de": "Wenn bekannt, geben Sie die Grundfläche des Prismas direkt ein (>0). Bei 0 wird die Grundfläche aus Seiten und Seitenlänge berechnet.",
         "fr": "Si connue, saisir directement l'aire de la base du prisme (mettre >0). Si 0, l'aire de la base est calculée à partir des côtés et de la longueur du côté.",
-        "es": "Si se conoce, introduzca directamente el área de la base del prisma (establecer >0). Si es 0, el área de la base se calcula a partir de los lados y la longitud del lado."
+        "es": "Si se conoce, introduzca directamente el área de la base del prisma (establecer >0). Si es 0, el área de la base se calcula a partir de los lados y la longitud del lado.",
+        "ar": "إذا كانت معروفة، أدخل مساحة قاعدة المنشور مباشرة (اضبط >0). إذا كانت 0، يتم حساب مساحة القاعدة من الأضلاع وطول الضلع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Seiten",
         "fr": "Nombre de côtés",
         "es": "Número de lados",
-        "ar": "Number of Sides"
+        "ar": "عدد الأضلاع"
       },
       "businessContext_i18n": {
         "en": "Number of sides of the regular polygonal base (e.g., 3 for triangle, 4 for square). Only used if base area is 0.",
         "tr": "Düzgün çokgen tabanın kenar sayısı (ör. 3 üçgen, 4 kare). Yalnızca taban alanı 0 ise kullanılır.",
         "de": "Anzahl der Seiten der regelmäßigen polygonalen Basis (z. B. 3 für Dreieck, 4 für Quadrat). Nur verwendet, wenn Grundfläche = 0.",
         "fr": "Nombre de côtés de la base polygonale régulière (ex. 3 pour triangle, 4 pour carré). Utilisé uniquement si l'aire de la base est 0.",
-        "es": "Número de lados de la base poligonal regular (ej. 3 para triángulo, 4 para cuadrado). Solo se usa si el área de la base es 0."
+        "es": "Número de lados de la base poligonal regular (ej. 3 para triángulo, 4 para cuadrado). Solo se usa si el área de la base es 0.",
+        "ar": "عدد أضلاع القاعدة المضلعة المنتظمة (مثل 3 للمثلث، 4 للمربع). يُستخدم فقط إذا كانت مساحة القاعدة 0."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Seitenlänge",
         "fr": "Longueur du côté",
         "es": "Longitud del lado",
-        "ar": "Side Length"
+        "ar": "طول الضلع"
       },
       "businessContext_i18n": {
         "en": "Length of one side of the regular polygonal base. Only used if base area is 0.",
         "tr": "Düzgün çokgen tabanın bir kenarının uzunluğu. Yalnızca taban alanı 0 ise kullanılır.",
         "de": "Länge einer Seite der regelmäßigen polygonalen Basis. Nur verwendet, wenn Grundfläche = 0.",
         "fr": "Longueur d'un côté de la base polygonale régulière. Utilisé uniquement si l'aire de la base est 0.",
-        "es": "Longitud de un lado de la base poligonal regular. Solo se usa si el área de la base es 0."
+        "es": "Longitud de un lado de la base poligonal regular. Solo se usa si el área de la base es 0.",
+        "ar": "طول ضلع واحد من القاعدة المضلعة المنتظمة. يُستخدم فقط إذا كانت مساحة القاعدة 0."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Perpendicular height of the prism.",
         "tr": "Prizmanın dik yüksekliği.",
         "de": "Senkrechte Höhe des Prismas.",
         "fr": "Hauteur perpendiculaire du prisme.",
-        "es": "Altura perpendicular del prisma."
+        "es": "Altura perpendicular del prisma.",
+        "ar": "الارتفاع العمودي للمنشور."
       }
     }
   ],

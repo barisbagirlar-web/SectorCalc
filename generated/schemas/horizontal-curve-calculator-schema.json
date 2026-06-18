@@ -14,14 +14,15 @@
         "de": "Entwurfsgeschwindigkeit (V)",
         "fr": "Vitesse de conception (V)",
         "es": "Velocidad de Diseño (V)",
-        "ar": "Design Speed (V)"
+        "ar": "سرعة التصميم (V)"
       },
       "businessContext_i18n": {
         "en": "Design speed of the road",
         "tr": "Yolun tasarım hızı",
         "de": "Entwurfsgeschwindigkeit der Straße",
         "fr": "Vitesse de conception de la route",
-        "es": "Velocidad de diseño de la carretera"
+        "es": "Velocidad de diseño de la carretera",
+        "ar": "سرعة تصميم الطريق"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Querneigung (e)",
         "fr": "Dévers (e)",
         "es": "Peralte (e)",
-        "ar": "Superelevation (e)"
+        "ar": "الارتفاع الجانبي (e)"
       },
       "businessContext_i18n": {
         "en": "Superelevation rate in percent",
         "tr": "Yüzde olarak dever oranı",
         "de": "Querneigungsrate in Prozent",
         "fr": "Taux de dévers en pourcentage",
-        "es": "Tasa de peralte en porcentaje"
+        "es": "Tasa de peralte en porcentaje",
+        "ar": "نسبة التعلية بالمئة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Seitenreibungsbeiwert (f)",
         "fr": "Coefficient de frottement latéral (f)",
         "es": "Factor de Fricción Lateral (f)",
-        "ar": "Side Friction Factor (f)"
+        "ar": "معامل الاحتكاك الجانبي (f)"
       },
       "businessContext_i18n": {
         "en": "Side friction factor (typically 0.1-0.2)",
         "tr": "Yanal sürtünme katsayısı (genellikle 0.1-0.2)",
         "de": "Seitenreibungsbeiwert (typischerweise 0,1-0,2)",
         "fr": "Coefficient de frottement latéral (généralement 0,1-0,2)",
-        "es": "Factor de fricción lateral (típicamente 0.1-0.2)"
+        "es": "Factor de fricción lateral (típicamente 0.1-0.2)",
+        "ar": "معامل الاحتكاك الجانبي (عادة 0.1-0.2)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zentriwinkel (Δ)",
         "fr": "Angle central (Δ)",
         "es": "Ángulo Central (Δ)",
-        "ar": "Central Angle (Δ)"
+        "ar": "الزاوية المركزية (Δ)"
       },
       "businessContext_i18n": {
         "en": "Central or deflection angle of the curve",
         "tr": "Kurp merkez veya dönüş açısı",
         "de": "Zentri- oder Ablenkungswinkel der Kurve",
         "fr": "Angle central ou de déviation de la courbe",
-        "es": "Ángulo central o de deflexión de la curva"
+        "es": "Ángulo central o de deflexión de la curva",
+        "ar": "الزاوية المركزية أو زاوية الانحراف للمنحنى"
       }
     },
     {
@@ -106,38 +110,39 @@
         "de": "Station am PI",
         "fr": "Station au PI",
         "es": "Estación en el PI",
-        "ar": "Station at PI"
+        "ar": "محطة PI"
       },
       "businessContext_i18n": {
         "en": "Station of Point of Intersection (PI)",
         "tr": "Kesişim Noktası (PI) istasyonu",
         "de": "Station des Schnittpunkts (PI)",
         "fr": "Station du point d'intersection (PI)",
-        "es": "Estación del Punto de Intersección (PI)"
+        "es": "Estación del Punto de Intersección (PI)",
+        "ar": "محطة نقطة التقاطع (PI)"
       }
     }
   ],
   "formulas": {
-    "result": "designSpeed + superelevation + frictionFactor",
-    "result_copy": "designSpeed + superelevation + frictionFactor"
+    "normalized_product": "designSpeed * (superelevation / 100) * frictionFactor * centralAngle",
+    "result": "designSpeed * (superelevation / 100) * frictionFactor * centralAngle * (stationPI)",
+    "adjustment_factor": "stationPI"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "radius",
-      "tangent",
-      "chord",
-      "externalDistance",
-      "middleOrdinate",
-      "stationPC",
-      "stationPT"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "stationPT",
-    "unit": "km/h"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

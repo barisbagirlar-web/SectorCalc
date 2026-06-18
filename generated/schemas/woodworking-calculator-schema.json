@@ -13,14 +13,16 @@
         "tr": "Parça Uzunluğu (mm)",
         "de": "Teillänge (mm)",
         "fr": "Longueur de la pièce (mm)",
-        "es": "Parça Uzunluğu (mm)",
-        "ar": "Parça Uzunluğu (mm)"
+        "es": "Longitud de la pieza (mm)",
+        "ar": "طول القطعة (مم)"
       },
       "businessContext_i18n": {
         "en": "İşlenecek ahşap parçanın uzunluğu",
         "tr": "İşlenecek ahşap parçanın uzunluğu",
         "de": "Länge des zu bearbeitenden Holzstücks",
-        "fr": "Longueur de la pièce en bois à usiner"
+        "fr": "Longueur de la pièce en bois à usiner",
+        "es": "Longitud de la pieza de madera a procesar",
+        "ar": "طول القطعة الخشبية المراد تشغيلها"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Parça Genişliği (mm)",
         "de": "Teilbreite (mm)",
         "fr": "Largeur de la pièce (mm)",
-        "es": "Parça Genişliği (mm)",
-        "ar": "Parça Genişliği (mm)"
+        "es": "Ancho de la pieza (mm)",
+        "ar": "عرض القطعة (مم)"
       },
       "businessContext_i18n": {
         "en": "İşlenecek ahşap parçanın genişliği",
         "tr": "İşlenecek ahşap parçanın genişliği",
         "de": "Breite des zu bearbeitenden Holzstücks",
-        "fr": "Largeur de la pièce en bois à usiner"
+        "fr": "Largeur de la pièce en bois à usiner",
+        "es": "Ancho de la pieza de madera a procesar",
+        "ar": "عرض القطعة الخشبية المراد تشغيلها"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Parça Kalınlığı (mm)",
         "de": "Teildicke (mm)",
         "fr": "Épaisseur de la pièce (mm)",
-        "es": "Parça Kalınlığı (mm)",
-        "ar": "Parça Kalınlığı (mm)"
+        "es": "Espesor de la pieza (mm)",
+        "ar": "سمك القطعة (مم)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin kalınlığı",
         "tr": "Ahşap malzemenin kalınlığı",
         "de": "Dicke des Holzmaterials",
-        "fr": "Épaisseur du matériau en bois"
+        "fr": "Épaisseur du matériau en bois",
+        "es": "Espesor del material de madera",
+        "ar": "سمك المادة الخشبية"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Parça Adedi",
         "de": "Stückzahl",
         "fr": "Nombre de pièces",
-        "es": "Parça Adedi",
-        "ar": "Parça Adedi"
+        "es": "Cantidad de piezas",
+        "ar": "عدد القطع"
       },
       "businessContext_i18n": {
         "en": "Üretilecek parça sayısı",
         "tr": "Üretilecek parça sayısı",
         "de": "Anzahl der herzustellenden Teile",
-        "fr": "Nombre de pièces à produire"
+        "fr": "Nombre de pièces à produire",
+        "es": "Número de piezas a producir",
+        "ar": "عدد القطع المراد إنتاجها"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Ausschussrate (%)",
         "fr": "Taux de perte (%)",
         "es": "Tasa de desperdicio (%)",
-        "ar": "Fire Oranı (%)"
+        "ar": "نسبة الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Kesim ve işleme sırasında oluşan fire yüzdesi",
         "tr": "Kesim ve işleme sırasında oluşan fire yüzdesi",
         "de": "Verschnittprozentsatz beim Schneiden und Bearbeiten",
-        "fr": "Pourcentage de rebut lors de la coupe et de l'usinage"
+        "fr": "Pourcentage de rebut lors de la coupe et de l'usinage",
+        "es": "Porcentaje de desperdicio durante el corte y procesamiento",
+        "ar": "نسبة الهدر الناتجة عن القطع والتشغيل"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Yoğunluk (kg/m³)",
         "de": "Dichte (kg/m³)",
         "fr": "Densité (kg/m³)",
-        "es": "Yoğunluk (kg/m³)",
-        "ar": "Yoğunluk (kg/m³)"
+        "es": "Densidad (kg/m³)",
+        "ar": "الكثافة (كجم/م³)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
         "tr": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
         "de": "Dichte des Holzmaterials (z. B. Kiefer ~500, Eiche ~700)",
-        "fr": "Densité du matériau en bois (ex : pin ~500, chêne ~700)"
+        "fr": "Densité du matériau en bois (ex : pin ~500, chêne ~700)",
+        "es": "Densidad del material de madera (ej: pino ~500, roble ~700)",
+        "ar": "كثافة الخشب (مثال: الصنوبر ~500، البلوط ~700)"
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Birim Maliyet (TL/m³)",
         "de": "Stückkosten (TL/m³)",
         "fr": "Coût unitaire (TL/m³)",
-        "es": "Birim Maliyet (TL/m³)",
-        "ar": "Birim Maliyet (TL/m³)"
+        "es": "Costo unitario (TL/m³)",
+        "ar": "التكلفة لكل وحدة (ليرة تركية/م³)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin metreküp başına maliyeti",
         "tr": "Ahşap malzemenin metreküp başına maliyeti",
         "de": "Kosten des Holzmaterials pro Kubikmeter",
-        "fr": "Coût du matériau en bois par mètre cube"
+        "fr": "Coût du matériau en bois par mètre cube",
+        "es": "Costo del material de madera por metro cúbico",
+        "ar": "تكلفة الخشب لكل متر مكعب"
       }
     }
   ],

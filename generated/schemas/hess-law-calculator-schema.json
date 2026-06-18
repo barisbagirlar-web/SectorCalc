@@ -14,14 +14,15 @@
         "de": "ΔH₁ (kJ/mol)",
         "fr": "ΔH₁ (kJ/mol)",
         "es": "ΔH₁ (kJ/mol)",
-        "ar": "ΔH₁ (kJ/mol)"
+        "ar": "ΔH₁ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of first reaction step",
         "tr": "Birinci reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des ersten Reaktionsschritts",
         "fr": "Variation d'enthalpie de la première étape de réaction",
-        "es": "Cambio de entalpía del primer paso de reacción"
+        "es": "Cambio de entalpía del primer paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة الأولى من التفاعل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "ΔH₂ (kJ/mol)",
         "fr": "ΔH₂ (kJ/mol)",
         "es": "ΔH₂ (kJ/mol)",
-        "ar": "ΔH₂ (kJ/mol)"
+        "ar": "ΔH₂ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of second reaction step",
         "tr": "İkinci reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des zweiten Reaktionsschritts",
         "fr": "Variation d'enthalpie de la deuxième étape de réaction",
-        "es": "Cambio de entalpía del segundo paso de reacción"
+        "es": "Cambio de entalpía del segundo paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة الثانية من التفاعل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "ΔH₃ (kJ/mol)",
         "fr": "ΔH₃ (kJ/mol)",
         "es": "ΔH₃ (kJ/mol)",
-        "ar": "ΔH₃ (kJ/mol)"
+        "ar": "ΔH₃ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of third reaction step",
         "tr": "Üçüncü reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des dritten Reaktionsschritts",
         "fr": "Variation d'enthalpie de la troisième étape de réaction",
-        "es": "Cambio de entalpía del tercer paso de reacción"
+        "es": "Cambio de entalpía del tercer paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة الثالثة من التفاعل"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "ΔH₄ (kJ/mol)",
         "fr": "ΔH₄ (kJ/mol)",
         "es": "ΔH₄ (kJ/mol)",
-        "ar": "ΔH₄ (kJ/mol)"
+        "ar": "ΔH₄ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of fourth reaction step",
         "tr": "Dördüncü reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des vierten Reaktionsschritts",
         "fr": "Variation d'enthalpie de la quatrième étape de réaction",
-        "es": "Cambio de entalpía del cuarto paso de reacción"
+        "es": "Cambio de entalpía del cuarto paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة الرابعة من التفاعل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "ΔH₅ (kJ/mol)",
         "fr": "ΔH₅ (kJ/mol)",
         "es": "ΔH₅ (kJ/mol)",
-        "ar": "ΔH₅ (kJ/mol)"
+        "ar": "ΔH₅ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of fifth reaction step",
         "tr": "Beşinci reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des fünften Reaktionsschritts",
         "fr": "Variation d'enthalpie de la cinquième étape de réaction",
-        "es": "Cambio de entalpía del quinto paso de reacción"
+        "es": "Cambio de entalpía del quinto paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة الخامسة من التفاعل"
       }
     },
     {
@@ -129,37 +134,39 @@
         "de": "ΔH₆ (kJ/mol)",
         "fr": "ΔH₆ (kJ/mol)",
         "es": "ΔH₆ (kJ/mol)",
-        "ar": "ΔH₆ (kJ/mol)"
+        "ar": "ΔH₆ (كيلوجول/مول)"
       },
       "businessContext_i18n": {
         "en": "Enthalpy change of sixth reaction step",
         "tr": "Altıncı reaksiyon adımının entalpi değişimi",
         "de": "Enthalpieänderung des sechsten Reaktionsschritts",
         "fr": "Variation d'enthalpie de la sixième étape de réaction",
-        "es": "Cambio de entalpía del sexto paso de reacción"
+        "es": "Cambio de entalpía del sexto paso de reacción",
+        "ar": "التغير في الإنثالبي للخطوة السادسة من التفاعل"
       }
     }
   ],
   "formulas": {
-    "totalDeltaH": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6",
-    "totalDeltaH_aux": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6"
+    "normalized_product": "deltaH1 * deltaH2 * deltaH3 * deltaH4",
+    "result": "deltaH1 * deltaH2 * deltaH3 * deltaH4 * (deltaH5 * deltaH6)",
+    "adjustment_factor": "deltaH5 * deltaH6"
   },
   "outputs": {
-    "primary": "totalDeltaH_aux",
+    "primary": "result",
     "breakdown": [
-      "ΔH₁ = deltaH1 kJ/mol",
-      "ΔH₂ = deltaH2 kJ/mol",
-      "ΔH₃ = deltaH3 kJ/mol",
-      "ΔH₄ = deltaH4 kJ/mol",
-      "ΔH₅ = deltaH5 kJ/mol",
-      "ΔH₆ = deltaH6 kJ/mol"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalDeltaH_aux",
-    "unit": "kJ/mol"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Kimya & Proses",

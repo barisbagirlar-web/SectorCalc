@@ -14,14 +14,15 @@
         "de": "Innendurchmesser der Mühle (D)",
         "fr": "Diamètre intérieur du broyeur (D)",
         "es": "Diámetro interno del molino (D)",
-        "ar": "Internal Mill Diameter (D)"
+        "ar": "القطر الداخلي للطاحونة (D)"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw.",
         "tr": "Astarsız ölçülen değirmen gövdesinin iç çapı. Kritik hız ve güç tüketimini belirler.",
         "de": "Innendurchmesser des Mahlwerks, gemessen ohne Auskleidung. Bestimmt kritische Drehzahl und Leistungsaufnahme.",
         "fr": "Diamètre intérieur de la cuve du broyeur, mesuré sans revêtements. Détermine la vitesse critique et la puissance absorbée.",
-        "es": "Diámetro interior del casco del molino, medido sin revestimientos. Determina la velocidad crítica y la potencia."
+        "es": "Diámetro interior del casco del molino, medido sin revestimientos. Determina la velocidad crítica y la potencia.",
+        "ar": "القطر الداخلي لبدن الطاحونة، مقاسًا بدون البطانات. يحدد السرعة الحرجة واستهلاك القدرة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Innenlänge der Mühle (L)",
         "fr": "Longueur intérieure du broyeur (L)",
         "es": "Longitud interna del molino (L)",
-        "ar": "Internal Mill Length (L)"
+        "ar": "الطول الداخلي للطاحونة (L)"
       },
       "businessContext_i18n": {
         "en": "Effective grinding length of the mill. Affects charge volume and power.",
         "tr": "Değirmenin etkin öğütme uzunluğu. Şarj hacmini ve gücü etkiler.",
         "de": "Effektive Mahlkammerlänge. Beeinflusst Füllungsgrad und Leistung.",
         "fr": "Longueur de broyage effective du broyeur. Affecte le volume de la charge et la puissance.",
-        "es": "Longitud efectiva de molienda del molino. Afecta el volumen de carga y la potencia."
+        "es": "Longitud efectiva de molienda del molino. Afecta el volumen de carga y la potencia.",
+        "ar": "طول الطحن الفعال للطاحونة. يؤثر على حجم الشحنة والقدرة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mühlendrehzahl",
         "fr": "Vitesse de rotation du broyeur",
         "es": "Velocidad de rotación del molino",
-        "ar": "Mill Rotation Speed"
+        "ar": "سرعة دوران الطاحونة"
       },
       "businessContext_i18n": {
         "en": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation.",
         "tr": "Değirmenin gerçek dönüş hızı. Optimum çalışma için tipik olarak kritik hızın %65-80'i.",
         "de": "Tatsächliche Drehzahl der Mühle. Typischerweise 65-80 % der kritischen Drehzahl für optimalen Betrieb.",
         "fr": "Vitesse de rotation réelle du broyeur. Généralement 65-80 % de la vitesse critique pour un fonctionnement optimal.",
-        "es": "Velocidad de rotación real del molino. Típicamente 65-80% de la velocidad crítica para una operación óptima."
+        "es": "Velocidad de rotación real del molino. Típicamente 65-80% de la velocidad crítica para una operación óptima.",
+        "ar": "السرعة الدورانية الفعلية للطاحونة. عادةً 65-80% من السرعة الحرجة للتشغيل الأمثل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kugelfüllungsgrad (J)",
         "fr": "Fraction de remplissage en boulets (J)",
         "es": "Fracción de llenado de bolas (J)",
-        "ar": "Ball Filling Fraction (J)"
+        "ar": "نسبة ملء الكرات (J)"
       },
       "businessContext_i18n": {
         "en": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput.",
         "tr": "Değirmen hacminin öğütme ortamı (bilyalar) tarafından kaplanan oranı. Güç tüketimini ve verimi etkiler.",
         "de": "Anteil des Mahlkammervolumens, der von Mahlkörpern (Kugeln) eingenommen wird. Beeinflusst Leistungsaufnahme und Durchsatz.",
         "fr": "Fraction du volume du broyeur occupée par les corps broyants (boulets). Affecte la consommation d'énergie et le débit.",
-        "es": "Fracción del volumen del molino ocupada por el medio de molienda (bolas). Afecta el consumo de energía y el rendimiento."
+        "es": "Fracción del volumen del molino ocupada por el medio de molienda (bolas). Afecta el consumo de energía y el rendimiento.",
+        "ar": "نسبة حجم الطاحونة المملوءة بوسط الطحن (الكرات). تؤثر على استهلاك القدرة والإنتاجية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schüttdichte der Kugeln",
         "fr": "Masse volumique apparente des boulets",
         "es": "Densidad aparente de las bolas",
-        "ar": "Ball Bulk Density"
+        "ar": "الكثافة الظاهرية للكرات"
       },
       "businessContext_i18n": {
         "en": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³.",
         "tr": "Öğütme ortamı şarjının yığın yoğunluğu. Çelik bilyalar için tipik değer 4800 kg/m³.",
         "de": "Schüttdichte der Mahlkörperfüllung. Für Stahlkugen typischerweise 4800 kg/m³.",
         "fr": "Masse volumique apparente de la charge de corps broyants. Pour des boulets en acier, typiquement 4800 kg/m³.",
-        "es": "Densidad aparente de la carga de medio de molienda. Para bolas de acero, típicamente 4800 kg/m³."
+        "es": "Densidad aparente de la carga de medio de molienda. Para bolas de acero, típicamente 4800 kg/m³.",
+        "ar": "الكثافة الظاهرية لشحنة وسط الطحن. للكرات الفولاذية، النموذجية 4800 كجم/م³."
       }
     },
     {
@@ -129,49 +134,39 @@
         "de": "Motorwirkungsgrad",
         "fr": "Rendement du moteur",
         "es": "Eficiencia del motor",
-        "ar": "Motor Efficiency"
+        "ar": "كفاءة المحرك"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the motor and drive system. Used to calculate required input electrical power.",
         "tr": "Motor ve tahrik sisteminin verimliliği. Gerekli giriş elektrik gücünü hesaplamak için kullanılır.",
         "de": "Wirkungsgrad des Motor- und Antriebssystems. Wird zur Berechnung der erforderlichen elektrischen Eingangsleistung verwendet.",
         "fr": "Efficacité du moteur et du système d'entraînement. Utilisée pour calculer la puissance électrique d'entrée requise.",
-        "es": "Eficiencia del motor y sistema de transmisión. Se utiliza para calcular la potencia eléctrica de entrada requerida."
+        "es": "Eficiencia del motor y sistema de transmisión. Se utiliza para calcular la potencia eléctrica de entrada requerida.",
+        "ar": "كفاءة المحرك ونظام النقل. تُستخدم لحساب القدرة الكهربائية المدخلة المطلوبة."
       }
     }
   ],
   "formulas": {
-    "result": "internalDiameter + internalLength + millSpeed",
-    "result_copy": "internalDiameter + internalLength + millSpeed"
+    "normalized_product": "internalDiameter * internalLength * millSpeed * ballFillingFraction",
+    "result": "internalDiameter * internalLength * millSpeed * ballFillingFraction * (ballBulkDensity * (motorEfficiency / 100))",
+    "adjustment_factor": "ballBulkDensity * (motorEfficiency / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "criticalSpeedRPM",
-        "label": "Critical Speed",
-        "unit": "rpm",
-        "description": "Theoretical speed at which grinding media centrifuges."
-      },
-      {
-        "id": "percentCriticalSpeed",
-        "label": "% of Critical Speed",
-        "unit": "%",
-        "description": "Operating speed as a percentage of critical speed."
-      },
-      {
-        "id": "millPowerKW",
-        "label": "Mill Mechanical Power",
-        "unit": "kW",
-        "description": "Power required at the mill shell (pinion shaft)."
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "motorInputPowerKW",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Enerji & Elektrik",

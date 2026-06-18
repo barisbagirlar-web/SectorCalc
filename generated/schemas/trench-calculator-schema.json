@@ -13,14 +13,16 @@
         "tr": "Hendek Uzunluğu",
         "de": "Grabenlänge",
         "fr": "Longueur de la tranchée",
-        "es": "Trench Length",
-        "ar": "Trench Length"
+        "es": "Longitud de la zanja",
+        "ar": "طول الخندق"
       },
       "businessContext_i18n": {
         "en": "Total length of the trench to be excavated",
         "tr": "Kazılacak hendeğin toplam uzunluğu.",
         "de": "Gesamtlänge des auszuhebenden Grabens",
-        "fr": "Longueur totale de la tranchée à excaver"
+        "fr": "Longueur totale de la tranchée à excaver",
+        "es": "Longitud total de la zanja a excavar",
+        "ar": "الطول الإجمالي للخندق المراد حفره"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Basisbreite",
         "fr": "Largeur de la base",
         "es": "Ancho de la base",
-        "ar": "Base Width"
+        "ar": "عرض القاعدة"
       },
       "businessContext_i18n": {
         "en": "Width of the trench at the bottom",
         "tr": "Hendek Taban Genişliği",
         "de": "Breite des Grabens an der Sohle",
-        "fr": "Largeur de la tranchée au fond"
+        "fr": "Largeur de la tranchée au fond",
+        "es": "Ancho de la zanja en el fondo",
+        "ar": "عرض الخندق عند القاع"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Tiefe",
         "fr": "Profondeur",
         "es": "Profundidad",
-        "ar": "Depth"
+        "ar": "العمق"
       },
       "businessContext_i18n": {
         "en": "Vertical depth of excavation",
         "tr": "Kazı derinliği (dikey).",
         "de": "Vertikale Aushubtiefe",
-        "fr": "Profondeur verticale d'excavation"
+        "fr": "Profondeur verticale d'excavation",
+        "es": "Profundidad vertical de excavación",
+        "ar": "عمق الحفر الرأسي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Şev Eğimi (Y:D)",
         "de": "Böschungsneigung (H:V)",
         "fr": "Pente latérale (H:V)",
-        "es": "Side Slope (H:V)",
-        "ar": "Side Slope (H:V)"
+        "es": "Talud (H:V)",
+        "ar": "ميل الجانب (أفقي:رأسي)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance per unit vertical (0 for vertical walls)",
         "tr": "Dikey birim başına yatay mesafe (dikey duvarlar için 0).",
         "de": "Horizontaler Abstand pro vertikaler Einheit (0 für senkrechte Wände)",
-        "fr": "Distance horizontale par unité verticale (0 pour parois verticales)"
+        "fr": "Distance horizontale par unité verticale (0 pour parois verticales)",
+        "es": "Distancia horizontal por unidad vertical (0 para paredes verticales)",
+        "ar": "المسافة الأفقية لكل وحدة رأسية (0 للجدران الرأسية)"
       }
     }
   ],

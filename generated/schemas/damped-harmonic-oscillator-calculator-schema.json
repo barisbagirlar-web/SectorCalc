@@ -14,14 +14,15 @@
         "de": "Masse (m)",
         "fr": "Masse (m)",
         "es": "Masa (m)",
-        "ar": "Mass (m)"
+        "ar": "الكتلة (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the oscillating body.",
         "tr": "Salınım yapan cismin kütlesi.",
         "de": "Masse des schwingenden Körpers.",
         "fr": "Masse du corps oscillant.",
-        "es": "Masa del cuerpo oscilante."
+        "es": "Masa del cuerpo oscilante.",
+        "ar": "كتلة الجسم المتذبذب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dämpfungskoeffizient (c)",
         "fr": "Coefficient d'amortissement (c)",
         "es": "Coeficiente de amortiguamiento (c)",
-        "ar": "Damping Coefficient (c)"
+        "ar": "معامل التخميد (c)"
       },
       "businessContext_i18n": {
         "en": "Viscous damping coefficient.",
         "tr": "Viskoz sönüm katsayısı.",
         "de": "Viskoser Dämpfungskoeffizient.",
         "fr": "Coefficient d'amortissement visqueux.",
-        "es": "Coeficiente de amortiguamiento viscoso."
+        "es": "Coeficiente de amortiguamiento viscoso.",
+        "ar": "معامل التخميد اللزج."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Federkonstante (k)",
         "fr": "Constante de raideur (k)",
         "es": "Constante del resorte (k)",
-        "ar": "Spring Constant (k)"
+        "ar": "ثابت الزنبرك (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring.",
         "tr": "Yayın sertliği.",
         "de": "Steifigkeit der Feder.",
         "fr": "Raideur du ressort.",
-        "es": "Rigidez del resorte."
+        "es": "Rigidez del resorte.",
+        "ar": "صلابة الزنبرك."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anfangsauslenkung (x₀)",
         "fr": "Déplacement initial (x₀)",
         "es": "Desplazamiento inicial (x₀)",
-        "ar": "Initial Displacement (x₀)"
+        "ar": "الإزاحة الابتدائية (x₀)"
       },
       "businessContext_i18n": {
         "en": "Displacement at t=0.",
         "tr": "t=0 anındaki yer değiştirme.",
         "de": "Auslenkung bei t=0.",
         "fr": "Déplacement à t=0.",
-        "es": "Desplazamiento en t=0."
+        "es": "Desplazamiento en t=0.",
+        "ar": "الإزاحة عند t=0."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anfangsgeschwindigkeit (v₀)",
         "fr": "Vitesse initiale (v₀)",
         "es": "Velocidad inicial (v₀)",
-        "ar": "Initial Velocity (v₀)"
+        "ar": "السرعة الابتدائية (v₀)"
       },
       "businessContext_i18n": {
         "en": "Velocity at t=0.",
         "tr": "t=0 anındaki hız.",
         "de": "Geschwindigkeit bei t=0.",
         "fr": "Vitesse à t=0.",
-        "es": "Velocidad en t=0."
+        "es": "Velocidad en t=0.",
+        "ar": "السرعة عند t=0."
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Time instant to evaluate displacement.",
         "tr": "Yer değiştirmenin değerlendirileceği zaman anı.",
         "de": "Zeitpunkt zur Bewertung der Auslenkung.",
         "fr": "Instant d'évaluation du déplacement.",
-        "es": "Instante de tiempo para evaluar el desplazamiento."
+        "es": "Instante de tiempo para evaluar el desplazamiento.",
+        "ar": "الوقت اللحظي لتقييم الإزاحة."
       }
     }
   ],
   "formulas": {
-    "result": "mass + dampingCoeff + springConst",
-    "result_copy": "mass + dampingCoeff + springConst"
+    "normalized_product": "mass * dampingCoeff * springConst * initDisp",
+    "result": "mass * dampingCoeff * springConst * initDisp * (initVeloc * time)",
+    "adjustment_factor": "initVeloc * time"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "dampingRatio",
-      "naturalFrequency",
-      "dampedFrequency"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dampedFrequency",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "dampingRatio": "%",
       "dampedFrequency": "A"

@@ -14,14 +14,15 @@
         "de": "Anzahl der Datenpunkte",
         "fr": "Nombre de points de données",
         "es": "Número de puntos de datos",
-        "ar": "Number of data points"
+        "ar": "عدد نقاط البيانات"
       },
       "businessContext_i18n": {
         "en": "Total number of observations in the dataset.",
         "tr": "Veri setindeki toplam gözlem sayısı.",
         "de": "Gesamtzahl der Beobachtungen im Datensatz.",
         "fr": "Nombre total d'observations dans l'ensemble de données.",
-        "es": "Número total de observaciones en el conjunto de datos."
+        "es": "Número total de observaciones en el conjunto de datos.",
+        "ar": "إجمالي عدد المشاهدات في مجموعة البيانات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Minimalwert",
         "fr": "Valeur minimale",
         "es": "Valor mínimo",
-        "ar": "Minimum value"
+        "ar": "الحد الأدنى للقيمة"
       },
       "businessContext_i18n": {
         "en": "Smallest data value.",
         "tr": "En küçük veri değeri.",
         "de": "Kleinster Datenwert.",
         "fr": "Plus petite valeur des données.",
-        "es": "Valor de datos más pequeño."
+        "es": "Valor de datos más pequeño.",
+        "ar": "أصغر قيمة بيانات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maximalwert",
         "fr": "Valeur maximale",
         "es": "Valor máximo",
-        "ar": "Maximum value"
+        "ar": "الحد الأقصى للقيمة"
       },
       "businessContext_i18n": {
         "en": "Largest data value.",
         "tr": "En büyük veri değeri.",
         "de": "Größter Datenwert.",
         "fr": "Plus grande valeur des données.",
-        "es": "Valor de datos más grande."
+        "es": "Valor de datos más grande.",
+        "ar": "أكبر قيمة للبيانات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación estándar",
-        "ar": "Standard deviation"
+        "ar": "الانحراف المعياري"
       },
       "businessContext_i18n": {
         "en": "Estimated or known standard deviation of the data.",
         "tr": "Verilerin tahmini veya bilinen standart sapması.",
         "de": "Geschätzte oder bekannte Standardabweichung der Daten.",
         "fr": "Écart type estimé ou connu des données.",
-        "es": "Desviación estándar estimada o conocida de los datos."
+        "es": "Desviación estándar estimada o conocida de los datos.",
+        "ar": "الانحراف المعياري المقدر أو المعروف للبيانات."
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Interquartilsabstand (IQR)",
         "fr": "Écart interquartile (IQR)",
         "es": "Rango intercuartil (IQR)",
-        "ar": "Interquartile range (IQR)"
+        "ar": "المدى الربيعي (IQR)"
       },
       "businessContext_i18n": {
         "en": "Difference between 75th and 25th percentiles.",
         "tr": "75. ve 25. yüzdelikler arasındaki fark.",
         "de": "Differenz zwischen 75. und 25. Perzentil.",
         "fr": "Différence entre les 75e et 25e percentiles.",
-        "es": "Diferencia entre los percentiles 75 y 25."
+        "es": "Diferencia entre los percentiles 75 y 25.",
+        "ar": "الفرق بين المئين 75 و 25."
       }
     }
   ],
   "formulas": {
-    "result": "numberOfDataPoints + dataMin + dataMax",
-    "result_copy": "numberOfDataPoints + dataMin + dataMax"
+    "normalized_product": "numberOfDataPoints * dataMin * dataMax * dataStdDev",
+    "result": "numberOfDataPoints * dataMin * dataMax * dataStdDev * (dataIQR)",
+    "adjustment_factor": "dataIQR"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sturgesBinWidth",
-      "scottBinCount",
-      "scottBinWidth",
-      "fdBinCount",
-      "fdBinWidth"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fdBinCount",
-    "unit": "count"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

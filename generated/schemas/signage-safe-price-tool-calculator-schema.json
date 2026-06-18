@@ -28,14 +28,16 @@
         "tr": "Birim Başına Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
         "fr": "Coût matière par unité",
-        "es": "Coste de material por unidad"
+        "es": "Coste de material por unidad",
+        "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
         "tr": "Tabela birimi başına doğrudan hammadde maliyeti (alt tabaka, mürekkep ve laminat dahil).",
         "de": "Direkte Kosten für Rohmaterial pro Beschilderungseinheit, einschließlich Substrat, Tinte und Laminate.",
         "fr": "Coût direct des matières premières par unité de signalétique, incluant substrat, encre et laminés.",
-        "es": "Costo directo de materias primas por unidad de letrero, incluyendo sustrato, tinta y laminados."
+        "es": "Costo directo de materias primas por unidad de letrero, incluyendo sustrato, tinta y laminados.",
+        "ar": "التكلفة المباشرة للمواد الخام لكل وحدة لافتة، بما في ذلك الركيزة والحبر والصفائح."
       }
     },
     {
@@ -52,14 +54,16 @@
         "tr": "Birim Başına İşçilik Saati",
         "de": "Arbeitsstunden pro Einheit",
         "fr": "Heures de main-d'œuvre par unité",
-        "es": "Horas de mano de obra por unidad"
+        "es": "Horas de mano de obra por unidad",
+        "ar": "ساعات العمل لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Standard direct labor hours required to produce one signage unit, based on time studies.",
         "tr": "Zaman etütlerine dayalı olarak bir tabela birimi üretmek için gereken standart doğrudan işçilik saati.",
         "de": "Standarddirekte Arbeitsstunden zur Herstellung einer Beschilderungseinheit, basierend auf Zeitstudien.",
         "fr": "Heures de main-d'œuvre directe standard nécessaires pour produire une unité de signalétique, basées sur des études de temps.",
-        "es": "Horas estándar de mano de obra directa requeridas para producir una unidad de letrero, basadas en estudios de tiempos."
+        "es": "Horas estándar de mano de obra directa requeridas para producir una unidad de letrero, basadas en estudios de tiempos.",
+        "ar": "ساعات العمل المباشر المعيارية المطلوبة لإنتاج وحدة لافتة واحدة، بناءً على دراسات الوقت."
       }
     },
     {
@@ -76,14 +80,16 @@
         "tr": "Saatlik İşçilik Ücreti",
         "de": "Stundensatz",
         "fr": "Taux de main-d'œuvre par heure",
-        "es": "Tarifa de mano de obra por hora"
+        "es": "Tarifa de mano de obra por hora",
+        "ar": "سعر الساعة للعمالة"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly wage including benefits, taxes, and overhead allocation.",
         "tr": "Yan haklar, vergiler ve genel gider dağıtımı dahil tam yüklü saatlik ücret.",
         "de": "Voll belasteter Stundenlohn einschließlich Zusatzleistungen, Steuern und Gemeinkostenzuschlag.",
         "fr": "Taux horaire entièrement chargé incluant salaire, avantages, impôts et allocation des frais généraux.",
-        "es": "Salario por hora totalmente cargado, incluyendo beneficios, impuestos y asignación de gastos generales."
+        "es": "Salario por hora totalmente cargado, incluyendo beneficios, impuestos y asignación de gastos generales.",
+        "ar": "الأجر بالساعة شامل المزايا والضرائب وتوزيع التكاليف العامة."
       }
     },
     {
@@ -100,14 +106,16 @@
         "tr": "Genel gider oranı",
         "de": "Gemeinkostensatz",
         "fr": "Taux de frais généraux",
-        "es": "Tasa de gastos generales"
+        "es": "Tasa de gastos generales",
+        "ar": "معدل التكاليف العامة"
       },
       "businessContext_i18n": {
         "en": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead.",
         "tr": "Tesis, ekipman ve idari genel giderleri karşılamak için doğrudan maliyetlere uygulanan yüzde.",
         "de": "Prozentsatz, der auf direkte Kosten angewendet wird, um Betriebs-, Ausrüstungs- und Verwaltungsgemeinkosten zu decken.",
         "fr": "Pourcentage appliqué aux coûts directs pour couvrir les frais d'installation, d'équipement et administratifs.",
-        "es": "Porcentaje aplicado a los costos directos para cubrir instalaciones, equipos y gastos administrativos generales."
+        "es": "Porcentaje aplicado a los costos directos para cubrir instalaciones, equipos y gastos administrativos generales.",
+        "ar": "النسبة المئوية المطبقة على التكاليف المباشرة لتغطية التكاليف العامة للمرافق والمعدات والإدارة."
       }
     },
     {
@@ -129,14 +137,16 @@
         "tr": "Karmaşıklık Faktörü",
         "de": "Komplexitätsfaktor",
         "fr": "Facteur de complexité",
-        "es": "Factor de complejidad"
+        "es": "Factor de complejidad",
+        "ar": "عامل التعقيد"
       },
       "businessContext_i18n": {
         "en": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
         "tr": "ISO 9001 proses varyasyon kılavuzlarına göre tasarım karmaşıklığına bağlı olarak işçilik ve fire faktörlerini ayarlar.",
         "de": "Passt Arbeits- und Abfallfaktoren basierend auf der Designkomplexität gemäß ISO 9001 Prozessvariationsrichtlinien an.",
         "fr": "Ajuste les facteurs de main-d'œuvre et de rebut en fonction de la complexité de conception selon les directives de variation de processus ISO 9001.",
-        "es": "Ajusta los factores de mano de obra y desperdicio según la complejidad del diseño, siguiendo las pautas de variación de procesos ISO 9001."
+        "es": "Ajusta los factores de mano de obra y desperdicio según la complejidad del diseño, siguiendo las pautas de variación de procesos ISO 9001.",
+        "ar": "يضبط عوامل العمل والهدر بناءً على تعقيد التصميم وفقًا لإرشادات تباين العملية في ISO 9001."
       }
     },
     {
@@ -158,14 +168,16 @@
         "tr": "Kalite Seviyesi",
         "de": "Qualitätsniveau",
         "fr": "Niveau de qualité",
-        "es": "Nivel de calidad"
+        "es": "Nivel de calidad",
+        "ar": "مستوى الجودة"
       },
       "businessContext_i18n": {
         "en": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
         "tr": "Altı Sigma kalite seviyelerine göre muayene titizliğini ve yeniden işleme payını tanımlar.",
         "de": "Definiert Prüfschärfe und Nacharbeitszuschlag basierend auf Six Sigma Qualitätsniveaus.",
         "fr": "Définit la rigueur d'inspection et la tolérance de reprise en fonction des niveaux de qualité Six Sigma.",
-        "es": "Define el rigor de inspección y la tolerancia de retrabajo según los niveles de calidad Seis Sigma."
+        "es": "Define el rigor de inspección y la tolerancia de retrabajo según los niveles de calidad Seis Sigma.",
+        "ar": "يحدد صرامة التفتيش وبدل إعادة العمل بناءً على مستويات جودة ستة سيجما."
       }
     },
     {
@@ -182,14 +194,16 @@
         "tr": "Sipariş Miktarı",
         "de": "Bestellmenge",
         "fr": "Quantité commandée",
-        "es": "Cantidad del pedido"
+        "es": "Cantidad del pedido",
+        "ar": "كمية الطلب"
       },
       "businessContext_i18n": {
         "en": "Total number of signage units in the order, affecting volume discounts and setup amortization.",
         "tr": "Siparişteki toplam tabela birimi sayısı, hacim indirimlerini ve kurulum amortismanını etkiler.",
         "de": "Gesamtzahl der Beschilderungseinheiten in der Bestellung, beeinflusst Mengenrabatte und Rüstamortisation.",
         "fr": "Nombre total d'unités de signalisation dans la commande, affectant les remises sur volume et l'amortissement de la configuration.",
-        "es": "Número total de unidades de letrero en el pedido, afectando descuentos por volumen y amortización de preparación."
+        "es": "Número total de unidades de letrero en el pedido, afectando descuentos por volumen y amortización de preparación.",
+        "ar": "إجمالي عدد وحدات اللافتات في الطلب، مما يؤثر على الخصومات الكمية وإطفاء التجهيز."
       }
     },
     {
@@ -206,14 +220,16 @@
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
-        "es": "Factor de desperdicio"
+        "es": "Factor de desperdicio",
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets.",
         "tr": "Kurulum, düzeltme ve kusurlar nedeniyle beklenen malzeme fire yüzdesi, Yalın üretim hedefleriyle uyumludur.",
         "de": "Erwarteter Materialabfallprozentsatz aufgrund von Rüstung, Beschnitt und Fehlern, abgestimmt auf Lean-Produktionsziele.",
         "fr": "Pourcentage de déchets de matière attendu dû à la configuration, au rognage et aux défauts, aligné sur les objectifs de production Lean.",
-        "es": "Porcentaje esperado de desperdicio de material debido a preparación, recorte y defectos, alineado con objetivos de manufactura Lean."
+        "es": "Porcentaje esperado de desperdicio de material debido a preparación, recorte y defectos, alineado con objetivos de manufactura Lean.",
+        "ar": "نسبة الهدر المتوقعة في المواد بسبب الإعداد والتشذيب والعيوب، بما يتماشى مع أهداف التصنيع اللين."
       }
     }
   ],
@@ -260,15 +276,23 @@
     ]
   },
   "formulas": {
-    "result": "material_cost + labor_hours + labor_rate",
-    "result_copy": "material_cost + labor_hours + labor_rate"
+    "annual_exposure_hours": "labor_hours",
+    "direct_labor_cost": "quantity * (labor_rate / 100) * labor_hours * material_cost",
+    "result": "quantity * (labor_rate / 100) * labor_hours * material_cost"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

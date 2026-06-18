@@ -14,14 +14,15 @@
         "de": "Blechdicke",
         "fr": "Épaisseur de la plaque",
         "es": "Espesor de la placa",
-        "ar": "Plate Thickness"
+        "ar": "سمك اللوحة"
       },
       "businessContext_i18n": {
         "en": "Material thickness to be welded",
         "tr": "Kaynak yapılacak malzeme kalınlığı",
         "de": "Zu schweißende Materialdicke",
         "fr": "Épaisseur du matériau à souder",
-        "es": "Espesor del material a soldar"
+        "es": "Espesor del material a soldar",
+        "ar": "سمك المادة المراد لحامها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wurzelspalt",
         "fr": "Écart à la racine",
         "es": "Abertura de raíz",
-        "ar": "Root Gap"
+        "ar": "فجوة الجذر"
       },
       "businessContext_i18n": {
         "en": "Gap between plate edges",
         "tr": "Plaka kenarları arasındaki boşluk",
         "de": "Spalt zwischen den Blechkanten",
         "fr": "Écart entre les bords des plaques",
-        "es": "Separación entre bordes de la placa"
+        "es": "Separación entre bordes de la placa",
+        "ar": "الفجوة بين حواف اللوحة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Einschlusswinkel",
         "fr": "Angle inclus",
         "es": "Ángulo incluido",
-        "ar": "Included Angle"
+        "ar": "الزاوية المضمنة"
       },
       "businessContext_i18n": {
         "en": "Total groove angle (V-groove)",
         "tr": "Toplam oluk açısı (V-oluk)",
         "de": "Gesamtnutwinkel (V-Nut)",
         "fr": "Angle total de la rainure (en V)",
-        "es": "Ángulo total de la ranura (ranura en V)"
+        "es": "Ángulo total de la ranura (ranura en V)",
+        "ar": "الزاوية الكلية للأخدود (أخدود V)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schweißnahtlänge",
         "fr": "Longueur de la soudure",
         "es": "Longitud de la soldadura",
-        "ar": "Weld Length"
+        "ar": "طول اللحام"
       },
       "businessContext_i18n": {
         "en": "Total length of weld",
         "tr": "Toplam kaynak uzunluğu",
         "de": "Gesamtlänge der Schweißnaht",
         "fr": "Longueur totale de la soudure",
-        "es": "Longitud total de la soldadura"
+        "es": "Longitud total de la soldadura",
+        "ar": "الطول الإجمالي للحام"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Dichte des Zusatzwerkstoffs",
         "fr": "Densité du métal d'apport",
         "es": "Densidad del metal de aporte",
-        "ar": "Filler Metal Density"
+        "ar": "كثافة معدن الحشو"
       },
       "businessContext_i18n": {
         "en": "Density of filler material (e.g., steel 7850)",
         "tr": "Dolgu malzemesinin yoğunluğu (örneğin çelik 7850)",
         "de": "Dichte des Füllmaterials (z. B. Stahl 7850)",
         "fr": "Densité du matériau d'apport (ex. acier 7850)",
-        "es": "Densidad del material de aporte (ej. acero 7850)"
+        "es": "Densidad del material de aporte (ej. acero 7850)",
+        "ar": "كثافة مادة الحشو (مثل الفولاذ 7850)"
       }
     }
   ],
   "formulas": {
-    "result": "plateThickness + rootGap + includedAngle",
-    "result_copy": "plateThickness + rootGap + includedAngle"
+    "normalized_product": "plateThickness * rootGap * includedAngle * weldLength",
+    "result": "plateThickness * rootGap * includedAngle * weldLength * (metalDensity)",
+    "adjustment_factor": "metalDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "crossSectionalArea",
-      "fillerVolume"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalFillerWeight",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Metal & Kaynak",

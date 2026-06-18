@@ -23,14 +23,16 @@
         "tr": "Kütle (kg)",
         "de": "Masse in Kilogramm",
         "fr": "Masse en kilogrammes",
-        "es": "Masa en kilogramos"
+        "es": "Masa en kilogramos",
+        "ar": "الكتلة بالكيلوغرام"
       },
       "businessContext_i18n": {
         "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
         "tr": "Pound'a dönüştürmek için kilogram cinsinden kütle değeri girin. Lojistik, imalat ve ticarette kullanılır.",
         "de": "Massewert in Kilogramm zur Umrechnung in Pfund. Verwendung in Logistik, Fertigung und Handel.",
         "fr": "Saisir la valeur de masse en kilogrammes pour conversion en livres. Utilisé en logistique, fabrication et commerce.",
-        "es": "Ingrese el valor de masa en kilogramos para convertir a libras. Se utiliza en logística, fabricación y comercio."
+        "es": "Ingrese el valor de masa en kilogramos para convertir a libras. Se utiliza en logística, fabricación y comercio.",
+        "ar": "أدخل قيمة الكتلة بالكيلوغرام للتحويل إلى باوند. يُستخدم في اللوجستيات والتصنيع والتجارة."
       }
     },
     {
@@ -56,14 +58,16 @@
         "tr": "Hassasiyet Seviyesi",
         "de": "Genauigkeitsstufe",
         "fr": "Niveau de précision",
-        "es": "Nivel de precisión"
+        "es": "Nivel de precisión",
+        "ar": "مستوى الدقة"
       },
       "businessContext_i18n": {
         "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
         "tr": "ISO 80000-1 yuvarlama kurallarına göre çıktı yuvarlaması için ondalık basamak sayısını seçin.",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung gemäß ISO 80000-1 Rundungsregeln.",
         "fr": "Sélectionner le nombre de décimales pour l'arrondi de sortie, selon les règles d'arrondi ISO 80000-1.",
-        "es": "Seleccione el número de decimales para el redondeo de salida, según las reglas de redondeo ISO 80000-1."
+        "es": "Seleccione el número de decimales para el redondeo de salida, según las reglas de redondeo ISO 80000-1.",
+        "ar": "اختر عدد المنازل العشرية لتقريب الناتج وفقًا لقواعد التقريب ISO 80000-1."
       }
     },
     {
@@ -80,14 +84,16 @@
         "tr": "Endüstri Yuvarlaması Kullan (WERC)",
         "de": "Branchenrundung (WERC) verwenden",
         "fr": "Utiliser l'arrondi industriel (WERC)",
-        "es": "Usar redondeo industrial (WERC)"
+        "es": "Usar redondeo industrial (WERC)",
+        "ar": "استخدام التقريب الصناعي (WERC)"
       },
       "businessContext_i18n": {
         "en": "Apply WERC standard rounding (0.5 up) for trade compliance.",
         "tr": "Ticaret uyumu için WERC standart yuvarlamasını (%0,5 yukarı) uygulayın.",
         "de": "WERC-Standardrundung (0,5 auf) für Handelskonformität anwenden.",
         "fr": "Appliquer l'arrondi standard WERC (0,5 vers le haut) pour la conformité commerciale.",
-        "es": "Aplicar redondeo estándar WERC (0.5 hacia arriba) para cumplimiento comercial."
+        "es": "Aplicar redondeo estándar WERC (0.5 hacia arriba) para cumplimiento comercial.",
+        "ar": "تطبيق التقريب القياسي WERC (0.5 لأعلى) للامتثال التجاري."
       }
     },
     {
@@ -104,14 +110,16 @@
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
-        "es": "Incertidumbre de medición (%)"
+        "es": "Incertidumbre de medición (%)",
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
         "tr": "Giriş ölçümündeki tahmini belirsizlik, güven ayarı için kullanılır (ISO/IEC Kılavuzu 98-3).",
         "de": "Geschätzte Unsicherheit der Eingangsmessung, verwendet für Konfidenzanpassung (ISO/IEC Guide 98-3).",
         "fr": "Incertitude estimée de la mesure d'entrée, utilisée pour l'ajustement de confiance (ISO/IEC Guide 98-3).",
-        "es": "Incertidumbre estimada en la medición de entrada, utilizada para ajuste de confianza (ISO/IEC Guide 98-3)."
+        "es": "Incertidumbre estimada en la medición de entrada, utilizada para ajuste de confianza (ISO/IEC Guide 98-3).",
+        "ar": "عدم اليقين المقدر في قياس الإدخال، يُستخدم لضبط الثقة (ISO/IEC Guide 98-3)."
       }
     }
   ],
@@ -154,18 +162,24 @@
     ]
   },
   "formulas": {
-    "result": "mass_kg + precision_level + use_industry_rounding",
-    "result_copy": "mass_kg + precision_level + use_industry_rounding"
+    "normalized_product": "mass_kg * (measurement_uncertainty / 100)",
+    "result": "mass_kg * (measurement_uncertainty / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg"
+    "unit": "USD"
   },
   "toolName": "kg-to-lb-converter-calculator",
   "catalogCategory": "conversion",

@@ -14,14 +14,15 @@
         "de": "Turbineneintrittsenthalpie (h₁)",
         "fr": "Enthalpie d'entrée de la turbine (h₁)",
         "es": "Entalpía de entrada de la turbina (h₁)",
-        "ar": "Turbine Inlet Enthalpy (h₁)"
+        "ar": "المحتوى الحراري لدخول التوربين (h₁)"
       },
       "businessContext_i18n": {
         "en": "Specific enthalpy of steam at turbine inlet (superheated conditions)",
         "tr": "Türbin girişinde buharın özgül entalpisi (kızgın buhar koşulları)",
         "de": "Spezifische Enthalpie des Dampfes am Turbineneintritt (überhitzter Zustand)",
         "fr": "Enthalpie spécifique de la vapeur à l'entrée de la turbine (conditions surchauffées)",
-        "es": "Entalpía específica del vapor en la entrada de la turbina (condiciones de sobrecalentamiento)"
+        "es": "Entalpía específica del vapor en la entrada de la turbina (condiciones de sobrecalentamiento)",
+        "ar": "المحتوى الحراري النوعي للبخار عند مدخل التوربين (ظروف شديدة السخونة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Isentrope Turbinenaustrittsenthalpie (h₂ₛ)",
         "fr": "Enthalpie de sortie de turbine isentropique (h₂ₛ)",
         "es": "Entalpía de salida isentrópica de la turbina (h₂ₛ)",
-        "ar": "Isentropic Turbine Exit Enthalpy (h₂ₛ)"
+        "ar": "المحتوى الحراري لمخرج التوربين المتساوي الإنتروبيا (h₂ₛ)"
       },
       "businessContext_i18n": {
         "en": "Specific enthalpy at turbine exit assuming isentropic expansion",
         "tr": "İzantropik genişleme varsayımıyla türbin çıkışındaki özgül entalpi",
         "de": "Spezifische Enthalpie am Turbinenaustritt bei isentroper Expansion",
         "fr": "Enthalpie spécifique à la sortie de la turbine en supposant une détente isentropique",
-        "es": "Entalpía específica en la salida de la turbina asumiendo expansión isentrópica"
+        "es": "Entalpía específica en la salida de la turbina asumiendo expansión isentrópica",
+        "ar": "المحتوى الحراري النوعي عند مخرج التوربين بافتراض تمدد متساوي الإنتروبيا"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kondensator-Austrittsenthalpie (h₃)",
         "fr": "Enthalpie de sortie du condenseur (h₃)",
         "es": "Entalpía de salida del condensador (h₃)",
-        "ar": "Condenser Outlet Enthalpy (h₃)"
+        "ar": "المحتوى الحراري لمخرج المكثف (h₃)"
       },
       "businessContext_i18n": {
         "en": "Specific enthalpy of saturated liquid leaving the condenser",
         "tr": "Yoğuşturucudan çıkan doymuş sıvının özgül entalpisi",
         "de": "Spezifische Enthalpie der gesättigten Flüssigkeit am Kondensatoraustritt",
         "fr": "Enthalpie spécifique du liquide saturé sortant du condenseur",
-        "es": "Entalpía específica del líquido saturado que sale del condensador"
+        "es": "Entalpía específica del líquido saturado que sale del condensador",
+        "ar": "المحتوى الحراري النوعي للسائل المشبع الخارج من المكثف"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Isentrope Pumpenaustrittsenthalpie (h₄ₛ)",
         "fr": "Enthalpie de sortie de pompe isentropique (h₄ₛ)",
         "es": "Entalpía de salida de la bomba isentrópica (h₄ₛ)",
-        "ar": "Isentropic Pump Exit Enthalpy (h₄ₛ)"
+        "ar": "المحتوى الحراري لمخرج المضخة المتساوي الإنتروبيا (h₄ₛ)"
       },
       "businessContext_i18n": {
         "en": "Specific enthalpy at pump exit assuming isentropic compression",
         "tr": "İzantropik sıkıştırma varsayımıyla pompa çıkışındaki özgül entalpi",
         "de": "Spezifische Enthalpie am Pumpenaustritt bei isentroper Verdichtung",
         "fr": "Enthalpie spécifique à la sortie de la pompe en supposant une compression isentropique",
-        "es": "Entalpía específica a la salida de la bomba asumiendo compresión isentrópica"
+        "es": "Entalpía específica a la salida de la bomba asumiendo compresión isentrópica",
+        "ar": "المحتوى الحراري النوعي عند مخرج المضخة بافتراض ضغط متساوي الإنتروبيا"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Isentroper Turbinenwirkungsgrad (ηₜ)",
         "fr": "Rendement isentropique de la turbine (ηₜ)",
         "es": "Eficiencia isentrópica de la turbina (ηₜ)",
-        "ar": "Turbine Isentropic Efficiency (ηₜ)"
+        "ar": "كفاءة التوربين المتساوية الإنتروبيا (ηₜ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of actual turbine work to isentropic work (0–1)",
         "tr": "Gerçek türbin işinin izantropik işe oranı (0–1)",
         "de": "Verhältnis der tatsächlichen Turbinenarbeit zur isentropen Arbeit (0–1)",
         "fr": "Rapport du travail réel de la turbine au travail isentropique (0–1)",
-        "es": "Relación entre el trabajo real de la turbina y el trabajo isentrópico (0–1)"
+        "es": "Relación entre el trabajo real de la turbina y el trabajo isentrópico (0–1)",
+        "ar": "نسبة الشغل الفعلي للتوربين إلى الشغل المتساوي الإنتروبيا (0–1)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Isentroper Pumpenwirkungsgrad (ηₚ)",
         "fr": "Rendement isentropique de la pompe (ηₚ)",
         "es": "Eficiencia isentrópica de la bomba (ηₚ)",
-        "ar": "Pump Isentropic Efficiency (ηₚ)"
+        "ar": "كفاءة المضخة المتساوية الإنتروبيا (ηₚ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of isentropic pump work to actual pump work (0–1)",
         "tr": "İzantropik pompa işinin gerçek pompa işine oranı (0–1)",
         "de": "Verhältnis der isentropen Pumpenarbeit zur tatsächlichen Pumpenarbeit (0–1)",
         "fr": "Rapport du travail isentropique de la pompe au travail réel de la pompe (0–1)",
-        "es": "Relación entre el trabajo isentrópico de la bomba y el trabajo real (0–1)"
+        "es": "Relación entre el trabajo isentrópico de la bomba y el trabajo real (0–1)",
+        "ar": "نسبة شغل المضخة المتساوي الإنتروبيا إلى الشغل الفعلي للمضخة (0–1)"
       }
     }
   ],

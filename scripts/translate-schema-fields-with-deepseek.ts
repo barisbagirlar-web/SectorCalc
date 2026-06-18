@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { loadEnvLocal, PROJECT_ROOT } from "./deepseek/load-env";
+import { mergeCalculationFieldsFromDisk } from "./deepseek/lib/stub-formula-repair-file";
 import { loadBatchKeyPool, resolveDeepSeekApiKey } from "./deepseek/deepseek-key-pool";
 import { buildGlossaryPromptForLocale } from "../src/lib/i18n/locale-glossary";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "../src/lib/i18n/locale-config";
@@ -72,6 +73,24 @@ async function sleep(ms: number): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+async function fetchWithRetry(url: string, init: RequestInit, attempts = 5): Promise<Response> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return await fetch(url, { ...init, signal: AbortSignal.timeout(120_000) });
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        const delay = Math.min(30_000, 2_000 * 2 ** (attempt - 1));
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`  network retry ${attempt}/${attempts - 1} in ${delay}ms (${message})`);
+        await sleep(delay);
+      }
+    }
+  }
+  throw lastError;
+}
+
 async function translateBatch(
   phrases: readonly string[],
   locale: SupportedLocale,
@@ -82,7 +101,7 @@ async function translateBatch(
   const reverse = Object.fromEntries(phrases.map((phrase, index) => [`k${index}`, phrase]));
   const glossaryPrompt = buildGlossaryPromptForLocale(locale);
 
-  const response = await fetch(DEEPSEEK_API_URL, {
+  const response = await fetchWithRetry(DEEPSEEK_API_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -115,7 +134,13 @@ async function translateBatch(
     choices?: Array<{ message?: { content?: string } }>;
   };
   const raw = json.choices?.[0]?.message?.content ?? "{}";
-  const parsed = JSON.parse(raw) as Record<string, string>;
+  let parsed: Record<string, string>;
+  try {
+    parsed = JSON.parse(raw) as Record<string, string>;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`DeepSeek returned invalid JSON: ${message}`);
+  }
 
   const results = new Map<string, string>();
   for (const [key, translated] of Object.entries(parsed)) {
@@ -201,8 +226,11 @@ function writeSchemaFiles(schemas: Map<string, SchemaFile>): number {
   let filesWritten = 0;
   for (const [fileName, schema] of schemas) {
     const filePath = path.join(SCHEMAS_DIR, fileName);
+    const merged = mergeCalculationFieldsFromDisk(schema, filePath);
+    schema.formulas = merged.formulas;
+    schema.outputs = merged.outputs;
     const before = fs.readFileSync(filePath, "utf8");
-    const after = `${JSON.stringify(schema, null, 2)}\n`;
+    const after = `${JSON.stringify(merged, null, 2)}\n`;
     if (before !== after) {
       fs.writeFileSync(filePath, after);
       filesWritten += 1;
@@ -297,7 +325,24 @@ async function main(): Promise<void> {
 
     for (let i = 0; i < uniquePhrases.length; i += BATCH_SIZE) {
       const batch = uniquePhrases.slice(i, i + BATCH_SIZE);
-      const batchResults = await translateBatch(batch, locale);
+      let batchResults: Map<string, string> | null = null;
+      for (let attempt = 1; attempt <= 5; attempt++) {
+        try {
+          batchResults = await translateBatch(batch, locale);
+          break;
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          if (attempt >= 5) {
+            throw error;
+          }
+          const delay = Math.min(30_000, 2_000 * 2 ** (attempt - 1));
+          console.warn(`  batch retry ${attempt}/4 in ${delay}ms (${message})`);
+          await sleep(delay);
+        }
+      }
+      if (!batchResults) {
+        continue;
+      }
       for (const [english, translated] of batchResults) {
         for (const field of ["label", "businessContext"] as const) {
           localeTranslations.set(`${field}::${locale}::${english}`, translated);

@@ -14,14 +14,15 @@
         "de": "Rezeptkosten",
         "fr": "Coût de la recette",
         "es": "Coste de la receta",
-        "ar": "Recipe Cost"
+        "ar": "تكلفة الوصفة"
       },
       "businessContext_i18n": {
         "en": "Total cost of ingredients for the batch",
         "tr": "Parti için toplam içerik maliyeti",
         "de": "Gesamtkosten der Zutaten für die Charge",
         "fr": "Coût total des ingrédients pour le lot",
-        "es": "Coste total de los ingredientes para el lote"
+        "es": "Coste total de los ingredientes para el lote",
+        "ar": "التكلفة الإجمالية للمكونات للدفعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Arbeitskosten",
         "fr": "Coût de main-d'œuvre",
         "es": "Costo de mano de obra",
-        "ar": "Labor Cost"
+        "ar": "تكلفة العمالة"
       },
       "businessContext_i18n": {
         "en": "Labor cost per batch",
         "tr": "Parti başına işçilik maliyeti",
         "de": "Arbeitskosten pro Charge",
         "fr": "Coût de main-d'œuvre par lot",
-        "es": "Coste de mano de obra por lote"
+        "es": "Coste de mano de obra por lote",
+        "ar": "تكلفة العمالة لكل دفعة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Sonstige Kosten",
         "fr": "Autres coûts",
         "es": "Otros costes",
-        "ar": "Other Costs"
+        "ar": "تكاليف أخرى"
       },
       "businessContext_i18n": {
         "en": "Other costs (overhead, packaging, etc.)",
         "tr": "Diğer maliyetler (genel gider, paketleme vb.)",
         "de": "Sonstige Kosten (Gemeinkosten, Verpackung usw.)",
         "fr": "Autres coûts (frais généraux, emballage, etc.)",
-        "es": "Otros costes (gastos generales, empaque, etc.)"
+        "es": "Otros costes (gastos generales, empaque, etc.)",
+        "ar": "تكاليف أخرى (نفقات عامة، تغليف، إلخ.)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Portionen",
         "fr": "Nombre de portions",
         "es": "Número de porciones",
-        "ar": "Number of Portions"
+        "ar": "عدد الحصص"
       },
       "businessContext_i18n": {
         "en": "Total number of portions or servings",
         "tr": "Toplam porsiyon veya servis sayısı",
         "de": "Gesamtzahl der Portionen oder Einheiten",
         "fr": "Nombre total de portions ou de services",
-        "es": "Número total de porciones o raciones"
+        "es": "Número total de porciones o raciones",
+        "ar": "إجمالي عدد الحصص أو الوجبات"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Gewünschte Gewinnspanne",
         "fr": "Marge bénéficiaire souhaitée",
         "es": "Margen de beneficio deseado",
-        "ar": "Desired Profit Margin"
+        "ar": "هامش الربح المطلوب"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin percentage",
         "tr": "İstenen kâr marjı yüzdesi",
         "de": "Gewünschter Gewinnmargenprozentsatz",
         "fr": "Pourcentage de marge bénéficiaire souhaité",
-        "es": "Porcentaje de margen de beneficio deseado"
+        "es": "Porcentaje de margen de beneficio deseado",
+        "ar": "نسبة هامش الربح المطلوبة"
       }
     }
   ],
   "formulas": {
-    "result": "recipe-cost + labor-cost + other-costs",
-    "result_copy": "recipe-cost + labor-cost + other-costs"
+    "base_cost": "number-of-portions * recipe-cost",
+    "adjusted_cost": "number-of-portions * recipe-cost * (1 + (desired-margin-percent / 100))",
+    "result": "number-of-portions * recipe-cost * (1 + (desired-margin-percent / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalBatchCost",
-      "sellingPrice"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "sellingPrice",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Gıda & Beslenme",

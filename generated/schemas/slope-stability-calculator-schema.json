@@ -14,14 +14,15 @@
         "de": "Böschungswinkel (θ)",
         "fr": "Angle de la pente (θ)",
         "es": "Ángulo del talud (θ)",
-        "ar": "Slope Angle (θ)"
+        "ar": "زاوية الميل (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle of the slope face measured from horizontal",
         "tr": "Yataydan ölçülen şev yüzeyinin açısı",
         "de": "Winkel der Böschungsfläche, gemessen von der Horizontalen",
         "fr": "Angle de la face de la pente mesuré par rapport à l'horizontale",
-        "es": "Ángulo de la cara del talud medido desde la horizontal"
+        "es": "Ángulo de la cara del talud medido desde la horizontal",
+        "ar": "زاوية وجه الميل مقاسة من الأفقي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Reibungswinkel (φ)",
         "fr": "Angle de frottement (φ)",
         "es": "Ángulo de fricción (φ)",
-        "ar": "Friction Angle (φ)"
+        "ar": "زاوية الاحتكاك (φ)"
       },
       "businessContext_i18n": {
         "en": "Angle of internal friction of soil",
         "tr": "Toprak içsel sürtünme açısı",
         "de": "Winkel der inneren Reibung des Bodens",
         "fr": "Angle de frottement interne du sol",
-        "es": "Ángulo de fricción interna del suelo"
+        "es": "Ángulo de fricción interna del suelo",
+        "ar": "زاوية الاحتكاك الداخلي للتربة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kohäsion (c)",
         "fr": "Cohésion (c)",
         "es": "Cohesión (c)",
-        "ar": "Cohesion (c)"
+        "ar": "التماسك (c)"
       },
       "businessContext_i18n": {
         "en": "Cohesive strength of soil",
         "tr": "Zeminin kohezyon dayanımı",
         "de": "Kohäsionsfestigkeit des Bodens",
         "fr": "Cohésion du sol",
-        "es": "Resistencia cohesiva del suelo"
+        "es": "Resistencia cohesiva del suelo",
+        "ar": "قوة تماسك التربة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Raumgewicht (γ)",
         "fr": "Poids volumique (γ)",
         "es": "Peso unitario (γ)",
-        "ar": "Unit Weight (γ)"
+        "ar": "الوزن النوعي (γ)"
       },
       "businessContext_i18n": {
         "en": "Total unit weight of soil",
         "tr": "Zeminin toplam birim hacim ağırlığı",
         "de": "Gesamtraumgewicht des Bodens",
         "fr": "Poids volumique total du sol",
-        "es": "Peso unitario total del suelo"
+        "es": "Peso unitario total del suelo",
+        "ar": "الوزن النوعي الكلي للتربة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Tiefe zur Gleitfläche (z)",
         "fr": "Profondeur du plan de rupture (z)",
         "es": "Profundidad hasta el plano de falla (z)",
-        "ar": "Depth to Failure Plane (z)"
+        "ar": "العمق حتى سطح الانهيار (z)"
       },
       "businessContext_i18n": {
         "en": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)",
         "tr": "Şev yüzeyinden potansiyel kırılma düzlemine düşey derinlik (şeve paralel olduğu varsayılır)",
         "de": "Vertikale Tiefe von der Böschungsoberfläche zur potenziellen Gleitfläche (parallel zur Böschung angenommen)",
         "fr": "Profondeur verticale de la surface de la pente au plan de rupture potentiel (en supposant parallèle à la pente)",
-        "es": "Profundidad vertical desde la superficie del talud hasta el plano de falla potencial (asumiendo paralelo al talud)"
+        "es": "Profundidad vertical desde la superficie del talud hasta el plano de falla potencial (asumiendo paralelo al talud)",
+        "ar": "العمق الرأسي من سطح المنحدر إلى سطح الانهيار المحتمل (بافتراض التوازي مع المنحدر)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Porenwasserdruckverhältnis (rᵤ)",
         "fr": "Coefficient de pression interstitielle (rᵤ)",
         "es": "Relación de presión de poro (rᵤ)",
-        "ar": "Pore Pressure Ratio (rᵤ)"
+        "ar": "نسبة ضغط المسام (rᵤ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)",
         "tr": "Boşluk suyu basıncının örtü yüküne oranı (kuru için 0, doygun için 0.25–0.5)",
         "de": "Verhältnis von Porenwasserdruck zur Überlagerungsspannung (0 für trocken, 0,25–0,5 für gesättigt)",
         "fr": "Rapport de la pression interstitielle à la contrainte de surcharge (0 pour sec, 0,25–0,5 pour saturé)",
-        "es": "Relación entre la presión de agua intersticial y el esfuerzo de sobrecarga (0 para seco, 0.25–0.5 para saturado)"
+        "es": "Relación entre la presión de agua intersticial y el esfuerzo de sobrecarga (0 para seco, 0.25–0.5 para saturado)",
+        "ar": "نسبة ضغط ماء المسام إلى إجهاد الحمل الزائد (0 للجاف، 0.25–0.5 للمشبع)"
       }
     }
   ],

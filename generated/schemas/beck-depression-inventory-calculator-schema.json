@@ -14,14 +14,15 @@
         "de": "Kognitiv-emotionaler Wert",
         "fr": "Score cognitivo-affectif",
         "es": "Puntuación cognitivo-afectiva",
-        "ar": "Bilişsel-Duygusal Puan"
+        "ar": "الدرجة المعرفية-العاطفية"
       },
       "businessContext_i18n": {
         "en": "BDI Bilişsel-Duygusal alt ölçek toplamı",
         "tr": "BDI Bilişsel-Duygusal alt ölçek toplamı",
         "de": "BDI kognitiv-emotionale Subskala Summe",
         "fr": "Total de la sous-échelle cognitive-affective du BDI",
-        "es": "Suma de la subescala cognitivo-afectiva del BDI"
+        "es": "Suma de la subescala cognitivo-afectiva del BDI",
+        "ar": "مجموع مقياس بيك الفرعي المعرفي-العاطفي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Somatischer Wert",
         "fr": "Score somatique",
         "es": "Puntuación somática",
-        "ar": "Somatik Puan"
+        "ar": "الدرجة الجسدية"
       },
       "businessContext_i18n": {
         "en": "BDI Somatik alt ölçek toplamı",
         "tr": "BDI Somatik alt ölçek toplamı",
         "de": "BDI somatische Subskala Summe",
         "fr": "Total de la sous-échelle somatique du BDI",
-        "es": "Suma de la subescala somática del BDI"
+        "es": "Suma de la subescala somática del BDI",
+        "ar": "مجموع مقياس بيك الفرعي الجسدي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungswert",
         "fr": "Score de performance",
         "es": "Puntuación de rendimiento",
-        "ar": "Performans Puan"
+        "ar": "درجة الأداء"
       },
       "businessContext_i18n": {
         "en": "BDI Performans alt ölçek toplamı",
         "tr": "BDI Performans alt ölçek toplamı",
         "de": "BDI Leistungs-Subskala Summe",
         "fr": "Total de la sous-échelle de performance du BDI",
-        "es": "Suma de la subescala de rendimiento del BDI"
+        "es": "Suma de la subescala de rendimiento del BDI",
+        "ar": "مجموع مقياس بيك الفرعي للأداء"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Schuld-Reizbarkeits-Wert",
         "fr": "Score de culpabilité-irritabilité",
         "es": "Puntuación de culpa-irritabilidad",
-        "ar": "Suçluluk-İrritabilite Puan"
+        "ar": "درجة الذنب-التهيج"
       },
       "businessContext_i18n": {
         "en": "BDI Suçluluk-İrritabilite alt ölçek toplamı",
         "tr": "BDI Suçluluk-İrritabilite alt ölçek toplamı",
         "de": "BDI Schuld-Reizbarkeit Subskala Summe",
-        "fr": "BDI Suçluluk-İrritabilite alt ölçek toplamı",
-        "es": "BDI Suma de subescala de culpa-irritabilidad"
+        "fr": "BDI Culpabilité-Irritabilité total des sous-échelles",
+        "es": "BDI Suma de subescala de culpa-irritabilidad",
+        "ar": "مجموع مقياس الذنب-التهيج الفرعي"
       }
     }
   ],
   "formulas": {
-    "totalScore": "cognitive_affective + somatic + performance + guilt",
-    "totalScore_aux": "cognitive_affective + somatic + performance + guilt"
+    "normalized_product": "cognitive_affective * somatic * performance * guilt",
+    "result": "cognitive_affective * somatic * performance * guilt"
   },
   "outputs": {
-    "primary": "totalScore",
+    "primary": "result",
     "breakdown": [
-      "severityIndex",
-      "zScore"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "zScore",
-    "unit": "puan"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Lojistik & Rota",
   "sector": "Lojistik & Tedarik",

@@ -14,14 +14,15 @@
         "de": "Bekannte Distanz",
         "fr": "Distance connue",
         "es": "Distancia conocida",
-        "ar": "Known Distance"
+        "ar": "المسافة المعروفة"
       },
       "businessContext_i18n": {
         "en": "Distance of the race you have completed",
         "tr": "Tamamladığınız yarışın mesafesi",
         "de": "Distanz des absolvierten Rennens",
         "fr": "Distance de la course que vous avez terminée",
-        "es": "Distancia de la carrera que has completado"
+        "es": "Distancia de la carrera que has completado",
+        "ar": "مسافة السباق الذي أكملته"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stunden",
         "fr": "Heures",
         "es": "Horas",
-        "ar": "Hours"
+        "ar": "ساعات"
       },
       "businessContext_i18n": {
         "en": "Hours part of your known race time",
         "tr": "Bilinen yarış sürenizin saat kısmı",
         "de": "Stundenanteil der bekannten Rennzeit",
         "fr": "Partie heures de votre temps de course connu",
-        "es": "Parte de horas de tu tiempo de carrera conocido"
+        "es": "Parte de horas de tu tiempo de carrera conocido",
+        "ar": "جزء الساعات من وقت السباق المعروف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Minuten",
         "fr": "Minutes",
         "es": "Minutos",
-        "ar": "Minutes"
+        "ar": "دقائق"
       },
       "businessContext_i18n": {
         "en": "Minutes part of your known race time",
         "tr": "Bilinen yarış sürenizin dakika kısmı",
         "de": "Minutenanteil der bekannten Rennzeit",
         "fr": "Partie minutes de votre temps de course connu",
-        "es": "Parte de minutos de tu tiempo de carrera conocido"
+        "es": "Parte de minutos de tu tiempo de carrera conocido",
+        "ar": "جزء الدقائق من وقت السباق المعروف"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sekunden",
         "fr": "Secondes",
         "es": "Segundos",
-        "ar": "Seconds"
+        "ar": "الثواني"
       },
       "businessContext_i18n": {
         "en": "Seconds part of your known race time",
         "tr": "Bilinen yarış sürenizin saniye kısmı",
         "de": "Sekundenanteil der bekannten Rennzeit",
         "fr": "Partie secondes de votre temps de course connu",
-        "es": "Parte de segundos de tu tiempo de carrera conocido"
+        "es": "Parte de segundos de tu tiempo de carrera conocido",
+        "ar": "جزء الثواني من وقت السباق المعروف"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Zieldistanz",
         "fr": "Distance cible",
         "es": "Distancia objetivo",
-        "ar": "Target Distance"
+        "ar": "المسافة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Distance of the race you want to predict",
         "tr": "Tahmin etmek istediğiniz yarışın mesafesi",
         "de": "Distanz des vorherzusagenden Rennens",
         "fr": "Distance de la course que vous souhaitez prédire",
-        "es": "Distancia de la carrera que quieres predecir"
+        "es": "Distancia de la carrera que quieres predecir",
+        "ar": "مسافة السباق الذي تريد توقعه"
       }
     }
   ],
   "formulas": {
-    "result": "knownDistance + knownTimeHours + knownTimeMinutes",
-    "result_copy": "knownDistance + knownTimeHours + knownTimeMinutes"
+    "normalized_product": "knownDistance * knownTimeHours * knownTimeMinutes * knownTimeSeconds",
+    "result": "knownDistance * knownTimeHours * knownTimeMinutes * knownTimeSeconds * (targetDistance)",
+    "adjustment_factor": "targetDistance"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "equivalentTimeMinutes",
-      "equivalentPaceSecondsPerKm"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "equivalentPaceSecondsPerKm",
-    "unit": "km",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "equivalentTimeMinutes": "min"
     }

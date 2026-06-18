@@ -14,14 +14,15 @@
         "de": "Kartensatzgröße",
         "fr": "Taille du jeu",
         "es": "Tamaño del mazo",
-        "ar": "Deck Size"
+        "ar": "حجم المجموعة"
       },
       "businessContext_i18n": {
         "en": "Total number of cards in the deck.",
         "tr": "Destedeki toplam kart sayısı.",
         "de": "Gesamtzahl der Karten im Kartensatz.",
         "fr": "Nombre total de cartes dans le jeu.",
-        "es": "Número total de cartas en el mazo."
+        "es": "Número total de cartas en el mazo.",
+        "ar": "إجمالي عدد البطاقات في المجموعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Erfolge im Kartensatz",
         "fr": "Succès dans le jeu",
         "es": "Éxitos en el mazo",
-        "ar": "Successes in Deck"
+        "ar": "النجاحات في المجموعة"
       },
       "businessContext_i18n": {
         "en": "Number of cards in the deck that are considered favorable outcomes.",
         "tr": "Destede olumlu sonuç olarak kabul edilen kart sayısı.",
         "de": "Anzahl der Karten im Kartensatz, die als günstige Ergebnisse gelten.",
         "fr": "Nombre de cartes dans le jeu considérées comme des résultats favorables.",
-        "es": "Número de cartas en el mazo que se consideran resultados favorables."
+        "es": "Número de cartas en el mazo que se consideran resultados favorables.",
+        "ar": "عدد البطاقات في المجموعة التي تعتبر نتائج إيجابية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Ziehungen",
         "fr": "Nombre de tirages",
         "es": "Número de extracciones",
-        "ar": "Number of Draws"
+        "ar": "عدد السحوبات"
       },
       "businessContext_i18n": {
         "en": "Number of cards drawn from the deck without replacement.",
         "tr": "Desteden iadesiz çekilen kart sayısı.",
         "de": "Anzahl der aus dem Kartensatz ohne Zurücklegen gezogenen Karten.",
         "fr": "Nombre de cartes tirées du jeu sans remise.",
-        "es": "Número de cartas extraídas del mazo sin reemplazo."
+        "es": "Número de cartas extraídas del mazo sin reemplazo.",
+        "ar": "عدد البطاقات المسحوبة من المجموعة دون إرجاع."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Gewünschte Erfolge",
         "fr": "Succès souhaités",
         "es": "Éxitos deseados",
-        "ar": "Wanted Successes"
+        "ar": "النجاحات المطلوبة"
       },
       "businessContext_i18n": {
         "en": "Number of successful cards you want to appear in the draw.",
         "tr": "Çekilişte görünmesini istediğiniz başarılı kart sayısı.",
         "de": "Anzahl der Erfolgskarten, die in der Ziehung erscheinen sollen.",
         "fr": "Nombre de cartes gagnantes que vous souhaitez voir apparaître dans le tirage.",
-        "es": "Número de cartas exitosas que desea que aparezcan en la extracción."
+        "es": "Número de cartas exitosas que desea que aparezcan en la extracción.",
+        "ar": "عدد البطاقات الناجحة التي تريد ظهورها في السحب."
       }
     }
   ],
   "formulas": {
-    "result": "deckSize + successesInDeck + draws",
-    "result_copy": "deckSize + successesInDeck + draws"
+    "normalized_product": "deckSize * successesInDeck * draws * successesWanted",
+    "result": "deckSize * successesInDeck * draws * successesWanted"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "numerator",
-      "denominator",
-      "probabilityPercentage"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "probabilityPercentage",
-    "unit": "cards",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "probabilityPercentage": "%"
     }

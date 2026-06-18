@@ -14,14 +14,15 @@
         "de": "Bohrungsdurchmesser (mm)",
         "fr": "Diamètre d'alésage (mm)",
         "es": "Diámetro del cilindro (mm)",
-        "ar": "Bore Diameter (mm)"
+        "ar": "قطر التجويف (مم)"
       },
       "businessContext_i18n": {
         "en": "Internal cylinder diameter",
         "tr": "Silindir iç çapı",
         "de": "Innendurchmesser des Zylinders",
         "fr": "Diamètre intérieur du cylindre",
-        "es": "Diámetro interior del cilindro"
+        "es": "Diámetro interior del cilindro",
+        "ar": "القطر الداخلي للأسطوانة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hublänge (mm)",
         "fr": "Longueur de course (mm)",
         "es": "Longitud de carrera (mm)",
-        "ar": "Stroke Length (mm)"
+        "ar": "طول الشوط (مم)"
       },
       "businessContext_i18n": {
         "en": "Cylinder stroke length",
         "tr": "Silindir strok uzunluğu",
         "de": "Hublänge des Zylinders",
         "fr": "Longueur de course du vérin",
-        "es": "Longitud de carrera del cilindro"
+        "es": "Longitud de carrera del cilindro",
+        "ar": "طول شوط الأسطوانة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Betriebsdruck (bar)",
         "fr": "Pression de service (bar)",
         "es": "Presión de trabajo (bar)",
-        "ar": "Operating Pressure (bar)"
+        "ar": "ضغط التشغيل (بار)"
       },
       "businessContext_i18n": {
         "en": "Gauge working pressure",
         "tr": "Manometre çalışma basıncı",
         "de": "Manometer-Arbeitsdruck",
         "fr": "Pression de travail manométrique",
-        "es": "Presión de trabajo manométrica"
+        "es": "Presión de trabajo manométrica",
+        "ar": "ضغط العمل المقاس"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zyklen pro Minute",
         "fr": "Cycles par minute",
         "es": "Ciclos por minuto",
-        "ar": "Cycles per Minute"
+        "ar": "الدورات في الدقيقة"
       },
       "businessContext_i18n": {
         "en": "Complete extend-retract cycles per minute",
         "tr": "Dakikadaki tam uzatma-geri çekme çevrimi",
         "de": "Komplette Aus- und Einfahrzyklen pro Minute",
         "fr": "Cycles complets d'extension-rétraction par minute",
-        "es": "Ciclos completos de extensión-retracción por minuto"
+        "es": "Ciclos completos de extensión-retracción por minuto",
+        "ar": "دورات التمدد والانكماش الكاملة في الدقيقة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Atmosphärendruck (bar)",
         "fr": "Pression atmosphérique (bar)",
         "es": "Presión atmosférica (bar)",
-        "ar": "Atmospheric Pressure (bar)"
+        "ar": "الضغط الجوي (بار)"
       },
       "businessContext_i18n": {
         "en": "Local atmospheric pressure, default 1.013 bar at sea level",
         "tr": "Yerel atmosfer basıncı, deniz seviyesinde varsayılan 1,013 bar",
         "de": "Lokaler Atmosphärendruck, Standard 1,013 bar auf Meereshöhe",
         "fr": "Pression atmosphérique locale, par défaut 1,013 bar au niveau de la mer",
-        "es": "Presión atmosférica local, por defecto 1.013 bar al nivel del mar"
+        "es": "Presión atmosférica local, por defecto 1.013 bar al nivel del mar",
+        "ar": "الضغط الجوي المحلي، القيمة الافتراضية 1.013 بار عند مستوى سطح البحر"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Wirkungsfaktor",
         "fr": "Facteur d'action",
         "es": "Factor de actuación",
-        "ar": "Acting Factor"
+        "ar": "عامل الفعل"
       },
       "businessContext_i18n": {
         "en": "1 for single-acting, 2 for double-acting cylinder",
         "tr": "Tek etkili silindir için 1, çift etkili silindir için 2",
         "de": "1 für einfachwirkenden, 2 für doppeltwirkenden Zylinder",
         "fr": "1 pour simple effet, 2 pour double effet",
-        "es": "1 para cilindro de simple efecto, 2 para cilindro de doble efecto"
+        "es": "1 para cilindro de simple efecto, 2 para cilindro de doble efecto",
+        "ar": "1 للأسطوانة أحادية الفعل، 2 للأسطوانة مزدوجة الفعل"
       }
     }
   ],
   "formulas": {
-    "result": "bore + stroke + pressure",
-    "result_copy": "bore + stroke + pressure"
+    "normalized_product": "bore * stroke * pressure * cyclesPerMinute",
+    "result": "bore * stroke * pressure * cyclesPerMinute * (atmospheric * actingFactor)",
+    "adjustment_factor": "atmospheric * actingFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "pistonArea",
-      "volumePerCycle",
-      "totalConsumptionMM3"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "consumptionLMin",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Makine & Üretim",

@@ -14,14 +14,15 @@
         "de": "X1 - Start X",
         "fr": "X1 - Début X",
         "es": "X1 - Inicio X",
-        "ar": "X1 - Start X"
+        "ar": "X1 - نقطة البداية X"
       },
       "businessContext_i18n": {
         "en": "Starting point X coordinate",
         "tr": "Başlangıç noktası X koordinatı",
         "de": "Startpunkt X-Koordinate",
         "fr": "Coordonnée X du point de départ",
-        "es": "Coordenada X del punto de inicio"
+        "es": "Coordenada X del punto de inicio",
+        "ar": "إحداثي X لنقطة البداية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Y1 - Start Y",
         "fr": "Y1 - Départ Y",
         "es": "Y1 - Inicio Y",
-        "ar": "Y1 - Start Y"
+        "ar": "Y1 - نقطة البداية Y"
       },
       "businessContext_i18n": {
         "en": "Starting point Y coordinate",
         "tr": "Başlangıç noktası Y koordinatı",
         "de": "Startpunkt Y-Koordinate",
         "fr": "Coordonnée Y du point de départ",
-        "es": "Coordenada Y del punto de inicio"
+        "es": "Coordenada Y del punto de inicio",
+        "ar": "إحداثي Y لنقطة البداية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "X2 - Zweiter Punkt X",
         "fr": "X2 - Deuxième point X",
         "es": "X2 - Segundo punto X",
-        "ar": "X2 - Second Point X"
+        "ar": "X2 - النقطة الثانية X"
       },
       "businessContext_i18n": {
         "en": "Second node X coordinate",
         "tr": "İkinci düğüm X koordinatı",
         "de": "Zweiter Knoten X-Koordinate",
         "fr": "Coordonnée X du deuxième nœud",
-        "es": "Coordenada X del segundo nodo"
+        "es": "Coordenada X del segundo nodo",
+        "ar": "إحداثي X للعقدة الثانية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Y2 - Zweiter Punkt Y",
         "fr": "Y2 - Deuxième point Y",
         "es": "Y2 - Segundo punto Y",
-        "ar": "Y2 - Second Point Y"
+        "ar": "Y2 - النقطة الثانية Y"
       },
       "businessContext_i18n": {
         "en": "Second node Y coordinate",
         "tr": "İkinci düğüm Y koordinatı",
         "de": "Zweiter Knoten Y-Koordinate",
         "fr": "Coordonnée Y du deuxième nœud",
-        "es": "Coordenada Y del segundo nodo"
+        "es": "Coordenada Y del segundo nodo",
+        "ar": "إحداثي Y للعقدة الثانية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "X3 - Dritter Punkt X",
         "fr": "X3 - Troisième point X",
         "es": "X3 - Tercer punto X",
-        "ar": "X3 - Third Point X"
+        "ar": "X3 - النقطة الثالثة X"
       },
       "businessContext_i18n": {
         "en": "Third node X coordinate",
         "tr": "Üçüncü düğüm X koordinatı",
         "de": "Dritter Knoten X-Koordinate",
         "fr": "Coordonnée X du troisième nœud",
-        "es": "Coordenada X del tercer nodo"
+        "es": "Coordenada X del tercer nodo",
+        "ar": "إحداثي X للعقدة الثالثة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Y3 - Dritter Punkt Y",
         "fr": "Y3 - Troisième point Y",
         "es": "Y3 - Tercer punto Y",
-        "ar": "Y3 - Third Point Y"
+        "ar": "Y3 - النقطة الثالثة Y"
       },
       "businessContext_i18n": {
         "en": "Third node Y coordinate",
         "tr": "Üçüncü düğüm Y koordinatı",
         "de": "Dritter Knoten Y-Koordinate",
         "fr": "Coordonnée Y du troisième nœud",
-        "es": "Coordenada Y del tercer nodo"
+        "es": "Coordenada Y del tercer nodo",
+        "ar": "إحداثي Y للعقدة الثالثة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "X4 - Vierter Punkt X",
         "fr": "X4 - Quatrième point X",
         "es": "X4 - Cuarto punto X",
-        "ar": "X4 - Fourth Point X"
+        "ar": "X4 - النقطة الرابعة X"
       },
       "businessContext_i18n": {
         "en": "Fourth node X coordinate",
         "tr": "Dördüncü düğüm X koordinatı",
         "de": "Vierter Knoten X-Koordinate",
         "fr": "Coordonnée X du quatrième nœud",
-        "es": "Coordenada X del cuarto nodo"
+        "es": "Coordenada X del cuarto nodo",
+        "ar": "الإحداثي X للعقدة الرابعة"
       }
     },
     {
@@ -175,34 +182,39 @@
         "de": "Y4 - Vierter Punkt Y",
         "fr": "Y4 - Quatrième point Y",
         "es": "Y4 - Cuarto punto Y",
-        "ar": "Y4 - Fourth Point Y"
+        "ar": "Y4 - الإحداثي Y للنقطة الرابعة"
       },
       "businessContext_i18n": {
         "en": "Fourth node Y coordinate",
         "tr": "Dördüncü düğüm Y koordinatı",
         "de": "Vierter Knoten Y-Koordinate",
         "fr": "Coordonnée Y du quatrième nœud",
-        "es": "Coordenada Y del cuarto nodo"
+        "es": "Coordenada Y del cuarto nodo",
+        "ar": "الإحداثي Y للعقدة الرابعة"
       }
     }
   ],
   "formulas": {
-    "result": "x1 + y1 + x2",
-    "result_copy": "x1 + y1 + x2"
+    "normalized_product": "x1 * y1 * x2 * y2",
+    "result": "x1 * y1 * x2 * y2 * (x3 * y3 * x4 * y4)",
+    "adjustment_factor": "x3 * y3 * x4 * y4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "distance1",
-      "distance2",
-      "distance3"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalDistance",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Lojistik & Rota",
   "sector": "Lojistik & Tedarik",

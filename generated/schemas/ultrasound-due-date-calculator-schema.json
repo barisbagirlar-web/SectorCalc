@@ -13,14 +13,16 @@
         "tr": "Mevcut Kalınlık (mm)",
         "de": "Aktuelle Dicke (mm)",
         "fr": "Épaisseur actuelle (mm)",
-        "es": "Current Thickness (mm)",
-        "ar": "Current Thickness (mm)"
+        "es": "Espesor actual (mm)",
+        "ar": "السماكة الحالية (مم)"
       },
       "businessContext_i18n": {
         "en": "Measured actual wall thickness from ultrasonic testing (UT) gauge.",
         "tr": "Ultrasonik test (UT) cihazından ölçülen gerçek duvar kalınlığı.",
         "de": "Gemessene tatsächliche Wanddicke aus der Ultraschallprüfung (UT).",
-        "fr": "Épaisseur réelle mesurée par jauge à ultrasons (UT)."
+        "fr": "Épaisseur réelle mesurée par jauge à ultrasons (UT).",
+        "es": "Espesor de pared real medido con equipo de ultrasonido (UT).",
+        "ar": "سماكة الجدار الفعلية المقاسة من جهاز الاختبار بالموجات فوق الصوتية (UT)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İzin Verilen Minimum Kalınlık (mm)",
         "de": "Minimal zulässige Dicke (mm)",
         "fr": "Épaisseur minimale admissible (mm)",
-        "es": "Minimum Allowable Thickness (mm)",
-        "ar": "Minimum Allowable Thickness (mm)"
+        "es": "Espesor mínimo permitido (mm)",
+        "ar": "الحد الأدنى المسموح به للسماكة (مم)"
       },
       "businessContext_i18n": {
         "en": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement.",
         "tr": "Değiştirme öncesi tasarım kodunun (ör. ASME B31.3) gerektirdiği minimum kalınlık.",
         "de": "Mindestdicke gemäß Auslegungscode (z. B. ASME B31.3) vor Austausch.",
-        "fr": "Épaisseur minimale requise par le code de conception (ex. ASME B31.3) avant remplacement."
+        "fr": "Épaisseur minimale requise par le code de conception (ex. ASME B31.3) avant remplacement.",
+        "es": "Espesor mínimo requerido por el código de diseño (ej., ASME B31.3) antes del reemplazo.",
+        "ar": "الحد الأدنى للسماكة المطلوبة وفقًا لكود التصميم (مثل ASME B31.3) قبل الاستبدال."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Korozyon Hızı (mm/yıl)",
         "de": "Korrosionsrate (mm/Jahr)",
         "fr": "Taux de corrosion (mm/an)",
-        "es": "Corrosion Rate (mm/year)",
-        "ar": "Corrosion Rate (mm/year)"
+        "es": "Tasa de corrosión (mm/año)",
+        "ar": "معدل التآكل (مم/سنة)"
       },
       "businessContext_i18n": {
         "en": "Estimated uniform corrosion rate based on historical UT data or industry standards.",
         "tr": "Geçmiş UT verileri veya endüstri standartlarına dayalı tahmini üniform korozyon hızı.",
         "de": "Geschätzte gleichmäßige Korrosionsrate basierend auf historischen UT-Daten oder Industriestandards.",
-        "fr": "Taux de corrosion uniforme estimé basé sur des données UT historiques ou des normes industrielles."
+        "fr": "Taux de corrosion uniforme estimé basé sur des données UT historiques ou des normes industrielles.",
+        "es": "Tasa de corrosión uniforme estimada basada en datos históricos de UT o estándares de la industria.",
+        "ar": "معدل التآكل المنتظم المقدر بناءً على بيانات UT التاريخية أو المعايير الصناعية."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ölçüm Güven Faktörü",
         "de": "Messvertrauensfaktor",
         "fr": "Facteur de confiance de mesure",
-        "es": "Measurement Confidence Factor",
-        "ar": "Measurement Confidence Factor"
+        "es": "Factor de confianza de la medición",
+        "ar": "عامل الثقة في القياس"
       },
       "businessContext_i18n": {
         "en": "Safety factor to account for UT measurement uncertainty (≥1.0).",
         "tr": "UT ölçüm belirsizliğini hesaba katmak için güvenlik faktörü (≥1.0).",
         "de": "Sicherheitsfaktor zur Berücksichtigung der UT-Messunsicherheit (≥1,0).",
-        "fr": "Facteur de sécurité pour tenir compte de l'incertitude de mesure UT (≥1,0)."
+        "fr": "Facteur de sécurité pour tenir compte de l'incertitude de mesure UT (≥1,0).",
+        "es": "Factor de seguridad para tener en cuenta la incertidumbre de la medición UT (≥1.0).",
+        "ar": "عامل أمان لمراعاة عدم اليقين في قياس UT (≥1.0)."
       }
     }
   ],

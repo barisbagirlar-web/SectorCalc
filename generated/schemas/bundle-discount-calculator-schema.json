@@ -14,14 +14,15 @@
         "de": "Paketanzahl",
         "fr": "Nombre de paquets",
         "es": "Número de paquetes",
-        "ar": "Paket Sayısı"
+        "ar": "عدد الحزم"
       },
       "businessContext_i18n": {
         "en": "Satın alınan paket adedi",
         "tr": "Satın alınan paket adedi",
         "de": "Anzahl der gekauften Pakete",
         "fr": "Nombre de paquets achetés",
-        "es": "Cantidad de paquetes comprados"
+        "es": "Cantidad de paquetes comprados",
+        "ar": "عدد الحزم المشتراة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Produkte pro Paket",
         "fr": "Produits par paquet",
         "es": "Productos por paquete",
-        "ar": "Paket Başına Ürün"
+        "ar": "المنتج لكل حزمة"
       },
       "businessContext_i18n": {
         "en": "Bir paketteki ürün sayısı",
         "tr": "Bir paketteki ürün sayısı",
         "de": "Anzahl der Produkte in einem Paket",
         "fr": "Nombre de produits dans un paquet",
-        "es": "Número de productos en un paquete"
+        "es": "Número de productos en un paquete",
+        "ar": "عدد المنتجات في الحزمة الواحدة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stückpreis",
         "fr": "Prix unitaire",
         "es": "Precio unitario",
-        "ar": "Birim Fiyatı"
+        "ar": "سعر الوحدة"
       },
       "businessContext_i18n": {
         "en": "Tek bir ürünün liste fiyatı",
         "tr": "Tek bir ürünün liste fiyatı",
         "de": "Listenpreis eines einzelnen Produkts",
         "fr": "Prix catalogue d'un seul produit",
-        "es": "Precio de lista de un solo producto"
+        "es": "Precio de lista de un solo producto",
+        "ar": "سعر القائمة لمنتج واحد"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Paketrabatt (%)",
         "fr": "Remise par paquet (%)",
         "es": "Descuento por paquete (%)",
-        "ar": "Paket İndirimi (%)"
+        "ar": "خصم الحزمة (%)"
       },
       "businessContext_i18n": {
         "en": "Paket olarak alındığında uygulanacak indirim yüzdesi",
         "tr": "Paket olarak alındığında uygulanacak indirim yüzdesi",
         "de": "Rabattprozentsatz beim Kauf als Paket",
         "fr": "Pourcentage de remise appliqué lors de l'achat en paquet",
-        "es": "Porcentaje de descuento aplicado al comprar en paquete"
+        "es": "Porcentaje de descuento aplicado al comprar en paquete",
+        "ar": "نسبة الخصم المطبقة عند الشراء كحزمة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Mengenschwellenwert",
         "fr": "Seuil d'achat en gros",
         "es": "Umbral de compra al por mayor",
-        "ar": "Toplu Alım Eşiği"
+        "ar": "حد الشراء بالجملة"
       },
       "businessContext_i18n": {
         "en": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
         "tr": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
         "de": "Bei Bestellung dieser oder einer höheren Anzahl von Paketen wird ein zusätzlicher Mengenrabatt gewährt",
         "fr": "Remise supplémentaire appliquée pour l'achat de ce nombre ou plus de packs",
-        "es": "Se aplica un descuento adicional por volumen al comprar este número o más paquetes"
+        "es": "Se aplica un descuento adicional por volumen al comprar este número o más paquetes",
+        "ar": "يتم تطبيق خصم إضافي عند شراء هذا العدد أو أكثر من الحزم"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Mengenrabattsatz (%)",
         "fr": "Taux de remise en gros (%)",
         "es": "Tasa de descuento por volumen (%)",
-        "ar": "Toplu İndirim Oranı (%)"
+        "ar": "نسبة الخصم الإضافي (%)"
       },
       "businessContext_i18n": {
         "en": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
         "tr": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
         "de": "Zusätzlicher Rabattprozentsatz nach Paketrabatt, wenn der Mengenschwellenwert überschritten wird",
         "fr": "Pourcentage de remise supplémentaire appliqué après la remise sur le pack lorsque le seuil d'achat en gros est dépassé",
-        "es": "Porcentaje de descuento adicional aplicado después del descuento por paquete cuando se supera el umbral de compra al por mayor"
+        "es": "Porcentaje de descuento adicional aplicado después del descuento por paquete cuando se supera el umbral de compra al por mayor",
+        "ar": "النسبة المئوية للخصم الإضافي المطبق بعد خصم الحزمة عند تجاوز حد الشراء بالجملة"
       }
     }
   ],

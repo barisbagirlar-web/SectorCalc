@@ -13,14 +13,16 @@
         "tr": "Bugünkü Değer (BD)",
         "de": "Barwert (BW)",
         "fr": "Valeur actuelle (VA)",
-        "es": "Present Value (PV)",
-        "ar": "Present Value (PV)"
+        "es": "Valor Presente (VP)",
+        "ar": "القيمة الحالية (PV)"
       },
       "businessContext_i18n": {
         "en": "The initial amount of money or investment.",
         "tr": "Yatırılan veya borç alınan başlangıç para miktarı.",
         "de": "Der anfängliche Geldbetrag oder die Investition.",
-        "fr": "Montant initial de l'argent ou de l'investissement."
+        "fr": "Montant initial de l'argent ou de l'investissement.",
+        "es": "El monto inicial de dinero o inversión.",
+        "ar": "المبلغ الأولي من المال أو الاستثمار."
       }
     },
     {
@@ -36,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "The annual nominal interest rate.",
         "tr": "Yıllık nominal faiz oranı.",
         "de": "Der jährliche Nominalzinssatz.",
         "fr": "Le taux d'intérêt nominal annuel.",
-        "es": "La tasa de interés nominal anual."
+        "es": "La tasa de interés nominal anual.",
+        "ar": "معدل الفائدة الاسمي السنوي."
       }
     },
     {
@@ -59,13 +62,15 @@
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
-        "ar": "Number of Years"
+        "ar": "عدد السنوات"
       },
       "businessContext_i18n": {
         "en": "The total number of years the money is invested or borrowed.",
         "tr": "Paranın yatırıldığı veya borç alındığı toplam yıl sayısı.",
         "de": "Die Gesamtzahl der Jahre, in denen das Geld investiert oder geliehen wird.",
-        "fr": "Nombre total d'années pendant lesquelles l'argent est investi ou emprunté."
+        "fr": "Nombre total d'années pendant lesquelles l'argent est investi ou emprunté.",
+        "es": "El número total de años que el dinero está invertido o prestado.",
+        "ar": "إجمالي عدد السنوات التي يتم فيها استثمار أو اقتراض المال."
       }
     },
     {
@@ -81,31 +86,37 @@
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de capitalización",
-        "ar": "Compounding Frequency"
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "The number of times compounding occurs per year (e.g., 12 for monthly, 4 for quarterly).",
         "tr": "Yıllık bileşik faiz sayısı (örneğin, aylık için 12, üç aylık için 4).",
         "de": "Die Anzahl der Zinseszinsperioden pro Jahr (z. B. 12 für monatlich, 4 für vierteljährlich).",
-        "fr": "Nombre de capitalisations par an (ex. : 12 pour mensuel, 4 pour trimestriel)."
+        "fr": "Nombre de capitalisations par an (ex. : 12 pour mensuel, 4 pour trimestriel).",
+        "es": "El número de veces que ocurre la capitalización por año (ej., 12 para mensual, 4 para trimestral).",
+        "ar": "عدد مرات المضاعفة في السنة (مثال: 12 للشهرية، 4 للربع سنوية)."
       }
     }
   ],
   "formulas": {
-    "result": "presentValue + annualInterestRate + numberOfYears",
-    "result_copy": "presentValue + annualInterestRate + numberOfYears"
+    "normalized_product": "presentValue * (annualInterestRate / 100) * numberOfYears * compoundingFrequency",
+    "result": "presentValue * (annualInterestRate / 100) * numberOfYears * compoundingFrequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalInterestEarned"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalInterestEarned",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -14,14 +14,15 @@
         "de": "Partikeldurchmesser (dp)",
         "fr": "Diamètre des particules (dp)",
         "es": "Diámetro de partícula (dp)",
-        "ar": "Particle Diameter (dp)"
+        "ar": "قطر الجسيم (dp)"
       },
       "businessContext_i18n": {
         "en": "Average diameter of particles in the bed.",
         "tr": "Yataktaki partiküllerin ortalama çapı.",
         "de": "Mittlerer Durchmesser der Partikel im Bett.",
         "fr": "Diamètre moyen des particules dans le lit.",
-        "es": "Diámetro promedio de las partículas en el lecho."
+        "es": "Diámetro promedio de las partículas en el lecho.",
+        "ar": "متوسط قطر الجسيمات في الطبقة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Partikeldichte (ρp)",
         "fr": "Masse volumique des particules (ρp)",
         "es": "Densidad de partícula (ρp)",
-        "ar": "Particle Density (ρp)"
+        "ar": "كثافة الجسيم (ρp)"
       },
       "businessContext_i18n": {
         "en": "Density of the solid particles.",
         "tr": "Katı partiküllerin yoğunluğu.",
         "de": "Dichte der festen Partikel.",
         "fr": "Masse volumique des particules solides.",
-        "es": "Densidad de las partículas sólidas."
+        "es": "Densidad de las partículas sólidas.",
+        "ar": "كثافة الجسيمات الصلبة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fluiddichte (ρf)",
         "fr": "Masse volumique du fluide (ρf)",
         "es": "Densidad del fluido (ρf)",
-        "ar": "Fluid Density (ρf)"
+        "ar": "كثافة المائع (ρf)"
       },
       "businessContext_i18n": {
         "en": "Density of the fluidizing medium.",
         "tr": "Akışkanlaştırma ortamının yoğunluğu.",
         "de": "Dichte des Fluidisierungsmediums.",
         "fr": "Masse volumique du fluide fluidisant.",
-        "es": "Densidad del medio fluidizante."
+        "es": "Densidad del medio fluidizante.",
+        "ar": "كثافة وسيلة التميع."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fluidviskosität (μ)",
         "fr": "Viscosité du fluide (μ)",
         "es": "Viscosidad del fluido (μ)",
-        "ar": "Fluid Viscosity (μ)"
+        "ar": "لزوجة المائع (μ)"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid.",
         "tr": "Akışkanın dinamik viskozitesi.",
         "de": "Dynamische Viskosität des Fluids",
         "fr": "Viscosité dynamique du fluide",
-        "es": "Viscosidad dinámica del fluido"
+        "es": "Viscosidad dinámica del fluido",
+        "ar": "اللزوجة الديناميكية للسائل."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Lückenanteil bei minimaler Fluidisierung (εmf)",
         "fr": "Fraction de vide à fluidisation minimale (εmf)",
         "es": "Fracción de vacío en fluidización mínima (εmf)",
-        "ar": "Void Fraction at Min. Fluidization (εmf)"
+        "ar": "الكسر الفراغي عند التميع الأدنى (εmf)"
       },
       "businessContext_i18n": {
         "en": "Void fraction (porosity) of the bed at minimum fluidization.",
         "tr": "Minimum akışkanlaştırmada yatağın boşluk oranı (gözeneklilik).",
         "de": "Lückenanteil (Porosität) des Bettes bei minimaler Fluidisierung.",
         "fr": "Fraction de vide (porosité) du lit à fluidisation minimale.",
-        "es": "Fracción de vacío (porosidad) del lecho en fluidización mínima."
+        "es": "Fracción de vacío (porosidad) del lecho en fluidización mínima.",
+        "ar": "الكسر الفراغي (المسامية) للطبقة عند التميع الأدنى."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Sphärizität (φ)",
         "fr": "Sphéricité (φ)",
         "es": "Esfericidad (φ)",
-        "ar": "Sphericity (φ)"
+        "ar": "الكروية (φ)"
       },
       "businessContext_i18n": {
         "en": "Sphericity factor of particles, ranging from 0 to 1.",
         "tr": "Partiküllerin küresellik faktörü, 0 ile 1 arasında.",
         "de": "Sphärizitätsfaktor der Partikel, Bereich 0 bis 1.",
         "fr": "Facteur de sphéricité des particules, de 0 à 1.",
-        "es": "Factor de esfericidad de las partículas, de 0 a 1."
+        "es": "Factor de esfericidad de las partículas, de 0 a 1.",
+        "ar": "عامل كروية الجسيمات، يتراوح من 0 إلى 1."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Schwerkraft (g)",
         "fr": "Gravité (g)",
         "es": "Gravedad (g)",
-        "ar": "Gravity (g)"
+        "ar": "الجاذبية (g)"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration.",
         "tr": "Yerçekimi ivmesi.",
         "de": "Erdbeschleunigung.",
         "fr": "Accélération gravitationnelle.",
-        "es": "Aceleración gravitacional."
+        "es": "Aceleración gravitacional.",
+        "ar": "تسارع الجاذبية."
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Betthöhe (L)",
         "fr": "Hauteur du lit (L)",
         "es": "Altura del lecho (L)",
-        "ar": "Bed Height (L)"
+        "ar": "ارتفاع الطبقة (L)"
       },
       "businessContext_i18n": {
         "en": "Height of the fixed bed.",
         "tr": "Sabit yatağın yüksekliği.",
         "de": "Höhe des Festbetts.",
         "fr": "Hauteur du lit fixe.",
-        "es": "Altura del lecho fijo."
+        "es": "Altura del lecho fijo.",
+        "ar": "ارتفاع الطبقة الثابتة."
       }
     }
   ],

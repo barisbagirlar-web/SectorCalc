@@ -14,14 +14,15 @@
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
         "es": "Consumo de combustible (L/100km)",
-        "ar": "Fuel Consumption (L/100km)"
+        "ar": "استهلاك الوقود (لتر/100كم)"
       },
       "businessContext_i18n": {
         "en": "Measured or rated fuel consumption in liters per 100 kilometers.",
         "tr": "100 kilometrede litre cinsinden ölçülen veya derecelendirilen yakıt tüketimi.",
         "de": "Gemessener oder angegebener Kraftstoffverbrauch in Litern pro 100 Kilometer.",
         "fr": "Consommation de carburant mesurée ou nominale en litres aux 100 kilomètres.",
-        "es": "Consumo de combustible medido o estimado en litros por 100 kilómetros."
+        "es": "Consumo de combustible medido o estimado en litros por 100 kilómetros.",
+        "ar": "استهلاك الوقود المقاس أو المقدر باللتر لكل 100 كيلومتر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gallonen-Standard",
         "fr": "Standard gallon",
         "es": "Estándar de galón",
-        "ar": "Gallon Standard"
+        "ar": "معيار الغالون"
       },
       "businessContext_i18n": {
         "en": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L).",
         "tr": "1 = ABD galonu (3.785411784 L), 2 = İngiltere galonu (4.54609 L).",
         "de": "1 = US-Gallone (3,785411784 L), 2 = UK-Gallone (4,54609 L).",
         "fr": "1 = gallon US (3,785411784 L), 2 = gallon UK (4,54609 L).",
-        "es": "1 = galón estadounidense (3.785411784 L), 2 = galón británico (4.54609 L)."
+        "es": "1 = galón estadounidense (3.785411784 L), 2 = galón británico (4.54609 L).",
+        "ar": "1 = غالون أمريكي (3.785411784 لتر)، 2 = غالون بريطاني (4.54609 لتر)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding.",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung.",
         "fr": "Nombre de décimales pour l'arrondi du résultat.",
-        "es": "Número de decimales para el redondeo de salida."
+        "es": "Número de decimales para el redondeo de salida.",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
         "es": "Método de redondeo",
-        "ar": "Rounding Method"
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = round, 1 = floor, 2 = ceil.",
         "tr": "0 = yuvarla, 1 = taban, 2 = tavan.",
         "de": "0 = runden, 1 = abrunden, 2 = aufrunden.",
         "fr": "0 = arrondi, 1 = plancher, 2 = plafond.",
-        "es": "0 = redondear, 1 = piso, 2 = techo."
+        "es": "0 = redondear, 1 = piso, 2 = techo.",
+        "ar": "0 = تقريب، 1 = أرضية، 2 = سقف."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Messstandard",
         "fr": "Standard de mesure",
         "es": "Estándar de medición",
-        "ar": "Measurement Standard"
+        "ar": "معيار القياس"
       },
       "businessContext_i18n": {
         "en": "1 = EU, 2 = US, 3 = UK, for reporting context.",
         "tr": "1 = AB, 2 = ABD, 3 = İngiltere, raporlama bağlamı için.",
         "de": "1 = EU, 2 = US, 3 = UK für den Berichtskontext.",
         "fr": "1 = UE, 2 = US, 3 = UK, pour le contexte de rapport.",
-        "es": "1 = UE, 2 = EE. UU., 3 = RU, para contexto de informe."
+        "es": "1 = UE, 2 = EE. UU., 3 = RU, para contexto de informe.",
+        "ar": "1 = الاتحاد الأوروبي، 2 = الولايات المتحدة، 3 = المملكة المتحدة، لسياق التقارير."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kraftstofftyp",
         "fr": "Type de carburant",
         "es": "Tipo de combustible",
-        "ar": "Fuel Type"
+        "ar": "نوع الوقود"
       },
       "businessContext_i18n": {
         "en": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context).",
         "tr": "1 = benzin, 2 = dizel, 3 = elektrik eşdeğeri (bağlam için).",
         "de": "1 = Benzin, 2 = Diesel, 3 = elektrisches Äquivalent (für den Kontext).",
         "fr": "1 = essence, 2 = diesel, 3 = équivalent électrique (pour contexte).",
-        "es": "1 = gasolina, 2 = diésel, 3 = equivalente eléctrico (para contexto)."
+        "es": "1 = gasolina, 2 = diésel, 3 = equivalente eléctrico (para contexto).",
+        "ar": "1 = بنزين، 2 = ديزل، 3 = مكافئ كهربائي (للسياق)."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Fahrzeugklasse",
         "fr": "Classe de véhicule",
         "es": "Clase de vehículo",
-        "ar": "Vehicle Class"
+        "ar": "فئة المركبة"
       },
       "businessContext_i18n": {
         "en": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context).",
         "tr": "1 = binek araç, 2 = hafif kamyon, 3 = ağır hizmet (bağlam için).",
         "de": "1 = Personenkraftwagen, 2 = leichter Lkw, 3 = Schwerlast (für den Kontext).",
         "fr": "1 = voiture particulière, 2 = camion léger, 3 = poids lourd (pour contexte).",
-        "es": "1 = turismo, 2 = camión ligero, 3 = vehículo pesado (para contexto)."
+        "es": "1 = turismo, 2 = camión ligero, 3 = vehículo pesado (para contexto).",
+        "ar": "1 = سيارة ركاب، 2 = شاحنة خفيفة، 3 = شاحنة ثقيلة (للسياق)."
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Streckentyp",
         "fr": "Type de route",
         "es": "Tipo de ruta",
-        "ar": "Route Type"
+        "ar": "نوع الطريق"
       },
       "businessContext_i18n": {
         "en": "1 = highway, 2 = city, 3 = combined (driving condition context).",
         "tr": "1 = otoyol, 2 = şehir, 3 = karma (sürüş koşulu bağlamı).",
         "de": "1 = Autobahn, 2 = Stadt, 3 = kombiniert (Fahrbedingungskontext).",
         "fr": "1 = autoroute, 2 = ville, 3 = combiné (contexte de condition de conduite).",
-        "es": "1 = autopista, 2 = ciudad, 3 = combinado (contexto de condiciones de conducción)."
+        "es": "1 = autopista, 2 = ciudad, 3 = combinado (contexto de condiciones de conducción).",
+        "ar": "1 = طريق سريع، 2 = مدينة، 3 = مشترك (سياق ظروف القيادة)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Richtig Negative (TN)",
         "fr": "Vrais négatifs (VN)",
         "es": "Verdaderos Negativos (VN)",
-        "ar": "True Negatives (TN)"
+        "ar": "السلبيات الحقيقية (TN)"
       },
       "businessContext_i18n": {
         "en": "Number of correctly predicted negative outcomes (e.g., non-defective items correctly identified as non-defective in quality inspection).",
         "tr": "Doğru tahmin edilen negatif sonuç sayısı (örneğin, kalite denetiminde kusurlu olmayan ürünlerin doğru tanımlanması).",
         "de": "Anzahl der korrekt vorhergesagten negativen Ergebnisse (z. B. fehlerfreie Teile, die korrekt als fehlerfrei identifiziert wurden).",
         "fr": "Nombre de résultats négatifs correctement prédits (par exemple, articles non défectueux correctement identifiés comme non défectueux lors d'une inspection qualité).",
-        "es": "Número de resultados negativos correctamente predichos (ej., artículos no defectuosos correctamente identificados como no defectuosos en inspección de calidad)."
+        "es": "Número de resultados negativos correctamente predichos (ej., artículos no defectuosos correctamente identificados como no defectuosos en inspección de calidad).",
+        "ar": "عدد النتائج السلبية المتوقعة بشكل صحيح (مثل العناصر غير المعيبة التي تم تحديدها بشكل صحيح على أنها غير معيبة في فحص الجودة)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Falsch Negative (FN)",
         "fr": "Faux négatifs (FN)",
         "es": "Falsos Negativos (FN)",
-        "ar": "False Negatives (FN)"
+        "ar": "السلبيات الكاذبة (FN)"
       },
       "businessContext_i18n": {
         "en": "Number of negative outcomes incorrectly predicted as positive (e.g., defective items missed, false escapes).",
         "tr": "Yanlış pozitif tahmin edilen negatif sonuç sayısı (örneğin, kaçırılan kusurlu ürünler, yanlış kaçışlar).",
         "de": "Anzahl der negativen Ergebnisse, die fälschlicherweise als positiv vorhergesagt wurden (z. B. übersehene fehlerhafte Teile, falsche Entweichungen).",
         "fr": "Nombre de résultats négatifs incorrectement prédits comme positifs (par exemple, articles défectueux manqués, faux échappements).",
-        "es": "Número de resultados negativos incorrectamente predichos como positivos (ej., artículos defectuosos omitidos, falsos escapes)."
+        "es": "Número de resultados negativos incorrectamente predichos como positivos (ej., artículos defectuosos omitidos, falsos escapes).",
+        "ar": "عدد النتائج السلبية المتوقعة بشكل غير صحيح على أنها إيجابية (مثل العناصر المعيبة التي تم تفويتها، الهروب الكاذب)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Richtig Positive (TP)",
         "fr": "Vrais positifs (VP)",
         "es": "Verdaderos positivos (VP)",
-        "ar": "True Positives (TP)"
+        "ar": "الإيجابيات الحقيقية (TP)"
       },
       "businessContext_i18n": {
         "en": "Number of positive outcomes correctly predicted as positive (e.g., defective items correctly identified).",
         "tr": "Doğru tahmin edilen pozitif sonuç sayısı (örneğin, kusurlu ürünlerin doğru tanımlanması).",
         "de": "Anzahl der korrekt vorhergesagten positiven Ergebnisse (z. B. fehlerhafte Teile korrekt identifiziert).",
         "fr": "Nombre de résultats positifs correctement prédits comme positifs (par exemple, articles défectueux correctement identifiés).",
-        "es": "Número de resultados positivos correctamente predichos como positivos (ej., artículos defectuosos correctamente identificados)."
+        "es": "Número de resultados positivos correctamente predichos como positivos (ej., artículos defectuosos correctamente identificados).",
+        "ar": "عدد النتائج الإيجابية المتوقعة بشكل صحيح على أنها إيجابية (مثل العناصر المعيبة التي تم تحديدها بشكل صحيح)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Falsch Positive (FP)",
         "fr": "Faux positifs (FP)",
         "es": "Falsos Positivos (FP)",
-        "ar": "False Positives (FP)"
+        "ar": "الإيجابيات الكاذبة (FP)"
       },
       "businessContext_i18n": {
         "en": "Number of positive outcomes incorrectly predicted as negative (e.g., non-defective items incorrectly flagged as defective, false alarms).",
         "tr": "Yanlış negatif tahmin edilen pozitif sonuç sayısı (örneğin, kusurlu olmayan ürünlerin yanlışlıkla kusurlu olarak işaretlenmesi, yanlış alarmlar).",
         "de": "Anzahl der positiven Ergebnisse, die fälschlicherweise als negativ vorhergesagt wurden (z. B. fehlerfreie Teile fälschlich als fehlerhaft markiert, Fehlalarme).",
         "fr": "Nombre de résultats positifs incorrectement prédits comme négatifs (par exemple, articles non défectueux incorrectement signalés comme défectueux, fausses alarmes).",
-        "es": "Número de resultados positivos incorrectamente predichos como negativos (ej., artículos no defectuosos incorrectamente marcados como defectuosos, falsas alarmas)."
+        "es": "Número de resultados positivos incorrectamente predichos como negativos (ej., artículos no defectuosos incorrectamente marcados como defectuosos, falsas alarmas).",
+        "ar": "عدد النتائج الإيجابية التي تم توقعها بشكل غير صحيح على أنها سلبية (مثل العناصر غير المعيبة التي تم وضع علامة عليها بشكل غير صحيح على أنها معيبة، إنذارات كاذبة)."
       }
     }
   ],

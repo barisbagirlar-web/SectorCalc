@@ -14,14 +14,15 @@
         "de": "Aktuelle jährliche Dividende pro Aktie",
         "fr": "Dividende annuel actuel par action",
         "es": "Dividendo anual actual por acción",
-        "ar": "Current Annual Dividend Per Share"
+        "ar": "توزيعات الأرباح السنوية الحالية للسهم"
       },
       "businessContext_i18n": {
         "en": "The most recent annual dividend payment per share in dollars.",
         "tr": "Hisse başına en son yıllık temettü ödemesi, dolar cinsinden.",
         "de": "Die letzte jährliche Dividendenzahlung pro Aktie in Dollar.",
         "fr": "Le dernier paiement de dividende annuel par action en dollars.",
-        "es": "El pago de dividendo anual más reciente por acción en dólares."
+        "es": "El pago de dividendo anual más reciente por acción en dólares.",
+        "ar": "أحدث دفعة أرباح سنوية للسهم بالدولار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Erwartete Dividendenwachstumsrate",
         "fr": "Taux de croissance attendu du dividende",
         "es": "Tasa de crecimiento esperada del dividendo",
-        "ar": "Expected Dividend Growth Rate"
+        "ar": "معدل نمو الأرباح المتوقع"
       },
       "businessContext_i18n": {
         "en": "The anticipated annual growth rate of the dividend, expressed as a percentage.",
         "tr": "Temettünün beklenen yıllık büyüme oranı, yüzde olarak ifade edilir.",
         "de": "Die erwartete jährliche Wachstumsrate der Dividende, ausgedrückt in Prozent.",
         "fr": "Le taux de croissance annuel anticipé du dividende, exprimé en pourcentage.",
-        "es": "La tasa de crecimiento anual anticipada del dividendo, expresada como porcentaje."
+        "es": "La tasa de crecimiento anual anticipada del dividendo, expresada como porcentaje.",
+        "ar": "معدل النمو السنوي المتوقع للأرباح، معبرًا عنه كنسبة مئوية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Erforderliche Rendite",
         "fr": "Taux de rendement requis",
         "es": "Tasa de rendimiento requerida",
-        "ar": "Required Rate of Return"
+        "ar": "معدل العائد المطلوب"
       },
       "businessContext_i18n": {
         "en": "The investor's required rate of return or discount rate, expressed as a percentage.",
         "tr": "Yatırımcının gerekli getiri oranı veya iskonto oranı, yüzde olarak ifade edilir.",
         "de": "Die vom Anleger geforderte Rendite oder Diskontsatz, ausgedrückt in Prozent.",
         "fr": "Le taux de rendement requis ou taux d'actualisation de l'investisseur, exprimé en pourcentage.",
-        "es": "La tasa de rendimiento requerida por el inversor o tasa de descuento, expresada como porcentaje."
+        "es": "La tasa de rendimiento requerida por el inversor o tasa de descuento, expresada como porcentaje.",
+        "ar": "معدل العائد المطلوب للمستثمر أو معدل الخصم، معبرًا عنه كنسبة مئوية."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
-        "ar": "Number of Years"
+        "ar": "عدد السنوات"
       },
       "businessContext_i18n": {
         "en": "The number of years into the future for which the dividend is projected.",
         "tr": "Temettünün tahmin edildiği gelecekteki yıl sayısı.",
         "de": "Die Anzahl der Jahre in die Zukunft, für die die Dividende prognostiziert wird.",
         "fr": "Le nombre d'années dans le futur pour lequel le dividende est projeté.",
-        "es": "El número de años hacia el futuro para el cual se proyecta el dividendo."
+        "es": "El número de años hacia el futuro para el cual se proyecta el dividendo.",
+        "ar": "عدد السنوات المستقبلية التي يتم توقع الأرباح لها."
       }
     }
   ],
   "formulas": {
-    "result": "currentDividend + growthRate + requiredRate",
-    "result_copy": "currentDividend + growthRate + requiredRate"
+    "normalized_product": "currentDividend * (growthRate / 100) * (requiredRate / 100) * years",
+    "result": "currentDividend * (growthRate / 100) * (requiredRate / 100) * years"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "presentValue"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "presentValue",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Enerji & Elektrik",

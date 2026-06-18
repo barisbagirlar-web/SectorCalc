@@ -14,14 +14,15 @@
         "de": "Untere Grenze",
         "fr": "Limite inférieure",
         "es": "Límite inferior",
-        "ar": "Lower Bound"
+        "ar": "الحد الأدنى"
       },
       "businessContext_i18n": {
         "en": "Start of range to estimate prime count",
         "tr": "Asal sayı sayısını tahmin etmek için aralığın başlangıcı",
         "de": "Start des Bereichs zur Schätzung der Primzahlanzahl",
         "fr": "Début de la plage pour estimer le nombre de nombres premiers",
-        "es": "Inicio del rango para estimar la cantidad de primos"
+        "es": "Inicio del rango para estimar la cantidad de primos",
+        "ar": "بداية النطاق لتقدير عدد الأعداد الأولية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Obere Grenze",
         "fr": "Limite supérieure",
         "es": "Límite superior",
-        "ar": "Upper Bound"
+        "ar": "الحد الأعلى"
       },
       "businessContext_i18n": {
         "en": "End of range to estimate prime count",
         "tr": "Asal sayı sayısını tahmin etmek için aralığın sonu",
         "de": "Ende des Bereichs zur Schätzung der Primzahlanzahl",
         "fr": "Fin de la plage pour estimer le nombre de nombres premiers",
-        "es": "Fin del rango para estimar la cantidad de primos"
+        "es": "Fin del rango para estimar la cantidad de primos",
+        "ar": "نهاية النطاق لتقدير عدد الأعداد الأولية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stichprobengröße",
         "fr": "Taille de l'échantillon",
         "es": "Tamaño de la muestra",
-        "ar": "Sample Size"
+        "ar": "حجم العينة"
       },
       "businessContext_i18n": {
         "en": "Number of random samples for verification (not used in estimation formula but for process quality)",
         "tr": "Doğrulama için rastgele örnek sayısı (tahmin formülünde değil, süreç kalitesi için kullanılır)",
         "de": "Anzahl der Zufallsstichproben zur Überprüfung (nicht in der Schätzformel verwendet, sondern für die Prozessqualität)",
         "fr": "Nombre d'échantillons aléatoires pour la vérification (non utilisé dans la formule d'estimation mais pour la qualité du processus)",
-        "es": "Número de muestras aleatorias para verificación (no usado en la fórmula de estimación, sino para calidad del proceso)"
+        "es": "Número de muestras aleatorias para verificación (no usado en la fórmula de estimación, sino para calidad del proceso)",
+        "ar": "عدد العينات العشوائية للتحقق (لا يُستخدم في معادلة التقدير بل لجودة العملية)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Allowed percentage deviation in the estimate (used for error margin calculation)",
         "tr": "Tahminde izin verilen yüzde sapma (hata payı hesaplaması için kullanılır)",
         "de": "Erlaubte prozentuale Abweichung der Schätzung (wird für die Fehlermargenberechnung verwendet)",
         "fr": "Pourcentage d'écart autorisé dans l'estimation (utilisé pour le calcul de la marge d'erreur)",
-        "es": "Porcentaje de desviación permitido en la estimación (usado para el cálculo del margen de error)"
+        "es": "Porcentaje de desviación permitido en la estimación (usado para el cálculo del margen de error)",
+        "ar": "نسبة الانحراف المسموح بها في التقدير (تُستخدم لحساب هامش الخطأ)"
       }
     }
   ],
   "formulas": {
-    "result": "lowerBound + upperBound + sampleSize",
-    "result_copy": "lowerBound + upperBound + sampleSize"
+    "normalized_product": "lowerBound * upperBound * sampleSize * (tolerance / 100)",
+    "result": "lowerBound * upperBound * sampleSize * (tolerance / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Estimated using Prime Number Theorem: estimatedPrimes = (upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
-      "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "estimatedPrimes____upperBound___Math_log",
-    "unit": "count",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes": "%"
     }

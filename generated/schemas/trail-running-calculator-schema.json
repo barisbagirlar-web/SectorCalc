@@ -14,13 +14,15 @@
         "de": "Entfernung",
         "fr": "Distance",
         "es": "Distancia",
-        "ar": "Mesafe"
+        "ar": "المسافة"
       },
       "businessContext_i18n": {
         "en": "Kilometre cinsinden parkur uzunluğu",
         "tr": "Kilometre cinsinden parkur uzunluğu",
         "de": "Streckenlänge in Kilometern",
-        "fr": "Longueur du parcours en kilomètres"
+        "fr": "Longueur du parcours en kilomètres",
+        "es": "Longitud del recorrido en kilómetros",
+        "ar": "طول المسار بالكيلومترات"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Tırmanış",
         "de": "Anstieg",
         "fr": "Montée",
-        "es": "Tırmanış",
-        "ar": "Tırmanış"
+        "es": "Ascenso",
+        "ar": "الصعود"
       },
       "businessContext_i18n": {
         "en": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
         "tr": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
         "de": "Gesamtanstieg in Metern (positiver Höhengewinn)",
-        "fr": "Dénivelé positif total en mètres (gain d'altitude)"
+        "fr": "Dénivelé positif total en mètres (gain d'altitude)",
+        "es": "Ascenso total en metros (ganancia de altitud positiva)",
+        "ar": "إجمالي الصعود بالأمتار (الكسب الإيجابي في الارتفاع)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "İniş",
         "de": "Abstieg",
         "fr": "Descente",
-        "es": "İniş",
-        "ar": "İniş"
+        "es": "Descenso",
+        "ar": "النزول"
       },
       "businessContext_i18n": {
         "en": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
         "tr": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
         "de": "Gesamtabstieg in Metern (negativer Höhenverlust)",
-        "fr": "Dénivelé négatif total en mètres (perte d'altitude)"
+        "fr": "Dénivelé négatif total en mètres (perte d'altitude)",
+        "es": "Descenso total en metros (pérdida de altitud negativa)",
+        "ar": "إجمالي النزول بالأمتار (فقدان الارتفاع السلبي)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Düz Tempo",
         "de": "Flaches Tempo",
         "fr": "Allure sur plat",
-        "es": "Düz Tempo",
-        "ar": "Düz Tempo"
+        "es": "Ritmo en llano",
+        "ar": "السرعة الأساسية"
       },
       "businessContext_i18n": {
         "en": "Düz zeminde koşu temposu (dakika:km)",
         "tr": "Düz zeminde koşu temposu (dakika:km)",
         "de": "Lauftempo auf flachem Gelände (min:km)",
-        "fr": "Allure de course sur terrain plat (min:km)"
+        "fr": "Allure de course sur terrain plat (min:km)",
+        "es": "Ritmo de carrera en terreno llano (min:km)",
+        "ar": "سرعة الجري على الأرض المستوية (دقيقة:كم)"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Tırmanış Faktörü",
         "de": "Anstiegsfaktor",
         "fr": "Facteur de montée",
-        "es": "Tırmanış Faktörü",
-        "ar": "Tırmanış Faktörü"
+        "es": "Factor de ascenso",
+        "ar": "عامل الصعود"
       },
       "businessContext_i18n": {
         "en": "Her bir metre tırmanış için eklenen süre (dakika)",
         "tr": "Her bir metre tırmanış için eklenen süre (dakika)",
         "de": "Zusätzliche Zeit pro Meter Anstieg (Minuten)",
-        "fr": "Temps supplémentaire par mètre de montée (minutes)"
+        "fr": "Temps supplémentaire par mètre de montée (minutes)",
+        "es": "Tiempo adicional por cada metro de ascenso (minutos)",
+        "ar": "الوقت الإضافي لكل متر صعود (دقيقة)"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "İniş Faktörü",
         "de": "Abstiegsfaktor",
         "fr": "Facteur de descente",
-        "es": "İniş Faktörü",
-        "ar": "İniş Faktörü"
+        "es": "Factor de descenso",
+        "ar": "عامل النزول"
       },
       "businessContext_i18n": {
         "en": "Her bir metre iniş için eklenen süre (dakika)",
         "tr": "Her bir metre iniş için eklenen süre (dakika)",
         "de": "Zusätzliche Zeit pro Meter Abstieg (Minuten)",
-        "fr": "Temps supplémentaire par mètre de descente (minutes)"
+        "fr": "Temps supplémentaire par mètre de descente (minutes)",
+        "es": "Tiempo adicional por cada metro de descenso (minutos)",
+        "ar": "الوقت الإضافي لكل متر نزول (دقيقة)"
       }
     }
   ],

@@ -14,13 +14,15 @@
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
-        "ar": "Z-score"
+        "ar": "قيمة Z"
       },
       "businessContext_i18n": {
         "en": "Standard normal deviate (used if rawScoreProvided is 0)",
         "tr": "Standart normal sapma (rawScoreProvided 0 ise kullanılır)",
         "de": "Standardnormalverteilungswert (wird verwendet, wenn rawScoreProvided = 0)",
-        "fr": "Écart normal standard (utilisé si rawScoreProvided est 0)"
+        "fr": "Écart normal standard (utilisé si rawScoreProvided est 0)",
+        "es": "Desviación normal estándar (se usa si rawScoreProvided es 0)",
+        "ar": "الانحراف المعياري الطبيعي (يستخدم إذا كان rawScoreProvided = 0)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Mittelwert",
         "fr": "Moyenne",
         "es": "Media",
-        "ar": "Mean"
+        "ar": "المتوسط"
       },
       "businessContext_i18n": {
         "en": "Population mean for raw score conversion",
         "tr": "Ham puan dönüşümü için popülasyon ortalaması",
         "de": "Grundgesamtheitsmittelwert für die Rohwertumrechnung",
-        "fr": "Moyenne de la population pour la conversion du score brut"
+        "fr": "Moyenne de la population pour la conversion du score brut",
+        "es": "Media poblacional para la conversión de puntuación bruta",
+        "ar": "متوسط المجتمع لتحويل الدرجة الخام"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación estándar",
-        "ar": "Standard Deviation"
+        "ar": "الانحراف المعياري"
       },
       "businessContext_i18n": {
         "en": "Population standard deviation (must be > 0)",
         "tr": "Popülasyon standart sapması (> 0 olmalıdır)",
         "de": "Standardabweichung der Grundgesamtheit (muss > 0 sein)",
-        "fr": "Écart-type de la population (doit être > 0)"
+        "fr": "Écart-type de la population (doit être > 0)",
+        "es": "Desviación estándar poblacional (debe ser > 0)",
+        "ar": "الانحراف المعياري للمجتمع (يجب أن يكون > 0)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ham Puan",
         "de": "Rohwert",
         "fr": "Score brut",
-        "es": "Raw Score",
-        "ar": "Raw Score"
+        "es": "Puntuación bruta",
+        "ar": "الدرجة الخام"
       },
       "businessContext_i18n": {
         "en": "Raw value to convert to Z-score",
         "tr": "Z-puanına dönüştürülecek ham değer",
         "de": "Rohwert, der in einen Z-Wert umgerechnet werden soll",
-        "fr": "Valeur brute à convertir en score Z"
+        "fr": "Valeur brute à convertir en score Z",
+        "es": "Valor bruto a convertir en puntuación Z",
+        "ar": "القيمة الخام لتحويلها إلى درجة Z"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Ham Puan Kullanılsın mı?",
         "de": "Rohwert verwenden?",
         "fr": "Utiliser le score brut ?",
-        "es": "Use Raw Score?",
-        "ar": "Use Raw Score?"
+        "es": "¿Usar puntuación bruta?",
+        "ar": "استخدام الدرجة الخام؟"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score",
         "tr": "Z-puanını ham puan, ortalama ve standart sapmadan hesaplamak için 1; verilen Z-puanını kullanmak için 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, um Z-Wert aus Rohwert, Mittelwert und StdAbw zu berechnen; 0, um einen gegebenen Z-Wert zu verwenden",
-        "fr": "Mettre à 1 pour calculer le score Z à partir du score brut, de la moyenne et de l'écart-type ; 0 pour utiliser un score Z donné"
+        "fr": "Mettre à 1 pour calculer le score Z à partir du score brut, de la moyenne et de l'écart-type ; 0 pour utiliser un score Z donné",
+        "es": "Establecer en 1 para calcular la puntuación Z a partir de la puntuación bruta, media y desviación estándar; 0 para usar una puntuación Z dada",
+        "ar": "اضبط على 1 لحساب درجة Z من الدرجة الخام والمتوسط والانحراف المعياري؛ 0 لاستخدام درجة Z معطاة"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Kuyruk",
         "de": "Ende",
         "fr": "Queue",
-        "es": "Tail",
-        "ar": "Tail"
+        "es": "Cola",
+        "ar": "الذيل"
       },
       "businessContext_i18n": {
         "en": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)",
         "tr": "0 = alt kuyruk (kümülatif), 1 = üst kuyruk (1 - kümülatif)",
         "de": "0 = unteres Ende (kumulativ), 1 = oberes Ende (1 - kumulativ)",
-        "fr": "0 = queue inférieure (cumulative), 1 = queue supérieure (1 - cumulative)"
+        "fr": "0 = queue inférieure (cumulative), 1 = queue supérieure (1 - cumulative)",
+        "es": "0 = cola inferior (acumulativa), 1 = cola superior (1 - acumulativa)",
+        "ar": "0 = الذيل السفلي (التراكمي)، 1 = الذيل العلوي (1 - التراكمي)"
       }
     }
   ],

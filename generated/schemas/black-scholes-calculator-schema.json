@@ -14,14 +14,15 @@
         "de": "Aktueller Aktienkurs",
         "fr": "Cours actuel de l'action",
         "es": "Precio actual de la acción",
-        "ar": "Current Stock Price"
+        "ar": "سعر السهم الحالي"
       },
       "businessContext_i18n": {
         "en": "Current market price of the underlying stock",
         "tr": "Dayanak varlığın mevcut piyasa fiyatı",
         "de": "Aktueller Marktpreis der zugrunde liegenden Aktie",
         "fr": "Prix actuel du marché de l'action sous-jacente",
-        "es": "Precio de mercado actual de la acción subyacente"
+        "es": "Precio de mercado actual de la acción subyacente",
+        "ar": "سعر السوق الحالي للسهم الأساسي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Basispreis",
         "fr": "Prix d'exercice",
         "es": "Precio de ejercicio",
-        "ar": "Strike Price"
+        "ar": "سعر التنفيذ"
       },
       "businessContext_i18n": {
         "en": "Exercise price of the option",
         "tr": "Opsiyonun kullanım fiyatı",
         "de": "Ausübungspreis der Option",
         "fr": "Prix d'exercice de l'option",
-        "es": "Precio de ejercicio de la opción"
+        "es": "Precio de ejercicio de la opción",
+        "ar": "سعر ممارسة الخيار"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Risikofreier Zinssatz",
         "fr": "Taux sans risque",
         "es": "Tasa libre de riesgo",
-        "ar": "Risk-Free Rate"
+        "ar": "معدل العائد الخالي من المخاطر"
       },
       "businessContext_i18n": {
         "en": "Annual risk-free interest rate for continuous compounding",
         "tr": "Sürekli bileşik faiz için yıllık risksiz faiz oranı",
         "de": "Jährlicher risikofreier Zinssatz für kontinuierliche Verzinsung",
         "fr": "Taux d'intérêt annuel sans risque pour la capitalisation continue",
-        "es": "Tasa de interés anual libre de riesgo para capitalización continua"
+        "es": "Tasa de interés anual libre de riesgo para capitalización continua",
+        "ar": "معدل الفائدة السنوي الخالي من المخاطر للتراكم المستمر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Volatilität",
         "fr": "Volatilité",
         "es": "Volatilidad",
-        "ar": "Volatility"
+        "ar": "التقلب"
       },
       "businessContext_i18n": {
         "en": "Annualized implied volatility of the underlying stock",
         "tr": "Dayanak hisse senedinin yıllıklandırılmış içsel volatilitesi",
         "de": "Annualisierte implizite Volatilität der zugrunde liegenden Aktie",
         "fr": "Volatilité implicite annualisée de l'action sous-jacente",
-        "es": "Volatilidad implícita anualizada de la acción subyacente"
+        "es": "Volatilidad implícita anualizada de la acción subyacente",
+        "ar": "التقلب الضمني السنوي للسهم الأساسي"
       }
     },
     {
@@ -106,33 +110,38 @@
         "de": "Restlaufzeit",
         "fr": "Temps jusqu'à l'échéance",
         "es": "Tiempo hasta el vencimiento",
-        "ar": "Time to Maturity"
+        "ar": "الوقت حتى الاستحقاق"
       },
       "businessContext_i18n": {
         "en": "Time remaining until option expiration",
         "tr": "Opsiyon vadesine kalan süre",
         "de": "Verbleibende Zeit bis zum Optionsverfall",
         "fr": "Temps restant avant l'expiration de l'option",
-        "es": "Tiempo restante hasta el vencimiento de la opción"
+        "es": "Tiempo restante hasta el vencimiento de la opción",
+        "ar": "الوقت المتبقي حتى انتهاء صلاحية الخيار"
       }
     }
   ],
   "formulas": {
-    "result": "S + K + r",
-    "result_copy": "S + K + r"
+    "base_cost": "T * S",
+    "adjusted_cost": "T * S * (1 + (r / 100))",
+    "result": "T * S * (1 + (r / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "putPrice",
-      "d1",
-      "d2"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "putPrice",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

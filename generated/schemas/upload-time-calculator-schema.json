@@ -13,14 +13,16 @@
         "tr": "Dosya Boyutu (MB)",
         "de": "Dateigröße (MB)",
         "fr": "Taille du fichier (Mo)",
-        "es": "File Size (MB)",
-        "ar": "File Size (MB)"
+        "es": "Tamaño del archivo (MB)",
+        "ar": "حجم الملف (ميجابايت)"
       },
       "businessContext_i18n": {
         "en": "Size of the file to upload in megabytes (MB).",
         "tr": "Yüklenecek dosyanın megabayt (MB) cinsinden boyutu.",
         "de": "Größe der hochzuladenden Datei in Megabyte (MB).",
-        "fr": "Taille du fichier à télécharger en mégaoctets (Mo)."
+        "fr": "Taille du fichier à télécharger en mégaoctets (Mo).",
+        "es": "Tamaño del archivo a cargar en megabytes (MB).",
+        "ar": "حجم الملف المراد رفعه بالميجابايت (MB)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Yükleme Hızı (Mbps)",
         "de": "Upload-Geschwindigkeit (Mbit/s)",
         "fr": "Vitesse de téléchargement (Mbps)",
-        "es": "Upload Speed (Mbps)",
-        "ar": "Upload Speed (Mbps)"
+        "es": "Velocidad de subida (Mbps)",
+        "ar": "سرعة الرفع (ميجابت/ثانية)"
       },
       "businessContext_i18n": {
         "en": "Upload bandwidth in megabits per second (Mbps).",
         "tr": "Megabit/saniye (Mbps) cinsinden yükleme bant genişliği.",
         "de": "Upload-Bandbreite in Megabit pro Sekunde (Mbit/s).",
-        "fr": "Bande passante de téléchargement en mégabits par seconde (Mbps)."
+        "fr": "Bande passante de téléchargement en mégabits par seconde (Mbps).",
+        "es": "Ancho de banda de subida en megabits por segundo (Mbps).",
+        "ar": "عرض النطاق الترددي للرفع بالميجابت في الثانية (Mbps)."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Overhead-Faktor",
         "fr": "Facteur de surcharge",
         "es": "Factor de gastos generales",
-        "ar": "Overhead Factor"
+        "ar": "عامل النفقات العامة"
       },
       "businessContext_i18n": {
         "en": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead).",
         "tr": "Protokol ek yükünü hesaba katan çarpan (ör. %10 ek yük için 1.1).",
         "de": "Multiplikator für Protokoll-Overhead (z. B. 1,1 für 10 % Overhead).",
-        "fr": "Multiplicateur tenant compte de la surcharge de protocole (ex. 1,1 pour 10 % de surcharge)."
+        "fr": "Multiplicateur tenant compte de la surcharge de protocole (ex. 1,1 pour 10 % de surcharge).",
+        "es": "Multiplicador por sobrecarga de protocolo (ej. 1.1 para 10% de sobrecarga).",
+        "ar": "مضاعف لحساب الحمل الزائد للبروتوكول (مثل 1.1 لحمولة زائدة 10%)."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Prozentsatz der Bandbreite, der durch Netzwerkprotokoll-Overhead (z. B. TCP/IP) verloren geht.",
         "fr": "Connexions parallèles",
         "es": "Conexiones paralelas",
-        "ar": "Parallel Connections"
+        "ar": "الاتصالات المتوازية"
       },
       "businessContext_i18n": {
         "en": "Number of parallel upload connections.",
         "tr": "Paralel yükleme bağlantı sayısı.",
         "de": "Anzahl paralleler Upload-Verbindungen.",
-        "fr": "Nombre de connexions de téléchargement parallèles."
+        "fr": "Nombre de connexions de téléchargement parallèles.",
+        "es": "Número de conexiones de subida en paralelo.",
+        "ar": "عدد اتصالات الرفع المتوازية."
       }
     }
   ],

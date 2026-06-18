@@ -14,14 +14,15 @@
         "de": "Faden",
         "fr": "Brasses",
         "es": "Brazas",
-        "ar": "Fathoms"
+        "ar": "القامة"
       },
       "businessContext_i18n": {
         "en": "The length value in fathoms to convert.",
         "tr": "Dönüştürülecek kulaç cinsinden uzunluk değeri.",
         "de": "Der Längenwert in Faden, der umgerechnet werden soll.",
         "fr": "La valeur de longueur en brasses à convertir.",
-        "es": "El valor de longitud en brazas a convertir."
+        "es": "El valor de longitud en brazas a convertir.",
+        "ar": "قيمة الطول بالقوام للتحويل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "The exact conversion factor from fathoms to meters, as defined by international standards.",
         "tr": "Uluslararası standartlara göre tanımlanan kulaçtan metreye tam dönüşüm faktörü.",
         "de": "Der genaue Umrechnungsfaktor von Faden in Meter, gemäß internationalen Standards.",
         "fr": "Le facteur de conversion exact des brasses en mètres, tel que défini par les normes internationales.",
-        "es": "El factor de conversión exacto de brazas a metros, según estándares internacionales."
+        "es": "El factor de conversión exacto de brazas a metros, según estándares internacionales.",
+        "ar": "عامل التحويل الدقيق من القامة إلى الأمتار، وفقًا للمعايير الدولية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output, based on precision requirements.",
         "tr": "Hassasiyet gereksinimlerine bağlı olarak çıktıdaki ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe, basierend auf den Genauigkeitsanforderungen.",
         "fr": "Nombre de décimales pour le résultat, selon les exigences de précision.",
-        "es": "Número de decimales para la salida, según requisitos de precisión."
+        "es": "Número de decimales para la salida, según requisitos de precisión.",
+        "ar": "عدد المنازل العشرية للمخرجات، بناءً على متطلبات الدقة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Acceptable measurement tolerance for quality assurance.",
         "tr": "Kalite güvencesi için kabul edilebilir ölçüm toleransı.",
         "de": "Akzeptable Messtoleranz für die Qualitätssicherung.",
         "fr": "Tolérance de mesure acceptable pour l'assurance qualité.",
-        "es": "Tolerancia de medición aceptable para el aseguramiento de la calidad."
+        "es": "Tolerancia de medición aceptable para el aseguramiento de la calidad.",
+        "ar": "التسامح المقبول للقياس لضمان الجودة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
         "es": "Incertidumbre de medición",
-        "ar": "Measurement Uncertainty"
+        "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
         "en": "Relative measurement uncertainty in the input fathom value (percentage).",
         "tr": "Giriş kulaç değerindeki bağıl ölçüm belirsizliği (yüzde).",
         "de": "Relative Messunsicherheit des eingegebenen Fadenwerts (Prozent).",
         "fr": "Incertitude de mesure relative dans la valeur d'entrée en brasses (pourcentage).",
-        "es": "Incertidumbre relativa de medición en el valor de entrada de brazas (porcentaje)."
+        "es": "Incertidumbre relativa de medición en el valor de entrada de brazas (porcentaje).",
+        "ar": "عدم اليقين النسبي للقياس في قيمة القامة المدخلة (نسبة مئوية)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Safety factor applied to the converted value for engineering design, if applicable.",
         "tr": "Mühendislik tasarımı için dönüştürülen değere uygulanan güvenlik faktörü (varsa).",
         "de": "Sicherheitsfaktor, der auf den umgerechneten Wert für die technische Auslegung angewendet wird, falls zutreffend.",
         "fr": "Coefficient de sécurité appliqué à la valeur convertie pour la conception technique, le cas échéant.",
-        "es": "Factor de seguridad aplicado al valor convertido para diseño de ingeniería, si corresponde."
+        "es": "Factor de seguridad aplicado al valor convertido para diseño de ingeniería, si corresponde.",
+        "ar": "عامل الأمان المطبق على القيمة المحولة للتصميم الهندسي، إذا كان ذلك مناسبًا."
       }
     }
   ],

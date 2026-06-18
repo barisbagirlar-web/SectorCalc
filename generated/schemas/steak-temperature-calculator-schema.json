@@ -14,14 +14,15 @@
         "de": "Steakdicke",
         "fr": "Épaisseur du steak",
         "es": "Grosor del filete",
-        "ar": "Steak Thickness"
+        "ar": "سمك الشريحة"
       },
       "businessContext_i18n": {
         "en": "Thickness of the steak.",
         "tr": "Bifteğin kalınlığı.",
         "de": "Dicke des Steaks.",
         "fr": "Épaisseur du steak.",
-        "es": "Grosor del filete."
+        "es": "Grosor del filete.",
+        "ar": "سمك شريحة اللحم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anfangstemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Initial Temperature"
+        "ar": "درجة الحرارة الأولية"
       },
       "businessContext_i18n": {
         "en": "Starting temperature of the steak (e.g., from fridge).",
         "tr": "Bifteğin başlangıç sıcaklığı (ör. buzdolabından).",
         "de": "Starttemperatur des Steaks (z. B. aus dem Kühlschrank).",
         "fr": "Température initiale du steak (ex. du réfrigérateur).",
-        "es": "Temperatura inicial del filete (ej., del refrigerador)."
+        "es": "Temperatura inicial del filete (ej., del refrigerador).",
+        "ar": "درجة حرارة الشريحة الابتدائية (مثل من الثلاجة)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielkerntemperatur",
         "fr": "Température de cuisson cible",
         "es": "Temperatura objetivo de cocción",
-        "ar": "Target Doneness Temperature"
+        "ar": "درجة حرارة النضج المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Internal temperature for desired doneness (e.g., 55°C for medium-rare).",
         "tr": "İstenen pişme derecesi için iç sıcaklık (ör. orta-az pişmiş için 55°C).",
         "de": "Kerntemperatur für gewünschten Garzustand (z. B. 55°C für medium-rare).",
         "fr": "Température interne pour la cuisson souhaitée (ex. 55°C pour à point).",
-        "es": "Temperatura interna para el punto de cocción deseado (ej., 55°C para término medio)."
+        "es": "Temperatura interna para el punto de cocción deseado (ej., 55°C para término medio).",
+        "ar": "درجة الحرارة الداخلية للنضج المطلوب (مثل 55°C للوسطي النادر)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Grill-/Ofentemperatur",
         "fr": "Température du gril/du four",
         "es": "Temperatura de la parrilla/horno",
-        "ar": "Grill/Oven Temperature"
+        "ar": "درجة حرارة الشواية/الفرن"
       },
       "businessContext_i18n": {
         "en": "Temperature of the cooking surface or oven.",
         "tr": "Pişirme yüzeyi veya fırının sıcaklığı.",
         "de": "Temperatur der Kochfläche oder des Ofens.",
         "fr": "Température de la surface de cuisson ou du four.",
-        "es": "Temperatura de la superficie de cocción o del horno."
+        "es": "Temperatura de la superficie de cocción o del horno.",
+        "ar": "درجة حرارة سطح الطهي أو الفرن."
       }
     }
   ],
   "formulas": {
-    "result": "thickness + initialTemp + targetTemp",
-    "result_copy": "thickness + initialTemp + targetTemp"
+    "normalized_product": "thickness * initialTemp * targetTemp * grillTemp",
+    "result": "thickness * initialTemp * targetTemp * grillTemp"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "cookingTimeSec",
-      "driveFactor"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "driveFactor",
-    "unit": "cm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

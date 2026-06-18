@@ -14,14 +14,15 @@
         "de": "Basis-Kritische-Trefferchance",
         "fr": "Taux critique de base",
         "es": "Tasa crítica base",
-        "ar": "Base Critical Rate"
+        "ar": "معدل الخطر الأساسي"
       },
       "businessContext_i18n": {
         "en": "Base probability of a critical event per operation",
         "tr": "Operasyon başına kritik olayın temel olasılığı",
         "de": "Basiswahrscheinlichkeit eines kritischen Ereignisses pro Vorgang",
         "fr": "Probabilité de base d'un événement critique par opération",
-        "es": "Probabilidad base de un evento crítico por operación"
+        "es": "Probabilidad base de un evento crítico por operación",
+        "ar": "الاحتمال الأساسي لحدث خطر لكل عملية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kritischer Modifikator",
         "fr": "Modificateur critique",
         "es": "Modificador crítico",
-        "ar": "Critical Modifier"
+        "ar": "معدل الخطر المعدل"
       },
       "businessContext_i18n": {
         "en": "Additional probability from stress factors or conditions",
         "tr": "Stres faktörleri veya koşullardan gelen ek olasılık",
         "de": "Zusätzliche Wahrscheinlichkeit durch Stressfaktoren oder Bedingungen",
         "fr": "Probabilité supplémentaire due aux facteurs de stress ou conditions",
-        "es": "Probabilidad adicional por factores de estrés o condiciones"
+        "es": "Probabilidad adicional por factores de estrés o condiciones",
+        "ar": "احتمال إضافي من عوامل الإجهاد أو الظروف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kritischer Schadensmultiplikator",
         "fr": "Multiplicateur de dégâts critiques",
         "es": "Multiplicador de daño crítico",
-        "ar": "Critical Damage Multiplier"
+        "ar": "مضاعف الضرر الحرج"
       },
       "businessContext_i18n": {
         "en": "Severity factor when a critical event occurs",
         "tr": "Kritik bir olay meydana geldiğinde şiddet faktörü",
         "de": "Schweregradfaktor bei Eintritt eines kritischen Ereignisses",
         "fr": "Facteur de sévérité lorsqu'un événement critique se produit",
-        "es": "Factor de severidad cuando ocurre un evento crítico"
+        "es": "Factor de severidad cuando ocurre un evento crítico",
+        "ar": "عامل الشدة عند حدوث حدث خطر"
       }
     },
     {
@@ -83,33 +86,36 @@
         "de": "Anzahl der Vorgänge",
         "fr": "Nombre d'opérations",
         "es": "Número de operaciones",
-        "ar": "Number of Operations"
+        "ar": "عدد العمليات"
       },
       "businessContext_i18n": {
         "en": "Total independent operations or trials",
         "tr": "Toplam bağımsız operasyon veya deneme",
         "de": "Gesamtzahl unabhängiger Vorgänge oder Versuche",
         "fr": "Total des opérations ou essais indépendants",
-        "es": "Total de operaciones o ensayos independientes"
+        "es": "Total de operaciones o ensayos independientes",
+        "ar": "إجمالي العمليات أو التجارب المستقلة"
       }
     }
   ],
   "formulas": {
-    "result": "base-critical-rate + critical-modifier + crit-damage-multiplier",
-    "result_copy": "base-critical-rate + critical-modifier + crit-damage-multiplier"
+    "normalized_product": "(base-critical-rate / 100) * (critical-modifier / 100) * crit-damage-multiplier * number-of-attacks",
+    "result": "(base-critical-rate / 100) * (critical-modifier / 100) * crit-damage-multiplier * number-of-attacks"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "effectiveCritRate",
-      "expectedCritHits",
-      "expectedDamageMultiplier"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "expectedDamageMultiplier",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Teknik & Mühendislik",

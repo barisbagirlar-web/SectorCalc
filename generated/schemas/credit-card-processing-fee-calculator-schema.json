@@ -14,14 +14,15 @@
         "de": "Transaktionsbetrag",
         "fr": "Montant de la transaction",
         "es": "Monto de la transacción",
-        "ar": "Transaction Amount"
+        "ar": "مبلغ المعاملة"
       },
       "businessContext_i18n": {
         "en": "Total amount charged to the customer for the transaction.",
         "tr": "Müşteriden işlem için tahsil edilen toplam tutar.",
         "de": "Gesamtbetrag, der dem Kunden für die Transaktion berechnet wird.",
         "fr": "Montant total facturé au client pour la transaction.",
-        "es": "Monto total cobrado al cliente por la transacción."
+        "es": "Monto total cobrado al cliente por la transacción.",
+        "ar": "إجمالي المبلغ المحمل على العميل للمعاملة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Verarbeitungssatz",
         "fr": "Taux de traitement",
         "es": "Tasa de procesamiento",
-        "ar": "Processing Rate"
+        "ar": "معدل المعالجة"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by the processor on the transaction amount.",
         "tr": "İşlemci tarafından işlem tutarı üzerinden alınan yüzde ücret.",
         "de": "Prozentsatzgebühr, die vom Prozessor auf den Transaktionsbetrag erhoben wird.",
         "fr": "Frais en pourcentage facturés par le processeur sur le montant de la transaction.",
-        "es": "Porcentaje de comisión cobrado por el procesador sobre el monto de la transacción."
+        "es": "Porcentaje de comisión cobrado por el procesador sobre el monto de la transacción.",
+        "ar": "نسبة الرسوم التي يفرضها المعالج على مبلغ المعاملة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gebühr pro Transaktion",
         "fr": "Frais par transaction",
         "es": "Comisión por transacción",
-        "ar": "Per-Transaction Fee"
+        "ar": "الرسوم الثابتة لكل معاملة"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged per transaction by the processor.",
         "tr": "İşlemci tarafından işlem başına alınan sabit ücret.",
         "de": "Feste Gebühr pro Transaktion, die vom Prozessor erhoben wird.",
         "fr": "Frais fixes facturés par transaction par le processeur.",
-        "es": "Comisión fija cobrada por transacción por el procesador."
+        "es": "Comisión fija cobrada por transacción por el procesador.",
+        "ar": "الرسوم الثابتة المفروضة لكل معاملة من قبل المعالج."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Monatliche Kontoauszugsgebühr",
         "fr": "Frais mensuels de relevé",
         "es": "Comisión mensual de estado de cuenta",
-        "ar": "Monthly Statement Fee"
+        "ar": "رسوم الكشف الشهري"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly fee for account maintenance, distributed across transactions.",
         "tr": "Hesap bakımı için sabit aylık ücret, işlemlere dağıtılır.",
         "de": "Feste monatliche Gebühr für die Kontoführung, verteilt auf Transaktionen.",
         "fr": "Frais mensuels fixes pour la maintenance du compte, répartis sur les transactions.",
-        "es": "Comisión fija mensual por mantenimiento de cuenta, distribuida entre las transacciones."
+        "es": "Comisión fija mensual por mantenimiento de cuenta, distribuida entre las transacciones.",
+        "ar": "الرسوم الشهرية الثابتة لصيانة الحساب، موزعة على المعاملات."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl monatlicher Transaktionen",
         "fr": "Nombre de transactions mensuelles",
         "es": "Número de transacciones mensuales",
-        "ar": "Number of Monthly Transactions"
+        "ar": "عدد المعاملات الشهرية"
       },
       "businessContext_i18n": {
         "en": "Total number of transactions processed per month.",
         "tr": "Ayda işlenen toplam işlem sayısı.",
         "de": "Gesamtzahl der pro Monat verarbeiteten Transaktionen.",
         "fr": "Nombre total de transactions traitées par mois.",
-        "es": "Número total de transacciones procesadas por mes."
+        "es": "Número total de transacciones procesadas por mes.",
+        "ar": "إجمالي عدد المعاملات التي تمت معالجتها شهريًا."
       }
     }
   ],

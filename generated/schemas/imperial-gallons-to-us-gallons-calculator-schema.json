@@ -14,14 +14,15 @@
         "de": "Imperiale Gallonen",
         "fr": "Gallons impériaux",
         "es": "Galones imperiales",
-        "ar": "Imperial Gallons"
+        "ar": "جالون إمبراطوري"
       },
       "businessContext_i18n": {
         "en": "The volume in imperial gallons to convert.",
         "tr": "Dönüştürülecek imparatorluk galonu cinsinden hacim.",
         "de": "Das in imperialen Gallonen umzurechnende Volumen.",
         "fr": "Le volume en gallons impériaux à convertir.",
-        "es": "El volumen en galones imperiales a convertir."
+        "es": "El volumen en galones imperiales a convertir.",
+        "ar": "الحجم بالجالون الإمبراطوري للتحويل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Batch Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of batches or containers being converted.",
         "tr": "Dönüştürülen parti veya kap sayısı.",
         "de": "Anzahl der umzurechnenden Chargen oder Behälter.",
         "fr": "Nombre de lots ou de conteneurs convertis.",
-        "es": "Número de lotes o contenedores que se convierten."
+        "es": "Número de lotes o contenedores que se convierten.",
+        "ar": "عدد الدفعات أو الحاويات التي يتم تحويلها."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Allowable measurement tolerance as percentage.",
         "tr": "Yüzde olarak izin verilen ölçüm toleransı.",
         "de": "Zulässige Messtoleranz in Prozent.",
         "fr": "Tolérance de mesure autorisée en pourcentage.",
-        "es": "Tolerancia de medición permitida como porcentaje."
+        "es": "Tolerancia de medición permitida como porcentaje.",
+        "ar": "نسبة التفاوت المسموح به في القياس."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature for density correction (if applicable).",
         "tr": "Yoğunluk düzeltmesi için ortam sıcaklığı (varsa).",
         "de": "Umgebungstemperatur für Dichtekorrektur (falls zutreffend).",
         "fr": "Température ambiante pour la correction de densité (si applicable).",
-        "es": "Temperatura ambiente para la corrección de densidad (si aplica)."
+        "es": "Temperatura ambiente para la corrección de densidad (si aplica).",
+        "ar": "درجة الحرارة المحيطة لتصحيح الكثافة (إن وجدت)."
       }
     }
   ],
   "formulas": {
-    "result": "imperialGallons + batchSize + tolerance",
-    "result_copy": "imperialGallons + batchSize + tolerance"
+    "normalized_product": "imperialGallons * batchSize * (tolerance / 100) * temperature",
+    "result": "imperialGallons * batchSize * (tolerance / 100) * temperature"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "usGallonsMin",
-      "usGallonsMax"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "usGallonsMax",
-    "unit": "gal (imp)",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "usGallonsMin": "gal",
       "usGallonsMax": "gal"

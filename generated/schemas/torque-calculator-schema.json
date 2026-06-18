@@ -13,14 +13,16 @@
         "tr": "Tork Katsayısı (c)",
         "de": "Drehmomentkoeffizient (c)",
         "fr": "Coefficient de couple (c)",
-        "es": "Torque Coefficient (c)",
-        "ar": "Torque Coefficient (c)"
+        "es": "Coeficiente de par (c)",
+        "ar": "معامل العزم (c)"
       },
       "businessContext_i18n": {
         "en": "Nut factor or torque coefficient, typically 0.2 for dry threads",
         "tr": "Somun faktörü veya tork katsayısı, kuru dişler için tipik olarak 0,2",
         "de": "Mutterfaktor oder Drehmomentkoeffizient, typischerweise 0,2 für trockene Gewinde",
-        "fr": "Coefficient de couple ou facteur d'écrou, typiquement 0,2 pour filets secs"
+        "fr": "Coefficient de couple ou facteur d'écrou, typiquement 0,2 pour filets secs",
+        "es": "Factor de tuerca o coeficiente de par, típicamente 0.2 para roscas secas",
+        "ar": "معامل الصامولة أو معامل العزم، عادة 0.2 للخيوط الجافة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Cıvata Çapı",
         "de": "Bolzendurchmesser",
         "fr": "Diamètre du boulon",
-        "es": "Bolt Diameter",
-        "ar": "Bolt Diameter"
+        "es": "Diámetro del perno",
+        "ar": "قطر البرغي"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the bolt",
         "tr": "Cıvatanın nominal çapı",
         "de": "Nenndurchmesser der Schraube",
-        "fr": "Diamètre nominal du boulon"
+        "fr": "Diamètre nominal du boulon",
+        "es": "Diámetro nominal del perno",
+        "ar": "القطر الاسمي للبرغي"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Hedef Sıkma Kuvveti",
         "de": "Zielklemmkraft",
         "fr": "Charge de serrage cible",
-        "es": "Target Clamp Load",
-        "ar": "Target Clamp Load"
+        "es": "Carga de apriete objetivo",
+        "ar": "قوة التثبيت المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Desired tension force in the bolt",
         "tr": "Cıvatada istenen gerilme kuvveti",
         "de": "Gewünschte Zugkraft in der Schraube",
-        "fr": "Force de tension souhaitée dans le boulon"
+        "fr": "Force de tension souhaitée dans le boulon",
+        "es": "Fuerza de tensión deseada en el perno",
+        "ar": "قوة الشد المطلوبة في البرغي"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Multiplier to ensure clamping under uncertainty",
         "tr": "Belirsizlik altında sıkmayı garanti eden çarpan",
         "de": "Multiplikator zur Sicherstellung der Klemmung unter Unsicherheit",
-        "fr": "Multiplicateur pour garantir le serrage en cas d'incertitude"
+        "fr": "Multiplicateur pour garantir le serrage en cas d'incertitude",
+        "es": "Multiplicador para asegurar el apriete bajo incertidumbre",
+        "ar": "معامل الضرب لضمان التثبيت في ظل عدم اليقين"
       }
     }
   ],

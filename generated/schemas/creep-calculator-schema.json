@@ -14,14 +14,15 @@
         "de": "Angewandte Spannung",
         "fr": "Contrainte appliquée",
         "es": "Esfuerzo aplicado",
-        "ar": "Applied Stress"
+        "ar": "الإجهاد المطبق"
       },
       "businessContext_i18n": {
         "en": "The sustained mechanical stress acting on the material, in megapascals.",
         "tr": "Malzemeye etki eden sürekli mekanik gerilme, megapaskal cinsinden.",
         "de": "Die anhaltende mechanische Spannung, die auf das Material wirkt, in Megapascal.",
         "fr": "La contrainte mécanique soutenue agissant sur le matériau, en mégapascals.",
-        "es": "El esfuerzo mecánico sostenido que actúa sobre el material, en megapascales."
+        "es": "El esfuerzo mecánico sostenido que actúa sobre el material, en megapascales.",
+        "ar": "الإجهاد الميكانيكي المستمر المؤثر على المادة، بوحدة ميجاباسكال."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Absolute operating temperature of the component in Kelvin.",
         "tr": "Bileşenin mutlak çalışma sıcaklığı, Kelvin cinsinden.",
         "de": "Absolute Betriebstemperatur des Bauteils in Kelvin.",
         "fr": "Température de fonctionnement absolue du composant en Kelvin.",
-        "es": "Temperatura absoluta de operación del componente en Kelvin."
+        "es": "Temperatura absoluta de operación del componente en Kelvin.",
+        "ar": "درجة حرارة التشغيل المطلقة للمكون بوحدة كلفن."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Materialkonstante A",
         "fr": "Constante de matériau A",
         "es": "Constante del material A",
-        "ar": "Material Constant A"
+        "ar": "ثابت المادة A"
       },
       "businessContext_i18n": {
         "en": "Pre‑exponential factor, a material‑dependent strength parameter (units: MPa⁻ⁿ s⁻¹).",
         "tr": "Üstel öncesi faktör, malzemeye bağlı bir dayanım parametresi (birim: MPa⁻ⁿ s⁻¹).",
         "de": "Präexponentialfaktor, ein materialabhängiger Festigkeitsparameter (Einheiten: MPa⁻ⁿ s⁻¹).",
         "fr": "Facteur pré-exponentiel, paramètre de résistance dépendant du matériau (unités : MPa⁻ⁿ s⁻¹).",
-        "es": "Factor preexponencial, parámetro de resistencia dependiente del material (unidades: MPa⁻ⁿ s⁻¹)."
+        "es": "Factor preexponencial, parámetro de resistencia dependiente del material (unidades: MPa⁻ⁿ s⁻¹).",
+        "ar": "العامل الأسي، معامل قوة يعتمد على المادة (الوحدة: MPa⁻ⁿ s⁻¹)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Spannungsexponent",
         "fr": "Exposant de contrainte",
         "es": "Exponente de esfuerzo",
-        "ar": "Stress Exponent"
+        "ar": "أس الإجهاد"
       },
       "businessContext_i18n": {
         "en": "Dimensionless exponent describing the stress sensitivity of the creep rate (typically 3–8 for metals).",
         "tr": "Sürünme hızının gerilme duyarlılığını tanımlayan boyutsuz üs (metaller için tipik olarak 3–8).",
         "de": "Dimensionsloser Exponent, der die Spannungsempfindlichkeit der Kriechrate beschreibt (typischerweise 3–8 für Metalle).",
         "fr": "Exposant sans dimension décrivant la sensibilité à la contrainte du taux de fluage (généralement 3–8 pour les métaux).",
-        "es": "Exponente adimensional que describe la sensibilidad al esfuerzo de la tasa de fluencia (típicamente 3–8 para metales)."
+        "es": "Exponente adimensional que describe la sensibilidad al esfuerzo de la tasa de fluencia (típicamente 3–8 para metales).",
+        "ar": "أس بلا أبعاد يصف حساسية الإجهاد لمعدل الزحف (عادة 3–8 للمعادن)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Aktivierungsenergie",
         "fr": "Énergie d'activation",
         "es": "Energía de activación",
-        "ar": "Activation Energy"
+        "ar": "طاقة التنشيط"
       },
       "businessContext_i18n": {
         "en": "Activation energy for creep deformation, material property in joules per mole.",
         "tr": "Sürünme deformasyonu için aktivasyon enerjisi, malzeme özelliği, joule/mol cinsinden.",
         "de": "Aktivierungsenergie für Kriechverformung, Materialeigenschaft in Joule pro Mol.",
         "fr": "Énergie d'activation pour la déformation par fluage, propriété du matériau en joules par mole.",
-        "es": "Energía de activación para la deformación por fluencia, propiedad del material en julios por mol."
+        "es": "Energía de activación para la deformación por fluencia, propiedad del material en julios por mol.",
+        "ar": "طاقة التنشيط لتشوه الزحف، خاصية مادية بوحدة جول لكل مول."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Gaskonstante",
         "fr": "Constante des gaz",
         "es": "Constante de los gases",
-        "ar": "Gas Constant"
+        "ar": "ثابت الغاز"
       },
       "businessContext_i18n": {
         "en": "Universal gas constant; may be adjusted for different unit systems.",
         "tr": "Evrensel gaz sabiti; farklı birim sistemleri için ayarlanabilir.",
         "de": "Universelle Gaskonstante; kann für verschiedene Einheitensysteme angepasst werden.",
         "fr": "Constante universelle des gaz ; peut être ajustée pour différents systèmes d'unités.",
-        "es": "Constante universal de los gases; puede ajustarse para diferentes sistemas de unidades."
+        "es": "Constante universal de los gases; puede ajustarse para diferentes sistemas de unidades.",
+        "ar": "ثابت الغاز العام؛ يمكن تعديله لأنظمة وحدات مختلفة."
       }
     }
   ],
   "formulas": {
-    "result": "stress + temperature + A",
-    "result_copy": "stress + temperature + A"
+    "normalized_product": "stress * temperature * A * n",
+    "result": "stress * temperature * A * n * (Q * R)",
+    "adjustment_factor": "Q * R"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "stressPower",
-      "exponentialTerm"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "creepRate",
-    "unit": "MPa"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",

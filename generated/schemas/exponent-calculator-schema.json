@@ -14,14 +14,15 @@
         "de": "Basis",
         "fr": "Base",
         "es": "Base",
-        "ar": "Base"
+        "ar": "الأساس"
       },
       "businessContext_i18n": {
         "en": "The base number to be raised to a power.",
         "tr": "Üs alınacak taban sayı.",
         "de": "Die Basis, die potenziert wird.",
         "fr": "Nombre de base à élever à une puissance.",
-        "es": "Número base que se eleva a una potencia."
+        "es": "Número base que se eleva a una potencia.",
+        "ar": "الرقم الأساسي الذي سيتم رفعه إلى قوة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Exponent",
         "fr": "Exposant",
         "es": "Exponente",
-        "ar": "Exponent"
+        "ar": "الأس"
       },
       "businessContext_i18n": {
         "en": "The power to which the base is raised.",
         "tr": "Tabanın yükseltileceği üs.",
         "de": "Der Exponent, mit dem die Basis potenziert wird.",
         "fr": "Puissance à laquelle la base est élevée.",
-        "es": "Potencia a la que se eleva la base."
+        "es": "Potencia a la que se eleva la base.",
+        "ar": "القوة التي يرفع إليها الأساس."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Multiplikator",
         "fr": "Multiplicateur",
         "es": "Multiplicador",
-        "ar": "Multiplier"
+        "ar": "المضاعف"
       },
       "businessContext_i18n": {
         "en": "Multiply the power result by this factor.",
         "tr": "Üs sonucunu bu faktörle çarpın.",
         "de": "Multipliziert das Potenzergebnis mit diesem Faktor.",
         "fr": "Multiplier le résultat de la puissance par ce facteur.",
-        "es": "Multiplica el resultado de la potencia por este factor."
+        "es": "Multiplica el resultado de la potencia por este factor.",
+        "ar": "اضرب نتيجة القوة بهذا العامل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Konstante Addition",
         "fr": "Addition constante",
         "es": "Suma constante",
-        "ar": "Constant Addition"
+        "ar": "الإضافة الثابتة"
       },
       "businessContext_i18n": {
         "en": "Add a constant to the result after multiplication.",
         "tr": "Çarpma işleminden sonra sonuca bir sabit ekleyin.",
         "de": "Addiert eine Konstante zum Ergebnis nach der Multiplikation.",
         "fr": "Ajouter une constante au résultat après multiplication.",
-        "es": "Agrega una constante al resultado después de la multiplicación."
+        "es": "Agrega una constante al resultado después de la multiplicación.",
+        "ar": "أضف ثابتًا إلى النتيجة بعد الضرب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Modul",
         "fr": "Modulo",
         "es": "Módulo",
-        "ar": "Modulus"
+        "ar": "المعامل"
       },
       "businessContext_i18n": {
         "en": "If greater than 0, the result is taken modulo this value.",
         "tr": "0'dan büyükse, sonuç bu değere göre mod alınır.",
         "de": "Wenn größer als 0, wird das Ergebnis modulo diesem Wert genommen.",
         "fr": "Si supérieur à 0, le résultat est pris modulo cette valeur.",
-        "es": "Si es mayor que 0, el resultado se toma módulo este valor."
+        "es": "Si es mayor que 0, el resultado se toma módulo este valor.",
+        "ar": "إذا كان أكبر من 0، يتم أخذ باقي القسمة على هذه القيمة."
       }
     },
     {
@@ -129,35 +134,39 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final rounding.",
         "tr": "Son yuvarlama için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die finale Rundung.",
         "fr": "Nombre de décimales pour l'arrondi final.",
-        "es": "Número de decimales para el redondeo final."
+        "es": "Número de decimales para el redondeo final.",
+        "ar": "عدد المنازل العشرية للتقريب النهائي."
       }
     }
   ],
   "formulas": {
-    "result": "base + exponent + multiplier",
-    "result_copy": "base + exponent + multiplier"
+    "normalized_product": "base * exponent * multiplier * constantAdd",
+    "result": "base * exponent * multiplier * constantAdd * (modulus * precision)",
+    "adjustment_factor": "modulus * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "powerResult",
-      "afterMultiplier",
-      "afterConstant",
-      "moduloApplied"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "moduloApplied",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Matematik & Geometri",

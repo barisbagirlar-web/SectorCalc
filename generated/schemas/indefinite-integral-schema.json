@@ -14,14 +14,15 @@
         "de": "Funktionstyp",
         "fr": "Type de fonction",
         "es": "Tipo de función",
-        "ar": "Function Type"
+        "ar": "نوع الدالة"
       },
       "businessContext_i18n": {
         "en": "1: polynomial, 2: exponential, 3: trigonometric",
         "tr": "1: polinom, 2: üstel, 3: trigonometrik",
         "de": "1: polynomial, 2: exponential, 3: trigonometrisch",
         "fr": "1: polynomial, 2: exponentielle, 3: trigonométrique",
-        "es": "1: polinomial, 2: exponencial, 3: trigonométrica"
+        "es": "1: polinomial, 2: exponencial, 3: trigonométrica",
+        "ar": "1: كثيرة حدود، 2: أسية، 3: مثلثية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Koeffizient (a)",
         "fr": "Coefficient (a)",
         "es": "Coeficiente (a)",
-        "ar": "Coefficient (a)"
+        "ar": "المعامل (a)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the function",
         "tr": "Fonksiyonun katsayısı",
         "de": "Koeffizient der Funktion",
         "fr": "Coefficient de la fonction",
-        "es": "Coeficiente de la función"
+        "es": "Coeficiente de la función",
+        "ar": "معامل الدالة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exponent (n)",
         "fr": "Exposant (n)",
         "es": "Exponente (n)",
-        "ar": "Exponent (n)"
+        "ar": "الأس (n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for polynomial (n != -1)",
         "tr": "Polinom için üs (n ≠ -1)",
         "de": "Exponent für Polynom (n != -1)",
         "fr": "Exposant pour le polynôme (n ≠ -1)",
-        "es": "Exponente para polinomio (n ≠ -1)"
+        "es": "Exponente para polinomio (n ≠ -1)",
+        "ar": "الأس لكثيرة الحدود (n ≠ -1)"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Konstante (C)",
         "fr": "Constante (C)",
         "es": "Constante (C)",
-        "ar": "Constant (C)"
+        "ar": "الثابت (C)"
       },
       "businessContext_i18n": {
         "en": "Integration constant",
         "tr": "İntegral sabiti",
         "de": "Integrationskonstante",
         "fr": "Constante d'intégration",
-        "es": "Constante de integración"
+        "es": "Constante de integración",
+        "ar": "ثابت التكامل"
       }
     }
   ],
   "formulas": {
-    "result": "functionType + coefficient + exponent",
-    "result_copy": "functionType + coefficient + exponent"
+    "normalized_product": "functionType * coefficient * exponent * constant",
+    "result": "functionType * coefficient * exponent * constant"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Coefficient: a = {coefficient}",
-      "Exponent: n = {exponent}",
-      "Constant: C = {constant}",
-      "Result: {integralResult}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "integralResult_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

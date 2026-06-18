@@ -14,14 +14,15 @@
         "de": "Unzen",
         "fr": "Onces",
         "es": "Onzas",
-        "ar": "Ounces"
+        "ar": "أونصة"
       },
       "businessContext_i18n": {
         "en": "Weight in avoirdupois ounces (1 oz = 28.349523125 g).",
         "tr": "Avoirdupois ons cinsinden ağırlık (1 oz = 28,349523125 g).",
         "de": "Gewicht in Avoirdupois-Unzen (1 oz = 28,349523125 g).",
         "fr": "Poids en onces avoirdupois (1 oz = 28,349523125 g).",
-        "es": "Peso en onzas avoirdupois (1 oz = 28.349523125 g)."
+        "es": "Peso en onzas avoirdupois (1 oz = 28.349523125 g).",
+        "ar": "الوزن بالأوقية الأفواردوبوا (1 أونصة = 28.349523125 جم)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Grams per ounce. Override for troy ounce (31.1034768 g) or other standards.",
         "tr": "Ons başına gram. Troy ons (31,1034768 g) veya diğer standartlar için geçersiz kılın.",
         "de": "Gramm pro Unze. Für Feinunze (31,1034768 g) oder andere Standards überschreiben.",
         "fr": "Grammes par once. Surcharger pour l'once troy (31,1034768 g) ou d'autres normes.",
-        "es": "Gramos por onza. Sobrescriba para onza troy (31.1034768 g) u otros estándares."
+        "es": "Gramos por onza. Sobrescriba para onza troy (31.1034768 g) u otros estándares.",
+        "ar": "الجرامات لكل أونصة. يمكن تجاوز القيمة لأونصة تروي (31.1034768 جم) أو معايير أخرى."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Messunsicherheit (± oz)",
         "fr": "Incertitude de mesure (± oz)",
         "es": "Incertidumbre de medición (± oz)",
-        "ar": "Measurement Uncertainty (± oz)"
+        "ar": "عدم اليقين في القياس (± أونصة)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty of the weighing device in ounces, for propagating error into grams.",
         "tr": "Tartı cihazının ons cinsinden belirsizliği, hatayı grama yaymak için.",
         "de": "Unsicherheit der Waage in Unzen zur Fehlerfortpflanzung in Gramm.",
         "fr": "Incertitude de l'appareil de pesée en onces, pour propager l'erreur en grammes.",
-        "es": "Incertidumbre del dispositivo de pesaje en onzas, para propagar el error a gramos."
+        "es": "Incertidumbre del dispositivo de pesaje en onzas, para propagar el error a gramos.",
+        "ar": "عدم اليقين لجهاز الوزن بالأوقية، لنشر الخطأ إلى الجرامات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ausgabe Dezimalstellen",
         "fr": "Décimales de sortie",
         "es": "Decimales de salida",
-        "ar": "Output Decimal Places"
+        "ar": "عدد المنازل العشرية للمخرجات"
       },
       "businessContext_i18n": {
         "en": "Desired number of decimal places for the displayed converted value (informational, not used in raw computation).",
         "tr": "Görüntülenen dönüştürülmüş değer için istenen ondalık basamak sayısı (bilgilendirme amaçlıdır, ham hesaplamada kullanılmaz).",
         "de": "Gewünschte Anzahl Dezimalstellen für den angezeigten umgerechneten Wert (informativ, nicht in der Berechnung verwendet).",
         "fr": "Nombre de décimales souhaité pour la valeur convertie affichée (informatif, non utilisé dans le calcul brut).",
-        "es": "Número deseado de decimales para el valor convertido mostrado (informativo, no se usa en el cálculo bruto)."
+        "es": "Número deseado de decimales para el valor convertido mostrado (informativo, no se usa en el cálculo bruto).",
+        "ar": "عدد المنازل العشرية المطلوب للقيمة المحولة المعروضة (معلوماتي، لا يُستخدم في الحساب الخام)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Batch-Multiplikator",
         "fr": "Multiplicateur de lot",
         "es": "Multiplicador de lote",
-        "ar": "Batch Multiplier"
+        "ar": "مضاعف الدفعة"
       },
       "businessContext_i18n": {
         "en": "Factor to scale the conversion for multiple identical items (e.g., number of units in a batch).",
         "tr": "Birden fazla özdeş öğe için dönüşümü ölçeklendirme faktörü (örneğin, bir partideki birim sayısı).",
         "de": "Faktor zur Skalierung der Umrechnung für mehrere identische Artikel (z. B. Anzahl Einheiten in einer Charge).",
         "fr": "Facteur pour mettre à l'échelle la conversion pour plusieurs articles identiques (ex. nombre d'unités dans un lot).",
-        "es": "Factor para escalar la conversión para múltiples artículos idénticos (ej. número de unidades en un lote)."
+        "es": "Factor para escalar la conversión para múltiples artículos idénticos (ej. número de unidades en un lote).",
+        "ar": "عامل لقياس التحويل لعدة عناصر متطابقة (مثل عدد الوحدات في دفعة)."
       }
     }
   ],

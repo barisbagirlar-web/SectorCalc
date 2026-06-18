@@ -14,14 +14,15 @@
         "de": "Plattendicke",
         "fr": "Épaisseur de la plaque",
         "es": "Espesor de la placa",
-        "ar": "Plaka Kalınlığı"
+        "ar": "سمك اللوحة"
       },
       "businessContext_i18n": {
         "en": "Kaynaklı parça kalınlığı",
         "tr": "Kaynaklı parça kalınlığı",
         "de": "Dicke des Schweißteils",
         "fr": "Épaisseur de la pièce soudée",
-        "es": "Espesor de la pieza soldada"
+        "es": "Espesor de la pieza soldada",
+        "ar": "سمك الجزء الملحوم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wurzelspalt",
         "fr": "Écart à la racine",
         "es": "Separación de raíz",
-        "ar": "Kök Aralığı"
+        "ar": "فجوة الجذر"
       },
       "businessContext_i18n": {
         "en": "Kaynak ağzı kök aralığı",
         "tr": "Kaynak ağzı kök aralığı",
         "de": "Wurzelspalt der Schweißnahtvorbereitung",
         "fr": "Écart à la racine du chanfrein de soudure",
-        "es": "Separación de raíz de la preparación de soldadura"
+        "es": "Separación de raíz de la preparación de soldadura",
+        "ar": "فجوة جذر أخدود اللحام"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fasenwinkel",
         "fr": "Angle de chanfrein",
         "es": "Ángulo de bisel",
-        "ar": "Pah Açısı"
+        "ar": "زاوية الشطب"
       },
       "businessContext_i18n": {
         "en": "V-kaynak ağzı açısı",
         "tr": "V-kaynak ağzı açısı",
         "de": "V-Nahtwinkel",
         "fr": "Angle du chanfrein en V",
-        "es": "Ángulo de preparación en V"
+        "es": "Ángulo de preparación en V",
+        "ar": "زاوية أخدود اللحام على شكل V"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Verstärkungshöhe",
         "fr": "Hauteur de renfort",
         "es": "Altura de refuerzo",
-        "ar": "Takviye Yüksekliği"
+        "ar": "ارتفاع التقوية"
       },
       "businessContext_i18n": {
         "en": "Kaynak tepesi takviye yüksekliği",
         "tr": "Kaynak tepesi takviye yüksekliği",
         "de": "Verstärkungshöhe der Schweißnahtkrone",
         "fr": "Hauteur de renfort au sommet de la soudure",
-        "es": "Altura de refuerzo del cordón de soldadura"
+        "es": "Altura de refuerzo del cordón de soldadura",
+        "ar": "ارتفاع تقوية قمة اللحام"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schweißnahtlänge",
         "fr": "Longueur de soudure",
         "es": "Longitud de soldadura",
-        "ar": "Kaynak Uzunluğu"
+        "ar": "طول اللحام"
       },
       "businessContext_i18n": {
         "en": "Toplam kaynak dikiş boyu",
         "tr": "Toplam kaynak dikiş boyu",
         "de": "Gesamtlänge der Schweißnaht",
         "fr": "Longueur totale du cordon de soudure",
-        "es": "Longitud total del cordón de soldadura"
+        "es": "Longitud total del cordón de soldadura",
+        "ar": "الطول الإجمالي لخط اللحام"
       }
     },
     {
@@ -129,35 +134,39 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Malzeme Yoğunluğu"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Kaynak metalinin yoğunluğu (çelik: 7.85)",
         "tr": "Kaynak metalinin yoğunluğu (çelik: 7.85)",
         "de": "Dichte des Schweißmetalls (Stahl: 7,85)",
         "fr": "Densité du métal d'apport (acier : 7,85)",
-        "es": "Densidad del metal de aporte (acero: 7.85)"
+        "es": "Densidad del metal de aporte (acero: 7.85)",
+        "ar": "كثافة معدن اللحام (الصلب: 7.85)"
       }
     }
   ],
   "formulas": {
-    "result": "plateThickness + rootGap + bevelAngle",
-    "result_copy": "plateThickness + rootGap + bevelAngle"
+    "normalized_product": "plateThickness * rootGap * bevelAngle * reinforcementHeight",
+    "result": "plateThickness * rootGap * bevelAngle * reinforcementHeight * (weldLength * materialDensity)",
+    "adjustment_factor": "weldLength * materialDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "crossSectionalArea",
-      "volume",
-      "grooveArea",
-      "reinforcementArea"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "weldWeight",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Metal & Kaynak",

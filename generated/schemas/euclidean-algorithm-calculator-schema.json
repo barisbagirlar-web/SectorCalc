@@ -14,14 +14,15 @@
         "de": "Erste Zahl",
         "fr": "Premier nombre",
         "es": "Primer número",
-        "ar": "First Number"
+        "ar": "الرقم الأول"
       },
       "businessContext_i18n": {
         "en": "First integer for the multi-number GCD calculation.",
         "tr": "Çok sayılı EBOB hesaplaması için birinci tam sayı.",
         "de": "Erste Ganzzahl für die Multi-Zahlen-GGT-Berechnung.",
         "fr": "Premier entier pour le calcul du PGCD de plusieurs nombres.",
-        "es": "Primer entero para el cálculo del MCD de varios números."
+        "es": "Primer entero para el cálculo del MCD de varios números.",
+        "ar": "العدد الصحيح الأول لحساب القاسم المشترك الأكبر لعدة أعداد."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zweite Zahl",
         "fr": "Deuxième nombre",
         "es": "Segundo número",
-        "ar": "Second Number"
+        "ar": "الرقم الثاني"
       },
       "businessContext_i18n": {
         "en": "Second integer for the multi-number GCD calculation.",
         "tr": "Çok sayılı EBOB hesaplaması için ikinci tam sayı.",
         "de": "Zweite Ganzzahl für die Multi-Zahlen-GGT-Berechnung.",
         "fr": "Deuxième entier pour le calcul du PGCD de plusieurs nombres.",
-        "es": "Segundo entero para el cálculo del MCD de varios números."
+        "es": "Segundo entero para el cálculo del MCD de varios números.",
+        "ar": "العدد الصحيح الثاني لحساب القاسم المشترك الأكبر لعدة أعداد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dritte Zahl",
         "fr": "Troisième nombre",
         "es": "Tercer número",
-        "ar": "Third Number"
+        "ar": "الرقم الثالث"
       },
       "businessContext_i18n": {
         "en": "Third integer for the multi-number GCD calculation.",
         "tr": "Çok sayılı EBOB hesaplaması için üçüncü tam sayı.",
         "de": "Dritte Ganzzahl für die Multi-Zahlen-GGT-Berechnung.",
         "fr": "Troisième entier pour le calcul du PGCD de plusieurs nombres.",
-        "es": "Tercer entero para el cálculo del MCD de varios números."
+        "es": "Tercer entero para el cálculo del MCD de varios números.",
+        "ar": "العدد الصحيح الثالث لحساب القاسم المشترك الأكبر لعدة أعداد."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Vierte Zahl",
         "fr": "Quatrième nombre",
         "es": "Cuarto número",
-        "ar": "Fourth Number"
+        "ar": "الرقم الرابع"
       },
       "businessContext_i18n": {
         "en": "Fourth integer for the multi-number GCD calculation.",
         "tr": "Çok sayılı EBOB hesaplaması için dördüncü tam sayı.",
         "de": "Vierte Ganzzahl für die GCD-Berechnung mehrerer Zahlen.",
         "fr": "Quatrième entier pour le calcul du PGCD de plusieurs nombres.",
-        "es": "Cuarto entero para el cálculo del MCD de varios números."
+        "es": "Cuarto entero para el cálculo del MCD de varios números.",
+        "ar": "العدد الصحيح الرابع لحساب القاسم المشترك الأكبر لعدة أعداد."
       }
     }
   ],
   "formulas": {
-    "result": "num1 + num2 + num3",
-    "result_copy": "num1 + num2 + num3"
+    "normalized_product": "num1 * num2 * num3 * num4",
+    "result": "num1 * num2 * num3 * num4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "gcd_ab",
-      "gcd_cd"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "total_gcd",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Bilişim & Yazılım",

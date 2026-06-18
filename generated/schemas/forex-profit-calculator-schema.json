@@ -14,14 +14,15 @@
         "de": "Richtung (1=Kauf, -1=Verkauf)",
         "fr": "Direction (1=Achat, -1=Vente)",
         "es": "Dirección (1=Compra, -1=Venta)",
-        "ar": "Direction (1=Buy, -1=Sell)"
+        "ar": "الاتجاه (1=شراء، -1=بيع)"
       },
       "businessContext_i18n": {
         "en": "Indicates trade direction: 1 for long (buy), -1 for short (sell).",
         "tr": "İşlem yönünü belirtir: 1 uzun (alış), -1 kısa (satış).",
         "de": "Gibt die Handelsrichtung an: 1 für Long (Kauf), -1 für Short (Verkauf).",
         "fr": "Indique la direction de la transaction : 1 pour long (achat), -1 pour short (vente).",
-        "es": "Indica la dirección de la operación: 1 para largo (compra), -1 para corto (venta)."
+        "es": "Indica la dirección de la operación: 1 para largo (compra), -1 para corto (venta).",
+        "ar": "يشير إلى اتجاه الصفقة: 1 للصفقة الطويلة (شراء)، -1 للصفقة القصيرة (بيع)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Einstiegskurs",
         "fr": "Prix d'entrée",
         "es": "Precio de entrada",
-        "ar": "Entry Price"
+        "ar": "سعر الدخول"
       },
       "businessContext_i18n": {
         "en": "The exchange rate at which the position was entered.",
         "tr": "Pozisyonun girildiği döviz kuru.",
         "de": "Der Wechselkurs, zu dem die Position eröffnet wurde.",
         "fr": "Le taux de change auquel la position a été ouverte.",
-        "es": "El tipo de cambio al que se abrió la posición."
+        "es": "El tipo de cambio al que se abrió la posición.",
+        "ar": "سعر الصرف الذي تم به فتح المركز."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ausstiegskurs",
         "fr": "Prix de sortie",
         "es": "Precio de salida",
-        "ar": "Exit Price"
+        "ar": "سعر الخروج"
       },
       "businessContext_i18n": {
         "en": "The exchange rate at which the position was closed.",
         "tr": "Pozisyonun kapatıldığı döviz kuru.",
         "de": "Der Wechselkurs, zu dem die Position geschlossen wurde.",
         "fr": "Le taux de change auquel la position a été fermée.",
-        "es": "El tipo de cambio al que se cerró la posición."
+        "es": "El tipo de cambio al que se cerró la posición.",
+        "ar": "سعر الصرف الذي تم به إغلاق المركز."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Losgröße",
         "fr": "Taille du lot",
         "es": "Tamaño del lote",
-        "ar": "Lot Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of standard lots traded (1 lot = 100,000 units typically).",
         "tr": "İşlem gören standart lot sayısı (1 lot = genellikle 100.000 birim).",
         "de": "Anzahl der Standard-Lots (1 Lot = üblicherweise 100.000 Einheiten).",
         "fr": "Nombre de lots standard négociés (1 lot = 100 000 unités généralement).",
-        "es": "Número de lotes estándar negociados (1 lote = 100.000 unidades normalmente)."
+        "es": "Número de lotes estándar negociados (1 lote = 100.000 unidades normalmente).",
+        "ar": "عدد اللوتات القياسية المتداولة (عادةً 1 لوت = 100,000 وحدة)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Pip-Wert pro Lot",
         "fr": "Valeur du pip par lot",
         "es": "Valor del pip por lote",
-        "ar": "Pip Value per Lot"
+        "ar": "قيمة النقطة لكل لوت"
       },
       "businessContext_i18n": {
         "en": "Monetary value of one pip movement for one standard lot in account currency.",
         "tr": "Hesap para biriminde bir standart lot için bir pip hareketinin parasal değeri.",
         "de": "Geldwert einer Pip-Bewegung für ein Standard-Lot in Kontowährung.",
         "fr": "Valeur monétaire d'un mouvement d'un pip pour un lot standard dans la devise du compte.",
-        "es": "Valor monetario de un movimiento de un pip para un lote estándar en la moneda de la cuenta."
+        "es": "Valor monetario de un movimiento de un pip para un lote estándar en la moneda de la cuenta.",
+        "ar": "القيمة النقدية لحركة نقطة واحدة للوت قياسي واحد بعملة الحساب."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Pip-Größe",
         "fr": "Taille du pip",
         "es": "Tamaño del pip",
-        "ar": "Pip Size"
+        "ar": "حجم النقطة"
       },
       "businessContext_i18n": {
         "en": "Smallest incremental price movement, typically 0.0001 except for JPY pairs (0.01).",
         "tr": "En küçük artış fiyat hareketi, genellikle JPY çiftleri hariç 0.0001 (0.01).",
         "de": "Kleinste inkrementelle Preisbewegung, typischerweise 0,0001 außer bei JPY-Paaren (0,01).",
         "fr": "Plus petit mouvement de prix incrémental, généralement 0,0001 sauf pour les paires JPY (0,01).",
-        "es": "Movimiento de precio incremental más pequeño, normalmente 0.0001 excepto para pares JPY (0.01)."
+        "es": "Movimiento de precio incremental más pequeño, normalmente 0.0001 excepto para pares JPY (0.01).",
+        "ar": "أصغر حركة سعرية تدريجية، عادة 0.0001 باستثناء أزواج الين (0.01)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Zylinderdurchmesser (Bohrung)",
         "fr": "Alésage (diamètre du cylindre)",
         "es": "Diámetro del cilindro",
-        "ar": "Bore (Cylinder Diameter)"
+        "ar": "التجويف (قطر الأسطوانة)"
       },
       "businessContext_i18n": {
         "en": "Diameter of the engine cylinder bore.",
         "tr": "Motor silindir deliğinin çapı.",
         "de": "Durchmesser der Zylinderbohrung",
         "fr": "Diamètre de l'alésage du cylindre.",
-        "es": "Diámetro del cilindro del motor."
+        "es": "Diámetro del cilindro del motor.",
+        "ar": "قطر تجويف أسطوانة المحرك."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hublänge",
         "fr": "Longueur de course",
         "es": "Longitud de carrera",
-        "ar": "Stroke Length"
+        "ar": "طول الشوط"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length from BDC to TDC.",
         "tr": "Pistonun AÖN'den ÜÖN'ye strok uzunluğu.",
         "de": "Kolbenhub von UT zu OT.",
         "fr": "Longueur de course du piston du PMB au PMH.",
-        "es": "Longitud de carrera del pistón desde PMI hasta PMS."
+        "es": "Longitud de carrera del pistón desde PMI hasta PMS.",
+        "ar": "طول شوط المكبس من النقطة الميتة السفلى إلى النقطة الميتة العليا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Brennraumvolumen",
         "fr": "Volume de la chambre de combustion",
         "es": "Volumen de la cámara de combustión",
-        "ar": "Combustion Chamber Volume"
+        "ar": "حجم غرفة الاحتراق"
       },
       "businessContext_i18n": {
         "en": "Volume of combustion chamber in the cylinder head.",
         "tr": "Silindir kafasındaki yanma odasının hacmi.",
         "de": "Volumen des Brennraums im Zylinderkopf.",
         "fr": "Volume de la chambre de combustion dans la culasse.",
-        "es": "Volumen de la cámara de combustión en la culata."
+        "es": "Volumen de la cámara de combustión en la culata.",
+        "ar": "حجم غرفة الاحتراق في رأس الأسطوانة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dichtungsdicke",
         "fr": "Épaisseur du joint de culasse",
         "es": "Espesor de la junta",
-        "ar": "Gasket Thickness"
+        "ar": "سمك الحشية"
       },
       "businessContext_i18n": {
         "en": "Compressed thickness of the head gasket.",
         "tr": "Kafa contasının sıkıştırılmış kalınlığı.",
         "de": "Komprimierte Dicke der Zylinderkopfdichtung.",
         "fr": "Épaisseur compressée du joint de culasse.",
-        "es": "Espesor comprimido de la junta de culata."
+        "es": "Espesor comprimido de la junta de culata.",
+        "ar": "السمك المضغوط لحشية الرأس."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dichtungsbohrungsdurchmesser",
         "fr": "Diamètre d'alésage du joint",
         "es": "Diámetro del orificio de la junta",
-        "ar": "Gasket Bore Diameter"
+        "ar": "قطر تجويف الحشية"
       },
       "businessContext_i18n": {
         "en": "Diameter of the gasket's bore opening.",
         "tr": "Contanın delik açıklığının çapı.",
         "de": "Durchmesser der Dichtungsbohrung.",
         "fr": "Diamètre de l'ouverture d'alésage du joint.",
-        "es": "Diámetro de la abertura del orificio de la junta."
+        "es": "Diámetro de la abertura del orificio de la junta.",
+        "ar": "قطر فتحة تجويف الحشية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Deckabstand",
         "fr": "Jeu au sommet",
         "es": "Distancia al plano de la culata",
-        "ar": "Deck Clearance"
+        "ar": "خلوص السطح"
       },
       "businessContext_i18n": {
         "en": "Distance from piston crown to deck at TDC.",
         "tr": "Piston tepesinden silindir kapağına kadar olan mesafe (ÜÖN'de).",
         "de": "Abstand von Kolbenkrone zur Deckfläche bei OT.",
         "fr": "Distance entre la couronne du piston et le sommet du bloc au PMH.",
-        "es": "Distancia desde la corona del pistón al plano de la culata en PMS."
+        "es": "Distancia desde la corona del pistón al plano de la culata en PMS.",
+        "ar": "المسافة من تاج المكبس إلى السطح عند النقطة الميتة العليا."
       }
     },
     {
@@ -152,33 +158,39 @@
         "de": "Kolbenmuldenvolumen",
         "fr": "Volume du bol du piston",
         "es": "Volumen del plato del pistón",
-        "ar": "Piston Dish Volume"
+        "ar": "حجم تجويف المكبس"
       },
       "businessContext_i18n": {
         "en": "Volume of dish in piston top (positive for dish, negative for dome).",
         "tr": "Piston tepesindeki çukurun hacmi (çukur için pozitif, kubbe için negatif).",
         "de": "Volumen der Mulde im Kolbenboden (positiv für Mulde, negativ für Dom).",
         "fr": "Volume du bol dans la tête du piston (positif pour un bol, négatif pour un dôme).",
-        "es": "Volumen del plato en la parte superior del pistón (positivo para plato, negativo para domo)."
+        "es": "Volumen del plato en la parte superior del pistón (positivo para plato, negativo para domo).",
+        "ar": "حجم التجويف في قمة المكبس (موجب للتجويف، سالب للقبة)."
       }
     }
   ],
   "formulas": {
-    "result": "bore + stroke + combustionChamberVolume",
-    "result_copy": "bore + stroke + combustionChamberVolume"
+    "normalized_product": "bore * stroke * combustionChamberVolume * gasketThickness",
+    "result": "bore * stroke * combustionChamberVolume * gasketThickness * (gasketBore * deckClearance * pistonDishVolume)",
+    "adjustment_factor": "gasketBore * deckClearance * pistonDishVolume"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "displacement",
-      "clearanceVolume"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "compressionRatio",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Matematik & Geometri",

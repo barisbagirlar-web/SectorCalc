@@ -14,14 +14,15 @@
         "de": "Rot (R)",
         "fr": "Rouge (R)",
         "es": "Rojo (R)",
-        "ar": "Red (R)"
+        "ar": "الأحمر (R)"
       },
       "businessContext_i18n": {
         "en": "Red color component (0-255)",
         "tr": "Kırmızı renk bileşeni (0-255)",
         "de": "Rot-Farbkomponente (0-255)",
         "fr": "Composante rouge (0-255)",
-        "es": "Componente de color rojo (0-255)"
+        "es": "Componente de color rojo (0-255)",
+        "ar": "مكون اللون الأحمر (0-255)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Grün (G)",
         "fr": "Vert (V)",
         "es": "Verde (G)",
-        "ar": "Green (G)"
+        "ar": "الأخضر (G)"
       },
       "businessContext_i18n": {
         "en": "Green color component (0-255)",
         "tr": "Yeşil renk bileşeni (0-255)",
         "de": "Grün-Farbkomponente (0-255)",
         "fr": "Composante verte (0-255)",
-        "es": "Componente de color verde (0-255)"
+        "es": "Componente de color verde (0-255)",
+        "ar": "مكون اللون الأخضر (0-255)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Blau (B)",
         "fr": "Bleu (B)",
         "es": "Azul (B)",
-        "ar": "Blue (B)"
+        "ar": "الأزرق (B)"
       },
       "businessContext_i18n": {
         "en": "Blue color component (0-255)",
         "tr": "Mavi renk bileşeni (0-255)",
         "de": "Blau-Farbkomponente (0-255)",
         "fr": "Composante bleue (0-255)",
-        "es": "Componente de color azul (0-255)"
+        "es": "Componente de color azul (0-255)",
+        "ar": "مكون اللون الأزرق (0-255)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Maximaler Eingabewert",
         "fr": "Valeur d'entrée maximale",
         "es": "Valor máximo de entrada",
-        "ar": "Max Input Value"
+        "ar": "القيمة القصوى للإدخال"
       },
       "businessContext_i18n": {
         "en": "Maximum value of color components (typically 255 for 8-bit)",
         "tr": "Renk bileşenlerinin maksimum değeri (8-bit için genellikle 255)",
         "de": "Maximalwert der Farbkomponenten (typischerweise 255 für 8-Bit)",
         "fr": "Valeur maximale des composantes de couleur (généralement 255 pour 8 bits)",
-        "es": "Valor máximo de los componentes de color (típicamente 255 para 8 bits)"
+        "es": "Valor máximo de los componentes de color (típicamente 255 para 8 bits)",
+        "ar": "القيمة القصوى لمكونات اللون (عادة 255 للـ 8 بت)"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Ausgabeskalierung",
         "fr": "Échelle de sortie",
         "es": "Escala de salida",
-        "ar": "Output Scale"
+        "ar": "مقياس الناتج"
       },
       "businessContext_i18n": {
         "en": "Output scaling factor (100 for percentage)",
         "tr": "Çıktı ölçekleme faktörü (yüzde için 100)",
         "de": "Ausgabe-Skalierungsfaktor (100 für Prozent)",
         "fr": "Facteur d'échelle de sortie (100 pour le pourcentage)",
-        "es": "Factor de escala de salida (100 para porcentaje)"
+        "es": "Factor de escala de salida (100 para porcentaje)",
+        "ar": "عامل تحجيم الإخراج (100 للنسبة المئوية)"
       }
     }
   ],
   "formulas": {
-    "result": "red + green + blue",
-    "result_copy": "red + green + blue"
+    "normalized_product": "red * green * blue * maxValue",
+    "result": "red * green * blue * maxValue * (scale)",
+    "adjustment_factor": "scale"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "cyan",
-      "magenta",
-      "yellow"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "key",
-    "unit": "value"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",

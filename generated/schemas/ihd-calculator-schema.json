@@ -14,14 +14,15 @@
         "de": "Geplante Produktion",
         "fr": "Production planifiée",
         "es": "Producción planificada",
-        "ar": "Planned Production"
+        "ar": "الإنتاج المخطط"
       },
       "businessContext_i18n": {
         "en": "The total planned production quantity for the period.",
         "tr": "Dönem için planlanan toplam üretim miktarı.",
         "de": "Die gesamte geplante Produktionsmenge für den Zeitraum.",
         "fr": "La quantité totale de production planifiée pour la période.",
-        "es": "La cantidad total de producción planificada para el período."
+        "es": "La cantidad total de producción planificada para el período.",
+        "ar": "إجمالي كمية الإنتاج المخطط للفترة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tatsächliche Produktion",
         "fr": "Production réelle",
         "es": "Producción real",
-        "ar": "Actual Production"
+        "ar": "الإنتاج الفعلي"
       },
       "businessContext_i18n": {
         "en": "The actual quantity produced during the period.",
         "tr": "Dönem boyunca üretilen gerçek miktar.",
         "de": "Die tatsächlich produzierte Menge im Zeitraum.",
         "fr": "La quantité réellement produite pendant la période.",
-        "es": "La cantidad real producida durante el período."
+        "es": "La cantidad real producida durante el período.",
+        "ar": "الكمية الفعلية المنتجة خلال الفترة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gute Teile",
         "fr": "Pièces bonnes",
         "es": "Piezas buenas",
-        "ar": "Good Parts"
+        "ar": "القطع الجيدة"
       },
       "businessContext_i18n": {
         "en": "The number of defect-free units produced.",
         "tr": "Üretilen hatasız birim sayısı.",
         "de": "Die Anzahl der fehlerfreien Einheiten.",
         "fr": "Le nombre d'unités sans défaut produites.",
-        "es": "El número de unidades sin defectos producidas."
+        "es": "El número de unidades sin defectos producidas.",
+        "ar": "عدد الوحدات المنتجة الخالية من العيوب."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Gesamte Teile",
         "fr": "Pièces totales",
         "es": "Piezas totales",
-        "ar": "Total Parts"
+        "ar": "إجمالي القطع"
       },
       "businessContext_i18n": {
         "en": "The total number of units produced, including defects.",
         "tr": "Üretilen toplam birim sayısı (hatalar dahil).",
         "de": "Die Gesamtzahl der produzierten Einheiten, einschließlich Ausschuss.",
         "fr": "Le nombre total d'unités produites, y compris les défauts.",
-        "es": "El número total de unidades producidas, incluyendo defectos."
+        "es": "El número total de unidades producidas, incluyendo defectos.",
+        "ar": "إجمالي عدد الوحدات المنتجة، بما في ذلك العيوب."
       }
     }
   ],
   "formulas": {
-    "result": "plannedProduction + actualProduction + goodParts",
-    "result_copy": "plannedProduction + actualProduction + goodParts"
+    "normalized_product": "plannedProduction * actualProduction * goodParts * totalParts",
+    "result": "plannedProduction * actualProduction * goodParts * totalParts"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "availability",
-      "quality"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "quality",
-    "unit": "adet",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "availability": "%"
     }

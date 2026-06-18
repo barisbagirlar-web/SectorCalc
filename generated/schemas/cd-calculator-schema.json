@@ -14,14 +14,15 @@
         "de": "Anfangseinlage",
         "fr": "Dépôt initial",
         "es": "Depósito inicial",
-        "ar": "Initial Deposit"
+        "ar": "الإيداع الأولي"
       },
       "businessContext_i18n": {
         "en": "Amount of money initially deposited into the CD.",
         "tr": "Mevduat hesabına başlangıçta yatırılan para miktarı.",
         "de": "Geldbetrag, der ursprünglich auf das Festgeldkonto eingezahlt wurde.",
         "fr": "Montant d'argent initialement déposé sur le CD.",
-        "es": "Cantidad de dinero depositada inicialmente en el CD."
+        "es": "Cantidad de dinero depositada inicialmente en el CD.",
+        "ar": "المبلغ المودع أولياً في شهادة الإيداع"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual percentage yield (APY) offered by the CD.",
         "tr": "Mevduat sertifikası tarafından sunulan yıllık yüzde getiri (APY).",
         "de": "Jährliche prozentuale Rendite (APY) des Festgeldkontos.",
         "fr": "Rendement annuel en pourcentage (APY) offert par le CD.",
-        "es": "Rendimiento porcentual anual (APY) ofrecido por el CD."
+        "es": "Rendimiento porcentual anual (APY) ofrecido por el CD.",
+        "ar": "العائد السنوي المئوي (APY) المقدم من شهادة الإيداع"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Laufzeit",
         "fr": "Durée du terme",
         "es": "Plazo",
-        "ar": "Term Length"
+        "ar": "مدة الشهادة"
       },
       "businessContext_i18n": {
         "en": "Duration of the CD in months.",
         "tr": "Mevduat sertifikasının ay cinsinden süresi.",
         "de": "Dauer des Festgeldkontos in Monaten.",
         "fr": "Durée du CD en mois.",
-        "es": "Duración del CD en meses."
+        "es": "Duración del CD en meses.",
+        "ar": "مدة شهادة الإيداع بالأشهر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de capitalización",
-        "ar": "Compounding Frequency"
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year (e.g., 12 for monthly).",
         "tr": "Yıllık bileşik faiz sayısı (örneğin, aylık için 12).",
         "de": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 12 für monatlich).",
         "fr": "Nombre de fois que l'intérêt est composé par an (ex. : 12 pour mensuel).",
-        "es": "Número de veces que se capitaliza el interés por año (ej., 12 para mensual)."
+        "es": "Número de veces que se capitaliza el interés por año (ej., 12 para mensual).",
+        "ar": "عدد مرات مضاعفة الفائدة سنوياً (مثال: 12 للمركبة شهرياً)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Zusätzliche monatliche Einzahlung",
         "fr": "Dépôt mensuel supplémentaire",
         "es": "Depósito mensual adicional",
-        "ar": "Additional Monthly Deposit"
+        "ar": "الإيداع الشهري الإضافي"
       },
       "businessContext_i18n": {
         "en": "Optional additional deposit made each month.",
         "tr": "Her ay yatırılan isteğe bağlı ek para.",
         "de": "Optionale zusätzliche Einzahlung, die jeden Monat getätigt wird.",
         "fr": "Dépôt supplémentaire facultatif effectué chaque mois.",
-        "es": "Depósito adicional opcional realizado cada mes."
+        "es": "Depósito adicional opcional realizado cada mes.",
+        "ar": "إيداع إضافي اختياري يتم كل شهر"
       }
     }
   ],
   "formulas": {
-    "result": "initialDeposit + annualRate + termMonths",
-    "result_aux": "initialDeposit + annualRate + termMonths"
+    "normalized_product": "initialDeposit * (annualRate / 100) * termMonths * compoundingFrequency",
+    "result": "initialDeposit * (annualRate / 100) * termMonths * compoundingFrequency * (additionalDeposit)",
+    "adjustment_factor": "additionalDeposit"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalInterest",
-      "effectiveAnnualRate"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "effectiveAnnualRate",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",

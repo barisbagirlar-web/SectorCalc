@@ -14,13 +14,15 @@
         "de": "Anzahl der Personen",
         "fr": "Nombre de personnes",
         "es": "Número de personas",
-        "ar": "Number of People"
+        "ar": "عدد الأشخاص"
       },
       "businessContext_i18n": {
         "en": "Total number of individuals using water (family, employees, etc.)",
         "tr": "Suyu kullanan toplam birey sayısı (aile, çalışanlar vb.)",
         "de": "Gesamtzahl der Personen, die Wasser nutzen (Familie, Mitarbeiter usw.)",
-        "fr": "Nombre total d'individus utilisant l'eau (famille, employés, etc.)"
+        "fr": "Nombre total d'individus utilisant l'eau (famille, employés, etc.)",
+        "es": "Número total de personas que usan agua (familia, empleados, etc.)",
+        "ar": "إجمالي عدد الأفراد الذين يستخدمون المياه (عائلة، موظفون، إلخ.)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kişi başı günlük duş dakikası",
         "de": "Duschminuten pro Tag und Person",
         "fr": "Minutes de douche par jour et par personne",
-        "es": "Shower Minutes per Day per Person",
-        "ar": "Shower Minutes per Day per Person"
+        "es": "Minutos de ducha por persona al día",
+        "ar": "دقائق الاستحمام يوميًا لكل شخص"
       },
       "businessContext_i18n": {
         "en": "Average shower duration per person per day in minutes",
         "tr": "Kişi başı günlük ortalama duş süresi (dakika)",
         "de": "Durchschnittliche Duschdauer pro Person und Tag in Minuten",
-        "fr": "Durée moyenne de douche par personne et par jour en minutes"
+        "fr": "Durée moyenne de douche par personne et par jour en minutes",
+        "es": "Duración promedio de la ducha por persona al día en minutos",
+        "ar": "متوسط مدة الاستحمام لكل شخص يوميًا بالدقائق"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Duş Akış Hızı",
         "de": "Duschdurchflussrate",
         "fr": "Débit de la douche",
-        "es": "Shower Flow Rate",
-        "ar": "Shower Flow Rate"
+        "es": "Caudal de la ducha",
+        "ar": "معدل تدفق رأس الدش"
       },
       "businessContext_i18n": {
         "en": "Water flow rate of the shower head in liters per minute",
         "tr": "Duş başlığının dakikadaki su akış hızı (litre)",
         "de": "Wasserdurchflussrate des Duschkopfs in Litern pro Minute",
-        "fr": "Débit d'eau de la pomme de douche en litres par minute"
+        "fr": "Débit d'eau de la pomme de douche en litres par minute",
+        "es": "Caudal de agua del cabezal de ducha en litros por minuto",
+        "ar": "معدل تدفق المياه لرأس الدش باللتر في الدقيقة"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Kişi Başına Günlük Tuvalet Sifonu Sayısı",
         "de": "Toilettenspülungen pro Tag pro Person",
         "fr": "Chasses d'eau par jour par personne",
-        "es": "Toilet Flushes per Day per Person",
-        "ar": "Toilet Flushes per Day per Person"
+        "es": "Descargas de inodoro por persona al día",
+        "ar": "عدد مرات استخدام المرحاض يوميًا لكل شخص"
       },
       "businessContext_i18n": {
         "en": "Average number of toilet flushes per person per day",
         "tr": "Kişi başına günlük ortalama tuvalet sifonu sayısı",
         "de": "Durchschnittliche Anzahl Toilettenspülungen pro Person pro Tag",
-        "fr": "Nombre moyen de chasses d'eau par personne par jour"
+        "fr": "Nombre moyen de chasses d'eau par personne par jour",
+        "es": "Número promedio de descargas de inodoro por persona al día",
+        "ar": "متوسط عدد مرات استخدام المرحاض لكل شخص يوميًا"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Sifon Hacmi",
         "de": "Spülvolumen",
         "fr": "Volume de chasse",
-        "es": "Flush Volume",
-        "ar": "Flush Volume"
+        "es": "Volumen de descarga",
+        "ar": "حجم الطرد"
       },
       "businessContext_i18n": {
         "en": "Water volume per toilet flush in liters (modern dual-flush ~6L)",
         "tr": "Tuvalet sifonu başına su hacmi (litre) (modern çift sifonlu ~6L)",
         "de": "Wasservolumen pro Toilettenspülung in Litern (moderne Dual-Spülung ~6L)",
-        "fr": "Volume d'eau par chasse en litres (double chasse moderne ~6L)"
+        "fr": "Volume d'eau par chasse en litres (double chasse moderne ~6L)",
+        "es": "Volumen de agua por descarga de inodoro en litros (doble descarga moderno ~6L)",
+        "ar": "حجم المياه لكل طرد مرحاض باللتر (المرحاض الحديث ثنائي الطرد ~6 لتر)"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Haftalık Çamaşır Makinesi Yükü",
         "de": "Waschmaschinenladungen pro Woche",
         "fr": "Cycles de machine à laver par semaine",
-        "es": "Washing Machine Loads per Week",
-        "ar": "Washing Machine Loads per Week"
+        "es": "Cargas de lavadora por semana",
+        "ar": "عدد مرات تشغيل الغسالة أسبوعيًا"
       },
       "businessContext_i18n": {
         "en": "Number of washing machine cycles per week (total for all people)",
         "tr": "Haftalık çamaşır makinesi döngü sayısı (tüm kişiler için toplam)",
         "de": "Anzahl der Waschmaschinenzyklen pro Woche (gesamt für alle Personen)",
-        "fr": "Nombre de cycles de machine à laver par semaine (total pour toutes les personnes)"
+        "fr": "Nombre de cycles de machine à laver par semaine (total pour toutes les personnes)",
+        "es": "Número de ciclos de lavadora por semana (total para todas las personas)",
+        "ar": "عدد دورات الغسالة أسبوعيًا (إجمالي لجميع الأشخاص)"
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Yük Başına Su",
         "de": "Wasser pro Ladung",
         "fr": "Eau par cycle",
-        "es": "Water per Load",
-        "ar": "Water per Load"
+        "es": "Agua por carga",
+        "ar": "المياه لكل دورة"
       },
       "businessContext_i18n": {
         "en": "Water consumption per washing machine cycle in liters",
         "tr": "Çamaşır makinesi döngüsü başına su tüketimi (litre)",
         "de": "Wasserverbrauch pro Waschmaschinenzyklus in Litern",
-        "fr": "Consommation d'eau par cycle de machine à laver en litres"
+        "fr": "Consommation d'eau par cycle de machine à laver en litres",
+        "es": "Consumo de agua por ciclo de lavadora en litros",
+        "ar": "استهلاك المياه لكل دورة غسيل باللتر"
       }
     },
     {
@@ -167,14 +181,16 @@
         "tr": "Kişi Başına Diğer Günlük Kullanım",
         "de": "Sonstiger täglicher Verbrauch pro Person",
         "fr": "Autre usage quotidien par personne",
-        "es": "Other Daily Usage per Person",
-        "ar": "Other Daily Usage per Person"
+        "es": "Otro uso diario por persona",
+        "ar": "الاستخدام اليومي الآخر لكل شخص"
       },
       "businessContext_i18n": {
         "en": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)",
         "tr": "Kişi başına günlük ek su kullanımı (içme, yemek pişirme, temizlik vb.)",
         "de": "Zusätzlicher Wasserverbrauch pro Person pro Tag (Trinken, Kochen, Reinigen usw.)",
-        "fr": "Consommation d'eau supplémentaire par personne par jour (boisson, cuisine, nettoyage, etc.)"
+        "fr": "Consommation d'eau supplémentaire par personne par jour (boisson, cuisine, nettoyage, etc.)",
+        "es": "Uso adicional de agua por persona al día (beber, cocinar, limpiar, etc.)",
+        "ar": "استخدام إضافي للمياه لكل شخص يوميًا (شرب، طبخ، تنظيف، إلخ.)"
       }
     }
   ],

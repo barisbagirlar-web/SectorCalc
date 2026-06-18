@@ -14,14 +14,15 @@
         "de": "Stoffmengenanteil Komponente 1",
         "fr": "Fraction molaire du composant 1",
         "es": "Fracción molar del componente 1",
-        "ar": "Mole fraction component 1"
+        "ar": "الكسر المولي للمكون 1"
       },
       "businessContext_i18n": {
         "en": "Mole fraction of the first component in the binary mixture (dimensionless).",
         "tr": "İkili karışımdaki birinci bileşenin mol kesri (boyutsuz).",
         "de": "Stoffmengenanteil der ersten Komponente im binären Gemisch (dimensionslos).",
         "fr": "Fraction molaire du premier composant dans le mélange binaire (sans dimension).",
-        "es": "Fracción molar del primer componente en la mezcla binaria (adimensional)."
+        "es": "Fracción molar del primer componente en la mezcla binaria (adimensional).",
+        "ar": "الكسر المولي للمكون الأول في الخليط الثنائي (بدون وحدة)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "System temperature in Kelvin.",
         "tr": "Sistem sıcaklığı Kelvin cinsinden.",
         "de": "Systemtemperatur in Kelvin.",
         "fr": "Température du système en Kelvin.",
-        "es": "Temperatura del sistema en Kelvin."
+        "es": "Temperatura del sistema en Kelvin.",
+        "ar": "درجة حرارة النظام بالكلفن."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Referenztemperatur",
         "fr": "Température de référence",
         "es": "Temperatura de referencia",
-        "ar": "Reference temperature"
+        "ar": "درجة الحرارة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Reference temperature at which the Margules parameter is defined.",
         "tr": "Margules parametresinin tanımlandığı referans sıcaklık.",
         "de": "Referenztemperatur, bei der der Margules-Parameter definiert ist.",
         "fr": "Température de référence à laquelle le paramètre de Margules est défini.",
-        "es": "Temperatura de referencia a la que se define el parámetro de Margules."
+        "es": "Temperatura de referencia a la que se define el parámetro de Margules.",
+        "ar": "درجة الحرارة المرجعية التي يُعرّف عندها معامل مارغوليس."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Margules-Parameter A",
         "fr": "Paramètre de Margules A",
         "es": "Parámetro A de Margules",
-        "ar": "Margules parameter A"
+        "ar": "معامل مارغوليس A"
       },
       "businessContext_i18n": {
         "en": "Two-suffix Margules interaction parameter (dimensionless).",
         "tr": "İki indisli Margules etkileşim parametresi (boyutsuz).",
         "de": "Zwei-Suffix-Margules-Wechselwirkungsparameter (dimensionslos).",
         "fr": "Paramètre d'interaction de Margules à deux suffixes (sans dimension).",
-        "es": "Parámetro de interacción de Margules de dos sufijos (adimensional)."
+        "es": "Parámetro de interacción de Margules de dos sufijos (adimensional).",
+        "ar": "معامل التفاعل لمارغوليس ثنائي الحدود (بدون وحدة)."
       }
     }
   ],
   "formulas": {
-    "result": "x1 + T + T0",
-    "result_copy": "x1 + T + T0"
+    "normalized_product": "x1 * T * T0 * A",
+    "result": "x1 * T * T0 * A"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "gamma2"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "gamma2",
-    "unit": "K"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

@@ -14,14 +14,15 @@
         "de": "Durchlassbereichswelligkeit (dB)",
         "fr": "Ondulation en bande passante (dB)",
         "es": "Rizado en banda de paso (dB)",
-        "ar": "Passband Ripple (dB)"
+        "ar": "تموج نطاق المرور (dB)"
       },
       "businessContext_i18n": {
         "en": "Maximum ripple in the passband (Ap). Must be >0.",
         "tr": "Geçiş bandındaki maksimum dalgalanma (Ap). >0 olmalıdır.",
         "de": "Maximale Welligkeit im Durchlassbereich (Ap). Muss >0 sein.",
         "fr": "Ondulation maximale dans la bande passante (Ap). Doit être > 0.",
-        "es": "Rizado máximo en la banda de paso (Ap). Debe ser >0."
+        "es": "Rizado máximo en la banda de paso (Ap). Debe ser >0.",
+        "ar": "أقصى تموج في نطاق المرور (Ap). يجب أن يكون >0."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Sperrbereichsdämpfung (dB)",
         "fr": "Atténuation en bande atténuée (dB)",
         "es": "Atenuación en banda de parada (dB)",
-        "ar": "Stopband Attenuation (dB)"
+        "ar": "توهين نطاق الإيقاف (dB)"
       },
       "businessContext_i18n": {
         "en": "Minimum attenuation required in the stopband (As). Must be > passbandRipple.",
         "tr": "Durdurma bandında gereken minimum zayıflama (As). geçişBandıDalgalanması'ndan büyük olmalıdır.",
         "de": "Mindestdämpfung im Sperrbereich (As). Muss > Durchlassbereichswelligkeit sein.",
         "fr": "Atténuation minimale requise dans la bande atténuée (As). Doit être > ondulationBandePassante.",
-        "es": "Atenuación mínima requerida en la banda de parada (As). Debe ser > rizadoBandaPaso."
+        "es": "Atenuación mínima requerida en la banda de parada (As). Debe ser > rizadoBandaPaso.",
+        "ar": "الحد الأدنى للتوهين المطلوب في نطاق الإيقاف (As). يجب أن يكون > تموج نطاق المرور."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Grenzfrequenz (Hz)",
         "fr": "Fréquence de coupure (Hz)",
         "es": "Frecuencia de corte (Hz)",
-        "ar": "Cutoff Frequency (Hz)"
+        "ar": "تردد القطع (Hz)"
       },
       "businessContext_i18n": {
         "en": "Passband edge frequency (wp). For low-pass prototype, must be < stopbandFrequency.",
         "tr": "Geçiş bandı kenar frekansı (wp). Alçak geçiren prototip için durdurmaBandıFrekansı'ndan küçük olmalıdır.",
         "de": "Durchlassbereichsgrenzfrequenz (wp). Für Tiefpass-Prototyp muss < Sperrbereichsfrequenz sein.",
         "fr": "Fréquence de bord de la bande passante (wp). Pour un prototype passe-bas, doit être < fréquenceBandeAtténuée.",
-        "es": "Frecuencia del borde de la banda de paso (wp). Para prototipo paso bajo, debe ser < frecuenciaBandaParada."
+        "es": "Frecuencia del borde de la banda de paso (wp). Para prototipo paso bajo, debe ser < frecuenciaBandaParada.",
+        "ar": "تردد حافة نطاق المرور (wp). بالنسبة للنموذج الأولي منخفض التمرير، يجب أن يكون < تردد نطاق الإيقاف."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sperrbereichsfrequenz (Hz)",
         "fr": "Fréquence de la bande atténuée (Hz)",
         "es": "Frecuencia de banda de parada (Hz)",
-        "ar": "Stopband Frequency (Hz)"
+        "ar": "تردد نطاق الإيقاف (Hz)"
       },
       "businessContext_i18n": {
         "en": "Stopband edge frequency (ws). Must be > cutoffFrequency.",
         "tr": "Durdurma bandı kenar frekansı (ws). kesimFrekansı'ndan büyük olmalıdır.",
         "de": "Sperrbereichsgrenzfrequenz (ws). Muss > Grenzfrequenz sein.",
         "fr": "Fréquence de bord de la bande atténuée (ws). Doit être > fréquenceCoupure.",
-        "es": "Frecuencia del borde de la banda de parada (ws). Debe ser > frecuenciaCorte."
+        "es": "Frecuencia del borde de la banda de parada (ws). Debe ser > frecuenciaCorte.",
+        "ar": "تردد حافة نطاق التوقف (ws). يجب أن يكون أكبر من تردد القطع."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Gesamtarbeitsstunden",
         "fr": "Heures de travail totales",
         "es": "Horas totales de trabajo",
-        "ar": "Total Work Hours"
+        "ar": "إجمالي ساعات العمل"
       },
       "businessContext_i18n": {
         "en": "Toplam iş yükü (saat cinsinden).",
         "tr": "Toplam iş yükü (saat cinsinden).",
         "de": "Gesamtarbeitsbelastung (in Stunden).",
         "fr": "Charge de travail totale (en heures).",
-        "es": "Carga de trabajo total (en horas)."
+        "es": "Carga de trabajo total (en horas).",
+        "ar": "إجمالي عبء العمل (بالساعات)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tägliche Schichtstunden",
         "fr": "Heures de poste par jour",
         "es": "Horas de turno diario",
-        "ar": "Daily Shift Hours"
+        "ar": "ساعات الوردية اليومية"
       },
       "businessContext_i18n": {
         "en": "Bir vardiyadaki planlanmış çalışma saati.",
         "tr": "Bir vardiyadaki planlanmış çalışma saati.",
         "de": "Geplante Arbeitsstunden pro Schicht.",
         "fr": "Heures de travail planifiées par poste.",
-        "es": "Horas de trabajo planificadas en un turno."
+        "es": "Horas de trabajo planificadas en un turno.",
+        "ar": "ساعات العمل المخطط لها في الوردية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Pausenzeit pro Schicht",
         "fr": "Heures de pause par poste",
         "es": "Horas de descanso por turno",
-        "ar": "Break Hours per Shift"
+        "ar": "ساعات الاستراحة لكل وردية"
       },
       "businessContext_i18n": {
         "en": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
         "tr": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
         "de": "Pausenzeit pro Schicht (reduziert die effektive Arbeitszeit).",
         "fr": "Durée de pause par poste (réduit le temps de travail effectif).",
-        "es": "Tiempo de descanso por turno (reduce el tiempo de trabajo efectivo)."
+        "es": "Tiempo de descanso por turno (reduce el tiempo de trabajo efectivo).",
+        "ar": "مدة الاستراحة لكل وردية (تقلل وقت العمل الفعلي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schichten pro Tag",
         "fr": "Postes par jour",
         "es": "Turnos por día",
-        "ar": "Shifts per Day"
+        "ar": "عدد الورديات في اليوم"
       },
       "businessContext_i18n": {
         "en": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
         "tr": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
         "de": "Anzahl der Schichten pro Tag (z. B. 1, 2 oder 3).",
         "fr": "Nombre de postes par jour (ex. 1, 2 ou 3).",
-        "es": "Número de turnos por día (ej., 1, 2 o 3)."
+        "es": "Número de turnos por día (ej., 1, 2 o 3).",
+        "ar": "عدد الورديات اليومية (مثال: 1 أو 2 أو 3)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Effizienzfaktor",
         "fr": "Facteur d'efficacité",
         "es": "Factor de eficiencia",
-        "ar": "Efficiency Factor"
+        "ar": "عامل الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
         "tr": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
         "de": "Produktionseffizienzfaktor (0-1). 1 = 100 % Effizienz.",
         "fr": "Facteur d'efficacité de production (0-1). 1 = 100% d'efficacité.",
-        "es": "Factor de eficiencia de producción (0-1). 1 = 100% eficiente."
+        "es": "Factor de eficiencia de producción (0-1). 1 = 100% eficiente.",
+        "ar": "عامل كفاءة الإنتاج (بين 0 و1). 1 = كفاءة 100%."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Rüstzeit",
         "fr": "Temps de réglage",
         "es": "Tiempo de preparación",
-        "ar": "Setup Time"
+        "ar": "وقت الإعداد"
       },
       "businessContext_i18n": {
         "en": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
         "tr": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
         "de": "Einmalige Rüstzeit (wird zur Arbeitsbelastung hinzugefügt).",
         "fr": "Temps de configuration unique (ajouté à la charge de travail).",
-        "es": "Tiempo de configuración único (se suma a la carga de trabajo)."
+        "es": "Tiempo de configuración único (se suma a la carga de trabajo).",
+        "ar": "وقت الإعداد لمرة واحدة (يُضاف إلى عبء العمل)."
       }
     }
   ],

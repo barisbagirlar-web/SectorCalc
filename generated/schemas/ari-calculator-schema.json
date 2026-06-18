@@ -14,14 +14,15 @@
         "de": "Startwert",
         "fr": "Valeur initiale",
         "es": "Valor inicial",
-        "ar": "Başlangıç Değeri"
+        "ar": "القيمة الأولية"
       },
       "businessContext_i18n": {
         "en": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
         "tr": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
         "de": "Leistungskennzahl zu Beginn des Verbesserungsprozesses (Stück, Rate, usw.)",
         "fr": "Valeur de l'indicateur de performance au début du processus d'amélioration (quantité, taux, etc.)",
-        "es": "Valor del indicador de rendimiento al inicio del proceso de mejora (unidades, porcentaje, etc.)"
+        "es": "Valor del indicador de rendimiento al inicio del proceso de mejora (unidades, porcentaje, etc.)",
+        "ar": "قيمة مؤشر الأداء في بداية عملية التحسين (عدد، نسبة، إلخ)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zielwert",
         "fr": "Valeur cible",
         "es": "Valor objetivo",
-        "ar": "Hedef Değer"
+        "ar": "القيمة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Ulaşılmak istenen hedef performans göstergesi değeri",
         "tr": "Ulaşılmak istenen hedef performans göstergesi değeri",
         "de": "Angestrebter Ziel-Leistungskennzahlwert",
         "fr": "Valeur cible de l'indicateur de performance à atteindre",
-        "es": "Valor objetivo del indicador de rendimiento a alcanzar"
+        "es": "Valor objetivo del indicador de rendimiento a alcanzar",
+        "ar": "قيمة مؤشر الأداء المراد تحقيقها"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aktueller Wert",
         "fr": "Valeur actuelle",
         "es": "Valor actual",
-        "ar": "Mevcut Değer"
+        "ar": "القيمة الحالية"
       },
       "businessContext_i18n": {
         "en": "Şu anki güncel performans göstergesi değeri",
         "tr": "Şu anki güncel performans göstergesi değeri",
         "de": "Aktueller Leistungskennzahlwert",
         "fr": "Valeur actuelle de l'indicateur de performance",
-        "es": "Valor actual del indicador de rendimiento en este momento"
+        "es": "Valor actual del indicador de rendimiento en este momento",
+        "ar": "قيمة مؤشر الأداء الحالية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Vergangenes Jahr",
         "fr": "Année écoulée",
         "es": "Año transcurrido",
-        "ar": "Geçen Yıl"
+        "ar": "السنة الماضية"
       },
       "businessContext_i18n": {
         "en": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
         "tr": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
         "de": "Seit Beginn vergangene Zeit (in Jahren)",
         "fr": "Temps écoulé depuis le début jusqu'à aujourd'hui (en années)",
-        "es": "Tiempo transcurrido desde el inicio hasta hoy (en años)"
+        "es": "Tiempo transcurrido desde el inicio hasta hoy (en años)",
+        "ar": "الوقت المنقضي منذ البداية حتى الآن (بالسنوات)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Vertrauensfaktor",
         "fr": "Coefficient de confiance",
         "es": "Coeficiente de confianza",
-        "ar": "Güven Kat Sayısı"
+        "ar": "معامل الثقة"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
         "tr": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
         "de": "Multiplikator für das Vertrauensniveau, der auf die berechnete Verbesserungsrate angewendet wird (1: Standard, >1: konservativere Schätzung)",
         "fr": "Multiplicateur de niveau de confiance appliqué au taux d'amélioration calculé (1 : standard, >1 : estimation plus prudente)",
-        "es": "Multiplicador del nivel de confianza aplicado a la tasa de mejora calculada (1: estándar, >1: estimación más conservadora)"
+        "es": "Multiplicador del nivel de confianza aplicado a la tasa de mejora calculada (1: estándar, >1: estimación más conservadora)",
+        "ar": "مضاعف مستوى الثقة المطبق على معدل التحسين المحسوب (1: قياسي، >1: تقدير أكثر تحفظًا)"
       }
     }
   ],
   "formulas": {
-    "result": "initialValue + targetValue + currentValue",
-    "result_copy": "initialValue + targetValue + currentValue"
+    "normalized_product": "initialValue * targetValue * currentValue * yearsElapsed",
+    "result": "initialValue * targetValue * currentValue * yearsElapsed * (confidenceFactor)",
+    "adjustment_factor": "confidenceFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "ariActual",
-      "gapPercentage"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "gapPercentage",
-    "unit": "birim",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "gapPercentage": "%"
     }

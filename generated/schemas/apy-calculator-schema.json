@@ -25,14 +25,16 @@
         "tr": "Nominal Yıllık Faiz Oranı",
         "de": "Jährlicher Nominalzinssatz",
         "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés nominal anual"
+        "es": "Tasa de interés nominal anual",
+        "ar": "سعر الفائدة السنوي الاسمي"
       },
       "businessContext_i18n": {
         "en": "The stated annual interest rate before compounding, as per ISO 8000-1 financial data standards.",
         "tr": "Bileşik öncesi belirtilen yıllık faiz oranı, ISO 8000-1 finansal veri standartlarına uygun.",
         "de": "Der angegebene jährliche Zinssatz vor Zinseszins, gemäß ISO 8000-1 Finanzdatenstandards.",
         "fr": "Taux d'intérêt annuel déclaré avant capitalisation, selon les normes de données financières ISO 8000-1.",
-        "es": "La tasa de interés anual declarada antes de la capitalización, según los estándares de datos financieros ISO 8000-1."
+        "es": "La tasa de interés anual declarada antes de la capitalización, según los estándares de datos financieros ISO 8000-1.",
+        "ar": "سعر الفائدة السنوي المعلن قبل التركيب، وفقًا لمعايير البيانات المالية ISO 8000-1."
       }
     },
     {
@@ -57,14 +59,16 @@
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de capitalización"
+        "es": "Frecuencia de capitalización",
+        "ar": "تكرار المركبة"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year, aligned with WERC financial metrics for logistics and supply chain.",
         "tr": "Yıllık bileşik dönem sayısı, lojistik ve tedarik zinciri için WERC finansal metrikleriyle uyumlu.",
         "de": "Anzahl der Zinsperioden pro Jahr, abgestimmt auf WERC-Finanzkennzahlen für Logistik und Lieferkette.",
         "fr": "Nombre de périodes de capitalisation par an, aligné sur les métriques financières WERC pour la logistique et la chaîne d'approvisionnement.",
-        "es": "Número de períodos de capitalización por año, alineado con las métricas financieras WERC para logística y cadena de suministro."
+        "es": "Número de períodos de capitalización por año, alineado con las métricas financieras WERC para logística y cadena de suministro.",
+        "ar": "عدد فترات التركيب في السنة، متوافق مع المقاييس المالية WERC للوجستيات وسلسلة التوريد."
       }
     },
     {
@@ -81,14 +85,16 @@
         "tr": "Yatırım Süresi",
         "de": "Anlagedauer",
         "fr": "Période d'investissement",
-        "es": "Período de inversión"
+        "es": "Período de inversión",
+        "ar": "فترة الاستثمار"
       },
       "businessContext_i18n": {
         "en": "Duration of investment in years, used for multi-period APY calculation per Lean Six Sigma project timelines.",
         "tr": "Yatırım süresi yıl olarak, Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır.",
         "de": "Anlagedauer in Jahren, verwendet für die mehrperiodige APY-Berechnung gemäß Lean Six Sigma Projektzeitplänen.",
         "fr": "Durée de l'investissement en années, utilisée pour le calcul du rendement annuel en pourcentage (APY) sur plusieurs périodes selon les échéanciers de projets Lean Six Sigma.",
-        "es": "Duración de la inversión en años, utilizada para el cálculo del APY en múltiples períodos según los cronogramas de proyectos Lean Six Sigma."
+        "es": "Duración de la inversión en años, utilizada para el cálculo del APY en múltiples períodos según los cronogramas de proyectos Lean Six Sigma.",
+        "ar": "مدة الاستثمار بالسنوات، تُستخدم لحساب APY متعدد الفترات وفقًا لجداول زمنية لمشاريع اللين ستة سيجما."
       }
     },
     {
@@ -105,14 +111,16 @@
         "tr": "Başlangıç Anaparası",
         "de": "Anfangskapital",
         "fr": "Capital initial",
-        "es": "Capital inicial"
+        "es": "Capital inicial",
+        "ar": "رأس المال الأولي"
       },
       "businessContext_i18n": {
         "en": "Starting capital amount, critical for ROI analysis in industrial engineering projects.",
         "tr": "Başlangıç sermaye tutarı, endüstri mühendisliği projelerinde ROI analizi için kritiktir.",
         "de": "Startkapitalbetrag, entscheidend für die ROI-Analyse in industriellen Ingenieurprojekten.",
         "fr": "Montant du capital de départ, essentiel pour l'analyse du retour sur investissement (ROI) dans les projets d'ingénierie industrielle.",
-        "es": "Monto de capital inicial, crítico para el análisis de ROI en proyectos de ingeniería industrial."
+        "es": "Monto de capital inicial, crítico para el análisis de ROI en proyectos de ingeniería industrial.",
+        "ar": "مبلغ رأس المال الابتدائي، مهم لتحليل العائد على الاستثمار في مشاريع الهندسة الصناعية."
       }
     },
     {
@@ -129,14 +137,16 @@
         "tr": "Yönetim Ücreti",
         "de": "Verwaltungsgebühr",
         "fr": "Frais de gestion",
-        "es": "Comisión de gestión"
+        "es": "Comisión de gestión",
+        "ar": "رسوم الإدارة"
       },
       "businessContext_i18n": {
         "en": "Annual fee deducted from returns, typical in investment funds, referenced in ISO 31000 risk management.",
         "tr": "Getirilerden kesilen yıllık ücret, yatırım fonlarında tipiktir, ISO 31000 risk yönetiminde referans alınır.",
         "de": "Jährliche Gebühr, die von den Erträgen abgezogen wird, typisch für Investmentfonds, referenziert in ISO 31000 Risikomanagement.",
         "fr": "Frais annuels déduits des rendements, typiques des fonds d'investissement, référencés dans la gestion des risques ISO 31000.",
-        "es": "Comisión anual deducida de los rendimientos, típica en fondos de inversión, referenciada en la gestión de riesgos ISO 31000."
+        "es": "Comisión anual deducida de los rendimientos, típica en fondos de inversión, referenciada en la gestión de riesgos ISO 31000.",
+        "ar": "رسوم سنوية تُخصم من العوائد، نموذجية في صناديق الاستثمار، مشار إليها في إدارة المخاطر ISO 31000."
       }
     },
     {
@@ -153,14 +163,16 @@
         "tr": "Beklenen Enflasyon Oranı",
         "de": "Erwartete Inflationsrate",
         "fr": "Taux d'inflation attendu",
-        "es": "Tasa de inflación esperada"
+        "es": "Tasa de inflación esperada",
+        "ar": "معدل التضخم المتوقع"
       },
       "businessContext_i18n": {
         "en": "Annual inflation rate to compute real APY, per Six Sigma DMAIC control phase.",
         "tr": "Gerçek APY hesaplamak için yıllık enflasyon oranı, Altı Sigma DMAIC kontrol aşamasına göre.",
         "de": "Jährliche Inflationsrate zur Berechnung der realen APY, gemäß Six Sigma DMAIC-Kontrollphase.",
         "fr": "Taux d'inflation annuel pour calculer le rendement annuel en pourcentage (APY) réel, selon la phase de contrôle DMAIC Six Sigma.",
-        "es": "Tasa de inflación anual para calcular el APY real, según la fase de control DMAIC de Seis Sigma."
+        "es": "Tasa de inflación anual para calcular el APY real, según la fase de control DMAIC de Seis Sigma.",
+        "ar": "معدل التضخم السنوي لحساب APY الحقيقي، وفقًا لمرحلة التحكم في DMAIC ستة سيجما."
       }
     },
     {
@@ -177,14 +189,16 @@
         "tr": "Kazançlar Üzerindeki Vergi Oranı",
         "de": "Steuersatz auf Gewinne",
         "fr": "Taux d'imposition sur les gains",
-        "es": "Tasa impositiva sobre ganancias"
+        "es": "Tasa impositiva sobre ganancias",
+        "ar": "معدل الضريبة على الأرباح"
       },
       "businessContext_i18n": {
         "en": "Capital gains tax rate applied to nominal returns, aligned with ISO 14000 environmental cost accounting.",
         "tr": "Nominal getirilere uygulanan sermaye kazancı vergisi oranı, ISO 14000 çevresel maliyet muhasebesi ile uyumludur.",
         "de": "Kapitalertragsteuersatz auf nominale Renditen, in Übereinstimmung mit der Umweltkostenrechnung nach ISO 14000.",
         "fr": "Taux d'imposition des plus-values appliqué aux rendements nominaux, conforme à la comptabilité des coûts environnementaux ISO 14000.",
-        "es": "Tasa de impuesto a las ganancias de capital aplicada a rendimientos nominales, alineada con la contabilidad de costos ambientales ISO 14000."
+        "es": "Tasa de impuesto a las ganancias de capital aplicada a rendimientos nominales, alineada con la contabilidad de costos ambientales ISO 14000.",
+        "ar": "معدل ضريبة أرباح رأس المال المطبق على العوائد الاسمية، متوافق مع محاسبة التكاليف البيئية ISO 14000."
       }
     },
     {
@@ -199,14 +213,16 @@
         "tr": "Sürekli Bileşik Faiz",
         "de": "Kontinuierliche Verzinsung",
         "fr": "Composition continue",
-        "es": "Capitalización continua"
+        "es": "Capitalización continua",
+        "ar": "المركب المستمر"
       },
       "businessContext_i18n": {
         "en": "If true, uses e^rt formula for maximum compounding frequency, per Lean continuous improvement philosophy.",
         "tr": "Doğruysa, Yalın sürekli iyileştirme felsefesine göre maksimum bileşik faiz sıklığı için e^rt formülünü kullanır.",
         "de": "Wenn wahr, verwendet e^rt-Formel für maximale Aufzinsungshäufigkeit, gemäß der Lean-Philosophie der kontinuierlichen Verbesserung.",
         "fr": "Si vrai, utilise la formule e^rt pour une fréquence de composition maximale, selon la philosophie d'amélioration continue Lean.",
-        "es": "Si es verdadero, utiliza la fórmula e^rt para la máxima frecuencia de capitalización, según la filosofía de mejora continua Lean."
+        "es": "Si es verdadero, utiliza la fórmula e^rt para la máxima frecuencia de capitalización, según la filosofía de mejora continua Lean.",
+        "ar": "إذا كان صحيحًا، يستخدم صيغة e^rt لأقصى تردد مركب، وفقًا لفلسفة التحسين المستمر اللين."
       }
     }
   ],
@@ -281,18 +297,28 @@
     ]
   },
   "formulas": {
-    "result": "nominal_rate + compounding_frequency + time_period_years",
-    "result_copy": "nominal_rate + compounding_frequency + time_period_years"
+    "base_cost": "time_period_years * initial_principal",
+    "adjusted_cost": "time_period_years * initial_principal * (1 + (nominal_rate / 100))",
+    "result": "time_period_years * initial_principal * (1 + (nominal_rate / 100)) * ((fee_percentage / 100))",
+    "factor_fee_percentage": "(fee_percentage / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_fee_percentage"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "%"
+    "unit": "USD"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

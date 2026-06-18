@@ -14,14 +14,15 @@
         "de": "Übergangswahrscheinlichkeit A → B",
         "fr": "Probabilité de transition A → B",
         "es": "Probabilidad de transición A → B",
-        "ar": "Transition Probability A → B"
+        "ar": "احتمالية الانتقال A → B"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from state A to state B in one step.",
         "tr": "Bir adımda A durumundan B durumuna geçme olasılığı.",
         "de": "Wahrscheinlichkeit des Übergangs von Zustand A zu Zustand B in einem Schritt.",
         "fr": "Probabilité de passer de l'état A à l'état B en une étape.",
-        "es": "Probabilidad de transición del estado A al estado B en un paso."
+        "es": "Probabilidad de transición del estado A al estado B en un paso.",
+        "ar": "احتمالية الانتقال من الحالة A إلى الحالة B في خطوة واحدة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Übergangswahrscheinlichkeit B → A",
         "fr": "Probabilité de transition B → A",
         "es": "Probabilidad de transición B → A",
-        "ar": "Transition Probability B → A"
+        "ar": "احتمالية الانتقال B → A"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from state B to state A in one step.",
         "tr": "Bir adımda B durumundan A durumuna geçme olasılığı.",
         "de": "Wahrscheinlichkeit des Übergangs von Zustand B zu Zustand A in einem Schritt.",
         "fr": "Probabilité de passer de l'état B à l'état A en une étape.",
-        "es": "Probabilidad de transición del estado B al estado A en un paso."
+        "es": "Probabilidad de transición del estado B al estado A en un paso.",
+        "ar": "احتمالية الانتقال من الحالة B إلى الحالة A في خطوة واحدة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangswahrscheinlichkeit von Zustand A",
         "fr": "Probabilité initiale de l'état A",
         "es": "Probabilidad inicial del estado A",
-        "ar": "Initial Probability of State A"
+        "ar": "الاحتمال الأولي للحالة A"
       },
       "businessContext_i18n": {
         "en": "Initial probability of being in state A (1 means definitely in state A).",
         "tr": "A durumunda olma başlangıç olasılığı (1, kesinlikle A durumunda olduğu anlamına gelir).",
         "de": "Anfangswahrscheinlichkeit, sich in Zustand A zu befinden (1 bedeutet definitiv in Zustand A).",
         "fr": "Probabilité initiale d'être dans l'état A (1 signifie définitivement dans l'état A).",
-        "es": "Probabilidad inicial de estar en el estado A (1 significa definitivamente en el estado A)."
+        "es": "Probabilidad inicial de estar en el estado A (1 significa definitivamente en el estado A).",
+        "ar": "الاحتمال الأولي لكونك في الحالة A (1 يعني بالتأكيد في الحالة A)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Schritte",
         "fr": "Nombre d'étapes",
         "es": "Número de pasos",
-        "ar": "Number of Steps"
+        "ar": "عدد الخطوات"
       },
       "businessContext_i18n": {
         "en": "Number of transitions to perform.",
         "tr": "Gerçekleştirilecek geçiş sayısı.",
         "de": "Anzahl der durchzuführenden Übergänge.",
         "fr": "Nombre de transitions à effectuer.",
-        "es": "Número de transiciones a realizar."
+        "es": "Número de transiciones a realizar.",
+        "ar": "عدد التحولات التي سيتم إجراؤها."
       }
     }
   ],

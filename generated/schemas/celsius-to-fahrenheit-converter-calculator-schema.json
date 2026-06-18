@@ -25,14 +25,16 @@
         "tr": "Santigrat cinsinden sıcaklık",
         "de": "Temperatur in Celsius",
         "fr": "Température en degrés Celsius",
-        "es": "Temperatura en grados Celsius"
+        "es": "Temperatura en grados Celsius",
+        "ar": "درجة الحرارة بالدرجة المئوية"
       },
       "businessContext_i18n": {
         "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
         "tr": "Sensörden veya manuel ölçümden alınan proses sıcaklığı okuması. Mutlak sıfırın üzerinde olmalıdır.",
         "de": "Prozesstemperaturmessung vom Sensor oder manuell. Muss über dem absoluten Nullpunkt liegen.",
         "fr": "Lecture de température du capteur ou mesure manuelle. Doit être supérieure au zéro absolu.",
-        "es": "Lectura de temperatura del proceso, desde sensor o medición manual. Debe estar por encima del cero absoluto."
+        "es": "Lectura de temperatura del proceso, desde sensor o medición manual. Debe estar por encima del cero absoluto.",
+        "ar": "قراءة درجة حرارة العملية من المستشعر أو القياس اليدوي. يجب أن تكون أعلى من الصفر المطلق"
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Sensör Doğruluğu (±°C)",
         "de": "Sensorgenauigkeit (±°C)",
         "fr": "Précision du capteur (±°C)",
-        "es": "Precisión del sensor (±°C)"
+        "es": "Precisión del sensor (±°C)",
+        "ar": "دقة المستشعر (±°م)"
       },
       "businessContext_i18n": {
         "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
         "tr": "Sıcaklık sensörünün üretici tarafından belirtilen doğruluğu (ISO 17025 kalibrasyon standardı).",
         "de": "Vom Hersteller angegebene Genauigkeit des Temperatursensors (ISO 17025 Kalibrierstandard).",
         "fr": "Précision spécifiée par le fabricant du capteur de température (norme d'étalonnage ISO 17025).",
-        "es": "Precisión especificada por el fabricante del sensor de temperatura (estándar de calibración ISO 17025)."
+        "es": "Precisión especificada por el fabricante del sensor de temperatura (estándar de calibración ISO 17025).",
+        "ar": "دقة المستشعر المحددة من الشركة المصنعة (معيار معايرة ISO 17025)"
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
         "fr": "Décalage d'étalonnage",
-        "es": "Desviación de calibración"
+        "es": "Desviación de calibración",
+        "ar": "إزاحة المعايرة"
       },
       "businessContext_i18n": {
         "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
         "tr": "Sensörü referans standarda (NIST izlenebilir) hizalamak için saha kalibrasyon ayarı.",
         "de": "Feldkalibrierungsanpassung zur Angleichung des Sensors an den Referenzstandard (NIST-rückführbar).",
         "fr": "Ajustement d'étalonnage sur site pour aligner le capteur sur un étalon de référence (traçable NIST).",
-        "es": "Ajuste de calibración en campo para alinear el sensor con el estándar de referencia (trazable NIST)."
+        "es": "Ajuste de calibración en campo para alinear el sensor con el estándar de referencia (trazable NIST).",
+        "ar": "ضبط المعايرة الميدانية لمحاذاة المستشعر مع المعيار المرجعي (متتبع لـ NIST)"
       }
     },
     {
@@ -100,14 +106,16 @@
         "tr": "Hedef Birim Sistemi",
         "de": "Ziel-Einheitensystem",
         "fr": "Système d'unités cible",
-        "es": "Sistema de unidades objetivo"
+        "es": "Sistema de unidades objetivo",
+        "ar": "نظام الوحدة المستهدف"
       },
       "businessContext_i18n": {
         "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
         "tr": "Alt süreç veya raporlama için çıktı sıcaklık ölçeğini seçin (ISO 80000-5).",
         "de": "Ausgabe-Temperaturskala für nachgelagerte Prozesse oder Berichterstattung (ISO 80000-5).",
         "fr": "Sélectionnez l'échelle de température de sortie pour le processus aval ou le rapport (ISO 80000-5).",
-        "es": "Seleccione la escala de temperatura de salida para el proceso posterior o informe (ISO 80000-5)."
+        "es": "Seleccione la escala de temperatura de salida para el proceso posterior o informe (ISO 80000-5).",
+        "ar": "اختيار مقياس درجة الحرارة الناتج للعملية النهائية أو التقارير (ISO 80000-5)"
       }
     },
     {
@@ -122,14 +130,16 @@
         "tr": "Proses Uyarılarını Etkinleştir",
         "de": "Prozessalarme aktivieren",
         "fr": "Activer les alertes de processus",
-        "es": "Habilitar alertas de proceso"
+        "es": "Habilitar alertas de proceso",
+        "ar": "تفعيل تنبيهات العملية"
       },
       "businessContext_i18n": {
         "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
         "tr": "Spesifikasyon dışı sıcaklık koşulları için eşik tabanlı uyarıları aç/kapat (Altı Sigma kontrol limitleri).",
         "de": "Schwellenwertbasierte Alarme für außerspezifikationstemperaturbedingungen umschalten (Six Sigma-Regelgrenzen).",
         "fr": "Activer les alertes basées sur des seuils pour les conditions de température hors spécifications (limites de contrôle Six Sigma).",
-        "es": "Activar alertas basadas en umbral para condiciones de temperatura fuera de especificación (límites de control Seis Sigma)."
+        "es": "Activar alertas basadas en umbral para condiciones de temperatura fuera de especificación (límites de control Seis Sigma).",
+        "ar": "تبديل التنبيهات المستندة إلى الحدود لظروف درجة حرارة خارج المواصفات (حدود التحكم في سته سيجما)"
       }
     }
   ],
@@ -176,18 +186,24 @@
     ]
   },
   "formulas": {
-    "result": "celsius_input + sensor_accuracy + calibration_offset",
-    "result_copy": "celsius_input + sensor_accuracy + calibration_offset"
+    "normalized_product": "celsius_input * sensor_accuracy * calibration_offset",
+    "result": "celsius_input * sensor_accuracy * calibration_offset"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "°C"
+    "unit": "units"
   },
   "toolName": "celsius-to-fahrenheit-converter-calculator",
   "catalogCategory": "conversion",

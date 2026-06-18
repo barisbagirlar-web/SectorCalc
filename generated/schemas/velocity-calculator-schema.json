@@ -13,14 +13,16 @@
         "tr": "Başlangıç Hızı (u)",
         "de": "Anfangsgeschwindigkeit (u)",
         "fr": "Vitesse initiale (u)",
-        "es": "Initial Velocity (u)",
-        "ar": "Initial Velocity (u)"
+        "es": "Velocidad inicial (u)",
+        "ar": "السرعة الابتدائية (u)"
       },
       "businessContext_i18n": {
         "en": "Starting velocity of the object",
         "tr": "Cismin başlangıç hızı.",
         "de": "Startgeschwindigkeit des Objekts",
-        "fr": "Vitesse de départ de l'objet"
+        "fr": "Vitesse de départ de l'objet",
+        "es": "Velocidad inicial del objeto",
+        "ar": "السرعة الابتدائية للجسم"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İvme (a)",
         "de": "Beschleunigung (a)",
         "fr": "Accélération (a)",
-        "es": "Acceleration (a)",
-        "ar": "Acceleration (a)"
+        "es": "Aceleración (a)",
+        "ar": "التسارع (a)"
       },
       "businessContext_i18n": {
         "en": "Constant acceleration applied",
         "tr": "Uygulanan sabit ivme",
         "de": "Konstante Beschleunigung",
-        "fr": "Accélération constante appliquée"
+        "fr": "Accélération constante appliquée",
+        "es": "Aceleración constante aplicada",
+        "ar": "تسارع ثابت مطبق"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Time interval for the motion",
         "tr": "Hareket için zaman aralığı",
         "de": "Zeitintervall der Bewegung",
-        "fr": "Intervalle de temps pour le mouvement"
+        "fr": "Intervalle de temps pour le mouvement",
+        "es": "Intervalo de tiempo del movimiento",
+        "ar": "الفاصل الزمني للحركة"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Mesafe (s)",
         "de": "Strecke (s)",
         "fr": "Distance (s)",
-        "es": "Distance (s)",
-        "ar": "Distance (s)"
+        "es": "Distancia (s)",
+        "ar": "المسافة (s)"
       },
       "businessContext_i18n": {
         "en": "Optional: known distance traveled, for comparison with calculated value",
         "tr": "İsteğe bağlı: bilinen kat edilen mesafe, hesaplanan değerle karşılaştırma için",
         "de": "Optional: bekannte zurückgelegte Strecke zum Vergleich mit dem berechneten Wert",
-        "fr": "Optionnel : distance connue parcourue, pour comparaison avec la valeur calculée"
+        "fr": "Optionnel : distance connue parcourue, pour comparaison avec la valeur calculée",
+        "es": "Opcional: distancia conocida recorrida, para comparar con el valor calculado",
+        "ar": "اختياري: مسافة معروفة مقطوعة للمقارنة مع القيمة المحسوبة"
       }
     }
   ],

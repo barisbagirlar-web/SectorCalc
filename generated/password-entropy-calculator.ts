@@ -26,8 +26,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Password_entropy_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.uppercasePool + input.lowercasePool + input.digitsPool + input.symbolsPool + input.customChars; results["poolSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["poolSize"] = 0; }
-  try { const v = input.uppercasePool + input.lowercasePool + input.digitsPool + input.symbolsPool + input.customChars; results["poolSize_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["poolSize_aux"] = 0; }
+  try { const v = input.length * input.uppercasePool * input.lowercasePool * input.digitsPool; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.length * input.uppercasePool * input.lowercasePool * input.digitsPool * (input.symbolsPool * input.customChars); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.symbolsPool * input.customChars; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -38,12 +39,12 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePassword_entropy_calculator(input: Password_entropy_calculatorInput): Password_entropy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["poolSize_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

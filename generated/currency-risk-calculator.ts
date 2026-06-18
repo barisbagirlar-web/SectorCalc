@@ -26,8 +26,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Currency_risk_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.exposure_amount + input.volatility_annual + input.confidence_level; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.exposure_amount + input.volatility_annual + input.confidence_level; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = input.enable_lean_adjustment * input.exposure_amount; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.enable_lean_adjustment * input.exposure_amount * (1 + (input.volatility_annual / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.enable_lean_adjustment * input.exposure_amount * (1 + (input.volatility_annual / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -42,8 +43,8 @@ export function calculateCurrency_risk_calculator(input: Currency_risk_calculato
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Unhedged residual exposure (1 - hedge_ratio) * exposure_amount","Volatility clustering – potential regime shift not captured by constant volatility","Basis risk between spot and forward rates","Liquidity risk in exotic currency pairs"];
-  const suggestedActions: string[] = ["Increase hedge ratio to at least 70% to reduce tail risk","Implement rolling hedge program to smooth execution costs","Use options collar strategy to limit downside while retaining upside","Monitor macroeconomic indicators (interest rate differentials, trade balances)"];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

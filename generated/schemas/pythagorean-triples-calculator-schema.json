@@ -14,14 +14,15 @@
         "de": "m (m > n)",
         "fr": "m (m > n)",
         "es": "m (m > n)",
-        "ar": "m (m > n)"
+        "ar": "م (م > ن)"
       },
       "businessContext_i18n": {
         "en": "Pisagor üçlüsü üretiminde büyük parametre",
         "tr": "Pisagor üçlüsü üretiminde büyük parametre",
         "de": "Großer Parameter für die Erzeugung pythagoreischer Tripel",
         "fr": "Grand paramètre pour la génération de triplets pythagoriciens",
-        "es": "Parámetro mayor para generación de tripletes pitagóricos"
+        "es": "Parámetro mayor para generación de tripletes pitagóricos",
+        "ar": "المعامل الأكبر في توليد ثلاثية فيثاغورس"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "n (n < m)",
         "fr": "n (n < m)",
         "es": "n (n < m)",
-        "ar": "n (n < m)"
+        "ar": "ن (ن < م)"
       },
       "businessContext_i18n": {
         "en": "Pisagor üçlüsü üretiminde küçük parametre",
         "tr": "Pisagor üçlüsü üretiminde küçük parametre",
         "de": "Kleiner Parameter für die Erzeugung pythagoreischer Tripel",
         "fr": "Petit paramètre pour la génération de triplets pythagoriciens",
-        "es": "Parámetro menor para generación de tripletes pitagóricos"
+        "es": "Parámetro menor para generación de tripletes pitagóricos",
+        "ar": "المعامل الأصغر في توليد ثلاثية فيثاغورس"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de escala",
-        "ar": "Ölçek Çarpanı"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı",
         "tr": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı",
         "de": "Positive ganze Zahl zum Skalieren der Dreiecksseiten",
         "fr": "Entier positif pour mettre à l'échelle les côtés du triangle",
-        "es": "Entero positivo para escalar los lados del triángulo"
+        "es": "Entero positivo para escalar los lados del triángulo",
+        "ar": "عدد صحيح موجب لقياس أضلاع المثلث"
       }
     },
     {
@@ -83,37 +86,37 @@
         "de": "Maximale Hypotenuse",
         "fr": "Hypoténuse maximale",
         "es": "Hipotenusa máxima",
-        "ar": "Maksimum Hipotenüs"
+        "ar": "الحد الأقصى للوتر"
       },
       "businessContext_i18n": {
         "en": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)",
         "tr": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)",
         "de": "Optional: Maximalwert der Hypotenuse (0 = unbegrenzt)",
         "fr": "Optionnel : valeur maximale de l'hypoténuse (0 = illimité)",
-        "es": "Opcional: valor máximo de la hipotenusa (0 si es ilimitado)"
+        "es": "Opcional: valor máximo de la hipotenusa (0 si es ilimitado)",
+        "ar": "اختياري: القيمة القصوى للوتر (0 يعني غير محدود)"
       }
     }
   ],
   "formulas": {
-    "result": "m + n + scaleFactor",
-    "result_copy": "m + n + scaleFactor"
+    "normalized_product": "m * n * scaleFactor * maxHypotenuse",
+    "result": "m * n * scaleFactor * maxHypotenuse"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "a",
-      "b",
-      "c",
-      "perimeter",
-      "area",
-      "actualScale"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "area",
-    "unit": "—",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "perimeter": "m"
     }

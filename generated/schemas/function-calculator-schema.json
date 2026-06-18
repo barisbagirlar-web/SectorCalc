@@ -14,14 +14,15 @@
         "de": "Variable x",
         "fr": "Variable x",
         "es": "Variable x",
-        "ar": "Değişken x"
+        "ar": "المتغير x"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak değişken değeri",
         "tr": "Hesaplanacak değişken değeri",
         "de": "Zu berechnender Variablenwert",
         "fr": "Valeur de la variable à calculer",
-        "es": "Valor de la variable a calcular"
+        "es": "Valor de la variable a calcular",
+        "ar": "قيمة المتغير المراد حسابه"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Sinuskoeffizient (a)",
         "fr": "Coefficient sinus (a)",
         "es": "Coeficiente seno (a)",
-        "ar": "Sinüs katsayısı (a)"
+        "ar": "معامل الجيب (a)"
       },
       "businessContext_i18n": {
         "en": "Sinüs fonksiyonunun çarpanı",
         "tr": "Sinüs fonksiyonunun çarpanı",
         "de": "Multiplikator der Sinusfunktion",
         "fr": "Multiplicateur de la fonction sinus",
-        "es": "Multiplicador de la función seno"
+        "es": "Multiplicador de la función seno",
+        "ar": "مضاعف دالة الجيب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Sinusfrequenz (b)",
         "fr": "Fréquence sinus (b)",
         "es": "Frecuencia seno (b)",
-        "ar": "Sinüs frekansı (b)"
+        "ar": "تردد الجيب (b)"
       },
       "businessContext_i18n": {
         "en": "Sinüs içindeki çarpan",
         "tr": "Sinüs içindeki çarpan",
         "de": "Multiplikator im Sinus",
         "fr": "Multiplicateur dans le sinus",
-        "es": "Multiplicador dentro del seno"
+        "es": "Multiplicador dentro del seno",
+        "ar": "المضاعف داخل الجيب"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kosinuskoeffizient (c)",
         "fr": "Coefficient cosinus (c)",
         "es": "Coeficiente coseno (c)",
-        "ar": "Kosinüs katsayısı (c)"
+        "ar": "معامل جيب التمام (c)"
       },
       "businessContext_i18n": {
         "en": "Kosinüs fonksiyonunun çarpanı",
         "tr": "Kosinüs fonksiyonunun çarpanı",
         "de": "Multiplikator der Kosinusfunktion",
         "fr": "Multiplicateur de la fonction cosinus",
-        "es": "Multiplicador de la función coseno"
+        "es": "Multiplicador de la función coseno",
+        "ar": "مضاعف دالة جيب التمام"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kosinusfrequenz (d)",
         "fr": "Fréquence cosinus (d)",
         "es": "Frecuencia coseno (d)",
-        "ar": "Kosinüs frekansı (d)"
+        "ar": "تردد جيب التمام (d)"
       },
       "businessContext_i18n": {
         "en": "Kosinüs içindeki çarpan",
         "tr": "Kosinüs içindeki çarpan",
         "de": "Multiplikator im Kosinus",
         "fr": "Multiplicateur dans le cosinus",
-        "es": "Multiplicador dentro del coseno"
+        "es": "Multiplicador dentro del coseno",
+        "ar": "المضاعف داخل جيب التمام"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Exponentialkoeffizient (e)",
         "fr": "Coefficient exponentiel (e)",
         "es": "Coeficiente exponencial (e)",
-        "ar": "Üstel katsayısı (e)"
+        "ar": "معامل الأسي (e)"
       },
       "businessContext_i18n": {
         "en": "e^x teriminin katsayısı",
         "tr": "e^x teriminin katsayısı",
         "de": "Koeffizient des e^x-Terms",
         "fr": "Coefficient du terme e^x",
-        "es": "Coeficiente del término e^x"
+        "es": "Coeficiente del término e^x",
+        "ar": "معامل الحد e^x"
       }
     }
   ],
   "formulas": {
-    "result": "x + a + b",
-    "result_copy": "x + a + b"
+    "normalized_product": "x * a * b * c",
+    "result": "x * a * b * c * (d * e)",
+    "adjustment_factor": "d * e"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "term_sin",
-      "term_cos",
-      "term_exp"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "term_exp",
-    "unit": "boyutsuz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

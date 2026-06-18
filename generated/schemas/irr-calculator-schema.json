@@ -14,14 +14,15 @@
         "de": "Anfangsinvestition (negativ für Abfluss)",
         "fr": "Investissement initial (négatif pour sortie de fonds)",
         "es": "Inversión inicial (negativa para salida)",
-        "ar": "Initial Investment (negative for outflow)"
+        "ar": "الاستثمار الأولي (سلبي للتدفق الخارج)"
       },
       "businessContext_i18n": {
         "en": "The initial cash flow at time 0, typically negative for investment",
         "tr": "0. zamandaki nakit akışı, genellikle yatırım için negatif",
         "de": "Der anfängliche Cashflow zum Zeitpunkt 0, typischerweise negativ für Investitionen",
         "fr": "Flux de trésorerie initial au temps 0, généralement négatif pour un investissement",
-        "es": "Flujo de caja inicial en el tiempo 0, típicamente negativo para inversión"
+        "es": "Flujo de caja inicial en el tiempo 0, típicamente negativo para inversión",
+        "ar": "التدفق النقدي الأولي عند الوقت 0، عادة سلبي للاستثمار"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Cashflow Jahr 1",
         "fr": "Flux de trésorerie année 1",
         "es": "Flujo de caja año 1",
-        "ar": "Year 1 Cash Flow"
+        "ar": "التدفق النقدي للسنة 1"
       },
       "businessContext_i18n": {
         "en": "Net cash flow at end of year 1",
         "tr": "1. yıl sonundaki net nakit akışı",
         "de": "Netto-Cashflow am Ende von Jahr 1",
         "fr": "Flux de trésorerie net à la fin de l'année 1",
-        "es": "Flujo de caja neto al final del año 1"
+        "es": "Flujo de caja neto al final del año 1",
+        "ar": "صافي التدفق النقدي في نهاية السنة 1"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Cashflow Jahr 2",
         "fr": "Flux de trésorerie année 2",
         "es": "Flujo de caja año 2",
-        "ar": "Year 2 Cash Flow"
+        "ar": "التدفق النقدي للسنة 2"
       },
       "businessContext_i18n": {
         "en": "Net cash flow at end of year 2",
         "tr": "2. yıl sonundaki net nakit akışı",
         "de": "Netto-Cashflow am Ende von Jahr 2",
         "fr": "Flux de trésorerie net à la fin de l'année 2",
-        "es": "Flujo de caja neto al final del año 2"
+        "es": "Flujo de caja neto al final del año 2",
+        "ar": "صافي التدفق النقدي في نهاية السنة 2"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Cashflow Jahr 3",
         "fr": "Flux de trésorerie année 3",
         "es": "Flujo de caja año 3",
-        "ar": "Year 3 Cash Flow"
+        "ar": "التدفق النقدي للسنة 3"
       },
       "businessContext_i18n": {
         "en": "Net cash flow at end of year 3",
         "tr": "3. yıl sonundaki net nakit akışı",
         "de": "Netto-Cashflow am Ende von Jahr 3",
         "fr": "Flux de trésorerie net à la fin de l'année 3",
-        "es": "Flujo de caja neto al final del año 3"
+        "es": "Flujo de caja neto al final del año 3",
+        "ar": "صافي التدفق النقدي في نهاية السنة 3"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Cashflow Jahr 4",
         "fr": "Flux de trésorerie année 4",
         "es": "Flujo de caja año 4",
-        "ar": "Year 4 Cash Flow"
+        "ar": "التدفق النقدي للسنة 4"
       },
       "businessContext_i18n": {
         "en": "Net cash flow at end of year 4",
         "tr": "4. yıl sonu net nakit akışı",
         "de": "Netto-Cashflow am Ende von Jahr 4",
         "fr": "Flux de trésorerie net à la fin de l'année 4",
-        "es": "Flujo de caja neto al final del año 4"
+        "es": "Flujo de caja neto al final del año 4",
+        "ar": "صافي التدفق النقدي في نهاية السنة 4"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Cashflow Jahr 5",
         "fr": "Flux de trésorerie année 5",
         "es": "Flujo de caja del año 5",
-        "ar": "Year 5 Cash Flow"
+        "ar": "التدفق النقدي للسنة 5"
       },
       "businessContext_i18n": {
         "en": "Net cash flow at end of year 5",
         "tr": "5. yıl sonu net nakit akışı",
         "de": "Netto-Cashflow am Ende von Jahr 5",
         "fr": "Flux de trésorerie net à la fin de l'année 5",
-        "es": "Flujo de caja neto al final del año 5"
+        "es": "Flujo de caja neto al final del año 5",
+        "ar": "صافي التدفق النقدي في نهاية السنة 5"
       }
     },
     {
@@ -152,33 +158,39 @@
         "de": "Anfangsschätzung (%)",
         "fr": "Estimation initiale (%)",
         "es": "Estimación inicial (%)",
-        "ar": "Initial Guess (%)"
+        "ar": "التقدير الأولي (%)"
       },
       "businessContext_i18n": {
         "en": "Starting estimate for iterative IRR calculation",
         "tr": "Yinelemeli IRR hesaplaması için başlangıç tahmini",
         "de": "Startschätzung für iterative IRR-Berechnung",
         "fr": "Estimation de départ pour le calcul itératif du TRI",
-        "es": "Estimación inicial para el cálculo iterativo de la TIR"
+        "es": "Estimación inicial para el cálculo iterativo de la TIR",
+        "ar": "تقدير بداية لحساب IRR التكراري"
       }
     }
   ],
   "formulas": {
-    "result": "initialInvestment + year1 + year2",
-    "result_copy": "initialInvestment + year1 + year2"
+    "normalized_product": "initialInvestment * year1 * year2 * year3",
+    "result": "initialInvestment * year1 * year2 * year3 * (year4 * year5 * (guess / 100))",
+    "adjustment_factor": "year4 * year5 * (guess / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "irr",
-      "npvAtIrr"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "npvAtIrr",
-    "unit": "€"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -14,14 +14,15 @@
         "de": "Bruttogewicht (g)",
         "fr": "Poids brut (g)",
         "es": "Peso bruto (g)",
-        "ar": "Gross Weight (g)"
+        "ar": "الوزن الإجمالي (جم)"
       },
       "businessContext_i18n": {
         "en": "Total measured weight including container or packaging",
         "tr": "Dara dahil toplam ölçülen ağırlık",
         "de": "Gesamtes gemessenes Gewicht inklusive Behälter oder Verpackung",
         "fr": "Poids total mesuré incluant le contenant ou l'emballage",
-        "es": "Peso total medido incluyendo el recipiente o empaque"
+        "es": "Peso total medido incluyendo el recipiente o empaque",
+        "ar": "إجمالي الوزن المقاس بما في ذلك الحاوية أو العبوة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Taragewicht (g)",
         "fr": "Tare (g)",
         "es": "Peso tara (g)",
-        "ar": "Tare Weight (g)"
+        "ar": "وزن الفارغ (جم)"
       },
       "businessContext_i18n": {
         "en": "Weight of empty container or packaging",
         "tr": "Boş kap veya ambalajın ağırlığı",
         "de": "Gewicht des leeren Behälters oder der Verpackung",
         "fr": "Poids du contenant ou de l'emballage vide",
-        "es": "Peso del recipiente o empaque vacío"
+        "es": "Peso del recipiente o empaque vacío",
+        "ar": "وزن الحاوية أو العبوة الفارغة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final net weight output",
         "tr": "Nihai net ağırlık çıktısı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die endgültige Nettogewichtsausgabe",
         "fr": "Nombre de décimales pour le poids net final",
-        "es": "Número de decimales para el peso neto final"
+        "es": "Número de decimales para el peso neto final",
+        "ar": "عدد المنازل العشرية لمخرجات الوزن الصافي النهائي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmodus",
         "fr": "Mode d'arrondi",
         "es": "Modo de redondeo",
-        "ar": "Rounding Mode"
+        "ar": "وضع التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = standard rounding, 1 = floor, 2 = ceil",
         "tr": "0 = standart yuvarlama, 1 = taban, 2 = tavan",
         "de": "0 = Standardrundung, 1 = Abrunden, 2 = Aufrunden",
         "fr": "0 = arrondi standard, 1 = plancher, 2 = plafond",
-        "es": "0 = redondeo estándar, 1 = suelo, 2 = techo"
+        "es": "0 = redondeo estándar, 1 = suelo, 2 = techo",
+        "ar": "0 = تقريب قياسي، 1 = تقريب للأسفل، 2 = تقريب للأعلى"
       }
     }
   ],

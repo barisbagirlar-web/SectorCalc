@@ -14,14 +14,15 @@
         "de": "Körpergewicht",
         "fr": "Poids corporel",
         "es": "Peso corporal",
-        "ar": "Body Weight"
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Total body mass in kilograms",
         "tr": "Toplam vücut kütlesi (kg)",
         "de": "Gesamtkörpermasse in Kilogramm",
         "fr": "Masse corporelle totale en kilogrammes",
-        "es": "Masa corporal total en kilogramos"
+        "es": "Masa corporal total en kilogramos",
+        "ar": "كتلة الجسم الكلية بالكيلوجرام"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Körperfettanteil",
         "fr": "Pourcentage de graisse corporelle",
         "es": "Porcentaje de grasa corporal",
-        "ar": "Body Fat Percentage"
+        "ar": "نسبة الدهون في الجسم"
       },
       "businessContext_i18n": {
         "en": "Percentage of body mass that is fat tissue",
         "tr": "Vücut kütlesinin yağ dokusu olan yüzdesi",
         "de": "Prozentsatz der Körpermasse, der aus Fettgewebe besteht",
         "fr": "Pourcentage de la masse corporelle constitué de tissu adipeux",
-        "es": "Porcentaje de masa corporal que es tejido graso"
+        "es": "Porcentaje de masa corporal que es tejido graso",
+        "ar": "النسبة المئوية لكتلة الجسم التي هي نسيج دهني"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters",
         "tr": "Santimetre cinsinden boy",
         "de": "Größe in Zentimetern",
         "fr": "Taille en centimètres",
-        "es": "Altura en centímetros"
+        "es": "Altura en centímetros",
+        "ar": "الطول بالسنتيمتر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age in years",
         "tr": "Yıl cinsinden yaş",
         "de": "Alter in Jahren",
         "fr": "Âge en années",
-        "es": "Edad en años"
+        "es": "Edad en años",
+        "ar": "العمر بالسنوات"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Aktivitätsniveau-Multiplikator",
         "fr": "Multiplicateur du niveau d'activité",
         "es": "Multiplicador de nivel de actividad",
-        "ar": "Activity Level Multiplier"
+        "ar": "معامل مستوى النشاط"
       },
       "businessContext_i18n": {
         "en": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)",
         "tr": "Fiziksel aktivite seviyesi faktörü (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 ağır, 1.9 atlet)",
         "de": "Faktor für körperliche Aktivität (1,2 sitzend, 1,375 leicht, 1,55 mäßig, 1,725 schwer, 1,9 Sportler)",
         "fr": "Facteur de niveau d'activité physique (1,2 sédentaire, 1,375 léger, 1,55 modéré, 1,725 lourd, 1,9 athlète)",
-        "es": "Factor de nivel de actividad física (1.2 sedentario, 1.375 ligero, 1.55 moderado, 1.725 pesado, 1.9 atleta)"
+        "es": "Factor de nivel de actividad física (1.2 sedentario, 1.375 ligero, 1.55 moderado, 1.725 pesado, 1.9 atleta)",
+        "ar": "عامل مستوى النشاط البدني (1.2 خامل، 1.375 خفيف، 1.55 متوسط، 1.725 ثقيل، 1.9 رياضي)"
       }
     }
   ],
   "formulas": {
-    "result": "weight + bodyFatPercentage + height",
-    "result_copy": "weight + bodyFatPercentage + height"
+    "normalized_product": "weight * (bodyFatPercentage / 100) * height * age",
+    "result": "weight * (bodyFatPercentage / 100) * height * age * (activityLevel)",
+    "adjustment_factor": "activityLevel"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "proteinGramsPerDay",
-      "fatGramsPerDay"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fatGramsPerDay",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "proteinGramsPerDay": "g",
       "fatGramsPerDay": "g"

@@ -14,14 +14,15 @@
         "de": "Masse",
         "fr": "Masse",
         "es": "Masa",
-        "ar": "Mass"
+        "ar": "الكتلة"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance to be vaporized.",
         "tr": "Buharlaştırılacak maddenin kütlesi.",
         "de": "Masse des zu verdampfenden Stoffes.",
         "fr": "Masse de la substance à vaporiser",
-        "es": "Masa de la sustancia a vaporizar"
+        "es": "Masa de la sustancia a vaporizar",
+        "ar": "كتلة المادة المراد تبخيرها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anfangstemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Initial Temperature"
+        "ar": "درجة الحرارة الأولية"
       },
       "businessContext_i18n": {
         "en": "Starting temperature of the liquid before heating.",
         "tr": "Isıtmadan önce sıvının başlangıç sıcaklığı.",
         "de": "Starttemperatur der Flüssigkeit vor dem Erhitzen.",
         "fr": "Température initiale du liquide avant chauffage",
-        "es": "Temperatura inicial del líquido antes del calentamiento"
+        "es": "Temperatura inicial del líquido antes del calentamiento",
+        "ar": "درجة الحرارة الابتدائية للسائل قبل التسخين"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Siedepunkt",
         "fr": "Point d'ébullition",
         "es": "Punto de ebullición",
-        "ar": "Boiling Point"
+        "ar": "درجة الغليان"
       },
       "businessContext_i18n": {
         "en": "Boiling point of the liquid at the given pressure.",
         "tr": "Verilen basınçta sıvının kaynama noktası.",
         "de": "Siedepunkt der Flüssigkeit bei gegebenem Druck.",
         "fr": "Point d'ébullition du liquide à la pression donnée",
-        "es": "Punto de ebullición del líquido a la presión dada"
+        "es": "Punto de ebullición del líquido a la presión dada",
+        "ar": "نقطة غليان السائل عند الضغط المعطى"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Spezifische Wärmekapazität",
         "fr": "Capacité thermique massique",
         "es": "Capacidad calorífica específica",
-        "ar": "Specific Heat Capacity"
+        "ar": "السعة الحرارية النوعية"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the liquid phase (constant pressure).",
         "tr": "Sıvı fazın özgül ısı kapasitesi (sabit basınç).",
         "de": "Spezifische Wärmekapazität der flüssigen Phase (konstanter Druck).",
         "fr": "Capacité thermique massique de la phase liquide (pression constante)",
-        "es": "Capacidad calorífica específica de la fase líquida (presión constante)"
+        "es": "Capacidad calorífica específica de la fase líquida (presión constante)",
+        "ar": "السعة الحرارية النوعية للطور السائل (عند ضغط ثابت)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verdampfungswärme",
         "fr": "Chaleur latente de vaporisation",
         "es": "Calor latente de vaporización",
-        "ar": "Latent Heat of Vaporization"
+        "ar": "الحرارة الكامنة للتبخير"
       },
       "businessContext_i18n": {
         "en": "Energy required to vaporize one kilogram of the liquid at boiling point.",
         "tr": "Kaynama noktasında bir kilogram sıvıyı buharlaştırmak için gereken enerji.",
         "de": "Energie, die benötigt wird, um ein Kilogramm der Flüssigkeit am Siedepunkt zu verdampfen.",
         "fr": "Énergie nécessaire pour vaporiser un kilogramme du liquide au point d'ébullition",
-        "es": "Energía requerida para vaporizar un kilogramo del líquido en el punto de ebullición"
+        "es": "Energía requerida para vaporizar un kilogramo del líquido en el punto de ebullición",
+        "ar": "الطاقة اللازمة لتبخير كيلوجرام واحد من السائل عند نقطة الغليان"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Heizwirkungsgrad",
         "fr": "Rendement de chauffage",
         "es": "Eficiencia de calefacción",
-        "ar": "Heating Efficiency"
+        "ar": "كفاءة التسخين"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the heating system (100% means no losses).",
         "tr": "Isıtma sisteminin verimliliği (%100 kayıp olmadığı anlamına gelir).",
         "de": "Wirkungsgrad des Heizsystems (100% bedeutet keine Verluste).",
         "fr": "Rendement du système de chauffage (100% signifie aucune perte).",
-        "es": "Eficiencia del sistema de calefacción (100% significa sin pérdidas)"
+        "es": "Eficiencia del sistema de calefacción (100% significa sin pérdidas)",
+        "ar": "كفاءة نظام التسخين (100% تعني عدم وجود خسائر)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for design margins or uncertainties.",
         "tr": "Tasarım payları veya belirsizlikleri hesaba katmak için çarpan.",
         "de": "Multiplikator zur Berücksichtigung von Auslegungsspielräumen oder Unsicherheiten.",
         "fr": "Multiplicateur pour tenir compte des marges de conception ou des incertitudes.",
-        "es": "Multiplicador para considerar márgenes de diseño o incertidumbres"
+        "es": "Multiplicador para considerar márgenes de diseño o incertidumbres",
+        "ar": "معامل لمراعاة هوامش التصميم أو عدم اليقين"
       }
     }
   ],

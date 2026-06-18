@@ -13,14 +13,16 @@
         "tr": "Başlangıç Ağırlığı",
         "de": "Anfangsgewicht",
         "fr": "Poids initial",
-        "es": "Initial Weight",
-        "ar": "Initial Weight"
+        "es": "Peso inicial",
+        "ar": "الوزن الأولي"
       },
       "businessContext_i18n": {
         "en": "Weight of material at the start of the drying process",
         "tr": "Kurutma işleminin başlangıcındaki malzeme ağırlığı",
         "de": "Gewicht des Materials zu Beginn des Trocknungsprozesses",
-        "fr": "Poids du matériau au début du processus de séchage"
+        "fr": "Poids du matériau au début du processus de séchage",
+        "es": "Peso del material al inicio del proceso de secado",
+        "ar": "وزن المادة في بداية عملية التجفيف"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kuru Ağırlık",
         "de": "Trockengewicht",
         "fr": "Poids sec",
-        "es": "Dry Weight",
-        "ar": "Dry Weight"
+        "es": "Peso seco",
+        "ar": "الوزن الجاف"
       },
       "businessContext_i18n": {
         "en": "Asymptotic bone-dry weight of the material (lowest attainable weight)",
         "tr": "Malzemenin asimptotik kemik kuru ağırlığı (ulaşılabilir en düşük ağırlık)",
         "de": "Asymptotisches knochentrockenes Gewicht des Materials (niedrigstes erreichbares Gewicht)",
-        "fr": "Poids asymptotique sec à l'os du matériau (poids le plus bas atteignable)"
+        "fr": "Poids asymptotique sec à l'os du matériau (poids le plus bas atteignable)",
+        "es": "Peso asintótico completamente seco del material (peso más bajo alcanzable)",
+        "ar": "الوزن الجاف التقاربي للمادة (أدنى وزن يمكن بلوغه)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Hedef Ağırlık",
         "de": "Zielgewicht",
         "fr": "Poids cible",
-        "es": "Target Weight",
-        "ar": "Target Weight"
+        "es": "Peso objetivo",
+        "ar": "الوزن المستهدف"
       },
       "businessContext_i18n": {
         "en": "Desired final weight after drying (must be > dryWeight)",
         "tr": "Kurutma sonrası istenen nihai ağırlık (dryWeight'ten büyük olmalıdır)",
         "de": "Gewünschtes Endgewicht nach Trocknung (muss > Trockengewicht sein)",
-        "fr": "Poids final souhaité après séchage (doit être > poids sec)"
+        "fr": "Poids final souhaité après séchage (doit être > poids sec)",
+        "es": "Peso final deseado después del secado (debe ser > peso seco)",
+        "ar": "الوزن النهائي المطلوب بعد التجفيف (يجب أن يكون أكبر من الوزن الجاف)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Kurutma Hızı Sabiti",
         "de": "Trocknungsratenkonstante",
         "fr": "Constante de taux de séchage",
-        "es": "Drying Rate Constant",
-        "ar": "Drying Rate Constant"
+        "es": "Constante de velocidad de secado",
+        "ar": "ثابت معدل التجفيف"
       },
       "businessContext_i18n": {
         "en": "Exponential drying constant (k) characterizing the speed of moisture removal",
         "tr": "Nem giderme hızını karakterize eden üstel kurutma sabiti (k)",
         "de": "Exponentielle Trocknungskonstante (k), die die Geschwindigkeit der Feuchtigkeitsentfernung charakterisiert",
-        "fr": "Constante de séchage exponentielle (k) caractérisant la vitesse d'élimination de l'humidité"
+        "fr": "Constante de séchage exponentielle (k) caractérisant la vitesse d'élimination de l'humidité",
+        "es": "Constante de secado exponencial (k) que caracteriza la velocidad de eliminación de humedad",
+        "ar": "ثابت التجفيف الأسي (k) الذي يميز سرعة إزالة الرطوبة"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Prozesseffizienz",
         "fr": "Efficacité du processus",
         "es": "Eficiencia del proceso",
-        "ar": "Process Efficiency"
+        "ar": "كفاءة العملية"
       },
       "businessContext_i18n": {
         "en": "Efficiency factor (0–100) scaling the effective drying rate",
         "tr": "Verimlilik faktörü (0–100), efektif kurutma hızını ölçekler",
         "de": "Wirkungsgradfaktor (0–100), der die effektive Trocknungsrate skaliert",
-        "fr": "Facteur d'efficacité (0–100) ajustant le taux de séchage effectif"
+        "fr": "Facteur d'efficacité (0–100) ajustant le taux de séchage effectif",
+        "es": "Factor de eficiencia (0–100) que escala la velocidad de secado efectiva",
+        "ar": "عامل الكفاءة (0–100) لقياس معدل التجفيف الفعال"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Rüstzeit",
         "fr": "Temps de réglage",
         "es": "Tiempo de preparación",
-        "ar": "Setup Time"
+        "ar": "وقت الإعداد"
       },
       "businessContext_i18n": {
         "en": "Initial handling or delay time before active drying begins",
         "tr": "Aktif kurutma başlamadan önceki ilk işlem veya gecikme süresi",
         "de": "Anfängliche Handhabungs- oder Verzögerungszeit vor Beginn der aktiven Trocknung",
-        "fr": "Temps de manutention ou de délai initial avant le début du séchage actif"
+        "fr": "Temps de manutention ou de délai initial avant le début du séchage actif",
+        "es": "Tiempo de manipulación o retardo inicial antes de que comience el secado activo",
+        "ar": "وقت المناولة أو التأخير الأولي قبل بدء التجفيف النشط"
       }
     }
   ],

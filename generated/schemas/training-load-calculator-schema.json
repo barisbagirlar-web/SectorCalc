@@ -14,13 +14,15 @@
         "de": "Sitzungsdauer",
         "fr": "Durée de la session",
         "es": "Duración de la sesión",
-        "ar": "Session Duration"
+        "ar": "مدة الجلسة"
       },
       "businessContext_i18n": {
         "en": "Total time of training session in minutes.",
         "tr": "Antrenman seansının toplam süresi (dakika).",
         "de": "Gesamtdauer der Trainingseinheit in Minuten.",
-        "fr": "Durée totale de la séance d'entraînement en minutes."
+        "fr": "Durée totale de la séance d'entraînement en minutes.",
+        "es": "Tiempo total de la sesión de entrenamiento en minutos.",
+        "ar": "الوقت الإجمالي لجلسة التدريب بالدقائق."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Ortalama Kalp Atış Hızı",
         "de": "Durchschnittliche Herzfrequenz",
         "fr": "Fréquence cardiaque moyenne",
-        "es": "Average Heart Rate",
-        "ar": "Average Heart Rate"
+        "es": "Frecuencia cardíaca promedio",
+        "ar": "متوسط معدل ضربات القلب"
       },
       "businessContext_i18n": {
         "en": "Average heart rate during the session.",
         "tr": "Seans sırasındaki ortalama kalp atış hızı.",
         "de": "Durchschnittliche Herzfrequenz während der Einheit.",
-        "fr": "Fréquence cardiaque moyenne pendant la séance."
+        "fr": "Fréquence cardiaque moyenne pendant la séance.",
+        "es": "Frecuencia cardíaca promedio durante la sesión.",
+        "ar": "متوسط معدل ضربات القلب أثناء الجلسة."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Ruhepuls",
         "fr": "Fréquence cardiaque au repos",
         "es": "Frecuencia cardíaca en reposo",
-        "ar": "Resting Heart Rate"
+        "ar": "معدل ضربات القلب أثناء الراحة"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate measured in the morning.",
         "tr": "Sabah ölçülen dinlenik kalp atış hızı.",
         "de": "Ruheherzfrequenz, gemessen am Morgen.",
-        "fr": "Fréquence cardiaque au repos mesurée le matin."
+        "fr": "Fréquence cardiaque au repos mesurée le matin.",
+        "es": "Frecuencia cardíaca en reposo medida por la mañana.",
+        "ar": "معدل ضربات القلب أثناء الراحة يُقاس في الصباح."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Maximale Herzfrequenz",
         "fr": "Fréquence cardiaque maximale",
         "es": "Frecuencia cardíaca máxima",
-        "ar": "Maximum Heart Rate"
+        "ar": "أقصى معدل لضربات القلب"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate from a stress test or age-predicted (220-age).",
         "tr": "Stres testinden veya yaşa göre tahmin edilen (220-yaş) maksimum kalp atış hızı.",
         "de": "Maximale Herzfrequenz aus einem Belastungstest oder altersgeschätzt (220-Alter).",
-        "fr": "Fréquence cardiaque maximale issue d'un test d'effort ou estimée par l'âge (220-âge)."
+        "fr": "Fréquence cardiaque maximale issue d'un test d'effort ou estimée par l'âge (220-âge).",
+        "es": "Frecuencia cardíaca máxima de una prueba de esfuerzo o estimada por edad (220-edad).",
+        "ar": "أقصى معدل لضربات القلب من اختبار الإجهاد أو حسب العمر (220-العمر)."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Cinsiyete Özgü Faktör",
         "de": "Geschlechtsspezifischer Faktor",
         "fr": "Facteur spécifique au sexe",
-        "es": "Gender-Specific Factor",
-        "ar": "Gender-Specific Factor"
+        "es": "Factor específico de género",
+        "ar": "عامل خاص بالجنس"
       },
       "businessContext_i18n": {
         "en": "Exponential factor: 0.64 for males, 0.86 for females per Banister TRIMP.",
         "tr": "Üstel faktör: Banister TRIMP'e göre erkekler için 0,64, kadınlar için 0,86.",
         "de": "Exponentialfaktor: 0,64 für Männer, 0,86 für Frauen nach Banister TRIMP.",
-        "fr": "Facteur exponentiel : 0,64 pour les hommes, 0,86 pour les femmes selon le TRIMP de Banister."
+        "fr": "Facteur exponentiel : 0,64 pour les hommes, 0,86 pour les femmes selon le TRIMP de Banister.",
+        "es": "Factor exponencial: 0.64 para hombres, 0.86 para mujeres según Banister TRIMP.",
+        "ar": "عامل أسي: 0.64 للذكور، 0.86 للإناث وفقًا لـ Banister TRIMP."
       }
     }
   ],

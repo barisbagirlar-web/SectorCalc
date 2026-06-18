@@ -14,14 +14,15 @@
         "de": "Anzahl der Seiten",
         "fr": "Nombre de côtés",
         "es": "Número de lados",
-        "ar": "Number of Sides"
+        "ar": "عدد الأضلاع"
       },
       "businessContext_i18n": {
         "en": "Number of sides of the regular polygon",
         "tr": "Düzgün çokgenin kenar sayısı",
         "de": "Anzahl der Seiten des regelmäßigen Polygons",
         "fr": "Nombre de côtés du polygone régulier",
-        "es": "Número de lados del polígono regular"
+        "es": "Número de lados del polígono regular",
+        "ar": "عدد أضلاع المضلع المنتظم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Innenwinkel",
         "fr": "Angle intérieur",
         "es": "Ángulo interior",
-        "ar": "Interior Angle"
+        "ar": "الزاوية الداخلية"
       },
       "businessContext_i18n": {
         "en": "Each interior angle of the polygon",
         "tr": "Çokgenin her bir iç açısı",
         "de": "Jeder Innenwinkel des Polygons",
         "fr": "Chaque angle intérieur du polygone",
-        "es": "Cada ángulo interior del polígono"
+        "es": "Cada ángulo interior del polígono",
+        "ar": "كل زاوية داخلية للمضلع"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Summe der Innenwinkel",
         "fr": "Somme des angles intérieurs",
         "es": "Suma de ángulos interiores",
-        "ar": "Sum of Interior Angles"
+        "ar": "مجموع الزوايا الداخلية"
       },
       "businessContext_i18n": {
         "en": "Total sum of all interior angles",
         "tr": "Tüm iç açıların toplamı",
         "de": "Gesamtsumme aller Innenwinkel",
         "fr": "Somme totale de tous les angles intérieurs",
-        "es": "Suma total de todos los ángulos interiores"
+        "es": "Suma total de todos los ángulos interiores",
+        "ar": "المجموع الكلي لجميع الزوايا الداخلية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Außenwinkel (falls bekannt)",
         "fr": "Angle extérieur (si connu)",
         "es": "Ángulo exterior (si se conoce)",
-        "ar": "Exterior Angle (if known)"
+        "ar": "الزاوية الخارجية (إذا كانت معروفة)"
       },
       "businessContext_i18n": {
         "en": "Pre-known exterior angle for verification",
         "tr": "Doğrulama için önceden bilinen dış açı",
         "de": "Bekannter Außenwinkel zur Überprüfung",
         "fr": "Angle extérieur pré-connu pour vérification",
-        "es": "Ángulo exterior previamente conocido para verificación"
+        "es": "Ángulo exterior previamente conocido para verificación",
+        "ar": "الزاوية الخارجية المعروفة مسبقًا للتحقق"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
         "tr": "Yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     }
   ],
   "formulas": {
-    "result": "sides + interiorAngle + sumInteriorAngles",
-    "result_copy": "sides + interiorAngle + sumInteriorAngles"
+    "normalized_product": "sides * interiorAngle * sumInteriorAngles * exteriorAngleGiven",
+    "result": "sides * interiorAngle * sumInteriorAngles * exteriorAngleGiven * (precision)",
+    "adjustment_factor": "precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "interiorAngle",
-      "sumExteriorAngles"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sumExteriorAngles",
-    "unit": "sides"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

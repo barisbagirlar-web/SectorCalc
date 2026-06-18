@@ -14,14 +14,15 @@
         "de": "Geschwindigkeit",
         "fr": "Vitesse",
         "es": "Velocidad",
-        "ar": "Hız"
+        "ar": "السرعة"
       },
       "businessContext_i18n": {
         "en": "Araç hızı (km/saat cinsinden)",
         "tr": "Araç hızı (km/saat cinsinden)",
         "de": "Fahrzeuggeschwindigkeit (km/h)",
         "fr": "Vitesse du véhicule (en km/h)",
-        "es": "Velocidad del vehículo (en km/h)"
+        "es": "Velocidad del vehículo (en km/h)",
+        "ar": "سرعة المركبة (كم/ساعة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Reaktionszeit",
         "fr": "Temps de réaction",
         "es": "Tiempo de reacción",
-        "ar": "Tepki Süresi"
+        "ar": "زمن رد الفعل"
       },
       "businessContext_i18n": {
         "en": "Sürücünün tepki süresi (saniye)",
         "tr": "Sürücünün tepki süresi (saniye)",
         "de": "Reaktionszeit des Fahrers (Sekunden)",
         "fr": "Temps de réaction du conducteur (en secondes)",
-        "es": "Tiempo de reacción del conductor (segundos)"
+        "es": "Tiempo de reacción del conductor (segundos)",
+        "ar": "زمن رد فعل السائق (بالثواني)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungskoeffizient (μ)",
         "fr": "Coefficient de frottement (μ)",
         "es": "Coeficiente de fricción (μ)",
-        "ar": "Sürtünme Katsayısı (μ)"
+        "ar": "معامل الاحتكاك (μ)"
       },
       "businessContext_i18n": {
         "en": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
         "tr": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
         "de": "Reibungskoeffizient zwischen Reifen und Fahrbahn (trockener Asphalt: 0,7)",
         "fr": "Coefficient de frottement pneu-route (asphalte sec : 0,7)",
-        "es": "Coeficiente de fricción entre neumático y carretera (asfalto seco: 0.7)"
+        "es": "Coeficiente de fricción entre neumático y carretera (asfalto seco: 0.7)",
+        "ar": "معامل الاحتكاك بين الإطار والطريق (أسفلت جاف: 0.7)"
       }
     },
     {
@@ -83,43 +86,37 @@
         "de": "Steigung",
         "fr": "Pente de la route",
         "es": "Pendiente de la vía",
-        "ar": "Yol Eğimi"
+        "ar": "انحدار الطريق"
       },
       "businessContext_i18n": {
         "en": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
         "tr": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
         "de": "Steigung der Straße in Prozent (positiv: bergauf, negativ: bergab)",
         "fr": "Pente de la route en % (positif : montée, négatif : descente)",
-        "es": "Pendiente de la vía en % (positivo: cuesta arriba, negativo: cuesta abajo)"
+        "es": "Pendiente de la vía en % (positivo: cuesta arriba, negativo: cuesta abajo)",
+        "ar": "انحدار الطريق بالنسبة المئوية (موجب: صعود، سالب: نزول)"
       }
     }
   ],
   "formulas": {
-    "result": "speed + reactionTime + friction",
-    "result_copy": "speed + reactionTime + friction"
+    "normalized_product": "speed * reactionTime * friction * (gradient / 100)",
+    "result": "speed * reactionTime * friction * (gradient / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "dThinking",
-        "label": "Tepki Mesafesi",
-        "unit": "m",
-        "value": "dThinking"
-      },
-      {
-        "id": "dBraking",
-        "label": "Fren Mesafesi",
-        "unit": "m",
-        "value": "dBraking"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "total",
-    "unit": "km/sa"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

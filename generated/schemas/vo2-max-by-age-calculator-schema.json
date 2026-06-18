@@ -14,13 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Client age in years",
         "tr": "Müşteri yaşı (yıl)",
         "de": "Alter des Klienten in Jahren",
-        "fr": "Âge du client en années"
+        "fr": "Âge du client en années",
+        "es": "Edad del cliente en años",
+        "ar": "عمر العميل بالسنوات"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Gewicht",
         "fr": "Poids",
         "es": "Peso",
-        "ar": "Weight"
+        "ar": "الوزن"
       },
       "businessContext_i18n": {
         "en": "Client body weight in kilograms",
         "tr": "Müşteri vücut ağırlığı (kg)",
         "de": "Körpergewicht des Klienten in Kilogramm",
-        "fr": "Poids corporel du client en kilogrammes"
+        "fr": "Poids corporel du client en kilogrammes",
+        "es": "Peso corporal del cliente en kilogramos",
+        "ar": "وزن جسم العميل بالكيلوغرام"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "Client gender (0 = Female, 1 = Male)",
         "tr": "Müşteri cinsiyeti (0 = Kadın, 1 = Erkek)",
         "de": "Geschlecht des Klienten (0 = weiblich, 1 = männlich)",
-        "fr": "Sexe du client (0 = Femme, 1 = Homme)"
+        "fr": "Sexe du client (0 = Femme, 1 = Homme)",
+        "es": "Género del cliente (0 = Femenino, 1 = Masculino)",
+        "ar": "جنس العميل (0 = أنثى، 1 = ذكر)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Yürüme Süresi",
         "de": "Gehzeit",
         "fr": "Temps de marche",
-        "es": "Walk Time",
-        "ar": "Walk Time"
+        "es": "Tiempo de caminata",
+        "ar": "وقت المشي"
       },
       "businessContext_i18n": {
         "en": "Time to walk 1 mile (1609 meters) on a flat track, in minutes",
         "tr": "Düz bir parkurda 1 mil (1609 metre) yürüme süresi (dakika)",
         "de": "Zeit zum Gehen von 1 Meile (1609 Meter) auf flacher Strecke, in Minuten",
-        "fr": "Temps pour marcher 1 mile (1609 mètres) sur une piste plate, en minutes"
+        "fr": "Temps pour marcher 1 mile (1609 mètres) sur une piste plate, en minutes",
+        "es": "Tiempo para caminar 1 milla (1609 metros) en pista plana, en minutos",
+        "ar": "الوقت اللازم للمشي لمسافة ميل واحد (1609 متر) على مسار مستو، بالدقائق"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Herzfrequenz",
         "fr": "Fréquence cardiaque",
         "es": "Frecuencia cardíaca",
-        "ar": "Heart Rate"
+        "ar": "معدل ضربات القلب"
       },
       "businessContext_i18n": {
         "en": "Heart rate immediately after the 1-mile walk, in beats per minute",
         "tr": "1 mil yürüyüşten hemen sonraki kalp atış hızı (atım/dakika)",
         "de": "Herzfrequenz unmittelbar nach dem 1-Meilen-Gehen, in Schlägen pro Minute",
-        "fr": "Fréquence cardiaque immédiatement après la marche d'1 mile, en battements par minute"
+        "fr": "Fréquence cardiaque immédiatement après la marche d'1 mile, en battements par minute",
+        "es": "Frecuencia cardíaca inmediatamente después de la caminata de 1 milla, en latidos por minuto",
+        "ar": "معدل ضربات القلب فور الانتهاء من المشي لمسافة ميل، بعدد النبضات في الدقيقة"
       }
     }
   ],

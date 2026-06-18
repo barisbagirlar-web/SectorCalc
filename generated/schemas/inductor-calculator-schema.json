@@ -14,14 +14,15 @@
         "de": "Kerndurchmesser",
         "fr": "Diamètre du noyau",
         "es": "Diámetro del núcleo",
-        "ar": "Core Diameter"
+        "ar": "قطر القلب"
       },
       "businessContext_i18n": {
         "en": "Diameter of the magnetic core",
         "tr": "Manyetik çekirdeğin çapı",
         "de": "Durchmesser des Magnetkerns",
         "fr": "Diamètre du noyau magnétique",
-        "es": "Diámetro del núcleo magnético"
+        "es": "Diámetro del núcleo magnético",
+        "ar": "قطر القلب المغناطيسي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kernlänge",
         "fr": "Longueur du noyau",
         "es": "Longitud del núcleo",
-        "ar": "Core Length"
+        "ar": "طول القلب"
       },
       "businessContext_i18n": {
         "en": "Length of the magnetic core",
         "tr": "Manyetik çekirdeğin uzunluğu",
         "de": "Länge des Magnetkerns",
         "fr": "Longueur du noyau magnétique",
-        "es": "Longitud del núcleo magnético"
+        "es": "Longitud del núcleo magnético",
+        "ar": "طول القلب المغناطيسي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Windungszahl",
         "fr": "Nombre de spires",
         "es": "Número de vueltas",
-        "ar": "Number of Turns"
+        "ar": "عدد اللفات"
       },
       "businessContext_i18n": {
         "en": "Number of wire turns around the core",
         "tr": "Çekirdek etrafındaki tel sarım sayısı",
         "de": "Anzahl der Windungen um den Kern",
         "fr": "Nombre de spires de fil autour du noyau",
-        "es": "Número de vueltas de alambre alrededor del núcleo"
+        "es": "Número de vueltas de alambre alrededor del núcleo",
+        "ar": "عدد لفات السلك حول القلب"
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Relative Permeability",
         "tr": "Bağıl Geçirgenlik",
-        "de": "Relative Permeability",
+        "de": "Relative Permeabilität",
         "fr": "Perméabilité relative",
         "es": "Permeabilidad relativa",
-        "ar": "Relative Permeability"
+        "ar": "النفاذية النسبية"
       },
       "businessContext_i18n": {
         "en": "Relative magnetic permeability of core material",
         "tr": "Çekirdek malzemesinin bağıl manyetik geçirgenliği",
-        "de": "Relative magnetic permeability of core material",
+        "de": "Relative magnetische Permeabilität des Kernmaterials",
         "fr": "Perméabilité magnétique relative du matériau du noyau",
-        "es": "Permeabilidad magnética relativa del material del núcleo"
+        "es": "Permeabilidad magnética relativa del material del núcleo",
+        "ar": "النفاذية المغناطيسية النسبية لمادة القلب"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Drahtdurchmesser",
         "fr": "Diamètre du fil",
         "es": "Diámetro del alambre",
-        "ar": "Wire Diameter"
+        "ar": "قطر السلك"
       },
       "businessContext_i18n": {
         "en": "Diameter of the copper wire",
         "tr": "Bakır telin çapı",
-        "de": "Diameter of the copper wire",
+        "de": "Durchmesser des Kupferdrahts",
         "fr": "Diamètre du fil de cuivre",
-        "es": "Diámetro del alambre de cobre"
+        "es": "Diámetro del alambre de cobre",
+        "ar": "قطر السلك النحاسي"
       }
     },
     {
@@ -126,17 +131,18 @@
       "label_i18n": {
         "en": "Copper Resistivity",
         "tr": "Bakır Direnci",
-        "de": "Copper Resistivity",
+        "de": "Spezifischer Widerstand von Kupfer",
         "fr": "Résistivité du cuivre",
         "es": "Resistividad del cobre",
-        "ar": "Copper Resistivity"
+        "ar": "مقاومية النحاس"
       },
       "businessContext_i18n": {
         "en": "Electrical resistivity of copper at 20°C",
         "tr": "Bakırın 20°C'deki elektriksel direnci",
-        "de": "Electrical resistivity of copper at 20°C",
+        "de": "Elektrischer Widerstand von Kupfer bei 20°C",
         "fr": "Résistivité électrique du cuivre à 20°C",
-        "es": "Resistividad eléctrica del cobre a 20°C"
+        "es": "Resistividad eléctrica del cobre a 20°C",
+        "ar": "المقاومية الكهربائية للنحاس عند 20°م"
       }
     }
   ],

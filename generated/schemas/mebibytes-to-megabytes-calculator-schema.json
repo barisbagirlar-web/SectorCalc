@@ -14,14 +14,15 @@
         "de": "Mebibyte (MiB)",
         "fr": "Mébioctets (Mio)",
         "es": "Mebibytes (MiB)",
-        "ar": "Mebibytes (MiB)"
+        "ar": "الميبيبايت (MiB)"
       },
       "businessContext_i18n": {
         "en": "Quantity in mebibytes to be converted",
         "tr": "Dönüştürülecek mebibayt miktarı",
         "de": "Menge in Mebibyte, die umgerechnet werden soll",
         "fr": "Quantité en mébioctets à convertir",
-        "es": "Cantidad en mebibytes a convertir"
+        "es": "Cantidad en mebibytes a convertir",
+        "ar": "الكمية بالميبيبايت المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Binärer Basisexponent (2^n)",
         "fr": "Exposant de base binaire (2^n)",
         "es": "Exponente de base binaria (2^n)",
-        "ar": "Binary Base Exponent (2^n)"
+        "ar": "أس الأساس الثنائي (2^n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for binary base; standard MiB uses 20",
         "tr": "İkili taban üssü; standart MiB için 20 kullanılır",
         "de": "Exponent für binäre Basis; Standard MiB verwendet 20",
         "fr": "Exposant pour la base binaire ; un Mio standard utilise 20",
-        "es": "Exponente para base binaria; MiB estándar usa 20"
+        "es": "Exponente para base binaria; MiB estándar usa 20",
+        "ar": "أس الأساس الثنائي؛ MiB القياسي يستخدم 20"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Metrischer Basisexponent (10^n)",
         "fr": "Exposant de base métrique (10^n)",
         "es": "Exponente de base métrica (10^n)",
-        "ar": "Metric Base Exponent (10^n)"
+        "ar": "أس الأساس العشري (10^n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for metric base; standard MB uses 6",
         "tr": "Metrik taban üssü; standart MB için 6 kullanılır",
         "de": "Exponent für metrische Basis; Standard MB verwendet 6",
         "fr": "Exposant pour la base métrique ; un Mo standard utilise 6",
-        "es": "Exponente para base métrica; MB estándar usa 6"
+        "es": "Exponente para base métrica; MB estándar usa 6",
+        "ar": "أس الأساس العشري؛ MB القياسي يستخدم 6"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
         "fr": "Nombre de décimales pour arrondir le résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة"
       }
     }
   ],
   "formulas": {
-    "result": "mebibytes + binaryBase + metricBase",
-    "result_copy": "mebibytes + binaryBase + metricBase"
+    "normalized_product": "mebibytes * binaryBase * metricBase * precision",
+    "result": "mebibytes * binaryBase * metricBase * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Conversion factor: 2^{binaryBase} / 10^{metricBase} = {factor}",
-      "Raw value: {mebibytes} MiB × {factor} = {megabytes} MB",
-      "Rounded to {precision} decimal places: {roundedMegabytes} MB"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "roundedMegabytes",
-    "unit": "MiB",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Raw value: {mebibytes} MiB × {factor} = {megabytes} MB": "MB",
       "Rounded to {precision} decimal places: {roundedMegabytes} MB": "MB"

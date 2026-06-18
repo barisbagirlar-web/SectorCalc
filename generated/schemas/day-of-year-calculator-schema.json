@@ -14,14 +14,15 @@
         "de": "Monat",
         "fr": "Mois",
         "es": "Mes",
-        "ar": "Month"
+        "ar": "الشهر"
       },
       "businessContext_i18n": {
         "en": "Input month (1–12)",
         "tr": "Giriş ayı (1–12)",
         "de": "Eingabemonat (1–12)",
         "fr": "Saisir le mois (1–12)",
-        "es": "Ingrese el mes (1–12)"
+        "es": "Ingrese el mes (1–12)",
+        "ar": "أدخل الشهر (1–12)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tag",
         "fr": "Jour",
         "es": "Día",
-        "ar": "Day"
+        "ar": "اليوم"
       },
       "businessContext_i18n": {
         "en": "Input day (1–31)",
         "tr": "Giriş günü (1–31)",
         "de": "Eingabetag (1–31)",
         "fr": "Saisir le jour (1–31)",
-        "es": "Ingrese el día (1–31)"
+        "es": "Ingrese el día (1–31)",
+        "ar": "أدخل اليوم (1–31)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Jahr",
         "fr": "Année",
         "es": "Año",
-        "ar": "Year"
+        "ar": "السنة"
       },
       "businessContext_i18n": {
         "en": "Input year (e.g., 2023)",
         "tr": "Giriş yılı (ör. 2023)",
         "de": "Eingabejahr (z. B. 2023)",
         "fr": "Saisir l'année (ex. 2023)",
-        "es": "Ingrese el año (ej. 2023)"
+        "es": "Ingrese el año (ej. 2023)",
+        "ar": "أدخل السنة (مثال: 2023)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Startmonat des Geschäftsjahres",
         "fr": "Mois de début d'exercice",
         "es": "Mes de inicio fiscal",
-        "ar": "Fiscal Start Month"
+        "ar": "شهر بداية السنة المالية"
       },
       "businessContext_i18n": {
         "en": "Month when fiscal year starts (1–12)",
         "tr": "Mali yılın başladığı ay (1–12)",
         "de": "Monat, in dem das Geschäftsjahr beginnt (1–12)",
         "fr": "Mois de début de l'année fiscale (1–12)",
-        "es": "Mes en que comienza el año fiscal (1–12)"
+        "es": "Mes en que comienza el año fiscal (1–12)",
+        "ar": "شهر بداية السنة المالية (1–12)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Starttag des Geschäftsjahres",
         "fr": "Jour de début d'exercice",
         "es": "Día de inicio fiscal",
-        "ar": "Fiscal Start Day"
+        "ar": "يوم بداية السنة المالية"
       },
       "businessContext_i18n": {
         "en": "Day when fiscal year starts (1–31)",
         "tr": "Mali yılın başladığı gün (1–31)",
         "de": "Tag, an dem das Geschäftsjahr beginnt (1–31)",
         "fr": "Jour de début de l'année fiscale (1–31)",
-        "es": "Día en que comienza el año fiscal (1–31)"
+        "es": "Día en que comienza el año fiscal (1–31)",
+        "ar": "يوم بداية السنة المالية (1–31)"
       }
     }
   ],
   "formulas": {
-    "result": "month + day + year",
-    "result_copy": "month + day + year"
+    "normalized_product": "month * day * year * fiscalStartMonth",
+    "result": "month * day * year * fiscalStartMonth * (fiscalStartDay)",
+    "adjustment_factor": "fiscalStartDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "isLeapYear",
-      "dayOfFiscalYear"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dayOfFiscalYear",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

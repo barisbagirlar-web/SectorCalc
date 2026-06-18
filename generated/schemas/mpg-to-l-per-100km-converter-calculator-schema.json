@@ -25,14 +25,16 @@
         "tr": "Yakıt Ekonomisi (MPG)",
         "de": "Kraftstoffverbrauch (MPG)",
         "fr": "Consommation de carburant (MPG)",
-        "es": "Economía de Combustible (MPG)"
+        "es": "Economía de Combustible (MPG)",
+        "ar": "الاقتصاد في الوقود (ميل لكل جالون)"
       },
       "businessContext_i18n": {
         "en": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting.",
         "tr": "Birincil girdi: mil/galon (ABD galonu). Binek araçlar için tipik aralık: 10–60 mpg. Kuzey Amerika filo raporlamasında kullanılır.",
         "de": "Primäreingabe: Meilen pro Gallone (US-Gallone). Typischer Bereich für Personenkraftwagen: 10–60 mpg. Wird in nordamerikanischen Flottenberichten verwendet.",
         "fr": "Entrée principale : miles par gallon (gallon US). Plage typique pour véhicules particuliers : 10–60 mpg. Utilisé dans les rapports de flotte nord-américains.",
-        "es": "Entrada principal: millas por galón (galón estadounidense). Rango típico para vehículos de pasajeros: 10–60 mpg. Se utiliza en informes de flotas norteamericanas."
+        "es": "Entrada principal: millas por galón (galón estadounidense). Rango típico para vehículos de pasajeros: 10–60 mpg. Se utiliza en informes de flotas norteamericanas.",
+        "ar": "المدخل الأساسي: ميل لكل جالون (جالون أمريكي). النطاق النموذجي لسيارات الركاب: 10–60 ميل لكل جالون. يُستخدم في تقارير الأسطول في أمريكا الشمالية."
       }
     },
     {
@@ -55,14 +57,16 @@
         "tr": "Yakıt Türü",
         "de": "Kraftstofftyp",
         "fr": "Type de carburant",
-        "es": "Tipo de combustible"
+        "es": "Tipo de combustible",
+        "ar": "نوع الوقود"
       },
       "businessContext_i18n": {
         "en": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067.",
         "tr": "Karbon yoğunluğunu ve enerji içeriğini belirler. ISO 14067'ye göre çevresel kayıp hesaplamaları için gereklidir.",
         "de": "Bestimmt Kohlenstoffintensität und Energiegehalt. Erforderlich für Umweltverlustberechnungen gemäß ISO 14067.",
         "fr": "Détermine l'intensité carbone et le contenu énergétique. Requis pour les calculs de perte environnementale selon ISO 14067.",
-        "es": "Determina la intensidad de carbono y el contenido energético. Requerido para cálculos de pérdida ambiental según ISO 14067."
+        "es": "Determina la intensidad de carbono y el contenido energético. Requerido para cálculos de pérdida ambiental según ISO 14067.",
+        "ar": "يحدد كثافة الكربون ومحتوى الطاقة. مطلوب لحسابات الخسائر البيئية وفقًا لـ ISO 14067."
       }
     },
     {
@@ -84,14 +88,16 @@
         "tr": "Sürüş Döngüsü",
         "de": "Fahrzyklus",
         "fr": "Cycle de conduite",
-        "es": "Ciclo de conducción"
+        "es": "Ciclo de conducción",
+        "ar": "دورة القيادة"
       },
       "businessContext_i18n": {
         "en": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance.",
         "tr": "Gerçek dünya verimlilik sapmasını etkiler. Filo varyansı için Altı Sigma proses yetenek analizinde kullanılır.",
         "de": "Beeinflusst die Abweichung der realen Effizienz. Wird in der Six-Sigma-Prozessfähigkeitsanalyse für Flottenvarianz verwendet.",
         "fr": "Affecte l'écart d'efficacité réel. Utilisé dans l'analyse de capabilité Six Sigma pour la variance de flotte.",
-        "es": "Afecta la desviación de eficiencia en condiciones reales. Se utiliza en el análisis de capacidad de procesos Seis Sigma para la varianza de flotas."
+        "es": "Afecta la desviación de eficiencia en condiciones reales. Se utiliza en el análisis de capacidad de procesos Seis Sigma para la varianza de flotas.",
+        "ar": "يؤثر على انحراف الكفاءة في العالم الحقيقي. يُستخدم في تحليل قدرة العملية لستة سيجما لتباين الأسطول."
       }
     },
     {
@@ -108,14 +114,16 @@
         "tr": "Yıllık Kilometre",
         "de": "Jährliche Fahrleistung",
         "fr": "Kilométrage annuel",
-        "es": "Kilometraje anual"
+        "es": "Kilometraje anual",
+        "ar": "المسافة السنوية المقطوعة"
       },
       "businessContext_i18n": {
         "en": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year.",
         "tr": "Toplam yakıt tüketimi, maliyet ve emisyonları hesaplamak için kullanılır. Tipik filo aracı: yılda 10k–30k mil.",
         "de": "Wird verwendet, um Gesamtkraftstoffverbrauch, -kosten und -emissionen zu berechnen. Typisches Flottenfahrzeug: 10.000–30.000 Meilen/Jahr.",
         "fr": "Utilisé pour calculer la consommation totale de carburant, le coût et les émissions. Véhicule de flotte typique : 10k–30k miles/an.",
-        "es": "Se utiliza para calcular el consumo total de combustible, el coste y las emisiones. Vehículo de flota típico: 10k–30k millas/año."
+        "es": "Se utiliza para calcular el consumo total de combustible, el coste y las emisiones. Vehículo de flota típico: 10k–30k millas/año.",
+        "ar": "يُستخدم لحساب إجمالي استهلاك الوقود والتكلفة والانبعاثات. مركبة الأسطول النموذجية: 10k–30k ميل/سنة."
       }
     },
     {
@@ -132,14 +140,16 @@
         "tr": "Galon Başına Yakıt Fiyatı",
         "de": "Kraftstoffpreis pro Gallone",
         "fr": "Prix du carburant par gallon",
-        "es": "Precio del combustible por galón"
+        "es": "Precio del combustible por galón",
+        "ar": "سعر الوقود لكل جالون"
       },
       "businessContext_i18n": {
         "en": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects.",
         "tr": "Toplam sahip olma maliyeti (TCO) analizi için yerel yakıt maliyeti. Yalın maliyet azaltma projelerinde girdi.",
         "de": "Lokale Kraftstoffkosten für die Gesamtbetriebskostenanalyse (TCO). Eingabe für Lean-Kostenreduktionsprojekte.",
         "fr": "Coût local du carburant pour l'analyse du coût total de possession (TCO). Entrée pour les projets de réduction de coûts Lean.",
-        "es": "Coste local de combustible para el análisis de coste total de propiedad (TCO). Entrada para proyectos de reducción de costes Lean."
+        "es": "Coste local de combustible para el análisis de coste total de propiedad (TCO). Entrada para proyectos de reducción de costes Lean.",
+        "ar": "تكلفة الوقود المحلية لتحليل التكلفة الإجمالية للملكية (TCO). مدخل لمشاريع خفض التكاليف اللينة."
       }
     },
     {
@@ -156,14 +166,16 @@
         "tr": "Galon Başına CO₂",
         "de": "CO₂ pro Gallone",
         "fr": "CO₂ par gallon",
-        "es": "CO₂ por galón"
+        "es": "CO₂ por galón",
+        "ar": "ثاني أكسيد الكربون لكل جالون"
       },
       "businessContext_i18n": {
         "en": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064.",
         "tr": "Benzin için varsayılan: 8,887 kg CO₂/galon (EPA). ISO 14064'e göre çevresel etki değerlendirmesi için kullanılır.",
         "de": "Standard für Benzin: 8,887 kg CO₂/Gallone (EPA). Wird für die Umweltverträglichkeitsprüfung nach ISO 14064 verwendet.",
         "fr": "Valeur par défaut pour l'essence : 8,887 kg CO₂/gallon (EPA). Utilisé pour l'évaluation d'impact environnemental selon ISO 14064.",
-        "es": "Valor por defecto para gasolina: 8.887 kg CO₂/galón (EPA). Se utiliza para la evaluación de impacto ambiental según ISO 14064."
+        "es": "Valor por defecto para gasolina: 8.887 kg CO₂/galón (EPA). Se utiliza para la evaluación de impacto ambiental según ISO 14064.",
+        "ar": "الافتراضي للبنزين: 8.887 كجم CO₂/جالون (EPA). يُستخدم لتقييم الأثر البيئي وفقًا لـ ISO 14064."
       }
     }
   ],
@@ -210,18 +222,24 @@
     ]
   },
   "formulas": {
-    "result": "mpg_value + fuel_type + driving_cycle",
-    "result_copy": "mpg_value + fuel_type + driving_cycle"
+    "normalized_product": "mpg_value * annual_mileage * fuel_price_per_gallon * co2_per_gallon",
+    "result": "mpg_value * annual_mileage * fuel_price_per_gallon * co2_per_gallon"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mpg"
+    "unit": "USD"
   },
   "toolName": "mpg-to-l-per-100km-converter-calculator",
   "catalogCategory": "conversion",

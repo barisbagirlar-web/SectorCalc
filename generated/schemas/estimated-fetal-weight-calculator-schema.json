@@ -14,14 +14,15 @@
         "de": "Biparietaler Durchmesser (BPD)",
         "fr": "Diamètre bipariétal (BIP)",
         "es": "Diámetro biparietal (DBP)",
-        "ar": "Biparietal Diameter (BPD)"
+        "ar": "القطر ثنائي الجدار (BPD)"
       },
       "businessContext_i18n": {
         "en": "Ultrasound measurement of the fetal head from one side to the other.",
         "tr": "Fetal başın bir yandan diğer yana ultrason ölçümü.",
         "de": "Ultraschallmessung des fetalen Kopfes von einer Seite zur anderen.",
         "fr": "Mesure échographique de la tête fœtale d'un côté à l'autre.",
-        "es": "Medición ecográfica de la cabeza fetal de un lado al otro."
+        "es": "Medición ecográfica de la cabeza fetal de un lado al otro.",
+        "ar": "قياس الموجات فوق الصوتية لرأس الجنين من جانب إلى آخر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kopfumfang (KU)",
         "fr": "Périmètre crânien (PC)",
         "es": "Circunferencia cefálica (CC)",
-        "ar": "Head Circumference (HC)"
+        "ar": "محيط الرأس (HC)"
       },
       "businessContext_i18n": {
         "en": "Circumference of the fetal head measured by ultrasound.",
         "tr": "Fetal baş çevresinin ultrason ile ölçümü.",
         "de": "Umfang des fetalen Kopfes, gemessen mittels Ultraschall.",
         "fr": "Circonférence de la tête fœtale mesurée par échographie.",
-        "es": "Circunferencia de la cabeza fetal medida por ecografía."
+        "es": "Circunferencia de la cabeza fetal medida por ecografía.",
+        "ar": "محيط رأس الجنين المقاس بالموجات فوق الصوتية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bauchumfang (BU)",
         "fr": "Périmètre abdominal (PA)",
         "es": "Circunferencia abdominal (CA)",
-        "ar": "Abdominal Circumference (AC)"
+        "ar": "محيط البطن (AC)"
       },
       "businessContext_i18n": {
         "en": "Circumference of the fetal abdomen at the liver level.",
         "tr": "Karaciğer seviyesinde fetal karın çevresi.",
         "de": "Umfang des fetalen Abdomens auf Höhe der Leber.",
         "fr": "Circonférence de l'abdomen fœtal au niveau du foie.",
-        "es": "Circunferencia del abdomen fetal a nivel del hígado."
+        "es": "Circunferencia del abdomen fetal a nivel del hígado.",
+        "ar": "محيط بطن الجنين عند مستوى الكبد."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Femurlänge (FL)",
         "fr": "Longueur du fémur (LF)",
         "es": "Longitud del fémur (LF)",
-        "ar": "Femur Length (FL)"
+        "ar": "طول عظم الفخذ (FL)"
       },
       "businessContext_i18n": {
         "en": "Length of the fetal femur bone.",
         "tr": "Fetal femur kemiği uzunluğu.",
         "de": "Länge des fetalen Femurknochens.",
         "fr": "Longueur du fémur fœtal.",
-        "es": "Longitud del fémur fetal."
+        "es": "Longitud del fémur fetal.",
+        "ar": "طول عظم الفخذ للجنين."
       }
     }
   ],
   "formulas": {
-    "result": "bpd + hc + ac",
-    "result_copy": "bpd + hc + ac"
+    "normalized_product": "bpd * hc * ac * fl",
+    "result": "bpd * hc * ac * fl"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "logEfw",
-      "efw"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "efw",
-    "unit": "cm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

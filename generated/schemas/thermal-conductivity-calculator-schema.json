@@ -33,13 +33,16 @@
         "tr": "Malzeme Türü",
         "de": "Materialtyp",
         "fr": "Type de matériau",
-        "es": "Tipo de material"
+        "es": "Tipo de material",
+        "ar": "نوع المادة"
       },
       "businessContext_i18n": {
         "en": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301.",
         "tr": "Uygun termal iletkenlik aralıklarını ve ISO 8301'e göre düzeltme faktörlerini uygulamak için malzeme kategorisini seçin.",
         "de": "Wählen Sie die Materialkategorie aus, um geeignete Wärmeleitfähigkeitsbereiche und Korrekturfaktoren gemäß ISO 8301 anzuwenden.",
-        "fr": "Sélectionnez la catégorie de matériau pour appliquer les plages de conductivité thermique et les facteurs de correction appropriés selon la norme ISO 8301."
+        "fr": "Sélectionnez la catégorie de matériau pour appliquer les plages de conductivité thermique et les facteurs de correction appropriés selon la norme ISO 8301.",
+        "es": "Seleccione la categoría de material para aplicar rangos de conductividad térmica y factores de corrección según ISO 8301.",
+        "ar": "اختر فئة المادة لتطبيق نطاقات التوصيل الحراري المناسبة وعوامل التصحيح وفقًا لـ ISO 8301."
       }
     },
     {
@@ -56,13 +59,16 @@
         "tr": "Çalışma Sıcaklığı",
         "de": "Betriebstemperatur",
         "fr": "Température de fonctionnement",
-        "es": "Temperatura de operación"
+        "es": "Temperatura de operación",
+        "ar": "درجة حرارة التشغيل"
       },
       "businessContext_i18n": {
         "en": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids.",
         "tr": "Çalışma sırasında malzemenin ortalama sıcaklığı. Katılarda fonon saçılmasını ve elektron taşınımını etkiler.",
         "de": "Mittlere Temperatur des Materials während des Betriebs. Beeinflusst Phononenstreuung und Elektronentransport in Festkörpern.",
-        "fr": "Température moyenne du matériau en fonctionnement. Affecte la diffusion des phonons et le transport électronique dans les solides."
+        "fr": "Température moyenne du matériau en fonctionnement. Affecte la diffusion des phonons et le transport électronique dans les solides.",
+        "es": "Temperatura media del material durante la operación. Afecta la dispersión de fonones y el transporte de electrones en sólidos.",
+        "ar": "متوسط درجة حرارة المادة أثناء التشغيل. يؤثر على تشتت الفونونات ونقل الإلكترونات في المواد الصلبة."
       }
     },
     {
@@ -79,13 +85,16 @@
         "tr": "Kalınlık",
         "de": "Dicke",
         "fr": "Épaisseur",
-        "es": "Espesor"
+        "es": "Espesor",
+        "ar": "السماكة"
       },
       "businessContext_i18n": {
         "en": "Material thickness in the direction of heat flow. Used for thermal resistance calculation.",
         "tr": "Isı akışı yönünde malzeme kalınlığı. Termal direnç hesaplaması için kullanılır.",
         "de": "Materialdicke in Richtung des Wärmeflusses. Wird für die Berechnung des Wärmewiderstands verwendet.",
-        "fr": "Épaisseur du matériau dans la direction du flux thermique. Utilisée pour le calcul de la résistance thermique."
+        "fr": "Épaisseur du matériau dans la direction du flux thermique. Utilisée pour le calcul de la résistance thermique.",
+        "es": "Espesor del material en la dirección del flujo de calor. Se utiliza para el cálculo de la resistencia térmica.",
+        "ar": "سمك المادة في اتجاه تدفق الحرارة. يُستخدم لحساب المقاومة الحرارية."
       }
     },
     {
@@ -102,13 +111,16 @@
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
-        "es": "Área de sección transversal"
+        "es": "Área de sección transversal",
+        "ar": "مساحة المقطع العرضي"
       },
       "businessContext_i18n": {
         "en": "Area perpendicular to heat flow. Critical for heat flux density calculations.",
         "tr": "Isı akışına dik alan. Isı akısı yoğunluğu hesaplamaları için kritiktir.",
         "de": "Fläche senkrecht zum Wärmefluss. Entscheidend für die Berechnung der Wärmestromdichte.",
-        "fr": "Surface perpendiculaire au flux thermique. Critique pour les calculs de densité de flux thermique."
+        "fr": "Surface perpendiculaire au flux thermique. Critique pour les calculs de densité de flux thermique.",
+        "es": "Área perpendicular al flujo de calor. Crítica para los cálculos de densidad de flujo de calor.",
+        "ar": "المساحة العمودية على تدفق الحرارة. حاسمة لحسابات كثافة تدفق الحرارة."
       }
     },
     {
@@ -124,13 +136,17 @@
         "en": "Heat Flow Rate",
         "tr": "Isı Akış Hızı",
         "de": "Wärmestrom",
-        "fr": "Débit de chaleur"
+        "fr": "Débit de chaleur",
+        "es": "Tasa de flujo de calor",
+        "ar": "معدل تدفق الحرارة"
       },
       "businessContext_i18n": {
         "en": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
         "tr": "Malzeme boyunca kararlı durum ısı transfer hızı. Kalorimetre veya ısı akısı sensörü ile ölçülür.",
         "de": "Stationäre Wärmeübertragungsrate durch das Material. Gemessen mittels Kalorimeter oder Wärmeflusssensor.",
-        "fr": "Taux de transfert thermique en régime permanent à travers le matériau. Mesuré par calorimètre ou capteur de flux thermique."
+        "fr": "Taux de transfert thermique en régime permanent à travers le matériau. Mesuré par calorimètre ou capteur de flux thermique.",
+        "es": "Tasa de transferencia de calor en estado estacionario a través del material. Se mide mediante calorímetro o sensor de flujo de calor.",
+        "ar": "معدل انتقال الحرارة في الحالة المستقرة عبر المادة. يُقاس بواسطة المسعر أو مستشعر تدفق الحرارة."
       }
     },
     {
@@ -147,13 +163,16 @@
         "tr": "Sıcaklık Farkı",
         "de": "Temperaturdifferenz",
         "fr": "Différence de température",
-        "es": "Diferencia de temperatura"
+        "es": "Diferencia de temperatura",
+        "ar": "فرق درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature gradient across the material thickness. Drives conductive heat transfer.",
         "tr": "Malzeme kalınlığı boyunca sıcaklık gradyanı. İletim yoluyla ısı transferini yönlendirir.",
         "de": "Temperaturgradient über die Materialdicke. Treibt die Wärmeleitung an.",
-        "fr": "Gradient de température à travers l'épaisseur du matériau. Entraîne le transfert de chaleur par conduction."
+        "fr": "Gradient de température à travers l'épaisseur du matériau. Entraîne le transfert de chaleur par conduction.",
+        "es": "Gradiente de temperatura a través del espesor del material. Impulsa la transferencia de calor por conducción.",
+        "ar": "التدرج الحراري عبر سمك المادة. يدفع انتقال الحرارة بالتوصيل."
       }
     },
     {
@@ -170,13 +189,16 @@
         "tr": "Nem İçeriği",
         "de": "Feuchtigkeitsgehalt",
         "fr": "Teneur en humidité",
-        "es": "Contenido de humedad"
+        "es": "Contenido de humedad",
+        "ar": "محتوى الرطوبة"
       },
       "businessContext_i18n": {
         "en": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
         "tr": "Hacimce nem yüzdesi. Gözenekli malzemelerde etkin termal iletkenliği artırır (WERC yönergeleri).",
         "de": "Volumenprozent Feuchtigkeit. Erhöht die effektive Wärmeleitfähigkeit in porösen Materialien (WERC-Richtlinien).",
-        "fr": "Pourcentage d'humidité en volume. Augmente la conductivité thermique effective dans les matériaux poreux (directives WERC)."
+        "fr": "Pourcentage d'humidité en volume. Augmente la conductivité thermique effective dans les matériaux poreux (directives WERC).",
+        "es": "Porcentaje de humedad por volumen. Aumenta la conductividad térmica efectiva en materiales porosos (directrices WERC).",
+        "ar": "نسبة الرطوبة من حيث الحجم. تزيد من التوصيل الحراري الفعال في المواد المسامية (إرشادات WERC)."
       }
     },
     {
@@ -192,13 +214,17 @@
         "en": "Aging Factor",
         "tr": "Yaşlanma Faktörü",
         "de": "Alterungsfaktor",
-        "fr": "Facteur de vieillissement"
+        "fr": "Facteur de vieillissement",
+        "es": "Factor de envejecimiento",
+        "ar": "عامل التقادم"
       },
       "businessContext_i18n": {
         "en": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
         "tr": "Zamanla malzeme bozulmasını hesaba katan çarpan. Altı Sigma yaşlanma çalışmalarına dayanır.",
         "de": "Multiplikator für Materialverschlechterung über Zeit. Basierend auf Six Sigma-Alterungsstudien.",
-        "fr": "Multiplicateur tenant compte de la dégradation du matériau dans le temps. Basé sur des études de vieillissement Six Sigma."
+        "fr": "Multiplicateur tenant compte de la dégradation du matériau dans le temps. Basé sur des études de vieillissement Six Sigma.",
+        "es": "Multiplicador que tiene en cuenta la degradación del material con el tiempo. Basado en estudios de envejecimiento Seis Sigma.",
+        "ar": "مضاعف يأخذ في الاعتبار تدهور المادة بمرور الوقت. يعتمد على دراسات التقادم في ستة سيجما."
       }
     }
   ],
@@ -245,18 +271,26 @@
     ]
   },
   "formulas": {
-    "result": "material_type + temperature_k + thickness_m",
-    "result_copy": "material_type + temperature_k + thickness_m"
+    "normalized_product": "temperature_k * thickness_m * cross_section_area_m2 * heat_flow_w",
+    "result": "temperature_k * thickness_m * cross_section_area_m2 * heat_flow_w * (temperature_delta_k * (moisture_content_pct / 100) * aging_factor)",
+    "adjustment_factor": "temperature_delta_k * (moisture_content_pct / 100) * aging_factor"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "N/A"
+    "unit": "%"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

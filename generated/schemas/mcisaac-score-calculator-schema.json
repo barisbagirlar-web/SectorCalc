@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
         "de": "Patientenalter in Jahren",
         "fr": "Âge du patient en années",
-        "es": "Edad del paciente en años"
+        "es": "Edad del paciente en años",
+        "ar": "عمر المريض بالسنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tonsillenexsudat",
         "fr": "Exsudat amygdalien",
         "es": "Exudado amigdalino",
-        "ar": "Tonsillar Exudate"
+        "ar": "الإفرازات اللوزية"
       },
       "businessContext_i18n": {
         "en": "1 if tonsillar exudate present, 0 otherwise",
         "tr": "Tonsiller eksüda varsa 1, yoksa 0",
         "de": "1 bei Tonsillenexsudat, sonst 0",
         "fr": "1 si exsudat amygdalien présent, 0 sinon",
-        "es": "1 si hay exudado amigdalino, 0 en caso contrario"
+        "es": "1 si hay exudado amigdalino, 0 en caso contrario",
+        "ar": "1 إذا كانت الإفرازات اللوزية موجودة، 0 خلاف ذلك"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Druckempfindliche vordere Halslymphknoten",
         "fr": "Adénopathie cervicale antérieure sensible",
         "es": "Adenopatías cervicales anteriores dolorosas",
-        "ar": "Tender Anterior Cervical Lymph Nodes"
+        "ar": "العقد الليمفاوية العنقية الأمامية المؤلمة"
       },
       "businessContext_i18n": {
         "en": "1 if tender anterior cervical lymphadenopathy, 0 otherwise",
         "tr": "Hassas anterior servikal lenfadenopati varsa 1, yoksa 0",
         "de": "1 bei druckempfindlicher vorderer Halslymphadenopathie, sonst 0",
         "fr": "1 si adénopathie cervicale antérieure sensible, 0 sinon",
-        "es": "1 si hay adenopatía cervical anterior dolorosa, 0 en caso contrario"
+        "es": "1 si hay adenopatía cervical anterior dolorosa, 0 en caso contrario",
+        "ar": "1 إذا كان هناك تضخم مؤلم في العقد الليمفاوية العنقية الأمامية، 0 خلاف ذلك"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fiebertemperatur",
         "fr": "Température fébrile",
         "es": "Temperatura de fiebre",
-        "ar": "Fever Temperature"
+        "ar": "درجة حرارة الحمى"
       },
       "businessContext_i18n": {
         "en": "Body temperature in degrees Celsius",
         "tr": "Santigrat derece cinsinden vücut sıcaklığı",
         "de": "Körpertemperatur in Grad Celsius",
         "fr": "Température corporelle en degrés Celsius",
-        "es": "Temperatura corporal en grados Celsius"
+        "es": "Temperatura corporal en grados Celsius",
+        "ar": "درجة حرارة الجسم بالدرجات المئوية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Husten",
         "fr": "Toux",
         "es": "Tos",
-        "ar": "Cough"
+        "ar": "السعال"
       },
       "businessContext_i18n": {
         "en": "1 if cough present, 0 if absent",
         "tr": "Öksürük varsa 1, yoksa 0",
         "de": "1 bei Husten, 0 bei keinem Husten",
         "fr": "1 si toux présente, 0 si absente",
-        "es": "1 si hay tos, 0 si no"
+        "es": "1 si hay tos, 0 si no",
+        "ar": "1 إذا كان السعال موجودًا، 0 إذا كان غائبًا"
       }
     }
   ],

@@ -13,14 +13,16 @@
         "tr": "Kenar 1 (a)",
         "de": "Seite 1 (a)",
         "fr": "Côté 1 (a)",
-        "es": "Side 1 (a)",
-        "ar": "Side 1 (a)"
+        "es": "Lado 1 (a)",
+        "ar": "الضلع 1 (أ)"
       },
       "businessContext_i18n": {
         "en": "For Heron's formula or SAS (with side2 and angle)",
         "tr": "Heron formülü veya KAK (kenar2 ve açı ile) için",
         "de": "Für Heron-Formel oder SWS (mit Seite2 und Winkel)",
-        "fr": "Pour la formule de Héron ou SAS (avec côté2 et angle)"
+        "fr": "Pour la formule de Héron ou SAS (avec côté2 et angle)",
+        "es": "Para la fórmula de Herón o LAL (con lado2 y ángulo)",
+        "ar": "لصيغة هيرون أو ضلع-زاوية-ضلع (مع الضلع 2 والزاوية)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kenar 2 (b)",
         "de": "Seite 2 (b)",
         "fr": "Côté 2 (b)",
-        "es": "Side 2 (b)",
-        "ar": "Side 2 (b)"
+        "es": "Lado 2 (b)",
+        "ar": "الضلع 2 (ب)"
       },
       "businessContext_i18n": {
         "en": "For Heron's formula or SAS (with side1 and angle)",
         "tr": "Heron formülü veya KAK (kenar1 ve açı ile) için",
         "de": "Für Heron-Formel oder SWS (mit Seite1 und Winkel)",
-        "fr": "Pour la formule de Héron ou SAS (avec côté1 et angle)"
+        "fr": "Pour la formule de Héron ou SAS (avec côté1 et angle)",
+        "es": "Para la fórmula de Herón o LAL (con lado1 y ángulo)",
+        "ar": "لصيغة هيرون أو ضلع-زاوية-ضلع (مع الضلع 1 والزاوية)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kenar 3 (c)",
         "de": "Seite 3 (c)",
         "fr": "Côté 3 (c)",
-        "es": "Side 3 (c)",
-        "ar": "Side 3 (c)"
+        "es": "Lado 3 (c)",
+        "ar": "الضلع 3 (ج)"
       },
       "businessContext_i18n": {
         "en": "For Heron's formula (all three sides)",
         "tr": "Heron formülü (üç kenar da) için",
         "de": "Für Heron-Formel (alle drei Seiten)",
-        "fr": "Pour la formule de Héron (les trois côtés)"
+        "fr": "Pour la formule de Héron (les trois côtés)",
+        "es": "Para la fórmula de Herón (los tres lados)",
+        "ar": "لصيغة هيرون (الأضلاع الثلاثة)"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Basis",
         "fr": "Base",
         "es": "Base",
-        "ar": "Base"
+        "ar": "الأساس"
       },
       "businessContext_i18n": {
         "en": "For base-height method",
         "tr": "Taban-yükseklik yöntemi için",
         "de": "Für Basis-Höhe-Methode",
-        "fr": "Pour la méthode base-hauteur"
+        "fr": "Pour la méthode base-hauteur",
+        "es": "Para el método base-altura",
+        "ar": "لطريقة القاعدة-الارتفاع"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "For base-height method",
         "tr": "Taban-yükseklik yöntemi için",
         "de": "Für Basis-Höhe-Methode",
-        "fr": "Pour la méthode base-hauteur"
+        "fr": "Pour la méthode base-hauteur",
+        "es": "Para el método base-altura",
+        "ar": "لطريقة القاعدة-الارتفاع"
       }
     },
     {
@@ -124,32 +134,39 @@
         "de": "Einschlusswinkel",
         "fr": "Angle inclus",
         "es": "Ángulo incluido",
-        "ar": "Included Angle"
+        "ar": "الزاوية المضمنة"
       },
       "businessContext_i18n": {
         "en": "Angle between side1 and side2, in degrees, for SAS method",
         "tr": "Kenar1 ve kenar2 arasındaki açı, derece cinsinden, KAK yöntemi için",
         "de": "Winkel zwischen Seite1 und Seite2 in Grad für SWS-Methode",
-        "fr": "Angle entre le côté1 et le côté2, en degrés, pour la méthode SAS"
+        "fr": "Angle entre le côté1 et le côté2, en degrés, pour la méthode SAS",
+        "es": "Ángulo entre lado1 y lado2, en grados, para el método LAL",
+        "ar": "الزاوية بين الضلع الأول والثاني بالدرجات، لطريقة SAS"
       }
     }
   ],
   "formulas": {
-    "result": "side1 + side2 + side3",
-    "result_copy": "side1 + side2 + side3"
+    "normalized_product": "side1 * side2 * side3 * base",
+    "result": "side1 * side2 * side3 * base * (height * angle)",
+    "adjustment_factor": "height * angle"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "method",
-      "steps"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "steps",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

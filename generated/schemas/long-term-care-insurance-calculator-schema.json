@@ -14,14 +14,15 @@
         "de": "Täglicher Leistungsbetrag",
         "fr": "Montant journalier de l'indemnité",
         "es": "Monto del beneficio diario",
-        "ar": "Daily Benefit Amount"
+        "ar": "مبلغ الاستحقاق اليومي"
       },
       "businessContext_i18n": {
         "en": "The amount paid per day of care",
         "tr": "Bakım günü başına ödenen tutar",
         "de": "Der pro Pflegetag gezahlte Betrag",
         "fr": "Montant payé par jour de soins",
-        "es": "Cantidad pagada por día de cuidado"
+        "es": "Cantidad pagada por día de cuidado",
+        "ar": "المبلغ المدفوع لكل يوم رعاية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Leistungsdauer (Jahre)",
         "fr": "Période d'indemnisation (années)",
         "es": "Período de beneficio (años)",
-        "ar": "Benefit Period (Years)"
+        "ar": "فترة الاستحقاق (بالسنوات)"
       },
       "businessContext_i18n": {
         "en": "Maximum number of years benefits are paid",
         "tr": "Yardımların ödendiği maksimum yıl sayısı",
         "de": "Maximale Anzahl der Jahre, in denen Leistungen gezahlt werden",
         "fr": "Nombre maximum d'années de versement des prestations",
-        "es": "Número máximo de años durante los cuales se pagan los beneficios"
+        "es": "Número máximo de años durante los cuales se pagan los beneficios",
+        "ar": "الحد الأقصى لعدد السنوات التي يتم فيها دفع الاستحقاقات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Karenzzeit (Tage)",
         "fr": "Période d'élimination (jours)",
         "es": "Período de eliminación (días)",
-        "ar": "Elimination Period (Days)"
+        "ar": "فترة الإقصاء (بالأيام)"
       },
       "businessContext_i18n": {
         "en": "Waiting period before benefits start",
         "tr": "Yardımlar başlamadan önceki bekleme süresi",
         "de": "Wartezeit vor Leistungsbeginn",
         "fr": "Délai de carence avant le début des prestations",
-        "es": "Período de espera antes de que comiencen los beneficios"
+        "es": "Período de espera antes de que comiencen los beneficios",
+        "ar": "فترة الانتظار قبل بدء الاستحقاقات"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Jährlicher Inflationsschutz",
         "fr": "Protection annuelle contre l'inflation",
         "es": "Protección anual contra la inflación",
-        "ar": "Annual Inflation Protection"
+        "ar": "الحماية السنوية من التضخم"
       },
       "businessContext_i18n": {
         "en": "Yearly percentage increase in daily benefit (informative, not used in core calculation)",
         "tr": "Günlük yardımda yıllık yüzde artış (bilgilendirme amaçlıdır, temel hesaplamada kullanılmaz)",
         "de": "Jährlicher prozentualer Anstieg des Tagessatzes (informativ, nicht in der Kernberechnung verwendet)",
         "fr": "Augmentation annuelle en pourcentage de l'indemnité journalière (informative, non utilisée dans le calcul principal)",
-        "es": "Incremento porcentual anual del beneficio diario (informativo, no se usa en el cálculo principal)"
+        "es": "Incremento porcentual anual del beneficio diario (informativo, no se usa en el cálculo principal)",
+        "ar": "النسبة المئوية للزيادة السنوية في الاستحقاق اليومي (للمعلومات، لا تُستخدم في الحساب الأساسي)"
       }
     }
   ],
   "formulas": {
-    "result": "dailyBenefit + benefitPeriodYears + eliminationDays",
-    "result_copy": "dailyBenefit + benefitPeriodYears + eliminationDays"
+    "normalized_product": "dailyBenefit * benefitPeriodYears * eliminationDays * (inflationProtection / 100)",
+    "result": "dailyBenefit * benefitPeriodYears * eliminationDays * (inflationProtection / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalEligibleDays",
-      "dailyBenefit"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalBenefit",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",

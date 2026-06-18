@@ -14,14 +14,15 @@
         "de": "Anzahl der Zustände",
         "fr": "Nombre d'états",
         "es": "Número de estados",
-        "ar": "Number of States"
+        "ar": "عدد الحالات"
       },
       "businessContext_i18n": {
         "en": "Number of discrete states in the system",
         "tr": "Sistemdeki ayrık durum sayısı",
         "de": "Anzahl der diskreten Zustände im System",
         "fr": "Nombre d'états discrets dans le système",
-        "es": "Número de estados discretos en el sistema"
+        "es": "Número de estados discretos en el sistema",
+        "ar": "عدد الحالات المنفصلة في النظام"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Übergangswahrscheinlichkeit",
         "fr": "Probabilité de transition",
         "es": "Probabilidad de transición",
-        "ar": "Transition Probability"
+        "ar": "احتمالية الانتقال"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from one state to another",
         "tr": "Bir durumdan diğerine geçme olasılığı",
         "de": "Wahrscheinlichkeit des Übergangs von einem Zustand in einen anderen",
         "fr": "Probabilité de passer d'un état à un autre",
-        "es": "Probabilidad de transición de un estado a otro"
+        "es": "Probabilidad de transición de un estado a otro",
+        "ar": "احتمالية الانتقال من حالة إلى أخرى"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Startzustandsindex",
         "fr": "Indice d'état initial",
         "es": "Índice del estado inicial",
-        "ar": "Initial State Index"
+        "ar": "مؤشر الحالة الأولية"
       },
       "businessContext_i18n": {
         "en": "Starting state index (0-based)",
         "tr": "Başlangıç durum indeksi (0 tabanlı)",
         "de": "Startzustandsindex (0-basiert)",
         "fr": "Indice d'état de départ (basé sur 0)",
-        "es": "Índice del estado inicial (basado en 0)"
+        "es": "Índice del estado inicial (basado en 0)",
+        "ar": "مؤشر الحالة البادئة (يبدأ من 0)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zeitschritte",
         "fr": "Pas de temps",
         "es": "Pasos de tiempo",
-        "ar": "Time Steps"
+        "ar": "الخطوات الزمنية"
       },
       "businessContext_i18n": {
         "en": "Number of time steps to simulate",
         "tr": "Simüle edilecek zaman adımı sayısı",
         "de": "Anzahl der zu simulierenden Zeitschritte",
         "fr": "Nombre de pas de temps à simuler",
-        "es": "Número de pasos de tiempo a simular"
+        "es": "Número de pasos de tiempo a simular",
+        "ar": "عدد الخطوات الزمنية للمحاكاة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Belohnung pro Zustand",
         "fr": "Récompense par état",
         "es": "Recompensa por estado",
-        "ar": "Reward per State"
+        "ar": "المكافأة لكل حالة"
       },
       "businessContext_i18n": {
         "en": "Reward obtained when in a state",
         "tr": "Bir durumdayken elde edilen ödül",
         "de": "Belohnung, die in einem Zustand erzielt wird",
         "fr": "Récompense obtenue dans un état",
-        "es": "Recompensa obtenida al estar en un estado"
+        "es": "Recompensa obtenida al estar en un estado",
+        "ar": "المكافأة التي يتم الحصول عليها عند التواجد في حالة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Diskontierungsfaktor",
         "fr": "Facteur d'actualisation",
         "es": "Factor de descuento",
-        "ar": "Discount Factor"
+        "ar": "عامل الخصم"
       },
       "businessContext_i18n": {
         "en": "Discount factor for future rewards (0-1)",
         "tr": "Gelecekteki ödüller için indirim faktörü (0-1)",
         "de": "Diskontierungsfaktor für zukünftige Belohnungen (0-1)",
         "fr": "Facteur d'actualisation pour les récompenses futures (0-1)",
-        "es": "Factor de descuento para recompensas futuras (0-1)"
+        "es": "Factor de descuento para recompensas futuras (0-1)",
+        "ar": "عامل الخصم للمكافآت المستقبلية (0-1)"
       }
     }
   ],

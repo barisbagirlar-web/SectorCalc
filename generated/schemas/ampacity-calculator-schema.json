@@ -14,14 +14,15 @@
         "de": "Leitermaterialfaktor (Kupfer=1, Aluminium=0,61)",
         "fr": "Facteur de matériau conducteur (Cuivre=1, Aluminium=0,61)",
         "es": "Factor de material del conductor (Cobre=1, Aluminio=0.61)",
-        "ar": "Conductor Material Factor (Copper=1, Aluminum=0.61)"
+        "ar": "عامل مادة الموصل (النحاس=1، الألومنيوم=0.61)"
       },
       "businessContext_i18n": {
         "en": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards.",
         "tr": "Ampasite standartlarına göre bakır için 1 veya alüminyum için 0,61 seçin.",
         "de": "Wählen Sie 1 für Kupfer oder 0,61 für Aluminiumleiter gemäß den Strombelastbarkeitsnormen.",
         "fr": "Sélectionnez 1 pour le cuivre ou 0,61 pour les conducteurs en aluminium selon les normes d'ampacité.",
-        "es": "Seleccione 1 para cobre o 0.61 para conductores de aluminio según normas de ampacidad."
+        "es": "Seleccione 1 para cobre o 0.61 para conductores de aluminio según normas de ampacidad.",
+        "ar": "اختر 1 للموصلات النحاسية أو 0.61 للألومنيوم وفقًا لمعايير السعة الحالية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de sección transversal",
-        "ar": "Cross-Sectional Area"
+        "ar": "مساحة المقطع العرضي"
       },
       "businessContext_i18n": {
         "en": "Nominal cross-sectional area of the conductor in square millimeters.",
         "tr": "İletkenin milimetrekare cinsinden nominal kesit alanı.",
         "de": "Nennquerschnittsfläche des Leiters in Quadratmillimetern.",
         "fr": "Section transversale nominale du conducteur en millimètres carrés.",
-        "es": "Área nominal de la sección transversal del conductor en milímetros cuadrados."
+        "es": "Área nominal de la sección transversal del conductor en milímetros cuadrados.",
+        "ar": "مساحة المقطع العرضي الاسمية للموصل بالمليمتر المربع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Isolations-Temperaturklasse",
         "fr": "Température nominale de l'isolant",
         "es": "Temperatura nominal del aislamiento",
-        "ar": "Insulation Temperature Rating"
+        "ar": "تصنيف درجة حرارة العزل"
       },
       "businessContext_i18n": {
         "en": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C).",
         "tr": "Yalıtımın maksimum çalışma sıcaklığı (örn. 60, 75, 90°C).",
         "de": "Maximale Betriebstemperatur der Isolierung (z. B. 60, 75, 90 °C).",
         "fr": "Température de fonctionnement maximale de l'isolant (ex. 60, 75, 90°C).",
-        "es": "Temperatura máxima de operación del aislamiento (ej. 60, 75, 90°C)."
+        "es": "Temperatura máxima de operación del aislamiento (ej. 60, 75, 90°C).",
+        "ar": "أقصى درجة حرارة تشغيل للعزل (مثل 60، 75، 90 درجة مئوية)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
         "es": "Temperatura ambiente",
-        "ar": "Ambient Temperature"
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Expected ambient temperature for the installation environment.",
         "tr": "Kurulum ortamı için beklenen ortam sıcaklığı.",
         "de": "Erwartete Umgebungstemperatur für die Installationsumgebung.",
         "fr": "Température ambiante attendue pour l'environnement d'installation.",
-        "es": "Temperatura ambiente esperada para el entorno de instalación."
+        "es": "Temperatura ambiente esperada para el entorno de instalación.",
+        "ar": "درجة الحرارة المحيطة المتوقعة لبيئة التركيب."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Bündelungs-/Gruppenfaktor",
         "fr": "Facteur de regroupement/groupement",
         "es": "Factor de agrupamiento",
-        "ar": "Bundling/Grouping Factor"
+        "ar": "عامل التجميع/التجميع"
       },
       "businessContext_i18n": {
         "en": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1.",
         "tr": "Bir kanal veya kablodaki birden fazla iletken için düşürme faktörü (tek için 1,0, birden fazla için tipik olarak <1). Aralık 0 ile 1 arası.",
         "de": "Minderungsfaktor für mehrere Leiter in einem Kabelkanal oder Kabel (1,0 für einzeln, typischerweise <1 für mehrere). Bereich 0 bis 1.",
         "fr": "Facteur de déclassement pour plusieurs conducteurs dans une gaine ou un câble (1,0 pour un seul, généralement <1 pour plusieurs). Plage de 0 à 1.",
-        "es": "Factor de reducción para múltiples conductores en una canalización o cable (1.0 para uno solo, típicamente <1 para varios). Rango 0 a 1."
+        "es": "Factor de reducción para múltiples conductores en una canalización o cable (1.0 para uno solo, típicamente <1 para varios). Rango 0 a 1.",
+        "ar": "عامل التخفيض لعدة موصلات في قناة أو كابل (1.0 لموصل واحد، عادة <1 لعدة موصلات). النطاق من 0 إلى 1."
       }
     }
   ],

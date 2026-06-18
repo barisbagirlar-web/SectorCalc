@@ -14,13 +14,15 @@
         "de": "Winkel A",
         "fr": "Angle A",
         "es": "Ángulo A",
-        "ar": "Angle A"
+        "ar": "الزاوية أ"
       },
       "businessContext_i18n": {
         "en": "First angle of the triangle in degrees",
         "tr": "Üçgenin birinci açısı (derece)",
         "de": "Erster Winkel des Dreiecks in Grad",
-        "fr": "Premier angle du triangle en degrés"
+        "fr": "Premier angle du triangle en degrés",
+        "es": "Primer ángulo del triángulo en grados",
+        "ar": "الزاوية الأولى للمثلث بالدرجات"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Winkel B",
         "fr": "Angle B",
         "es": "Ángulo B",
-        "ar": "Angle B"
+        "ar": "الزاوية ب"
       },
       "businessContext_i18n": {
         "en": "Second angle of the triangle in degrees",
         "tr": "Üçgenin ikinci açısı (derece)",
         "de": "Zweiter Winkel des Dreiecks in Grad",
-        "fr": "Deuxième angle du triangle en degrés"
+        "fr": "Deuxième angle du triangle en degrés",
+        "es": "Segundo ángulo del triángulo en grados",
+        "ar": "الزاوية الثانية للمثلث بالدرجات"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Winkel C",
         "fr": "Angle C",
         "es": "Ángulo C",
-        "ar": "Angle C"
+        "ar": "الزاوية ج"
       },
       "businessContext_i18n": {
         "en": "Third angle of the triangle in degrees",
         "tr": "Üçgenin üçüncü açısı (derece)",
         "de": "Dritter Winkel des Dreiecks in Grad",
-        "fr": "Troisième angle du triangle en degrés"
+        "fr": "Troisième angle du triangle en degrés",
+        "es": "Tercer ángulo del triángulo en grados",
+        "ar": "الزاوية الثالثة للمثلث بالدرجات"
       }
     },
     {
@@ -80,32 +86,37 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Allowed deviation from 180° for triangle validity check",
         "tr": "Üçgen geçerlilik kontrolü için 180°'den izin verilen sapma",
         "de": "Zulässige Abweichung von 180° für die Dreiecksgültigkeitsprüfung",
-        "fr": "Écart autorisé par rapport à 180° pour la validation du triangle"
+        "fr": "Écart autorisé par rapport à 180° pour la validation du triangle",
+        "es": "Desviación permitida de 180° para la verificación de validez del triángulo",
+        "ar": "الانحراف المسموح به عن 180 درجة للتحقق من صحة المثلث"
       }
     }
   ],
   "formulas": {
-    "sum": "angleA + angleB + angleC",
-    "sum_aux": "angleA + angleB + angleC"
+    "normalized_product": "angleA * angleB * angleC * tolerance",
+    "result": "angleA * angleB * angleC * tolerance"
   },
   "outputs": {
-    "primary": "sum",
+    "primary": "result",
     "breakdown": [
-      "deviation",
-      "isTriangle"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "isTriangle",
-    "unit": "degree"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

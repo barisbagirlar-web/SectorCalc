@@ -14,14 +14,15 @@
         "de": "Fruchtgewicht",
         "fr": "Poids des fruits",
         "es": "Peso de la fruta",
-        "ar": "Fruit Weight"
+        "ar": "وزن الفاكهة"
       },
       "businessContext_i18n": {
         "en": "Weight of fresh fruit used in the jam recipe.",
         "tr": "Reçel tarifinde kullanılan taze meyvenin ağırlığı.",
         "de": "Gewicht der frischen Früchte, die im Marmeladenrezept verwendet werden.",
         "fr": "Poids des fruits frais utilisés dans la recette de confiture.",
-        "es": "Peso de la fruta fresca utilizada en la receta de mermelada."
+        "es": "Peso de la fruta fresca utilizada en la receta de mermelada.",
+        "ar": "وزن الفاكهة الطازجة المستخدمة في وصفة المربى."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Frucht-Brix",
         "fr": "Brix des fruits",
         "es": "Brix de la fruta",
-        "ar": "Fruit Brix"
+        "ar": "بريكس الفاكهة"
       },
       "businessContext_i18n": {
         "en": "Natural sugar content of the fruit measured in degrees Brix.",
         "tr": "Meyvenin Brix derecesi cinsinden doğal şeker içeriği.",
         "de": "Natürlicher Zuckergehalt der Frucht, gemessen in Grad Brix.",
         "fr": "Teneur naturelle en sucre des fruits mesurée en degrés Brix.",
-        "es": "Contenido natural de azúcar de la fruta medido en grados Brix."
+        "es": "Contenido natural de azúcar de la fruta medido en grados Brix.",
+        "ar": "محتوى السكر الطبيعي للفاكهة مقاسًا بدرجات بريكس."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ziel-Brix",
         "fr": "Brix cible",
         "es": "Brix objetivo",
-        "ar": "Target Brix"
+        "ar": "بريكس المستهدف"
       },
       "businessContext_i18n": {
         "en": "Desired final sugar concentration for proper jam setting and preservation.",
         "tr": "Reçelin uygun kıvam ve muhafaza için istenen nihai şeker konsantrasyonu.",
         "de": "Gewünschte endgültige Zuckerkonzentration für eine ordnungsgemäße Marmeladenfestigkeit und Haltbarkeit.",
         "fr": "Concentration finale en sucre souhaitée pour une bonne prise et conservation de la confiture.",
-        "es": "Concentración final de azúcar deseada para una correcta gelificación y conservación de la mermelada."
+        "es": "Concentración final de azúcar deseada para una correcta gelificación y conservación de la mermelada.",
+        "ar": "تركيز السكر النهائي المطلوب لضبط المربى وحفظه بشكل صحيح."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Pektingewicht",
         "fr": "Poids de la pectine",
         "es": "Peso de pectina",
-        "ar": "Pectin Weight"
+        "ar": "وزن البكتين"
       },
       "businessContext_i18n": {
         "en": "Weight of pectin powder added; usually contains sugar as a carrier.",
         "tr": "Eklenen pektin tozunun ağırlığı; genellikle taşıyıcı olarak şeker içerir.",
         "de": "Gewicht des zugesetzten Pektinpulvers; enthält normalerweise Zucker als Trägerstoff.",
         "fr": "Poids de la poudre de pectine ajoutée ; contient généralement un support de sucre.",
-        "es": "Peso de pectina en polvo añadida; generalmente contiene azúcar como vehículo."
+        "es": "Peso de pectina en polvo añadida; generalmente contiene azúcar como vehículo.",
+        "ar": "وزن مسحوق البكتين المضاف؛ يحتوي عادةً على السكر كحامل."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Pektin-Zuckergehalt",
         "fr": "Teneur en sucre de la pectine",
         "es": "Contenido de azúcar de la pectina",
-        "ar": "Pectin Sugar Content"
+        "ar": "محتوى سكر البكتين"
       },
       "businessContext_i18n": {
         "en": "Percentage of sugar in the pectin powder (typically dextrose).",
         "tr": "Pektin tozundaki şeker yüzdesi (genellikle dekstroz).",
         "de": "Prozentsatz des Zuckers im Pektinpulver (typischerweise Dextrose).",
         "fr": "Pourcentage de sucre dans la poudre de pectine (généralement du dextrose).",
-        "es": "Porcentaje de azúcar en la pectina en polvo (típicamente dextrosa)."
+        "es": "Porcentaje de azúcar en la pectina en polvo (típicamente dextrosa).",
+        "ar": "نسبة السكر في مسحوق البكتين (عادةً دكستروز)."
       }
     }
   ],
   "formulas": {
-    "result": "fruitWeight + fruitBrix + targetBrix",
-    "result_aux": "fruitWeight + fruitBrix + targetBrix"
+    "normalized_product": "fruitWeight * (fruitBrix / 100) * (targetBrix / 100) * pectinWeight",
+    "result": "fruitWeight * (fruitBrix / 100) * (targetBrix / 100) * pectinWeight * ((pectinSugarContent / 100))",
+    "adjustment_factor": "(pectinSugarContent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Total Jam Weight (kg)",
-      "Final Brix (%)"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "finalBrix",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

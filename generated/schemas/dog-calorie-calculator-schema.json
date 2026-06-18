@@ -14,14 +14,15 @@
         "de": "Hundegewicht",
         "fr": "Poids du chien",
         "es": "Peso del perro",
-        "ar": "Dog Weight"
+        "ar": "وزن الكلب"
       },
       "businessContext_i18n": {
         "en": "The dog's weight in kilograms, used as the base for calculating resting energy requirement.",
         "tr": "Köpeğin kilogram cinsinden ağırlığı, dinlenme enerji ihtiyacının hesaplanmasında temel olarak kullanılır.",
         "de": "Das Gewicht des Hundes in Kilogramm, das als Grundlage für die Berechnung des Ruheenergiebedarfs dient.",
         "fr": "Poids du chien en kilogrammes, utilisé comme base pour calculer le besoin énergétique au repos.",
-        "es": "Peso del perro en kilogramos, utilizado como base para calcular el requerimiento energético en reposo."
+        "es": "Peso del perro en kilogramos, utilizado como base para calcular el requerimiento energético en reposo.",
+        "ar": "وزن الكلب بالكيلوغرام، يستخدم كأساس لحساب متطلبات الطاقة أثناء الراحة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktivitäts- und Lebensphasenfaktor",
         "fr": "Facteur d'activité et de stade de vie",
         "es": "Factor de actividad y etapa de vida",
-        "ar": "Activity & Life Stage Factor"
+        "ar": "عامل النشاط ومرحلة الحياة"
       },
       "businessContext_i18n": {
         "en": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs.",
         "tr": "Aktivite seviyesi ve yaşam evresi için çarpan. Tipik değerler: kısırlaştırılmış yetişkin için 1.6, aktif yetişkin için 2.0, çalışan/gebe köpekler için 3.0.",
         "de": "Multiplikator für Aktivitätsniveau und Lebensphase. Typische Werte: 1,6 für kastrierte Erwachsene, 2,0 für aktive Erwachsene, 3,0 für Arbeits-/trächtige Hunde.",
         "fr": "Multiplicateur pour le niveau d'activité et le stade de vie. Valeurs typiques : 1,6 pour adulte stérilisé, 2,0 pour adulte actif, 3,0 pour chien de travail/gestant.",
-        "es": "Multiplicador para el nivel de actividad y etapa de vida. Valores típicos: 1.6 para adulto castrado, 2.0 para adulto activo, 3.0 para perro de trabajo/gestante."
+        "es": "Multiplicador para el nivel de actividad y etapa de vida. Valores típicos: 1.6 para adulto castrado, 2.0 para adulto activo, 3.0 para perro de trabajo/gestante.",
+        "ar": "مضاعف لمستوى النشاط ومرحلة الحياة. القيم النموذجية: 1.6 للبالغ المخصي، 2.0 للبالغ النشط، 3.0 للكلاب العاملة/الحامل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Body Condition Score (1-9)",
         "fr": "Note d'état corporel (1-9)",
         "es": "Puntuación de condición corporal (1-9)",
-        "ar": "Body Condition Score (1-9)"
+        "ar": "درجة حالة الجسم (1-9)"
       },
       "businessContext_i18n": {
         "en": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less.",
         "tr": "1=zayıf, 5=ideal, 9=obez. Kalori ayarlamasında kullanılır: zayıf köpekler daha fazla, kilolu köpekler daha az kalori almalıdır.",
         "de": "1=abgemagert, 5=ideal, 9=fettleibig. Dient zur Kalorienanpassung: untergewichtige Hunde benötigen mehr, übergewichtige weniger.",
         "fr": "1=émacié, 5=idéal, 9=obèse. Utilisé pour ajuster les calories : les chiens maigres ont besoin de plus, les chiens en surpoids de moins.",
-        "es": "1=emaciado, 5=ideal, 9=obeso. Se usa para ajustar calorías: perros con bajo peso necesitan más, con sobrepeso necesitan menos."
+        "es": "1=emaciado, 5=ideal, 9=obeso. Se usa para ajustar calorías: perros con bajo peso necesitan más, con sobrepeso necesitan menos.",
+        "ar": "1=هزيل، 5=مثالي، 9=سمين. يستخدم لضبط السعرات الحرارية: الكلاب النحيفة تحتاج أكثر، السمينة تحتاج أقل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gewünschte wöchentliche Gewichtsänderung",
         "fr": "Changement de poids hebdomadaire souhaité",
         "es": "Cambio de peso semanal deseado",
-        "ar": "Desired Weekly Weight Change"
+        "ar": "تغير الوزن الأسبوعي المطلوب"
       },
       "businessContext_i18n": {
         "en": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment.",
         "tr": "Mevcut kilonun yüzdesi olarak haftalık hedef kilo değişimi. Kayıp için negatif, kazanç için pozitif. Kalori ayarlamasını etkiler.",
         "de": "Angestrebte Gewichtsänderung pro Woche in Prozent des aktuellen Gewichts. Negativ für Verlust, positiv für Zunahme. Beeinflusst die Kalorienanpassung.",
         "fr": "Changement de poids cible par semaine en pourcentage du poids actuel. Négatif pour perte, positif pour gain. Affecte l'ajustement calorique.",
-        "es": "Cambio de peso objetivo por semana como porcentaje del peso actual. Negativo para pérdida, positivo para ganancia. Afecta el ajuste calórico."
+        "es": "Cambio de peso objetivo por semana como porcentaje del peso actual. Negativo para pérdida, positivo para ganancia. Afecta el ajuste calórico.",
+        "ar": "تغير الوزن المستهدف أسبوعياً كنسبة مئوية من الوزن الحالي. سالب للخسارة، موجب للزيادة. يؤثر على تعديل السعرات الحرارية."
       }
     }
   ],

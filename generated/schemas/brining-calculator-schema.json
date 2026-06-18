@@ -14,14 +14,15 @@
         "de": "Wassermenge",
         "fr": "Quantité d'eau",
         "es": "Cantidad de agua",
-        "ar": "Su Miktarı"
+        "ar": "كمية الماء"
       },
       "businessContext_i18n": {
         "en": "Tuzlu su çözeltisi için kullanılacak su miktarı",
         "tr": "Tuzlu su çözeltisi için kullanılacak su miktarı",
         "de": "Wassermenge für die Salzlösung",
         "fr": "Quantité d'eau pour la solution de saumure",
-        "es": "Cantidad de agua para la solución de salmuera"
+        "es": "Cantidad de agua para la solución de salmuera",
+        "ar": "كمية الماء المستخدمة للمحلول الملحي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zielsalzgehalt",
         "fr": "Taux de sel cible",
         "es": "Porcentaje objetivo de sal",
-        "ar": "Hedef Tuz Oranı"
+        "ar": "نسبة الملح المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Arzu edilen ağırlıkça tuz yüzdesi",
         "tr": "Arzu edilen ağırlıkça tuz yüzdesi",
         "de": "Gewünschter Salzgehalt in Gewichtsprozent",
         "fr": "Pourcentage de sel en poids souhaité",
-        "es": "Porcentaje deseado de sal en peso"
+        "es": "Porcentaje deseado de sal en peso",
+        "ar": "النسبة المئوية الوزنية المرغوبة للملح"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zielzuckergehalt",
         "fr": "Taux de sucre cible",
         "es": "Porcentaje objetivo de azúcar",
-        "ar": "Hedef Şeker Oranı"
+        "ar": "نسبة السكر المستهدفة"
       },
       "businessContext_i18n": {
         "en": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi",
         "tr": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi",
         "de": "Optionaler zugesetzter Zucker in Gewichtsprozent",
         "fr": "Pourcentage de sucre en poids ajouté (optionnel)",
-        "es": "Porcentaje opcional de azúcar añadido en peso"
+        "es": "Porcentaje opcional de azúcar añadido en peso",
+        "ar": "النسبة المئوية الوزنية للسكر المضاف اختيارياً"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Wasserdichte",
         "fr": "Densité de l'eau",
         "es": "Densidad del agua",
-        "ar": "Su Yoğunluğu"
+        "ar": "كثافة الماء"
       },
       "businessContext_i18n": {
         "en": "Su yoğunluğu (genelde 1 g/mL)",
         "tr": "Su yoğunluğu (genelde 1 g/mL)",
         "de": "Wasserdichte (normalerweise 1 g/mL)",
         "fr": "Densité de l'eau (généralement 1 g/mL)",
-        "es": "Densidad del agua (generalmente 1 g/mL)"
+        "es": "Densidad del agua (generalmente 1 g/mL)",
+        "ar": "كثافة الماء (عادة 1 جم/مل)"
       }
     }
   ],
   "formulas": {
-    "result": "waterVolume + desiredSaltPercent + desiredSugarPercent",
-    "result_copy": "waterVolume + desiredSaltPercent + desiredSugarPercent"
+    "normalized_product": "waterVolume * (desiredSaltPercent / 100) * (desiredSugarPercent / 100) * waterDensity",
+    "result": "waterVolume * (desiredSaltPercent / 100) * (desiredSugarPercent / 100) * waterDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "requiredSugar",
-      "totalBrineWeight"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalBrineWeight",
-    "unit": "litre"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

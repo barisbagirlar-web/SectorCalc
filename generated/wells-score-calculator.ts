@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Wells_score_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.activeCancer + input.paralysis + input.surgeryOrBedridden + input.tendernessAlongVeins + input.entireLegSwollen + input.calfSwellingOver3cm + input.pittingEdema + input.alternativeDiagnosis; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = input.activeCancer + input.paralysis + input.surgeryOrBedridden + input.tendernessAlongVeins + input.entireLegSwollen + input.calfSwellingOver3cm + input.pittingEdema + input.alternativeDiagnosis; results["totalScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore_aux"] = 0; }
+  try { const v = input.activeCancer * input.paralysis * input.surgeryOrBedridden * input.tendernessAlongVeins; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.activeCancer * input.paralysis * input.surgeryOrBedridden * input.tendernessAlongVeins * (input.entireLegSwollen * input.calfSwellingOver3cm * input.pittingEdema * input.alternativeDiagnosis); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.entireLegSwollen * input.calfSwellingOver3cm * input.pittingEdema * input.alternativeDiagnosis; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -42,12 +43,12 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateWells_score_calculator(input: Wells_score_calculatorInput): Wells_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

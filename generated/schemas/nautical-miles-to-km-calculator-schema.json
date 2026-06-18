@@ -12,16 +12,17 @@
         "en": "Deniz Mili",
         "tr": "Deniz Mili",
         "de": "Seemeile",
-        "fr": "Deniz Mili",
+        "fr": "Mille nautique",
         "es": "Milla náutica",
-        "ar": "Deniz Mili"
+        "ar": "ميل بحري"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek deniz mili miktarı",
         "tr": "Dönüştürülecek deniz mili miktarı",
         "de": "Menge der umzurechnenden Seemeilen",
-        "fr": "Dönüştürülecek deniz mili miktarı",
-        "es": "Cantidad de millas náuticas a convertir"
+        "fr": "Quantité de milles nautiques à convertir",
+        "es": "Cantidad de millas náuticas a convertir",
+        "ar": "كمية الأميال البحرية المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Dönüşüm Faktörü"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
         "tr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
         "de": "Internationaler Standard-Umrechnungsfaktor (1 NM = 1,852 km). Kann für kundenspezifische Fälle geändert werden.",
-        "fr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
-        "es": "Factor de conversión estándar internacional (1 NM = 1.852 km). Se puede modificar para casos especiales del cliente."
+        "fr": "Coefficient de conversion standard international (1 NM = 1,852 km). Modifiable pour des cas clients spécifiques.",
+        "es": "Factor de conversión estándar internacional (1 NM = 1.852 km). Se puede modificar para casos especiales del cliente.",
+        "ar": "معامل التحويل القياسي الدولي (1 NM = 1.852 كم). يمكن تغييره للحالات الخاصة بالعميل."
       }
     },
     {
@@ -58,16 +60,17 @@
         "en": "Sefer Sayısı",
         "tr": "Sefer Sayısı",
         "de": "Anzahl der Fahrten",
-        "fr": "Sefer Sayısı",
+        "fr": "Nombre de trajets",
         "es": "Número de viajes",
-        "ar": "Sefer Sayısı"
+        "ar": "عدد الرحلات"
       },
       "businessContext_i18n": {
         "en": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
         "tr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
         "de": "Wiederholungsanzahl derselben Strecke; wird für die Gesamtstreckenberechnung verwendet.",
-        "fr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
-        "es": "Número de repeticiones de la misma distancia; se utiliza para el cálculo de distancia total."
+        "fr": "Nombre de répétitions de la même distance ; utilisé pour le calcul de distance totale.",
+        "es": "Número de repeticiones de la misma distancia; se utiliza para el cálculo de distancia total.",
+        "ar": "عدد مرات تكرار نفس المسافة؛ يستخدم لحساب المسافة الإجمالية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Ondalık Basamak"
+        "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
         "tr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen (0–6)",
-        "fr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
-        "es": "Número de decimales a mostrar en el resultado (0–6)"
+        "fr": "Nombre de décimales à afficher dans le résultat (0–6)",
+        "es": "Número de decimales a mostrar en el resultado (0–6)",
+        "ar": "عدد الخانات العشرية المعروضة في النتيجة (0–6)"
       }
     }
   ],

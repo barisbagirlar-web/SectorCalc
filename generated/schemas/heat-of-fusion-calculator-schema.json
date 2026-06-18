@@ -14,14 +14,15 @@
         "de": "Masse",
         "fr": "Masse",
         "es": "Masa",
-        "ar": "Mass"
+        "ar": "الكتلة"
       },
       "businessContext_i18n": {
         "en": "Total mass of substance undergoing phase change",
         "tr": "Faz değişimine uğrayan maddenin toplam kütlesi",
         "de": "Gesamtmasse des Stoffes, der den Phasenwechsel durchläuft",
         "fr": "Masse totale de la substance subissant un changement de phase",
-        "es": "Masa total de la sustancia que experimenta cambio de fase"
+        "es": "Masa total de la sustancia que experimenta cambio de fase",
+        "ar": "الكتلة الإجمالية للمادة الخاضعة لتغير الطور"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Spezifische Wärmekapazität",
         "fr": "Capacité thermique massique",
         "es": "Capacidad calorífica específica",
-        "ar": "Specific Heat Capacity"
+        "ar": "السعة الحرارية النوعية"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))",
         "tr": "Maddenin özgül ısı kapasitesi (örneğin su: 4180 J/(kg·K))",
         "de": "Spezifische Wärmekapazität des Stoffes (z. B. Wasser: 4180 J/(kg·K))",
         "fr": "Capacité thermique massique de la substance (ex. eau : 4180 J/(kg·K))",
-        "es": "Capacidad calorífica específica de la sustancia (ej., agua: 4180 J/(kg·K))"
+        "es": "Capacidad calorífica específica de la sustancia (ej., agua: 4180 J/(kg·K))",
+        "ar": "السعة الحرارية النوعية للمادة (مثل الماء: 4180 جول/(كجم·كلفن))"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangstemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Initial Temperature"
+        "ar": "درجة الحرارة الأولية"
       },
       "businessContext_i18n": {
         "en": "Starting temperature of the substance, must be ≤ melting point",
         "tr": "Maddenin başlangıç sıcaklığı, erime noktasından ≤ olmalıdır",
         "de": "Starttemperatur des Stoffes, muss ≤ Schmelzpunkt sein",
         "fr": "Température initiale de la substance, doit être ≤ point de fusion",
-        "es": "Temperatura inicial de la sustancia, debe ser ≤ punto de fusión"
+        "es": "Temperatura inicial de la sustancia, debe ser ≤ punto de fusión",
+        "ar": "درجة الحرارة الابتدائية للمادة، يجب أن تكون ≤ درجة الانصهار"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schmelztemperatur",
         "fr": "Température de fusion",
         "es": "Temperatura de fusión",
-        "ar": "Melting Temperature"
+        "ar": "درجة حرارة الانصهار"
       },
       "businessContext_i18n": {
         "en": "Melting point of the substance (e.g., ice: 0°C)",
         "tr": "Maddenin erime noktası (örneğin buz: 0°C)",
         "de": "Schmelzpunkt des Stoffes (z. B. Eis: 0°C)",
         "fr": "Point de fusion de la substance (ex. glace : 0°C)",
-        "es": "Punto de fusión de la sustancia (ej., hielo: 0°C)"
+        "es": "Punto de fusión de la sustancia (ej., hielo: 0°C)",
+        "ar": "نقطة انصهار المادة (مثل الجليد: 0°م)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Latente Schmelzwärme",
         "fr": "Chaleur latente de fusion",
         "es": "Calor latente de fusión",
-        "ar": "Latent Heat of Fusion"
+        "ar": "الحرارة الكامنة للانصهار"
       },
       "businessContext_i18n": {
         "en": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)",
         "tr": "Katıdan sıvıya faz değişimi için birim kütle başına enerji (örneğin su: 334 kJ/kg)",
         "de": "Energie pro Masseneinheit für den Phasenwechsel von fest zu flüssig (z. B. Wasser: 334 kJ/kg)",
         "fr": "Énergie par unité de masse pour passer de l'état solide à liquide (ex. eau : 334 kJ/kg)",
-        "es": "Energía por unidad de masa para cambiar de fase sólida a líquida (ej., agua: 334 kJ/kg)"
+        "es": "Energía por unidad de masa para cambiar de fase sólida a líquida (ej., agua: 334 kJ/kg)",
+        "ar": "الطاقة لكل وحدة كتلة لتغيير الطور من صلب إلى سائل (مثل الماء: 334 كيلوجول/كجم)"
       }
     }
   ],

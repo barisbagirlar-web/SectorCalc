@@ -14,14 +14,15 @@
         "de": "Anzahl der Würfe (n)",
         "fr": "Nombre de lancers (n)",
         "es": "Número de lanzamientos (n)",
-        "ar": "Number of Flips (n)"
+        "ar": "عدد مرات رمي العملة (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of independent coin flips",
         "tr": "Toplam bağımsız yazı tura atış sayısı",
         "de": "Gesamtzahl der unabhängigen Münzwürfe",
         "fr": "Nombre total de lancers de pièce indépendants",
-        "es": "Número total de lanzamientos independientes de la moneda"
+        "es": "Número total de lanzamientos independientes de la moneda",
+        "ar": "إجمالي عدد رميات العملة المستقلة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Köpfe (k)",
         "fr": "Nombre de faces (k)",
         "es": "Número de caras (k)",
-        "ar": "Number of Heads (k)"
+        "ar": "عدد مرات ظهور الصورة (k)"
       },
       "businessContext_i18n": {
         "en": "Number of heads observed or desired",
         "tr": "Gözlemlenen veya istenen tura sayısı",
         "de": "Beobachtete oder gewünschte Anzahl von Köpfen",
         "fr": "Nombre de faces observées ou souhaitées",
-        "es": "Número de caras observadas o deseadas"
+        "es": "Número de caras observadas o deseadas",
+        "ar": "عدد مرات ظهور الصورة المرصودة أو المطلوبة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wahrscheinlichkeit für Kopf (p)",
         "fr": "Probabilité de face (p)",
         "es": "Probabilidad de cara (p)",
-        "ar": "Probability of Head (p)"
+        "ar": "احتمال ظهور الصورة (p)"
       },
       "businessContext_i18n": {
         "en": "Probability of getting a head in a single flip (0.5 for fair coin)",
         "tr": "Tek atışta tura gelme olasılığı (adil para için 0.5)",
         "de": "Wahrscheinlichkeit für Kopf bei einem einzelnen Wurf (0,5 bei fairer Münze)",
         "fr": "Probabilité d'obtenir face en un seul lancer (0,5 pour une pièce équilibrée)",
-        "es": "Probabilidad de obtener cara en un solo lanzamiento (0.5 para moneda justa)"
+        "es": "Probabilidad de obtener cara en un solo lanzamiento (0.5 para moneda justa)",
+        "ar": "احتمال ظهور الصورة في رمية واحدة (0.5 لعملة عادلة)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding results",
         "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für Rundungsergebnisse",
         "fr": "Nombre de décimales pour l'arrondi des résultats",
-        "es": "Número de decimales para redondear resultados"
+        "es": "Número de decimales para redondear resultados",
+        "ar": "عدد المنازل العشرية لتقريب النتائج"
       }
     }
   ],
   "formulas": {
-    "result": "numberOfFlips + numberOfHeads + probabilityOfHead",
-    "result_copy": "numberOfFlips + numberOfHeads + probabilityOfHead"
+    "normalized_product": "numberOfFlips * numberOfHeads * probabilityOfHead * decimalPlaces",
+    "result": "numberOfFlips * numberOfHeads * probabilityOfHead * decimalPlaces"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "expectedHeads",
-      "standardDeviation"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "standardDeviation",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

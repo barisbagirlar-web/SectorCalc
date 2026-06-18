@@ -14,14 +14,15 @@
         "de": "Balkenspannweite",
         "fr": "Portée de la solive",
         "es": "Luz de vigueta",
-        "ar": "Joist Span"
+        "ar": "امتداد الجائز"
       },
       "businessContext_i18n": {
         "en": "Distance between supports in feet",
         "tr": "Destekler arasındaki fit cinsinden mesafe.",
         "de": "Abstand zwischen den Stützen in Fuß",
         "fr": "Distance entre les supports en pieds",
-        "es": "Distancia entre apoyos en pies"
+        "es": "Distancia entre apoyos en pies",
+        "ar": "المسافة بين الدعامات بالقدم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Balkenabstand",
         "fr": "Espacement des solives",
         "es": "Separación de viguetas",
-        "ar": "Joist Spacing"
+        "ar": "تباعد الجوائز"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between joists in inches",
         "tr": "Kirişler arasındaki inç cinsinden merkezden merkeze mesafe.",
         "de": "Mittenabstand zwischen den Balken in Zoll",
         "fr": "Distance centre à centre entre les solives en pouces",
-        "es": "Distancia centro a centro entre viguetas en pulgadas"
+        "es": "Distancia centro a centro entre viguetas en pulgadas",
+        "ar": "المسافة من المركز إلى المركز بين الجوائز بالبوصة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Nutzlast",
         "fr": "Charge vive",
         "es": "Carga viva",
-        "ar": "Live Load"
+        "ar": "الحمل الحي"
       },
       "businessContext_i18n": {
         "en": "Design live load (e.g., 40 psf for residential)",
         "tr": "Tasarım hareketli yükü (örneğin, konut için 40 psf).",
         "de": "Bemessungsnutzlast (z. B. 40 psf für Wohngebäude)",
         "fr": "Charge vive de conception (ex. : 40 psf pour résidentiel)",
-        "es": "Carga viva de diseño (ej., 40 psf para residencial)"
+        "es": "Carga viva de diseño (ej., 40 psf para residencial)",
+        "ar": "الحمل الحي التصميمي (مثال: 40 رطل/قدم² للسكني)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Eigenlast",
         "fr": "Charge morte",
         "es": "Carga muerta",
-        "ar": "Dead Load"
+        "ar": "الحمل الميت"
       },
       "businessContext_i18n": {
         "en": "Dead load including joist weight, ceiling, etc.",
         "tr": "Kiriş ağırlığı, tavan vb. dahil sabit yük.",
         "de": "Eigenlast inklusive Balkengewicht, Decke usw.",
         "fr": "Charge morte incluant le poids de la solive, du plafond, etc.",
-        "es": "Carga muerta que incluye peso de vigueta, cielo raso, etc."
+        "es": "Carga muerta que incluye peso de vigueta, cielo raso, etc.",
+        "ar": "الحمل الميت بما في ذلك وزن الجائز والسقف وغيرها"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Elastizitätsmodul",
         "fr": "Module d'élasticité",
         "es": "Módulo de elasticidad",
-        "ar": "Modulus of Elasticity"
+        "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
         "en": "E value for joist material (e.g., 1,600,000 psi for SPF)",
         "tr": "Kiriş malzemesi için E değeri (örneğin, SPF için 1.600.000 psi).",
         "de": "E-Modul des Balkenmaterials (z. B. 1.600.000 psi für SPF)",
         "fr": "Valeur E pour le matériau de la solive (ex. : 1 600 000 psi pour SPF)",
-        "es": "Valor E del material de la vigueta (ej., 1,600,000 psi para SPF)"
+        "es": "Valor E del material de la vigueta (ej., 1,600,000 psi para SPF)",
+        "ar": "قيمة E لمادة الجائز (مثل 1,600,000 رطل/بوصة² لـ SPF)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Trägheitsmoment",
         "fr": "Moment d'inertie",
         "es": "Momento de inercia",
-        "ar": "Moment of Inertia"
+        "ar": "عزم القصور الذاتي"
       },
       "businessContext_i18n": {
         "en": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
         "tr": "Kiriş kesiti için I değeri (örneğin, 2x10 için 47,6 in^4).",
         "de": "Flächenträgheitsmoment des Balkenquerschnitts (z. B. 47,6 in^4 für 2x10)",
         "fr": "Valeur I pour la section transversale de la solive (ex. : 47,6 in^4 pour un 2x10)",
-        "es": "Valor I de la sección transversal de la vigueta (ej., 47.6 in^4 para un 2x10)"
+        "es": "Valor I de la sección transversal de la vigueta (ej., 47.6 in^4 para un 2x10)",
+        "ar": "قيمة I للمقطع العرضي للجائز (مثل 47.6 بوصة⁴ لـ 2x10)"
       }
     }
   ],

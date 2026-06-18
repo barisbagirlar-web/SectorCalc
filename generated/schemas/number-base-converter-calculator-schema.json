@@ -14,14 +14,15 @@
         "de": "Dezimalzahl",
         "fr": "Nombre décimal",
         "es": "Número decimal",
-        "ar": "Decimal Number"
+        "ar": "رقم عشري"
       },
       "businessContext_i18n": {
         "en": "The decimal integer to be converted into other bases.",
         "tr": "Diğer tabanlara dönüştürülecek ondalık tam sayı.",
         "de": "Die zu konvertierende ganze Zahl (Dezimal).",
         "fr": "L'entier décimal à convertir dans d'autres bases.",
-        "es": "El número entero decimal a convertir a otras bases."
+        "es": "El número entero decimal a convertir a otras bases.",
+        "ar": "العدد الصحيح العشري المراد تحويله إلى قواعد أخرى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Basis 1",
         "fr": "Base 1",
         "es": "Base 1",
-        "ar": "Base 1"
+        "ar": "القاعدة 1"
       },
       "businessContext_i18n": {
         "en": "First target base for conversion (2-36).",
         "tr": "Dönüşüm için ilk hedef taban (2-36).",
         "de": "Erste Zielbasis für die Konvertierung (2-36).",
         "fr": "Première base cible pour la conversion (2-36).",
-        "es": "Primera base objetivo para la conversión (2-36)."
+        "es": "Primera base objetivo para la conversión (2-36).",
+        "ar": "القاعدة الأولى للتحويل (2-36)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Basis 2",
         "fr": "Base 2",
         "es": "Base 2",
-        "ar": "Base 2"
+        "ar": "القاعدة 2"
       },
       "businessContext_i18n": {
         "en": "Second target base for conversion (2-36).",
         "tr": "Dönüşüm için ikinci hedef taban (2-36).",
         "de": "Zweite Zielbasis für die Konvertierung (2-36).",
         "fr": "Deuxième base cible pour la conversion (2-36).",
-        "es": "Segunda base objetivo para la conversión (2-36)."
+        "es": "Segunda base objetivo para la conversión (2-36).",
+        "ar": "القاعدة الثانية للتحويل (2-36)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Basis 3",
         "fr": "Base 3",
         "es": "Base 3",
-        "ar": "Base 3"
+        "ar": "القاعدة 3"
       },
       "businessContext_i18n": {
         "en": "Third target base for conversion (2-36).",
         "tr": "Dönüşüm için üçüncü hedef taban (2-36).",
         "de": "Dritte Zielbasis für die Konvertierung (2-36).",
         "fr": "Troisième base cible pour la conversion (2-36).",
-        "es": "Tercera base objetivo para la conversión (2-36)."
+        "es": "Tercera base objetivo para la conversión (2-36).",
+        "ar": "القاعدة الثالثة للتحويل (2-36)."
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Basis 4",
         "fr": "Base 4",
         "es": "Base 4",
-        "ar": "Base 4"
+        "ar": "القاعدة 4"
       },
       "businessContext_i18n": {
         "en": "Fourth target base for conversion (2-36).",
         "tr": "Dönüşüm için dördüncü hedef taban (2-36).",
         "de": "Vierte Zielbasis für die Konvertierung (2-36).",
         "fr": "Quatrième base cible pour la conversion (2-36).",
-        "es": "Cuarta base objetivo para la conversión (2-36)."
+        "es": "Cuarta base objetivo para la conversión (2-36).",
+        "ar": "القاعدة الرابعة للتحويل (2-36)."
       }
     }
   ],
   "formulas": {
-    "result": "decimalValue + targetBase1 + targetBase2",
-    "result_copy": "decimalValue + targetBase1 + targetBase2"
+    "normalized_product": "decimalValue * targetBase1 * targetBase2 * targetBase3",
+    "result": "decimalValue * targetBase1 * targetBase2 * targetBase3 * (targetBase4)",
+    "adjustment_factor": "targetBase4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Result in Base 1",
-      "Result in Base 2",
-      "Result in Base 3",
-      "Result in Base 4"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "primary_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

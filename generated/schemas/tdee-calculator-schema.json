@@ -26,13 +26,16 @@
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
-        "es": "Edad"
+        "es": "Edad",
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations.",
         "tr": "Yaş, bazal metabolizma hızını etkiler; Mifflin-St Jeor ve Harris-Benedict denklemlerinde kullanılır.",
         "de": "Alter beeinflusst den Grundumsatz; verwendet in den Mifflin-St-Jeor- und Harris-Benedict-Gleichungen.",
-        "fr": "L'âge affecte le métabolisme de base ; utilisé dans les équations de Mifflin-St Jeor et Harris-Benedict."
+        "fr": "L'âge affecte le métabolisme de base ; utilisé dans les équations de Mifflin-St Jeor et Harris-Benedict.",
+        "es": "La edad afecta la tasa metabólica basal; se usa en las ecuaciones de Mifflin-St Jeor y Harris-Benedict.",
+        "ar": "يؤثر العمر على معدل الأيض الأساسي؛ يُستخدم في معادلات ميفلين-سانت جيور وهاريس-بنديكت."
       }
     },
     {
@@ -53,13 +56,16 @@
         "tr": "Cinsiyet",
         "de": "Geschlecht",
         "fr": "Genre",
-        "es": "Género"
+        "es": "Género",
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards.",
         "tr": "ISO 8996 ve klinik standartlara göre BMR tahmini için cinsiyete özgü katsayılar.",
         "de": "Geschlechtsspezifische Koeffizienten für die BMR-Schätzung nach ISO 8996 und klinischen Standards.",
-        "fr": "Coefficients spécifiques au sexe pour l'estimation du métabolisme de base selon la norme ISO 8996 et les normes cliniques."
+        "fr": "Coefficients spécifiques au sexe pour l'estimation du métabolisme de base selon la norme ISO 8996 et les normes cliniques.",
+        "es": "Coeficientes específicos de género para la estimación de la TMB según ISO 8996 y estándares clínicos.",
+        "ar": "معاملات خاصة بالجنس لتقدير معدل الأيض الأساسي وفقًا لمعيار ISO 8996 والمعايير السريرية."
       }
     },
     {
@@ -76,13 +82,16 @@
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
-        "es": "Peso corporal"
+        "es": "Peso corporal",
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Primary driver of energy expenditure; used in all BMR formulas.",
         "tr": "Enerji harcamasının ana belirleyicisi; tüm BMR formüllerinde kullanılır.",
         "de": "Haupttreiber des Energieverbrauchs; wird in allen BMR-Formeln verwendet.",
-        "fr": "Principal moteur de la dépense énergétique ; utilisé dans toutes les formules de métabolisme de base."
+        "fr": "Principal moteur de la dépense énergétique ; utilisé dans toutes les formules de métabolisme de base.",
+        "es": "Principal impulsor del gasto energético; se usa en todas las fórmulas de TMB.",
+        "ar": "المحرك الأساسي لإنفاق الطاقة؛ يُستخدم في جميع صيغ معدل الأيض الأساسي."
       }
     },
     {
@@ -99,13 +108,16 @@
         "tr": "Boy",
         "de": "Größe",
         "fr": "Taille",
-        "es": "Altura"
+        "es": "Altura",
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict.",
         "tr": "Boy, yağsız vücut kütlesini ve BMR'yi etkiler; Mifflin-St Jeor ve Harris-Benedict'te kullanılır.",
         "de": "Größe beeinflusst fettfreie Körpermasse und BMR; verwendet in Mifflin-St-Jeor und Harris-Benedict.",
-        "fr": "La taille influence la masse maigre et le métabolisme de base ; utilisé dans Mifflin-St Jeor et Harris-Benedict."
+        "fr": "La taille influence la masse maigre et le métabolisme de base ; utilisé dans Mifflin-St Jeor et Harris-Benedict.",
+        "es": "La altura influye en la masa magra y la TMB; se usa en Mifflin-St Jeor y Harris-Benedict.",
+        "ar": "يؤثر الطول على كتلة الجسم الخالية من الدهون ومعدل الأيض الأساسي؛ يُستخدم في معادلات ميفلين-سانت جيور وهاريس-بنديكت."
       }
     },
     {
@@ -129,13 +141,16 @@
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
         "fr": "Niveau d'activité",
-        "es": "Nivel de actividad"
+        "es": "Nivel de actividad",
+        "ar": "مستوى النشاط"
       },
       "businessContext_i18n": {
         "en": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification.",
         "tr": "WHO/FAO ve ISO 8996 metabolik hız sınıflandırmasına göre fiziksel aktivite düzeyi (PAL) çarpanı.",
         "de": "Multiplikator für körperliche Aktivität (PAL) nach WHO/FAO und ISO 8996-Klassifikation des Stoffwechsels.",
-        "fr": "Multiplicateur du niveau d'activité physique (PAL) selon la classification OMS/FAO et ISO 8996 du taux métabolique."
+        "fr": "Multiplicateur du niveau d'activité physique (PAL) selon la classification OMS/FAO et ISO 8996 du taux métabolique.",
+        "es": "Multiplicador del nivel de actividad física (PAL) según la clasificación metabólica de la OMS/FAO e ISO 8996.",
+        "ar": "مضاعف مستوى النشاط البدني (PAL) وفقًا لتصنيف منظمة الصحة العالمية/الفاو ومعيار ISO 8996 لمعدلات الأيض."
       }
     },
     {
@@ -152,13 +167,16 @@
         "tr": "Vücut yağ yüzdesi",
         "de": "Körperfettanteil",
         "fr": "Pourcentage de graisse corporelle",
-        "es": "Porcentaje de grasa corporal"
+        "es": "Porcentaje de grasa corporal",
+        "ar": "نسبة الدهون في الجسم"
       },
       "businessContext_i18n": {
         "en": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation.",
         "tr": "Katch-McArdle formülü için isteğe bağlı girdi; yağsız kütle tahmininde doğruluğu artırır.",
         "de": "Optionale Eingabe für die Katch-McArdle-Formel; verbessert die Genauigkeit bei Schätzung der fettfreien Masse.",
-        "fr": "Entrée optionnelle pour la formule de Katch-McArdle ; améliore la précision pour l'estimation de la masse maigre."
+        "fr": "Entrée optionnelle pour la formule de Katch-McArdle ; améliore la précision pour l'estimation de la masse maigre.",
+        "es": "Entrada opcional para la fórmula de Katch-McArdle; mejora la precisión en la estimación de masa magra.",
+        "ar": "إدخال اختياري لمعادلة كاتش-مكاردل؛ يحسن الدقة لتقدير الكتلة الخالية من الدهون."
       }
     },
     {
@@ -174,13 +192,17 @@
         "en": "Athlete Mode",
         "tr": "Sporcu Modu",
         "de": "Athletenmodus",
-        "fr": "Mode Athlète"
+        "fr": "Mode Athlète",
+        "es": "Modo atleta",
+        "ar": "وضع الرياضي"
       },
       "businessContext_i18n": {
         "en": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week).",
         "tr": "Yüksek frekanslı antrenman (haftada 6+ seans) için ayarlanmış aktivite çarpanlarını etkinleştirir.",
         "de": "Aktiviert angepasste Aktivitätsmultiplikatoren für hochfrequentes Training (6+ Einheiten/Woche).",
-        "fr": "Active des multiplicateurs d'activité ajustés pour un entraînement à haute fréquence (6+ séances/semaine)."
+        "fr": "Active des multiplicateurs d'activité ajustés pour un entraînement à haute fréquence (6+ séances/semaine).",
+        "es": "Activa multiplicadores de actividad ajustados para entrenamiento de alta frecuencia (6+ sesiones/semana).",
+        "ar": "تفعيل مضاعفات النشاط المعدلة للتدريب عالي التردد (6+ جلسات/أسبوع)."
       }
     }
   ],
@@ -245,18 +267,24 @@
     ]
   },
   "formulas": {
-    "result": "age + gender + weight",
-    "result_copy": "age + gender + weight"
+    "normalized_product": "age * weight * height * (bodyFatPercent / 100)",
+    "result": "age * weight * height * (bodyFatPercent / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "years"
+    "unit": "%"
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

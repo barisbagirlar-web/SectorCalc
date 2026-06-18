@@ -14,13 +14,15 @@
         "de": "Drahtdurchmesser",
         "fr": "Diamètre du fil",
         "es": "Diámetro del alambre",
-        "ar": "Wire Diameter"
+        "ar": "قطر السلك"
       },
       "businessContext_i18n": {
         "en": "Diameter of the wire used in the mesh",
         "tr": "Tel örgüde kullanılan telin çapı",
         "de": "Durchmesser des für das Netz verwendeten Drahtes",
-        "fr": "Diamètre du fil utilisé dans le treillis"
+        "fr": "Diamètre du fil utilisé dans le treillis",
+        "es": "Diámetro del alambre utilizado en la malla",
+        "ar": "قطر السلك المستخدم في الشبكة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Mesh Açıklığı",
         "de": "Maschenöffnung",
         "fr": "Ouverture de maille",
-        "es": "Mesh Opening",
-        "ar": "Mesh Opening"
+        "es": "Abertura de la malla",
+        "ar": "فتحة الشبكة"
       },
       "businessContext_i18n": {
         "en": "Clear opening size between adjacent parallel wires",
         "tr": "Paralel teller arasındaki net açıklık boyutu",
         "de": "Freie Öffnungsweite zwischen benachbarten parallelen Drähten",
-        "fr": "Taille d'ouverture libre entre deux fils parallèles adjacents"
+        "fr": "Taille d'ouverture libre entre deux fils parallèles adjacents",
+        "es": "Tamaño de abertura libre entre alambres paralelos adyacentes",
+        "ar": "حجم الفتحة الصافية بين الأسلاك المتوازية المتجاورة"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Plattenbreite",
         "fr": "Largeur du panneau",
         "es": "Ancho de la placa",
-        "ar": "Sheet Width"
+        "ar": "عرض اللوح"
       },
       "businessContext_i18n": {
         "en": "Width of a single mesh sheet",
         "tr": "Tek bir mesh tabakasının genişliği",
         "de": "Breite einer einzelnen Netzplatte",
-        "fr": "Largeur d'une feuille de treillis"
+        "fr": "Largeur d'une feuille de treillis",
+        "es": "Ancho de una sola lámina de malla",
+        "ar": "عرض لوح الشبكة الواحد"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Plattenlänge",
         "fr": "Longueur du panneau",
         "es": "Longitud de la placa",
-        "ar": "Sheet Length"
+        "ar": "طول اللوح"
       },
       "businessContext_i18n": {
         "en": "Length of a single mesh sheet",
         "tr": "Tek bir mesh tabakasının uzunluğu",
         "de": "Länge einer einzelnen Netzplatte",
-        "fr": "Longueur d'une feuille de treillis"
+        "fr": "Longueur d'une feuille de treillis",
+        "es": "Largo de una sola lámina de malla",
+        "ar": "طول لوح الشبكة الواحد"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Number of mesh sheets",
         "tr": "Mesh tabakası sayısı",
         "de": "Anzahl der Netzplatten",
-        "fr": "Nombre de feuilles de treillis"
+        "fr": "Nombre de feuilles de treillis",
+        "es": "Número de láminas de malla",
+        "ar": "عدد ألواح الشبكة"
       }
     },
     {
@@ -124,33 +134,39 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Material Density"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Density of the wire material (e.g., steel = 7850 kg/m³)",
         "tr": "Tel malzemesinin yoğunluğu (ör. çelik = 7850 kg/m³)",
         "de": "Dichte des Drahtmaterials (z. B. Stahl = 7850 kg/m³)",
-        "fr": "Densité du matériau du fil (ex. acier = 7850 kg/m³)"
+        "fr": "Densité du matériau du fil (ex. acier = 7850 kg/m³)",
+        "es": "Densidad del material del alambre (ej., acero = 7850 kg/m³)",
+        "ar": "كثافة مادة السلك (مثل الفولاذ = 7850 كجم/م³)"
       }
     }
   ],
   "formulas": {
-    "result": "wireDiameter + meshOpening + sheetWidth",
-    "result_copy": "wireDiameter + meshOpening + sheetWidth"
+    "normalized_product": "wireDiameter * meshOpening * sheetWidth * sheetLength",
+    "result": "wireDiameter * meshOpening * sheetWidth * sheetLength * (quantity * materialDensity)",
+    "adjustment_factor": "quantity * materialDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "weightPerSheet",
-      "totalArea",
-      "totalWireLength"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalWireLength",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Metal & Kaynak",

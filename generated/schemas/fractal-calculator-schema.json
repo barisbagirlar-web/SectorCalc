@@ -14,14 +14,15 @@
         "de": "Anzahl der Kopien (N)",
         "fr": "Nombre de copies (N)",
         "es": "Número de copias (N)",
-        "ar": "Number of Copies (N)"
+        "ar": "عدد النسخ (N)"
       },
       "businessContext_i18n": {
         "en": "In fractal generation, the number of smaller self-similar pieces.",
         "tr": "Fraktal oluşturmada, daha küçük kendine benzer parçaların sayısı.",
         "de": "Bei der Fraktalerzeugung die Anzahl der kleineren selbstähnlichen Teile.",
         "fr": "Dans la génération fractale, le nombre de pièces auto-similaires plus petites.",
-        "es": "En la generación de fractales, el número de piezas autosemejantes más pequeñas."
+        "es": "En la generación de fractales, el número de piezas autosemejantes más pequeñas.",
+        "ar": "في توليد الفركتلات، عدد القطع المتشابهة ذاتياً الأصغر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Skalierungsfaktor (r)",
         "fr": "Facteur d'échelle (r)",
         "es": "Factor de escala (r)",
-        "ar": "Scaling Factor (r)"
+        "ar": "عامل القياس (r)"
       },
       "businessContext_i18n": {
         "en": "The linear scaling factor applied to get each smaller copy.",
         "tr": "Her küçük kopyayı elde etmek için uygulanan doğrusal ölçekleme faktörü.",
         "de": "Der lineare Skalierungsfaktor, der auf jede kleinere Kopie angewendet wird.",
         "fr": "Facteur d'échelle linéaire appliqué pour obtenir chaque copie plus petite.",
-        "es": "El factor de escala lineal aplicado para obtener cada copia más pequeña."
+        "es": "El factor de escala lineal aplicado para obtener cada copia más pequeña.",
+        "ar": "عامل القياس الخطي المطبق للحصول على كل نسخة أصغر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Iterationsanzahl (n)",
         "fr": "Nombre d'itérations (n)",
         "es": "Número de iteraciones (n)",
-        "ar": "Iteration Count (n)"
+        "ar": "عدد التكرارات (n)"
       },
       "businessContext_i18n": {
         "en": "Number of iterations for computing total length or number of pieces.",
         "tr": "Toplam uzunluk veya parça sayısını hesaplamak için yineleme sayısı.",
         "de": "Anzahl der Iterationen zur Berechnung der Gesamtlänge oder Anzahl der Teile.",
         "fr": "Nombre d'itérations pour calculer la longueur totale ou le nombre de pièces.",
-        "es": "Número de iteraciones para calcular la longitud total o el número de piezas."
+        "es": "Número de iteraciones para calcular la longitud total o el número de piezas.",
+        "ar": "عدد التكرارات لحساب الطول الإجمالي أو عدد القطع."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Anfangslänge (L0)",
         "fr": "Longueur initiale (L0)",
         "es": "Longitud inicial (L0)",
-        "ar": "Initial Length (L0)"
+        "ar": "الطول الأولي (L0)"
       },
       "businessContext_i18n": {
         "en": "Initial length of the curve segment or initiator.",
         "tr": "Eğri parçasının veya başlatıcının başlangıç uzunluğu.",
         "de": "Anfangslänge des Kurvensegments oder Initiators.",
         "fr": "Longueur initiale du segment de courbe ou de l'initiateur.",
-        "es": "Longitud inicial del segmento de curva o iniciador."
+        "es": "Longitud inicial del segmento de curva o iniciador.",
+        "ar": "الطول الأولي للقطعة المنحنية أو البادئ."
       }
     }
   ],
   "formulas": {
-    "result": "numberOfCopies + scalingFactor + iterationCount",
-    "result_copy": "numberOfCopies + scalingFactor + iterationCount"
+    "normalized_product": "numberOfCopies * scalingFactor * iterationCount * initialLength",
+    "result": "numberOfCopies * scalingFactor * iterationCount * initialLength"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalPieces",
-      "totalLength"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalLength",
-    "unit": "adet"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

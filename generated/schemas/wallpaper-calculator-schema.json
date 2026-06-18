@@ -13,14 +13,16 @@
         "tr": "Duvar Genişliği (m)",
         "de": "Wandbreite (m)",
         "fr": "Largeur du mur (m)",
-        "es": "Wall Width (m)",
-        "ar": "Wall Width (m)"
+        "es": "Ancho de la pared (m)",
+        "ar": "عرض الجدار (م)"
       },
       "businessContext_i18n": {
         "en": "Total width of the wall to be covered",
         "tr": "Kaplanacak duvarın toplam genişliği",
         "de": "Gesamtbreite der zu bedeckenden Wand",
-        "fr": "Largeur totale du mur à couvrir"
+        "fr": "Largeur totale du mur à couvrir",
+        "es": "Ancho total de la pared a cubrir",
+        "ar": "العرض الإجمالي للجدار المراد تغطيته"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Wandhöhe (m)",
         "fr": "Hauteur du mur (m)",
         "es": "Altura del muro (m)",
-        "ar": "Wall Height (m)"
+        "ar": "ارتفاع الجدار (م)"
       },
       "businessContext_i18n": {
         "en": "Height of the wall from floor to ceiling",
         "tr": "Duvarın yerden tavana yüksekliği",
         "de": "Höhe der Wand vom Boden bis zur Decke",
-        "fr": "Hauteur du mur du sol au plafond"
+        "fr": "Hauteur du mur du sol au plafond",
+        "es": "Altura de la pared desde el suelo hasta el techo",
+        "ar": "ارتفاع الجدار من الأرض إلى السقف"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Rulo Genişliği (m)",
         "de": "Rollenbreite (m)",
         "fr": "Largeur du rouleau (m)",
-        "es": "Roll Width (m)",
-        "ar": "Roll Width (m)"
+        "es": "Ancho del rollo (m)",
+        "ar": "عرض اللفة (م)"
       },
       "businessContext_i18n": {
         "en": "Standard wallpaper roll width",
         "tr": "Standart duvar kağıdı rulo genişliği",
         "de": "Standard-Rollenbreite der Tapete",
-        "fr": "Largeur standard du rouleau de papier peint"
+        "fr": "Largeur standard du rouleau de papier peint",
+        "es": "Ancho estándar del rollo de papel tapiz",
+        "ar": "عرض لفة ورق الحائط القياسي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Rulo Uzunluğu (m)",
         "de": "Rollenlänge (m)",
         "fr": "Longueur du rouleau (m)",
-        "es": "Roll Length (m)",
-        "ar": "Roll Length (m)"
+        "es": "Longitud del rollo (m)",
+        "ar": "طول اللفة (م)"
       },
       "businessContext_i18n": {
         "en": "Standard wallpaper roll length",
         "tr": "Standart duvar kağıdı rulo uzunluğu",
         "de": "Standard-Rollenlänge der Tapete",
-        "fr": "Longueur standard du rouleau de papier peint"
+        "fr": "Longueur standard du rouleau de papier peint",
+        "es": "Longitud estándar del rollo de papel tapiz",
+        "ar": "طول لفة ورق الحائط القياسي"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Desen Tekrarı (m)",
         "de": "Musterrapport (m)",
         "fr": "Raccord de motif (m)",
-        "es": "Pattern Repeat (m)",
-        "ar": "Pattern Repeat (m)"
+        "es": "Repetición del patrón (m)",
+        "ar": "تكرار النقش (م)"
       },
       "businessContext_i18n": {
         "en": "Vertical pattern repeat distance; 0 if no pattern",
         "tr": "Dikey desen tekrar mesafesi; desen yoksa 0",
         "de": "Vertikaler Musterrapport; 0 bei keinem Muster",
-        "fr": "Distance verticale de répétition du motif ; 0 si pas de motif"
+        "fr": "Distance verticale de répétition du motif ; 0 si pas de motif",
+        "es": "Distancia vertical de repetición del patrón; 0 si no hay patrón",
+        "ar": "مسافة التكرار الرأسي للنقش؛ 0 إذا لم يكن هناك نقش"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Fire Yüzdesi (%)",
         "de": "Verschnittanteil (%)",
         "fr": "Pourcentage de rebut (%)",
-        "es": "Waste Percentage (%)",
-        "ar": "Waste Percentage (%)"
+        "es": "Porcentaje de desperdicio (%)",
+        "ar": "نسبة الهدر (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated waste due to cutting and matching",
         "tr": "Kesim ve eşleştirme nedeniyle tahmini fire",
         "de": "Geschätzter Verschnitt durch Zuschnitt und Anpassung",
-        "fr": "Rebut estimé dû à la coupe et à l'assemblage"
+        "fr": "Rebut estimé dû à la coupe et à l'assemblage",
+        "es": "Desperdicio estimado debido a corte y emparejamiento",
+        "ar": "الهدر المقدر بسبب القطع والمطابقة"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Ketten",
         "fr": "Chaînes",
         "es": "Cadenas",
-        "ar": "Chains"
+        "ar": "السلاسل"
       },
       "businessContext_i18n": {
         "en": "Number of chains to convert",
         "tr": "Dönüştürülecek zincir sayısı",
         "de": "Anzahl der umzurechnenden Ketten",
         "fr": "Nombre de chaînes à convertir",
-        "es": "Número de cadenas a convertir"
+        "es": "Número de cadenas a convertir",
+        "ar": "عدد السلاسل المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Glieder pro Kette",
         "fr": "Maillons par chaîne",
         "es": "Eslabones por cadena",
-        "ar": "Links per Chain"
+        "ar": "عدد الوصلات في السلسلة"
       },
       "businessContext_i18n": {
         "en": "Number of links in one chain (standard Gunter's chain = 100)",
         "tr": "Bir zincirdeki bakla sayısı (standart Gunter zinciri = 100)",
         "de": "Anzahl der Glieder in einer Kette (Standard Gunter-Kette = 100)",
         "fr": "Nombre de maillons dans une chaîne (chaîne standard de Gunter = 100)",
-        "es": "Número de eslabones en una cadena (cadena estándar de Gunter = 100)"
+        "es": "Número de eslabones en una cadena (cadena estándar de Gunter = 100)",
+        "ar": "عدد الوصلات في سلسلة واحدة (السلسلة القياسية لجونتر = 100)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para el redondeo de salida"
+        "es": "Número de decimales para el redondeo de salida",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
         "es": "Método de redondeo",
-        "ar": "Rounding Method"
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = standard round, 1 = floor, 2 = ceil",
         "tr": "0 = standart yuvarla, 1 = taban, 2 = tavan",
         "de": "0 = Standardrundung, 1 = Abrunden, 2 = Aufrunden",
         "fr": "0 = arrondi standard, 1 = plancher, 2 = plafond",
-        "es": "0 = redondeo estándar, 1 = suelo, 2 = techo"
+        "es": "0 = redondeo estándar, 1 = suelo, 2 = techo",
+        "ar": "0 = تقريب عادي، 1 = تقريب للأسفل، 2 = تقريب للأعلى"
       }
     }
   ],

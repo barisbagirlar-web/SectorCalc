@@ -14,14 +14,15 @@
         "de": "Eingabemodus",
         "fr": "Mode de saisie",
         "es": "Modo de entrada",
-        "ar": "Input Mode"
+        "ar": "وضع الإدخال"
       },
       "businessContext_i18n": {
         "en": "0: Direct probability inputs (P(A∩B), P(B)). 1: Frequency/count inputs (e.g., from quality control samples).",
         "tr": "0: Doğrudan olasılık girdileri (P(A∩B), P(B)). 1: Frekans/sayım girdileri (ör. kalite kontrol örneklerinden).",
         "de": "0: Direkte Wahrscheinlichkeitseingaben (P(A∩B), P(B)). 1: Häufigkeits-/Anzahl-Eingaben (z. B. aus Qualitätskontrollproben).",
         "fr": "0 : Saisie directe des probabilités (P(A∩B), P(B)). 1 : Saisie des fréquences/comptages (ex. à partir d'échantillons de contrôle qualité).",
-        "es": "0: Entrada directa de probabilidades (P(A∩B), P(B)). 1: Entrada de frecuencias/recuentos (ej., de muestras de control de calidad)."
+        "es": "0: Entrada directa de probabilidades (P(A∩B), P(B)). 1: Entrada de frecuencias/recuentos (ej., de muestras de control de calidad).",
+        "ar": "0: إدخال الاحتمالات مباشرة (P(A∩B), P(B)). 1: إدخال التكرارات/العد (مثل من عينات مراقبة الجودة)."
       }
     },
     {
@@ -44,7 +45,8 @@
         "tr": "Hem A hem de B olayının gerçekleşme olasılığı.",
         "de": "Wahrscheinlichkeit, dass beide Ereignisse A und B eintreten.",
         "fr": "Probabilité que les deux événements A et B se produisent.",
-        "es": "Probabilidad de que ocurran ambos eventos A y B."
+        "es": "Probabilidad de que ocurran ambos eventos A y B.",
+        "ar": "احتمال وقوع الحدثين A وB معًا."
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "B olayının gerçekleşme olasılığı.",
         "de": "Wahrscheinlichkeit von Ereignis B.",
         "fr": "Probabilité de l'événement B.",
-        "es": "Probabilidad del evento B."
+        "es": "Probabilidad del evento B.",
+        "ar": "احتمال وقوع الحدث B."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl A ∩ B",
         "fr": "Nombre de A ∩ B",
         "es": "Recuento de A ∩ B",
-        "ar": "Count of A ∩ B"
+        "ar": "عدد A ∩ B"
       },
       "businessContext_i18n": {
         "en": "Number of occurrences where both A and B occur.",
         "tr": "Hem A hem de B'nin meydana geldiği durum sayısı.",
         "de": "Anzahl der Ereignisse, bei denen sowohl A als auch B eintreten.",
         "fr": "Nombre d'occurrences où A et B se produisent simultanément.",
-        "es": "Número de ocurrencias donde ocurren tanto A como B."
+        "es": "Número de ocurrencias donde ocurren tanto A como B.",
+        "ar": "عدد مرات وقوع كل من A وB معًا."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl B",
         "fr": "Nombre de B",
         "es": "Recuento de B",
-        "ar": "Count of B"
+        "ar": "عدد B"
       },
       "businessContext_i18n": {
         "en": "Total number of occurrences of event B.",
         "tr": "B olayının toplam meydana gelme sayısı.",
         "de": "Gesamtzahl der Ereignisse von B.",
         "fr": "Nombre total d'occurrences de l'événement B.",
-        "es": "Número total de ocurrencias del evento B."
+        "es": "Número total de ocurrencias del evento B.",
+        "ar": "إجمالي عدد مرات وقوع الحدث B."
       }
     }
   ],

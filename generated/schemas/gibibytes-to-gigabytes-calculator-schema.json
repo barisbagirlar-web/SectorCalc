@@ -14,14 +14,15 @@
         "de": "Gibibyte (GiB)",
         "fr": "Gibioctets (Gio)",
         "es": "Gibibytes (GiB)",
-        "ar": "Gibibytes (GiB)"
+        "ar": "جيبابايت (GiB)"
       },
       "businessContext_i18n": {
         "en": "Input value in gibibytes.",
         "tr": "Gibibytes cinsinden giriş değeri.",
         "de": "Eingabewert in Gibibyte.",
         "fr": "Valeur d'entrée en gibioctets.",
-        "es": "Valor de entrada en gibibytes."
+        "es": "Valor de entrada en gibibytes.",
+        "ar": "قيمة الإدخال بالجيبابايت."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor (GB pro GiB)",
         "fr": "Facteur de conversion (Go par Gio)",
         "es": "Factor de conversión (GB por GiB)",
-        "ar": "Conversion Factor (GB per GiB)"
+        "ar": "عامل التحويل (جيجابايت لكل جيبابايت)"
       },
       "businessContext_i18n": {
         "en": "Factor for converting GiB to GB (fixed, but overridable for calibration).",
         "tr": "GiB'yi GB'ye dönüştürme faktörü (sabittir, ancak kalibrasyon için değiştirilebilir).",
         "de": "Faktor zur Umrechnung von GiB in GB (fest, aber zur Kalibrierung überschreibbar).",
         "fr": "Facteur de conversion des Gio en Go (fixe, mais modifiable pour étalonnage).",
-        "es": "Factor para convertir GiB a GB (fijo, pero modificable para calibración)."
+        "es": "Factor para convertir GiB a GB (fijo, pero modificable para calibración).",
+        "ar": "عامل تحويل GiB إلى GB (ثابت، لكن يمكن تجاوزه للمعايرة)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal digits for output rounding.",
         "tr": "Çıktı yuvarlaması için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung.",
         "fr": "Nombre de décimales pour l'arrondi du résultat.",
-        "es": "Número de dígitos decimales para el redondeo de salida."
+        "es": "Número de dígitos decimales para el redondeo de salida.",
+        "ar": "عدد الأرقام العشرية لتقريب المخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sicherheitsfaktor (%)",
         "fr": "Coefficient de sécurité (%)",
         "es": "Factor de seguridad (%)",
-        "ar": "Safety Factor (%)"
+        "ar": "عامل الأمان (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage added to result as safety margin, e.g., 10 means increase by 10%.",
         "tr": "Sonuca güvenlik marjı olarak eklenen yüzde; örn. 10, %10 artış anlamına gelir.",
         "de": "Prozentsatz, der als Sicherheitsmarge zum Ergebnis addiert wird, z. B. 10 bedeutet Erhöhung um 10%.",
         "fr": "Pourcentage ajouté au résultat comme marge de sécurité, ex. 10 signifie augmentation de 10 %.",
-        "es": "Porcentaje añadido al resultado como margen de seguridad, ej., 10 significa incrementar en un 10%."
+        "es": "Porcentaje añadido al resultado como margen de seguridad, ej., 10 significa incrementar en un 10%.",
+        "ar": "نسبة مئوية تضاف إلى النتيجة كهامش أمان، مثلاً 10 تعني زيادة بنسبة 10%."
       }
     }
   ],

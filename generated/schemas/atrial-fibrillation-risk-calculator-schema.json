@@ -14,14 +14,15 @@
         "de": "Congestive Heart Failure",
         "fr": "Insuffisance cardiaque congestive",
         "es": "Insuficiencia cardíaca congestiva",
-        "ar": "Congestive Heart Failure"
+        "ar": "فشل القلب الاحتقاني"
       },
       "businessContext_i18n": {
         "en": "Presence of congestive heart failure (0=No, 1=Yes)",
         "tr": "Konjestif kalp yetmezliği varlığı (0=Hayır, 1=Evet)",
         "de": "Vorhandensein einer kongestiven Herzinsuffizienz (0=Nein, 1=Ja)",
         "fr": "Présence d'insuffisance cardiaque congestive (0=Non, 1=Oui)",
-        "es": "Presencia de insuficiencia cardíaca congestiva (0=No, 1=Sí)"
+        "es": "Presencia de insuficiencia cardíaca congestiva (0=No, 1=Sí)",
+        "ar": "وجود فشل القلب الاحتقاني (0=لا، 1=نعم)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hypertension",
         "fr": "Hypertension",
         "es": "Hipertensión",
-        "ar": "Hypertension"
+        "ar": "ارتفاع ضغط الدم"
       },
       "businessContext_i18n": {
         "en": "Diagnosed hypertension (0=No, 1=Yes)",
         "tr": "Tanı konmuş hipertansiyon (0=Hayır, 1=Evet)",
         "de": "Diagnostizierte Hypertonie (0=Nein, 1=Ja)",
         "fr": "Hypertension diagnostiquée (0=Non, 1=Oui)",
-        "es": "Hipertensión diagnosticada (0=No, 1=Sí)"
+        "es": "Hipertensión diagnosticada (0=No, 1=Sí)",
+        "ar": "تشخيص ارتفاع ضغط الدم (0=لا، 1=نعم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
         "de": "Patientenalter in Jahren",
         "fr": "Âge du patient en années",
-        "es": "Edad del paciente en años"
+        "es": "Edad del paciente en años",
+        "ar": "عمر المريض بالسنوات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Diabetes",
         "fr": "Diabète",
         "es": "Diabetes",
-        "ar": "Diabetes"
+        "ar": "السكري"
       },
       "businessContext_i18n": {
         "en": "Diagnosed diabetes mellitus (0=No, 1=Yes)",
         "tr": "Tanı konmuş diabetes mellitus (0=Hayır, 1=Evet)",
         "de": "Diagnostizierter Diabetes mellitus (0=Nein, 1=Ja)",
         "fr": "Diabète sucré diagnostiqué (0=Non, 1=Oui)",
-        "es": "Diabetes mellitus diagnosticada (0=No, 1=Sí)"
+        "es": "Diabetes mellitus diagnosticada (0=No, 1=Sí)",
+        "ar": "تشخيص داء السكري (0=لا، 1=نعم)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Vorheriger Schlaganfall oder TIA",
         "fr": "AVC ou AIT antérieur",
         "es": "Accidente cerebrovascular o AIT previo",
-        "ar": "Prior Stroke or TIA"
+        "ar": "سكتة دماغية سابقة أو نوبة إقفارية عابرة"
       },
       "businessContext_i18n": {
         "en": "History of stroke or transient ischemic attack (0=No, 1=Yes)",
         "tr": "İnme veya geçici iskemik atak öyküsü (0=Hayır, 1=Evet)",
         "de": "Vorgeschichte von Schlaganfall oder transitorischer ischämischer Attacke (0=Nein, 1=Ja)",
         "fr": "Antécédent d'accident vasculaire cérébral ou d'accident ischémique transitoire (0=Non, 1=Oui)",
-        "es": "Antecedentes de accidente cerebrovascular o ataque isquémico transitorio (0=No, 1=Sí)"
+        "es": "Antecedentes de accidente cerebrovascular o ataque isquémico transitorio (0=No, 1=Sí)",
+        "ar": "تاريخ من السكتة الدماغية أو النوبة الإقفارية العابرة (0=لا، 1=نعم)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Vaskuläre Erkrankung",
         "fr": "Maladie vasculaire",
         "es": "Enfermedad vascular",
-        "ar": "Vascular Disease"
+        "ar": "مرض وعائي"
       },
       "businessContext_i18n": {
         "en": "Presence of vascular disease (0=No, 1=Yes)",
         "tr": "Vasküler hastalık varlığı (0=Hayır, 1=Evet)",
         "de": "Vorhandensein einer vaskulären Erkrankung (0=Nein, 1=Ja)",
         "fr": "Présence de maladie vasculaire (0=Non, 1=Oui)",
-        "es": "Presencia de enfermedad vascular (0=No, 1=Sí)"
+        "es": "Presencia de enfermedad vascular (0=No, 1=Sí)",
+        "ar": "وجود مرض وعائي (0=لا، 1=نعم)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Geschlecht (Weiblich=1)",
         "fr": "Sexe (Femme=1)",
         "es": "Sexo (Femenino=1)",
-        "ar": "Sex (Female=1)"
+        "ar": "الجنس (أنثى=1)"
       },
       "businessContext_i18n": {
         "en": "Patient sex (0=Male, 1=Female)",
         "tr": "Hasta cinsiyeti (0=Erkek, 1=Kadın)",
         "de": "Patientengeschlecht (0=Männlich, 1=Weiblich)",
         "fr": "Sexe du patient (0=Homme, 1=Femme)",
-        "es": "Sexo del paciente (0=Masculino, 1=Femenino)"
+        "es": "Sexo del paciente (0=Masculino, 1=Femenino)",
+        "ar": "جنس المريض (0=ذكر، 1=أنثى)"
       }
     }
   ],

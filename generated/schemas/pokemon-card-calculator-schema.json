@@ -14,14 +14,15 @@
         "de": "Aktueller Marktpreis",
         "fr": "Prix actuel du marché",
         "es": "Precio de mercado actual",
-        "ar": "Current Market Price"
+        "ar": "سعر السوق الحالي"
       },
       "businessContext_i18n": {
         "en": "The current market price of the card in mint condition.",
         "tr": "Kartın mükemmel durumdaki güncel piyasa fiyatı.",
         "de": "Der aktuelle Marktpreis der Karte in neuwertigem Zustand.",
         "fr": "Prix actuel du marché de la carte en état neuf.",
-        "es": "El precio actual de mercado de la tarjeta en estado impecable."
+        "es": "El precio actual de mercado de la tarjeta en estado impecable.",
+        "ar": "سعر السوق الحالي للبطاقة في حالة ممتازة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zustandsfaktor",
         "fr": "Facteur d'état",
         "es": "Factor de condición",
-        "ar": "Condition Factor"
+        "ar": "عامل الحالة"
       },
       "businessContext_i18n": {
         "en": "Factor based on card condition (1.0 = Mint, 0.5 = Good, 0.1 = Poor).",
         "tr": "Kartın durumuna bağlı faktör (1.0 = Mükemmel, 0.5 = İyi, 0.1 = Kötü).",
         "de": "Faktor basierend auf dem Kartenzustand (1,0 = Neuwertig, 0,5 = Gut, 0,1 = Schlecht).",
         "fr": "Facteur basé sur l'état de la carte (1,0 = Neuf, 0,5 = Bon, 0,1 = Mauvais).",
-        "es": "Factor basado en la condición de la tarjeta (1.0 = Impecable, 0.5 = Buena, 0.1 = Mala)."
+        "es": "Factor basado en la condición de la tarjeta (1.0 = Impecable, 0.5 = Buena, 0.1 = Mala).",
+        "ar": "عامل يعتمد على حالة البطاقة (1.0 = ممتازة، 0.5 = جيدة، 0.1 = سيئة)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Seltenheitsmultiplikator",
         "fr": "Multiplicateur de rareté",
         "es": "Multiplicador de rareza",
-        "ar": "Rarity Multiplier"
+        "ar": "مضاعف الندرة"
       },
       "businessContext_i18n": {
         "en": "Multiplier for rare or first edition cards (e.g., 2.0 for double value).",
         "tr": "Nadir veya ilk baskı kartlar için çarpan (örneğin, çift değer için 2.0).",
         "de": "Multiplikator für seltene oder Erstauflage-Karten (z. B. 2,0 für doppelten Wert).",
         "fr": "Multiplicateur pour les cartes rares ou de première édition (par exemple, 2,0 pour une valeur double).",
-        "es": "Multiplicador para tarjetas raras o de primera edición (ej. 2.0 para valor doble)."
+        "es": "Multiplicador para tarjetas raras o de primera edición (ej. 2.0 para valor doble).",
+        "ar": "مضاعف للبطاقات النادرة أو الإصدار الأول (مثل 2.0 للقيمة المزدوجة)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gradierungskosten",
         "fr": "Coût de certification",
         "es": "Coste de clasificación",
-        "ar": "Grading Cost"
+        "ar": "تكلفة التقييم"
       },
       "businessContext_i18n": {
         "en": "Cost to get the card professionally graded.",
         "tr": "Kartın profesyonel olarak derecelendirilme maliyeti.",
         "de": "Kosten für die professionelle Gradierung der Karte.",
         "fr": "Coût pour faire certifier la carte par un professionnel.",
-        "es": "Coste de obtener una clasificación profesional de la tarjeta."
+        "es": "Coste de obtener una clasificación profesional de la tarjeta.",
+        "ar": "تكلفة الحصول على تقييم احترافي للبطاقة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verkaufsgebühr (%)",
         "fr": "Frais de vente (%)",
         "es": "Comisión de venta (%)",
-        "ar": "Selling Fee (%)"
+        "ar": "رسوم البيع (%)"
       },
       "businessContext_i18n": {
         "en": "Platform or marketplace selling fee as a percentage of selling price.",
         "tr": "Platform veya pazar yeri satış ücreti, satış fiyatının yüzdesi olarak.",
         "de": "Verkaufsgebühr der Plattform oder des Marktplatzes als Prozentsatz des Verkaufspreises.",
         "fr": "Frais de la plateforme ou du marché de vente en pourcentage du prix de vente.",
-        "es": "Comisión de venta de la plataforma o mercado como porcentaje del precio de venta."
+        "es": "Comisión de venta de la plataforma o mercado como porcentaje del precio de venta.",
+        "ar": "رسوم المنصة أو السوق كنسبة مئوية من سعر البيع."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Versandkosten",
         "fr": "Frais d'expédition",
         "es": "Coste de envío",
-        "ar": "Shipping Cost"
+        "ar": "تكلفة الشحن"
       },
       "businessContext_i18n": {
         "en": "Shipping cost to safely deliver the card to buyer.",
         "tr": "Kartı alıcıya güvenli bir şekilde teslim etme maliyeti.",
         "de": "Versandkosten für den sicheren Versand der Karte an den Käufer.",
         "fr": "Frais d'expédition pour livrer la carte en toute sécurité à l'acheteur.",
-        "es": "Coste de envío para entregar la tarjeta de forma segura al comprador."
+        "es": "Coste de envío para entregar la tarjeta de forma segura al comprador.",
+        "ar": "تكلفة الشحن لتوصيل البطاقة بأمان إلى المشتري."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Anschaffungskosten",
         "fr": "Coût d'acquisition",
         "es": "Costo de adquisición",
-        "ar": "Acquisition Cost"
+        "ar": "تكلفة الاقتناء"
       },
       "businessContext_i18n": {
         "en": "Original cost to acquire the card (purchase price, trade value).",
         "tr": "Kartı edinme orijinal maliyeti (satın alma fiyatı, takas değeri).",
         "de": "Ursprüngliche Anschaffungskosten der Karte (Kaufpreis, Tauschwert).",
         "fr": "Coût d'acquisition initial de la carte (prix d'achat, valeur d'échange).",
-        "es": "Coste original de adquisición de la tarjeta (precio de compra, valor de intercambio)."
+        "es": "Coste original de adquisición de la tarjeta (precio de compra, valor de intercambio).",
+        "ar": "التكلفة الأصلية لاقتناء البطاقة (سعر الشراء، قيمة المقايضة)."
       }
     }
   ],

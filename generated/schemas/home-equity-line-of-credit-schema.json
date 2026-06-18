@@ -14,14 +14,15 @@
         "de": "Hauswert",
         "fr": "Valeur du bien",
         "es": "Valor de la vivienda",
-        "ar": "Home Value"
+        "ar": "قيمة المنزل"
       },
       "businessContext_i18n": {
         "en": "Current appraised market value of the property.",
         "tr": "Mülkün güncel ekspertiz piyasa değeri.",
         "de": "Aktueller geschätzter Marktwert der Immobilie.",
         "fr": "Valeur marchande actuelle estimée de la propriété.",
-        "es": "Valor de mercado actual de la propiedad."
+        "es": "Valor de mercado actual de la propiedad.",
+        "ar": "القيمة السوقية الحالية المقدرة للعقار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Hypothekensaldo",
         "fr": "Solde hypothécaire",
         "es": "Saldo hipotecario",
-        "ar": "Mortgage Balance"
+        "ar": "رصيد الرهن العقاري"
       },
       "businessContext_i18n": {
         "en": "Outstanding principal on the first mortgage.",
         "tr": "Birinci ipotekteki anapara bakiyesi.",
         "de": "Ausstehender Kapitalbetrag der ersten Hypothek.",
         "fr": "Capital restant dû sur la première hypothèque.",
-        "es": "Saldo pendiente de la primera hipoteca."
+        "es": "Saldo pendiente de la primera hipoteca.",
+        "ar": "الرصيد القائم للقرض العقاري الأول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "LVR-Grenze",
         "fr": "Limite LVR",
         "es": "Límite LTV",
-        "ar": "LVR Limit"
+        "ar": "حد نسبة القرض إلى القيمة"
       },
       "businessContext_i18n": {
         "en": "Maximum loan-to-value ratio allowed by the lender.",
         "tr": "Borç verenin izin verdiği maksimum kredi-değer oranı.",
         "de": "Maximales Beleihungsverhältnis, das vom Kreditgeber erlaubt wird.",
         "fr": "Ratio prêt-valeur maximal autorisé par le prêteur.",
-        "es": "Relación máxima préstamo-valor permitida por el prestamista."
+        "es": "Relación máxima préstamo-valor permitida por el prestamista.",
+        "ar": "أقصى نسبة قرض إلى قيمة يسمح بها المقرض."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zinssatz",
         "fr": "Taux d'intérêt",
         "es": "Tasa de interés",
-        "ar": "Interest Rate"
+        "ar": "سعر الفائدة"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the HELOC.",
         "tr": "HELOC'un yıllık faiz oranı.",
         "de": "Jährlicher Zinssatz für die HELOC.",
         "fr": "Taux d'intérêt annuel sur la marge de crédit hypothécaire (HELOC).",
-        "es": "Tasa de interés anual de la línea de crédito sobre el valor líquido de la vivienda (HELOC)."
+        "es": "Tasa de interés anual de la línea de crédito sobre el valor líquido de la vivienda (HELOC).",
+        "ar": "معدل الفائدة السنوي على خط الائتمان المضمون بالعقار."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Abhebungsbetrag",
         "fr": "Montant du tirage",
         "es": "Monto del retiro",
-        "ar": "Draw Amount"
+        "ar": "مبلغ السحب"
       },
       "businessContext_i18n": {
         "en": "Amount you plan to draw from the HELOC.",
         "tr": "HELOC'tan çekmeyi planladığınız tutar.",
         "de": "Betrag, den Sie von der HELOC abheben möchten.",
         "fr": "Montant que vous prévoyez de retirer de la HELOC.",
-        "es": "Cantidad que planea retirar de la HELOC."
+        "es": "Cantidad que planea retirar de la HELOC.",
+        "ar": "المبلغ الذي تخطط لسحبه من خط الائتمان المضمون بالعقار."
       }
     },
     {
@@ -129,33 +134,38 @@
         "de": "Darlehenslaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
-        "ar": "Loan Term"
+        "ar": "مدة القرض"
       },
       "businessContext_i18n": {
         "en": "Repayment period for the HELOC.",
         "tr": "HELOC için geri ödeme süresi.",
         "de": "Rückzahlungszeitraum für die HELOC.",
         "fr": "Période de remboursement de la HELOC.",
-        "es": "Período de amortización de la HELOC."
+        "es": "Período de amortización de la HELOC.",
+        "ar": "فترة سداد خط الائتمان المضمون بالعقار."
       }
     }
   ],
   "formulas": {
-    "result": "homeValue + mortgageBalance + lvrLimit",
-    "result_copy": "homeValue + mortgageBalance + lvrLimit"
+    "base_cost": "loanTerm * homeValue",
+    "adjusted_cost": "loanTerm * homeValue * (1 + (lvrLimit / 100))",
+    "result": "loanTerm * homeValue * (1 + (lvrLimit / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "maxHeloc",
-      "monthlyPayment",
-      "totalInterest"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalInterest",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

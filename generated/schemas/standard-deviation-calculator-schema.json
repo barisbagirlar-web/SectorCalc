@@ -25,14 +25,16 @@
         "tr": "Veri Noktaları (virgül veya boşlukla ayrılmış)",
         "de": "Datenpunkte (durch Komma oder Leerzeichen getrennt)",
         "fr": "Points de données (séparés par des virgules ou des espaces)",
-        "es": "Puntos de datos (separados por coma o espacio)"
+        "es": "Puntos de datos (separados por coma o espacio)",
+        "ar": "نقاط البيانات (مفصولة بفاصلة أو مسافة)"
       },
       "businessContext_i18n": {
         "en": "Raw measurements from process output, e.g., dimensions, weights, cycle times.",
         "tr": "Süreç çıktısından alınan ham ölçümler, örn. boyutlar, ağırlıklar, çevrim süreleri.",
         "de": "Rohmessungen aus dem Prozessoutput, z. B. Abmessungen, Gewichte, Zykluszeiten.",
         "fr": "Mesures brutes de la sortie du processus, par exemple dimensions, poids, temps de cycle.",
-        "es": "Mediciones brutas de la salida del proceso, p. ej., dimensiones, pesos, tiempos de ciclo."
+        "es": "Mediciones brutas de la salida del proceso, p. ej., dimensiones, pesos, tiempos de ciclo.",
+        "ar": "القياسات الخام من مخرجات العملية، مثل الأبعاد والأوزان وأوقات الدورة."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
-        "es": "Tamaño de la muestra (n)"
+        "es": "Tamaño de la muestra (n)",
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample. Must be at least 2 for standard deviation calculation.",
         "tr": "Örneklemdeki gözlem sayısı. Standart sapma hesaplaması için en az 2 olmalıdır.",
         "de": "Anzahl der Beobachtungen in der Stichprobe. Für die Standardabweichungsberechnung mindestens 2 erforderlich.",
         "fr": "Nombre d'observations dans l'échantillon. Doit être au moins 2 pour le calcul de l'écart type.",
-        "es": "Número de observaciones en la muestra. Debe ser al menos 2 para el cálculo de la desviación estándar."
+        "es": "Número de observaciones en la muestra. Debe ser al menos 2 para el cálculo de la desviación estándar.",
+        "ar": "عدد المشاهدات في العينة. يجب أن يكون 2 على الأقل لحساب الانحراف المعياري."
       }
     },
     {
@@ -75,14 +79,16 @@
         "tr": "Veri Türü",
         "de": "Datentyp",
         "fr": "Type de données",
-        "es": "Tipo de datos"
+        "es": "Tipo de datos",
+        "ar": "نوع البيانات"
       },
       "businessContext_i18n": {
         "en": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation.",
         "tr": "Sürekli veri (örn. uzunluk, süre) vs ayrık (örn. kusur sayısı). Yorumlamayı etkiler.",
         "de": "Kontinuierliche Daten (z. B. Länge, Zeit) vs. diskrete (z. B. Anzahl der Fehler). Beeinflusst die Interpretation.",
         "fr": "Données continues (ex. longueur, temps) vs discrètes (ex. nombre de défauts). Affecte l'interprétation.",
-        "es": "Datos continuos (p. ej., longitud, tiempo) vs discretos (p. ej., recuento de defectos). Afecta la interpretación."
+        "es": "Datos continuos (p. ej., longitud, tiempo) vs discretos (p. ej., recuento de defectos). Afecta la interpretación.",
+        "ar": "بيانات مستمرة (مثل الطول والوقت) مقابل بيانات منفصلة (مثل عدد العيوب). يؤثر على التفسير."
       }
     },
     {
@@ -101,14 +107,16 @@
         "tr": "Popülasyon mu Örneklem mi?",
         "de": "Grundgesamtheit oder Stichprobe?",
         "fr": "Population ou échantillon ?",
-        "es": "¿Población o muestra?"
+        "es": "¿Población o muestra?",
+        "ar": "المجتمع أم العينة؟"
       },
       "businessContext_i18n": {
         "en": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction.",
         "tr": "Veriler tüm popülasyonu kapsıyorsa 'popülasyon' (n=N), aksi halde Bessel düzeltmesi için 'örneklem' seçin.",
         "de": "Wählen Sie 'Grundgesamtheit', wenn die Daten die gesamte Population abdecken (n=N), sonst 'Stichprobe' für die Bessel-Korrektur.",
         "fr": "Sélectionnez 'population' si les données couvrent toute la population (n=N), sinon 'échantillon' pour la correction de Bessel.",
-        "es": "Seleccione 'población' si los datos cubren toda la población (n=N), si no 'muestra' para la corrección de Bessel."
+        "es": "Seleccione 'población' si los datos cubren toda la población (n=N), si no 'muestra' para la corrección de Bessel.",
+        "ar": "اختر 'المجتمع' إذا كانت البيانات تغطي المجتمع بأكمله (n=N)، وإلا اختر 'عينة' لتصحيح بيسل."
       }
     },
     {
@@ -125,14 +133,16 @@
         "tr": "Ölçü Birimi",
         "de": "Maßeinheit",
         "fr": "Unité de mesure",
-        "es": "Unidad de medida"
+        "es": "Unidad de medida",
+        "ar": "وحدة القياس"
       },
       "businessContext_i18n": {
         "en": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling.",
         "tr": "Veri noktalarının fiziksel birimi (örn. mm, sn, kg). Çıktı etiketlemesi için kullanılır.",
         "de": "Physikalische Einheit der Datenpunkte (z. B. mm, s, kg). Wird für die Ausgabebeschriftung verwendet.",
         "fr": "Unité physique des points de données (ex. mm, s, kg). Utilisée pour l'étiquetage des résultats.",
-        "es": "Unidad física de los puntos de datos (p. ej., mm, seg, kg). Se usa para etiquetar la salida."
+        "es": "Unidad física de los puntos de datos (p. ej., mm, seg, kg). Se usa para etiquetar la salida.",
+        "ar": "الوحدة الفيزيائية لنقاط البيانات (مثل مم، ثانية، كجم). تستخدم لتسمية المخرجات."
       }
     },
     {
@@ -149,14 +159,16 @@
         "tr": "Alt Spesifikasyon Limiti (LSL)",
         "de": "Untere Spezifikationsgrenze (USG)",
         "fr": "Limite de spécification inférieure (LSL)",
-        "es": "Límite de especificación inferior (LSL)"
+        "es": "Límite de especificación inferior (LSL)",
+        "ar": "حد المواصفات الأدنى (LSL)"
       },
       "businessContext_i18n": {
         "en": "Lower bound of acceptable process output per engineering specifications.",
         "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının alt sınırı.",
         "de": "Untere Grenze des akzeptablen Prozessoutputs gemäß technischen Spezifikationen.",
         "fr": "Limite inférieure de la sortie acceptable du processus selon les spécifications techniques.",
-        "es": "Límite inferior de la salida del proceso aceptable según las especificaciones de ingeniería."
+        "es": "Límite inferior de la salida del proceso aceptable según las especificaciones de ingeniería.",
+        "ar": "الحد الأدنى لمخرجات العملية المقبولة وفقًا للمواصفات الهندسية."
       }
     },
     {
@@ -173,14 +185,16 @@
         "tr": "Üst Spesifikasyon Limiti (USL)",
         "de": "Obere Spezifikationsgrenze (OSG)",
         "fr": "Limite de spécification supérieure (USL)",
-        "es": "Límite superior de especificación (LSE)"
+        "es": "Límite superior de especificación (LSE)",
+        "ar": "حد المواصفات الأعلى (USL)"
       },
       "businessContext_i18n": {
         "en": "Upper bound of acceptable process output per engineering specifications.",
         "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının üst sınırı.",
         "de": "Obere Grenze des akzeptablen Prozessoutputs gemäß technischen Spezifikationen.",
         "fr": "Limite supérieure de la sortie acceptable du processus selon les spécifications techniques.",
-        "es": "Límite superior del proceso aceptable según especificaciones de ingeniería."
+        "es": "Límite superior del proceso aceptable según especificaciones de ingeniería.",
+        "ar": "الحد الأعلى لمخرجات العملية المقبولة وفقًا للمواصفات الهندسية."
       }
     },
     {
@@ -197,14 +211,16 @@
         "tr": "Hedef Değer (Nominal)",
         "de": "Zielwert (Nennwert)",
         "fr": "Valeur cible (nominale)",
-        "es": "Valor objetivo (nominal)"
+        "es": "Valor objetivo (nominal)",
+        "ar": "القيمة المستهدفة (الاسمية)"
       },
       "businessContext_i18n": {
         "en": "Ideal process target, often the midpoint of specification limits.",
         "tr": "İdeal süreç hedefi, genellikle spesifikasyon limitlerinin orta noktası.",
         "de": "Ideales Prozessziel, oft der Mittelpunkt der Spezifikationsgrenzen.",
         "fr": "Cible idéale du processus, souvent le point médian des limites de spécification.",
-        "es": "Objetivo ideal del proceso, a menudo el punto medio de los límites de especificación."
+        "es": "Objetivo ideal del proceso, a menudo el punto medio de los límites de especificación.",
+        "ar": "هدف العملية المثالي، غالبًا نقطة منتصف حدود المواصفات."
       }
     }
   ],
@@ -257,18 +273,26 @@
     ]
   },
   "formulas": {
-    "result": "data_points + sample_size + data_type",
-    "result_aux": "data_points + sample_size + data_type"
+    "normalized_product": "data_points * sample_size * unit_of_measure * specification_limit_lower",
+    "result": "data_points * sample_size * unit_of_measure * specification_limit_lower * (specification_limit_upper * target_value)",
+    "adjustment_factor": "specification_limit_upper * target_value"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "unitless"
+    "unit": "units"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

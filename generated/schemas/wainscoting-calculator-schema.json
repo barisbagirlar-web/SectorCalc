@@ -14,13 +14,15 @@
         "de": "Duvar Uzunluğu",
         "fr": "Longueur du mur",
         "es": "Longitud del muro",
-        "ar": "Wall Length"
+        "ar": "طول الجدار"
       },
       "businessContext_i18n": {
         "en": "Total length of the wall where wainscoting will be installed.",
         "tr": "Lambri montajı yapılacak duvarın toplam uzunluğu.",
         "de": "Gesamtlänge der Wand, an der die Vertäfelung installiert wird.",
-        "fr": "Longueur totale du mur où le lambris sera installé."
+        "fr": "Longueur totale du mur où le lambris sera installé.",
+        "es": "Longitud total de la pared donde se instalará el revestimiento de madera.",
+        "ar": "الطول الإجمالي للجدار الذي سيتم تركيب الكسوة الخشبية عليه."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Lambri Yüksekliği",
         "de": "Vertäfelungshöhe",
         "fr": "Hauteur du lambris",
-        "es": "Wainscoting Height",
-        "ar": "Wainscoting Height"
+        "es": "Altura del revestimiento",
+        "ar": "ارتفاع الكسوة الخشبية"
       },
       "businessContext_i18n": {
         "en": "Height of the wainscoting paneling from floor to top rail.",
         "tr": "Lambri panelinin zeminden üst rayına kadar olan yüksekliği.",
         "de": "Höhe der Vertäfelung vom Boden bis zur oberen Schiene.",
-        "fr": "Hauteur du lambris du sol à la barre supérieure."
+        "fr": "Hauteur du lambris du sol à la barre supérieure.",
+        "es": "Altura del panel de revestimiento desde el suelo hasta el riel superior.",
+        "ar": "ارتفاع ألواح الكسوة الخشبية من الأرض إلى السكة العلوية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Panelbreite",
         "fr": "Largeur du panneau",
         "es": "Ancho del panel",
-        "ar": "Panel Width"
+        "ar": "عرض اللوحة"
       },
       "businessContext_i18n": {
         "en": "Width of each individual wainscoting panel (excluding stiles).",
         "tr": "Her bir lambri panelinin genişliği (dikmeler hariç).",
         "de": "Breite jeder einzelnen Vertäfelung (ohne Zwischenleisten).",
-        "fr": "Largeur de chaque panneau de lambris (hors montants)."
+        "fr": "Largeur de chaque panneau de lambris (hors montants).",
+        "es": "Ancho de cada panel individual de revestimiento (excluyendo montantes).",
+        "ar": "عرض كل لوح كسوة خشبية فردي (باستثناء الأعمدة الرأسية)."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Dikme Genişliği",
         "de": "Zwischenleistenbreite",
         "fr": "Largeur du montant",
-        "es": "Stile Width",
-        "ar": "Stile Width"
+        "es": "Ancho del montante",
+        "ar": "عرض العمود الرأسي"
       },
       "businessContext_i18n": {
         "en": "Width of the vertical trim pieces separating panels (includes end stiles).",
         "tr": "Panelleri ayıran dikey trim parçalarının genişliği (uç dikmeler dahil).",
         "de": "Breite der vertikalen Zierleisten, die die Paneele trennen (einschließlich Endleisten).",
-        "fr": "Largeur des pièces de garniture verticales séparant les panneaux (inclut les montants d'extrémité)."
+        "fr": "Largeur des pièces de garniture verticales séparant les panneaux (inclut les montants d'extrémité).",
+        "es": "Ancho de las piezas de moldura vertical que separan los paneles (incluye montantes finales).",
+        "ar": "عرض قطع الزخرفة الرأسية التي تفصل بين الألواح (تشمل الأعمدة الرأسية الطرفية)."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Kontrplak Levha Uzunluğu",
         "de": "Sperrholzplattenlänge",
         "fr": "Longueur de la feuille de contreplaqué",
-        "es": "Plywood Sheet Length",
-        "ar": "Plywood Sheet Length"
+        "es": "Largo de la hoja de contrachapado",
+        "ar": "طول لوح الخشب الرقائقي"
       },
       "businessContext_i18n": {
         "en": "Length of a standard plywood sheet (typically 8 ft).",
         "tr": "Standart bir kontrplak levhanın uzunluğu (genellikle 8 ft).",
         "de": "Länge einer Standard-Sperrholzplatte (typischerweise 8 ft).",
-        "fr": "Longueur d'une feuille de contreplaqué standard (généralement 8 pi)."
+        "fr": "Longueur d'une feuille de contreplaqué standard (généralement 8 pi).",
+        "es": "Largo de una hoja estándar de contrachapado (típicamente 8 pies).",
+        "ar": "طول لوح الخشب الرقائقي القياسي (عادة 8 أقدام)."
       }
     },
     {
@@ -123,34 +133,40 @@
         "tr": "Kontrplak Levha Genişliği",
         "de": "Sperrholzplattenbreite",
         "fr": "Largeur de la feuille de contreplaqué",
-        "es": "Plywood Sheet Width",
-        "ar": "Plywood Sheet Width"
+        "es": "Ancho de la hoja de contrachapado",
+        "ar": "عرض لوح الخشب الرقائقي"
       },
       "businessContext_i18n": {
         "en": "Width of a standard plywood sheet (typically 4 ft).",
         "tr": "Standart bir kontrplak levhanın genişliği (genellikle 4 ft).",
         "de": "Breite einer Standard-Sperrholzplatte (typischerweise 4 ft).",
-        "fr": "Largeur d'une feuille de contreplaqué standard (généralement 4 pi)."
+        "fr": "Largeur d'une feuille de contreplaqué standard (généralement 4 pi).",
+        "es": "Ancho de una hoja estándar de contrachapado (típicamente 4 pies).",
+        "ar": "عرض لوح الخشب الرقائقي القياسي (عادة 4 أقدام)."
       }
     }
   ],
   "formulas": {
-    "result": "wallLength + wainscotingHeight + panelWidth",
-    "result_copy": "wallLength + wainscotingHeight + panelWidth"
+    "normalized_product": "wallLength * wainscotingHeight * panelWidth * stileWidth",
+    "result": "wallLength * wainscotingHeight * panelWidth * stileWidth * (sheetLength * sheetWidth)",
+    "adjustment_factor": "sheetLength * sheetWidth"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "nStiles",
-      "totalTrimLength",
-      "plywoodSheets"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "plywoodSheets",
-    "unit": "ft"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Mobilya & Ahşap",

@@ -14,14 +14,15 @@
         "de": "Böschungswinkel",
         "fr": "Angle de pente",
         "es": "Ángulo del talud",
-        "ar": "Şev Açısı"
+        "ar": "زاوية الميل"
       },
       "businessContext_i18n": {
         "en": "Eğimin yatay ile yaptığı açı",
         "tr": "Eğimin yatay ile yaptığı açı",
         "de": "Winkel der Böschung zur Horizontalen",
         "fr": "Angle de la pente par rapport à l'horizontale",
-        "es": "Ángulo que forma el talud con la horizontal"
+        "es": "Ángulo que forma el talud con la horizontal",
+        "ar": "الزاوية التي يصنعها الميل مع الأفقي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kohäsion",
         "fr": "Cohésion",
         "es": "Cohesión",
-        "ar": "Kohezyon"
+        "ar": "التماسك"
       },
       "businessContext_i18n": {
         "en": "Zemin kohezyon değeri",
         "tr": "Zemin kohezyon değeri",
         "de": "Kohäsionswert des Bodens",
         "fr": "Valeur de cohésion du sol",
-        "es": "Valor de cohesión del suelo"
+        "es": "Valor de cohesión del suelo",
+        "ar": "قيمة تماسك التربة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Innerer Reibungswinkel",
         "fr": "Angle de frottement interne",
         "es": "Ángulo de fricción interna",
-        "ar": "İçsel Sürtünme Açısı"
+        "ar": "زاوية الاحتكاك الداخلي"
       },
       "businessContext_i18n": {
         "en": "Zemin için efektif kayma direnci açısı",
         "tr": "Zemin için efektif kayma direnci açısı",
         "de": "Effektiver Scherwiderstandswinkel des Bodens",
         "fr": "Angle de résistance au cisaillement effectif du sol",
-        "es": "Ángulo de resistencia al corte efectivo del suelo"
+        "es": "Ángulo de resistencia al corte efectivo del suelo",
+        "ar": "زاوية مقاومة القص الفعالة للتربة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Raumgewicht des Bodens",
         "fr": "Poids volumique du sol",
         "es": "Peso unitario del suelo",
-        "ar": "Zemin Birim Hacim Ağırlığı"
+        "ar": "وزن وحدة التربة"
       },
       "businessContext_i18n": {
         "en": "Doğal birim ağırlık",
         "tr": "Doğal birim ağırlık",
         "de": "Natürliches Raumgewicht",
         "fr": "Poids volumique naturel",
-        "es": "Peso unitario natural"
+        "es": "Peso unitario natural",
+        "ar": "الوزن الطبيعي للوحدة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gleitflächentiefe",
         "fr": "Profondeur de cisaillement",
         "es": "Profundidad de deslizamiento",
-        "ar": "Kayma Derinliği"
+        "ar": "عمق القص"
       },
       "businessContext_i18n": {
         "en": "Yüzeyden kayma düzlemine dik derinlik",
         "tr": "Yüzeyden kayma düzlemine dik derinlik",
         "de": "Senkrechte Tiefe von der Oberfläche zur Gleitebene",
         "fr": "Profondeur perpendiculaire de la surface au plan de cisaillement",
-        "es": "Profundidad perpendicular desde la superficie hasta el plano de deslizamiento"
+        "es": "Profundidad perpendicular desde la superficie hasta el plano de deslizamiento",
+        "ar": "العمق العمودي من السطح إلى مستوى القص"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Wasserhöhe über der Gleitebene",
         "fr": "Hauteur d'eau au-dessus du plan de cisaillement",
         "es": "Altura del agua sobre el plano de deslizamiento",
-        "ar": "Kayma Düzlemi Üzerindeki Su Yüksekliği"
+        "ar": "ارتفاع الماء فوق مستوى القص"
       },
       "businessContext_i18n": {
         "en": "Doygun zemin hesabı için su derinliği",
         "tr": "Doygun zemin hesabı için su derinliği",
         "de": "Wassertiefe für die Berechnung des gesättigten Bodens",
         "fr": "Profondeur d'eau pour le calcul du sol saturé",
-        "es": "Profundidad del agua para cálculo de suelo saturado"
+        "es": "Profundidad del agua para cálculo de suelo saturado",
+        "ar": "عمق الماء لحساب التربة المشبعة"
       }
     }
   ],
   "formulas": {
-    "result": "slopeAngle + cohesion + frictionAngle",
-    "result_copy": "slopeAngle + cohesion + frictionAngle"
+    "normalized_product": "slopeAngle * cohesion * frictionAngle * soilUnitWeight",
+    "result": "slopeAngle * cohesion * frictionAngle * soilUnitWeight * (slipDepth * waterDepthAboveSlip)",
+    "adjustment_factor": "slipDepth * waterDepthAboveSlip"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "resistingStress",
-      "drivingStress"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "drivingStress",
-    "unit": "°"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Matematik & Geometri",

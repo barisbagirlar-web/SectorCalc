@@ -14,14 +14,15 @@
         "de": "Ausfallrate (λ)",
         "fr": "Taux de défaillance (λ)",
         "es": "Tasa de fallos (λ)",
-        "ar": "Failure Rate (λ)"
+        "ar": "معدل الفشل (λ)"
       },
       "businessContext_i18n": {
         "en": "The rate at which failures occur per unit time (exponential distribution parameter)",
         "tr": "Birim zaman başına meydana gelen arıza oranı (üstel dağılım parametresi)",
         "de": "Rate, mit der Ausfälle pro Zeiteinheit auftreten (Parameter der Exponentialverteilung)",
         "fr": "Taux de défaillance (paramètre de la distribution exponentielle)",
-        "es": "Tasa de fallos por unidad de tiempo (parámetro de distribución exponencial)"
+        "es": "Tasa de fallos por unidad de tiempo (parámetro de distribución exponencial)",
+        "ar": "معدل حدوث الأعطال لكل وحدة زمنية (معامل التوزيع الأسي)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Time point at which to compute survival probability",
         "tr": "Hayatta kalma olasılığının hesaplanacağı zaman noktası",
         "de": "Zeitpunkt, zu dem die Überlebenswahrscheinlichkeit berechnet wird",
         "fr": "Instant auquel calculer la probabilité de survie",
-        "es": "Punto de tiempo para calcular la probabilidad de supervivencia"
+        "es": "Punto de tiempo para calcular la probabilidad de supervivencia",
+        "ar": "النقطة الزمنية التي يتم عندها حساب احتمال البقاء"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ziel-Überlebenswahrscheinlichkeit",
         "fr": "Probabilité de survie cible",
         "es": "Probabilidad de supervivencia objetivo",
-        "ar": "Target Survival Probability"
+        "ar": "احتمال البقاء المستهدف"
       },
       "businessContext_i18n": {
         "en": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)",
         "tr": "Gerekli zamanı hesaplamak için istenen hayatta kalma olasılığı (0 ile 1 arasında) (örneğin, B10 ömrü)",
         "de": "Gewünschte Überlebenswahrscheinlichkeit (zwischen 0 und 1) zur Berechnung der erforderlichen Zeit (z. B. B10-Lebensdauer)",
         "fr": "Probabilité de survie souhaitée (entre 0 et 1) pour calculer le temps requis (ex. durée de vie B10)",
-        "es": "Probabilidad de supervivencia deseada (entre 0 y 1) para calcular el tiempo requerido (ej. vida B10)"
+        "es": "Probabilidad de supervivencia deseada (entre 0 y 1) para calcular el tiempo requerido (ej. vida B10)",
+        "ar": "احتمال البقاء المطلوب (بين 0 و1) لحساب الوقت المطلوب (مثل عمر B10)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Beobachtete Ausfälle",
         "fr": "Défaillances observées",
         "es": "Fallos observados",
-        "ar": "Observed Failures"
+        "ar": "الأعطال الملاحظة"
       },
       "businessContext_i18n": {
         "en": "Observed number of failures in a test (for reference, not used in calculations)",
         "tr": "Bir testte gözlemlenen arıza sayısı (referans için, hesaplamalarda kullanılmaz)",
         "de": "Beobachtete Anzahl von Ausfällen in einem Test (zur Referenz, nicht in Berechnungen verwendet)",
         "fr": "Nombre observé de défaillances lors d'un essai (pour référence, non utilisé dans les calculs)",
-        "es": "Número observado de fallos en una prueba (para referencia, no se utiliza en cálculos)"
+        "es": "Número observado de fallos en una prueba (para referencia, no se utiliza en cálculos)",
+        "ar": "عدد الأعطال الملاحظة في اختبار (كمرجع، لا يُستخدم في الحسابات)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gesamte Testzeit",
         "fr": "Temps d'essai total",
         "es": "Tiempo total de prueba",
-        "ar": "Total Test Time"
+        "ar": "إجمالي وقت الاختبار"
       },
       "businessContext_i18n": {
         "en": "Total operating time of all items under test (for reference, not used in calculations)",
         "tr": "Test edilen tüm öğelerin toplam çalışma süresi (referans için, hesaplamalarda kullanılmaz)",
         "de": "Gesamtbetriebszeit aller geprüften Einheiten (zur Referenz, nicht in Berechnungen verwendet)",
         "fr": "Temps de fonctionnement total de tous les articles en essai (pour référence, non utilisé dans les calculs)",
-        "es": "Tiempo total de funcionamiento de todos los elementos bajo prueba (para referencia, no se utiliza en cálculos)"
+        "es": "Tiempo total de funcionamiento de todos los elementos bajo prueba (para referencia, no se utiliza en cálculos)",
+        "ar": "إجمالي وقت التشغيل لجميع العناصر تحت الاختبار (كمرجع، لا يُستخدم في الحسابات)"
       }
     }
   ],

@@ -10,17 +10,19 @@
       "businessContext": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
       "label_i18n": {
         "en": "Basınç (Torr)",
-        "tr": "Basınç (Torr)",
+        "tr": "Ortalama Eğim (%)",
         "de": "Druck (Torr)",
         "fr": "Pression (Torr)",
-        "es": "Basınç (Torr)",
-        "ar": "Basınç (Torr)"
+        "es": "Presión (Torr)",
+        "ar": "الضغط (تور)"
       },
       "businessContext_i18n": {
         "en": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
-        "tr": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
+        "tr": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
         "de": "Gemessener oder berechneter Druckwert in Torr.",
-        "fr": "Valeur de pression mesurée ou calculée en torr"
+        "fr": "Valeur de pression mesurée ou calculée en torr",
+        "es": "Valor de presión medido o calculado en torr.",
+        "ar": "قيمة الضغط المقاسة أو المحسوبة بالتور"
       }
     },
     {
@@ -32,17 +34,19 @@
       "businessContext": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
       "label_i18n": {
         "en": "Dönüşüm Faktörü (psi/Torr)",
-        "tr": "Dönüşüm Faktörü (psi/Torr)",
+        "tr": "Basınç (Torr)",
         "de": "Umrechnungsfaktor (psi/Torr)",
         "fr": "Facteur de conversion (psi/Torr)",
-        "es": "Dönüşüm Faktörü (psi/Torr)",
-        "ar": "Dönüşüm Faktörü (psi/Torr)"
+        "es": "Factor de conversión (psi/Torr)",
+        "ar": "معامل التحويل (psi/Torr)"
       },
       "businessContext_i18n": {
         "en": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
-        "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+        "tr": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
         "de": "Standard-Umrechnungsfaktor; kann je nach Kalibrierungsbedarf angepasst werden.",
-        "fr": "Facteur de conversion standard ; ajustable selon les besoins d'étalonnage"
+        "fr": "Facteur de conversion standard ; ajustable selon les besoins d'étalonnage",
+        "es": "Factor de conversión estándar; ajustable según necesidad de calibración.",
+        "ar": "معامل التحويل القياسي؛ يمكن ضبطه حسب الحاجة للمعايرة"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Anzahl Dezimalstellen",
         "fr": "Nombre de décimales",
         "es": "Número de decimales",
-        "ar": "Ondalık Basamak Sayısı"
+        "ar": "عدد المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuç gösteriminde istenen ondalık hane sayısı.",
-        "tr": "Sonuç gösteriminde istenen ondalık hane sayısı.",
+        "tr": "Dönüşüm Faktörü (psi/Torr)",
         "de": "Gewünschte Anzahl Dezimalstellen in der Ergebnisanzeige.",
-        "fr": "Nombre de décimales souhaité pour l'affichage du résultat"
+        "fr": "Nombre de décimales souhaité pour l'affichage du résultat",
+        "es": "Número de decimales deseado en la visualización del resultado.",
+        "ar": "عدد الخانات العشرية المطلوبة في عرض النتيجة"
       }
     },
     {
@@ -76,17 +82,19 @@
       "businessContext": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
       "label_i18n": {
         "en": "Kalibrasyon Ofseti (psi)",
-        "tr": "Kalibrasyon Ofseti (psi)",
+        "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
         "de": "Kalibrierungs-Offset (psi)",
         "fr": "Offset d'étalonnage (psi)",
-        "es": "Kalibrasyon Ofseti (psi)",
-        "ar": "Kalibrasyon Ofseti (psi)"
+        "es": "Desplazamiento de calibración (psi)",
+        "ar": "إزاحة المعايرة (psi)"
       },
       "businessContext_i18n": {
         "en": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
-        "tr": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
+        "tr": "Ondalık Haneler",
         "de": "Offset für Nullpunktabgleich oder Verschiebungskorrektur.",
-        "fr": "Offset ajouté pour la mise à zéro ou la correction de dérive"
+        "fr": "Offset ajouté pour la mise à zéro ou la correction de dérive",
+        "es": "Desplazamiento añadido para ajuste de cero o corrección de deriva.",
+        "ar": "الإزاحة المضافة لتصحيح الصفر أو الانحراف"
       }
     }
   ],

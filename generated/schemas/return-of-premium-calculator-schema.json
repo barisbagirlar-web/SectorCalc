@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Aylık Prim (TL)",
         "tr": "Aylık Prim (TL)",
-        "de": "Aylık Prim (TL)",
+        "de": "Monatsprämie (TL)",
         "fr": "Prime mensuelle (TL)",
         "es": "Prima mensual (TL)",
-        "ar": "Aylık Prim (TL)"
+        "ar": "القسط الشهري (ل.ت)"
       },
       "businessContext_i18n": {
         "en": "Poliçe için ödenen aylık prim tutarı",
         "tr": "Poliçe için ödenen aylık prim tutarı",
         "de": "Monatlicher Beitrag für die Police",
         "fr": "Montant de la prime mensuelle payée pour la police",
-        "es": "Monto de la prima mensual pagada por la póliza"
+        "es": "Monto de la prima mensual pagada por la póliza",
+        "ar": "مبلغ القسط الشهري المدفوع للوثيقة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Vertragslaufzeit (Jahre)",
         "fr": "Durée de la police (ans)",
         "es": "Duración de la póliza (años)",
-        "ar": "Poliçe Süresi (Yıl)"
+        "ar": "مدة الوثيقة (بالسنوات)"
       },
       "businessContext_i18n": {
         "en": "Poliçenin toplam süresi",
         "tr": "Poliçenin toplam süresi",
         "de": "Gesamtlaufzeit der Police",
         "fr": "Durée totale de la police",
-        "es": "Período total de la póliza"
+        "es": "Período total de la póliza",
+        "ar": "المدة الإجمالية للوثيقة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Jährlicher Zinssatz (%)",
         "fr": "Taux d'intérêt annuel (%)",
         "es": "Tasa de interés anual (%)",
-        "ar": "Yıllık Faiz Oranı (%)"
+        "ar": "معدل الفائدة السنوي (%)"
       },
       "businessContext_i18n": {
         "en": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
         "tr": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
         "de": "Jährlicher Zinssatz für die Verzinsung der zurückgezahlten Beiträge",
         "fr": "Taux d'intérêt composé annuel appliqué aux primes remboursées",
-        "es": "Tasa de interés compuesto anual aplicada a las primas devueltas"
+        "es": "Tasa de interés compuesto anual aplicada a las primas devueltas",
+        "ar": "معدل الفائدة المركبة السنوي المطبق على الأقساط المستردة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schadensfall (0: Nein, 1: Ja)",
         "fr": "Sinistre (0 : Non, 1 : Oui)",
         "es": "Reclamación de siniestro (0: No, 1: Sí)",
-        "ar": "Hasar Talebi (0: Yok, 1: Var)"
+        "ar": "مطالبة التعويض (0: لا، 1: نعم)"
       },
       "businessContext_i18n": {
         "en": "Poliçe süresince hasar talebi olup olmadığı",
         "tr": "Poliçe süresince hasar talebi olup olmadığı",
         "de": "Angabe, ob während der Vertragslaufzeit ein Schaden gemeldet wurde",
         "fr": "Indique s'il y a eu un sinistre pendant la durée de la police",
-        "es": "Indica si ha habido una reclamación de siniestro durante la vigencia de la póliza"
+        "es": "Indica si ha habido una reclamación de siniestro durante la vigencia de la póliza",
+        "ar": "ما إذا كانت هناك مطالبة تعويض خلال مدة الوثيقة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verwaltungskostenabzug (%)",
         "fr": "Frais de gestion (%)",
         "es": "Deducción por gastos de administración (%)",
-        "ar": "Yönetim Gideri Kesintisi (%)"
+        "ar": "خصم المصاريف الإدارية (%)"
       },
       "businessContext_i18n": {
         "en": "İade tutarından kesilecek yönetim gideri oranı",
         "tr": "İade tutarından kesilecek yönetim gideri oranı",
         "de": "Prozentsatz der Verwaltungskosten, die vom Rückzahlungsbetrag abgezogen werden",
         "fr": "Pourcentage des frais de gestion déduits du montant du remboursement",
-        "es": "Porcentaje de gastos de administración a deducir del monto devuelto"
+        "es": "Porcentaje de gastos de administración a deducir del monto devuelto",
+        "ar": "نسبة المصاريف الإدارية المخصومة من مبلغ الاسترداد"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Steuersatz auf Rückzahlung (%)",
         "fr": "Taux d'imposition du remboursement (%)",
         "es": "Tasa de impuesto sobre la devolución (%)",
-        "ar": "İade Vergi Oranı (%)"
+        "ar": "نسبة استرداد الضريبة (%)"
       },
       "businessContext_i18n": {
         "en": "İade tutarı üzerinden alınan vergi oranı",
         "tr": "İade tutarı üzerinden alınan vergi oranı",
         "de": "Steuersatz auf den Rückzahlungsbetrag",
         "fr": "Taux d'imposition appliqué au montant du remboursement",
-        "es": "Tasa de impuesto aplicada sobre el monto devuelto"
+        "es": "Tasa de impuesto aplicada sobre el monto devuelto",
+        "ar": "نسبة الضريبة المطبقة على مبلغ الاسترداد"
       }
     }
   ],

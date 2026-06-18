@@ -14,14 +14,15 @@
         "de": "Gesamtanzahl",
         "fr": "Nombre total d'éléments",
         "es": "Total de elementos",
-        "ar": "Total Items"
+        "ar": "إجمالي العناصر"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the set",
         "tr": "Kümedeki toplam öğe sayısı",
         "de": "Gesamtzahl der Elemente in der Menge",
         "fr": "Nombre total d'éléments dans l'ensemble.",
-        "es": "Número total de elementos en el conjunto"
+        "es": "Número total de elementos en el conjunto",
+        "ar": "إجمالي عدد العناصر في المجموعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Auswahlanzahl",
         "fr": "Éléments à choisir",
         "es": "Elementos a elegir",
-        "ar": "Items to Choose"
+        "ar": "العناصر المراد اختيارها"
       },
       "businessContext_i18n": {
         "en": "Number of items selected without regard to order",
         "tr": "Sıra gözetmeksizin seçilen öğe sayısı",
         "de": "Anzahl der ausgewählten Elemente ohne Berücksichtigung der Reihenfolge",
         "fr": "Nombre d'éléments sélectionnés sans tenir compte de l'ordre.",
-        "es": "Número de elementos seleccionados sin importar el orden"
+        "es": "Número de elementos seleccionados sin importar el orden",
+        "ar": "عدد العناصر المختارة دون ترتيب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
         "fr": "Nombre de décimales pour arrondir le résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة"
       }
     },
     {
@@ -83,30 +86,37 @@
         "de": "Ausgabeformat",
         "fr": "Style de sortie",
         "es": "Estilo de salida",
-        "ar": "Output Style"
+        "ar": "نمط الإخراج"
       },
       "businessContext_i18n": {
         "en": "0: integer, 1: decimal (reserved for future use)",
         "tr": "0: tam sayı, 1: ondalık (gelecekte kullanılmak üzere ayrılmıştır)",
         "de": "0: Ganzzahl, 1: Dezimal (für zukünftige Verwendung reserviert)",
         "fr": "0 : entier, 1 : décimal (réservé pour usage futur).",
-        "es": "0: entero, 1: decimal (reservado para uso futuro)"
+        "es": "0: entero, 1: decimal (reservado para uso futuro)",
+        "ar": "0: عدد صحيح، 1: عشري (محجوز للاستخدام المستقبلي)"
       }
     }
   ],
   "formulas": {
-    "result": "n + k + decimalPlaces",
-    "result_copy": "n + k + decimalPlaces"
+    "normalized_product": "n * k * decimalPlaces * outputStyle",
+    "result": "n * k * decimalPlaces * outputStyle"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review inputs and verify results against site standards."
+    "breakdown": [
+      "normalized_product"
     ],
-    "dataConfidenceAdjusted": "combinations_copy",
-    "unit": "—"
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -12,16 +12,17 @@
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
-        "fr": "Distance (km)",
+        "fr": "Debye-Hückel B",
         "es": "Distancia (km)",
-        "ar": "Distance (km)"
+        "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
         "en": "Distance in kilometers to convert to meters.",
         "tr": "Metreye dönüştürülecek kilometre cinsinden mesafe.",
         "de": "Entfernung in Kilometern zur Umrechnung in Meter.",
         "fr": "Distance en kilomètres à convertir en mètres.",
-        "es": "Distancia en kilómetros para convertir a metros."
+        "es": "Distancia en kilómetros para convertir a metros.",
+        "ar": "المسافة بالكيلومترات المراد تحويلها إلى أمتار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Meters per kilometer. Standard value is 1000.",
         "tr": "Kilometre başına metre. Standart değer 1000'dir.",
         "de": "Meter pro Kilometer. Standardwert ist 1000.",
         "fr": "Mètres par kilomètre. Valeur standard : 1000.",
-        "es": "Metros por kilómetro. El valor estándar es 1000."
+        "es": "Metros por kilómetro. El valor estándar es 1000.",
+        "ar": "الأمتار لكل كيلومتر. القيمة القياسية هي 1000."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
         "es": "Método de redondeo",
-        "ar": "Rounding Method"
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = round, 1 = floor, 2 = ceil.",
         "tr": "0 = yuvarla, 1 = taban, 2 = tavan.",
         "de": "0 = runden, 1 = abrunden, 2 = aufrunden.",
         "fr": "0 = arrondi, 1 = plancher, 2 = plafond.",
-        "es": "0 = redondear, 1 = piso, 2 = techo."
+        "es": "0 = redondear, 1 = piso, 2 = techo.",
+        "ar": "0 = تقريب، 1 = أرضية، 2 = سقف."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Mindestschwellenwert (m)",
         "fr": "Seuil minimum (m)",
         "es": "Umbral mínimo (m)",
-        "ar": "Minimum Threshold (m)"
+        "ar": "الحد الأدنى (م)"
       },
       "businessContext_i18n": {
         "en": "Output value floor, useful for safety margins.",
         "tr": "Çıktı değeri tabanı, güvenlik payları için kullanışlıdır.",
         "de": "Untergrenze des Ausgabewerts, nützlich für Sicherheitsmargen.",
         "fr": "Plancher de la valeur de sortie, utile pour les marges de sécurité.",
-        "es": "Valor mínimo de salida, útil para márgenes de seguridad."
+        "es": "Valor mínimo de salida, útil para márgenes de seguridad.",
+        "ar": "الحد الأدنى لقيمة المخرجات، مفيد لهوامش الأمان."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Maximalschwellenwert (m)",
         "fr": "Seuil maximum (m)",
         "es": "Umbral máximo (m)",
-        "ar": "Maximum Threshold (m)"
+        "ar": "الحد الأقصى (م)"
       },
       "businessContext_i18n": {
         "en": "Output value ceiling, for limiting results.",
         "tr": "Çıktı değeri tavanı, sonuçları sınırlamak için.",
         "de": "Obergrenze des Ausgabewerts zur Begrenzung der Ergebnisse.",
         "fr": "Plafond de la valeur de sortie, pour limiter les résultats.",
-        "es": "Valor máximo de salida, para limitar resultados."
+        "es": "Valor máximo de salida, para limitar resultados.",
+        "ar": "الحد الأقصى لقيمة المخرجات، لتقييد النتائج."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
         "es": "Factor de escala",
-        "ar": "Scale Factor"
+        "ar": "عامل القياس"
       },
       "businessContext_i18n": {
         "en": "Batch multiplier for bulk conversions.",
         "tr": "Toplu dönüşümler için parti çarpanı.",
         "de": "Stapelmultiplikator für Stapelumrechnungen.",
         "fr": "Multiplicateur de lot pour les conversions en vrac.",
-        "es": "Multiplicador de lote para conversiones en masa."
+        "es": "Multiplicador de lote para conversiones en masa.",
+        "ar": "مضاعف الدفعة للتحويلات المجمعة."
       }
     }
   ],

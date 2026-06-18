@@ -14,14 +14,15 @@
         "de": "Lärmpegel",
         "fr": "Niveau sonore",
         "es": "Nivel de ruido",
-        "ar": "Noise Level"
+        "ar": "مستوى الضوضاء"
       },
       "businessContext_i18n": {
         "en": "Average noise level during exposure in decibels A-weighted",
         "tr": "Maruziyet sırasında ortalama gürültü seviyesi (A ağırlıklı desibel)",
         "de": "Durchschnittlicher Lärmpegel während der Exposition in Dezibel A-bewertet",
         "fr": "Niveau sonore moyen pendant l'exposition en décibels pondérés A",
-        "es": "Nivel de ruido promedio durante la exposición en decibelios A ponderados"
+        "es": "Nivel de ruido promedio durante la exposición en decibelios A ponderados",
+        "ar": "متوسط مستوى الضوضاء أثناء التعرض بالديسيبل (A-weighted)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tägliche Expositionsstunden",
         "fr": "Heures d'exposition quotidiennes",
         "es": "Horas de exposición diarias",
-        "ar": "Daily Exposure Hours"
+        "ar": "ساعات التعرض اليومية"
       },
       "businessContext_i18n": {
         "en": "Number of hours per day exposed to noise",
         "tr": "Günde gürültüye maruz kalınan saat sayısı",
         "de": "Anzahl der Stunden pro Tag Lärmexposition",
         "fr": "Nombre d'heures par jour exposé au bruit",
-        "es": "Número de horas al día expuesto al ruido"
+        "es": "Número de horas al día expuesto al ruido",
+        "ar": "عدد ساعات التعرض للضوضاء يوميًا"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Expositionsjahre",
         "fr": "Années d'exposition",
         "es": "Años de exposición",
-        "ar": "Years of Exposure"
+        "ar": "سنوات التعرض"
       },
       "businessContext_i18n": {
         "en": "Total years of occupational noise exposure",
         "tr": "Mesleki gürültü maruziyetinin toplam yılı",
         "de": "Gesamte Jahre beruflicher Lärmexposition",
         "fr": "Nombre total d'années d'exposition professionnelle au bruit",
-        "es": "Total de años de exposición ocupacional al ruido"
+        "es": "Total de años de exposición ocupacional al ruido",
+        "ar": "إجمالي سنوات التعرض للضوضاء المهنية"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Aktuelles Alter",
         "fr": "Âge actuel",
         "es": "Edad actual",
-        "ar": "Current Age"
+        "ar": "العمر الحالي"
       },
       "businessContext_i18n": {
         "en": "Age of the person for presbycusis estimation",
         "tr": "Presbiakuzi tahmini için kişinin yaşı",
         "de": "Alter der Person für Presbyakusis-Schätzung",
         "fr": "Âge de la personne pour l'estimation de la presbyacousie",
-        "es": "Edad de la persona para estimación de presbiacusia"
+        "es": "Edad de la persona para estimación de presbiacusia",
+        "ar": "عمر الشخص لتقدير فقدان السمع المرتبط بالعمر"
       }
     }
   ],
   "formulas": {
-    "result": "noise_level + exposure_hours + years_exposed",
-    "result_copy": "noise_level + exposure_hours + years_exposed"
+    "normalized_product": "noise_level * exposure_hours * years_exposed * age",
+    "result": "noise_level * exposure_hours * years_exposed * age"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "nihl",
-      "age_loss"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "total_hearing_loss",
-    "unit": "dBA"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "İSG & Risk",
   "sector": "Günlük Yaşam & Ev",

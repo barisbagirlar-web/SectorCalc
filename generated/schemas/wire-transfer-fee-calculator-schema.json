@@ -13,14 +13,16 @@
         "tr": "Transfer Tutarı",
         "de": "Überweisungsbetrag",
         "fr": "Montant du transfert",
-        "es": "Transfer Amount",
-        "ar": "Transfer Amount"
+        "es": "Monto de transferencia",
+        "ar": "مبلغ التحويل"
       },
       "businessContext_i18n": {
         "en": "The principal amount to be transferred in US dollars.",
         "tr": "ABD doları cinsinden transfer edilecek anapara tutarı.",
         "de": "Der in US-Dollar zu überweisende Kapitalbetrag.",
-        "fr": "Montant principal à transférer en dollars américains."
+        "fr": "Montant principal à transférer en dollars américains.",
+        "es": "Monto principal a transferir en dólares estadounidenses.",
+        "ar": "المبلغ الأساسي المراد تحويله بالدولار الأمريكي."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Gönderen Banka Sabit Ücreti",
         "de": "Pauschalgebühr des Senders",
         "fr": "Frais fixes de l'expéditeur",
-        "es": "Sender's Flat Fee",
-        "ar": "Sender's Flat Fee"
+        "es": "Tarifa fija del remitente",
+        "ar": "الرسوم الثابتة للبنك المرسل"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged by the sending bank.",
         "tr": "Gönderen banka tarafından alınan sabit ücret.",
         "de": "Feste Gebühr, die von der sendenden Bank erhoben wird.",
-        "fr": "Frais fixes facturés par la banque émettrice."
+        "fr": "Frais fixes facturés par la banque émettrice.",
+        "es": "Tarifa fija cobrada por el banco emisor.",
+        "ar": "الرسوم الثابتة التي يتقاضاها البنك المرسل."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Gönderen Banka Yüzde Ücreti",
         "de": "Prozentuale Gebühr des Senders",
         "fr": "Frais en pourcentage de l'expéditeur",
-        "es": "Sender's Percentage Fee",
-        "ar": "Sender's Percentage Fee"
+        "es": "Porcentaje de tarifa del remitente",
+        "ar": "الرسوم النسبية للبنك المرسل"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by the sending bank on the transfer amount.",
         "tr": "Gönderen banka tarafından transfer tutarı üzerinden alınan yüzde ücret.",
         "de": "Prozentuale Gebühr, die von der sendenden Bank auf den Überweisungsbetrag erhoben wird.",
-        "fr": "Frais en pourcentage facturés par la banque émettrice sur le montant du transfert."
+        "fr": "Frais en pourcentage facturés par la banque émettrice sur le montant du transfert.",
+        "es": "Porcentaje de tarifa cobrado por el banco emisor sobre el monto de transferencia.",
+        "ar": "الرسوم النسبية التي يتقاضاها البنك المرسل على مبلغ التحويل."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Aracı Banka Sabit Ücreti",
         "de": "Pauschalgebühr der Zwischenbank",
         "fr": "Frais fixes de la banque intermédiaire",
-        "es": "Intermediary Bank Flat Fee",
-        "ar": "Intermediary Bank Flat Fee"
+        "es": "Tarifa fija del banco intermediario",
+        "ar": "الرسوم الثابتة للبنك الوسيط"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged by any intermediary bank, typically for international transfers.",
         "tr": "Herhangi bir aracı banka tarafından alınan sabit ücret, genellikle uluslararası transferlerde.",
         "de": "Feste Gebühr, die von einer zwischengeschalteten Bank erhoben wird, typischerweise bei internationalen Überweisungen.",
-        "fr": "Frais fixes facturés par une banque intermédiaire, généralement pour les transferts internationaux."
+        "fr": "Frais fixes facturés par une banque intermédiaire, généralement pour les transferts internationaux.",
+        "es": "Tarifa fija cobrada por cualquier banco intermediario, típicamente para transferencias internacionales.",
+        "ar": "الرسوم الثابتة التي يتقاضاها أي بنك وسيط، عادة للتحويلات الدولية."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Alıcı Banka Sabit Ücreti",
         "de": "Pauschalgebühr des Empfängers",
         "fr": "Frais fixes du bénéficiaire",
-        "es": "Receiver's Flat Fee",
-        "ar": "Receiver's Flat Fee"
+        "es": "Tarifa fija del destinatario",
+        "ar": "الرسوم الثابتة للبنك المستلم"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged by the receiving bank.",
         "tr": "Alıcı banka tarafından alınan sabit ücret.",
         "de": "Feste Gebühr, die von der empfangenden Bank erhoben wird.",
-        "fr": "Frais fixes facturés par la banque réceptrice."
+        "fr": "Frais fixes facturés par la banque réceptrice.",
+        "es": "Tarifa fija cobrada por el banco receptor.",
+        "ar": "الرسوم الثابتة التي يتقاضاها البنك المستلم."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Uluslararası Transfer",
         "de": "Internationale Überweisung",
         "fr": "Transfert international",
-        "es": "International Transfer",
-        "ar": "International Transfer"
+        "es": "Transferencia internacional",
+        "ar": "تحويل دولي"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic.",
         "tr": "Transfer uluslararası ise (aracı/alıcı ücretleri içeriyorsa) 1, yurtiçi ise 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, wenn die Überweisung international ist (Zwischen-/Empfängergebühren), 0 für Inland.",
-        "fr": "Mettre à 1 si le transfert est international (implique des frais d'intermédiaire/bénéficiaire), 0 pour national."
+        "fr": "Mettre à 1 si le transfert est international (implique des frais d'intermédiaire/bénéficiaire), 0 pour national.",
+        "es": "Establecer en 1 si la transferencia es internacional (involucra tarifas de intermediario/destinatario), 0 para nacional.",
+        "ar": "اضبط على 1 إذا كان التحويل دوليًا (يشمل رسوم وسيط/مستلم)، 0 للمحلي."
       }
     }
   ],

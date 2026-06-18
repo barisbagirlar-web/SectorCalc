@@ -14,14 +14,15 @@
         "de": "Tankvolumen",
         "fr": "Volume du réservoir",
         "es": "Volumen del tanque",
-        "ar": "Tank Volume"
+        "ar": "حجم الحوض"
       },
       "businessContext_i18n": {
         "en": "The volume of the scuba cylinder in liters.",
         "tr": "Tüp hacmi (litre).",
         "de": "Volumen der Tauchflasche in Litern.",
         "fr": "Volume de la bouteille de plongée en litres.",
-        "es": "Volumen del cilindro de buceo en litros."
+        "es": "Volumen del cilindro de buceo en litros.",
+        "ar": "حجم أسطوانة الغوص باللترات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anfangsdruck",
         "fr": "Pression de départ",
         "es": "Presión inicial",
-        "ar": "Starting Pressure"
+        "ar": "الضغط الابتدائي"
       },
       "businessContext_i18n": {
         "en": "The pressure of the full tank.",
         "tr": "Dolu tüpün basıncı.",
         "de": "Druck der vollen Flasche.",
         "fr": "Pression de la bouteille pleine.",
-        "es": "Presión del tanque lleno."
+        "es": "Presión del tanque lleno.",
+        "ar": "ضغط الخزان الممتلئ."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reservedruck",
         "fr": "Pression de réserve",
         "es": "Presión de reserva",
-        "ar": "Reserve Pressure"
+        "ar": "ضغط الاحتياطي"
       },
       "businessContext_i18n": {
         "en": "The pressure at which the dive should be ended, typically for safety reserve.",
         "tr": "Dalgıcın dalışı sonlandırması gereken basınç, genellikle güvenlik rezervi için.",
         "de": "Druck, bei dem der Tauchgang beendet werden sollte, typischerweise als Sicherheitsreserve.",
         "fr": "Pression à laquelle la plongée doit être terminée, généralement pour la réserve de sécurité.",
-        "es": "Presión a la que debe finalizar la inmersión, normalmente por reserva de seguridad."
+        "es": "Presión a la que debe finalizar la inmersión, normalmente por reserva de seguridad.",
+        "ar": "الضغط الذي يجب عنده إنهاء الغوص، عادةً للاحتياطي الآمن."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Durchschnittliche Tauchtiefe",
         "fr": "Profondeur moyenne de plongée",
         "es": "Profundidad media de inmersión",
-        "ar": "Average Dive Depth"
+        "ar": "متوسط عمق الغوص"
       },
       "businessContext_i18n": {
         "en": "The planned average depth of the dive.",
         "tr": "Planlanan ortalama dalış derinliği.",
         "de": "Geplante durchschnittliche Tiefe des Tauchgangs.",
         "fr": "Profondeur moyenne prévue de la plongée.",
-        "es": "Profundidad media planificada de la inmersión."
+        "es": "Profundidad media planificada de la inmersión.",
+        "ar": "متوسط العمق المخطط للغوص."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Luftverbrauch an der Oberfläche",
         "fr": "Consommation d'air en surface",
         "es": "Consumo de aire en superficie",
-        "ar": "Surface Air Consumption"
+        "ar": "استهلاك الهواء السطحي"
       },
       "businessContext_i18n": {
         "en": "The diver's personal surface air consumption rate.",
         "tr": "Dalgıcın kişisel yüzey hava tüketim hızı.",
         "de": "Persönlicher Luftverbrauch des Tauchers an der Oberfläche.",
         "fr": "Taux de consommation d'air personnel du plongeur en surface.",
-        "es": "Tasa personal de consumo de aire en superficie del buceador."
+        "es": "Tasa personal de consumo de aire en superficie del buceador.",
+        "ar": "معدل استهلاك الهواء الشخصي للغواص على السطح."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Wasserdichtefaktor",
         "fr": "Facteur de densité de l'eau",
         "es": "Factor de densidad del agua",
-        "ar": "Water Density Factor"
+        "ar": "معامل كثافة الماء"
       },
       "businessContext_i18n": {
         "en": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth.",
         "tr": "Tatlı su için 1.00, tuzlu su için 1.03; 10m derinlik başına basınç artışını yansıtır.",
         "de": "1,00 für Süßwasser, 1,03 für Salzwasser; spiegelt den Druckanstieg pro 10 m Tiefe wider.",
         "fr": "1,00 pour l'eau douce, 1,03 pour l'eau salée ; reflète l'augmentation de pression par 10 m de profondeur.",
-        "es": "1,00 para agua dulce, 1,03 para agua salada; refleja el aumento de presión por cada 10 m de profundidad."
+        "es": "1,00 para agua dulce, 1,03 para agua salada; refleja el aumento de presión por cada 10 m de profundidad.",
+        "ar": "1.00 للمياه العذبة، 1.03 للمياه المالحة؛ يعكس زيادة الضغط لكل 10 أمتار عمق."
       }
     }
   ],

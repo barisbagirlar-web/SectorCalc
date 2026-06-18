@@ -14,14 +14,15 @@
         "de": "Geschwindigkeit in Mbps",
         "fr": "Vitesse en Mbps",
         "es": "Velocidad en Mbps",
-        "ar": "Speed in Mbps"
+        "ar": "السرعة بالميغابت في الثانية"
       },
       "businessContext_i18n": {
         "en": "Measured or nominal data rate in megabits per second.",
         "tr": "Megabit/saniye cinsinden ölçülen veya nominal veri hızı.",
         "de": "Gemessene oder nominale Datenrate in Megabit pro Sekunde.",
         "fr": "Débit de données mesuré ou nominal en mégabits par seconde.",
-        "es": "Tasa de datos medida o nominal en megabits por segundo."
+        "es": "Tasa de datos medida o nominal en megabits por segundo.",
+        "ar": "معدل البيانات المُقاس أو الاسمي بالميغابت في الثانية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion: 1 Gbps = 1000 Mbps. Adjust for non-standard units.",
         "tr": "Standart dönüşüm: 1 Gbps = 1000 Mbps. Standart olmayan birimler için ayarlayın.",
         "de": "Standardumrechnung: 1 Gbit/s = 1000 Mbit/s. Bei nicht standardmäßigen Einheiten anpassen.",
         "fr": "Conversion standard : 1 Gbps = 1000 Mbps. Ajuster pour les unités non standard.",
-        "es": "Conversión estándar: 1 Gbps = 1000 Mbps. Ajustar para unidades no estándar."
+        "es": "Conversión estándar: 1 Gbps = 1000 Mbps. Ajustar para unidades no estándar.",
+        "ar": "التحويل القياسي: 1 جيجابت/ثانية = 1000 ميغابت/ثانية. اضبط للوحدات غير القياسية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Output precision in decimal places for reporting consistency.",
         "tr": "Raporlama tutarlılığı için ondalık basamak cinsinden çıktı hassasiyeti.",
         "de": "Ausgabegenauigkeit in Dezimalstellen für konsistente Berichterstattung.",
         "fr": "Précision de sortie en décimales pour la cohérence des rapports.",
-        "es": "Precisión de salida en decimales para consistencia en informes."
+        "es": "Precisión de salida en decimales para consistencia en informes.",
+        "ar": "دقة الإخراج بعدد المنازل العشرية لتناسق التقارير."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kalibrierungs-Offset (Mbit/s)",
         "fr": "Décalage d'étalonnage (Mbps)",
         "es": "Desplazamiento de calibración (Mbps)",
-        "ar": "Calibration Offset (Mbps)"
+        "ar": "إزاحة المعايرة (ميغابت/ثانية)"
       },
       "businessContext_i18n": {
         "en": "Calibration correction value added to the input. Typically 0 for uncalibrated readings.",
         "tr": "Girişe eklenen kalibrasyon düzeltme değeri. Kalibre edilmemiş okumalar için genellikle 0.",
         "de": "Kalibrierungskorrekturwert, der zum Eingang addiert wird. Typischerweise 0 für unkalibrierte Messwerte.",
         "fr": "Valeur de correction d'étalonnage ajoutée à l'entrée. Généralement 0 pour les lectures non étalonnées.",
-        "es": "Valor de corrección de calibración añadido a la entrada. Normalmente 0 para lecturas no calibradas."
+        "es": "Valor de corrección de calibración añadido a la entrada. Normalmente 0 para lecturas no calibradas.",
+        "ar": "قيمة تصحيح المعايرة المضافة إلى الإدخال. عادةً 0 للقراءات غير المعايرة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Messungs-ID",
         "fr": "ID de mesure",
         "es": "ID de medición",
-        "ar": "Measurement ID"
+        "ar": "معرف القياس"
       },
       "businessContext_i18n": {
         "en": "For traceability to measurement records, set to 0 if not applicable.",
         "tr": "Ölçüm kayıtlarına izlenebilirlik için, uygun değilse 0 olarak ayarlayın.",
         "de": "Für Rückverfolgbarkeit zu Messaufzeichnungen, auf 0 setzen, falls nicht zutreffend.",
         "fr": "Pour la traçabilité des enregistrements de mesure, mettre à 0 si non applicable.",
-        "es": "Para trazabilidad a registros de medición, establecer en 0 si no aplica."
+        "es": "Para trazabilidad a registros de medición, establecer en 0 si no aplica.",
+        "ar": "للتتبع إلى سجلات القياس، اضبط على 0 إذا لم ينطبق."
       }
     }
   ],

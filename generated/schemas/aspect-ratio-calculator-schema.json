@@ -14,14 +14,15 @@
         "de": "Breite",
         "fr": "Largeur",
         "es": "Ancho",
-        "ar": "Width"
+        "ar": "العرض"
       },
       "businessContext_i18n": {
         "en": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation.",
         "tr": "Ekran, görüntü veya öğenin piksel cinsinden genişliği. En-boy oranı hesaplaması için yatay boyutu belirler.",
         "de": "Die Breite des Bildschirms, Bildes oder Elements in Pixeln. Wird verwendet, um die horizontale Dimension für die Seitenverhältnisberechnung zu bestimmen.",
         "fr": "La largeur de l'écran, de l'image ou de l'élément en pixels. Utilisée pour déterminer la dimension horizontale pour le calcul du rapport hauteur/largeur.",
-        "es": "El ancho de la pantalla, imagen o elemento en píxeles. Se utiliza para determinar la dimensión horizontal para el cálculo de la relación de aspecto."
+        "es": "El ancho de la pantalla, imagen o elemento en píxeles. Se utiliza para determinar la dimensión horizontal para el cálculo de la relación de aspecto.",
+        "ar": "عرض الشاشة أو الصورة أو العنصر بالبكسل. يُستخدم لتحديد البعد الأفقي لحساب نسبة العرض إلى الارتفاع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation.",
         "tr": "Ekran, görüntü veya öğenin piksel cinsinden yüksekliği. En-boy oranı hesaplaması için dikey boyutu belirler.",
         "de": "Die Höhe des Bildschirms, Bildes oder Elements in Pixeln. Wird verwendet, um die vertikale Dimension für die Seitenverhältnisberechnung zu bestimmen.",
         "fr": "La hauteur de l'écran, de l'image ou de l'élément en pixels. Utilisée pour déterminer la dimension verticale pour le calcul du rapport hauteur/largeur.",
-        "es": "La altura de la pantalla, imagen o elemento en píxeles. Se utiliza para determinar la dimensión vertical para el cálculo de la relación de aspecto."
+        "es": "La altura de la pantalla, imagen o elemento en píxeles. Se utiliza para determinar la dimensión vertical para el cálculo de la relación de aspecto.",
+        "ar": "ارتفاع الشاشة أو الصورة أو العنصر بالبكسل. يُستخدم لتحديد البعد الرأسي لحساب نسبة العرض إلى الارتفاع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ziel-Seitenverhältnis Breite",
         "fr": "Largeur du rapport cible",
         "es": "Ancho de relación objetivo",
-        "ar": "Target Ratio Width"
+        "ar": "عرض النسبة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
         "tr": "Hedef en-boy oranının genişlik bileşeni (ör. 16:9 için 16). Mevcut en-boy oranının bir standarda ne kadar yakın olduğunu karşılaştırmak için kullanılır.",
         "de": "Die Breitenkomponente eines Ziel-Seitenverhältnisses (z.B. 16 für 16:9). Wird verwendet, um zu vergleichen, wie nah das aktuelle Seitenverhältnis an einem Standard ist.",
         "fr": "La composante largeur d'un rapport hauteur/largeur cible (par exemple, 16 pour 16:9). Utilisée pour comparer la proximité du rapport actuel à un standard.",
-        "es": "El componente de ancho de una relación de aspecto objetivo (ej. 16 para 16:9). Se utiliza para comparar qué tan cerca está la relación de aspecto actual de una estándar."
+        "es": "El componente de ancho de una relación de aspecto objetivo (ej. 16 para 16:9). Se utiliza para comparar qué tan cerca está la relación de aspecto actual de una estándar.",
+        "ar": "مكون العرض لنسبة عرض إلى ارتفاع مستهدفة (مثل 16 لنسبة 16:9). يُستخدم لمقارنة مدى قرب نسبة العرض إلى الارتفاع الحالية من النسبة القياسية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ziel-Seitenverhältnis Höhe",
         "fr": "Hauteur du rapport cible",
         "es": "Alto de relación objetivo",
-        "ar": "Target Ratio Height"
+        "ar": "ارتفاع النسبة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
         "tr": "Hedef en-boy oranının yükseklik bileşeni (ör. 16:9 için 9). Mevcut en-boy oranının bir standarda ne kadar yakın olduğunu karşılaştırmak için kullanılır.",
         "de": "Die Höhenkomponente eines Ziel-Seitenverhältnisses (z.B. 9 für 16:9). Wird verwendet, um zu vergleichen, wie nah das aktuelle Seitenverhältnis an einem Standard ist.",
         "fr": "La composante hauteur d'un rapport hauteur/largeur cible (par exemple, 9 pour 16:9). Utilisée pour comparer la proximité du rapport actuel à un standard.",
-        "es": "El componente de alto de una relación de aspecto objetivo (ej. 9 para 16:9). Se utiliza para comparar qué tan cerca está la relación de aspecto actual de una estándar."
+        "es": "El componente de alto de una relación de aspecto objetivo (ej. 9 para 16:9). Se utiliza para comparar qué tan cerca está la relación de aspecto actual de una estándar.",
+        "ar": "مكون الارتفاع لنسبة عرض إلى ارتفاع مستهدفة (مثل 9 لنسبة 16:9). يُستخدم لمقارنة مدى قرب نسبة العرض إلى الارتفاع الحالية من النسبة القياسية."
       }
     }
   ],

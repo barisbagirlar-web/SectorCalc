@@ -14,14 +14,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature of the black body in Kelvin",
         "tr": "Kara cismin Kelvin cinsinden sıcaklığı",
         "de": "Temperatur des schwarzen Körpers in Kelvin",
         "fr": "Température du corps noir en Kelvin",
-        "es": "Temperatura del cuerpo negro en Kelvin"
+        "es": "Temperatura del cuerpo negro en Kelvin",
+        "ar": "درجة حرارة الجسم الأسود بالكلفن"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wellenlänge",
         "fr": "Longueur d'onde",
         "es": "Longitud de onda",
-        "ar": "Wavelength"
+        "ar": "الطول الموجي"
       },
       "businessContext_i18n": {
         "en": "Wavelength at which spectral radiance is calculated",
         "tr": "Spektral ışımanın hesaplandığı dalga boyu",
         "de": "Wellenlänge, für die die spektrale Strahldichte berechnet wird",
         "fr": "Longueur d'onde à laquelle la radiance spectrale est calculée",
-        "es": "Longitud de onda a la que se calcula la radiancia espectral"
+        "es": "Longitud de onda a la que se calcula la radiancia espectral",
+        "ar": "الطول الموجي الذي تُحسب عنده الإشعاعية الطيفية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Minimale Wellenlänge",
         "fr": "Longueur d'onde min",
         "es": "Longitud de onda mínima",
-        "ar": "Wavelength Min"
+        "ar": "الطول الموجي الأدنى"
       },
       "businessContext_i18n": {
         "en": "Minimum wavelength for integration range",
         "tr": "Entegrasyon aralığı için minimum dalga boyu",
         "de": "Minimale Wellenlänge für den Integrationsbereich",
         "fr": "Longueur d'onde minimale pour la plage d'intégration",
-        "es": "Longitud de onda mínima para el rango de integración"
+        "es": "Longitud de onda mínima para el rango de integración",
+        "ar": "الطول الموجي الأدنى لنطاق التكامل"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Maximale Wellenlänge",
         "fr": "Longueur d'onde max",
         "es": "Longitud de onda máxima",
-        "ar": "Wavelength Max"
+        "ar": "الطول الموجي الأقصى"
       },
       "businessContext_i18n": {
         "en": "Maximum wavelength for integration range",
         "tr": "Entegrasyon aralığı için maksimum dalga boyu",
         "de": "Maximale Wellenlänge für Integrationsbereich",
         "fr": "Longueur d'onde maximale pour la plage d'intégration",
-        "es": "Longitud de onda máxima para el rango de integración"
+        "es": "Longitud de onda máxima para el rango de integración",
+        "ar": "الطول الموجي الأقصى لنطاق التكامل"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Integrationsschritte",
         "fr": "Pas d'intégration",
         "es": "Pasos de integración",
-        "ar": "Integration Steps"
+        "ar": "خطوات التكامل"
       },
       "businessContext_i18n": {
         "en": "Number of steps for numerical integration",
         "tr": "Sayısal entegrasyon için adım sayısı",
         "de": "Anzahl der Schritte für numerische Integration",
         "fr": "Nombre de pas pour l'intégration numérique",
-        "es": "Número de pasos para la integración numérica"
+        "es": "Número de pasos para la integración numérica",
+        "ar": "عدد خطوات التكامل العددي"
       }
     }
   ],
   "formulas": {
-    "result": "temperature + wavelength + wavelengthMin",
-    "result_copy": "temperature + wavelength + wavelengthMin"
+    "normalized_product": "temperature * wavelength * wavelengthMin * wavelengthMax",
+    "result": "temperature * wavelength * wavelengthMin * wavelengthMax * (numSteps)",
+    "adjustment_factor": "numSteps"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalRadiance",
-      "peakWavelength"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "peakWavelength",
-    "unit": "K"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

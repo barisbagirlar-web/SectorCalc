@@ -14,14 +14,15 @@
         "de": "PIN-Länge",
         "fr": "Longueur du code PIN",
         "es": "Longitud del PIN",
-        "ar": "PIN Length"
+        "ar": "طول رقم التعريف الشخصي"
       },
       "businessContext_i18n": {
         "en": "Number of digits in the generated PIN",
         "tr": "Oluşturulan PIN'deki basamak sayısı",
         "de": "Anzahl der Ziffern der generierten PIN",
         "fr": "Nombre de chiffres dans le code PIN généré",
-        "es": "Número de dígitos del PIN generado"
+        "es": "Número de dígitos del PIN generado",
+        "ar": "عدد الأرقام في رقم التعريف الشخصي (PIN) المُنشأ"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Seed-Nummer",
         "fr": "Nombre de départ",
         "es": "Número semilla",
-        "ar": "Seed Number"
+        "ar": "الرقم الأساسي"
       },
       "businessContext_i18n": {
         "en": "Unique numeric seed for PIN derivation",
         "tr": "PIN türetimi için benzersiz sayısal tohum",
         "de": "Eindeutiger numerischer Seed für die PIN-Ableitung",
         "fr": "Nombre de départ unique pour la dérivation du code PIN",
-        "es": "Semilla numérica única para la derivación del PIN"
+        "es": "Semilla numérica única para la derivación del PIN",
+        "ar": "رقم أساسي فريد لاشتقاق رقم التعريف الشخصي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Multiplikator",
         "fr": "Multiplicateur",
         "es": "Multiplicador",
-        "ar": "Multiplier"
+        "ar": "المضاعف"
       },
       "businessContext_i18n": {
         "en": "Prime multiplier for pseudo-random extraction",
         "tr": "Sözde rastgele çekim için asal çarpan",
         "de": "Primzahl-Multiplikator für pseudo-zufällige Extraktion",
         "fr": "Multiplicateur premier pour l'extraction pseudo-aléatoire",
-        "es": "Multiplicador primo para extracción pseudoaleatoria"
+        "es": "Multiplicador primo para extracción pseudoaleatoria",
+        "ar": "مضاعف أولي للاستخراج العشوائي الزائف"
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Verschiebungsfaktor",
         "fr": "Facteur de décalage",
         "es": "Factor de desplazamiento",
-        "ar": "Shift Factor"
+        "ar": "عامل الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Offset to create different PINs from same seed",
         "tr": "Aynı tohumdan farklı PIN'ler oluşturmak için ofset",
         "de": "Offset zur Erzeugung unterschiedlicher PINs aus demselben Seed",
         "fr": "Décalage pour créer différents codes PIN à partir du même nombre de départ",
-        "es": "Desplazamiento para crear diferentes PINs a partir de la misma semilla"
+        "es": "Desplazamiento para crear diferentes PINs a partir de la misma semilla",
+        "ar": "إزاحة لإنشاء أرقام تعريف شخصية مختلفة من نفس الرقم الأساسي"
       }
     }
   ],
   "formulas": {
-    "result": "pinLength + seed + multiplier",
-    "result_aux": "pinLength + seed + multiplier"
+    "normalized_product": "pinLength * seed * multiplier * shiftFactor",
+    "result": "pinLength * seed * multiplier * shiftFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Calculate absolute sine of (seed * multiplier + shiftFactor)",
-      "Multiply by 10^(pinLength+3)",
-      "Take integer part (floor)",
-      "Modulo 10^pinLength to constrain to desired digit range"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "pinCalculation_aux",
-    "unit": "digits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İK & Personel",
   "sector": "Matematik & Geometri",

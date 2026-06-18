@@ -14,14 +14,15 @@
         "de": "Grundseite",
         "fr": "Longueur de la base",
         "es": "Longitud de la base",
-        "ar": "Base length"
+        "ar": "طول القاعدة"
       },
       "businessContext_i18n": {
         "en": "Length of the base of the parallelogram.",
         "tr": "Paralelkenarın tabanının uzunluğu.",
         "de": "Länge der Grundseite des Parallelogramms.",
         "fr": "Longueur de la base du parallélogramme.",
-        "es": "Longitud de la base del paralelogramo."
+        "es": "Longitud de la base del paralelogramo.",
+        "ar": "طول قاعدة متوازي الأضلاع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Perpendicular distance between bases.",
         "tr": "Tabanlar arasındaki dik mesafe.",
         "de": "Senkrechter Abstand zwischen den Grundseiten.",
         "fr": "Distance perpendiculaire entre les bases.",
-        "es": "Distancia perpendicular entre bases."
+        "es": "Distancia perpendicular entre bases.",
+        "ar": "المسافة العمودية بين القاعدتين."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Seitenlänge",
         "fr": "Longueur du côté",
         "es": "Longitud del lado",
-        "ar": "Side length"
+        "ar": "طول الضلع"
       },
       "businessContext_i18n": {
         "en": "Length of the adjacent side. Used if base and height not provided.",
         "tr": "Komşu kenarın uzunluğu. Taban ve yükseklik sağlanmadığında kullanılır.",
         "de": "Länge der angrenzenden Seite. Wird verwendet, wenn Grundseite und Höhe nicht angegeben sind.",
         "fr": "Longueur du côté adjacent. Utilisé si la base et la hauteur ne sont pas fournies.",
-        "es": "Longitud del lado adyacente. Se usa si no se proporcionan base y altura."
+        "es": "Longitud del lado adyacente. Se usa si no se proporcionan base y altura.",
+        "ar": "طول الضلع المجاور. يُستخدم إذا لم يتم توفير القاعدة والارتفاع."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Winkel zwischen Grundseite und Seite",
         "fr": "Angle entre la base et le côté",
         "es": "Ángulo entre base y lado",
-        "ar": "Angle between base and side"
+        "ar": "الزاوية بين القاعدة والضلع"
       },
       "businessContext_i18n": {
         "en": "Angle between base and side. Used for alternative area calculation.",
         "tr": "Taban ve kenar arasındaki açı. Alternatif alan hesaplaması için kullanılır.",
         "de": "Winkel zwischen Grundseite und Seite. Wird für alternative Flächenberechnung verwendet.",
         "fr": "Angle entre la base et le côté. Utilisé pour un calcul alternatif de l'aire.",
-        "es": "Ángulo entre la base y el lado. Se usa para cálculo alternativo del área."
+        "es": "Ángulo entre la base y el lado. Se usa para cálculo alternativo del área.",
+        "ar": "الزاوية بين القاعدة والضلع. تُستخدم لحساب المساحة بطريقة بديلة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Diagonale 1",
         "fr": "Diagonale 1",
         "es": "Diagonal 1",
-        "ar": "Diagonal 1"
+        "ar": "القطر 1"
       },
       "businessContext_i18n": {
         "en": "First diagonal length.",
         "tr": "Birinci köşegen uzunluğu.",
         "de": "Länge der ersten Diagonale.",
         "fr": "Longueur de la première diagonale.",
-        "es": "Longitud de la primera diagonal."
+        "es": "Longitud de la primera diagonal.",
+        "ar": "طول القطر الأول."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Diagonale 2",
         "fr": "Diagonale 2",
         "es": "Diagonal 2",
-        "ar": "Diagonal 2"
+        "ar": "القطر 2"
       },
       "businessContext_i18n": {
         "en": "Second diagonal length.",
         "tr": "İkinci köşegen uzunluğu.",
         "de": "Länge der zweiten Diagonale.",
         "fr": "Longueur de la deuxième diagonale.",
-        "es": "Longitud de la segunda diagonal."
+        "es": "Longitud de la segunda diagonal.",
+        "ar": "طول القطر الثاني."
       }
     },
     {
@@ -152,36 +158,39 @@
         "de": "Winkel zwischen den Diagonalen",
         "fr": "Angle entre les diagonales",
         "es": "Ángulo entre diagonales",
-        "ar": "Angle between diagonals"
+        "ar": "الزاوية بين القطرين"
       },
       "businessContext_i18n": {
         "en": "Angle between the diagonals. Used for alternative area calculation.",
         "tr": "Köşegenler arasındaki açı. Alternatif alan hesaplaması için kullanılır.",
         "de": "Winkel zwischen den Diagonalen. Wird für alternative Flächenberechnung verwendet.",
         "fr": "Angle entre les diagonales. Utilisé pour un calcul alternatif de l'aire.",
-        "es": "Ángulo entre las diagonales. Se usa para cálculo alternativo del área."
+        "es": "Ángulo entre las diagonales. Se usa para cálculo alternativo del área.",
+        "ar": "الزاوية بين القطرين. تُستخدم لحساب المساحة بطريقة بديلة."
       }
     }
   ],
   "formulas": {
-    "result": "base + height + side",
-    "result_aux": "base + height + side"
+    "normalized_product": "base * height * side * angle",
+    "result": "base * height * side * angle * (diagonal1 * diagonal2 * angleDiagonals)",
+    "adjustment_factor": "diagonal1 * diagonal2 * angleDiagonals"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Calculate area using available inputs:",
-      "If base and height provided: area = base × height.",
-      "If base, side, and angle provided: area = base × side × sin(angle).",
-      "If diagonals and angle between diagonals provided: area = 0.5 × diagonal1 × diagonal2 × sin(angle).",
-      "Result in square meters (m²)."
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "area_aux",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Result in square meters (m²).": "m"
     }

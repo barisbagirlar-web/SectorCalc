@@ -14,14 +14,15 @@
         "de": "Temperatur (°R)",
         "fr": "Température (°R)",
         "es": "Temperatura (°R)",
-        "ar": "Temperature (°R)"
+        "ar": "درجة الحرارة (°R)"
       },
       "businessContext_i18n": {
         "en": "Measured temperature in Rankine scale",
         "tr": "Rankine ölçeğinde ölçülen sıcaklık",
         "de": "Gemessene Temperatur in Rankine-Skala",
         "fr": "Température mesurée en degrés Rankine",
-        "es": "Temperatura medida en escala Rankine"
+        "es": "Temperatura medida en escala Rankine",
+        "ar": "درجة الحرارة المقاسة بمقياس رانكين"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Messunsicherheit (±°R)",
         "fr": "Incertitude de mesure (±°R)",
         "es": "Incertidumbre de medición (±°R)",
-        "ar": "Measurement Uncertainty (±°R)"
+        "ar": "عدم اليقين في القياس (±°R)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of temperature measurement",
         "tr": "Sıcaklık ölçümünün standart sapması",
         "de": "Standardabweichung der Temperaturmessung",
         "fr": "Écart type de la mesure de température",
-        "es": "Desviación estándar de la medición de temperatura"
+        "es": "Desviación estándar de la medición de temperatura",
+        "ar": "الانحراف المعياري لقياس درجة الحرارة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Konfidenzfaktor (z)",
         "fr": "Facteur de confiance (z)",
         "es": "Factor de confianza (z)",
-        "ar": "Confidence Factor (z)"
+        "ar": "عامل الثقة (z)"
       },
       "businessContext_i18n": {
         "en": "z-score for desired confidence interval (e.g., 1.96 for 95%)",
         "tr": "İstenen güven aralığı için z-skoru (ör. %95 için 1,96)",
         "de": "z-Wert für das gewünschte Konfidenzintervall (z. B. 1,96 für 95 %)",
         "fr": "Score z pour l'intervalle de confiance souhaité (ex. 1,96 pour 95 %)",
-        "es": "Puntuación z para el intervalo de confianza deseado (ej. 1.96 para 95%)"
+        "es": "Puntuación z para el intervalo de confianza deseado (ej. 1.96 para 95%)",
+        "ar": "قيمة z لفترة الثقة المطلوبة (مثل 1.96 لمستوى ثقة 95%)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para el redondeo de salida"
+        "es": "Número de decimales para el redondeo de salida",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     }
   ],

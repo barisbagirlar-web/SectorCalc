@@ -12,16 +12,17 @@
         "en": "Percentile",
         "tr": "Yüzdelik",
         "de": "Perzentil",
-        "fr": "Percentile",
+        "fr": "Centile",
         "es": "Percentil",
-        "ar": "Percentile"
+        "ar": "المئين"
       },
       "businessContext_i18n": {
         "en": "Cumulative probability from a normal distribution (0–100).",
         "tr": "Normal dağılımdan kümülatif olasılık (0–100).",
         "de": "Kumulative Wahrscheinlichkeit einer Normalverteilung (0–100).",
         "fr": "Probabilité cumulée d'une distribution normale (0–100).",
-        "es": "Probabilidad acumulada de una distribución normal (0–100)."
+        "es": "Probabilidad acumulada de una distribución normal (0–100).",
+        "ar": "الاحتمال التراكمي من التوزيع الطبيعي (0–100)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mittelwert",
         "fr": "Moyenne",
         "es": "Media",
-        "ar": "Mean"
+        "ar": "المتوسط"
       },
       "businessContext_i18n": {
         "en": "Mean of the underlying distribution (0 for standard Z).",
         "tr": "Temel dağılımın ortalaması (standart Z için 0).",
         "de": "Mittelwert der zugrunde liegenden Verteilung (0 für Standard-Z).",
         "fr": "Moyenne de la distribution sous-jacente (0 pour Z standard).",
-        "es": "Media de la distribución subyacente (0 para Z estándar)."
+        "es": "Media de la distribución subyacente (0 para Z estándar).",
+        "ar": "متوسط التوزيع الأساسي (0 لـ Z القياسي)."
       }
     },
     {
@@ -60,31 +62,36 @@
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación estándar",
-        "ar": "Standard Deviation"
+        "ar": "الانحراف المعياري"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the underlying distribution (1 for standard Z).",
         "tr": "Temel dağılımın standart sapması (standart Z için 1).",
         "de": "Standardabweichung der zugrunde liegenden Verteilung (1 für Standard-Z).",
         "fr": "Écart type de la distribution sous-jacente (1 pour Z standard).",
-        "es": "Desviación estándar de la distribución subyacente (1 para Z estándar)."
+        "es": "Desviación estándar de la distribución subyacente (1 para Z estándar).",
+        "ar": "الانحراف المعياري للتوزيع الأساسي (1 لـ Z القياسي)."
       }
     }
   ],
   "formulas": {
-    "result": "percentile + mean + stddev",
-    "result_copy": "percentile + mean + stddev"
+    "normalized_product": "(percentile / 100) * mean * stddev",
+    "result": "(percentile / 100) * mean * stddev"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rawScore"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "rawScore",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Matematik & Analiz",

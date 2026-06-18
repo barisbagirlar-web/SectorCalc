@@ -13,14 +13,16 @@
         "tr": "Zaman Düşük",
         "de": "Zeit niedrig",
         "fr": "Temps bas",
-        "es": "Time Low",
-        "ar": "Time Low"
+        "es": "Tiempo bajo",
+        "ar": "الوقت المنخفض"
       },
       "businessContext_i18n": {
         "en": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)",
         "tr": "Zaman damgasının en az anlamlı 32 biti (UUID döneminden bu yana 100 nanosaniyelik aralıklar)",
         "de": "Niederwertigste 32 Bits des Zeitstempels (100-Nanosekunden-Intervalle seit UUID-Epoche)",
-        "fr": "32 bits les moins significatifs du timestamp (intervalles de 100 nanosecondes depuis l'époque UUID)"
+        "fr": "32 bits les moins significatifs du timestamp (intervalles de 100 nanosecondes depuis l'époque UUID)",
+        "es": "32 bits menos significativos de la marca de tiempo (intervalos de 100 nanosegundos desde la época UUID)",
+        "ar": "أقل 32 بت أهمية من الطابع الزمني (فواصل زمنية 100 نانوثانية منذ عصر UUID)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Zaman Orta",
         "de": "Zeit mittel",
         "fr": "Temps moyen",
-        "es": "Time Mid",
-        "ar": "Time Mid"
+        "es": "Tiempo medio",
+        "ar": "الوقت المتوسط"
       },
       "businessContext_i18n": {
         "en": "Middle 16 bits of the timestamp",
         "tr": "Zaman damgasının orta 16 biti",
         "de": "Mittlere 16 Bits des Zeitstempels",
-        "fr": "16 bits intermédiaires du timestamp"
+        "fr": "16 bits intermédiaires du timestamp",
+        "es": "16 bits intermedios de la marca de tiempo",
+        "ar": "16 بت الوسطى من الطابع الزمني"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Zaman Yüksek ve Sürüm",
         "de": "Zeit hoch & Version",
         "fr": "Temps haut et version",
-        "es": "Time High & Version",
-        "ar": "Time High & Version"
+        "es": "Tiempo alto y versión",
+        "ar": "الوقت العالي والإصدار"
       },
       "businessContext_i18n": {
         "en": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)",
         "tr": "12 bit zaman yüksek (en anlamlı) + 4 bit UUID sürümü (v1 için 0001)",
         "de": "12 Bits Zeit hoch (höchstwertig) + 4 Bits UUID-Version (0001 für v1)",
-        "fr": "12 bits temps haut (les plus significatifs) + 4 bits version UUID (0001 pour v1)"
+        "fr": "12 bits temps haut (les plus significatifs) + 4 bits version UUID (0001 pour v1)",
+        "es": "12 bits de tiempo alto (más significativos) + 4 bits de versión UUID (0001 para v1)",
+        "ar": "12 بت وقت عالي (الأكثر أهمية) + 4 بت إصدار UUID (0001 للإصدار v1)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Saat Dizisi ve Varyant",
         "de": "Taktreihenfolge & Variante",
         "fr": "Séquence d'horloge et variante",
-        "es": "Clock Sequence & Variant",
-        "ar": "Clock Sequence & Variant"
+        "es": "Secuencia de reloj y variante",
+        "ar": "تسلسل الساعة والمتغير"
       },
       "businessContext_i18n": {
         "en": "14-bit clock sequence + 2-bit variant (10 for standard DCE)",
         "tr": "14 bit saat dizisi + 2 bit varyant (standart DCE için 10)",
         "de": "14-Bit-Taktreihenfolge + 2-Bit-Variante (10 für Standard-DCE)",
-        "fr": "14 bits de séquence d'horloge + 2 bits de variante (10 pour DCE standard)"
+        "fr": "14 bits de séquence d'horloge + 2 bits de variante (10 pour DCE standard)",
+        "es": "Secuencia de reloj de 14 bits + variante de 2 bits (10 para DCE estándar)",
+        "ar": "تسلسل ساعة 14 بت + متغير 2 بت (10 لـ DCE القياسي)"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Düğüm (MAC)",
         "de": "Knoten (MAC)",
         "fr": "Nœud (MAC)",
-        "es": "Node (MAC)",
-        "ar": "Node (MAC)"
+        "es": "Nodo (MAC)",
+        "ar": "العقدة (MAC)"
       },
       "businessContext_i18n": {
         "en": "48-bit node identifier, typically the MAC address",
         "tr": "48 bit düğüm tanımlayıcısı, tipik olarak MAC adresi",
         "de": "48-Bit-Knotenidentifikator, typischerweise die MAC-Adresse",
-        "fr": "Identifiant de nœud sur 48 bits, généralement l'adresse MAC"
+        "fr": "Identifiant de nœud sur 48 bits, généralement l'adresse MAC",
+        "es": "Identificador de nodo de 48 bits, normalmente la dirección MAC",
+        "ar": "معرّف العقدة 48 بت، عادةً عنوان MAC"
       }
     }
   ],

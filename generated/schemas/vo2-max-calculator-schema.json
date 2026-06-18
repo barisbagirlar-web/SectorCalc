@@ -14,13 +14,15 @@
         "de": "Gewicht",
         "fr": "Poids",
         "es": "Peso",
-        "ar": "Weight"
+        "ar": "الوزن"
       },
       "businessContext_i18n": {
         "en": "Body weight in pounds for Rockport walking test estimation.",
         "tr": "Rockport yürüme testi tahmini için vücut ağırlığı (pound)",
         "de": "Körpergewicht in Pfund für die Schätzung des Rockport-Gehtests.",
-        "fr": "Poids corporel en livres pour l'estimation du test de marche de Rockport."
+        "fr": "Poids corporel en livres pour l'estimation du test de marche de Rockport.",
+        "es": "Peso corporal en libras para la estimación de la prueba de caminata de Rockport",
+        "ar": "وزن الجسم بالرطل لتقدير اختبار المشي في روكبورت"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age of the individual.",
         "tr": "Bireyin yaşı",
         "de": "Alter der Person.",
-        "fr": "Âge de l'individu."
+        "fr": "Âge de l'individu.",
+        "es": "Edad del individuo.",
+        "ar": "عمر الفرد"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Geschlecht (1=Männlich, 0=Weiblich)",
         "fr": "Sexe (1=Homme, 0=Femme)",
         "es": "Género (1=Hombre, 0=Mujer)",
-        "ar": "Gender (1=Male, 0=Female)"
+        "ar": "الجنس (1=ذكر، 0=أنثى)"
       },
       "businessContext_i18n": {
         "en": "Gender encoding: 1 for male, 0 for female.",
         "tr": "Cinsiyet kodlaması: 1 erkek, 0 kadın",
         "de": "Geschlechtskodierung: 1 für männlich, 0 für weiblich.",
-        "fr": "Encodage du sexe : 1 pour homme, 0 pour femme."
+        "fr": "Encodage du sexe : 1 pour homme, 0 pour femme.",
+        "es": "Codificación de género: 1 para masculino, 0 para femenino.",
+        "ar": "ترميز الجنس: 1 للذكر، 0 للأنثى"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "1-Meilen-Gehzeit",
         "fr": "Temps de marche de 1 mile",
         "es": "Tiempo de caminata de 1 milla",
-        "ar": "1-Mile Walk Time"
+        "ar": "وقت المشي لمسافة ميل واحد"
       },
       "businessContext_i18n": {
         "en": "Duration to walk exactly 1 mile on a flat surface.",
         "tr": "Düz bir yüzeyde tam olarak 1 mil yürümek için gereken süre.",
         "de": "Dauer, um genau 1 Meile auf einer ebenen Fläche zu gehen.",
-        "fr": "Durée pour marcher exactement 1 mile sur une surface plane."
+        "fr": "Durée pour marcher exactement 1 mile sur une surface plane.",
+        "es": "Duración para caminar exactamente 1 milla en una superficie plana.",
+        "ar": "المدة الزمنية للمشي لمسافة ميل واحد بالضبط على سطح مستو"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Bitişteki Kalp Atış Hızı",
         "de": "Herzfrequenz am Ende",
         "fr": "Fréquence cardiaque à la fin",
-        "es": "Heart Rate at End",
-        "ar": "Heart Rate at End"
+        "es": "Frecuencia cardíaca al final",
+        "ar": "معدل ضربات القلب عند النهاية"
       },
       "businessContext_i18n": {
         "en": "Heart rate in beats per minute measured immediately upon completing the walk.",
         "tr": "Yürüyüşü tamamladıktan hemen sonra ölçülen dakikadaki kalp atışı sayısı.",
         "de": "Herzfrequenz in Schlägen pro Minute, gemessen unmittelbar nach Beendigung des Gehens.",
-        "fr": "Fréquence cardiaque en battements par minute mesurée immédiatement après la marche."
+        "fr": "Fréquence cardiaque en battements par minute mesurée immédiatement après la marche.",
+        "es": "Frecuencia cardíaca en latidos por minuto medida inmediatamente después de completar la caminata.",
+        "ar": "معدل ضربات القلب بعدد النبضات في الدقيقة المقاسة فور الانتهاء من المشي"
       }
     }
   ],

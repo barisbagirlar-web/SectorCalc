@@ -14,14 +14,15 @@
         "de": "Punkt 1 X",
         "fr": "Point 1 X",
         "es": "Punto 1 X",
-        "ar": "Point 1 X"
+        "ar": "النقطة 1 X"
       },
       "businessContext_i18n": {
         "en": "First point of the original line (x-coordinate)",
         "tr": "Orijinal doğrunun ilk noktası (x koordinatı)",
         "de": "Erster Punkt der ursprünglichen Linie (x-Koordinate)",
         "fr": "Premier point de la ligne d'origine (coordonnée x)",
-        "es": "Primer punto de la línea original (coordenada x)"
+        "es": "Primer punto de la línea original (coordenada x)",
+        "ar": "النقطة الأولى من الخط الأصلي (إحداثي x)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Punkt 1 Y",
         "fr": "Point 1 Y",
         "es": "Punto 1 Y",
-        "ar": "Point 1 Y"
+        "ar": "النقطة 1 Y"
       },
       "businessContext_i18n": {
         "en": "First point of the original line (y-coordinate)",
         "tr": "Orijinal doğrunun ilk noktası (y koordinatı)",
         "de": "Erster Punkt der ursprünglichen Linie (y-Koordinate)",
         "fr": "Premier point de la ligne d'origine (coordonnée y)",
-        "es": "Primer punto de la línea original (coordenada y)"
+        "es": "Primer punto de la línea original (coordenada y)",
+        "ar": "النقطة الأولى من الخط الأصلي (إحداثي y)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Punkt 2 X",
         "fr": "Point 2 X",
         "es": "Punto 2 X",
-        "ar": "Point 2 X"
+        "ar": "النقطة 2 X"
       },
       "businessContext_i18n": {
         "en": "Second point of the original line (x-coordinate)",
         "tr": "Orijinal doğrunun ikinci noktası (x koordinatı)",
         "de": "Zweiter Punkt der ursprünglichen Linie (x-Koordinate)",
         "fr": "Deuxième point de la ligne d'origine (coordonnée x)",
-        "es": "Segundo punto de la línea original (coordenada x)"
+        "es": "Segundo punto de la línea original (coordenada x)",
+        "ar": "النقطة الثانية من الخط الأصلي (إحداثي x)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Punkt 2 Y",
         "fr": "Point 2 Y",
         "es": "Punto 2 Y",
-        "ar": "Point 2 Y"
+        "ar": "النقطة 2 Y"
       },
       "businessContext_i18n": {
         "en": "Second point of the original line (y-coordinate)",
         "tr": "Orijinal doğrunun ikinci noktası (y-koordinatı)",
         "de": "Zweiter Punkt der ursprünglichen Linie (y-Koordinate)",
         "fr": "Deuxième point de la ligne d'origine (coordonnée y)",
-        "es": "Segundo punto de la línea original (coordenada y)"
+        "es": "Segundo punto de la línea original (coordenada y)",
+        "ar": "النقطة الثانية من الخط الأصلي (إحداثي y)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Senkrechter Punkt X",
         "fr": "Point perpendiculaire X",
         "es": "Punto perpendicular X",
-        "ar": "Perpendicular Point X"
+        "ar": "النقطة العمودية X"
       },
       "businessContext_i18n": {
         "en": "X-coordinate of point for perpendicular line",
         "tr": "Dik doğru için noktanın x-koordinatı",
         "de": "X-Koordinate des Punktes für die senkrechte Linie",
         "fr": "Coordonnée X du point pour la ligne perpendiculaire",
-        "es": "Coordenada X del punto para la línea perpendicular"
+        "es": "Coordenada X del punto para la línea perpendicular",
+        "ar": "إحداثي x للنقطة للخط العمودي"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Senkrechter Punkt Y",
         "fr": "Point perpendiculaire Y",
         "es": "Y del punto perpendicular",
-        "ar": "Perpendicular Point Y"
+        "ar": "النقطة العمودية Y"
       },
       "businessContext_i18n": {
         "en": "Y-coordinate of point for perpendicular line",
         "tr": "Dik doğru için noktanın y-koordinatı",
         "de": "Y-Koordinate des Punktes für die senkrechte Linie",
         "fr": "Coordonnée Y du point pour la ligne perpendiculaire",
-        "es": "Coordenada Y del punto para la línea perpendicular"
+        "es": "Coordenada Y del punto para la línea perpendicular",
+        "ar": "إحداثي y للنقطة للخط العمودي"
       }
     }
   ],
   "formulas": {
-    "result": "x1 + y1 + x2",
-    "result_aux": "x1 + y1 + x2"
+    "normalized_product": "x1 * y1 * x2 * y2",
+    "result": "x1 * y1 * x2 * y2 * (x3 * y3)",
+    "adjustment_factor": "x3 * y3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Slope of perpendicular line",
-      "Y-intercept of perpendicular line"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "breakdown[1]",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

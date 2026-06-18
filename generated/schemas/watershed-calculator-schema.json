@@ -14,13 +14,15 @@
         "de": "Einzugsgebietsfläche",
         "fr": "Superficie du bassin versant",
         "es": "Área de drenaje",
-        "ar": "Drainage Area"
+        "ar": "مساحة الصرف"
       },
       "businessContext_i18n": {
         "en": "Area of the watershed contributing runoff.",
         "tr": "Akışa katkıda bulunan havza alanı.",
         "de": "Fläche des Einzugsgebiets, das zum Abfluss beiträgt.",
-        "fr": "Superficie du bassin versant contribuant au ruissellement."
+        "fr": "Superficie du bassin versant contribuant au ruissellement.",
+        "es": "Área de la cuenca que contribuye a la escorrentía.",
+        "ar": "مساحة مستجمعات المياه المساهمة في الجريان السطحي."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Abflussbeiwert",
         "fr": "Coefficient de ruissellement",
         "es": "Coeficiente de escorrentía",
-        "ar": "Runoff Coefficient"
+        "ar": "معامل الجريان السطحي"
       },
       "businessContext_i18n": {
         "en": "Fraction of rainfall that becomes runoff.",
         "tr": "Yağışın akışa dönüşen oranı.",
         "de": "Anteil des Niederschlags, der zum Abfluss wird.",
-        "fr": "Fraction des précipitations qui devient du ruissellement."
+        "fr": "Fraction des précipitations qui devient du ruissellement.",
+        "es": "Fracción de la lluvia que se convierte en escorrentía.",
+        "ar": "جزء من هطول الأمطار يتحول إلى جريان سطحي."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Breite der Dachfläche, die zum Fallrohr entwässert.",
         "fr": "Intensité des précipitations",
         "es": "Intensidad de lluvia",
-        "ar": "Rainfall Intensity"
+        "ar": "شدة هطول الأمطار"
       },
       "businessContext_i18n": {
         "en": "Design storm rainfall intensity.",
         "tr": "Tasarım fırtınası yağış yoğunluğu.",
         "de": "Regenintensität des Bemessungsregens.",
-        "fr": "Intensité des précipitations de l'orage de projet."
+        "fr": "Intensité des précipitations de l'orage de projet.",
+        "es": "Intensidad de lluvia del evento de diseño.",
+        "ar": "شدة هطول الأمطار في العاصفة التصميمية."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ana Kanal Uzunluğu",
         "de": "Hauptkanallänge",
         "fr": "Longueur du chenal principal",
-        "es": "Main Channel Length",
-        "ar": "Main Channel Length"
+        "es": "Longitud del canal principal",
+        "ar": "طول القناة الرئيسية"
       },
       "businessContext_i18n": {
         "en": "Length of the longest flow path.",
         "tr": "En uzun akış yolunun uzunluğu.",
         "de": "Länge des längsten Fließwegs.",
-        "fr": "Longueur du chemin d'écoulement le plus long."
+        "fr": "Longueur du chemin d'écoulement le plus long.",
+        "es": "Longitud de la trayectoria de flujo más larga.",
+        "ar": "طول أطول مسار تدفق."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Steigung",
         "fr": "Pente",
         "es": "Pendiente",
-        "ar": "Slope"
+        "ar": "الميل"
       },
       "businessContext_i18n": {
         "en": "Average slope of the main channel.",
         "tr": "Ana kanalın ortalama eğimi.",
         "de": "Durchschnittliches Gefälle des Hauptkanals.",
-        "fr": "Pente moyenne du chenal principal."
+        "fr": "Pente moyenne du chenal principal.",
+        "es": "Pendiente media del canal principal.",
+        "ar": "متوسط انحدار القناة الرئيسية."
       }
     }
   ],

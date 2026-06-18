@@ -13,14 +13,16 @@
         "tr": "Önceki Sayaç Okuması (m³)",
         "de": "Vorheriger Zählerstand (m³)",
         "fr": "Relevé précédent du compteur (m³)",
-        "es": "Previous Meter Reading (m³)",
-        "ar": "Previous Meter Reading (m³)"
+        "es": "Lectura anterior del medidor (m³)",
+        "ar": "قراءة العداد السابقة (م³)"
       },
       "businessContext_i18n": {
         "en": "The meter reading at the start of the billing period, in cubic meters.",
         "tr": "Fatura dönemi başlangıcındaki sayaç okuması, metreküp cinsinden.",
         "de": "Der Zählerstand zu Beginn des Abrechnungszeitraums in Kubikmetern.",
-        "fr": "Relevé du compteur au début de la période de facturation, en mètres cubes."
+        "fr": "Relevé du compteur au début de la période de facturation, en mètres cubes.",
+        "es": "La lectura del medidor al inicio del período de facturación, en metros cúbicos.",
+        "ar": "قراءة العداد في بداية فترة الفوترة، بالمتر المكعب."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Mevcut Sayaç Okuması (m³)",
         "de": "Aktueller Zählerstand (m³)",
         "fr": "Relevé actuel du compteur (m³)",
-        "es": "Current Meter Reading (m³)",
-        "ar": "Current Meter Reading (m³)"
+        "es": "Lectura actual del contador (m³)",
+        "ar": "قراءة العداد الحالية (م³)"
       },
       "businessContext_i18n": {
         "en": "The meter reading at the end of the billing period, in cubic meters.",
         "tr": "Fatura dönemi sonundaki sayaç okuması, metreküp cinsinden.",
         "de": "Der Zählerstand am Ende des Abrechnungszeitraums in Kubikmetern.",
-        "fr": "Relevé du compteur à la fin de la période de facturation, en mètres cubes."
+        "fr": "Relevé du compteur à la fin de la période de facturation, en mètres cubes.",
+        "es": "Lectura del contador al final del período de facturación, en metros cúbicos.",
+        "ar": "قراءة العداد في نهاية فترة الفوترة، بالمتر المكعب."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Sabit Ücret",
         "de": "Grundgebühr",
         "fr": "Frais fixes",
-        "es": "Fixed Charge",
-        "ar": "Fixed Charge"
+        "es": "Cargo fijo",
+        "ar": "الرسوم الثابتة"
       },
       "businessContext_i18n": {
         "en": "Monthly fixed service charge regardless of consumption.",
         "tr": "Tüketimden bağımsız aylık sabit hizmet ücreti.",
         "de": "Monatliche Grundgebühr unabhängig vom Verbrauch.",
-        "fr": "Frais de service fixes mensuels, indépendants de la consommation."
+        "fr": "Frais de service fixes mensuels, indépendants de la consommation.",
+        "es": "Cargo fijo mensual independientemente del consumo.",
+        "ar": "رسوم الخدمة الشهرية الثابتة بغض النظر عن الاستهلاك."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Metreküp Başına Ücret",
         "de": "Preis pro Kubikmeter",
         "fr": "Tarif au mètre cube",
-        "es": "Rate per Cubic Meter",
-        "ar": "Rate per Cubic Meter"
+        "es": "Tarifa por metro cúbico",
+        "ar": "السعر لكل متر مكعب"
       },
       "businessContext_i18n": {
         "en": "Variable charge per cubic meter of water consumed.",
         "tr": "Tüketilen her metreküp su için değişken ücret.",
         "de": "Variable Gebühr pro Kubikmeter verbrauchten Wassers.",
-        "fr": "Frais variables par mètre cube d'eau consommé."
+        "fr": "Frais variables par mètre cube d'eau consommé.",
+        "es": "Cargo variable por metro cúbico de agua consumida.",
+        "ar": "الرسوم المتغيرة لكل متر مكعب من المياه المستهلكة."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa impositiva (%)",
-        "ar": "Tax Rate (%)"
+        "ar": "معدل الضريبة (%)"
       },
       "businessContext_i18n": {
         "en": "Tax percentage applied to the subtotal (usage + fixed charge).",
         "tr": "Ara toplama (kullanım + sabit ücret) uygulanan vergi yüzdesi.",
         "de": "Steuerprozentsatz, der auf den Zwischensumme (Verbrauch + Grundgebühr) angewendet wird.",
-        "fr": "Pourcentage de taxe appliqué au sous-total (utilisation + frais fixes)."
+        "fr": "Pourcentage de taxe appliqué au sous-total (utilisation + frais fixes).",
+        "es": "Porcentaje de impuesto aplicado al subtotal (consumo + cargo fijo).",
+        "ar": "نسبة الضريبة المطبقة على المجموع الفرعي (الاستهلاك + الرسوم الثابتة)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Aktueller traditioneller IRA-Saldo",
         "fr": "Solde actuel du compte IRA traditionnel",
         "es": "Saldo actual de la IRA tradicional",
-        "ar": "Current Traditional IRA Balance"
+        "ar": "الرصيد الحالي لحساب IRA التقليدي"
       },
       "businessContext_i18n": {
         "en": "Total pre-tax balance in traditional IRA account before conversion.",
         "tr": "Dönüşüm öncesi geleneksel IRA hesabındaki toplam vergi öncesi bakiye.",
         "de": "Gesamter Vorsteuer-Saldo im traditionellen IRA-Konto vor der Umwandlung.",
         "fr": "Solde total avant impôt du compte IRA traditionnel avant la conversion.",
-        "es": "Saldo total antes de impuestos en la cuenta IRA tradicional antes de la conversión."
+        "es": "Saldo total antes de impuestos en la cuenta IRA tradicional antes de la conversión.",
+        "ar": "إجمالي الرصيد قبل الضريبة في حساب IRA التقليدي قبل التحويل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umzuwandelnder Betrag",
         "fr": "Montant à convertir",
         "es": "Monto a convertir",
-        "ar": "Amount to Convert"
+        "ar": "المبلغ المراد تحويله"
       },
       "businessContext_i18n": {
         "en": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance.",
         "tr": "Roth IRA'ya dönüştürülecek geleneksel IRA bakiyesinin kısmı; currentBalance değerini aşamaz.",
         "de": "Anteil des traditionellen IRA-Saldos, der in eine Roth IRA umgewandelt werden soll; darf currentBalance nicht überschreiten.",
         "fr": "Partie du solde IRA traditionnel à convertir en Roth IRA ; ne peut pas dépasser le solde actuel.",
-        "es": "Porción del saldo de la IRA tradicional a convertir a una IRA Roth; no puede exceder el saldo actual."
+        "es": "Porción del saldo de la IRA tradicional a convertir a una IRA Roth; no puede exceder el saldo actual.",
+        "ar": "جزء من رصيد IRA التقليدي لتحويله إلى Roth IRA؛ لا يمكن أن يتجاوز currentBalance."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aktueller Grenzsteuersatz",
         "fr": "Taux marginal d'imposition actuel",
         "es": "Tasa marginal de impuesto actual",
-        "ar": "Current Marginal Tax Rate"
+        "ar": "معدل الضريبة الهامشي الحالي"
       },
       "businessContext_i18n": {
         "en": "Expected income tax rate in the year of conversion, expressed as a percentage.",
         "tr": "Dönüşüm yılında beklenen gelir vergisi oranı, yüzde olarak ifade edilir.",
         "de": "Erwarteter Einkommensteuersatz im Jahr der Umwandlung, ausgedrückt als Prozentsatz.",
         "fr": "Taux d'imposition sur le revenu attendu pour l'année de la conversion, exprimé en pourcentage.",
-        "es": "Tasa de impuesto sobre la renta esperada en el año de la conversión, expresada como porcentaje."
+        "es": "Tasa de impuesto sobre la renta esperada en el año de la conversión, expresada como porcentaje.",
+        "ar": "معدل ضريبة الدخل المتوقع في سنة التحويل، معبرًا عنه كنسبة مئوية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Erwarteter Steuersatz im Ruhestand",
         "fr": "Taux d'imposition attendu à la retraite",
         "es": "Tasa de impuesto esperada en la jubilación",
-        "ar": "Expected Retirement Tax Rate"
+        "ar": "معدل الضريبة المتوقع أثناء التقاعد"
       },
       "businessContext_i18n": {
         "en": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed.",
         "tr": "Geleneksel IRA'dan çekimlerin vergilendirileceği emeklilik döneminde tahmini marjinal vergi oranı.",
         "de": "Geschätzter Grenzsteuersatz während des Ruhestands, wenn Abhebungen aus der traditionellen IRA besteuert werden.",
         "fr": "Taux marginal d'imposition estimé pendant la retraite, lorsque les retraits du compte IRA traditionnel seront imposés.",
-        "es": "Tasa marginal de impuesto estimada durante la jubilación, cuando se graven los retiros de la IRA tradicional."
+        "es": "Tasa marginal de impuesto estimada durante la jubilación, cuando se graven los retiros de la IRA tradicional.",
+        "ar": "معدل الضريبة الهامشي المقدر أثناء التقاعد عندما يتم فرض ضريبة على سحوبات IRA التقليدي."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jahre bis zur Rente",
         "fr": "Années avant la retraite",
         "es": "Años hasta la jubilación",
-        "ar": "Years to Retirement"
+        "ar": "السنوات حتى التقاعد"
       },
       "businessContext_i18n": {
         "en": "Number of years until retirement, during which converted funds grow tax-free.",
         "tr": "Emekliliğe kalan yıl sayısı, bu süre boyunca dönüştürülen fonlar vergisiz büyür.",
         "de": "Anzahl der Jahre bis zum Ruhestand, in denen die umgewandelten Mittel steuerfrei wachsen.",
         "fr": "Nombre d'années avant la retraite, pendant lesquelles les fonds convertis croissent en franchise d'impôt.",
-        "es": "Número de años hasta la jubilación, durante los cuales los fondos convertidos crecen libres de impuestos."
+        "es": "Número de años hasta la jubilación, durante los cuales los fondos convertidos crecen libres de impuestos.",
+        "ar": "عدد السنوات حتى التقاعد، حيث تنمو الأموال المحولة معفاة من الضرائب."
       }
     },
     {
@@ -129,40 +134,38 @@
         "de": "Erwartete jährliche Rendite",
         "fr": "Rendement annuel attendu",
         "es": "Rendimiento anual esperado",
-        "ar": "Expected Annual Return"
+        "ar": "العائد السنوي المتوقع"
       },
       "businessContext_i18n": {
         "en": "Assumed average annual investment return before inflation.",
         "tr": "Enflasyon öncesi varsayılan ortalama yıllık yatırım getirisi.",
         "de": "Angenommene durchschnittliche jährliche Kapitalrendite vor Inflation.",
         "fr": "Rendement annuel moyen attendu avant inflation.",
-        "es": "Tasa de rendimiento anual promedio asumida antes de la inflación."
+        "es": "Tasa de rendimiento anual promedio asumida antes de la inflación.",
+        "ar": "متوسط العائد السنوي على الاستثمار المفترض قبل التضخم."
       }
     }
   ],
   "formulas": {
-    "result": "currentBalance + amountToConvert + currentTaxRate",
-    "result_copy": "currentBalance + amountToConvert + currentTaxRate"
+    "base_cost": "yearsToRetirement * currentBalance",
+    "adjusted_cost": "yearsToRetirement * currentBalance * (1 + (currentTaxRate / 100))",
+    "result": "yearsToRetirement * currentBalance * (1 + (currentTaxRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "convertAfterTaxValue",
-        "label": "Roth Conversion After-Tax Value",
-        "unit": "USD"
-      },
-      {
-        "id": "noConvertAfterTaxValue",
-        "label": "Traditional IRA After-Tax Value",
-        "unit": "USD"
-      }
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "conversionBenefit",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

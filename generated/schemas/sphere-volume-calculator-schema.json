@@ -14,14 +14,15 @@
         "de": "Kugel 1 Radius",
         "fr": "Rayon de la sphère 1",
         "es": "Radio de la esfera 1",
-        "ar": "Sphere 1 Radius"
+        "ar": "نصف قطر الكرة 1"
       },
       "businessContext_i18n": {
         "en": "Primary sphere radius in base units (if multiplier=1)",
         "tr": "Birincil küre yarıçapı (temel birimlerde, çarpan=1 ise)",
         "de": "Primärer Kugelradius in Basiseinheiten (wenn Multiplikator=1)",
         "fr": "Rayon de la sphère primaire en unités de base (si multiplicateur=1)",
-        "es": "Radio de la esfera principal en unidades base (si multiplicador=1)"
+        "es": "Radio de la esfera principal en unidades base (si multiplicador=1)",
+        "ar": "نصف قطر الكرة الأساسي بالوحدات الأساسية (إذا كان المضاعف=1)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kugel 2 Radius",
         "fr": "Rayon de la sphère 2",
         "es": "Radio de la esfera 2",
-        "ar": "Sphere 2 Radius"
+        "ar": "نصف قطر الكرة 2"
       },
       "businessContext_i18n": {
         "en": "Optional secondary sphere radius",
         "tr": "İsteğe bağlı ikincil küre yarıçapı",
         "de": "Optionaler Radius der zweiten Kugel",
         "fr": "Rayon de la sphère secondaire (optionnel)",
-        "es": "Radio de esfera secundaria opcional"
+        "es": "Radio de esfera secundaria opcional",
+        "ar": "نصف قطر الكرة الثانوي (اختياري)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kugel 3 Radius",
         "fr": "Rayon de la sphère 3",
         "es": "Radio de la esfera 3",
-        "ar": "Sphere 3 Radius"
+        "ar": "نصف قطر الكرة 3"
       },
       "businessContext_i18n": {
         "en": "Optional tertiary sphere radius",
         "tr": "İsteğe bağlı üçüncül küre yarıçapı",
         "de": "Optionaler tertiärer Kugelradius",
         "fr": "Rayon de la sphère tertiaire (optionnel)",
-        "es": "Radio de esfera terciaria opcional"
+        "es": "Radio de esfera terciaria opcional",
+        "ar": "نصف قطر الكرة الثالثي (اختياري)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kugel 4 Radius",
         "fr": "Rayon de la sphère 4",
         "es": "Radio de la esfera 4",
-        "ar": "Sphere 4 Radius"
+        "ar": "نصف قطر الكرة 4"
       },
       "businessContext_i18n": {
         "en": "Optional quaternary sphere radius",
         "tr": "İsteğe bağlı dördüncül küre yarıçapı",
         "de": "Optionaler quartärer Kugelradius",
         "fr": "Rayon de la sphère quaternaire (optionnel)",
-        "es": "Radio de esfera cuaternaria opcional"
+        "es": "Radio de esfera cuaternaria opcional",
+        "ar": "نصف قطر الكرة الرابعي (اختياري)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Radius-Einheitenumrechnung in m",
         "fr": "Conversion de l'unité de rayon en m",
         "es": "Conversión de unidad de radio a m",
-        "ar": "Radius Unit Conversion to m"
+        "ar": "تحويل وحدة نصف القطر إلى متر"
       },
       "businessContext_i18n": {
         "en": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)",
         "tr": "Girilen yarıçapları metreye dönüştürme çarpanı (örn. cm=0.01, mm=0.001)",
         "de": "Umrechnungsfaktor zur Umrechnung der eingegebenen Radien in Meter (z. B. cm=0,01, mm=0,001)",
         "fr": "Facteur de conversion pour convertir les rayons d'entrée en mètres (ex. cm=0,01, mm=0,001)",
-        "es": "Factor de conversión para convertir radios de entrada a metros (ej. cm=0.01, mm=0.001)"
+        "es": "Factor de conversión para convertir radios de entrada a metros (ej. cm=0.01, mm=0.001)",
+        "ar": "عامل التحويل لتحويل نصف القطر المدخل إلى أمتار (مثل: سم=0.01، مم=0.001)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Material Density"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Density of the material for weight calculation",
         "tr": "Ağırlık hesaplaması için malzeme yoğunluğu",
         "de": "Dichte des Materials für die Gewichtsberechnung",
         "fr": "Densité du matériau pour le calcul du poids",
-        "es": "Densidad del material para cálculo de peso"
+        "es": "Densidad del material para cálculo de peso",
+        "ar": "كثافة المادة لحساب الوزن"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Material-Verschwendungsfaktor",
         "fr": "Facteur de perte de matière",
         "es": "Factor de desperdicio de material",
-        "ar": "Material Waste Factor"
+        "ar": "عامل هدر المواد"
       },
       "businessContext_i18n": {
         "en": "Percentage of material waste considered for procurement",
         "tr": "Tedarik için dikkate alınan malzeme fire yüzdesi",
         "de": "Prozentsatz des Materialabfalls, der für die Beschaffung berücksichtigt wird",
         "fr": "Pourcentage de perte de matière pris en compte pour l'approvisionnement",
-        "es": "Porcentaje de desperdicio de material considerado para la adquisición"
+        "es": "Porcentaje de desperdicio de material considerado para la adquisición",
+        "ar": "نسبة هدر المواد المأخوذة في الاعتبار للمشتريات"
       }
     }
   ],

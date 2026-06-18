@@ -14,13 +14,15 @@
         "de": "Anzahl der Gäste",
         "fr": "Nombre d'invités",
         "es": "Número de invitados",
-        "ar": "Number of Guests"
+        "ar": "عدد الضيوف"
       },
       "businessContext_i18n": {
         "en": "Total number of attendees expected at the wedding, essential for scaling all calculations.",
         "tr": "Düğünde beklenen toplam katılımcı sayısı, tüm hesaplamaları ölçeklendirmek için gereklidir.",
         "de": "Gesamtzahl der erwarteten Hochzeitsgäste, entscheidend für die Skalierung aller Berechnungen.",
-        "fr": "Nombre total d'invités attendus au mariage, essentiel pour dimensionner tous les calculs."
+        "fr": "Nombre total d'invités attendus au mariage, essentiel pour dimensionner tous les calculs.",
+        "es": "Número total de asistentes esperados en la boda, esencial para escalar todos los cálculos.",
+        "ar": "إجمالي عدد الحضور المتوقع في حفل الزفاف، ضروري لقياس جميع الحسابات."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Alkol İçen Misafir Yüzdesi",
         "de": "% der Gäste, die Alkohol trinken",
         "fr": "% d'invités consommant de l'alcool",
-        "es": "% of Guests Drinking Alcohol",
-        "ar": "% of Guests Drinking Alcohol"
+        "es": "% de invitados que beben alcohol",
+        "ar": "نسبة الضيوف الذين يشربون الكحول"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of guests who will consume alcoholic beverages; critical for adjusting quantities.",
         "tr": "Alkollü içecek tüketecek misafirlerin tahmini yüzdesi; miktarları ayarlamak için kritiktir.",
         "de": "Geschätzter Prozentsatz der Gäste, die alkoholische Getränke konsumieren; entscheidend für die Mengenanpassung.",
-        "fr": "Pourcentage estimé d'invités qui consommeront des boissons alcoolisées ; essentiel pour ajuster les quantités."
+        "fr": "Pourcentage estimé d'invités qui consommeront des boissons alcoolisées ; essentiel pour ajuster les quantités.",
+        "es": "Porcentaje estimado de invitados que consumirán bebidas alcohólicas; crítico para ajustar cantidades.",
+        "ar": "النسبة المئوية المقدرة للضيوف الذين سيتناولون المشروبات الكحولية؛ ضرورية لضبط الكميات."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Etkinlik Süresi",
         "de": "Veranstaltungsdauer",
         "fr": "Durée de l'événement",
-        "es": "Duration of Event",
-        "ar": "Duration of Event"
+        "es": "Duración del evento",
+        "ar": "مدة الحدث"
       },
       "businessContext_i18n": {
         "en": "Duration of the event in hours from start to end of alcohol service; impacts total consumption time.",
         "tr": "Etkinliğin alkol servisinin başlangıcından bitişine kadar saat cinsinden süresi; toplam tüketim süresini etkiler.",
         "de": "Dauer der Veranstaltung in Stunden vom Beginn bis zum Ende des Alkoholausschanks; beeinflusst die Gesamtkonsumzeit.",
-        "fr": "Durée de l'événement en heures, du début à la fin du service d'alcool ; impacte la durée totale de consommation."
+        "fr": "Durée de l'événement en heures, du début à la fin du service d'alcool ; impacte la durée totale de consommation.",
+        "es": "Duración del evento en horas desde el inicio hasta el final del servicio de alcohol; impacta el tiempo total de consumo.",
+        "ar": "مدة الحدث بالساعات من البداية إلى نهاية خدمة الكحول؛ تؤثر على إجمالي وقت الاستهلاك."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Saat Başına Kişi Başı İçki",
         "de": "Getränke pro Stunde pro Person",
         "fr": "Boissons par heure par personne",
-        "es": "Drinks per Hour per Person",
-        "ar": "Drinks per Hour per Person"
+        "es": "Bebidas por hora por persona",
+        "ar": "المشروبات في الساعة لكل شخص"
       },
       "businessContext_i18n": {
         "en": "Average number of drinks each drinking guest is expected to consume per hour; based on event type and crowd.",
         "tr": "Her içen misafirin saatte ortalama tükettiği içki sayısı; etkinlik türü ve kalabalığa göre değişir.",
         "de": "Durchschnittliche Anzahl von Getränken, die jeder trinkende Gast pro Stunde voraussichtlich konsumiert; basierend auf Veranstaltungstyp und Publikum.",
-        "fr": "Nombre moyen de boissons que chaque invité buveur est censé consommer par heure ; basé sur le type d'événement et la foule."
+        "fr": "Nombre moyen de boissons que chaque invité buveur est censé consommer par heure ; basé sur le type d'événement et la foule.",
+        "es": "Número promedio de bebidas que se espera que cada invitado que bebe consuma por hora; basado en el tipo de evento y la multitud.",
+        "ar": "متوسط عدد المشروبات التي يتوقع أن يستهلكها كل ضيف يشرب في الساعة؛ بناءً على نوع الحدث والحضور."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Bira Oranı",
         "de": "Bieranteil",
         "fr": "Ratio de bière",
-        "es": "Beer Ratio",
-        "ar": "Beer Ratio"
+        "es": "Proporción de cerveza",
+        "ar": "نسبة البيرة"
       },
       "businessContext_i18n": {
         "en": "Fraction of total drinks expected to be beer; guides purchase of beer quantities.",
         "tr": "Toplam içkilerin bira olması beklenen kısmı; bira miktarlarının satın alınmasına rehberlik eder.",
         "de": "Anteil der Gesamtgetränke, der voraussichtlich Bier ist; leitet den Kauf von Biermengen.",
-        "fr": "Fraction du total des boissons attendue en bière ; guide l'achat des quantités de bière."
+        "fr": "Fraction du total des boissons attendue en bière ; guide l'achat des quantités de bière.",
+        "es": "Fracción del total de bebidas que se espera sea cerveza; guía la compra de cantidades de cerveza.",
+        "ar": "جزء من إجمالي المشروبات المتوقع أن تكون بيرة؛ يوجه شراء كميات البيرة."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Şarap Oranı",
         "de": "Weinanteil",
         "fr": "Ratio de vin",
-        "es": "Wine Ratio",
-        "ar": "Wine Ratio"
+        "es": "Proporción de vino",
+        "ar": "نسبة النبيذ"
       },
       "businessContext_i18n": {
         "en": "Fraction of total drinks expected to be wine; guides purchase of wine quantities.",
         "tr": "Toplam içkilerin şarap olması beklenen kısmı; şarap miktarlarının satın alınmasına rehberlik eder.",
         "de": "Anteil der Gesamtgetränke, der voraussichtlich Wein ist; leitet den Kauf von Weinmengen.",
-        "fr": "Fraction du total des boissons attendue en vin ; guide l'achat des quantités de vin."
+        "fr": "Fraction du total des boissons attendue en vin ; guide l'achat des quantités de vin.",
+        "es": "Fracción del total de bebidas que se espera sea vino; guía la compra de cantidades de vino.",
+        "ar": "جزء من إجمالي المشروبات المتوقع أن تكون نبيذًا؛ يوجه شراء كميات النبيذ."
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Sert İçki Oranı",
         "de": "Spirituosenanteil",
         "fr": "Ratio de spiritueux",
-        "es": "Spirits Ratio",
-        "ar": "Spirits Ratio"
+        "es": "Proporción de licores",
+        "ar": "نسبة المشروبات الروحية"
       },
       "businessContext_i18n": {
         "en": "Fraction of total drinks expected to be spirits (liquor); guides purchase of spirits quantities.",
         "tr": "Toplam içkilerin sert içki (likör) olması beklenen kısmı; sert içki miktarlarının satın alınmasına rehberlik eder.",
         "de": "Anteil der Gesamtgetränke, der voraussichtlich Spirituosen (Likör) ist; leitet den Kauf von Spirituosenmengen.",
-        "fr": "Fraction du total des boissons attendue en spiritueux (alcools forts) ; guide l'achat des quantités de spiritueux."
+        "fr": "Fraction du total des boissons attendue en spiritueux (alcools forts) ; guide l'achat des quantités de spiritueux.",
+        "es": "Fracción del total de bebidas que se espera sea licor; guía la compra de cantidades de licores.",
+        "ar": "جزء من إجمالي المشروبات المتوقع أن تكون مشروبات روحية (خمور)؛ يوجه شراء كميات المشروبات الروحية."
       }
     }
   ],

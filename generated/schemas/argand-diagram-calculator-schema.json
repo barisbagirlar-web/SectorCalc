@@ -14,14 +14,15 @@
         "de": "Re(z₁)",
         "fr": "Re(z₁)",
         "es": "Re(z₁)",
-        "ar": "Re(z₁)"
+        "ar": "الجزء الحقيقي (z₁)"
       },
       "businessContext_i18n": {
         "en": "Real part of first complex number",
         "tr": "Birinci karmaşık sayının gerçel kısmı",
         "de": "Realteil der ersten komplexen Zahl",
         "fr": "Partie réelle du premier nombre complexe",
-        "es": "Parte real del primer número complejo"
+        "es": "Parte real del primer número complejo",
+        "ar": "الجزء الحقيقي من العدد المركب الأول"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Im(z₁)",
         "fr": "Im(z₁)",
         "es": "Im(z₁)",
-        "ar": "Im(z₁)"
+        "ar": "الجزء التخيلي (z₁)"
       },
       "businessContext_i18n": {
         "en": "Imaginary part of first complex number",
         "tr": "Birinci karmaşık sayının sanal kısmı",
         "de": "Imaginärteil der ersten komplexen Zahl",
         "fr": "Partie imaginaire du premier nombre complexe",
-        "es": "Parte imaginaria del primer número complejo"
+        "es": "Parte imaginaria del primer número complejo",
+        "ar": "الجزء التخيلي من العدد المركب الأول"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Re(z₂)",
         "fr": "Re(z₂)",
         "es": "Re(z₂)",
-        "ar": "Re(z₂)"
+        "ar": "الجزء الحقيقي (z₂)"
       },
       "businessContext_i18n": {
         "en": "Real part of second complex number",
         "tr": "İkinci karmaşık sayının gerçel kısmı",
         "de": "Realteil der zweiten komplexen Zahl",
         "fr": "Partie réelle du deuxième nombre complexe",
-        "es": "Parte real del segundo número complejo"
+        "es": "Parte real del segundo número complejo",
+        "ar": "الجزء الحقيقي من العدد المركب الثاني"
       }
     },
     {
@@ -83,37 +86,37 @@
         "de": "Im(z₂)",
         "fr": "Im(z₂)",
         "es": "Im(z₂)",
-        "ar": "Im(z₂)"
+        "ar": "الجزء التخيلي (z₂)"
       },
       "businessContext_i18n": {
         "en": "Imaginary part of second complex number",
         "tr": "İkinci karmaşık sayının sanal kısmı",
         "de": "Imaginärteil der zweiten komplexen Zahl",
         "fr": "Partie imaginaire du deuxième nombre complexe",
-        "es": "Parte imaginaria del segundo número complejo"
+        "es": "Parte imaginaria del segundo número complejo",
+        "ar": "الجزء التخيلي من العدد المركب الثاني"
       }
     }
   ],
   "formulas": {
-    "sumReal": "re1 + re2",
-    "sumImag": "im1 + im2"
+    "normalized_product": "re1 * im1 * re2 * im2",
+    "result": "re1 * im1 * re2 * im2"
   },
   "outputs": {
-    "primary": "sumImag",
+    "primary": "result",
     "breakdown": [
-      "z1Modulus",
-      "z2Modulus",
-      "diffModulus",
-      "prodModulus",
-      "z1ArgumentDeg",
-      "z2ArgumentDeg"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "prodModulus",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

@@ -14,14 +14,15 @@
         "de": "Fehlerrate A (pro Einheit)",
         "fr": "Taux de défauts A (par unité)",
         "es": "Tasa de defectos A (por unidad)",
-        "ar": "Defect Rate A (per unit)"
+        "ar": "معدل العيوب أ (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type A defects per unit (Poisson rate)",
         "tr": "Birim başına ortalama Tip A kusur sayısı (Poisson oranı)",
         "de": "Durchschnittliche Anzahl Typ-A-Fehler pro Einheit (Poisson-Rate)",
         "fr": "Nombre moyen de défauts de type A par unité (taux de Poisson)",
-        "es": "Número promedio de defectos Tipo A por unidad (tasa de Poisson)"
+        "es": "Número promedio de defectos Tipo A por unidad (tasa de Poisson)",
+        "ar": "متوسط عدد العيوب من النوع A لكل وحدة (معدل بواسون)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Fehlerrate B (pro Einheit)",
         "fr": "Taux de défauts B (par unité)",
         "es": "Tasa de defectos B (por unidad)",
-        "ar": "Defect Rate B (per unit)"
+        "ar": "معدل العيوب B (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type B defects per unit (Poisson rate)",
         "tr": "Birim başına ortalama Tip B kusur sayısı (Poisson oranı)",
         "de": "Durchschnittliche Anzahl Typ-B-Fehler pro Einheit (Poisson-Rate)",
         "fr": "Nombre moyen de défauts de type B par unité (taux de Poisson)",
-        "es": "Número promedio de defectos Tipo B por unidad (tasa de Poisson)"
+        "es": "Número promedio de defectos Tipo B por unidad (tasa de Poisson)",
+        "ar": "متوسط عدد العيوب من النوع B لكل وحدة (معدل بواسون)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Losgröße",
         "fr": "Taille du lot",
         "es": "Tamaño del lote",
-        "ar": "Lot Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of units in the production lot",
         "tr": "Üretim partisindeki birim sayısı",
         "de": "Anzahl der Einheiten im Produktionslos",
         "fr": "Nombre d'unités dans le lot de production",
-        "es": "Número de unidades en el lote de producción"
+        "es": "Número de unidades en el lote de producción",
+        "ar": "عدد الوحدات في دفعة الإنتاج"
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Kosten pro Blackjack-Ereignis",
         "fr": "Coût par événement Blackjack",
         "es": "Costo por evento Blackjack",
-        "ar": "Cost per Blackjack Event"
+        "ar": "تكلفة حدث Blackjack"
       },
       "businessContext_i18n": {
         "en": "Financial cost incurred when a unit has both defects",
         "tr": "Bir birimde her iki kusur bulunduğunda oluşan finansal maliyet",
         "de": "Finanzielle Kosten, wenn eine Einheit beide Fehler aufweist",
         "fr": "Coût financier encouru lorsqu'une unité présente les deux défauts",
-        "es": "Costo financiero incurrido cuando una unidad tiene ambos defectos"
+        "es": "Costo financiero incurrido cuando una unidad tiene ambos defectos",
+        "ar": "التكلفة المالية المتكبدة عندما تحتوي الوحدة على كلا العيبين"
       }
     }
   ],
   "formulas": {
-    "result": "lambdaA + lambdaB + lotSize",
-    "result_copy": "lambdaA + lambdaB + lotSize"
+    "base_cost": "lambdaA * costPerBlackjack",
+    "adjusted_cost": "lambdaA * costPerBlackjack * 1",
+    "result": "lambdaA * costPerBlackjack * 1"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "probabilityPerUnit",
-      "expectedBlackjackUnits"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalExpectedCost",
-    "unit": "defects/unit"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

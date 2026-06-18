@@ -14,14 +14,15 @@
         "de": "Durchschnittlicher Jahresumsatz",
         "fr": "Revenu annuel moyen",
         "es": "Ingresos anuales promedio",
-        "ar": "Average Annual Revenue"
+        "ar": "متوسط الإيرادات السنوية"
       },
       "businessContext_i18n": {
         "en": "Total revenue averaged over last 3 years",
         "tr": "Son 3 yılın toplam gelir ortalaması",
         "de": "Gesamtumsatz gemittelt über die letzten 3 Jahre",
         "fr": "Revenu total moyen des 3 dernières années",
-        "es": "Ingresos totales promediados en los últimos 3 años"
+        "es": "Ingresos totales promediados en los últimos 3 años",
+        "ar": "إجمالي الإيرادات متوسط آخر 3 سنوات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Mitarbeiter",
         "fr": "Nombre d'employés",
         "es": "Número de empleados",
-        "ar": "Number of Employees"
+        "ar": "عدد الموظفين"
       },
       "businessContext_i18n": {
         "en": "Full-time equivalent employees",
         "tr": "Tam zamanlı eşdeğer çalışan sayısı",
         "de": "Vollzeitäquivalente Mitarbeiter",
         "fr": "Employés équivalents temps plein",
-        "es": "Empleados equivalentes a tiempo completo"
+        "es": "Empleados equivalentes a tiempo completo",
+        "ar": "الموظفون بدوام كامل (مكافئ)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtprojektkosten",
         "fr": "Coût total du projet",
         "es": "Costo total del proyecto",
-        "ar": "Total Project Cost"
+        "ar": "إجمالي تكلفة المشروع"
       },
       "businessContext_i18n": {
         "en": "Estimated cost of the project for which grant is sought",
         "tr": "Hibe başvurusu yapılan projenin tahmini maliyeti",
         "de": "Geschätzte Kosten des Projekts, für das der Zuschuss beantragt wird",
         "fr": "Coût estimé du projet pour lequel la subvention est demandée",
-        "es": "Costo estimado del proyecto para el cual se solicita la subvención"
+        "es": "Costo estimado del proyecto para el cual se solicita la subvención",
+        "ar": "التكلفة المقدرة للمشروع المطلوب له المنحة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bereitgestellte Kofinanzierung",
         "fr": "Fonds de contrepartie fournis",
         "es": "Fondos de contrapartida proporcionados",
-        "ar": "Matching Funds Provided"
+        "ar": "الأموال المطابقة المقدمة"
       },
       "businessContext_i18n": {
         "en": "Business's own contribution towards the project",
         "tr": "İşletmenin projeye kendi katkısı",
         "de": "Eigenbeitrag des Unternehmens zum Projekt",
         "fr": "Contribution propre de l'entreprise au projet",
-        "es": "Contribución propia de la empresa al proyecto"
+        "es": "Contribución propia de la empresa al proyecto",
+        "ar": "مساهمة الشركة الخاصة في المشروع"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Minderheitenunternehmen (1=Ja, 0=Nein)",
         "fr": "Entreprise détenue par une minorité (1=Oui, 0=Non)",
         "es": "Empresa propiedad de minorías (1=Sí, 0=No)",
-        "ar": "Minority-Owned Business (1=Yes, 0=No)"
+        "ar": "شركة مملوكة لأقلية (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "At least 51% minority-owned",
         "tr": "En az %51 azınlık sahipli",
         "de": "Mindestens 51 % im Besitz von Minderheiten",
         "fr": "Au moins 51 % détenue par une minorité",
-        "es": "Al menos 51% propiedad de minorías"
+        "es": "Al menos 51% propiedad de minorías",
+        "ar": "مملوكة للأقلية بنسبة 51% على الأقل"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Frauengeführtes Unternehmen (1=Ja, 0=Nein)",
         "fr": "Entreprise détenue par une femme (1=Oui, 0=Non)",
         "es": "Empresa propiedad de mujeres (1=Sí, 0=No)",
-        "ar": "Woman-Owned Business (1=Yes, 0=No)"
+        "ar": "مشروع مملوك لامرأة (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
         "en": "At least 51% woman-owned",
         "tr": "En az %51 kadın sahipli",
         "de": "Mindestens 51 % im Frauenbesitz",
         "fr": "Au moins 51 % détenue par une femme",
-        "es": "Al menos 51% propiedad de mujeres"
+        "es": "Al menos 51% propiedad de mujeres",
+        "ar": "مملوكة لامرأة بنسبة 51% على الأقل"
       }
     }
   ],
   "formulas": {
-    "result": "avgAnnualRevenue + numEmployees + projectCost",
-    "result_copy": "avgAnnualRevenue + numEmployees + projectCost"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "numEmployees * 1 * 1 * projectCost",
+    "result": "numEmployees * 1 * 1 * projectCost * avgAnnualRevenue"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "baseGrant",
-      "diversityMultiplier",
-      "adjustedGrant"
+      "annual_exposure_hours",
+      "direct_labor_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
-    "dataConfidenceAdjusted": "finalGrant",
-    "unit": "$"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Günlük Yaşam & Ev",

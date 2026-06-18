@@ -14,14 +14,15 @@
         "de": "Dachgrundfläche",
         "fr": "Surface d'empreinte du toit",
         "es": "Área de la huella del techo",
-        "ar": "Roof Footprint Area"
+        "ar": "مساحة بصمة السقف"
       },
       "businessContext_i18n": {
         "en": "Total horizontal area covered by the roof (length × width) in square meters.",
         "tr": "Çatının kapladığı toplam yatay alan (uzunluk × genişlik) metrekare cinsinden.",
         "de": "Gesamte horizontale Fläche des Daches (Länge × Breite) in Quadratmetern.",
         "fr": "Surface horizontale totale couverte par le toit (longueur × largeur) en mètres carrés.",
-        "es": "Área horizontal total cubierta por el techo (largo × ancho) en metros cuadrados."
+        "es": "Área horizontal total cubierta por el techo (largo × ancho) en metros cuadrados.",
+        "ar": "إجمالي المساحة الأفقية التي يغطيها السقف (الطول × العرض) بالمتر المربع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dachneigungswinkel",
         "fr": "Angle de pente du toit",
         "es": "Ángulo de inclinación del techo",
-        "ar": "Roof Pitch Angle"
+        "ar": "زاوية ميل السقف"
       },
       "businessContext_i18n": {
         "en": "Inclination angle of the roof from horizontal, in degrees.",
         "tr": "Çatının yataydan eğim açısı, derece cinsinden.",
         "de": "Neigungswinkel des Daches zur Horizontalen in Grad.",
         "fr": "Angle d'inclinaison du toit par rapport à l'horizontale, en degrés.",
-        "es": "Ángulo de inclinación del techo desde la horizontal, en grados."
+        "es": "Ángulo de inclinación del techo desde la horizontal, en grados.",
+        "ar": "زاوية ميل السقف عن الأفقي، بالدرجات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage for cutting, overlap, and handling losses.",
         "tr": "Kesim, bindirme ve taşıma kayıpları için ek malzeme yüzdesi.",
         "de": "Zusätzlicher Materialprozentsatz für Verschnitt, Überlappung und Handhabungsverluste.",
         "fr": "Pourcentage de matériau supplémentaire pour les pertes de coupe, de chevauchement et de manutention.",
-        "es": "Porcentaje de material adicional por pérdidas de corte, solapamiento y manipulación."
+        "es": "Porcentaje de material adicional por pérdidas de corte, solapamiento y manipulación.",
+        "ar": "نسبة المواد الإضافية للقطع والتداخل وفقدان المناولة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schindelabdeckung pro Bündel",
         "fr": "Couverture par paquet de bardeaux",
         "es": "Cobertura de tejas por paquete",
-        "ar": "Shingle Coverage per Bundle"
+        "ar": "تغطية القرميد لكل حزمة"
       },
       "businessContext_i18n": {
         "en": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab.",
         "tr": "Bir paket düz shingle'ın kapladığı alan, standart 3-tab için tipik olarak 3,1 m².",
         "de": "Fläche, die von einem Bündel Feldschindeln abgedeckt wird, typischerweise 3,1 m² für Standard-3-Tab.",
         "fr": "Surface couverte par un paquet de bardeaux de champ, typiquement 3,1 m² pour les bardeaux standard à 3 pattes.",
-        "es": "Área cubierta por un paquete de tejas de campo, típicamente 3.1 m² para tejas estándar de 3 lengüetas."
+        "es": "Área cubierta por un paquete de tejas de campo, típicamente 3.1 m² para tejas estándar de 3 lengüetas.",
+        "ar": "المساحة التي تغطيها حزمة واحدة من قرميد الحقل، عادة 3.1 م² للقرميد القياسي ثلاثي الألسنة."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Firstlänge",
         "fr": "Longueur de faîtage",
         "es": "Longitud de cumbrera",
-        "ar": "Ridge Length"
+        "ar": "طول الحافة"
       },
       "businessContext_i18n": {
         "en": "Total length of ridges and hips requiring cap shingles, in meters.",
         "tr": "Kapak shingle'ı gerektiren mahya ve çatı kırım hatlarının toplam uzunluğu, metre cinsinden.",
         "de": "Gesamtlänge von Firsten und Graten, die Abschlussschindeln erfordern, in Metern.",
         "fr": "Longueur totale des faîtes et arêtiers nécessitant des bardeaux de faîtage, en mètres.",
-        "es": "Longitud total de cumbreras y limatesas que requieren tejas de cumbrera, en metros."
+        "es": "Longitud total de cumbreras y limatesas que requieren tejas de cumbrera, en metros.",
+        "ar": "إجمالي طول الحواف والوركين التي تتطلب قرميد التغطية، بالأمتار."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Abschlussabdeckung pro Bündel",
         "fr": "Couverture par paquet de bardeaux de faîtage",
         "es": "Cobertura por paquete de cumbrera",
-        "ar": "Cap Coverage per Bundle"
+        "ar": "تغطية القرميد العلوي لكل حزمة"
       },
       "businessContext_i18n": {
         "en": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps.",
         "tr": "Bir paket kapak shingle'ının sağladığı doğrusal mahya kapsama alanı, 3-tab kapaklar için tipik olarak 10 m.",
         "de": "Lineare Firstabdeckung, die von einem Bündel Abschlussschindeln bereitgestellt wird, typischerweise 10 m für 3-Tab-Abschlüsse.",
         "fr": "Couverture linéaire de faîtage fournie par un paquet de bardeaux de faîtage, typiquement 10 m pour les bardeaux à 3 pattes.",
-        "es": "Cobertura lineal de cumbrera proporcionada por un paquete de tejas de cumbrera, típicamente 10 m para cumbreras de 3 lengüetas."
+        "es": "Cobertura lineal de cumbrera proporcionada por un paquete de tejas de cumbrera, típicamente 10 m para cumbreras de 3 lengüetas.",
+        "ar": "تغطية الحافة الخطية التي توفرها حزمة واحدة من قرميد التغطية، عادة 10 م للقرميد ثلاثي الألسنة."
       }
     }
   ],
   "formulas": {
-    "result": "roofFootprintArea + roofPitchAngle + wasteFactor",
-    "result_copy": "roofFootprintArea + roofPitchAngle + wasteFactor"
+    "normalized_product": "roofFootprintArea * roofPitchAngle * (wasteFactor / 100) * shingleCoveragePerBundle",
+    "result": "roofFootprintArea * roofPitchAngle * (wasteFactor / 100) * shingleCoveragePerBundle * (ridgeLength * capCoveragePerBundle)",
+    "adjustment_factor": "ridgeLength * capCoveragePerBundle"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "fieldBundles",
-      "ridgeBundles"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalBundles",
-    "unit": "m²"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

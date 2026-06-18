@@ -14,14 +14,15 @@
         "de": "x (reelle Zahl)",
         "fr": "x (nombre réel)",
         "es": "x (número real)",
-        "ar": "x (real number)"
+        "ar": "x (عدد حقيقي)"
       },
       "businessContext_i18n": {
         "en": "Input value for which the Gamma function is evaluated. For positive integers, Gamma(n) = (n-1)!.",
         "tr": "Gama fonksiyonunun değerlendirileceği girdi değeri. Pozitif tam sayılar için Gamma(n) = (n-1)!.",
         "de": "Eingabewert, für den die Gammafunktion ausgewertet wird. Für positive ganze Zahlen gilt Gamma(n) = (n-1)!.",
         "fr": "Valeur d'entrée pour laquelle la fonction Gamma est évaluée. Pour les entiers positifs, Gamma(n) = (n-1)!.",
-        "es": "Valor de entrada para el cual se evalúa la función Gamma. Para enteros positivos, Gamma(n) = (n-1)!."
+        "es": "Valor de entrada para el cual se evalúa la función Gamma. Para enteros positivos, Gamma(n) = (n-1)!.",
+        "ar": "قيمة الإدخال التي يتم تقييم دالة جاما لها. للأعداد الصحيحة الموجبة، Gamma(n) = (n-1)!."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Convergence tolerance for the Lanczos approximation series.",
         "tr": "Lanczos yaklaşım serisi için yakınsama toleransı.",
         "de": "Konvergenztoleranz für die Lanczos-Näherungsreihe.",
         "fr": "Tolérance de convergence pour la série d'approximation de Lanczos.",
-        "es": "Tolerancia de convergencia para la serie de aproximación de Lanczos."
+        "es": "Tolerancia de convergencia para la serie de aproximación de Lanczos.",
+        "ar": "تفاوت التقارب لسلسلة تقريب لانكزوس."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maximale Iterationen",
         "fr": "Itérations maximales",
         "es": "Máximo de iteraciones",
-        "ar": "Max Iterations"
+        "ar": "الحد الأقصى للتكرارات"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations for the series summation.",
         "tr": "Seri toplamı için maksimum iterasyon sayısı.",
         "de": "Maximale Anzahl von Iterationen für die Reihensummation.",
         "fr": "Nombre maximal d'itérations pour la sommation de la série.",
-        "es": "Número máximo de iteraciones para la suma de la serie."
+        "es": "Número máximo de iteraciones para la suma de la serie.",
+        "ar": "الحد الأقصى لعدد التكرارات لجمع السلسلة."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Stirling-Näherung verwenden (0/1)",
         "fr": "Utiliser l'approximation de Stirling (0/1)",
         "es": "Usar aproximación de Stirling (0/1)",
-        "ar": "Use Stirling Approximation (0/1)"
+        "ar": "استخدام تقريب ستيرلينغ (0/1)"
       },
       "businessContext_i18n": {
         "en": "If set to 1, use Stirling's approximation for large x (x > 10) for faster computation.",
         "tr": "1 olarak ayarlanırsa, büyük x (x > 10) için daha hızlı hesaplama amacıyla Stirling yaklaşımı kullanılır.",
         "de": "Wenn auf 1 gesetzt, wird für große x (x > 10) die Stirling-Näherung für schnellere Berechnung verwendet.",
         "fr": "Si défini à 1, utiliser l'approximation de Stirling pour les grandes valeurs de x (x > 10) pour un calcul plus rapide.",
-        "es": "Si se establece en 1, usar la aproximación de Stirling para x grande (x > 10) para un cálculo más rápido."
+        "es": "Si se establece en 1, usar la aproximación de Stirling para x grande (x > 10) para un cálculo más rápido.",
+        "ar": "إذا تم التعيين على 1، استخدم تقريب ستيرلينغ للقيم الكبيرة (x > 10) لحساب أسرع."
       }
     }
   ],
   "formulas": {
-    "result": "x + tolerance + maxIterations",
-    "result_aux": "x + tolerance + maxIterations"
+    "normalized_product": "x * tolerance * maxIterations * useStirling",
+    "result": "x * tolerance * maxIterations * useStirling"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Gamma(x) value",
-      "Natural log of Gamma(x)",
-      "Factorial equivalent (x-1)! if x is integer"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "gammaStirling",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

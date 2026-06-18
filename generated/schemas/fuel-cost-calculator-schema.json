@@ -12,16 +12,17 @@
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
-        "fr": "Distance (km)",
+        "fr": "Debye-Hückel B",
         "es": "Distancia (km)",
-        "ar": "Distance (km)"
+        "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
         "en": "Total distance to be traveled",
         "tr": "Gidilecek toplam mesafe",
         "de": "Zurückzulegende Gesamtstrecke",
         "fr": "Distance totale à parcourir",
-        "es": "Distancia total a recorrer"
+        "es": "Distancia total a recorrer",
+        "ar": "المسافة الإجمالية المطلوب قطعها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
         "es": "Consumo de combustible (L/100km)",
-        "ar": "Fuel Consumption (L/100km)"
+        "ar": "استهلاك الوقود (لتر/100كم)"
       },
       "businessContext_i18n": {
         "en": "Vehicle's fuel consumption rate per 100 km",
         "tr": "Aracın 100 km başına yakıt tüketim oranı",
         "de": "Kraftstoffverbrauch des Fahrzeugs pro 100 km",
         "fr": "Taux de consommation de carburant du véhicule aux 100 km",
-        "es": "Tasa de consumo de combustible del vehículo por cada 100 km"
+        "es": "Tasa de consumo de combustible del vehículo por cada 100 km",
+        "ar": "معدل استهلاك الوقود للمركبة لكل 100 كم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kraftstoffpreis (pro L)",
         "fr": "Prix du carburant (par L)",
         "es": "Precio del combustible (por L)",
-        "ar": "Fuel Price (per L)"
+        "ar": "سعر الوقود (لتر)"
       },
       "businessContext_i18n": {
         "en": "Current fuel price per liter",
         "tr": "Litre başına güncel yakıt fiyatı",
         "de": "Aktueller Kraftstoffpreis pro Liter",
         "fr": "Prix actuel du carburant par litre",
-        "es": "Precio actual del combustible por litro"
+        "es": "Precio actual del combustible por litro",
+        "ar": "سعر الوقود الحالي لكل لتر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Fahrten",
         "fr": "Nombre de trajets",
         "es": "Número de viajes",
-        "ar": "Number of Trips"
+        "ar": "عدد الرحلات"
       },
       "businessContext_i18n": {
         "en": "Multiply by number of trips to obtain total cost",
         "tr": "Toplam maliyeti elde etmek için seyir sayısıyla çarpın",
         "de": "Mit Anzahl der Fahrten multiplizieren, um Gesamtkosten zu erhalten",
         "fr": "Multiplier par le nombre de trajets pour obtenir le coût total",
-        "es": "Multiplicar por el número de viajes para obtener el costo total"
+        "es": "Multiplicar por el número de viajes para obtener el costo total",
+        "ar": "اضرب في عدد الرحلات للحصول على التكلفة الإجمالية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Zusätzliche Kosten pro Fahrt",
         "fr": "Coût supplémentaire par trajet",
         "es": "Costo adicional por viaje",
-        "ar": "Additional Cost per Trip"
+        "ar": "تكلفة إضافية لكل رحلة"
       },
       "businessContext_i18n": {
         "en": "Any fixed additional cost per trip (e.g., tolls, maintenance)",
         "tr": "Sefer başına herhangi bir sabit ek maliyet (örn. köprü geçiş ücreti, bakım)",
         "de": "Feste Zusatzkosten pro Fahrt (z. B. Maut, Wartung)",
         "fr": "Tout coût fixe supplémentaire par trajet (péages, entretien)",
-        "es": "Cualquier costo fijo adicional por viaje (p. ej., peajes, mantenimiento)"
+        "es": "Cualquier costo fijo adicional por viaje (p. ej., peajes, mantenimiento)",
+        "ar": "أي تكلفة إضافية ثابتة لكل رحلة (مثل الرسوم، الصيانة)"
       }
     }
   ],

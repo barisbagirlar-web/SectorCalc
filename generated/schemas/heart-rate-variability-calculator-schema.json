@@ -14,14 +14,15 @@
         "de": "Anzahl der RR-Intervalle (N)",
         "fr": "Nombre d'intervalles RR (N)",
         "es": "Número de intervalos RR (N)",
-        "ar": "Number of RR intervals (N)"
+        "ar": "عدد فترات RR (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of consecutive RR intervals recorded",
         "tr": "Kaydedilen ardışık RR aralıklarının toplam sayısı",
         "de": "Gesamtzahl der aufeinanderfolgenden RR-Intervalle",
         "fr": "Nombre total d'intervalles RR consécutifs enregistrés",
-        "es": "Número total de intervalos RR consecutivos registrados"
+        "es": "Número total de intervalos RR consecutivos registrados",
+        "ar": "إجمالي عدد فترات RR المتتالية المسجلة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Summe der RR-Intervalle",
         "fr": "Somme des intervalles RR",
         "es": "Suma de intervalos RR",
-        "ar": "Sum of RR intervals"
+        "ar": "مجموع فترات RR"
       },
       "businessContext_i18n": {
         "en": "Sum of all RR interval durations in milliseconds",
         "tr": "Tüm RR aralıklarının milisaniye cinsinden toplam süresi",
         "de": "Summe aller RR-Intervalldauern in Millisekunden",
         "fr": "Somme de toutes les durées des intervalles RR en millisecondes",
-        "es": "Suma de todas las duraciones de intervalos RR en milisegundos"
+        "es": "Suma de todas las duraciones de intervalos RR en milisegundos",
+        "ar": "مجموع مدد جميع فترات RR بالمللي ثانية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Summe der quadrierten RR-Intervalle",
         "fr": "Somme des carrés des intervalles RR",
         "es": "Suma de intervalos RR al cuadrado",
-        "ar": "Sum of squared RR intervals"
+        "ar": "مجموع مربعات فترات RR"
       },
       "businessContext_i18n": {
         "en": "Sum of the squares of each RR interval for variance calculation",
         "tr": "Varyans hesaplaması için her bir RR aralığının karelerinin toplamı",
         "de": "Summe der Quadrate jedes RR-Intervalls für die Varianzberechnung",
         "fr": "Somme des carrés de chaque intervalle RR pour le calcul de la variance",
-        "es": "Suma de los cuadrados de cada intervalo RR para el cálculo de la varianza"
+        "es": "Suma de los cuadrados de cada intervalo RR para el cálculo de la varianza",
+        "ar": "مجموع مربعات كل فترة RR لحساب التباين"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Summe der quadrierten aufeinanderfolgenden Differenzen",
         "fr": "Somme des carrés des différences successives",
         "es": "Suma de las diferencias sucesivas al cuadrado",
-        "ar": "Sum of squared successive differences"
+        "ar": "مجموع مربعات الفروق المتتالية"
       },
       "businessContext_i18n": {
         "en": "Sum of squared differences between consecutive RR intervals",
         "tr": "Ardışık RR aralıkları arasındaki kareli farkların toplamı",
         "de": "Summe der quadrierten Differenzen zwischen aufeinanderfolgenden RR-Intervallen",
         "fr": "Somme des carrés des différences entre intervalles RR consécutifs",
-        "es": "Suma de las diferencias al cuadrado entre intervalos RR consecutivos"
+        "es": "Suma de las diferencias al cuadrado entre intervalos RR consecutivos",
+        "ar": "مجموع مربعات الفروق بين فترات RR المتتالية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl der NN50",
         "fr": "Nombre de NN50",
         "es": "Recuento de NN50",
-        "ar": "Count of NN50"
+        "ar": "عدد NN50"
       },
       "businessContext_i18n": {
         "en": "Number of interval differences greater than 50 ms",
         "tr": "50 ms'den büyük aralık farklarının sayısı",
         "de": "Anzahl der Intervallunterschiede größer als 50 ms",
         "fr": "Nombre de différences d'intervalles supérieures à 50 ms",
-        "es": "Número de diferencias de intervalo mayores a 50 ms"
+        "es": "Número de diferencias de intervalo mayores a 50 ms",
+        "ar": "عدد الفروق بين الفترات التي تزيد عن 50 مللي ثانية"
       }
     }
   ],

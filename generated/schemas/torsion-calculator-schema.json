@@ -13,14 +13,16 @@
         "tr": "Uygulanan Tork",
         "de": "Angewandtes Drehmoment",
         "fr": "Couple appliqué",
-        "es": "Applied Torque",
-        "ar": "Applied Torque"
+        "es": "Par aplicado",
+        "ar": "العزم المطبق"
       },
       "businessContext_i18n": {
         "en": "Torsion moment applied to the shaft",
         "tr": "Milde uygulanan burulma momenti",
         "de": "Auf die Welle wirkendes Torsionsmoment",
-        "fr": "Moment de torsion appliqué à l'arbre"
+        "fr": "Moment de torsion appliqué à l'arbre",
+        "es": "Momento de torsión aplicado al eje",
+        "ar": "عزم الالتواء المطبق على العمود"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Mil Uzunluğu",
         "de": "Wellenlänge",
         "fr": "Longueur de l'arbre",
-        "es": "Shaft Length",
-        "ar": "Shaft Length"
+        "es": "Longitud del eje",
+        "ar": "طول العمود"
       },
       "businessContext_i18n": {
         "en": "Length of the shaft under torsion",
         "tr": "Burulma altındaki milin uzunluğu",
         "de": "Länge der Welle unter Torsion",
-        "fr": "Longueur de l'arbre soumise à la torsion"
+        "fr": "Longueur de l'arbre soumise à la torsion",
+        "es": "Longitud del eje bajo torsión",
+        "ar": "طول العمود تحت الالتواء"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Schubmodul (G)",
         "fr": "Module de cisaillement (G)",
         "es": "Módulo de corte (G)",
-        "ar": "Shear Modulus (G)"
+        "ar": "معامل القص (G)"
       },
       "businessContext_i18n": {
         "en": "Shear modulus of the material, e.g., steel ~80 GPa",
         "tr": "Malzemenin kayma modülü, örn. çelik ~80 GPa",
         "de": "Schubmodul des Materials, z. B. Stahl ~80 GPa",
-        "fr": "Module de cisaillement du matériau, ex. acier ~80 GPa"
+        "fr": "Module de cisaillement du matériau, ex. acier ~80 GPa",
+        "es": "Módulo de cizalladura del material, ej., acero ~80 GPa",
+        "ar": "معامل القص للمادة، مثلاً الفولاذ ~80 جيجا باسكال"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Außendurchmesser",
         "fr": "Diamètre extérieur",
         "es": "Diámetro exterior",
-        "ar": "Outer Diameter"
+        "ar": "القطر الخارجي"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the shaft",
         "tr": "Milin dış çapı",
         "de": "Außendurchmesser der Welle",
-        "fr": "Diamètre extérieur de l'arbre"
+        "fr": "Diamètre extérieur de l'arbre",
+        "es": "Diámetro exterior del eje",
+        "ar": "القطر الخارجي للعمود"
       }
     },
     {
@@ -102,32 +110,39 @@
         "de": "Innendurchmesser",
         "fr": "Diamètre intérieur",
         "es": "Diámetro interior",
-        "ar": "Inner Diameter"
+        "ar": "القطر الداخلي"
       },
       "businessContext_i18n": {
         "en": "Inner diameter for hollow shafts; set to 0 for solid shafts",
         "tr": "İçi boş miller için iç çap; dolu miller için 0 girin",
         "de": "Innendurchmesser für Hohlwellen; bei Vollwellen auf 0 setzen",
-        "fr": "Diamètre intérieur pour arbres creux ; mettre 0 pour arbres pleins"
+        "fr": "Diamètre intérieur pour arbres creux ; mettre 0 pour arbres pleins",
+        "es": "Diámetro interior para ejes huecos; establecer en 0 para ejes sólidos",
+        "ar": "القطر الداخلي للأعمدة المجوفة؛ اضبط على 0 للأعمدة المصمتة"
       }
     }
   ],
   "formulas": {
-    "result": "torque + length + shearModulus",
-    "result_copy": "torque + length + shearModulus"
+    "normalized_product": "torque * length * shearModulus * diameter",
+    "result": "torque * length * shearModulus * diameter * (innerDiameter)",
+    "adjustment_factor": "innerDiameter"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "angleOfTwist",
-      "polarMomentInertia"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "angleOfTwist",
-    "unit": "N·m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

@@ -14,14 +14,15 @@
         "de": "Anfängliche Anzahl Leben",
         "fr": "Nombre initial de vies",
         "es": "Número inicial de vidas",
-        "ar": "Initial Number of Lives"
+        "ar": "عدد الأحياء الأولي"
       },
       "businessContext_i18n": {
         "en": "The radix or starting population for the life table, typically a large round number such as 100,000.",
         "tr": "Hayat tablosu için başlangıç popülasyonu, genellikle 100.000 gibi büyük bir yuvarlak sayı.",
         "de": "Die Basis oder Startpopulation für die Sterbetafel, typischerweise eine große runde Zahl wie 100.000.",
         "fr": "Radix ou population de départ pour la table de mortalité, généralement un grand nombre rond comme 100 000.",
-        "es": "La raíz o población inicial para la tabla de vida, típicamente un número redondo grande como 100,000."
+        "es": "La raíz o población inicial para la tabla de vida, típicamente un número redondo grande como 100,000.",
+        "ar": "الأساس أو السكان الأولي لجدول الحياة، عادة رقم كبير مدور مثل 100,000."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gompertz-Parameter B",
         "fr": "Paramètre B de Gompertz",
         "es": "Parámetro B de Gompertz",
-        "ar": "Gompertz Parameter B"
+        "ar": "معلمة غومبيرتز B"
       },
       "businessContext_i18n": {
         "en": "Scale parameter of the Gompertz mortality law, representing the mortality rate at very young ages (if c is close to 1).",
         "tr": "Gompertz ölüm yasasının ölçek parametresi, çok genç yaşlardaki ölüm oranını temsil eder (c 1'e yakınsa).",
         "de": "Skalenparameter des Gompertz-Sterbegesetzes, der die Sterblichkeitsrate in sehr jungen Jahren darstellt (wenn c nahe 1 ist).",
         "fr": "Paramètre d'échelle de la loi de mortalité de Gompertz, représentant le taux de mortalité aux très jeunes âges (si c est proche de 1).",
-        "es": "Parámetro de escala de la ley de mortalidad de Gompertz, que representa la tasa de mortalidad a edades muy jóvenes (si c está cerca de 1)."
+        "es": "Parámetro de escala de la ley de mortalidad de Gompertz, que representa la tasa de mortalidad a edades muy jóvenes (si c está cerca de 1).",
+        "ar": "معلمة المقياس لقانون وفيات غومبيرتز، تمثل معدل الوفيات في الأعمار الصغيرة جدًا (إذا كانت c قريبة من 1)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gompertz-Parameter c",
         "fr": "Paramètre c de Gompertz",
         "es": "Parámetro c de Gompertz",
-        "ar": "Gompertz Parameter c"
+        "ar": "معلمة غومبيرتز c"
       },
       "businessContext_i18n": {
         "en": "Exponential growth factor of mortality with age; must be greater than 1 for mortality to increase with age.",
         "tr": "Yaşla birlikte ölüm oranının üstel büyüme faktörü; ölüm oranının yaşla artması için 1'den büyük olmalıdır.",
         "de": "Exponentieller Wachstumsfaktor der Sterblichkeit mit dem Alter; muss größer als 1 sein, damit die Sterblichkeit mit dem Alter zunimmt.",
         "fr": "Facteur de croissance exponentielle de la mortalité avec l'âge ; doit être supérieur à 1 pour que la mortalité augmente avec l'âge.",
-        "es": "Factor de crecimiento exponencial de la mortalidad con la edad; debe ser mayor que 1 para que la mortalidad aumente con la edad."
+        "es": "Factor de crecimiento exponencial de la mortalidad con la edad; debe ser mayor que 1 para que la mortalidad aumente con la edad.",
+        "ar": "عامل النمو الأسي للوفيات مع العمر؛ يجب أن يكون أكبر من 1 حتى تزداد الوفيات مع العمر."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Alter (x)",
         "fr": "Âge (x)",
         "es": "Edad (x)",
-        "ar": "Age (x)"
+        "ar": "العمر (x)"
       },
       "businessContext_i18n": {
         "en": "Exact age at which to evaluate the life table functions.",
         "tr": "Hayat tablosu fonksiyonlarının değerlendirileceği tam yaş.",
         "de": "Exaktes Alter, bei dem die Sterbetafelfunktionen ausgewertet werden sollen.",
         "fr": "Âge exact auquel évaluer les fonctions de la table de mortalité.",
-        "es": "Edad exacta en la que evaluar las funciones de la tabla de vida."
+        "es": "Edad exacta en la que evaluar las funciones de la tabla de vida.",
+        "ar": "العمر الدقيق الذي يتم عنده تقييم دوال جدول الحياة."
       }
     }
   ],
   "formulas": {
-    "result": "l0 + B + c",
-    "result_copy": "l0 + B + c"
+    "normalized_product": "l0 * B * c * age",
+    "result": "l0 * B * c * age"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "lx",
-      "dx"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "qx",
-    "unit": "per year"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

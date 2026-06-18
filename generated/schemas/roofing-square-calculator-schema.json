@@ -14,14 +14,15 @@
         "de": "Dachlänge",
         "fr": "Longueur du toit",
         "es": "Longitud del techo",
-        "ar": "Çatı Uzunluğu"
+        "ar": "طول السقف"
       },
       "businessContext_i18n": {
         "en": "Çatı taban alanının uzun kenarı",
         "tr": "Çatı taban alanının uzun kenarı",
         "de": "Lange Seite der Dachgrundfläche",
         "fr": "Longueur du côté long de la surface de toit",
-        "es": "Lado largo del área base del techo"
+        "es": "Lado largo del área base del techo",
+        "ar": "الضلع الطويل لمساحة قاعدة السقف"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dachbreite",
         "fr": "Largeur du toit",
         "es": "Ancho del techo",
-        "ar": "Çatı Genişliği"
+        "ar": "عرض السقف"
       },
       "businessContext_i18n": {
         "en": "Çatı taban alanının kısa kenarı",
         "tr": "Çatı taban alanının kısa kenarı",
         "de": "Kurze Seite der Dachgrundfläche",
         "fr": "Longueur du côté court de la surface de toit",
-        "es": "Lado corto del área base del techo"
+        "es": "Lado corto del área base del techo",
+        "ar": "الضلع القصير لمساحة قاعدة السقف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dachneigungswinkel",
         "fr": "Angle d'inclinaison du toit",
         "es": "Ángulo de inclinación del techo",
-        "ar": "Çatı Eğim Açısı"
+        "ar": "زاوية ميل السقف"
       },
       "businessContext_i18n": {
         "en": "Çatı eğim açısı, yatay düzleme göre",
         "tr": "Çatı eğim açısı, yatay düzleme göre",
         "de": "Dachneigungswinkel relativ zur horizontalen Ebene",
         "fr": "Angle d'inclinaison du toit par rapport au plan horizontal",
-        "es": "Ángulo de inclinación del techo respecto al plano horizontal"
+        "es": "Ángulo de inclinación del techo respecto al plano horizontal",
+        "ar": "زاوية ميل السقف بالنسبة للمستوى الأفقي"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Prozessverlust in Prozent",
         "fr": "Pourcentage de rebut",
         "es": "Porcentaje de merma",
-        "ar": "Fire Yüzdesi"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Kesim ve hata payı için eklenen fire oranı",
         "tr": "Kesim ve hata payı için eklenen fire oranı",
         "de": "Zuschlagfaktor für Schnitt- und Fehlertoleranz",
         "fr": "Taux de chute ajouté pour la coupe et la marge d'erreur",
-        "es": "Porcentaje de desperdicio adicional por corte y margen de error"
+        "es": "Porcentaje de desperdicio adicional por corte y margen de error",
+        "ar": "نسبة الهدر المضافة للقطع وهامش الخطأ"
       }
     }
   ],
   "formulas": {
-    "result": "roofLength + roofWidth + pitchAngle",
-    "result_copy": "roofLength + roofWidth + pitchAngle"
+    "normalized_product": "roofLength * roofWidth * pitchAngle * (wastePercent / 100)",
+    "result": "roofLength * roofWidth * pitchAngle * (wastePercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "roofArea",
-      "wasteArea",
-      "totalArea"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "roofingSquares",
-    "unit": "ft"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",

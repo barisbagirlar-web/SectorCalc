@@ -14,14 +14,15 @@
         "de": "Seite a",
         "fr": "Côté a",
         "es": "Lado a",
-        "ar": "Side a"
+        "ar": "الضلع أ"
       },
       "businessContext_i18n": {
         "en": "Length of first side",
         "tr": "Birinci kenarın uzunluğu",
         "de": "Länge der ersten Seite",
         "fr": "Longueur du premier côté",
-        "es": "Longitud del primer lado"
+        "es": "Longitud del primer lado",
+        "ar": "طول الضلع الأول"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Seite b",
         "fr": "Côté b",
         "es": "Lado b",
-        "ar": "Side b"
+        "ar": "الضلع ب"
       },
       "businessContext_i18n": {
         "en": "Length of second side",
         "tr": "İkinci kenarın uzunluğu",
         "de": "Länge der zweiten Seite",
         "fr": "Longueur du deuxième côté",
-        "es": "Longitud del segundo lado"
+        "es": "Longitud del segundo lado",
+        "ar": "طول الضلع الثاني"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Winkel C",
         "fr": "Angle C",
         "es": "Ángulo C",
-        "ar": "Angle C"
+        "ar": "الزاوية ج"
       },
       "businessContext_i18n": {
         "en": "Included angle between sides a and b",
         "tr": "a ve b kenarları arasındaki dahil açı",
         "de": "Eingeschlossener Winkel zwischen den Seiten a und b",
         "fr": "Angle inclus entre les côtés a et b",
-        "es": "Ángulo incluido entre los lados a y b"
+        "es": "Ángulo incluido entre los lados a y b",
+        "ar": "الزاوية المحصورة بين الضلعين أ و ب"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para el redondeo de salida"
+        "es": "Número de decimales para el redondeo de salida",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     }
   ],
   "formulas": {
-    "result": "sideA + sideB + angleC",
-    "result_copy": "sideA + sideB + angleC"
+    "normalized_product": "sideA * sideB * angleC * decimalPlaces",
+    "result": "sideA * sideB * angleC * decimalPlaces"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sideC",
-      "angleA_rounded",
-      "angleB_rounded"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "angleB_rounded",
-    "unit": "degrees"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

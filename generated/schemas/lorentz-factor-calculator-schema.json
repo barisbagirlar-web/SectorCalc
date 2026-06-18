@@ -14,14 +14,15 @@
         "de": "Geschwindigkeit X (m/s)",
         "fr": "Vitesse X (m/s)",
         "es": "Velocidad X (m/s)",
-        "ar": "Velocity X (m/s)"
+        "ar": "السرعة X (م/ث)"
       },
       "businessContext_i18n": {
         "en": "Velocity component in X direction",
         "tr": "X yönündeki hız bileşeni",
         "de": "Geschwindigkeitskomponente in X-Richtung",
         "fr": "Composante de vitesse dans la direction X",
-        "es": "Componente de velocidad en dirección X"
+        "es": "Componente de velocidad en dirección X",
+        "ar": "مركبة السرعة في الاتجاه X"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geschwindigkeit Y (m/s)",
         "fr": "Vitesse Y (m/s)",
         "es": "Velocidad Y (m/s)",
-        "ar": "Velocity Y (m/s)"
+        "ar": "السرعة Y (م/ث)"
       },
       "businessContext_i18n": {
         "en": "Velocity component in Y direction",
         "tr": "Y yönündeki hız bileşeni",
         "de": "Geschwindigkeitskomponente in Y-Richtung",
         "fr": "Composante de vitesse dans la direction Y",
-        "es": "Componente de velocidad en dirección Y"
+        "es": "Componente de velocidad en dirección Y",
+        "ar": "مركبة السرعة في الاتجاه Y"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geschwindigkeit Z (m/s)",
         "fr": "Vitesse Z (m/s)",
         "es": "Velocidad Z (m/s)",
-        "ar": "Velocity Z (m/s)"
+        "ar": "السرعة Z (م/ث)"
       },
       "businessContext_i18n": {
         "en": "Velocity component in Z direction",
         "tr": "Z yönündeki hız bileşeni",
         "de": "Geschwindigkeitskomponente in Z-Richtung",
         "fr": "Composante de vitesse dans la direction Z",
-        "es": "Componente de velocidad en dirección Z"
+        "es": "Componente de velocidad en dirección Z",
+        "ar": "مركبة السرعة في الاتجاه Z"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Lichtgeschwindigkeit (m/s)",
         "fr": "Vitesse de la lumière (m/s)",
         "es": "Velocidad de la luz (m/s)",
-        "ar": "Speed of Light (m/s)"
+        "ar": "سرعة الضوء (م/ث)"
       },
       "businessContext_i18n": {
         "en": "Constant speed of light in vacuum, typically 299792458 m/s",
         "tr": "Vakumdaki sabit ışık hızı, tipik olarak 299792458 m/s",
         "de": "Konstante Lichtgeschwindigkeit im Vakuum, normalerweise 299792458 m/s",
         "fr": "Vitesse constante de la lumière dans le vide, généralement 299792458 m/s",
-        "es": "Velocidad constante de la luz en el vacío, típicamente 299792458 m/s"
+        "es": "Velocidad constante de la luz en el vacío, típicamente 299792458 m/s",
+        "ar": "سرعة الضوء الثابتة في الفراغ، عادة 299792458 م/ث"
       }
     }
   ],
   "formulas": {
-    "result": "vx + vy + vz",
-    "result_copy": "vx + vy + vz"
+    "normalized_product": "vx * vy * vz * c",
+    "result": "vx * vy * vz * c"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "speed",
-      "beta"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "gamma",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

@@ -14,13 +14,15 @@
         "de": "Anzahl der Würfel",
         "fr": "Nombre de dés",
         "es": "Número de Dados",
-        "ar": "Number of Dice"
+        "ar": "عدد النرد"
       },
       "businessContext_i18n": {
         "en": "Total dice used in the game (standard Yahtzee uses 5).",
         "tr": "Oyunda kullanılan toplam zar sayısı (standart Yahtzee 5 kullanır).",
         "de": "Gesamtzahl der im Spiel verwendeten Würfel (Standard Yahtzee verwendet 5).",
-        "fr": "Nombre total de dés utilisés dans le jeu (le Yahtzee standard en utilise 5)."
+        "fr": "Nombre total de dés utilisés dans le jeu (le Yahtzee standard en utilise 5).",
+        "es": "Total de dados usados en el juego (Yahtzee estándar usa 5).",
+        "ar": "إجمالي النرد المستخدم في اللعبة (ياhtzee القياسي يستخدم 5)."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Hedef Eşleşen Zar",
         "de": "Zielanzahl übereinstimmender Würfel",
         "fr": "Dés correspondants cibles",
-        "es": "Target Matching Dice",
-        "ar": "Target Matching Dice"
+        "es": "Dados objetivo coincidentes",
+        "ar": "النرد المستهدف المطابق"
       },
       "businessContext_i18n": {
         "en": "Number of dice that must show the same value (e.g., 5 for a Yahtzee).",
         "tr": "Aynı değeri göstermesi gereken zar sayısı (ör. Yahtzee için 5).",
         "de": "Anzahl der Würfel, die denselben Wert zeigen müssen (z. B. 5 für einen Yahtzee).",
-        "fr": "Nombre de dés qui doivent montrer la même valeur (ex. 5 pour un Yahtzee)."
+        "fr": "Nombre de dés qui doivent montrer la même valeur (ex. 5 pour un Yahtzee).",
+        "es": "Número de dados que deben mostrar el mismo valor (ej. 5 para un Yahtzee).",
+        "ar": "عدد النرد الذي يجب أن يظهر نفس القيمة (مثل 5 لـ Yahtzee)."
       }
     },
     {
@@ -57,33 +61,38 @@
         "tr": "Mevcut Eşleşen Zar",
         "de": "Aktuelle Anzahl übereinstimmender Würfel",
         "fr": "Dés correspondants actuels",
-        "es": "Current Matching Dice",
-        "ar": "Current Matching Dice"
+        "es": "Dados coincidentes actuales",
+        "ar": "النرد المطابق الحالي"
       },
       "businessContext_i18n": {
         "en": "Number of dice already showing the desired value from previous rolls.",
         "tr": "Önceki atışlardan istenen değeri gösteren zar sayısı.",
         "de": "Anzahl der Würfel, die bereits den gewünschten Wert aus vorherigen Würfen zeigen.",
-        "fr": "Nombre de dés montrant déjà la valeur souhaitée après les lancers précédents."
+        "fr": "Nombre de dés montrant déjà la valeur souhaitée après les lancers précédents.",
+        "es": "Número de dados que ya muestran el valor deseado de tiradas anteriores.",
+        "ar": "عدد النرد الذي يظهر بالفعل القيمة المطلوبة من اللفات السابقة."
       }
     }
   ],
   "formulas": {
-    "result": "diceCount + targetMatches + currentMatches",
-    "result_copy": "diceCount + targetMatches + currentMatches"
+    "normalized_product": "diceCount * targetMatches * currentMatches",
+    "result": "diceCount * targetMatches * currentMatches"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "percentage",
-      "oddsOneIn"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "oddsOneIn",
-    "unit": "dice",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "percentage": "%"
     }

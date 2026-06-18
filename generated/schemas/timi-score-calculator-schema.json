@@ -13,14 +13,16 @@
         "tr": "Envanter Devir Hızı",
         "de": "Lagerumschlagshäufigkeit",
         "fr": "Taux de rotation des stocks",
-        "es": "Envanter Devir Hızı",
-        "ar": "Envanter Devir Hızı"
+        "es": "Rotación de Inventario",
+        "ar": "معدل دوران المخزون"
       },
       "businessContext_i18n": {
         "en": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
         "tr": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
         "de": "Jährliche Lagerumschlagshäufigkeit (Kosten der verkauften Waren / durchschnittlicher Lagerbestand)",
-        "fr": "Taux de rotation annuel des stocks (coût des marchandises vendues / stock moyen)"
+        "fr": "Taux de rotation annuel des stocks (coût des marchandises vendues / stock moyen)",
+        "es": "Rotación anual de inventario (costo de bienes vendidos / inventario promedio)",
+        "ar": "معدل دوران المخزون السنوي (تكلفة البضاعة المباعة / متوسط المخزون)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Makine Kullanım Oranı",
         "de": "Maschinenauslastungsgrad",
         "fr": "Taux d'utilisation des machines",
-        "es": "Makine Kullanım Oranı",
-        "ar": "Makine Kullanım Oranı"
+        "es": "Tasa de Utilización de Máquina",
+        "ar": "نسبة استخدام الماكينة"
       },
       "businessContext_i18n": {
         "en": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
         "tr": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
         "de": "Verhältnis der tatsächlichen Betriebszeit der Maschinen zur geplanten Zeit",
-        "fr": "Rapport entre le temps de fonctionnement réel des machines et le temps planifié"
+        "fr": "Rapport entre le temps de fonctionnement réel des machines et le temps planifié",
+        "es": "Relación entre el tiempo real de operación de las máquinas y el tiempo planificado",
+        "ar": "نسبة وقت التشغيل الفعلي للماكينات إلى الوقت المخطط"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Sipariş Doğruluk Oranı",
         "de": "Liefertreuequote",
         "fr": "Taux de précision des commandes",
-        "es": "Sipariş Doğruluk Oranı",
-        "ar": "Sipariş Doğruluk Oranı"
+        "es": "Tasa de Precisión de Pedidos",
+        "ar": "نسبة دقة الطلبات"
       },
       "businessContext_i18n": {
         "en": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
         "tr": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
         "de": "Verhältnis der fehlerfrei gelieferten Aufträge zur Gesamtzahl der Aufträge",
-        "fr": "Rapport entre les commandes livrées sans erreur et le total des commandes"
+        "fr": "Rapport entre les commandes livrées sans erreur et le total des commandes",
+        "es": "Proporción de pedidos entregados sin defectos respecto al total de pedidos",
+        "ar": "نسبة الطلبات المسلمة بدون أخطاء إلى إجمالي الطلبات"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Fehlerrate",
         "fr": "Taux de défauts",
         "es": "Tasa de defectos",
-        "ar": "Hata Oranı"
+        "ar": "نسبة العيوب"
       },
       "businessContext_i18n": {
         "en": "Üretimdeki kusurlu ürün oranı",
         "tr": "Üretimdeki kusurlu ürün oranı",
         "de": "Ausschussrate in der Produktion",
-        "fr": "Taux de produits défectueux dans la production"
+        "fr": "Taux de produits défectueux dans la production",
+        "es": "Tasa de productos defectuosos en la producción",
+        "ar": "نسبة المنتجات المعيبة في الإنتاج"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Bakım Uyum Oranı",
         "de": "Wartungserfüllungsgrad",
         "fr": "Taux de conformité de la maintenance",
-        "es": "Bakım Uyum Oranı",
-        "ar": "Bakım Uyum Oranı"
+        "es": "Tasa de Cumplimiento de Mantenimiento",
+        "ar": "نسبة الامتثال للصيانة"
       },
       "businessContext_i18n": {
         "en": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
         "tr": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
         "de": "Anteil der planmäßigen Wartungsaufgaben, die termingerecht abgeschlossen wurden",
-        "fr": "Pourcentage des tâches de maintenance planifiées terminées à temps"
+        "fr": "Pourcentage des tâches de maintenance planifiées terminées à temps",
+        "es": "Porcentaje de tareas de mantenimiento planificadas completadas a tiempo",
+        "ar": "نسبة إنجاز مهام الصيانة المخطط لها في الوقت المحدد"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "İş Güvenliği Skoru",
         "de": "Arbeitssicherheits-Score",
         "fr": "Score de sécurité au travail",
-        "es": "İş Güvenliği Skoru",
-        "ar": "İş Güvenliği Skoru"
+        "es": "Puntaje de Seguridad Laboral",
+        "ar": "درجة السلامة المهنية"
       },
       "businessContext_i18n": {
         "en": "İSG denetim puanı (0-100)",
         "tr": "İSG denetim puanı (0-100)",
         "de": "Sicherheitsaudit-Punktzahl (0-100)",
-        "fr": "Score d'audit SST (0-100)"
+        "fr": "Score d'audit SST (0-100)",
+        "es": "Puntaje de auditoría de SST (0-100)",
+        "ar": "درجة تدقيق الصحة والسلامة المهنية (0-100)"
       }
     }
   ],

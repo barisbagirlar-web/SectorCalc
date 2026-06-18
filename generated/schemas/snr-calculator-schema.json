@@ -14,14 +14,15 @@
         "de": "Signalspannung",
         "fr": "Tension du signal",
         "es": "Tensión de señal",
-        "ar": "Signal Voltage"
+        "ar": "جهد الإشارة"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the desired signal",
         "tr": "İstenen sinyalin RMS voltajı",
         "de": "Effektivspannung des gewünschten Signals",
         "fr": "Tension RMS du signal désiré",
-        "es": "Tensión RMS de la señal deseada"
+        "es": "Tensión RMS de la señal deseada",
+        "ar": "جهد RMS للإشارة المرغوبة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lastwiderstand",
         "fr": "Résistance de charge",
         "es": "Resistencia de carga",
-        "ar": "Load Resistance"
+        "ar": "مقاومة الحمل"
       },
       "businessContext_i18n": {
         "en": "System impedance",
         "tr": "Sistem empedansı",
         "de": "Systemimpedanz",
         "fr": "Impédance du système",
-        "es": "Impedancia del sistema"
+        "es": "Impedancia del sistema",
+        "ar": "ممانعة النظام"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Bandbreite",
         "fr": "Largeur de bande",
         "es": "Ancho de banda",
-        "ar": "Bandwidth"
+        "ar": "عرض النطاق"
       },
       "businessContext_i18n": {
         "en": "Noise bandwidth of the system",
         "tr": "Sistemin gürültü bant genişliği",
         "de": "Rauschbandbreite des Systems",
         "fr": "Bande passante de bruit du système",
-        "es": "Ancho de banda de ruido del sistema"
+        "es": "Ancho de banda de ruido del sistema",
+        "ar": "عرض نطاق ضوضاء النظام"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature in Kelvin (290K ≈ 17°C)",
         "tr": "Kelvin cinsinden mutlak sıcaklık (290K ≈ 17°C)",
         "de": "Absolute Temperatur in Kelvin (290 K ≈ 17 °C)",
         "fr": "Température absolue en Kelvin (290 K ≈ 17°C)",
-        "es": "Temperatura absoluta en Kelvin (290 K ≈ 17 °C)"
+        "es": "Temperatura absoluta en Kelvin (290 K ≈ 17 °C)",
+        "ar": "درجة الحرارة المطلقة بالكلفن (290 ك ≈ 17°م)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rauschzahl",
         "fr": "Facteur de bruit",
         "es": "Figura de ruido",
-        "ar": "Noise Figure"
+        "ar": "رقم الضوضاء"
       },
       "businessContext_i18n": {
         "en": "System noise figure, 0 dB for ideal noiseless",
         "tr": "Sistem gürültü faktörü, ideal gürültüsüz için 0 dB",
         "de": "Rauschzahl des Systems, 0 dB für ideal rauschfrei",
         "fr": "Facteur de bruit du système, 0 dB pour un système idéal sans bruit",
-        "es": "Figura de ruido del sistema, 0 dB para ideal sin ruido"
+        "es": "Figura de ruido del sistema, 0 dB para ideal sin ruido",
+        "ar": "رقم ضوضاء النظام، 0 ديسيبل للنظام المثالي الخالي من الضوضاء"
       }
     }
   ],

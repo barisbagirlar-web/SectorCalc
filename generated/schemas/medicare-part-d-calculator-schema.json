@@ -14,14 +14,15 @@
         "de": "Jährliche Gesamtarzneimittelkosten",
         "fr": "Coûts totaux annuels des médicaments",
         "es": "Costos totales anuales de medicamentos",
-        "ar": "Annual Total Drug Costs"
+        "ar": "إجمالي تكاليف الأدوية السنوية"
       },
       "businessContext_i18n": {
         "en": "Total retail cost of all prescription drugs for the year before insurance",
         "tr": "Sigortadan önce yıl boyunca tüm reçeteli ilaçların toplam perakende maliyeti",
         "de": "Gesamte Einzelhandelskosten aller verschreibungspflichtigen Medikamente für das Jahr vor der Versicherung",
         "fr": "Coût total au détail de tous les médicaments sur ordonnance pour l'année avant assurance",
-        "es": "Costo total al por menor de todos los medicamentos recetados para el año antes del seguro"
+        "es": "Costo total al por menor de todos los medicamentos recetados para el año antes del seguro",
+        "ar": "إجمالي تكلفة التجزئة لجميع الأدوية الموصوفة للسنة قبل التأمين"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Plan-Selbstbehalt",
         "fr": "Franchise du régime",
         "es": "Deducible del plan",
-        "ar": "Plan Deductible"
+        "ar": "الخصم من الخطة"
       },
       "businessContext_i18n": {
         "en": "The amount you pay out-of-pocket before initial coverage begins",
         "tr": "İlk teminat başlamadan önce cepten ödediğiniz tutar",
         "de": "Der Betrag, den Sie aus eigener Tasche zahlen, bevor die anfängliche Deckung beginnt",
         "fr": "Montant que vous payez de votre poche avant le début de la couverture initiale",
-        "es": "La cantidad que paga de su bolsillo antes de que comience la cobertura inicial"
+        "es": "La cantidad que paga de su bolsillo antes de que comience la cobertura inicial",
+        "ar": "المبلغ الذي تدفعه من جيبك قبل بدء التغطية الأولية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfänglicher Kostenbeteiligungssatz",
         "fr": "Taux de coassurance initial",
         "es": "Tasa de coseguro inicial",
-        "ar": "Initial Coinsurance Rate"
+        "ar": "نسبة المشاركة في التكلفة الأولية"
       },
       "businessContext_i18n": {
         "en": "Percentage of drug costs you pay during initial coverage phase",
         "tr": "İlk teminat aşamasında ödediğiniz ilaç maliyetlerinin yüzdesi",
         "de": "Prozentsatz der Arzneimittelkosten, den Sie während der anfänglichen Deckungsphase zahlen",
         "fr": "Pourcentage des coûts des médicaments que vous payez pendant la phase de couverture initiale",
-        "es": "Porcentaje de los costos de medicamentos que paga durante la fase de cobertura inicial"
+        "es": "Porcentaje de los costos de medicamentos que paga durante la fase de cobertura inicial",
+        "ar": "النسبة المئوية لتكاليف الأدوية التي تدفعها خلال مرحلة التغطية الأولية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Katastrophenschwelle",
         "fr": "Seuil catastrophique",
         "es": "Umbral catastrófico",
-        "ar": "Catastrophic Threshold"
+        "ar": "حد الكارثة"
       },
       "businessContext_i18n": {
         "en": "Out-of-pocket maximum after which catastrophic coverage begins",
         "tr": "Katastrofik teminatın başladığı cepten maksimum harcama",
         "de": "Eigenanteilsmaximum, nach dem die Katastrophendeckung beginnt",
         "fr": "Maximum de débours après lequel la couverture catastrophique commence",
-        "es": "Máximo de gastos de bolsillo después del cual comienza la cobertura catastrófica"
+        "es": "Máximo de gastos de bolsillo después del cual comienza la cobertura catastrófica",
+        "ar": "الحد الأقصى للنفقات الشخصية الذي يبدأ بعده التغطية الكارثية"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Katastrophen-Kostenbeteiligungssatz",
         "fr": "Taux de coassurance catastrophique",
         "es": "Tasa de coseguro catastrófico",
-        "ar": "Catastrophic Coinsurance Rate"
+        "ar": "معدل المشاركة في التكاليف الكارثية"
       },
       "businessContext_i18n": {
         "en": "Percentage of drug costs you pay in catastrophic phase",
         "tr": "Katastrofik aşamada ödediğiniz ilaç maliyetlerinin yüzdesi",
         "de": "Prozentsatz der Arzneimittelkosten, den Sie in der Katastrophenphase zahlen",
         "fr": "Pourcentage des coûts des médicaments que vous payez en phase catastrophique",
-        "es": "Porcentaje de los costos de medicamentos que paga en la fase catastrófica"
+        "es": "Porcentaje de los costos de medicamentos que paga en la fase catastrófica",
+        "ar": "النسبة المئوية من تكاليف الأدوية التي تدفعها في المرحلة الكارثية"
       }
     }
   ],
   "formulas": {
-    "result": "annualDrugCost + deductible + initialCoinsurance",
-    "result_copy": "annualDrugCost + deductible + initialCoinsurance"
+    "normalized_product": "annualDrugCost * deductible * (initialCoinsurance / 100) * catastrophicThreshold",
+    "result": "annualDrugCost * deductible * (initialCoinsurance / 100) * catastrophicThreshold * ((catastrophicCoinsurance / 100))",
+    "adjustment_factor": "(catastrophicCoinsurance / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "OOP_deductible",
-      "OOP_initial",
-      "OOP_catastrophic",
-      "annualDrugCost"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalOOP",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Kimya & Proses",

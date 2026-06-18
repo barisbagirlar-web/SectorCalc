@@ -13,14 +13,16 @@
         "tr": "Hammadde Maliyeti (birim başına)",
         "de": "Rohstoffkosten (pro Einheit)",
         "fr": "Coût matière première (par unité)",
-        "es": "Hammadde Maliyeti (birim başına)",
-        "ar": "Hammadde Maliyeti (birim başına)"
+        "es": "Coste de materia prima (por unidad)",
+        "ar": "تكلفة المواد الخام (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Üretim birim başına direkt malzeme maliyeti",
         "tr": "Üretim birim başına direkt malzeme maliyeti",
         "de": "Direkte Materialkosten pro Produktionseinheit",
-        "fr": "Coût direct des matériaux par unité produite"
+        "fr": "Coût direct des matériaux par unité produite",
+        "es": "Coste directo de material por unidad de producción",
+        "ar": "تكلفة المواد المباشرة لكل وحدة إنتاج"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "İşçilik Maliyeti (birim başına)",
         "de": "Arbeitskosten (pro Einheit)",
         "fr": "Coût de main-d'œuvre (par unité)",
-        "es": "İşçilik Maliyeti (birim başına)",
-        "ar": "İşçilik Maliyeti (birim başına)"
+        "es": "Coste de mano de obra (por unidad)",
+        "ar": "تكلفة العمالة (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Birim başı direkt işçilik maliyeti",
         "tr": "Birim başı direkt işçilik maliyeti",
         "de": "Direkte Arbeitskosten pro Einheit",
-        "fr": "Coût direct de main-d'œuvre par unité"
+        "fr": "Coût direct de main-d'œuvre par unité",
+        "es": "Coste directo de mano de obra por unidad",
+        "ar": "تكلفة العمالة المباشرة لكل وحدة"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Enerji Maliyeti (birim başına)",
         "de": "Energiekosten (pro Einheit)",
         "fr": "Coût énergétique (par unité)",
-        "es": "Enerji Maliyeti (birim başına)",
-        "ar": "Enerji Maliyeti (birim başına)"
+        "es": "Coste energético (por unidad)",
+        "ar": "تكلفة الطاقة (لكل وحدة)"
       },
       "businessContext_i18n": {
         "en": "Üretim birim başı enerji tüketim maliyeti",
         "tr": "Üretim birim başı enerji tüketim maliyeti",
         "de": "Energieverbrauchskosten pro Produktionseinheit",
-        "fr": "Coût de consommation énergétique par unité produite"
+        "fr": "Coût de consommation énergétique par unité produite",
+        "es": "Coste de consumo energético por unidad de producción",
+        "ar": "تكلفة استهلاك الطاقة لكل وحدة إنتاج"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Genel Üretim Gider Oranı",
         "de": "Gemeinkostensatz Fertigung",
         "fr": "Taux de frais généraux de production",
-        "es": "Genel Üretim Gider Oranı",
-        "ar": "Genel Üretim Gider Oranı"
+        "es": "Tasa de gastos generales de fabricación",
+        "ar": "نسبة التكاليف العامة للتصنيع"
       },
       "businessContext_i18n": {
         "en": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
         "tr": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
         "de": "Prozentsatz der Gemeinkosten, angewendet auf direkte Kosten",
-        "fr": "Pourcentage de frais généraux appliqué sur les coûts directs"
+        "fr": "Pourcentage de frais généraux appliqué sur les coûts directs",
+        "es": "Porcentaje de gastos generales aplicado sobre costos directos",
+        "ar": "النسبة المئوية للتكاليف العامة المطبقة على التكاليف المباشرة"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
         "es": "Porcentaje de desperdicio",
-        "ar": "Fire Oranı"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
-        "tr": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
+        "tr": "Fire Oranı",
         "de": "Ausschussrate im Produktionsprozess; wird als Verlustrate in der effektiven Kostenberechnung verwendet",
-        "fr": "Taux de rebut dans le processus de production ; utilisé comme taux de perte dans le calcul des coûts effectifs"
+        "fr": "Taux de rebut dans le processus de production ; utilisé comme taux de perte dans le calcul des coûts effectifs",
+        "es": "Tasa de desperdicio en el proceso de producción; se utiliza como tasa de pérdida en el cálculo de costos efectivos",
+        "ar": "نسبة الهدر في عملية الإنتاج؛ تُستخدم كنسبة خسارة في حساب التكلفة الفعلية"
       }
     }
   ],

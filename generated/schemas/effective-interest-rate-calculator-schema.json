@@ -14,14 +14,15 @@
         "de": "Jährlicher Nominalzinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés nominal anual",
-        "ar": "Nominal Annual Interest Rate"
+        "ar": "سعر الفائدة السنوي الاسمي"
       },
       "businessContext_i18n": {
         "en": "Stated annual interest rate before compounding, as a percentage.",
         "tr": "Bileşik faiz öncesi yıllık nominal faiz oranı, yüzde olarak.",
         "de": "Angegebener jährlicher Nominalzins vor Zinseszins, in Prozent.",
         "fr": "Taux d'intérêt annuel nominal avant composition, en pourcentage.",
-        "es": "Tasa de interés anual declarada antes de la capitalización, como porcentaje."
+        "es": "Tasa de interés anual declarada antes de la capitalización, como porcentaje.",
+        "ar": "معدل الفائدة السنوي المعلن قبل المركبة، كنسبة مئوية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zinsperioden pro Jahr",
         "fr": "Périodes de capitalisation par an",
         "es": "Períodos de capitalización por año",
-        "ar": "Compounding Periods per Year"
+        "ar": "فترات التركيب في السنة"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly).",
         "tr": "Yıllık bileşik faiz dönemi sayısı (ör. aylık için 12, üç aylık için 4).",
         "de": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 12 für monatlich, 4 für vierteljährlich).",
         "fr": "Nombre de fois que l'intérêt est composé par an (par exemple, 12 pour mensuel, 4 pour trimestriel).",
-        "es": "Número de veces que se capitaliza el interés por año (ej., 12 para mensual, 4 para trimestral)."
+        "es": "Número de veces que se capitaliza el interés por año (ej., 12 para mensual, 4 para trimestral).",
+        "ar": "عدد مرات مضاعفة الفائدة سنويًا (مثل 12 للشهري، 4 للربع سنوي)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zeitraum (Jahre)",
         "fr": "Période (Années)",
         "es": "Período de tiempo (años)",
-        "ar": "Time Period (Years)"
+        "ar": "الفترة الزمنية (سنوات)"
       },
       "businessContext_i18n": {
         "en": "Number of years over which to compute the effective rate. Use 1 for annual effective rate.",
         "tr": "Efektif oranın hesaplanacağı yıl sayısı. Yıllık efektif oran için 1 kullanın.",
         "de": "Anzahl der Jahre, über die der Effektivzins berechnet wird. Verwenden Sie 1 für den jährlichen Effektivzins.",
         "fr": "Nombre d'années sur lequel calculer le taux effectif. Utilisez 1 pour le taux effectif annuel.",
-        "es": "Número de años sobre los cuales calcular la tasa efectiva. Use 1 para la tasa efectiva anual."
+        "es": "Número de años sobre los cuales calcular la tasa efectiva. Use 1 para la tasa efectiva anual.",
+        "ar": "عدد السنوات التي يتم حساب المعدل الفعلي خلالها. استخدم 1 للمعدل الفعلي السنوي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
         "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
         "fr": "Nombre de décimales pour l'arrondi du résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات."
       }
     }
   ],

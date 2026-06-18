@@ -14,14 +14,15 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Batch Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of units per production batch",
         "tr": "Üretim partisi başına birim sayısı",
         "de": "Anzahl der Einheiten pro Produktionslos",
         "fr": "Nombre d'unités par lot de production",
-        "es": "Número de unidades por lote de producción"
+        "es": "Número de unidades por lote de producción",
+        "ar": "عدد الوحدات لكل دفعة إنتاج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zykluszeit pro Einheit",
         "fr": "Temps de cycle par unité",
         "es": "Tiempo de ciclo por unidad",
-        "ar": "Cycle Time per Unit"
+        "ar": "زمن الدورة لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Time to produce one unit on one machine",
         "tr": "Bir birimi tek bir makinede üretme süresi",
         "de": "Zeit zur Herstellung einer Einheit auf einer Maschine",
         "fr": "Temps pour produire une unité sur une machine",
-        "es": "Tiempo para producir una unidad en una máquina"
+        "es": "Tiempo para producir una unidad en una máquina",
+        "ar": "الوقت اللازم لإنتاج وحدة واحدة على آلة واحدة"
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "Toplam Ekipman Etkinliği yüzdesi",
         "de": "Gesamtanlageneffektivität in Prozent",
         "fr": "Pourcentage d'efficacité globale des équipements",
-        "es": "Porcentaje de efectividad general del equipo"
+        "es": "Porcentaje de efectividad general del equipo",
+        "ar": "نسبة الفعالية الكلية للمعدات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Maschinen",
         "fr": "Nombre de machines",
         "es": "Número de máquinas",
-        "ar": "Number of Machines"
+        "ar": "عدد الآلات"
       },
       "businessContext_i18n": {
         "en": "Number of parallel machines",
         "tr": "Paralel makine sayısı",
         "de": "Anzahl paralleler Maschinen",
         "fr": "Nombre de machines en parallèle",
-        "es": "Número de máquinas en paralelo"
+        "es": "Número de máquinas en paralelo",
+        "ar": "عدد الآلات المتوازية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rüstzeit",
         "fr": "Temps de réglage",
         "es": "Tiempo de preparación",
-        "ar": "Setup Time"
+        "ar": "وقت الإعداد"
       },
       "businessContext_i18n": {
         "en": "Time to set up before production",
         "tr": "Üretimden önce kurulum için geçen süre",
         "de": "Zeit für die Einrichtung vor der Produktion",
         "fr": "Temps de préparation avant production",
-        "es": "Tiempo para preparar antes de la producción"
+        "es": "Tiempo para preparar antes de la producción",
+        "ar": "الوقت اللازم للإعداد قبل الإنتاج"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Schichtdauer",
         "fr": "Durée du poste",
         "es": "Duración del turno",
-        "ar": "Shift Duration"
+        "ar": "مدة الوردية"
       },
       "businessContext_i18n": {
         "en": "Length of one work shift",
         "tr": "Bir iş vardiyasının uzunluğu",
         "de": "Länge einer Arbeitsschicht",
         "fr": "Longueur d'un poste de travail",
-        "es": "Duración de un turno de trabajo"
+        "es": "Duración de un turno de trabajo",
+        "ar": "طول وردية العمل الواحدة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Pausenzeit pro Schicht",
         "fr": "Temps de pause par poste",
         "es": "Tiempo de descanso por turno",
-        "ar": "Break Time per Shift"
+        "ar": "وقت الاستراحة لكل وردية"
       },
       "businessContext_i18n": {
         "en": "Non-productive time per shift",
         "tr": "Vardiya başına üretken olmayan süre",
         "de": "Nicht-produktive Zeit pro Schicht",
         "fr": "Temps non productif par poste",
-        "es": "Tiempo no productivo por turno"
+        "es": "Tiempo no productivo por turno",
+        "ar": "الوقت غير الإنتاجي لكل وردية"
       }
     }
   ],

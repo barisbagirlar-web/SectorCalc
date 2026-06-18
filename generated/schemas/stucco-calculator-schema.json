@@ -14,14 +14,15 @@
         "de": "Wandfläche",
         "fr": "Surface du mur",
         "es": "Área de Pared",
-        "ar": "Duvar Alanı"
+        "ar": "مساحة الجدار"
       },
       "businessContext_i18n": {
         "en": "Sıvanacak toplam duvar alanı (m² cinsinden).",
         "tr": "Sıvanacak toplam duvar alanı (m² cinsinden).",
         "de": "Zu verputzende Gesamtwandfläche (in m²).",
         "fr": "Surface totale du mur à enduire (en m²).",
-        "es": "Área total de pared a enlucir (en m²)."
+        "es": "Área total de pared a enlucir (en m²).",
+        "ar": "إجمالي مساحة الجدار المراد تلبيسه (بالمتر المربع)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Putzstärke",
         "fr": "Épaisseur de l'enduit",
         "es": "Espesor del enlucido",
-        "ar": "Sıva Kalınlığı"
+        "ar": "سمك التلييس"
       },
       "businessContext_i18n": {
         "en": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
         "tr": "Sıva Kalınlığı",
         "de": "Aufzutragende Gesamtputzdicke (in mm).",
         "fr": "Épaisseur totale de l'enduit à appliquer (en mm).",
-        "es": "Espesor total de enlucido a aplicar (en mm)."
+        "es": "Espesor total de enlucido a aplicar (en mm).",
+        "ar": "سمك التلبيسة الكلي المطبق (بالمليمتر)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mischungsdichte",
         "fr": "Densité du mélange",
         "es": "Densidad de la Mezcla",
-        "ar": "Karışım Yoğunluğu"
+        "ar": "كثافة الخليط"
       },
       "businessContext_i18n": {
         "en": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
         "tr": "Karışım Yoğunluğu",
         "de": "Gewicht der trockenen Putzmischung pro 1 m² Fläche bei 1 mm Dicke (kg). Typischer Wert 1,0 kg/(m²·mm).",
         "fr": "Poids du mélange d'enduit sec nécessaire pour 1 m² sur 1 mm d'épaisseur (kg). Valeur typique : 1,0 kg/(m²·mm).",
-        "es": "Peso de mezcla de enlucido seco requerido por 1 mm de espesor en 1 m² (kg). Valor típico 1.0 kg/(m²·mm)."
+        "es": "Peso de mezcla de enlucido seco requerido por 1 mm de espesor en 1 m² (kg). Valor típico 1.0 kg/(m²·mm).",
+        "ar": "وزن خليط التلبيسة الجاف المطلوب لكل 1 م² وسمك 1 مم (كجم). القيمة النموذجية 1.0 كجم/(م²·مم)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sackgewicht",
         "fr": "Poids du sac",
         "es": "Peso del Saco",
-        "ar": "Torba Ağırlığı"
+        "ar": "وزن الكيس"
       },
       "businessContext_i18n": {
         "en": "Bir torba sıva karışımının net ağırlığı (kg).",
         "tr": "Torba Ağırlığı",
         "de": "Nettogewicht eines Sackes Putzmischung (kg).",
         "fr": "Poids net d'un sac de mélange d'enduit (kg).",
-        "es": "Peso neto de un saco de mezcla de enlucido (kg)."
+        "es": "Peso neto de un saco de mezcla de enlucido (kg).",
+        "ar": "الوزن الصافي لكيس واحد من خليط التلبيسة (كجم)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
         "es": "Porcentaje de desperdicio",
-        "ar": "Fire Oranı"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
         "tr": "Bir torba sıva karışımının net ağırlığı (kg).",
         "de": "Abfallprozentsatz während der Anwendung (in %).",
         "fr": "Taux de perte lors de l'application (en %).",
-        "es": "Porcentaje de desperdicio durante la aplicación (en %)."
+        "es": "Porcentaje de desperdicio durante la aplicación (en %).",
+        "ar": "نسبة الفاقد المتوقع أثناء التطبيق (%)."
       }
     }
   ],

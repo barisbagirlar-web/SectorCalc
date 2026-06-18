@@ -14,14 +14,15 @@
         "de": "Zwischensumme",
         "fr": "Sous-total",
         "es": "Subtotal",
-        "ar": "Subtotal"
+        "ar": "المجموع الفرعي"
       },
       "businessContext_i18n": {
         "en": "The total amount of all items before any deductions or additions.",
         "tr": "Herhangi bir kesinti veya eklemeden önceki tüm kalemlerin toplam tutarı.",
         "de": "Der Gesamtbetrag aller Posten vor Abzügen oder Zuschlägen.",
         "fr": "Montant total de tous les articles avant déductions ou ajouts.",
-        "es": "El monto total de todos los artículos antes de cualquier deducción o adición."
+        "es": "El monto total de todos los artículos antes de cualquier deducción o adición.",
+        "ar": "المبلغ الإجمالي لجميع العناصر قبل أي خصومات أو إضافات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rabattprozentsatz",
         "fr": "Pourcentage de réduction",
         "es": "Porcentaje de descuento",
-        "ar": "Discount Percentage"
+        "ar": "نسبة الخصم"
       },
       "businessContext_i18n": {
         "en": "Discount rate applied to the subtotal.",
         "tr": "Ara toplama uygulanan iskonto oranı.",
         "de": "Rabattsatz auf die Zwischensumme.",
         "fr": "Taux de remise appliqué au sous-total.",
-        "es": "Tasa de descuento aplicada al subtotal."
+        "es": "Tasa de descuento aplicada al subtotal.",
+        "ar": "نسبة الخصم المطبقة على المبلغ الإجمالي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Steuersatz",
         "fr": "Taux de taxe",
         "es": "Tasa de impuesto",
-        "ar": "Tax Rate"
+        "ar": "نسبة الضريبة"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied after discount, e.g., VAT.",
         "tr": "İskonto sonrası uygulanan vergi oranı, örn. KDV.",
         "de": "Steuersatz nach Rabatt, z. B. Mehrwertsteuer.",
         "fr": "Taux de taxe appliqué après remise, ex. : TVA.",
-        "es": "Tasa impositiva aplicada después del descuento, ej. IVA."
+        "es": "Tasa impositiva aplicada después del descuento, ej. IVA.",
+        "ar": "نسبة الضريبة المطبقة بعد الخصم، مثل ضريبة القيمة المضافة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Versandkosten",
         "fr": "Frais d'expédition",
         "es": "Coste de envío",
-        "ar": "Shipping Cost"
+        "ar": "تكلفة الشحن"
       },
       "businessContext_i18n": {
         "en": "Flat shipping charge added to the invoice.",
         "tr": "Faturaya eklenen sabit kargo ücreti.",
         "de": "Pauschale Versandgebühr, die der Rechnung hinzugefügt wird.",
         "fr": "Frais d'expédition forfaitaires ajoutés à la facture.",
-        "es": "Cargo de envío fijo añadido a la factura."
+        "es": "Cargo de envío fijo añadido a la factura.",
+        "ar": "رسوم شحن ثابتة تضاف إلى الفاتورة."
       }
     }
   ],

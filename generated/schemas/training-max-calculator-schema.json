@@ -11,16 +11,18 @@
       "label_i18n": {
         "en": "Kaldırılan Ağırlık (kg)",
         "tr": "Kaldırılan Ağırlık (kg)",
-        "de": "Kaldırılan Ağırlık (kg)",
+        "de": "Hebegewicht (kg)",
         "fr": "Poids soulevé (kg)",
-        "es": "Kaldırılan Ağırlık (kg)",
-        "ar": "Kaldırılan Ağırlık (kg)"
+        "es": "Peso levantado (kg)",
+        "ar": "الوزن المرفوع (كجم)"
       },
       "businessContext_i18n": {
         "en": "Kaldırılan ağırlık, kilogram cinsinden.",
         "tr": "Kaldırılan ağırlık, kilogram cinsinden.",
-        "de": "Kaldırılan ağırlık, kilogram cinsinden.",
-        "fr": "Poids soulevé, en kilogrammes."
+        "de": "Hebegewicht in Kilogramm.",
+        "fr": "Poids soulevé, en kilogrammes.",
+        "es": "Peso levantado, en kilogramos.",
+        "ar": "الوزن المرفوع بالكيلوجرام."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Anzahl der Wiederholungen",
         "fr": "Nombre de répétitions",
         "es": "Número de repeticiones",
-        "ar": "Tekrar Sayısı"
+        "ar": "عدد التكرارات"
       },
       "businessContext_i18n": {
         "en": "Yapılan tekrar sayısı.",
-        "tr": "Yapılan tekrar sayısı.",
-        "de": "Yapılan tekrar sayısı.",
-        "fr": "Nombre de répétitions effectuées."
+        "tr": "Tekrar Sayısı",
+        "de": "Anzahl der Wiederholungen.",
+        "fr": "Nombre de répétitions effectuées.",
+        "es": "Número de repeticiones realizadas.",
+        "ar": "عدد التكرارات المنفذة."
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Training Max Yüzdesi (%)",
         "tr": "Training Max Yüzdesi (%)",
-        "de": "Training Max Yüzdesi (%)",
+        "de": "Training Max Prozentsatz (%)",
         "fr": "Pourcentage du max d'entraînement (%)",
-        "es": "Training Max Yüzdesi (%)",
-        "ar": "Training Max Yüzdesi (%)"
+        "es": "Porcentaje del máximo de entrenamiento (%)",
+        "ar": "النسبة المئوية للحد الأقصى للتدريب (%)"
       },
       "businessContext_i18n": {
         "en": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır.",
         "tr": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır.",
-        "de": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır.",
-        "fr": "Valeur du max d'entraînement en pourcentage de la 1RM. Dans le programme Wendler 5/3/1, généralement 90 %."
+        "de": "Training Max als Prozentsatz des 1RM. Im Wendler 5/3/1-Programm wird normalerweise 90 % verwendet.",
+        "fr": "Valeur du max d'entraînement en pourcentage de la 1RM. Dans le programme Wendler 5/3/1, généralement 90 %.",
+        "es": "Valor del máximo de entrenamiento como porcentaje del 1RM. En el programa Wendler 5/3/1 se usa generalmente el 90%.",
+        "ar": "قيمة الحد الأقصى للتدريب كنسبة مئوية من 1RM. في برنامج Wendler 5/3/1، يُستخدم عادةً %90."
       }
     },
     {
@@ -77,16 +83,18 @@
       "label_i18n": {
         "en": "Katsayı A",
         "tr": "Katsayı A",
-        "de": "Katsayı A",
+        "de": "Koeffizient A",
         "fr": "Coefficient A",
-        "es": "Katsayı A",
-        "ar": "Katsayı A"
+        "es": "Coeficiente A",
+        "ar": "المعامل A"
       },
       "businessContext_i18n": {
         "en": "Brzycki formülünde kullanılan A katsayısı.",
         "tr": "Brzycki formülünde kullanılan A katsayısı.",
-        "de": "Brzycki formülünde kullanılan A katsayısı.",
-        "fr": "Coefficient A utilisé dans la formule de Brzycki."
+        "de": "Koeffizient A in der Brzycki-Formel.",
+        "fr": "Coefficient A utilisé dans la formule de Brzycki.",
+        "es": "Coeficiente A utilizado en la fórmula de Brzycki.",
+        "ar": "المعامل A المستخدم في معادلة Brzycki."
       }
     },
     {
@@ -99,16 +107,18 @@
       "label_i18n": {
         "en": "Katsayı B",
         "tr": "Katsayı B",
-        "de": "Katsayı B",
+        "de": "Koeffizient B",
         "fr": "Coefficient B",
-        "es": "Katsayı B",
-        "ar": "Katsayı B"
+        "es": "Coeficiente B",
+        "ar": "المعامل B"
       },
       "businessContext_i18n": {
         "en": "Brzycki formülünde kullanılan B katsayısı.",
         "tr": "Brzycki formülünde kullanılan B katsayısı.",
-        "de": "Brzycki formülünde kullanılan B katsayısı.",
-        "fr": "Coefficient B utilisé dans la formule de Brzycki."
+        "de": "Koeffizient B in der Brzycki-Formel.",
+        "fr": "Coefficient B utilisé dans la formule de Brzycki.",
+        "es": "Coeficiente B utilizado en la fórmula de Brzycki.",
+        "ar": "المعامل B المستخدم في معادلة برزيكي."
       }
     }
   ],

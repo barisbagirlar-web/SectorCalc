@@ -14,14 +14,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations/trials.",
         "tr": "Toplam gözlem/deneme sayısı.",
         "de": "Gesamtzahl der Beobachtungen/Versuche.",
         "fr": "Nombre total d'observations/essais.",
-        "es": "Número total de observaciones/ensayos."
+        "es": "Número total de observaciones/ensayos.",
+        "ar": "إجمالي عدد المشاهدات/التجارب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der Erfolge (x)",
         "fr": "Nombre de succès (x)",
         "es": "Número de éxitos (x)",
-        "ar": "Number of Successes (x)"
+        "ar": "عدد النجاحات (x)"
       },
       "businessContext_i18n": {
         "en": "Count of positive events/results in the sample.",
         "tr": "Örneklemdeki pozitif olay/sonuç sayısı.",
         "de": "Anzahl der positiven Ereignisse/Ergebnisse in der Stichprobe.",
         "fr": "Nombre d'événements/résultats positifs dans l'échantillon.",
-        "es": "Recuento de eventos/resultados positivos en la muestra."
+        "es": "Recuento de eventos/resultados positivos en la muestra.",
+        "ar": "عدد الأحداث/النتائج الإيجابية في العينة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Hypothetischer Anteil (p₀)",
         "fr": "Proportion hypothétique (p₀)",
         "es": "Proporción hipotética (p₀)",
-        "ar": "Hypothesized Proportion (p₀)"
+        "ar": "النسبة المفترضة (p₀)"
       },
       "businessContext_i18n": {
         "en": "Null hypothesis proportion (often 0.5 for symmetry).",
         "tr": "Sıfır hipotezi oranı (genellikle simetri için 0.5).",
         "de": "Nullhypothesenanteil (oft 0,5 für Symmetrie).",
         "fr": "Proportion sous l'hypothèse nulle (souvent 0,5 pour la symétrie).",
-        "es": "Proporción de la hipótesis nula (a menudo 0.5 para simetría)."
+        "es": "Proporción de la hipótesis nula (a menudo 0.5 para simetría).",
+        "ar": "نسبة الفرضية الصفرية (غالبًا 0.5 للتماثل)."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Signifikanzniveau (α)",
         "fr": "Niveau de signification (α)",
         "es": "Nivel de significancia (α)",
-        "ar": "Significance Level (α)"
+        "ar": "مستوى الدلالة (α)"
       },
       "businessContext_i18n": {
         "en": "Type I error probability threshold (commonly 0.05).",
         "tr": "Tip I hata olasılığı eşiği (genellikle 0.05).",
         "de": "Schwellenwert für Fehler 1. Art (üblich 0,05).",
         "fr": "Seuil de probabilité d'erreur de type I (généralement 0,05).",
-        "es": "Umbral de probabilidad de error tipo I (comúnmente 0.05)."
+        "es": "Umbral de probabilidad de error tipo I (comúnmente 0.05).",
+        "ar": "حد احتمالية الخطأ من النوع الأول (عادة 0.05)."
       }
     }
   ],
   "formulas": {
-    "result": "sample_size + successes + hypothesized_proportion",
-    "result_copy": "sample_size + successes + hypothesized_proportion"
+    "normalized_product": "sample_size * successes * hypothesized_proportion * significance_level",
+    "result": "sample_size * successes * hypothesized_proportion * significance_level"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "z_statistic",
-      "reject"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "p_value",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

@@ -14,14 +14,15 @@
         "de": "Radikand",
         "fr": "Radicande",
         "es": "Radicando",
-        "ar": "Radicand"
+        "ar": "الجذر"
       },
       "businessContext_i18n": {
         "en": "The number for which the square root is computed.",
         "tr": "Karekökü hesaplanacak sayı.",
         "de": "Die Zahl, für die die Quadratwurzel berechnet wird.",
         "fr": "Nombre dont on calcule la racine carrée.",
-        "es": "Número para el cual se calcula la raíz cuadrada."
+        "es": "Número para el cual se calcula la raíz cuadrada.",
+        "ar": "الرقم الذي سيتم حساب جذره التربيعي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
         "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangsschätzung",
         "fr": "Estimation initiale",
         "es": "Estimación inicial",
-        "ar": "Initial Guess"
+        "ar": "التخمين الأولي"
       },
       "businessContext_i18n": {
         "en": "Optional starting value for iterative methods (if applicable).",
         "tr": "Yinelemeli yöntemler için isteğe bağlı başlangıç değeri (varsa).",
         "de": "Optionaler Startwert für iterative Verfahren (falls zutreffend).",
         "fr": "Valeur de départ optionnelle pour les méthodes itératives (si applicable).",
-        "es": "Valor inicial opcional para métodos iterativos (si corresponde)."
+        "es": "Valor inicial opcional para métodos iterativos (si corresponde).",
+        "ar": "قيمة بداية اختيارية للطرق التكرارية (إن وجدت)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Convergence tolerance for iterative methods.",
         "tr": "Yinelemeli yöntemler için yakınsama toleransı.",
         "de": "Konvergenztoleranz für iterative Verfahren.",
         "fr": "Tolérance de convergence pour les méthodes itératives.",
-        "es": "Tolerancia de convergencia para métodos iterativos."
+        "es": "Tolerancia de convergencia para métodos iterativos.",
+        "ar": "تفاوت التقارب للطرق التكرارية"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Maximale Iterationen",
         "fr": "Itérations maximales",
         "es": "Máximo de iteraciones",
-        "ar": "Max Iterations"
+        "ar": "الحد الأقصى للتكرارات"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations allowed for iterative methods.",
         "tr": "Yinelemeli yöntemler için izin verilen maksimum yineleme sayısı.",
         "de": "Maximale Anzahl von Iterationen für iterative Verfahren.",
         "fr": "Nombre maximal d'itérations autorisé pour les méthodes itératives.",
-        "es": "Número máximo de iteraciones permitidas para métodos iterativos."
+        "es": "Número máximo de iteraciones permitidas para métodos iterativos.",
+        "ar": "الحد الأقصى لعدد التكرارات المسموح به للطرق التكرارية"
       }
     }
   ],
   "formulas": {
-    "result": "radicand + precision + initialGuess",
-    "result_aux": "radicand + precision + initialGuess"
+    "normalized_product": "radicand * precision * initialGuess * tolerance",
+    "result": "radicand * precision * initialGuess * tolerance * (maxIterations)",
+    "adjustment_factor": "maxIterations"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Square root of {{radicand}} rounded to {{precision}} decimal places: {{primary}}",
-      "Direct calculation using Math.sqrt function."
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "primary_aux",
-    "unit": "digits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Matematik & Geometri",

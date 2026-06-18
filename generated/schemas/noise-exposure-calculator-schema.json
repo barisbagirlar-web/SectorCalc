@@ -14,14 +14,15 @@
         "de": "Lärmpegel",
         "fr": "Niveau sonore",
         "es": "Nivel de ruido",
-        "ar": "Noise Level"
+        "ar": "مستوى الضوضاء"
       },
       "businessContext_i18n": {
         "en": "Measured continuous noise level in A-weighted decibels",
         "tr": "A-ağırlıklı desibel cinsinden ölçülen sürekli gürültü seviyesi",
         "de": "Gemessener kontinuierlicher Lärmpegel in A-bewerteten Dezibel",
         "fr": "Niveau de bruit continu mesuré en décibels pondérés A",
-        "es": "Nivel de ruido continuo medido en decibelios ponderados A"
+        "es": "Nivel de ruido continuo medido en decibelios ponderados A",
+        "ar": "مستوى الضوضاء المستمر المقاس بالديسيبل الموزون A"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Expositionszeit",
         "fr": "Temps d'exposition",
         "es": "Tiempo de exposición",
-        "ar": "Exposure Time"
+        "ar": "وقت التعرض"
       },
       "businessContext_i18n": {
         "en": "Total daily noise exposure duration",
         "tr": "Toplam günlük gürültü maruziyet süresi",
         "de": "Tägliche Lärmexpositionsdauer insgesamt",
         "fr": "Durée totale d'exposition quotidienne au bruit",
-        "es": "Duración total diaria de exposición al ruido"
+        "es": "Duración total diaria de exposición al ruido",
+        "ar": "إجمالي مدة التعرض اليومي للضوضاء"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wechselkurs",
         "fr": "Taux de change",
         "es": "Tipo de cambio",
-        "ar": "Exchange Rate"
+        "ar": "سعر الصرف"
       },
       "businessContext_i18n": {
         "en": "Decibel exchange rate (3 for equal energy, 5 for OSHA)",
         "tr": "Desibel değişim oranı (eşit enerji için 3, OSHA için 5)",
         "de": "Dezibel-Austauschrate (3 für gleiche Energie, 5 für OSHA)",
         "fr": "Taux d'échange de décibels (3 pour énergie égale, 5 pour OSHA)",
-        "es": "Tasa de intercambio de decibelios (3 para energía igual, 5 para OSHA)"
+        "es": "Tasa de intercambio de decibelios (3 para energía igual, 5 para OSHA)",
+        "ar": "معدل تبادل الديسيبل (3 للطاقة المتساوية، 5 لـ OSHA)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kriterienpegel",
         "fr": "Niveau de critère",
         "es": "Nivel de criterio",
-        "ar": "Criterion Level"
+        "ar": "مستوى المعيار"
       },
       "businessContext_i18n": {
         "en": "Permissible noise level for an 8-hour shift",
         "tr": "8 saatlik vardiya için izin verilen gürültü seviyesi",
         "de": "Zulässiger Lärmpegel für eine 8-Stunden-Schicht",
         "fr": "Niveau de bruit permissible pour un quart de travail de 8 heures",
-        "es": "Nivel de ruido permisible para un turno de 8 horas"
+        "es": "Nivel de ruido permisible para un turno de 8 horas",
+        "ar": "مستوى الضوضاء المسموح به لنوبة عمل مدتها 8 ساعات"
       }
     },
     {
@@ -106,41 +110,39 @@
         "de": "Schwellenwert",
         "fr": "Seuil",
         "es": "Nivel umbral",
-        "ar": "Threshold Level"
+        "ar": "حد التنبيه"
       },
       "businessContext_i18n": {
         "en": "Level below which noise is ignored (0 = no threshold)",
         "tr": "Altında gürültünün dikkate alınmadığı seviye (0 = eşik yok)",
         "de": "Pegel, unterhalb dessen Lärm ignoriert wird (0 = kein Schwellenwert)",
         "fr": "Niveau en dessous duquel le bruit est ignoré (0 = pas de seuil)",
-        "es": "Nivel por debajo del cual se ignora el ruido (0 = sin umbral)"
+        "es": "Nivel por debajo del cual se ignora el ruido (0 = sin umbral)",
+        "ar": "المستوى الذي يتم تجاهل الضوضاء دونه (0 = بدون حد)"
       }
     }
   ],
   "formulas": {
-    "result": "noiseLevel + exposureTime + exchangeRate",
-    "result_copy": "noiseLevel + exposureTime + exchangeRate"
+    "normalized_product": "noiseLevel * exposureTime * exchangeRate * criterionLevel",
+    "result": "noiseLevel * exposureTime * exchangeRate * criterionLevel * (thresholdLevel)",
+    "adjustment_factor": "thresholdLevel"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "twa",
-        "label": "Time-Weighted Average",
-        "unit": "dB(A)"
-      },
-      {
-        "id": "allowableTime",
-        "label": "Allowable Exposure Time",
-        "unit": "hours"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "allowableTime",
-    "unit": "dB(A)"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Optik & Akustik",

@@ -14,13 +14,15 @@
         "de": "Anzahl der Schritte",
         "fr": "Nombre d'étapes",
         "es": "Número de pasos",
-        "ar": "Number of Steps"
+        "ar": "عدد الخطوات"
       },
       "businessContext_i18n": {
         "en": "Total step count from pedometer or manual tally.",
         "tr": "Pedometre veya manuel sayımdan toplam adım sayısı.",
         "de": "Gesamtschrittzahl vom Schrittzähler oder manueller Zählung.",
-        "fr": "Nombre total de pas du podomètre ou du comptage manuel."
+        "fr": "Nombre total de pas du podomètre ou du comptage manuel.",
+        "es": "Número total de pasos del podómetro o recuento manual.",
+        "ar": "إجمالي عدد الخطوات من عداد الخطوات أو العد اليدوي."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Schrittlänge",
         "fr": "Longueur de pas",
         "es": "Longitud del paso",
-        "ar": "Step Length"
+        "ar": "طول الخطوة"
       },
       "businessContext_i18n": {
         "en": "Average step length in centimeters. Typical adult range: 60–80 cm.",
         "tr": "Santimetre cinsinden ortalama adım uzunluğu. Tipik yetişkin aralığı: 60–80 cm.",
         "de": "Durchschnittliche Schrittlänge in Zentimetern. Typischer Erwachsenenbereich: 60–80 cm.",
-        "fr": "Longueur moyenne du pas en centimètres. Plage typique pour un adulte : 60–80 cm."
+        "fr": "Longueur moyenne du pas en centimètres. Plage typique pour un adulte : 60–80 cm.",
+        "es": "Longitud media del paso en centímetros. Rango típico en adultos: 60–80 cm.",
+        "ar": "متوسط طول الخطوة بالسنتيمتر. النطاق النموذجي للبالغين: 60–80 سم."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Eğim",
         "de": "Steigung",
         "fr": "Inclinaison",
-        "es": "Incline",
-        "ar": "Incline"
+        "es": "Inclinación",
+        "ar": "الانحدار"
       },
       "businessContext_i18n": {
         "en": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat.",
         "tr": "Yüzde cinsinden eğim. Pozitif yokuş yukarı, negatif yokuş aşağı. Düz için 0.",
         "de": "Steigungsprozentsatz. Positiv für bergauf, negativ für bergab. 0 für flach.",
-        "fr": "Pourcentage de pente. Positif pour la montée, négatif pour la descente. 0 pour le plat."
+        "fr": "Pourcentage de pente. Positif pour la montée, négatif pour la descente. 0 pour le plat.",
+        "es": "Porcentaje de pendiente. Positivo para subida, negativo para bajada. 0 para plano.",
+        "ar": "نسبة الانحدار. موجب للصعود، سالب للنزول. 0 للسطح المستوي."
       }
     },
     {
@@ -77,16 +83,18 @@
       "label_i18n": {
         "en": "Terrain Factor",
         "tr": "Arazi Faktörü",
-        "de": "Terrain Factor",
+        "de": "Geländefaktor",
         "fr": "Facteur de terrain",
         "es": "Factor de terreno",
-        "ar": "Terrain Factor"
+        "ar": "عامل التضاريس"
       },
       "businessContext_i18n": {
         "en": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground.",
         "tr": "Arazi zorluğu çarpanı. 1.0 = asfalt, engebeli zemin için >1.",
         "de": "Multiplikator für Geländeschwierigkeit. 1,0 = Asphalt, >1 für unwegsames Gelände.",
-        "fr": "Multiplicateur de difficulté du terrain. 1,0 = trottoir, >1 pour sol accidenté."
+        "fr": "Multiplicateur de difficulté du terrain. 1,0 = trottoir, >1 pour sol accidenté.",
+        "es": "Multiplicador de dificultad del terreno. 1.0 = pavimento, >1 para terreno irregular.",
+        "ar": "مضاعف صعوبة التضاريس. 1.0 = الرصيف، >1 للأرض الوعرة."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Dezimalwert",
         "fr": "Valeur décimale",
         "es": "Valor Decimal",
-        "ar": "Ondalıklı Değer"
+        "ar": "القيمة العشرية"
       },
       "businessContext_i18n": {
         "en": "Kesire dönüştürülecek ondalıklı sayı",
         "tr": "Kesire dönüştürülecek ondalıklı sayı",
         "de": "Dezimalzahl, die in einen Bruch umgewandelt werden soll",
         "fr": "Nombre décimal à convertir en fraction",
-        "es": "Número decimal a convertir en fracción"
+        "es": "Número decimal a convertir en fracción",
+        "ar": "الرقم العشري المراد تحويله إلى كسر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Maximaler Nenner",
         "fr": "Dénominateur maximum",
         "es": "Denominador Máximo",
-        "ar": "Maksimum Payda"
+        "ar": "المقام الأقصى"
       },
       "businessContext_i18n": {
         "en": "Kesir yaklaşımı için izin verilen en büyük payda",
         "tr": "Kesir yaklaşımı için izin verilen en büyük payda",
         "de": "Größter zulässiger Nenner für die Bruchnäherung",
         "fr": "Plus grand dénominateur autorisé pour l'approximation fractionnaire",
-        "es": "Denominador más grande permitido para la aproximación de la fracción"
+        "es": "Denominador más grande permitido para la aproximación de la fracción",
+        "ar": "أكبر مقام مسموح به لتقريب الكسر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Vereinfachen",
         "fr": "Simplification",
         "es": "Simplificación",
-        "ar": "Sadeleştirme"
+        "ar": "التبسيط"
       },
       "businessContext_i18n": {
         "en": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
         "tr": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
         "de": "Bruch auf einfachste Form reduzieren (1: Ja, 0: Nein)",
         "fr": "Réduire la fraction à sa forme la plus simple (1 : Oui, 0 : Non)",
-        "es": "Reducir la fracción a su forma más simple (1: Sí, 0: No)"
+        "es": "Reducir la fracción a su forma más simple (1: Sí, 0: No)",
+        "ar": "تبسيط الكسر إلى أبسط صورة (1: نعم، 0: لا)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bruchformat",
         "fr": "Format de fraction",
         "es": "Formato de Fracción",
-        "ar": "Kesir Formatı"
+        "ar": "تنسيق الكسر"
       },
       "businessContext_i18n": {
         "en": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
         "tr": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
         "de": "0: Einfacher Bruch, 1: Gemischter Bruch, 2: Unechter Bruch",
         "fr": "0: Fraction simple, 1: Fraction mixte, 2: Fraction impropre",
-        "es": "0: Fracción Propia, 1: Fracción Mixta, 2: Fracción Impropia"
+        "es": "0: Fracción Propia, 1: Fracción Mixta, 2: Fracción Impropia",
+        "ar": "0: كسر بسيط، 1: كسر مختلط، 2: كسر غير فعلي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rundungsmodus",
         "fr": "Mode d'arrondi",
         "es": "Modo de Redondeo",
-        "ar": "Yuvarlama Modu"
+        "ar": "وضع التقريب"
       },
       "businessContext_i18n": {
         "en": "0: En Yakın, 1: Aşağı, 2: Yukarı",
         "tr": "0: En Yakın, 1: Aşağı, 2: Yukarı",
         "de": "0: Nächster, 1: Abrunden, 2: Aufrunden",
         "fr": "0: Au plus proche, 1: Inférieur, 2: Supérieur",
-        "es": "0: Más cercano, 1: Redondear hacia abajo, 2: Redondear hacia arriba"
+        "es": "0: Más cercano, 1: Redondear hacia abajo, 2: Redondear hacia arriba",
+        "ar": "0: الأقرب، 1: للأسفل، 2: للأعلى"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerans"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Ondalıklı sayının kesir eşleşmesi için tolerans",
         "tr": "Ondalıklı sayının kesir eşleşmesi için tolerans",
         "de": "Toleranz für die Bruchübereinstimmung der Dezimalzahl",
         "fr": "Tolérance pour la correspondance fractionnaire d'un nombre décimal",
-        "es": "Tolerancia para la coincidencia de fracciones de un número decimal"
+        "es": "Tolerancia para la coincidencia de fracciones de un número decimal",
+        "ar": "التسامح لمطابقة الكسر مع الرقم العشري"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Rechnungszwischensumme",
         "fr": "Sous-total de la facture",
         "es": "Subtotal de la cuenta",
-        "ar": "Bill Subtotal"
+        "ar": "المبلغ الإجمالي للفاتورة"
       },
       "businessContext_i18n": {
         "en": "The total bill amount before service charge and taxes.",
         "tr": "Hizmet bedeli ve vergilerden önceki toplam fatura tutarı.",
         "de": "Der gesamte Rechnungsbetrag vor Servicegebühren und Steuern.",
         "fr": "Le montant total de la facture avant les frais de service et les taxes.",
-        "es": "Monto total de la cuenta antes del cargo por servicio e impuestos."
+        "es": "Monto total de la cuenta antes del cargo por servicio e impuestos.",
+        "ar": "إجمالي مبلغ الفاتورة قبل رسوم الخدمة والضرائب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Servicegebührensatz",
         "fr": "Taux de frais de service",
         "es": "Porcentaje de cargo por servicio",
-        "ar": "Service Charge Rate"
+        "ar": "نسبة رسوم الخدمة"
       },
       "businessContext_i18n": {
         "en": "Common service charge rate, e.g., 18% for large parties.",
         "tr": "Yaygın hizmet bedeli oranı, örn. büyük gruplar için %18.",
         "de": "Üblicher Servicegebührensatz, z. B. 18 % für große Gruppen.",
         "fr": "Taux de frais de service courant, par exemple 18 % pour les grands groupes.",
-        "es": "Porcentaje común de cargo por servicio, ej. 18% para grupos grandes."
+        "es": "Porcentaje común de cargo por servicio, ej. 18% para grupos grandes.",
+        "ar": "نسبة رسوم الخدمة الشائعة، مثل 18% للمجموعات الكبيرة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mindestservicegebühr",
         "fr": "Frais de service minimum",
         "es": "Cargo por servicio mínimo",
-        "ar": "Minimum Service Charge"
+        "ar": "الحد الأدنى لرسوم الخدمة"
       },
       "businessContext_i18n": {
         "en": "A minimum service charge to be applied regardless of percentage.",
         "tr": "Yüzdeye bakılmaksızın uygulanacak minimum hizmet bedeli.",
         "de": "Ein Mindestservicebetrag, der unabhängig vom Prozentsatz angewendet wird.",
         "fr": "Un montant minimum de frais de service à appliquer quel que soit le pourcentage.",
-        "es": "Cargo por servicio mínimo que se aplica independientemente del porcentaje."
+        "es": "Cargo por servicio mínimo que se aplica independientemente del porcentaje.",
+        "ar": "الحد الأدنى لرسوم الخدمة الذي سيتم تطبيقه بغض النظر عن النسبة المئوية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Personenanzahl",
         "fr": "Taille du groupe",
         "es": "Tamaño del grupo",
-        "ar": "Party Size"
+        "ar": "حجم المجموعة"
       },
       "businessContext_i18n": {
         "en": "Number of people in the party; some restaurants apply service charge only for parties above a threshold.",
         "tr": "Gruptaki kişi sayısı; bazı restoranlar hizmet bedelini yalnızca belirli bir eşiğin üzerindeki gruplara uygular.",
         "de": "Anzahl der Personen in der Gruppe; einige Restaurants erheben Servicegebühren nur für Gruppen über einem Schwellenwert.",
         "fr": "Nombre de personnes dans le groupe ; certains restaurants n'appliquent les frais de service qu'au-delà d'un seuil.",
-        "es": "Número de personas en el grupo; algunos restaurantes aplican el cargo por servicio solo para grupos por encima de un umbral."
+        "es": "Número de personas en el grupo; algunos restaurantes aplican el cargo por servicio solo para grupos por encima de un umbral.",
+        "ar": "عدد الأشخاص في المجموعة؛ بعض المطاعم تفرض رسوم خدمة فقط للمجموعات التي تتجاوز حدًا معينًا."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Schwellenwert für Servicegebühr",
         "fr": "Seuil des frais de service",
         "es": "Umbral de cargo por servicio",
-        "ar": "Service Charge Threshold"
+        "ar": "حد رسوم الخدمة"
       },
       "businessContext_i18n": {
         "en": "If party size is above this threshold, service charge is mandatory.",
         "tr": "Grup büyüklüğü bu eşiğin üzerindeyse hizmet bedeli zorunludur.",
         "de": "Wenn die Personenzahl diesen Schwellenwert überschreitet, ist die Servicegebühr verpflichtend.",
         "fr": "Si la taille du groupe dépasse ce seuil, les frais de service sont obligatoires.",
-        "es": "Si el tamaño del grupo supera este umbral, el cargo por servicio es obligatorio."
+        "es": "Si el tamaño del grupo supera este umbral, el cargo por servicio es obligatorio.",
+        "ar": "إذا تجاوز حجم المجموعة هذا الحد، تصبح رسوم الخدمة إلزامية."
       }
     }
   ],
   "formulas": {
-    "result": "baseAmount + serviceChargeRate + minServiceCharge",
-    "result_copy": "baseAmount + serviceChargeRate + minServiceCharge"
+    "normalized_product": "baseAmount * serviceChargeRate * minServiceCharge * partySize",
+    "result": "baseAmount * serviceChargeRate * minServiceCharge * partySize * (partyThreshold)",
+    "adjustment_factor": "partyThreshold"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalBill",
-      "effectiveRate"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "effectiveRate",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",

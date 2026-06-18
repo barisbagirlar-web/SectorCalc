@@ -14,13 +14,15 @@
         "de": "Aktueller Blutzucker",
         "fr": "Glycémie actuelle",
         "es": "Glucosa sanguínea actual",
-        "ar": "Current Blood Glucose"
+        "ar": "مستوى السكر الحالي في الدم"
       },
       "businessContext_i18n": {
         "en": "Measured blood glucose level prior to meal",
         "tr": "Yemek öncesi ölçülen kan şekeri seviyesi",
         "de": "Gemessener Blutzuckerspiegel vor der Mahlzeit",
-        "fr": "Glycémie mesurée avant le repas"
+        "fr": "Glycémie mesurée avant le repas",
+        "es": "Nivel de glucosa en sangre medido antes de la comida",
+        "ar": "مستوى السكر في الدم المقاس قبل الوجبة"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zielblutzucker",
         "fr": "Glycémie cible",
         "es": "Glucosa sanguínea objetivo",
-        "ar": "Target Blood Glucose"
+        "ar": "مستوى السكر المستهدف في الدم"
       },
       "businessContext_i18n": {
         "en": "Desired blood glucose level after insulin",
         "tr": "İnsülin sonrası hedeflenen kan şekeri seviyesi",
         "de": "Gewünschter Blutzuckerspiegel nach Insulin",
-        "fr": "Glycémie souhaitée après insuline"
+        "fr": "Glycémie souhaitée après insuline",
+        "es": "Nivel de glucosa en sangre deseado después de la insulina",
+        "ar": "مستوى السكر في الدم المطلوب بعد الأنسولين"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Insulinsensitivitätsfaktor",
         "fr": "Facteur de sensibilité à l'insuline",
         "es": "Factor de sensibilidad a la insulina",
-        "ar": "Insulin Sensitivity Factor"
+        "ar": "عامل حساسية الأنسولين"
       },
       "businessContext_i18n": {
         "en": "Drop in blood glucose per unit of rapid-acting insulin",
         "tr": "Birim hızlı etkili insülin başına kan şekerindeki düşüş",
         "de": "Blutzuckersenkung pro Einheit schnellwirkendem Insulin",
-        "fr": "Baisse de la glycémie par unité d'insuline rapide"
+        "fr": "Baisse de la glycémie par unité d'insuline rapide",
+        "es": "Descenso de glucosa en sangre por unidad de insulina rápida",
+        "ar": "انخفاض السكر في الدم لكل وحدة من الأنسولين سريع المفعول"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Karbonhidrat Alımı",
         "de": "Kohlenhydrataufnahme",
         "fr": "Apport en glucides",
-        "es": "Carbohydrate Intake",
-        "ar": "Carbohydrate Intake"
+        "es": "Ingesta de carbohidratos",
+        "ar": "تناول الكربوهيدرات"
       },
       "businessContext_i18n": {
         "en": "Grams of carbohydrates planned to be consumed",
         "tr": "Tüketilmesi planlanan karbonhidrat gramı",
         "de": "Geplante Gramm Kohlenhydrate",
-        "fr": "Grammes de glucides prévus pour la consommation"
+        "fr": "Grammes de glucides prévus pour la consommation",
+        "es": "Gramos de carbohidratos planificados para consumir",
+        "ar": "جرامات الكربوهيدرات المخطط تناولها"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Insulin-Kohlenhydrat-Verhältnis",
         "fr": "Ratio insuline/glucides",
         "es": "Relación insulina-carbohidratos",
-        "ar": "Insulin-to-Carb Ratio"
+        "ar": "نسبة الأنسولين إلى الكربوهيدرات"
       },
       "businessContext_i18n": {
         "en": "Grams of carbohydrates covered by 1 unit of insulin",
         "tr": "1 ünite insülinin karşıladığı karbonhidrat gramı",
         "de": "Gramm Kohlenhydrate, die von 1 Einheit Insulin abgedeckt werden",
-        "fr": "Grammes de glucides couverts par 1 unité d'insuline"
+        "fr": "Grammes de glucides couverts par 1 unité d'insuline",
+        "es": "Gramos de carbohidratos cubiertos por 1 unidad de insulina",
+        "ar": "جرامات الكربوهيدرات التي تغطيها وحدة واحدة من الأنسولين"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Aktif Kalan İnsülin",
         "de": "Aktives Insulin an Bord",
         "fr": "Insuline active restante",
-        "es": "Active Insulin On Board",
-        "ar": "Active Insulin On Board"
+        "es": "Insulina activa a bordo",
+        "ar": "الأنسولين النشط المتبقي"
       },
       "businessContext_i18n": {
         "en": "Units of insulin still active from previous boluses",
         "tr": "Önceki boluslardan hala aktif olan insülin ünitesi",
         "de": "Noch aktive Insulineinheiten von früheren Boli",
-        "fr": "Unités d'insuline encore actives des bolus précédents"
+        "fr": "Unités d'insuline encore actives des bolus précédents",
+        "es": "Unidades de insulina aún activas de bolos anteriores",
+        "ar": "وحدات الأنسولين التي لا تزال نشطة من الجرعات السابقة"
       }
     }
   ],

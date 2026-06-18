@@ -14,14 +14,15 @@
         "de": "Masse",
         "fr": "Masse",
         "es": "Masa",
-        "ar": "Mass"
+        "ar": "الكتلة"
       },
       "businessContext_i18n": {
         "en": "Mass of a single object",
         "tr": "Tek bir nesnenin kütlesi",
         "de": "Masse eines einzelnen Objekts",
         "fr": "Masse d'un seul objet",
-        "es": "Masa de un solo objeto"
+        "es": "Masa de un solo objeto",
+        "ar": "كتلة جسم واحد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Masse-Einheitenfaktor",
         "fr": "Facteur d'unité de masse",
         "es": "Factor de unidad de masa",
-        "ar": "Mass Unit Factor"
+        "ar": "عامل وحدة الكتلة"
       },
       "businessContext_i18n": {
         "en": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)",
         "tr": "kg'ye dönüşüm faktörü (ör. kg için 1, g için 0.001, ton için 1000)",
         "de": "Umrechnungsfaktor in kg (z. B. 1 für kg, 0,001 für g, 1000 für Tonne)",
         "fr": "Facteur de conversion en kg (ex. 1 pour kg, 0,001 pour g, 1000 pour tonne)",
-        "es": "Factor de conversión a kg (p. ej., 1 para kg, 0.001 para g, 1000 para ton)"
+        "es": "Factor de conversión a kg (p. ej., 1 para kg, 0.001 para g, 1000 para ton)",
+        "ar": "عامل التحويل إلى كجم (مثل 1 للكجم، 0.001 للغرام، 1000 للطن)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geschwindigkeit",
         "fr": "Vitesse",
         "es": "Velocidad",
-        "ar": "Velocity"
+        "ar": "السرعة"
       },
       "businessContext_i18n": {
         "en": "Velocity of the object",
         "tr": "Nesnenin hızı",
         "de": "Geschwindigkeit des Objekts",
         "fr": "Vitesse de l'objet",
-        "es": "Velocidad del objeto"
+        "es": "Velocidad del objeto",
+        "ar": "سرعة الجسم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Geschwindigkeits-Einheitenfaktor",
         "fr": "Facteur d'unité de vitesse",
         "es": "Factor de unidad de velocidad",
-        "ar": "Velocity Unit Factor"
+        "ar": "عامل وحدة السرعة"
       },
       "businessContext_i18n": {
         "en": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)",
         "tr": "m/s'ye dönüşüm faktörü (ör. m/s için 1, km/s için 0.277778, mph için 0.44704)",
         "de": "Umrechnungsfaktor in m/s (z. B. 1 für m/s, 0,277778 für km/h, 0,44704 für mph)",
         "fr": "Facteur de conversion en m/s (ex. 1 pour m/s, 0,277778 pour km/h, 0,44704 pour mph)",
-        "es": "Factor de conversión a m/s (p. ej., 1 para m/s, 0.277778 para km/h, 0.44704 para mph)"
+        "es": "Factor de conversión a m/s (p. ej., 1 para m/s, 0.277778 para km/h, 0.44704 para mph)",
+        "ar": "عامل التحويل إلى م/ث (مثل 1 لم/ث، 0.277778 لكلم/س، 0.44704 لميل/س)"
       }
     },
     {
@@ -106,32 +110,39 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Number of identical objects",
         "tr": "Özdeş nesne sayısı",
         "de": "Anzahl identischer Objekte",
         "fr": "Nombre d'objets identiques",
-        "es": "Número de objetos idénticos"
+        "es": "Número de objetos idénticos",
+        "ar": "عدد الأجسام المتطابقة"
       }
     }
   ],
   "formulas": {
-    "result": "mass + massUnit + velocity",
-    "result_copy": "mass + massUnit + velocity"
+    "normalized_product": "mass * massUnit * velocity * velocityUnit",
+    "result": "mass * massUnit * velocity * velocityUnit * (quantity)",
+    "adjustment_factor": "quantity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "kineticEnergyPerObject"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalKineticEnergy",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

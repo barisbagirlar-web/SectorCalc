@@ -11,16 +11,18 @@
       "label_i18n": {
         "en": "Bütçe (TL)",
         "tr": "Bütçe (TL)",
-        "de": "Bütçe (TL)",
+        "de": "Budget (TL)",
         "fr": "Budget (TL)",
-        "es": "Bütçe (TL)",
-        "ar": "Bütçe (TL)"
+        "es": "Presupuesto (TL)",
+        "ar": "الميزانية (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "Toplam harcama limiti",
         "tr": "Toplam harcama limiti",
-        "de": "Toplam harcama limiti",
-        "fr": "Limite de dépenses totale"
+        "de": "Gesamtausgabenlimit",
+        "fr": "Limite de dépenses totale",
+        "es": "Límite de gasto total",
+        "ar": "حد الإنفاق الإجمالي"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Anzahl der Personen",
         "fr": "Nombre de personnes",
         "es": "Número de personas",
-        "ar": "Kişi Sayısı"
+        "ar": "عدد الأفراد"
       },
       "businessContext_i18n": {
         "en": "Hediye alınacak kişi sayısı",
         "tr": "Hediye alınacak kişi sayısı",
-        "de": "Hediye alınacak kişi sayısı",
-        "fr": "Nombre de personnes à qui offrir un cadeau"
+        "de": "Anzahl der Beschenkten",
+        "fr": "Nombre de personnes à qui offrir un cadeau",
+        "es": "Número de personas a las que hacer regalos",
+        "ar": "عدد الأشخاص الذين سيحصلون على الهدايا"
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Hediye Maliyeti (TL)",
         "tr": "Hediye Maliyeti (TL)",
-        "de": "Hediye Maliyeti (TL)",
+        "de": "Geschenkkosten (EUR)",
         "fr": "Coût du cadeau (TL)",
-        "es": "Hediye Maliyeti (TL)",
-        "ar": "Hediye Maliyeti (TL)"
+        "es": "Costo del regalo (TL)",
+        "ar": "تكلفة الهدية (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "Ana hediye için harcanan tutar",
         "tr": "Ana hediye için harcanan tutar",
-        "de": "Ana hediye için harcanan tutar",
-        "fr": "Montant dépensé pour le cadeau principal"
+        "de": "Ausgaben für Hauptgeschenk",
+        "fr": "Montant dépensé pour le cadeau principal",
+        "es": "Monto gastado en el regalo principal",
+        "ar": "المبلغ المنفق على الهدية الرئيسية"
       }
     },
     {
@@ -77,16 +83,18 @@
       "label_i18n": {
         "en": "Yemek Maliyeti (TL)",
         "tr": "Yemek Maliyeti (TL)",
-        "de": "Yemek Maliyeti (TL)",
+        "de": "Essenskosten (EUR)",
         "fr": "Coût du repas (TL)",
-        "es": "Yemek Maliyeti (TL)",
-        "ar": "Yemek Maliyeti (TL)"
+        "es": "Costo de la comida (TL)",
+        "ar": "تكلفة الوجبة (TL)"
       },
       "businessContext_i18n": {
         "en": "Akşam yemeği harcaması",
         "tr": "Akşam yemeği harcaması",
-        "de": "Akşam yemeği harcaması",
-        "fr": "Dépense pour le dîner"
+        "de": "Ausgaben für Abendessen",
+        "fr": "Dépense pour le dîner",
+        "es": "Gasto en cena",
+        "ar": "مصاريف العشاء"
       }
     },
     {
@@ -99,16 +107,18 @@
       "label_i18n": {
         "en": "Çiçek Maliyeti (TL)",
         "tr": "Çiçek Maliyeti (TL)",
-        "de": "Çiçek Maliyeti (TL)",
+        "de": "Blumenkosten (EUR)",
         "fr": "Coût des fleurs (TL)",
-        "es": "Çiçek Maliyeti (TL)",
-        "ar": "Çiçek Maliyeti (TL)"
+        "es": "Costo de las flores (TL)",
+        "ar": "تكلفة الزهور (TL)"
       },
       "businessContext_i18n": {
         "en": "Çiçek buketi maliyeti",
         "tr": "Çiçek buketi maliyeti",
-        "de": "Çiçek buketi maliyeti",
-        "fr": "Coût du bouquet de fleurs"
+        "de": "Kosten für Blumenstrauß",
+        "fr": "Coût du bouquet de fleurs",
+        "es": "Costo del ramo de flores",
+        "ar": "تكلفة باقة الزهور"
       }
     },
     {
@@ -121,16 +131,18 @@
       "label_i18n": {
         "en": "Diğer Maliyetler (TL)",
         "tr": "Diğer Maliyetler (TL)",
-        "de": "Diğer Maliyetler (TL)",
+        "de": "Sonstige Kosten (EUR)",
         "fr": "Autres coûts (TL)",
-        "es": "Diğer Maliyetler (TL)",
-        "ar": "Diğer Maliyetler (TL)"
+        "es": "Otros costos (TL)",
+        "ar": "تكاليف أخرى (TL)"
       },
       "businessContext_i18n": {
         "en": "Kart, ambalaj vb. ek harcamalar",
         "tr": "Kart, ambalaj vb. ek harcamalar",
-        "de": "Kart, ambalaj vb. ek harcamalar",
-        "fr": "Dépenses supplémentaires (carte, emballage, etc.)"
+        "de": "Zusätzliche Ausgaben (Karte, Verpackung usw.)",
+        "fr": "Dépenses supplémentaires (carte, emballage, etc.)",
+        "es": "Gastos adicionales como tarjetas, envoltorios, etc.",
+        "ar": "مصاريف إضافية مثل البطاقة والتغليف"
       }
     }
   ],

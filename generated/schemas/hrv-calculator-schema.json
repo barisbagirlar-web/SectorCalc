@@ -14,14 +14,15 @@
         "de": "Außenlufttemperatur",
         "fr": "Température extérieure",
         "es": "Temperatura del aire exterior",
-        "ar": "Outdoor Air Temperature"
+        "ar": "درجة حرارة الهواء الخارجي"
       },
       "businessContext_i18n": {
         "en": "Typical winter outdoor temperature",
         "tr": "Tipik kış dış hava sıcaklığı",
         "de": "Typische Winter-Außentemperatur",
         "fr": "Température extérieure typique en hiver",
-        "es": "Temperatura exterior típica en invierno"
+        "es": "Temperatura exterior típica en invierno",
+        "ar": "درجة حرارة الشتاء النموذجية في الخارج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Innenlufttemperatur",
         "fr": "Température intérieure",
         "es": "Temperatura del aire interior",
-        "ar": "Indoor Air Temperature"
+        "ar": "درجة حرارة الهواء الداخلي"
       },
       "businessContext_i18n": {
         "en": "Target indoor temperature",
         "tr": "Hedef iç ortam sıcaklığı",
         "de": "Ziel-Innentemperatur",
         "fr": "Température intérieure cible",
-        "es": "Temperatura interior objetivo"
+        "es": "Temperatura interior objetivo",
+        "ar": "درجة الحرارة المستهدفة داخل المبنى"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zulufttemperatur nach HRV",
         "fr": "Température de l'air soufflé après VRC",
         "es": "Temperatura del aire de suministro después del HRV",
-        "ar": "Supply Air Temperature after HRV"
+        "ar": "درجة حرارة هواء الإمداد بعد جهاز استرداد الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature of fresh air supplied to indoor after heat exchange",
         "tr": "Isı değişiminden sonra iç ortama verilen taze havanın sıcaklığı",
         "de": "Temperatur der zugeführten Frischluft nach Wärmeaustausch",
         "fr": "Température de l'air neuf fourni à l'intérieur après échange thermique",
-        "es": "Temperatura del aire fresco suministrado al interior después del intercambio de calor"
+        "es": "Temperatura del aire fresco suministrado al interior después del intercambio de calor",
+        "ar": "درجة حرارة الهواء النقي المزود إلى الداخل بعد التبادل الحراري"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Ablufttemperatur nach HRV",
         "fr": "Température de l'air extrait après VRC",
         "es": "Temperatura del aire de extracción después del HRV",
-        "ar": "Exhaust Air Temperature after HRV"
+        "ar": "درجة حرارة هواء العادم بعد جهاز استرداد الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature of stale air exhausted after heat exchange",
         "tr": "Isı değişiminden sonra dışarı atılan kirli havanın sıcaklığı",
         "de": "Temperatur der abgeführten verbrauchten Luft nach Wärmeaustausch",
         "fr": "Température de l'air vicié évacué après échange thermique",
-        "es": "Temperatura del aire viciado extraído después del intercambio de calor"
+        "es": "Temperatura del aire viciado extraído después del intercambio de calor",
+        "ar": "درجة حرارة الهواء الراكد المطرود بعد التبادل الحراري"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Luftdurchsatz",
         "fr": "Débit d'air",
         "es": "Caudal de aire",
-        "ar": "Air Flow Rate"
+        "ar": "معدل تدفق الهواء"
       },
       "businessContext_i18n": {
         "en": "Ventilation air flow rate",
         "tr": "Havalandırma havası debisi",
         "de": "Luftvolumenstrom der Lüftung",
         "fr": "Débit d'air de ventilation",
-        "es": "Caudal de aire de ventilación"
+        "es": "Caudal de aire de ventilación",
+        "ar": "معدل تدفق هواء التهوية"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Luftdichte",
         "fr": "Densité de l'air",
         "es": "Densidad del aire",
-        "ar": "Air Density"
+        "ar": "كثافة الهواء"
       },
       "businessContext_i18n": {
         "en": "Density of air (standard 1.2 kg/m³)",
         "tr": "Hava yoğunluğu (standart 1,2 kg/m³)",
         "de": "Dichte der Luft (Standard 1,2 kg/m³)",
         "fr": "Densité de l'air (standard 1,2 kg/m³)",
-        "es": "Densidad del aire (estándar 1.2 kg/m³)"
+        "es": "Densidad del aire (estándar 1.2 kg/m³)",
+        "ar": "كثافة الهواء (قياسية 1.2 كجم/م³)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Spezifische Wärmekapazität der Luft",
         "fr": "Capacité thermique massique de l'air",
         "es": "Capacidad calorífica específica del aire",
-        "ar": "Specific Heat Capacity of Air"
+        "ar": "السعة الحرارية النوعية للهواء"
       },
       "businessContext_i18n": {
         "en": "Specific heat of air at constant pressure",
         "tr": "Sabit basınçta havanın özgül ısısı",
         "de": "Spezifische Wärme der Luft bei konstantem Druck",
         "fr": "Chaleur spécifique de l'air à pression constante",
-        "es": "Calor específico del aire a presión constante"
+        "es": "Calor específico del aire a presión constante",
+        "ar": "الحرارة النوعية للهواء عند ضغط ثابت"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Jährliche Betriebsstunden",
         "fr": "Heures de fonctionnement annuelles",
         "es": "Horas de operación anuales",
-        "ar": "Annual Operating Hours"
+        "ar": "ساعات التشغيل السنوية"
       },
       "businessContext_i18n": {
         "en": "Hours per year the HRV operates",
         "tr": "HRV'nin yıllık çalışma saati",
         "de": "Betriebsstunden pro Jahr der HRV",
         "fr": "Heures par an de fonctionnement de la VMC",
-        "es": "Horas al año que opera el HRV"
+        "es": "Horas al año que opera el HRV",
+        "ar": "عدد ساعات تشغيل جهاز استرداد الحرارة سنويًا"
       }
     }
   ],

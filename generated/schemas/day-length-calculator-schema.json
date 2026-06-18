@@ -14,14 +14,15 @@
         "de": "Breitengrad",
         "fr": "Latitude",
         "es": "Latitud",
-        "ar": "Enlem"
+        "ar": "خط العرض"
       },
       "businessContext_i18n": {
         "en": "Gözlem noktasının enlemi (-90 ile 90 arası)",
         "tr": "Gözlem noktasının enlemi (-90 ile 90 arası)",
         "de": "Breitengrad des Beobachtungspunkts (-90 bis 90)",
         "fr": "Latitude du point d'observation (entre -90 et 90)",
-        "es": "Latitud del punto de observación (-90 a 90)"
+        "es": "Latitud del punto de observación (-90 a 90)",
+        "ar": "خط عرض نقطة المراقبة (بين -90 و 90)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jahr",
         "fr": "Année",
         "es": "Año",
-        "ar": "Yıl"
+        "ar": "السنة"
       },
       "businessContext_i18n": {
         "en": "Gözlem yılı",
         "tr": "Gözlem yılı",
         "de": "Beobachtungsjahr",
         "fr": "Année d'observation",
-        "es": "Año de observación"
+        "es": "Año de observación",
+        "ar": "سنة المراقبة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Monat",
         "fr": "Mois",
         "es": "Mes",
-        "ar": "Ay"
+        "ar": "الشهر"
       },
       "businessContext_i18n": {
         "en": "Gözlem ayı (1–12)",
         "tr": "Gözlem ayı (1–12)",
         "de": "Beobachtungsmonat (1–12)",
         "fr": "Mois d'observation (1–12)",
-        "es": "Mes de observación (1–12)"
+        "es": "Mes de observación (1–12)",
+        "ar": "شهر المراقبة (1–12)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Tag",
         "fr": "Jour",
         "es": "Día",
-        "ar": "Gün"
+        "ar": "اليوم"
       },
       "businessContext_i18n": {
         "en": "Gözlem günü (1–31)",
         "tr": "Gözlem günü (1–31)",
         "de": "Beobachtungstag (1–31)",
         "fr": "Jour d'observation (1–31)",
-        "es": "Día de observación (1–31)"
+        "es": "Día de observación (1–31)",
+        "ar": "يوم المراقبة (1–31)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "UTC-Abweichung",
         "fr": "Décalage UTC",
         "es": "Desviación UTC",
-        "ar": "UTC Sapması"
+        "ar": "إزاحة UTC"
       },
       "businessContext_i18n": {
         "en": "Zaman dilimi UTC farkı (Türkiye için +3)",
         "tr": "Zaman dilimi UTC farkı (Türkiye için +3)",
         "de": "Zeitzonen-UTC-Differenz (für Türkei +3)",
         "fr": "Différence de fuseau horaire UTC (+3 pour la Turquie)",
-        "es": "Diferencia horaria UTC (para Turquía +3)"
+        "es": "Diferencia horaria UTC (para Turquía +3)",
+        "ar": "فرق المنطقة الزمنية عن UTC (لتركيا +3)"
       }
     }
   ],
   "formulas": {
-    "result": "latitude + year + month",
-    "result_copy": "latitude + year + month"
+    "normalized_product": "latitude * year * month * day",
+    "result": "latitude * year * month * day * (utcOffset)",
+    "adjustment_factor": "utcOffset"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "declination",
-      "hourAngle"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dayLength",
-    "unit": "derece",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "hourAngle": "h"
     }

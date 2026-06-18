@@ -14,14 +14,15 @@
         "de": "Punkt 1 Intra-Cluster-Abstand (a)",
         "fr": "Distance intra-cluster du point 1 (a)",
         "es": "Distancia intra-clúster del punto 1 (a)",
-        "ar": "Point 1 Intra-cluster Distance (a)"
+        "ar": "المسافة داخل المجموعة للنقطة 1 (أ)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 1 to other points in its own cluster.",
         "tr": "Nokta 1'in kendi kümesindeki diğer noktalara olan ortalama mesafesi.",
         "de": "Mittlerer Abstand von Punkt 1 zu anderen Punkten in seinem eigenen Cluster.",
         "fr": "Distance moyenne du point 1 aux autres points de son propre cluster.",
-        "es": "Distancia media desde el punto 1 a otros puntos en su propio clúster."
+        "es": "Distancia media desde el punto 1 a otros puntos en su propio clúster.",
+        "ar": "متوسط المسافة من النقطة 1 إلى النقاط الأخرى في مجموعتها الخاصة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Punkt 1 Nächstgelegener-Cluster-Abstand (b)",
         "fr": "Distance du cluster le plus proche du point 1 (b)",
         "es": "Distancia al clúster más cercano del punto 1 (b)",
-        "ar": "Point 1 Nearest-cluster Distance (b)"
+        "ar": "المسافة إلى أقرب مجموعة للنقطة 1 (ب)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 1 to points in the nearest neighboring cluster.",
         "tr": "Nokta 1'in en yakın komşu kümedeki noktalara olan ortalama mesafesi.",
         "de": "Mittlerer Abstand von Punkt 1 zu Punkten im nächstgelegenen Nachbarcluster.",
         "fr": "Distance moyenne du point 1 aux points du cluster voisin le plus proche.",
-        "es": "Distancia media desde el punto 1 a puntos en el clúster vecino más cercano."
+        "es": "Distancia media desde el punto 1 a puntos en el clúster vecino más cercano.",
+        "ar": "متوسط المسافة من النقطة 1 إلى النقاط في أقرب مجموعة مجاورة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Punkt 2 Intra-Cluster-Abstand (a)",
         "fr": "Distance intra-cluster du point 2 (a)",
         "es": "Distancia intra-clúster del punto 2 (a)",
-        "ar": "Point 2 Intra-cluster Distance (a)"
+        "ar": "المسافة داخل المجموعة للنقطة 2 (أ)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 2 to other points in its own cluster.",
         "tr": "Nokta 2'nin kendi kümesindeki diğer noktalara olan ortalama mesafesi.",
         "de": "Mittlerer Abstand von Punkt 2 zu anderen Punkten in seinem eigenen Cluster.",
         "fr": "Distance moyenne du point 2 aux autres points de son propre cluster.",
-        "es": "Distancia media desde el punto 2 a otros puntos en su propio clúster."
+        "es": "Distancia media desde el punto 2 a otros puntos en su propio clúster.",
+        "ar": "متوسط المسافة من النقطة 2 إلى النقاط الأخرى في مجموعتها الخاصة."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Punkt 2 Nächstgelegener-Cluster-Abstand (b)",
         "fr": "Distance du cluster le plus proche du point 2 (b)",
         "es": "Distancia al clúster más cercano del punto 2 (b)",
-        "ar": "Point 2 Nearest-cluster Distance (b)"
+        "ar": "المسافة إلى أقرب مجموعة للنقطة 2 (ب)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 2 to points in the nearest neighboring cluster.",
         "tr": "Nokta 2'nin en yakın komşu kümedeki noktalara olan ortalama mesafesi.",
         "de": "Mittlerer Abstand von Punkt 2 zu Punkten im nächstgelegenen Nachbarcluster.",
         "fr": "Distance moyenne du point 2 aux points du cluster voisin le plus proche.",
-        "es": "Distancia media desde el punto 2 a puntos en el clúster vecino más cercano."
+        "es": "Distancia media desde el punto 2 a puntos en el clúster vecino más cercano.",
+        "ar": "متوسط المسافة من النقطة 2 إلى النقاط في أقرب مجموعة مجاورة."
       }
     }
   ],
   "formulas": {
-    "result": "a1 + b1 + a2",
-    "result_copy": "a1 + b1 + a2"
+    "normalized_product": "a1 * b1 * a2 * b2",
+    "result": "a1 * b1 * a2 * b2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "silhouette1",
-      "silhouette2"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "avgSilhouette",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

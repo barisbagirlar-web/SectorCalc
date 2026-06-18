@@ -14,14 +14,15 @@
         "de": "Startindex",
         "fr": "Indice de début",
         "es": "Índice de inicio",
-        "ar": "Start Index"
+        "ar": "فهرس البداية"
       },
       "businessContext_i18n": {
         "en": "Starting index for the summation in the harmonic series.",
         "tr": "Harmonik seride toplamanın başlangıç indeksi.",
         "de": "Startindex für die Summation in der harmonischen Reihe.",
         "fr": "Indice de départ pour la sommation dans la série harmonique.",
-        "es": "Índice inicial para la suma en la serie armónica."
+        "es": "Índice inicial para la suma en la serie armónica.",
+        "ar": "فهرس البداية للتجميع في المتسلسلة التوافقية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Endindex",
         "fr": "Indice de fin",
         "es": "Índice final",
-        "ar": "End Index"
+        "ar": "مؤشر النهاية"
       },
       "businessContext_i18n": {
         "en": "Ending index for the summation.",
         "tr": "Toplamanın bitiş indeksi.",
         "de": "Endindex für die Summation.",
         "fr": "Indice de fin pour la sommation.",
-        "es": "Índice final para la suma."
+        "es": "Índice final para la suma.",
+        "ar": "مؤشر النهاية للتجميع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exponent (p)",
         "fr": "Exposant (p)",
         "es": "Exponente (p)",
-        "ar": "Exponent (p)"
+        "ar": "الأس (p)"
       },
       "businessContext_i18n": {
         "en": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
         "tr": "Payda terimi için üs; standart harmonik seri (1/k^p) için 1 kullanın.",
         "de": "Exponent für den Nennerterm; verwenden Sie 1 für die Standard-Harmonische-Reihe (1/k^p).",
         "fr": "Exposant pour le terme du dénominateur ; utiliser 1 pour la série harmonique standard (1/k^p).",
-        "es": "Exponente para el término del denominador; use 1 para la serie armónica estándar (1/k^p)."
+        "es": "Exponente para el término del denominador; use 1 para la serie armónica estándar (1/k^p).",
+        "ar": "أس للمقام؛ استخدم 1 للمتسلسلة التوافقية القياسية (1/k^p)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schrittweite",
         "fr": "Incrément",
         "es": "Incremento",
-        "ar": "Increment"
+        "ar": "الزيادة"
       },
       "businessContext_i18n": {
         "en": "Step size between successive indices in the summation.",
         "tr": "Toplamada ardışık indeksler arasındaki adım boyutu.",
         "de": "Schrittgröße zwischen aufeinanderfolgenden Indizes in der Summation.",
         "fr": "Pas entre les indices successifs dans la sommation.",
-        "es": "Tamaño del paso entre índices sucesivos en la suma."
+        "es": "Tamaño del paso entre índices sucesivos en la suma.",
+        "ar": "حجم الخطوة بين المؤشرات المتتالية في التجميع."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Verschiebung",
         "fr": "Décalage",
         "es": "Desplazamiento",
-        "ar": "Shift"
+        "ar": "الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Constant added to the index inside the denominator before exponentiation.",
         "tr": "Üs alma öncesinde payda içindeki indekse eklenen sabit.",
         "de": "Konstante, die vor der Potenzierung zum Index im Nenner addiert wird.",
         "fr": "Constante ajoutée à l'indice dans le dénominateur avant l'exponentiation.",
-        "es": "Constante añadida al índice dentro del denominador antes de la exponenciación."
+        "es": "Constante añadida al índice dentro del denominador antes de la exponenciación.",
+        "ar": "ثابت يضاف إلى المؤشر داخل المقام قبل الرفع إلى الأس."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Multiplikator",
         "fr": "Multiplicateur",
         "es": "Multiplicador",
-        "ar": "Multiplier"
+        "ar": "المضاعف"
       },
       "businessContext_i18n": {
         "en": "Scaling factor applied to each term of the series.",
         "tr": "Serinin her terimine uygulanan ölçekleme faktörü.",
         "de": "Skalierungsfaktor, der auf jeden Term der Reihe angewendet wird.",
         "fr": "Facteur d'échelle appliqué à chaque terme de la série.",
-        "es": "Factor de escala aplicado a cada término de la serie."
+        "es": "Factor de escala aplicado a cada término de la serie.",
+        "ar": "عامل القياس المطبق على كل حد من المتسلسلة."
       }
     }
   ],
   "formulas": {
-    "result": "startIndex + endIndex + exponent",
-    "result_copy": "startIndex + endIndex + exponent"
+    "normalized_product": "startIndex * endIndex * exponent * increment",
+    "result": "startIndex * endIndex * exponent * increment * (shift * multiplier)",
+    "adjustment_factor": "shift * multiplier"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "termsIncluded",
-      "approximateIntegral"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "approximateIntegral",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İK & Personel",
   "sector": "Matematik & Geometri",

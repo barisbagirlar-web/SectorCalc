@@ -14,14 +14,15 @@
         "de": "Gelöstes Gewicht",
         "fr": "Poids du soluté",
         "es": "Peso del soluto",
-        "ar": "Solute Weight"
+        "ar": "وزن المذاب"
       },
       "businessContext_i18n": {
         "en": "Mass of solute used in the solution, measured in grams.",
         "tr": "Çözeltide kullanılan çözünen kütlesi, gram cinsinden ölçülür.",
         "de": "Masse des in der Lösung verwendeten gelösten Stoffes, gemessen in Gramm.",
         "fr": "Masse de soluté utilisée dans la solution, mesurée en grammes.",
-        "es": "Masa del soluto utilizada en la solución, medida en gramos."
+        "es": "Masa del soluto utilizada en la solución, medida en gramos.",
+        "ar": "كتلة المذاب المستخدم في المحلول، مقاسة بالجرام."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Molekulargewicht",
         "fr": "Masse moléculaire",
         "es": "Peso molecular",
-        "ar": "Molecular Weight"
+        "ar": "الوزن الجزيئي"
       },
       "businessContext_i18n": {
         "en": "Molecular weight of the solute substance, in grams per mole.",
         "tr": "Çözünen maddenin moleküler ağırlığı, gram/mol cinsinden.",
         "de": "Molekulargewicht des gelösten Stoffes, in Gramm pro Mol.",
         "fr": "Poids moléculaire du soluté, en grammes par mole.",
-        "es": "Peso molecular de la sustancia soluto, en gramos por mol."
+        "es": "Peso molecular de la sustancia soluto, en gramos por mol.",
+        "ar": "الوزن الجزيئي للمادة المذابة، بالجرام لكل مول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wertigkeit (n-Faktor)",
         "fr": "Valence (facteur n)",
         "es": "Valencia (factor n)",
-        "ar": "Valency (n-factor)"
+        "ar": "التكافؤ (عامل n)"
       },
       "businessContext_i18n": {
         "en": "Number of reactive units (equivalents) per mole; for acids, it is the number of H⁺ ions; for bases, OH⁻ ions; for redox reactions, electrons transferred.",
         "tr": "Mol başına reaktif birim (eşdeğer) sayısı; asitler için H⁺ iyonu sayısı, bazlar için OH⁻ iyonu sayısı, redoks reaksiyonları için transfer edilen elektron sayısı.",
         "de": "Anzahl der reaktiven Einheiten (Äquivalente) pro Mol; bei Säuren die Anzahl der H⁺-Ionen; bei Basen OH⁻-Ionen; bei Redoxreaktionen die übertragenen Elektronen.",
         "fr": "Nombre d'unités réactives (équivalents) par mole ; pour les acides, c'est le nombre d'ions H⁺ ; pour les bases, d'ions OH⁻ ; pour les réactions redox, les électrons transférés.",
-        "es": "Número de unidades reactivas (equivalentes) por mol; para ácidos, es el número de iones H⁺; para bases, iones OH⁻; para reacciones redox, electrones transferidos."
+        "es": "Número de unidades reactivas (equivalentes) por mol; para ácidos, es el número de iones H⁺; para bases, iones OH⁻; para reacciones redox, electrones transferidos.",
+        "ar": "عدد الوحدات التفاعلية (المكافئات) لكل مول؛ للأحماض، هو عدد أيونات H⁺؛ للقواعد، أيونات OH⁻؛ لتفاعلات الأكسدة والاختزال، الإلكترونات المنقولة."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Lösungsvolumen",
         "fr": "Volume de solution",
         "es": "Volumen de solución",
-        "ar": "Solution Volume"
+        "ar": "حجم المحلول"
       },
       "businessContext_i18n": {
         "en": "Total volume of the prepared solution, in liters.",
         "tr": "Hazırlanan çözeltinin toplam hacmi, litre cinsinden.",
         "de": "Gesamtvolumen der vorbereiteten Lösung in Litern.",
         "fr": "Volume total de la solution préparée, en litres.",
-        "es": "Volumen total de la solución preparada, en litros."
+        "es": "Volumen total de la solución preparada, en litros.",
+        "ar": "الحجم الكلي للمحلول المحضر، باللتر."
       }
     }
   ],
   "formulas": {
-    "result": "weight + molecularWeight + valency",
-    "result_aux": "weight + molecularWeight + valency"
+    "normalized_product": "weight * molecularWeight * valency * volume",
+    "result": "weight * molecularWeight * valency * volume"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Equivalent Weight (g/eq)",
-      "Normality (N)"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "g"
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Kimya & Proses",

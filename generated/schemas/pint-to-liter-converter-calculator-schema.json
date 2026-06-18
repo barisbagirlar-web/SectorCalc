@@ -14,14 +14,15 @@
         "de": "Pints",
         "fr": "Pintes",
         "es": "Pintas",
-        "ar": "Pints"
+        "ar": "الباينتات"
       },
       "businessContext_i18n": {
         "en": "Volume in pints to be converted",
         "tr": "Dönüştürülecek pint cinsinden hacim",
         "de": "Volumen in Pints, das umgerechnet werden soll",
         "fr": "Volume en pintes à convertir",
-        "es": "Volumen en pintas a convertir"
+        "es": "Volumen en pintas a convertir",
+        "ar": "الحجم بالباينتات المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungstyp",
         "fr": "Type de conversion",
         "es": "Tipo de conversión",
-        "ar": "Conversion Type"
+        "ar": "نوع التحويل"
       },
       "businessContext_i18n": {
         "en": "Selection of pint definition; 1 for UK pint, 2 for US liquid pint, 3 for US dry pint",
         "tr": "Pint tanımı seçimi; 1: İngiltere pinti, 2: ABD sıvı pinti, 3: ABD kuru pinti",
         "de": "Auswahl der Pint-Definition; 1 für UK-Pint, 2 für US-Flüssigpint, 3 für US-Trockenpint",
         "fr": "Sélection de la définition de la pinte ; 1 pour pinte UK, 2 pour pinte US liquide, 3 pour pinte US sèche",
-        "es": "Selección de la definición de pinta; 1 para pinta UK, 2 para pinta líquida US, 3 para pinta seca US"
+        "es": "Selección de la definición de pinta; 1 para pinta UK, 2 para pinta líquida US, 3 para pinta seca US",
+        "ar": "اختيار تعريف الباينت؛ 1 للباينت البريطاني، 2 للباينت السائل الأمريكي، 3 للباينت الجاف الأمريكي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Chargen-ID",
         "fr": "ID de lot",
         "es": "ID del lote",
-        "ar": "Batch ID"
+        "ar": "معرف الدفعة"
       },
       "businessContext_i18n": {
         "en": "Batch identifier for traceability (does not affect calculation)",
         "tr": "İzlenebilirlik için parti tanımlayıcısı (hesaplamayı etkilemez)",
         "de": "Chargenbezeichner für Rückverfolgbarkeit (beeinflusst die Berechnung nicht)",
         "fr": "Identifiant de lot pour la traçabilité (n'affecte pas le calcul)",
-        "es": "Identificador del lote para trazabilidad (no afecta el cálculo)"
+        "es": "Identificador del lote para trazabilidad (no afecta el cálculo)",
+        "ar": "معرف الدفعة لتتبع المصدر (لا يؤثر على الحساب)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature at which volume is measured (for potential thermal correction, not used in current formula)",
         "tr": "Hacmin ölçüldüğü sıcaklık (olası termal düzeltme için, mevcut formülde kullanılmaz)",
         "de": "Temperatur, bei der das Volumen gemessen wird (für mögliche thermische Korrektur, wird in der aktuellen Formel nicht verwendet)",
         "fr": "Température à laquelle le volume est mesuré (pour correction thermique potentielle, non utilisée dans la formule actuelle)",
-        "es": "Temperatura a la que se mide el volumen (para posible corrección térmica, no utilizada en la fórmula actual)"
+        "es": "Temperatura a la que se mide el volumen (para posible corrección térmica, no utilizada en la fórmula actual)",
+        "ar": "درجة الحرارة التي يُقاس عندها الحجم (للتصحيح الحراري المحتمل، غير مستخدم في الصيغة الحالية)"
       }
     }
   ],
   "formulas": {
-    "result": "pints + conversionType + batchId",
-    "result_copy": "pints + conversionType + batchId"
+    "normalized_product": "pints * conversionType * batchId * temperature",
+    "result": "pints * conversionType * batchId * temperature"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "conversionFactorInfo",
-      "pintsInfo"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "pintsInfo",
-    "unit": "pt"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -14,14 +14,15 @@
         "de": "Nanometer-Wert",
         "fr": "Valeur en nanomètres",
         "es": "Valor en nanómetros",
-        "ar": "Nanometre Değeri"
+        "ar": "قيمة النانومتر"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek nanometre miktarı",
         "tr": "Dönüştürülecek nanometre miktarı",
         "de": "Umzurechnende Nanometer-Menge",
         "fr": "Quantité de nanomètres à convertir",
-        "es": "Cantidad de nanómetros a convertir"
+        "es": "Cantidad de nanómetros a convertir",
+        "ar": "كمية النانومتر المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Dönüşüm Çarpanı"
+        "ar": "معامل التحويل"
       },
       "businessContext_i18n": {
         "en": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
         "tr": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
         "de": "Anzahl Nanometer in einem Meter; Standard 1.000.000.000",
         "fr": "Nombre de nanomètres dans un mètre ; standard 1 000 000 000",
-        "es": "Cuántos nanómetros hay en 1 metro; estándar 1.000.000.000"
+        "es": "Cuántos nanómetros hay en 1 metro; estándar 1.000.000.000",
+        "ar": "عدد النانومترات في المتر الواحد؛ المعيار هو 1,000,000,000"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Précision (décimales)",
         "es": "Precisión (decimales)",
-        "ar": "Hassasiyet (Ondalık)"
+        "ar": "الدقة (المنازل العشرية)"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",
-        "es": "Número de decimales a mostrar en el resultado"
+        "es": "Número de decimales a mostrar en el resultado",
+        "ar": "عدد المنازل العشرية المعروضة في النتيجة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Skalierung",
         "fr": "Mise à l'échelle",
         "es": "Escalado",
-        "ar": "Ölçekleme"
+        "ar": "القياس"
       },
       "businessContext_i18n": {
         "en": "Sonuç değerini ölçeklendirme katsayısı",
         "tr": "Sonuç değerini ölçeklendirme katsayısı",
         "de": "Skalierungsfaktor für den Ergebniswert",
         "fr": "Coefficient de mise à l'échelle de la valeur de résultat",
-        "es": "Factor de escalado para el valor resultante"
+        "es": "Factor de escalado para el valor resultante",
+        "ar": "معامل قياس القيمة الناتجة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Offset",
         "fr": "Décalage",
         "es": "Desplazamiento",
-        "ar": "Ofset"
+        "ar": "الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Sonuca eklenecek sabit değer",
         "tr": "Sonuca eklenecek sabit değer",
         "de": "Konstanter Wert, der zum Ergebnis addiert wird",
         "fr": "Valeur constante à ajouter au résultat",
-        "es": "Valor constante a añadir al resultado"
+        "es": "Valor constante a añadir al resultado",
+        "ar": "قيمة ثابتة تضاف إلى النتيجة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Zieleinheiten-Faktor",
         "fr": "Facteur de l'unité cible",
         "es": "Factor de unidad destino",
-        "ar": "Hedef Birim Çarpanı"
+        "ar": "معامل الوحدة المستهدفة"
       },
       "businessContext_i18n": {
         "en": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
         "tr": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
         "de": "Umrechnungsfaktor von Meter in gewünschte Einheit (z. B. 100 für cm, 0,001 für km)",
         "fr": "Facteur de conversion du mètre vers l'unité souhaitée (ex. 100 pour cm, 0,001 pour km)",
-        "es": "Factor de conversión de metros a la unidad deseada (ej. 100 para cm, 0.001 para km)"
+        "es": "Factor de conversión de metros a la unidad deseada (ej. 100 para cm, 0.001 para km)",
+        "ar": "معامل التحويل من المتر إلى الوحدة المطلوبة (مثل 100 للسنتيمتر، 0.001 للكيلومتر)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Wissenschaftliche Notation",
         "fr": "Notation scientifique",
         "es": "Notación científica",
-        "ar": "Bilimsel Gösterim"
+        "ar": "الترميز العلمي"
       },
       "businessContext_i18n": {
         "en": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
         "tr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
         "de": "1 zeigt Ergebnis in wissenschaftlicher Notation, 0 normal",
-        "fr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
-        "es": "1 para mostrar resultado en notación científica, 0 para normal"
+        "fr": "1 pour afficher le résultat en notation scientifique, 0 pour normal",
+        "es": "1 para mostrar resultado en notación científica, 0 para normal",
+        "ar": "إذا كان 1، تظهر النتيجة بالترميز العلمي؛ إذا كان 0، تظهر عادية"
       }
     }
   ],

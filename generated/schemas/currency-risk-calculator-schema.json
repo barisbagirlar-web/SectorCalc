@@ -25,14 +25,16 @@
         "tr": "Maruziyet Tutarı (baz para biriminde)",
         "de": "Expositionsbetrag (in Basiswährung)",
         "fr": "Montant d'exposition (en devise de base)",
-        "es": "Monto de exposición (en moneda base)"
+        "es": "Monto de exposición (en moneda base)",
+        "ar": "مبلغ التعرض (بالعملة الأساسية)"
       },
       "businessContext_i18n": {
         "en": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation.",
         "tr": "Döviz kuru dalgalanmasına tabi yabancı para alacak veya borçların toplam değeri.",
         "de": "Gesamtwert der auf Fremdwährung lautenden Forderungen oder Verbindlichkeiten, die Wechselkursschwankungen unterliegen.",
         "fr": "Valeur totale des créances ou dettes en devises soumises aux fluctuations des taux de change.",
-        "es": "Valor total de cuentas por cobrar o pagar en moneda extranjera sujetas a fluctuación del tipo de cambio."
+        "es": "Valor total de cuentas por cobrar o pagar en moneda extranjera sujetas a fluctuación del tipo de cambio.",
+        "ar": "القيمة الإجمالية للمستحقات أو المدفوعات بالعملة الأجنبية المعرضة لتقلبات سعر الصرف."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Döviz Kurunun Yıllıklandırılmış Volatilitesi",
         "de": "Annualisierte Volatilität des Wechselkurses",
         "fr": "Volatilité annualisée du taux de change",
-        "es": "Volatilidad anualizada del tipo de cambio"
+        "es": "Volatilidad anualizada del tipo de cambio",
+        "ar": "التقلب السنوي لسعر الصرف"
       },
       "businessContext_i18n": {
         "en": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric).",
         "tr": "Günlük log getirilerinin yıllıklandırılmış tarihsel veya zımni standart sapması (ISO 31000 risk metriği).",
         "de": "Historische oder implizite Standardabweichung der täglichen logarithmischen Renditen, annualisiert (ISO 31000 Risikokennzahl).",
         "fr": "Écart-type historique ou implicite des rendements logarithmiques quotidiens annualisé (métrique de risque ISO 31000).",
-        "es": "Desviación estándar histórica o implícita de los rendimientos logarítmicos diarios anualizada (métrica de riesgo ISO 31000)."
+        "es": "Desviación estándar histórica o implícita de los rendimientos logarítmicos diarios anualizada (métrica de riesgo ISO 31000).",
+        "ar": "الانحراف المعياري التاريخي أو الضمني للعوائد اللوغاريتمية اليومية المعمم سنويًا (مقياس المخاطر وفقًا لـ ISO 31000)."
       }
     },
     {
@@ -78,14 +82,16 @@
         "tr": "VaR Hesaplaması için Güven Düzeyi",
         "de": "Konfidenzniveau für VaR-Berechnung",
         "fr": "Niveau de confiance pour le calcul de la VaR",
-        "es": "Nivel de confianza para el cálculo del VaR"
+        "es": "Nivel de confianza para el cálculo del VaR",
+        "ar": "مستوى الثقة لحساب القيمة المعرضة للخطر"
       },
       "businessContext_i18n": {
         "en": "Statistical confidence level used in Value at Risk (VaR) estimation, typical values 90%, 95%, 99%.",
         "tr": "Riskteki Değer (VaR) tahmininde kullanılan istatistiksel güven düzeyi, tipik değerler %90, %95, %99.",
         "de": "Statistisches Konfidenzniveau für die Value-at-Risk-Schätzung, typische Werte 90 %, 95 %, 99 %.",
         "fr": "Niveau de confiance statistique utilisé dans l'estimation de la valeur à risque (VaR), valeurs typiques 90 %, 95 %, 99 %.",
-        "es": "Nivel de confianza estadístico utilizado en la estimación del Valor en Riesgo (VaR), valores típicos 90%, 95%, 99%."
+        "es": "Nivel de confianza estadístico utilizado en la estimación del Valor en Riesgo (VaR), valores típicos 90%, 95%, 99%.",
+        "ar": "مستوى الثقة الإحصائي المستخدم في تقدير القيمة المعرضة للخطر (VaR)، القيم النموذجية 90%، 95%، 99%."
       }
     },
     {
@@ -100,16 +106,18 @@
       "label_i18n": {
         "en": "Hedge Ratio",
         "tr": "Korunma Oranı",
-        "de": "Hedge Ratio",
+        "de": "Absicherungsverhältnis",
         "fr": "Ratio de couverture",
-        "es": "Ratio de cobertura"
+        "es": "Ratio de cobertura",
+        "ar": "نسبة التحوط"
       },
       "businessContext_i18n": {
         "en": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction.",
         "tr": "Korunma araçları (forward, opsiyon) ile kapsanan maruziyet yüzdesi. İsraf azaltımı için yalın metrik.",
         "de": "Prozentsatz der Exposition, der durch Absicherungsinstrumente (Termingeschäfte, Optionen) gedeckt ist. Lean-Kennzahl zur Verschwendungsreduzierung.",
         "fr": "Pourcentage de l'exposition couvert par des instruments de couverture (contrats à terme, options). Métrique Lean pour la réduction des gaspillages.",
-        "es": "Porcentaje de exposición cubierto por instrumentos de cobertura (forwards, opciones). Métrica Lean para reducción de desperdicio."
+        "es": "Porcentaje de exposición cubierto por instrumentos de cobertura (forwards, opciones). Métrica Lean para reducción de desperdicio.",
+        "ar": "النسبة المئوية للتعرض المغطاة بأدوات التحوط (العقود الآجلة، الخيارات). مقياس لين لتقليل الهدر."
       }
     },
     {
@@ -126,14 +134,16 @@
         "tr": "Zaman Ufku (gün)",
         "de": "Zeithorizont (Tage)",
         "fr": "Horizon temporel (jours)",
-        "es": "Horizonte temporal (días)"
+        "es": "Horizonte temporal (días)",
+        "ar": "الأفق الزمني (أيام)"
       },
       "businessContext_i18n": {
         "en": "Risk assessment period aligned with business planning cycles (WERC supply chain standard).",
         "tr": "İş planlama döngüleriyle uyumlu risk değerlendirme dönemi (WERC tedarik zinciri standardı).",
         "de": "Risikobewertungszeitraum, abgestimmt auf Geschäftsplanungszyklen (WERC-Lieferkettenstandard).",
         "fr": "Période d'évaluation des risques alignée sur les cycles de planification d'entreprise (norme WERC supply chain).",
-        "es": "Período de evaluación de riesgo alineado con los ciclos de planificación empresarial (estándar de cadena de suministro WERC)."
+        "es": "Período de evaluación de riesgo alineado con los ciclos de planificación empresarial (estándar de cadena de suministro WERC).",
+        "ar": "فترة تقييم المخاطر المتوافقة مع دورات التخطيط التجاري (معيار WERC لسلسلة التوريد)."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Yalın Volatilite Ayarlamasını Etkinleştir",
         "de": "Lean-Volatilitätsanpassung aktivieren",
         "fr": "Activer l'ajustement de volatilité Lean",
-        "es": "Habilitar ajuste Lean de volatilidad"
+        "es": "Habilitar ajuste Lean de volatilidad",
+        "ar": "تفعيل تعديل التقلب اللين"
       },
       "businessContext_i18n": {
         "en": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution.",
         "tr": "Hedefleme yürütmesindeki süreç değişkenliğini hesaba katmak için Altı Sigma tabanlı bir düzeltme faktörü uygular.",
         "de": "Wendet einen Six-Sigma-basierten Korrekturfaktor an, um Prozessschwankungen bei der Absicherungsausführung zu berücksichtigen.",
         "fr": "Applique un facteur de correction basé sur Six Sigma pour tenir compte de la variation du processus dans l'exécution de la couverture.",
-        "es": "Aplica un factor de corrección basado en Seis Sigma para tener en cuenta la variación del proceso en la ejecución de coberturas."
+        "es": "Aplica un factor de corrección basado en Seis Sigma para tener en cuenta la variación del proceso en la ejecución de coberturas.",
+        "ar": "يطبق عامل تصحيح قائم على ستة سيجما لمراعاة تباين العملية في تنفيذ التحوط."
       }
     }
   ],
@@ -203,28 +215,23 @@
     ]
   },
   "formulas": {
-    "result": "exposure_amount + volatility_annual + confidence_level",
-    "result_copy": "exposure_amount + volatility_annual + confidence_level"
+    "base_cost": "enable_lean_adjustment * exposure_amount",
+    "adjusted_cost": "enable_lean_adjustment * exposure_amount * (1 + (volatility_annual / 100))",
+    "result": "enable_lean_adjustment * exposure_amount * (1 + (volatility_annual / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "0",
-      "1",
-      "2",
-      "3"
+      "base_cost",
+      "adjusted_cost"
     ],
     "hiddenLossDrivers": [
-      "Unhedged residual exposure (1 - hedge_ratio) * exposure_amount",
-      "Volatility clustering – potential regime shift not captured by constant volatility",
-      "Basis risk between spot and forward rates",
-      "Liquidity risk in exotic currency pairs"
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
     ],
     "suggestedActions": [
-      "Increase hedge ratio to at least 70% to reduce tail risk",
-      "Implement rolling hedge program to smooth execution costs",
-      "Use options collar strategy to limit downside while retaining upside",
-      "Monitor macroeconomic indicators (interest rate differentials, trade balances)"
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

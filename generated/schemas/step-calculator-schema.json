@@ -14,14 +14,15 @@
         "de": "Gesamthöhe (Geschoss zu Geschoss)",
         "fr": "Hauteur totale (sol à sol)",
         "es": "Altura total (piso a piso)",
-        "ar": "Total Height (floor-to-floor)"
+        "ar": "الارتفاع الكلي (من الأرض إلى الأرض)"
       },
       "businessContext_i18n": {
         "en": "Floor-to-floor vertical distance in centimeters",
         "tr": "Döşemeden döşemeye dikey mesafe (santimetre cinsinden)",
         "de": "Vertikaler Abstand von Geschoss zu Geschoss in Zentimetern",
         "fr": "Distance verticale sol à sol en centimètres",
-        "es": "Distancia vertical piso a piso en centímetros"
+        "es": "Distancia vertical piso a piso en centímetros",
+        "ar": "المسافة الرأسية من الأرض إلى الأرض بالسنتيمتر"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gewünschte Stufenhöhe (Setzstufe)",
         "fr": "Hauteur de marche souhaitée (contremarche)",
         "es": "Altura de paso deseada (contrahuella)",
-        "ar": "Desired Step Height (Riser)"
+        "ar": "ارتفاع الدرجة المطلوب (الناهض)"
       },
       "businessContext_i18n": {
         "en": "Preferred riser height, typically 15-20 cm",
         "tr": "Tercih edilen rıht yüksekliği, genellikle 15-20 cm",
         "de": "Bevorzugte Setzstufenhöhe, typischerweise 15–20 cm",
         "fr": "Hauteur de contremarche préférée, généralement 15-20 cm",
-        "es": "Altura de contrahuella preferida, típicamente 15-20 cm"
+        "es": "Altura de contrahuella preferida, típicamente 15-20 cm",
+        "ar": "ارتفاع الناهض المفضل، عادة 15-20 سم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stufentiefe (Auftritt)",
         "fr": "Profondeur de marche (giron)",
         "es": "Profundidad de paso (huella)",
-        "ar": "Step Depth (Tread)"
+        "ar": "عمق الدرجة (المداس)"
       },
       "businessContext_i18n": {
         "en": "Horizontal depth of each step, typically 25-30 cm",
         "tr": "Her basamağın yatay derinliği, genellikle 25-30 cm",
         "de": "Horizontale Tiefe jeder Stufe, typischerweise 25–30 cm",
         "fr": "Profondeur horizontale de chaque marche, généralement 25-30 cm",
-        "es": "Profundidad horizontal de cada paso, típicamente 25-30 cm"
+        "es": "Profundidad horizontal de cada paso, típicamente 25-30 cm",
+        "ar": "العمق الأفقي لكل درجة، عادة 25-30 سم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Podestbreite",
         "fr": "Largeur du palier",
         "es": "Ancho del descanso",
-        "ar": "Landing Width"
+        "ar": "عرض البسطة"
       },
       "businessContext_i18n": {
         "en": "Width of any intermediate landing, or 0 if none",
         "tr": "Varsa ara sahanlığın genişliği, yoksa 0",
         "de": "Breite eines Zwischenpodests, oder 0 wenn keines vorhanden",
         "fr": "Largeur de tout palier intermédiaire, ou 0 si aucun",
-        "es": "Ancho de cualquier descanso intermedio, o 0 si no hay"
+        "es": "Ancho de cualquier descanso intermedio, o 0 si no hay",
+        "ar": "عرض أي بسطة وسيطة، أو 0 إذا لم توجد"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Kopfhöhe",
         "fr": "Hauteur sous plafond",
         "es": "Altura libre",
-        "ar": "Headroom Height"
+        "ar": "ارتفاع الخلوص الرأسي"
       },
       "businessContext_i18n": {
         "en": "Vertical clearance above stairs for safety compliance",
         "tr": "Güvenlik yönetmeliklerine uygunluk için merdiven üzerindeki dikey boşluk",
         "de": "Vertikaler Freiraum über der Treppe für Sicherheitsvorschriften",
         "fr": "Dégagement vertical au-dessus des escaliers pour la conformité de sécurité",
-        "es": "Espacio libre vertical sobre las escaleras para cumplimiento de seguridad"
+        "es": "Espacio libre vertical sobre las escaleras para cumplimiento de seguridad",
+        "ar": "الخلوص الرأسي فوق الدرج للامتثال لمعايير السلامة"
       }
     }
   ],
   "formulas": {
-    "result": "totalHeight + stepHeight + stepDepth",
-    "result_copy": "totalHeight + stepHeight + stepDepth"
+    "normalized_product": "totalHeight * stepHeight * stepDepth * landingWidth",
+    "result": "totalHeight * stepHeight * stepDepth * landingWidth * (headroom)",
+    "adjustment_factor": "headroom"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "actualStepHeight",
-      "totalRun",
-      "totalLength",
-      "headroomCompliant"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "headroomCompliant",
-    "unit": "cm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Birim & Dönüşüm",

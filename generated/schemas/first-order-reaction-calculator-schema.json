@@ -14,14 +14,15 @@
         "de": "Anfangskonzentration (C₀)",
         "fr": "Concentration initiale (C₀)",
         "es": "Concentración inicial (C₀)",
-        "ar": "Initial Concentration (C₀)"
+        "ar": "التركيز الأولي (C₀)"
       },
       "businessContext_i18n": {
         "en": "Başlangıç konsantrasyonu (mol/L cinsinden)",
         "tr": "Başlangıç konsantrasyonu (mol/L cinsinden)",
         "de": "Anfangskonzentration (in mol/L)",
         "fr": "Concentration initiale (en mol/L)",
-        "es": "Concentración inicial (en mol/L)"
+        "es": "Concentración inicial (en mol/L)",
+        "ar": "التركيز الأولي (مول/لتر)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geschwindigkeitskonstante (k)",
         "fr": "Constante de vitesse (k)",
         "es": "Constante de velocidad (k)",
-        "ar": "Rate Constant (k)"
+        "ar": "ثابت المعدل (k)"
       },
       "businessContext_i18n": {
         "en": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
         "tr": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
         "de": "Geschwindigkeitskonstante erster Ordnung (in s⁻¹)",
         "fr": "Constante de vitesse de réaction du premier ordre (en s⁻¹)",
-        "es": "Constante de velocidad de reacción de primer orden (en s⁻¹)"
+        "es": "Constante de velocidad de reacción de primer orden (en s⁻¹)",
+        "ar": "ثابت معدل التفاعل من الدرجة الأولى (ث⁻¹)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon süresi (saniye cinsinden)",
         "tr": "Reaksiyon süresi (saniye cinsinden)",
         "de": "Reaktionszeit (in Sekunden)",
         "fr": "Temps de réaction (en secondes)",
-        "es": "Tiempo de reacción (en segundos)"
+        "es": "Tiempo de reacción (en segundos)",
+        "ar": "زمن التفاعل (بالثواني)"
       }
     },
     {
@@ -83,41 +86,37 @@
         "de": "Reaktionsordnung",
         "fr": "Ordre de réaction",
         "es": "Orden de reacción",
-        "ar": "Reaction Order"
+        "ar": "رتبة التفاعل"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon mertebesi (birinci derece için sabit 1)",
         "tr": "Reaksiyon mertebesi (birinci derece için sabit 1)",
         "de": "Reaktionsordnung (für erste Ordnung konstant 1)",
         "fr": "Ordre de réaction (1 pour le premier ordre)",
-        "es": "Orden de reacción (constante 1 para primer orden)"
+        "es": "Orden de reacción (constante 1 para primer orden)",
+        "ar": "رتبة التفاعل (ثابت 1 للدرجة الأولى)"
       }
     }
   ],
   "formulas": {
-    "result": "c0 + k + t",
-    "result_copy": "c0 + k + t"
+    "normalized_product": "c0 * k * t * order",
+    "result": "c0 * k * t * order"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "halfLife",
-        "label": "Half-Life (t₁/₂)",
-        "unit": "s"
-      },
-      {
-        "id": "conversion",
-        "label": "Conversion",
-        "unit": "%"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "conversion",
-    "unit": "mol/L"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Kimya & Proses",

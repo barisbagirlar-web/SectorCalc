@@ -14,13 +14,15 @@
         "de": "Mensurlänge",
         "fr": "Longueur de la corde vibrante",
         "es": "Longitud de escala",
-        "ar": "Scale Length"
+        "ar": "طول المقياس"
       },
       "businessContext_i18n": {
         "en": "Ukulele scale length (nut to saddle)",
         "tr": "Ukulele skala uzunluğu (somun ile köprü arası)",
         "de": "Ukulele-Mensurlänge (Sattel bis Steg)",
-        "fr": "Longueur de l'échelle du ukulélé (sillet à chevalet)"
+        "fr": "Longueur de l'échelle du ukulélé (sillet à chevalet)",
+        "es": "Longitud de escala del ukelele (cejuela a puente)",
+        "ar": "طول سلم آلة اليوكليلي (من الجوزة إلى السرج)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Saitendurchmesser",
         "fr": "Diamètre de la corde",
         "es": "Diámetro de la cuerda",
-        "ar": "String Diameter"
+        "ar": "قطر الوتر"
       },
       "businessContext_i18n": {
         "en": "Diameter of the ukulele string",
         "tr": "Ukulele teli çapı",
         "de": "Durchmesser der Ukulele-Saite",
-        "fr": "Diamètre de la corde de ukulélé"
+        "fr": "Diamètre de la corde de ukulélé",
+        "es": "Diámetro de la cuerda del ukelele",
+        "ar": "قطر وتر اليوكليلي"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Material Density"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Density of the string material (e.g., nylon)",
         "tr": "Tel malzemesinin yoğunluğu (ör. naylon)",
         "de": "Dichte des Saitenmaterials (z. B. Nylon)",
-        "fr": "Densité du matériau de la corde (ex. nylon)"
+        "fr": "Densité du matériau de la corde (ex. nylon)",
+        "es": "Densidad del material de la cuerda (ej., nailon)",
+        "ar": "كثافة مادة الوتر (مثل النايلون)"
       }
     },
     {
@@ -80,32 +86,37 @@
         "de": "Zielfrequenz",
         "fr": "Fréquence cible",
         "es": "Frecuencia objetivo",
-        "ar": "Target Frequency"
+        "ar": "التردد المستهدف"
       },
       "businessContext_i18n": {
         "en": "Desired fundamental frequency of the string",
         "tr": "Tel için istenen temel frekans",
         "de": "Gewünschte Grundfrequenz der Saite",
-        "fr": "Fréquence fondamentale souhaitée de la corde"
+        "fr": "Fréquence fondamentale souhaitée de la corde",
+        "es": "Frecuencia fundamental deseada de la cuerda",
+        "ar": "التردد الأساسي المطلوب للوتر"
       }
     }
   ],
   "formulas": {
-    "result": "scaleLength + stringDiameter + density",
-    "result_aux": "scaleLength + stringDiameter + density"
+    "normalized_product": "scaleLength * stringDiameter * density * frequency",
+    "result": "scaleLength * stringDiameter * density * frequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Tension (kgf)",
-      "Tension (lbf)"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "Tension (lbf)",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

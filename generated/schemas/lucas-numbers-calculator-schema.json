@@ -14,14 +14,15 @@
         "de": "Startindex",
         "fr": "Indice de début",
         "es": "Índice de inicio",
-        "ar": "Start Index"
+        "ar": "فهرس البداية"
       },
       "businessContext_i18n": {
         "en": "Starting index of Lucas sequence (inclusive).",
         "tr": "Lucas dizisinin başlangıç indeksi (dahil).",
         "de": "Startindex der Lucas-Folge (inklusive).",
         "fr": "Indice de début de la suite de Lucas (inclus).",
-        "es": "Índice inicial de la secuencia de Lucas (inclusive)."
+        "es": "Índice inicial de la secuencia de Lucas (inclusive).",
+        "ar": "فهرس بداية متتالية لوكاس (ضمنيًا)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Endindex",
         "fr": "Indice de fin",
         "es": "Índice final",
-        "ar": "End Index"
+        "ar": "مؤشر النهاية"
       },
       "businessContext_i18n": {
         "en": "Ending index of Lucas sequence (inclusive). Must be >= startIndex.",
         "tr": "Lucas dizisinin bitiş indeksi (dahil). startIndex'ten büyük veya eşit olmalıdır.",
         "de": "Endindex der Lucas-Folge (inklusive). Muss >= Startindex sein.",
         "fr": "Indice de fin de la suite de Lucas (inclus). Doit être >= startIndex.",
-        "es": "Índice final de la secuencia de Lucas (inclusive). Debe ser >= índice inicial."
+        "es": "Índice final de la secuencia de Lucas (inclusive). Debe ser >= índice inicial.",
+        "ar": "فهرس نهاية متتالية لوكاس (ضمنيًا). يجب أن يكون >= فهرس البداية."
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "0 indeksindeki Lucas sayısının değeri (genellikle 2).",
         "de": "Wert der Lucas-Zahl bei Index 0 (typischerweise 2).",
         "fr": "Valeur du nombre de Lucas à l'indice 0 (généralement 2).",
-        "es": "Valor del número de Lucas en el índice 0 (típicamente 2)."
+        "es": "Valor del número de Lucas en el índice 0 (típicamente 2).",
+        "ar": "قيمة رقم لوكاس عند الفهرس 0 (عادة 2)."
       }
     },
     {
@@ -90,7 +93,8 @@
         "tr": "1 indeksindeki Lucas sayısının değeri (genellikle 1).",
         "de": "Wert der Lucas-Zahl bei Index 1 (typischerweise 1).",
         "fr": "Valeur du nombre de Lucas à l'indice 1 (généralement 1).",
-        "es": "Valor del número de Lucas en el índice 1 (típicamente 1)."
+        "es": "Valor del número de Lucas en el índice 1 (típicamente 1).",
+        "ar": "قيمة رقم لوكاس عند الفهرس 1 (عادة 1)."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Sequenz anzeigen",
         "fr": "Afficher la suite",
         "es": "Mostrar secuencia",
-        "ar": "Show Sequence"
+        "ar": "عرض المتتالية"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to include the full sequence in breakdown, 0 for only start and end values.",
         "tr": "Dökümde tam diziyi dahil etmek için 1, yalnızca başlangıç ve bitiş değerleri için 0.",
         "de": "Auf 1 setzen, um die vollständige Sequenz in der Aufschlüsselung anzuzeigen, 0 für nur Start- und Endwerte.",
         "fr": "Mettre à 1 pour inclure la suite complète dans la décomposition, 0 pour seulement les valeurs de début et de fin.",
-        "es": "Establecer en 1 para incluir la secuencia completa en el desglose, 0 para solo los valores inicial y final."
+        "es": "Establecer en 1 para incluir la secuencia completa en el desglose, 0 para solo los valores inicial y final.",
+        "ar": "اضبط على 1 لتضمين المتتالية الكاملة في التفصيل، 0 لقيم البداية والنهاية فقط."
       }
     }
   ],
   "formulas": {
-    "result": "startIndex + endIndex + L0",
-    "result_copy": "startIndex + endIndex + L0"
+    "normalized_product": "startIndex * endIndex * L0 * L1",
+    "result": "startIndex * endIndex * L0 * L1 * (showSequence)",
+    "adjustment_factor": "showSequence"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "seq",
-      "primary",
-      "breakdown"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "seq_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

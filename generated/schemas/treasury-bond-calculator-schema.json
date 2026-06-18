@@ -14,13 +14,15 @@
         "de": "Nennwert",
         "fr": "Valeur nominale",
         "es": "Valor nominal",
-        "ar": "Face Value"
+        "ar": "القيمة الاسمية"
       },
       "businessContext_i18n": {
         "en": "The nominal value of the bond, paid at maturity.",
         "tr": "Tahvilin nominal değeri, vadesinde ödenir.",
         "de": "Nennwert der Anleihe, zahlbar bei Fälligkeit.",
-        "fr": "Valeur nominale de l'obligation, remboursée à l'échéance."
+        "fr": "Valeur nominale de l'obligation, remboursée à l'échéance.",
+        "es": "Valor nominal del bono, pagado al vencimiento.",
+        "ar": "القيمة الاسمية للسند، تُدفع عند الاستحقاق."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Kuponrate",
         "fr": "Taux du coupon",
         "es": "Tasa de cupón",
-        "ar": "Coupon Rate"
+        "ar": "معدل القسيمة"
       },
       "businessContext_i18n": {
         "en": "Annual coupon rate as percentage of face value.",
         "tr": "Nominal değerin yüzdesi olarak yıllık kupon oranı.",
         "de": "Jährlicher Kuponzinssatz als Prozentsatz des Nennwerts.",
-        "fr": "Taux du coupon annuel en pourcentage de la valeur nominale."
+        "fr": "Taux du coupon annuel en pourcentage de la valeur nominale.",
+        "es": "Tasa de cupón anual como porcentaje del valor nominal.",
+        "ar": "معدل القسيمة السنوي كنسبة مئوية من القيمة الاسمية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Jahre bis Fälligkeit",
         "fr": "Années jusqu'à l'échéance",
         "es": "Años hasta el vencimiento",
-        "ar": "Years to Maturity"
+        "ar": "السنوات حتى الاستحقاق"
       },
       "businessContext_i18n": {
         "en": "Number of years until the bond matures.",
         "tr": "Tahvilin vadesine kalan yıl sayısı.",
         "de": "Anzahl der Jahre bis zur Fälligkeit der Anleihe.",
-        "fr": "Nombre d'années jusqu'à l'échéance de l'obligation."
+        "fr": "Nombre d'années jusqu'à l'échéance de l'obligation.",
+        "es": "Número de años hasta el vencimiento del bono.",
+        "ar": "عدد السنوات حتى استحقاق السند."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Vadeye Kadar Getiri",
         "de": "Rendite bis zur Fälligkeit",
         "fr": "Rendement à l'échéance",
-        "es": "Yield to Maturity",
-        "ar": "Yield to Maturity"
+        "es": "Rendimiento al vencimiento",
+        "ar": "العائد حتى الاستحقاق"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate (market interest rate) for the bond.",
         "tr": "Tahvil için yıllık iskonto oranı (piyasa faiz oranı).",
         "de": "Jährlicher Diskontsatz (Marktzinssatz) für die Anleihe.",
-        "fr": "Taux d'actualisation annuel (taux d'intérêt du marché) pour l'obligation."
+        "fr": "Taux d'actualisation annuel (taux d'intérêt du marché) pour l'obligation.",
+        "es": "Tasa de descuento anual (tasa de interés de mercado) para el bono.",
+        "ar": "معدل الخصم السنوي (سعر الفائدة السوقي) للسند."
       }
     },
     {
@@ -102,34 +110,39 @@
         "de": "Kuponhäufigkeit",
         "fr": "Fréquence du coupon",
         "es": "Frecuencia de cupón",
-        "ar": "Coupon Frequency"
+        "ar": "تكرار القسيمة"
       },
       "businessContext_i18n": {
         "en": "Number of coupon payments per year (e.g., 2 for semiannual).",
         "tr": "Yıllık kupon ödemesi sayısı (örneğin altı aylık için 2).",
         "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich).",
-        "fr": "Nombre de paiements de coupon par an (ex. 2 pour semestriel)."
+        "fr": "Nombre de paiements de coupon par an (ex. 2 pour semestriel).",
+        "es": "Número de pagos de cupón por año (ej. 2 para semestral).",
+        "ar": "عدد دفعات القسيمة سنويًا (مثل 2 لنصف سنوي)."
       }
     }
   ],
   "formulas": {
-    "result": "faceValue + couponRate + yearsToMaturity",
-    "result_copy": "faceValue + couponRate + yearsToMaturity"
+    "normalized_product": "faceValue * (couponRate / 100) * yearsToMaturity * (yieldToMaturity / 100)",
+    "result": "faceValue * (couponRate / 100) * yearsToMaturity * (yieldToMaturity / 100) * (frequency)",
+    "adjustment_factor": "frequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "annualCoupon",
-      "periodCoupon",
-      "numPeriods",
-      "periodRate"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "bondPrice",
-    "unit": "Currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

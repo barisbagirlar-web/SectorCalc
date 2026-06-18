@@ -14,14 +14,15 @@
         "de": "Trägerlänge",
         "fr": "Longueur de la poutre",
         "es": "Longitud de la viga",
-        "ar": "Kiriş Uzunluğu"
+        "ar": "طول العارضة"
       },
       "businessContext_i18n": {
         "en": "Kirişin toplam uzunluğu (m)",
         "tr": "Kirişin toplam uzunluğu (m)",
         "de": "Gesamtlänge des Trägers (m)",
         "fr": "Longueur totale de la poutre (m)",
-        "es": "Longitud total de la viga (m)"
+        "es": "Longitud total de la viga (m)",
+        "ar": "الطول الإجمالي للعارضة (م)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lastgröße",
         "fr": "Ampleur de la charge",
         "es": "Magnitud de la carga",
-        "ar": "Yük Büyüklüğü"
+        "ar": "حجم الحمولة"
       },
       "businessContext_i18n": {
         "en": "Tekil yükün büyüklüğü (kN)",
         "tr": "Tekil yükün büyüklüğü (kN)",
         "de": "Größe der Einzellast (kN)",
         "fr": "Ampleur de la charge ponctuelle (kN)",
-        "es": "Magnitud de la carga puntual (kN)"
+        "es": "Magnitud de la carga puntual (kN)",
+        "ar": "حجم الحمولة النقطية (kN)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lastposition",
         "fr": "Position de la charge",
         "es": "Posición de la carga",
-        "ar": "Yük Konumu"
+        "ar": "موقع الحمولة"
       },
       "businessContext_i18n": {
         "en": "Yükün sol mesnetten uzaklığı (m)",
         "tr": "Yükün sol mesnetten uzaklığı (m)",
         "de": "Abstand der Last vom linken Auflager (m)",
         "fr": "Distance de la charge depuis l'appui gauche (m)",
-        "es": "Distancia de la carga desde el apoyo izquierdo (m)"
+        "es": "Distancia de la carga desde el apoyo izquierdo (m)",
+        "ar": "بعد الحمولة عن المسند الأيسر (م)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schnittposition",
         "fr": "Position de la section",
         "es": "Posición de la sección",
-        "ar": "Kesit Konumu"
+        "ar": "موقع المقطع"
       },
       "businessContext_i18n": {
         "en": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
         "tr": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
         "de": "Abstand des Schnitts vom linken Auflager (m)",
         "fr": "Distance de la section de calcul du moment depuis l'appui gauche (m)",
-        "es": "Distancia desde el apoyo izquierdo hasta la sección de interés (m)"
+        "es": "Distancia desde el apoyo izquierdo hasta la sección de interés (m)",
+        "ar": "بعد المقطع المحسوب عنه العزم عن المسند الأيسر (م)"
       }
     }
   ],

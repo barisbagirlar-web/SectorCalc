@@ -14,14 +14,15 @@
         "de": "Hydroxidkonzentration",
         "fr": "Concentration en hydroxyde",
         "es": "Concentración de hidróxido",
-        "ar": "Hydroxide Concentration"
+        "ar": "تركيز الهيدروكسيد"
       },
       "businessContext_i18n": {
         "en": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0.",
         "tr": "Hidroksit iyonları [OH-] konsantrasyonu (mol/L). Tipik değerler 1e-14 ile 1e0 arasındadır.",
         "de": "Konzentration der Hydroxidionen [OH-] in Mol pro Liter. Typische Werte reichen von 1e-14 bis 1e0.",
         "fr": "Concentration en ions hydroxyde [OH-] en moles par litre. Les valeurs typiques vont de 1e-14 à 1e0.",
-        "es": "Concentración de iones hidróxido [OH-] en moles por litro. Los valores típicos van de 1e-14 a 1e0."
+        "es": "Concentración de iones hidróxido [OH-] en moles por litro. Los valores típicos van de 1e-14 a 1e0.",
+        "ar": "تركيز أيونات الهيدروكسيد [OH-] بالمول/لتر. تتراوح القيم النموذجية من 1e-14 إلى 1e0."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14.",
         "tr": "Santigrat derece cinsinden sıcaklık. Suyun otoiyonizasyon sabiti pKw'yi hesaplamak için kullanılır. Standart pOH, Kw = 1e-14 olduğu 25°C'yi varsayar.",
         "de": "Temperatur in Grad Celsius. Wird zur Berechnung der Wasserautoprotolysekonstante pKw verwendet. Standard-pOH geht von 25°C aus, wo Kw = 1e-14.",
         "fr": "Température en degrés Celsius. Utilisée pour calculer la constante d'autoionisation de l'eau pKw. Le pOH standard suppose 25°C où Kw = 1e-14.",
-        "es": "Temperatura en grados Celsius. Se utiliza para calcular la constante de autoionización del agua pKw. El pOH estándar asume 25°C donde Kw = 1e-14."
+        "es": "Temperatura en grados Celsius. Se utiliza para calcular la constante de autoionización del agua pKw. El pOH estándar asume 25°C donde Kw = 1e-14.",
+        "ar": "درجة الحرارة بالدرجات المئوية. تُستخدم لحساب ثابت التأين الذاتي للماء pKw. تفترض pOH القياسية 25 درجة مئوية حيث Kw = 1e-14."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Probenvolumen",
         "fr": "Volume de l'échantillon",
         "es": "Volumen de muestra",
-        "ar": "Sample Volume"
+        "ar": "حجم العينة"
       },
       "businessContext_i18n": {
         "en": "Volume of the aqueous sample in liters. For reference and scaling calculations.",
         "tr": "Sulu numunenin litre cinsinden hacmi. Referans ve ölçeklendirme hesaplamaları için.",
         "de": "Volumen der wässrigen Probe in Litern. Für Referenz- und Skalierungsberechnungen.",
         "fr": "Volume de l'échantillon aqueux en litres. Pour référence et calculs de mise à l'échelle.",
-        "es": "Volumen de la muestra acuosa en litros. Para referencia y cálculos de escala."
+        "es": "Volumen de la muestra acuosa en litros. Para referencia y cálculos de escala.",
+        "ar": "حجم العينة المائية باللتر. للمرجعية وحسابات القياس."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
         "es": "Incertidumbre de medición",
-        "ar": "Measurement Uncertainty"
+        "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation.",
         "tr": "Hidroksit ölçümünün yüzde olarak ifade edilen bağıl belirsizliği. Kalite güvence dokümantasyonu için.",
         "de": "Relative Unsicherheit der Hydroxidmessung, ausgedrückt in Prozent. Für die Qualitätssicherungsdokumentation.",
         "fr": "Incertitude relative de la mesure d'hydroxyde, exprimée en pourcentage. Pour la documentation d'assurance qualité.",
-        "es": "Incertidumbre relativa de la medición de hidróxido, expresada como porcentaje. Para documentación de aseguramiento de calidad."
+        "es": "Incertidumbre relativa de la medición de hidróxido, expresada como porcentaje. Para documentación de aseguramiento de calidad.",
+        "ar": "عدم اليقين النسبي لقياس الهيدروكسيد، معبرًا عنه كنسبة مئوية. لتوثيق ضمان الجودة."
       }
     }
   ],

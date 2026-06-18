@@ -14,14 +14,15 @@
         "de": "Kosten der ersten Einheit",
         "fr": "Coût de la première unité",
         "es": "Costo de la primera unidad",
-        "ar": "First Unit Cost"
+        "ar": "تكلفة الوحدة الأولى"
       },
       "businessContext_i18n": {
         "en": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation.",
         "tr": "İlk birimi üretmek için gereken maliyet veya süre (herhangi bir para birimi veya saat birimi). Öğrenme eğrisi hesaplaması için temel oluşturur.",
         "de": "Kosten oder Zeit, die für die Herstellung der ersten Einheit erforderlich sind (in beliebiger Währungs- oder Stundeneinheit). Dient als Basis für die Lernkurvenberechnung.",
         "fr": "Coût ou temps nécessaire pour produire la première unité (dans n'importe quelle unité monétaire ou horaire). Sert de base au calcul de la courbe d'apprentissage.",
-        "es": "Costo o tiempo requerido para producir la primera unidad (en cualquier moneda o unidad de hora). Sirve como base para el cálculo de la curva de aprendizaje."
+        "es": "Costo o tiempo requerido para producir la primera unidad (en cualquier moneda o unidad de hora). Sirve como base para el cálculo de la curva de aprendizaje.",
+        "ar": "التكلفة أو الوقت اللازم لإنتاج الوحدة الأولى (بأي عملة أو ساعة). أساس حساب منحنى التعلم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Lernrate",
         "fr": "Taux d'apprentissage",
         "es": "Tasa de aprendizaje",
-        "ar": "Learning Rate"
+        "ar": "معدل التعلم"
       },
       "businessContext_i18n": {
         "en": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning).",
         "tr": "Kümülatif çıktı iki katına çıktığında korunan maliyet yüzdesi. Tipik değerler %70 ile %100 (öğrenme yok) arasındadır.",
         "de": "Der Prozentsatz der Kosten, der erhalten bleibt, wenn sich die kumulierte Produktion verdoppelt. Typische Werte liegen zwischen 70 % und 100 % (kein Lerneffekt).",
         "fr": "Pourcentage du coût conservé lorsque la production cumulée double. Les valeurs typiques vont de 70 % à 100 % (pas d'apprentissage).",
-        "es": "Porcentaje del costo que se retiene cuando la producción acumulada se duplica. Los valores típicos oscilan entre 70% y 100% (sin aprendizaje)."
+        "es": "Porcentaje del costo que se retiene cuando la producción acumulada se duplica. Los valores típicos oscilan entre 70% y 100% (sin aprendizaje).",
+        "ar": "النسبة المئوية للتكلفة المحتفظ بها عند مضاعفة الإنتاج التراكمي. تتراوح القيم النموذجية من 70% إلى 100% (بدون تعلم)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Einheitennummer",
         "fr": "Numéro d'unité",
         "es": "Número de unidad",
-        "ar": "Unit Number"
+        "ar": "رقم الوحدة"
       },
       "businessContext_i18n": {
         "en": "The cumulative unit number for which the individual cost is estimated.",
         "tr": "Bireysel maliyetin tahmin edildiği kümülatif birim numarası.",
         "de": "Die kumulierte Einheitennummer, für die die individuellen Kosten geschätzt werden.",
         "fr": "Le numéro d'unité cumulé pour lequel le coût individuel est estimé.",
-        "es": "Número de unidad acumulada para la cual se estima el costo individual."
+        "es": "Número de unidad acumulada para la cual se estima el costo individual.",
+        "ar": "رقم الوحدة التراكمي الذي يتم تقدير التكلفة الفردية له."
       }
     },
     {
@@ -83,33 +86,39 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Batch Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Total number of units in the production batch for total cost calculation.",
         "tr": "Toplam maliyet hesaplaması için üretim partisindeki toplam birim sayısı.",
         "de": "Gesamtzahl der Einheiten in der Produktionscharge für die Gesamtkostenberechnung.",
         "fr": "Nombre total d'unités dans le lot de production pour le calcul du coût total.",
-        "es": "Número total de unidades en el lote de producción para el cálculo del costo total."
+        "es": "Número total de unidades en el lote de producción para el cálculo del costo total.",
+        "ar": "إجمالي عدد الوحدات في دفعة الإنتاج لحساب التكلفة الإجمالية."
       }
     }
   ],
   "formulas": {
-    "result": "firstUnitCost + learningRate + unitNumber",
-    "result_copy": "firstUnitCost + learningRate + unitNumber"
+    "base_cost": "unitNumber * firstUnitCost",
+    "adjusted_cost": "unitNumber * firstUnitCost * (1 + (learningRate / 100))",
+    "result": "unitNumber * firstUnitCost * (1 + (learningRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "exponent",
-      "totalBatchCost"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalBatchCost",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

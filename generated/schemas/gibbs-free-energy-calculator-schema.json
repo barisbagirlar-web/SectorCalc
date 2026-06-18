@@ -14,14 +14,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature in Kelvin",
         "tr": "Kelvin cinsinden sıcaklık",
         "de": "Temperatur in Kelvin",
         "fr": "Température en Kelvin",
-        "es": "Temperatura en Kelvin"
+        "es": "Temperatura en Kelvin",
+        "ar": "درجة الحرارة بالكلفن"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gaskonstante",
         "fr": "Constante des gaz",
         "es": "Constante de los gases",
-        "ar": "Gas Constant"
+        "ar": "ثابت الغاز"
       },
       "businessContext_i18n": {
         "en": "Ideal gas constant (default 0.008314 kJ/(mol·K))",
         "tr": "İdeal gaz sabiti (varsayılan 0.008314 kJ/(mol·K))",
         "de": "Ideale Gaskonstante (Standard 0,008314 kJ/(mol·K))",
         "fr": "Constante des gaz parfaits (par défaut 0,008314 kJ/(mol·K))",
-        "es": "Constante universal de los gases (por defecto 0.008314 kJ/(mol·K))"
+        "es": "Constante universal de los gases (por defecto 0.008314 kJ/(mol·K))",
+        "ar": "ثابت الغاز المثالي (الافتراضي 0.008314 كيلوجول/(مول·كلفن))"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Standard ΔG°",
         "fr": "ΔG° standard",
         "es": "ΔG° estándar",
-        "ar": "Standard ΔG°"
+        "ar": "ΔG° القياسي"
       },
       "businessContext_i18n": {
         "en": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol",
         "tr": "Reaksiyonun standart Gibbs serbest enerji değişimi (ΔG°) kJ/mol cinsinden",
         "de": "Standard-Gibbs-Energieänderung der Reaktion (ΔG°) in kJ/mol",
         "fr": "Variation d'énergie libre de Gibbs standard de la réaction (ΔG°) en kJ/mol",
-        "es": "Cambio de energía libre de Gibbs estándar de la reacción (ΔG°) en kJ/mol"
+        "es": "Cambio de energía libre de Gibbs estándar de la reacción (ΔG°) en kJ/mol",
+        "ar": "تغير طاقة جيبس الحرة القياسي للتفاعل (ΔG°) بالكيلوجول/مول"
       }
     },
     {
@@ -83,41 +86,37 @@
         "de": "Reaktionsquotient",
         "fr": "Quotient réactionnel",
         "es": "Cociente de reacción",
-        "ar": "Reaction Quotient"
+        "ar": "حاصل التفاعل"
       },
       "businessContext_i18n": {
         "en": "Reaction quotient Q (dimensionless)",
         "tr": "Reaksiyon bölümü Q (boyutsuz)",
         "de": "Reaktionsquotient Q (dimensionslos)",
         "fr": "Quotient réactionnel Q (sans dimension)",
-        "es": "Cociente de reacción Q (adimensional)"
+        "es": "Cociente de reacción Q (adimensional)",
+        "ar": "حاصل التفاعل Q (بدون أبعاد)"
       }
     }
   ],
   "formulas": {
-    "result": "temperature + gasConstant + standardDeltaG",
-    "result_copy": "temperature + gasConstant + standardDeltaG"
+    "normalized_product": "temperature * gasConstant * standardDeltaG * reactionQuotient",
+    "result": "temperature * gasConstant * standardDeltaG * reactionQuotient"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "standardDeltaG",
-        "label": "Standard ΔG°",
-        "unit": "kJ/mol"
-      },
-      {
-        "id": "rtlnQ",
-        "label": "RT ln Q",
-        "unit": "kJ/mol"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "rtlnQ",
-    "unit": "K"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Kimya & Proses",

@@ -13,14 +13,16 @@
         "tr": "Kredi Tutarı (TL)",
         "de": "Darlehensbetrag (TL)",
         "fr": "Montant du prêt (TL)",
-        "es": "Loan Amount (TL)",
-        "ar": "Loan Amount (TL)"
+        "es": "Monto del préstamo (TL)",
+        "ar": "مبلغ القرض (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "Principal amount in Turkish Lira",
         "tr": "Türk Lirası cinsinden anapara tutarı",
         "de": "Kapitalbetrag in Türkischer Lira",
-        "fr": "Montant principal en livres turques"
+        "fr": "Montant principal en livres turques",
+        "es": "Monto principal en liras turcas",
+        "ar": "المبلغ الأصلي بالليرة التركية"
       }
     },
     {
@@ -36,14 +38,15 @@
         "de": "Jährlicher Zinssatz (%)",
         "fr": "Taux d'intérêt annuel (%)",
         "es": "Tasa de interés anual (%)",
-        "ar": "Annual Interest Rate (%)"
+        "ar": "معدل الفائدة السنوي (%)"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate",
         "tr": "Nominal yıllık faiz oranı",
         "de": "Nominaler jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés nominal anual"
+        "es": "Tasa de interés nominal anual",
+        "ar": "معدل الفائدة السنوي الاسمي"
       }
     },
     {
@@ -59,13 +62,15 @@
         "de": "Kreditlaufzeit (Monate)",
         "fr": "Durée du prêt (mois)",
         "es": "Plazo del préstamo (meses)",
-        "ar": "Loan Term (Months)"
+        "ar": "مدة القرض (بالأشهر)"
       },
       "businessContext_i18n": {
         "en": "Number of monthly installments",
         "tr": "Aylık taksit sayısı",
         "de": "Anzahl der monatlichen Raten",
-        "fr": "Nombre de mensualités"
+        "fr": "Nombre de mensualités",
+        "es": "Número de cuotas mensuales",
+        "ar": "عدد الأقساط الشهرية"
       }
     },
     {
@@ -80,14 +85,16 @@
         "tr": "BSMV Oranı (%)",
         "de": "BSMV-Satz (%)",
         "fr": "Taux BSMV (%)",
-        "es": "BSMV Rate (%)",
-        "ar": "BSMV Rate (%)"
+        "es": "Tasa BSMV (%)",
+        "ar": "نسبة ضريبة المعاملات المصرفية والتأمين (BSMV) (%)"
       },
       "businessContext_i18n": {
         "en": "Banking and Insurance Transaction Tax rate on interest",
         "tr": "Faiz üzerinden alınan Banka ve Sigorta Muameleleri Vergisi oranı",
         "de": "Steuersatz für Bank- und Versicherungstransaktionen auf Zinsen",
-        "fr": "Taux de taxe sur les transactions bancaires et d'assurance sur les intérêts"
+        "fr": "Taux de taxe sur les transactions bancaires et d'assurance sur les intérêts",
+        "es": "Tasa del impuesto a las transacciones bancarias y de seguros sobre intereses",
+        "ar": "نسبة ضريبة المعاملات المصرفية والتأمين على الفائدة"
       }
     },
     {
@@ -102,14 +109,16 @@
         "tr": "KKDF Oranı (%)",
         "de": "KKDF-Satz (%)",
         "fr": "Taux KKDF (%)",
-        "es": "KKDF Rate (%)",
-        "ar": "KKDF Rate (%)"
+        "es": "Tasa KKDF (%)",
+        "ar": "نسبة صندوق دعم استخدام الموارد (KKDF) (%)"
       },
       "businessContext_i18n": {
         "en": "Resource Utilization Support Fund rate on interest",
         "tr": "Faiz üzerinden alınan Kaynak Kullanımını Destekleme Fonu oranı",
         "de": "Satz des Ressourcennutzungsunterstützungsfonds auf Zinsen",
-        "fr": "Taux du fonds de soutien à l'utilisation des ressources sur les intérêts"
+        "fr": "Taux du fonds de soutien à l'utilisation des ressources sur les intérêts",
+        "es": "Tasa del fondo de apoyo a la utilización de recursos sobre intereses",
+        "ar": "نسبة صندوق دعم استخدام الموارد على الفائدة"
       }
     },
     {
@@ -124,14 +133,16 @@
         "tr": "Düzenleme Ücreti (TL)",
         "de": "Bearbeitungsgebühr (TL)",
         "fr": "Frais de mise en place (TL)",
-        "es": "Arrangement Fee (TL)",
-        "ar": "Arrangement Fee (TL)"
+        "es": "Comisión de gestión (TL)",
+        "ar": "رسوم الترتيب (ليرة تركية)"
       },
       "businessContext_i18n": {
         "en": "One-time fee added to loan principal",
         "tr": "Kredi anaparasına eklenen tek seferlik ücret",
         "de": "Einmalige Gebühr, die zum Darlehenskapital hinzugefügt wird",
-        "fr": "Frais unique ajouté au principal du prêt"
+        "fr": "Frais unique ajouté au principal du prêt",
+        "es": "Tarifa única añadida al principal del préstamo",
+        "ar": "رسوم لمرة واحدة تضاف إلى أصل القرض"
       }
     }
   ],

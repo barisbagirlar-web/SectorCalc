@@ -14,14 +14,15 @@
         "de": "Hauswert",
         "fr": "Valeur du bien",
         "es": "Valor de la vivienda",
-        "ar": "Home Value"
+        "ar": "قيمة المنزل"
       },
       "businessContext_i18n": {
         "en": "Current appraised value of the home.",
         "tr": "Evin güncel değerleme fiyatı.",
         "de": "Aktueller Schätzwert des Hauses.",
         "fr": "Valeur actuelle estimée du logement.",
-        "es": "Valor actual tasado de la vivienda."
+        "es": "Valor actual tasado de la vivienda.",
+        "ar": "القيمة المقدرة الحالية للمنزل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Alter des Kreditnehmers",
         "fr": "Âge de l'emprunteur",
         "es": "Edad del prestatario",
-        "ar": "Borrower Age"
+        "ar": "عمر المقترض"
       },
       "businessContext_i18n": {
         "en": "Age of the youngest borrower.",
         "tr": "En genç borçlunun yaşı.",
         "de": "Alter des jüngsten Kreditnehmers.",
         "fr": "Âge de l'emprunteur le plus jeune.",
-        "es": "Edad del prestatario más joven."
+        "es": "Edad del prestatario más joven.",
+        "ar": "عمر أصغر مقترض."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zinssatz",
         "fr": "Taux d'intérêt",
         "es": "Tasa de interés",
-        "ar": "Interest Rate"
+        "ar": "سعر الفائدة"
       },
       "businessContext_i18n": {
         "en": "Expected interest rate (annual).",
         "tr": "Beklenen faiz oranı (yıllık).",
         "de": "Erwarteter Zinssatz (jährlich).",
         "fr": "Taux d'intérêt attendu (annuel).",
-        "es": "Tasa de interés esperada (anual)."
+        "es": "Tasa de interés esperada (anual).",
+        "ar": "سعر الفائدة المتوقع (سنوي)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kreditgeber-Marge",
         "fr": "Marge du prêteur",
         "es": "Margen del prestamista",
-        "ar": "Lender Margin"
+        "ar": "هامش المقرض"
       },
       "businessContext_i18n": {
         "en": "Margin added to reference rate.",
         "tr": "Referans orana eklenen marj.",
         "de": "Marge, die zum Referenzzinssatz hinzugefügt wird.",
         "fr": "Marge ajoutée au taux de référence.",
-        "es": "Margen añadido a la tasa de referencia."
+        "es": "Margen añadido a la tasa de referencia.",
+        "ar": "الهامش المضاف إلى سعر الفائدة المرجعي."
       }
     },
     {
@@ -106,34 +110,38 @@
         "de": "Lebenserwartung",
         "fr": "Espérance de vie",
         "es": "Esperanza de vida",
-        "ar": "Life Expectancy"
+        "ar": "متوسط العمر المتوقع"
       },
       "businessContext_i18n": {
         "en": "Projected lifespan for cost calculation.",
         "tr": "Maliyet hesaplaması için öngörülen kullanım ömrü.",
         "de": "Prognostizierte Lebensdauer für die Kostenberechnung.",
         "fr": "Durée de vie projetée pour le calcul des coûts.",
-        "es": "Vida útil proyectada para el cálculo de costes."
+        "es": "Vida útil proyectada para el cálculo de costes.",
+        "ar": "العمر الافتراضي المتوقع لحساب التكلفة."
       }
     }
   ],
   "formulas": {
-    "effectiveRate": "interestRate + margin",
-    "effectiveRate_aux": "interestRate + margin"
+    "base_cost": "age * homeValue",
+    "adjusted_cost": "age * homeValue * (1 + (interestRate / 100))",
+    "result": "age * homeValue * (1 + (interestRate / 100))"
   },
   "outputs": {
-    "primary": "effectiveRate_aux",
+    "primary": "result",
     "breakdown": [
-      "ltv",
-      "projectedInterestCost",
-      "totalCost",
-      "effectiveRate"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalCost",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

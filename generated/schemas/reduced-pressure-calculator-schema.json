@@ -13,15 +13,16 @@
         "tr": "Giriş Basıncı",
         "de": "Eingangsdruck",
         "fr": "Pression d'entrée",
-        "es": "Giriş Basıncı",
-        "ar": "Giriş Basıncı"
+        "es": "Presión de entrada",
+        "ar": "ضغط الدخول"
       },
       "businessContext_i18n": {
         "en": "Vana girişindeki akışkan basıncı",
         "tr": "Vana girişindeki akışkan basıncı",
         "de": "Fluiddruck am Ventileingang",
         "fr": "Pression du fluide à l'entrée de la vanne",
-        "es": "Vana girişindeki akışkan basıncı"
+        "es": "Presión del fluido a la entrada de la válvula",
+        "ar": "ضغط المائع عند مدخل الصمام"
       }
     },
     {
@@ -36,15 +37,16 @@
         "tr": "Akış Debisi",
         "de": "Durchflussrate",
         "fr": "Débit",
-        "es": "Akış Debisi",
-        "ar": "Akış Debisi"
+        "es": "Caudal",
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Vana üzerinden geçen akışkan debisi",
         "tr": "Vana üzerinden geçen akışkan debisi",
         "de": "Durchflussrate des Mediums durch das Ventil",
         "fr": "Débit du fluide traversant la vanne",
-        "es": "Vana üzerinden geçen akışkan debisi"
+        "es": "Caudal del fluido a través de la válvula",
+        "ar": "معدل تدفق المائع عبر الصمام"
       }
     },
     {
@@ -59,15 +61,16 @@
         "tr": "Özgül Ağırlık",
         "de": "Spezifisches Gewicht",
         "fr": "Densité relative",
-        "es": "Özgül Ağırlık",
-        "ar": "Özgül Ağırlık"
+        "es": "Gravedad específica",
+        "ar": "الثقل النوعي"
       },
       "businessContext_i18n": {
         "en": "Akışkanın suya göre özgül ağırlığı",
         "tr": "Akışkanın suya göre özgül ağırlığı",
         "de": "Spezifisches Gewicht des Mediums im Vergleich zu Wasser",
         "fr": "Densité du fluide par rapport à l'eau",
-        "es": "Akışkanın suya göre özgül ağırlığı"
+        "es": "Gravedad específica del fluido respecto al agua",
+        "ar": "الثقل النوعي للمائع بالنسبة للماء"
       }
     },
     {
@@ -82,15 +85,16 @@
         "tr": "Kv Katsayısı",
         "de": "Kv-Wert",
         "fr": "Coefficient Kv",
-        "es": "Kv Katsayısı",
-        "ar": "Kv Katsayısı"
+        "es": "Coeficiente Kv",
+        "ar": "معامل Kv"
       },
       "businessContext_i18n": {
         "en": "Vana akış katsayısı (Kv)",
         "tr": "Vana akış katsayısı (Kv)",
         "de": "Durchflusskoeffizient des Ventils (Kv)",
         "fr": "Coefficient de débit de la vanne (Kv)",
-        "es": "Vana akış katsayısı (Kv)"
+        "es": "Coeficiente de caudal de la válvula (Kv)",
+        "ar": "معامل تدفق الصمام (Kv)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Emniyet Faktörü"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
         "tr": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
         "de": "Sicherheitsfaktor für den berechneten Druckabfall",
         "fr": "Facteur de sécurité appliqué à la perte de charge calculée",
-        "es": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı"
+        "es": "Factor de seguridad aplicado a la caída de presión calculada",
+        "ar": "عامل الأمان المطبق على انخفاض الضغط المحسوب"
       }
     }
   ],
   "formulas": {
-    "result": "upstreamPressure + flowRate + specificGravity",
-    "result_copy": "upstreamPressure + flowRate + specificGravity"
+    "normalized_product": "upstreamPressure * flowRate * specificGravity * kvCoefficient",
+    "result": "upstreamPressure * flowRate * specificGravity * kvCoefficient * (safetyFactor)",
+    "adjustment_factor": "safetyFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "pressureDrop",
-      "adjustedPressureDrop"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reducedPressure",
-    "unit": "bar"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

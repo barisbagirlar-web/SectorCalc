@@ -14,14 +14,15 @@
         "de": "Minuten",
         "fr": "Minutes",
         "es": "Minutos",
-        "ar": "Minutes"
+        "ar": "دقائق"
       },
       "businessContext_i18n": {
         "en": "Total duration in minutes to convert to hours",
         "tr": "Saate çevrilecek toplam süre (dakika cinsinden)",
         "de": "Gesamtdauer in Minuten, umgerechnet in Stunden",
         "fr": "Durée totale en minutes à convertir en heures",
-        "es": "Duración total en minutos para convertir a horas"
+        "es": "Duración total en minutos para convertir a horas",
+        "ar": "المدة الإجمالية بالدقائق للتحويل إلى ساعات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary decimal hour output",
         "tr": "Birincil ondalık saat çıktısı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die primäre Dezimalstundenausgabe",
         "fr": "Nombre de décimales pour le résultat en heures décimales",
-        "es": "Número de decimales para la salida de horas decimales principal"
+        "es": "Número de decimales para la salida de horas decimales principal",
+        "ar": "عدد المنازل العشرية لمخرجات الساعة العشرية الأساسية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ausgabeformat (0=Dezimal, 1=HH:MM)",
         "fr": "Format de sortie (0=Décimal, 1=HH:MM)",
         "es": "Formato de salida (0=Decimal, 1=HH:MM)",
-        "ar": "Output Format (0=Decimal, 1=HH:MM)"
+        "ar": "تنسيق الإخراج (0=عدد عشري، 1=ساعة:دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Indicates if output should be decimal hours (0) or hours and minutes (1)",
         "tr": "Çıktının ondalık saat (0) veya saat ve dakika (1) olması gerektiğini belirtir",
         "de": "Gibt an, ob die Ausgabe in Dezimalstunden (0) oder Stunden und Minuten (1) erfolgen soll",
         "fr": "Indique si la sortie doit être en heures décimales (0) ou en heures et minutes (1)",
-        "es": "Indica si la salida debe ser en horas decimales (0) o en horas y minutos (1)"
+        "es": "Indica si la salida debe ser en horas decimales (0) o en horas y minutos (1)",
+        "ar": "يحدد ما إذا كان الإخراج بالساعات العشرية (0) أو بالساعات والدقائق (1)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmodus (0=Runden, 1=Abrunden, 2=Aufrunden)",
         "fr": "Mode d'arrondi (0=Arrondi, 1=Plancher, 2=Plafond)",
         "es": "Modo de redondeo (0=Redondear, 1=Suelo, 2=Techo)",
-        "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+        "ar": "وضع التقريب (0=تقريب، 1=تقريب للأسفل، 2=تقريب للأعلى)"
       },
       "businessContext_i18n": {
         "en": "Rounding method applied to the decimal hour output",
         "tr": "Ondalık saat çıktısına uygulanan yuvarlama yöntemi",
         "de": "Rundungsmethode für die Dezimalstundenausgabe",
         "fr": "Méthode d'arrondi appliquée au résultat en heures décimales",
-        "es": "Método de redondeo aplicado a la salida de horas decimales"
+        "es": "Método de redondeo aplicado a la salida de horas decimales",
+        "ar": "طريقة التقريب المطبقة على إخراج الساعات العشرية"
       }
     }
   ],

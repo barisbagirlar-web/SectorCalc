@@ -23,14 +23,16 @@
         "tr": "Hata Oranı (DPMO)",
         "de": "Fehlerrate (DPMO)",
         "fr": "Taux de défauts (DPMO)",
-        "es": "Tasa de defectos (DPMO)"
+        "es": "Tasa de defectos (DPMO)",
+        "ar": "معدل العيوب (DPMO)"
       },
       "businessContext_i18n": {
         "en": "Current defects per million opportunities for the process under evaluation.",
         "tr": "Değerlendirilen süreç için milyon fırsat başına mevcut hata sayısı.",
         "de": "Aktuelle Fehler pro Million Möglichkeiten für den zu bewertenden Prozess.",
         "fr": "Défauts actuels par million d'opportunités pour le processus évalué.",
-        "es": "Defectos actuales por millón de oportunidades para el proceso bajo evaluación."
+        "es": "Defectos actuales por millón de oportunidades para el proceso bajo evaluación.",
+        "ar": "عدد العيوب الحالي لكل مليون فرصة للعملية قيد التقييم."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Mevcut Süreç Sigma Seviyesi",
         "de": "Aktuelles Prozess-Sigma-Niveau",
         "fr": "Niveau Sigma actuel du processus",
-        "es": "Nivel Sigma actual del proceso"
+        "es": "Nivel Sigma actual del proceso",
+        "ar": "مستوى سيجما الحالي للعملية"
       },
       "businessContext_i18n": {
         "en": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
         "tr": "Sürecin mevcut sigma seviyesi, genellikle standart dönüşüm tabloları kullanılarak DPMO'dan türetilir.",
         "de": "Aktuelles Sigma-Niveau des Prozesses, typischerweise aus DPMO mit Standard-Umrechnungstabellen abgeleitet.",
         "fr": "Niveau sigma actuel du processus, généralement dérivé du DPMO à l'aide de tables de conversion standard.",
-        "es": "Nivel sigma actual del proceso, típicamente derivado del DPMO usando tablas de conversión estándar."
+        "es": "Nivel sigma actual del proceso, típicamente derivado del DPMO usando tablas de conversión estándar.",
+        "ar": "مستوى سيجما الحالي للعملية، ويُشتق عادةً من DPMO باستخدام جداول التحويل القياسية."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Yıllık Birim Hacmi",
         "de": "Jährliches Stückvolumen",
         "fr": "Volume annuel d'unités",
-        "es": "Volumen anual de unidades"
+        "es": "Volumen anual de unidades",
+        "ar": "حجم الوحدات السنوي"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced or transactions processed per year.",
         "tr": "Yılda üretilen toplam birim veya işlenen işlem sayısı.",
         "de": "Gesamtzahl der pro Jahr produzierten Einheiten oder bearbeiteten Transaktionen.",
         "fr": "Nombre total d'unités produites ou de transactions traitées par an.",
-        "es": "Número total de unidades producidas o transacciones procesadas por año."
+        "es": "Número total de unidades producidas o transacciones procesadas por año.",
+        "ar": "إجمالي عدد الوحدات المنتجة أو المعاملات المنفذة سنويًا."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Hata Başına Maliyet",
         "de": "Kosten pro Fehler",
         "fr": "Coût par défaut",
-        "es": "Costo por defecto"
+        "es": "Costo por defecto",
+        "ar": "تكلفة العيب الواحد"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
         "tr": "Yeniden işleme, fire, garanti ve müşteri etkisi dahil olmak üzere hata başına ortalama maliyet.",
         "de": "Durchschnittliche Kosten pro Fehler, einschließlich Nacharbeit, Ausschuss, Garantie und Kundenauswirkungen.",
         "fr": "Coût moyen encouru par défaut, incluant reprise, rebut, garantie et impact client.",
-        "es": "Costo promedio incurrido por defecto, incluyendo retrabajo, desperdicio, garantía e impacto al cliente."
+        "es": "Costo promedio incurrido por defecto, incluyendo retrabajo, desperdicio, garantía e impacto al cliente.",
+        "ar": "متوسط التكلفة المتكبدة لكل عيب، بما في ذلك إعادة العمل والهدر والضمان وتأثير العملاء."
       }
     },
     {
@@ -119,14 +127,16 @@
         "tr": "Tahmini Uygulama Maliyeti",
         "de": "Geschätzte Implementierungskosten",
         "fr": "Coût estimé de mise en œuvre",
-        "es": "Costo estimado de implementación"
+        "es": "Costo estimado de implementación",
+        "ar": "تكلفة التنفيذ المقدرة"
       },
       "businessContext_i18n": {
         "en": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
         "tr": "Altı Sigma iyileştirme projesini uygulamanın toplam maliyeti (eğitim, ekipman, duruş süresi vb.).",
         "de": "Gesamtkosten für die Umsetzung des Six-Sigma-Verbesserungsprojekts (Schulung, Ausrüstung, Ausfallzeiten usw.).",
         "fr": "Coût total pour mettre en œuvre le projet d'amélioration Six Sigma (formation, équipement, arrêt de production, etc.).",
-        "es": "Costo total para implementar el proyecto de mejora Seis Sigma (capacitación, equipo, tiempo de inactividad, etc.)."
+        "es": "Costo total para implementar el proyecto de mejora Seis Sigma (capacitación, equipo, tiempo de inactividad, etc.).",
+        "ar": "التكلفة الإجمالية لتنفيذ مشروع تحسين ستة سيجما (تدريب، معدات، توقف، إلخ)."
       }
     },
     {
@@ -148,14 +158,16 @@
         "tr": "Proje Risk Seviyesi",
         "de": "Projektrisikoniveau",
         "fr": "Niveau de risque du projet",
-        "es": "Nivel de riesgo del proyecto"
+        "es": "Nivel de riesgo del proyecto",
+        "ar": "مستوى مخاطر المشروع"
       },
       "businessContext_i18n": {
         "en": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
         "tr": "Projeyle ilişkili riskin nitel değerlendirmesi (teknik karmaşıklık, kaynak mevcudiyeti, paydaş katılımı).",
         "de": "Qualitative Bewertung des mit dem Projekt verbundenen Risikos (technische Komplexität, Ressourcenverfügbarkeit, Stakeholder-Zustimmung).",
         "fr": "Évaluation qualitative du risque associé au projet (complexité technique, disponibilité des ressources, adhésion des parties prenantes).",
-        "es": "Evaluación cualitativa del riesgo asociado al proyecto (complejidad técnica, disponibilidad de recursos, aceptación de las partes interesadas)."
+        "es": "Evaluación cualitativa del riesgo asociado al proyecto (complejidad técnica, disponibilidad de recursos, aceptación de las partes interesadas).",
+        "ar": "تقييم نوعي للمخاطر المرتبطة بالمشروع (التعقيد الفني، توفر الموارد، قبول أصحاب المصلحة)."
       }
     },
     {
@@ -172,14 +184,16 @@
         "tr": "Stratejik Uyum Puanı",
         "de": "Strategischer Ausrichtungswert",
         "fr": "Score d'alignement stratégique",
-        "es": "Puntuación de alineación estratégica"
+        "es": "Puntuación de alineación estratégica",
+        "ar": "درجة التوافق الاستراتيجي"
       },
       "businessContext_i18n": {
         "en": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
         "tr": "Projenin kurumsal stratejik hedeflerle ne kadar uyumlu olduğu (1 = düşük, 10 = yüksek).",
         "de": "Wie gut das Projekt mit den strategischen Zielen der Organisation übereinstimmt (1 = niedrig, 10 = hoch).",
         "fr": "Dans quelle mesure le projet s'aligne sur les objectifs stratégiques de l'organisation (1 = faible, 10 = élevé).",
-        "es": "Qué tan bien se alinea el proyecto con los objetivos estratégicos de la organización (1 = bajo, 10 = alto)."
+        "es": "Qué tan bien se alinea el proyecto con los objetivos estratégicos de la organización (1 = bajo, 10 = alto).",
+        "ar": "مدى توافق المشروع مع الأهداف الاستراتيجية للمنظمة (1 = منخفض، 10 = مرتفع)."
       }
     },
     {
@@ -196,14 +210,16 @@
         "tr": "Müşteri Etki Puanı",
         "de": "Kundenauswirkungswert",
         "fr": "Score d'impact client",
-        "es": "Puntuación de impacto en el cliente"
+        "es": "Puntuación de impacto en el cliente",
+        "ar": "درجة تأثير العميل"
       },
       "businessContext_i18n": {
         "en": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
         "tr": "Müşteri memnuniyeti üzerindeki olumlu etki derecesi (1 = minimum, 10 = dönüştürücü).",
         "de": "Grad der positiven Auswirkung auf die Kundenzufriedenheit (1 = minimal, 10 = transformativ).",
         "fr": "Degré d'impact positif sur la satisfaction client (1 = minimal, 10 = transformateur).",
-        "es": "Grado de impacto positivo en la satisfacción del cliente (1 = mínimo, 10 = transformador)."
+        "es": "Grado de impacto positivo en la satisfacción del cliente (1 = mínimo, 10 = transformador).",
+        "ar": "درجة التأثير الإيجابي على رضا العملاء (1 = ضئيل، 10 = تحويلي)."
       }
     }
   ],
@@ -249,18 +265,28 @@
     ]
   },
   "formulas": {
-    "result": "defect_rate + process_sigma + annual_volume",
-    "result_copy": "defect_rate + process_sigma + annual_volume"
+    "base_cost": "annual_volume * cost_per_defect",
+    "adjusted_cost": "annual_volume * cost_per_defect * (1 + (defect_rate / 100))",
+    "result": "annual_volume * cost_per_defect * (1 + (defect_rate / 100)) * (process_sigma)",
+    "factor_process_sigma": "process_sigma"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_process_sigma"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "defects per million opportunities"
+    "unit": "USD"
   },
   "toolName": "six-sigma-project-prioritizer-calculator",
   "catalogCategory": "everyday-life",

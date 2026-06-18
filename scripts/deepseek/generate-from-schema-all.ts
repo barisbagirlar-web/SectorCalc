@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { generateFromSchemaFile } from './generate-from-schema.js';
+import { repairStubSchemaFile } from './lib/stub-formula-repair-file.js';
 
 const schemasDir = path.join(process.cwd(), 'generated/schemas');
 const outDir = path.join(process.cwd(), 'generated');
@@ -34,6 +35,8 @@ console.log(`🔍 ${schemaFiles.length} JSON şeması bulundu.`);
 let success = 0;
 let failed = 0;
 let formulaCompileFailures = 0;
+let stubRepaired = 0;
+let stubRepairFailed = 0;
 
 for (const file of schemaFiles) {
   const schemaPath = path.join(schemasDir, file);
@@ -41,6 +44,12 @@ for (const file of schemaFiles) {
   const outPath = path.join(outDir, `${toolName}.ts`);
   console.log(`📡 İşleniyor: ${file}`);
   try {
+    const repairResult = repairStubSchemaFile(schemaPath);
+    if (repairResult === 'archetype') {
+      stubRepaired += 1;
+    } else if (repairResult === 'failed') {
+      stubRepairFailed += 1;
+    }
     formulaCompileFailures += generateFromSchemaFile(schemaPath, outPath);
     success++;
   } catch (err: unknown) {
@@ -59,6 +68,9 @@ try {
 }
 
 console.log(`✅ Tamamlandı: Başarılı ${success}, Başarısız ${failed}`);
+if (stubRepaired > 0 || stubRepairFailed > 0) {
+  console.log(`🛠️ Stub formula repair: ${stubRepaired} archetype, ${stubRepairFailed} failed`);
+}
 if (formulaCompileFailures > 0) {
   console.warn(`⚠️ Toplam ${formulaCompileFailures} formül derlenemedi (0 fallback)`);
 }

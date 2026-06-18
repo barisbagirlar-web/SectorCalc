@@ -25,14 +25,16 @@
         "tr": "Kusur Sayısı",
         "de": "Anzahl der Fehler",
         "fr": "Nombre de défauts",
-        "es": "Número de defectos"
+        "es": "Número de defectos",
+        "ar": "عدد العيوب"
       },
       "businessContext_i18n": {
         "en": "Total observed defects in the sample or process period.",
         "tr": "Numunede veya proses periyodunda gözlemlenen toplam kusur sayısı.",
         "de": "Gesamtzahl der beobachteten Fehler in der Stichprobe oder im Prozesszeitraum.",
         "fr": "Nombre total de défauts observés dans l'échantillon ou la période de processus.",
-        "es": "Total de defectos observados en la muestra o período del proceso."
+        "es": "Total de defectos observados en la muestra o período del proceso.",
+        "ar": "إجمالي العيوب الملاحظة في العينة أو الفترة التشغيلية."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Örneklem büyüklüğü",
         "de": "Stichprobengröße",
         "fr": "Taille de l'échantillon",
-        "es": "Tamaño de la muestra"
+        "es": "Tamaño de la muestra",
+        "ar": "حجم العينة"
       },
       "businessContext_i18n": {
         "en": "Total number of units inspected or trials performed.",
         "tr": "İncelenen toplam birim sayısı veya yapılan deneme sayısı.",
         "de": "Gesamtzahl der geprüften Einheiten oder durchgeführten Versuche.",
         "fr": "Nombre total d'unités inspectées ou d'essais effectués.",
-        "es": "Número total de unidades inspeccionadas o ensayos realizados."
+        "es": "Número total de unidades inspeccionadas o ensayos realizados.",
+        "ar": "إجمالي عدد الوحدات المفحوصة أو التجارب المنفذة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Sigma Kayması (Uzun dönem için 1.5)",
         "de": "Sigma-Verschiebung (1,5 für Langzeit)",
         "fr": "Décalage sigma (1,5 pour long terme)",
-        "es": "Desplazamiento sigma (1.5 para largo plazo)"
+        "es": "Desplazamiento sigma (1.5 para largo plazo)",
+        "ar": "تحول سيجما (1.5 للطويل الأجل)"
       },
       "businessContext_i18n": {
         "en": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
         "tr": "Kısa dönem yeteneğini uzun döneme dönüştürmek için standart kayma (yaygın olarak 1.5).",
         "de": "Standardverschiebung zur Umrechnung von Kurzzeit- in Langzeitfähigkeit (üblich 1,5).",
         "fr": "Décalage standard pour convertir la capabilité court terme en long terme (généralement 1,5).",
-        "es": "Desplazamiento estándar para convertir capacidad a corto plazo en largo plazo (comúnmente 1.5)."
+        "es": "Desplazamiento estándar para convertir capacidad a corto plazo en largo plazo (comúnmente 1.5).",
+        "ar": "التحول القياسي لتحويل القدرة قصيرة الأجل إلى طويلة الأجل (شائع 1.5)."
       }
     },
     {
@@ -102,14 +108,16 @@
         "tr": "Dağılım Türü",
         "de": "Verteilungstyp",
         "fr": "Type de distribution",
-        "es": "Tipo de Distribución"
+        "es": "Tipo de Distribución",
+        "ar": "نوع التوزيع"
       },
       "businessContext_i18n": {
         "en": "Underlying statistical distribution for probability calculation.",
         "tr": "Olasılık hesaplaması için temel istatistiksel dağılım.",
         "de": "Zugrunde liegende statistische Verteilung für die Wahrscheinlichkeitsberechnung.",
         "fr": "Distribution statistique sous-jacente pour le calcul de probabilité.",
-        "es": "Distribución estadística subyacente para el cálculo de probabilidad."
+        "es": "Distribución estadística subyacente para el cálculo de probabilidad.",
+        "ar": "التوزيع الإحصائي الأساسي لحساب الاحتمال."
       }
     },
     {
@@ -131,14 +139,16 @@
         "tr": "Güven Düzeyi",
         "de": "Konfidenzniveau",
         "fr": "Niveau de confiance",
-        "es": "Nivel de confianza"
+        "es": "Nivel de confianza",
+        "ar": "مستوى الثقة"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level for interval estimates.",
         "tr": "Aralık tahminleri için istenen güven düzeyi.",
         "de": "Gewünschtes Konfidenzniveau für Intervallschätzungen.",
         "fr": "Niveau de confiance souhaité pour les estimations par intervalle.",
-        "es": "Nivel de confianza deseado para estimaciones de intervalo."
+        "es": "Nivel de confianza deseado para estimaciones de intervalo.",
+        "ar": "مستوى الثقة المطلوب لتقديرات الفترات."
       }
     },
     {
@@ -155,14 +165,16 @@
         "tr": "Geçmiş Yanlılık Düzeltmesi Uygula",
         "de": "Historische Bias-Korrektur anwenden",
         "fr": "Appliquer la correction de biais historique",
-        "es": "Aplicar corrección de sesgo histórico"
+        "es": "Aplicar corrección de sesgo histórico",
+        "ar": "تطبيق تصحيح التحيز التاريخي"
       },
       "businessContext_i18n": {
         "en": "If true, applies a correction factor based on past process performance.",
         "tr": "Doğruysa, geçmiş proses performansına dayalı bir düzeltme faktörü uygular.",
         "de": "Wenn wahr, wird ein Korrekturfaktor basierend auf der bisherigen Prozessleistung angewendet.",
         "fr": "Si vrai, applique un facteur de correction basé sur les performances passées du processus.",
-        "es": "Si es verdadero, aplica un factor de corrección basado en el rendimiento pasado del proceso."
+        "es": "Si es verdadero, aplica un factor de corrección basado en el rendimiento pasado del proceso.",
+        "ar": "إذا كان صحيحًا، يطبق عامل تصحيح بناءً على أداء العملية السابق."
       }
     }
   ],
@@ -203,18 +215,24 @@
     ]
   },
   "formulas": {
-    "result": "defect_count + sample_size + sigma_shift",
-    "result_copy": "defect_count + sample_size + sigma_shift"
+    "normalized_product": "defect_count * sample_size * sigma_shift",
+    "result": "defect_count * sample_size * sigma_shift"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "count"
+    "unit": "%"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -14,14 +14,15 @@
         "de": "Rot",
         "fr": "Rouge",
         "es": "Rojo",
-        "ar": "Red"
+        "ar": "الأحمر"
       },
       "businessContext_i18n": {
         "en": "Red channel (0-255)",
         "tr": "Kırmızı kanal (0-255)",
         "de": "Rotkanal (0-255)",
         "fr": "Canal rouge (0-255)",
-        "es": "Canal rojo (0-255)"
+        "es": "Canal rojo (0-255)",
+        "ar": "القناة الحمراء (0-255)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Grün",
         "fr": "Vert",
         "es": "Verde",
-        "ar": "Green"
+        "ar": "الأخضر"
       },
       "businessContext_i18n": {
         "en": "Green channel (0-255)",
         "tr": "Yeşil kanal (0-255)",
         "de": "Grünkanal (0-255)",
         "fr": "Canal vert (0-255)",
-        "es": "Canal verde (0-255)"
+        "es": "Canal verde (0-255)",
+        "ar": "القناة الخضراء (0-255)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Blau",
         "fr": "Bleu",
         "es": "Azul",
-        "ar": "Blue"
+        "ar": "الأزرق"
       },
       "businessContext_i18n": {
         "en": "Blue channel (0-255)",
         "tr": "Mavi kanal (0-255)",
         "de": "Blaukanal (0-255)",
         "fr": "Canal bleu (0-255)",
-        "es": "Canal azul (0-255)"
+        "es": "Canal azul (0-255)",
+        "ar": "القناة الزرقاء (0-255)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Alpha",
         "fr": "Alpha",
         "es": "Alfa",
-        "ar": "Alpha"
+        "ar": "ألفا"
       },
       "businessContext_i18n": {
         "en": "Alpha opacity (0-1)",
         "tr": "Alfa opaklığı (0-1)",
         "de": "Alpha-Transparenz (0-1)",
         "fr": "Opacité Alpha (0-1)",
-        "es": "Opacidad alfa (0-1)"
+        "es": "Opacidad alfa (0-1)",
+        "ar": "شفافية ألفا (0-1)"
       }
     }
   ],
   "formulas": {
-    "result": "red + green + blue",
-    "result_copy": "red + green + blue"
+    "normalized_product": "red * green * blue * alpha",
+    "result": "red * green * blue * alpha"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "hsl",
-      "cmyk"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "—"
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

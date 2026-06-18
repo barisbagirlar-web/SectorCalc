@@ -14,14 +14,15 @@
         "de": "Achsendurchmesser",
         "fr": "Diamètre de l'essieu",
         "es": "Diámetro del eje",
-        "ar": "Axle Diameter"
+        "ar": "قطر المحور"
       },
       "businessContext_i18n": {
         "en": "The diameter of the machine axle under analysis.",
         "tr": "Analiz edilen makine aksının çapı.",
         "de": "Der Durchmesser der zu analysierenden Maschinenachse.",
         "fr": "Le diamètre de l'essieu de la machine analysé.",
-        "es": "El diámetro del eje de la máquina bajo análisis."
+        "es": "El diámetro del eje de la máquina bajo análisis.",
+        "ar": "قطر محور الماكينة قيد التحليل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Achsenlänge",
         "fr": "Longueur de l'essieu",
         "es": "Longitud del eje",
-        "ar": "Axle Length"
+        "ar": "طول المحور"
       },
       "businessContext_i18n": {
         "en": "The unsupported length of the axle between bearings.",
         "tr": "Rulmanlar arasındaki desteklenmeyen aks uzunluğu.",
         "de": "Die ungestützte Länge der Achse zwischen den Lagern.",
         "fr": "La longueur non supportée de l'essieu entre les paliers.",
-        "es": "La longitud no soportada del eje entre los cojinetes."
+        "es": "La longitud no soportada del eje entre los cojinetes.",
+        "ar": "الطول غير المدعوم للمحور بين المحامل."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aufgebrachte Last",
         "fr": "Charge appliquée",
         "es": "Carga aplicada",
-        "ar": "Applied Load"
+        "ar": "الحمل المطبق"
       },
       "businessContext_i18n": {
         "en": "Central point load acting on the axle.",
         "tr": "Aksa etki eden merkezi nokta yükü.",
         "de": "Mittige Punktlast auf die Achse.",
         "fr": "Charge ponctuelle centrale agissant sur l'essieu.",
-        "es": "Carga puntual central que actúa sobre el eje."
+        "es": "Carga puntual central que actúa sobre el eje.",
+        "ar": "الحمل النقطي المركزي المؤثر على المحور."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Elastizitätsmodul",
         "fr": "Module d'élasticité",
         "es": "Módulo de elasticidad",
-        "ar": "Elastic Modulus"
+        "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
         "en": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa).",
         "tr": "Malzemenin elastisite modülü (örneğin çelik ≈ 210 GPa).",
         "de": "Elastizitätsmodul des Materials (z. B. Stahl ≈ 210 GPa).",
         "fr": "Module d'élasticité du matériau (ex. acier ≈ 210 GPa).",
-        "es": "Módulo de elasticidad del material (ej., acero ≈ 210 GPa)."
+        "es": "Módulo de elasticidad del material (ej., acero ≈ 210 GPa).",
+        "ar": "معامل مرونة المادة (مثل الفولاذ ≈ 210 جيجا باسكال)."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety factor for allowable stress comparison.",
         "tr": "İzin verilen gerilme karşılaştırması için tasarım güvenlik faktörü.",
         "de": "Auslegungssicherheitsfaktor für den Vergleich der zulässigen Spannung.",
         "fr": "Coefficient de sécurité de conception pour la comparaison des contraintes admissibles.",
-        "es": "Factor de seguridad de diseño para comparación de tensiones admisibles."
+        "es": "Factor de seguridad de diseño para comparación de tensiones admisibles.",
+        "ar": "عامل الأمان التصميمي لمقارنة الإجهاد المسموح به."
       }
     }
   ],
   "formulas": {
-    "result": "axleDiameter + axleLength + load",
-    "result_copy": "axleDiameter + axleLength + load"
+    "normalized_product": "axleDiameter * axleLength * load * elasticModulus",
+    "result": "axleDiameter * axleLength * load * elasticModulus * (safetyFactor)",
+    "adjustment_factor": "safetyFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "momentOfInertia",
-      "maxBendingStress"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "maxBendingStress",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

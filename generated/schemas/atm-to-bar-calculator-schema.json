@@ -14,14 +14,15 @@
         "de": "Druck (atm)",
         "fr": "Pression (atm)",
         "es": "Presión (atm)",
-        "ar": "Pressure (atm)"
+        "ar": "الضغط (atm)"
       },
       "businessContext_i18n": {
         "en": "The pressure value in standard atmospheres to be converted.",
         "tr": "Dönüştürülecek standart atmosfer cinsinden basınç değeri.",
         "de": "Der Druckwert in Standardatmosphären, der umgerechnet werden soll.",
         "fr": "Valeur de pression en atmosphères standard à convertir.",
-        "es": "Valor de presión en atmósferas estándar a convertir."
+        "es": "Valor de presión en atmósferas estándar a convertir.",
+        "ar": "قيمة الضغط بوحدات الأجواء القياسية المراد تحويلها."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from atm to bar. Adjustable for calibration or traceability.",
         "tr": "Atm'den bar'a standart dönüşüm faktörü. Kalibrasyon veya izlenebilirlik için ayarlanabilir.",
         "de": "Standard-Umrechnungsfaktor von atm in bar. Anpassbar für Kalibrierung oder Rückverfolgbarkeit.",
         "fr": "Facteur de conversion standard d'atm en bar. Ajustable pour étalonnage ou traçabilité.",
-        "es": "Factor de conversión estándar de atm a bar. Ajustable para calibración o trazabilidad."
+        "es": "Factor de conversión estándar de atm a bar. Ajustable para calibración o trazabilidad.",
+        "ar": "عامل التحويل القياسي من الأجواء إلى البار. قابل للتعديل للمعايرة أو التتبع."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the primary output.",
         "tr": "Birincil çıktının yuvarlanması için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung des primären Ergebnisses.",
         "fr": "Nombre de décimales pour l'arrondi du résultat principal.",
-        "es": "Número de decimales para redondear la salida principal."
+        "es": "Número de decimales para redondear la salida principal.",
+        "ar": "عدد المنازل العشرية لتقريب الناتج الأساسي."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
         "es": "Temperatura ambiente",
-        "ar": "Ambient Temperature"
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Reference temperature for potential gas law corrections (informational; not used in standard conversion).",
         "tr": "Potansiyel gaz yasası düzeltmeleri için referans sıcaklık (bilgilendirme amaçlı; standart dönüşümde kullanılmaz).",
         "de": "Referenztemperatur für mögliche Gasgesetz-Korrekturen (informativ; nicht in der Standardumrechnung verwendet).",
         "fr": "Température de référence pour d'éventuelles corrections de loi des gaz (informative ; non utilisée dans la conversion standard).",
-        "es": "Temperatura de referencia para posibles correcciones de la ley de gases (informativo; no se usa en la conversión estándar)."
+        "es": "Temperatura de referencia para posibles correcciones de la ley de gases (informativo; no se usa en la conversión estándar).",
+        "ar": "درجة الحرارة المرجعية لتصحيحات قانون الغازات المحتملة (معلوماتية؛ لا تُستخدم في التحويل القياسي)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitud",
-        "ar": "Altitude"
+        "ar": "الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level for atmospheric pressure estimation (informational; not directly used in atm to bar conversion).",
         "tr": "Atmosfer basıncı tahmini için deniz seviyesinden yükseklik (bilgilendirme amaçlı; atm'den bar'a dönüşümde doğrudan kullanılmaz).",
         "de": "Höhe über dem Meeresspiegel zur Schätzung des atmosphärischen Drucks (informativ; nicht direkt in der Umrechnung von atm in bar verwendet).",
         "fr": "Altitude au-dessus du niveau de la mer pour l'estimation de la pression atmosphérique (informative ; non directement utilisée dans la conversion atm en bar).",
-        "es": "Altitud sobre el nivel del mar para estimación de presión atmosférica (informativo; no se usa directamente en la conversión de atm a bar)."
+        "es": "Altitud sobre el nivel del mar para estimación de presión atmosférica (informativo; no se usa directamente en la conversión de atm a bar).",
+        "ar": "الارتفاع عن مستوى سطح البحر لتقدير الضغط الجوي (معلوماتي؛ لا يُستخدم مباشرة في تحويل الأجواء إلى بار)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
         "es": "Incertidumbre de medición",
-        "ar": "Measurement Uncertainty"
+        "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty percentage for TÜV-compliant documentation and error bounds.",
         "tr": "TÜV uyumlu dokümantasyon ve hata sınırları için bağıl belirsizlik yüzdesi.",
         "de": "Relative Unsicherheit in Prozent für TÜV-konforme Dokumentation und Fehlergrenzen.",
         "fr": "Pourcentage d'incertitude relative pour la documentation conforme TÜV et les limites d'erreur.",
-        "es": "Porcentaje de incertidumbre relativa para documentación conforme a TÜV y límites de error."
+        "es": "Porcentaje de incertidumbre relativa para documentación conforme a TÜV y límites de error.",
+        "ar": "نسبة عدم اليقين النسبية للتوثيق المتوافق مع TÜV وحدود الخطأ."
       }
     }
   ],

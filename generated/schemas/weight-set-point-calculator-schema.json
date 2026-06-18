@@ -13,14 +13,16 @@
         "tr": "Nominal Net Ağırlık",
         "de": "Nenn-Nettogewicht",
         "fr": "Poids net nominal",
-        "es": "Nominal Net Weight",
-        "ar": "Nominal Net Weight"
+        "es": "Peso neto nominal",
+        "ar": "الوزن الصافي الاسمي"
       },
       "businessContext_i18n": {
         "en": "Declared net weight on the package",
         "tr": "Paket üzerinde beyan edilen net ağırlık",
         "de": "Deklariertes Nettogewicht auf der Verpackung",
-        "fr": "Poids net déclaré sur l'emballage"
+        "fr": "Poids net déclaré sur l'emballage",
+        "es": "Peso neto declarado en el envase",
+        "ar": "الوزن الصافي المعلن على العبوة"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Prozess-Standardabweichung",
         "fr": "Écart type du processus",
         "es": "Desviación estándar del proceso",
-        "ar": "Process Standard Deviation"
+        "ar": "الانحراف المعياري للعملية"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the filling process",
         "tr": "Dolum prosesinin standart sapması",
         "de": "Standardabweichung des Abfüllprozesses",
-        "fr": "Écart type du processus de remplissage"
+        "fr": "Écart type du processus de remplissage",
+        "es": "Desviación estándar del proceso de llenado",
+        "ar": "الانحراف المعياري لعملية التعبئة"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Yasal Minimum Net Ağırlık",
         "de": "Gesetzliches Mindestnettogewicht",
         "fr": "Poids net minimum légal",
-        "es": "Legal Minimum Net Weight",
-        "ar": "Legal Minimum Net Weight"
+        "es": "Peso neto mínimo legal",
+        "ar": "الحد الأدنى القانوني للوزن الصافي"
       },
       "businessContext_i18n": {
         "en": "Minimum legal net weight allowed",
         "tr": "İzin verilen minimum yasal net ağırlık",
         "de": "Zulässiges gesetzliches Mindestnettogewicht",
-        "fr": "Poids net minimum légal autorisé"
+        "fr": "Poids net minimum légal autorisé",
+        "es": "Peso neto mínimo legal permitido",
+        "ar": "الحد الأدنى القانوني المسموح به للوزن الصافي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Güvenlik Faktörü (Z-Skoru)",
         "de": "Sicherheitsfaktor (Z-Score)",
         "fr": "Facteur de sécurité (Z-Score)",
-        "es": "Safety Factor (Z-Score)",
-        "ar": "Safety Factor (Z-Score)"
+        "es": "Factor de seguridad (puntuación Z)",
+        "ar": "عامل الأمان (درجة Z)"
       },
       "businessContext_i18n": {
         "en": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)",
         "tr": "İstenen güven düzeyi için Z-skoru (ör. tek taraflı %95 için 1,645)",
         "de": "Z-Score für das gewünschte Konfidenzniveau (z. B. 1,645 für 95 % einseitig)",
-        "fr": "Z-score pour le niveau de confiance souhaité (ex. 1,645 pour 95% unilatéral)"
+        "fr": "Z-score pour le niveau de confiance souhaité (ex. 1,645 pour 95% unilatéral)",
+        "es": "Puntuación Z para el nivel de confianza deseado (ej. 1,645 para 95% unilateral)",
+        "ar": "درجة Z لمستوى الثقة المطلوب (مثل 1.645 لمستوى ثقة 95% من جانب واحد)"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Leergewicht",
         "fr": "Tare",
         "es": "Peso tara",
-        "ar": "Tare Weight"
+        "ar": "الوزن الفارغ"
       },
       "businessContext_i18n": {
         "en": "Weight of packaging/container",
         "tr": "Ambalaj/kabın ağırlığı",
         "de": "Gewicht der Verpackung/des Behälters",
-        "fr": "Poids de l'emballage/contenant"
+        "fr": "Poids de l'emballage/contenant",
+        "es": "Peso del envase/contenedor",
+        "ar": "وزن العبوة/الحاوية"
       }
     }
   ],

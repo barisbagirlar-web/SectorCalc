@@ -14,14 +14,15 @@
         "de": "Federkonstante (k)",
         "fr": "Constante de raideur (k)",
         "es": "Constante del resorte (k)",
-        "ar": "Spring Constant (k)"
+        "ar": "ثابت الزنبرك (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring in Newtons per meter.",
         "tr": "Yayın metre başına Newton cinsinden sertliği.",
         "de": "Steifigkeit der Feder in Newton pro Meter.",
         "fr": "Raideur du ressort en Newtons par mètre.",
-        "es": "Yayın metre başına Newton cinsinden sertliği."
+        "es": "Yayın metre başına Newton cinsinden sertliği.",
+        "ar": "صلابة الزنبرك بوحدة نيوتن لكل متر."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Masse (m)",
         "fr": "Masse (m)",
         "es": "Masa (m)",
-        "ar": "Mass (m)"
+        "ar": "الكتلة (m)"
       },
       "businessContext_i18n": {
         "en": "Mass attached to the spring in kilograms.",
         "tr": "Kütle (m)",
         "de": "An der Feder befestigte Masse in Kilogramm.",
         "fr": "Masse attachée au ressort en kilogrammes.",
-        "es": "Yaya bağlı kütle (kilogram)."
+        "es": "Yaya bağlı kütle (kilogram).",
+        "ar": "الكتلة المعلقة على الزنبرك بالكيلوجرام."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangsauslenkung (x0)",
         "fr": "Déplacement initial (x0)",
         "es": "Başlangıç Yer Değiştirmesi (x0)",
-        "ar": "Initial Displacement (x0)"
+        "ar": "الإزاحة الأولية (x0)"
       },
       "businessContext_i18n": {
         "en": "Initial displacement from equilibrium position in meters.",
         "tr": "Başlangıç Yer Değiştirmesi (x0)",
         "de": "Anfangsauslenkung aus der Gleichgewichtslage in Metern.",
         "fr": "Déplacement initial par rapport à la position d'équilibre en mètres.",
-        "es": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi."
+        "es": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi.",
+        "ar": "الإزاحة الأولية من وضع التوازن بالأمتار."
       }
     },
     {
@@ -83,37 +86,37 @@
         "de": "Anfangsgeschwindigkeit (v0)",
         "fr": "Vitesse initiale (v0)",
         "es": "Başlangıç Hızı (v0)",
-        "ar": "Initial Velocity (v0)"
+        "ar": "السرعة الأولية (v0)"
       },
       "businessContext_i18n": {
         "en": "Initial velocity in meters per second.",
         "tr": "Başlangıç Hızı (v0)",
         "de": "Anfangsgeschwindigkeit in Metern pro Sekunde.",
         "fr": "Vitesse initiale en mètres par seconde.",
-        "es": "Saniyede metre cinsinden başlangıç hızı."
+        "es": "Saniyede metre cinsinden başlangıç hızı.",
+        "ar": "السرعة الأولية بالأمتار في الثانية."
       }
     }
   ],
   "formulas": {
-    "result": "springConstant + mass + initialDisplacement",
-    "result_copy": "springConstant + mass + initialDisplacement"
+    "normalized_product": "springConstant * mass * initialDisplacement * initialVelocity",
+    "result": "springConstant * mass * initialDisplacement * initialVelocity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "angularFrequency",
-      "period",
-      "totalEnergy",
-      "maxDisplacement",
-      "maxVelocity",
-      "maxAcceleration"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "maxAcceleration",
-    "unit": "N/m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "maxAcceleration": "%"
     }

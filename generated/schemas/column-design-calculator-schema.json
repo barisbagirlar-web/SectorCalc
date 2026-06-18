@@ -14,14 +14,15 @@
         "de": "Eksenel Yük (Axiallast)",
         "fr": "Charge axiale",
         "es": "Carga axial",
-        "ar": "Eksenel Yük (Axial Load)"
+        "ar": "الحمل المحوري"
       },
       "businessContext_i18n": {
         "en": "Kolon üzerine uygulanan eksenel basınç yükü.",
         "tr": "Kolona uygulanan eksenel basınç yükü.",
         "de": "Auf die Stütze wirkende axiale Drucklast.",
         "fr": "Charge de compression axiale appliquée au poteau.",
-        "es": "Carga de compresión axial aplicada sobre la columna."
+        "es": "Carga de compresión axial aplicada sobre la columna.",
+        "ar": "الحمل الانضغاطي المحوري المطبق على العمود."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Etkili Uzunluk (Knicklänge)",
         "fr": "Longueur effective",
         "es": "Longitud efectiva",
-        "ar": "Etkili Uzunluk (Effective Length)"
+        "ar": "الطول الفعال"
       },
       "businessContext_i18n": {
         "en": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
         "tr": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
         "de": "Knicklänge der Stütze, abhängig von den Endbedingungen.",
         "fr": "Longueur de flambement du poteau, dépend des conditions d'extrémité.",
-        "es": "Longitud de pandeo de la columna, depende de las condiciones de apoyo."
+        "es": "Longitud de pandeo de la columna, depende de las condiciones de apoyo.",
+        "ar": "طول انبعاج العمود، يعتمد على شروط الوصلات الطرفية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Elastisite Modülü (Elastizitätsmodul)",
         "fr": "Module d'élasticité",
         "es": "Módulo de elasticidad",
-        "ar": "Elastisite Modülü (Modulus of Elasticity)"
+        "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
         "en": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
         "tr": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
         "de": "Elastizitätsmodul des Materials; für Stahl ~200 GPa.",
         "fr": "Module d'élasticité du matériau ; pour l'acier ~200 GPa.",
-        "es": "Módulo de elasticidad del material; para acero ~200 GPa."
+        "es": "Módulo de elasticidad del material; para acero ~200 GPa.",
+        "ar": "معامل مرونة المادة؛ للصلب ~200 جيجا باسكال."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Flächenträgheitsmoment",
         "fr": "Moment d'inertie",
         "es": "Momento de inercia",
-        "ar": "Atalet Momenti (Moment of Inertia)"
+        "ar": "عزم القصور الذاتي"
       },
       "businessContext_i18n": {
         "en": "Kesitin zayıf eksene göre alan atalet momenti.",
         "tr": "Kesitin zayıf eksene göre alan atalet momenti.",
         "de": "Flächenträgheitsmoment des Querschnitts um die schwache Achse.",
         "fr": "Moment d'inertie de la section par rapport à l'axe faible.",
-        "es": "Momento de inercia del área de la sección respecto al eje débil."
+        "es": "Momento de inercia del área de la sección respecto al eje débil.",
+        "ar": "عزم القصور الذاتي للمقطع حول المحور الضعيف."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de la sección transversal",
-        "ar": "Kesit Alanı (Cross-Sectional Area)"
+        "ar": "مساحة المقطع"
       },
       "businessContext_i18n": {
         "en": "Kolon kesitinin toplam alanı.",
         "tr": "Kolon kesitinin toplam alanı.",
         "de": "Gesamtfläche des Stützenquerschnitts.",
         "fr": "Aire totale de la section du poteau.",
-        "es": "Área total de la sección transversal de la columna."
+        "es": "Área total de la sección transversal de la columna.",
+        "ar": "المساحة الكلية لمقطع العمود."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Streckgrenze",
         "fr": "Limite d'élasticité",
         "es": "Límite elástico",
-        "ar": "Akma Dayanımı (Yield Strength)"
+        "ar": "مقاومة الخضوع"
       },
       "businessContext_i18n": {
         "en": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
         "tr": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
         "de": "Streckgrenze des Materials; für Baustahl typisch 235-355 MPa.",
         "fr": "Résistance à la traction du matériau ; pour l'acier de construction typique 235-355 MPa.",
-        "es": "Resistencia a la fluencia del material; para acero estructural típico 235-355 MPa."
+        "es": "Resistencia a la fluencia del material; para acero estructural típico 235-355 MPa.",
+        "ar": "إجهاد الخضوع للمادة؛ للصلب الإنشائي نموذجياً 235-355 ميجا باسكال."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Faktörü (Safety Factor)"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Tasarımda istenen güvenlik katsayısı.",
         "tr": "Tasarımda istenen güvenlik katsayısı.",
         "de": "Gewünschter Sicherheitsbeiwert für die Auslegung.",
         "fr": "Coefficient de sécurité souhaité dans la conception.",
-        "es": "Coeficiente de seguridad deseado en el diseño."
+        "es": "Coeficiente de seguridad deseado en el diseño.",
+        "ar": "معامل الأمان المطلوب في التصميم."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Prozentsatz A",
         "fr": "Pourcentage A",
         "es": "Porcentaje A",
-        "ar": "Percentage A"
+        "ar": "النسبة المئوية أ"
       },
       "businessContext_i18n": {
         "en": "The first percentage value for comparison",
         "tr": "Karşılaştırma için ilk yüzde değeri",
         "de": "Der erste Prozentwert für den Vergleich",
         "fr": "La première valeur en pourcentage à comparer",
-        "es": "El primer valor porcentual para comparación"
+        "es": "El primer valor porcentual para comparación",
+        "ar": "قيمة النسبة المئوية الأولى للمقارنة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Prozentsatz B",
         "fr": "Pourcentage B",
         "es": "Porcentaje B",
-        "ar": "Percentage B"
+        "ar": "النسبة المئوية ب"
       },
       "businessContext_i18n": {
         "en": "The second percentage value for comparison",
         "tr": "Karşılaştırma için ikinci yüzde değeri",
         "de": "Der zweite Prozentwert für den Vergleich",
         "fr": "La deuxième valeur en pourcentage à comparer",
-        "es": "El segundo valor porcentual para comparación"
+        "es": "El segundo valor porcentual para comparación",
+        "ar": "قيمة النسبة المئوية الثانية للمقارنة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Absolutwert verwenden",
         "fr": "Utiliser la valeur absolue",
         "es": "Usar valor absoluto",
-        "ar": "Use Absolute Value"
+        "ar": "استخدام القيمة المطلقة"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to calculate absolute difference, 0 for signed difference",
         "tr": "Mutlak farkı hesaplamak için 1, işaretli fark için 0 olarak ayarlayın",
         "de": "Auf 1 setzen, um die absolute Differenz zu berechnen, 0 für die vorzeichenbehaftete Differenz",
         "fr": "Mettre à 1 pour calculer la différence absolue, 0 pour la différence signée",
-        "es": "Establecer en 1 para calcular la diferencia absoluta, 0 para la diferencia con signo"
+        "es": "Establecer en 1 para calcular la diferencia absoluta, 0 para la diferencia con signo",
+        "ar": "اضبط على 1 لحساب الفرق المطلق، 0 للفرق الموقّع"
       }
     },
     {
@@ -83,32 +86,36 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the result",
         "tr": "Sonuçtaki ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen im Ergebnis",
         "fr": "Nombre de décimales dans le résultat",
-        "es": "Número de decimales en el resultado"
+        "es": "Número de decimales en el resultado",
+        "ar": "عدد المنازل العشرية في النتيجة"
       }
     }
   ],
   "formulas": {
-    "result": "percentageA + percentageB + absolute",
-    "result_copy": "percentageA + percentageB + absolute"
+    "normalized_product": "(percentageA / 100) * (percentageB / 100) * absolute * decimalPlaces",
+    "result": "(percentageA / 100) * (percentageB / 100) * absolute * decimalPlaces"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "difference",
-      "differenceRounded"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "differenceRounded",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Matematik & Analiz",

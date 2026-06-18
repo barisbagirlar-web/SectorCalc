@@ -14,14 +14,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "0 for Male, 1 for Female",
         "tr": "0 Erkek, 1 Kadın",
         "de": "0 für männlich, 1 für weiblich",
         "fr": "0 pour Homme, 1 pour Femme",
-        "es": "0 para hombre, 1 para mujer"
+        "es": "0 para hombre, 1 para mujer",
+        "ar": "0 للذكر، 1 للأنثى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters",
         "tr": "Santimetre cinsinden vücut boyu",
         "de": "Körpergröße in Zentimetern",
         "fr": "Taille du corps en centimètres",
-        "es": "Altura del cuerpo en centímetros"
+        "es": "Altura del cuerpo en centímetros",
+        "ar": "طول الجسم بالسنتيمتر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gewicht",
         "fr": "Poids",
         "es": "Peso",
-        "ar": "Weight"
+        "ar": "الوزن"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
         "de": "Körpergewicht in Kilogramm",
         "fr": "Poids corporel en kilogrammes",
-        "es": "Peso corporal en kilogramos"
+        "es": "Peso corporal en kilogramos",
+        "ar": "وزن الجسم بالكيلوجرام"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Halsumfang",
         "fr": "Tour de cou",
         "es": "Circunferencia del cuello",
-        "ar": "Neck Circumference"
+        "ar": "محيط الرقبة"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured just below the larynx",
         "tr": "Gırtlağın hemen altında boyun çevresi",
         "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes",
         "fr": "Tour de cou mesuré juste sous le larynx",
-        "es": "Circunferencia del cuello medida justo debajo de la laringe"
+        "es": "Circunferencia del cuello medida justo debajo de la laringe",
+        "ar": "محيط الرقبة مقاسًا أسفل الحنجرة مباشرة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Taillenumfang",
         "fr": "Tour de taille",
         "es": "Circunferencia de cintura",
-        "ar": "Waist Circumference"
+        "ar": "محيط الخصر"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the level of the navel",
         "tr": "Göbek hizasında bel çevresi",
         "de": "Taillenumfang gemessen auf Nabelhöhe",
         "fr": "Tour de taille mesuré au niveau du nombril",
-        "es": "Circunferencia de cintura medida a la altura del ombligo"
+        "es": "Circunferencia de cintura medida a la altura del ombligo",
+        "ar": "محيط الخصر مقاسًا عند مستوى السرة"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Hüftumfang",
         "fr": "Tour de hanches",
         "es": "Circunferencia de cadera",
-        "ar": "Hip Circumference"
+        "ar": "محيط الورك"
       },
       "businessContext_i18n": {
         "en": "Hip circumference at the widest point (only for females, set 0 for males)",
         "tr": "En geniş noktada kalça çevresi (sadece kadınlar için, erkekler için 0 girin)",
         "de": "Hüftumfang an der breitesten Stelle (nur für Frauen, bei Männern 0 setzen)",
         "fr": "Tour de hanches au point le plus large (uniquement pour les femmes, mettre 0 pour les hommes)",
-        "es": "Circunferencia de cadera en el punto más ancho (solo para mujeres, establecer 0 para hombres)"
+        "es": "Circunferencia de cadera en el punto más ancho (solo para mujeres, establecer 0 para hombres)",
+        "ar": "محيط الورك عند أوسع نقطة (للإناث فقط، اضبط 0 للذكور)"
       }
     }
   ],
   "formulas": {
-    "result": "gender + height + weight",
-    "result_copy": "gender + height + weight"
+    "normalized_product": "gender * height * weight * neck",
+    "result": "gender * height * weight * neck * (waist * hip)",
+    "adjustment_factor": "waist * hip"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "bmi",
-      "fatMass"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fatMass",
-    "unit": "cm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Sağlık & Tıp",

@@ -14,14 +14,15 @@
         "de": "Netto-Betriebseinkommen",
         "fr": "Résultat net d'exploitation",
         "es": "Ingreso operativo neto",
-        "ar": "Net Operating Income"
+        "ar": "صافي الدخل التشغيلي"
       },
       "businessContext_i18n": {
         "en": "Annual net operating income from core business operations, before debt service and taxes.",
         "tr": "Temel iş faaliyetlerinden elde edilen yıllık net faaliyet geliri, borç servisi ve vergiler öncesi.",
         "de": "Jährliches Netto-Betriebseinkommen aus dem Kerngeschäft vor Schuldendienst und Steuern.",
         "fr": "Résultat net d'exploitation annuel des activités principales, avant service de la dette et impôts.",
-        "es": "Ingreso operativo neto anual de las operaciones comerciales principales, antes del servicio de la deuda e impuestos."
+        "es": "Ingreso operativo neto anual de las operaciones comerciales principales, antes del servicio de la deuda e impuestos.",
+        "ar": "صافي الدخل التشغيلي السنوي من العمليات الأساسية، قبل خدمة الدين والضرائب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tilgungszahlungen",
         "fr": "Remboursements du principal",
         "es": "Pagos de principal",
-        "ar": "Principal Repayments"
+        "ar": "أقساط أصل الدين"
       },
       "businessContext_i18n": {
         "en": "Annual principal repayments on all business debts (loans, mortgages, etc.).",
         "tr": "Tüm işletme borçlarına (krediler, ipotekler vb.) ilişkin yıllık anapara geri ödemeleri.",
         "de": "Jährliche Tilgungszahlungen auf alle Geschäftsschulden (Darlehen, Hypotheken usw.).",
         "fr": "Remboursements annuels du principal sur toutes les dettes professionnelles (prêts, hypothèques, etc.).",
-        "es": "Pagos anuales de principal de todas las deudas comerciales (préstamos, hipotecas, etc.)."
+        "es": "Pagos anuales de principal de todas las deudas comerciales (préstamos, hipotecas, etc.).",
+        "ar": "الأقساط السنوية لأصل الدين على جميع ديون الأعمال (قروض، رهون عقارية، إلخ)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zinszahlungen",
         "fr": "Paiements d'intérêts",
         "es": "Pagos de intereses",
-        "ar": "Interest Payments"
+        "ar": "مدفوعات الفائدة"
       },
       "businessContext_i18n": {
         "en": "Annual interest payments on all business debts.",
         "tr": "Tüm işletme borçlarına ilişkin yıllık faiz ödemeleri.",
         "de": "Jährliche Zinszahlungen auf alle Geschäftsschulden.",
         "fr": "Paiements annuels d'intérêts sur toutes les dettes professionnelles.",
-        "es": "Pagos anuales de intereses de todas las deudas comerciales."
+        "es": "Pagos anuales de intereses de todas las deudas comerciales.",
+        "ar": "مدفوعات الفائدة السنوية على جميع ديون الأعمال."
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Leasingzahlungen",
         "fr": "Paiements de location",
         "es": "Pagos de arrendamiento",
-        "ar": "Lease Payments"
+        "ar": "مدفوعات الإيجار"
       },
       "businessContext_i18n": {
         "en": "Annual lease payments considered as debt obligations. Enter 0 if none.",
         "tr": "Borç yükümlülüğü olarak kabul edilen yıllık kira ödemeleri. Yoksa 0 girin.",
         "de": "Jährliche Leasingzahlungen gelten als Schuldenverpflichtungen. Geben Sie 0 ein, falls keine.",
         "fr": "Paiements annuels de location considérés comme des obligations de dette. Entrez 0 si aucun.",
-        "es": "Pagos anuales de arrendamiento considerados como obligaciones de deuda. Ingrese 0 si no aplica."
+        "es": "Pagos anuales de arrendamiento considerados como obligaciones de deuda. Ingrese 0 si no aplica.",
+        "ar": "مدفوعات الإيجار السنوية التي تعتبر التزامات دين. أدخل 0 إذا لم يكن هناك أي منها."
       }
     }
   ],
   "formulas": {
-    "result": "netOperatingIncome + principalRepayments + interestPayments",
-    "result_copy": "netOperatingIncome + principalRepayments + interestPayments"
+    "normalized_product": "netOperatingIncome * principalRepayments * interestPayments * leasePayments",
+    "result": "netOperatingIncome * principalRepayments * interestPayments * leasePayments"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalDebtService"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dscr",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -14,14 +14,15 @@
         "de": "Radius",
         "fr": "Rayon",
         "es": "Radio",
-        "ar": "Radius"
+        "ar": "نصف القطر"
       },
       "businessContext_i18n": {
         "en": "The radius of the circle. Provide if known.",
         "tr": "Dairenin yarıçapı. Biliniyorsa girin.",
         "de": "Der Radius des Kreises. Angeben, falls bekannt.",
         "fr": "Le rayon du cercle. Indiquez-le si connu.",
-        "es": "El radio del círculo. Proporcionar si se conoce."
+        "es": "El radio del círculo. Proporcionar si se conoce.",
+        "ar": "نصف قطر الدائرة. قدمه إذا كان معروفًا."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Durchmesser",
         "fr": "Diamètre",
         "es": "Diámetro",
-        "ar": "Diameter"
+        "ar": "القطر"
       },
       "businessContext_i18n": {
         "en": "The diameter of the circle. Provide if known.",
         "tr": "Dairenin çapı. Biliniyorsa girin.",
         "de": "Der Durchmesser des Kreises. Angeben, falls bekannt.",
         "fr": "Le diamètre du cercle. Indiquez-le si connu.",
-        "es": "El diámetro del círculo. Proporcione si se conoce."
+        "es": "El diámetro del círculo. Proporcione si se conoce.",
+        "ar": "قطر الدائرة. قدمه إذا كان معروفًا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fläche",
         "fr": "Surface",
         "es": "Área",
-        "ar": "Area"
+        "ar": "المساحة"
       },
       "businessContext_i18n": {
         "en": "The area of the circle. Provide if known.",
         "tr": "Dairenin alanı. Biliniyorsa girin.",
         "de": "Die Fläche des Kreises. Angeben, falls bekannt.",
         "fr": "La surface du cercle. Indiquez-la si connue.",
-        "es": "El área del círculo. Proporcione si se conoce."
+        "es": "El área del círculo. Proporcione si se conoce.",
+        "ar": "مساحة الدائرة. قدمها إذا كانت معروفة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Einheitenumrechnungsfaktor",
         "fr": "Facteur de conversion d'unité",
         "es": "Factor de conversión de unidad",
-        "ar": "Unit Conversion Factor"
+        "ar": "عامل تحويل الوحدة"
       },
       "businessContext_i18n": {
         "en": "Factor to convert input length unit to output length unit. E.g., cm to m: 0.01. Area is squared automatically.",
         "tr": "Giriş uzunluk birimini çıkış uzunluk birimine dönüştüren faktör. Örn. cm'den m'ye: 0.01. Alan otomatik olarak kare alınır.",
         "de": "Faktor zur Umrechnung der Eingangslängeneinheit in die Ausgangslängeneinheit. Z.B. cm in m: 0,01. Fläche wird automatisch quadriert.",
         "fr": "Facteur pour convertir l'unité de longueur d'entrée en unité de longueur de sortie. Ex. : cm en m : 0,01. La surface est automatiquement mise au carré.",
-        "es": "Factor para convertir la unidad de longitud de entrada a la unidad de longitud de salida. Ej.: cm a m: 0.01. El área se eleva al cuadrado automáticamente."
+        "es": "Factor para convertir la unidad de longitud de entrada a la unidad de longitud de salida. Ej.: cm a m: 0.01. El área se eleva al cuadrado automáticamente.",
+        "ar": "عامل تحويل وحدة الطول المدخلة إلى وحدة الطول المخرجة. مثال: سم إلى م: 0.01. يتم تربيع المساحة تلقائيًا."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs.",
         "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben.",
         "fr": "Nombre de décimales pour l'arrondi des résultats.",
-        "es": "Número de decimales para redondear los resultados."
+        "es": "Número de decimales para redondear los resultados.",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات."
       }
     }
   ],
   "formulas": {
-    "result": "radius + diameter + area",
-    "result_copy": "radius + diameter + area"
+    "normalized_product": "radius * diameter * area * conversionFactor",
+    "result": "radius * diameter * area * conversionFactor * (decimalPlaces)",
+    "adjustment_factor": "decimalPlaces"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "radius_out",
-      "diameter_out",
-      "area_out"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "area_out",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "diameter_out": "m"
     }

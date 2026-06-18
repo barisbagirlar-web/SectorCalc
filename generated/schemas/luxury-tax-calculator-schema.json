@@ -14,14 +14,15 @@
         "de": "Artikelpreis",
         "fr": "Prix de l'article",
         "es": "Precio del artículo",
-        "ar": "Item Price"
+        "ar": "سعر السلعة"
       },
       "businessContext_i18n": {
         "en": "Base price of the luxury item before tax",
         "tr": "Vergi öncesi lüks ürünün taban fiyatı",
         "de": "Grundpreis des Luxusartikels vor Steuern",
         "fr": "Prix de base de l'article de luxe avant taxes",
-        "es": "Precio base del artículo de lujo antes de impuestos"
+        "es": "Precio base del artículo de lujo antes de impuestos",
+        "ar": "السعر الأساسي للسلعة الفاخرة قبل الضريبة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Steuerschwelle",
         "fr": "Seuil fiscal",
         "es": "Umbral de impuesto",
-        "ar": "Tax Threshold"
+        "ar": "حد الضريبة"
       },
       "businessContext_i18n": {
         "en": "Price threshold above which luxury tax applies",
         "tr": "Lüks vergisinin uygulanacağı fiyat eşiği",
         "de": "Preisschwelle, ab der die Luxussteuer anfällt",
         "fr": "Seuil de prix au-dessus duquel la taxe de luxe s'applique",
-        "es": "Umbral de precio por encima del cual se aplica el impuesto de lujo"
+        "es": "Umbral de precio por encima del cual se aplica el impuesto de lujo",
+        "ar": "حد السعر الذي يتم بعده تطبيق ضريبة السلع الفاخرة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Steuersatz",
         "fr": "Taux de taxe",
         "es": "Tasa de impuesto",
-        "ar": "Tax Rate"
+        "ar": "نسبة الضريبة"
       },
       "businessContext_i18n": {
         "en": "Luxury tax rate as a percentage",
         "tr": "Yüzde olarak lüks vergi oranı",
         "de": "Luxussteuersatz in Prozent",
         "fr": "Taux de la taxe de luxe en pourcentage",
-        "es": "Tasa del impuesto de lujo como porcentaje"
+        "es": "Tasa del impuesto de lujo como porcentaje",
+        "ar": "نسبة ضريبة السلع الفاخرة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Number of identical luxury items",
         "tr": "Aynı lüks ürünlerin adedi",
         "de": "Anzahl identischer Luxusartikel",
         "fr": "Nombre d'articles de luxe identiques",
-        "es": "Número de artículos de lujo idénticos"
+        "es": "Número de artículos de lujo idénticos",
+        "ar": "عدد السلع الفاخرة المتطابقة"
       }
     },
     {
@@ -106,33 +110,38 @@
         "de": "Fester Abzug",
         "fr": "Déduction fixe",
         "es": "Deducción fija",
-        "ar": "Fixed Deduction"
+        "ar": "الخصم الثابت"
       },
       "businessContext_i18n": {
         "en": "Fixed deduction from taxable amount per item",
         "tr": "Ürün başına vergilendirilebilir tutardan düşülen sabit indirim",
         "de": "Fester Abzug vom steuerpflichtigen Betrag pro Artikel",
         "fr": "Déduction fixe du montant imposable par article",
-        "es": "Deducción fija del monto imponible por artículo"
+        "es": "Deducción fija del monto imponible por artículo",
+        "ar": "خصم ثابت من المبلغ الخاضع للضريبة لكل سلعة"
       }
     }
   ],
   "formulas": {
-    "result": "itemPrice + taxThreshold + taxRate",
-    "result_copy": "itemPrice + taxThreshold + taxRate"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "quantity * (taxRate / 100) * 1 * itemPrice",
+    "result": "quantity * (taxRate / 100) * 1 * itemPrice"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "taxPerItem",
-      "taxableAmountPerItem",
-      "totalPrice"
+      "annual_exposure_hours",
+      "direct_labor_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
-    "dataConfidenceAdjusted": "totalPrice",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

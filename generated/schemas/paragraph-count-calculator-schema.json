@@ -14,14 +14,15 @@
         "de": "Gesamtwörter",
         "fr": "Total des mots",
         "es": "Total de palabras",
-        "ar": "Total Words"
+        "ar": "إجمالي الكلمات"
       },
       "businessContext_i18n": {
         "en": "Total word count of the document",
         "tr": "Belgenin toplam kelime sayısı",
         "de": "Gesamtwortanzahl des Dokuments",
         "fr": "Nombre total de mots du document",
-        "es": "Recuento total de palabras del documento"
+        "es": "Recuento total de palabras del documento",
+        "ar": "إجمالي عدد كلمات المستند"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Durchschnittliche Wörter pro Absatz",
         "fr": "Nombre moyen de mots par paragraphe",
         "es": "Promedio de palabras por párrafo",
-        "ar": "Average Words per Paragraph"
+        "ar": "متوسط عدد الكلمات لكل فقرة"
       },
       "businessContext_i18n": {
         "en": "Average number of words in a paragraph",
         "tr": "Bir paragraftaki ortalama kelime sayısı",
         "de": "Durchschnittliche Anzahl von Wörtern in einem Absatz",
         "fr": "Nombre moyen de mots dans un paragraphe",
-        "es": "Número promedio de palabras en un párrafo"
+        "es": "Número promedio de palabras en un párrafo",
+        "ar": "متوسط عدد الكلمات في الفقرة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtzeichen",
         "fr": "Nombre total de caractères",
         "es": "Total de caracteres",
-        "ar": "Total Characters"
+        "ar": "إجمالي الأحرف"
       },
       "businessContext_i18n": {
         "en": "Total character count (including spaces) for verification",
         "tr": "Doğrulama için toplam karakter sayısı (boşluklar dahil)",
         "de": "Gesamtzeichenanzahl (inkl. Leerzeichen) zur Überprüfung",
         "fr": "Nombre total de caractères (espaces compris) pour vérification",
-        "es": "Recuento total de caracteres (incluyendo espacios) para verificación"
+        "es": "Recuento total de caracteres (incluyendo espacios) para verificación",
+        "ar": "إجمالي عدد الأحرف (بما في ذلك المسافات) للتحقق"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Durchschnittliche Zeichen pro Wort",
         "fr": "Moyenne de caractères par mot",
         "es": "Promedio de caracteres por palabra",
-        "ar": "Average Characters per Word"
+        "ar": "متوسط عدد الأحرف لكل كلمة"
       },
       "businessContext_i18n": {
         "en": "Average length of words used to validate word count",
         "tr": "Kelime sayısını doğrulamak için kullanılan ortalama kelime uzunluğu",
         "de": "Durchschnittliche Länge der verwendeten Wörter zur Validierung der Wortanzahl",
         "fr": "Longueur moyenne des mots utilisée pour valider le nombre de mots",
-        "es": "Longitud promedio de las palabras utilizadas para validar el recuento de palabras"
+        "es": "Longitud promedio de las palabras utilizadas para validar el recuento de palabras",
+        "ar": "متوسط طول الكلمات المستخدمة للتحقق من عدد الكلمات"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gesamtseiten",
         "fr": "Nombre total de pages",
         "es": "Páginas totales",
-        "ar": "Total Pages"
+        "ar": "إجمالي الصفحات"
       },
       "businessContext_i18n": {
         "en": "Number of pages if known, for alternative calculation",
         "tr": "Biliniyorsa alternatif hesaplama için sayfa sayısı",
         "de": "Seitenzahl, falls bekannt, für alternative Berechnung",
         "fr": "Nombre de pages si connu, pour un calcul alternatif",
-        "es": "Número de páginas si se conoce, para cálculo alternativo"
+        "es": "Número de páginas si se conoce, para cálculo alternativo",
+        "ar": "عدد الصفحات إذا كان معروفًا، للحساب البديل"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Zeilen pro Seite",
         "fr": "Lignes par page",
         "es": "Líneas por página",
-        "ar": "Lines per Page"
+        "ar": "عدد الأسطر في الصفحة"
       },
       "businessContext_i18n": {
         "en": "Average number of lines on a page",
         "tr": "Bir sayfadaki ortalama satır sayısı",
         "de": "Durchschnittliche Anzahl Zeilen auf einer Seite",
         "fr": "Nombre moyen de lignes sur une page",
-        "es": "Número promedio de líneas en una página"
+        "es": "Número promedio de líneas en una página",
+        "ar": "متوسط عدد الأسطر في الصفحة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Wörter pro Zeile",
         "fr": "Mots par ligne",
         "es": "Palabras por línea",
-        "ar": "Words per Line"
+        "ar": "عدد الكلمات في السطر"
       },
       "businessContext_i18n": {
         "en": "Average words per line",
         "tr": "Satır başına ortalama kelime sayısı",
         "de": "Durchschnittliche Wörter pro Zeile",
         "fr": "Nombre moyen de mots par ligne",
-        "es": "Promedio de palabras por línea"
+        "es": "Promedio de palabras por línea",
+        "ar": "متوسط الكلمات لكل سطر"
       }
     },
     {
@@ -175,33 +182,39 @@
         "de": "Absätze pro Seite",
         "fr": "Paragraphes par page",
         "es": "Párrafos por página",
-        "ar": "Paragraphs per Page"
+        "ar": "عدد الفقرات في الصفحة"
       },
       "businessContext_i18n": {
         "en": "Typical paragraphs on a page, used for page-based estimate",
         "tr": "Sayfa bazlı tahmin için kullanılan tipik paragraf sayısı",
         "de": "Typische Absätze auf einer Seite, verwendet für seitenbasierte Schätzung",
         "fr": "Paragraphes typiques sur une page, utilisés pour l'estimation basée sur la page",
-        "es": "Párrafos típicos en una página, usado para estimación basada en páginas"
+        "es": "Párrafos típicos en una página, usado para estimación basada en páginas",
+        "ar": "عدد الفقرات النموذجية في الصفحة، يستخدم للتقدير بناءً على الصفحة"
       }
     }
   ],
   "formulas": {
-    "result": "totalWords + wordsPerParagraph + totalCharacters",
-    "result_copy": "totalWords + wordsPerParagraph + totalCharacters"
+    "normalized_product": "totalWords * wordsPerParagraph * totalCharacters * charactersPerWord",
+    "result": "totalWords * wordsPerParagraph * totalCharacters * charactersPerWord * (totalPages * linesPerPage * wordsPerLine * paragraphsPerPage)",
+    "adjustment_factor": "totalPages * linesPerPage * wordsPerLine * paragraphsPerPage"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "alternativeParagraphCount",
-      "validatedTotalWords"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "validatedTotalWords",
-    "unit": "words"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Kimya & Proses",

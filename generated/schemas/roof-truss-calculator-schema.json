@@ -14,14 +14,15 @@
         "de": "Gebäudebreite (Spannweite)",
         "fr": "Largeur du bâtiment (portée)",
         "es": "Ancho del edificio (luz)",
-        "ar": "Building Width (Span)"
+        "ar": "عرض المبنى (الامتداد)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance between outer walls, defines truss bottom chord length.",
         "tr": "Dış duvarlar arasındaki yatay mesafe, kiriş alt kiriş uzunluğunu belirler.",
         "de": "Horizontaler Abstand zwischen den Außenwänden, definiert die Länge des Untergurts des Dachstuhls.",
         "fr": "Distance horizontale entre les murs extérieurs, définit la longueur de la membrure inférieure de la ferme.",
-        "es": "Distancia horizontal entre paredes exteriores, define la longitud del cordón inferior de la armadura."
+        "es": "Distancia horizontal entre paredes exteriores, define la longitud del cordón inferior de la armadura.",
+        "ar": "المسافة الأفقية بين الجدران الخارجية، تحدد طول الوتر السفلي للجمالون."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dachhöhe",
         "fr": "Hauteur du toit",
         "es": "Elevación del techo",
-        "ar": "Roof Rise"
+        "ar": "ارتفاع السقف"
       },
       "businessContext_i18n": {
         "en": "Vertical height from top of wall plate to ridge peak, determines roof slope.",
         "tr": "Duvar levhasının üstünden mahya tepesine kadar dikey yükseklik, çatı eğimini belirler.",
         "de": "Vertikale Höhe von der Oberkante der Mauerlatte bis zum First, bestimmt die Dachneigung.",
         "fr": "Hauteur verticale du dessus de la sablière au faîte, détermine la pente du toit.",
-        "es": "Altura vertical desde la parte superior de la placa de pared hasta el pico de la cumbrera, determina la pendiente del techo."
+        "es": "Altura vertical desde la parte superior de la placa de pared hasta el pico de la cumbrera, determina la pendiente del techo.",
+        "ar": "الارتفاع الرأسي من أعلى لوح الجدار إلى قمة الحافة، يحدد ميل السقف."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Traufüberstand",
         "fr": "Débord d'avant-toit",
         "es": "Voladizo del alero",
-        "ar": "Eave Overhang"
+        "ar": "بروز الطنف"
       },
       "businessContext_i18n": {
         "en": "Horizontal projection of roof beyond exterior wall, extends rafter length.",
         "tr": "Çatının dış duvarın ötesindeki yatay çıkıntısı, kiriş uzunluğunu uzatır.",
         "de": "Horizontaler Überstand des Daches über die Außenwand hinaus, verlängert die Sparrenlänge.",
         "fr": "Projection horizontale du toit au-delà du mur extérieur, prolonge la longueur du chevron.",
-        "es": "Proyección horizontal del techo más allá de la pared exterior, extiende la longitud de la viga."
+        "es": "Proyección horizontal del techo más allá de la pared exterior, extiende la longitud de la viga.",
+        "ar": "البروز الأفقي للسقف خارج الجدار الخارجي، يطيل طول العارضة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gebäudelänge",
         "fr": "Longueur du bâtiment",
         "es": "Largo del edificio",
-        "ar": "Building Length"
+        "ar": "طول المبنى"
       },
       "businessContext_i18n": {
         "en": "Building length along ridge direction, used with spacing to calculate total truss quantity.",
         "tr": "Mahya yönünde bina uzunluğu, toplam kiriş miktarını hesaplamak için aralıkla birlikte kullanılır.",
         "de": "Gebäudelänge entlang der Firstrichtung, wird zusammen mit dem Abstand zur Berechnung der Gesamtzahl der Dachstühle verwendet.",
         "fr": "Longueur du bâtiment dans la direction du faîte, utilisée avec l'espacement pour calculer la quantité totale de fermes.",
-        "es": "Longitud del edificio en la dirección de la cumbrera, se usa con el espaciado para calcular la cantidad total de armaduras."
+        "es": "Longitud del edificio en la dirección de la cumbrera, se usa con el espaciado para calcular la cantidad total de armaduras.",
+        "ar": "طول المبنى على طول اتجاه الحافة، يُستخدم مع التباعد لحساب العدد الإجمالي للجمالونات."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Dachstuhlabstand",
         "fr": "Espacement des fermes",
         "es": "Espaciado de armaduras",
-        "ar": "Truss Spacing"
+        "ar": "تباعد الجمالونات"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m.",
         "tr": "Ardışık kirişler arasındaki merkezden merkeze mesafe, tipik aralık 0.4–1.2 m.",
         "de": "Mittenabstand zwischen aufeinanderfolgenden Dachstühlen, typischer Bereich 0,4–1,2 m.",
         "fr": "Distance centre à centre entre les fermes consécutives, plage typique 0,4–1,2 m.",
-        "es": "Distancia de centro a centro entre armaduras consecutivas, rango típico 0.4–1.2 m."
+        "es": "Distancia de centro a centro entre armaduras consecutivas, rango típico 0.4–1.2 m.",
+        "ar": "المسافة من مركز إلى مركز بين الجمالونات المتتالية، النطاق النموذجي 0.4–1.2 م."
       }
     }
   ],

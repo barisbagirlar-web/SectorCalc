@@ -14,14 +14,15 @@
         "de": "ASCII-Code 1",
         "fr": "Code ASCII 1",
         "es": "Código ASCII 1",
-        "ar": "ASCII Kodu 1"
+        "ar": "رمز ASCII 1"
       },
       "businessContext_i18n": {
         "en": "İlk ASCII karakter kodu (ör. 65 = 'A')",
         "tr": "İlk ASCII karakter kodu (ör. 65 = 'A')",
         "de": "Erster ASCII-Zeichencode (z.B. 65 = 'A')",
         "fr": "Premier code de caractère ASCII (ex. 65 = 'A')",
-        "es": "Primer código de carácter ASCII (ej. 65 = 'A')"
+        "es": "Primer código de carácter ASCII (ej. 65 = 'A')",
+        "ar": "رمز الحرف الأول ASCII (مثال: 65 = 'A')"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "ASCII-Code 2",
         "fr": "Code ASCII 2",
         "es": "Código ASCII 2",
-        "ar": "ASCII Kodu 2"
+        "ar": "رمز ASCII 2"
       },
       "businessContext_i18n": {
         "en": "İkinci ASCII karakter kodu",
         "tr": "İkinci ASCII karakter kodu",
         "de": "Zweiter ASCII-Zeichencode",
         "fr": "Deuxième code de caractère ASCII",
-        "es": "Segundo código de carácter ASCII"
+        "es": "Segundo código de carácter ASCII",
+        "ar": "رمز الحرف الثاني ASCII"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "ASCII-Code 3",
         "fr": "Code ASCII 3",
         "es": "Código ASCII 3",
-        "ar": "ASCII Kodu 3"
+        "ar": "رمز ASCII 3"
       },
       "businessContext_i18n": {
         "en": "Üçüncü ASCII karakter kodu",
         "tr": "Üçüncü ASCII karakter kodu",
         "de": "Dritter ASCII-Zeichencode",
         "fr": "Troisième code de caractère ASCII",
-        "es": "Tercer código de carácter ASCII"
+        "es": "Tercer código de carácter ASCII",
+        "ar": "رمز الحرف الثالث ASCII"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "ASCII-Code 4",
         "fr": "Code ASCII 4",
         "es": "Código ASCII 4",
-        "ar": "ASCII Kodu 4"
+        "ar": "رمز ASCII 4"
       },
       "businessContext_i18n": {
         "en": "Dördüncü ASCII karakter kodu",
         "tr": "Dördüncü ASCII karakter kodu",
         "de": "Vierter ASCII-Zeichencode",
         "fr": "Quatrième code de caractère ASCII",
-        "es": "Cuarto código de carácter ASCII"
+        "es": "Cuarto código de carácter ASCII",
+        "ar": "رمز الحرف الرابع ASCII"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "ASCII-Code 5",
         "fr": "Code ASCII 5",
         "es": "Código ASCII 5",
-        "ar": "ASCII Kodu 5"
+        "ar": "رمز ASCII 5"
       },
       "businessContext_i18n": {
         "en": "Beşinci ASCII karakter kodu",
         "tr": "Beşinci ASCII karakter kodu",
         "de": "Fünfter ASCII-Zeichencode",
         "fr": "Cinquième code de caractère ASCII",
-        "es": "Quinto código de carácter ASCII"
+        "es": "Quinto código de carácter ASCII",
+        "ar": "رمز الحرف الخامس ASCII"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "ASCII-Code 6",
         "fr": "Code ASCII 6",
         "es": "Código ASCII 6",
-        "ar": "ASCII Kodu 6"
+        "ar": "رمز ASCII 6"
       },
       "businessContext_i18n": {
         "en": "Altıncı ASCII karakter kodu",
         "tr": "Altıncı ASCII karakter kodu",
         "de": "Sechster ASCII-Zeichencode",
         "fr": "Sixième code de caractère ASCII",
-        "es": "Sexto código de carácter ASCII"
+        "es": "Sexto código de carácter ASCII",
+        "ar": "رمز الحرف السادس ASCII"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "ASCII-Code 7",
         "fr": "Code ASCII 7",
         "es": "Código ASCII 7",
-        "ar": "ASCII Kodu 7"
+        "ar": "رمز ASCII 7"
       },
       "businessContext_i18n": {
         "en": "Yedinci ASCII karakter kodu",
         "tr": "Yedinci ASCII karakter kodu",
         "de": "Siebter ASCII-Zeichencode",
         "fr": "Septième code de caractère ASCII",
-        "es": "Séptimo código de carácter ASCII"
+        "es": "Séptimo código de carácter ASCII",
+        "ar": "رمز الحرف السابع ASCII"
       }
     },
     {
@@ -175,39 +182,39 @@
         "de": "ASCII-Code 8",
         "fr": "Code ASCII 8",
         "es": "Código ASCII 8",
-        "ar": "ASCII Kodu 8"
+        "ar": "رمز ASCII 8"
       },
       "businessContext_i18n": {
         "en": "Sekizinci ASCII karakter kodu",
         "tr": "Sekizinci ASCII karakter kodu",
         "de": "Achter ASCII-Zeichencode",
         "fr": "Huitième code de caractère ASCII",
-        "es": "Octavo código de carácter ASCII"
+        "es": "Octavo código de carácter ASCII",
+        "ar": "رمز الحرف الثامن ASCII"
       }
     }
   ],
   "formulas": {
-    "result": "ascii1 + ascii2 + ascii3",
-    "result_copy": "ascii1 + ascii2 + ascii3"
+    "normalized_product": "ascii1 * ascii2 * ascii3 * ascii4",
+    "result": "ascii1 * ascii2 * ascii3 * ascii4 * (ascii5 * ascii6 * ascii7 * ascii8)",
+    "adjustment_factor": "ascii5 * ascii6 * ascii7 * ascii8"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "char1",
-      "char2",
-      "char3",
-      "char4",
-      "char5",
-      "char6",
-      "char7",
-      "char8"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "text_aux",
-    "unit": "kod"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Bilişim & Yazılım",

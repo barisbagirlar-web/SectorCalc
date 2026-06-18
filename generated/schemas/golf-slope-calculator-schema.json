@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Bogey Rating",
         "tr": "Boği Derecesi",
-        "de": "Bogey Rating",
+        "de": "Bogey-Bewertung",
         "fr": "Indice de difficulté bogey",
         "es": "Valoración Bogey",
-        "ar": "Bogey Rating"
+        "ar": "تصنيف البوجي"
       },
       "businessContext_i18n": {
         "en": "The expected score for a bogey golfer under normal course and weather conditions.",
         "tr": "Normal saha ve hava koşullarında bir bogey golfçüsü için beklenen skor.",
         "de": "Die erwartete Punktzahl eines Bogey-Golfers unter normalen Platz- und Wetterbedingungen.",
         "fr": "Score attendu pour un golfeur bogey dans des conditions normales de parcours et de météo.",
-        "es": "La puntuación esperada para un golfista bogey en condiciones normales de campo y clima."
+        "es": "La puntuación esperada para un golfista bogey en condiciones normales de campo y clima.",
+        "ar": "النتيجة المتوقعة للاعب بوجي في ظروف الملعب والطقس العادية."
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Scratch Course Rating",
         "tr": "Sıfır Handikap Saha Derecesi",
-        "de": "Scratch Course Rating",
-        "fr": "Scratch Course Rating",
+        "de": "Scratch-Platzbewertung",
+        "fr": "Indice de difficulté du parcours",
         "es": "Valoración del campo Scratch",
-        "ar": "Scratch Course Rating"
+        "ar": "تصنيف ملعب السكراتش"
       },
       "businessContext_i18n": {
         "en": "The expected score for a scratch golfer under normal course and weather conditions.",
         "tr": "Normal saha ve hava koşullarında bir sıfır handikap golfçüsü için beklenen skor.",
         "de": "Die erwartete Punktzahl eines Scratch-Golfers unter normalen Platz- und Wetterbedingungen.",
         "fr": "Score attendu pour un golfeur scratch dans des conditions normales de parcours et de météo.",
-        "es": "La puntuación esperada para un golfista scratch en condiciones normales de campo y clima."
+        "es": "La puntuación esperada para un golfista scratch en condiciones normales de campo y clima.",
+        "ar": "النتيجة المتوقعة للاعب سكراتش في ظروف الملعب والطقس العادية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Slope-Faktor",
         "fr": "Facteur de pente",
         "es": "Factor de pendiente",
-        "ar": "Slope Factor"
+        "ar": "عامل الانحدار"
       },
       "businessContext_i18n": {
         "en": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women).",
         "tr": "Derece farkını eğime dönüştürmek için sabit çarpan (erkekler için 5,381, kadınlar için 4,24).",
         "de": "Konstanter Multiplikator zur Umrechnung der Rating-Differenz in Slope (5,381 für Männer, 4,24 für Frauen).",
         "fr": "Multiplicateur constant pour convertir la différence de rating en pente (5,381 pour les hommes, 4,24 pour les femmes).",
-        "es": "Multiplicador constante para convertir la diferencia de rating en pendiente (5.381 para hombres, 4.24 para mujeres)."
+        "es": "Multiplicador constante para convertir la diferencia de rating en pendiente (5.381 para hombres, 4.24 para mujeres).",
+        "ar": "مضاعف ثابت لتحويل فرق التصنيف إلى انحدار (5.381 للرجال، 4.24 للنساء)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bruttopunktzahl",
         "fr": "Score brut",
         "es": "Puntuación bruta",
-        "ar": "Gross Score"
+        "ar": "النتيجة الإجمالية"
       },
       "businessContext_i18n": {
         "en": "Actual strokes taken by the player in the round.",
         "tr": "Oyuncunun turda attığı gerçek vuruş sayısı.",
         "de": "Tatsächliche Schläge des Spielers in der Runde.",
         "fr": "Coups réels effectués par le joueur lors de la partie.",
-        "es": "Golpes reales realizados por el jugador en la ronda."
+        "es": "Golpes reales realizados por el jugador en la ronda.",
+        "ar": "الضربات الفعلية التي قام بها اللاعب في الجولة."
       }
     }
   ],

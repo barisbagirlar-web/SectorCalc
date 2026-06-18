@@ -14,14 +14,15 @@
         "de": "Fieber >38°C",
         "fr": "Fièvre >38°C",
         "es": "Fiebre >38°C",
-        "ar": "Fever >38°C"
+        "ar": "حمى >38°م"
       },
       "businessContext_i18n": {
         "en": "1 if fever present, 0 otherwise",
         "tr": "Ateş varsa 1, yoksa 0",
         "de": "1 bei Fieber, sonst 0",
         "fr": "1 si fièvre présente, 0 sinon",
-        "es": "1 si hay fiebre, 0 si no"
+        "es": "1 si hay fiebre, 0 si no",
+        "ar": "1 إذا كانت الحمى موجودة، 0 خلاف ذلك"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Tonsilläre Exsudate",
         "fr": "Exsudats amygdaliens",
         "es": "Exudados amigdalinos",
-        "ar": "Tonsillar Exudates"
+        "ar": "الإفرازات اللوزية"
       },
       "businessContext_i18n": {
         "en": "1 if exudates present, 0 otherwise",
         "tr": "Eksüda varsa 1, yoksa 0",
         "de": "1 bei Exsudaten, sonst 0",
         "fr": "1 si exsudats présents, 0 sinon",
-        "es": "1 si hay exudados, 0 si no"
+        "es": "1 si hay exudados, 0 si no",
+        "ar": "1 إذا كانت الإفرازات موجودة، 0 خلاف ذلك"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Druckempfindliche zervikale Lymphadenopathie",
         "fr": "Adénopathie cervicale antérieure sensible",
         "es": "Linfadenopatía cervical anterior dolorosa",
-        "ar": "Tender Anterior Cervical Lymphadenopathy"
+        "ar": "تضخم العقد اللمفاوية الرقبية الأمامية المؤلم"
       },
       "businessContext_i18n": {
         "en": "1 if lymphadenopathy present, 0 otherwise",
         "tr": "Lenfadenopati varsa 1, yoksa 0",
         "de": "1 bei Lymphadenopathie, sonst 0",
         "fr": "1 si adénopathie présente, 0 sinon",
-        "es": "1 si hay linfadenopatía, 0 si no"
+        "es": "1 si hay linfadenopatía, 0 si no",
+        "ar": "1 إذا كان تضخم العقد اللمفاوية موجودًا، 0 خلاف ذلك"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fehlender Husten",
         "fr": "Absence de toux",
         "es": "Ausencia de tos",
-        "ar": "Absence of Cough"
+        "ar": "غياب السعال"
       },
       "businessContext_i18n": {
         "en": "1 if cough absent, 0 if cough present",
         "tr": "Öksürük yoksa 1, öksürük varsa 0",
         "de": "1 wenn Husten nicht vorhanden, 0 wenn Husten vorhanden",
         "fr": "1 si toux absente, 0 si toux présente",
-        "es": "1 si no hay tos, 0 si hay tos"
+        "es": "1 si no hay tos, 0 si hay tos",
+        "ar": "1 إذا كان السعال غائبًا، 0 إذا كان السعال موجودًا"
       }
     }
   ],

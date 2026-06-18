@@ -14,14 +14,15 @@
         "de": "Wert 1",
         "fr": "Valeur 1",
         "es": "Valor 1",
-        "ar": "Değer 1"
+        "ar": "القيمة 1"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 1. değer",
         "tr": "Veri setindeki 1. değer",
         "de": "1. Wert im Datensatz",
         "fr": "1ère valeur de l'ensemble de données",
-        "es": "1er valor del conjunto de datos"
+        "es": "1er valor del conjunto de datos",
+        "ar": "القيمة الأولى في مجموعة البيانات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wert 2",
         "fr": "Valeur 2",
         "es": "Valor 2",
-        "ar": "Değer 2"
+        "ar": "القيمة 2"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 2. değer",
         "tr": "Veri setindeki 2. değer",
         "de": "2. Wert im Datensatz",
         "fr": "2ème valeur de l'ensemble de données",
-        "es": "2do valor del conjunto de datos"
+        "es": "2do valor del conjunto de datos",
+        "ar": "القيمة الثانية في مجموعة البيانات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wert 3",
         "fr": "Valeur 3",
         "es": "Valor 3",
-        "ar": "Değer 3"
+        "ar": "القيمة 3"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 3. değer",
         "tr": "Veri setindeki 3. değer",
         "de": "3. Wert im Datensatz",
         "fr": "3e valeur dans l'ensemble de données",
-        "es": "3er valor del conjunto de datos"
+        "es": "3er valor del conjunto de datos",
+        "ar": "القيمة الثالثة في مجموعة البيانات"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wert 4",
         "fr": "Valeur 4",
         "es": "Valor 4",
-        "ar": "Değer 4"
+        "ar": "القيمة 4"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 4. değer",
         "tr": "Veri setindeki 4. değer",
         "de": "4. Wert im Datensatz",
         "fr": "4e valeur dans l'ensemble de données",
-        "es": "4to valor del conjunto de datos"
+        "es": "4to valor del conjunto de datos",
+        "ar": "القيمة الرابعة في مجموعة البيانات"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Wert 5",
         "fr": "Valeur 5",
         "es": "Valor 5",
-        "ar": "Değer 5"
+        "ar": "القيمة 5"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 5. değer",
         "tr": "Veri setindeki 5. değer",
         "de": "5. Wert im Datensatz",
         "fr": "5e valeur dans l'ensemble de données",
-        "es": "5.º valor del conjunto de datos"
+        "es": "5.º valor del conjunto de datos",
+        "ar": "القيمة الخامسة في مجموعة البيانات"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Wert 6",
         "fr": "Valeur 6",
         "es": "Valor 6",
-        "ar": "Değer 6"
+        "ar": "القيمة 6"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki 6. değer",
         "tr": "Veri setindeki 6. değer",
         "de": "6. Wert im Datensatz",
         "fr": "6e valeur dans l'ensemble de données",
-        "es": "6.º valor del conjunto de datos"
+        "es": "6.º valor del conjunto de datos",
+        "ar": "القيمة السادسة في مجموعة البيانات"
       }
     }
   ],
   "formulas": {
-    "result": "value1 + value2 + value3",
-    "result_copy": "value1 + value2 + value3"
+    "normalized_product": "value1 * value2 * value3 * value4",
+    "result": "value1 * value2 * value3 * value4 * (value5 * value6)",
+    "adjustment_factor": "value5 * value6"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "q1",
-      "q3"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "q3",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

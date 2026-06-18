@@ -14,14 +14,15 @@
         "de": "Peck-Typ (0=US, 1=Imperial)",
         "fr": "Type de peck (0=US, 1=Impérial)",
         "es": "Tipo de Peck (0=US, 1=Imperial)",
-        "ar": "Peck Type (0=US, 1=Imperial)"
+        "ar": "نوع البيك (0=أمريكي، 1=إمبراطوري)"
       },
       "businessContext_i18n": {
         "en": "Select US or Imperial peck standard.",
         "tr": "ABD veya İmparatorluk peck standardını seçin.",
         "de": "Wählen Sie US- oder Imperial-Peck-Standard.",
         "fr": "Sélectionnez le standard de peck US ou Impérial.",
-        "es": "Seleccione el estándar de peck US o Imperial."
+        "es": "Seleccione el estándar de peck US o Imperial.",
+        "ar": "اختر معيار البيك الأمريكي أو الإمبراطوري."
       }
     },
     {
@@ -35,16 +36,17 @@
         "en": "Pecks",
         "tr": "Peck",
         "de": "Pecks",
-        "fr": "Pecks",
+        "fr": "Boisseaux",
         "es": "Pecks",
-        "ar": "Pecks"
+        "ar": "بيكات"
       },
       "businessContext_i18n": {
         "en": "Quantity of pecks to convert.",
         "tr": "Dönüştürülecek peck miktarı.",
         "de": "Menge der umzurechnenden Pecks.",
         "fr": "Quantité de pecks à convertir.",
-        "es": "Cantidad de pecks a convertir."
+        "es": "Cantidad de pecks a convertir.",
+        "ar": "عدد البيكات المراد تحويلها."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe.",
         "fr": "Nombre de décimales pour le résultat.",
-        "es": "Número de decimales para la salida."
+        "es": "Número de decimales para la salida.",
+        "ar": "عدد المنازل العشرية للمخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Unsicherheitsspanne (%)",
         "fr": "Marge d'incertitude (%)",
         "es": "Margen de incertidumbre (%)",
-        "ar": "Uncertainty Margin (%)"
+        "ar": "هامش عدم اليقين (%)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty margin for volume measurement (default 0%).",
         "tr": "Hacim ölçümü için belirsizlik payı (varsayılan %0).",
         "de": "Unsicherheitsspanne für Volumenmessung (Standard 0%).",
         "fr": "Marge d'incertitude pour la mesure de volume (par défaut 0%).",
-        "es": "Margen de incertidumbre para la medición de volumen (por defecto 0%)."
+        "es": "Margen de incertidumbre para la medición de volumen (por defecto 0%).",
+        "ar": "هامش عدم اليقين لقياس الحجم (الافتراضي 0%)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rundungsmodus (0=Runden, 1=Abrunden, 2=Aufrunden)",
         "fr": "Mode d'arrondi (0=Arrondi, 1=Plancher, 2=Plafond)",
         "es": "Modo de redondeo (0=Redondear, 1=Suelo, 2=Techo)",
-        "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+        "ar": "وضع التقريب (0=تقريب، 1=تقريب للأسفل، 2=تقريب للأعلى)"
       },
       "businessContext_i18n": {
         "en": "Rounding method for final output.",
         "tr": "Nihai çıktı için yuvarlama yöntemi.",
         "de": "Rundungsmethode für das Endergebnis.",
         "fr": "Méthode d'arrondi pour le résultat final.",
-        "es": "Método de redondeo para el resultado final."
+        "es": "Método de redondeo para el resultado final.",
+        "ar": "طريقة التقريب للمخرجات النهائية."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature for potential volume correction (if applicable).",
         "tr": "Olası hacim düzeltmesi için sıcaklık (varsa).",
         "de": "Temperatur für mögliche Volumenkorrektur (falls zutreffend).",
         "fr": "Température pour une éventuelle correction de volume (si applicable).",
-        "es": "Temperatura para posible corrección de volumen (si aplica)."
+        "es": "Temperatura para posible corrección de volumen (si aplica).",
+        "ar": "درجة الحرارة لتصحيح الحجم المحتمل (إذا كان ذلك مناسبًا)."
       }
     }
   ],

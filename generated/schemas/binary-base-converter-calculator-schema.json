@@ -14,14 +14,15 @@
         "de": "Dezimalzahl",
         "fr": "Nombre décimal",
         "es": "Número decimal",
-        "ar": "Decimal Number"
+        "ar": "رقم عشري"
       },
       "businessContext_i18n": {
         "en": "The integer number to convert to binary, octal, and hexadecimal.",
         "tr": "İkili, sekizli ve onaltılıya dönüştürülecek tam sayı.",
         "de": "Die ganze Zahl, die in Binär-, Oktal- und Hexadezimal umgewandelt werden soll.",
         "fr": "Le nombre entier à convertir en binaire, octal et hexadécimal.",
-        "es": "El número entero a convertir a binario, octal y hexadecimal."
+        "es": "El número entero a convertir a binario, octal y hexadecimal.",
+        "ar": "العدد الصحيح المراد تحويله إلى ثنائي وثماني وسداسي عشري."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Binärbits",
         "fr": "Bits binaires",
         "es": "Bits binarios",
-        "ar": "Binary Bits"
+        "ar": "بتات ثنائية"
       },
       "businessContext_i18n": {
         "en": "Number of bits for binary output (padded with leading zeros).",
         "tr": "İkili çıktı için bit sayısı (başa sıfır eklenir).",
         "de": "Anzahl der Bits für die binäre Ausgabe (mit führenden Nullen aufgefüllt).",
         "fr": "Nombre de bits pour la sortie binaire (complété par des zéros non significatifs).",
-        "es": "Número de bits para la salida binaria (rellenado con ceros a la izquierda)."
+        "es": "Número de bits para la salida binaria (rellenado con ceros a la izquierda).",
+        "ar": "عدد البتات للإخراج الثنائي (محشو بالأصفار البادئة)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Oktalstellen",
         "fr": "Chiffres octaux",
         "es": "Dígitos octales",
-        "ar": "Octal Digits"
+        "ar": "أرقام ثمانية"
       },
       "businessContext_i18n": {
         "en": "Number of digits for octal output.",
         "tr": "Sekizli çıktı için basamak sayısı.",
         "de": "Anzahl der Stellen für die oktale Ausgabe.",
         "fr": "Nombre de chiffres pour la sortie octale.",
-        "es": "Número de dígitos para la salida octal."
+        "es": "Número de dígitos para la salida octal.",
+        "ar": "عدد الأرقام للإخراج الثماني."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Hexadezimalstellen",
         "fr": "Chiffres hexadécimaux",
         "es": "Dígitos hexadecimales",
-        "ar": "Hexadecimal Digits"
+        "ar": "أرقام سداسية عشرية"
       },
       "businessContext_i18n": {
         "en": "Number of digits for hexadecimal output.",
         "tr": "Onaltılı çıktı için basamak sayısı.",
         "de": "Anzahl der Stellen für die hexadezimale Ausgabe.",
         "fr": "Nombre de chiffres pour la sortie hexadécimale.",
-        "es": "Número de dígitos para la salida hexadecimal."
+        "es": "Número de dígitos para la salida hexadecimal.",
+        "ar": "عدد الأرقام للإخراج السداسي عشري."
       }
     }
   ],
   "formulas": {
-    "result": "decimalValue + binaryBits + octalDigits",
-    "result_copy": "decimalValue + binaryBits + octalDigits"
+    "normalized_product": "decimalValue * binaryBits * octalDigits * hexDigits",
+    "result": "decimalValue * binaryBits * octalDigits * hexDigits"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "octal",
-      "hex",
-      "decimal"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "hex",
-    "unit": "bits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

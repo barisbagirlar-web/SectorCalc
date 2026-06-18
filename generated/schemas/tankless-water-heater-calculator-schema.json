@@ -14,14 +14,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Flow Rate"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of water through the heater",
         "tr": "Isıtıcıdan geçen suyun hacimsel debisi",
         "de": "Volumenstrom des Wassers durch den Heizer",
         "fr": "Débit volumétrique de l'eau à travers le chauffe-eau",
-        "es": "Caudal volumétrico de agua a través del calentador"
+        "es": "Caudal volumétrico de agua a través del calentador",
+        "ar": "معدل التدفق الحجمي للماء عبر السخان"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Eintrittstemperatur",
         "fr": "Température d'entrée",
         "es": "Temperatura de entrada",
-        "ar": "Inlet Temperature"
+        "ar": "درجة حرارة المدخل"
       },
       "businessContext_i18n": {
         "en": "Temperature of incoming cold water",
         "tr": "Gelen soğuk suyun sıcaklığı",
         "de": "Temperatur des einströmenden Kaltwassers",
         "fr": "Température de l'eau froide entrante",
-        "es": "Temperatura del agua fría de entrada"
+        "es": "Temperatura del agua fría de entrada",
+        "ar": "درجة حرارة الماء البارد الداخل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Austrittstemperatur",
         "fr": "Température de sortie",
         "es": "Temperatura de salida",
-        "ar": "Outlet Temperature"
+        "ar": "درجة حرارة المخرج"
       },
       "businessContext_i18n": {
         "en": "Desired temperature of hot water output",
         "tr": "Sıcak su çıkışının istenen sıcaklığı",
         "de": "Gewünschte Temperatur des Warmwasserauslasses",
         "fr": "Température souhaitée de l'eau chaude en sortie",
-        "es": "Temperatura deseada del agua caliente de salida"
+        "es": "Temperatura deseada del agua caliente de salida",
+        "ar": "درجة حرارة الماء الساخن المطلوبة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Heater thermal efficiency (0-100%)",
         "tr": "Isıtıcı termal verimliliği (%0-100)",
         "de": "Thermischer Wirkungsgrad des Heizgeräts (0-100%)",
         "fr": "Rendement thermique du chauffe-eau (0-100 %)",
-        "es": "Eficiencia térmica del calentador (0-100%)"
+        "es": "Eficiencia térmica del calentador (0-100%)",
+        "ar": "الكفاءة الحرارية للسخان (0-100%)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Energiekosten",
         "fr": "Coût énergétique",
         "es": "Coste energético",
-        "ar": "Energy Cost"
+        "ar": "تكلفة الطاقة"
       },
       "businessContext_i18n": {
         "en": "Cost of energy (electricity or gas) per kilowatt-hour",
         "tr": "Kilovat-saat başına enerji maliyeti (elektrik veya gaz)",
         "de": "Energiekosten (Strom oder Gas) pro Kilowattstunde",
         "fr": "Coût de l'énergie (électricité ou gaz) par kilowatt-heure",
-        "es": "Coste de la energía (electricidad o gas) por kilovatio-hora"
+        "es": "Coste de la energía (electricidad o gas) por kilovatio-hora",
+        "ar": "تكلفة الطاقة (كهرباء أو غاز) لكل كيلوواط ساعة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Tägliche Nutzung",
         "fr": "Utilisation quotidienne",
         "es": "Uso diario",
-        "ar": "Daily Usage"
+        "ar": "الاستخدام اليومي"
       },
       "businessContext_i18n": {
         "en": "Average daily duration of water heater operation",
         "tr": "Su ısıtıcısının ortalama günlük çalışma süresi",
         "de": "Durchschnittliche tägliche Betriebsdauer des Warmwasserbereiters",
         "fr": "Durée quotidienne moyenne de fonctionnement du chauffe-eau",
-        "es": "Duración media diaria de funcionamiento del calentador de agua"
+        "es": "Duración media diaria de funcionamiento del calentador de agua",
+        "ar": "متوسط مدة تشغيل سخان الماء يومياً"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Tage pro Monat",
         "fr": "Jours par mois",
         "es": "Días por mes",
-        "ar": "Days per Month"
+        "ar": "الأيام شهريًا"
       },
       "businessContext_i18n": {
         "en": "Number of days per month for cost estimation",
         "tr": "Maliyet tahmini için aylık gün sayısı",
         "de": "Anzahl der Tage pro Monat für die Kostenschätzung",
         "fr": "Nombre de jours par mois pour l'estimation du coût",
-        "es": "Número de días por mes para la estimación de costes"
+        "es": "Número de días por mes para la estimación de costes",
+        "ar": "عدد الأيام في الشهر لتقدير التكلفة"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Spezifische Wärme",
         "fr": "Chaleur spécifique",
         "es": "Calor específico",
-        "ar": "Specific Heat"
+        "ar": "الحرارة النوعية"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)",
         "tr": "Suyun özgül ısı kapasitesi (su için 4,186 kJ/(kg·°C))",
         "de": "Spezifische Wärmekapazität von Wasser (4,186 kJ/(kg·°C) für Wasser)",
         "fr": "Capacité thermique massique de l'eau (4,186 kJ/(kg·°C) pour l'eau)",
-        "es": "Capacidad calorífica específica del agua (4,186 kJ/(kg·°C) para el agua)"
+        "es": "Capacidad calorífica específica del agua (4,186 kJ/(kg·°C) para el agua)",
+        "ar": "السعة الحرارية النوعية للماء (4.186 كيلوجول/(كجم·°م) للماء)"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Transaktionsbetrag",
         "fr": "Montant de la transaction",
         "es": "Monto de la transacción",
-        "ar": "Transaction Amount"
+        "ar": "مبلغ المعاملة"
       },
       "businessContext_i18n": {
         "en": "The amount to be sent or received",
         "tr": "Gönderilecek veya alınacak tutar",
         "de": "Der zu sendende oder zu empfangende Betrag",
         "fr": "Le montant à envoyer ou à recevoir",
-        "es": "El monto a enviar o recibir"
+        "es": "El monto a enviar o recibir",
+        "ar": "المبلغ المرسل أو المستلم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Inlandsgebührenprozentsatz",
         "fr": "Pourcentage de frais domestiques",
         "es": "Porcentaje de tarifa nacional",
-        "ar": "Domestic Fee Percentage"
+        "ar": "نسبة رسوم المعاملات المحلية"
       },
       "businessContext_i18n": {
         "en": "PayPal's domestic transaction fee percentage",
         "tr": "PayPal yurt içi işlem ücreti yüzdesi",
         "de": "Prozentsatz der Inlandstransaktionsgebühr von PayPal",
         "fr": "Pourcentage des frais de transaction nationale PayPal",
-        "es": "Porcentaje de tarifa de transacción nacional de PayPal"
+        "es": "Porcentaje de tarifa de transacción nacional de PayPal",
+        "ar": "نسبة رسوم المعاملات المحلية في PayPal"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Feste Gebühr pro Transaktion",
         "fr": "Frais fixes par transaction",
         "es": "Tarifa fija por transacción",
-        "ar": "Fixed Fee per Transaction"
+        "ar": "الرسوم الثابتة لكل معاملة"
       },
       "businessContext_i18n": {
         "en": "Fixed fee added per domestic transaction",
         "tr": "Yurt içi işlem başına eklenen sabit ücret",
         "de": "Feste Gebühr, die pro Inlandstransaktion hinzugefügt wird",
         "fr": "Frais fixes ajoutés par transaction nationale",
-        "es": "Tarifa fija añadida por transacción nacional"
+        "es": "Tarifa fija añadida por transacción nacional",
+        "ar": "رسوم ثابتة تضاف لكل معاملة محلية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Internationale Transaktion (0=Nein, 1=Ja)",
         "fr": "Transaction internationale (0=Non, 1=Oui)",
         "es": "Transacción internacional (0=No, 1=Sí)",
-        "ar": "International Transaction (0=No, 1=Yes)"
+        "ar": "معاملة دولية (0=لا، 1=نعم)"
       },
       "businessContext_i18n": {
         "en": "Indicates if the transaction is cross-border",
         "tr": "İşlemin sınır ötesi olup olmadığını belirtir",
         "de": "Gibt an, ob die Transaktion grenzüberschreitend ist",
         "fr": "Indique si la transaction est transfrontalière",
-        "es": "Indica si la transacción es transfronteriza"
+        "es": "Indica si la transacción es transfronteriza",
+        "ar": "يشير إلى ما إذا كانت المعاملة عبر الحدود"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Internationale Gebühr in Prozent",
         "fr": "Pourcentage des frais internationaux",
         "es": "Porcentaje de tarifa internacional",
-        "ar": "International Fee Percentage"
+        "ar": "نسبة الرسوم الدولية"
       },
       "businessContext_i18n": {
         "en": "Additional fee percentage for international transactions",
         "tr": "Uluslararası işlemler için ek ücret yüzdesi",
         "de": "Zusätzliche Gebühr in Prozent für internationale Transaktionen",
         "fr": "Pourcentage de frais supplémentaires pour les transactions internationales",
-        "es": "Porcentaje de tarifa adicional para transacciones internacionales"
+        "es": "Porcentaje de tarifa adicional para transacciones internacionales",
+        "ar": "نسبة رسوم إضافية للمعاملات الدولية"
       }
     }
   ],

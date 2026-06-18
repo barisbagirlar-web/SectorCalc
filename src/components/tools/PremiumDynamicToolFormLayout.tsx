@@ -47,6 +47,7 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly onCalculate: () => void;
   readonly selectedStandard?: string;
   readonly onStandardChange?: (standardId: string) => void;
+  readonly showValidResultBadge?: boolean;
 };
 
 function buildFeedbackSnapshot(
@@ -106,6 +107,7 @@ export function PremiumDynamicToolFormLayout({
   onCalculate,
   selectedStandard,
   onStandardChange,
+  showValidResultBadge = false,
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
@@ -190,10 +192,13 @@ export function PremiumDynamicToolFormLayout({
               primaryOutputKey={primaryOutputKey}
               titleLabel={tPremium("calculatedValueTitle")}
               emptyLabel={t("clickToCompute")}
-              statusLabel={result ? tPremium("validStatus") : undefined}
+              statusLabel={result && showValidResultBadge ? tPremium("validStatus") : undefined}
               loading={loading}
               toolSlug={slug}
               userId={userId}
+              routePath={routePath}
+              toolType="premium"
+              inputSnapshot={inputSnapshot}
             />
           </div>
         </div>

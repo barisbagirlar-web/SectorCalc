@@ -13,14 +13,16 @@
         "tr": "Görüş Mesafesi",
         "de": "Betrachtungsabstand",
         "fr": "Distance de visualisation",
-        "es": "Görüş Mesafesi",
-        "ar": "Görüş Mesafesi"
+        "es": "Distancia de visualización",
+        "ar": "مسافة الرؤية"
       },
       "businessContext_i18n": {
         "en": "Gözlemci ile tabela/etiket arasındaki mesafe",
         "tr": "Gözlemci ile tabela/etiket arasındaki mesafe",
         "de": "Abstand zwischen Betrachter und Schild/Etikett",
-        "fr": "Distance entre l'observateur et le panneau/étiquette"
+        "fr": "Distance entre l'observateur et le panneau/étiquette",
+        "es": "Distancia entre el observador y el letrero/etiqueta",
+        "ar": "المسافة بين المراقب واللافتة/الملصق"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Yaş Faktörü",
         "de": "Altersfaktor",
         "fr": "Facteur d'âge",
-        "es": "Yaş Faktörü",
-        "ar": "Yaş Faktörü"
+        "es": "Factor de edad",
+        "ar": "عامل العمر"
       },
       "businessContext_i18n": {
         "en": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
         "tr": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
         "de": "Korrektur nach Altersgruppe (20-40:1, 40-55:1.2, 55+:1.4)",
-        "fr": "Correction selon la tranche d'âge (20-40:1, 40-55:1.2, 55+:1.4)"
+        "fr": "Correction selon la tranche d'âge (20-40:1, 40-55:1.2, 55+:1.4)",
+        "es": "Corrección según grupo de edad del usuario (20-40:1, 40-55:1.2, 55+:1.4)",
+        "ar": "تصحيح حسب الفئة العمرية للمستخدم (20-40:1، 40-55:1.2، 55+:1.4)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Aydınlatma Faktörü",
         "de": "Beleuchtungsfaktor",
         "fr": "Facteur d'éclairage",
-        "es": "Aydınlatma Faktörü",
-        "ar": "Aydınlatma Faktörü"
+        "es": "Factor de iluminación",
+        "ar": "عامل الإضاءة"
       },
       "businessContext_i18n": {
         "en": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
         "tr": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
         "de": "Korrektur nach Umgebungsbeleuchtung (hell:1, dunkel:1.5)",
-        "fr": "Correction selon les conditions d'éclairage ambiant (lumineux:1, faible:1.5)"
+        "fr": "Correction selon les conditions d'éclairage ambiant (lumineux:1, faible:1.5)",
+        "es": "Corrección según condiciones de iluminación ambiental (brillante:1, tenue:1.5)",
+        "ar": "تصحيح حسب ظروف الإضاءة المحيطة (ساطع:1، خافت:1.5)"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Faktörü"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
         "tr": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
         "de": "Korrektur nach Kritikalität (Information:1, Warnung:1.5, Gefahr:2)",
-        "fr": "Correction selon le niveau de criticité (information:1, avertissement:1.5, danger:2)"
+        "fr": "Correction selon le niveau de criticité (information:1, avertissement:1.5, danger:2)",
+        "es": "Corrección según nivel de criticidad (información:1, advertencia:1.5, peligro:2)",
+        "ar": "تصحيح حسب مستوى الأهمية (معلومات:1، تحذير:1.5، خطر:2)"
       }
     }
   ],

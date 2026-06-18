@@ -14,14 +14,15 @@
         "de": "BPM (Schläge/Zyklen pro Minute)",
         "fr": "BPM (Battements/Cycles par minute)",
         "es": "BPM (latidos/ciclos por minuto)",
-        "ar": "BPM (Beats/Cycles per Minute)"
+        "ar": "عدد النبضات/الدورات في الدقيقة (BPM)"
       },
       "businessContext_i18n": {
         "en": "Tempo or cycle rate of the process",
         "tr": "Sürecin tempo veya döngü hızı",
         "de": "Tempo oder Zyklusrate des Prozesses",
         "fr": "Tempo ou taux de cycle du processus",
-        "es": "Tempo o tasa de ciclo del proceso"
+        "es": "Tempo o tasa de ciclo del proceso",
+        "ar": "سرعة أو معدل دورة العملية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abtastrate",
         "fr": "Taux d'échantillonnage",
         "es": "Frecuencia de muestreo",
-        "ar": "Sample Rate"
+        "ar": "معدل العينة"
       },
       "businessContext_i18n": {
         "en": "Sampling frequency for digital measurement",
         "tr": "Dijital ölçüm için örnekleme frekansı",
         "de": "Abtastfrequenz für digitale Messung",
         "fr": "Fréquence d'échantillonnage pour la mesure numérique",
-        "es": "Frecuencia de muestreo para medición digital"
+        "es": "Frecuencia de muestreo para medición digital",
+        "ar": "تردد أخذ العينات للقياس الرقمي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Schläge/Zyklen",
         "fr": "Nombre de battements/cycles",
         "es": "Número de latidos/ciclos",
-        "ar": "Number of Beats/Cycles"
+        "ar": "عدد النبضات/الدورات"
       },
       "businessContext_i18n": {
         "en": "Number of beats or cycles to calculate duration for",
         "tr": "Süre hesaplanacak atım veya döngü sayısı",
         "de": "Anzahl der Schläge oder Zyklen zur Berechnung der Dauer",
         "fr": "Nombre de battements ou cycles pour calculer la durée",
-        "es": "Número de latidos o ciclos para calcular la duración"
+        "es": "Número de latidos o ciclos para calcular la duración",
+        "ar": "عدد النبضات أو الدورات لحساب المدة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Notenunterteilungs-Multiplikator",
         "fr": "Multiplicateur de division de temps",
         "es": "Multiplicador de división de tiempo",
-        "ar": "Beat Division Multiplier"
+        "ar": "مضاعف تقسيم النبضة"
       },
       "businessContext_i18n": {
         "en": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)",
         "tr": "Nota alt bölmeleri için çarpan (1=dörtlük, 2=sekizlik, 0.5=ikilik)",
         "de": "Multiplikator für Notenunterteilungen (1=Viertel, 2=Achtel, 0.5=Halb)",
         "fr": "Multiplicateur pour les subdivisions de note (1=noire, 2=croche, 0.5=blanche)",
-        "es": "Multiplicador para subdivisiones de nota (1=negra, 2=corchea, 0.5=blanca)"
+        "es": "Multiplicador para subdivisiones de nota (1=negra, 2=corchea, 0.5=blanca)",
+        "ar": "مضاعف التقسيمات الفرعية للنوتة (1=ربع، 2=ثمن، 0.5=نصف)"
       }
     }
   ],

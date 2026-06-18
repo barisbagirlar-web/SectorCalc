@@ -14,14 +14,15 @@
         "de": "Angewandte Kraft",
         "fr": "Force appliquée",
         "es": "Fuerza aplicada",
-        "ar": "Applied Force"
+        "ar": "القوة المطبقة"
       },
       "businessContext_i18n": {
         "en": "The external force acting on the component, e.g., tension, compression, or shear.",
         "tr": "Bileşene etki eden dış kuvvet, örn. çekme, basma veya kesme.",
         "de": "Die auf das Bauteil wirkende äußere Kraft, z. B. Zug, Druck oder Scherung.",
         "fr": "La force externe agissant sur le composant, par exemple tension, compression ou cisaillement.",
-        "es": "La fuerza externa que actúa sobre el componente, ej., tensión, compresión o cortante."
+        "es": "La fuerza externa que actúa sobre el componente, ej., tensión, compresión o cortante.",
+        "ar": "القوة الخارجية المؤثرة على المكون، مثل الشد أو الضغط أو القص."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
         "es": "Área de sección transversal",
-        "ar": "Cross-Sectional Area"
+        "ar": "مساحة المقطع العرضي"
       },
       "businessContext_i18n": {
         "en": "The effective cross-sectional area resisting the force.",
         "tr": "Kuvvete direnen etkili kesit alanı.",
         "de": "Die effektive Querschnittsfläche, die der Kraft widersteht.",
         "fr": "La section transversale effective résistant à la force.",
-        "es": "El área de sección transversal efectiva que resiste la fuerza."
+        "es": "El área de sección transversal efectiva que resiste la fuerza.",
+        "ar": "مساحة المقطع العرضي الفعالة المقاومة للقوة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Streckgrenze des Materials",
         "fr": "Limite d'élasticité du matériau",
         "es": "Límite elástico del material",
-        "ar": "Material Yield Strength"
+        "ar": "مقاومة الخضوع للمادة"
       },
       "businessContext_i18n": {
         "en": "Stress at which material begins to deform plastically, typically from material datasheet.",
         "tr": "Malzemenin plastik olarak deforme olmaya başladığı gerilim, genellikle malzeme veri sayfasından alınır.",
         "de": "Spannung, bei der das Material beginnt, sich plastisch zu verformen, typischerweise aus dem Datenblatt.",
         "fr": "Contrainte à laquelle le matériau commence à se déformer plastiquement, généralement issue de la fiche technique.",
-        "es": "Tensión a partir de la cual el material comienza a deformarse plásticamente, normalmente de la ficha técnica del material."
+        "es": "Tensión a partir de la cual el material comienza a deformarse plásticamente, normalmente de la ficha técnica del material.",
+        "ar": "الإجهاد الذي يبدأ عنده المادة في التشوه اللدن، عادة من ورقة بيانات المادة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zugfestigkeit",
         "fr": "Résistance ultime à la traction",
         "es": "Resistencia máxima a la tracción",
-        "ar": "Ultimate Tensile Strength"
+        "ar": "قوة الشد القصوى"
       },
       "businessContext_i18n": {
         "en": "Maximum stress material can withstand while being stretched or pulled before breaking.",
         "tr": "Malzemenin kırılmadan önce çekme veya germe sırasında dayanabileceği maksimum gerilim.",
         "de": "Maximale Spannung, die das Material beim Dehnen oder Ziehen aushält, bevor es bricht.",
         "fr": "Contrainte maximale que le matériau peut supporter en étant étiré ou tiré avant rupture.",
-        "es": "Tensión máxima que el material puede soportar al ser estirado o tirado antes de romperse."
+        "es": "Tensión máxima que el material puede soportar al ser estirado o tirado antes de romperse.",
+        "ar": "أقصى إجهاد يمكن للمادة تحمله أثناء الشد قبل الكسر."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Erforderlicher Sicherheitsfaktor",
         "fr": "Facteur de sécurité requis",
         "es": "Factor de seguridad requerido",
-        "ar": "Required Safety Factor"
+        "ar": "عامل الأمان المطلوب"
       },
       "businessContext_i18n": {
         "en": "The minimum allowable factor of safety as per design standards, used for pass/fail check.",
         "tr": "Tasarım standartlarına göre izin verilen minimum emniyet faktörü, geçer/kalır kontrolü için kullanılır.",
         "de": "Der minimal zulässige Sicherheitsfaktor gemäß Auslegungsnormen, verwendet für Bestanden/Nicht bestanden-Prüfung.",
         "fr": "Le facteur de sécurité minimal admissible selon les normes de conception, utilisé pour le contrôle succès/échec.",
-        "es": "El factor de seguridad mínimo permitido según las normas de diseño, utilizado para la verificación de aprobado/reprobado."
+        "es": "El factor de seguridad mínimo permitido según las normas de diseño, utilizado para la verificación de aprobado/reprobado.",
+        "ar": "أقل عامل أمان مسموح به وفقًا لمعايير التصميم، يُستخدم للتحقق من النجاح/الفشل."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Spannungskonzentrationsfaktor (Kt)",
         "fr": "Facteur de concentration de contrainte (Kt)",
         "es": "Factor de concentración de tensiones (Kt)",
-        "ar": "Stress Concentration Factor (Kt)"
+        "ar": "عامل تركيز الإجهاد (Kt)"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for geometric discontinuities. For basic analysis, set to 1.",
         "tr": "Geometrik süreksizlikleri hesaba katan faktör. Temel analiz için 1 olarak ayarlayın.",
         "de": "Faktor zur Berücksichtigung geometrischer Unstetigkeiten. Für einfache Analyse auf 1 setzen.",
         "fr": "Facteur tenant compte des discontinuités géométriques. Pour une analyse de base, définir à 1.",
-        "es": "Factor que tiene en cuenta las discontinuidades geométricas. Para un análisis básico, ajustar a 1."
+        "es": "Factor que tiene en cuenta las discontinuidades geométricas. Para un análisis básico, ajustar a 1.",
+        "ar": "عامل يأخذ في الاعتبار الانقطاعات الهندسية. للتحليل الأساسي، اضبط على 1."
       }
     }
   ],

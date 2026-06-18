@@ -14,13 +14,15 @@
         "de": "Wandbreite",
         "fr": "Largeur du mur",
         "es": "Ancho del muro",
-        "ar": "Wall Width"
+        "ar": "عرض الجدار"
       },
       "businessContext_i18n": {
         "en": "The horizontal length of the wall to cover.",
         "tr": "Kaplanacak duvarın yatay uzunluğu.",
         "de": "Die horizontale Länge der zu bedeckenden Wand.",
-        "fr": "Longueur horizontale du mur à couvrir."
+        "fr": "Longueur horizontale du mur à couvrir.",
+        "es": "Longitud horizontal del muro a cubrir.",
+        "ar": "الطول الأفقي للجدار المراد تغطيته"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
         "es": "Altura del muro",
-        "ar": "Wall Height"
+        "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
         "en": "The vertical height of the wall.",
         "tr": "Duvarın dikey yüksekliği.",
         "de": "Die vertikale Höhe der Wand.",
-        "fr": "Hauteur verticale du mur."
+        "fr": "Hauteur verticale du mur.",
+        "es": "Altura vertical del muro.",
+        "ar": "الارتفاع الرأسي للجدار"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Görünen Yüz",
         "de": "Sichtfläche",
         "fr": "Face exposée",
-        "es": "Exposed Face",
-        "ar": "Exposed Face"
+        "es": "Cara expuesta",
+        "ar": "الوجه المكشوف"
       },
       "businessContext_i18n": {
         "en": "The visible height of each siding board after overlapping, typically 4-8 inches.",
         "tr": "Her bir cephe kaplama levhasının bindirmeden sonra görünen yüksekliği, tipik olarak 4-8 inç.",
         "de": "Die sichtbare Höhe jeder Verkleidungsplatte nach Überlappung, typischerweise 4-8 Zoll.",
-        "fr": "Hauteur visible de chaque planche de bardage après recouvrement, généralement 4 à 8 pouces."
+        "fr": "Hauteur visible de chaque planche de bardage après recouvrement, généralement 4 à 8 pouces.",
+        "es": "La altura visible de cada tabla de revestimiento después del solapamiento, típicamente de 4 a 8 pulgadas.",
+        "ar": "الارتفاع المرئي لكل لوح تكسية بعد التداخل، عادة 4-8 بوصات"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Brettlänge",
         "fr": "Longueur de la lame",
         "es": "Longitud de la tabla",
-        "ar": "Board Length"
+        "ar": "طول اللوح"
       },
       "businessContext_i18n": {
         "en": "The length of each siding board.",
         "tr": "Her bir cephe kaplama levhasının uzunluğu.",
         "de": "Die Länge jeder Verkleidungsplatte.",
-        "fr": "Longueur de chaque planche de bardage."
+        "fr": "Longueur de chaque planche de bardage.",
+        "es": "La longitud de cada tabla de revestimiento.",
+        "ar": "طول كل لوح تكسية"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Extra material percentage to account for cuts and errors.",
         "tr": "Kesim ve hatalar için ekstra malzeme yüzdesi.",
         "de": "Zusätzlicher Materialanteil für Schnitte und Fehler.",
-        "fr": "Pourcentage de matière supplémentaire pour tenir compte des coupes et des erreurs."
+        "fr": "Pourcentage de matière supplémentaire pour tenir compte des coupes et des erreurs.",
+        "es": "Porcentaje de material extra para compensar cortes y errores.",
+        "ar": "نسبة المواد الإضافية لمراعاة القص والأخطاء"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Levha Başına Fiyat",
         "de": "Preis pro Brett",
         "fr": "Prix par panneau",
-        "es": "Price per Board",
-        "ar": "Price per Board"
+        "es": "Precio por tabla",
+        "ar": "سعر اللوح الواحد"
       },
       "businessContext_i18n": {
         "en": "Cost of one board.",
         "tr": "Bir levhanın maliyeti.",
         "de": "Kosten eines Brettes.",
-        "fr": "Coût d'un panneau."
+        "fr": "Coût d'un panneau.",
+        "es": "Costo de una tabla.",
+        "ar": "تكلفة اللوح الواحد"
       }
     }
   ],

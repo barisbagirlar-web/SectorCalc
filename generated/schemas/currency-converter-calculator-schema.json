@@ -14,14 +14,15 @@
         "de": "Quellbetrag",
         "fr": "Montant source",
         "es": "Monto de origen",
-        "ar": "Source Amount"
+        "ar": "المبلغ المصدر"
       },
       "businessContext_i18n": {
         "en": "Amount in original currency",
         "tr": "Orijinal para birimindeki tutar",
         "de": "Betrag in ursprünglicher Währung",
         "fr": "Montant dans la devise d'origine",
-        "es": "Monto en moneda original"
+        "es": "Monto en moneda original",
+        "ar": "المبلغ بالعملة الأصلية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wechselkurs",
         "fr": "Taux de change",
         "es": "Tipo de cambio",
-        "ar": "Exchange Rate"
+        "ar": "سعر الصرف"
       },
       "businessContext_i18n": {
         "en": "Rate converting source to target currency",
         "tr": "Kaynak para birimini hedef para birimine dönüştüren kur",
         "de": "Wechselkurs von Quell- in Zielwährung",
         "fr": "Taux de conversion de la devise source vers la devise cible",
-        "es": "Tasa de conversión de moneda origen a destino"
+        "es": "Tasa de conversión de moneda origen a destino",
+        "ar": "سعر الصرف من العملة المصدر إلى العملة الهدف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Feste Gebühr",
         "fr": "Frais fixes",
         "es": "Tarifa fija",
-        "ar": "Fixed Fee"
+        "ar": "الرسوم الثابتة"
       },
       "businessContext_i18n": {
         "en": "Flat transaction fee in source currency",
         "tr": "Kaynak para biriminde sabit işlem ücreti",
         "de": "Pauschale Transaktionsgebühr in Quellwährung",
         "fr": "Frais forfaitaires dans la devise source",
-        "es": "Tarifa plana en moneda de origen"
+        "es": "Tarifa plana en moneda de origen",
+        "ar": "رسوم المعاملة الثابتة بالعملة المصدر"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Prozentuale Gebühr",
         "fr": "Frais en pourcentage",
         "es": "Tarifa porcentual",
-        "ar": "Percentage Fee"
+        "ar": "النسبة المئوية للرسوم"
       },
       "businessContext_i18n": {
         "en": "Fee as decimal (e.g., 0.02 for 2%)",
         "tr": "Ondalık olarak ücret (ör. %2 için 0,02)",
         "de": "Gebühr als Dezimalzahl (z. B. 0,02 für 2 %)",
         "fr": "Frais sous forme décimale (ex. 0,02 pour 2%)",
-        "es": "Tarifa como decimal (ej., 0.02 para 2%)"
+        "es": "Tarifa como decimal (ej., 0.02 para 2%)",
+        "ar": "الرسوم كرقم عشري (مثال: 0.02 لـ 2%)"
       }
     }
   ],
   "formulas": {
-    "result": "sourceAmount + exchangeRate + fixedFee",
-    "result_copy": "sourceAmount + exchangeRate + fixedFee"
+    "normalized_product": "sourceAmount * exchangeRate * fixedFee * (percentageFee / 100)",
+    "result": "sourceAmount * exchangeRate * fixedFee * (percentageFee / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "netSourceAmount",
-      "totalFees"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalFees",
-    "unit": "EUR"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

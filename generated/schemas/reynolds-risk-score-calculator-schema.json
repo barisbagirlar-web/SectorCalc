@@ -14,14 +14,15 @@
         "de": "Alter (Jahre)",
         "fr": "Âge (années)",
         "es": "Edad (años)",
-        "ar": "Age (years)"
+        "ar": "العمر (سنوات)"
       },
       "businessContext_i18n": {
         "en": "Patient age",
         "tr": "Hasta yaşı",
         "de": "Patientenalter",
         "fr": "Âge du patient",
-        "es": "Edad del paciente"
+        "es": "Edad del paciente",
+        "ar": "عمر المريض"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Systolischer Blutdruck",
         "fr": "Pression artérielle systolique",
         "es": "Presión arterial sistólica",
-        "ar": "Systolic Blood Pressure"
+        "ar": "ضغط الدم الانقباضي"
       },
       "businessContext_i18n": {
         "en": "Treated or untreated systolic BP",
         "tr": "Tedavi edilmiş veya edilmemiş sistolik KB",
         "de": "Behandelter oder unbehandelter systolischer Blutdruck",
         "fr": "PAS traitée ou non traitée",
-        "es": "Presión arterial sistólica tratada o no tratada"
+        "es": "Presión arterial sistólica tratada o no tratada",
+        "ar": "ضغط الدم الانقباضي المعالج أو غير المعالج"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtcholesterin",
         "fr": "Cholestérol total",
         "es": "Colesterol total",
-        "ar": "Total Cholesterol"
+        "ar": "الكوليسترول الكلي"
       },
       "businessContext_i18n": {
         "en": "Fasting total cholesterol",
         "tr": "Açlık total kolesterol",
         "de": "Nüchtern-Gesamtcholesterin",
         "fr": "Cholestérol total à jeun",
-        "es": "Colesterol total en ayunas"
+        "es": "Colesterol total en ayunas",
+        "ar": "الكوليسترول الكلي الصائم"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "HDL-Cholesterin",
         "fr": "Cholestérol HDL",
         "es": "Colesterol HDL",
-        "ar": "HDL Cholesterol"
+        "ar": "كوليسترول HDL"
       },
       "businessContext_i18n": {
         "en": "Fasting HDL cholesterol",
         "tr": "Açlık HDL kolesterol",
         "de": "Nüchtern-HDL-Cholesterin",
         "fr": "Cholestérol HDL à jeun",
-        "es": "Colesterol HDL en ayunas"
+        "es": "Colesterol HDL en ayunas",
+        "ar": "كوليسترول HDL الصائم"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Raucher",
         "fr": "Fumeur",
         "es": "Fumador",
-        "ar": "Smoker"
+        "ar": "مدخن"
       },
       "businessContext_i18n": {
         "en": "Current smoker (1) or not (0)",
         "tr": "Mevcut sigara içicisi (1) veya değil (0)",
         "de": "Aktueller Raucher (1) oder nicht (0)",
         "fr": "Fumeur actuel (1) ou non (0)",
-        "es": "Fumador actual (1) o no (0)"
+        "es": "Fumador actual (1) o no (0)",
+        "ar": "مدخن حالي (1) أو لا (0)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Diabetiker",
         "fr": "Diabétique",
         "es": "Diabético",
-        "ar": "Diabetic"
+        "ar": "مصاب بالسكري"
       },
       "businessContext_i18n": {
         "en": "Diabetes diagnosis (1) or not (0)",
         "tr": "Diyabet tanısı (1) veya değil (0)",
         "de": "Diabetesdiagnose (1) oder nicht (0)",
         "fr": "Diagnostic de diabète (1) ou non (0)",
-        "es": "Diagnóstico de diabetes (1) o no (0)"
+        "es": "Diagnóstico de diabetes (1) o no (0)",
+        "ar": "تشخيص السكري (1) أو لا (0)"
       }
     },
     {
@@ -152,30 +158,39 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "0 = male, 1 = female",
         "tr": "0 = erkek, 1 = kadın",
         "de": "0 = männlich, 1 = weiblich",
         "fr": "0 = homme, 1 = femme",
-        "es": "0 = masculino, 1 = femenino"
+        "es": "0 = masculino, 1 = femenino",
+        "ar": "0 = ذكر، 1 = أنثى"
       }
     }
   ],
   "formulas": {
-    "result": "age + systolicBP + totalCholesterol",
-    "result_copy": "age + systolicBP + totalCholesterol"
+    "normalized_product": "age * systolicBP * totalCholesterol * hdl",
+    "result": "age * systolicBP * totalCholesterol * hdl * (smoker * diabetic * gender)",
+    "adjustment_factor": "smoker * diabetic * gender"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review inputs and verify results against site standards."
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "dataConfidenceAdjusted": "riskPercent_copy",
-    "unit": "years"
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

@@ -14,14 +14,15 @@
         "de": "Standard-Reduktionspotential (E°)",
         "fr": "Potentiel standard de réduction (E°)",
         "es": "Potencial de reducción estándar (E°)",
-        "ar": "Standard Reduction Potential (E°)"
+        "ar": "جهد الاختزال القياسي (E°)"
       },
       "businessContext_i18n": {
         "en": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C).",
         "tr": "Standart koşullar altında (1 M, 1 atm, 25°C) yarı reaksiyonun standart indirgenme potansiyeli.",
         "de": "Das Standard-Reduktionspotential der Halbreaktion unter Standardbedingungen (1 M, 1 atm, 25°C).",
         "fr": "Le potentiel standard de réduction de la demi-réaction dans des conditions standard (1 M, 1 atm, 25°C).",
-        "es": "Potencial de reducción estándar de la semirreacción en condiciones estándar (1 M, 1 atm, 25°C)."
+        "es": "Potencial de reducción estándar de la semirreacción en condiciones estándar (1 M, 1 atm, 25°C).",
+        "ar": "جهد الاختزال القياسي لنصف التفاعل تحت الظروف القياسية (1 M، 1 ضغط جوي، 25°م)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Temperatur (T)",
         "fr": "Température (T)",
         "es": "Temperatura (T)",
-        "ar": "Temperature (T)"
+        "ar": "درجة الحرارة (T)"
       },
       "businessContext_i18n": {
         "en": "Temperature in Kelvin.",
         "tr": "Kelvin cinsinden sıcaklık.",
         "de": "Temperatur in Kelvin.",
         "fr": "Température en Kelvin.",
-        "es": "Temperatura en Kelvin."
+        "es": "Temperatura en Kelvin.",
+        "ar": "درجة الحرارة بالكلفن."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der übertragenen Elektronen (n)",
         "fr": "Nombre d'électrons transférés (n)",
         "es": "Número de electrones transferidos (n)",
-        "ar": "Number of Electrons Transferred (n)"
+        "ar": "عدد الإلكترونات المنقولة (n)"
       },
       "businessContext_i18n": {
         "en": "Stoichiometric number of electrons in the half-reaction.",
         "tr": "Yarı reaksiyondaki elektronların stokiyometrik sayısı.",
         "de": "Stöchiometrische Anzahl der Elektronen in der Halbreaktion.",
         "fr": "Nombre stœchiométrique d'électrons dans la demi-réaction.",
-        "es": "Número estequiométrico de electrones en la semirreacción."
+        "es": "Número estequiométrico de electrones en la semirreacción.",
+        "ar": "عدد الإلكترونات المتكافئة في نصف التفاعل."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Konzentration der oxidierten Spezies [Ox]",
         "fr": "Concentration de l'espèce oxydée [Ox]",
         "es": "Concentración de especie oxidada [Ox]",
-        "ar": "Concentration of Oxidized Species [Ox]"
+        "ar": "تركيز الأنواع المؤكسدة [Ox]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the oxidized species (reactant).",
         "tr": "Yükseltgenmiş türün (reaktan) molar konsantrasyonu.",
         "de": "Molare Konzentration der oxidierten Spezies (Reaktant).",
         "fr": "Concentration molaire de l'espèce oxydée (réactif).",
-        "es": "Concentración molar de la especie oxidada (reactivo)."
+        "es": "Concentración molar de la especie oxidada (reactivo).",
+        "ar": "التركيز المولي للأنواع المؤكسدة (المتفاعلة)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Konzentration der reduzierten Spezies [Red]",
         "fr": "Concentration de l'espèce réduite [Red]",
         "es": "Concentración de especie reducida [Red]",
-        "ar": "Concentration of Reduced Species [Red]"
+        "ar": "تركيز الأنواع المختزلة [Red]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the reduced species (product).",
         "tr": "İndirgenmiş türün molar konsantrasyonu (ürün).",
         "de": "Molare Konzentration der reduzierten Spezies (Produkt).",
         "fr": "Concentration molaire de l'espèce réduite (produit).",
-        "es": "Concentración molar de la especie reducida (producto)."
+        "es": "Concentración molar de la especie reducida (producto).",
+        "ar": "التركيز المولي للأنواع المختزلة (الناتجة)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Stöchiometrischer Koeffizient der oxidierten Spezies (a)",
         "fr": "Coefficient stœchiométrique de l'espèce oxydée (a)",
         "es": "Coeficiente estequiométrico de especie oxidada (a)",
-        "ar": "Stoichiometric Coefficient of Oxidized Species (a)"
+        "ar": "معامل العناصر المتكافئة للأنواع المؤكسدة (a)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed.",
         "tr": "Dengeli yarı reaksiyondaki yükseltgenmiş türün katsayısı: aOx + ne- → bRed.",
         "de": "Koeffizient für die oxidierte Spezies in der ausgeglichenen Halbreaktion: aOx + ne- → bRed.",
         "fr": "Coefficient pour l'espèce oxydée dans la demi-réaction équilibrée : aOx + ne- → bRed.",
-        "es": "Coeficiente de la especie oxidada en la semirreacción balanceada: aOx + ne- → bRed."
+        "es": "Coeficiente de la especie oxidada en la semirreacción balanceada: aOx + ne- → bRed.",
+        "ar": "معامل الأنواع المؤكسدة في نصف التفاعل المتوازن: aOx + ne- → bRed."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Stöchiometrischer Koeffizient der reduzierten Spezies (b)",
         "fr": "Coefficient stœchiométrique de l'espèce réduite (b)",
         "es": "Coeficiente estequiométrico de especie reducida (b)",
-        "ar": "Stoichiometric Coefficient of Reduced Species (b)"
+        "ar": "معامل العناصر المتكافئة للأنواع المختزلة (b)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for the reduced species in the balanced half-reaction.",
         "tr": "Dengeli yarı reaksiyondaki indirgenmiş türün katsayısı.",
         "de": "Koeffizient für die reduzierte Spezies in der ausgeglichenen Halbreaktion.",
         "fr": "Coefficient pour l'espèce réduite dans la demi-réaction équilibrée.",
-        "es": "Coeficiente de la especie reducida en la semirreacción balanceada."
+        "es": "Coeficiente de la especie reducida en la semirreacción balanceada.",
+        "ar": "معامل الأنواع المختزلة في نصف التفاعل المتوازن."
       }
     }
   ],

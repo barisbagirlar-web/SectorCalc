@@ -14,14 +14,15 @@
         "de": "Stützweite",
         "fr": "Longueur de la portée",
         "es": "Longitud del vano",
-        "ar": "Span Length"
+        "ar": "طول الامتداد"
       },
       "businessContext_i18n": {
         "en": "Clear span of the beam between supports",
         "tr": "Destekler arasındaki kirişin açıklığı",
         "de": "Lichte Spannweite des Trägers zwischen den Auflagern",
         "fr": "Portée libre de la poutre entre les supports",
-        "es": "Luz libre de la viga entre apoyos"
+        "es": "Luz libre de la viga entre apoyos",
+        "ar": "الامتداد الصافي للعارضة بين الدعامات"
       }
     },
     {
@@ -37,13 +38,15 @@
         "de": "Gleichmäßige Last",
         "fr": "Charge uniforme",
         "es": "Carga uniforme",
-        "ar": "Uniform Load"
+        "ar": "الحمل المنتظم"
       },
       "businessContext_i18n": {
         "en": "Total uniformly distributed load (dead + live)",
         "tr": "Toplam düzgün yayılı yük (ölü + hareketli)",
         "de": "Gesamte gleichmäßig verteilte Last (Eigenlast + Nutzlast)",
-        "fr": "Charge totale uniformément répartie (permanente + d'exploitation)"
+        "fr": "Charge totale uniformément répartie (permanente + d'exploitation)",
+        "es": "Carga total uniformemente distribuida (muerta + viva)",
+        "ar": "الحمل الكلي الموزع بشكل منتظم (ميت + حي)"
       }
     },
     {
@@ -59,13 +62,15 @@
         "de": "Balkenbreite",
         "fr": "Largeur de la poutre",
         "es": "Ancho de la viga",
-        "ar": "Beam Width"
+        "ar": "عرض الكمرة"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the beam",
         "tr": "Kirişin enine kesit genişliği",
         "de": "Querschnittsbreite des Balkens",
-        "fr": "Largeur de la section transversale de la poutre"
+        "fr": "Largeur de la section transversale de la poutre",
+        "es": "Ancho de la sección transversal de la viga",
+        "ar": "العرض المقطعي للعارضة"
       }
     },
     {
@@ -81,13 +86,15 @@
         "de": "Balkenhöhe",
         "fr": "Hauteur de la poutre",
         "es": "Profundidad de la viga",
-        "ar": "Beam Depth"
+        "ar": "عمق العارضة"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional depth of the beam",
         "tr": "Kirişin enine kesit derinliği",
         "de": "Querschnittshöhe des Balkens",
-        "fr": "Hauteur de la section transversale de la poutre"
+        "fr": "Hauteur de la section transversale de la poutre",
+        "es": "Altura de la sección transversal de la viga",
+        "ar": "العمق المقطعي للعارضة"
       }
     },
     {
@@ -103,13 +110,15 @@
         "de": "Elastizitätsmodul (E)",
         "fr": "Module d'élasticité (E)",
         "es": "Módulo de elasticidad (E)",
-        "ar": "Modulus of Elasticity (E)"
+        "ar": "معامل المرونة (E)"
       },
       "businessContext_i18n": {
         "en": "Modulus of elasticity of the wood species",
         "tr": "Ahşap türünün elastisite modülü",
         "de": "Elastizitätsmodul der Holzart",
-        "fr": "Module d'élasticité de l'essence de bois"
+        "fr": "Module d'élasticité de l'essence de bois",
+        "es": "Módulo de elasticidad de la especie de madera",
+        "ar": "معامل مرونة نوع الخشب"
       }
     },
     {
@@ -124,14 +133,16 @@
         "tr": "İzin Verilen Eğilme Gerilmesi (Fb)",
         "de": "Zulässige Biegespannung (Fb)",
         "fr": "Contrainte de flexion admissible (Fb)",
-        "es": "Allowable Bending Stress (Fb)",
-        "ar": "Allowable Bending Stress (Fb)"
+        "es": "Esfuerzo admisible a flexión (Fb)",
+        "ar": "إجهاد الانحناء المسموح (Fb)"
       },
       "businessContext_i18n": {
         "en": "Allowable bending stress for the wood beam",
         "tr": "Ahşap kiriş için izin verilen eğilme gerilmesi",
         "de": "Zulässige Biegespannung für den Holzbalken",
-        "fr": "Contrainte de flexion admissible pour la poutre en bois"
+        "fr": "Contrainte de flexion admissible pour la poutre en bois",
+        "es": "Esfuerzo admisible a flexión para la viga de madera",
+        "ar": "إجهاد الانحناء المسموح للعارضة الخشبية"
       }
     }
   ],

@@ -10,17 +10,19 @@
       "businessContext": "Torusun merkezinden tüp merkezine olan mesafe",
       "label_i18n": {
         "en": "Büyük Yarıçap (R)",
-        "tr": "Büyük Yarıçap (R)",
+        "tr": "Sonuç gösteriminde istenen ondalık hane sayısı.",
         "de": "Großer Radius (R)",
         "fr": "Grand rayon (R)",
-        "es": "Büyük Yarıçap (R)",
-        "ar": "Büyük Yarıçap (R)"
+        "es": "Radio mayor (R)",
+        "ar": "نصف القطر الكبير (R)"
       },
       "businessContext_i18n": {
         "en": "Torusun merkezinden tüp merkezine olan mesafe",
-        "tr": "Torusun merkezinden tüp merkezine olan mesafe",
+        "tr": "Kalibrasyon Ofseti (psi)",
         "de": "Abstand vom Torusmittelpunkt zur Rohrmitte",
-        "fr": "Distance du centre du tore au centre du tube"
+        "fr": "Distance du centre du tore au centre du tube",
+        "es": "Distancia desde el centro del toro hasta el centro del tubo",
+        "ar": "المسافة من مركز الطارة إلى مركز الأنبوب"
       }
     },
     {
@@ -32,17 +34,19 @@
       "businessContext": "Tüpün yarıçapı",
       "label_i18n": {
         "en": "Küçük Yarıçap (r)",
-        "tr": "Küçük Yarıçap (r)",
+        "tr": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
         "de": "Kleiner Radius (r)",
         "fr": "Petit rayon (r)",
-        "es": "Küçük Yarıçap (r)",
-        "ar": "Küçük Yarıçap (r)"
+        "es": "Radio menor (r)",
+        "ar": "نصف القطر الصغير (r)"
       },
       "businessContext_i18n": {
         "en": "Tüpün yarıçapı",
-        "tr": "Tüpün yarıçapı",
+        "tr": "Büyük Yarıçap (R)",
         "de": "Radius des Rohrs",
-        "fr": "Rayon du tube"
+        "fr": "Rayon du tube",
+        "es": "Radio del tubo",
+        "ar": "نصف قطر الأنبوب"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
-        "ar": "Malzeme Yoğunluğu"
+        "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
         "en": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
         "tr": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
         "de": "Optional für Gewichtsberechnung; bei 0 wird es übersprungen",
-        "fr": "Optionnel pour le calcul du poids ; ignoré si 0"
+        "fr": "Optionnel pour le calcul du poids ; ignoré si 0",
+        "es": "Opcional para cálculo de peso; 0 para omitir",
+        "ar": "اختياري لحساب الوزن؛ 0 للتجاهل"
       }
     },
     {
@@ -80,32 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Ondalık Basamak"
+        "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Sonuçlarda gösterilecek ondalık basamak sayısı",
         "tr": "Sonuçlarda gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der in den Ergebnissen anzuzeigenden Dezimalstellen",
-        "fr": "Nombre de décimales à afficher dans les résultats"
+        "fr": "Nombre de décimales à afficher dans les résultats",
+        "es": "Número de decimales a mostrar en los resultados",
+        "ar": "عدد المنازل العشرية المعروضة في النتائج"
       }
     }
   ],
   "formulas": {
-    "result": "majorRadius + minorRadius + density",
-    "result_copy": "majorRadius + minorRadius + density"
+    "normalized_product": "majorRadius * minorRadius * density * precision",
+    "result": "majorRadius * minorRadius * density * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "surfaceArea",
-      "mass"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "mass",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

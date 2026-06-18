@@ -14,14 +14,15 @@
         "de": "Nachlasswert",
         "fr": "Valeur de la succession",
         "es": "Valor del patrimonio",
-        "ar": "Estate Value"
+        "ar": "قيمة التركة"
       },
       "businessContext_i18n": {
         "en": "Total market value of all assets in the estate",
         "tr": "Emlaktaki tüm varlıkların toplam piyasa değeri",
         "de": "Gesamtmarktwert aller Vermögenswerte im Nachlass",
         "fr": "Valeur totale de marché de tous les actifs de la succession",
-        "es": "Valor total de mercado de todos los activos en el patrimonio"
+        "es": "Valor total de mercado de todos los activos en el patrimonio",
+        "ar": "إجمالي القيمة السوقية لجميع الأصول في التركة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bestattungskosten",
         "fr": "Frais funéraires",
         "es": "Gastos funerarios",
-        "ar": "Funeral Expenses"
+        "ar": "مصاريف الجنازة"
       },
       "businessContext_i18n": {
         "en": "Funeral and burial expenses deductible from the estate",
         "tr": "Emlaktan düşülebilecek cenaze ve defin masrafları",
         "de": "Bestattungs- und Grabkosten, die vom Nachlass abgezogen werden können",
         "fr": "Frais funéraires et d'inhumation déductibles de la succession",
-        "es": "Gastos de funeral y entierro deducibles del patrimonio"
+        "es": "Gastos de funeral y entierro deducibles del patrimonio",
+        "ar": "مصاريف الجنازة والدفن القابلة للخصم من التركة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Schulden und Verbindlichkeiten",
         "fr": "Dettes et passifs",
         "es": "Deudas y Pasivos",
-        "ar": "Debts and Liabilities"
+        "ar": "الديون والالتزامات"
       },
       "businessContext_i18n": {
         "en": "Outstanding debts and liabilities of the deceased",
         "tr": "Merhumun ödenmemiş borçları ve yükümlülükleri",
         "de": "Ausstehende Schulden und Verbindlichkeiten des Verstorbenen",
         "fr": "Dettes et passifs impayés du défunt",
-        "es": "Deudas y pasivos pendientes del fallecido"
+        "es": "Deudas y pasivos pendientes del fallecido",
+        "ar": "الديون والالتزامات المستحقة على المتوفى"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Steuerfreier Freibetrag",
         "fr": "Abattement fiscal",
         "es": "Exención fiscal",
-        "ar": "Tax-Free Allowance"
+        "ar": "الإعفاء الضريبي"
       },
       "businessContext_i18n": {
         "en": "Tax-free threshold or nil-rate band",
         "tr": "Vergisiz eşik veya sıfır oranlı bant",
         "de": "Steuerfreibetrag oder Null-Prozent-Satz",
         "fr": "Seuil d'exonération ou tranche à taux zéro",
-        "es": "Umbral exento de impuestos o banda sin tasa"
+        "es": "Umbral exento de impuestos o banda sin tasa",
+        "ar": "الحد المعفى من الضريبة أو الشريحة الصفرية"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Steuersatz",
         "fr": "Taux de taxe",
         "es": "Tasa de impuesto",
-        "ar": "Tax Rate"
+        "ar": "نسبة الضريبة"
       },
       "businessContext_i18n": {
         "en": "Effective inheritance tax rate in percentage",
         "tr": "Etkin veraset vergisi oranı yüzde olarak",
         "de": "Effektiver Erbschaftssteuersatz in Prozent",
         "fr": "Taux effectif de l'impôt sur les successions en pourcentage",
-        "es": "Tasa efectiva del impuesto a la herencia en porcentaje"
+        "es": "Tasa efectiva del impuesto a la herencia en porcentaje",
+        "ar": "معدل ضريبة الميراث الفعلي بالنسبة المئوية"
       }
     }
   ],
   "formulas": {
-    "result": "estateValue + funeralExpenses + debts",
-    "result_copy": "estateValue + funeralExpenses + debts"
+    "normalized_product": "estateValue * funeralExpenses * debts * taxAllowance",
+    "result": "estateValue * funeralExpenses * debts * taxAllowance * ((taxRate / 100))",
+    "adjustment_factor": "(taxRate / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "taxableEstate",
-      "inheritanceTax"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "inheritanceTax",
-    "unit": "currency"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

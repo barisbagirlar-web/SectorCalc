@@ -11,16 +11,18 @@
       "label_i18n": {
         "en": "Süre (Saat)",
         "tr": "Süre (Saat)",
-        "de": "Süre (Saat)",
+        "de": "Dauer (Stunden)",
         "fr": "Durée (heures)",
-        "es": "Süre (Saat)",
-        "ar": "Süre (Saat)"
+        "es": "Duración (Horas)",
+        "ar": "المدة (ساعة)"
       },
       "businessContext_i18n": {
         "en": "Antrenman süresinin saat cinsinden kısmı.",
         "tr": "Antrenman süresinin saat cinsinden kısmı.",
-        "de": "Antrenman süresinin saat cinsinden kısmı.",
-        "fr": "Partie de la durée d'entraînement en heures."
+        "de": "Anteil der Trainingsdauer in Stunden.",
+        "fr": "Partie de la durée d'entraînement en heures.",
+        "es": "Parte de la duración del entrenamiento en horas.",
+        "ar": "جزء مدة التمرين بالساعات."
       }
     },
     {
@@ -33,16 +35,18 @@
       "label_i18n": {
         "en": "Süre (Dakika)",
         "tr": "Süre (Dakika)",
-        "de": "Süre (Dakika)",
+        "de": "Dauer (Minuten)",
         "fr": "Durée (minutes)",
-        "es": "Süre (Dakika)",
-        "ar": "Süre (Dakika)"
+        "es": "Duración (Minutos)",
+        "ar": "المدة (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Antrenman süresinin dakika cinsinden kısmı.",
         "tr": "Antrenman süresinin dakika cinsinden kısmı.",
-        "de": "Antrenman süresinin dakika cinsinden kısmı.",
-        "fr": "Partie de la durée d'entraînement en minutes."
+        "de": "Anteil der Trainingsdauer in Minuten.",
+        "fr": "Partie de la durée d'entraînement en minutes.",
+        "es": "Parte de la duración del entrenamiento en minutos.",
+        "ar": "جزء مدة التمرين بالدقائق."
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Fonksiyonel Eşik Güç (FTP)",
         "tr": "Fonksiyonel Eşik Güç (FTP)",
-        "de": "Fonksiyonel Eşik Güç (FTP)",
+        "de": "Funktionelle Leistungsschwelle (FTP)",
         "fr": "Puissance au seuil fonctionnel (FTP)",
-        "es": "Fonksiyonel Eşik Güç (FTP)",
-        "ar": "Fonksiyonel Eşik Güç (FTP)"
+        "es": "Umbral de potencia funcional (FTP)",
+        "ar": "قدرة العتبة الوظيفية (FTP)"
       },
       "businessContext_i18n": {
         "en": "Sporcunun fonksiyonel eşik gücü (watt).",
         "tr": "Sporcunun fonksiyonel eşik gücü (watt).",
-        "de": "Sporcunun fonksiyonel eşik gücü (watt).",
-        "fr": "Puissance au seuil fonctionnel du sportif (watts)."
+        "de": "Funktionelle Leistungsschwelle des Athleten (Watt).",
+        "fr": "Puissance au seuil fonctionnel du sportif (watts).",
+        "es": "Potencia umbral funcional del atleta (vatios).",
+        "ar": "قدرة العتبة الوظيفية للرياضي (واط)."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Normalisierte Leistung (NP)",
         "fr": "Puissance normalisée (NP)",
         "es": "Potencia Normalizada (NP)",
-        "ar": "Normalize Güç (NP)"
+        "ar": "القوة الطبيعية (NP)"
       },
       "businessContext_i18n": {
         "en": "Antrenman seansının normalize gücü (watt).",
         "tr": "Antrenman seansının normalize gücü (watt).",
-        "de": "Antrenman seansının normalize gücü (watt).",
-        "fr": "Puissance normalisée de la séance d'entraînement (watts)."
+        "de": "Normalisierte Leistung der Trainingseinheit (Watt).",
+        "fr": "Puissance normalisée de la séance d'entraînement (watts).",
+        "es": "Potencia normalizada de la sesión de entrenamiento (vatios).",
+        "ar": "القوة المعيارية لجلسة التمرين (واط)."
       }
     }
   ],

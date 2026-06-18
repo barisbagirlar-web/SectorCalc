@@ -14,13 +14,15 @@
         "de": "Lastmasse",
         "fr": "Masse de la charge",
         "es": "Masa de carga",
-        "ar": "Yük Kütlesi"
+        "ar": "كتلة الحمولة"
       },
       "businessContext_i18n": {
         "en": "Kaldırılacak ana yükün kütlesi (rigging hariç).",
         "tr": "Kaldırılacak ana yükün kütlesi (rigging hariç).",
         "de": "Masse der zu hebenden Hauptlast (ohne Rigging).",
-        "fr": "Masse de la charge principale à lever (hors gréement)."
+        "fr": "Masse de la charge principale à lever (hors gréement).",
+        "es": "Masa de la carga principal a levantar (excluyendo rigging).",
+        "ar": "كتلة الحمولة الرئيسية المراد رفعها (باستثناء معدات الرفع)."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Erdbeschleunigung",
         "fr": "Accélération gravitationnelle",
         "es": "Aceleración gravitacional",
-        "ar": "Yerçekimi İvmesi"
+        "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Yerel yerçekimi ivmesi değeri.",
         "tr": "Yerel yerçekimi ivmesi değeri.",
         "de": "Lokaler Erdbeschleunigungswert.",
-        "fr": "Valeur de l'accélération gravitationnelle locale."
+        "fr": "Valeur de l'accélération gravitationnelle locale.",
+        "es": "Valor de aceleración gravitacional local.",
+        "ar": "قيمة تسارع الجاذبية المحلية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Güvenlik Katsayısı"
+        "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Standartlara uygun güvenlik faktörü (EN 13001 vb.).",
         "tr": "Standartlara uygun güvenlik faktörü (EN 13001 vb.).",
         "de": "Sicherheitsfaktor gemäß Normen (EN 13001 usw.).",
-        "fr": "Facteur de sécurité conforme aux normes (EN 13001, etc.)."
+        "fr": "Facteur de sécurité conforme aux normes (EN 13001, etc.).",
+        "es": "Factor de seguridad según normas (EN 13001, etc.).",
+        "ar": "عامل الأمان القياسي (EN 13001 إلخ)."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Ek Yük (Rigging)",
         "de": "Zusatzlast (Rigging)",
         "fr": "Charge supplémentaire (gréement)",
-        "es": "Ek Yük (Rigging)",
-        "ar": "Ek Yük (Rigging)"
+        "es": "Carga adicional (rigging)",
+        "ar": "الحمولة الإضافية (معدات الرفع)"
       },
       "businessContext_i18n": {
         "en": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi.",
         "tr": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi.",
         "de": "Gesamtmasse von Anschlagmitteln, Haken, Traversen usw.",
-        "fr": "Masse totale des élingues, crochets, traverses, etc."
+        "fr": "Masse totale des élingues, crochets, traverses, etc.",
+        "es": "Masa total de equipos como eslingas, ganchos, travesaños.",
+        "ar": "الكتلة الإجمالية للمعدات مثل الحبال والخطافات والعوارض."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Kaldırma İvmesi",
         "de": "Hebebeschleunigung",
         "fr": "Accélération de levage",
-        "es": "Kaldırma İvmesi",
-        "ar": "Kaldırma İvmesi"
+        "es": "Aceleración de elevación",
+        "ar": "تسارع الرفع"
       },
       "businessContext_i18n": {
         "en": "Kaldırma sırasındaki ivme (dinamik yük etkisi).",
         "tr": "Kaldırma sırasındaki ivme (dinamik yük etkisi).",
         "de": "Beschleunigung während des Hebens (dynamische Lastwirkung).",
-        "fr": "Accélération pendant le levage (effet de charge dynamique)."
+        "fr": "Accélération pendant le levage (effet de charge dynamique).",
+        "es": "Aceleración durante la elevación (efecto de carga dinámica).",
+        "ar": "التسارع أثناء الرفع (تأثير الحمولة الديناميكية)."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
-        "es": "Sürtünme Katsayısı",
-        "ar": "Sürtünme Katsayısı"
+        "es": "Coeficiente de fricción",
+        "ar": "معامل الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı.",
         "tr": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı.",
         "de": "Reibungsverlustkoeffizient im Hebemechanismus.",
-        "fr": "Coefficient de perte par frottement dans le mécanisme de levage."
+        "fr": "Coefficient de perte par frottement dans le mécanisme de levage.",
+        "es": "Coeficiente de pérdida por fricción en el mecanismo de elevación.",
+        "ar": "معامل فقد الاحتكاك في آلية الرفع."
       }
     }
   ],

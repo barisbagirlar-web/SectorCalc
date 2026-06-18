@@ -14,14 +14,15 @@
         "de": "Funktion f(x)",
         "fr": "Fonction f(x)",
         "es": "Función f(x)",
-        "ar": "Function f(x)"
+        "ar": "الدالة f(x)"
       },
       "businessContext_i18n": {
         "en": "Mathematical function to expand",
         "tr": "Açılacak matematiksel fonksiyon",
         "de": "Mathematische Funktion zum Entwickeln",
         "fr": "Fonction mathématique à développer",
-        "es": "Función matemática a expandir"
+        "es": "Función matemática a expandir",
+        "ar": "الدالة الرياضية المراد توسيعها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Entwicklungspunkt a",
         "fr": "Centre a",
         "es": "Centro a",
-        "ar": "Center a"
+        "ar": "مركز التوسع a"
       },
       "businessContext_i18n": {
         "en": "Expansion point (Maclaurin if a=0)",
         "tr": "Açılım noktası (a=0 ise Maclaurin)",
         "de": "Entwicklungspunkt (Maclaurin wenn a=0)",
         "fr": "Point de développement (Maclaurin si a=0)",
-        "es": "Punto de expansión (Maclaurin si a=0)"
+        "es": "Punto de expansión (Maclaurin si a=0)",
+        "ar": "نقطة التوسع (ماكلورين إذا a=0)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Auswertungspunkt x",
         "fr": "Point d'évaluation x",
         "es": "Punto de evaluación x",
-        "ar": "Evaluation point x"
+        "ar": "نقطة التقييم x"
       },
       "businessContext_i18n": {
         "en": "Point at which series is evaluated",
         "tr": "Serinin değerlendirildiği nokta",
         "de": "Punkt, an dem die Reihe ausgewertet wird",
         "fr": "Point auquel la série est évaluée",
-        "es": "Punto en el que se evalúa la serie"
+        "es": "Punto en el que se evalúa la serie",
+        "ar": "النقطة التي يتم عندها تقييم المتسلسلة"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Anzahl der Terme n",
         "fr": "Nombre de termes n",
         "es": "Número de términos n",
-        "ar": "Number of terms n"
+        "ar": "عدد الحدود n"
       },
       "businessContext_i18n": {
         "en": "Number of terms in the series",
         "tr": "Serideki terim sayısı",
         "de": "Anzahl der Terme in der Reihe",
         "fr": "Nombre de termes dans la série",
-        "es": "Número de términos en la serie"
+        "es": "Número de términos en la serie",
+        "ar": "عدد الحدود في المتسلسلة"
       }
     }
   ],
   "formulas": {
-    "result": "function + center + x_value",
-    "result_aux": "function + center + x_value"
+    "normalized_product": "function * center * x_value * terms",
+    "result": "function * center * x_value * terms"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "exact",
-      "error"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "error",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

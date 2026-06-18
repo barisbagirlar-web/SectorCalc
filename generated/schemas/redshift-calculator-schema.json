@@ -13,15 +13,16 @@
         "tr": "Gözlenen Dalga Boyu",
         "de": "Beobachtete Wellenlänge",
         "fr": "Longueur d'onde observée",
-        "es": "Observed Wavelength",
-        "ar": "Observed Wavelength"
+        "es": "Longitud de onda observada",
+        "ar": "الطول الموجي المرصود"
       },
       "businessContext_i18n": {
         "en": "Measured wavelength of the spectral line from the astronomical source",
         "tr": "Astronomik kaynaktan ölçülen tayf çizgisinin dalga boyu",
         "de": "Gemessene Wellenlänge der Spektrallinie von der astronomischen Quelle",
         "fr": "Longueur d'onde mesurée de la raie spectrale de la source astronomique",
-        "es": "Measured wavelength of the spectral line from the astronomical source"
+        "es": "Longitud de onda medida de la línea espectral de la fuente astronómica",
+        "ar": "الطول الموجي المقاس للخط الطيفي من المصدر الفلكي"
       }
     },
     {
@@ -36,15 +37,16 @@
         "tr": "Yayımlanan Dalga Boyu",
         "de": "Emittierte Wellenlänge",
         "fr": "Longueur d'onde émise",
-        "es": "Emitted Wavelength",
-        "ar": "Emitted Wavelength"
+        "es": "Longitud de onda emitida",
+        "ar": "الطول الموجي المنبعث"
       },
       "businessContext_i18n": {
         "en": "Rest wavelength of the same spectral line (e.g., Hα = 656.3 nm)",
         "tr": "Aynı tayf çizgisinin durgun dalga boyu (ör. Hα = 656.3 nm)",
         "de": "Ruhewellenlänge derselben Spektrallinie (z. B. Hα = 656,3 nm)",
         "fr": "Longueur d'onde au repos de la même raie spectrale (ex. Hα = 656,3 nm)",
-        "es": "Rest wavelength of the same spectral line (e.g., Hα = 656.3 nm)"
+        "es": "Longitud de onda en reposo de la misma línea espectral (p. ej., Hα = 656.3 nm)",
+        "ar": "الطول الموجي الساكن لنفس الخط الطيفي (مثل Hα = 656.3 نانومتر)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rotverschiebung (z)",
         "fr": "Décalage vers le rouge (z)",
         "es": "Corrimiento al rojo (z)",
-        "ar": "Redshift (z)"
+        "ar": "الانزياح نحو الأحمر (z)"
       },
       "businessContext_i18n": {
         "en": "Direct redshift input; if non-zero, overrides wavelength-based calculation",
         "tr": "Doğrudan kırmızıya kayma girişi; sıfırdan farklıysa dalga boyu tabanlı hesaplamayı geçersiz kılar",
         "de": "Direkte Rotverschiebungseingabe; wenn ungleich Null, überschreibt sie die wellenlängenbasierte Berechnung",
         "fr": "Saisie directe du décalage vers le rouge ; si non nul, remplace le calcul basé sur la longueur d'onde",
-        "es": "Direct redshift input; if non-zero, overrides wavelength-based calculation"
+        "es": "Entrada directa de corrimiento al rojo; si es distinto de cero, anula el cálculo basado en longitud de onda",
+        "ar": "إدخال الانزياح الأحمر المباشر؛ إذا كان غير صفري، فإنه يتجاوز الحساب القائم على الطول الموجي"
       }
     },
     {
@@ -82,15 +85,16 @@
         "tr": "Hubble Sabiti (H₀)",
         "de": "Hubble-Konstante (H₀)",
         "fr": "Constante de Hubble (H₀)",
-        "es": "Hubble Constant (H₀)",
-        "ar": "Hubble Constant (H₀)"
+        "es": "Constante de Hubble (H₀)",
+        "ar": "ثابت هابل (H₀)"
       },
       "businessContext_i18n": {
         "en": "Hubble constant value in km/s per Megaparsec",
         "tr": "Hubble sabiti değeri (km/s / Megaparsek)",
         "de": "Wert der Hubble-Konstante in km/s pro Megaparsec",
         "fr": "Valeur de la constante de Hubble en km/s par mégaparsec",
-        "es": "Hubble constant value in km/s per Megaparsec"
+        "es": "Valor de la constante de Hubble en km/s por Megapársec",
+        "ar": "قيمة ثابت هابل بوحدة كم/ث لكل ميجا فرسخ"
       }
     }
   ],

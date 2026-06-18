@@ -14,14 +14,15 @@
         "de": "Fundamentlänge",
         "fr": "Longueur de la fondation",
         "es": "Longitud de la cimentación",
-        "ar": "Foundation Length"
+        "ar": "طول الأساس"
       },
       "businessContext_i18n": {
         "en": "Length of the foundation in meters",
         "tr": "Temelin metre cinsinden uzunluğu",
         "de": "Länge des Fundaments in Metern",
         "fr": "Longueur de la fondation en mètres",
-        "es": "Longitud de la cimentación en metros"
+        "es": "Longitud de la cimentación en metros",
+        "ar": "طول الأساس بالأمتار"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Fundamentbreite",
         "fr": "Largeur de la fondation",
         "es": "Ancho de la cimentación",
-        "ar": "Foundation Width"
+        "ar": "عرض الأساس"
       },
       "businessContext_i18n": {
         "en": "Width of the foundation in meters",
         "tr": "Temelin metre cinsinden genişliği",
         "de": "Breite des Fundaments in Metern",
         "fr": "Largeur de la fondation en mètres",
-        "es": "Ancho de la cimentación en metros"
+        "es": "Ancho de la cimentación en metros",
+        "ar": "عرض الأساس بالأمتار"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fundamenttiefe",
         "fr": "Profondeur de la fondation",
         "es": "Profundidad de la cimentación",
-        "ar": "Foundation Depth"
+        "ar": "عمق الأساس"
       },
       "businessContext_i18n": {
         "en": "Depth (thickness) of the foundation in meters",
         "tr": "Temelin metre cinsinden derinliği (kalınlığı)",
         "de": "Tiefe (Dicke) des Fundaments in Metern",
         "fr": "Profondeur (épaisseur) de la fondation en mètres",
-        "es": "Profundidad (espesor) de la cimentación en metros"
+        "es": "Profundidad (espesor) de la cimentación en metros",
+        "ar": "عمق (سُمك) الأساس بالأمتار"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Betondichte",
         "fr": "Densité du béton",
         "es": "Densidad del hormigón",
-        "ar": "Concrete Density"
+        "ar": "كثافة الخرسانة"
       },
       "businessContext_i18n": {
         "en": "Density of concrete (typically 2400 kg/m³ for normal weight concrete)",
         "tr": "Beton yoğunluğu (normal beton için tipik olarak 2400 kg/m³)",
         "de": "Dichte von Beton (typischerweise 2400 kg/m³ für Normalbeton)",
         "fr": "Densité du béton (généralement 2400 kg/m³ pour le béton armé normal)",
-        "es": "Densidad del hormigón (típicamente 2400 kg/m³ para hormigón de peso normal)"
+        "es": "Densidad del hormigón (típicamente 2400 kg/m³ para hormigón de peso normal)",
+        "ar": "كثافة الخرسانة (عادة 2400 كجم/م³ للخرسانة العادية)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Bewehrungsgrad",
         "fr": "Taux d'armature",
         "es": "Relación de acero de refuerzo",
-        "ar": "Rebar Ratio"
+        "ar": "نسبة حديد التسليح"
       },
       "businessContext_i18n": {
         "en": "Volumetric ratio of reinforcement steel (e.g., 0.01 for 1%)",
         "tr": "Donatı çeliğinin hacimsel oranı (örneğin, %1 için 0.01)",
         "de": "Volumenverhältnis des Bewehrungsstahls (z. B. 0,01 für 1 %)",
         "fr": "Rapport volumétrique de l'acier d'armature (ex. 0,01 pour 1%)",
-        "es": "Relación volumétrica del acero de refuerzo (ej. 0.01 para 1%)"
+        "es": "Relación volumétrica del acero de refuerzo (ej. 0.01 para 1%)",
+        "ar": "النسبة الحجمية لحديد التسليح (مثل 0.01 لـ 1%)"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Stahldichte",
         "fr": "Densité de l'acier",
         "es": "Densidad del acero",
-        "ar": "Steel Density"
+        "ar": "كثافة الفولاذ"
       },
       "businessContext_i18n": {
         "en": "Density of reinforcing steel (typically 7850 kg/m³)",
         "tr": "Donatı çeliğinin yoğunluğu (tipik olarak 7850 kg/m³)",
         "de": "Dichte des Bewehrungsstahls (typischerweise 7850 kg/m³)",
         "fr": "Densité de l'acier d'armature (généralement 7850 kg/m³)",
-        "es": "Densidad del acero de refuerzo (típicamente 7850 kg/m³)"
+        "es": "Densidad del acero de refuerzo (típicamente 7850 kg/m³)",
+        "ar": "كثافة فولاذ التسليح (عادة 7850 كجم/م³)"
       }
     }
   ],
   "formulas": {
-    "result": "length + width + depth",
-    "result_copy": "length + width + depth"
+    "normalized_product": "length * width * depth * concreteDensity",
+    "result": "length * width * depth * concreteDensity * (rebarRatio * steelDensity)",
+    "adjustment_factor": "rebarRatio * steelDensity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "concreteWeight",
-      "rebarWeight"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalWeight",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İnşaat & Yapı",

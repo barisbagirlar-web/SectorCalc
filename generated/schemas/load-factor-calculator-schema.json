@@ -14,14 +14,15 @@
         "de": "Gesamtenergieverbrauch",
         "fr": "Consommation totale d'énergie",
         "es": "Consumo total de energía",
-        "ar": "Toplam Enerji Tüketimi"
+        "ar": "إجمالي استهلاك الطاقة"
       },
       "businessContext_i18n": {
         "en": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
         "tr": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
         "de": "Gesamtenergiemenge, die im Zeitraum verbraucht wurde (kWh)",
         "fr": "Quantité totale d'énergie consommée pendant la période (kWh)",
-        "es": "Cantidad total de energía consumida durante el período (kWh)"
+        "es": "Cantidad total de energía consumida durante el período (kWh)",
+        "ar": "إجمالي كمية الطاقة المستهلكة خلال الفترة (kWh)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Spitzenlast",
         "fr": "Demande de pointe",
         "es": "Demanda máxima",
-        "ar": "Pik Talep"
+        "ar": "ذروة الطلب"
       },
       "businessContext_i18n": {
         "en": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
         "tr": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
         "de": "Höchster im gleichen Zeitraum gemessener Leistungsbedarf (kW)",
         "fr": "Demande de puissance la plus élevée mesurée sur la même période (kW)",
-        "es": "Demanda de potencia más alta medida en el mismo período (kW)"
+        "es": "Demanda de potencia más alta medida en el mismo período (kW)",
+        "ar": "أعلى طلب طاقة تم قياسه في نفس الفترة (kW)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
         "es": "Número de días",
-        "ar": "Gün Sayısı"
+        "ar": "عدد الأيام"
       },
       "businessContext_i18n": {
         "en": "Ölçüm periyodunun gün cinsinden süresi",
         "tr": "Ölçüm periyodunun gün cinsinden süresi",
         "de": "Dauer des Messzeitraums in Tagen",
         "fr": "Durée de la période de mesure en jours",
-        "es": "Duración del período de medición en días"
+        "es": "Duración del período de medición en días",
+        "ar": "مدة فترة القياس بالأيام"
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Günlük Çalışma Saati",
         "fr": "Heures de travail par jour",
         "es": "Horas de trabajo diarias",
-        "ar": "Günlük Çalışma Saati"
+        "ar": "ساعات العمل اليومية"
       },
       "businessContext_i18n": {
         "en": "Tesisin günlük ortalama çalışma süresi",
         "tr": "Tesisin günlük ortalama çalışma süresi",
         "de": "Durchschnittliche tägliche Betriebszeit der Anlage",
         "fr": "Temps de fonctionnement quotidien moyen de l'installation",
-        "es": "Tiempo de trabajo diario promedio de la instalación"
+        "es": "Tiempo de trabajo diario promedio de la instalación",
+        "ar": "متوسط وقت التشغيل اليومي للمنشأة"
       }
     }
   ],
   "formulas": {
-    "result": "totalEnergy + peakDemand + numberOfDays",
-    "result_copy": "totalEnergy + peakDemand + numberOfDays"
+    "normalized_product": "totalEnergy * peakDemand * numberOfDays * dailyOperatingHours",
+    "result": "totalEnergy * peakDemand * numberOfDays * dailyOperatingHours"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "averageLoad"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "averageLoad",
-    "unit": "kWh"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Yapısal Mühendislik",

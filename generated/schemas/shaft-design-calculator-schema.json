@@ -14,14 +14,15 @@
         "de": "Drehmoment",
         "fr": "Couple",
         "es": "Par",
-        "ar": "Torque"
+        "ar": "عزم الدوران"
       },
       "businessContext_i18n": {
         "en": "Applied torsional moment on shaft.",
         "tr": "Mil üzerine uygulanan burulma momenti.",
         "de": "Angewandtes Drehmoment auf die Welle.",
         "fr": "Moment de torsion appliqué sur l'arbre.",
-        "es": "Momento torsional aplicado sobre el eje."
+        "es": "Momento torsional aplicado sobre el eje.",
+        "ar": "عزم الالتواء المطبق على العمود"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Biegemoment",
         "fr": "Moment fléchissant",
         "es": "Momento flector",
-        "ar": "Bending Moment"
+        "ar": "عزم الانحناء"
       },
       "businessContext_i18n": {
         "en": "Maximum bending moment on shaft.",
         "tr": "Mil üzerindeki maksimum eğilme momenti.",
         "de": "Maximales Biegemoment auf die Welle.",
         "fr": "Moment de flexion maximal sur l'arbre.",
-        "es": "Momento flector máximo sobre el eje."
+        "es": "Momento flector máximo sobre el eje.",
+        "ar": "أقصى عزم انحناء على العمود"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wellendurchmesser",
         "fr": "Diamètre de l'arbre",
         "es": "Diámetro del eje",
-        "ar": "Shaft Diameter"
+        "ar": "قطر العمود"
       },
       "businessContext_i18n": {
         "en": "Diameter of the shaft at the critical section.",
         "tr": "Kritik kesitteki mil çapı.",
         "de": "Durchmesser der Welle am kritischen Querschnitt.",
         "fr": "Diamètre de l'arbre à la section critique.",
-        "es": "Diámetro del eje en la sección crítica."
+        "es": "Diámetro del eje en la sección crítica.",
+        "ar": "قطر العمود عند المقطع الحرج"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Streckgrenze des Materials",
         "fr": "Limite d'élasticité du matériau",
         "es": "Límite elástico del material",
-        "ar": "Material Yield Strength"
+        "ar": "مقاومة الخضوع للمادة"
       },
       "businessContext_i18n": {
         "en": "Yield strength of shaft material.",
         "tr": "Mil malzemesinin akma dayanımı.",
         "de": "Streckgrenze des Wellenmaterials.",
         "fr": "Limite d'élasticité du matériau de l'arbre.",
-        "es": "Límite elástico del material del eje."
+        "es": "Límite elástico del material del eje.",
+        "ar": "مقاومة الخضوع لمادة العمود"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Required safety factor against yielding.",
         "tr": "Akma dayanımına karşı gerekli güvenlik faktörü.",
         "de": "Erforderlicher Sicherheitsfaktor gegen Fließen.",
         "fr": "Facteur de sécurité requis contre la déformation plastique.",
-        "es": "Factor de seguridad requerido contra fluencia."
+        "es": "Factor de seguridad requerido contra fluencia.",
+        "ar": "عامل الأمان المطلوب ضد الخضوع"
       }
     }
   ],

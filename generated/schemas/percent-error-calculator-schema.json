@@ -14,14 +14,15 @@
         "de": "Gemessener Wert",
         "fr": "Valeur mesurée",
         "es": "Valor Medido",
-        "ar": "Ölçülen Değer"
+        "ar": "القيمة المقاسة"
       },
       "businessContext_i18n": {
         "en": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
         "tr": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
         "de": "Gemessener Wert (z. B. gemessene Abmessung des produzierten Teils)",
         "fr": "Résultat de mesure réel (ex. dimension mesurée d'une pièce de production)",
-        "es": "Resultado de medición real (p. ej., dimensión medida de la pieza producida)"
+        "es": "Resultado de medición real (p. ej., dimensión medida de la pieza producida)",
+        "ar": "نتيجة القياس الفعلية (مثل البعد المقاس لقطعة الإنتاج)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenzwert",
         "fr": "Valeur de référence",
         "es": "Valor de referencia",
-        "ar": "Referans Değer"
+        "ar": "القيمة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Kabul edilen referans veya teorik değer (nominal ölçü)",
         "tr": "Kabul edilen referans veya teorik değer (nominal ölçü)",
         "de": "Akzeptierter Referenz- oder theoretischer Wert (Nennmaß)",
         "fr": "Valeur de référence ou théorique acceptée (mesure nominale)",
-        "es": "Valor de referencia o teórico aceptado (medida nominal)"
+        "es": "Valor de referencia o teórico aceptado (medida nominal)",
+        "ar": "القيمة المرجعية أو النظرية المقبولة (القياس الاسمي)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Toleranz (%)",
         "fr": "Tolérance (%)",
         "es": "Tolerancia (%)",
-        "ar": "Tolerans (%)"
+        "ar": "التسامح (%)"
       },
       "businessContext_i18n": {
         "en": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
         "tr": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
         "de": "Akzeptable prozentuale Fehlergrenze (Qualitätskontrollgrenze)",
         "fr": "Limite d'erreur acceptable en pourcentage (limite de contrôle qualité)",
-        "es": "Límite de error porcentual aceptable (límite de control de calidad)"
+        "es": "Límite de error porcentual aceptable (límite de control de calidad)",
+        "ar": "حد الخطأ المئوي المقبول (حد مراقبة الجودة)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
         "es": "Incertidumbre de medición",
-        "ar": "Ölçüm Belirsizliği"
+        "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
         "en": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
         "tr": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
         "de": "Standardunsicherheit des Messprozesses (für k=1)",
         "fr": "Incertitude type du processus de mesure (pour k=1)",
-        "es": "Incertidumbre estándar del proceso de medición (para k=1)"
+        "es": "Incertidumbre estándar del proceso de medición (para k=1)",
+        "ar": "عدم اليقين المعياري لعملية القياس (لـ k=1)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Erweiterungsfaktor (k)",
         "fr": "Facteur d'élargissement (k)",
         "es": "Factor de cobertura (k)",
-        "ar": "Kapsam Faktörü (k)"
+        "ar": "عامل التغطية (k)"
       },
       "businessContext_i18n": {
         "en": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
         "tr": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
         "de": "Koeffizient für erweiterte Unsicherheit; typischerweise 2 für 95 % Konfidenz",
         "fr": "Coefficient pour l'incertitude élargie ; typiquement 2 pour un niveau de confiance de 95 %",
-        "es": "Coeficiente para incertidumbre expandida; típicamente 2 para 95% de confianza"
+        "es": "Coeficiente para incertidumbre expandida; típicamente 2 para 95% de confianza",
+        "ar": "معامل عدم اليقين الموسع؛ عادة 2 لثقة 95%"
       }
     }
   ],

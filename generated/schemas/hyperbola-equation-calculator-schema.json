@@ -14,14 +14,15 @@
         "de": "Mittelpunkt X (h)",
         "fr": "Centre X (h)",
         "es": "Centro X (h)",
-        "ar": "Center X (h)"
+        "ar": "المركز X (h)"
       },
       "businessContext_i18n": {
         "en": "Horizontal coordinate of the hyperbola center.",
         "tr": "Hiperbol merkezinin yatay koordinatı.",
         "de": "Horizontale Koordinate des Hyperbelmittelpunkts",
         "fr": "Coordonnée horizontale du centre de l'hyperbole.",
-        "es": "Coordenada horizontal del centro de la hipérbola"
+        "es": "Coordenada horizontal del centro de la hipérbola",
+        "ar": "الإحداثي الأفقي لمركز القطع الزائد."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mittelpunkt Y (k)",
         "fr": "Centre Y (k)",
         "es": "Centro Y (k)",
-        "ar": "Center Y (k)"
+        "ar": "المركز Y (k)"
       },
       "businessContext_i18n": {
         "en": "Vertical coordinate of the hyperbola center.",
         "tr": "Hiperbol merkezinin dikey koordinatı.",
         "de": "Vertikale Koordinate des Hyperbelmittelpunkts",
         "fr": "Coordonnée verticale du centre de l'hyperbole.",
-        "es": "Coordenada vertical del centro de la hipérbola"
+        "es": "Coordenada vertical del centro de la hipérbola",
+        "ar": "الإحداثي الرأسي لمركز القطع الزائد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Große Halbachse (a)",
         "fr": "Demi-grand axe (a)",
         "es": "Semieje mayor (a)",
-        "ar": "Semi-Major Axis (a)"
+        "ar": "نصف المحور الرئيسي (أ)"
       },
       "businessContext_i18n": {
         "en": "Distance from center to vertex along transverse axis.",
         "tr": "Merkezden enine eksen boyunca tepe noktasına olan mesafe.",
         "de": "Abstand vom Mittelpunkt zum Scheitelpunkt entlang der Hauptachse",
         "fr": "Distance du centre au sommet le long de l'axe transverse.",
-        "es": "Distancia del centro al vértice a lo largo del eje transversal"
+        "es": "Distancia del centro al vértice a lo largo del eje transversal",
+        "ar": "المسافة من المركز إلى الرأس على طول المحور المستعرض."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kleine Halbachse (b)",
         "fr": "Demi-petit axe (b)",
         "es": "Semieje menor (b)",
-        "ar": "Semi-Minor Axis (b)"
+        "ar": "نصف المحور الثانوي (ب)"
       },
       "businessContext_i18n": {
         "en": "Distance related to asymptote slope, perpendicular to a.",
         "tr": "Asimptot eğimiyle ilgili, a'ya dik mesafe.",
         "de": "Abstand bezogen auf die Asymptotensteigung, senkrecht zu a",
         "fr": "Distance liée à la pente de l'asymptote, perpendiculaire à a.",
-        "es": "Distancia relacionada con la pendiente de la asíntota, perpendicular a a"
+        "es": "Distancia relacionada con la pendiente de la asíntota, perpendicular a a",
+        "ar": "المسافة المتعلقة بميل الخط المقارب، عمودية على a."
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Hauptachse",
         "fr": "Axe transverse",
         "es": "Eje transversal",
-        "ar": "Transverse Axis"
+        "ar": "المحور المستعرض"
       },
       "businessContext_i18n": {
         "en": "Direction of transverse axis: 0 for horizontal, 1 for vertical.",
         "tr": "Enine eksenin yönü: 0 yatay, 1 dikey.",
         "de": "Richtung der Hauptachse: 0 für horizontal, 1 für vertikal",
         "fr": "Direction de l'axe transverse : 0 pour horizontal, 1 pour vertical.",
-        "es": "Dirección del eje transversal: 0 para horizontal, 1 para vertical"
+        "es": "Dirección del eje transversal: 0 para horizontal, 1 para vertical",
+        "ar": "اتجاه المحور المستعرض: 0 للأفقي، 1 للرأسي."
       }
     }
   ],
   "formulas": {
-    "result": "h + k + a",
-    "result_copy": "h + k + a"
+    "normalized_product": "h * k * a * b",
+    "result": "h * k * a * b * (orientation)",
+    "adjustment_factor": "orientation"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "c",
-      "foci1_x",
-      "foci1_y",
-      "foci2_x",
-      "foci2_y"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "foci2_y",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

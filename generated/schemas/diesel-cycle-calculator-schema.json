@@ -14,14 +14,15 @@
         "de": "Verdichtungsverhältnis (r)",
         "fr": "Taux de compression (r)",
         "es": "Relación de compresión (r)",
-        "ar": "Compression Ratio (r)"
+        "ar": "نسبة الانضغاط (r)"
       },
       "businessContext_i18n": {
         "en": "Ratio of cylinder volume at BDC to TDC. Typical diesel: 12-24.",
         "tr": "Silindir hacminin ÜÖN'deki hacme oranı. Tipik dizel: 12-24.",
         "de": "Verhältnis des Zylindervolumens bei UT zu OT. Typischer Diesel: 12-24.",
         "fr": "Rapport du volume du cylindre au PMB et au PMH. Diesel typique : 12-24.",
-        "es": "Relación del volumen del cilindro en PMI a PMS. Diésel típico: 12-24."
+        "es": "Relación del volumen del cilindro en PMI a PMS. Diésel típico: 12-24.",
+        "ar": "نسبة حجم الأسطوانة عند النقطة الميتة السفلى إلى النقطة الميتة العليا. الديزل النموذجي: 12-24."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Cutoff-Verhältnis (rc)",
         "fr": "Taux de coupure (rc)",
         "es": "Relación de corte (rc)",
-        "ar": "Cutoff Ratio (rc)"
+        "ar": "نسبة القطع (rc)"
       },
       "businessContext_i18n": {
         "en": "Ratio of volume after combustion to clearance volume. Typical: 1.5-3.",
         "tr": "Yanma sonrası hacmin boşluk hacmine oranı. Tipik: 1.5-3.",
         "de": "Verhältnis des Volumens nach der Verbrennung zum Totraumvolumen. Typisch: 1,5-3.",
         "fr": "Rapport du volume après combustion au volume mort. Typique : 1,5-3.",
-        "es": "Relación del volumen después de la combustión al volumen de holgura. Típico: 1.5-3."
+        "es": "Relación del volumen después de la combustión al volumen de holgura. Típico: 1.5-3.",
+        "ar": "نسبة الحجم بعد الاحتراق إلى حجم الخلوص. النموذجية: 1.5-3."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangstemperatur (T1)",
         "fr": "Température initiale (T1)",
         "es": "Temperatura inicial (T1)",
-        "ar": "Initial Temperature (T1)"
+        "ar": "درجة الحرارة الأولية (T1)"
       },
       "businessContext_i18n": {
         "en": "Temperature at start of compression (state 1). Standard ambient: 300 K.",
         "tr": "Sıkıştırma başlangıcındaki sıcaklık (durum 1). Standart ortam: 300 K.",
         "de": "Temperatur zu Beginn der Verdichtung (Zustand 1). Standard-Umgebung: 300 K.",
         "fr": "Température au début de la compression (état 1). Ambiante standard : 300 K.",
-        "es": "Temperatura al inicio de la compresión (estado 1). Ambiente estándar: 300 K."
+        "es": "Temperatura al inicio de la compresión (estado 1). Ambiente estándar: 300 K.",
+        "ar": "درجة الحرارة عند بداية الضغط (الحالة 1). الظروف الجوية القياسية: 300 كلفن."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anfangsdruck (p1)",
         "fr": "Pression initiale (p1)",
         "es": "Presión inicial (p1)",
-        "ar": "Initial Pressure (p1)"
+        "ar": "الضغط الأولي (p1)"
       },
       "businessContext_i18n": {
         "en": "Pressure at start of compression (state 1). Atmospheric: 101325 Pa.",
         "tr": "Sıkıştırma başlangıcındaki basınç (durum 1). Atmosferik: 101325 Pa.",
         "de": "Druck zu Beginn der Verdichtung (Zustand 1). Atmosphärisch: 101325 Pa.",
         "fr": "Pression au début de la compression (état 1). Atmosphérique : 101325 Pa.",
-        "es": "Presión al inicio de la compresión (estado 1). Atmosférica: 101325 Pa."
+        "es": "Presión al inicio de la compresión (estado 1). Atmosférica: 101325 Pa.",
+        "ar": "الضغط عند بداية الضغط (الحالة 1). الضغط الجوي: 101325 باسكال."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Isentropenexponent (k)",
         "fr": "Rapport des chaleurs spécifiques (k)",
         "es": "Relación de calores específicos (k)",
-        "ar": "Specific Heat Ratio (k)"
+        "ar": "نسبة الحرارة النوعية (k)"
       },
       "businessContext_i18n": {
         "en": "Ratio cp/cv for air. Typically 1.4 for diatomic gases.",
         "tr": "Hava için cp/cv oranı. Tipik olarak 1.4 (diatomik gazlar).",
         "de": "Verhältnis cp/cv für Luft. Typischerweise 1,4 für zweiatomige Gase.",
         "fr": "Rapport cp/cv pour l'air. Généralement 1,4 pour les gaz diatomiques.",
-        "es": "Relación cp/cv para el aire. Típicamente 1.4 para gases diatómicos."
+        "es": "Relación cp/cv para el aire. Típicamente 1.4 para gases diatómicos.",
+        "ar": "نسبة cp/cv للهواء. عادة 1.4 للغازات ثنائية الذرة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Spezifische Wärme (cv)",
         "fr": "Chaleur spécifique (cv)",
         "es": "Calor específico (cv)",
-        "ar": "Specific Heat (cv)"
+        "ar": "الحرارة النوعية (cv)"
       },
       "businessContext_i18n": {
         "en": "Specific heat at constant volume for air. Standard: 718 J/(kg·K).",
         "tr": "Hava için sabit hacimde özgül ısı. Standart: 718 J/(kg·K).",
         "de": "Spezifische Wärme bei konstantem Volumen für Luft. Standard: 718 J/(kg·K).",
         "fr": "Chaleur spécifique à volume constant pour l'air. Standard : 718 J/(kg·K).",
-        "es": "Calor específico a volumen constante para el aire. Estándar: 718 J/(kg·K)."
+        "es": "Calor específico a volumen constante para el aire. Estándar: 718 J/(kg·K).",
+        "ar": "الحرارة النوعية عند حجم ثابت للهواء. القياسية: 718 جول/(كجم·كلفن)."
       }
     }
   ],

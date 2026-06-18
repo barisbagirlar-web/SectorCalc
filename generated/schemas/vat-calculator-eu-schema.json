@@ -13,14 +13,16 @@
         "tr": "Net Tutar (EUR)",
         "de": "Nettobetrag (EUR)",
         "fr": "Montant net (EUR)",
-        "es": "Net Amount (EUR)",
-        "ar": "Net Amount (EUR)"
+        "es": "Importe neto (EUR)",
+        "ar": "المبلغ الصافي (يورو)"
       },
       "businessContext_i18n": {
         "en": "The net price before VAT",
         "tr": "KDV öncesi net fiyat",
         "de": "Der Nettopreis vor Mehrwertsteuer",
-        "fr": "Le prix net avant TVA"
+        "fr": "Le prix net avant TVA",
+        "es": "El precio neto antes de IVA",
+        "ar": "السعر الصافي قبل ضريبة القيمة المضافة"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "KDV Oranı (%)",
         "de": "Mehrwertsteuersatz (%)",
         "fr": "Taux de TVA (%)",
-        "es": "VAT Rate (%)",
-        "ar": "VAT Rate (%)"
+        "es": "Tipo de IVA (%)",
+        "ar": "نسبة ضريبة القيمة المضافة (%)"
       },
       "businessContext_i18n": {
         "en": "Standard VAT rate in the EU country (e.g., 20 for Germany)",
         "tr": "AB ülkesindeki standart KDV oranı (ör. Almanya için 20)",
         "de": "Standard-Mehrwertsteuersatz im EU-Land (z. B. 20 für Deutschland)",
-        "fr": "Taux de TVA standard dans le pays de l'UE (ex. 20 pour l'Allemagne)"
+        "fr": "Taux de TVA standard dans le pays de l'UE (ex. 20 pour l'Allemagne)",
+        "es": "Tipo de IVA estándar en el país de la UE (ej. 20 para Alemania)",
+        "ar": "نسبة ضريبة القيمة المضافة القياسية في دولة الاتحاد الأوروبي (مثل 20 لألمانيا)"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Number of units",
         "tr": "Birim sayısı",
         "de": "Anzahl der Einheiten",
-        "fr": "Nombre d'unités"
+        "fr": "Nombre d'unités",
+        "es": "Número de unidades",
+        "ar": "عدد الوحدات"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Rabatt (%)",
         "fr": "Remise (%)",
         "es": "Descuento (%)",
-        "ar": "Discount (%)"
+        "ar": "الخصم (%)"
       },
       "businessContext_i18n": {
         "en": "Discount applied before VAT",
         "tr": "KDV öncesi uygulanan indirim",
         "de": "Rabatt vor Mehrwertsteuer",
-        "fr": "Remise appliquée avant TVA"
+        "fr": "Remise appliquée avant TVA",
+        "es": "Descuento aplicado antes del IVA",
+        "ar": "الخصم المطبق قبل ضريبة القيمة المضافة"
       }
     }
   ],

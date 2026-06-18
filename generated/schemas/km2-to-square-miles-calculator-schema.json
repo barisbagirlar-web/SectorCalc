@@ -14,14 +14,15 @@
         "de": "Fläche in Quadratkilometern",
         "fr": "Superficie en kilomètres carrés",
         "es": "Área en kilómetros cuadrados",
-        "ar": "Area in square kilometers"
+        "ar": "المساحة بالكيلومترات المربعة"
       },
       "businessContext_i18n": {
         "en": "The area to convert from square kilometers.",
         "tr": "Kilometrekareden dönüştürülecek alan.",
         "de": "Die umzurechnende Fläche in Quadratkilometern.",
         "fr": "La superficie à convertir depuis les kilomètres carrés.",
-        "es": "El área a convertir desde kilómetros cuadrados."
+        "es": "El área a convertir desde kilómetros cuadrados.",
+        "ar": "المساحة المراد تحويلها من الكيلومترات المربعة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor. Override for regional or historical definitions.",
         "tr": "Standart dönüşüm faktörü. Bölgesel veya tarihsel tanımlar için geçersiz kılın.",
         "de": "Standard-Umrechnungsfaktor. Für regionale oder historische Definitionen überschreiben.",
         "fr": "Facteur de conversion standard. Remplacez pour les définitions régionales ou historiques.",
-        "es": "Factor de conversión estándar. Sobrescribir para definiciones regionales o históricas."
+        "es": "Factor de conversión estándar. Sobrescribir para definiciones regionales o históricas.",
+        "ar": "عامل التحويل القياسي. يمكن تجاوزه للتعريفات الإقليمية أو التاريخية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe.",
         "fr": "Nombre de décimales pour le résultat.",
-        "es": "Número de decimales para la salida."
+        "es": "Número de decimales para la salida.",
+        "ar": "عدد المنازل العشرية للمخرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Batch-Multiplikator",
         "fr": "Multiplicateur de lot",
         "es": "Multiplicador de lote",
-        "ar": "Batch multiplier"
+        "ar": "مضاعف الدفعة"
       },
       "businessContext_i18n": {
         "en": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands).",
         "tr": "Toplu dönüşümler için girişi bu faktörle çarpın (örneğin, giriş binlerce ise).",
         "de": "Multiplizieren Sie die Eingabe mit diesem Faktor für Stapelumrechnungen (z. B. wenn die Eingabe in Tausend erfolgt).",
         "fr": "Multipliez l'entrée par ce facteur pour les conversions par lots (par exemple, si l'entrée est en milliers).",
-        "es": "Multiplicar la entrada por este factor para conversiones por lote (ej. si la entrada está en miles)."
+        "es": "Multiplicar la entrada por este factor para conversiones por lote (ej. si la entrada está en miles).",
+        "ar": "اضرب الإدخال بهذا العامل للتحويلات الدفعية (مثل إذا كان الإدخال بالآلاف)."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Validierungsschwellenwert",
         "fr": "Seuil de validation",
         "es": "Umbral de validación",
-        "ar": "Validation threshold"
+        "ar": "حد التحقق"
       },
       "businessContext_i18n": {
         "en": "Minimum valid area in km². Values below this are treated as invalid.",
         "tr": "Minimum geçerli alan km² cinsinden. Bunun altındaki değerler geçersiz sayılır.",
         "de": "Mindestgültige Fläche in km². Werte darunter werden als ungültig behandelt.",
         "fr": "Surface minimale valide en km². Les valeurs inférieures sont traitées comme invalides.",
-        "es": "Área mínima válida en km². Valores por debajo se tratan como inválidos."
+        "es": "Área mínima válida en km². Valores por debajo se tratan como inválidos.",
+        "ar": "الحد الأدنى للمساحة الصالحة بالكيلومترات المربعة. القيم الأقل من ذلك تُعتبر غير صالحة."
       }
     }
   ],

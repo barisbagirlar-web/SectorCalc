@@ -14,14 +14,15 @@
         "de": "Karat",
         "fr": "Carats",
         "es": "Quilates",
-        "ar": "Carats"
+        "ar": "قيراط"
       },
       "businessContext_i18n": {
         "en": "The weight in carats (ct) to be converted to grams.",
         "tr": "Gram'a dönüştürülecek karat (ct) cinsinden ağırlık.",
         "de": "Das Gewicht in Karat (ct), das in Gramm umgerechnet werden soll.",
         "fr": "Le poids en carats (ct) à convertir en grammes.",
-        "es": "Peso en quilates (ct) a convertir a gramos."
+        "es": "Peso en quilates (ct) a convertir a gramos.",
+        "ar": "الوزن بالقيراط (ct) المراد تحويله إلى جرامات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "The conversion factor from carats to grams. Standard is 0.2 g/ct. Adjust if needed for non-standard carats.",
         "tr": "Karattan grama dönüşüm faktörü. Standart 0,2 g/ct'dir. Standart olmayan karatlar için gerekiyorsa ayarlayın.",
         "de": "Der Umrechnungsfaktor von Karat in Gramm. Standard ist 0,2 g/ct. Bei nicht standardmäßigen Karat anpassen.",
         "fr": "Le facteur de conversion des carats en grammes. Standard est 0,2 g/ct. Ajustez si nécessaire pour des carats non standard.",
-        "es": "Factor de conversión de quilates a gramos. Estándar es 0.2 g/ct. Ajuste si es necesario para quilates no estándar."
+        "es": "Factor de conversión de quilates a gramos. Estándar es 0.2 g/ct. Ajuste si es necesario para quilates no estándar.",
+        "ar": "عامل التحويل من القيراط إلى الجرام. المعيار هو 0.2 جم/قيراط. اضبط إذا لزم الأمر للقيراط غير القياسي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Batch Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of items being converted, if multiple items of the same carat weight.",
         "tr": "Aynı karat ağırlığında birden fazla öğe varsa, dönüştürülen öğe sayısı.",
         "de": "Anzahl der umzurechnenden Artikel, wenn mehrere Artikel das gleiche Karatgewicht haben.",
         "fr": "Nombre d'articles convertis, si plusieurs articles du même poids en carats.",
-        "es": "Número de artículos a convertir, si varios artículos tienen el mismo peso en quilates."
+        "es": "Número de artículos a convertir, si varios artículos tienen el mismo peso en quilates.",
+        "ar": "عدد العناصر التي يتم تحويلها، إذا كانت عناصر متعددة بنفس وزن القيراط."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output. Minimum 0.",
         "tr": "Çıktı için ondalık basamak sayısı. Minimum 0.",
         "de": "Anzahl der Dezimalstellen für die Ausgabe. Minimum 0.",
         "fr": "Nombre de décimales pour le résultat. Minimum 0.",
-        "es": "Número de decimales para la salida. Mínimo 0."
+        "es": "Número de decimales para la salida. Mínimo 0.",
+        "ar": "عدد المنازل العشرية للمخرجات. الحد الأدنى 0."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Preis pro Gramm",
         "fr": "Prix par gramme",
         "es": "Precio por gramo",
-        "ar": "Price per Gram"
+        "ar": "السعر لكل جرام"
       },
       "businessContext_i18n": {
         "en": "Optional: price per gram to calculate total value. Leave as 0 to ignore.",
         "tr": "İsteğe bağlı: toplam değeri hesaplamak için gram başına fiyat. Yoksaymak için 0 bırakın.",
         "de": "Optional: Preis pro Gramm zur Berechnung des Gesamtwerts. Auf 0 setzen, um zu ignorieren.",
         "fr": "Optionnel : prix par gramme pour calculer la valeur totale. Laissez à 0 pour ignorer.",
-        "es": "Opcional: precio por gramo para calcular el valor total. Deje en 0 para ignorar."
+        "es": "Opcional: precio por gramo para calcular el valor total. Deje en 0 para ignorar.",
+        "ar": "اختياري: السعر لكل جرام لحساب القيمة الإجمالية. اتركه 0 لتجاهله."
       }
     }
   ],

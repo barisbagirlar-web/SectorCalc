@@ -14,11 +14,25 @@ import {
   resolvePrimaryOutputUnit,
 } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
 import {
   buildQrCodeImageUrl,
   generateQRData,
   generateVerificationHash,
 } from "@/lib/trust-trace/verification";
+
+type ApprovedReportApiResponse =
+  | {
+      readonly ok: true;
+      readonly reportId: string;
+      readonly calculationHash: string;
+      readonly verifyUrl: string;
+      readonly validationStampId: string;
+    }
+  | {
+      readonly ok: false;
+      readonly error?: string;
+    };
 
 export type ResultPanelProps = {
   readonly result: GeneratedToolResult | null;
@@ -32,6 +46,9 @@ export type ResultPanelProps = {
   readonly toolSlug?: string;
   readonly userId?: string | null;
   readonly enableEnterpriseActions?: boolean;
+  readonly routePath?: string;
+  readonly toolType?: "free" | "premium";
+  readonly inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
 };
 
 function resolvePrimaryNumericValue(
@@ -100,6 +117,58 @@ function escapeHtml(value: string): string {
     .replace(/"/g, "&quot;");
 }
 
+function toSerializableSnapshot(
+  snapshot: Readonly<Record<string, FeedbackSnapshotValue>> | undefined,
+): Record<string, string | number | boolean> {
+  const out: Record<string, string | number | boolean> = {};
+  if (!snapshot) {
+    return out;
+  }
+  for (const [key, value] of Object.entries(snapshot)) {
+    if (typeof value === "number" || typeof value === "boolean" || typeof value === "string") {
+      out[key] = value;
+    }
+  }
+  return out;
+}
+
+async function registerApprovedReport(input: {
+  toolSlug: string;
+  locale: string;
+  routePath: string;
+  toolType: "free" | "premium";
+  userId?: string | null;
+  inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
+  result: GeneratedToolResult;
+}): Promise<ApprovedReportApiResponse> {
+  const response = await fetch("/api/reports/approved", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      toolSlug: input.toolSlug,
+      locale: input.locale,
+      routePath: input.routePath,
+      toolType: input.toolType,
+      userId: input.userId ?? null,
+      inputSnapshot: toSerializableSnapshot(input.inputSnapshot),
+      resultSnapshot: toSerializableSnapshot(
+        Object.fromEntries(
+          Object.entries(input.result).filter(
+            ([, value]) =>
+              typeof value === "number" || typeof value === "boolean" || typeof value === "string",
+          ),
+        ) as Record<string, FeedbackSnapshotValue>,
+      ),
+    }),
+  });
+
+  const body = (await response.json()) as ApprovedReportApiResponse;
+  if (!response.ok || !body.ok) {
+    return { ok: false, error: "create_failed" };
+  }
+  return body;
+}
+
 export function ResultPanel({
   result,
   schema,
@@ -112,6 +181,9 @@ export function ResultPanel({
   toolSlug,
   userId,
   enableEnterpriseActions,
+  routePath,
+  toolType = "premium",
+  inputSnapshot,
 }: ResultPanelProps) {
   const [exportBusy, setExportBusy] = useState(false);
   const [erpBusy, setErpBusy] = useState(false);
@@ -143,12 +215,39 @@ export function ResultPanel({
 
     setExportBusy(true);
     try {
-      const hash = await generateVerificationHash({
-        toolSlug: toolSlug ?? schema.toolName,
-        result,
-        locale,
-      });
-      const verifyUrl = generateQRData(hash);
+      const slug = toolSlug ?? schema.toolName;
+      let hash = "";
+      let verifyUrl = "";
+      let reportId: string | null = null;
+      let validationStampId: string | null = null;
+
+      if (routePath) {
+        const registered = await registerApprovedReport({
+          toolSlug: slug,
+          locale,
+          routePath,
+          toolType,
+          userId,
+          inputSnapshot,
+          result,
+        });
+        if (registered.ok) {
+          hash = registered.calculationHash;
+          verifyUrl = registered.verifyUrl;
+          reportId = registered.reportId;
+          validationStampId = registered.validationStampId;
+        }
+      }
+
+      if (!hash) {
+        hash = await generateVerificationHash({
+          toolSlug: slug,
+          result,
+          locale,
+        });
+        verifyUrl = generateQRData(hash);
+      }
+
       const qrImageUrl = buildQrCodeImageUrl(verifyUrl, 140);
       const primaryValue = resolvePrimaryNumericValue(result, primaryOutputKey);
       const unit = resolvePrimaryOutputUnit(schema);
@@ -167,11 +266,21 @@ export function ResultPanel({
         "th{background:#f9fafb}.mono{font-family:monospace;font-size:11px;word-break:break-all}</style></head><body>" +
         "<h1>SectorCalc Calculation Report</h1>" +
         "<p><span class='stamp'>Trust Trace</span></p>" +
-        `<p><strong>Tool:</strong> ${escapeHtml(toolSlug ?? schema.toolName)}</p>` +
+        `<p><strong>Tool:</strong> ${escapeHtml(slug)}</p>` +
+        (reportId
+          ? `<p><strong>Report ID:</strong> <span class='mono'>${escapeHtml(reportId)}</span></p>`
+          : "") +
+        (validationStampId
+          ? `<p><strong>Validation stamp:</strong> <span class='mono'>${escapeHtml(validationStampId)}</span></p>`
+          : "") +
         `<p><strong>Primary result:</strong> ${escapeHtml(primaryDisplay)}</p>` +
         `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='Verify QR' width='140' height='140' />` +
         `<div><p><strong>Verification hash</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
-        `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p></div></div>` +
+        `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p>` +
+        (reportId
+          ? `<p style='font-size:12px;margin-top:8px'>Verify with Report ID at ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
+          : "") +
+        `</div></div>` +
         (cbamReport
           ? `<h2>CBAM</h2><table><tr><th>Metric</th><th>Value</th></tr>` +
             `<tr><td>Product carbon footprint</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +

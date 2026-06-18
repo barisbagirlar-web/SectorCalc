@@ -13,14 +13,16 @@
         "tr": "Akış Uzunluğu (L)",
         "de": "Fließlänge (L)",
         "fr": "Longueur d'écoulement (L)",
-        "es": "Flow Length (L)",
-        "ar": "Flow Length (L)"
+        "es": "Longitud de flujo (L)",
+        "ar": "طول مسار الجريان (L)"
       },
       "businessContext_i18n": {
         "en": "Maximum length of overland flow path in the catchment",
         "tr": "Havzadaki yüzey akış yolunun maksimum uzunluğu",
         "de": "Maximale Länge des Oberflächenabflusspfads im Einzugsgebiet",
-        "fr": "Longueur maximale du chemin d'écoulement de surface dans le bassin versant"
+        "fr": "Longueur maximale du chemin d'écoulement de surface dans le bassin versant",
+        "es": "Longitud máxima del camino de flujo superficial en la cuenca",
+        "ar": "الحد الأقصى لطول مسار الجريان السطحي في مستجمع المياه"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Ortalama Eğim (S)",
         "de": "Durchschnittliches Gefälle (S)",
         "fr": "Pente moyenne (S)",
-        "es": "Average Slope (S)",
-        "ar": "Average Slope (S)"
+        "es": "Pendiente promedio (S)",
+        "ar": "متوسط الانحدار (S)"
       },
       "businessContext_i18n": {
         "en": "Average slope of the flow path",
         "tr": "Akış yolunun ortalama eğimi",
         "de": "Durchschnittliches Gefälle des Fließpfads",
-        "fr": "Pente moyenne du chemin d'écoulement"
+        "fr": "Pente moyenne du chemin d'écoulement",
+        "es": "Pendiente promedio del camino de flujo",
+        "ar": "متوسط انحدار مسار الجريان"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Manning-Rauheit (n)",
         "fr": "Coefficient de rugosité de Manning (n)",
         "es": "Rugosidad de Manning (n)",
-        "ar": "Manning's Roughness (n)"
+        "ar": "خشونة مانينغ (n)"
       },
       "businessContext_i18n": {
         "en": "Surface roughness coefficient for overland flow",
         "tr": "Yüzey akışı için yüzey pürüzlülük katsayısı",
         "de": "Oberflächenrauigkeitsbeiwert für Oberflächenabfluss",
-        "fr": "Coefficient de rugosité de surface pour l'écoulement de surface"
+        "fr": "Coefficient de rugosité de surface pour l'écoulement de surface",
+        "es": "Coeficiente de rugosidad superficial para flujo superficial",
+        "ar": "معامل خشونة السطح للجريان السطحي"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Regenintensität (I)",
         "fr": "Intensité des précipitations (I)",
         "es": "Intensidad de lluvia (I)",
-        "ar": "Rainfall Intensity (I)"
+        "ar": "شدة هطول الأمطار (I)"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity for the catchment",
         "tr": "Havza için tasarım yağış yoğunluğu",
         "de": "Bemessungsniederschlagsintensität für das Einzugsgebiet",
-        "fr": "Intensité de pluie de conception pour le bassin versant"
+        "fr": "Intensité de pluie de conception pour le bassin versant",
+        "es": "Intensidad de lluvia de diseño para la cuenca",
+        "ar": "شدة هطول الأمطار التصميمية لمستجمع المياه"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Havza Alanı (A)",
         "de": "Einzugsgebietsfläche (A)",
         "fr": "Superficie du bassin versant (A)",
-        "es": "Catchment Area (A)",
-        "ar": "Catchment Area (A)"
+        "es": "Área de la cuenca (A)",
+        "ar": "مساحة مستجمع المياه (A)"
       },
       "businessContext_i18n": {
         "en": "Total drainage area contributing to the point of interest",
         "tr": "Toplam drenaj alanı (ilgilenilen noktaya katkıda bulunan)",
         "de": "Gesamte Entwässerungsfläche, die zum betrachteten Punkt beiträgt",
-        "fr": "Superficie totale du bassin versant contribuant au point d'intérêt"
+        "fr": "Superficie totale du bassin versant contribuant au point d'intérêt",
+        "es": "Área total de drenaje que contribuye al punto de interés",
+        "ar": "إجمالي مساحة الصرف المساهمة في نقطة الاهتمام"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Geçirimsizlik Yüzdesi",
         "de": "Prozent versiegelte Fläche",
         "fr": "Pourcentage d'imperméabilité",
-        "es": "Percent Impervious",
-        "ar": "Percent Impervious"
+        "es": "Porcentaje de impermeabilidad",
+        "ar": "النسبة المئوية للأسطح غير المنفذة"
       },
       "businessContext_i18n": {
         "en": "Percentage of impervious area in the catchment",
         "tr": "Havzadaki geçirimsiz alan yüzdesi",
         "de": "Prozentsatz der undurchlässigen Fläche im Einzugsgebiet",
-        "fr": "Pourcentage de surface imperméable dans le bassin versant"
+        "fr": "Pourcentage de surface imperméable dans le bassin versant",
+        "es": "Porcentaje de área impermeable en la cuenca",
+        "ar": "النسبة المئوية للمنطقة غير المنفذة في مستجمع المياه"
       }
     }
   ],

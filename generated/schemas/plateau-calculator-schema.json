@@ -14,14 +14,15 @@
         "de": "Anfangsleistung",
         "fr": "Performance initiale",
         "es": "Rendimiento inicial",
-        "ar": "Başlangıç Performansı"
+        "ar": "الأداء الأولي"
       },
       "businessContext_i18n": {
         "en": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
         "tr": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı.",
         "de": "Stündliche Ausbringungsmenge zu Beginn der Lernkurve",
         "fr": "Quantité de production horaire au point de départ de la courbe d'apprentissage.",
-        "es": "Cantidad de producción por hora al inicio de la curva de aprendizaje"
+        "es": "Cantidad de producción por hora al inicio de la curva de aprendizaje",
+        "ar": "معدل الإنتاج في الساعة عند نقطة بداية منحنى التعلم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Leistung nach Lernen",
         "fr": "Performance après apprentissage",
         "es": "Rendimiento después del aprendizaje",
-        "ar": "Öğrenme Sonrası Performans"
+        "ar": "الأداء بعد التعلم"
       },
       "businessContext_i18n": {
         "en": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
         "tr": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı.",
         "de": "Stündliche Ausbringungsmenge nach einer bestimmten Lernzeit",
         "fr": "Production horaire atteinte après une période d'apprentissage donnée.",
-        "es": "Producción por hora alcanzada después de un período de aprendizaje específico"
+        "es": "Producción por hora alcanzada después de un período de aprendizaje específico",
+        "ar": "معدل الإنتاج في الساعة بعد فترة تعلم محددة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lernzeit",
         "fr": "Durée d'apprentissage",
         "es": "Duración del aprendizaje",
-        "ar": "Öğrenme Süresi"
+        "ar": "مدة التعلم"
       },
       "businessContext_i18n": {
         "en": "Performans ölçümleri arasındaki geçen hafta sayısı",
         "tr": "Performans ölçümleri arasındaki geçen hafta sayısı.",
         "de": "Anzahl der Wochen zwischen den Leistungsmessungen",
         "fr": "Nombre de semaines entre les mesures de performance.",
-        "es": "Número de semanas transcurridas entre mediciones de rendimiento"
+        "es": "Número de semanas transcurridas entre mediciones de rendimiento",
+        "ar": "عدد الأسابيع بين قياسات الأداء"
       }
     },
     {
@@ -83,43 +86,37 @@
         "de": "Lernratenkonstante",
         "fr": "Constante de vitesse d'apprentissage",
         "es": "Constante de velocidad de aprendizaje",
-        "ar": "Öğrenme Hızı Sabiti"
+        "ar": "ثابت سرعة التعلم"
       },
       "businessContext_i18n": {
         "en": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
         "tr": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için.",
         "de": "Steigungskoeffizient der Lernkurve für das exponentielle Näherungsmodell",
         "fr": "Coefficient de pente de la courbe d'apprentissage pour le modèle d'approximation exponentielle.",
-        "es": "Coeficiente de pendiente de la curva de aprendizaje, para el modelo de aproximación exponencial"
+        "es": "Coeficiente de pendiente de la curva de aprendizaje, para el modelo de aproximación exponencial",
+        "ar": "معامل انحدار منحنى التعلم لنموذج التقريب الأسي"
       }
     }
   ],
   "formulas": {
-    "result": "initialOutput + outputAfterPeriod + timePeriod",
-    "result_copy": "initialOutput + outputAfterPeriod + timePeriod"
+    "normalized_product": "initialOutput * outputAfterPeriod * timePeriod * learningRate",
+    "result": "initialOutput * outputAfterPeriod * timePeriod * learningRate"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "approachPercent",
-        "label": "Platoya Yaklaşma Yüzdesi",
-        "unit": "%",
-        "formula": "approachPercent"
-      },
-      {
-        "id": "timeTo95",
-        "label": "%95 Platoya Ulaşma Süresi",
-        "unit": "hafta",
-        "formula": "timeTo95"
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "timeTo95",
-    "unit": "birim/saat"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

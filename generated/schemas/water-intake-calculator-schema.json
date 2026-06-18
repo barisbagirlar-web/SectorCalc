@@ -23,13 +23,16 @@
         "tr": "Çalışan Sayısı",
         "de": "Anzahl der Mitarbeiter",
         "fr": "Nombre d'employés",
-        "es": "Número de empleados"
+        "es": "Número de empleados",
+        "ar": "عدد الموظفين"
       },
       "businessContext_i18n": {
         "en": "Total full-time equivalent employees on site.",
         "tr": "Sahadaki toplam tam zamanlı eşdeğer çalışan sayısı.",
         "de": "Gesamtzahl der Vollzeitäquivalente am Standort",
-        "fr": "Nombre total d'employés équivalents temps plein sur site."
+        "fr": "Nombre total d'employés équivalents temps plein sur site.",
+        "es": "Total de empleados equivalentes a tiempo completo en el sitio",
+        "ar": "إجمالي عدد الموظفين بدوام كامل في الموقع"
       }
     },
     {
@@ -45,13 +48,17 @@
         "en": "Work Days per Year",
         "tr": "Yıllık çalışma günü",
         "de": "Arbeitstage pro Jahr",
-        "fr": "Jours de travail par an"
+        "fr": "Jours de travail par an",
+        "es": "Días laborables por año",
+        "ar": "أيام العمل في السنة"
       },
       "businessContext_i18n": {
         "en": "Number of operating days per year.",
         "tr": "Yıllık faaliyet günü sayısı.",
         "de": "Anzahl der Betriebstage pro Jahr",
-        "fr": "Nombre de jours d'exploitation par an."
+        "fr": "Nombre de jours d'exploitation par an.",
+        "es": "Número de días operativos por año",
+        "ar": "عدد أيام التشغيل في السنة"
       }
     },
     {
@@ -67,13 +74,17 @@
         "en": "Average Water Use per Person per Day",
         "tr": "Kişi başı günlük ortalama su kullanımı",
         "de": "Durchschnittlicher Wasserverbrauch pro Person und Tag",
-        "fr": "Consommation moyenne d'eau par personne et par jour"
+        "fr": "Consommation moyenne d'eau par personne et par jour",
+        "es": "Uso promedio de agua por persona por día",
+        "ar": "متوسط استخدام الماء لكل شخص في اليوم"
       },
       "businessContext_i18n": {
         "en": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
         "tr": "Çalışan başına tahmini günlük su tüketimi (içme, temizlik, sanitasyon).",
         "de": "Geschätzter täglicher Wasserverbrauch pro Mitarbeiter (Trinken, Sanitär, Reinigung)",
-        "fr": "Consommation quotidienne estimée d'eau par employé (boisson, sanitaires, nettoyage)."
+        "fr": "Consommation quotidienne estimée d'eau par employé (boisson, sanitaires, nettoyage).",
+        "es": "Consumo diario estimado de agua por empleado (bebida, saneamiento, limpieza)",
+        "ar": "تقدير استهلاك الماء اليومي لكل موظف (شرب، صرف صحي، تنظيف)"
       }
     },
     {
@@ -89,13 +100,17 @@
         "en": "Process Water Intensity",
         "tr": "Proses su yoğunluğu",
         "de": "Prozesswasserintensität",
-        "fr": "Intensité en eau de procédé"
+        "fr": "Intensité en eau de procédé",
+        "es": "Intensidad de agua de proceso",
+        "ar": "كثافة مياه العملية"
       },
       "businessContext_i18n": {
         "en": "Water used per unit of production output (e.g., liters per product).",
         "tr": "Birim üretim çıktısı başına kullanılan su (örn. ürün başına litre).",
         "de": "Wasserverbrauch pro Produktionseinheit (z. B. Liter pro Produkt)",
-        "fr": "Eau utilisée par unité de production (ex. litres par produit)."
+        "fr": "Eau utilisée par unité de production (ex. litres par produit).",
+        "es": "Agua utilizada por unidad de producción (ej. litros por producto)",
+        "ar": "الماء المستخدم لكل وحدة إنتاج (مثل لتر لكل منتج)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "tr": "Yıllık Üretim Birimleri",
         "de": "Jährliche Produktionseinheiten",
         "fr": "Unités de production annuelles",
-        "es": "Unidades de producción anuales"
+        "es": "Unidades de producción anuales",
+        "ar": "الوحدات المنتجة سنويًا"
       },
       "businessContext_i18n": {
         "en": "Total units produced per year.",
         "tr": "Yılda üretilen toplam birim sayısı.",
         "de": "Gesamtzahl der produzierten Einheiten pro Jahr",
-        "fr": "Nombre total d'unités produites par an."
+        "fr": "Nombre total d'unités produites par an.",
+        "es": "Total de unidades producidas por año",
+        "ar": "إجمالي الوحدات المنتجة سنويًا"
       }
     },
     {
@@ -134,13 +152,17 @@
         "en": "Leakage Factor",
         "tr": "Kaçak faktörü",
         "de": "Leckagefaktor",
-        "fr": "Facteur de fuite"
+        "fr": "Facteur de fuite",
+        "es": "Factor de fugas",
+        "ar": "عامل التسرب"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of water lost due to leaks in the distribution system.",
         "tr": "Dağıtım sistemindeki sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi.",
         "de": "Geschätzter Prozentsatz des Wasserverlusts durch Lecks im Verteilungssystem",
-        "fr": "Pourcentage estimé d'eau perdue dû aux fuites dans le réseau de distribution."
+        "fr": "Pourcentage estimé d'eau perdue dû aux fuites dans le réseau de distribution.",
+        "es": "Porcentaje estimado de agua perdida por fugas en el sistema de distribución",
+        "ar": "النسبة المئوية المقدرة للمياه المفقودة بسبب التسريبات في نظام التوزيع."
       }
     },
     {
@@ -156,13 +178,17 @@
         "en": "Water Recycling Rate",
         "tr": "Su geri dönüşüm oranı",
         "de": "Wasserwiederverwendungsrate",
-        "fr": "Taux de recyclage de l'eau"
+        "fr": "Taux de recyclage de l'eau",
+        "es": "Tasa de reciclaje de agua",
+        "ar": "معدل إعادة تدوير المياه"
       },
       "businessContext_i18n": {
         "en": "Percentage of process water that is treated and reused.",
         "tr": "Arıtılıp yeniden kullanılan proses suyunun yüzdesi.",
         "de": "Prozentsatz des Prozesswassers, das aufbereitet und wiederverwendet wird",
-        "fr": "Pourcentage de l'eau de procédé traitée et réutilisée."
+        "fr": "Pourcentage de l'eau de procédé traitée et réutilisée.",
+        "es": "Porcentaje de agua de proceso que se trata y reutiliza",
+        "ar": "النسبة المئوية لمياه العمليات التي يتم معالجتها وإعادة استخدامها."
       }
     },
     {
@@ -178,13 +204,17 @@
         "en": "Seasonal Adjustment Factor",
         "tr": "Mevsimsel ayarlama faktörü",
         "de": "Saisonaler Anpassungsfaktor",
-        "fr": "Facteur d'ajustement saisonnier"
+        "fr": "Facteur d'ajustement saisonnier",
+        "es": "Factor de ajuste estacional",
+        "ar": "عامل التعديل الموسمي"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for seasonal variations (e.g., summer peak).",
         "tr": "Mevsimsel değişiklikleri hesaba katmak için çarpan (örn. yaz zirvesi).",
         "de": "Multiplikator zur Berücksichtigung saisonaler Schwankungen (z. B. Sommerhoch)",
-        "fr": "Multiplicateur pour tenir compte des variations saisonnières (ex. pic estival)."
+        "fr": "Multiplicateur pour tenir compte des variations saisonnières (ex. pic estival).",
+        "es": "Multiplicador para tener en cuenta variaciones estacionales (ej. pico de verano)",
+        "ar": "مضاعف لمراعاة التغيرات الموسمية (مثل ذروة الصيف)."
       }
     }
   ],
@@ -228,18 +258,26 @@
     ]
   },
   "formulas": {
-    "result": "numEmployees + workDaysPerYear + avgWaterUsePerPersonPerDay",
-    "result_copy": "numEmployees + workDaysPerYear + avgWaterUsePerPersonPerDay"
+    "normalized_product": "numEmployees * workDaysPerYear * avgWaterUsePerPersonPerDay * processWaterIntensity",
+    "result": "numEmployees * workDaysPerYear * avgWaterUsePerPersonPerDay * processWaterIntensity * (annualProductionUnits * (leakageFactor / 100) * (recyclingRate / 100) * seasonalFactor)",
+    "adjustment_factor": "annualProductionUnits * (leakageFactor / 100) * (recyclingRate / 100) * seasonalFactor"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "persons"
+    "unit": "USD"
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

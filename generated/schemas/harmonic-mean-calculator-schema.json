@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Value 1",
         "tr": "Değer 1",
-        "de": "Value 1",
+        "de": "Wert 1",
         "fr": "Valeur 1",
         "es": "Valor 1",
-        "ar": "Value 1"
+        "ar": "القيمة 1"
       },
       "businessContext_i18n": {
         "en": "First positive value for harmonic mean (e.g., speed, P/E ratio, rate).",
         "tr": "Harmonik ortalama için ilk pozitif değer (örn. hız, F/K oranı, oran).",
         "de": "Erster positiver Wert für das harmonische Mittel (z. B. Geschwindigkeit, KGV, Rate).",
         "fr": "Première valeur positive pour la moyenne harmonique (ex. vitesse, ratio P/E, taux).",
-        "es": "Primer valor positivo para la media armónica (ej. velocidad, ratio P/E, tasa)."
+        "es": "Primer valor positivo para la media armónica (ej. velocidad, ratio P/E, tasa).",
+        "ar": "القيمة الموجبة الأولى للوسط التوافقي (مثل السرعة، نسبة السعر إلى الربح، المعدل)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wert 2",
         "fr": "Valeur 2",
         "es": "Valor 2",
-        "ar": "Value 2"
+        "ar": "القيمة 2"
       },
       "businessContext_i18n": {
         "en": "Second positive value for harmonic mean.",
         "tr": "Harmonik ortalama için ikinci pozitif değer.",
         "de": "Zweiter positiver Wert für das harmonische Mittel.",
         "fr": "Deuxième valeur positive pour la moyenne harmonique.",
-        "es": "Segundo valor positivo para la media armónica."
+        "es": "Segundo valor positivo para la media armónica.",
+        "ar": "القيمة الموجبة الثانية للوسط التوافقي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Wert 3",
         "fr": "Valeur 3",
         "es": "Valor 3",
-        "ar": "Value 3"
+        "ar": "القيمة 3"
       },
       "businessContext_i18n": {
         "en": "Third positive value for harmonic mean.",
         "tr": "Harmonik ortalama için üçüncü pozitif değer.",
         "de": "Dritter positiver Wert für das harmonische Mittel.",
         "fr": "Troisième valeur positive pour la moyenne harmonique.",
-        "es": "Tercer valor positivo para la media armónica."
+        "es": "Tercer valor positivo para la media armónica.",
+        "ar": "القيمة الموجبة الثالثة للوسط التوافقي."
       }
     },
     {
@@ -83,36 +86,37 @@
         "de": "Wert 4",
         "fr": "Valeur 4",
         "es": "Valor 4",
-        "ar": "Value 4"
+        "ar": "القيمة 4"
       },
       "businessContext_i18n": {
         "en": "Fourth positive value for harmonic mean.",
         "tr": "Harmonik ortalama için dördüncü pozitif değer.",
         "de": "Vierter positiver Wert für das harmonische Mittel.",
         "fr": "Quatrième valeur positive pour la moyenne harmonique.",
-        "es": "Cuarto valor positivo para la media armónica."
+        "es": "Cuarto valor positivo para la media armónica.",
+        "ar": "القيمة الموجبة الرابعة للوسط التوافقي."
       }
     }
   ],
   "formulas": {
-    "result": "value1 + value2 + value3",
-    "result_aux": "value1 + value2 + value3"
+    "normalized_product": "value1 * value2 * value3 * value4",
+    "result": "value1 * value2 * value3 * value4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "1 / inputs.value1",
-      "1 / inputs.value2",
-      "1 / inputs.value3",
-      "1 / inputs.value4",
-      "1/inputs.value1 + 1/inputs.value2 + 1/inputs.value3 + 1/inputs.value4"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "1_inputs_value1___1_inputs_value2___1_in",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -14,14 +14,15 @@
         "de": "Spannung (V)",
         "fr": "Tension (V)",
         "es": "Voltaje (V)",
-        "ar": "Gerilim (V)"
+        "ar": "الجهد (V)"
       },
       "businessContext_i18n": {
         "en": "Devre gerilimi",
         "tr": "Devre gerilimi",
         "de": "Kreisspannung",
         "fr": "Tension du circuit",
-        "es": "Tensión del circuito"
+        "es": "Tensión del circuito",
+        "ar": "جهد الدائرة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strom pro Gerät (A)",
         "fr": "Courant par appareil (A)",
         "es": "Corriente por dispositivo (A)",
-        "ar": "Cihaz Başına Akım (A)"
+        "ar": "التيار لكل جهاز (A)"
       },
       "businessContext_i18n": {
         "en": "Her bir cihazın çektiği akım",
         "tr": "Her bir cihazın çektiği akım",
         "de": "Stromaufnahme jedes Geräts",
         "fr": "Courant consommé par chaque appareil",
-        "es": "Corriente consumida por cada dispositivo"
+        "es": "Corriente consumida por cada dispositivo",
+        "ar": "التيار المسحوب لكل جهاز"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Güç Faktörü"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Yükün güç faktörü (0-1 arası)",
         "tr": "Yükün güç faktörü (0-1 arası)",
         "de": "Leistungsfaktor der Last (0-1)",
         "fr": "Facteur de puissance de la charge (entre 0 et 1)",
-        "es": "Factor de potencia de la carga (0-1)"
+        "es": "Factor de potencia de la carga (0-1)",
+        "ar": "معامل قدرة الحمل (بين 0 و1)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Geräte",
         "fr": "Nombre d'appareils",
         "es": "Número de dispositivos",
-        "ar": "Cihaz Sayısı"
+        "ar": "عدد الأجهزة"
       },
       "businessContext_i18n": {
         "en": "Paralel bağlı cihaz sayısı",
         "tr": "Paralel bağlı cihaz sayısı",
         "de": "Anzahl parallel geschalteter Geräte",
         "fr": "Nombre d'appareils connectés en parallèle",
-        "es": "Número de dispositivos en paralelo"
+        "es": "Número de dispositivos en paralelo",
+        "ar": "عدد الأجهزة الموصولة على التوازي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Emniyet Katsayısı"
+        "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Sürekli yük için NEC %125 kuralı",
         "tr": "Sürekli yük için NEC %125 kuralı",
         "de": "NEC 125%-Regel für Dauerlast",
         "fr": "Règle NEC 125% pour charge continue",
-        "es": "Regla NEC 125% para carga continua"
+        "es": "Regla NEC 125% para carga continua",
+        "ar": "قاعدة NEC 125% للحمل المستمر"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Sicherungsstrom (A)",
         "fr": "Courant du fusible (A)",
         "es": "Corriente del fusible (A)",
-        "ar": "Sigorta Akımı (A)"
+        "ar": "تيار المصهر (A)"
       },
       "businessContext_i18n": {
         "en": "Devre kesici nominal akımı",
         "tr": "Devre kesici nominal akımı",
         "de": "Nennstrom des Leistungsschalters",
         "fr": "Courant nominal du disjoncteur",
-        "es": "Corriente nominal del interruptor"
+        "es": "Corriente nominal del interruptor",
+        "ar": "التيار المقنن لقاطع الدائرة"
       }
     }
   ],

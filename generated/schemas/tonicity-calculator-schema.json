@@ -14,13 +14,15 @@
         "de": "Volumen (ml)",
         "fr": "Volume (mL)",
         "es": "Volumen (mL)",
-        "ar": "Volume (mL)"
+        "ar": "الحجم (مل)"
       },
       "businessContext_i18n": {
         "en": "Total volume of the solution in milliliters.",
         "tr": "Çözeltinin toplam hacmi (mL)",
         "de": "Gesamtvolumen der Lösung in Millilitern.",
-        "fr": "Volume total de la solution en millilitres."
+        "fr": "Volume total de la solution en millilitres.",
+        "es": "Volumen total de la solución en mililitros.",
+        "ar": "الحجم الكلي للمحلول بالميليلتر"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Hedef konsantrasyon (g/100mL)",
         "de": "Zielkonzentration (g/100mL)",
         "fr": "Concentration cible (g/100mL)",
-        "es": "Target concentration (g/100mL)",
-        "ar": "Target concentration (g/100mL)"
+        "es": "Concentración objetivo (g/100mL)",
+        "ar": "التركيز المستهدف (غ/100 مل)"
       },
       "businessContext_i18n": {
         "en": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v).",
         "tr": "İzotoniklik için istenen sodyum klorür konsantrasyonu (tipik olarak %0.9 a/h)",
         "de": "Gewünschte Natriumchloridkonzentration für Isotonie (typischerweise 0,9% w/v).",
-        "fr": "Concentration en chlorure de sodium souhaitée pour l'isotonicité (généralement 0,9 % p/v)."
+        "fr": "Concentration en chlorure de sodium souhaitée pour l'isotonicité (généralement 0,9 % p/v).",
+        "es": "Concentración deseada de cloruro de sodio para isotonicidad (típicamente 0.9% p/v).",
+        "ar": "تركيز كلوريد الصوديوم المطلوب للتساوي الأسموزي (عادة 0.9% وزن/حجم)"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "İlaç 1 miktarı (g)",
         "de": "Wirkstoff 1 Menge (g)",
         "fr": "Quantité de médicament 1 (g)",
-        "es": "Drug 1 amount (g)",
-        "ar": "Drug 1 amount (g)"
+        "es": "Cantidad de fármaco 1 (g)",
+        "ar": "كمية الدواء 1 (غ)"
       },
       "businessContext_i18n": {
         "en": "Mass of the first active ingredient in grams.",
         "tr": "Birinci aktif bileşenin kütlesi (g)",
         "de": "Masse des ersten Wirkstoffs in Gramm.",
-        "fr": "Masse du premier principe actif en grammes."
+        "fr": "Masse du premier principe actif en grammes.",
+        "es": "Masa del primer principio activo en gramos.",
+        "ar": "كتلة المادة الفعالة الأولى بالغرامات"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "İlaç 1 E-değeri",
         "de": "Wirkstoff 1 E-Wert",
         "fr": "Valeur E du médicament 1",
-        "es": "Drug 1 E-value",
-        "ar": "Drug 1 E-value"
+        "es": "Valor E del fármaco 1",
+        "ar": "قيمة E للدواء 1"
       },
       "businessContext_i18n": {
         "en": "Sodium chloride equivalent of the first drug (g NaCl per g drug).",
         "tr": "Birinci ilacın sodyum klorür eşdeğeri (g NaCl / g ilaç)",
         "de": "Natriumchlorid-Äquivalent des ersten Wirkstoffs (g NaCl pro g Wirkstoff).",
-        "fr": "Équivalent chlorure de sodium du premier médicament (g NaCl par g de médicament)."
+        "fr": "Équivalent chlorure de sodium du premier médicament (g NaCl par g de médicament).",
+        "es": "Equivalente en cloruro de sodio del primer fármaco (g NaCl por g de fármaco).",
+        "ar": "مكافئ كلوريد الصوديوم للدواء الأول (غ كلوريد صوديوم لكل غ دواء)"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "İlaç 2 miktarı (g)",
         "de": "Wirkstoff 2 Menge (g)",
         "fr": "Quantité de médicament 2 (g)",
-        "es": "Drug 2 amount (g)",
-        "ar": "Drug 2 amount (g)"
+        "es": "Cantidad de fármaco 2 (g)",
+        "ar": "كمية الدواء 2 (غ)"
       },
       "businessContext_i18n": {
         "en": "Mass of the second active ingredient in grams.",
         "tr": "İkinci aktif bileşenin kütlesi (g)",
         "de": "Masse des zweiten Wirkstoffs in Gramm.",
-        "fr": "Masse du deuxième principe actif en grammes."
+        "fr": "Masse du deuxième principe actif en grammes.",
+        "es": "Masa del segundo principio activo en gramos.",
+        "ar": "كتلة المادة الفعالة الثانية بالغرامات"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "İlaç 2 E-değeri",
         "de": "Wirkstoff 2 E-Wert",
         "fr": "Valeur E du médicament 2",
-        "es": "Drug 2 E-value",
-        "ar": "Drug 2 E-value"
+        "es": "Valor E del fármaco 2",
+        "ar": "قيمة E للدواء 2"
       },
       "businessContext_i18n": {
         "en": "Sodium chloride equivalent of the second drug (g NaCl per g drug).",
         "tr": "İkinci ilacın sodyum klorür eşdeğeri (g NaCl / g ilaç)",
         "de": "Natriumchlorid-Äquivalent des zweiten Wirkstoffs (g NaCl pro g Wirkstoff).",
-        "fr": "Équivalent chlorure de sodium du deuxième médicament (g NaCl par g de médicament)."
+        "fr": "Équivalent chlorure de sodium du deuxième médicament (g NaCl par g de médicament).",
+        "es": "Equivalente en cloruro de sodio del segundo fármaco (g NaCl por g de fármaco).",
+        "ar": "مكافئ كلوريد الصوديوم للدواء الثاني (غ كلوريد صوديوم لكل غ دواء)"
       }
     }
   ],

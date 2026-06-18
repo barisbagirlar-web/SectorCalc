@@ -14,14 +14,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Your chronological age in years.",
         "tr": "Kronolojik yaşınız (yıl cinsinden).",
         "de": "Ihr chronologisches Alter in Jahren.",
         "fr": "Votre âge chronologique en années.",
-        "es": "Su edad cronológica en años."
+        "es": "Su edad cronológica en años.",
+        "ar": "عمرك الزمني بالسنوات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Ruhepuls",
         "fr": "Fréquence cardiaque au repos",
         "es": "Frecuencia cardíaca en reposo",
-        "ar": "Resting Heart Rate"
+        "ar": "معدل ضربات القلب أثناء الراحة"
       },
       "businessContext_i18n": {
         "en": "Your resting heart rate in beats per minute. Measure after waking up, before getting out of bed.",
         "tr": "Dinlenme kalp atış hızınız (dakikadaki atım sayısı). Uyandıktan sonra, yataktan kalkmadan önce ölçün.",
         "de": "Ihr Ruhepuls in Schlägen pro Minute. Messen Sie nach dem Aufwachen, bevor Sie aufstehen.",
         "fr": "Votre fréquence cardiaque au repos en battements par minute. Mesurez après le réveil, avant de vous lever.",
-        "es": "Su frecuencia cardíaca en reposo en latidos por minuto. Mida después de despertarse, antes de levantarse de la cama."
+        "es": "Su frecuencia cardíaca en reposo en latidos por minuto. Mida después de despertarse, antes de levantarse de la cama.",
+        "ar": "معدل ضربات القلب أثناء الراحة (نبضة/دقيقة). يُقاس بعد الاستيقاظ وقبل النهوض من السرير."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "0 for male, 1 for female.",
         "tr": "0 erkek, 1 kadın.",
         "de": "0 für männlich, 1 für weiblich.",
         "fr": "0 pour homme, 1 pour femme.",
-        "es": "0 para hombre, 1 para mujer."
+        "es": "0 para hombre, 1 para mujer.",
+        "ar": "0 للذكر، 1 للأنثى."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Maximale Herzfrequenz (optional)",
         "fr": "Fréquence cardiaque maximale (optionnel)",
         "es": "Frecuencia cardíaca máxima (opcional)",
-        "ar": "Maximum Heart Rate (optional)"
+        "ar": "أقصى معدل لضربات القلب (اختياري)"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in bpm. Enter 0 to estimate using formula (208 - 0.7 * age).",
         "tr": "Maksimum kalp atış hızı (bpm). Tahmin için 0 girin (formül: 208 - 0.7 * yaş).",
         "de": "Maximale Herzfrequenz in bpm. Geben Sie 0 ein, um mit der Formel (208 - 0,7 * Alter) zu schätzen.",
         "fr": "Fréquence cardiaque maximale en bpm. Entrez 0 pour estimer avec la formule (208 - 0,7 * âge).",
-        "es": "Frecuencia cardíaca máxima en lpm. Ingrese 0 para estimar usando la fórmula (208 - 0.7 * edad)."
+        "es": "Frecuencia cardíaca máxima en lpm. Ingrese 0 para estimar usando la fórmula (208 - 0.7 * edad).",
+        "ar": "أقصى معدل لضربات القلب (نبضة/دقيقة). أدخل 0 للتقدير باستخدام المعادلة (208 - 0.7 * العمر)."
       }
     }
   ],
   "formulas": {
-    "result": "age + restingHeartRate + gender",
-    "result_copy": "age + restingHeartRate + gender"
+    "normalized_product": "age * restingHeartRate * gender * maxHeartRate",
+    "result": "age * restingHeartRate * gender * maxHeartRate"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "vo2max",
-      "averageVO2max"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fitnessAge",
-    "unit": "years"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

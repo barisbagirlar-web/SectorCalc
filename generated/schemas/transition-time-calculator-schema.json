@@ -13,14 +13,16 @@
         "tr": "Seyahat Mesafesi",
         "de": "Fahrstrecke",
         "fr": "Distance de déplacement",
-        "es": "Travel Distance",
-        "ar": "Travel Distance"
+        "es": "Distancia de recorrido",
+        "ar": "مسافة الانتقال"
       },
       "businessContext_i18n": {
         "en": "Total linear distance to be covered during the transition",
         "tr": "Geçiş sırasında katedilecek toplam doğrusal mesafe",
         "de": "Gesamte lineare Strecke, die während des Übergangs zurückgelegt wird",
-        "fr": "Distance linéaire totale à parcourir pendant la transition"
+        "fr": "Distance linéaire totale à parcourir pendant la transition",
+        "es": "Distancia lineal total a cubrir durante la transición.",
+        "ar": "المسافة الخطية الإجمالية التي يجب تغطيتها أثناء الانتقال"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Hızlanma Kapasitesi",
         "de": "Beschleunigungsfähigkeit",
         "fr": "Capacité d'accélération",
-        "es": "Acceleration Capability",
-        "ar": "Acceleration Capability"
+        "es": "Capacidad de aceleración",
+        "ar": "قدرة التسارع"
       },
       "businessContext_i18n": {
         "en": "Maximum acceleration the system can achieve",
         "tr": "Sistemin ulaşabileceği maksimum ivme",
         "de": "Maximale Beschleunigung, die das System erreichen kann",
-        "fr": "Accélération maximale que le système peut atteindre"
+        "fr": "Accélération maximale que le système peut atteindre",
+        "es": "Aceleración máxima que el sistema puede alcanzar.",
+        "ar": "أقصى تسارع يمكن للنظام تحقيقه"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Maksimum Hız Limiti",
         "de": "Maximale Geschwindigkeitsbegrenzung",
         "fr": "Limite de vitesse maximale",
-        "es": "Max Velocity Limit",
-        "ar": "Max Velocity Limit"
+        "es": "Límite de velocidad máxima",
+        "ar": "حد السرعة القصوى"
       },
       "businessContext_i18n": {
         "en": "Maximum velocity the system can sustain",
         "tr": "Sistemin sürdürebileceği maksimum hız",
         "de": "Maximale Geschwindigkeit, die das System aufrechterhalten kann",
-        "fr": "Vitesse maximale que le système peut maintenir"
+        "fr": "Vitesse maximale que le système peut maintenir",
+        "es": "Velocidad máxima que el sistema puede mantener.",
+        "ar": "أقصى سرعة يمكن للنظام الحفاظ عليها"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Hareket Öncesi Gecikme",
         "de": "Verzögerung vor Bewegung",
         "fr": "Délai avant mouvement",
-        "es": "Pre-Motion Delay",
-        "ar": "Pre-Motion Delay"
+        "es": "Retardo previo al movimiento",
+        "ar": "تأخير ما قبل الحركة"
       },
       "businessContext_i18n": {
         "en": "Delay before motion starts (e.g., signal processing, grip activation)",
         "tr": "Hareket başlamadan önceki gecikme (örn. sinyal işleme, tutucu aktivasyonu)",
         "de": "Verzögerung vor Bewegungsbeginn (z. B. Signalverarbeitung, Greiferaktivierung)",
-        "fr": "Délai avant le début du mouvement (ex. traitement du signal, activation de la pince)"
+        "fr": "Délai avant le début du mouvement (ex. traitement du signal, activation de la pince)",
+        "es": "Retardo antes de que comience el movimiento (p. ej., procesamiento de señal, activación de sujeción).",
+        "ar": "تأخير قبل بدء الحركة (مثل معالجة الإشارة، تنشيط القابضة)"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Hareket Sonrası Yerleşme Süresi",
         "de": "Nachlaufzeit",
         "fr": "Temps de stabilisation après mouvement",
-        "es": "Post-Motion Settling Time",
-        "ar": "Post-Motion Settling Time"
+        "es": "Tiempo de estabilización posterior al movimiento",
+        "ar": "زمن الاستقرار بعد الحركة"
       },
       "businessContext_i18n": {
         "en": "Time required after reaching position for stabilization (vibration, settling)",
         "tr": "Pozisyona ulaştıktan sonra stabilizasyon için gereken süre (titreşim, yerleşme)",
         "de": "Erforderliche Zeit nach Erreichen der Position zur Stabilisierung (Vibration, Beruhigung)",
-        "fr": "Temps nécessaire après avoir atteint la position pour la stabilisation (vibrations, mise en place)"
+        "fr": "Temps nécessaire après avoir atteint la position pour la stabilisation (vibrations, mise en place)",
+        "es": "Tiempo requerido después de alcanzar la posición para estabilización (vibración, asentamiento)",
+        "ar": "الوقت المطلوب بعد الوصول إلى الموضع للاستقرار (الاهتزاز، الاستقرار)"
       }
     }
   ],

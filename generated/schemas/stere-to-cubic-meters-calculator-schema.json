@@ -14,14 +14,15 @@
         "de": "Volumen (Ster)",
         "fr": "Volume (Stère)",
         "es": "Volumen (Estéreo)",
-        "ar": "Volume (Stere)"
+        "ar": "الحجم (ستير)"
       },
       "businessContext_i18n": {
         "en": "The volume of wood in steres to convert",
         "tr": "Dönüştürülecek odun hacmi (ster cinsinden)",
         "de": "Das Holzvolumen in Ster, das umgerechnet werden soll",
         "fr": "Volume de bois en stères à convertir",
-        "es": "El volumen de madera en estéreos a convertir"
+        "es": "El volumen de madera en estéreos a convertir",
+        "ar": "حجم الخشب بالستير للتحويل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants.",
         "tr": "Dönüşüm faktörü, tipik olarak 1 ster = 1 m³. Belirli istifleme varyantları için ayarlayın.",
         "de": "Umrechnungsfaktor, typischerweise 1 Ster = 1 m³. Für spezifische Stapelvarianten anpassen.",
         "fr": "Facteur de conversion, généralement 1 stère = 1 m³. Ajuster pour les variantes d'empilage.",
-        "es": "Factor de conversión, típicamente 1 estéreo = 1 m³. Ajustar para variantes de apilamiento específicas."
+        "es": "Factor de conversión, típicamente 1 estéreo = 1 m³. Ajustar para variantes de apilamiento específicas.",
+        "ar": "عامل التحويل، عادة 1 ستير = 1 متر مكعب. اضبط لمتغيرات التكديس المحددة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Stapelfaktor",
         "fr": "Facteur d'empilage",
         "es": "Factor de apilamiento",
-        "ar": "Stacking Factor"
+        "ar": "عامل التكديس"
       },
       "businessContext_i18n": {
         "en": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips.",
         "tr": "Standart istiflenmiş sterler için 1.0. Gevşek zincir talaşı için 0.7–0.8 kullanın.",
         "de": "1,0 für standardmäßig gestapelte Ster. 0,7–0,8 für lose Kettensägen-Hackschnitzel verwenden.",
         "fr": "1,0 pour les stères empilés standard. Utilisez 0,7–0,8 pour les copeaux de tronçonneuse en vrac.",
-        "es": "1.0 para estéreos apilados estándar. Usar 0.7–0.8 para astillas sueltas de motosierra."
+        "es": "1.0 para estéreos apilados estándar. Usar 0.7–0.8 para astillas sueltas de motosierra.",
+        "ar": "1.0 للستيرات المكدسة القياسية. استخدم 0.7–0.8 لرقائق المنشار السائبة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Preis pro Ster",
         "fr": "Prix par stère",
         "es": "Precio por estéreo",
-        "ar": "Price per Stere"
+        "ar": "السعر لكل ستير"
       },
       "businessContext_i18n": {
         "en": "Optional: price per stere for cost calculations",
         "tr": "İsteğe bağlı: maliyet hesaplamaları için ster başına fiyat",
         "de": "Optional: Preis pro Ster für Kostenberechnungen",
         "fr": "Optionnel : prix par stère pour les calculs de coût",
-        "es": "Opcional: precio por estéreo para cálculos de coste"
+        "es": "Opcional: precio por estéreo para cálculos de coste",
+        "ar": "اختياري: السعر لكل ستير لحسابات التكلفة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Preis pro Kubikmeter",
         "fr": "Prix par mètre cube",
         "es": "Precio por metro cúbico",
-        "ar": "Price per Cubic Meter"
+        "ar": "السعر لكل متر مكعب"
       },
       "businessContext_i18n": {
         "en": "Optional: price per cubic meter for cost comparison",
         "tr": "İsteğe bağlı: maliyet karşılaştırması için metreküp başına fiyat",
         "de": "Optional: Preis pro Kubikmeter für Kostenvergleich",
         "fr": "Optionnel : prix par mètre cube pour comparaison de coût",
-        "es": "Opcional: precio por metro cúbico para comparación de costes"
+        "es": "Opcional: precio por metro cúbico para comparación de costes",
+        "ar": "اختياري: السعر لكل متر مكعب لمقارنة التكلفة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final result",
         "tr": "Nihai sonuç için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für das Endergebnis",
         "fr": "Nombre de décimales pour le résultat final",
-        "es": "Número de decimales para el resultado final"
+        "es": "Número de decimales para el resultado final",
+        "ar": "عدد المنازل العشرية للنتيجة النهائية"
       }
     }
   ],

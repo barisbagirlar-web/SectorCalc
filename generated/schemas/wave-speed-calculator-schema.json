@@ -14,13 +14,15 @@
         "de": "Spannung",
         "fr": "Tension",
         "es": "Tensión",
-        "ar": "Tension"
+        "ar": "الشد"
       },
       "businessContext_i18n": {
         "en": "String tension",
         "tr": "Tel gerginliği",
         "de": "Saitenspannung",
-        "fr": "Tension de la corde"
+        "fr": "Tension de la corde",
+        "es": "Tensión de la cuerda",
+        "ar": "شد الوتر"
       }
     },
     {
@@ -36,14 +38,15 @@
         "de": "Lineare Dichte",
         "fr": "Masse linéique",
         "es": "Densidad lineal",
-        "ar": "Linear Density"
+        "ar": "الكثافة الخطية"
       },
       "businessContext_i18n": {
         "en": "Mass per unit length of the string",
         "tr": "Tel birim uzunluk kütlesi",
         "de": "Masse pro Längeneinheit der Saite",
         "fr": "Masse linéique de la corde",
-        "es": "Masa por unidad de longitud de la cuerda"
+        "es": "Masa por unidad de longitud de la cuerda",
+        "ar": "الكتلة لكل وحدة طول للوتر"
       }
     },
     {
@@ -59,13 +62,15 @@
         "de": "Saitenlänge",
         "fr": "Longueur de la corde",
         "es": "Longitud de la cuerda",
-        "ar": "String Length"
+        "ar": "طول الوتر"
       },
       "businessContext_i18n": {
         "en": "Length of the vibrating part of the string",
         "tr": "Telin titreşen kısmının uzunluğu",
         "de": "Länge des schwingenden Teils der Saite",
-        "fr": "Longueur de la partie vibrante de la corde"
+        "fr": "Longueur de la partie vibrante de la corde",
+        "es": "Longitud de la parte vibrante de la cuerda",
+        "ar": "طول الجزء المهتز من الوتر"
       }
     },
     {
@@ -80,33 +85,38 @@
         "tr": "Harmonik Numarası",
         "de": "Obertonnummer",
         "fr": "Numéro d'harmonique",
-        "es": "Harmonic Number",
-        "ar": "Harmonic Number"
+        "es": "Número armónico",
+        "ar": "رقم التوافقي"
       },
       "businessContext_i18n": {
         "en": "n-th harmonic (positive integer)",
         "tr": "n'inci harmonik (pozitif tam sayı)",
         "de": "n-ter Oberton (positive ganze Zahl)",
-        "fr": "n-ième harmonique (entier positif)"
+        "fr": "n-ième harmonique (entier positif)",
+        "es": "n-ésimo armónico (entero positivo)",
+        "ar": "التوافقي n-th (عدد صحيح موجب)"
       }
     }
   ],
   "formulas": {
-    "result": "tension + linearDensity + length",
-    "result_copy": "tension + linearDensity + length"
+    "normalized_product": "tension * linearDensity * length * harmonicNumber",
+    "result": "tension * linearDensity * length * harmonicNumber"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "fundamentalFrequency",
-      "harmonicFrequency"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "harmonicFrequency",
-    "unit": "N"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

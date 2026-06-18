@@ -14,14 +14,15 @@
         "de": "Darlehensbetrag",
         "fr": "Montant du prêt",
         "es": "Monto del préstamo",
-        "ar": "Loan Amount"
+        "ar": "مبلغ القرض"
       },
       "businessContext_i18n": {
         "en": "Total jumbo loan principal amount.",
         "tr": "Toplam jumbo kredi anapara tutarı.",
         "de": "Gesamter Jumbo-Darlehensbetrag.",
         "fr": "Montant total du prêt jumbo.",
-        "es": "Monto total del préstamo jumbo."
+        "es": "Monto total del préstamo jumbo.",
+        "ar": "إجمالي مبلغ القرض الرئيسي للقرض الضخم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate for the jumbo loan.",
         "tr": "Jumbo kredi için yıllık nominal faiz oranı.",
         "de": "Jährlicher Nominalzinssatz für das Jumbo-Darlehen.",
         "fr": "Taux d'intérêt nominal annuel du prêt jumbo.",
-        "es": "Tasa de interés nominal anual del préstamo jumbo."
+        "es": "Tasa de interés nominal anual del préstamo jumbo.",
+        "ar": "معدل الفائدة الاسمي السنوي للقرض الضخم."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Darlehenslaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
-        "ar": "Loan Term"
+        "ar": "مدة القرض"
       },
       "businessContext_i18n": {
         "en": "Length of the loan in years.",
         "tr": "Kredinin yıl cinsinden vadesi.",
         "de": "Laufzeit des Darlehens in Jahren.",
         "fr": "Durée du prêt en années.",
-        "es": "Plazo del préstamo en años."
+        "es": "Plazo del préstamo en años.",
+        "ar": "مدة القرض بالسنوات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahlung",
         "fr": "Acompte",
         "es": "Pago inicial",
-        "ar": "Down Payment"
+        "ar": "الدفعة الأولى"
       },
       "businessContext_i18n": {
         "en": "Down payment as a percentage of the purchase price. Used to compute loan-to-value ratio and purchase price.",
         "tr": "Satın alma fiyatının yüzdesi olarak peşinat. Kredi-değer oranı ve satın alma fiyatını hesaplamak için kullanılır.",
         "de": "Anzahlung als Prozentsatz des Kaufpreises. Wird zur Berechnung des Beleihungsauslaufs und des Kaufpreises verwendet.",
         "fr": "Acompte en pourcentage du prix d'achat. Utilisé pour calculer le ratio prêt-valeur et le prix d'achat.",
-        "es": "Pago inicial como porcentaje del precio de compra. Se usa para calcular la relación préstamo-valor y el precio de compra."
+        "es": "Pago inicial como porcentaje del precio de compra. Se usa para calcular la relación préstamo-valor y el precio de compra.",
+        "ar": "الدفعة الأولى كنسبة مئوية من سعر الشراء. تُستخدم لحساب نسبة القرض إلى القيمة وسعر الشراء."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Grundsteuersatz",
         "fr": "Taux d'imposition foncière",
         "es": "Tasa de impuesto a la propiedad",
-        "ar": "Property Tax Rate"
+        "ar": "معدل ضريبة الأملاك"
       },
       "businessContext_i18n": {
         "en": "Annual property tax rate as a percentage of the home's purchase price.",
         "tr": "Evin satın alma fiyatının yüzdesi olarak yıllık emlak vergisi oranı.",
         "de": "Jährlicher Grundsteuersatz als Prozentsatz des Kaufpreises des Hauses.",
         "fr": "Taux annuel d'imposition foncière en pourcentage du prix d'achat du logement.",
-        "es": "Tasa anual de impuesto a la propiedad como porcentaje del precio de compra de la vivienda."
+        "es": "Tasa anual de impuesto a la propiedad como porcentaje del precio de compra de la vivienda.",
+        "ar": "معدل ضريبة الأملاك السنوي كنسبة مئوية من سعر شراء المنزل."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Jährliche Hausratversicherung",
         "fr": "Assurance habitation annuelle",
         "es": "Seguro anual de la vivienda",
-        "ar": "Annual Home Insurance"
+        "ar": "التأمين السنوي على المنزل"
       },
       "businessContext_i18n": {
         "en": "Annual premium for home insurance.",
         "tr": "Ev sigortası için yıllık prim.",
         "de": "Jährliche Prämie für die Hausratversicherung.",
         "fr": "Prime annuelle de l'assurance habitation.",
-        "es": "Prima anual del seguro de hogar."
+        "es": "Prima anual del seguro de hogar.",
+        "ar": "القسط السنوي للتأمين على المنزل."
       }
     }
   ],

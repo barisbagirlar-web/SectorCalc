@@ -14,14 +14,15 @@
         "de": "Mikrosekunden",
         "fr": "Microsecondes",
         "es": "Microsegundos",
-        "ar": "Microseconds"
+        "ar": "ميكروثانية"
       },
       "businessContext_i18n": {
         "en": "Time duration in microseconds to be converted to nanoseconds.",
         "tr": "Nanometreye dönüştürülecek mikrosaniye cinsinden süre",
         "de": "Zeitdauer in Mikrosekunden zur Umrechnung in Nanosekunden.",
         "fr": "Durée en microsecondes à convertir en nanosecondes.",
-        "es": "Duración en microsegundos a convertir a nanosegundos."
+        "es": "Duración en microsegundos a convertir a nanosegundos.",
+        "ar": "المدة الزمنية بالميكروثانية المراد تحويلها إلى نانوثانية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration.",
         "tr": "Mikrosaniyeden nanosaniyeye standart dönüşüm faktörü. Sertifikalı hesaplamalar için 1000 olarak sabittir. Yeniden kalibrasyon olmadan değiştirmeyin.",
         "de": "Standardumrechnungsfaktor von Mikrosekunden in Nanosekunden. Fest auf 1000 für zertifizierte Berechnungen. Nicht ohne Neukalibrierung ändern.",
         "fr": "Facteur de conversion standard des microsecondes en nanosecondes. Fixé à 1000 pour les calculs certifiés. Ne pas modifier sans réétalonnage.",
-        "es": "Factor de conversión estándar de microsegundos a nanosegundos. Fijo en 1000 para cálculos certificados. No alterar sin recalibración."
+        "es": "Factor de conversión estándar de microsegundos a nanosegundos. Fijo en 1000 para cálculos certificados. No alterar sin recalibración.",
+        "ar": "عامل التحويل القياسي من ميكروثانية إلى نانوثانية. ثابت عند 1000 للحسابات المعتمدة. لا تغيره دون إعادة معايرة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard.",
         "tr": "Sonucun yuvarlanması için ondalık basamak sayısı. Standarda göre tam nanosaniye için 0 kullanın.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses. Verwenden Sie 0 für ganze Nanosekunden gemäß Standard.",
         "fr": "Nombre de décimales pour arrondir le résultat. Utilisez 0 pour des nanosecondes entières selon la norme.",
-        "es": "Número de decimales para redondear el resultado. Use 0 para nanosegundos enteros según estándar."
+        "es": "Número de decimales para redondear el resultado. Use 0 para nanosegundos enteros según estándar.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة. استخدم 0 للحصول على نانوثانية صحيحة حسب المعيار."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Losgröße",
         "fr": "Taille de lot",
         "es": "Tamaño de lote",
-        "ar": "Batch Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "If converting multiple identical durations, enter the quantity. Acts as a multiplier.",
         "tr": "Birden fazla aynı süre dönüştürülüyorsa, miktarı girin. Çarpan görevi görür.",
         "de": "Wenn mehrere identische Dauern umgerechnet werden, geben Sie die Anzahl ein. Wirkt als Multiplikator.",
         "fr": "Si vous convertissez plusieurs durées identiques, saisissez la quantité. Agit comme un multiplicateur.",
-        "es": "Si convierte varias duraciones idénticas, ingrese la cantidad. Actúa como multiplicador."
+        "es": "Si convierte varias duraciones idénticas, ingrese la cantidad. Actúa como multiplicador.",
+        "ar": "إذا كنت تحول عدة مدد متطابقة، أدخل الكمية. يعمل كمضاعف."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
-        "ar": "Tolerance"
+        "ar": "التسامح"
       },
       "businessContext_i18n": {
         "en": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance.",
         "tr": "Kalite güvencesi için nanosaniye cinsinden kabul edilebilir sapma. Sonuç ± toleransa göre kontrol edilecektir.",
         "de": "Akzeptable Abweichung in Nanosekunden für die Qualitätssicherung. Das Ergebnis wird gegen ± Toleranz geprüft.",
         "fr": "Écart acceptable en nanosecondes pour l'assurance qualité. Le résultat sera vérifié par rapport à la tolérance ±.",
-        "es": "Desviación aceptable en nanosegundos para aseguramiento de calidad. El resultado se verificará contra ± tolerancia."
+        "es": "Desviación aceptable en nanosegundos para aseguramiento de calidad. El resultado se verificará contra ± tolerancia.",
+        "ar": "الانحراف المقبول بالنانوثانية لضمان الجودة. سيتم فحص النتيجة مقابل ± التسامح."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kalibrierungsversatz",
         "fr": "Décalage d'étalonnage",
         "es": "Desviación de calibración",
-        "ar": "Calibration Offset"
+        "ar": "إزاحة المعايرة"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset added to the converted value.",
         "tr": "Dönüştürülen değere eklenen enstrüman kalibrasyon ofseti.",
         "de": "Instrumentenkalibrierungsoffset, der zum umgerechneten Wert addiert wird.",
         "fr": "Décalage d'étalonnage de l'instrument ajouté à la valeur convertie.",
-        "es": "Desplazamiento de calibración del instrumento añadido al valor convertido."
+        "es": "Desplazamiento de calibración del instrumento añadido al valor convertido.",
+        "ar": "تصحيح معايرة الجهاز المضاف إلى القيمة المحولة."
       }
     }
   ],

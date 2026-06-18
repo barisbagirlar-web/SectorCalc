@@ -14,14 +14,15 @@
         "de": "Elastizitätsmodul (E)",
         "fr": "Module d'Young (E)",
         "es": "Módulo de Young (E)",
-        "ar": "Young's Modulus (E)"
+        "ar": "معامل يونغ (E)"
       },
       "businessContext_i18n": {
         "en": "Material modulus of elasticity, e.g., 200000 MPa for steel.",
         "tr": "Malzeme elastisite modülü, örn. çelik için 200000 MPa.",
         "de": "Elastizitätsmodul des Materials, z.B. 200000 MPa für Stahl.",
         "fr": "Module d'élasticité du matériau, ex. 200000 MPa pour l'acier.",
-        "es": "Módulo de elasticidad del material, ej. 200000 MPa para acero."
+        "es": "Módulo de elasticidad del material, ej. 200000 MPa para acero.",
+        "ar": "معامل مرونة المادة، على سبيل المثال 200000 ميجا باسكال للصلب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Flächenträgheitsmoment (I)",
         "fr": "Moment d'inertie de la section (I)",
         "es": "Momento de inercia del área (I)",
-        "ar": "Area Moment of Inertia (I)"
+        "ar": "عزم القصور الذاتي للمساحة (I)"
       },
       "businessContext_i18n": {
         "en": "Second moment of area of the column cross-section.",
         "tr": "Kolon kesitinin ikinci alan momenti.",
         "de": "Zweites Flächenmoment des Stützenquerschnitts.",
         "fr": "Moment d'inertie de la section transversale de la colonne.",
-        "es": "Segundo momento de área de la sección transversal de la columna."
+        "es": "Segundo momento de área de la sección transversal de la columna.",
+        "ar": "العزم الثاني للمساحة للمقطع العرضي للعمود."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Knicklängenbeiwert (K)",
         "fr": "Coefficient de longueur effective (K)",
         "es": "Factor de longitud efectiva (K)",
-        "ar": "Effective Length Factor (K)"
+        "ar": "معامل الطول الفعال (K)"
       },
       "businessContext_i18n": {
         "en": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc.",
         "tr": "Uç koşullarına bağlıdır: mafsallı-mafsallı için 1.0, ankastre-ankastre için 0.5, vb.",
         "de": "Abhängig von den Endbedingungen: 1,0 für gelenkig-gelenkig, 0,5 für eingespannt-eingespannt, usw.",
         "fr": "Dépend des conditions d'extrémité : 1,0 pour articulé-articulé, 0,5 pour encastré-encastré, etc.",
-        "es": "Depende de las condiciones de extremo: 1.0 para articulado-articulado, 0.5 para fijo-fijo, etc."
+        "es": "Depende de las condiciones de extremo: 1.0 para articulado-articulado, 0.5 para fijo-fijo, etc.",
+        "ar": "يعتمد على ظروف النهاية: 1.0 لمفصل-مفصل، 0.5 لتثبيت-تثبيت، إلخ."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Säulenlänge (L)",
         "fr": "Longueur de la colonne (L)",
         "es": "Longitud de la columna (L)",
-        "ar": "Column Length (L)"
+        "ar": "طول العمود (L)"
       },
       "businessContext_i18n": {
         "en": "Unsupported length of the column.",
         "tr": "Kolonun desteklenmeyen uzunluğu.",
         "de": "Freie Knicklänge der Säule.",
         "fr": "Longueur non supportée de la colonne.",
-        "es": "Longitud no soportada de la columna."
+        "es": "Longitud no soportada de la columna.",
+        "ar": "الطول غير المدعوم للعمود."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Querschnittsfläche (A)",
         "fr": "Section transversale (A)",
         "es": "Área de sección transversal (A)",
-        "ar": "Cross-sectional Area (A)"
+        "ar": "مساحة المقطع العرضي (A)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the column for stress calculation.",
         "tr": "Gerilme hesabı için kolon kesit alanı.",
         "de": "Querschnittsfläche der Säule für die Spannungsberechnung.",
         "fr": "Aire de la section transversale de la colonne pour le calcul des contraintes.",
-        "es": "Área de la sección transversal de la columna para el cálculo de tensión."
+        "es": "Área de la sección transversal de la columna para el cálculo de tensión.",
+        "ar": "مساحة المقطع العرضي للعمود لحساب الإجهاد."
       }
     }
   ],
   "formulas": {
-    "result": "E + I + K",
-    "result_copy": "E + I + K"
+    "normalized_product": "E * I * K * L",
+    "result": "E * I * K * L * (A)",
+    "adjustment_factor": "A"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "criticalStress",
-      "slenderness"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "slenderness",
-    "unit": "MPa"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

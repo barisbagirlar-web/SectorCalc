@@ -14,14 +14,15 @@
         "de": "Teilchenmasse",
         "fr": "Masse de la particule",
         "es": "Masa de la partícula",
-        "ar": "Particle Mass"
+        "ar": "كتلة الجسيم"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle (e.g., electron mass)",
         "tr": "Parçacığın kütlesi (örneğin, elektron kütlesi)",
         "de": "Masse des Teilchens (z. B. Elektronenmasse)",
         "fr": "Masse de la particule (par exemple, masse de l'électron)",
-        "es": "Masa de la partícula (ej. masa del electrón)"
+        "es": "Masa de la partícula (ej. masa del electrón)",
+        "ar": "كتلة الجسيم (مثل كتلة الإلكترون)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Potentielle Energie",
         "fr": "Énergie potentielle",
         "es": "Energía potencial",
-        "ar": "Potential Energy"
+        "ar": "طاقة الوضع"
       },
       "businessContext_i18n": {
         "en": "Constant potential energy in the region",
         "tr": "Bölgedeki sabit potansiyel enerji",
         "de": "Konstante potentielle Energie im Bereich",
         "fr": "Énergie potentielle constante dans la région",
-        "es": "Energía potencial constante en la región"
+        "es": "Energía potencial constante en la región",
+        "ar": "طاقة الوضع الثابتة في المنطقة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gesamtenergie",
         "fr": "Énergie totale",
         "es": "Energía total",
-        "ar": "Total Energy"
+        "ar": "الطاقة الكلية"
       },
       "businessContext_i18n": {
         "en": "Total energy of the particle (e.g., 1 eV)",
         "tr": "Parçacığın toplam enerjisi (ör. 1 eV)",
         "de": "Gesamtenergie des Teilchens (z. B. 1 eV)",
         "fr": "Énergie totale de la particule (ex. 1 eV)",
-        "es": "Energía total de la partícula (ej. 1 eV)"
+        "es": "Energía total de la partícula (ej. 1 eV)",
+        "ar": "الطاقة الكلية للجسيم (مثل 1 إلكترون فولت)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Reduziertes Plancksches Wirkungsquantum",
         "fr": "Constante de Planck réduite",
         "es": "Constante reducida de Planck",
-        "ar": "Reduced Planck Constant"
+        "ar": "ثابت بلانك المخفض"
       },
       "businessContext_i18n": {
         "en": "Fundamental constant h/(2π)",
         "tr": "Temel sabit h/(2π)",
         "de": "Fundamentalkonstante h/(2π)",
         "fr": "Constante fondamentale h/(2π)",
-        "es": "Constante fundamental h/(2π)"
+        "es": "Constante fundamental h/(2π)",
+        "ar": "الثابت الأساسي h/(2π)"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Position",
         "fr": "Position",
         "es": "Posición",
-        "ar": "Position"
+        "ar": "الموضع"
       },
       "businessContext_i18n": {
         "en": "Spatial coordinate for wavefunction evaluation",
         "tr": "Dalga fonksiyonu değerlendirmesi için uzaysal koordinat",
         "de": "Räumliche Koordinate für die Wellenfunktionsauswertung",
         "fr": "Coordonnée spatiale pour l'évaluation de la fonction d'onde",
-        "es": "Coordenada espacial para la evaluación de la función de onda"
+        "es": "Coordenada espacial para la evaluación de la función de onda",
+        "ar": "الإحداثي المكاني لتقييم الدالة الموجية"
       }
     }
   ],
   "formulas": {
-    "result": "mass + potential + energy",
-    "result_copy": "mass + potential + energy"
+    "normalized_product": "mass * potential * energy * hbar",
+    "result": "mass * potential * energy * hbar * (position)",
+    "adjustment_factor": "position"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "waveNumber",
-      "waveFunction",
-      "probabilityDensity"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "probabilityDensity",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

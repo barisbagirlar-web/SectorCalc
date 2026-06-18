@@ -21,7 +21,8 @@
         "tr": "Simetrik pozitif tanımlı A matrisinin sol üst elemanı",
         "de": "Oberes linkes Element der symmetrisch positiv definiten Matrix A",
         "fr": "Élément supérieur gauche de la matrice symétrique définie positive A",
-        "es": "Elemento superior izquierdo de la matriz simétrica definida positiva A"
+        "es": "Elemento superior izquierdo de la matriz simétrica definida positiva A",
+        "ar": "العنصر العلوي الأيسر من المصفوفة المتماثلة الموجبة المحددة A"
       }
     },
     {
@@ -44,7 +45,8 @@
         "tr": "Birinci satır, ikinci sütun (simetri varsayılır)",
         "de": "Erste Zeile, zweite Spalte (Symmetrie angenommen)",
         "fr": "Première ligne, deuxième colonne (symétrie supposée)",
-        "es": "Primera fila, segunda columna (se asume simetría)"
+        "es": "Primera fila, segunda columna (se asume simetría)",
+        "ar": "الصف الأول، العمود الثاني (بافتراض التماثل)"
       }
     },
     {
@@ -67,7 +69,8 @@
         "tr": "Birinci satır, üçüncü sütun",
         "de": "Erste Zeile, dritte Spalte",
         "fr": "Première ligne, troisième colonne",
-        "es": "Primera fila, tercera columna"
+        "es": "Primera fila, tercera columna",
+        "ar": "الصف الأول، العمود الثالث"
       }
     },
     {
@@ -90,7 +93,8 @@
         "tr": "İkinci diyagonal eleman",
         "de": "Zweites Diagonalelement",
         "fr": "Deuxième élément diagonal",
-        "es": "Segundo elemento diagonal"
+        "es": "Segundo elemento diagonal",
+        "ar": "العنصر القطري الثاني"
       }
     },
     {
@@ -113,7 +117,8 @@
         "tr": "İkinci satır, üçüncü sütun",
         "de": "Zweite Zeile, dritte Spalte",
         "fr": "Deuxième ligne, troisième colonne",
-        "es": "Segunda fila, tercera columna"
+        "es": "Segunda fila, tercera columna",
+        "ar": "الصف الثاني، العمود الثالث"
       }
     },
     {
@@ -136,30 +141,32 @@
         "tr": "Sağ alt eleman",
         "de": "Element unten rechts",
         "fr": "Élément en bas à droite",
-        "es": "Elemento inferior derecho"
+        "es": "Elemento inferior derecho",
+        "ar": "العنصر السفلي الأيمن"
       }
     }
   ],
   "formulas": {
-    "result": "a11 + a12 + a13",
-    "result_copy": "a11 + a12 + a13"
+    "normalized_product": "a11 * a12 * a13 * a22",
+    "result": "a11 * a12 * a13 * a22 * (a23 * a33)",
+    "adjustment_factor": "a23 * a33"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "l11 = ${l11}",
-      "l21 = ${l21}",
-      "l31 = ${l31}",
-      "l22 = ${l22}",
-      "l32 = ${l32}",
-      "l33 = ${l33}"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "l33",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

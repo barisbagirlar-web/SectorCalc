@@ -14,14 +14,15 @@
         "de": "Startjahr",
         "fr": "Année de début",
         "es": "Año de Inicio",
-        "ar": "Start Year"
+        "ar": "سنة البداية"
       },
       "businessContext_i18n": {
         "en": "The year of the start date.",
         "tr": "Başlangıç tarihinin yılı.",
         "de": "Das Jahr des Startdatums.",
         "fr": "L'année de la date de début.",
-        "es": "El año de la fecha de inicio."
+        "es": "El año de la fecha de inicio.",
+        "ar": "سنة تاريخ البداية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Startmonat",
         "fr": "Mois de début",
         "es": "Mes de inicio",
-        "ar": "Start Month"
+        "ar": "شهر البداية"
       },
       "businessContext_i18n": {
         "en": "Month of start date (1-12).",
         "tr": "Başlangıç ayı (1-12).",
         "de": "Monat des Startdatums (1-12).",
         "fr": "Mois de la date de début (1-12).",
-        "es": "Mes de la fecha de inicio (1-12)."
+        "es": "Mes de la fecha de inicio (1-12).",
+        "ar": "شهر تاريخ البداية (1-12)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Starttag",
         "fr": "Jour de début",
         "es": "Día de inicio",
-        "ar": "Start Day"
+        "ar": "يوم البداية"
       },
       "businessContext_i18n": {
         "en": "Day of start date.",
         "tr": "Başlangıç tarihinin günü.",
         "de": "Tag des Startdatums.",
         "fr": "Jour de la date de début.",
-        "es": "Día de la fecha de inicio."
+        "es": "Día de la fecha de inicio.",
+        "ar": "يوم تاريخ البداية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Endjahr",
         "fr": "Année de fin",
         "es": "Año de Finalización",
-        "ar": "End Year"
+        "ar": "سنة النهاية"
       },
       "businessContext_i18n": {
         "en": "The year of the end date.",
         "tr": "Bitiş tarihinin yılı.",
         "de": "Das Jahr des Enddatums.",
         "fr": "L'année de la date de fin.",
-        "es": "El año de la fecha de fin."
+        "es": "El año de la fecha de fin.",
+        "ar": "سنة تاريخ النهاية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Endmonat",
         "fr": "Mois de fin",
         "es": "Mes de fin",
-        "ar": "End Month"
+        "ar": "شهر النهاية"
       },
       "businessContext_i18n": {
         "en": "Month of end date (1-12).",
         "tr": "Bitiş tarihinin ayı (1-12).",
         "de": "Monat des Enddatums (1-12).",
         "fr": "Mois de la date de fin (1-12).",
-        "es": "Mes de la fecha de fin (1-12)."
+        "es": "Mes de la fecha de fin (1-12).",
+        "ar": "شهر تاريخ النهاية (1-12)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Endtag",
         "fr": "Jour de fin",
         "es": "Día de fin",
-        "ar": "End Day"
+        "ar": "يوم النهاية"
       },
       "businessContext_i18n": {
         "en": "Day of end date.",
         "tr": "Bitiş tarihinin günü.",
         "de": "Tag des Enddatums.",
         "fr": "Jour de la date de fin.",
-        "es": "Día de la fecha de finalización."
+        "es": "Día de la fecha de finalización.",
+        "ar": "يوم تاريخ النهاية"
       }
     }
   ],
   "formulas": {
-    "result": "startYear + startMonth + startDay",
-    "result_copy": "startYear + startMonth + startDay"
+    "normalized_product": "startYear * startMonth * startDay * endYear",
+    "result": "startYear * startMonth * startDay * endYear * (endMonth * endDay)",
+    "adjustment_factor": "endMonth * endDay"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "startDateISO",
-      "endDateISO",
-      "daysBetween"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "daysBetween_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

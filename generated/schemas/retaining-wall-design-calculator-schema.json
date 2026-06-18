@@ -14,14 +14,15 @@
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
         "es": "Altura del muro",
-        "ar": "Wall Height"
+        "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the retaining wall from base to top.",
         "tr": "İstinat duvarının tabandan tepeye dikey yüksekliği.",
         "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Krone.",
         "fr": "Hauteur verticale du mur de soutènement de la base au sommet.",
-        "es": "Altura vertical del muro de contención desde la base hasta la parte superior."
+        "es": "Altura vertical del muro de contención desde la base hasta la parte superior.",
+        "ar": "الارتفاع الرأسي للجدار الاستنادي من القاعدة إلى القمة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bodenwichte",
         "fr": "Poids volumique du sol",
         "es": "Peso unitario del suelo",
-        "ar": "Soil Unit Weight"
+        "ar": "وزن وحدة التربة"
       },
       "businessContext_i18n": {
         "en": "Unit weight of the backfill soil.",
         "tr": "Dolgu zeminin birim hacim ağırlığı.",
         "de": "Wichte des Hinterfüllbodens.",
         "fr": "Poids unitaire du sol de remblai.",
-        "es": "Peso unitario del suelo de relleno."
+        "es": "Peso unitario del suelo de relleno.",
+        "ar": "وزن الوحدة لتربة الردم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Winkel der inneren Reibung",
         "fr": "Angle de frottement interne",
         "es": "Ángulo de fricción interna",
-        "ar": "Angle of Internal Friction"
+        "ar": "زاوية الاحتكاك الداخلي"
       },
       "businessContext_i18n": {
         "en": "Effective angle of internal friction of the backfill soil.",
         "tr": "Dolgu toprağının efektif içsel sürtünme açısı.",
         "de": "Effektiver Winkel der inneren Reibung des Hinterfüllbodens.",
         "fr": "Angle de frottement interne effectif du sol de remblai.",
-        "es": "Ángulo de fricción interna efectivo del suelo de relleno."
+        "es": "Ángulo de fricción interna efectivo del suelo de relleno.",
+        "ar": "زاوية الاحتكاك الداخلي الفعالة لتربة الردم."
       }
     },
     {
@@ -83,49 +86,37 @@
         "de": "Auflast",
         "fr": "Charge de surcharge",
         "es": "Sobrecarga",
-        "ar": "Surcharge Load"
+        "ar": "حمل السطوح"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load on the backfill surface.",
         "tr": "Dolgu yüzeyindeki düzgün yayılı hareketli yük.",
         "de": "Gleichmäßige Auflast auf der Hinterfülloberfläche.",
         "fr": "Charge de surcharge uniforme sur la surface du remblai.",
-        "es": "Carga uniforme de sobrecarga sobre la superficie del relleno."
+        "es": "Carga uniforme de sobrecarga sobre la superficie del relleno.",
+        "ar": "حمل السطح المنتظم الإضافي على سطح الردم."
       }
     }
   ],
   "formulas": {
-    "result": "H + gamma + phi",
-    "result_copy": "H + gamma + phi"
+    "normalized_product": "H * gamma * phi * q",
+    "result": "H * gamma * phi * q"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "pa",
-        "label": "Active Soil Force",
-        "unit": "kN/m",
-        "businessContext": "Horizontal force due to active earth pressure from soil."
-      },
-      {
-        "id": "pq",
-        "label": "Surcharge Force",
-        "unit": "kN/m",
-        "businessContext": "Horizontal force due to surcharge load."
-      },
-      {
-        "id": "M",
-        "label": "Overturning Moment at Base",
-        "unit": "kN·m/m",
-        "businessContext": "Resultant overturning moment about the base of the wall per meter length."
-      }
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "M",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

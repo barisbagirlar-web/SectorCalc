@@ -14,14 +14,15 @@
         "de": "Stillstandszeit (Stunden)",
         "fr": "Temps d'arrêt (heures)",
         "es": "Tiempo de parada (horas)",
-        "ar": "Duruş Süresi (saat)"
+        "ar": "مدة التوقف (ساعة)"
       },
       "businessContext_i18n": {
         "en": "Duruşun toplam süresi",
         "tr": "Duruşun toplam süresi",
         "de": "Gesamtdauer des Stillstands",
         "fr": "Durée totale de l'arrêt",
-        "es": "Duración total de la parada"
+        "es": "Duración total de la parada",
+        "ar": "المدة الإجمالية للتوقف"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl betroffener Maschinen",
         "fr": "Nombre de machines affectées",
         "es": "Número de máquinas afectadas",
-        "ar": "Etkilenen Makine Sayısı"
+        "ar": "عدد الآلات المتأثرة"
       },
       "businessContext_i18n": {
         "en": "Duruştan etkilenen makine sayısı",
         "tr": "Duruştan etkilenen makine sayısı",
         "de": "Anzahl der vom Stillstand betroffenen Maschinen",
         "fr": "Nombre de machines affectées par l'arrêt",
-        "es": "Número de máquinas afectadas por la parada"
+        "es": "Número de máquinas afectadas por la parada",
+        "ar": "عدد الآلات المتأثرة بالتوقف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maschinenstundensatz",
         "fr": "Coût horaire machine",
         "es": "Costo horario por máquina",
-        "ar": "Makine Saatlik Maliyet"
+        "ar": "التكلفة لكل ساعة آلة"
       },
       "businessContext_i18n": {
         "en": "Makine başına saatlik maliyet (işçilik + amortisman)",
         "tr": "Makine başına saatlik maliyet (işçilik + amortisman)",
         "de": "Stündliche Kosten pro Maschine (Arbeit + Abschreibung)",
         "fr": "Coût horaire par machine (main-d'œuvre + amortissement)",
-        "es": "Costo horario por máquina (mano de obra + depreciación)"
+        "es": "Costo horario por máquina (mano de obra + depreciación)",
+        "ar": "التكلفة لكل ساعة آلة (عمالة + إهلاك)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stündlicher Produktionsverlust",
         "fr": "Perte de production horaire",
         "es": "Pérdida de producción por hora",
-        "ar": "Saatlik Üretim Kaybı"
+        "ar": "فقدان الإنتاج لكل ساعة"
       },
       "businessContext_i18n": {
         "en": "Makine başına saatlik kaybedilen üretim adedi",
         "tr": "Makine başına saatlik kaybedilen üretim adedi",
         "de": "Verlorene Produktionsstücke pro Maschine und Stunde",
         "fr": "Nombre d'unités perdues par heure par machine",
-        "es": "Unidades de producción perdidas por hora por máquina"
+        "es": "Unidades de producción perdidas por hora por máquina",
+        "ar": "عدد الوحدات المفقودة لكل ساعة لكل آلة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gewinn pro Stück",
         "fr": "Bénéfice par unité",
         "es": "Ganancia por unidad",
-        "ar": "Birim Başına Kar"
+        "ar": "الربح لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Üretilen her birimden elde edilen kar",
         "tr": "Üretilen her birimden elde edilen kar",
         "de": "Gewinn pro produzierter Einheit",
         "fr": "Bénéfice réalisé sur chaque unité produite",
-        "es": "Ganancia obtenida por cada unidad producida"
+        "es": "Ganancia obtenida por cada unidad producida",
+        "ar": "الربح المحقق من كل وحدة منتجة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gemeinkostenfaktor",
         "fr": "Multiplicateur de frais généraux",
         "es": "Multiplicador de gastos generales",
-        "ar": "Genel Gider Çarpanı"
+        "ar": "مضاعف التكاليف العامة"
       },
       "businessContext_i18n": {
         "en": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
         "tr": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
         "de": "Gemeinkostenfaktor, der auf direkte Kosten und entgangenen Gewinn angewendet wird (1,0 = keine Gemeinkosten)",
         "fr": "Multiplicateur de frais généraux appliqué au coût direct et à la perte de profit (1.0 = pas de frais généraux)",
-        "es": "Multiplicador de gastos generales aplicado al costo directo y pérdida de ganancia (1.0 = sin gastos generales)"
+        "es": "Multiplicador de gastos generales aplicado al costo directo y pérdida de ganancia (1.0 = sin gastos generales)",
+        "ar": "مضاعف التكاليف العامة المطبق على التكلفة المباشرة وخسارة الربح (1.0 = لا توجد تكاليف عامة)"
       }
     }
   ],

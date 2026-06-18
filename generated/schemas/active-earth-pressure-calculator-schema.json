@@ -14,14 +14,15 @@
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
         "es": "Altura del muro",
-        "ar": "Wall Height"
+        "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
         "en": "Vertical height of retaining wall from base to top of backfill",
         "tr": "İstinat duvarının tabandan dolgu üstüne kadar dikey yüksekliği",
         "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Oberkante der Hinterfüllung",
         "fr": "Hauteur verticale du mur de soutènement de la base au sommet du remblai",
-        "es": "Altura vertical del muro de contención desde la base hasta la parte superior del relleno"
+        "es": "Altura vertical del muro de contención desde la base hasta la parte superior del relleno",
+        "ar": "الارتفاع الرأسي للجدار الاستنادي من القاعدة إلى قمة الردم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bodenwichte",
         "fr": "Poids volumique du sol",
         "es": "Peso unitario del suelo",
-        "ar": "Soil Unit Weight"
+        "ar": "وزن وحدة التربة"
       },
       "businessContext_i18n": {
         "en": "Unit weight of backfill soil (γ)",
         "tr": "Dolgu zeminin birim hacim ağırlığı (γ)",
         "de": "Wichte des Hinterfüllbodens (γ)",
         "fr": "Poids volumique du sol de remblai (γ)",
-        "es": "Peso unitario del suelo de relleno (γ)"
+        "es": "Peso unitario del suelo de relleno (γ)",
+        "ar": "وزن وحدة تربة الردم (γ)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungswinkel",
         "fr": "Angle de frottement",
         "es": "Ángulo de fricción",
-        "ar": "Friction Angle"
+        "ar": "زاوية الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Internal friction angle of backfill soil (φ)",
         "tr": "Dolgu zemininin içsel sürtünme açısı (φ)",
         "de": "Reibungswinkel des Hinterfüllbodens (φ)",
         "fr": "Angle de frottement interne du sol de remblai (φ)",
-        "es": "Ángulo de fricción interna del suelo de relleno (φ)"
+        "es": "Ángulo de fricción interna del suelo de relleno (φ)",
+        "ar": "زاوية الاحتكاك الداخلي لتربة الردم (φ)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kohäsion",
         "fr": "Cohésion",
         "es": "Cohesión",
-        "ar": "Cohesion"
+        "ar": "التماسك"
       },
       "businessContext_i18n": {
         "en": "Cohesion intercept of backfill soil (c)",
         "tr": "Dolgu zemininin kohezyon kesişimi (c)",
         "de": "Kohäsionsinterzept des Hinterfüllbodens (c)",
         "fr": "Intercepte de cohésion du sol de remblai (c)",
-        "es": "Intercepto de cohesión del suelo de relleno (c)"
+        "es": "Intercepto de cohesión del suelo de relleno (c)",
+        "ar": "مقطع التماسك لتربة الردم (c)"
       }
     },
     {
@@ -106,52 +110,39 @@
         "de": "Auflast",
         "fr": "Surcharge",
         "es": "Sobrecarga",
-        "ar": "Surcharge"
+        "ar": "الحمل السطحي الإضافي"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load applied at top of backfill (q)",
         "tr": "Dolgu üstüne uygulanan düzgün yayılı sürşarj yükü (q)",
         "de": "Gleichmäßige Auflast oben auf der Hinterfüllung (q)",
         "fr": "Charge de surcharge uniforme appliquée au sommet du remblai (q)",
-        "es": "Carga uniforme de sobrecarga aplicada en la parte superior del relleno (q)"
+        "es": "Carga uniforme de sobrecarga aplicada en la parte superior del relleno (q)",
+        "ar": "الحمل السطحي المنتظم المطبق على سطح الردم (q)"
       }
     }
   ],
   "formulas": {
-    "result": "height + unitWeight + frictionAngle",
-    "result_copy": "height + unitWeight + frictionAngle"
+    "normalized_product": "height * unitWeight * frictionAngle * cohesion",
+    "result": "height * unitWeight * frictionAngle * cohesion * (surcharge)",
+    "adjustment_factor": "surcharge"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      {
-        "id": "ka",
-        "label": "Active Pressure Coefficient",
-        "unit": "",
-        "precision": 4,
-        "businessContext": "Rankine active earth pressure coefficient (Ka)"
-      },
-      {
-        "id": "z0",
-        "label": "Tension Crack Depth",
-        "unit": "m",
-        "precision": 2,
-        "businessContext": "Depth of tension crack from top of backfill (z₀)"
-      },
-      {
-        "id": "sigmaBase",
-        "label": "Active Pressure at Base",
-        "unit": "kPa",
-        "precision": 2,
-        "businessContext": "Horizontal active earth pressure at wall base"
-      }
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalForce",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

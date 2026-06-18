@@ -14,14 +14,15 @@
         "de": "Filterordnung (n)",
         "fr": "Ordre du filtre (n)",
         "es": "Orden del filtro (n)",
-        "ar": "Filter Order (n)"
+        "ar": "رتبة المرشح (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off.",
         "tr": "Bessel filtresinin derecesi (tam sayı >= 1). Yüksek derece daha dik geçiş sağlar.",
         "de": "Ordnung des Bessel-Filters (ganze Zahl >= 1). Höhere Ordnung ergibt steileren Abfall.",
         "fr": "Ordre du filtre de Bessel (entier >= 1). Un ordre plus élevé donne une pente plus raide.",
-        "es": "Orden del filtro Bessel (entero >= 1). Un orden mayor proporciona una pendiente más pronunciada."
+        "es": "Orden del filtro Bessel (entero >= 1). Un orden mayor proporciona una pendiente más pronunciada.",
+        "ar": "رتبة مرشح بيسل (عدد صحيح >= 1). الرتبة الأعلى تعطي انحدارًا أكثر حدة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Grenzfrequenz (fc)",
         "fr": "Fréquence de coupure (fc)",
         "es": "Frecuencia de corte (fc)",
-        "ar": "Cutoff Frequency (fc)"
+        "ar": "تردد القطع (fc)"
       },
       "businessContext_i18n": {
         "en": "The -3 dB cutoff frequency of the filter in Hz.",
         "tr": "Filtrenin -3 dB kesim frekansı (Hz cinsinden).",
         "de": "Die -3-dB-Grenzfrequenz des Filters in Hz.",
         "fr": "Fréquence de coupure à -3 dB du filtre en Hz.",
-        "es": "Frecuencia de corte a -3 dB del filtro en Hz."
+        "es": "Frecuencia de corte a -3 dB del filtro en Hz.",
+        "ar": "تردد القطع عند -3 ديسيبل للمرشح بالهرتز."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Abtastfrequenz (fs)",
         "fr": "Fréquence d'échantillonnage (fs)",
         "es": "Frecuencia de muestreo (fs)",
-        "ar": "Sampling Frequency (fs)"
+        "ar": "تردد العينات (fs)"
       },
       "businessContext_i18n": {
         "en": "Sampling frequency for digital implementation (must be > 2*fc).",
         "tr": "Dijital uygulama için örnekleme frekansı (2*fc'den büyük olmalıdır).",
         "de": "Abtastfrequenz für die digitale Implementierung (muss > 2*fc sein).",
         "fr": "Fréquence d'échantillonnage pour l'implémentation numérique (doit être > 2*fc).",
-        "es": "Frecuencia de muestreo para implementación digital (debe ser > 2*fc)."
+        "es": "Frecuencia de muestreo para implementación digital (debe ser > 2*fc).",
+        "ar": "تردد العينات للتنفيذ الرقمي (يجب أن يكون > 2*fc)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Frequenzpunkt (f)",
         "fr": "Point de fréquence (f)",
         "es": "Punto de frecuencia (f)",
-        "ar": "Frequency Point (f)"
+        "ar": "نقطة التردد (f)"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate the filter response.",
         "tr": "Filtre yanıtının değerlendirileceği frekans.",
         "de": "Frequenz, bei der die Filterantwort ausgewertet wird.",
         "fr": "Fréquence à laquelle évaluer la réponse du filtre.",
-        "es": "Frecuencia a la que se evalúa la respuesta del filtro."
+        "es": "Frecuencia a la que se evalúa la respuesta del filtro.",
+        "ar": "التردد الذي سيتم عنده تقييم استجابة المرشح."
       }
     }
   ],

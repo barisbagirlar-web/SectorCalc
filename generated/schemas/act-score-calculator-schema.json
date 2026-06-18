@@ -14,14 +14,15 @@
         "de": "Englisch-Punktzahl",
         "fr": "Score d'anglais",
         "es": "Puntaje de inglés",
-        "ar": "English Score"
+        "ar": "درجة اللغة الإنجليزية"
       },
       "businessContext_i18n": {
         "en": "Score from English section of the ACT test",
         "tr": "ACT testinin İngilizce bölümünden alınan puan",
         "de": "Punktzahl aus dem Englisch-Teil des ACT-Tests",
         "fr": "Score de la section anglais du test ACT",
-        "es": "Puntaje de la sección de Inglés del examen ACT"
+        "es": "Puntaje de la sección de Inglés del examen ACT",
+        "ar": "الدرجة من قسم اللغة الإنجليزية في اختبار ACT"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Mathe-Punktzahl",
         "fr": "Score en mathématiques",
         "es": "Puntaje de Matemáticas",
-        "ar": "Math Score"
+        "ar": "درجة الرياضيات"
       },
       "businessContext_i18n": {
         "en": "Score from Math section",
         "tr": "Matematik bölümünden alınan puan",
         "de": "Punktzahl aus dem Mathe-Teil",
         "fr": "Score de la section mathématiques",
-        "es": "Puntaje de la sección de Matemáticas"
+        "es": "Puntaje de la sección de Matemáticas",
+        "ar": "الدرجة من قسم الرياضيات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lesepunktzahl",
         "fr": "Score de lecture",
         "es": "Puntaje de lectura",
-        "ar": "Reading Score"
+        "ar": "درجة القراءة"
       },
       "businessContext_i18n": {
         "en": "Score from Reading section",
         "tr": "Okuma bölümünden alınan puan",
         "de": "Punktzahl aus dem Leseteil",
         "fr": "Score de la section lecture",
-        "es": "Puntaje de la sección de Lectura"
+        "es": "Puntaje de la sección de Lectura",
+        "ar": "الدرجة من قسم القراءة"
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Naturwissenschaftliche Punktzahl",
         "fr": "Score de sciences",
         "es": "Puntaje de ciencias",
-        "ar": "Science Score"
+        "ar": "درجة العلوم"
       },
       "businessContext_i18n": {
         "en": "Score from Science section",
         "tr": "Fen bölümünden alınan puan",
         "de": "Punktzahl aus dem Naturwissenschaften-Teil",
         "fr": "Score de la section sciences",
-        "es": "Puntaje de la sección de Ciencias"
+        "es": "Puntaje de la sección de Ciencias",
+        "ar": "الدرجة من قسم العلوم"
       }
     }
   ],
   "formulas": {
-    "result": "englishScore + mathScore + readingScore",
-    "result_copy": "englishScore + mathScore + readingScore"
+    "normalized_product": "englishScore * mathScore * readingScore * scienceScore",
+    "result": "englishScore * mathScore * readingScore * scienceScore"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "compositeScore"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "compositeScore_copy",
-    "unit": "points"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",

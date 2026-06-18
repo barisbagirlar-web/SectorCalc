@@ -14,14 +14,15 @@
         "de": "Gesamtsatzanzahl",
         "fr": "Nombre total de phrases",
         "es": "Número total de oraciones",
-        "ar": "Toplam Cümle Sayısı"
+        "ar": "إجمالي عدد الجمل"
       },
       "businessContext_i18n": {
         "en": "Analiz edilen metindeki toplam cümle sayısı",
         "tr": "Analiz edilen metindeki toplam cümle sayısı",
-        "de": "Analiz edilen metindeki toplam cümle sayısı",
+        "de": "Gesamtzahl der Sätze im analysierten Text",
         "fr": "Nombre total de phrases dans le texte analysé",
-        "es": "Número total de oraciones en el texto analizado"
+        "es": "Número total de oraciones en el texto analizado",
+        "ar": "إجمالي عدد الجمل في النص المحلل"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
         "tr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
-        "de": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "de": "Gesamtzahl mehrsilbiger Wörter (3+ Silben)",
         "fr": "Nombre total de mots polysyllabiques (3+ syllabes)",
         "es": "Número total de palabras polisílabas (3+ sílabas)",
-        "ar": "Toplam Çok Heceli Kelime Sayısı (3+ hece)"
+        "ar": "إجمالي عدد الكلمات متعددة المقاطع (3 مقاطع فأكثر)"
       },
       "businessContext_i18n": {
         "en": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
         "tr": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
-        "de": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
+        "de": "Anzahl der Wörter mit 3 oder mehr Silben im Text",
         "fr": "Nombre de mots de 3 syllabes ou plus dans le texte",
-        "es": "Número de palabras con 3 o más sílabas en el texto"
+        "es": "Número de palabras con 3 o más sílabas en el texto",
+        "ar": "عدد الكلمات التي تحتوي على 3 مقاطع أو أكثر في النص"
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Örneklem Cümle Sayısı",
         "tr": "Örneklem Cümle Sayısı",
-        "de": "Örneklem Cümle Sayısı",
+        "de": "Anzahl der Beispielsätze",
         "fr": "Nombre de phrases de l'échantillon",
         "es": "Número de oraciones de muestra",
-        "ar": "Örneklem Cümle Sayısı"
+        "ar": "عدد جمل العينة"
       },
       "businessContext_i18n": {
         "en": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
         "tr": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
-        "de": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
+        "de": "Anzahl der Beispielsätze für die Standard-SMOG-Berechnung (normalerweise 30)",
         "fr": "Nombre de phrases de l'échantillon utilisé dans le calcul SMOG standard (généralement 30)",
-        "es": "Número de oraciones de muestra utilizadas en el cálculo estándar de SMOG (generalmente 30)"
+        "es": "Número de oraciones de muestra utilizadas en el cálculo estándar de SMOG (generalmente 30)",
+        "ar": "عدد جمل العينة المستخدمة في حساب SMOG القياسي (عادة 30)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gesamtwortanzahl",
         "fr": "Nombre total de mots",
         "es": "Recuento total de palabras",
-        "ar": "Toplam Kelime Sayısı"
+        "ar": "إجمالي عدد الكلمات"
       },
       "businessContext_i18n": {
         "en": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
         "tr": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
-        "de": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
+        "de": "Gesamtwortzahl im Text (nur zur Information, nicht in der Formel verwendet)",
         "fr": "Nombre total de mots dans le texte (à titre informatif, non utilisé dans la formule)",
-        "es": "Número total de palabras en el texto (solo informativo, no se usa en la fórmula)"
+        "es": "Número total de palabras en el texto (solo informativo, no se usa en la fórmula)",
+        "ar": "إجمالي عدد الكلمات في النص (للمعلومات، لا يُستخدم في الصيغة)"
       }
     }
   ],

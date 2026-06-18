@@ -13,14 +13,16 @@
         "tr": "Yağ Asidi (mol)",
         "de": "Fettsäure (mol)",
         "fr": "Acide gras (mol)",
-        "es": "Fatty Acid (mol)",
-        "ar": "Fatty Acid (mol)"
+        "es": "Ácido graso (mol)",
+        "ar": "حمض دهني (مول)"
       },
       "businessContext_i18n": {
         "en": "Moles of fatty acid reactant",
         "tr": "Yağ asidi reaktifinin mol sayısı",
         "de": "Stoffmenge des Fettsäure-Reaktanten",
-        "fr": "Moles d'acide gras réactif"
+        "fr": "Moles d'acide gras réactif",
+        "es": "Moles de ácido graso reactivo",
+        "ar": "مولات الحمض الدهني المتفاعل"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Yağ Asidi MA (g/mol)",
         "de": "Molekulargewicht der Fettsäure (g/mol)",
         "fr": "Masse molaire de l'acide gras (g/mol)",
-        "es": "Fatty Acid MW (g/mol)",
-        "ar": "Fatty Acid MW (g/mol)"
+        "es": "Peso molecular del ácido graso (g/mol)",
+        "ar": "الوزن الجزيئي للحمض الدهني (جم/مول)"
       },
       "businessContext_i18n": {
         "en": "Molecular weight of the fatty acid",
         "tr": "Yağ asidinin moleküler ağırlığı",
         "de": "Molekulargewicht der Fettsäure",
-        "fr": "Masse moléculaire de l'acide gras"
+        "fr": "Masse moléculaire de l'acide gras",
+        "es": "Peso molecular del ácido graso",
+        "ar": "الوزن الجزيئي للحمض الدهني"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Gliserol (mol)",
         "de": "Glycerin (mol)",
         "fr": "Glycérol (mol)",
-        "es": "Glycerol (mol)",
-        "ar": "Glycerol (mol)"
+        "es": "Glicerol (mol)",
+        "ar": "جلسرين (مول)"
       },
       "businessContext_i18n": {
         "en": "Moles of glycerol reactant",
         "tr": "Gliserol reaktifinin mol sayısı",
         "de": "Stoffmenge des Glycerin-Reaktanten",
-        "fr": "Moles de glycérol réactif"
+        "fr": "Moles de glycérol réactif",
+        "es": "Moles de glicerol reactivo",
+        "ar": "مولات الجلسرين المتفاعل"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Gliserol MA (g/mol)",
         "de": "Molekulargewicht von Glycerin (g/mol)",
         "fr": "Masse molaire du glycérol (g/mol)",
-        "es": "Glycerol MW (g/mol)",
-        "ar": "Glycerol MW (g/mol)"
+        "es": "Peso molecular del glicerol (g/mol)",
+        "ar": "الوزن الجزيئي للجلسرين (جم/مول)"
       },
       "businessContext_i18n": {
         "en": "Molecular weight of glycerol",
         "tr": "Gliserolün moleküler ağırlığı",
         "de": "Molekulargewicht von Glycerin",
-        "fr": "Masse moléculaire du glycérol"
+        "fr": "Masse moléculaire du glycérol",
+        "es": "Peso molecular del glicerol",
+        "ar": "الوزن الجزيئي للجلسرين"
       }
     },
     {
@@ -101,33 +109,40 @@
         "tr": "Verim (%)",
         "de": "Ausbeute (%)",
         "fr": "Rendement (%)",
-        "es": "Yield (%)",
-        "ar": "Yield (%)"
+        "es": "Rendimiento (%)",
+        "ar": "العائد (%)"
       },
       "businessContext_i18n": {
         "en": "Reaction yield percentage",
         "tr": "Reaksiyon verim yüzdesi",
         "de": "Reaktionsausbeute in Prozent",
-        "fr": "Pourcentage de rendement de la réaction"
+        "fr": "Pourcentage de rendement de la réaction",
+        "es": "Porcentaje de rendimiento de la reacción",
+        "ar": "نسبة العائد من التفاعل"
       }
     }
   ],
   "formulas": {
-    "result": "fa_moles + fa_mw + glycerol_moles",
-    "result_copy": "fa_moles + fa_mw + glycerol_moles"
+    "normalized_product": "fa_moles * fa_mw * glycerol_moles * glycerol_mw",
+    "result": "fa_moles * fa_mw * glycerol_moles * glycerol_mw * ((yield_percent / 100))",
+    "adjustment_factor": "(yield_percent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "theoretical_mass",
-      "water_mass"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "actual_triglyceride_mass",
-    "unit": "mol"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Matematik & Analiz",
   "sector": "Kimya & Proses",

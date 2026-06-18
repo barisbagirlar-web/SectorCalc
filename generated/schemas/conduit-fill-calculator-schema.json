@@ -14,14 +14,15 @@
         "de": "Rohrinnendurchmesser",
         "fr": "Diamètre intérieur du conduit",
         "es": "Diámetro interior del conducto",
-        "ar": "Conduit Inner Diameter"
+        "ar": "القطر الداخلي للقناة"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the conduit in inches.",
         "tr": "Boru iç çapı inç cinsinden.",
         "de": "Innendurchmesser des Rohrs in Zoll.",
         "fr": "Diamètre interne du conduit en pouces.",
-        "es": "Diámetro interior del conducto en pulgadas."
+        "es": "Diámetro interior del conducto en pulgadas.",
+        "ar": "القطر الداخلي للقناة بالبوصة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kabelaußendurchmesser",
         "fr": "Diamètre extérieur du câble",
         "es": "Diámetro exterior del cable",
-        "ar": "Cable Outer Diameter"
+        "ar": "القطر الخارجي للكابل"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of a single conductor cable in inches.",
         "tr": "Tek iletkenli kablonun dış çapı inç cinsinden.",
         "de": "Außendurchmesser eines Einzelleiterkabels in Zoll.",
         "fr": "Diamètre extérieur d'un conducteur unique en pouces.",
-        "es": "Diámetro exterior de un cable conductor individual en pulgadas."
+        "es": "Diámetro exterior de un cable conductor individual en pulgadas.",
+        "ar": "القطر الخارجي لكابل موصل واحد بالبوصة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Leiter",
         "fr": "Nombre de conducteurs",
         "es": "Número de conductores",
-        "ar": "Number of Conductors"
+        "ar": "عدد الموصلات"
       },
       "businessContext_i18n": {
         "en": "Total number of conductors to be pulled, identical size.",
         "tr": "Çekilecek toplam iletken sayısı, aynı boyutta.",
         "de": "Gesamtzahl der zu ziehenden Leiter, gleiche Größe.",
         "fr": "Nombre total de conducteurs à tirer, de taille identique.",
-        "es": "Número total de conductores a tirar, de tamaño idéntico."
+        "es": "Número total de conductores a tirar, de tamaño idéntico.",
+        "ar": "إجمالي عدد الموصلات المراد سحبها، بنفس الحجم."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Benutzerdefinierte Füllgrenze (%)",
         "fr": "Limite de remplissage personnalisée (%)",
         "es": "Límite de llenado personalizado (%)",
-        "ar": "Custom Fill Limit (%)"
+        "ar": "حد التعبئة المخصص (%)"
       },
       "businessContext_i18n": {
         "en": "Optionally override NEC fill limit; set to 0 for automatic NEC rule.",
         "tr": "İsteğe bağlı olarak NEC dolum limitini geçersiz kılar; otomatik NEC kuralı için 0 ayarlayın.",
         "de": "Optionaler Überschreibung der NEC-Füllgrenze; auf 0 setzen für automatische NEC-Regel.",
         "fr": "Optionnellement, remplace la limite NEC ; mettre 0 pour la règle automatique NEC.",
-        "es": "Opcionalmente anula el límite de llenado NEC; establezca en 0 para la regla NEC automática."
+        "es": "Opcionalmente anula el límite de llenado NEC; establezca en 0 para la regla NEC automática.",
+        "ar": "يمكن تجاوز حد التعبئة وفقًا لـ NEC؛ اضبط على 0 للقاعدة التلقائية لـ NEC."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Sicherheitsmarge (%)",
         "fr": "Marge de sécurité (%)",
         "es": "Margen de seguridad (%)",
-        "ar": "Safety Margin (%)"
+        "ar": "هامش الأمان (%)"
       },
       "businessContext_i18n": {
         "en": "Additional derating or future growth margin on fill percent.",
         "tr": "Dolum yüzdesi üzerinde ek düşürme veya gelecekteki büyüme marjı.",
         "de": "Zusätzliche Marge für Derating oder zukünftiges Wachstum des Füllprozentsatzes.",
         "fr": "Déclassement supplémentaire ou marge de croissance future sur le pourcentage de remplissage.",
-        "es": "Margen adicional de reducción de capacidad o crecimiento futuro sobre el porcentaje de llenado."
+        "es": "Margen adicional de reducción de capacidad o crecimiento futuro sobre el porcentaje de llenado.",
+        "ar": "هامش إضافي لتخفيف الأحمال أو النمو المستقبلي على نسبة التعبئة."
       }
     }
   ],

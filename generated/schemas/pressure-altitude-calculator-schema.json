@@ -14,14 +14,15 @@
         "de": "Feldhöhe (ft)",
         "fr": "Élévation du terrain (pi)",
         "es": "Elevación del terreno (ft)",
-        "ar": "Field Elevation (ft)"
+        "ar": "ارتفاع الموقع (قدم)"
       },
       "businessContext_i18n": {
         "en": "Elevation of the location above mean sea level in feet. Use either this or the meters input.",
         "tr": "Konumun ortalama deniz seviyesinden fit cinsinden yüksekliği. Bunu veya metre girişini kullanın.",
         "de": "Höhe des Standorts über dem mittleren Meeresspiegel in Fuß. Verwenden Sie entweder dies oder die Meter-Eingabe.",
         "fr": "Élévation du lieu au-dessus du niveau moyen de la mer en pieds. Utilisez ceci ou l'entrée en mètres.",
-        "es": "Elevación del lugar sobre el nivel medio del mar en pies. Use esta o la entrada en metros."
+        "es": "Elevación del lugar sobre el nivel medio del mar en pies. Use esta o la entrada en metros.",
+        "ar": "ارتفاع الموقع عن متوسط مستوى سطح البحر بالقدم. استخدم هذا أو إدخال الأمتار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Feldhöhe (m)",
         "fr": "Élévation du terrain (m)",
         "es": "Elevación del terreno (m)",
-        "ar": "Field Elevation (m)"
+        "ar": "ارتفاع الموقع (م)"
       },
       "businessContext_i18n": {
         "en": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0.",
         "tr": "Konumun ortalama deniz seviyesinden metre cinsinden yüksekliği. Yalnızca sahaYüksekliği 0 ise kullanılır.",
         "de": "Höhe des Standorts über dem mittleren Meeresspiegel in Metern. Wird nur verwendet, wenn Feldhöhe 0 ist.",
         "fr": "Élévation du lieu au-dessus du niveau moyen de la mer en mètres. Utilisé uniquement si fieldElevation est 0.",
-        "es": "Elevación del lugar sobre el nivel medio del mar en metros. Se usa solo si fieldElevation es 0."
+        "es": "Elevación del lugar sobre el nivel medio del mar en metros. Se usa solo si fieldElevation es 0.",
+        "ar": "ارتفاع الموقع عن متوسط مستوى سطح البحر بالأمتار. يُستخدم فقط إذا كان ارتفاع الموقع 0."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Höhenmessereinstellung (inHg)",
         "fr": "Calage altimétrique (inHg)",
         "es": "Ajuste del altímetro (inHg)",
-        "ar": "Altimeter Setting (inHg)"
+        "ar": "ضبط مقياس الارتفاع (inHg)"
       },
       "businessContext_i18n": {
         "en": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa.",
         "tr": "İnç cıva cinsinden mevcut altimetre ayarı veya QNH. Bunu veya QNH hPa'yı kullanın.",
         "de": "Aktuelle Höhenmessereinstellung oder QNH in Zoll Quecksilbersäule. Verwenden Sie entweder dies oder QNH hPa.",
         "fr": "Calage altimétrique ou QNH actuel en pouces de mercure. Utilisez ceci ou QNH hPa.",
-        "es": "Ajuste actual del altímetro o QNH en pulgadas de mercurio. Use esta o QNH hPa."
+        "es": "Ajuste actual del altímetro o QNH en pulgadas de mercurio. Use esta o QNH hPa.",
+        "ar": "إعداد مقياس الارتفاع الحالي أو QNH بالبوصة الزئبقية. استخدم هذا أو QNH hPa."
       }
     },
     {
@@ -90,7 +93,8 @@
         "tr": "Hektopaskal cinsinden mevcut altimetre ayarı veya QNH. Yalnızca altimetreAyarı 0 ise kullanılır.",
         "de": "Aktuelle Höhenmessereinstellung oder QNH in Hektopascal. Wird nur verwendet, wenn Höhenmessereinstellung 0 ist.",
         "fr": "Calage altimétrique ou QNH actuel en hectopascals. Utilisé uniquement si altimeterSetting est 0.",
-        "es": "Ajuste actual del altímetro o QNH en hectopascales. Se usa solo si altimeterSetting es 0."
+        "es": "Ajuste actual del altímetro o QNH en hectopascales. Se usa solo si altimeterSetting es 0.",
+        "ar": "إعداد مقياس الارتفاع الحالي أو QNH بالهكتوباسكال. يُستخدم فقط إذا كان ضبط مقياس الارتفاع 0."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Standarddruck (inHg)",
         "fr": "Pression standard (inHg)",
         "es": "Presión estándar (inHg)",
-        "ar": "Standard Pressure (inHg)"
+        "ar": "الضغط القياسي (inHg)"
       },
       "businessContext_i18n": {
         "en": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg.",
         "tr": "Deniz seviyesinde inç cıva cinsinden standart basınç. Normalde 29.92 inHg.",
         "de": "Standarddruck auf Meereshöhe in Zoll Quecksilbersäule. Normalerweise 29,92 inHg.",
         "fr": "Pression standard au niveau de la mer en pouces de mercure. Normalement 29,92 inHg.",
-        "es": "Presión estándar a nivel del mar en pulgadas de mercurio. Normalmente 29.92 inHg."
+        "es": "Presión estándar a nivel del mar en pulgadas de mercurio. Normalmente 29.92 inHg.",
+        "ar": "الضغط القياسي عند مستوى سطح البحر بالبوصة الزئبقية. عادة 29.92 inHg."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Widerstand pro Längeneinheit (R)",
         "fr": "Résistance par unité de longueur (R)",
         "es": "Resistencia por unidad de longitud (R)",
-        "ar": "Resistance per unit length (R)"
+        "ar": "المقاومة لكل وحدة طول (R)"
       },
       "businessContext_i18n": {
         "en": "Series resistance per unit length of the transmission line",
         "tr": "İletim hattının birim uzunluk başına seri direnci",
         "de": "Serienwiderstand pro Längeneinheit der Übertragungsleitung",
         "fr": "Résistance série par unité de longueur de la ligne de transmission",
-        "es": "Resistencia serie por unidad de longitud de la línea de transmisión"
+        "es": "Resistencia serie por unidad de longitud de la línea de transmisión",
+        "ar": "المقاومة التسلسلية لكل وحدة طول لخط النقل"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Induktivität pro Längeneinheit (L)",
         "fr": "Inductance par unité de longueur (L)",
         "es": "Inductancia por unidad de longitud (L)",
-        "ar": "Inductance per unit length (L)"
+        "ar": "الحث لكل وحدة طول (L)"
       },
       "businessContext_i18n": {
         "en": "Series inductance per unit length",
         "tr": "Birim uzunluk başına seri endüktans",
         "de": "Serieninduktivität pro Längeneinheit",
         "fr": "Inductance série par unité de longueur",
-        "es": "Inductancia serie por unidad de longitud"
+        "es": "Inductancia serie por unidad de longitud",
+        "ar": "الحث التسلسلي لكل وحدة طول"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leitwert pro Längeneinheit (G)",
         "fr": "Conductance par unité de longueur (G)",
         "es": "Conductancia por unidad de longitud (G)",
-        "ar": "Conductance per unit length (G)"
+        "ar": "الموصلية لكل وحدة طول (G)"
       },
       "businessContext_i18n": {
         "en": "Shunt conductance per unit length (use 0 for ideal lossless line)",
         "tr": "Birim uzunluk başına şönt iletkenlik (ideal kayıpsız hat için 0 kullanın)",
         "de": "Querleitwert pro Längeneinheit (bei idealer verlustfreier Leitung 0)",
         "fr": "Conductance shunt par unité de longueur (utiliser 0 pour une ligne idéale sans perte)",
-        "es": "Conductancia en derivación por unidad de longitud (use 0 para línea ideal sin pérdidas)"
+        "es": "Conductancia en derivación por unidad de longitud (use 0 para línea ideal sin pérdidas)",
+        "ar": "الموصلية الفرعية لكل وحدة طول (استخدم 0 للخط المثالي بدون فقد)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kapazität pro Längeneinheit (C)",
         "fr": "Capacité par unité de longueur (C)",
         "es": "Capacitancia por unidad de longitud (C)",
-        "ar": "Capacitance per unit length (C)"
+        "ar": "السعة لكل وحدة طول (C)"
       },
       "businessContext_i18n": {
         "en": "Shunt capacitance per unit length",
         "tr": "Birim uzunluk başına şönt kapasitans",
         "de": "Querkapazität pro Längeneinheit",
         "fr": "Capacité shunt par unité de longueur",
-        "es": "Capacitancia en derivación por unidad de longitud"
+        "es": "Capacitancia en derivación por unidad de longitud",
+        "ar": "السعة التفرعية لكل وحدة طول"
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Frequenz (f)",
         "fr": "Fréquence (f)",
         "es": "Frecuencia (f)",
-        "ar": "Frequency (f)"
+        "ar": "التردد (f)"
       },
       "businessContext_i18n": {
         "en": "Operating frequency of the signal",
         "tr": "Sinyalin çalışma frekansı",
         "de": "Betriebsfrequenz des Signals",
         "fr": "Fréquence de fonctionnement du signal",
-        "es": "Frecuencia de operación de la señal"
+        "es": "Frecuencia de operación de la señal",
+        "ar": "تردد تشغيل الإشارة"
       }
     }
   ],
   "formulas": {
-    "result": "r + l + g",
-    "result_copy": "r + l + g"
+    "normalized_product": "r * l * g * c",
+    "result": "r * l * g * c * (f)",
+    "adjustment_factor": "f"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "beta",
-      "alpha_dB",
-      "magnitude"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "alpha_dB",
-    "unit": "Ω/m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

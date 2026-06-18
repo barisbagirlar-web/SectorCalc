@@ -14,14 +14,15 @@
         "de": "Anzahl",
         "fr": "Nombre",
         "es": "Número",
-        "ar": "Number"
+        "ar": "العدد"
       },
       "businessContext_i18n": {
         "en": "The number whose logarithm base is to be converted.",
         "tr": "Logaritması dönüştürülecek sayı.",
         "de": "Die Zahl, deren Logarithmusbasis umgerechnet werden soll.",
         "fr": "Le nombre dont la base du logarithme doit être convertie.",
-        "es": "El número cuyo logaritmo en base se va a convertir."
+        "es": "El número cuyo logaritmo en base se va a convertir.",
+        "ar": "العدد الذي سيتم تحويل لوغاريتم قاعدته."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Von Basis",
         "fr": "Base d'origine",
         "es": "Base de origen",
-        "ar": "From Base"
+        "ar": "من قاعدة"
       },
       "businessContext_i18n": {
         "en": "The base of the logarithm you are converting from.",
         "tr": "Dönüştürülen logaritmanın tabanı.",
         "de": "Die Basis des Logarithmus, von dem Sie umrechnen.",
         "fr": "La base du logarithme que vous convertissez.",
-        "es": "La base del logaritmo que está convirtiendo."
+        "es": "La base del logaritmo que está convirtiendo.",
+        "ar": "قاعدة اللوغاريتم الذي تقوم بالتحويل منه."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zu Basis",
         "fr": "Base cible",
         "es": "Base de destino",
-        "ar": "To Base"
+        "ar": "إلى قاعدة"
       },
       "businessContext_i18n": {
         "en": "The target logarithm base to convert to.",
         "tr": "Dönüştürülecek hedef logaritma tabanı.",
         "de": "Die Ziel-Logarithmusbasis, in die umgerechnet werden soll.",
         "fr": "La base du logarithme cible vers laquelle convertir.",
-        "es": "La base del logaritmo de destino a la que convertir."
+        "es": "La base del logaritmo de destino a la que convertir.",
+        "ar": "قاعدة اللوغاريتم الهدف للتحويل إليها."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     }
   ],
   "formulas": {
-    "result": "inputNumber + fromBase + toBase",
-    "result_aux": "inputNumber + fromBase + toBase"
+    "normalized_product": "inputNumber * fromBase * toBase * roundDigits",
+    "result": "inputNumber * fromBase * toBase * roundDigits"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "log_{fromBase}(inputNumber)",
-      "ln(inputNumber)"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "naturalLog",
-    "unit": "digits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

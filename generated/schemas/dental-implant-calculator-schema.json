@@ -14,14 +14,15 @@
         "de": "Titankosten pro Implantat (€)",
         "fr": "Coût du titane par implant (€)",
         "es": "Coste del titanio por implante (€)",
-        "ar": "Titanium Cost per Implant (€)"
+        "ar": "تكلفة التيتانيوم لكل زرعة (€)"
       },
       "businessContext_i18n": {
         "en": "Cost of titanium blank per implant",
         "tr": "İmplant başına titanyum boşluk maliyeti",
         "de": "Kosten des Titanrohlings pro Implantat",
         "fr": "Coût du bloc de titane par implant",
-        "es": "Coste del bloque de titanio por implante"
+        "es": "Coste del bloque de titanio por implante",
+        "ar": "تكلفة قطعة التيتانيوم الخام لكل زرعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bearbeitungszeit pro Implantat (Stunden)",
         "fr": "Temps d'usinage par implant (heures)",
         "es": "Tiempo de mecanizado por implante (horas)",
-        "ar": "Machining Time per Implant (hours)"
+        "ar": "وقت التصنيع لكل زرعة (ساعات)"
       },
       "businessContext_i18n": {
         "en": "CNC machining time per single implant",
         "tr": "Tek bir implant için CNC işleme süresi",
         "de": "CNC-Bearbeitungszeit für ein einzelnes Implantat",
         "fr": "Temps d'usinage CNC par implant",
-        "es": "Tiempo de mecanizado CNC por implante"
+        "es": "Tiempo de mecanizado CNC por implante",
+        "ar": "وقت التصنيع باستخدام CNC لكل زرعة واحدة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Maschinenstundensatz (€/Stunde)",
         "fr": "Taux horaire machine (€/heure)",
         "es": "Tarifa horaria de la máquina (€/hora)",
-        "ar": "Machine Hourly Rate (€/hour)"
+        "ar": "سعر تشغيل الماكينة لكل ساعة (€/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Operating cost of CNC machine per hour",
         "tr": "CNC makinesinin saatlik işletme maliyeti",
         "de": "Betriebskosten der CNC-Maschine pro Stunde",
         "fr": "Coût de fonctionnement de la machine CNC par heure",
-        "es": "Coste operativo de la máquina CNC por hora"
+        "es": "Coste operativo de la máquina CNC por hora",
+        "ar": "تكلفة تشغيل ماكينة CNC لكل ساعة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Arbeitskosten pro Stunde (€/Stunde)",
         "fr": "Coût de main-d'œuvre par heure (€/heure)",
         "es": "Coste de mano de obra por hora (€/hora)",
-        "ar": "Labor Cost per Hour (€/hour)"
+        "ar": "تكلفة العمالة لكل ساعة (€/ساعة)"
       },
       "businessContext_i18n": {
         "en": "Operator wage rate per hour",
         "tr": "Operatör saatlik ücreti",
         "de": "Stundenlohn des Bedieners",
         "fr": "Taux horaire de l'opérateur",
-        "es": "Salario del operador por hora"
+        "es": "Salario del operador por hora",
+        "ar": "أجر المشغل لكل ساعة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gemeinkosten & indirekte Kosten (%)",
         "fr": "Frais généraux et indirects (%)",
         "es": "Costes indirectos y generales (%)",
-        "ar": "Overhead & Indirect Cost (%)"
+        "ar": "التكاليف العامة وغير المباشرة (%)"
       },
       "businessContext_i18n": {
         "en": "Indirect cost percentage applied to direct cost",
         "tr": "Doğrudan maliyete uygulanan dolaylı maliyet yüzdesi",
         "de": "Prozentsatz der indirekten Kosten, angewendet auf direkte Kosten",
         "fr": "Pourcentage de coûts indirects appliqué au coût direct",
-        "es": "Porcentaje de costes indirectos aplicado al coste directo"
+        "es": "Porcentaje de costes indirectos aplicado al coste directo",
+        "ar": "نسبة التكاليف غير المباشرة المطبقة على التكلفة المباشرة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Chargengröße (Einheiten)",
         "fr": "Taille de lot (unités)",
         "es": "Tamaño de lote (unidades)",
-        "ar": "Batch Size (units)"
+        "ar": "حجم الدفعة (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Number of implants per batch for setup cost distribution",
         "tr": "Kurulum maliyeti dağıtımı için parti başına implant sayısı",
         "de": "Anzahl der Implantate pro Charge zur Verteilung der Rüstkosten",
         "fr": "Nombre d'implants par lot pour la répartition des coûts de réglage",
-        "es": "Número de implantes por lote para distribución del coste de preparación"
+        "es": "Número de implantes por lote para distribución del coste de preparación",
+        "ar": "عدد الزرعات لكل دفعة لتوزيع تكلفة الإعداد"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Rüstzeit pro Charge (Stunden)",
         "fr": "Temps de réglage par lot (heures)",
         "es": "Tiempo de preparación por lote (horas)",
-        "ar": "Setup Time per Batch (hours)"
+        "ar": "وقت الإعداد لكل دفعة (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Machine setup time per batch",
         "tr": "Parti başına makine kurulum süresi",
         "de": "Maschinenrüstzeit pro Charge",
         "fr": "Temps de réglage machine par lot",
-        "es": "Tiempo de preparación de la máquina por lote"
+        "es": "Tiempo de preparación de la máquina por lote",
+        "ar": "وقت إعداد الماكينة لكل دفعة"
       }
     }
   ],

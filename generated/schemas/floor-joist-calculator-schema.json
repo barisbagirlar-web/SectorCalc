@@ -14,14 +14,15 @@
         "de": "Spannweite (ft)",
         "fr": "Portée (pi)",
         "es": "Luz (ft)",
-        "ar": "Span (ft)"
+        "ar": "الامتداد (قدم)"
       },
       "businessContext_i18n": {
         "en": "Length of joist span in feet",
         "tr": "Kiriş açıklığının fit cinsinden uzunluğu",
         "de": "Länge der Balkenspannweite in Fuß",
         "fr": "Longueur de la portée des solives en pieds",
-        "es": "Longitud de la luz de la vigueta en pies"
+        "es": "Longitud de la luz de la vigueta en pies",
+        "ar": "طول امتداد الجائز بالقدم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abstand (in)",
         "fr": "Espacement (po)",
         "es": "Separación (in)",
-        "ar": "Spacing (in)"
+        "ar": "التباعد (بوصة)"
       },
       "businessContext_i18n": {
         "en": "Center-to-center joist spacing in inches",
         "tr": "Kirişler arası merkezden merkeze mesafe (inç cinsinden)",
         "de": "Mittenabstand der Balken in Zoll",
         "fr": "Espacement centre à centre des solives en pouces",
-        "es": "Separación centro a centro de las viguetas en pulgadas"
+        "es": "Separación centro a centro de las viguetas en pulgadas",
+        "ar": "التباعد من المركز إلى المركز للجائز بالبوصة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Eigenlast (psf)",
         "fr": "Charge permanente (psf)",
         "es": "Carga muerta (psf)",
-        "ar": "Dead Load (psf)"
+        "ar": "الحمل الميت (psf)"
       },
       "businessContext_i18n": {
         "en": "Uniform dead load in pounds per square foot",
         "tr": "Metrekare başına pound cinsinden düzgün yayılı ölü yük",
         "de": "Gleichmäßige Eigenlast in Pfund pro Quadratfuß",
         "fr": "Charge permanente uniforme en livres par pied carré",
-        "es": "Carga muerta uniforme en libras por pie cuadrado"
+        "es": "Carga muerta uniforme en libras por pie cuadrado",
+        "ar": "الحمل الميت المنتظم بالرطل لكل قدم مربع"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Nutzlast (psf)",
         "fr": "Charge vive (psf)",
         "es": "Carga viva (psf)",
-        "ar": "Live Load (psf)"
+        "ar": "الحمل الحي (psf)"
       },
       "businessContext_i18n": {
         "en": "Uniform live load in pounds per square foot",
         "tr": "Metrekare başına pound cinsinden düzgün yayılı hareketli yük",
         "de": "Gleichmäßige Nutzlast in Pfund pro Quadratfuß",
         "fr": "Charge vive uniforme en livres par pied carré",
-        "es": "Carga viva uniforme en libras por pie cuadrado"
+        "es": "Carga viva uniforme en libras por pie cuadrado",
+        "ar": "الحمل الحي المنتظم بالرطل لكل قدم مربع"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Elastizitätsmodul (psi)",
         "fr": "Module d'élasticité (psi)",
         "es": "Módulo de elasticidad (psi)",
-        "ar": "Modulus of Elasticity (psi)"
+        "ar": "معامل المرونة (psi)"
       },
       "businessContext_i18n": {
         "en": "Modulus of elasticity of the joist material",
         "tr": "Kiriş malzemesinin elastisite modülü",
         "de": "Elastizitätsmodul des Balkenmaterials",
         "fr": "Module d'élasticité du matériau de la solive",
-        "es": "Módulo de elasticidad del material de la vigueta"
+        "es": "Módulo de elasticidad del material de la vigueta",
+        "ar": "معامل مرونة مادة الجائز"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Flächenträgheitsmoment (in⁴)",
         "fr": "Moment d'inertie (po⁴)",
         "es": "Momento de inercia (in⁴)",
-        "ar": "Moment of Inertia (in⁴)"
+        "ar": "عزم القصور الذاتي (in⁴)"
       },
       "businessContext_i18n": {
         "en": "Moment of inertia of the joist cross-section",
         "tr": "Kiriş kesitinin atalet momenti",
         "de": "Flächenträgheitsmoment des Balkenquerschnitts",
         "fr": "Moment d'inertie de la section transversale de la solive",
-        "es": "Momento de inercia de la sección transversal de la vigueta"
+        "es": "Momento de inercia de la sección transversal de la vigueta",
+        "ar": "عزم القصور الذاتي للمقطع العرضي للجائز"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Durchbiegungsgrenze (L/x)",
         "fr": "Limite de flèche (L/x)",
         "es": "Límite de deflexión (L/x)",
-        "ar": "Deflection Limit (L/x)"
+        "ar": "حد الانحراف (L/x)"
       },
       "businessContext_i18n": {
         "en": "Deflection limit denominator, e.g., 360 for L/360",
         "tr": "Sehim sınırı paydası, örn. L/360 için 360",
         "de": "Nenner der Durchbiegungsgrenze, z. B. 360 für L/360",
         "fr": "Dénominateur de la limite de flèche, ex. 360 pour L/360",
-        "es": "Denominador del límite de deflexión, ej., 360 para L/360"
+        "es": "Denominador del límite de deflexión, ej., 360 para L/360",
+        "ar": "مقام حد الانحراف، مثلاً 360 لـ L/360"
       }
     }
   ],

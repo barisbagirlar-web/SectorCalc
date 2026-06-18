@@ -14,13 +14,15 @@
         "de": "Zu fliesende Fläche",
         "fr": "Surface à carreler",
         "es": "Área a embaldosar",
-        "ar": "Area to Tile"
+        "ar": "المساحة المراد تبليطها"
       },
       "businessContext_i18n": {
         "en": "Total surface area to be tiled, in square meters.",
         "tr": "Fayans döşenecek toplam yüzey alanı, metrekare cinsinden.",
         "de": "Gesamtfläche in Quadratmetern, die gefliest werden soll.",
-        "fr": "Surface totale à carreler, en mètres carrés."
+        "fr": "Surface totale à carreler, en mètres carrés.",
+        "es": "Área total a recubrir, en metros cuadrados.",
+        "ar": "إجمالي مساحة السطح المراد تبليطها بالمتر المربع"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Mala Çentik Boyutu",
         "de": "Zahnkelle-Größe",
         "fr": "Taille de la truelle crantée",
-        "es": "Trowel Notch Size",
-        "ar": "Trowel Notch Size"
+        "es": "Tamaño de la muesca de la llana",
+        "ar": "حجم فتحة المجرفة"
       },
       "businessContext_i18n": {
         "en": "Size of the square-notched trowel used, determines adhesive coverage rate.",
         "tr": "Kullanılan kare çentikli malanın boyutu, yapıştırıcı kaplama oranını belirler.",
         "de": "Größe der verwendeten Zahnkelle, bestimmt die Klebstoffabdeckungsrate.",
-        "fr": "Taille de la truelle carrée crantée utilisée, détermine le taux de couverture de l'adhésif."
+        "fr": "Taille de la truelle carrée crantée utilisée, détermine le taux de couverture de l'adhésif.",
+        "es": "Tamaño de la llana de muesca cuadrada utilizada, determina la tasa de cobertura del adhesivo.",
+        "ar": "حجم المجرفة المربعة المستخدمة، يحدد معدل تغطية المادة اللاصقة"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Abfallfaktor",
         "fr": "Facteur de perte",
         "es": "Factor de desperdicio",
-        "ar": "Waste Factor"
+        "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for waste, cuts, and spillage.",
         "tr": "Atık, kesim ve dökülme için ek yüzde.",
         "de": "Zusätzlicher Prozentsatz für Verschnitt, Zuschnitte und Verschütten.",
-        "fr": "Pourcentage supplémentaire pour les déchets, coupes et débordements."
+        "fr": "Pourcentage supplémentaire pour les déchets, coupes et débordements.",
+        "es": "Porcentaje adicional por desperdicio, cortes y derrames.",
+        "ar": "نسبة إضافية للهدر والقص والانسكاب"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Sackgewicht",
         "fr": "Poids du sac",
         "es": "Peso del saco",
-        "ar": "Bag Weight"
+        "ar": "وزن الكيس"
       },
       "businessContext_i18n": {
         "en": "Net weight of a single thinset mortar bag.",
         "tr": "Tek bir thinset harç torbasının net ağırlığı.",
         "de": "Nettogewicht eines einzelnen Dünnbettmörtelsacks.",
-        "fr": "Poids net d'un sac de mortier-colle."
+        "fr": "Poids net d'un sac de mortier-colle.",
+        "es": "Peso neto de una bolsa de mortero adhesivo.",
+        "ar": "الوزن الصافي لكيس واحد من ملاط الثينسيت"
       }
     }
   ],

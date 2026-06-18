@@ -14,14 +14,15 @@
         "de": "Quantenzahl n",
         "fr": "Nombre quantique n",
         "es": "Número cuántico n",
-        "ar": "Quantum Number n"
+        "ar": "عدد الكم n"
       },
       "businessContext_i18n": {
         "en": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle.",
         "tr": "Baş kuantum sayısı (n = 1, 2, 3, ...) parçacığın enerji seviyesini belirtir.",
         "de": "Hauptquantenzahl (n = 1, 2, 3, ...), die das Energieniveau des Teilchens angibt.",
         "fr": "Nombre quantique principal (n = 1, 2, 3, ...) indiquant le niveau d'énergie de la particule.",
-        "es": "Número cuántico principal (n = 1, 2, 3, ...) que indica el nivel de energía de la partícula."
+        "es": "Número cuántico principal (n = 1, 2, 3, ...) que indica el nivel de energía de la partícula.",
+        "ar": "عدد الكم الرئيسي (n = 1, 2, 3, ...) يشير إلى مستوى طاقة الجسيم."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Teilchenmasse",
         "fr": "Masse de la particule",
         "es": "Masa de la partícula",
-        "ar": "Particle Mass"
+        "ar": "كتلة الجسيم"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle confined in the infinite well (e.g., electron mass).",
         "tr": "Sonsuz kuyuda hapsedilmiş parçacığın kütlesi (örneğin, elektron kütlesi).",
         "de": "Masse des im unendlichen Topf eingeschlossenen Teilchens (z. B. Elektronenmasse).",
         "fr": "Masse de la particule confinée dans le puits infini (par exemple, masse de l'électron).",
-        "es": "Masa de la partícula confinada en el pozo infinito (por ejemplo, masa del electrón)."
+        "es": "Masa de la partícula confinada en el pozo infinito (por ejemplo, masa del electrón).",
+        "ar": "كتلة الجسيم المحصور في البئر اللانهائي (مثل كتلة الإلكترون)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kastenlänge",
         "fr": "Longueur de la boîte",
         "es": "Longitud del pozo",
-        "ar": "Box Length"
+        "ar": "طول الصندوق"
       },
       "businessContext_i18n": {
         "en": "Width of the one-dimensional infinite potential well.",
         "tr": "Tek boyutlu sonsuz potansiyel kuyusunun genişliği.",
         "de": "Breite des eindimensionalen unendlichen Potentialtopfs.",
         "fr": "Largeur du puits de potentiel unidimensionnel infini.",
-        "es": "Ancho del pozo de potencial infinito unidimensional."
+        "es": "Ancho del pozo de potencial infinito unidimensional.",
+        "ar": "عرض البئر الجهدي اللانهائي أحادي البعد."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Position x",
         "fr": "Position x",
         "es": "Posición x",
-        "ar": "Position x"
+        "ar": "الموضع x"
       },
       "businessContext_i18n": {
         "en": "Position inside the well (0 < x < L) at which the wavefunction is evaluated.",
         "tr": "Dalga fonksiyonunun değerlendirildiği kuyu içindeki konum (0 < x < L).",
         "de": "Position innerhalb des Topfes (0 < x < L), an der die Wellenfunktion ausgewertet wird.",
         "fr": "Position à l'intérieur du puits (0 < x < L) à laquelle la fonction d'onde est évaluée.",
-        "es": "Posición dentro del pozo (0 < x < L) en la que se evalúa la función de onda."
+        "es": "Posición dentro del pozo (0 < x < L) en la que se evalúa la función de onda.",
+        "ar": "الموضع داخل البئر (0 < x < L) الذي تُقيّم عنده الدالة الموجية."
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Reduziertes Plancksches Wirkungsquantum",
         "fr": "Constante de Planck réduite",
         "es": "Constante reducida de Planck",
-        "ar": "Reduced Planck Constant"
+        "ar": "ثابت بلانك المخفض"
       },
       "businessContext_i18n": {
         "en": "Reduced Planck constant (ħ = h/2π).",
         "tr": "İndirgenmiş Planck sabiti (ħ = h/2π).",
         "de": "Reduziertes Plancksches Wirkungsquantum (ħ = h/2π).",
         "fr": "Constante de Planck réduite (ħ = h/2π).",
-        "es": "Constante reducida de Planck (ħ = h/2π)."
+        "es": "Constante reducida de Planck (ħ = h/2π).",
+        "ar": "ثابت بلانك المخفض (ħ = h/2π)."
       }
     }
   ],
   "formulas": {
-    "result": "n + m + L",
-    "result_copy": "n + m + L"
+    "normalized_product": "n * m * L * x",
+    "result": "n * m * L * x * (hbar)",
+    "adjustment_factor": "hbar"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "wavefunction",
-      "probabilityDensity"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "probabilityDensity",
-    "unit": "(dimensionless)"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

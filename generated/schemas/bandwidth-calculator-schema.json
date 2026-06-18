@@ -14,14 +14,15 @@
         "de": "Datenmenge",
         "fr": "Taille des données",
         "es": "Tamaño de datos",
-        "ar": "Data Size"
+        "ar": "حجم البيانات"
       },
       "businessContext_i18n": {
         "en": "Total amount of data to transfer",
         "tr": "Aktarılacak toplam veri miktarı",
         "de": "Gesamtmenge der zu übertragenden Daten",
         "fr": "Quantité totale de données à transférer",
-        "es": "Cantidad total de datos a transferir"
+        "es": "Cantidad total de datos a transferir",
+        "ar": "إجمالي كمية البيانات المراد نقلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Transferzeit",
         "fr": "Temps de transfert",
         "es": "Tiempo de transferencia",
-        "ar": "Transfer Time"
+        "ar": "وقت النقل"
       },
       "businessContext_i18n": {
         "en": "Time available for transfer",
         "tr": "Aktarım için mevcut süre",
         "de": "Verfügbare Zeit für den Transfer",
         "fr": "Temps disponible pour le transfert",
-        "es": "Tiempo disponible para transferencia"
+        "es": "Tiempo disponible para transferencia",
+        "ar": "الوقت المتاح للنقل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Protokoll-Overhead",
         "fr": "Surcharge de protocole",
         "es": "Sobrecarga de protocolo",
-        "ar": "Protocol Overhead"
+        "ar": "النفقات العامة للبروتوكول"
       },
       "businessContext_i18n": {
         "en": "Percentage overhead added by protocol headers",
         "tr": "Protokol başlıkları tarafından eklenen yüzde ek yük",
         "de": "Prozentualer Overhead durch Protokollheader",
         "fr": "Pourcentage de surcharge ajouté par les en-têtes de protocole",
-        "es": "Porcentaje de sobrecarga añadido por las cabeceras del protocolo"
+        "es": "Porcentaje de sobrecarga añadido por las cabeceras del protocolo",
+        "ar": "النسبة المئوية للنفقات العامة التي تضيفها رؤوس البروتوكول"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anzahl der Kanäle",
         "fr": "Nombre de canaux",
         "es": "Número de canales",
-        "ar": "Number of Channels"
+        "ar": "عدد القنوات"
       },
       "businessContext_i18n": {
         "en": "Number of parallel communication channels",
         "tr": "Paralel iletişim kanalı sayısı",
         "de": "Anzahl paralleler Kommunikationskanäle",
         "fr": "Nombre de canaux de communication parallèles",
-        "es": "Número de canales de comunicación paralelos"
+        "es": "Número de canales de comunicación paralelos",
+        "ar": "عدد قنوات الاتصال المتوازية"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Codierungseffizienz",
         "fr": "Efficacité du codage",
         "es": "Eficiencia de codificación",
-        "ar": "Encoding Efficiency"
+        "ar": "كفاءة الترميز"
       },
       "businessContext_i18n": {
         "en": "Efficiency of encoding scheme (e.g., 8b/10b is 80%)",
         "tr": "Kodlama şemasının verimliliği (ör. 8b/10b için %80)",
         "de": "Effizienz des Codierungsschemas (z.B. 8b/10b ist 80%)",
         "fr": "Efficacité du schéma de codage (ex. 8b/10b est 80%)",
-        "es": "Eficiencia del esquema de codificación (ej. 8b/10b es 80%)"
+        "es": "Eficiencia del esquema de codificación (ej. 8b/10b es 80%)",
+        "ar": "كفاءة نظام الترميز (مثل 8b/10b هي 80%)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Redundanzfaktor",
         "fr": "Facteur de redondance",
         "es": "Factor de redundancia",
-        "ar": "Redundancy Factor"
+        "ar": "معامل التكرار"
       },
       "businessContext_i18n": {
         "en": "Multiplicative redundancy for error correction (e.g., FEC code rate inverse)",
         "tr": "Hata düzeltme için çarpımsal yedeklilik (ör. FEC kod oranı tersi)",
         "de": "Multiplikative Redundanz für Fehlerkorrektur (z.B. Kehrwert der FEC-Coderate)",
         "fr": "Redondance multiplicative pour la correction d'erreurs (ex. inverse du taux de code FEC)",
-        "es": "Redundancia multiplicativa para corrección de errores (ej. inverso de tasa de código FEC)"
+        "es": "Redundancia multiplicativa para corrección de errores (ej. inverso de tasa de código FEC)",
+        "ar": "التكرار المضاعف لتصحيح الأخطاء (مثل معكوس معدل كود FEC)"
       }
     }
   ],

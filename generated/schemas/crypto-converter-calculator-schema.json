@@ -14,14 +14,15 @@
         "de": "Betrag",
         "fr": "Montant",
         "es": "Cantidad",
-        "ar": "Amount"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Amount to convert",
         "tr": "Dönüştürülecek miktar",
         "de": "Umzurechnender Betrag",
         "fr": "Montant à convertir",
-        "es": "Cantidad a convertir"
+        "es": "Cantidad a convertir",
+        "ar": "المبلغ المراد تحويله"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Wechselkurs",
         "fr": "Taux de change",
         "es": "Tipo de cambio",
-        "ar": "Exchange Rate"
+        "ar": "سعر الصرف"
       },
       "businessContext_i18n": {
         "en": "Current exchange rate",
         "tr": "Güncel döviz kuru",
         "de": "Aktueller Wechselkurs",
         "fr": "Taux de change actuel",
-        "es": "Tipo de cambio actual"
+        "es": "Tipo de cambio actual",
+        "ar": "سعر الصرف الحالي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Umrechnungsgebühr (%)",
         "fr": "Frais de conversion (%)",
         "es": "Comisión de conversión (%)",
-        "ar": "Conversion Fee (%)"
+        "ar": "رسوم التحويل (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage fee for conversion",
         "tr": "Dönüşüm için yüzde ücret",
         "de": "Prozentsatz der Gebühr für die Umrechnung",
         "fr": "Pourcentage de frais pour la conversion",
-        "es": "Porcentaje de comisión por la conversión"
+        "es": "Porcentaje de comisión por la conversión",
+        "ar": "نسبة الرسوم للتحويل"
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Spread (%)",
         "tr": "Spread (%)",
-        "de": "Spread (%)",
-        "fr": "Spread (%)",
+        "de": "Streuung (%)",
+        "fr": "Étalement (%)",
         "es": "Diferencial (%)",
-        "ar": "Spread (%)"
+        "ar": "فارق السعر (%)"
       },
       "businessContext_i18n": {
         "en": "Spread added to exchange rate",
         "tr": "Döviz kuruna eklenen spread",
         "de": "Aufschlag auf den Wechselkurs",
         "fr": "Spread ajouté au taux de change",
-        "es": "Diferencial añadido al tipo de cambio"
+        "es": "Diferencial añadido al tipo de cambio",
+        "ar": "فارق السعر المضاف إلى سعر الصرف"
       }
     }
   ],

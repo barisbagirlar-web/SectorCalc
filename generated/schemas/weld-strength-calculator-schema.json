@@ -32,13 +32,17 @@
         "en": "Weld Type",
         "tr": "Kaynak Türü",
         "de": "Schweißnahttyp",
-        "fr": "Type de soudure"
+        "fr": "Type de soudure",
+        "es": "Tipo de soldadura",
+        "ar": "نوع اللحام"
       },
       "businessContext_i18n": {
         "en": "Determines the geometry factor and stress distribution model per AWS D1.1.",
         "tr": "AWS D1.1'e göre geometri faktörünü ve gerilme dağılım modelini belirler.",
         "de": "Bestimmt den Geometriefaktor und das Spannungsverteilungsmodell gemäß AWS D1.1.",
-        "fr": "Détermine le facteur géométrique et le modèle de distribution des contraintes selon AWS D1.1."
+        "fr": "Détermine le facteur géométrique et le modèle de distribution des contraintes selon AWS D1.1.",
+        "es": "Determina el factor geométrico y el modelo de distribución de tensiones según AWS D1.1.",
+        "ar": "يحدد عامل الهندسة ونموذج توزيع الإجهاد وفقًا لـ AWS D1.1."
       }
     },
     {
@@ -54,13 +58,17 @@
         "en": "Base Material Yield Strength",
         "tr": "Temel Malzeme Akma Dayanımı",
         "de": "Streckgrenze des Grundmaterials",
-        "fr": "Limite d'élasticité du matériau de base"
+        "fr": "Limite d'élasticité du matériau de base",
+        "es": "Límite elástico del material base",
+        "ar": "مقاومة خضوع المادة الأساسية"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the weaker base material (ISO 898 / ASTM A36).",
         "tr": "Zayıf temel malzemenin akma dayanımı (ISO 898 / ASTM A36).",
         "de": "Streckgrenze des schwächeren Grundmaterials (ISO 898 / ASTM A36).",
-        "fr": "Limite d'élasticité du matériau de base le plus faible (ISO 898 / ASTM A36)."
+        "fr": "Limite d'élasticité du matériau de base le plus faible (ISO 898 / ASTM A36).",
+        "es": "Límite elástico del material base más débil (ISO 898 / ASTM A36).",
+        "ar": "مقاومة الخضوع للمادة الأساسية الأضعف (ISO 898 / ASTM A36)."
       }
     },
     {
@@ -76,13 +84,17 @@
         "en": "Weld Material Tensile Strength",
         "tr": "Kaynak Malzemesi Çekme Dayanımı",
         "de": "Zugfestigkeit des Schweißzusatzwerkstoffs",
-        "fr": "Résistance à la traction du métal d'apport"
+        "fr": "Résistance à la traction du métal d'apport",
+        "es": "Resistencia a la tracción del material de aporte",
+        "ar": "مقاومة شد مادة اللحام"
       },
       "businessContext_i18n": {
         "en": "Tensile strength of filler metal (e.g., ER70S-6).",
         "tr": "Dolgu metalinin çekme dayanımı (örn. ER70S-6).",
         "de": "Zugfestigkeit des Schweißzusatzes (z. B. ER70S-6).",
-        "fr": "Résistance à la traction du métal d'apport (ex. ER70S-6)."
+        "fr": "Résistance à la traction du métal d'apport (ex. ER70S-6).",
+        "es": "Resistencia a la tracción del metal de aporte (p. ej., ER70S-6).",
+        "ar": "مقاومة الشد لمعدن الحشو (مثل ER70S-6)."
       }
     },
     {
@@ -98,13 +110,17 @@
         "en": "Effective Throat Thickness",
         "tr": "Etkili Boğaz Kalınlığı",
         "de": "Effektive Kehlnahtdicke",
-        "fr": "Épaisseur effective de la gorge"
+        "fr": "Épaisseur effective de la gorge",
+        "es": "Espesor de garganta efectivo",
+        "ar": "سمك الحلق الفعال"
       },
       "businessContext_i18n": {
         "en": "Minimum throat dimension per ISO 5817 quality level B.",
         "tr": "ISO 5817 kalite seviyesi B'ye göre minimum boğaz boyutu.",
         "de": "Mindestkehlmaß gemäß ISO 5817 Qualitätsstufe B.",
-        "fr": "Dimension minimale de la gorge selon le niveau de qualité B de l'ISO 5817."
+        "fr": "Dimension minimale de la gorge selon le niveau de qualité B de l'ISO 5817.",
+        "es": "Dimensión mínima de garganta según nivel de calidad B de ISO 5817.",
+        "ar": "الحد الأدنى لبعد الحلق وفقًا لمستوى الجودة B من ISO 5817."
       }
     },
     {
@@ -121,13 +137,16 @@
         "tr": "Kaynak Uzunluğu",
         "de": "Schweißnahtlänge",
         "fr": "Longueur de la soudure",
-        "es": "Longitud de la soldadura"
+        "es": "Longitud de la soldadura",
+        "ar": "طول اللحام"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam.",
         "tr": "Kaynak dikişinin toplam uzunluğu.",
         "de": "Gesamtlänge der Schweißnaht.",
-        "fr": "Longueur totale du cordon de soudure."
+        "fr": "Longueur totale du cordon de soudure.",
+        "es": "Longitud total del cordón de soldadura.",
+        "ar": "الطول الإجمالي لخط اللحام."
       }
     },
     {
@@ -144,13 +163,16 @@
         "tr": "Uygulanan Yük",
         "de": "Aufgebrachte Last",
         "fr": "Charge appliquée",
-        "es": "Carga aplicada"
+        "es": "Carga aplicada",
+        "ar": "الحمل المطبق"
       },
       "businessContext_i18n": {
         "en": "Service load acting on the weld joint.",
         "tr": "Kaynak bağlantısına etkiyen servis yükü.",
         "de": "Betriebslast auf die Schweißverbindung.",
-        "fr": "Charge de service agissant sur le joint soudé."
+        "fr": "Charge de service agissant sur le joint soudé.",
+        "es": "Carga de servicio que actúa sobre la unión soldada.",
+        "ar": "حمل الخدمة المؤثر على وصلة اللحام."
       }
     },
     {
@@ -166,13 +188,17 @@
         "en": "Load Angle (from weld axis)",
         "tr": "Yük Açısı (kaynak ekseninden)",
         "de": "Lastwinkel (von der Schweißnahtachse)",
-        "fr": "Angle de charge (par rapport à l'axe de la soudure)"
+        "fr": "Angle de charge (par rapport à l'axe de la soudure)",
+        "es": "Ángulo de carga (desde el eje de la soldadura)",
+        "ar": "زاوية الحمل (من محور اللحام)"
       },
       "businessContext_i18n": {
         "en": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal.",
         "tr": "Uygulanan yük ile kaynak boyuna ekseni arasındaki açı. 90° = enine, 0° = boyuna.",
         "de": "Winkel zwischen aufgebrachter Last und Schweißnahtlängsachse. 90° = quer, 0° = längs.",
-        "fr": "Angle entre la charge appliquée et l'axe longitudinal de la soudure. 90° = transversal, 0° = longitudinal."
+        "fr": "Angle entre la charge appliquée et l'axe longitudinal de la soudure. 90° = transversal, 0° = longitudinal.",
+        "es": "Ángulo entre la carga aplicada y el eje longitudinal de la soldadura. 90° = transversal, 0° = longitudinal.",
+        "ar": "الزاوية بين الحمل المطبق والمحور الطولي للحام. 90° = عرضي، 0° = طولي."
       }
     },
     {
@@ -193,13 +219,17 @@
         "en": "Quality Level (ISO 5817)",
         "tr": "Kalite Seviyesi (ISO 5817)",
         "de": "Qualitätsstufe (ISO 5817)",
-        "fr": "Niveau de qualité (ISO 5817)"
+        "fr": "Niveau de qualité (ISO 5817)",
+        "es": "Nivel de calidad (ISO 5817)",
+        "ar": "مستوى الجودة (ISO 5817)"
       },
       "businessContext_i18n": {
         "en": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic.",
         "tr": "ISO 5817 kaynak kalite seviyesi: B=sıkı, C=orta, D=temel.",
         "de": "Schweißnahtqualitätsstufe nach ISO 5817: B=streng, C=mäßig, D=einfach.",
-        "fr": "Niveau de qualité de soudure ISO 5817 : B = strict, C = modéré, D = basique."
+        "fr": "Niveau de qualité de soudure ISO 5817 : B = strict, C = modéré, D = basique.",
+        "es": "Nivel de calidad de soldadura ISO 5817: B=exigente, C=moderado, D=básico.",
+        "ar": "مستوى جودة اللحام وفقًا لـ ISO 5817: B=صارم، C=معتدل، D=أساسي."
       }
     }
   ],
@@ -243,18 +273,26 @@
     ]
   },
   "formulas": {
-    "result": "weld_type + base_material_yield_strength + weld_material_tensile_strength",
-    "result_copy": "weld_type + base_material_yield_strength + weld_material_tensile_strength"
+    "normalized_product": "base_material_yield_strength * weld_material_tensile_strength * throat_thickness * weld_length",
+    "result": "base_material_yield_strength * weld_material_tensile_strength * throat_thickness * weld_length * (applied_load * load_angle)",
+    "adjustment_factor": "applied_load * load_angle"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "MPa"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -13,14 +13,16 @@
         "tr": "Toplam Yük",
         "de": "Gesamtlast",
         "fr": "Charge totale",
-        "es": "Total Load",
-        "ar": "Total Load"
+        "es": "Carga total",
+        "ar": "الحمل الإجمالي"
       },
       "businessContext_i18n": {
         "en": "Total active power consumption of connected equipment (Watts)",
         "tr": "Bağlı ekipmanın toplam aktif güç tüketimi (Watt).",
         "de": "Gesamte Wirkleistungsaufnahme der angeschlossenen Geräte (Watt)",
-        "fr": "Consommation électrique active totale des équipements connectés (Watts)"
+        "fr": "Consommation électrique active totale des équipements connectés (Watts)",
+        "es": "Consumo de potencia activa total del equipo conectado (vatios)",
+        "ar": "إجمالي استهلاك الطاقة النشطة للمعدات المتصلة (واط)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Power Factor"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (typically 0.7-0.9), ≤1",
         "tr": "Yükün güç faktörü (tipik olarak 0.7-0.9), ≤1.",
         "de": "Leistungsfaktor der Last (typischerweise 0,7–0,9), ≤1",
-        "fr": "Facteur de puissance de la charge (généralement 0,7-0,9), ≤1"
+        "fr": "Facteur de puissance de la charge (généralement 0,7-0,9), ≤1",
+        "es": "Factor de potencia de la carga (típicamente 0.7-0.9), ≤1",
+        "ar": "معامل القدرة للحمل (عادة 0.7-0.9)، ≤1"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Gerekli Çalışma Süresi",
         "de": "Erforderliche Überbrückungszeit",
         "fr": "Autonomie requise",
-        "es": "Required Runtime",
-        "ar": "Required Runtime"
+        "es": "Tiempo de respaldo requerido",
+        "ar": "وقت التشغيل المطلوب"
       },
       "businessContext_i18n": {
         "en": "Required backup time in minutes during power outage",
         "tr": "Elektrik kesintisi sırasında gerekli yedekleme süresi (dakika).",
         "de": "Erforderliche Backup-Zeit in Minuten bei Stromausfall",
-        "fr": "Temps de secours requis en minutes en cas de panne de courant"
+        "fr": "Temps de secours requis en minutes en cas de panne de courant",
+        "es": "Tiempo de respaldo requerido en minutos durante un corte de energía",
+        "ar": "وقت النسخ الاحتياطي المطلوب بالدقائق أثناء انقطاع التيار الكهربائي"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "İnvertör Verimliliği",
         "de": "Wechselrichter-Wirkungsgrad",
         "fr": "Rendement de l'onduleur",
-        "es": "Inverter Efficiency",
-        "ar": "Inverter Efficiency"
+        "es": "Eficiencia del inversor",
+        "ar": "كفاءة العاكس"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the UPS inverter in converting DC to AC, typically 85-95%",
         "tr": "UPS invertörünün DC'yi AC'ye dönüştürme verimliliği, tipik olarak %85-95.",
         "de": "Wirkungsgrad des USV-Wechselrichters bei der Umwandlung von Gleichstrom in Wechselstrom, typischerweise 85–95 %",
-        "fr": "Rendement de l'onduleur convertissant le courant continu en courant alternatif, généralement 85-95 %"
+        "fr": "Rendement de l'onduleur convertissant le courant continu en courant alternatif, généralement 85-95 %",
+        "es": "Eficiencia del inversor del UPS al convertir CC a CA, típicamente 85-95%",
+        "ar": "كفاءة عاكس UPS في تحويل التيار المستمر إلى تيار متردد، عادة 85-95%"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Akü Gerilimi",
         "de": "Batteriespannung",
         "fr": "Tension de la batterie",
-        "es": "Battery Voltage",
-        "ar": "Battery Voltage"
+        "es": "Tensión de la batería",
+        "ar": "جهد البطارية"
       },
       "businessContext_i18n": {
         "en": "DC system voltage of the battery bank (e.g., 12V, 24V, 48V)",
         "tr": "Akü bankasının DC sistem gerilimi (örn. 12V, 24V, 48V).",
         "de": "DC-Systemspannung der Batteriebank (z. B. 12 V, 24 V, 48 V)",
-        "fr": "Tension continue du parc de batteries (ex. 12V, 24V, 48V)"
+        "fr": "Tension continue du parc de batteries (ex. 12V, 24V, 48V)",
+        "es": "Tensión del sistema CC del banco de baterías (ej. 12V, 24V, 48V)",
+        "ar": "جهد النظام المستمر لبنك البطاريات (مثل 12V، 24V، 48V)"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Deşarj Derinliği",
         "de": "Entladetiefe",
         "fr": "Profondeur de décharge",
-        "es": "Depth of Discharge",
-        "ar": "Depth of Discharge"
+        "es": "Profundidad de descarga",
+        "ar": "عمق التفريغ"
       },
       "businessContext_i18n": {
         "en": "Maximum depth of discharge for battery, to prolong life (e.g., 50% for lead-acid)",
         "tr": "Akü ömrünü uzatmak için maksimum deşarj derinliği (örn. kurşun-asit için %50).",
         "de": "Maximale Entladetiefe der Batterie zur Verlängerung der Lebensdauer (z. B. 50 % bei Blei-Säure)",
-        "fr": "Profondeur de décharge maximale de la batterie pour prolonger sa durée de vie (ex. 50 % pour plomb-acide)"
+        "fr": "Profondeur de décharge maximale de la batterie pour prolonger sa durée de vie (ex. 50 % pour plomb-acide)",
+        "es": "Profundidad máxima de descarga para la batería, para prolongar su vida útil (ej. 50% para plomo-ácido)",
+        "ar": "أقصى عمق تفريغ للبطارية لإطالة العمر (مثل 50% للبطاريات الرصاصية)"
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "Paralel Akü Sayısı",
         "de": "Anzahl parallel geschalteter Batterien",
         "fr": "Nombre de batteries en parallèle",
-        "es": "Number of Batteries in Parallel",
-        "ar": "Number of Batteries in Parallel"
+        "es": "Número de baterías en paralelo",
+        "ar": "عدد البطاريات على التوازي"
       },
       "businessContext_i18n": {
         "en": "Number of identical batteries connected in parallel to share load",
         "tr": "Yükü paylaşmak için paralel bağlanan özdeş akü sayısı.",
         "de": "Anzahl identischer Batterien, die parallel geschaltet sind, um die Last zu teilen",
-        "fr": "Nombre de batteries identiques connectées en parallèle pour partager la charge"
+        "fr": "Nombre de batteries identiques connectées en parallèle pour partager la charge",
+        "es": "Número de baterías idénticas conectadas en paralelo para compartir la carga",
+        "ar": "عدد البطاريات المتطابقة المتصلة على التوازي لمشاركة الحمل"
       }
     }
   ],

@@ -25,14 +25,16 @@
         "tr": "Hayvan başına günlük yem alımı (kg)",
         "de": "Tägliche Futteraufnahme pro Tier (kg)",
         "fr": "Consommation alimentaire quotidienne par animal (kg)",
-        "es": "Consumo diario de alimento por animal (kg)"
+        "es": "Consumo diario de alimento por animal (kg)",
+        "ar": "تناول العلف اليومي لكل حيوان (كجم)"
       },
       "businessContext_i18n": {
         "en": "Average daily feed consumption per animal, based on species and growth stage.",
         "tr": "Tür ve büyüme aşamasına göre hayvan başına ortalama günlük yem tüketimi.",
         "de": "Durchschnittliche tägliche Futteraufnahme pro Tier, basierend auf Art und Wachstumsstadium.",
         "fr": "Consommation alimentaire quotidienne moyenne par animal, basée sur l'espèce et le stade de croissance.",
-        "es": "Consumo medio diario de alimento por animal, según la especie y etapa de crecimiento."
+        "es": "Consumo medio diario de alimento por animal, según la especie y etapa de crecimiento.",
+        "ar": "متوسط استهلاك العلف اليومي لكل حيوان، بناءً على النوع ومرحلة النمو."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Hammadde maliyeti (kg başına)",
         "de": "Rohstoffkosten pro kg",
         "fr": "Coût matière première par kg",
-        "es": "Costo de materia prima por kg"
+        "es": "Costo de materia prima por kg",
+        "ar": "تكلفة المواد الخام لكل كجم"
       },
       "businessContext_i18n": {
         "en": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
         "tr": "Temel yem bileşenlerinin (mısır, soya küspesi vb.) kilogram başına maliyeti.",
         "de": "Kosten der primären Futterzutaten (Mais, Sojaschrot usw.) pro Kilogramm.",
         "fr": "Coût des ingrédients alimentaires de base (maïs, tourteau de soja, etc.) par kilogramme.",
-        "es": "Costo de los ingredientes principales del alimento (maíz, harina de soya, etc.) por kilogramo."
+        "es": "Costo de los ingredientes principales del alimento (maíz, harina de soya, etc.) por kilogramo.",
+        "ar": "تكلفة مكونات العلف الأولية (الذرة، دقيق فول الصويا، إلخ) لكل كيلوغرام."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "İşleme kaybı (%)",
         "de": "Verarbeitungsverlust (%)",
         "fr": "Perte de transformation (%)",
-        "es": "Pérdida de procesamiento (%)"
+        "es": "Pérdida de procesamiento (%)",
+        "ar": "فقدان التصنيع (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
         "tr": "Öğütme, karıştırma, peletleme veya depolama sırasında kaybedilen hammadde yüzdesi.",
         "de": "Prozentsatz des Rohmaterials, der während des Mahlens, Mischens, Pelletierens oder der Lagerung verloren geht.",
         "fr": "Pourcentage de matière première perdue lors du broyage, du mélange, de la granulation ou du stockage.",
-        "es": "Porcentaje de materia prima perdida durante la molienda, mezcla, peletizado o almacenamiento."
+        "es": "Porcentaje de materia prima perdida durante la molienda, mezcla, peletizado o almacenamiento.",
+        "ar": "نسبة المواد الخام المفقودة أثناء الطحن أو الخلط أو التكوير أو التخزين."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Nem ayarlama faktörü",
         "de": "Feuchtigkeitsanpassungsfaktor",
         "fr": "Facteur d'ajustement d'humidité",
-        "es": "Factor de ajuste de humedad"
+        "es": "Factor de ajuste de humedad",
+        "ar": "عامل تعديل الرطوبة"
       },
       "businessContext_i18n": {
         "en": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
         "tr": "Hammaddelerdeki nem içeriği değişimi için düzeltme faktörü (1.0 = standart).",
         "de": "Korrekturfaktor für Schwankungen des Feuchtigkeitsgehalts in Rohstoffen (1,0 = Standard).",
         "fr": "Facteur de correction pour la variation de teneur en humidité des matières premières (1,0 = standard).",
-        "es": "Factor de corrección por variación de humedad en materias primas (1.0 = estándar)."
+        "es": "Factor de corrección por variación de humedad en materias primas (1.0 = estándar).",
+        "ar": "عامل تصحيح لتباين محتوى الرطوبة في المواد الخام (1.0 = قياسي)."
       }
     },
     {
@@ -126,14 +134,16 @@
         "tr": "Kalite sınıfı",
         "de": "Qualitätsstufe",
         "fr": "Grade de qualité",
-        "es": "Grado de calidad"
+        "es": "Grado de calidad",
+        "ar": "درجة الجودة"
       },
       "businessContext_i18n": {
         "en": "Grade of feed based on nutrient density and consistency (premium, standard, economy).",
         "tr": "Besin yoğunluğu ve tutarlılığına göre yem sınıfı (premium, standart, ekonomi).",
         "de": "Stufe des Futters basierend auf Nährstoffdichte und Konsistenz (Premium, Standard, Economy).",
         "fr": "Grade de l'aliment basé sur la densité nutritionnelle et la consistance (premium, standard, économique).",
-        "es": "Grado del alimento según densidad nutricional y consistencia (premium, estándar, económico)."
+        "es": "Grado del alimento según densidad nutricional y consistencia (premium, estándar, económico).",
+        "ar": "درجة العلف بناءً على كثافة المغذيات والاتساق (ممتاز، قياسي، اقتصادي)."
       }
     },
     {
@@ -150,14 +160,16 @@
         "tr": "Nakliye maliyeti dahil mi?",
         "de": "Transportkosten einbeziehen?",
         "fr": "Inclure le coût de transport ?",
-        "es": "¿Incluir costo de transporte?"
+        "es": "¿Incluir costo de transporte?",
+        "ar": "هل تشمل تكلفة النقل؟"
       },
       "businessContext_i18n": {
         "en": "If true, adds a fixed transport surcharge per kg of feed.",
         "tr": "Evet ise, kg yem başına sabit bir nakliye ek ücreti ekler.",
         "de": "Wenn wahr, wird ein fester Transportzuschlag pro kg Futter hinzugefügt.",
         "fr": "Si vrai, ajoute une surcharge de transport fixe par kg d'aliment.",
-        "es": "Si es verdadero, agrega un recargo fijo de transporte por kg de alimento."
+        "es": "Si es verdadero, agrega un recargo fijo de transporte por kg de alimento.",
+        "ar": "إذا كان صحيحًا، يضيف رسوم نقل ثابتة لكل كجم من العلف."
       }
     }
   ],
@@ -199,18 +211,24 @@
     ]
   },
   "formulas": {
-    "result": "feed_intake_kg + raw_material_cost_per_kg + processing_loss_percent",
-    "result_copy": "feed_intake_kg + raw_material_cost_per_kg + processing_loss_percent"
+    "normalized_product": "feed_intake_kg * raw_material_cost_per_kg * (processing_loss_percent / 100) * moisture_adjustment_factor",
+    "result": "feed_intake_kg * raw_material_cost_per_kg * (processing_loss_percent / 100) * moisture_adjustment_factor"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "kg"
+    "unit": "USD"
   },
   "toolName": "feed-cost-estimator-calculator",
   "catalogCategory": "everyday-life",

@@ -14,13 +14,15 @@
         "de": "Starttag",
         "fr": "Jour de début",
         "es": "Día de inicio",
-        "ar": "Start Day"
+        "ar": "يوم البداية"
       },
       "businessContext_i18n": {
         "en": "The day component of the start date for calculating working days.",
         "tr": "İş günü hesaplaması için başlangıç tarihinin gün bileşeni.",
         "de": "Die Tageskomponente des Startdatums für die Berechnung der Arbeitstage.",
-        "fr": "Composante jour de la date de début pour le calcul des jours ouvrés."
+        "fr": "Composante jour de la date de début pour le calcul des jours ouvrés.",
+        "es": "El componente de día de la fecha de inicio para calcular días laborables.",
+        "ar": "مكون اليوم من تاريخ البداية لحساب أيام العمل."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Startmonat",
         "fr": "Mois de début",
         "es": "Mes de inicio",
-        "ar": "Start Month"
+        "ar": "شهر البداية"
       },
       "businessContext_i18n": {
         "en": "The month component (1-12) of the start date.",
         "tr": "Başlangıç tarihinin ay bileşeni (1-12).",
         "de": "Die Monatskomponente (1-12) des Startdatums.",
-        "fr": "Composante mois (1-12) de la date de début."
+        "fr": "Composante mois (1-12) de la date de début.",
+        "es": "El componente de mes (1-12) de la fecha de inicio.",
+        "ar": "مكون الشهر (1-12) من تاريخ البداية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Startjahr",
         "fr": "Année de début",
         "es": "Año de Inicio",
-        "ar": "Start Year"
+        "ar": "سنة البداية"
       },
       "businessContext_i18n": {
         "en": "The year component of the start date.",
         "tr": "Başlangıç tarihinin yıl bileşeni.",
         "de": "Das Jahr-Komponente des Startdatums.",
-        "fr": "Composante année de la date de début."
+        "fr": "Composante année de la date de début.",
+        "es": "El componente de año de la fecha de inicio.",
+        "ar": "مكون السنة من تاريخ البداية."
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Endtag",
         "fr": "Jour de fin",
         "es": "Día de fin",
-        "ar": "End Day"
+        "ar": "يوم النهاية"
       },
       "businessContext_i18n": {
         "en": "The day component of the end date.",
         "tr": "Bitiş tarihinin gün bileşeni.",
         "de": "Die Tag-Komponente des Enddatums.",
-        "fr": "Composante jour de la date de fin."
+        "fr": "Composante jour de la date de fin.",
+        "es": "El componente de día de la fecha de fin.",
+        "ar": "مكون اليوم من تاريخ النهاية."
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Endmonat",
         "fr": "Mois de fin",
         "es": "Mes de fin",
-        "ar": "End Month"
+        "ar": "شهر النهاية"
       },
       "businessContext_i18n": {
         "en": "The month component (1-12) of the end date.",
         "tr": "Bitiş tarihinin ay bileşeni (1-12).",
         "de": "Die Monats-Komponente (1-12) des Enddatums.",
-        "fr": "Composante mois (1-12) de la date de fin."
+        "fr": "Composante mois (1-12) de la date de fin.",
+        "es": "El componente de mes (1-12) de la fecha de fin.",
+        "ar": "مكون الشهر (1-12) من تاريخ النهاية."
       }
     },
     {
@@ -124,32 +134,39 @@
         "de": "Endjahr",
         "fr": "Année de fin",
         "es": "Año de Finalización",
-        "ar": "End Year"
+        "ar": "سنة النهاية"
       },
       "businessContext_i18n": {
         "en": "The year component of the end date.",
         "tr": "Bitiş tarihinin yıl bileşeni.",
         "de": "Die Jahr-Komponente des Enddatums.",
-        "fr": "Composante année de la date de fin."
+        "fr": "Composante année de la date de fin.",
+        "es": "El componente de año de la fecha de fin.",
+        "ar": "مكون السنة من تاريخ النهاية."
       }
     }
   ],
   "formulas": {
-    "result": "startDay + startMonth + startYear",
-    "result_copy": "startDay + startMonth + startYear"
+    "normalized_product": "startDay * startMonth * startYear * endDay",
+    "result": "startDay * startMonth * startYear * endDay * (endMonth * endYear)",
+    "adjustment_factor": "endMonth * endYear"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalDays",
-      "weekendDays"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "weekendDays",
-    "unit": "day"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

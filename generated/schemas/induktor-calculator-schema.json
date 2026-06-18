@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Coil Diameter",
         "tr": "Bobin Çapı",
-        "de": "Coil Diameter",
+        "de": "Spulendurchmesser",
         "fr": "Diamètre de la bobine",
         "es": "Diámetro de la bobina",
-        "ar": "Coil Diameter"
+        "ar": "قطر الملف"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the inductor coil.",
         "tr": "İndüktör bobininin dış çapı.",
-        "de": "Outer diameter of the inductor coil.",
+        "de": "Außendurchmesser der Induktorspule.",
         "fr": "Diamètre extérieur de la bobine d'inductance.",
-        "es": "Diámetro exterior de la bobina inductora."
+        "es": "Diámetro exterior de la bobina inductora.",
+        "ar": "القطر الخارجي لملف المحث"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Coil Length",
         "tr": "Bobin Uzunluğu",
-        "de": "Coil Length",
+        "de": "Spulenlänge",
         "fr": "Longueur de la bobine",
         "es": "Longitud de la bobina",
-        "ar": "Coil Length"
+        "ar": "طول الملف"
       },
       "businessContext_i18n": {
         "en": "Length of the coil along its axis.",
         "tr": "Bobinin ekseni boyunca uzunluğu.",
-        "de": "Length of the coil along its axis.",
+        "de": "Länge der Spule entlang ihrer Achse.",
         "fr": "Longueur de la bobine le long de son axe.",
-        "es": "Longitud de la bobina a lo largo de su eje."
+        "es": "Longitud de la bobina a lo largo de su eje.",
+        "ar": "طول الملف على طول محوره"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Windungszahl",
         "fr": "Nombre de spires",
         "es": "Número de vueltas",
-        "ar": "Number of Turns"
+        "ar": "عدد اللفات"
       },
       "businessContext_i18n": {
         "en": "Total number of wire turns in the coil.",
         "tr": "Bobindeki toplam tel sarım sayısı.",
-        "de": "Total number of wire turns in the coil.",
+        "de": "Gesamtzahl der Drahtwindungen in der Spule.",
         "fr": "Nombre total de spires de fil dans la bobine.",
-        "es": "Número total de vueltas de alambre en la bobina."
+        "es": "Número total de vueltas de alambre en la bobina.",
+        "ar": "إجمالي عدد لفات السلك في الملف."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Frequenz",
         "fr": "Fréquence",
         "es": "Frecuencia",
-        "ar": "Frequency"
+        "ar": "التردد"
       },
       "businessContext_i18n": {
         "en": "Operating frequency of the AC signal in kilohertz.",
         "tr": "AC sinyalinin kilohertz cinsinden çalışma frekansı.",
-        "de": "Operating frequency of the AC signal in kilohertz.",
+        "de": "Betriebsfrequenz des Wechselstromsignals in Kilohertz.",
         "fr": "Fréquence de fonctionnement du signal CA en kilohertz.",
-        "es": "Frecuencia de operación de la señal de CA en kilohercios."
+        "es": "Frecuencia de operación de la señal de CA en kilohercios.",
+        "ar": "تردد تشغيل الإشارة المترددة بالكيلوهرتز."
       }
     }
   ],
   "formulas": {
-    "result": "diameter + length + turns",
-    "result_aux": "diameter + length + turns"
+    "normalized_product": "diameter * length * turns * frequency",
+    "result": "diameter * length * turns * frequency"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Reaktans: ${reactance_ohm.toFixed(2)} Ω",
-      "Bobin: ${diameter} mm ⌀ × ${length} mm, ${turns} tur"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reactance_ohm",
-    "unit": "mm",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "Bobin: ${diameter} mm ⌀ × ${length} mm, ${turns} tur": "m"
     }

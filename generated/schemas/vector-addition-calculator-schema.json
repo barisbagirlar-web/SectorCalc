@@ -24,13 +24,17 @@
         "en": "Vector 1 Magnitude",
         "tr": "Vektör 1 Büyüklüğü",
         "de": "Vektor 1 Betrag",
-        "fr": "Ampleur du vecteur 1"
+        "fr": "Ampleur du vecteur 1",
+        "es": "Magnitud del vector 1",
+        "ar": "مقدار المتجه 1"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
         "tr": "Birinci kuvvet/hız vektörünün Newton (N) veya m/s cinsinden büyüklüğü. Endüstriyel uygulamalar için tipik aralık: 0,1–100.000 N.",
         "de": "Betrag des ersten Kraft-/Geschwindigkeitsvektors in Newton (N) oder m/s. Typischer Bereich für industrielle Anwendungen: 0,1–100.000 N.",
-        "fr": "Ampleur du premier vecteur de force/vitesse en Newtons (N) ou m/s. Plage typique pour applications industrielles : 0,1–100 000 N."
+        "fr": "Ampleur du premier vecteur de force/vitesse en Newtons (N) ou m/s. Plage typique pour applications industrielles : 0,1–100 000 N.",
+        "es": "Magnitud del primer vector de fuerza/velocidad en Newtons (N) o m/s. Rango típico para aplicaciones industriales: 0.1–100,000 N.",
+        "ar": "مقدار متجه القوة/السرعة الأول بالنيوتن (N) أو م/ث. النطاق النموذجي للتطبيقات الصناعية: 0.1–100,000 نيوتن."
       }
     },
     {
@@ -46,13 +50,17 @@
         "en": "Vector 1 Angle",
         "tr": "Vektör 1 Açısı",
         "de": "Vektor 1 Winkel",
-        "fr": "Angle du vecteur 1"
+        "fr": "Angle du vecteur 1",
+        "es": "Ángulo del vector 1",
+        "ar": "زاوية المتجه 1"
       },
       "businessContext_i18n": {
         "en": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
         "tr": "Pozitif x ekseninden ölçülen birinci vektörün yönü (0° ila 360°). ISO 80000-2'ye göre kuvvet analizinde kullanılır.",
         "de": "Richtung des ersten Vektors, gemessen von der positiven x-Achse (0° bis 360°). Wird in der Kraftanalyse gemäß ISO 80000-2 verwendet.",
-        "fr": "Direction du premier vecteur mesurée à partir de l'axe x positif (0° à 360°). Utilisé dans l'analyse des forces selon ISO 80000-2."
+        "fr": "Direction du premier vecteur mesurée à partir de l'axe x positif (0° à 360°). Utilisé dans l'analyse des forces selon ISO 80000-2.",
+        "es": "Dirección del primer vector medida desde el eje x positivo (0° a 360°). Se utiliza en análisis de fuerzas según ISO 80000-2.",
+        "ar": "اتجاه المتجه الأول مقاسًا من المحور x الموجب (0° إلى 360°). يُستخدم في تحليل القوى وفقًا لـ ISO 80000-2."
       }
     },
     {
@@ -68,13 +76,17 @@
         "en": "Vector 2 Magnitude",
         "tr": "Vektör 2 Büyüklüğü",
         "de": "Vektor 2 Betrag",
-        "fr": "Ampleur du vecteur 2"
+        "fr": "Ampleur du vecteur 2",
+        "es": "Magnitud del vector 2",
+        "ar": "مقدار المتجه 2"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
         "tr": "İkinci vektörün büyüklüğü. Çoklu kuvvet sistemlerinde yaygındır (örneğin, konveyör bant gerilimleri, robot kol yükleri).",
         "de": "Betrag des zweiten Vektors. Üblich in Mehrkräftesystemen (z. B. Förderbandspannungen, Roboterarmlasten).",
-        "fr": "Ampleur du second vecteur. Courant dans les systèmes multi-forces (ex. tensions de convoyeur, charges de bras robotique)."
+        "fr": "Ampleur du second vecteur. Courant dans les systèmes multi-forces (ex. tensions de convoyeur, charges de bras robotique).",
+        "es": "Magnitud del segundo vector. Común en sistemas de múltiples fuerzas (ej. tensiones de cinta transportadora, cargas de brazo robótico).",
+        "ar": "مقدار المتجه الثاني. شائع في أنظمة القوى المتعددة (مثل شدود الحزام الناقل، أحمال الذراع الآلي)."
       }
     },
     {
@@ -90,13 +102,17 @@
         "en": "Vector 2 Angle",
         "tr": "Vektör 2 Açısı",
         "de": "Vektor 2 Winkel",
-        "fr": "Angle du vecteur 2"
+        "fr": "Angle du vecteur 2",
+        "es": "Ángulo del vector 2",
+        "ar": "زاوية المتجه 2"
       },
       "businessContext_i18n": {
         "en": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
         "tr": "İkinci vektörün yönü. Tipik açılar: 0° (yatay), 90° (dikey), 180° (zıt).",
         "de": "Richtung des zweiten Vektors. Typische Winkel: 0° (horizontal), 90° (vertikal), 180° (entgegengesetzt).",
-        "fr": "Direction du second vecteur. Angles typiques : 0° (horizontal), 90° (vertical), 180° (opposé)."
+        "fr": "Direction du second vecteur. Angles typiques : 0° (horizontal), 90° (vertical), 180° (opposé).",
+        "es": "Dirección del segundo vector. Ángulos típicos: 0° (horizontal), 90° (vertical), 180° (opuesto).",
+        "ar": "اتجاه المتجه الثاني. الزوايا النموذجية: 0° (أفقي)، 90° (رأسي)، 180° (معاكس)."
       }
     },
     {
@@ -116,13 +132,17 @@
         "en": "Unit System",
         "tr": "Birim Sistemi",
         "de": "Einheitensystem",
-        "fr": "Système d'unités"
+        "fr": "Système d'unités",
+        "es": "Sistema de unidades",
+        "ar": "نظام الوحدات"
       },
       "businessContext_i18n": {
         "en": "Select SI (metric) or Imperial (lb, ft/s) for output consistency. ISO 1000 recommends SI for engineering calculations.",
         "tr": "Tutarlılık için SI (metrik) veya Imperial (lb, ft/s) seçin. ISO 1000, mühendislik hesaplamaları için SI'yı önerir.",
         "de": "Wählen Sie SI (metrisch) oder Imperial (lb, ft/s) für konsistente Ausgabe. ISO 1000 empfiehlt SI für technische Berechnungen.",
-        "fr": "Sélectionnez SI (métrique) ou Impérial (lb, ft/s) pour la cohérence des résultats. ISO 1000 recommande le SI pour les calculs d'ingénierie."
+        "fr": "Sélectionnez SI (métrique) ou Impérial (lb, ft/s) pour la cohérence des résultats. ISO 1000 recommande le SI pour les calculs d'ingénierie.",
+        "es": "Seleccione SI (métrico) o Imperial (lb, ft/s) para consistencia en la salida. ISO 1000 recomienda SI para cálculos de ingeniería.",
+        "ar": "اختر النظام المتري (SI) أو الإمبراطوري (رطل، قدم/ثانية) لتناسق المخرجات. يوصي ISO 1000 باستخدام النظام المتري للحسابات الهندسية."
       }
     },
     {
@@ -139,13 +159,16 @@
         "tr": "Veri Güven Düzeyi",
         "de": "Datenvertrauensniveau",
         "fr": "Niveau de confiance des données",
-        "es": "Nivel de confianza de los datos"
+        "es": "Nivel de confianza de los datos",
+        "ar": "مستوى الثقة في البيانات"
       },
       "businessContext_i18n": {
         "en": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment.",
         "tr": "Giriş ölçüm doğruluğuna güven (örneğin, sensör kalibrasyonundan). Altı Sigma risk ayarlaması için kullanılır.",
         "de": "Vertrauen in die Genauigkeit der Eingabemessung (z. B. aus Sensorkalibrierung). Wird für die Six Sigma-Risikoanpassung verwendet.",
-        "fr": "Confiance dans la précision de la mesure d'entrée (ex. étalonnage du capteur). Utilisé pour l'ajustement du risque Six Sigma."
+        "fr": "Confiance dans la précision de la mesure d'entrée (ex. étalonnage du capteur). Utilisé pour l'ajustement du risque Six Sigma.",
+        "es": "Confianza en la precisión de la medición de entrada (ej. de calibración del sensor). Se utiliza para ajuste de riesgo Seis Sigma.",
+        "ar": "الثقة في دقة القياس المدخل (مثل معايرة الحساس). يُستخدم لتعديل المخاطر وفقًا لستة سيجما."
       }
     }
   ],
@@ -191,18 +214,26 @@
     ]
   },
   "formulas": {
-    "result": "vector1_magnitude + vector1_angle + vector2_magnitude",
-    "result_copy": "vector1_magnitude + vector1_angle + vector2_magnitude"
+    "normalized_product": "vector1_magnitude * vector1_angle * vector2_magnitude * vector2_angle",
+    "result": "vector1_magnitude * vector1_angle * vector2_magnitude * vector2_angle * ((confidence_level / 100))",
+    "adjustment_factor": "(confidence_level / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "N"
+    "unit": "%"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

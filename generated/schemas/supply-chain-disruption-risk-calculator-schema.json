@@ -26,14 +26,16 @@
         "tr": "Tedarikçi Güvenilirlik Puanı (0-100)",
         "de": "Lieferantenzuverlässigkeitsbewertung (0-100)",
         "fr": "Score de fiabilité du fournisseur (0-100)",
-        "es": "Puntaje de confiabilidad del proveedor (0-100)"
+        "es": "Puntaje de confiabilidad del proveedor (0-100)",
+        "ar": "درجة موثوقية المورد (0-100)"
       },
       "businessContext_i18n": {
         "en": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability.",
         "tr": "Kilit tedarikçilerin geçmişteki zamanında teslimat ve kalite performansı. Yüksek puan daha iyi güvenilirliği gösterir.",
         "de": "Historische pünktliche Lieferung und Qualitätsleistung wichtiger Lieferanten. Höhere Punktzahl bedeutet bessere Zuverlässigkeit.",
         "fr": "Performance historique de livraison à temps et de qualité des fournisseurs clés. Un score plus élevé indique une meilleure fiabilité.",
-        "es": "Desempeño histórico de entregas a tiempo y calidad de proveedores clave. Una puntuación más alta indica mayor confiabilidad."
+        "es": "Desempeño histórico de entregas a tiempo y calidad de proveedores clave. Una puntuación más alta indica mayor confiabilidad.",
+        "ar": "أداء التسليم في الوقت المحدد والجودة التاريخي للموردين الرئيسيين. تشير الدرجة الأعلى إلى موثوقية أفضل."
       }
     },
     {
@@ -50,14 +52,16 @@
         "tr": "Stok Tamponu (Günlük Kapsama)",
         "de": "Lagerpuffer (Tage Deckung)",
         "fr": "Tampon de stock (Jours de couverture)",
-        "es": "Amortiguador de inventario (días de cobertura)"
+        "es": "Amortiguador de inventario (días de cobertura)",
+        "ar": "المخزون الاحتياطي (أيام التغطية)"
       },
       "businessContext_i18n": {
         "en": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles.",
         "tr": "Talep veya arz şoklarını absorbe etmek için tutulan ortalama stok günü. Yalın stok prensiplerine dayanır.",
         "de": "Durchschnittliche Lagerbestandstage zur Abfederung von Nachfrage- oder Angebotsschocks. Basierend auf Lean-Lagerprinzipien.",
         "fr": "Nombre moyen de jours de stock détenu pour absorber les chocs de demande ou d'approvisionnement. Basé sur les principes de stock Lean.",
-        "es": "Promedio de días de inventario mantenido para absorber shocks de demanda o suministro. Basado en principios de inventario Lean."
+        "es": "Promedio de días de inventario mantenido para absorber shocks de demanda o suministro. Basado en principios de inventario Lean.",
+        "ar": "متوسط أيام المخزون المحتفظ به لاستيعاب صدمات الطلب أو العرض. بناءً على مبادئ المخزون اللين."
       }
     },
     {
@@ -74,14 +78,16 @@
         "tr": "Teslim Süresi Değişkenliği (Değişim Katsayısı)",
         "de": "Lieferzeitvariabilität (Variationskoeffizient)",
         "fr": "Variabilité du délai de livraison (Coefficient de variation)",
-        "es": "Variabilidad del plazo de entrega (coeficiente de variación)"
+        "es": "Variabilidad del plazo de entrega (coeficiente de variación)",
+        "ar": "تقلب المهلة الزمنية (معامل الاختلاف)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply.",
         "tr": "Teslim süresinin standart sapmasının ortalamaya bölümü. Yüksek değerler öngörülemeyen tedariki gösterir.",
         "de": "Standardabweichung der Lieferzeit geteilt durch die mittlere Lieferzeit. Höhere Werte bedeuten unvorhersehbare Versorgung.",
         "fr": "Écart type du délai de livraison divisé par le délai moyen. Des valeurs élevées indiquent un approvisionnement imprévisible.",
-        "es": "Desviación estándar del plazo de entrega dividida por el plazo de entrega medio. Valores más altos indican suministro impredecible."
+        "es": "Desviación estándar del plazo de entrega dividida por el plazo de entrega medio. Valores más altos indican suministro impredecible.",
+        "ar": "الانحراف المعياري للمهلة الزمنية مقسومًا على متوسط المهلة الزمنية. تشير القيم الأعلى إلى توريد غير متوقع."
       }
     },
     {
@@ -98,14 +104,16 @@
         "tr": "Tek Kaynağa Bağımlılık (%0-100)",
         "de": "Einzelquellenabhängigkeit (0-100%)",
         "fr": "Dépendance à une source unique (0-100%)",
-        "es": "Dependencia de fuente única (0-100%)"
+        "es": "Dependencia de fuente única (0-100%)",
+        "ar": "الاعتماد على مصدر واحد (0-100%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of critical components sourced from a single supplier. High dependency increases risk.",
         "tr": "Tek bir tedarikçiden tedarik edilen kritik bileşenlerin yüzdesi. Yüksek bağımlılık riski artırır.",
         "de": "Prozentsatz der kritischen Komponenten, die von einem einzigen Lieferanten bezogen werden. Hohe Abhängigkeit erhöht das Risiko.",
         "fr": "Pourcentage de composants critiques provenant d'un seul fournisseur. Une dépendance élevée augmente le risque.",
-        "es": "Porcentaje de componentes críticos obtenidos de un solo proveedor. La alta dependencia aumenta el riesgo."
+        "es": "Porcentaje de componentes críticos obtenidos de un solo proveedor. La alta dependencia aumenta el riesgo.",
+        "ar": "نسبة المكونات الحرجة التي يتم توريدها من مورد واحد. يزيد الاعتماد العالي من المخاطر."
       }
     },
     {
@@ -122,14 +130,16 @@
         "tr": "Jeopolitik Risk Endeksi (0-100)",
         "de": "Geopolitischer Risikoindex (0-100)",
         "fr": "Indice de risque géopolitique (0-100)",
-        "es": "Índice de riesgo geopolítico (0-100)"
+        "es": "Índice de riesgo geopolítico (0-100)",
+        "ar": "مؤشر المخاطر الجيوسياسية (0-100)"
       },
       "businessContext_i18n": {
         "en": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain.",
         "tr": "Tedarik zincirini etkileyen siyasi istikrarsızlık, ticaret kısıtlamaları ve bölgesel çatışmaların bileşik endeksi.",
         "de": "Zusammengesetzter Index für politische Instabilität, Handelsbeschränkungen und regionale Konflikte, die die Lieferkette betreffen.",
         "fr": "Indice composite d'instabilité politique, de restrictions commerciales et de conflits régionaux affectant la chaîne d'approvisionnement.",
-        "es": "Índice compuesto de inestabilidad política, restricciones comerciales y conflictos regionales que afectan la cadena de suministro."
+        "es": "Índice compuesto de inestabilidad política, restricciones comerciales y conflictos regionales que afectan la cadena de suministro.",
+        "ar": "مؤشر مركب لعدم الاستقرار السياسي والقيود التجارية والصراعات الإقليمية التي تؤثر على سلسلة التوريد."
       }
     },
     {
@@ -146,14 +156,16 @@
         "tr": "Talep Değişkenliği (Değişim Katsayısı)",
         "de": "Nachfragevolatilität (Variationskoeffizient)",
         "fr": "Volatilité de la demande (Coefficient de variation)",
-        "es": "Volatilidad de la demanda (coeficiente de variación)"
+        "es": "Volatilidad de la demanda (coeficiente de variación)",
+        "ar": "تقلب الطلب (معامل الاختلاف)"
       },
       "businessContext_i18n": {
         "en": "Variability in customer demand over time. High volatility strains capacity and inventory.",
         "tr": "Müşteri talebinin zaman içindeki değişkenliği. Yüksek değişkenlik kapasiteyi ve stoğu zorlar.",
         "de": "Variabilität der Kundennachfrage im Zeitverlauf. Hohe Volatilität belastet Kapazität und Lagerbestand.",
         "fr": "Variabilité de la demande client dans le temps. Une forte volatilité met à rude épreuve la capacité et les stocks.",
-        "es": "Variabilidad en la demanda del cliente a lo largo del tiempo. Una alta volatilidad tensa la capacidad y el inventario."
+        "es": "Variabilidad en la demanda del cliente a lo largo del tiempo. Una alta volatilidad tensa la capacidad y el inventario.",
+        "ar": "التقلب في طلب العملاء بمرور الوقت. يؤدي التقلب العالي إلى إجهاد القدرة والمخزون."
       }
     },
     {
@@ -170,14 +182,16 @@
         "tr": "Nakliye Kesintisi Olasılığı (0-1)",
         "de": "Wahrscheinlichkeit einer Transportunterbrechung (0-1)",
         "fr": "Probabilité de perturbation du transport (0-1)",
-        "es": "Probabilidad de interrupción del transporte (0-1)"
+        "es": "Probabilidad de interrupción del transporte (0-1)",
+        "ar": "احتمالية تعطل النقل (0-1)"
       },
       "businessContext_i18n": {
         "en": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter.",
         "tr": "Önümüzdeki çeyrekte büyük bir nakliye kesintisi (liman kapanması, grev vb.) olma olasılığı tahmini.",
         "de": "Geschätzte Wahrscheinlichkeit einer größeren Transportunterbrechung (Hafenschließung, Streik usw.) im nächsten Quartal.",
         "fr": "Probabilité estimée d'une perturbation majeure du transport (fermeture de port, grève, etc.) au cours du prochain trimestre.",
-        "es": "Probabilidad estimada de una interrupción importante del transporte (cierre de puerto, huelga, etc.) en el próximo trimestre."
+        "es": "Probabilidad estimada de una interrupción importante del transporte (cierre de puerto, huelga, etc.) en el próximo trimestre.",
+        "ar": "الاحتمال المقدر لحدوث تعطل كبير في النقل (إغلاق ميناء، إضراب، إلخ) في الربع القادم."
       }
     },
     {
@@ -194,14 +208,16 @@
         "tr": "Kalite Kusur Oranı (ppm)",
         "de": "Qualitätsfehlerrate (ppm)",
         "fr": "Taux de défauts qualité (ppm)",
-        "es": "Tasa de defectos de calidad (ppm)"
+        "es": "Tasa de defectos de calidad (ppm)",
+        "ar": "معدل عيوب الجودة (جزء في المليون)"
       },
       "businessContext_i18n": {
         "en": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm.",
         "tr": "Gelen muayenede milyonda kusurlu parça sayısı. Altı Sigma hedefi < 3,4 ppm'dir.",
         "de": "Teile pro Million fehlerhaft bei der Eingangskontrolle. Six Sigma-Ziel ist < 3,4 ppm.",
         "fr": "Pièces par million défectueuses à l'inspection entrante. L'objectif Six Sigma est < 3,4 ppm.",
-        "es": "Partes por millón defectuosas de la inspección de entrada. El objetivo de Seis Sigma es < 3.4 ppm."
+        "es": "Partes por millón defectuosas de la inspección de entrada. El objetivo de Seis Sigma es < 3.4 ppm.",
+        "ar": "عدد الأجزاء المعيبة لكل مليون من الفحص الوارد. هدف ستة سيجما هو < 3.4 جزء في المليون."
       }
     }
   ],
@@ -265,18 +281,26 @@
     ]
   },
   "formulas": {
-    "result": "supplier_reliability_score + inventory_buffer_days + lead_time_variability",
-    "result_copy": "supplier_reliability_score + inventory_buffer_days + lead_time_variability"
+    "normalized_product": "supplier_reliability_score * inventory_buffer_days * lead_time_variability * (single_source_dependency / 100)",
+    "result": "supplier_reliability_score * inventory_buffer_days * lead_time_variability * (single_source_dependency / 100) * (geopolitical_risk_index * demand_volatility * transportation_disruption_probability * (quality_defect_rate / 100))",
+    "adjustment_factor": "geopolitical_risk_index * demand_volatility * transportation_disruption_probability * (quality_defect_rate / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "score"
+    "unit": "%"
   },
   "toolName": "supply-chain-disruption-risk-calculator",
   "catalogCategory": "everyday-life",

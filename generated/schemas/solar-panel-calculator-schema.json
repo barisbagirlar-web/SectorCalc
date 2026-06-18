@@ -14,14 +14,15 @@
         "de": "Panel-Fläche",
         "fr": "Surface du panneau",
         "es": "Área del panel",
-        "ar": "Panel Area"
+        "ar": "مساحة اللوح"
       },
       "businessContext_i18n": {
         "en": "Area of a single solar panel in square meters.",
         "tr": "Tek bir güneş panelinin metrekare cinsinden alanı.",
         "de": "Fläche eines einzelnen Solarmoduls in Quadratmetern.",
         "fr": "Surface d'un seul panneau solaire en mètres carrés.",
-        "es": "Área de un panel solar individual en metros cuadrados."
+        "es": "Área de un panel solar individual en metros cuadrados.",
+        "ar": "مساحة اللوح الشمسي الواحد بالمتر المربع."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Panel-Wirkungsgrad",
         "fr": "Rendement du panneau",
         "es": "Eficiencia del panel",
-        "ar": "Panel Efficiency"
+        "ar": "كفاءة اللوح"
       },
       "businessContext_i18n": {
         "en": "Conversion efficiency of the solar panel under standard test conditions.",
         "tr": "Standart test koşullarında güneş panelinin dönüşüm verimliliği.",
         "de": "Umwandlungswirkungsgrad des Solarmoduls unter Standard-Testbedingungen.",
         "fr": "Rendement de conversion du panneau solaire dans des conditions de test standard.",
-        "es": "Eficiencia de conversión del panel solar en condiciones de prueba estándar."
+        "es": "Eficiencia de conversión del panel solar en condiciones de prueba estándar.",
+        "ar": "كفاءة تحويل اللوح الشمسي تحت ظروف الاختبار القياسية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Solare Einstrahlung",
         "fr": "Irradiance solaire",
         "es": "Irradiancia solar",
-        "ar": "Solar Irradiance"
+        "ar": "الإشعاع الشمسي"
       },
       "businessContext_i18n": {
         "en": "Standard test condition irradiance, typically 1000 W/m².",
         "tr": "Standart test koşulu ışınımı, tipik olarak 1000 W/m².",
         "de": "Standard-Testbedingung Einstrahlung, typischerweise 1000 W/m².",
         "fr": "Irradiance standard de test, typiquement 1000 W/m².",
-        "es": "Irradiancia en condiciones de prueba estándar, típicamente 1000 W/m²."
+        "es": "Irradiancia en condiciones de prueba estándar, típicamente 1000 W/m².",
+        "ar": "الإشعاع في ظروف الاختبار القياسية، عادة 1000 واط/م²."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Systemverluste",
         "fr": "Pertes du système",
         "es": "Pérdidas del sistema",
-        "ar": "System Losses"
+        "ar": "فقد النظام"
       },
       "businessContext_i18n": {
         "en": "Total system losses including wiring, inverter, soiling, and mismatch.",
         "tr": "Kablolama, invertör, kirlenme ve uyumsuzluk dahil toplam sistem kayıpları.",
         "de": "Gesamtsystemverluste einschließlich Verkabelung, Wechselrichter, Verschmutzung und Fehlanpassung.",
         "fr": "Pertes totales du système incluant câblage, onduleur, salissure et désadaptation.",
-        "es": "Pérdidas totales del sistema, incluyendo cableado, inversor, suciedad y desajuste."
+        "es": "Pérdidas totales del sistema, incluyendo cableado, inversor, suciedad y desajuste.",
+        "ar": "إجمالي خسائر النظام بما في ذلك الأسلاك والعاكس والاتساخ وعدم التطابق."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Neigungswinkel",
         "fr": "Angle d'inclinaison",
         "es": "Ángulo de inclinación",
-        "ar": "Tilt Angle"
+        "ar": "زاوية الميل"
       },
       "businessContext_i18n": {
         "en": "Angle of the panel relative to horizontal plane.",
         "tr": "Panelin yatay düzleme göre açısı.",
         "de": "Winkel des Moduls relativ zur horizontalen Ebene.",
         "fr": "Angle du panneau par rapport au plan horizontal.",
-        "es": "Ángulo del panel respecto al plano horizontal."
+        "es": "Ángulo del panel respecto al plano horizontal.",
+        "ar": "زاوية اللوح بالنسبة للمستوى الأفقي."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Azimutwinkel",
         "fr": "Angle d'azimut",
         "es": "Ángulo de acimut",
-        "ar": "Azimuth Angle"
+        "ar": "زاوية السمت"
       },
       "businessContext_i18n": {
         "en": "Compass direction the panel faces (0 = south in northern hemisphere).",
         "tr": "Panelin baktığı pusula yönü (kuzey yarımkürede 0 = güney).",
         "de": "Himmelsrichtung, in die das Modul zeigt (0 = Süden auf der Nordhalbkugel).",
         "fr": "Orientation",
-        "es": "Dirección de la brújula que enfrenta el panel (0 = sur en el hemisferio norte)."
+        "es": "Dirección de la brújula que enfrenta el panel (0 = sur en el hemisferio norte).",
+        "ar": "الاتجاه الذي يواجهه اللوح (0 = الجنوب في نصف الكرة الشمالي)."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Breitengrad",
         "fr": "Latitude",
         "es": "Latitud",
-        "ar": "Latitude"
+        "ar": "خط العرض"
       },
       "businessContext_i18n": {
         "en": "Latitude of the installation site, positive for northern hemisphere.",
         "tr": "Kurulum sahasının enlemi, kuzey yarımküre için pozitif.",
         "de": "Breitengrad des Installationsorts, positiv für die Nordhalbkugel.",
         "fr": "Latitude du site d'installation, positive pour l'hémisphère nord.",
-        "es": "Latitud del lugar de instalación, positiva para el hemisferio norte."
+        "es": "Latitud del lugar de instalación, positiva para el hemisferio norte.",
+        "ar": "خط العرض لموقع التركيب، موجب لنصف الكرة الشمالي."
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Jährliche Sonnenstunden",
         "fr": "Heures d'ensoleillement annuelles",
         "es": "Horas de sol anuales",
-        "ar": "Annual Sun Hours"
+        "ar": "ساعات الشمس السنوية"
       },
       "businessContext_i18n": {
         "en": "Total equivalent full-sun hours per year at the location.",
         "tr": "Konumda yıllık toplam eşdeğer tam güneş saati.",
         "de": "Gesamte äquivalente Volllaststunden pro Jahr am Standort.",
         "fr": "Nombre total d'heures équivalent plein soleil par an à l'emplacement.",
-        "es": "Total de horas equivalentes de sol pleno por año en la ubicación."
+        "es": "Total de horas equivalentes de sol pleno por año en la ubicación.",
+        "ar": "إجمالي ساعات الشمس المكافئة الكاملة سنويًا في الموقع."
       }
     }
   ],

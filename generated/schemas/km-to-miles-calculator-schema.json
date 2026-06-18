@@ -14,14 +14,15 @@
         "de": "Kilometer",
         "fr": "Kilomètres",
         "es": "Kilómetros",
-        "ar": "Kilometers"
+        "ar": "الكيلومترات"
       },
       "businessContext_i18n": {
         "en": "Distance in kilometers to convert to miles.",
         "tr": "Mile dönüştürülecek kilometre cinsinden mesafe.",
         "de": "Entfernung in Kilometern zur Umrechnung in Meilen.",
         "fr": "Distance en kilomètres à convertir en miles.",
-        "es": "Distancia en kilómetros a convertir a millas."
+        "es": "Distancia en kilómetros a convertir a millas.",
+        "ar": "المسافة بالكيلومترات للتحويل إلى أميال."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from kilometers to miles. Standard is 0.621371. Customize if needed.",
         "tr": "Kilometreden mile dönüşüm faktörü. Standart 0,621371'dir. Gerekirse özelleştirin.",
         "de": "Umrechnungsfaktor von Kilometern in Meilen. Standard ist 0,621371. Bei Bedarf anpassen.",
         "fr": "Facteur de conversion des kilomètres en miles. Standard : 0,621371. Personnalisez si nécessaire.",
-        "es": "Factor de conversión de kilómetros a millas. El estándar es 0.621371. Personalícelo si es necesario."
+        "es": "Factor de conversión de kilómetros a millas. El estándar es 0.621371. Personalícelo si es necesario.",
+        "ar": "عامل التحويل من الكيلومترات إلى الأميال. القيمة القياسية 0.621371. يمكن تخصيصها إذا لزم الأمر."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rundungsdezimalstellen",
         "fr": "Arrondi décimales",
         "es": "Redondeo de Decimales",
-        "ar": "Rounding Decimals"
+        "ar": "تقريب المنازل العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
         "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
         "fr": "Nombre de décimales pour arrondir le résultat.",
-        "es": "Número de decimales para redondear el resultado."
+        "es": "Número de decimales para redondear el resultado.",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة."
       }
     },
     {
@@ -83,35 +86,37 @@
         "de": "Wissenschaftliche Notation verwenden",
         "fr": "Utiliser la notation scientifique",
         "es": "Usar notación científica",
-        "ar": "Use Scientific Notation"
+        "ar": "استخدام الترميز العلمي"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to output result in scientific notation (e.g., 1.23e+2). 0 for standard decimal.",
         "tr": "Sonucu bilimsel gösterimde (örn. 1,23e+2) çıkarmak için 1 ayarlayın. Standart ondalık için 0.",
         "de": "Auf 1 setzen, um das Ergebnis in wissenschaftlicher Notation auszugeben (z. B. 1,23e+2). 0 für Standard-Dezimaldarstellung.",
         "fr": "Mettre à 1 pour afficher le résultat en notation scientifique (ex. 1,23e+2). 0 pour la décimale standard.",
-        "es": "Establecer en 1 para mostrar el resultado en notación científica (ej. 1.23e+2). 0 para decimal estándar."
+        "es": "Establecer en 1 para mostrar el resultado en notación científica (ej. 1.23e+2). 0 para decimal estándar.",
+        "ar": "اضبط على 1 لإخراج النتيجة بالترميز العلمي (مثل 1.23e+2). 0 للعدد العشري القياسي."
       }
     }
   ],
   "formulas": {
-    "result": "kilometers + conversionFactor + roundingDecimals",
-    "result_copy": "kilometers + conversionFactor + roundingDecimals"
+    "normalized_product": "kilometers * conversionFactor * roundingDecimals * scientificNotation",
+    "result": "kilometers * conversionFactor * roundingDecimals * scientificNotation"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "step1",
-      "step2",
-      "step3",
-      "step4"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "step4",
-    "unit": "km"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

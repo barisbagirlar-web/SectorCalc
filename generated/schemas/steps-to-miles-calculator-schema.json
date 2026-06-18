@@ -14,14 +14,15 @@
         "de": "Anzahl der Schritte",
         "fr": "Nombre d'étapes",
         "es": "Número de pasos",
-        "ar": "Number of Steps"
+        "ar": "عدد الخطوات"
       },
       "businessContext_i18n": {
         "en": "Total number of steps recorded, e.g., from a pedometer or fitness tracker.",
         "tr": "Kaydedilen toplam adım sayısı, örn. pedometre veya fitness takip cihazından.",
         "de": "Gesamtzahl der aufgezeichneten Schritte, z. B. von einem Schrittzähler oder Fitness-Tracker.",
         "fr": "Nombre total de pas enregistrés, par exemple à partir d'un podomètre ou d'un tracker d'activité.",
-        "es": "Número total de pasos registrados, por ejemplo, de un podómetro o rastreador de actividad física."
+        "es": "Número total de pasos registrados, por ejemplo, de un podómetro o rastreador de actividad física.",
+        "ar": "إجمالي عدد الخطوات المسجلة، على سبيل المثال من عداد الخطى أو متتبع اللياقة البدنية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schrittlänge",
         "fr": "Longueur de pas",
         "es": "Longitud del paso",
-        "ar": "Step Length"
+        "ar": "طول الخطوة"
       },
       "businessContext_i18n": {
         "en": "User-measured step length in centimeters. Leave 0 to estimate from stride or height.",
         "tr": "Kullanıcı tarafından ölçülen adım uzunluğu (santimetre). Tahmin için 0 bırakın.",
         "de": "Vom Benutzer gemessene Schrittlänge in Zentimetern. 0 eingeben, um aus Schrittlänge oder Körpergröße zu schätzen.",
         "fr": "Longueur de pas mesurée par l'utilisateur en centimètres. Laissez 0 pour estimer à partir de la foulée ou de la taille.",
-        "es": "Longitud del paso medida por el usuario en centímetros. Dejar en 0 para estimar desde la zancada o la altura."
+        "es": "Longitud del paso medida por el usuario en centímetros. Dejar en 0 para estimar desde la zancada o la altura.",
+        "ar": "طول الخطوة الذي يقيسه المستخدم بالسنتيمتر. اترك 0 للتقدير من طول الخطوة المزدوجة أو الطول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Schrittlänge",
         "fr": "Longueur de foulée",
         "es": "Longitud de zancada",
-        "ar": "Stride Length"
+        "ar": "طول الخطوة"
       },
       "businessContext_i18n": {
         "en": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height.",
         "tr": "Kullanıcı tarafından ölçülen çift adım uzunluğu (santimetre). Adım uzunluğu veya boydan tahmin için 0 bırakın.",
         "de": "Vom Benutzer gemessene Schrittlänge in Zentimetern (zwei Schritte). 0 eingeben, um Schrittlänge zu verwenden oder aus Körpergröße zu schätzen.",
         "fr": "Longueur de foulée mesurée par l'utilisateur en centimètres (deux pas). Laissez 0 pour utiliser la longueur de pas ou estimer à partir de la taille.",
-        "es": "Longitud de la zancada medida por el usuario en centímetros (dos pasos). Dejar en 0 para usar la longitud del paso o estimar desde la altura."
+        "es": "Longitud de la zancada medida por el usuario en centímetros (dos pasos). Dejar en 0 para usar la longitud del paso o estimar desde la altura.",
+        "ar": "طول الخطوة المزدوجة الذي يقيسه المستخدم بالسنتيمتر (خطوتان). اترك 0 لاستخدام طول الخطوة أو التقدير من الطول."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415.",
         "tr": "Kullanıcı boyu (santimetre). Adım uzunluğu ve çift adım uzunluğu verilmediğinde tahmin için kullanılır. Tipik formül: adımUzunluğu ≈ boy × 0.415.",
         "de": "Körpergröße in Zentimetern. Wird zur Schätzung der Schrittlänge verwendet, wenn Schrittlänge und Schrittlänge nicht angegeben sind. Typische Formel: Schrittlänge ≈ Körpergröße × 0,415.",
         "fr": "Taille de l'utilisateur en centimètres. Utilisée pour estimer la longueur de pas si celle-ci et la longueur de foulée ne sont pas fournies. Formule typique : longueurPas ≈ taille × 0,415.",
-        "es": "Altura del usuario en centímetros. Se utiliza para estimar la longitud del paso si no se proporcionan la longitud del paso ni la zancada. Fórmula típica: longitudDelPaso ≈ altura × 0.415."
+        "es": "Altura del usuario en centímetros. Se utiliza para estimar la longitud del paso si no se proporcionan la longitud del paso ni la zancada. Fórmula típica: longitudDelPaso ≈ altura × 0.415.",
+        "ar": "طول المستخدم بالسنتيمتر. يُستخدم لتقدير طول الخطوة إذا لم يتم توفير طول الخطوة وطول الخطوة المزدوجة. الصيغة النموذجية: طول الخطوة ≈ الطول × 0.415."
       }
     },
     {
@@ -103,17 +107,18 @@
       "label_i18n": {
         "en": "Terrain Factor",
         "tr": "Arazi Faktörü",
-        "de": "Terrain Factor",
+        "de": "Geländefaktor",
         "fr": "Facteur de terrain",
         "es": "Factor de terreno",
-        "ar": "Terrain Factor"
+        "ar": "عامل التضاريس"
       },
       "businessContext_i18n": {
         "en": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride).",
         "tr": "Arazi zorluğu çarpanı. Düz için 1.0, iniş için >1 (adımı uzatır), çıkış için <1 (adımı kısaltır).",
         "de": "Multiplikator für Geländeschwierigkeit. 1,0 für flach, >1 für bergab (verlängert Schritt), <1 für bergauf (verkürzt Schritt).",
         "fr": "Multiplicateur pour la difficulté du terrain. 1,0 pour le plat, >1 pour la descente (allonge la foulée), <1 pour la montée (raccourcit la foulée).",
-        "es": "Multiplicador por dificultad del terreno. 1.0 para llano, >1 para cuesta abajo (alarga la zancada), <1 para cuesta arriba (acorta la zancada)."
+        "es": "Multiplicador por dificultad del terreno. 1.0 para llano, >1 para cuesta abajo (alarga la zancada), <1 para cuesta arriba (acorta la zancada).",
+        "ar": "مضاعف صعوبة التضاريس. 1.0 للمستوي، >1 للانحدار (يطيل الخطوة المزدوجة)، <1 للصعود (يقصر الخطوة المزدوجة)."
       }
     }
   ],

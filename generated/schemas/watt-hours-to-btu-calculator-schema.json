@@ -13,14 +13,16 @@
         "tr": "Güç",
         "de": "Leistung",
         "fr": "Puissance",
-        "es": "Power",
-        "ar": "Power"
+        "es": "Potencia",
+        "ar": "الطاقة"
       },
       "businessContext_i18n": {
         "en": "Power consumption in watts",
         "tr": "Watt cinsinden güç tüketimi",
         "de": "Leistungsaufnahme in Watt",
-        "fr": "Consommation électrique en watts"
+        "fr": "Consommation électrique en watts",
+        "es": "Consumo de potencia en vatios",
+        "ar": "استهلاك الطاقة بالواط"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Zeit",
         "fr": "Temps",
         "es": "Tiempo",
-        "ar": "Time"
+        "ar": "الزمن"
       },
       "businessContext_i18n": {
         "en": "Operating time in hours",
         "tr": "Saat cinsinden çalışma süresi",
         "de": "Betriebszeit in Stunden",
-        "fr": "Temps de fonctionnement en heures"
+        "fr": "Temps de fonctionnement en heures",
+        "es": "Tiempo de operación en horas",
+        "ar": "وقت التشغيل بالساعات"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the system (100% means no losses)",
         "tr": "Sistemin verimliliği (%100 kayıp olmadığı anlamına gelir)",
         "de": "Wirkungsgrad des Systems (100% bedeutet keine Verluste)",
-        "fr": "Rendement du système (100% signifie aucune perte)"
+        "fr": "Rendement du système (100% signifie aucune perte)",
+        "es": "Eficiencia del sistema (100% significa sin pérdidas)",
+        "ar": "كفاءة النظام (100% تعني عدم وجود خسائر)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "BTU Türü",
         "de": "BTU-Typ",
         "fr": "Type de BTU",
-        "es": "BTU Type",
-        "ar": "BTU Type"
+        "es": "Tipo de BTU",
+        "ar": "نوع BTU"
       },
       "businessContext_i18n": {
         "en": "Type of BTU: 1 for IT (ISO 31-4), 2 for thermochemical, 3 for mean",
         "tr": "BTU türü: 1 BT (ISO 31-4), 2 termokimyasal, 3 ortalama",
         "de": "Typ der BTU: 1 für IT (ISO 31-4), 2 für thermochemisch, 3 für Mittelwert",
-        "fr": "Type de BTU : 1 pour IT (ISO 31-4), 2 pour thermochimique, 3 pour moyenne"
+        "fr": "Type de BTU : 1 pour IT (ISO 31-4), 2 pour thermochimique, 3 pour moyenne",
+        "es": "Tipo de BTU: 1 para TI (ISO 31-4), 2 para termoquímico, 3 para medio",
+        "ar": "نوع BTU: 1 لتقنية المعلومات (ISO 31-4)، 2 للكيميائي الحراري، 3 للمتوسط"
       }
     },
     {
@@ -102,13 +110,15 @@
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
         "es": "Coste de electricidad",
-        "ar": "Electricity Cost"
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kWh for cost estimation",
         "tr": "Maliyet tahmini için kWh başına elektrik maliyeti",
         "de": "Stromkosten pro kWh für Kostenschätzung",
-        "fr": "Coût de l'électricité par kWh pour l'estimation des coûts"
+        "fr": "Coût de l'électricité par kWh pour l'estimation des coûts",
+        "es": "Costo de la electricidad por kWh para la estimación de costos",
+        "ar": "تكلفة الكهرباء لكل كيلوواط ساعة لتقدير التكلفة"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs",
         "tr": "Yuvarlama çıktıları için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für gerundete Ausgaben",
-        "fr": "Nombre de décimales pour l'arrondi des résultats"
+        "fr": "Nombre de décimales pour l'arrondi des résultats",
+        "es": "Número de decimales para redondear los resultados",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات"
       }
     }
   ],

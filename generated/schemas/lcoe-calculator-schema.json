@@ -14,14 +14,15 @@
         "de": "Kapitalkosten pro kW",
         "fr": "Coût d'investissement par kW",
         "es": "Costo de capital por kW",
-        "ar": "Capital Cost per kW"
+        "ar": "التكلفة الرأسمالية لكل كيلوواط"
       },
       "businessContext_i18n": {
         "en": "Upfront capital expenditure per installed kilowatt",
         "tr": "Kurulu kilovat başına peşin sermaye harcaması",
         "de": "Anfängliche Kapitalausgaben pro installiertem Kilowatt",
         "fr": "Dépense d'investissement initiale par kilowatt installé",
-        "es": "Gasto de capital inicial por kilovatio instalado"
+        "es": "Gasto de capital inicial por kilovatio instalado",
+        "ar": "النفقات الرأسمالية الأولية لكل كيلوواط مركب"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anlagenkapazität",
         "fr": "Capacité de l'usine",
         "es": "Capacidad de la planta",
-        "ar": "Plant Capacity"
+        "ar": "سعة المحطة"
       },
       "businessContext_i18n": {
         "en": "Total installed capacity of the power plant",
         "tr": "Santralin toplam kurulu kapasitesi",
         "de": "Gesamte installierte Kapazität des Kraftwerks",
         "fr": "Capacité totale installée de la centrale électrique",
-        "es": "Capacidad total instalada de la planta de energía"
+        "es": "Capacidad total instalada de la planta de energía",
+        "ar": "إجمالي السعة المركبة لمحطة الطاقة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Feste Betriebs- und Wartungskosten",
         "fr": "Coût fixe d'exploitation et de maintenance",
         "es": "Costo fijo de operación y mantenimiento",
-        "ar": "Fixed O&M Cost"
+        "ar": "تكلفة التشغيل والصيانة الثابتة"
       },
       "businessContext_i18n": {
         "en": "Annual fixed operating and maintenance cost per kW",
         "tr": "kW başına yıllık sabit işletme ve bakım maliyeti",
         "de": "Jährliche feste Betriebs- und Wartungskosten pro kW",
         "fr": "Coût annuel fixe d'exploitation et de maintenance par kW",
-        "es": "Costo fijo anual de operación y mantenimiento por kW"
+        "es": "Costo fijo anual de operación y mantenimiento por kW",
+        "ar": "تكلفة التشغيل والصيانة الثابتة السنوية لكل كيلوواط"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Variable Betriebs- und Wartungskosten",
         "fr": "Coût variable d'exploitation et de maintenance",
         "es": "Costo variable de operación y mantenimiento",
-        "ar": "Variable O&M Cost"
+        "ar": "تكلفة التشغيل والصيانة المتغيرة"
       },
       "businessContext_i18n": {
         "en": "Variable O&M cost per MWh generated",
         "tr": "Üretilen MWh başına değişken işletme ve bakım maliyeti",
         "de": "Variable Betriebs- und Wartungskosten pro erzeugter MWh",
         "fr": "Coût variable d'exploitation et de maintenance par MWh produit",
-        "es": "Costo variable de operación y mantenimiento por MWh generado"
+        "es": "Costo variable de operación y mantenimiento por MWh generado",
+        "ar": "تكلفة التشغيل والصيانة المتغيرة لكل ميجاوات ساعة مولدة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Brennstoffkosten",
         "fr": "Coût du combustible",
         "es": "Costo de combustible",
-        "ar": "Fuel Cost"
+        "ar": "تكلفة الوقود"
       },
       "businessContext_i18n": {
         "en": "Fuel cost per MWh (0 for renewable plants)",
         "tr": "MWh başına yakıt maliyeti (yenilenebilir santraller için 0)",
         "de": "Brennstoffkosten pro MWh (0 für erneuerbare Anlagen)",
         "fr": "Coût du combustible par MWh (0 pour les centrales renouvelables)",
-        "es": "Costo de combustible por MWh (0 para plantas renovables)"
+        "es": "Costo de combustible por MWh (0 para plantas renovables)",
+        "ar": "تكلفة الوقود لكل ميجاوات ساعة (0 للمحطات المتجددة)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kapazitätsfaktor",
         "fr": "Facteur de capacité",
         "es": "Factor de capacidad",
-        "ar": "Capacity Factor"
+        "ar": "معامل السعة"
       },
       "businessContext_i18n": {
         "en": "Plant capacity factor as a percentage (0-100)",
         "tr": "Yüzde olarak tesis kapasite faktörü (0-100)",
         "de": "Kapazitätsfaktor der Anlage in Prozent (0-100)",
         "fr": "Facteur de capacité de l'usine en pourcentage (0-100)",
-        "es": "Factor de capacidad de la planta como porcentaje (0-100)"
+        "es": "Factor de capacidad de la planta como porcentaje (0-100)",
+        "ar": "معامل سعة المحطة كنسبة مئوية (0-100)"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Rabattsatz",
         "fr": "Taux de remise",
         "es": "Tasa de descuento",
-        "ar": "Discount Rate"
+        "ar": "نسبة الخصم"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate (WACC) in percent",
         "tr": "Yıllık iskonto oranı (AOSM) yüzde olarak",
         "de": "Jährlicher Diskontsatz (WACC) in Prozent",
         "fr": "Taux d'actualisation annuel (WACC) en pourcentage",
-        "es": "Tasa de descuento anual (WACC) en porcentaje"
+        "es": "Tasa de descuento anual (WACC) en porcentaje",
+        "ar": "معدل الخصم السنوي (المتوسط المرجح لتكلفة رأس المال) بالنسبة المئوية"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Lebensdauer",
         "fr": "Durée de vie",
         "es": "Vida útil",
-        "ar": "Lifetime"
+        "ar": "العمر الافتراضي"
       },
       "businessContext_i18n": {
         "en": "Economic lifetime of the plant in years",
         "tr": "Tesisin yıl cinsinden ekonomik ömrü",
         "de": "Wirtschaftliche Lebensdauer der Anlage in Jahren",
         "fr": "Durée de vie économique de l'usine en années",
-        "es": "Vida útil económica de la planta en años"
+        "es": "Vida útil económica de la planta en años",
+        "ar": "العمر الاقتصادي للمحطة بالسنوات"
       }
     }
   ],

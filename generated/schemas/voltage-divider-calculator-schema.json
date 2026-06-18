@@ -14,13 +14,15 @@
         "de": "Eingangsspannung",
         "fr": "Tension d'entrée",
         "es": "Tensión de entrada",
-        "ar": "Input Voltage"
+        "ar": "جهد الدخل"
       },
       "businessContext_i18n": {
         "en": "The input voltage supplied to the divider.",
         "tr": "Bölücüye sağlanan giriş voltajı.",
         "de": "Die dem Spannungsteiler zugeführte Eingangsspannung.",
-        "fr": "Tension d'entrée fournie au diviseur."
+        "fr": "Tension d'entrée fournie au diviseur.",
+        "es": "El voltaje de entrada suministrado al divisor.",
+        "ar": "جهد الدخل المزود للمقسم"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Direnç R1",
         "fr": "Résistance R1",
         "es": "Resistencia R1",
-        "ar": "Resistance R1"
+        "ar": "المقاومة R1"
       },
       "businessContext_i18n": {
         "en": "Resistance of the first resistor (connected to Vin).",
         "tr": "Birinci direncin direnci (Vin'e bağlı).",
         "de": "Widerstand des ersten Widerstands (verbunden mit Vin).",
-        "fr": "Résistance de la première résistance (connectée à Vin)."
+        "fr": "Résistance de la première résistance (connectée à Vin).",
+        "es": "Resistencia de la primera resistencia (conectada a Vin).",
+        "ar": "مقاومة المقاوم الأول (متصل بـ Vin)"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Direnç R2",
         "fr": "Résistance R2",
         "es": "Resistencia R2",
-        "ar": "Resistance R2"
+        "ar": "المقاومة R2"
       },
       "businessContext_i18n": {
         "en": "Resistance of the second resistor (connected to ground).",
         "tr": "İkinci direncin direnci (toprağa bağlı).",
         "de": "Widerstand des zweiten Widerstands (verbunden mit Masse).",
-        "fr": "Résistance de la deuxième résistance (connectée à la masse)."
+        "fr": "Résistance de la deuxième résistance (connectée à la masse).",
+        "es": "Resistencia de la segunda resistencia (conectada a tierra).",
+        "ar": "مقاومة المقاوم الثاني (متصل بالأرضي)"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Direnç Toleransı",
         "de": "Widerstandstoleranz",
         "fr": "Tolérance de la résistance",
-        "es": "Resistor Tolerance",
-        "ar": "Resistor Tolerance"
+        "es": "Tolerancia de la resistencia",
+        "ar": "تفاوت المقاوم"
       },
       "businessContext_i18n": {
         "en": "Resistor tolerance in percentage (e.g., ±1%, ±5%). Used to calculate worst-case output voltages.",
         "tr": "Direnç toleransı yüzde olarak (örn. ±%1, ±%5). En kötü durum çıkış voltajlarını hesaplamak için kullanılır.",
         "de": "Widerstandstoleranz in Prozent (z. B. ±1 %, ±5 %). Wird zur Berechnung der Worst-Case-Ausgangsspannungen verwendet.",
-        "fr": "Tolérance de la résistance en pourcentage (ex. ±1 %, ±5 %). Utilisée pour calculer les tensions de sortie dans le pire cas."
+        "fr": "Tolérance de la résistance en pourcentage (ex. ±1 %, ±5 %). Utilisée pour calculer les tensions de sortie dans le pire cas.",
+        "es": "Tolerancia de la resistencia en porcentaje (ej., ±1%, ±5%). Se utiliza para calcular los voltajes de salida en el peor caso.",
+        "ar": "تفاوت المقاوم بالنسبة المئوية (مثال: ±1%، ±5%). يُستخدم لحساب جهود الخرج في أسوأ الحالات"
       }
     }
   ],

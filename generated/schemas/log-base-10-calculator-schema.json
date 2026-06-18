@@ -14,14 +14,15 @@
         "de": "Wert (x)",
         "fr": "Valeur (x)",
         "es": "Valor (x)",
-        "ar": "Value (x)"
+        "ar": "القيمة (x)"
       },
       "businessContext_i18n": {
         "en": "The primary numeric value for which the base-10 logarithm is computed.",
         "tr": "10 tabanında logaritması hesaplanan birincil sayısal değer.",
         "de": "Der primäre numerische Wert, für den der Logarithmus zur Basis 10 berechnet wird.",
         "fr": "La valeur numérique principale pour laquelle le logarithme en base 10 est calculé.",
-        "es": "El valor numérico principal para el cual se calcula el logaritmo en base 10."
+        "es": "El valor numérico principal para el cual se calcula el logaritmo en base 10.",
+        "ar": "القيمة الرقمية الأساسية التي يُحسب لها اللوغاريتم العشري"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Zweiter Wert (y)",
         "fr": "Deuxième valeur (y)",
         "es": "Segundo valor (y)",
-        "ar": "Second Value (y)"
+        "ar": "القيمة الثانية (ص)"
       },
       "businessContext_i18n": {
         "en": "A secondary numeric value used in product and quotient rule calculations to demonstrate logarithmic properties.",
         "tr": "Logaritma özelliklerini göstermek için çarpım ve bölüm kuralı hesaplamalarında kullanılan ikincil sayısal değer.",
         "de": "Ein sekundärer numerischer Wert, der in Produkt- und Quotientenregel-Berechnungen verwendet wird, um logarithmische Eigenschaften zu demonstrieren.",
         "fr": "Une valeur numérique secondaire utilisée dans les calculs de règle du produit et du quotient pour démontrer les propriétés logarithmiques.",
-        "es": "Un valor numérico secundario utilizado en cálculos de regla del producto y del cociente para demostrar propiedades logarítmicas."
+        "es": "Un valor numérico secundario utilizado en cálculos de regla del producto y del cociente para demostrar propiedades logarítmicas.",
+        "ar": "قيمة رقمية ثانوية تُستخدم في حسابات قاعدة الضرب والقسمة لتوضيح خصائص اللوغاريتمات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Exponent (n)",
         "fr": "Exposant (n)",
         "es": "Exponente (n)",
-        "ar": "Exponent (n)"
+        "ar": "الأس (n)"
       },
       "businessContext_i18n": {
         "en": "The exponent applied to the primary value in the power rule (log10(x^n) = n·log10(x)).",
         "tr": "Kuvvet kuralında birincil değere uygulanan üs (log10(x^n) = n·log10(x)).",
         "de": "Der Exponent, der auf den primären Wert in der Potenzregel angewendet wird (log10(x^n) = n·log10(x)).",
         "fr": "L'exposant appliqué à la valeur principale dans la règle de puissance (log10(x^n) = n·log10(x)).",
-        "es": "El exponente aplicado al valor principal en la regla de la potencia (log10(x^n) = n·log10(x))."
+        "es": "El exponente aplicado al valor principal en la regla de la potencia (log10(x^n) = n·log10(x)).",
+        "ar": "الأس المطبق على القيمة الأساسية في قاعدة القوة (log10(x^n) = n·log10(x))"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Benutzerdefinierte Basis (b)",
         "fr": "Base personnalisée (b)",
         "es": "Base personalizada (b)",
-        "ar": "Custom Base (b)"
+        "ar": "الأساس المخصص (ب)"
       },
       "businessContext_i18n": {
         "en": "An alternative logarithm base for change-of-base demonstration (log_b(x) = log10(x)/log10(b)).",
         "tr": "Taban değiştirme gösterimi için alternatif logaritma tabanı (log_b(x) = log10(x)/log10(b)).",
         "de": "Eine alternative Logarithmusbasis für die Demonstration des Basiswechsels (log_b(x) = log10(x)/log10(b)).",
         "fr": "Une base de logarithme alternative pour la démonstration du changement de base (log_b(x) = log10(x)/log10(b)).",
-        "es": "Una base de logaritmo alternativa para demostración de cambio de base (log_b(x) = log10(x)/log10(b))."
+        "es": "Una base de logaritmo alternativa para demostración de cambio de base (log_b(x) = log10(x)/log10(b)).",
+        "ar": "أساس لوغاريتمي بديل لتوضيح تغيير الأساس (log_b(x) = log10(x)/log10(b))"
       }
     },
     {
@@ -106,36 +110,39 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "The number of decimal places to which all outputs are rounded for readability and engineering precision.",
         "tr": "Tüm çıktıların okunabilirlik ve mühendislik hassasiyeti için yuvarlandığı ondalık basamak sayısı.",
         "de": "Die Anzahl der Dezimalstellen, auf die alle Ausgaben zur Lesbarkeit und technischen Genauigkeit gerundet werden.",
         "fr": "Le nombre de décimales auxquelles toutes les sorties sont arrondies pour la lisibilité et la précision technique.",
-        "es": "El número de decimales al que se redondean todas las salidas para legibilidad y precisión técnica."
+        "es": "El número de decimales al que se redondean todas las salidas para legibilidad y precisión técnica.",
+        "ar": "عدد المنازل العشرية التي يتم تقريب جميع المخرجات إليها لتحقيق الوضوح والدقة الهندسية."
       }
     }
   ],
   "formulas": {
-    "result": "x + y + n",
-    "result_copy": "x + y + n"
+    "normalized_product": "x * y * n * base",
+    "result": "x * y * n * base * (precision)",
+    "adjustment_factor": "precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "productLog",
-      "quotientLog",
-      "powerLog",
-      "customBaseLog",
-      "antilog10"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "antilog10",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

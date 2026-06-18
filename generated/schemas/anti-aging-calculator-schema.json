@@ -14,14 +14,15 @@
         "de": "Betriebstemperatur",
         "fr": "Température de fonctionnement",
         "es": "Temperatura de operación",
-        "ar": "Operating Temperature"
+        "ar": "درجة حرارة التشغيل"
       },
       "businessContext_i18n": {
         "en": "The operating temperature of the component or system in degrees Celsius.",
         "tr": "Bileşenin veya sistemin santigrat derece cinsinden çalışma sıcaklığı.",
         "de": "Die Betriebstemperatur der Komponente oder des Systems in Grad Celsius.",
         "fr": "Température de fonctionnement du composant ou du système en degrés Celsius.",
-        "es": "Temperatura de operación del componente o sistema en grados Celsius."
+        "es": "Temperatura de operación del componente o sistema en grados Celsius.",
+        "ar": "درجة حرارة تشغيل المكون أو النظام بالدرجات المئوية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenztemperatur",
         "fr": "Température de référence",
         "es": "Temperatura de referencia",
-        "ar": "Reference Temperature"
+        "ar": "درجة الحرارة المرجعية"
       },
       "businessContext_i18n": {
         "en": "The reference temperature at which standard aging data is known.",
         "tr": "Standart yaşlanma verilerinin bilindiği referans sıcaklık.",
         "de": "Die Referenztemperatur, bei der Standard-Alterungsdaten bekannt sind.",
         "fr": "Température de référence à laquelle les données de vieillissement standard sont connues.",
-        "es": "Temperatura de referencia a la que se conocen los datos de envejecimiento estándar."
+        "es": "Temperatura de referencia a la que se conocen los datos de envejecimiento estándar.",
+        "ar": "درجة الحرارة المرجعية التي تُعرف بها بيانات التقادم القياسية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aktivierungsenergie",
         "fr": "Énergie d'activation",
         "es": "Energía de activación",
-        "ar": "Activation Energy"
+        "ar": "طاقة التنشيط"
       },
       "businessContext_i18n": {
         "en": "Activation energy for the aging process, typically in electron volts.",
         "tr": "Yaşlanma süreci için tipik olarak elektron volt cinsinden aktivasyon enerjisi.",
         "de": "Aktivierungsenergie für den Alterungsprozess, typischerweise in Elektronenvolt.",
         "fr": "Énergie d'activation pour le processus de vieillissement, généralement en électronvolts.",
-        "es": "Energía de activación para el proceso de envejecimiento, típicamente en electronvoltios."
+        "es": "Energía de activación para el proceso de envejecimiento, típicamente en electronvoltios.",
+        "ar": "طاقة التنشيط لعملية التقادم، عادةً بالإلكترون فولت."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Referenzzeit",
         "fr": "Temps de référence",
         "es": "Tiempo de referencia",
-        "ar": "Reference Time"
+        "ar": "الوقت المرجعي"
       },
       "businessContext_i18n": {
         "en": "The duration at reference conditions for which aging is compared.",
         "tr": "Yaşlanmanın karşılaştırıldığı referans koşullardaki süre.",
         "de": "Die Dauer unter Referenzbedingungen, mit der die Alterung verglichen wird.",
         "fr": "Durée dans les conditions de référence pour laquelle le vieillissement est comparé.",
-        "es": "Duración en condiciones de referencia para la cual se compara el envejecimiento."
+        "es": "Duración en condiciones de referencia para la cual se compara el envejecimiento.",
+        "ar": "المدة في الظروف المرجعية التي يُقارن بها التقادم."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Behandlungswirksamkeit",
         "fr": "Efficacité du traitement",
         "es": "Efectividad del tratamiento",
-        "ar": "Treatment Effectiveness"
+        "ar": "فعالية العلاج"
       },
       "businessContext_i18n": {
         "en": "Effectiveness factor of the anti-aging treatment, ranging from 0 (no effect) to 1 (fully effective).",
         "tr": "Yaşlanma karşıtı tedavinin etkinlik faktörü, 0 (etkisiz) ile 1 (tam etkili) arasında değişir.",
         "de": "Wirksamkeitsfaktor der Anti-Aging-Behandlung, von 0 (keine Wirkung) bis 1 (voll wirksam).",
         "fr": "Facteur d'efficacité du traitement anti-âge, allant de 0 (aucun effet) à 1 (pleinement efficace).",
-        "es": "Factor de efectividad del tratamiento antienvejecimiento, que va de 0 (sin efecto) a 1 (totalmente efectivo)."
+        "es": "Factor de efectividad del tratamiento antienvejecimiento, que va de 0 (sin efecto) a 1 (totalmente efectivo).",
+        "ar": "عامل فعالية العلاج المضاد للشيخوخة، يتراوح من 0 (لا تأثير) إلى 1 (فعال بالكامل)."
       }
     }
   ],

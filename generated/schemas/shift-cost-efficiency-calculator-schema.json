@@ -25,14 +25,16 @@
         "tr": "Vardiya süresi (saat)",
         "de": "Schichtdauer (Stunden)",
         "fr": "Durée du poste (heures)",
-        "es": "Duración del turno (horas)"
+        "es": "Duración del turno (horas)",
+        "ar": "مدة الوردية (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours.",
         "tr": "Toplam planlanan vardiya süresi saat cinsinden. Standart vardiyalar 8 veya 12 saattir.",
         "de": "Gesamte geplante Schichtzeit in Stunden. Standardschichten sind 8 oder 12 Stunden.",
         "fr": "Temps de poste programmé total en heures. Les postes standard sont de 8 ou 12 heures.",
-        "es": "Tiempo total programado del turno en horas. Los turnos estándar son de 8 o 12 horas."
+        "es": "Tiempo total programado del turno en horas. Los turnos estándar son de 8 o 12 horas.",
+        "ar": "إجمالي وقت الوردية المجدولة بالساعات. الورديات القياسية 8 أو 12 ساعة."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Toplam Üretilen Birim",
         "de": "Gesamtproduzierte Einheiten",
         "fr": "Nombre total d'unités produites",
-        "es": "Unidades totales producidas"
+        "es": "Unidades totales producidas",
+        "ar": "إجمالي الوحدات المنتجة"
       },
       "businessContext_i18n": {
         "en": "Total good units produced during the shift, including reworked units.",
         "tr": "Vardiya boyunca üretilen, yeniden işlenen birimler dahil toplam iyi birim.",
         "de": "Insgesamt produzierte gute Einheiten während der Schicht, einschließlich nachbearbeiteter Einheiten.",
         "fr": "Nombre total d'unités bonnes produites pendant le poste, y compris les unités retravaillées.",
-        "es": "Unidades buenas totales producidas durante el turno, incluyendo unidades retrabajadas."
+        "es": "Unidades buenas totales producidas durante el turno, incluyendo unidades retrabajadas.",
+        "ar": "إجمالي الوحدات الجيدة المنتجة خلال الوردية، بما في ذلك الوحدات المعاد تشغيلها."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Hatalı Birimler",
         "de": "Fehlerhafte Einheiten",
         "fr": "Unités défectueuses",
-        "es": "Unidades defectuosas"
+        "es": "Unidades defectuosas",
+        "ar": "الوحدات المعيبة"
       },
       "businessContext_i18n": {
         "en": "Units that failed quality inspection and are not reworkable.",
         "tr": "Kalite kontrolünden geçemeyen ve yeniden işlenemeyen birimler.",
         "de": "Einheiten, die die Qualitätsprüfung nicht bestanden haben und nicht nachbearbeitet werden können.",
         "fr": "Unités ayant échoué au contrôle qualité et non retravaillables.",
-        "es": "Unidades que fallaron la inspección de calidad y no son retrabajables."
+        "es": "Unidades que fallaron la inspección de calidad y no son retrabajables.",
+        "ar": "الوحدات التي فشلت في فحص الجودة وغير قابلة لإعادة التشغيل."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Yeniden İşleme Birimleri",
         "de": "Nacharbeits-Einheiten",
         "fr": "Unités de reprise",
-        "es": "Unidades retrabajadas"
+        "es": "Unidades retrabajadas",
+        "ar": "وحدات إعادة العمل"
       },
       "businessContext_i18n": {
         "en": "Units that required rework to meet quality standards.",
         "tr": "Kalite standartlarını karşılamak için yeniden işlenmesi gereken birimler.",
         "de": "Einheiten, die nachbearbeitet werden mussten, um die Qualitätsstandards zu erfüllen.",
         "fr": "Unités ayant nécessité un retravail pour atteindre les normes de qualité.",
-        "es": "Unidades que requirieron retrabajo para cumplir con los estándares de calidad."
+        "es": "Unidades que requirieron retrabajo para cumplir con los estándares de calidad.",
+        "ar": "الوحدات التي تطلبت إعادة العمل لتلبية معايير الجودة."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
         "fr": "Coût de la main-d'œuvre par heure",
-        "es": "Costo de mano de obra por hora"
+        "es": "Costo de mano de obra por hora",
+        "ar": "تكلفة العمالة لكل ساعة"
       },
       "businessContext_i18n": {
         "en": "Average fully loaded labor cost per operator per hour.",
         "tr": "Operatör başına saatlik ortalama tam yüklü işçilik maliyeti.",
         "de": "Durchschnittliche voll belastete Arbeitskosten pro Bediener pro Stunde.",
         "fr": "Coût moyen de main-d'œuvre entièrement chargé par opérateur par heure.",
-        "es": "Costo laboral promedio totalmente cargado por operador por hora."
+        "es": "Costo laboral promedio totalmente cargado por operador por hora.",
+        "ar": "متوسط تكلفة العمالة الإجمالية لكل مشغل في الساعة."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Operatör Sayısı",
         "de": "Anzahl der Bediener",
         "fr": "Nombre d'opérateurs",
-        "es": "Número de operarios"
+        "es": "Número de operarios",
+        "ar": "عدد المشغلين"
       },
       "businessContext_i18n": {
         "en": "Total operators assigned to the shift.",
         "tr": "Vardiyaya atanan toplam operatör sayısı.",
         "de": "Gesamtzahl der der Schicht zugewiesenen Bediener.",
         "fr": "Nombre total d'opérateurs affectés au poste.",
-        "es": "Total de operadores asignados al turno."
+        "es": "Total de operadores asignados al turno.",
+        "ar": "إجمالي المشغلين المخصصين للوردية."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Birim Başına Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
         "fr": "Coût matière par unité",
-        "es": "Coste de material por unidad"
+        "es": "Coste de material por unidad",
+        "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit produced.",
         "tr": "Üretilen birim başına doğrudan malzeme maliyeti.",
         "de": "Direkte Materialkosten pro produzierter Einheit.",
         "fr": "Coût direct des matériaux par unité produite.",
-        "es": "Costo de material directo por unidad producida."
+        "es": "Costo de material directo por unidad producida.",
+        "ar": "تكلفة المواد المباشرة لكل وحدة منتجة."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Vardiya Başına Enerji Maliyeti",
         "de": "Energiekosten pro Schicht",
         "fr": "Coût énergétique par poste",
-        "es": "Coste energético por turno"
+        "es": "Coste energético por turno",
+        "ar": "تكلفة الطاقة لكل وردية"
       },
       "businessContext_i18n": {
         "en": "Total energy cost (electricity, gas, etc.) for the shift.",
         "tr": "Vardiya için toplam enerji maliyeti (elektrik, gaz vb.).",
         "de": "Gesamte Energiekosten (Strom, Gas usw.) für die Schicht.",
         "fr": "Coût énergétique total (électricité, gaz, etc.) pour le poste.",
-        "es": "Coste energético total (electricidad, gas, etc.) para el turno."
+        "es": "Coste energético total (electricidad, gas, etc.) para el turno.",
+        "ar": "إجمالي تكلفة الطاقة (كهرباء، غاز، إلخ) للوردية."
       }
     }
   ],
@@ -244,18 +260,26 @@
     ]
   },
   "formulas": {
-    "result": "shift_duration_hours + total_units_produced + defective_units",
-    "result_copy": "shift_duration_hours + total_units_produced + defective_units"
+    "annual_exposure_hours": "shift_duration_hours",
+    "direct_labor_cost": "number_of_operators * 1 * shift_duration_hours * material_cost_per_unit",
+    "result": "number_of_operators * 1 * shift_duration_hours * material_cost_per_unit * total_units_produced"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "hours"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

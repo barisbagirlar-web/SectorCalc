@@ -14,14 +14,15 @@
         "de": "Maschinenalter",
         "fr": "Âge de la machine",
         "es": "Edad de la máquina",
-        "ar": "Machine Age"
+        "ar": "عمر الآلة"
       },
       "businessContext_i18n": {
         "en": "Age of the equipment in years.",
         "tr": "Ekipmanın yıl cinsinden yaşı.",
         "de": "Alter der Anlage in Jahren.",
         "fr": "Âge de l'équipement en années.",
-        "es": "Edad del equipo en años."
+        "es": "Edad del equipo en años.",
+        "ar": "عمر المعدات بالسنوات."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geplante Produktionsrate",
         "fr": "Durée d'arrêt",
         "es": "Duración de la parada",
-        "ar": "Downtime Duration"
+        "ar": "مدة التوقف"
       },
       "businessContext_i18n": {
         "en": "Duration of the last shutdown/downtime in hours.",
         "tr": "Son kapatma/arıza süresinin saat cinsinden süresi.",
         "de": "Dauer des letzten Stillstands/Ausfalls in Stunden.",
         "fr": "Durée du dernier arrêt/temps d'arrêt en heures.",
-        "es": "Duración de la última parada/tiempo de inactividad en horas."
+        "es": "Duración de la última parada/tiempo de inactividad en horas.",
+        "ar": "مدة آخر توقف/تعطل بالساعات."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
         "es": "Temperatura ambiente",
-        "ar": "Ambient Temperature"
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at restart time in degrees Celsius.",
         "tr": "Yeniden başlatma sırasındaki ortam sıcaklığı (Santigrat derece).",
         "de": "Umgebungstemperatur zum Zeitpunkt des Neustarts in Grad Celsius.",
         "fr": "Température ambiante au moment du redémarrage en degrés Celsius.",
-        "es": "Temperatura ambiente al momento del reinicio en grados Celsius."
+        "es": "Temperatura ambiente al momento del reinicio en grados Celsius.",
+        "ar": "درجة الحرارة المحيطة عند إعادة التشغيل بالدرجات المئوية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kaltstarts pro Tag",
         "fr": "Démarrages à froid par jour",
         "es": "Arranques en frío por día",
-        "ar": "Cold Starts per Day"
+        "ar": "عدد مرات التشغيل البارد في اليوم"
       },
       "businessContext_i18n": {
         "en": "Average number of cold starts per day.",
         "tr": "Günlük ortalama soğuk çalıştırma sayısı.",
         "de": "Durchschnittliche Anzahl Kaltstarts pro Tag.",
         "fr": "Nombre moyen de démarrages à froid par jour.",
-        "es": "Número promedio de arranques en frío por día."
+        "es": "Número promedio de arranques en frío por día.",
+        "ar": "متوسط عدد مرات التشغيل البارد في اليوم."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schweregradfaktor",
         "fr": "Facteur de sévérité",
         "es": "Factor de severidad",
-        "ar": "Severity Factor"
+        "ar": "عامل الشدة"
       },
       "businessContext_i18n": {
         "en": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality).",
         "tr": "Şiddeti ayarlamak için şirkete özgü çarpan (ör. ekipman kritikliğine göre).",
         "de": "Unternehmensspezifischer Multiplikator zur Anpassung des Schweregrads (z.B. basierend auf der Kritikalität der Anlage).",
         "fr": "Multiplicateur spécifique à l'entreprise pour ajuster la sévérité (par exemple, basé sur la criticité de l'équipement).",
-        "es": "Multiplicador específico de la empresa para ajustar la severidad (ej., basado en la criticidad del equipo)."
+        "es": "Multiplicador específico de la empresa para ajustar la severidad (ej., basado en la criticidad del equipo).",
+        "ar": "مضاعف خاص بالشركة لضبط الشدة (مثلًا بناءً على أهمية المعدات)."
       }
     }
   ],

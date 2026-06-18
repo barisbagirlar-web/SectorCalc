@@ -23,14 +23,16 @@
         "tr": "Pound (lb) Cinsinden Kütle",
         "de": "Masse in Pfund (lb)",
         "fr": "Masse en livres (lb)",
-        "es": "Masa en libras (lb)"
+        "es": "Masa en libras (lb)",
+        "ar": "الكتلة بالرطل (lb)"
       },
       "businessContext_i18n": {
         "en": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling.",
         "tr": "Kilograma dönüştürmek için pound cinsinden kütle değeri girin. Lojistik, imalat ve malzeme taşıma işlemlerinde kullanılır.",
         "de": "Geben Sie den Massenwert in Pfund für die Umrechnung in Kilogramm ein. Wird in Logistik, Fertigung und Materialhandhabung verwendet.",
         "fr": "Saisissez la masse en livres pour la conversion en kilogrammes. Utilisé en logistique, fabrication et manutention.",
-        "es": "Ingrese el valor de masa en libras para convertir a kilogramos. Se utiliza en logística, fabricación y manejo de materiales."
+        "es": "Ingrese el valor de masa en libras para convertir a kilogramos. Se utiliza en logística, fabricación y manejo de materiales.",
+        "ar": "أدخل قيمة الكتلة بالرطل للتحويل إلى كيلوغرام. يُستخدم في اللوجستيات والتصنيع ومناولة المواد."
       }
     },
     {
@@ -56,14 +58,16 @@
         "tr": "Hassasiyet Seviyesi (Ondalık Basamak)",
         "de": "Genauigkeitsstufe (Dezimalstellen)",
         "fr": "Niveau de précision (décimales)",
-        "es": "Nivel de Precisión (Decimales)"
+        "es": "Nivel de Precisión (Decimales)",
+        "ar": "مستوى الدقة (عدد المنازل العشرية)"
       },
       "businessContext_i18n": {
         "en": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025).",
         "tr": "Çıktı için ondalık basamak sayısını seçin. Laboratuvar veya kalite kontrol (ISO 17025) için daha yüksek hassasiyet.",
         "de": "Wählen Sie die Anzahl der Dezimalstellen für die Ausgabe. Höhere Genauigkeit für Labor- oder Qualitätskontrolle (ISO 17025).",
         "fr": "Sélectionnez le nombre de décimales pour le résultat. Précision supérieure pour laboratoire ou contrôle qualité (ISO 17025).",
-        "es": "Seleccione el número de decimales para el resultado. Mayor precisión para laboratorio o control de calidad (ISO 17025)."
+        "es": "Seleccione el número de decimales para el resultado. Mayor precisión para laboratorio o control de calidad (ISO 17025).",
+        "ar": "اختر عدد المنازل العشرية للمخرجات. دقة أعلى للمختبر أو مراقبة الجودة (ISO 17025)."
       }
     },
     {
@@ -84,14 +88,16 @@
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
-        "es": "Método de redondeo"
+        "es": "Método de redondeo",
+        "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
         "en": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications.",
         "tr": "ASTM E29 veya ISO 80000-1'e göre yuvarlama yöntemi. Standart yuvarlama (yarıdan yukarı) çoğu endüstriyel uygulama için varsayılandır.",
         "de": "Rundungsmethode nach ASTM E29 oder ISO 80000-1. Standardrundung (kaufmännisch) ist Standard für die meisten industriellen Anwendungen.",
         "fr": "Méthode d'arrondi selon ASTM E29 ou ISO 80000-1. L'arrondi standard (demi au supérieur) est par défaut pour la plupart des applications industrielles.",
-        "es": "Método de redondeo según ASTM E29 o ISO 80000-1. El redondeo estándar (mitad hacia arriba) es el predeterminado para la mayoría de aplicaciones industriales."
+        "es": "Método de redondeo según ASTM E29 o ISO 80000-1. El redondeo estándar (mitad hacia arriba) es el predeterminado para la mayoría de aplicaciones industriales.",
+        "ar": "طريقة التقريب وفقًا لـ ASTM E29 أو ISO 80000-1. التقريب القياسي (نصف لأعلى) هو الافتراضي لمعظم التطبيقات الصناعية."
       }
     },
     {
@@ -106,14 +112,16 @@
         "tr": "Görünmeyen Kayıp Analizini Dahil Et",
         "de": "Verborgener Verlust Analyse einschließen",
         "fr": "Inclure l'analyse des pertes cachées",
-        "es": "Incluir Análisis de Pérdida Oculta"
+        "es": "Incluir Análisis de Pérdida Oculta",
+        "ar": "تضمين تحليل الخسائر غير المرئية"
       },
       "businessContext_i18n": {
         "en": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis).",
         "tr": "Nem, ölçüm hatası veya malzeme taşıma nedeniyle oluşan potansiyel kütle kaybını hesaplamak için etkinleştirin (Yalın Altı Sigma israf analizi).",
         "de": "Aktivieren, um potenziellen Massenverlust durch Feuchtigkeit, Messfehler oder Materialhandhabung zu berechnen (Lean Six Sigma Verschwendungsanalyse).",
         "fr": "Activer pour calculer la perte de masse potentielle due à l'humidité, l'erreur de mesure ou la manutention (analyse des gaspillages Lean Six Sigma).",
-        "es": "Active para calcular la pérdida potencial de masa debido a humedad, error de medición o manejo de materiales (análisis de desperdicio Lean Seis Sigma)."
+        "es": "Active para calcular la pérdida potencial de masa debido a humedad, error de medición o manejo de materiales (análisis de desperdicio Lean Seis Sigma).",
+        "ar": "فعّل لحساب فقدان الكتلة المحتمل بسبب الرطوبة أو خطأ القياس أو مناولة المواد (تحليل هدر اللين سيجما)."
       }
     },
     {
@@ -130,14 +138,16 @@
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
-        "es": "Incertidumbre de medición (%)"
+        "es": "Incertidumbre de medición (%)",
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM).",
         "tr": "Kütle değerinin yüzdesi olarak tahmini ölçüm belirsizliği. Kalibrasyon verilerine dayanır (ISO 17025, GUM).",
         "de": "Geschätzte Messunsicherheit als Prozentsatz des Massenwerts. Basierend auf Kalibrierdaten (ISO 17025, GUM).",
         "fr": "Incertitude de mesure estimée en pourcentage de la valeur de masse. Basée sur les données d'étalonnage (ISO 17025, GUM).",
-        "es": "Incertidumbre de medición estimada como porcentaje del valor de masa. Basada en datos de calibración (ISO 17025, GUM)."
+        "es": "Incertidumbre de medición estimada como porcentaje del valor de masa. Basada en datos de calibración (ISO 17025, GUM).",
+        "ar": "عدم يقين القياس المقدر كنسبة مئوية من قيمة الكتلة. بناءً على بيانات المعايرة (ISO 17025, GUM)."
       }
     },
     {
@@ -159,14 +169,16 @@
         "tr": "Malzeme Türü (kayıp faktörü için)",
         "de": "Materialtyp (für Verlustfaktor)",
         "fr": "Type de matériau (pour facteur de perte)",
-        "es": "Tipo de Material (para factor de pérdida)"
+        "es": "Tipo de Material (para factor de pérdida)",
+        "ar": "نوع المادة (لعامل الخسارة)"
       },
       "businessContext_i18n": {
         "en": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders).",
         "tr": "Malzeme türü, görünmeyen kayıp faktörlerini etkiler (örneğin, higroskopik malzemeler için nem emilimi, tozlar için dökülme).",
         "de": "Der Materialtyp beeinflusst die Faktoren für verborgenen Verlust (z. B. Feuchtigkeitsaufnahme bei hygroskopischen Materialien, Verschütten bei Pulvern).",
         "fr": "Le type de matériau influence les facteurs de perte cachée (ex. absorption d'humidité pour les matériaux hygroscopiques, déversement pour les poudres).",
-        "es": "El tipo de material influye en los factores de pérdida oculta (ej., absorción de humedad para materiales higroscópicos, derrame para polvos)."
+        "es": "El tipo de material influye en los factores de pérdida oculta (ej., absorción de humedad para materiales higroscópicos, derrame para polvos).",
+        "ar": "يؤثر نوع المادة على عوامل الخسائر غير المرئية (مثل امتصاص الرطوبة للمواد الاسترطابية، الانسكاب للمساحيق)."
       }
     }
   ],
@@ -215,18 +227,24 @@
     ]
   },
   "formulas": {
-    "result": "mass_lbs + precision_level + rounding_method",
-    "result_copy": "mass_lbs + precision_level + rounding_method"
+    "normalized_product": "mass_lbs * (measurement_uncertainty_pct / 100)",
+    "result": "mass_lbs * (measurement_uncertainty_pct / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "lb"
+    "unit": "USD"
   },
   "toolName": "lbs-to-kg-converter-calculator",
   "catalogCategory": "conversion",

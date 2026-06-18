@@ -13,14 +13,16 @@
         "tr": "Kaynak Saat (0-23)",
         "de": "Quellstunde (0-23)",
         "fr": "Heure source (0-23)",
-        "es": "Source Hour (0-23)",
-        "ar": "Source Hour (0-23)"
+        "es": "Hora de origen (0-23)",
+        "ar": "ساعة المصدر (0-23)"
       },
       "businessContext_i18n": {
         "en": "Hour component of the source time.",
         "tr": "Kaynak zamanın saat bileşeni.",
         "de": "Stundenkomponente der Quellzeit.",
-        "fr": "Composante heure de l'heure source."
+        "fr": "Composante heure de l'heure source.",
+        "es": "Componente de hora de la hora de origen.",
+        "ar": "مكون الساعة من وقت المصدر."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kaynak Dakika (0-59)",
         "de": "Quellminuten (0-59)",
         "fr": "Minutes source (0-59)",
-        "es": "Source Minutes (0-59)",
-        "ar": "Source Minutes (0-59)"
+        "es": "Minutos de origen (0-59)",
+        "ar": "دقائق المصدر (0-59)"
       },
       "businessContext_i18n": {
         "en": "Minute component of the source time.",
         "tr": "Kaynak zamanın dakika bileşeni.",
         "de": "Minutenkomponente der Quellzeit.",
-        "fr": "Composante minute de l'heure source."
+        "fr": "Composante minute de l'heure source.",
+        "es": "Componente de minutos de la hora de origen.",
+        "ar": "مكون الدقيقة من وقت المصدر."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Kaynak UTC Farkı Saat",
         "de": "Quell-UTC-Offset Stunden",
         "fr": "Heures de décalage UTC source",
-        "es": "Source UTC Offset Hours",
-        "ar": "Source UTC Offset Hours"
+        "es": "Horas de compensación UTC de origen",
+        "ar": "ساعات إزاحة UTC للمصدر"
       },
       "businessContext_i18n": {
         "en": "Hour offset of source timezone from UTC (e.g., -5 for EST).",
         "tr": "Kaynak saat diliminin UTC'den saat farkı (örneğin, EST için -5).",
         "de": "Stundenoffset der Quellzeitzone von UTC (z. B. -5 für EST).",
-        "fr": "Décalage horaire du fuseau source par rapport à UTC (ex. : -5 pour EST)."
+        "fr": "Décalage horaire du fuseau source par rapport à UTC (ex. : -5 pour EST).",
+        "es": "Compensación horaria de la zona horaria de origen respecto a UTC (ej., -5 para EST).",
+        "ar": "إزاحة ساعة المنطقة الزمنية للمصدر من UTC (مثال: -5 لـ EST)."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Kaynak UTC Farkı Dakika",
         "de": "Quell-UTC-Offset Minuten",
         "fr": "Minutes de décalage UTC source",
-        "es": "Source UTC Offset Minutes",
-        "ar": "Source UTC Offset Minutes"
+        "es": "Minutos de compensación UTC de origen",
+        "ar": "دقائق إزاحة UTC للمصدر"
       },
       "businessContext_i18n": {
         "en": "Additional minute offset of source timezone from UTC.",
         "tr": "Kaynak saat diliminin UTC'den ek dakika farkı.",
         "de": "Zusätzlicher Minutenoffset der Quellzeitzone von UTC.",
-        "fr": "Minutes supplémentaires de décalage du fuseau source par rapport à UTC."
+        "fr": "Minutes supplémentaires de décalage du fuseau source par rapport à UTC.",
+        "es": "Compensación adicional en minutos de la zona horaria de origen respecto a UTC.",
+        "ar": "إزاحة دقيقة إضافية للمنطقة الزمنية للمصدر من UTC."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Hedef UTC Farkı Saat",
         "de": "Ziel-UTC-Offset Stunden",
         "fr": "Heures de décalage UTC cible",
-        "es": "Target UTC Offset Hours",
-        "ar": "Target UTC Offset Hours"
+        "es": "Horas de compensación UTC de destino",
+        "ar": "ساعات إزاحة UTC للهدف"
       },
       "businessContext_i18n": {
         "en": "Hour offset of target timezone from UTC (e.g., 3 for EAT).",
         "tr": "Hedef saat diliminin UTC'den saat farkı (örneğin, EAT için 3).",
         "de": "Stundenoffset der Zielzeitzone von UTC (z. B. 3 für EAT).",
-        "fr": "Décalage horaire du fuseau cible par rapport à UTC (ex. : 3 pour EAT)."
+        "fr": "Décalage horaire du fuseau cible par rapport à UTC (ex. : 3 pour EAT).",
+        "es": "Compensación horaria de la zona horaria de destino respecto a UTC (ej., 3 para EAT).",
+        "ar": "إزاحة ساعة المنطقة الزمنية للهدف من UTC (مثال: 3 لـ EAT)."
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "Hedef UTC Farkı Dakika",
         "de": "Ziel-UTC-Offset Minuten",
         "fr": "Minutes de décalage UTC cible",
-        "es": "Target UTC Offset Minutes",
-        "ar": "Target UTC Offset Minutes"
+        "es": "Minutos de compensación UTC de destino",
+        "ar": "دقائق إزاحة UTC للهدف"
       },
       "businessContext_i18n": {
         "en": "Additional minute offset of target timezone from UTC.",
         "tr": "Hedef saat diliminin UTC'den ek dakika farkı.",
         "de": "Zusätzlicher Minutenoffset der Zielzeitzone von UTC.",
-        "fr": "Minutes supplémentaires de décalage du fuseau cible par rapport à UTC."
+        "fr": "Minutes supplémentaires de décalage du fuseau cible par rapport à UTC.",
+        "es": "Compensación adicional en minutos de la zona horaria de destino respecto a UTC.",
+        "ar": "إزاحة الدقائق الإضافية للمنطقة الزمنية المستهدفة من التوقيت العالمي (UTC)."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Breitengrad (°)",
         "fr": "Latitude (°)",
         "es": "Latitud (°)",
-        "ar": "Latitude (°)"
+        "ar": "خط العرض (°)"
       },
       "businessContext_i18n": {
         "en": "Geographic latitude of the location (positive for north, negative for south)",
         "tr": "Konumun coğrafi enlemi (kuzey için pozitif, güney için negatif)",
         "de": "Geografischer Breitengrad des Standorts (positiv für Norden, negativ für Süden)",
         "fr": "Latitude géographique du lieu (positive pour nord, négative pour sud)",
-        "es": "Latitud geográfica de la ubicación (positiva para norte, negativa para sur)"
+        "es": "Latitud geográfica de la ubicación (positiva para norte, negativa para sur)",
+        "ar": "خط العرض الجغرافي للموقع (موجب للشمال، سالب للجنوب)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Höhe",
         "fr": "Altitude",
         "es": "Elevación",
-        "ar": "Elevation"
+        "ar": "الارتفاع"
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level in meters",
         "tr": "Deniz seviyesinden metre cinsinden yükseklik",
         "de": "Höhe über dem Meeresspiegel in Metern",
         "fr": "Altitude au-dessus du niveau de la mer en mètres",
-        "es": "Elevación sobre el nivel del mar en metros"
+        "es": "Elevación sobre el nivel del mar en metros",
+        "ar": "الارتفاع عن مستوى سطح البحر بالأمتار"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchschnittstemperatur März",
         "fr": "Température moyenne de mars",
         "es": "Temperatura promedio de marzo",
-        "ar": "Average March Temperature"
+        "ar": "متوسط درجة حرارة مارس"
       },
       "businessContext_i18n": {
         "en": "Historical average temperature for March in Celsius",
         "tr": "Mart ayı için Santigrat cinsinden tarihsel ortalama sıcaklık",
         "de": "Historische Durchschnittstemperatur für März in Grad Celsius",
         "fr": "Température moyenne historique pour mars en degrés Celsius",
-        "es": "Temperatura histórica promedio de marzo en grados Celsius"
+        "es": "Temperatura histórica promedio de marzo en grados Celsius",
+        "ar": "متوسط درجة الحرارة التاريخي لشهر مارس بالدرجة المئوية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Nähe zu Gewässern",
         "fr": "Proximité de l'eau",
         "es": "Proximidad al agua",
-        "ar": "Proximity to Water"
+        "ar": "القرب من الماء"
       },
       "businessContext_i18n": {
         "en": "Index indicating proximity to large water bodies (0 = far inland, 1 = coastal)",
         "tr": "Büyük su kütlelerine yakınlığı gösteren indeks (0 = iç kesimler, 1 = kıyı)",
         "de": "Index für Nähe zu großen Gewässern (0 = weit im Landesinneren, 1 = Küste)",
         "fr": "Indice de proximité des grandes masses d'eau (0 = loin des côtes, 1 = côtier)",
-        "es": "Índice de proximidad a grandes masas de agua (0 = tierra adentro, 1 = costero)"
+        "es": "Índice de proximidad a grandes masas de agua (0 = tierra adentro, 1 = costero)",
+        "ar": "مؤشر يوضح القرب من المسطحات المائية الكبيرة (0 = بعيد عن الساحل، 1 = ساحلي)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Jahresversatz ab 2000",
         "fr": "Décalage d'année par rapport à 2000",
         "es": "Desfase de años desde 2000",
-        "ar": "Year Offset from 2000"
+        "ar": "الإزاحة الزمنية من عام 2000"
       },
       "businessContext_i18n": {
         "en": "Number of years since 2000 to account for climate trends",
         "tr": "İklim eğilimlerini hesaba katmak için 2000 yılından bu yana geçen yıl sayısı",
         "de": "Anzahl der Jahre seit 2000 zur Berücksichtigung von Klimatrends",
         "fr": "Nombre d'années depuis 2000 pour tenir compte des tendances climatiques",
-        "es": "Número de años desde 2000 para tener en cuenta las tendencias climáticas"
+        "es": "Número de años desde 2000 para tener en cuenta las tendencias climáticas",
+        "ar": "عدد السنوات منذ عام 2000 لمراعاة الاتجاهات المناخية"
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Referenztemperatur",
         "fr": "Température de référence",
         "es": "Temperatura de referencia",
-        "ar": "Reference Temperature"
+        "ar": "درجة الحرارة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Temperature at which the reference viscosity is known (Kelvin)",
         "tr": "Referans viskozitenin bilindiği sıcaklık (Kelvin)",
         "de": "Temperatur, bei der die Referenzviskosität bekannt ist (Kelvin)",
         "fr": "Température à laquelle la viscosité de référence est connue (Kelvin)",
-        "es": "Temperatura a la que se conoce la viscosidad de referencia (Kelvin)"
+        "es": "Temperatura a la que se conoce la viscosidad de referencia (Kelvin)",
+        "ar": "درجة الحرارة التي تُعرف عندها اللزوجة المرجعية (كلفن)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenzviskosität",
         "fr": "Viscosité de référence",
         "es": "Viscosidad de referencia",
-        "ar": "Reference Viscosity"
+        "ar": "اللزوجة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity at reference temperature (Pascal-seconds)",
         "tr": "Referans sıcaklıktaki dinamik viskozite (Pascal-saniye)",
         "de": "Dynamische Viskosität bei Referenztemperatur (Pascal-Sekunden)",
         "fr": "Viscosité dynamique à la température de référence (Pascal-secondes)",
-        "es": "Viscosidad dinámica a la temperatura de referencia (Pascal-segundo)"
+        "es": "Viscosidad dinámica a la temperatura de referencia (Pascal-segundo)",
+        "ar": "اللزوجة الديناميكية عند درجة الحرارة المرجعية (باسكال-ثانية)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Aktivierungsenergie",
         "fr": "Énergie d'activation",
         "es": "Energía de activación",
-        "ar": "Activation Energy"
+        "ar": "طاقة التنشيط"
       },
       "businessContext_i18n": {
         "en": "Activation energy for viscous flow (Joules per mole)",
         "tr": "Viskoz akış için aktivasyon enerjisi (Joule/mol)",
         "de": "Aktivierungsenergie für viskoses Fließen (Joule pro Mol)",
         "fr": "Énergie d'activation pour l'écoulement visqueux (Joules par mole)",
-        "es": "Energía de activación para el flujo viscoso (Julios por mol)"
+        "es": "Energía de activación para el flujo viscoso (Julios por mol)",
+        "ar": "طاقة التنشيط للتدفق اللزج (جول لكل مول)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature at which to calculate viscosity (Kelvin)",
         "tr": "Viskozitenin hesaplanacağı sıcaklık (Kelvin)",
         "de": "Temperatur, bei der die Viskosität berechnet werden soll (Kelvin)",
         "fr": "Température à laquelle calculer la viscosité (Kelvin)",
-        "es": "Temperatura a la que calcular la viscosidad (Kelvin)"
+        "es": "Temperatura a la que calcular la viscosidad (Kelvin)",
+        "ar": "درجة الحرارة التي تحسب عندها اللزوجة (كلفن)"
       }
     }
   ],
   "formulas": {
-    "result": "tRef + muRef + activationEnergy",
-    "result_copy": "tRef + muRef + activationEnergy"
+    "normalized_product": "tRef * muRef * activationEnergy * temp",
+    "result": "tRef * muRef * activationEnergy * temp"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "exponentialFactor",
-      "dynamicViscosity_cP"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "dynamicViscosity_cP",
-    "unit": "K"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Enerji & Karbon",
   "sector": "Fizik & Mekanik",

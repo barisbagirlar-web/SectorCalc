@@ -14,14 +14,15 @@
         "de": "Entfernung (Meilen)",
         "fr": "Distance (miles)",
         "es": "Distancia (millas)",
-        "ar": "Distance (miles)"
+        "ar": "المسافة (أميال)"
       },
       "businessContext_i18n": {
         "en": "The distance in miles to be converted to kilometers",
         "tr": "Mil cinsinden kilometreye dönüştürülecek mesafe",
         "de": "Die Entfernung in Meilen, die in Kilometer umgerechnet werden soll",
         "fr": "La distance en miles à convertir en kilomètres",
-        "es": "La distancia en millas a convertir a kilómetros"
+        "es": "La distancia en millas a convertir a kilómetros",
+        "ar": "المسافة بالأميال المراد تحويلها إلى كيلومترات"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
         "tr": "Çıktı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgabe",
         "fr": "Nombre de décimales pour le résultat",
-        "es": "Número de decimales para la salida"
+        "es": "Número de decimales para la salida",
+        "ar": "عدد المنازل العشرية للمخرجات"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Seemeilen-Kennzeichen",
         "fr": "Indicateur de mille nautique",
         "es": "Indicador de milla náutica",
-        "ar": "Nautical Mile Flag"
+        "ar": "علامة الميل البحري"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the input is in nautical miles, 0 for statute miles",
         "tr": "Giriş deniz mili ise 1, kara mili ise 0 olarak ayarlayın",
         "de": "Auf 1 setzen, wenn die Eingabe in Seemeilen erfolgt, 0 für Landmeilen",
         "fr": "Mettre à 1 si l'entrée est en milles nautiques, 0 pour les milles terrestres",
-        "es": "Establecer en 1 si la entrada está en millas náuticas, 0 para millas terrestres"
+        "es": "Establecer en 1 si la entrada está en millas náuticas, 0 para millas terrestres",
+        "ar": "اضبط على 1 إذا كان الإدخال بالأميال البحرية، 0 للأميال القانونية"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Landmeilen-Faktor",
         "fr": "Facteur de mille terrestre",
         "es": "Factor de milla terrestre",
-        "ar": "Statute Mile Factor"
+        "ar": "عامل الميل القانوني"
       },
       "businessContext_i18n": {
         "en": "Conversion factor for statute miles to kilometers",
         "tr": "Kara milinin kilometreye dönüşüm faktörü",
         "de": "Umrechnungsfaktor von Landmeilen in Kilometer",
         "fr": "Facteur de conversion des milles terrestres en kilomètres",
-        "es": "Factor de conversión de millas terrestres a kilómetros"
+        "es": "Factor de conversión de millas terrestres a kilómetros",
+        "ar": "عامل تحويل الأميال القانونية إلى كيلومترات"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Seemeilen-Faktor",
         "fr": "Facteur de mille nautique",
         "es": "Factor de milla náutica",
-        "ar": "Nautical Mile Factor"
+        "ar": "عامل الميل البحري"
       },
       "businessContext_i18n": {
         "en": "Conversion factor for nautical miles to kilometers",
         "tr": "Deniz milinin kilometreye dönüşüm faktörü",
         "de": "Umrechnungsfaktor von Seemeilen in Kilometer",
         "fr": "Facteur de conversion des milles nautiques en kilomètres",
-        "es": "Factor de conversión de millas náuticas a kilómetros"
+        "es": "Factor de conversión de millas náuticas a kilómetros",
+        "ar": "عامل تحويل الأميال البحرية إلى كيلومترات"
       }
     }
   ],

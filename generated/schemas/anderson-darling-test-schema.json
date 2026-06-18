@@ -14,14 +14,15 @@
         "de": "Stichprobengröße (n)",
         "fr": "Taille de l'échantillon (n)",
         "es": "Tamaño de la muestra (n)",
-        "ar": "Sample Size (n)"
+        "ar": "حجم العينة (n)"
       },
       "businessContext_i18n": {
         "en": "Number of data points in the sample",
         "tr": "Örneklemdeki veri noktası sayısı",
         "de": "Anzahl der Datenpunkte in der Stichprobe",
         "fr": "Nombre de points de données dans l'échantillon",
-        "es": "Número de puntos de datos en la muestra"
+        "es": "Número de puntos de datos en la muestra",
+        "ar": "عدد نقاط البيانات في العينة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Sortierte Daten (kommagetrennt)",
         "fr": "Données triées (séparées par des virgules)",
         "es": "Datos ordenados (separados por comas)",
-        "ar": "Sorted Data (comma-separated)"
+        "ar": "البيانات المرتبة (مفصولة بفواصل)"
       },
       "businessContext_i18n": {
         "en": "Sample values sorted in ascending order",
         "tr": "Örnek değerler artan sırada sıralanmış",
         "de": "Stichprobenwerte aufsteigend sortiert",
         "fr": "Valeurs de l'échantillon triées par ordre croissant",
-        "es": "Valores de la muestra ordenados en orden ascendente"
+        "es": "Valores de la muestra ordenados en orden ascendente",
+        "ar": "قيم العينة مرتبة تصاعدياً"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mittelwert (μ)",
         "fr": "Moyenne (μ)",
         "es": "Media (μ)",
-        "ar": "Mean (μ)"
+        "ar": "المتوسط (μ)"
       },
       "businessContext_i18n": {
         "en": "Mean of the hypothesized normal distribution",
         "tr": "Varsayılan normal dağılımın ortalaması",
         "de": "Mittelwert der hypothetischen Normalverteilung",
         "fr": "Moyenne de la distribution normale hypothétique",
-        "es": "Media de la distribución normal hipotética"
+        "es": "Media de la distribución normal hipotética",
+        "ar": "متوسط التوزيع الطبيعي المفترض"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Standardabweichung (σ)",
         "fr": "Écart type (σ)",
         "es": "Desviación estándar (σ)",
-        "ar": "Standard Deviation (σ)"
+        "ar": "الانحراف المعياري (σ)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the hypothesized normal distribution",
         "tr": "Varsayılan normal dağılımın standart sapması",
         "de": "Standardabweichung der hypothetischen Normalverteilung",
         "fr": "Écart type de la distribution normale hypothétique",
-        "es": "Desviación estándar de la distribución normal hipotética"
+        "es": "Desviación estándar de la distribución normal hipotética",
+        "ar": "الانحراف المعياري للتوزيع الطبيعي المفترض"
       }
     }
   ],
   "formulas": {
-    "result": "sampleSize + sortedData + mean",
-    "result_aux": "sampleSize + sortedData + mean"
+    "normalized_product": "sampleSize * sortedData * mean * stdDev",
+    "result": "sampleSize * sortedData * mean * stdDev"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Anderson-Darling Statistic (A²)",
-      "Adjusted Anderson-Darling Statistic"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "computeAdjustedAD",
-    "unit": "count"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İstatistik & Olasılık",

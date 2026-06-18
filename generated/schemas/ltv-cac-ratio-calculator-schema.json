@@ -11,17 +11,18 @@
       "label_i18n": {
         "en": "Aylık Ortalama Gelir (ARPU)",
         "tr": "Aylık Ortalama Gelir (ARPU)",
-        "de": "Aylık Ortalama Gelir (ARPU)",
+        "de": "Monatlicher Durchschnittsumsatz (ARPU)",
         "fr": "Revenu moyen par utilisateur (ARPU)",
         "es": "Ingreso Promedio por Usuario (ARPU) Mensual",
-        "ar": "Aylık Ortalama Gelir (ARPU)"
+        "ar": "متوسط الإيرادات الشهرية لكل مستخدم (ARPU)"
       },
       "businessContext_i18n": {
         "en": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
         "tr": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
-        "de": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+        "de": "Durchschnittlicher monatlicher Umsatz pro Kunde.",
         "fr": "Revenu moyen mensuel par client.",
-        "es": "Ingreso promedio obtenido de un cliente por mes."
+        "es": "Ingreso promedio obtenido de un cliente por mes.",
+        "ar": "متوسط الإيرادات المحققة من عميل واحد شهريًا."
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Brüt Kar Marjı (%)",
         "tr": "Brüt Kar Marjı (%)",
-        "de": "Brüt Kar Marjı (%)",
+        "de": "Bruttogewinnmarge (%)",
         "fr": "Marge brute (%)",
         "es": "Margen de Beneficio Bruto (%)",
-        "ar": "Brüt Kar Marjı (%)"
+        "ar": "هامش الربح الإجمالي (%)"
       },
       "businessContext_i18n": {
         "en": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
         "tr": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
-        "de": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+        "de": "Prozentsatz des Bruttogewinns pro verkaufter Einheit Produkt/Dienstleistung.",
         "fr": "Pourcentage de marge brute sur chaque unité de produit/service vendue.",
-        "es": "Porcentaje de beneficio bruto obtenido por cada unidad de producto/servicio vendida."
+        "es": "Porcentaje de beneficio bruto obtenido por cada unidad de producto/servicio vendida.",
+        "ar": "نسبة الربح الإجمالي من كل وحدة منتج/خدمة مباعة."
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Aylık Kayıp Oranı (%)",
         "tr": "Aylık Kayıp Oranı (%)",
-        "de": "Aylık Kayıp Oranı (%)",
+        "de": "Monatliche Verlustrate (%)",
         "fr": "Taux de perte mensuel (%)",
         "es": "Tasa de Pérdida Mensual (%)",
-        "ar": "Aylık Kayıp Oranı (%)"
+        "ar": "معدل التوقف الشهري (%)"
       },
       "businessContext_i18n": {
         "en": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
         "tr": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
-        "de": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+        "de": "Rate, die angibt, wie viel des Kundenstamms jeden Monat verloren geht.",
         "fr": "Taux indiquant la proportion de la clientèle perdue chaque mois.",
-        "es": "Porcentaje de la base de clientes que se pierde cada mes."
+        "es": "Porcentaje de la base de clientes que se pierde cada mes.",
+        "ar": "النسبة المئوية للعملاء المفقودين شهريًا."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
         "es": "Tasa de descuento (%)",
-        "ar": "İskonto Oranı (%)"
+        "ar": "معدل الخصم (%)"
       },
       "businessContext_i18n": {
         "en": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
         "tr": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
         "de": "Jährlicher Diskontsatz zur Berechnung des Barwerts zukünftiger Zahlungsströme.",
         "fr": "Taux d'actualisation annuel utilisé pour calculer la valeur actuelle des flux de trésorerie futurs.",
-        "es": "Tasa de descuento anual utilizada para calcular el valor presente de los flujos de efectivo futuros."
+        "es": "Tasa de descuento anual utilizada para calcular el valor presente de los flujos de efectivo futuros.",
+        "ar": "معدل الخصم السنوي المستخدم لحساب القيمة الحالية للتدفقات النقدية المستقبلية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gesamtakquisitionskosten",
         "fr": "Coût total d'acquisition",
         "es": "Costo total de adquisición",
-        "ar": "Toplam Edinme Maliyeti"
+        "ar": "إجمالي تكلفة الاكتساب"
       },
       "businessContext_i18n": {
         "en": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
         "tr": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
         "de": "Gesamte Marketing- und Vertriebsausgaben in einem bestimmten Zeitraum.",
         "fr": "Dépenses totales de marketing et de vente sur une période donnée.",
-        "es": "Gastos totales de marketing y ventas en un período determinado."
+        "es": "Gastos totales de marketing y ventas en un período determinado.",
+        "ar": "إجمالي الإنفاق على التسويق والمبيعات خلال فترة معينة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Anzahl neuer Kunden",
         "fr": "Nombre de nouveaux clients acquis",
         "es": "Número de nuevos clientes adquiridos",
-        "ar": "Kazanılan Yeni Müşteri Sayısı"
+        "ar": "عدد العملاء الجدد المكتسبين"
       },
       "businessContext_i18n": {
         "en": "Aynı dönemde kazanılan yeni müşteri sayısı.",
         "tr": "Aynı dönemde kazanılan yeni müşteri sayısı.",
         "de": "Anzahl der im selben Zeitraum gewonnenen Neukunden.",
         "fr": "Nombre de nouveaux clients acquis au cours de la même période.",
-        "es": "Número de nuevos clientes adquiridos en el mismo período."
+        "es": "Número de nuevos clientes adquiridos en el mismo período.",
+        "ar": "عدد العملاء الجدد المكتسبين خلال نفس الفترة."
       }
     }
   ],

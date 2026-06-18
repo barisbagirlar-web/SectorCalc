@@ -14,14 +14,15 @@
         "de": "x1-Wert",
         "fr": "Valeur de x1",
         "es": "Valor de x1",
-        "ar": "x1 Değeri"
+        "ar": "قيمة x1"
       },
       "businessContext_i18n": {
         "en": "İlk veri noktasının bağımsız değişken değeri",
         "tr": "İlk veri noktasının bağımsız değişken değeri",
         "de": "Unabhängiger Variablenwert des ersten Datenpunkts",
         "fr": "Valeur de la variable indépendante du premier point de données",
-        "es": "Valor de la variable independiente del primer punto de datos"
+        "es": "Valor de la variable independiente del primer punto de datos",
+        "ar": "قيمة المتغير المستقل لنقطة البيانات الأولى"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "y1-Wert",
         "fr": "Valeur de y1",
         "es": "Valor de y1",
-        "ar": "y1 Değeri"
+        "ar": "قيمة y1"
       },
       "businessContext_i18n": {
         "en": "İlk veri noktasının bağımlı değişken değeri",
         "tr": "İlk veri noktasının bağımlı değişken değeri",
         "de": "Wert der abhängigen Variablen des ersten Datenpunkts",
         "fr": "Valeur de la variable dépendante du premier point de données",
-        "es": "Valor de la variable dependiente del primer punto de datos"
+        "es": "Valor de la variable dependiente del primer punto de datos",
+        "ar": "قيمة المتغير التابع لنقطة البيانات الأولى"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "x2-Wert",
         "fr": "Valeur de x2",
         "es": "Valor de x2",
-        "ar": "x2 Değeri"
+        "ar": "قيمة x2"
       },
       "businessContext_i18n": {
         "en": "İkinci veri noktasının bağımsız değişken değeri",
         "tr": "İkinci veri noktasının bağımsız değişken değeri",
         "de": "Wert der unabhängigen Variablen des zweiten Datenpunkts",
         "fr": "Valeur de la variable indépendante du deuxième point de données",
-        "es": "Valor de la variable independiente del segundo punto de datos"
+        "es": "Valor de la variable independiente del segundo punto de datos",
+        "ar": "قيمة المتغير المستقل لنقطة البيانات الثانية"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "y2-Wert",
         "fr": "Valeur de y2",
         "es": "Valor de y2",
-        "ar": "y2 Değeri"
+        "ar": "قيمة y2"
       },
       "businessContext_i18n": {
         "en": "İkinci veri noktasının bağımlı değişken değeri",
         "tr": "İkinci veri noktasının bağımlı değişken değeri",
         "de": "Wert der abhängigen Variablen des zweiten Datenpunkts",
         "fr": "Valeur de la variable dépendante du deuxième point de données",
-        "es": "Valor de la variable dependiente del segundo punto de datos"
+        "es": "Valor de la variable dependiente del segundo punto de datos",
+        "ar": "قيمة المتغير التابع لنقطة البيانات الثانية"
       }
     }
   ],
   "formulas": {
-    "result": "x1 + y1 + x2",
-    "result_copy": "x1 + y1 + x2"
+    "normalized_product": "x1 * y1 * x2 * y2",
+    "result": "x1 * y1 * x2 * y2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Katsayı a: ${a}",
-      "Üs b: ${b}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "a",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

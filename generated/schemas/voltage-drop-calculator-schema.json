@@ -26,13 +26,17 @@
         "en": "Conductor Material",
         "tr": "İletken Malzemesi",
         "de": "Leitermaterial",
-        "fr": "Matériau du conducteur"
+        "fr": "Matériau du conducteur",
+        "es": "Material del conductor",
+        "ar": "مادة الموصل"
       },
       "businessContext_i18n": {
         "en": "Material affects resistivity; copper and aluminum are common in industrial installations.",
         "tr": "Malzeme özdirenci etkiler; bakır ve alüminyum endüstriyel tesislerde yaygındır.",
         "de": "Das Material beeinflusst den spezifischen Widerstand; Kupfer und Aluminium sind in industriellen Installationen üblich.",
-        "fr": "Le matériau affecte la résistivité ; le cuivre et l'aluminium sont courants dans les installations industrielles."
+        "fr": "Le matériau affecte la résistivité ; le cuivre et l'aluminium sont courants dans les installations industrielles.",
+        "es": "El material afecta la resistividad; el cobre y el aluminio son comunes en instalaciones industriales.",
+        "ar": "تؤثر المادة على المقاومية؛ النحاس والألومنيوم شائعان في التركيبات الصناعية"
       }
     },
     {
@@ -66,13 +70,17 @@
         "en": "Conductor Size (AWG or kcmil)",
         "tr": "İletken Kesiti (AWG veya kcmil)",
         "de": "Leiterquerschnitt (AWG oder kcmil)",
-        "fr": "Section du conducteur (AWG ou kcmil)"
+        "fr": "Section du conducteur (AWG ou kcmil)",
+        "es": "Tamaño del conductor (AWG o kcmil)",
+        "ar": "حجم الموصل (AWG أو kcmil)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area determines resistance per unit length.",
         "tr": "Kesit alanı birim uzunluk başına direnci belirler.",
         "de": "Die Querschnittsfläche bestimmt den Widerstand pro Längeneinheit.",
-        "fr": "La section transversale détermine la résistance par unité de longueur."
+        "fr": "La section transversale détermine la résistance par unité de longueur.",
+        "es": "El área de la sección transversal determina la resistencia por unidad de longitud.",
+        "ar": "تحدد مساحة المقطع العرضي المقاومة لكل وحدة طول"
       }
     },
     {
@@ -88,13 +96,17 @@
         "en": "One-Way Circuit Length",
         "tr": "Tek Yönlü Devre Uzunluğu",
         "de": "Einfache Leitungslänge",
-        "fr": "Longueur du circuit aller simple"
+        "fr": "Longueur du circuit aller simple",
+        "es": "Longitud del circuito de ida",
+        "ar": "طول المسار أحادي الاتجاه"
       },
       "businessContext_i18n": {
         "en": "Distance from source to load; longer runs increase voltage drop.",
         "tr": "Kaynaktan yüke olan mesafe; daha uzun hatlar voltaj düşümünü artırır.",
         "de": "Entfernung von der Quelle zur Last; längere Strecken erhöhen den Spannungsabfall.",
-        "fr": "Distance de la source à la charge ; les longues distances augmentent la chute de tension."
+        "fr": "Distance de la source à la charge ; les longues distances augmentent la chute de tension.",
+        "es": "Distancia desde la fuente hasta la carga; recorridos más largos aumentan la caída de tensión.",
+        "ar": "المسافة من المصدر إلى الحمل؛ المسافات الطويلة تزيد من انخفاض الجهد."
       }
     },
     {
@@ -110,13 +122,17 @@
         "en": "Load Current (Amperes)",
         "tr": "Yük Akımı (Amper)",
         "de": "Laststrom (Ampere)",
-        "fr": "Courant de charge (Ampères)"
+        "fr": "Courant de charge (Ampères)",
+        "es": "Corriente de carga (Amperios)",
+        "ar": "تيار الحمل (أمبير)"
       },
       "businessContext_i18n": {
         "en": "Current drawn by the load; higher current increases drop.",
         "tr": "Yük tarafından çekilen akım; daha yüksek akım düşümü artırır.",
         "de": "Von der Last aufgenommener Strom; höherer Strom erhöht den Abfall.",
-        "fr": "Courant consommé par la charge ; un courant plus élevé augmente la chute."
+        "fr": "Courant consommé par la charge ; un courant plus élevé augmente la chute.",
+        "es": "Corriente consumida por la carga; mayor corriente aumenta la caída.",
+        "ar": "التيار المسحوب بواسطة الحمل؛ التيار الأعلى يزيد من الانخفاض."
       }
     },
     {
@@ -132,13 +148,17 @@
         "en": "System Voltage (Line-to-Line)",
         "tr": "Sistem Voltajı (Fazlar Arası)",
         "de": "Systemspannung (Außenleiter)",
-        "fr": "Tension du système (entre phases)"
+        "fr": "Tension du système (entre phases)",
+        "es": "Tensión del sistema (línea a línea)",
+        "ar": "جهد النظام (خط إلى خط)"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of the system; used to compute percentage drop.",
         "tr": "Sistemin nominal voltajı; yüzde düşümü hesaplamak için kullanılır.",
         "de": "Nennspannung des Systems; wird zur Berechnung des prozentualen Abfalls verwendet.",
-        "fr": "Tension nominale du système ; utilisée pour calculer le pourcentage de chute."
+        "fr": "Tension nominale du système ; utilisée pour calculer le pourcentage de chute.",
+        "es": "Tensión nominal del sistema; se utiliza para calcular el porcentaje de caída.",
+        "ar": "الجهد الاسمي للنظام؛ يُستخدم لحساب النسبة المئوية للانخفاض."
       }
     },
     {
@@ -159,13 +179,16 @@
         "tr": "Faz Türü",
         "de": "Phasentyp",
         "fr": "Type de phase",
-        "es": "Tipo de fase"
+        "es": "Tipo de fase",
+        "ar": "نوع الطور"
       },
       "businessContext_i18n": {
         "en": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase).",
         "tr": "Tek fazlı veya üç fazlı, voltaj düşümü formülünü etkiler (üç fazlı için sqrt(3) faktörü).",
         "de": "Einphasig oder Dreiphasig beeinflusst die Spannungsabfallformel (Faktor sqrt(3) für Dreiphasen).",
-        "fr": "Monophasé ou triphasé affecte la formule de chute de tension (facteur sqrt(3) pour triphasé)."
+        "fr": "Monophasé ou triphasé affecte la formule de chute de tension (facteur sqrt(3) pour triphasé).",
+        "es": "La fase única o trifásica afecta la fórmula de caída de tensión (factor √3 para trifásica).",
+        "ar": "نظام أحادي الطور أو ثلاثي الطور يؤثر على معادلة انخفاض الجهد (عامل الجذر التربيعي لـ 3 للطور الثلاثي)."
       }
     },
     {
@@ -182,13 +205,16 @@
         "tr": "Güç Faktörü (cos φ)",
         "de": "Leistungsfaktor (cos φ)",
         "fr": "Facteur de puissance (cos φ)",
-        "es": "Factor de potencia (cos φ)"
+        "es": "Factor de potencia (cos φ)",
+        "ar": "معامل القدرة (cos φ)"
       },
       "businessContext_i18n": {
         "en": "Reactive component increases effective current; typical industrial PF is 0.8-0.95.",
         "tr": "Reaktif bileşen efektif akımı artırır; tipik endüstriyel güç faktörü 0.8-0.95'tir.",
         "de": "Der Blindanteil erhöht den effektiven Strom; typischer industrieller Leistungsfaktor ist 0,8-0,95.",
-        "fr": "La composante réactive augmente le courant effectif ; le facteur de puissance industriel typique est de 0,8 à 0,95."
+        "fr": "La composante réactive augmente le courant effectif ; le facteur de puissance industriel typique est de 0,8 à 0,95.",
+        "es": "El componente reactivo aumenta la corriente efectiva; el FP industrial típico es 0.8-0.95.",
+        "ar": "المكون التفاعلي يزيد من التيار الفعال؛ معامل القدرة النموذجي الصناعي هو 0.8-0.95."
       }
     },
     {
@@ -205,13 +231,16 @@
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
-        "es": "Temperatura ambiente"
+        "es": "Temperatura ambiente",
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Temperature affects conductor resistance; higher temperature increases resistance.",
         "tr": "Sıcaklık iletken direncini etkiler; yüksek sıcaklık direnci artırır.",
         "de": "Temperatur beeinflusst den Leiterwiderstand; höhere Temperatur erhöht den Widerstand.",
-        "fr": "La température affecte la résistance du conducteur ; une température plus élevée augmente la résistance."
+        "fr": "La température affecte la résistance du conducteur ; une température plus élevée augmente la résistance.",
+        "es": "La temperatura afecta la resistencia del conductor; una temperatura más alta aumenta la resistencia.",
+        "ar": "درجة الحرارة تؤثر على مقاومة الموصل؛ درجة الحرارة الأعلى تزيد المقاومة."
       }
     }
   ],
@@ -265,18 +294,26 @@
     ]
   },
   "formulas": {
-    "result": "conductor_material + conductor_size + circuit_length",
-    "result_copy": "conductor_material + conductor_size + circuit_length"
+    "normalized_product": "circuit_length * load_current * system_voltage * power_factor",
+    "result": "circuit_length * load_current * system_voltage * power_factor * (ambient_temperature)",
+    "adjustment_factor": "ambient_temperature"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "AWG/kcmil"
+    "unit": "USD"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

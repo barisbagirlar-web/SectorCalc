@@ -14,14 +14,15 @@
         "de": "Anström-Machzahl (M₁)",
         "fr": "Nombre de Mach amont (M₁)",
         "es": "Número de Mach aguas arriba (M₁)",
-        "ar": "Upstream Mach Number (M₁)"
+        "ar": "رقم ماخ العلوي (M₁)"
       },
       "businessContext_i18n": {
         "en": "Freestream Mach number before the shock.",
         "tr": "Şok öncesi serbest akış Mach sayısı.",
         "de": "Freistrom-Machzahl vor dem Stoß.",
         "fr": "Nombre de Mach de l'écoulement libre avant le choc.",
-        "es": "Número de Mach de corriente libre antes del choque."
+        "es": "Número de Mach de corriente libre antes del choque.",
+        "ar": "رقم ماخ للتدفق الحر قبل الصدمة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stoßwinkel (β)",
         "fr": "Angle de choc (β)",
         "es": "Ángulo de choque (β)",
-        "ar": "Shock Angle (β)"
+        "ar": "زاوية الصدمة (β)"
       },
       "businessContext_i18n": {
         "en": "Angle between upstream flow direction and the shock wave.",
         "tr": "Yukarı akış yönü ile şok dalgası arasındaki açı.",
         "de": "Winkel zwischen der Anströmrichtung und der Stoßwelle.",
         "fr": "Angle entre la direction de l'écoulement amont et l'onde de choc.",
-        "es": "Ángulo entre la dirección del flujo aguas arriba y la onda de choque."
+        "es": "Ángulo entre la dirección del flujo aguas arriba y la onda de choque.",
+        "ar": "الزاوية بين اتجاه التدفق العلوي وموجة الصدمة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Isentropenexponent (γ)",
         "fr": "Rapport des chaleurs spécifiques (γ)",
         "es": "Relación de calores específicos (γ)",
-        "ar": "Specific Heat Ratio (γ)"
+        "ar": "نسبة الحرارة النوعية (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats, typically 1.4 for air.",
         "tr": "Özgül ısı oranı, tipik olarak hava için 1.4.",
         "de": "Verhältnis der spezifischen Wärmekapazitäten, typischerweise 1,4 für Luft.",
         "fr": "Rapport des chaleurs spécifiques, typiquement 1,4 pour l'air.",
-        "es": "Relación de calores específicos, típicamente 1.4 para el aire."
+        "es": "Relación de calores específicos, típicamente 1.4 para el aire.",
+        "ar": "نسبة الحرارة النوعية، عادة 1.4 للهواء."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gesamtdruck vor dem Stoß (P₀₁)",
         "fr": "Pression totale amont (P₀₁)",
         "es": "Presión total aguas arriba (P₀₁)",
-        "ar": "Upstream Total Pressure (P₀₁)"
+        "ar": "الضغط الكلي العلوي (P₀₁)"
       },
       "businessContext_i18n": {
         "en": "Stagnation pressure of the freestream, standard sea level is 101325 Pa.",
         "tr": "Serbest akışın durma basıncı, standart deniz seviyesi 101325 Pa.",
         "de": "Staudruck der freien Strömung, Standard auf Meereshöhe 101325 Pa.",
         "fr": "Pression d'arrêt de l'écoulement libre, niveau de la mer standard 101325 Pa.",
-        "es": "Presión de estancamiento de la corriente libre, nivel del mar estándar es 101325 Pa."
+        "es": "Presión de estancamiento de la corriente libre, nivel del mar estándar es 101325 Pa.",
+        "ar": "ضغط الركود للتدفق الحر، مستوى سطح البحر القياسي هو 101325 باسكال."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gesamttemperatur vor dem Stoß (T₀₁)",
         "fr": "Température totale amont (T₀₁)",
         "es": "Temperatura total aguas arriba (T₀₁)",
-        "ar": "Upstream Total Temperature (T₀₁)"
+        "ar": "درجة الحرارة الكلية العلوية (T₀₁)"
       },
       "businessContext_i18n": {
         "en": "Stagnation temperature of the freestream.",
         "tr": "Serbest akışın durma sıcaklığı.",
         "de": "Stautemperatur der freien Strömung.",
         "fr": "Température d'arrêt de l'écoulement libre.",
-        "es": "Temperatura de estancamiento de la corriente libre."
+        "es": "Temperatura de estancamiento de la corriente libre.",
+        "ar": "درجة حرارة الركود للتدفق الحر."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Gaskonstante (R)",
         "fr": "Constante des gaz (R)",
         "es": "Constante de los gases (R)",
-        "ar": "Gas Constant (R)"
+        "ar": "ثابت الغاز (R)"
       },
       "businessContext_i18n": {
         "en": "Specific gas constant, 287 J/(kg·K) for dry air.",
         "tr": "Özgül gaz sabiti, kuru hava için 287 J/(kg·K).",
         "de": "Spezifische Gaskonstante, 287 J/(kg·K) für trockene Luft.",
         "fr": "Constante spécifique des gaz, 287 J/(kg·K) pour l'air sec.",
-        "es": "Constante específica del gas, 287 J/(kg·K) para aire seco."
+        "es": "Constante específica del gas, 287 J/(kg·K) para aire seco.",
+        "ar": "ثابت الغاز النوعي، 287 جول/(كجم·ك) للهواء الجاف."
       }
     }
   ],

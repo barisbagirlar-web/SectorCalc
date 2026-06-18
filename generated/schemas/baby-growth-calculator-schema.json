@@ -14,14 +14,15 @@
         "de": "Geburtsgewicht",
         "fr": "Poids de naissance",
         "es": "Peso al nacer",
-        "ar": "Doğum Ağırlığı"
+        "ar": "وزن الولادة"
       },
       "businessContext_i18n": {
         "en": "Bebeğin doğumdaki ağırlığı (kg)",
         "tr": "Bebeğin doğumdaki ağırlığı (kg)",
         "de": "Gewicht des Babys bei der Geburt (kg)",
         "fr": "Poids du bébé à la naissance (kg)",
-        "es": "Peso del bebé al nacer (kg)"
+        "es": "Peso del bebé al nacer (kg)",
+        "ar": "وزن الطفل عند الولادة (كجم)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktuelles Gewicht",
         "fr": "Poids actuel",
         "es": "Peso actual",
-        "ar": "Güncel Ağırlık"
+        "ar": "الوزن الحالي"
       },
       "businessContext_i18n": {
         "en": "Bebeğin şu anki ağırlığı (kg)",
         "tr": "Bebeğin şu anki ağırlığı (kg)",
         "de": "Aktuelles Gewicht des Babys (kg)",
         "fr": "Poids actuel du bébé (kg)",
-        "es": "Peso actual del bebé (kg)"
+        "es": "Peso actual del bebé (kg)",
+        "ar": "وزن الطفل الحالي (كجم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Alter (Monate)",
         "fr": "Âge (mois)",
         "es": "Edad (meses)",
-        "ar": "Yaş (Ay)"
+        "ar": "العمر (شهر)"
       },
       "businessContext_i18n": {
         "en": "Ay cinsinden yaş",
         "tr": "Ay cinsinden yaş",
         "de": "Alter in Monaten",
         "fr": "Âge en mois",
-        "es": "Edad en meses"
+        "es": "Edad en meses",
+        "ar": "العمر بالأشهر"
       }
     },
     {
@@ -81,16 +84,17 @@
         "en": "Boy",
         "tr": "Boy",
         "de": "Junge",
-        "fr": "Boy",
+        "fr": "Garçon",
         "es": "Niño",
-        "ar": "Boy"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Bebeğin boy uzunluğu (cm)",
         "tr": "Bebeğin boy uzunluğu (cm)",
         "de": "Körperlänge des Babys (cm)",
         "fr": "Longueur du bébé (cm)",
-        "es": "Longitud del bebé (cm)"
+        "es": "Longitud del bebé (cm)",
+        "ar": "طول الطفل (سم)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kopfumfang",
         "fr": "Périmètre crânien",
         "es": "Perímetro cefálico",
-        "ar": "Baş Çevresi"
+        "ar": "محيط الرأس"
       },
       "businessContext_i18n": {
         "en": "Baş çevresi (cm)",
         "tr": "Baş çevresi (cm)",
         "de": "Kopfumfang (cm)",
         "fr": "Périmètre crânien (cm)",
-        "es": "Perímetro cefálico (cm)"
+        "es": "Perímetro cefálico (cm)",
+        "ar": "محيط الرأس (سم)"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Geschlecht (0=Junge, 1=Mädchen)",
         "fr": "Sexe (0=Garçon, 1=Fille)",
         "es": "Sexo (0=Masculino, 1=Femenino)",
-        "ar": "Cinsiyet (0=Erkek, 1=Kız)"
+        "ar": "الجنس (0=ذكر، 1=أنثى)"
       },
       "businessContext_i18n": {
         "en": "Bebeğin cinsiyeti: 0 erkek, 1 kız",
         "tr": "Bebeğin cinsiyeti: 0 erkek, 1 kız",
         "de": "Geschlecht des Babys: 0 Junge, 1 Mädchen",
         "fr": "Sexe du bébé : 0 garçon, 1 fille",
-        "es": "Sexo del bebé: 0 masculino, 1 femenino"
+        "es": "Sexo del bebé: 0 masculino, 1 femenino",
+        "ar": "جنس الطفل: 0 ذكر، 1 أنثى"
       }
     }
   ],
   "formulas": {
-    "result": "birthWeight + currentWeight + ageMonths",
-    "result_copy": "birthWeight + currentWeight + ageMonths"
+    "normalized_product": "birthWeight * currentWeight * ageMonths * length",
+    "result": "birthWeight * currentWeight * ageMonths * length * (headCircumference * gender)",
+    "adjustment_factor": "headCircumference * gender"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "lengthPercentile",
-      "weightForLengthPercentile"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "weightForLengthPercentile",
-    "unit": "kg",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "lengthPercentile": "%",
       "weightForLengthPercentile": "%"

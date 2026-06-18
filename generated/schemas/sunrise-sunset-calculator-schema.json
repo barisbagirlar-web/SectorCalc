@@ -14,14 +14,15 @@
         "de": "Breitengrad",
         "fr": "Latitude",
         "es": "Latitud",
-        "ar": "Latitude"
+        "ar": "خط العرض"
       },
       "businessContext_i18n": {
         "en": "Latitude of the location in decimal degrees (north positive).",
         "tr": "Konumun ondalık derece cinsinden enlemi (kuzey pozitif).",
         "de": "Breitengrad des Standorts in Dezimalgrad (Nord positiv).",
         "fr": "Latitude du lieu en degrés décimaux (positif au nord).",
-        "es": "Latitud de la ubicación en grados decimales (norte positivo)."
+        "es": "Latitud de la ubicación en grados decimales (norte positivo).",
+        "ar": "خط العرض للموقع بالدرجات العشرية (شمالاً موجب)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Längengrad",
         "fr": "Longitude",
         "es": "Longitud",
-        "ar": "Longitude"
+        "ar": "خط الطول"
       },
       "businessContext_i18n": {
         "en": "Longitude of the location in decimal degrees (east positive).",
         "tr": "Konumun ondalık derece cinsinden boylamı (doğu pozitif).",
         "de": "Längengrad des Standorts in Dezimalgrad (Ost positiv).",
         "fr": "Longitude du lieu en degrés décimaux (positif à l'est).",
-        "es": "Longitud de la ubicación en grados decimales (positivo al este)."
+        "es": "Longitud de la ubicación en grados decimales (positivo al este).",
+        "ar": "خط الطول للموقع بالدرجات العشرية (شرقاً موجب)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Tag des Jahres",
         "fr": "Jour de l'année",
         "es": "Día del año",
-        "ar": "Day of Year"
+        "ar": "يوم السنة"
       },
       "businessContext_i18n": {
         "en": "Day number of the year (1-365 or 1-366 for leap year).",
         "tr": "Yılın gün numarası (1-365 veya artık yılda 1-366).",
         "de": "Tagesnummer des Jahres (1-365 oder 1-366 für Schaltjahr).",
         "fr": "Numéro du jour dans l'année (1-365 ou 1-366 pour année bissextile).",
-        "es": "Número del día del año (1-365 o 1-366 para año bisiesto)."
+        "es": "Número del día del año (1-365 o 1-366 para año bisiesto).",
+        "ar": "رقم اليوم من السنة (1-365 أو 1-366 للسنة الكبيسة)."
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Zeitzonen-Offset",
         "fr": "Décalage horaire",
         "es": "Desplazamiento horario",
-        "ar": "Timezone Offset"
+        "ar": "فرق المنطقة الزمنية"
       },
       "businessContext_i18n": {
         "en": "Offset from UTC in hours (e.g., -4 for EDT).",
         "tr": "UTC'den saat cinsinden fark (örneğin, EDT için -4).",
         "de": "Offset von UTC in Stunden (z.B. -4 für EDT).",
         "fr": "Décalage par rapport à UTC en heures (ex. -4 pour EDT).",
-        "es": "Desplazamiento desde UTC en horas (ej., -4 para EDT)."
+        "es": "Desplazamiento desde UTC en horas (ej., -4 para EDT).",
+        "ar": "الفرق عن UTC بالساعات (مثال: -4 لـ EDT)."
       }
     }
   ],
   "formulas": {
-    "result": "latitude + longitude + dayOfYear",
-    "result_copy": "latitude + longitude + dayOfYear"
+    "normalized_product": "latitude * longitude * dayOfYear * timezoneOffset",
+    "result": "latitude * longitude * dayOfYear * timezoneOffset"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "sunriseLocal",
-      "sunsetLocal",
-      "dayLength"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "sunsetLocal",
-    "unit": "°"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",

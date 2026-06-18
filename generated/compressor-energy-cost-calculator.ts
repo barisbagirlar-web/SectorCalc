@@ -30,8 +30,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Compressor_energy_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.compressor_power_rating + input.motor_efficiency + input.compressor_type; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.compressor_power_rating + input.motor_efficiency + input.compressor_type; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_kwh"] = 0; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -46,8 +47,8 @@ export function calculateCompressor_energy_cost_calculator(input: Compressor_ene
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
+  const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

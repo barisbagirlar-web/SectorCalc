@@ -13,14 +13,16 @@
         "tr": "Mil Süresi (dakika)",
         "de": "Meilenzeit (min)",
         "fr": "Temps au mile (min)",
-        "es": "Mile Time (min)",
-        "ar": "Mile Time (min)"
+        "es": "Tiempo de milla (min)",
+        "ar": "زمن الميل (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds).",
         "tr": "Bir mili koşma/jogging süresi, ondalık dakika cinsinden (örneğin, 8 dakika 30 saniye için 8.5).",
         "de": "Zeit zum Laufen/Joggen einer Meile in Dezimalminuten (z. B. 8,5 für 8 Minuten 30 Sekunden).",
-        "fr": "Temps pour courir un mile en minutes décimales (ex. 8,5 pour 8 minutes 30 secondes)."
+        "fr": "Temps pour courir un mile en minutes décimales (ex. 8,5 pour 8 minutes 30 secondes).",
+        "es": "Tiempo para correr/trotar una milla en minutos decimales (ej., 8.5 para 8 minutos 30 segundos).",
+        "ar": "الوقت اللازم للجري/الهرولة لمسافة ميل واحد بالدقائق العشرية (مثال: 8.5 تعني 8 دقائق و30 ثانية)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kalp Atış Hızı (bpm)",
         "de": "Herzfrequenz (bpm)",
         "fr": "Fréquence cardiaque (bpm)",
-        "es": "Heart Rate (bpm)",
-        "ar": "Heart Rate (bpm)"
+        "es": "Frecuencia cardíaca (lpm)",
+        "ar": "معدل ضربات القلب (نبضة/دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Heart rate at the end of the mile (beats per minute).",
         "tr": "Mil sonundaki kalp atış hızı (dakikadaki atış).",
         "de": "Herzfrequenz am Ende der Meile (Schläge pro Minute).",
-        "fr": "Fréquence cardiaque à la fin du mile (battements par minute)."
+        "fr": "Fréquence cardiaque à la fin du mile (battements par minute).",
+        "es": "Frecuencia cardíaca al final de la milla (latidos por minuto).",
+        "ar": "معدل ضربات القلب عند نهاية الميل (نبضة في الدقيقة)"
       }
     },
     {
@@ -58,14 +62,15 @@
         "de": "Körpergewicht (kg)",
         "fr": "Poids corporel (kg)",
         "es": "Peso corporal (kg)",
-        "ar": "Body Weight (kg)"
+        "ar": "وزن الجسم (كجم)"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms.",
         "tr": "Vücut ağırlığı (kg).",
         "de": "Körpergewicht in Kilogramm.",
         "fr": "Poids corporel en kilogrammes.",
-        "es": "Peso corporal en kilogramos."
+        "es": "Peso corporal en kilogramos.",
+        "ar": "وزن الجسم بالكيلوغرام."
       }
     },
     {
@@ -81,13 +86,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "Gender: 0 for female, 1 for male.",
         "tr": "Cinsiyet: 0 kadın, 1 erkek.",
         "de": "Geschlecht: 0 für weiblich, 1 für männlich.",
-        "fr": "Genre : 0 pour femme, 1 pour homme."
+        "fr": "Genre : 0 pour femme, 1 pour homme.",
+        "es": "Género: 0 para femenino, 1 para masculino.",
+        "ar": "الجنس: 0 للأنثى، 1 للذكر"
       }
     }
   ],

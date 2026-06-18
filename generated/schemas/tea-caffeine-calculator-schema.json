@@ -13,14 +13,16 @@
         "tr": "Çay Kafein İçeriği (mg/g)",
         "de": "Koffeingehalt im Tee (mg/g)",
         "fr": "Teneur en caféine du thé (mg/g)",
-        "es": "Tea Caffeine Content (mg/g)",
-        "ar": "Tea Caffeine Content (mg/g)"
+        "es": "Contenido de cafeína del té (mg/g)",
+        "ar": "محتوى الكافيين في الشاي (ملغم/غم)"
       },
       "businessContext_i18n": {
         "en": "Amount of caffeine in milligrams per gram of dry tea leaves.",
         "tr": "Kuru çay yapraklarının gramı başına miligram cinsinden kafein miktarı.",
         "de": "Menge an Koffein in Milligramm pro Gramm trockener Teeblätter.",
-        "fr": "Quantité de caféine en milligrammes par gramme de feuilles de thé sèches."
+        "fr": "Quantité de caféine en milligrammes par gramme de feuilles de thé sèches.",
+        "es": "Cantidad de cafeína en miligramos por gramo de hojas de té secas.",
+        "ar": "كمية الكافيين بالملليغرام لكل غرام من أوراق الشاي الجافة."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Çay Miktarı (g)",
         "de": "Teemenge (g)",
         "fr": "Quantité de thé (g)",
-        "es": "Amount of Tea (g)",
-        "ar": "Amount of Tea (g)"
+        "es": "Cantidad de té (g)",
+        "ar": "كمية الشاي (غم)"
       },
       "businessContext_i18n": {
         "en": "Grams of dry tea leaves used.",
         "tr": "Kullanılan kuru çay yapraklarının gramı.",
         "de": "Gramm der verwendeten trockenen Teeblätter.",
-        "fr": "Grammes de feuilles de thé sèches utilisées."
+        "fr": "Grammes de feuilles de thé sèches utilisées.",
+        "es": "Gramos de hojas de té secas utilizadas.",
+        "ar": "غرامات أوراق الشاي الجافة المستخدمة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Demleme Süresi (dk)",
         "de": "Ziehzeit (min)",
         "fr": "Temps d'infusion (min)",
-        "es": "Steeping Time (min)",
-        "ar": "Steeping Time (min)"
+        "es": "Tiempo de infusión (min)",
+        "ar": "وقت النقع (دقيقة)"
       },
       "businessContext_i18n": {
         "en": "Time the tea is steeped in minutes.",
         "tr": "Çayın demlendiği süre (dakika).",
         "de": "Zeit, die der Tee in Minuten zieht.",
-        "fr": "Temps d'infusion du thé en minutes."
+        "fr": "Temps d'infusion du thé en minutes.",
+        "es": "Tiempo que el té se infusiona en minutos.",
+        "ar": "الوقت الذي يُنقع فيه الشاي بالدقائق."
       }
     },
     {
@@ -79,34 +85,38 @@
         "tr": "Su Sıcaklığı (°C)",
         "de": "Wassertemperatur (°C)",
         "fr": "Température de l'eau (°C)",
-        "es": "Water Temperature (°C)",
-        "ar": "Water Temperature (°C)"
+        "es": "Temperatura del agua (°C)",
+        "ar": "درجة حرارة الماء (°م)"
       },
       "businessContext_i18n": {
         "en": "Temperature of water used for steeping.",
         "tr": "Demleme için kullanılan suyun sıcaklığı.",
         "de": "Temperatur des zum Ziehen verwendeten Wassers.",
-        "fr": "Température de l'eau utilisée pour l'infusion."
+        "fr": "Température de l'eau utilisée pour l'infusion.",
+        "es": "Temperatura del agua utilizada para la infusión.",
+        "ar": "درجة حرارة الماء المستخدمة للنقع."
       }
     }
   ],
   "formulas": {
-    "result": "teaCaffeinePerGram + teaAmount + steepingTime",
-    "result_copy": "teaCaffeinePerGram + teaAmount + steepingTime"
+    "normalized_product": "teaCaffeinePerGram * teaAmount * steepingTime * waterTemperature",
+    "result": "teaCaffeinePerGram * teaAmount * steepingTime * waterTemperature"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "efficiency",
-      "teaCaffeinePerGram",
-      "teaAmount"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalCaffeine",
-    "unit": "mg/g",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "efficiency": "%",
       "teaCaffeinePerGram": "g"

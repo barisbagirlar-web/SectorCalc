@@ -14,14 +14,15 @@
         "de": "Gesamtzahl der Elemente (n)",
         "fr": "Nombre total d'éléments (n)",
         "es": "Total de Elementos (n)",
-        "ar": "Toplam Eleman Sayısı (n)"
+        "ar": "إجمالي عدد العناصر (n)"
       },
       "businessContext_i18n": {
         "en": "Kümenin toplam eleman sayısı",
         "tr": "Kümenin toplam eleman sayısı",
         "de": "Gesamtzahl der Elemente in der Menge",
         "fr": "Nombre total d'éléments dans l'ensemble",
-        "es": "Número total de elementos en el conjunto"
+        "es": "Número total de elementos en el conjunto",
+        "ar": "إجمالي عدد عناصر المجموعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Anzahl der auszuwählenden Elemente (r)",
         "fr": "Nombre d'éléments à sélectionner (r)",
         "es": "Número de Elementos a Seleccionar (r)",
-        "ar": "Seçilecek Eleman Sayısı (r)"
+        "ar": "عدد العناصر المختارة (r)"
       },
       "businessContext_i18n": {
         "en": "Kombinasyon için seçilecek eleman sayısı",
         "tr": "Kombinasyon için seçilecek eleman sayısı",
         "de": "Anzahl der für die Kombination auszuwählenden Elemente",
         "fr": "Nombre d'éléments à sélectionner pour la combinaison",
-        "es": "Número de elementos a seleccionar para la combinación"
+        "es": "Número de elementos a seleccionar para la combinación",
+        "ar": "عدد العناصر المراد اختيارها للتوافيق"
       }
     },
     {
@@ -56,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -68,26 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "n + r + auto_input_3",
-    "result_copy": "n + r + auto_input_3"
+    "normalized_product": "n * r * auto_input_3",
+    "result": "n * r * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "C(n, r) = n! / (r! * (n-r)!)",
-      "Hesaplanan değer: {combination}"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "lnFactorial",
-    "unit": "adet"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",

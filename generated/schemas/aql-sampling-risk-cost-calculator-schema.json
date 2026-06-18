@@ -25,14 +25,16 @@
         "tr": "Parti Büyüklüğü (N)",
         "de": "Losgröße (N)",
         "fr": "Taille du lot (N)",
-        "es": "Tamaño del lote (N)"
+        "es": "Tamaño del lote (N)",
+        "ar": "حجم الدفعة (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the inspection lot per ISO 2859-1.",
         "tr": "ISO 2859-1'e göre muayene partisindeki toplam ürün sayısı.",
         "de": "Gesamtzahl der Einheiten im Prüflos gemäß ISO 2859-1.",
         "fr": "Nombre total d'articles dans le lot d'inspection selon ISO 2859-1.",
-        "es": "Número total de artículos en el lote de inspección según ISO 2859-1."
+        "es": "Número total de artículos en el lote de inspección según ISO 2859-1.",
+        "ar": "إجمالي عدد العناصر في دفعة الفحص وفقًا لـ ISO 2859-1."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "AKK (%)",
         "de": "AQL (%)",
         "fr": "NQA (%)",
-        "es": "NCA (%)"
+        "es": "NCA (%)",
+        "ar": "مستوى الجودة المقبول (AQL) (%)"
       },
       "businessContext_i18n": {
         "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
         "tr": "Kabul Edilebilir Kalite Seviyesi – proses ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi.",
         "de": "Annehmbare Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessdurchschnitt noch akzeptabel ist.",
         "fr": "Niveau de qualité acceptable – pourcentage maximal de défectueux considéré comme acceptable en moyenne de processus.",
-        "es": "Nivel de Calidad Aceptable – porcentaje máximo de defectuosos que se considera aceptable como promedio del proceso."
+        "es": "Nivel de Calidad Aceptable – porcentaje máximo de defectuosos que se considera aceptable como promedio del proceso.",
+        "ar": "مستوى الجودة المقبول – أقصى نسبة مئوية معيبة تعتبر مقبولة كمتوسط للعملية."
       }
     },
     {
@@ -82,14 +86,16 @@
         "tr": "Muayene Seviyesi",
         "de": "Prüfniveau",
         "fr": "Niveau d'inspection",
-        "es": "Nivel de inspección"
+        "es": "Nivel de inspección",
+        "ar": "مستوى الفحص"
       },
       "businessContext_i18n": {
         "en": "General or special inspection level per ISO 2859-1. Level II is normal.",
         "tr": "ISO 2859-1'e göre genel veya özel muayene seviyesi. Seviye II normaldir.",
         "de": "Allgemeines oder spezielles Prüfniveau gemäß ISO 2859-1. Stufe II ist normal.",
         "fr": "Niveau d'inspection général ou spécial selon ISO 2859-1. Le niveau II est normal.",
-        "es": "Nivel de inspección general o especial según ISO 2859-1. El nivel II es normal."
+        "es": "Nivel de inspección general o especial según ISO 2859-1. El nivel II es normal.",
+        "ar": "مستوى الفحص العام أو الخاص وفقًا لـ ISO 2859-1. المستوى II هو الطبيعي."
       }
     },
     {
@@ -111,14 +117,16 @@
         "tr": "Numune Alma Planı Türü",
         "de": "Stichprobenplan-Typ",
         "fr": "Type de plan d'échantillonnage",
-        "es": "Tipo de plan de muestreo"
+        "es": "Tipo de plan de muestreo",
+        "ar": "نوع خطة أخذ العينات"
       },
       "businessContext_i18n": {
         "en": "Switching rules for severity of sampling per ISO 2859-1.",
         "tr": "ISO 2859-1'e göre numune alma şiddeti için geçiş kuralları.",
         "de": "Umschaltregeln für die Schärfe der Stichprobenprüfung gemäß ISO 2859-1.",
         "fr": "Règles de commutation pour la sévérité de l'échantillonnage selon ISO 2859-1.",
-        "es": "Reglas de cambio para la severidad del muestreo según ISO 2859-1."
+        "es": "Reglas de cambio para la severidad del muestreo según ISO 2859-1.",
+        "ar": "قواعد التبديل لشدة أخذ العينات وفقًا لـ ISO 2859-1."
       }
     },
     {
@@ -135,14 +143,16 @@
         "tr": "Birim Maliyet",
         "de": "Stückkosten",
         "fr": "Coût unitaire",
-        "es": "Costo unitario"
+        "es": "Costo unitario",
+        "ar": "تكلفة الوحدة"
       },
       "businessContext_i18n": {
         "en": "Cost per unit item (production or purchase cost).",
         "tr": "Birim başına maliyet (üretim veya satın alma maliyeti).",
         "de": "Kosten pro Einheit (Produktions- oder Einkaufskosten).",
         "fr": "Coût unitaire de l'article (coût de production ou d'achat).",
-        "es": "Costo por unidad (costo de producción o compra)."
+        "es": "Costo por unidad (costo de producción o compra).",
+        "ar": "التكلفة لكل وحدة (تكلفة الإنتاج أو الشراء)."
       }
     },
     {
@@ -159,14 +169,16 @@
         "tr": "Birim Kusur Maliyeti",
         "de": "Fehlerkosten pro Einheit",
         "fr": "Coût du défaut par unité",
-        "es": "Costo por defecto por unidad"
+        "es": "Costo por defecto por unidad",
+        "ar": "تكلفة الخلل لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
         "tr": "Kusurlu bir birimin müşteriye ulaşması durumunda ortaya çıkan maliyet (yeniden işleme, garanti, iyi niyet kaybı).",
         "de": "Kosten, die entstehen, wenn eine fehlerhafte Einheit den Kunden erreicht (Nacharbeit, Garantie, Goodwill-Verlust).",
         "fr": "Coût encouru si une unité défectueuse atteint le client (reprise, garantie, perte de clientèle).",
-        "es": "Costo incurrido si una unidad defectuosa llega al cliente (reproceso, garantía, pérdida de buena voluntad)."
+        "es": "Costo incurrido si una unidad defectuosa llega al cliente (reproceso, garantía, pérdida de buena voluntad).",
+        "ar": "التكلفة المتكبدة إذا وصلت وحدة معيبة إلى العميل (إعادة العمل، الضمان، فقدان السمعة)."
       }
     },
     {
@@ -183,14 +195,16 @@
         "tr": "Birim Muayene Maliyeti",
         "de": "Prüfkosten pro Einheit",
         "fr": "Coût d'inspection par unité",
-        "es": "Costo de inspección por unidad"
+        "es": "Costo de inspección por unidad",
+        "ar": "تكلفة الفحص لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Cost to inspect one unit (labor, equipment, overhead).",
         "tr": "Bir birimi muayene etme maliyeti (işçilik, ekipman, genel giderler).",
         "de": "Kosten für die Prüfung einer Einheit (Arbeit, Ausrüstung, Gemeinkosten).",
         "fr": "Coût pour inspecter une unité (main-d'œuvre, équipement, frais généraux).",
-        "es": "Costo de inspeccionar una unidad (mano de obra, equipo, gastos generales)."
+        "es": "Costo de inspeccionar una unidad (mano de obra, equipo, gastos generales).",
+        "ar": "تكلفة فحص وحدة واحدة (العمالة، المعدات، التكاليف العامة)."
       }
     },
     {
@@ -207,14 +221,16 @@
         "tr": "Gerçek Kusur Oranı (p)",
         "de": "Tatsächliche Fehlerrate (p)",
         "fr": "Taux de défauts réel (p)",
-        "es": "Tasa de defectos real (p)"
+        "es": "Tasa de defectos real (p)",
+        "ar": "معدل الخلل الفعلي (p)"
       },
       "businessContext_i18n": {
         "en": "Estimated true defect rate in the lot (from historical data or process capability).",
         "tr": "Partideki tahmini gerçek kusur oranı (geçmiş verilerden veya proses yeteneğinden).",
         "de": "Geschätzte wahre Fehlerrate im Los (aus historischen Daten oder Prozessfähigkeit).",
         "fr": "Taux de défauts réel estimé dans le lot (à partir de données historiques ou de la capabilité processus).",
-        "es": "Tasa de defectos real estimada en el lote (a partir de datos históricos o capacidad del proceso)."
+        "es": "Tasa de defectos real estimada en el lote (a partir de datos históricos o capacidad del proceso).",
+        "ar": "معدل الخلل الحقيقي المقدر في الدفعة (من البيانات التاريخية أو قدرة العملية)."
       }
     }
   ],
@@ -263,18 +279,28 @@
     ]
   },
   "formulas": {
-    "result": "lot_size + aql_percent + inspection_level",
-    "result_copy": "lot_size + aql_percent + inspection_level"
+    "base_cost": "lot_size * unit_cost",
+    "adjusted_cost": "lot_size * unit_cost * (1 + (aql_percent / 100))",
+    "result": "lot_size * unit_cost * (1 + (aql_percent / 100)) * (defect_cost_per_unit)",
+    "factor_defect_cost_per_unit": "defect_cost_per_unit"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_defect_cost_per_unit"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "%"
+    "unit": "USD"
   },
   "toolName": "aql-sampling-risk-cost-calculator",
   "catalogCategory": "everyday-life",

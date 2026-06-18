@@ -14,14 +14,15 @@
         "de": "Beetlänge",
         "fr": "Longueur du lit",
         "es": "Longitud del lecho",
-        "ar": "Bed Length"
+        "ar": "طول السرير"
       },
       "businessContext_i18n": {
         "en": "Length of the planting bed",
         "tr": "Dikim yatağının uzunluğu",
         "de": "Länge des Pflanzbeets",
         "fr": "Longueur de la planche de culture",
-        "es": "Largo del lecho de siembra"
+        "es": "Largo del lecho de siembra",
+        "ar": "طول حوض الزراعة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Beetbreite",
         "fr": "Largeur du lit",
         "es": "Ancho del lecho",
-        "ar": "Bed Width"
+        "ar": "عرض السرير"
       },
       "businessContext_i18n": {
         "en": "Width of the planting bed",
         "tr": "Dikim yatağının genişliği",
         "de": "Breite des Pflanzbeets",
         "fr": "Largeur de la planche de culture",
-        "es": "Ancho del lecho de siembra"
+        "es": "Ancho del lecho de siembra",
+        "ar": "عرض حوض الزراعة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Pflanzabstand",
         "fr": "Espacement des plants",
         "es": "Espaciado entre plantas",
-        "ar": "Plant Spacing"
+        "ar": "تباعد النباتات"
       },
       "businessContext_i18n": {
         "en": "Distance between plants in a row",
         "tr": "Sıradaki bitkiler arasındaki mesafe",
         "de": "Abstand zwischen Pflanzen in einer Reihe",
         "fr": "Distance entre les plants dans une rangée",
-        "es": "Distancia entre plantas en una fila"
+        "es": "Distancia entre plantas en una fila",
+        "ar": "المسافة بين النباتات في الصف"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Reihenabstand",
         "fr": "Espacement entre les rangs",
         "es": "Espaciado entre hileras",
-        "ar": "Row Spacing"
+        "ar": "المسافة بين الصفوف"
       },
       "businessContext_i18n": {
         "en": "Distance between rows",
         "tr": "Sıra arası mesafe",
         "de": "Reihenabstand",
         "fr": "Distance entre les rangées",
-        "es": "Distancia entre filas"
+        "es": "Distancia entre filas",
+        "ar": "المسافة بين الصفوف"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Randabstand",
         "fr": "Espacement des bords",
         "es": "Espaciado de borde",
-        "ar": "Edge Spacing"
+        "ar": "تباعد الحواف"
       },
       "businessContext_i18n": {
         "en": "Margin from bed edges before first plant (applied to all sides)",
         "tr": "İlk bitkiden önce yatak kenarlarından bırakılan mesafe (tüm kenarlara uygulanır)",
         "de": "Abstand vom Beetrand bis zur ersten Pflanze (gilt für alle Seiten)",
         "fr": "Marge depuis les bords de la planche avant le premier plant (appliquée à tous les côtés)",
-        "es": "Margen desde los bordes del lecho antes de la primera planta (aplicado a todos los lados)"
+        "es": "Margen desde los bordes del lecho antes de la primera planta (aplicado a todos los lados)",
+        "ar": "هامش من حواف السرير قبل أول نبات (يطبق على جميع الجوانب)"
       }
     }
   ],
   "formulas": {
-    "result": "bedLength + bedWidth + plantSpacing",
-    "result_copy": "bedLength + bedWidth + plantSpacing"
+    "normalized_product": "bedLength * bedWidth * plantSpacing * rowSpacing",
+    "result": "bedLength * bedWidth * plantSpacing * rowSpacing * (edgeSpacing)",
+    "adjustment_factor": "edgeSpacing"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rows",
-      "plantsPerRow"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalPlants",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Makine & Üretim",

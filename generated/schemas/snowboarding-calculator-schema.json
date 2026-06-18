@@ -14,14 +14,15 @@
         "de": "Neigungswinkel",
         "fr": "Angle de pente",
         "es": "Ángulo de inclinación",
-        "ar": "Slope Angle"
+        "ar": "زاوية الميل"
       },
       "businessContext_i18n": {
         "en": "Angle of the snowboarding slope relative to horizontal.",
         "tr": "Snowboard pistinin yataya göre eğim açısı.",
         "de": "Winkel der Snowboard-Piste relativ zur Horizontalen",
         "fr": "Angle de la pente de snowboard par rapport à l'horizontale.",
-        "es": "Ángulo de la pendiente de snowboard respecto a la horizontal."
+        "es": "Ángulo de la pendiente de snowboard respecto a la horizontal.",
+        "ar": "زاوية منحدر التزلج بالنسبة للأفقي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Pistenlänge",
         "fr": "Longueur de la pente",
         "es": "Longitud de la pendiente",
-        "ar": "Slope Length"
+        "ar": "طول المنحدر"
       },
       "businessContext_i18n": {
         "en": "Length of the slope surface.",
         "tr": "Pist yüzeyinin uzunluğu.",
         "de": "Länge der Pistenoberfläche",
         "fr": "Longueur de la surface de la pente.",
-        "es": "Longitud de la superficie de la pendiente."
+        "es": "Longitud de la superficie de la pendiente.",
+        "ar": "طول سطح المنحدر"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
-        "ar": "Friction Coefficient"
+        "ar": "معامل الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Coefficient of kinetic friction between snowboard and snow.",
         "tr": "Snowboard ile kar arasındaki kinetik sürtünme katsayısı.",
         "de": "Gleitreibungskoeffizient zwischen Snowboard und Schnee",
         "fr": "Coefficient de frottement cinétique entre la planche et la neige.",
-        "es": "Coeficiente de fricción cinética entre la tabla de snowboard y la nieve."
+        "es": "Coeficiente de fricción cinética entre la tabla de snowboard y la nieve.",
+        "ar": "معامل الاحتكاك الحركي بين لوح التزلج والثلج"
       }
     },
     {
@@ -83,34 +86,37 @@
         "de": "Masse Fahrer + Brett",
         "fr": "Masse du rider + planche",
         "es": "Masa del jinete + tabla",
-        "ar": "Rider + Board Mass"
+        "ar": "كتلة المتزلج + اللوح"
       },
       "businessContext_i18n": {
         "en": "Total mass of the snowboarder and equipment.",
         "tr": "Snowboardcunun ve ekipmanının toplam kütlesi.",
         "de": "Gesamtmasse des Snowboarders und der Ausrüstung",
         "fr": "Masse totale du snowboardeur et de l'équipement.",
-        "es": "Masa total del snowboarder y el equipo."
+        "es": "Masa total del snowboarder y el equipo.",
+        "ar": "الكتلة الإجمالية للمتزلج والمعدات"
       }
     }
   ],
   "formulas": {
-    "result": "slopeAngle + slopeLength + frictionCoeff",
-    "result_copy": "slopeAngle + slopeLength + frictionCoeff"
+    "normalized_product": "slopeAngle * slopeLength * frictionCoeff * mass",
+    "result": "slopeAngle * slopeLength * frictionCoeff * mass"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "acceleration",
-      "travelTime",
-      "kineticEnergy"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "kineticEnergy",
-    "unit": "degree",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "acceleration": "%"
     }

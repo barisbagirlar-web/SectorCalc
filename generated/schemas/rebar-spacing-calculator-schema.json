@@ -14,14 +14,15 @@
         "de": "Elementbreite",
         "fr": "Largeur de l'élément",
         "es": "Ancho del elemento",
-        "ar": "Element Width"
+        "ar": "عرض العنصر"
       },
       "businessContext_i18n": {
         "en": "Total width of the concrete element (e.g., beam or slab dimension perpendicular to rebar direction).",
         "tr": "Beton elemanın toplam genişliği (örneğin, donatı yönüne dik kiriş veya döşeme boyutu).",
         "de": "Gesamtbreite des Betonelements (z. B. Balken- oder Plattenabmessung senkrecht zur Bewehrungsrichtung).",
         "fr": "Largeur totale de l'élément en béton (par exemple, dimension de la poutre ou de la dalle perpendiculaire à la direction des armatures).",
-        "es": "Ancho total del elemento de concreto (ej. dimensión de viga o losa perpendicular a la dirección de las barras de refuerzo)."
+        "es": "Ancho total del elemento de concreto (ej. dimensión de viga o losa perpendicular a la dirección de las barras de refuerzo).",
+        "ar": "العرض الكلي للعنصر الخرساني (مثل بُعد العارضة أو البلاطة العمودي على اتجاه حديد التسليح)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Linke Abdeckung",
         "fr": "Enrobage gauche",
         "es": "Recubrimiento izquierdo",
-        "ar": "Left Cover"
+        "ar": "الغطاء الأيسر"
       },
       "businessContext_i18n": {
         "en": "Clear concrete cover from left edge to outer surface of leftmost rebar.",
         "tr": "Sol kenardan en soldaki donatının dış yüzeyine kadar olan net beton örtüsü.",
         "de": "Betondeckung vom linken Rand bis zur Außenfläche des linken Bewehrungsstabs.",
         "fr": "Enrobage de béton clair du bord gauche à la surface extérieure de l'armature la plus à gauche.",
-        "es": "Recubrimiento de hormigón desde el borde izquierdo hasta la superficie exterior de la barra más a la izquierda."
+        "es": "Recubrimiento de hormigón desde el borde izquierdo hasta la superficie exterior de la barra más a la izquierda.",
+        "ar": "الغطاء الخرساني الصافي من الحافة اليسرى إلى السطح الخارجي لأقصى قضيب يسار."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Rechte Abdeckung",
         "fr": "Enrobage droit",
         "es": "Recubrimiento derecho",
-        "ar": "Right Cover"
+        "ar": "الغطاء الأيمن"
       },
       "businessContext_i18n": {
         "en": "Clear concrete cover from right edge to outer surface of rightmost rebar.",
         "tr": "Sağ kenardan en sağdaki donatının dış yüzeyine kadar olan net beton örtüsü.",
         "de": "Betondeckung vom rechten Rand bis zur Außenfläche des rechten Bewehrungsstabs.",
         "fr": "Enrobage de béton clair du bord droit à la surface extérieure de l'armature la plus à droite.",
-        "es": "Recubrimiento de hormigón desde el borde derecho hasta la superficie exterior de la barra más a la derecha."
+        "es": "Recubrimiento de hormigón desde el borde derecho hasta la superficie exterior de la barra más a la derecha.",
+        "ar": "الغطاء الخرساني الصافي من الحافة اليمنى إلى السطح الخارجي لأقصى قضيب يمين."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bewehrungsdurchmesser",
         "fr": "Diamètre de l'armature",
         "es": "Diámetro de la barra",
-        "ar": "Rebar Diameter"
+        "ar": "قطر حديد التسليح"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the reinforcing bar.",
         "tr": "Donatı çubuğunun nominal çapı.",
         "de": "Nenndurchmesser des Bewehrungsstabs.",
         "fr": "Diamètre nominal de la barre d'armature.",
-        "es": "Diámetro nominal de la barra de refuerzo."
+        "es": "Diámetro nominal de la barra de refuerzo.",
+        "ar": "القطر الاسمي لقضيب التسليح."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Anzahl der Stäbe",
         "fr": "Nombre de barres",
         "es": "Número de barras",
-        "ar": "Number of Bars"
+        "ar": "عدد القضبان"
       },
       "businessContext_i18n": {
         "en": "Total number of longitudinal bars placed within the element width (must be ≥2).",
         "tr": "Eleman genişliği içine yerleştirilen toplam boyuna donatı sayısı (≥2 olmalıdır).",
         "de": "Gesamtzahl der Längsstäbe innerhalb der Elementbreite (muss ≥2 sein).",
         "fr": "Nombre total de barres longitudinales placées dans la largeur de l'élément (doit être ≥2).",
-        "es": "Número total de barras longitudinales colocadas dentro del ancho del elemento (debe ser ≥2)."
+        "es": "Número total de barras longitudinales colocadas dentro del ancho del elemento (debe ser ≥2).",
+        "ar": "العدد الإجمالي للقضبان الطولية الموضوعة داخل عرض العنصر (يجب أن يكون ≥2)."
       }
     }
   ],

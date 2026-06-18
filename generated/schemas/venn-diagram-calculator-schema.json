@@ -13,14 +13,16 @@
         "tr": "A kümesi boyutu",
         "de": "Größe von Menge A",
         "fr": "Taille de l'ensemble A",
-        "es": "Set A size",
-        "ar": "Set A size"
+        "es": "Tamaño del conjunto A",
+        "ar": "حجم المجموعة A"
       },
       "businessContext_i18n": {
         "en": "Number of elements uniquely belonging to set A, including overlaps",
         "tr": "A kümesine ait benzersiz eleman sayısı (kesişimler dahil)",
         "de": "Anzahl der Elemente, die eindeutig zu Menge A gehören, einschließlich Überschneidungen",
-        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble A, y compris les chevauchements"
+        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble A, y compris les chevauchements",
+        "es": "Número de elementos que pertenecen únicamente al conjunto A, incluyendo superposiciones",
+        "ar": "عدد العناصر التي تنتمي بشكل فريد إلى المجموعة A، بما في ذلك التداخلات"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "B kümesi boyutu",
         "de": "Größe von Menge B",
         "fr": "Taille de l'ensemble B",
-        "es": "Set B size",
-        "ar": "Set B size"
+        "es": "Tamaño del conjunto B",
+        "ar": "حجم المجموعة B"
       },
       "businessContext_i18n": {
         "en": "Number of elements uniquely belonging to set B, including overlaps",
         "tr": "B kümesine ait benzersiz eleman sayısı (kesişimler dahil)",
         "de": "Anzahl der Elemente, die eindeutig zu Menge B gehören, einschließlich Überschneidungen",
-        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble B, y compris les chevauchements"
+        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble B, y compris les chevauchements",
+        "es": "Número de elementos que pertenecen únicamente al conjunto B, incluyendo superposiciones",
+        "ar": "عدد العناصر التي تنتمي بشكل فريد إلى المجموعة B، بما في ذلك التداخلات"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "C kümesi boyutu",
         "de": "Größe von Menge C",
         "fr": "Taille de l'ensemble C",
-        "es": "Set C size",
-        "ar": "Set C size"
+        "es": "Tamaño del conjunto C",
+        "ar": "حجم المجموعة C"
       },
       "businessContext_i18n": {
         "en": "Number of elements uniquely belonging to set C, including overlaps",
         "tr": "C kümesine ait benzersiz eleman sayısı (kesişimler dahil)",
         "de": "Anzahl der Elemente, die eindeutig zu Menge C gehören, einschließlich Überschneidungen",
-        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble C, y compris les chevauchements"
+        "fr": "Nombre d'éléments appartenant uniquement à l'ensemble C, y compris les chevauchements",
+        "es": "Número de elementos que pertenecen únicamente al conjunto C, incluyendo superposiciones",
+        "ar": "عدد العناصر التي تنتمي بشكل فريد إلى المجموعة C، بما في ذلك التداخلات"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "A ∩ B boyutu",
         "de": "Größe von A ∩ B",
         "fr": "Taille de A ∩ B",
-        "es": "A ∩ B size",
-        "ar": "A ∩ B size"
+        "es": "Tamaño de A ∩ B",
+        "ar": "حجم A ∩ B"
       },
       "businessContext_i18n": {
         "en": "Number of elements common to sets A and B, possibly also in C",
         "tr": "A ve B kümelerinde ortak olan eleman sayısı (C'de de olabilir)",
         "de": "Anzahl der Elemente, die sowohl in A als auch in B vorkommen, möglicherweise auch in C",
-        "fr": "Nombre d'éléments communs aux ensembles A et B, éventuellement aussi dans C"
+        "fr": "Nombre d'éléments communs aux ensembles A et B, éventuellement aussi dans C",
+        "es": "Número de elementos comunes a los conjuntos A y B, posiblemente también en C",
+        "ar": "عدد العناصر المشتركة بين المجموعتين A وB، وربما أيضًا في C"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "A ∩ C boyutu",
         "de": "Größe von A ∩ C",
         "fr": "Taille de A ∩ C",
-        "es": "A ∩ C size",
-        "ar": "A ∩ C size"
+        "es": "Tamaño de A ∩ C",
+        "ar": "حجم A ∩ C"
       },
       "businessContext_i18n": {
         "en": "Number of elements common to sets A and C, possibly also in B",
         "tr": "A ve C kümelerinde ortak olan eleman sayısı (B'de de olabilir)",
         "de": "Anzahl der Elemente, die sowohl in A als auch in C vorkommen, möglicherweise auch in B",
-        "fr": "Nombre d'éléments communs aux ensembles A et C, éventuellement aussi dans B"
+        "fr": "Nombre d'éléments communs aux ensembles A et C, éventuellement aussi dans B",
+        "es": "Número de elementos comunes a los conjuntos A y C, posiblemente también en B",
+        "ar": "عدد العناصر المشتركة بين المجموعتين A وC، وربما أيضًا في B"
       }
     },
     {
@@ -123,14 +133,16 @@
         "tr": "B ∩ C boyutu",
         "de": "Größe von B ∩ C",
         "fr": "Taille de B ∩ C",
-        "es": "B ∩ C size",
-        "ar": "B ∩ C size"
+        "es": "Tamaño de B ∩ C",
+        "ar": "حجم B ∩ C"
       },
       "businessContext_i18n": {
         "en": "Number of elements common to sets B and C, possibly also in A",
         "tr": "B ve C kümelerinde ortak olan eleman sayısı (A'da da olabilir)",
         "de": "Anzahl der Elemente, die sowohl in B als auch in C vorkommen, möglicherweise auch in A",
-        "fr": "Nombre d'éléments communs aux ensembles B et C, éventuellement aussi dans A"
+        "fr": "Nombre d'éléments communs aux ensembles B et C, éventuellement aussi dans A",
+        "es": "Número de elementos comunes a los conjuntos B y C, posiblemente también en A",
+        "ar": "عدد العناصر المشتركة بين المجموعتين B وC، وربما أيضًا في A"
       }
     },
     {
@@ -145,14 +157,16 @@
         "tr": "A ∩ B ∩ C boyutu",
         "de": "Größe von A ∩ B ∩ C",
         "fr": "Taille de A ∩ B ∩ C",
-        "es": "A ∩ B ∩ C size",
-        "ar": "A ∩ B ∩ C size"
+        "es": "Tamaño de A ∩ B ∩ C",
+        "ar": "حجم A ∩ B ∩ C"
       },
       "businessContext_i18n": {
         "en": "Number of elements common to all three sets A, B, and C",
         "tr": "Her üç kümede (A, B ve C) ortak olan eleman sayısı",
         "de": "Anzahl der Elemente, die in allen drei Mengen A, B und C vorkommen",
-        "fr": "Nombre d'éléments communs aux trois ensembles A, B et C"
+        "fr": "Nombre d'éléments communs aux trois ensembles A, B et C",
+        "es": "Número de elementos comunes a los tres conjuntos A, B y C",
+        "ar": "عدد العناصر المشتركة بين المجموعات الثلاث A و B و C"
       }
     },
     {
@@ -167,14 +181,16 @@
         "tr": "Evrensel küme boyutu",
         "de": "Größe der Grundmenge",
         "fr": "Taille de l'ensemble univers",
-        "es": "Universal set size",
-        "ar": "Universal set size"
+        "es": "Tamaño del conjunto universal",
+        "ar": "حجم المجموعة الكلية"
       },
       "businessContext_i18n": {
         "en": "Total number of elements in the entire universe, including those outside A, B, and C",
         "tr": "Tüm evrendeki toplam eleman sayısı (A, B ve C dışındakiler dahil)",
         "de": "Gesamtzahl der Elemente im gesamten Universum, einschließlich derer außerhalb von A, B und C",
-        "fr": "Nombre total d'éléments dans l'univers entier, y compris ceux en dehors de A, B et C"
+        "fr": "Nombre total d'éléments dans l'univers entier, y compris ceux en dehors de A, B et C",
+        "es": "Número total de elementos en todo el universo, incluyendo aquellos fuera de A, B y C",
+        "ar": "إجمالي عدد العناصر في الكون بأكمله، بما في ذلك العناصر خارج A و B و C"
       }
     }
   ],

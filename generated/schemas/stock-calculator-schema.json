@@ -14,14 +14,15 @@
         "de": "Jährliche Nachfrage",
         "fr": "Demande annuelle",
         "es": "Demanda anual",
-        "ar": "Yıllık Talep"
+        "ar": "الطلب السنوي"
       },
       "businessContext_i18n": {
         "en": "Ürünün yıllık talep miktarı",
         "tr": "Ürünün yıllık talep miktarı",
         "de": "Jährliche Nachfragemenge des Produkts",
         "fr": "Demande annuelle du produit",
-        "es": "Demanda anual del producto"
+        "es": "Demanda anual del producto",
+        "ar": "الطلب السنوي على المنتج"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bestellkosten",
         "fr": "Coût de commande",
         "es": "Costo de pedido",
-        "ar": "Sipariş Maliyeti"
+        "ar": "تكلفة الطلب"
       },
       "businessContext_i18n": {
         "en": "Her sipariş için sabit maliyet",
         "tr": "Her sipariş için sabit maliyet",
         "de": "Fixe Kosten pro Bestellung",
         "fr": "Coût fixe par commande",
-        "es": "Costo fijo por pedido"
+        "es": "Costo fijo por pedido",
+        "ar": "التكلفة الثابتة لكل طلب"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lagerhaltungskosten",
         "fr": "Coût de détention des stocks",
         "es": "Costo de mantenimiento de inventario",
-        "ar": "Stokta Tutma Maliyeti"
+        "ar": "تكلفة الاحتفاظ بالمخزون"
       },
       "businessContext_i18n": {
         "en": "Bir adet ürünü bir yıl stokta tutma maliyeti",
         "tr": "Bir adet ürünü bir yıl stokta tutma maliyeti",
         "de": "Lagerhaltungskosten pro Stück und Jahr",
         "fr": "Coût de détention d'un produit en stock pendant un an",
-        "es": "Costo de mantener una unidad en inventario por año"
+        "es": "Costo de mantener una unidad en inventario por año",
+        "ar": "تكلفة تخزين وحدة واحدة لمدة عام"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Stückkosten",
         "fr": "Coût unitaire",
         "es": "Costo unitario",
-        "ar": "Birim Maliyet"
+        "ar": "تكلفة الوحدة"
       },
       "businessContext_i18n": {
         "en": "Ürün başına satın alma maliyeti (opsiyonel)",
         "tr": "Ürün başına satın alma maliyeti (opsiyonel)",
         "de": "Einkaufskosten pro Stück (optional)",
         "fr": "Coût d'achat par produit (optionnel)",
-        "es": "Costo de compra por unidad (opcional)"
+        "es": "Costo de compra por unidad (opcional)",
+        "ar": "تكلفة شراء الوحدة (اختياري)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Lieferzeit",
         "fr": "Délai d'approvisionnement",
         "es": "Plazo de entrega",
-        "ar": "Tedarik Süresi"
+        "ar": "تكلفة الوحدة (سعر الشراء)"
       },
       "businessContext_i18n": {
         "en": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
         "tr": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
         "de": "Lieferzeit zwischen Bestellung und Erhalt (Tage)",
         "fr": "Délai entre la commande et la réception (jours)",
-        "es": "Tiempo entre la realización del pedido y la recepción (días)"
+        "es": "Tiempo entre la realización del pedido y la recepción (días)",
+        "ar": "المهلة الزمنية بين الطلب والاستلام (أيام)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Jährliche Arbeitstage",
         "fr": "Jours ouvrables par an",
         "es": "Días laborables al año",
-        "ar": "Yıllık Çalışma Günü"
+        "ar": "متوسط الوقت من تقديم الطلب إلى الاستلام. ضروري لحساب مخزون الأمان ونقطة إعادة الطلب."
       },
       "businessContext_i18n": {
         "en": "Yıldaki çalışma günü sayısı",
         "tr": "Yıldaki çalışma günü sayısı",
         "de": "Anzahl der Arbeitstage pro Jahr",
         "fr": "Nombre de jours ouvrables par an",
-        "es": "Número de días laborables al año"
+        "es": "Número de días laborables al año",
+        "ar": "عدد أيام العمل في السنة"
       }
     }
   ],

@@ -12,16 +12,17 @@
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
-        "fr": "Distance (km)",
+        "fr": "Debye-Hückel B",
         "es": "Distancia (km)",
-        "ar": "Distance (km)"
+        "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
         "en": "Total hiking distance in kilometers",
         "tr": "Toplam yürüyüş mesafesi (km)",
-        "de": "Total hiking distance in kilometers",
+        "de": "Gesamte Wanderstrecke in Kilometern",
         "fr": "Distance totale de randonnée en kilomètres",
-        "es": "Distancia total de caminata en kilómetros"
+        "es": "Distancia total de caminata en kilómetros",
+        "ar": "إجمالي مسافة المشي بالكيلومترات"
       }
     },
     {
@@ -34,17 +35,18 @@
       "label_i18n": {
         "en": "Elevation Gain (m)",
         "tr": "İrtifa Kazancı (m)",
-        "de": "Elevation Gain (m)",
+        "de": "Höhengewinn (m)",
         "fr": "Gain d'altitude (m)",
         "es": "Ganancia de altitud (m)",
-        "ar": "Elevation Gain (m)"
+        "ar": "الارتفاع المكتسب (م)"
       },
       "businessContext_i18n": {
         "en": "Total ascent in meters",
         "tr": "Toplam tırmanış (metre)",
-        "de": "Total ascent in meters",
+        "de": "Gesamter Aufstieg in Metern",
         "fr": "Ascension totale en mètres",
-        "es": "Ascenso total en metros"
+        "es": "Ascenso total en metros",
+        "ar": "إجمالي الصعود بالأمتار"
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Walking Pace (min/km)",
         "tr": "Yürüyüş Hızı (dak/km)",
-        "de": "Walking Pace (min/km)",
+        "de": "Gehgeschwindigkeit (min/km)",
         "fr": "Allure de marche (min/km)",
         "es": "Ritmo de marcha (min/km)",
-        "ar": "Walking Pace (min/km)"
+        "ar": "سرعة المشي (دقيقة/كم)"
       },
       "businessContext_i18n": {
         "en": "Flat walking pace in minutes per kilometer",
         "tr": "Düz zeminde yürüyüş hızı (dakika/kilometre)",
-        "de": "Flat walking pace in minutes per kilometer",
+        "de": "Flaches Gehtempo in Minuten pro Kilometer",
         "fr": "Allure de marche sur terrain plat en minutes par kilomètre",
-        "es": "Ritmo de marcha en llano en minutos por kilómetro"
+        "es": "Ritmo de marcha en llano en minutos por kilómetro",
+        "ar": "سرعة المشي على الأرض المستوية بالدقائق لكل كيلومتر"
       }
     },
     {
@@ -80,17 +83,18 @@
       "label_i18n": {
         "en": "Terrain Factor",
         "tr": "Arazi Faktörü",
-        "de": "Terrain Factor",
+        "de": "Geländefaktor",
         "fr": "Facteur de terrain",
         "es": "Factor de terreno",
-        "ar": "Terrain Factor"
+        "ar": "عامل التضاريس"
       },
       "businessContext_i18n": {
         "en": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
         "tr": "Engebeli arazi çarpanı (1 = kolay, 1.5 = orta, 2 = zor)",
-        "de": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
+        "de": "Multiplikator für unwegsames Gelände (1 = einfach, 1,5 = mittel, 2 = schwierig)",
         "fr": "Multiplicateur pour terrain accidenté (1 = facile, 1,5 = modéré, 2 = difficile)",
-        "es": "Multiplicador por terreno accidentado (1 = fácil, 1.5 = moderado, 2 = difícil)"
+        "es": "Multiplicador por terreno accidentado (1 = fácil, 1.5 = moderado, 2 = difícil)",
+        "ar": "مضاعف التضاريس الوعرة (1 = سهل، 1.5 = متوسط، 2 = صعب)"
       }
     }
   ],

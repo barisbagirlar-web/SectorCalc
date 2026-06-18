@@ -14,13 +14,15 @@
         "de": "Windungszahl",
         "fr": "Nombre de spires",
         "es": "Número de vueltas",
-        "ar": "Number of Turns"
+        "ar": "عدد اللفات"
       },
       "businessContext_i18n": {
         "en": "Total number of wire turns in the solenoid coil",
         "tr": "Solenoid bobindeki toplam tel sarım sayısı",
         "de": "Gesamtzahl der Drahtwindungen in der Magnetspule",
-        "fr": "Nombre total de spires de la bobine du solénoïde"
+        "fr": "Nombre total de spires de la bobine du solénoïde",
+        "es": "Número total de vueltas de alambre en la bobina del solenoide",
+        "ar": "إجمالي عدد لفات السلك في ملف الملف اللولبي"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Strom",
         "fr": "Courant",
         "es": "Corriente",
-        "ar": "Current"
+        "ar": "التيار"
       },
       "businessContext_i18n": {
         "en": "Current flowing through the coil",
         "tr": "Bobinden geçen akım",
         "de": "Strom durch die Spule",
-        "fr": "Courant traversant la bobine"
+        "fr": "Courant traversant la bobine",
+        "es": "Corriente que fluye a través de la bobina",
+        "ar": "التيار المار في الملف"
       }
     },
     {
@@ -55,16 +59,18 @@
       "label_i18n": {
         "en": "Coil Length",
         "tr": "Bobin Uzunluğu",
-        "de": "Coil Length",
+        "de": "Spulenlänge",
         "fr": "Longueur de la bobine",
         "es": "Longitud de la bobina",
-        "ar": "Coil Length"
+        "ar": "طول الملف"
       },
       "businessContext_i18n": {
         "en": "Length of the solenoid coil",
         "tr": "Solenoid bobinin uzunluğu",
         "de": "Länge der Magnetspule",
-        "fr": "Longueur de la bobine du solénoïde"
+        "fr": "Longueur de la bobine du solénoïde",
+        "es": "Longitud de la bobina del solenoide",
+        "ar": "طول ملف الملف اللولبي"
       }
     },
     {
@@ -77,16 +83,18 @@
       "label_i18n": {
         "en": "Relative Permeability",
         "tr": "Bağıl Geçirgenlik",
-        "de": "Relative Permeability",
+        "de": "Relative Permeabilität",
         "fr": "Perméabilité relative",
         "es": "Permeabilidad relativa",
-        "ar": "Relative Permeability"
+        "ar": "النفاذية النسبية"
       },
       "businessContext_i18n": {
         "en": "Relative magnetic permeability of the core material (1 for air/vacuum)",
         "tr": "Çekirdek malzemesinin bağıl manyetik geçirgenliği (hava/vakum için 1)",
         "de": "Relative magnetische Permeabilität des Kernmaterials (1 für Luft/Vakuum)",
-        "fr": "Perméabilité magnétique relative du matériau du noyau (1 pour air/vide)"
+        "fr": "Perméabilité magnétique relative du matériau du noyau (1 pour air/vide)",
+        "es": "Permeabilidad magnética relativa del material del núcleo (1 para aire/vacío)",
+        "ar": "النفاذية المغناطيسية النسبية لمادة القلب (1 للهواء/الفراغ)"
       }
     }
   ],

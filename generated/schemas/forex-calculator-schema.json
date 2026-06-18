@@ -14,14 +14,15 @@
         "de": "Losgröße",
         "fr": "Taille du lot",
         "es": "Tamaño del lote",
-        "ar": "Lot Size"
+        "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
         "en": "Number of standard lots (1 lot = 100,000 units)",
         "tr": "Standart lot sayısı (1 lot = 100.000 birim)",
         "de": "Anzahl Standard-Lots (1 Lot = 100.000 Einheiten)",
         "fr": "Nombre de lots standard (1 lot = 100 000 unités)",
-        "es": "Número de lotes estándar (1 lote = 100,000 unidades)"
+        "es": "Número de lotes estándar (1 lote = 100,000 unidades)",
+        "ar": "عدد العقود القياسية (1 عقد = 100,000 وحدة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Einstiegskurs",
         "fr": "Prix d'entrée",
         "es": "Precio de entrada",
-        "ar": "Entry Price"
+        "ar": "سعر الدخول"
       },
       "businessContext_i18n": {
         "en": "Exchange rate at which the position was entered",
         "tr": "Pozisyonun girildiği döviz kuru",
         "de": "Wechselkurs, zu dem die Position eröffnet wurde",
         "fr": "Taux de change auquel la position a été ouverte",
-        "es": "Tipo de cambio al que se ingresó la posición"
+        "es": "Tipo de cambio al que se ingresó la posición",
+        "ar": "سعر الصرف الذي تم به فتح المركز"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ausstiegskurs",
         "fr": "Prix de sortie",
         "es": "Precio de salida",
-        "ar": "Exit Price"
+        "ar": "سعر الخروج"
       },
       "businessContext_i18n": {
         "en": "Exchange rate at which the position was closed",
         "tr": "Pozisyonun kapatıldığı döviz kuru",
         "de": "Wechselkurs, zu dem die Position geschlossen wurde",
         "fr": "Taux de change auquel la position a été fermée",
-        "es": "Tipo de cambio al que se cerró la posición"
+        "es": "Tipo de cambio al que se cerró la posición",
+        "ar": "سعر الصرف الذي تم به إغلاق المركز"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Pip-Größe",
         "fr": "Taille du pip",
         "es": "Tamaño del pip",
-        "ar": "Pip Size"
+        "ar": "حجم النقطة"
       },
       "businessContext_i18n": {
         "en": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
         "tr": "En küçük fiyat artışı (ör. çoğu parite için 0.0001, JPY pariteleri için 0.01)",
         "de": "Kleinste Preisänderung (z. B. 0,0001 für die meisten Paare, 0,01 für JPY-Paare)",
         "fr": "Plus petit incrément de prix (ex. 0,0001 pour la plupart des paires, 0,01 pour les paires JPY)",
-        "es": "Incremento de precio más pequeño (p. ej., 0.0001 para la mayoría de pares, 0.01 para pares JPY)"
+        "es": "Incremento de precio más pequeño (p. ej., 0.0001 para la mayoría de pares, 0.01 para pares JPY)",
+        "ar": "أصغر زيادة في السعر (مثل 0.0001 لمعظم الأزواج، 0.01 لأزواج الين)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Pip-Wert",
         "fr": "Valeur du pip",
         "es": "Valor del pip",
-        "ar": "Pip Value"
+        "ar": "قيمة النقطة"
       },
       "businessContext_i18n": {
         "en": "Monetary value of one pip per standard lot in the account currency",
         "tr": "Hesap para biriminde standart lot başına bir pipin parasal değeri",
         "de": "Geldwert eines Pips pro Standard-Lot in der Kontowährung",
         "fr": "Valeur monétaire d'un pip par lot standard dans la devise du compte",
-        "es": "Valor monetario de un pip por lote estándar en la moneda de la cuenta"
+        "es": "Valor monetario de un pip por lote estándar en la moneda de la cuenta",
+        "ar": "القيمة النقدية لنقطة واحدة لكل عقد قياسي بعملة الحساب"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Hebel",
         "fr": "Effet de levier",
         "es": "Apalancamiento",
-        "ar": "Leverage"
+        "ar": "الرافعة المالية"
       },
       "businessContext_i18n": {
         "en": "Leverage ratio provided by the broker (e.g., 100:1)",
         "tr": "Broker tarafından sağlanan kaldıraç oranı (ör. 100:1)",
         "de": "Vom Broker bereitgestelltes Hebelverhältnis (z. B. 100:1)",
         "fr": "Ratio de levier fourni par le courtier (ex. 100:1)",
-        "es": "Ratio de apalancamiento proporcionado por el bróker (p. ej., 100:1)"
+        "es": "Ratio de apalancamiento proporcionado por el bróker (p. ej., 100:1)",
+        "ar": "نسبة الرافعة المالية التي يوفرها الوسيط (مثل 100:1)"
       }
     }
   ],

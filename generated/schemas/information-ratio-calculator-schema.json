@@ -14,14 +14,15 @@
         "de": "Portfoliorendite",
         "fr": "Rendement du portefeuille",
         "es": "Rendimiento de la cartera",
-        "ar": "Portfolio Return"
+        "ar": "عائد المحفظة"
       },
       "businessContext_i18n": {
         "en": "Yatırım portföyünün dönemsel getirisi.",
         "tr": "Yatırım portföyünün dönemsel getirisi.",
         "de": "Periodische Rendite des Anlageportfolios.",
         "fr": "Rendement périodique du portefeuille d'investissement.",
-        "es": "Rendimiento periódico de la cartera de inversión."
+        "es": "Rendimiento periódico de la cartera de inversión.",
+        "ar": "عائد المحفظة الاستثمارية خلال الفترة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Benchmark-Rendite",
         "fr": "Rendement de l'indice de référence",
         "es": "Rendimiento del índice de referencia",
-        "ar": "Benchmark Return"
+        "ar": "عائد المؤشر المرجعي"
       },
       "businessContext_i18n": {
         "en": "Karşılaştırma ölçütünün dönemsel getirisi.",
         "tr": "Karşılaştırma ölçütünün dönemsel getirisi.",
         "de": "Periodische Rendite der Vergleichsbenchmark.",
         "fr": "Rendement périodique de l'indice de référence.",
-        "es": "Rendimiento periódico del índice de referencia."
+        "es": "Rendimiento periódico del índice de referencia.",
+        "ar": "عائد المؤشر المرجعي خلال الفترة."
       }
     },
     {
@@ -57,17 +59,18 @@
       "label_i18n": {
         "en": "Tracking Error",
         "tr": "İzleme Hatası",
-        "de": "Tracking Error",
+        "de": "Nachlauffehler",
         "fr": "Erreur de suivi",
         "es": "Error de seguimiento",
-        "ar": "Tracking Error"
+        "ar": "خطأ التتبع"
       },
       "businessContext_i18n": {
         "en": "Aktif getirinin standart sapması.",
         "tr": "Aktif getirinin standart sapması.",
         "de": "Standardabweichung der aktiven Rendite.",
         "fr": "Écart type du rendement actif.",
-        "es": "Desviación estándar del rendimiento activo."
+        "es": "Desviación estándar del rendimiento activo.",
+        "ar": "الانحراف المعياري للعائد النشط."
       }
     },
     {
@@ -83,32 +86,36 @@
         "de": "Annualisierungsfaktor",
         "fr": "Facteur d'annualisation",
         "es": "Factor de anualización",
-        "ar": "Annualization Factor"
+        "ar": "عامل السننة"
       },
       "businessContext_i18n": {
         "en": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
         "tr": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
         "de": "Anzahl der Perioden für die Annualisierung (z. B. monatlich: 12, täglich: 252).",
         "fr": "Nombre de périodes pour l'annualisation (ex. mensuel:12, quotidien:252).",
-        "es": "Número de períodos para anualizar (ej. mensual:12, diario:252)."
+        "es": "Número de períodos para anualizar (ej. mensual:12, diario:252).",
+        "ar": "عدد الفترات للسننة (مثل شهري: 12، يومي: 252)."
       }
     }
   ],
   "formulas": {
-    "result": "portfolioReturn + benchmarkReturn + trackingError",
-    "result_aux": "portfolioReturn + benchmarkReturn + trackingError"
+    "normalized_product": "(portfolioReturn / 100) * (benchmarkReturn / 100) * (trackingError / 100) * periodsPerYear",
+    "result": "(portfolioReturn / 100) * (benchmarkReturn / 100) * (trackingError / 100) * periodsPerYear"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "activeReturn",
-      "annualizedActiveReturn"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "annualizedActiveReturn",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Finans & Yatırım",

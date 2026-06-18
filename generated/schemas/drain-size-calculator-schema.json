@@ -14,14 +14,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Flow Rate"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Design flow rate for the drain",
         "tr": "Drenaj için tasarım debisi",
         "de": "Auslegungsdurchfluss für den Abfluss",
         "fr": "Débit de conception pour le drain",
-        "es": "Caudal de diseño para el drenaje"
+        "es": "Caudal de diseño para el drenaje",
+        "ar": "معدل التدفق التصميمي للصرف"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Rohrgefälle",
         "fr": "Pente de la canalisation",
         "es": "Pendiente de la tubería",
-        "ar": "Pipe Slope"
+        "ar": "ميل الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Slope of the drainage pipe",
         "tr": "Drenaj borusunun eğimi",
         "de": "Gefälle des Abflussrohrs",
         "fr": "Pente de la canalisation de drainage",
-        "es": "Pendiente de la tubería de drenaje"
+        "es": "Pendiente de la tubería de drenaje",
+        "ar": "ميل أنبوب الصرف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Manning-Rauheit (n)",
         "fr": "Coefficient de rugosité de Manning (n)",
         "es": "Rugosidad de Manning (n)",
-        "ar": "Manning's Roughness (n)"
+        "ar": "خشونة مانينغ (n)"
       },
       "businessContext_i18n": {
         "en": "Manning's roughness coefficient for pipe material",
         "tr": "Boru malzemesi için Manning pürüzlülük katsayısı",
         "de": "Manning-Rauheitsbeiwert für Rohrmaterial",
         "fr": "Coefficient de rugosité de Manning pour le matériau de la canalisation",
-        "es": "Coeficiente de rugosidad de Manning para el material de la tubería"
+        "es": "Coeficiente de rugosidad de Manning para el material de la tubería",
+        "ar": "معامل خشونة مانينغ لمادة الأنبوب"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Factor applied to flow rate for safety",
         "tr": "Güvenlik için debiye uygulanan faktör",
         "de": "Sicherheitsfaktor für die Durchflussrate",
         "fr": "Facteur appliqué au débit pour la sécurité",
-        "es": "Factor aplicado al caudal por seguridad"
+        "es": "Factor aplicado al caudal por seguridad",
+        "ar": "عامل أمان يُطبق على معدل التدفق"
       }
     }
   ],
   "formulas": {
-    "result": "flowRate + slope + manningN",
-    "result_copy": "flowRate + slope + manningN"
+    "normalized_product": "flowRate * slope * manningN * safetyFactor",
+    "result": "flowRate * slope * manningN * safetyFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "velocity",
-      "area"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "area",
-    "unit": "l/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",

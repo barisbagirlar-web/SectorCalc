@@ -23,14 +23,16 @@
         "tr": "Litre cinsinden hacim",
         "de": "Volumen in Litern",
         "fr": "Volume en litres",
-        "es": "Volumen en litros"
+        "es": "Volumen en litros",
+        "ar": "الحجم باللتر"
       },
       "businessContext_i18n": {
         "en": "Total liquid volume to be converted, typically from production batch or storage tank measurement.",
         "tr": "Dönüştürülecek toplam sıvı hacmi, genellikle üretim partisi veya depolama tankı ölçümünden.",
         "de": "Gesamtflüssigkeitsvolumen zur Umrechnung, typischerweise aus Produktionscharge oder Lagertankmessung.",
         "fr": "Volume total de liquide à convertir, généralement issu d'un lot de production ou d'une mesure de cuve de stockage.",
-        "es": "Volumen total de líquido a convertir, típicamente de una medición de lote de producción o tanque de almacenamiento."
+        "es": "Volumen total de líquido a convertir, típicamente de una medición de lote de producción o tanque de almacenamiento.",
+        "ar": "إجمالي حجم السائل المراد تحويله، عادةً من قياس دفعة إنتاج أو خزان تخزين."
       }
     },
     {
@@ -51,14 +53,16 @@
         "tr": "Dönüşüm Standardı",
         "de": "Umrechnungsstandard",
         "fr": "Norme de conversion",
-        "es": "Estándar de conversión"
+        "es": "Estándar de conversión",
+        "ar": "معيار التحويل"
       },
       "businessContext_i18n": {
         "en": "Select the gallon standard based on regional regulatory or trade requirements (ISO 80000-1).",
         "tr": "Bölgesel düzenleme veya ticaret gereksinimlerine göre galon standardını seçin (ISO 80000-1).",
         "de": "Wählen Sie den Gallonenstandard basierend auf regionalen regulatorischen oder handelsbezogenen Anforderungen (ISO 80000-1).",
         "fr": "Sélectionnez le standard gallon en fonction des exigences réglementaires ou commerciales régionales (ISO 80000-1).",
-        "es": "Seleccione el estándar de galón según requisitos regulatorios o comerciales regionales (ISO 80000-1)."
+        "es": "Seleccione el estándar de galón según requisitos regulatorios o comerciales regionales (ISO 80000-1).",
+        "ar": "اختر معيار الغالون بناءً على المتطلبات التنظيمية أو التجارية الإقليمية (ISO 80000-1)."
       }
     },
     {
@@ -75,14 +79,16 @@
         "tr": "Sıcaklık Ayarlama Faktörü",
         "de": "Temperaturanpassungsfaktor",
         "fr": "Facteur d'ajustement de température",
-        "es": "Factor de ajuste de temperatura"
+        "es": "Factor de ajuste de temperatura",
+        "ar": "عامل تعديل درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Correction factor for thermal expansion/contraction of liquid (per ASTM D1250). 1.0 = no adjustment.",
         "tr": "Sıvının termal genleşme/büzülmesi için düzeltme faktörü (ASTM D1250'ye göre). 1.0 = ayar yok.",
         "de": "Korrekturfaktor für thermische Ausdehnung/Kontraktion der Flüssigkeit (gemäß ASTM D1250). 1,0 = keine Anpassung.",
         "fr": "Facteur de correction pour la dilatation/contraction thermique du liquide (selon ASTM D1250). 1,0 = aucun ajustement.",
-        "es": "Factor de corrección por expansión/contracción térmica del líquido (según ASTM D1250). 1.0 = sin ajuste."
+        "es": "Factor de corrección por expansión/contracción térmica del líquido (según ASTM D1250). 1.0 = sin ajuste.",
+        "ar": "عامل تصحيح التمدد/الانكماش الحراري للسائل (وفقًا لـ ASTM D1250). 1.0 = بدون تعديل."
       }
     },
     {
@@ -99,14 +105,16 @@
         "tr": "Parti Kayıp Faktörü",
         "de": "Chargenverlustfaktor",
         "fr": "Facteur de perte de lot",
-        "es": "Factor de pérdida de lote"
+        "es": "Factor de pérdida de lote",
+        "ar": "عامل فقدان الدفعة"
       },
       "businessContext_i18n": {
         "en": "Expected percentage loss during transfer or processing (Lean Six Sigma waste reduction).",
         "tr": "Transfer veya işleme sırasında beklenen yüzde kayıp (Yalın Altı Sigma israf azaltma).",
         "de": "Erwarteter prozentualer Verlust während des Transfers oder der Verarbeitung (Lean Six Sigma Abfallreduzierung).",
         "fr": "Pourcentage de perte attendu lors du transfert ou du traitement (réduction des déchets Lean Six Sigma).",
-        "es": "Porcentaje de pérdida esperada durante la transferencia o procesamiento (reducción de desperdicio Lean Six Sigma)."
+        "es": "Porcentaje de pérdida esperada durante la transferencia o procesamiento (reducción de desperdicio Lean Six Sigma).",
+        "ar": "النسبة المئوية المتوقعة للفقد أثناء النقل أو المعالجة (تقليل الهدر في اللين وسيكس سيجما)."
       }
     },
     {
@@ -123,14 +131,16 @@
         "tr": "Buharlaşma Kaybını Dahil Et",
         "de": "Verdunstungsverlust einbeziehen",
         "fr": "Inclure la perte par évaporation",
-        "es": "Incluir pérdida por evaporación"
+        "es": "Incluir pérdida por evaporación",
+        "ar": "تضمين فقدان التبخر"
       },
       "businessContext_i18n": {
         "en": "If true, applies an additional evaporation loss factor based on standard industrial evaporation rates.",
         "tr": "Doğruysa, standart endüstriyel buharlaşma oranlarına dayalı ek bir buharlaşma kaybı faktörü uygular.",
         "de": "Wenn wahr, wird ein zusätzlicher Verdunstungsverlustfaktor basierend auf standardmäßigen industriellen Verdunstungsraten angewendet.",
         "fr": "Si vrai, applique un facteur de perte par évaporation supplémentaire basé sur les taux d'évaporation industriels standards.",
-        "es": "Si es verdadero, aplica un factor adicional de pérdida por evaporación basado en tasas industriales estándar."
+        "es": "Si es verdadero, aplica un factor adicional de pérdida por evaporación basado en tasas industriales estándar.",
+        "ar": "إذا كان صحيحًا، يطبق عامل فقدان تبخر إضافي بناءً على معدلات التبخر الصناعية القياسية."
       }
     }
   ],
@@ -179,18 +189,24 @@
     ]
   },
   "formulas": {
-    "result": "liters + conversionStandard + temperatureAdjustment",
-    "result_copy": "liters + conversionStandard + temperatureAdjustment"
+    "normalized_product": "liters * temperatureAdjustment * (batchLossFactor / 100)",
+    "result": "liters * temperatureAdjustment * (batchLossFactor / 100)"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "L"
+    "unit": "USD"
   },
   "toolName": "liters-to-gallons-converter-calculator",
   "catalogCategory": "conversion",

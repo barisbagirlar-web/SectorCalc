@@ -13,14 +13,16 @@
         "tr": "Ölçüm Öncesi",
         "de": "Vorher-Messungen",
         "fr": "Mesures avant",
-        "es": "Before Measurements",
-        "ar": "Before Measurements"
+        "es": "Mediciones antes",
+        "ar": "القياسات قبل"
       },
       "businessContext_i18n": {
         "en": "Measurements before intervention (comma-separated)",
         "tr": "Müdahale öncesi ölçümler (virgülle ayrılmış)",
         "de": "Messungen vor dem Eingriff (kommasepariert)",
-        "fr": "Mesures avant intervention (séparées par des virgules)"
+        "fr": "Mesures avant intervention (séparées par des virgules)",
+        "es": "Mediciones antes de la intervención (separadas por comas)",
+        "ar": "القياسات قبل التدخل (مفصولة بفواصل)"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Ölçüm Sonrası",
         "de": "Nachher-Messungen",
         "fr": "Mesures après",
-        "es": "After Measurements",
-        "ar": "After Measurements"
+        "es": "Mediciones después",
+        "ar": "القياسات بعد"
       },
       "businessContext_i18n": {
         "en": "Measurements after intervention (comma-separated)",
         "tr": "Müdahale sonrası ölçümler (virgülle ayrılmış)",
         "de": "Messungen nach dem Eingriff (kommasepariert)",
-        "fr": "Mesures après intervention (séparées par des virgules)"
+        "fr": "Mesures après intervention (séparées par des virgules)",
+        "es": "Mediciones después de la intervención (separadas por comas)",
+        "ar": "القياسات بعد التدخل (مفصولة بفواصل)"
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Signifikanzniveau (α)",
         "fr": "Niveau de signification (α)",
         "es": "Nivel de significancia (α)",
-        "ar": "Significance Level (α)"
+        "ar": "مستوى الدلالة (α)"
       },
       "businessContext_i18n": {
         "en": "Type I error rate for hypothesis test",
         "tr": "Hipotez testi için Tip I hata oranı",
         "de": "Fehler 1. Art für Hypothesentest",
-        "fr": "Taux d'erreur de type I pour le test d'hypothèse"
+        "fr": "Taux d'erreur de type I pour le test d'hypothèse",
+        "es": "Tasa de error tipo I para la prueba de hipótesis",
+        "ar": "معدل الخطأ من النوع الأول لاختبار الفرضية"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Hipotez Yönü",
         "de": "Hypothesenrichtung",
         "fr": "Direction de l'hypothèse",
-        "es": "Hypothesis Direction",
-        "ar": "Hypothesis Direction"
+        "es": "Dirección de la hipótesis",
+        "ar": "اتجاه الفرضية"
       },
       "businessContext_i18n": {
         "en": "0=two-sided, 1=one-sided greater, -1=one-sided less",
         "tr": "0=iki yönlü, 1=tek yönlü büyük, -1=tek yönlü küçük",
         "de": "0=zweiseitig, 1=einseitig größer, -1=einseitig kleiner",
-        "fr": "0=bilatéral, 1=unilatéral supérieur, -1=unilatéral inférieur"
+        "fr": "0=bilatéral, 1=unilatéral supérieur, -1=unilatéral inférieur",
+        "es": "0=bilateral, 1=unilateral mayor, -1=unilateral menor",
+        "ar": "0=ثنائي الجانب، 1=أحادي الجانب أكبر، -1=أحادي الجانب أصغر"
       }
     }
   ],

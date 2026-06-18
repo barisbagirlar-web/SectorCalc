@@ -14,14 +14,15 @@
         "de": "Immobilienpreis (£)",
         "fr": "Prix du bien (£)",
         "es": "Precio de la propiedad (£)",
-        "ar": "Property Price (£)"
+        "ar": "سعر العقار (£)"
       },
       "businessContext_i18n": {
         "en": "Purchase price of the residential property",
         "tr": "Konut mülkünün satın alma fiyatı",
         "de": "Kaufpreis der Wohnimmobilie",
         "fr": "Prix d'achat du bien résidentiel",
-        "es": "Precio de compra de la propiedad residencial"
+        "es": "Precio de compra de la propiedad residencial",
+        "ar": "سعر شراء العقار السكني"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Erstkäufer?",
         "fr": "Primo-accédant ?",
         "es": "¿Comprador primerizo?",
-        "ar": "First-Time Buyer?"
+        "ar": "مشتري لأول مرة؟"
       },
       "businessContext_i18n": {
         "en": "1 if first-time buyer, else 0",
         "tr": "İlk kez ev sahibi ise 1, değilse 0",
         "de": "1 bei Erstkäufer, sonst 0",
         "fr": "1 si primo-accédant, sinon 0",
-        "es": "1 si es comprador por primera vez, si no 0"
+        "es": "1 si es comprador por primera vez, si no 0",
+        "ar": "1 إذا كان مشتريًا لأول مرة، وإلا 0"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zusätzliche Immobilie?",
         "fr": "Propriété supplémentaire ?",
         "es": "¿Propiedad adicional?",
-        "ar": "Additional Property?"
+        "ar": "عقار إضافي؟"
       },
       "businessContext_i18n": {
         "en": "1 if buying an additional residential property, else 0",
         "tr": "Ek bir konut mülkü satın alınıyorsa 1, değilse 0",
         "de": "1 beim Kauf einer zusätzlichen Wohnimmobilie, sonst 0",
         "fr": "1 si achat d'une propriété résidentielle supplémentaire, sinon 0",
-        "es": "1 si compra una propiedad residencial adicional, si no 0"
+        "es": "1 si compra una propiedad residencial adicional, si no 0",
+        "ar": "1 إذا كان يشتري عقارًا سكنيًا إضافيًا، وإلا 0"
       }
     },
     {
@@ -83,38 +86,39 @@
         "de": "Nicht-UK-Bewohner?",
         "fr": "Non-résident du Royaume-Uni ?",
         "es": "¿No residente en el Reino Unido?",
-        "ar": "Non-UK Resident?"
+        "ar": "غير مقيم في المملكة المتحدة؟"
       },
       "businessContext_i18n": {
         "en": "1 if buyer is not a UK resident, else 0",
         "tr": "Alıcı Birleşik Krallık'ta ikamet etmiyorsa 1, değilse 0",
         "de": "1 wenn der Käufer kein UK-Bewohner ist, sonst 0",
         "fr": "1 si l'acheteur n'est pas résident du Royaume-Uni, sinon 0",
-        "es": "1 si el comprador no es residente en el Reino Unido, si no 0"
+        "es": "1 si el comprador no es residente en el Reino Unido, si no 0",
+        "ar": "1 إذا كان المشتري غير مقيم في المملكة المتحدة، وإلا 0"
       }
     }
   ],
   "formulas": {
-    "result": "propertyPrice + isFirstTimeBuyer + isAdditionalProperty",
-    "result_copy": "propertyPrice + isFirstTimeBuyer + isAdditionalProperty"
+    "base_cost": "isFirstTimeBuyer * propertyPrice",
+    "adjusted_cost": "isFirstTimeBuyer * propertyPrice * 1",
+    "result": "isFirstTimeBuyer * propertyPrice * 1"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "{calculateBreakdown[0]}",
-      "{calculateBreakdown[1]}",
-      "{calculateBreakdown[2]}",
-      "{calculateBreakdown[3]}",
-      "{calculateBreakdown[4]}",
-      "{calculateBreakdown[5]}",
-      "{calculateBreakdown[6]}"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "calculateBreakdown",
-    "unit": "GBP"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Lojistik & Tedarik",

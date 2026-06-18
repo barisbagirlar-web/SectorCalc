@@ -14,14 +14,15 @@
         "de": "Ausstehender Saldo",
         "fr": "Solde impayé",
         "es": "Saldo pendiente",
-        "ar": "Outstanding Balance"
+        "ar": "الرصيد المستحق"
       },
       "businessContext_i18n": {
         "en": "Current credit card balance before interest",
         "tr": "Faiz öncesi mevcut kredi kartı bakiyesi",
         "de": "Aktueller Kreditkartensaldo vor Zinsen",
         "fr": "Solde actuel de la carte de crédit avant intérêts",
-        "es": "Saldo actual de la tarjeta de crédito antes de intereses"
+        "es": "Saldo actual de la tarjeta de crédito antes de intereses",
+        "ar": "الرصيد الحالي لبطاقة الائتمان قبل الفائدة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz (APR)",
         "fr": "Taux d'intérêt annuel (TAEG)",
         "es": "Tasa de interés anual (APR)",
-        "ar": "Annual Interest Rate (APR)"
+        "ar": "معدل الفائدة السنوي (APR)"
       },
       "businessContext_i18n": {
         "en": "Annual percentage rate applied to balance",
         "tr": "Bakiyeye uygulanan yıllık yüzde oranı",
         "de": "Jährlicher Prozentsatz, der auf den Saldo angewendet wird",
         "fr": "Taux annuel en pourcentage appliqué au solde",
-        "es": "Tasa de porcentaje anual aplicada al saldo"
+        "es": "Tasa de porcentaje anual aplicada al saldo",
+        "ar": "معدل النسبة السنوية المطبق على الرصيد"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Mindestzahlungsprozentsatz",
         "fr": "Pourcentage du paiement minimum",
         "es": "Porcentaje de pago mínimo",
-        "ar": "Minimum Payment Percentage"
+        "ar": "نسبة الحد الأدنى للدفع"
       },
       "businessContext_i18n": {
         "en": "Percentage of balance used in minimum payment calculation",
         "tr": "Asgari ödeme hesaplamasında kullanılan bakiye yüzdesi",
         "de": "Prozentsatz des Saldos, der in der Mindestzahlungsberechnung verwendet wird",
         "fr": "Pourcentage du solde utilisé dans le calcul du paiement minimum",
-        "es": "Porcentaje del saldo utilizado en el cálculo del pago mínimo"
+        "es": "Porcentaje del saldo utilizado en el cálculo del pago mínimo",
+        "ar": "نسبة الرصيد المستخدمة في حساب الحد الأدنى للدفع"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Fester Mindestbetrag",
         "fr": "Montant minimum fixe",
         "es": "Monto mínimo fijo",
-        "ar": "Fixed Minimum Amount"
+        "ar": "المبلغ الثابت الأدنى"
       },
       "businessContext_i18n": {
         "en": "Dollar floor for minimum payment if percentage is lower",
         "tr": "Yüzde daha düşükse asgari ödeme için dolar tabanı",
         "de": "Dollar-Untergrenze für die Mindestzahlung, wenn der Prozentsatz niedriger ist",
         "fr": "Plancher en euros pour le paiement minimum si le pourcentage est inférieur",
-        "es": "Monto mínimo en dólares si el porcentaje es menor"
+        "es": "Monto mínimo en dólares si el porcentaje es menor",
+        "ar": "الحد الأدنى بالدولار للدفع إذا كانت النسبة أقل"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Überfälliger Betrag",
         "fr": "Montant en souffrance",
         "es": "Monto vencido",
-        "ar": "Past Due Amount"
+        "ar": "المبلغ المتأخر"
       },
       "businessContext_i18n": {
         "en": "Any past due amount added to minimum payment",
         "tr": "Asgari ödemeye eklenen gecikmiş tutar",
         "de": "Überfälliger Betrag zur Mindestzahlung hinzugefügt",
         "fr": "Tout montant en souffrance ajouté au paiement minimum",
-        "es": "Cualquier monto vencido agregado al pago mínimo"
+        "es": "Cualquier monto vencido agregado al pago mínimo",
+        "ar": "أي مبلغ متأخر يضاف إلى الحد الأدنى للدفع"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Überziehungsbetrag",
         "fr": "Montant de dépassement de limite",
         "es": "Monto excedido del límite",
-        "ar": "Over Limit Amount"
+        "ar": "المبلغ الذي يتجاوز الحد"
       },
       "businessContext_i18n": {
         "en": "Over limit fee added to minimum payment",
         "tr": "Asgari ödemeye eklenen limit aşımı ücreti",
         "de": "Überziehungsgebühr zur Mindestzahlung hinzugefügt",
         "fr": "Frais de dépassement de limite ajoutés au paiement minimum",
-        "es": "Cargo por exceder el límite agregado al pago mínimo"
+        "es": "Cargo por exceder el límite agregado al pago mínimo",
+        "ar": "رسوم تجاوز الحد المضافة إلى الحد الأدنى للدفع"
       }
     }
   ],

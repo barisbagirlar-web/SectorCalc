@@ -13,14 +13,16 @@
         "tr": "Günlük Harcama Gereksinimi (EUR)",
         "de": "Täglicher Bedarf (EUR)",
         "fr": "Besoins quotidiens (EUR)",
-        "es": "Daily Expense Requirement (EUR)",
-        "ar": "Daily Expense Requirement (EUR)"
+        "es": "Requisito de gasto diario (EUR)",
+        "ar": "متطلبات المصروف اليومي (يورو)"
       },
       "businessContext_i18n": {
         "en": "Minimum daily funds required by the embassy per person.",
         "tr": "Elçilik tarafından kişi başına gereken minimum günlük fon.",
         "de": "Mindesttagesbedarf pro Person laut Botschaft.",
-        "fr": "Fonds quotidiens minimum requis par l'ambassade par personne."
+        "fr": "Fonds quotidiens minimum requis par l'ambassade par personne.",
+        "es": "Fondos mínimos diarios requeridos por la embajada por persona.",
+        "ar": "الحد الأدنى من الأموال اليومية المطلوبة من قبل السفارة لكل شخص."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Kalış Gün Sayısı",
         "de": "Anzahl der Aufenthaltstage",
         "fr": "Nombre de jours de séjour",
-        "es": "Number of Days of Stay",
-        "ar": "Number of Days of Stay"
+        "es": "Número de días de estancia",
+        "ar": "عدد أيام الإقامة"
       },
       "businessContext_i18n": {
         "en": "Total days of intended stay.",
         "tr": "Planlanan toplam kalış günü.",
         "de": "Gesamtzahl der geplanten Aufenthaltstage.",
-        "fr": "Nombre total de jours de séjour prévu."
+        "fr": "Nombre total de jours de séjour prévu.",
+        "es": "Total de días de estancia prevista.",
+        "ar": "إجمالي أيام الإقامة المقصودة."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Döviz Kuru (Yerel para biriminden EUR'ya)",
         "de": "Wechselkurs (Lokal zu EUR)",
         "fr": "Taux de change (monnaie locale vers EUR)",
-        "es": "Exchange Rate (Local to EUR)",
-        "ar": "Exchange Rate (Local to EUR)"
+        "es": "Tipo de cambio (moneda local a EUR)",
+        "ar": "سعر الصرف (محلي إلى يورو)"
       },
       "businessContext_i18n": {
         "en": "Current exchange rate from local currency to EUR.",
         "tr": "Yerel para biriminden EUR'ya güncel döviz kuru.",
         "de": "Aktueller Wechselkurs von lokaler Währung zu EUR.",
-        "fr": "Taux de change actuel de la monnaie locale vers l'EUR."
+        "fr": "Taux de change actuel de la monnaie locale vers l'EUR.",
+        "es": "Tipo de cambio actual de moneda local a EUR.",
+        "ar": "سعر الصرف الحالي من العملة المحلية إلى اليورو."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Tampon (%)",
         "de": "Puffer (%)",
         "fr": "Marge (%)",
-        "es": "Buffer (%)",
-        "ar": "Buffer (%)"
+        "es": "Margen (%)",
+        "ar": "الهامش (%)"
       },
       "businessContext_i18n": {
         "en": "Additional percentage to ensure sufficient funds.",
         "tr": "Yeterli fon sağlamak için ek yüzde.",
         "de": "Zusätzlicher Prozentsatz zur Sicherstellung ausreichender Mittel.",
-        "fr": "Pourcentage supplémentaire pour garantir des fonds suffisants."
+        "fr": "Pourcentage supplémentaire pour garantir des fonds suffisants.",
+        "es": "Porcentaje adicional para garantizar fondos suficientes.",
+        "ar": "نسبة إضافية لضمان توفر الأموال الكافية."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Vize Başvuru Ücreti (Yerel para birimi)",
         "de": "Visumantragsgebühr (lokal)",
         "fr": "Frais de demande de visa (monnaie locale)",
-        "es": "Visa Application Fee (Local)",
-        "ar": "Visa Application Fee (Local)"
+        "es": "Tarifa de solicitud de visa (moneda local)",
+        "ar": "رسوم طلب التأشيرة (محلي)"
       },
       "businessContext_i18n": {
         "en": "Non-refundable visa processing fee in local currency.",
         "tr": "İade edilmeyen vize işlem ücreti (yerel para birimi cinsinden).",
         "de": "Nicht erstattungsfähige Visumgebühr in lokaler Währung.",
-        "fr": "Frais de traitement du visa non remboursables en monnaie locale."
+        "fr": "Frais de traitement du visa non remboursables en monnaie locale.",
+        "es": "Tarifa de procesamiento de visa no reembolsable en moneda local.",
+        "ar": "رسوم معالجة التأشيرة غير القابلة للاسترداد بالعملة المحلية."
       }
     }
   ],

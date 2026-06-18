@@ -24,13 +24,17 @@
         "en": "Equivalent Leak Diameter (mm)",
         "tr": "Eşdeğer Sızıntı Çapı (mm)",
         "de": "Äquivalenter Leckdurchmesser (mm)",
-        "fr": "Diamètre équivalent de fuite (mm)"
+        "fr": "Diamètre équivalent de fuite (mm)",
+        "es": "Diámetro equivalente de fuga (mm)",
+        "ar": "قطر التسرب المكافئ (مم)"
       },
       "businessContext_i18n": {
         "en": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test.",
         "tr": "Sızıntı deliğinin tahmini çapı, genellikle ultrasonik sızıntı dedektörü veya akış testi ile ölçülür.",
         "de": "Geschätzter Durchmesser der Lecköffnung, typischerweise gemessen mit Ultraschall-Leckdetektor oder Durchflusstest.",
-        "fr": "Diamètre estimé de l'orifice de fuite, généralement mesuré par détecteur ultrasonique ou test de débit."
+        "fr": "Diamètre estimé de l'orifice de fuite, généralement mesuré par détecteur ultrasonique ou test de débit.",
+        "es": "Diámetro estimado del orificio de fuga, medido típicamente mediante detector ultrasónico de fugas o prueba de caudal.",
+        "ar": "القطر المقدر لفتحة التسرب، ويُقاس عادةً عبر كاشف التسرب بالموجات فوق الصوتية أو اختبار التدفق."
       }
     },
     {
@@ -46,13 +50,17 @@
         "en": "System Pressure (bar gauge)",
         "tr": "Sistem Basıncı (bar gösterge)",
         "de": "Systemdruck (bar Überdruck)",
-        "fr": "Pression du système (bar effectif)"
+        "fr": "Pression du système (bar effectif)",
+        "es": "Presión del sistema (bar manométrico)",
+        "ar": "ضغط النظام (بار)"
       },
       "businessContext_i18n": {
         "en": "Operating pressure of the compressed air system at the point of leak.",
         "tr": "Sızıntı noktasında basınçlı hava sisteminin çalışma basıncı.",
         "de": "Betriebsdruck des Druckluftsystems an der Leckstelle.",
-        "fr": "Pression de fonctionnement du système d'air comprimé au point de fuite."
+        "fr": "Pression de fonctionnement du système d'air comprimé au point de fuite.",
+        "es": "Presión de operación del sistema de aire comprimido en el punto de fuga.",
+        "ar": "ضغط التشغيل لنظام الهواء المضغوط عند نقطة التسرب."
       }
     },
     {
@@ -69,13 +77,16 @@
         "tr": "Yıllık Çalışma Saati",
         "de": "Betriebsstunden pro Jahr",
         "fr": "Heures de fonctionnement par an",
-        "es": "Horas de operación por año"
+        "es": "Horas de operación por año",
+        "ar": "ساعات التشغيل سنويًا"
       },
       "businessContext_i18n": {
         "en": "Total annual hours the vacuum/compressed air system is in operation.",
         "tr": "Vakum/basınçlı hava sisteminin yıllık toplam çalışma saati.",
         "de": "Gesamte jährliche Betriebsstunden des Vakuum-/Druckluftsystems.",
-        "fr": "Heures annuelles totales de fonctionnement du système de vide/air comprimé."
+        "fr": "Heures annuelles totales de fonctionnement du système de vide/air comprimé.",
+        "es": "Horas anuales totales de operación del sistema de vacío/aire comprimido.",
+        "ar": "إجمالي ساعات التشغيل السنوية لنظام التفريغ/الهواء المضغوط."
       }
     },
     {
@@ -91,13 +102,17 @@
         "en": "Electricity Cost ($/kWh)",
         "tr": "Elektrik Maliyeti ($/kWh)",
         "de": "Stromkosten ($/kWh)",
-        "fr": "Coût de l'électricité ($/kWh)"
+        "fr": "Coût de l'électricité ($/kWh)",
+        "es": "Coste de electricidad ($/kWh)",
+        "ar": "تكلفة الكهرباء ($/كيلوواط ساعة)"
       },
       "businessContext_i18n": {
         "en": "Average cost of electricity per kilowatt-hour, including demand charges if applicable.",
         "tr": "Talep bedelleri dahil olmak üzere kilovatsaat başına ortalama elektrik maliyeti.",
         "de": "Durchschnittliche Stromkosten pro Kilowattstunde, einschließlich Leistungspreisen falls zutreffend.",
-        "fr": "Coût moyen de l'électricité par kilowattheure, incluant les frais de demande si applicable."
+        "fr": "Coût moyen de l'électricité par kilowattheure, incluant les frais de demande si applicable.",
+        "es": "Coste medio de la electricidad por kilovatio-hora, incluyendo cargos por demanda si aplica.",
+        "ar": "متوسط تكلفة الكهرباء لكل كيلوواط ساعة، بما في ذلك رسوم الطلب إن وجدت."
       }
     },
     {
@@ -113,13 +128,17 @@
         "en": "Compressor Specific Power (kW per 100 cfm)",
         "tr": "Kompresör Özgül Gücü (100 cfm başına kW)",
         "de": "Spezifische Kompressorleistung (kW pro 100 cfm)",
-        "fr": "Puissance spécifique du compresseur (kW par 100 cfm)"
+        "fr": "Puissance spécifique du compresseur (kW par 100 cfm)",
+        "es": "Potencia específica del compresor (kW por 100 cfm)",
+        "ar": "الطاقة النوعية للضاغط (كيلوواط لكل 100 قدم مكعب قياسي في الدقيقة)"
       },
       "businessContext_i18n": {
         "en": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors.",
         "tr": "100 cfm serbest hava debisi başına kompresörün güç tüketimi. Vidalı kompresörler için tipik aralık 16-22 kW/100 cfm.",
         "de": "Leistungsaufnahme des Kompressors pro 100 cfm freier Luftlieferung. Typischer Bereich 16-22 kW/100 cfm für Schraubenkompressoren.",
-        "fr": "Consommation électrique du compresseur par 100 cfm d'air libre délivré. Plage typique 16-22 kW/100 cfm pour les compresseurs à vis rotative."
+        "fr": "Consommation électrique du compresseur par 100 cfm d'air libre délivré. Plage typique 16-22 kW/100 cfm pour les compresseurs à vis rotative.",
+        "es": "Consumo de potencia del compresor por 100 cfm de aire libre suministrado. Rango típico 16-22 kW/100 cfm para compresores de tornillo rotativo.",
+        "ar": "استهلاك الطاقة للضاغط لكل 100 قدم مكعب قياسي من الهواء الحر. النطاق النموذجي 16-22 كيلوواط/100 قدم مكعب قياسي للضواغط اللولبية الدوارة."
       }
     },
     {
@@ -136,13 +155,16 @@
         "tr": "Ortam Sıcaklığı (°C)",
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
-        "es": "Temperatura ambiente (°C)"
+        "es": "Temperatura ambiente (°C)",
+        "ar": "درجة الحرارة المحيطة (°م)"
       },
       "businessContext_i18n": {
         "en": "Average ambient temperature at compressor intake, affects air density and mass flow.",
         "tr": "Kompresör girişindeki ortalama ortam sıcaklığı, hava yoğunluğunu ve kütle akışını etkiler.",
         "de": "Durchschnittliche Umgebungstemperatur am Kompressoreinlass, beeinflusst Luftdichte und Massenstrom.",
-        "fr": "Température ambiante moyenne à l'admission du compresseur, affecte la densité de l'air et le débit massique."
+        "fr": "Température ambiante moyenne à l'admission du compresseur, affecte la densité de l'air et le débit massique.",
+        "es": "Temperatura ambiente promedio en la admisión del compresor, afecta la densidad del aire y el flujo másico.",
+        "ar": "متوسط درجة الحرارة المحيطة عند مدخل الضاغط، تؤثر على كثافة الهواء وتدفق الكتلة."
       }
     },
     {
@@ -161,13 +183,17 @@
         "en": "Leak Type (Orifice Shape Factor)",
         "tr": "Sızıntı Türü (Delik Şekil Faktörü)",
         "de": "Lecktyp (Öffnungsformfaktor)",
-        "fr": "Type de fuite (facteur de forme de l'orifice)"
+        "fr": "Type de fuite (facteur de forme de l'orifice)",
+        "es": "Tipo de fuga (factor de forma del orificio)",
+        "ar": "نوع التسرب (عامل شكل الفتحة)"
       },
       "businessContext_i18n": {
         "en": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes.",
         "tr": "Şekil faktörü boşaltma katsayısını etkiler. Yuvarlak delikler için tipik, keskin çatlaklar için keskin, uzun borular için uzun.",
         "de": "Formfaktor beeinflusst Ausflusskoeffizienten. Rund ist typisch für gebohrte Löcher; scharf für Risse; lang für Rohre.",
-        "fr": "Le facteur de forme affecte le coefficient de décharge. Rond est typique pour les trous percés ; aigu pour les fissures ; long pour les tuyaux."
+        "fr": "Le facteur de forme affecte le coefficient de décharge. Rond est typique pour les trous percés ; aigu pour les fissures ; long pour les tuyaux.",
+        "es": "El factor de forma afecta el coeficiente de descarga. Redondo es típico para agujeros perforados; afilado para grietas; largo para tuberías.",
+        "ar": "عامل الشكل يؤثر على معامل التصريف. الدائري نموذجي للثقوب المحفورة؛ الحاد للشقوق؛ الطويل للأنابيب."
       }
     },
     {
@@ -181,13 +207,17 @@
         "en": "Include Carbon Cost Calculation",
         "tr": "Karbon Maliyeti Hesaplamasını Dahil Et",
         "de": "CO₂-Kostenberechnung einschließen",
-        "fr": "Inclure le calcul du coût carbone"
+        "fr": "Inclure le calcul du coût carbone",
+        "es": "Incluir cálculo de coste de carbono",
+        "ar": "تضمين حساب تكلفة الكربون"
       },
       "businessContext_i18n": {
         "en": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor.",
         "tr": "Etkinleştirilirse, şebeke emisyon faktörüne göre CO2 emisyonlarını ve ilişkili maliyeti hesaplar.",
         "de": "Wenn aktiviert, berechnet CO₂-Emissionen und zugehörige Kosten basierend auf dem Netz-Emissionsfaktor.",
-        "fr": "Si activé, calcule les émissions de CO₂ et le coût associé en fonction du facteur d'émission du réseau."
+        "fr": "Si activé, calcule les émissions de CO₂ et le coût associé en fonction du facteur d'émission du réseau.",
+        "es": "Si está habilitado, calcula las emisiones de CO2 y el coste asociado basado en el factor de emisión de la red.",
+        "ar": "إذا تم التفعيل، يحسب انبعاثات ثاني أكسيد الكربون والتكلفة المرتبطة بناءً على عامل انبعاثات الشبكة."
       }
     }
   ],
@@ -251,18 +281,28 @@
     ]
   },
   "formulas": {
-    "result": "leak_diameter_mm + system_pressure_bar + operating_hours_per_year",
-    "result_copy": "leak_diameter_mm + system_pressure_bar + operating_hours_per_year"
+    "annual_kwh": "1 * compressor_specific_power * operating_hours_per_year * 1",
+    "annual_energy_cost": "1 * compressor_specific_power * operating_hours_per_year * 1 * electricity_cost_per_kwh",
+    "result": "1 * compressor_specific_power * operating_hours_per_year * 1 * electricity_cost_per_kwh * (leak_diameter_mm)",
+    "factor_leak_diameter_mm": "leak_diameter_mm"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_kwh",
+      "annual_energy_cost",
+      "factor_leak_diameter_mm"
+    ],
+    "hiddenLossDrivers": [
+      "Off-shift idle load",
+      "Leak or standby losses"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Meter validate kWh per shift",
+      "Prioritize top leak sources"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "mm"
+    "unit": "USD"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

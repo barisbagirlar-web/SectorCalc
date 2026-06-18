@@ -14,14 +14,15 @@
         "de": "Größe (Fuß)",
         "fr": "Hauteur (pieds)",
         "es": "Altura (pies)",
-        "ar": "Height (feet)"
+        "ar": "الطول (قدم)"
       },
       "businessContext_i18n": {
         "en": "Height in feet",
         "tr": "Fit cinsinden boy",
         "de": "Höhe in Fuß",
         "fr": "Taille en pieds",
-        "es": "Altura en pies"
+        "es": "Altura en pies",
+        "ar": "الطول بالقدم"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe (Zoll)",
         "fr": "Hauteur (pouces)",
         "es": "Altura (pulgadas)",
-        "ar": "Height (inches)"
+        "ar": "الطول (بوصة)"
       },
       "businessContext_i18n": {
         "en": "Additional inches",
         "tr": "Ekstra inç",
         "de": "Zusätzliche Zoll",
         "fr": "Pouces supplémentaires",
-        "es": "Pulgadas adicionales"
+        "es": "Pulgadas adicionales",
+        "ar": "البوصات الإضافية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "1=Male, 2=Female",
         "tr": "1=Erkek, 2=Kadın",
         "de": "1=Männlich, 2=Weiblich",
         "fr": "1=Homme, 2=Femme",
-        "es": "1=Masculino, 2=Femenino"
+        "es": "1=Masculino, 2=Femenino",
+        "ar": "1=ذكر، 2=أنثى"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Körperrahmen",
         "fr": "Carrure",
         "es": "Complexión corporal",
-        "ar": "Body Frame"
+        "ar": "إطار الجسم"
       },
       "businessContext_i18n": {
         "en": "1=Small, 2=Medium, 3=Large",
         "tr": "1=Küçük, 2=Orta, 3=Büyük",
         "de": "1=Klein, 2=Mittel, 3=Groß",
         "fr": "1=Petite, 2=Moyenne, 3=Grande",
-        "es": "1=Pequeño, 2=Mediano, 3=Grande"
+        "es": "1=Pequeño, 2=Mediano, 3=Grande",
+        "ar": "1=صغير، 2=متوسط، 3=كبير"
       }
     }
   ],
   "formulas": {
-    "result": "height_ft + height_in + gender",
-    "result_copy": "height_ft + height_in + gender"
+    "normalized_product": "height_ft * height_in * gender * body_frame",
+    "result": "height_ft * height_in * gender * body_frame"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "ideal_weight_lbs",
-      "bmi"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "bmi",
-    "unit": "ft",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "ideal_weight_lbs": "lb"
     }

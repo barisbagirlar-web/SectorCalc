@@ -14,14 +14,15 @@
         "de": "Maßsystem",
         "fr": "Système de mesure",
         "es": "Sistema de medición",
-        "ar": "Measurement System"
+        "ar": "نظام القياس"
       },
       "businessContext_i18n": {
         "en": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)",
         "tr": "0 = Metrik (kg, cm), 1 = İmparatorluk (stone, pound, fit, inç)",
         "de": "0 = Metrisch (kg, cm), 1 = Imperial (Steine, Pfund, Fuß, Zoll)",
         "fr": "0 = Métrique (kg, cm), 1 = Impérial (stones, livres, pieds, pouces)",
-        "es": "0 = Métrico (kg, cm), 1 = Imperial (stones, libras, pies, pulgadas)"
+        "es": "0 = Métrico (kg, cm), 1 = Imperial (stones, libras, pies, pulgadas)",
+        "ar": "0 = متري (كجم، سم)، 1 = إمبراطوري (حجر، رطل، قدم، بوصة)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Gewicht (kg)",
         "fr": "Poids (kg)",
         "es": "Peso (kg)",
-        "ar": "Weight (kg)"
+        "ar": "الوزن (كجم)"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms, used when Metric system selected",
         "tr": "Vücut ağırlığı (kg), Metrik sistem seçildiğinde kullanılır",
         "de": "Körpergewicht in Kilogramm, verwendet bei metrischem System",
         "fr": "Poids corporel en kilogrammes, utilisé avec le système métrique",
-        "es": "Peso corporal en kilogramos, usado cuando se selecciona el sistema métrico"
+        "es": "Peso corporal en kilogramos, usado cuando se selecciona el sistema métrico",
+        "ar": "وزن الجسم بالكيلوجرام، يُستخدم عند اختيار النظام المتري"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Größe (cm)",
         "fr": "Taille (cm)",
         "es": "Altura (cm)",
-        "ar": "Height (cm)"
+        "ar": "الطول (سم)"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters, used when Metric system selected",
         "tr": "Vücut boyu (cm), Metrik sistem seçildiğinde kullanılır",
         "de": "Körpergröße in Zentimetern, verwendet bei metrischem System",
         "fr": "Taille en centimètres, utilisée avec le système métrique",
-        "es": "Altura corporal en centímetros, usado cuando se selecciona el sistema métrico"
+        "es": "Altura corporal en centímetros, usado cuando se selecciona el sistema métrico",
+        "ar": "طول الجسم بالسنتيمتر، يُستخدم عند اختيار النظام المتري"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Gewicht – Steine",
         "fr": "Poids - Stones",
         "es": "Peso - Stones",
-        "ar": "Weight - Stones"
+        "ar": "الوزن - حجر"
       },
       "businessContext_i18n": {
         "en": "Whole number of stones, used when Imperial system selected",
         "tr": "Tam stone sayısı, İmparatorluk sistemi seçildiğinde kullanılır",
         "de": "Ganze Anzahl Steine, verwendet bei imperialem System",
         "fr": "Nombre entier de stones, utilisé avec le système impérial",
-        "es": "Número entero de stones, usado cuando se selecciona el sistema imperial"
+        "es": "Número entero de stones, usado cuando se selecciona el sistema imperial",
+        "ar": "عدد صحيح من الأحجار، يُستخدم عند اختيار النظام الإمبراطوري"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Gewicht – Pfund",
         "fr": "Poids - Livres",
         "es": "Peso - Libras",
-        "ar": "Weight - Pounds"
+        "ar": "الوزن - رطل"
       },
       "businessContext_i18n": {
         "en": "Additional pounds beyond stones, used when Imperial system selected",
         "tr": "Stone'ların ötesindeki ek pound, İmparatorluk sistemi seçildiğinde kullanılır",
         "de": "Zusätzliche Pfunde über Stein, verwendet wenn das imperiale System ausgewählt ist",
         "fr": "Livres supplémentaires au-delà des stones, utilisé avec le système impérial",
-        "es": "Libras adicionales más allá de las stones, usado cuando se selecciona el sistema imperial"
+        "es": "Libras adicionales más allá de las stones, usado cuando se selecciona el sistema imperial",
+        "ar": "رطل إضافية تتجاوز الأحجار، تُستخدم عند اختيار النظام الإمبراطوري"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Größe - Fuß",
         "fr": "Taille - Pieds",
         "es": "Altura - Pies",
-        "ar": "Height - Feet"
+        "ar": "الطول - قدم"
       },
       "businessContext_i18n": {
         "en": "Whole number of feet, used when Imperial system selected",
         "tr": "Tam fit sayısı, İmparatorluk sistemi seçildiğinde kullanılır",
         "de": "Ganze Fußzahl, verwendet wenn das imperiale System ausgewählt ist",
         "fr": "Nombre entier de pieds, utilisé avec le système impérial",
-        "es": "Número entero de pies, usado cuando se selecciona el sistema imperial"
+        "es": "Número entero de pies, usado cuando se selecciona el sistema imperial",
+        "ar": "عدد صحيح من الأقدام، يُستخدم عند اختيار النظام الإمبراطوري"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Größe - Zoll",
         "fr": "Taille - Pouces",
         "es": "Altura - Pulgadas",
-        "ar": "Height - Inches"
+        "ar": "الطول - بوصة"
       },
       "businessContext_i18n": {
         "en": "Additional inches beyond feet, used when Imperial system selected",
         "tr": "Fit'in ötesindeki ek inç, İmparatorluk sistemi seçildiğinde kullanılır",
         "de": "Zusätzliche Zoll über Fuß, verwendet wenn das imperiale System ausgewählt ist",
         "fr": "Pouces supplémentaires au-delà des pieds, utilisé avec le système impérial",
-        "es": "Pulgadas adicionales más allá de los pies, usado cuando se selecciona el sistema imperial"
+        "es": "Pulgadas adicionales más allá de los pies, usado cuando se selecciona el sistema imperial",
+        "ar": "بوصات إضافية تتجاوز الأقدام، تُستخدم عند اختيار النظام الإمبراطوري"
       }
     }
   ],

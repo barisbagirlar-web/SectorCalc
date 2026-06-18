@@ -14,14 +14,15 @@
         "de": "Lichtstrom",
         "fr": "Flux lumineux",
         "es": "Flujo luminoso",
-        "ar": "Luminous Flux"
+        "ar": "التدفق الضوئي"
       },
       "businessContext_i18n": {
         "en": "Total light output of the light source in lumens.",
         "tr": "Işık kaynağının lümen cinsinden toplam ışık çıkışı.",
         "de": "Gesamtlichtausbeute der Lichtquelle in Lumen.",
         "fr": "Sortie lumineuse totale de la source lumineuse en lumens.",
-        "es": "Salida total de luz de la fuente en lúmenes."
+        "es": "Salida total de luz de la fuente en lúmenes.",
+        "ar": "إجمالي خرج الضوء من مصدر الضوء بوحدة اللومن."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Abstrahlwinkel",
         "fr": "Angle du faisceau",
         "es": "Ángulo del haz",
-        "ar": "Beam Angle"
+        "ar": "زاوية الشعاع"
       },
       "businessContext_i18n": {
         "en": "Full angle at which 50% of the peak luminous intensity is maintained.",
         "tr": "Tepe ışık şiddetinin %50'sinin korunduğu tam açı.",
         "de": "Vollwinkel, bei dem 50 % der maximalen Lichtstärke erhalten bleiben.",
         "fr": "Angle total auquel 50 % de l'intensité lumineuse maximale est maintenue.",
-        "es": "Ángulo completo al que se mantiene el 50% de la intensidad luminosa máxima."
+        "es": "Ángulo completo al que se mantiene el 50% de la intensidad luminosa máxima.",
+        "ar": "الزاوية الكاملة التي تحافظ عندها شدة الإضاءة القصوى على 50%."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Entfernung",
         "fr": "Distance",
         "es": "Distancia",
-        "ar": "Distance"
+        "ar": "المسافة"
       },
       "businessContext_i18n": {
         "en": "Distance from the light source to the target surface.",
         "tr": "Işık kaynağından hedef yüzeye olan mesafe.",
         "de": "Abstand von der Lichtquelle zur Zielfläche.",
         "fr": "Distance de la source lumineuse à la surface cible.",
-        "es": "Distancia desde la fuente de luz hasta la superficie objetivo."
+        "es": "Distancia desde la fuente de luz hasta la superficie objetivo.",
+        "ar": "المسافة من مصدر الضوء إلى السطح المستهدف."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Leuchtenwirkungsgrad",
         "fr": "Efficacité du luminaire",
         "es": "Eficiencia de la luminaria",
-        "ar": "Luminaire Efficiency"
+        "ar": "كفاءة الإنارة"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1).",
         "tr": "Kir birikimi, lamba yaşlanması ve optik kayıpları hesaba katan faktör (0-1).",
         "de": "Faktor für Verschmutzung, Lampenalterung und optische Verluste (0-1).",
         "fr": "Facteur tenant compte de l'accumulation de saleté, du vieillissement de la lampe et des pertes optiques (0-1).",
-        "es": "Factor que contabiliza la acumulación de suciedad, envejecimiento de la lámpara y pérdidas ópticas (0-1)."
+        "es": "Factor que contabiliza la acumulación de suciedad, envejecimiento de la lámpara y pérdidas ópticas (0-1).",
+        "ar": "عامل يأخذ في الاعتبار تراكم الأوساخ، تقادم المصباح، والخسائر البصرية (0-1)."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Umgebungslicht",
         "fr": "Lumière ambiante",
         "es": "Luz ambiental",
-        "ar": "Ambient Light"
+        "ar": "الإضاءة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Existing ambient light level at the target surface in lux.",
         "tr": "Hedef yüzeydeki lüks cinsinden mevcut ortam ışığı seviyesi.",
         "de": "Vorhandenes Umgebungslichtniveau auf der Zielfläche in Lux.",
         "fr": "Niveau de lumière ambiante existant à la surface cible en lux.",
-        "es": "Nivel de luz ambiental existente en la superficie objetivo en lux."
+        "es": "Nivel de luz ambiental existente en la superficie objetivo en lux.",
+        "ar": "مستوى الإضاءة المحيطة الحالي على السطح المستهدف بوحدة لوكس."
       }
     }
   ],
   "formulas": {
-    "result": "luminousFlux + beamAngle + distance",
-    "result_copy": "luminousFlux + beamAngle + distance"
+    "normalized_product": "luminousFlux * beamAngle * distance * (efficiency / 100)",
+    "result": "luminousFlux * beamAngle * distance * (efficiency / 100) * (ambientLight)",
+    "adjustment_factor": "ambientLight"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "luminousIntensity",
-      "solidAngle",
-      "illuminance"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalIlluminance",
-    "unit": "lm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Verimlilik & OEE",
   "sector": "Matematik & Geometri",

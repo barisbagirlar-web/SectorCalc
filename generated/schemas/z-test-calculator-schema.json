@@ -14,13 +14,15 @@
         "de": "Stichprobenmittelwert",
         "fr": "Moyenne de l'échantillon",
         "es": "Media muestral",
-        "ar": "Sample Mean"
+        "ar": "متوسط العينة"
       },
       "businessContext_i18n": {
         "en": "Measured average of the sample.",
         "tr": "Örneklemin ölçülen ortalaması.",
         "de": "Gemessener Mittelwert der Stichprobe.",
-        "fr": "Moyenne mesurée de l'échantillon."
+        "fr": "Moyenne mesurée de l'échantillon.",
+        "es": "Media medida de la muestra.",
+        "ar": "متوسط العينة المقاس."
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Popülasyon Ortalaması (H₀)",
         "de": "Grundgesamtheitsmittelwert (H₀)",
         "fr": "Moyenne de la population (H₀)",
-        "es": "Population Mean (H₀)",
-        "ar": "Population Mean (H₀)"
+        "es": "Media poblacional (H₀)",
+        "ar": "متوسط المجتمع (H₀)"
       },
       "businessContext_i18n": {
         "en": "Hypothesized population mean under null hypothesis.",
         "tr": "Sıfır hipotezi altında varsayılan popülasyon ortalaması.",
         "de": "Hypothetischer Grundgesamtheitsmittelwert unter der Nullhypothese.",
-        "fr": "Moyenne de la population hypothétique sous l'hypothèse nulle."
+        "fr": "Moyenne de la population hypothétique sous l'hypothèse nulle.",
+        "es": "Media poblacional hipotética bajo la hipótesis nula.",
+        "ar": "متوسط المجتمع المفترض تحت الفرضية الصفرية."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación estándar",
-        "ar": "Standard Deviation"
+        "ar": "الانحراف المعياري"
       },
       "businessContext_i18n": {
         "en": "Known population standard deviation.",
         "tr": "Bilinen popülasyon standart sapması.",
         "de": "Beklenen Grundgesamtheits-Standardabweichung.",
-        "fr": "Écart-type connu de la population."
+        "fr": "Écart-type connu de la population.",
+        "es": "Desviación estándar poblacional conocida.",
+        "ar": "الانحراف المعياري المعروف للمجتمع."
       }
     },
     {
@@ -80,14 +86,15 @@
         "de": "Stichprobengröße",
         "fr": "Taille de l'échantillon",
         "es": "Tamaño de la muestra",
-        "ar": "Sample Size"
+        "ar": "حجم العينة"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample.",
         "tr": "Örneklemdeki gözlem sayısı.",
         "de": "Anzahl der Beobachtungen in der Stichprobe.",
         "fr": "Nombre d'observations dans l'échantillon.",
-        "es": "Número de observaciones en la muestra."
+        "es": "Número de observaciones en la muestra.",
+        "ar": "عدد المشاهدات في العينة."
       }
     },
     {
@@ -103,13 +110,15 @@
         "de": "Signifikanzniveau",
         "fr": "Niveau de signification",
         "es": "Nivel de Significancia",
-        "ar": "Significance Level"
+        "ar": "مستوى الأهمية"
       },
       "businessContext_i18n": {
         "en": "Probability of Type I error (0–1).",
         "tr": "Tip I hata olasılığı (0–1).",
         "de": "Wahrscheinlichkeit des Fehlers 1. Art (0–1).",
-        "fr": "Probabilité d'erreur de type I (0–1)."
+        "fr": "Probabilité d'erreur de type I (0–1).",
+        "es": "Probabilidad de error tipo I (0–1).",
+        "ar": "احتمال الخطأ من النوع الأول (0–1)."
       }
     },
     {
@@ -124,33 +133,40 @@
         "tr": "Kuyruk sayısı",
         "de": "Seiten",
         "fr": "Queues",
-        "es": "Tails",
-        "ar": "Tails"
+        "es": "Colas",
+        "ar": "الذيول"
       },
       "businessContext_i18n": {
         "en": "1 for one‑tailed test, 2 for two‑tailed test.",
         "tr": "Tek kuyruklu test için 1, çift kuyruklu test için 2.",
         "de": "1 für einseitigen Test, 2 für zweiseitigen Test.",
-        "fr": "1 pour test unilatéral, 2 pour test bilatéral."
+        "fr": "1 pour test unilatéral, 2 pour test bilatéral.",
+        "es": "1 para prueba de una cola, 2 para prueba de dos colas.",
+        "ar": "1 لاختبار أحادي الذيل، 2 لاختبار ثنائي الذيل."
       }
     }
   ],
   "formulas": {
-    "result": "sample_mean + population_mean + standard_deviation",
-    "result_copy": "sample_mean + population_mean + standard_deviation"
+    "normalized_product": "sample_mean * population_mean * standard_deviation * sample_size",
+    "result": "sample_mean * population_mean * standard_deviation * sample_size * (alpha * tails)",
+    "adjustment_factor": "alpha * tails"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "p_value",
-      "decision"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "decision",
-    "unit": "count"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

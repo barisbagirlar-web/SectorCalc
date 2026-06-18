@@ -23,14 +23,16 @@
         "tr": "Gerilim (V)",
         "de": "Spannung (V)",
         "fr": "Tension (V)",
-        "es": "Voltaje (V)"
+        "es": "Voltaje (V)",
+        "ar": "الجهد (فولت)"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase.",
         "tr": "IEC 60038'e göre nominal voltaj. Tipik endüstriyel değerler: 230V tek fazlı, 400V üç fazlı.",
         "de": "Nennspannung nach IEC 60038. Typische Industriewerte: 230V einphasig, 400V dreiphasig.",
         "fr": "Tension nominale selon CEI 60038. Valeurs industrielles typiques : 230V monophasé, 400V triphasé.",
-        "es": "Tensión nominal según IEC 60038. Valores industriales típicos: 230V monofásica, 400V trifásica."
+        "es": "Tensión nominal según IEC 60038. Valores industriales típicos: 230V monofásica, 400V trifásica.",
+        "ar": "الجهد الاسمي وفقًا لـ IEC 60038. القيم الصناعية النموذجية: 230 فولت أحادي الطور، 400 فولت ثلاثي الطور."
       }
     },
     {
@@ -47,14 +49,16 @@
         "tr": "Akım (I)",
         "de": "Strom (I)",
         "fr": "Courant (I)",
-        "es": "Corriente (I)"
+        "es": "Corriente (I)",
+        "ar": "التيار (I)"
       },
       "businessContext_i18n": {
         "en": "Load current in amperes. Used for conductor sizing and protection coordination.",
         "tr": "Amper cinsinden yük akımı. İletken boyutlandırma ve koruma koordinasyonu için kullanılır.",
         "de": "Laststrom in Ampere. Wird für Leitungsbemessung und Schutzkoordination verwendet.",
         "fr": "Courant de charge en ampères. Utilisé pour le dimensionnement des conducteurs et la coordination de protection.",
-        "es": "Corriente de carga en amperios. Se utiliza para dimensionamiento de conductores y coordinación de protecciones."
+        "es": "Corriente de carga en amperios. Se utiliza para dimensionamiento de conductores y coordinación de protecciones.",
+        "ar": "تيار الحمل بالأمبير. يُستخدم لتحديد مقطع الموصل وحماية الدائرة."
       }
     },
     {
@@ -71,14 +75,16 @@
         "tr": "Direnç (R)",
         "de": "Widerstand (R)",
         "fr": "Résistance (R)",
-        "es": "Resistencia (R)"
+        "es": "Resistencia (R)",
+        "ar": "المقاومة (R)"
       },
       "businessContext_i18n": {
         "en": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance.",
         "tr": "Güç frekansında DC direnç veya AC empedans. İletken, temas ve yük direncini içerir.",
         "de": "Gleichstromwiderstand oder Wechselstromimpedanz bei Netzfrequenz. Umfasst Leiter-, Kontakt- und Lastwiderstand.",
         "fr": "Résistance continue ou impédance à la fréquence du réseau. Inclut la résistance du conducteur, des contacts et de la charge.",
-        "es": "Resistencia DC o impedancia AC a frecuencia de red. Incluye resistencia del conductor, contacto y carga."
+        "es": "Resistencia DC o impedancia AC a frecuencia de red. Incluye resistencia del conductor, contacto y carga.",
+        "ar": "المقاومة المستمرة أو المعاوقة المتناوبة عند تردد الطاقة. تشمل مقاومة الموصل والتلامس والحمل."
       }
     },
     {
@@ -95,14 +101,16 @@
         "tr": "Güç Faktörü (cos φ)",
         "de": "Leistungsfaktor (cos φ)",
         "fr": "Facteur de puissance (cos φ)",
-        "es": "Factor de potencia (cos φ)"
+        "es": "Factor de potencia (cos φ)",
+        "ar": "معامل القدرة (cos φ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations.",
         "tr": "Gerçek gücün görünür güce oranı. Tipik endüstriyel yükler: 0,8-1,0. AC güç hesaplamaları için kullanılır.",
         "de": "Verhältnis von Wirkleistung zu Scheinleistung. Typische Industrielasten: 0,8-1,0. Wird für Wechselstromleistungsberechnungen verwendet.",
         "fr": "Rapport de la puissance active à la puissance apparente. Charges industrielles typiques : 0,8-1,0. Utilisé pour les calculs de puissance en courant alternatif.",
-        "es": "Relación entre potencia real y aparente. Cargas industriales típicas: 0.8-1.0. Se utiliza para cálculos de potencia AC."
+        "es": "Relación entre potencia real y aparente. Cargas industriales típicas: 0.8-1.0. Se utiliza para cálculos de potencia AC.",
+        "ar": "نسبة القدرة الفعلية إلى القدرة الظاهرية. الأحمال الصناعية النموذجية: 0.8-1.0. يُستخدم لحسابات القدرة في التيار المتناوب."
       }
     },
     {
@@ -123,14 +131,16 @@
         "tr": "Faz Türü",
         "de": "Phasentyp",
         "fr": "Type de phase",
-        "es": "Tipo de fase"
+        "es": "Tipo de fase",
+        "ar": "نوع الطور"
       },
       "businessContext_i18n": {
         "en": "Single-phase or three-phase system. Affects power calculation formulas per IEC 60364.",
         "tr": "Tek fazlı veya üç fazlı sistem. IEC 60364'e göre güç hesaplama formüllerini etkiler.",
         "de": "Einphasen- oder Dreiphasensystem. Beeinflusst die Leistungsberechnungsformeln nach IEC 60364.",
         "fr": "Système monophasé ou triphasé. Affecte les formules de calcul de puissance selon CEI 60364.",
-        "es": "Sistema monofásico o trifásico. Afecta las fórmulas de cálculo de potencia según IEC 60364."
+        "es": "Sistema monofásico o trifásico. Afecta las fórmulas de cálculo de potencia según IEC 60364.",
+        "ar": "نظام أحادي الطور أو ثلاثي الطور. يؤثر على معادلات حساب القدرة وفقًا للمعيار IEC 60364."
       }
     },
     {
@@ -147,14 +157,16 @@
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
         "fr": "Température ambiante",
-        "es": "Temperatura ambiente"
+        "es": "Temperatura ambiente",
+        "ar": "درجة الحرارة المحيطة"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C.",
         "tr": "Direnç sıcaklık düzeltmesi için ortam sıcaklığı. Bakır iletken TCR = 0,00393 /°C.",
         "de": "Umgebungstemperatur für Widerstandstemperaturkorrektur. Kupferleiter-TCR = 0,00393 /°C.",
         "fr": "Température ambiante pour la correction de résistance en température. Coefficient de température du cuivre TCR = 0,00393 /°C.",
-        "es": "Temperatura ambiente para corrección de resistencia por temperatura. TCR del cobre = 0.00393 /°C."
+        "es": "Temperatura ambiente para corrección de resistencia por temperatura. TCR del cobre = 0.00393 /°C.",
+        "ar": "درجة الحرارة المحيطة لتصحيح المقاومة حسب درجة الحرارة. معامل درجة حرارة النحاس = 0.00393 /°م."
       }
     }
   ],
@@ -204,18 +216,26 @@
     ]
   },
   "formulas": {
-    "result": "voltage + current + resistance",
-    "result_copy": "voltage + current + resistance"
+    "normalized_product": "voltage * current * resistance * powerFactor",
+    "result": "voltage * current * resistance * powerFactor * (temperature)",
+    "adjustment_factor": "temperature"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "V"
+    "unit": "units"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

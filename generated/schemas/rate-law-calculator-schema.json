@@ -14,14 +14,15 @@
         "de": "Anfangskonzentration [A]₀",
         "fr": "Concentration initiale [A]₀",
         "es": "Concentración inicial [A]₀",
-        "ar": "Initial Concentration [A]₀"
+        "ar": "التركيز الابتدائي [A]₀"
       },
       "businessContext_i18n": {
         "en": "Başlangıç konsantrasyonu (mol/L)",
         "tr": "Başlangıç konsantrasyonu (mol/L)",
         "de": "Anfangskonzentration (mol/L)",
         "fr": "Concentration initiale (mol/L)",
-        "es": "Concentración inicial (mol/L)"
+        "es": "Concentración inicial (mol/L)",
+        "ar": "التركيز الابتدائي (مول/لتر)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Endkonzentration [A]ₜ",
         "fr": "Concentration finale [A]ₜ",
         "es": "Concentración final [A]ₜ",
-        "ar": "Final Concentration [A]ₜ"
+        "ar": "التركيز النهائي [A]ₜ"
       },
       "businessContext_i18n": {
         "en": "t süre sonundaki konsantrasyon (mol/L)",
         "tr": "t süre sonundaki konsantrasyon (mol/L)",
         "de": "Konzentration nach Zeit t (mol/L)",
         "fr": "Concentration au temps t (mol/L)",
-        "es": "Concentración en el tiempo t (mol/L)"
+        "es": "Concentración en el tiempo t (mol/L)",
+        "ar": "التركيز بعد الزمن t (مول/لتر)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon süresi (saniye)",
         "tr": "Reaksiyon süresi (saniye)",
         "de": "Reaktionszeit (Sekunden)",
         "fr": "Temps de réaction (secondes)",
-        "es": "Tiempo de reacción (segundos)"
+        "es": "Tiempo de reacción (segundos)",
+        "ar": "زمن التفاعل (ثانية)"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Reaktionsordnung (n)",
         "fr": "Ordre de réaction (n)",
         "es": "Orden de reacción (n)",
-        "ar": "Reaction Order (n)"
+        "ar": "رتبة التفاعل (n)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir.",
         "tr": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir.",
         "de": "Reaktionsordnung (0, 1, 2…) Die Berechnung gilt für nullte, erste und zweite Ordnung.",
         "fr": "Ordre de réaction (0, 1, 2…) Le calcul est valable pour les ordres zéro, un et deux.",
-        "es": "Orden de reacción (0, 1, 2…) El cálculo es válido para orden cero, primero y segundo."
+        "es": "Orden de reacción (0, 1, 2…) El cálculo es válido para orden cero, primero y segundo.",
+        "ar": "رتبة التفاعل (0، 1، 2…) الحساب صالح للرتب الصفرية والأولى والثانية."
       }
     }
   ],
   "formulas": {
-    "result": "initialConcentration + finalConcentration + time",
-    "result_copy": "initialConcentration + finalConcentration + time"
+    "normalized_product": "initialConcentration * finalConcentration * time * reactionOrder",
+    "result": "initialConcentration * finalConcentration * time * reactionOrder"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rateLawExpression",
-      "halfLife"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "halfLife",
-    "unit": "mol/L"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Kimya & Proses",

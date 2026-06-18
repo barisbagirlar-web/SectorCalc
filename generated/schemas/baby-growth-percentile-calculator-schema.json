@@ -14,14 +14,15 @@
         "de": "Messwert",
         "fr": "Valeur mesurée",
         "es": "Valor de medición",
-        "ar": "Measurement Value"
+        "ar": "قيمة القياس"
       },
       "businessContext_i18n": {
         "en": "The child's measurement (e.g., weight, length, or head circumference).",
         "tr": "Çocuğun ölçümü (örn. ağırlık, boy veya baş çevresi).",
         "de": "Die Messung des Kindes (z. B. Gewicht, Länge oder Kopfumfang).",
         "fr": "Mesure de l'enfant (poids, taille ou périmètre crânien).",
-        "es": "Medición del niño (ej. peso, longitud o perímetro cefálico)."
+        "es": "Medición del niño (ej. peso, longitud o perímetro cefálico).",
+        "ar": "قياس الطفل (مثل الوزن أو الطول أو محيط الرأس)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "L (Lambda)",
         "fr": "L (Lambda)",
         "es": "L (Lambda)",
-        "ar": "L (Lambda)"
+        "ar": "L (لامدا)"
       },
       "businessContext_i18n": {
         "en": "L parameter from the LMS growth reference (e.g., WHO/CDC) for the specific age, gender, and measurement type.",
         "tr": "Belirli yaş, cinsiyet ve ölçüm türü için LMS büyüme referansından (örn. WHO/CDC) L parametresi.",
         "de": "L-Parameter aus dem LMS-Wachstumsreferenz (z. B. WHO/CDC) für das spezifische Alter, Geschlecht und die Messart.",
         "fr": "Paramètre L de la référence de croissance LMS (ex. OMS/CDC) pour l'âge, le sexe et le type de mesure spécifiques.",
-        "es": "Parámetro L de la referencia de crecimiento LMS (ej. OMS/CDC) para la edad, sexo y tipo de medición específicos."
+        "es": "Parámetro L de la referencia de crecimiento LMS (ej. OMS/CDC) para la edad, sexo y tipo de medición específicos.",
+        "ar": "معامل L من مرجع النمو LMS (مثل منظمة الصحة العالمية/مراكز السيطرة على الأمراض) للعمر والجنس ونوع القياس المحدد."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "M (Median)",
         "fr": "M (Médiane)",
         "es": "M (Mediana)",
-        "ar": "M (Median)"
+        "ar": "M (الوسيط)"
       },
       "businessContext_i18n": {
         "en": "M parameter (median) from the LMS growth reference, in the same unit as the measurement.",
         "tr": "LMS büyüme referansından M parametresi (medyan), ölçümle aynı birimde.",
         "de": "M-Parameter (Median) aus dem LMS-Wachstumsreferenz, in derselben Einheit wie die Messung.",
         "fr": "Paramètre M (médiane) de la référence de croissance LMS, dans la même unité que la mesure.",
-        "es": "Parámetro M (mediana) de la referencia de crecimiento LMS, en la misma unidad que la medición."
+        "es": "Parámetro M (mediana) de la referencia de crecimiento LMS, en la misma unidad que la medición.",
+        "ar": "معامل M (الوسيط) من مرجع النمو LMS، بنفس وحدة القياس."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "S (Variationskoeffizient)",
         "fr": "S (Coefficient de variation)",
         "es": "S (Coeficiente de variación)",
-        "ar": "S (Coefficient of Variation)"
+        "ar": "S (معامل الاختلاف)"
       },
       "businessContext_i18n": {
         "en": "S parameter (generalized coefficient of variation) from the LMS growth reference.",
         "tr": "LMS büyüme referansından S parametresi (genelleştirilmiş değişim katsayısı).",
         "de": "S-Parameter (generalisierter Variationskoeffizient) aus dem LMS-Wachstumsreferenz.",
         "fr": "Paramètre S (coefficient de variation généralisé) de la référence de croissance LMS.",
-        "es": "Parámetro S (coeficiente de variación generalizado) de la referencia de crecimiento LMS."
+        "es": "Parámetro S (coeficiente de variación generalizado) de la referencia de crecimiento LMS.",
+        "ar": "معامل S (معامل الاختلاف المعمم) من مرجع النمو LMS."
       }
     },
     {
@@ -106,32 +110,39 @@
         "de": "Messart",
         "fr": "Type de mesure",
         "es": "Tipo de medición",
-        "ar": "Measurement Type"
+        "ar": "نوع القياس"
       },
       "businessContext_i18n": {
         "en": "Indicator: 1 = Weight, 2 = Length, 3 = Head circumference. Used only for contextual clarity.",
         "tr": "Gösterge: 1 = Ağırlık, 2 = Boy, 3 = Baş çevresi. Yalnızca bağlamsal netlik için kullanılır.",
         "de": "Indikator: 1 = Gewicht, 2 = Länge, 3 = Kopfumfang. Nur für kontextuelle Klarheit.",
         "fr": "Indicateur : 1 = Poids, 2 = Taille, 3 = Périmètre crânien. Utilisé uniquement pour la clarté contextuelle.",
-        "es": "Indicador: 1 = Peso, 2 = Longitud, 3 = Perímetro cefálico. Se usa solo para claridad contextual."
+        "es": "Indicador: 1 = Peso, 2 = Longitud, 3 = Perímetro cefálico. Se usa solo para claridad contextual.",
+        "ar": "المؤشر: 1 = الوزن، 2 = الطول، 3 = محيط الرأس. يُستخدم للتوضيح السياقي فقط."
       }
     }
   ],
   "formulas": {
-    "result": "measurement + L + M",
-    "result_copy": "measurement + L + M"
+    "normalized_product": "measurement * L * M * S",
+    "result": "measurement * L * M * S * (measurementType)",
+    "adjustment_factor": "measurementType"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "zscore"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "percentile",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Sağlık & Tıp",

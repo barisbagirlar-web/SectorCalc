@@ -25,14 +25,16 @@
         "tr": "Mevcut Faiz Oranı (%)",
         "de": "Aktueller Zinssatz (%)",
         "fr": "Taux d'intérêt actuel (%)",
-        "es": "Tasa de interés actual (%)"
+        "es": "Tasa de interés actual (%)",
+        "ar": "معدل الفائدة الحالي (%)"
       },
       "businessContext_i18n": {
         "en": "The prevailing market interest rate for the reference period.",
         "tr": "Referans dönemi için geçerli piyasa faiz oranı.",
         "de": "Der vorherrschende Marktzinssatz für den Referenzzeitraum.",
         "fr": "Le taux d'intérêt en vigueur sur le marché pour la période de référence.",
-        "es": "La tasa de interés vigente en el mercado para el período de referencia."
+        "es": "La tasa de interés vigente en el mercado para el período de referencia.",
+        "ar": "معدل الفائدة السائد في السوق للفترة المرجعية."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Beklenen Faiz Değişimi (bps)",
         "de": "Erwartete Zinsänderung (Basispunkte)",
         "fr": "Variation de taux attendue (pdb)",
-        "es": "Cambio esperado en la tasa (pbs)"
+        "es": "Cambio esperado en la tasa (pbs)",
+        "ar": "تغير المعدل المتوقع (نقطة أساس)"
       },
       "businessContext_i18n": {
         "en": "Anticipated shift in interest rate in basis points (1 bps = 0.01%).",
         "tr": "Baz puan cinsinden beklenen faiz değişimi (1 bps = %0,01).",
         "de": "Erwartete Verschiebung des Zinssatzes in Basispunkten (1 BP = 0,01 %).",
         "fr": "Changement anticipé du taux d'intérêt en points de base (1 pdb = 0,01 %).",
-        "es": "Cambio anticipado en la tasa de interés en puntos básicos (1 pbs = 0,01%)."
+        "es": "Cambio anticipado en la tasa de interés en puntos básicos (1 pbs = 0,01%).",
+        "ar": "التحول المتوقع في سعر الفائدة بنقاط الأساس (1 نقطة أساس = 0.01%)."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Portföy Değeri (USD)",
         "de": "Portfoliowert (USD)",
         "fr": "Valeur du portefeuille (USD)",
-        "es": "Valor de la cartera (USD)"
+        "es": "Valor de la cartera (USD)",
+        "ar": "قيمة المحفظة (دولار أمريكي)"
       },
       "businessContext_i18n": {
         "en": "Total notional value of the fixed-income portfolio.",
         "tr": "Sabit getirili portföyün toplam nominal değeri.",
         "de": "Gesamtnominalwert des festverzinslichen Portfolios.",
         "fr": "Valeur notionnelle totale du portefeuille à revenu fixe.",
-        "es": "Valor nocional total de la cartera de renta fija."
+        "es": "Valor nocional total de la cartera de renta fija.",
+        "ar": "القيمة الاسمية الإجمالية لمحفظة الدخل الثابت."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Modifiye Süre (yıl)",
         "de": "Modifizierte Duration (Jahre)",
         "fr": "Duration modifiée (années)",
-        "es": "Duración modificada (años)"
+        "es": "Duración modificada (años)",
+        "ar": "مدة التعديل (سنوات)"
       },
       "businessContext_i18n": {
         "en": "Sensitivity of bond price to yield changes, adjusted for yield.",
         "tr": "Tahvil fiyatının getiri değişimlerine duyarlılığı, getiriye göre düzeltilmiş.",
         "de": "Sensitivität des Anleihepreises gegenüber Renditeänderungen, angepasst an die Rendite.",
         "fr": "Sensibilité du prix des obligations aux variations de rendement, ajustée pour le rendement.",
-        "es": "Sensibilidad del precio del bono a cambios en el rendimiento, ajustada por rendimiento."
+        "es": "Sensibilidad del precio del bono a cambios en el rendimiento, ajustada por rendimiento.",
+        "ar": "حساسية سعر السند لتغيرات العائد، معدلة حسب العائد."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Konveksite",
         "de": "Konvexität",
         "fr": "Convexité",
-        "es": "Convexidad"
+        "es": "Convexidad",
+        "ar": "التحدب"
       },
       "businessContext_i18n": {
         "en": "Second-order measure of curvature in price-yield relationship.",
         "tr": "Fiyat-getiri ilişkisindeki eğriliğin ikinci derece ölçüsü.",
         "de": "Maß zweiter Ordnung für die Krümmung der Preis-Rendite-Beziehung.",
         "fr": "Mesure de second ordre de la courbure de la relation prix-rendement.",
-        "es": "Medida de segundo orden de la curvatura en la relación precio-rendimiento."
+        "es": "Medida de segundo orden de la curvatura en la relación precio-rendimiento.",
+        "ar": "مقياس من الدرجة الثانية للانحناء في علاقة السعر-العائد."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Korunma Oranı (%)",
         "de": "Hedge-Quote (%)",
         "fr": "Ratio de couverture (%)",
-        "es": "Ratio de cobertura (%)"
+        "es": "Ratio de cobertura (%)",
+        "ar": "نسبة التحوط (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of portfolio hedged using derivatives or swaps.",
         "tr": "Türev veya swap kullanılarak korunan portföy yüzdesi.",
         "de": "Prozentsatz des Portfolios, der mit Derivaten oder Swaps abgesichert ist.",
         "fr": "Pourcentage du portefeuille couvert par des dérivés ou swaps.",
-        "es": "Porcentaje de la cartera cubierto mediante derivados o swaps."
+        "es": "Porcentaje de la cartera cubierto mediante derivados o swaps.",
+        "ar": "النسبة المئوية للمحفظة المحوطة باستخدام المشتقات أو المبادلات."
       }
     },
     {
@@ -174,14 +186,16 @@
         "tr": "Güven Düzeyi",
         "de": "Konfidenzniveau",
         "fr": "Niveau de confiance",
-        "es": "Nivel de confianza"
+        "es": "Nivel de confianza",
+        "ar": "مستوى الثقة"
       },
       "businessContext_i18n": {
         "en": "Statistical confidence for VaR and tail risk estimation.",
         "tr": "VaR ve kuyruk risk tahmini için istatistiksel güven.",
         "de": "Statistisches Konfidenzniveau für VaR- und Tail-Risk-Schätzung.",
         "fr": "Confiance statistique pour l'estimation de la VaR et du risque de queue.",
-        "es": "Confianza estadística para la estimación del VaR y riesgo de cola."
+        "es": "Confianza estadística para la estimación del VaR y riesgo de cola.",
+        "ar": "ثقة إحصائية لتقدير القيمة المعرضة للخطر ومخاطر الذيل."
       }
     },
     {
@@ -204,14 +218,16 @@
         "tr": "Volatilite Rejimi",
         "de": "Volatilitätsregime",
         "fr": "Régime de volatilité",
-        "es": "Régimen de volatilidad"
+        "es": "Régimen de volatilidad",
+        "ar": "نظام التقلب"
       },
       "businessContext_i18n": {
         "en": "Market volatility environment for stress testing.",
         "tr": "Stres testi için piyasa volatilite ortamı.",
         "de": "Marktvolatilitätsumgebung für Stresstests.",
         "fr": "Environnement de volatilité du marché pour les tests de résistance.",
-        "es": "Entorno de volatilidad del mercado para pruebas de estrés."
+        "es": "Entorno de volatilidad del mercado para pruebas de estrés.",
+        "ar": "بيئة تقلب السوق لاختبار التحمل."
       }
     }
   ],
@@ -247,18 +263,28 @@
     ]
   },
   "formulas": {
-    "result": "current_rate + rate_change + portfolio_value",
-    "result_copy": "current_rate + rate_change + portfolio_value"
+    "base_cost": "rate_change * portfolio_value",
+    "adjusted_cost": "rate_change * portfolio_value * (1 + (current_rate / 100))",
+    "result": "rate_change * portfolio_value * (1 + (current_rate / 100)) * (duration)",
+    "factor_duration": "duration"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_duration"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "%"
+    "unit": "USD"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -14,14 +14,15 @@
         "de": "Anzahl verhängter Strafen",
         "fr": "Nombre d'amendes reçues",
         "es": "Número de multas impuestas",
-        "ar": "Kesilen Ceza Sayısı"
+        "ar": "عدد المخالفات المحررة"
       },
       "businessContext_i18n": {
         "en": "Toplam kesilen trafik veya lojistik ceza sayısı",
         "tr": "Toplam kesilen trafik veya lojistik ceza sayısı",
         "de": "Gesamtzahl der verhängten Verkehrs- oder Logistikstrafen",
         "fr": "Nombre total d'amendes de trafic ou logistiques reçues",
-        "es": "Número total de multas de tráfico o logística impuestas"
+        "es": "Número total de multas de tráfico o logística impuestas",
+        "ar": "إجمالي عدد مخالفات المرور أو اللوجستيات المحررة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Geldstrafe pro Verstoß",
         "fr": "Amende par infraction",
         "es": "Multa por infracción",
-        "ar": "Ceza Başına Para Cezası"
+        "ar": "الغرامة المالية لكل مخالفة"
       },
       "businessContext_i18n": {
         "en": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
         "tr": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
         "de": "Grundbetrag der Geldstrafe, der pro Verstoß zu zahlen ist",
         "fr": "Montant de base de l'amende à payer pour chaque infraction",
-        "es": "Importe base de la multa a pagar por cada infracción"
+        "es": "Importe base de la multa a pagar por cada infracción",
+        "ar": "مبلغ الغرامة الأساسي المستحق لكل مخالفة"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Erschwerungsfaktor",
         "fr": "Multiplicateur aggravant",
         "es": "Factor agravante",
-        "ar": "Ağırlaştırıcı Çarpan"
+        "ar": "معامل التشديد"
       },
       "businessContext_i18n": {
         "en": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
         "tr": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
         "de": "Multiplikator je nach Schwere des Verstoßes (z.B. Wiederholung, Ladungsschaden usw.)",
         "fr": "Multiplicateur selon la gravité de l'infraction (ex. récidive, dommage à la cargaison, etc.)",
-        "es": "Factor según la gravedad de la infracción (p. ej., reincidencia, daños a la carga, etc.)"
+        "es": "Factor según la gravedad de la infracción (p. ej., reincidencia, daños a la carga, etc.)",
+        "ar": "معامل حسب خطورة المخالفة (مثل التكرار، الضرر العالي، إلخ)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Bearbeitungsgebühr (pro Verstoß)",
         "fr": "Frais de traitement (par amende)",
         "es": "Tasa de gestión (por multa)",
-        "ar": "İşlem Ücreti (Ceza Başına)"
+        "ar": "رسوم المعالجة (لكل مخالفة)"
       },
       "businessContext_i18n": {
         "en": "Her ceza için tahsil edilen idari işlem ücreti",
         "tr": "Her ceza için tahsil edilen idari işlem ücreti",
         "de": "Verwaltungsgebühr, die pro Verstoß erhoben wird",
         "fr": "Frais administratifs perçus pour chaque amende",
-        "es": "Tasa administrativa cobrada por cada multa"
+        "es": "Tasa administrativa cobrada por cada multa",
+        "ar": "رسوم إدارية تُحصّل لكل مخالفة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rabatt bei vorzeitiger Zahlung (%)",
         "fr": "Remise pour paiement anticipé (%)",
         "es": "Descuento por pronto pago (%)",
-        "ar": "Erken Ödeme İndirimi (%)"
+        "ar": "خصم الدفع المبكر (%)"
       },
       "businessContext_i18n": {
         "en": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
         "tr": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
         "de": "Prozentsatz des Rabatts bei Vorauszahlung (0 = kein Rabatt)",
         "fr": "Pourcentage de remise en cas de paiement anticipé (0 si aucune remise)",
-        "es": "Porcentaje de descuento aplicable en caso de pago anticipado (0 si no hay descuento)"
+        "es": "Porcentaje de descuento aplicable en caso de pago anticipado (0 si no hay descuento)",
+        "ar": "نسبة الخصم المئوية المطبقة عند الدفع المبكر (0 يعني لا خصم)"
       }
     }
   ],

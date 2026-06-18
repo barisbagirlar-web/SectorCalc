@@ -13,14 +13,16 @@
         "tr": "Soğutma tonu",
         "de": "Kälteleistung in Tonnen",
         "fr": "Tonnes de réfrigération",
-        "es": "Tons of Refrigeration",
-        "ar": "Tons of Refrigeration"
+        "es": "Toneladas de refrigeración",
+        "ar": "أطنان التبريد"
       },
       "businessContext_i18n": {
         "en": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)",
         "tr": "Soğutma kapasitesi (soğutma tonu cinsinden; 1 ton = 12000 BTU/saat)",
         "de": "Kühlleistung in Kältetonnen (1 Tonne = 12000 BTU/h)",
-        "fr": "Capacité de refroidissement en tonnes de réfrigération (1 tonne = 12 000 BTU/h)"
+        "fr": "Capacité de refroidissement en tonnes de réfrigération (1 tonne = 12 000 BTU/h)",
+        "es": "Capacidad de enfriamiento en toneladas de refrigeración (1 ton = 12000 BTU/h)",
+        "ar": "سعة التبريد بأطنان التبريد (1 طن = 12000 وحدة حرارية بريطانية/ساعة)"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed.",
         "tr": "Tondan kilovata standart dönüşüm faktörü (1 ton ≈ 3,51685 kW). Gerekirse bölgesel standartlara göre ayarlayın.",
         "de": "Standard-Umrechnungsfaktor von Tonnen in Kilowatt (1 Tonne ≈ 3,51685 kW). Bei Bedarf an regionale Standards anpassen.",
-        "fr": "Facteur de conversion standard des tonnes en kilowatts (1 tonne ≈ 3,51685 kW). Ajustez selon les normes régionales si nécessaire."
+        "fr": "Facteur de conversion standard des tonnes en kilowatts (1 tonne ≈ 3,51685 kW). Ajustez selon les normes régionales si nécessaire.",
+        "es": "Factor de conversión estándar de toneladas a kilovatios (1 ton ≈ 3,51685 kW). Ajuste según normas regionales si es necesario.",
+        "ar": "معامل التحويل القياسي من الأطنان إلى الكيلوواط (1 طن ≈ 3.51685 كيلوواط). اضبط حسب المعايير الإقليمية إذا لزم الأمر."
       }
     },
     {
@@ -58,13 +62,15 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Design safety margin multiplier, typically 1.0–1.2",
         "tr": "Tasarım güvenlik marjı çarpanı, tipik olarak 1,0–1,2",
         "de": "Sicherheitsfaktor für die Auslegung, typischerweise 1,0–1,2",
-        "fr": "Coefficient de marge de sécurité de conception, généralement 1,0–1,2"
+        "fr": "Coefficient de marge de sécurité de conception, généralement 1,0–1,2",
+        "es": "Multiplicador de margen de seguridad de diseño, típicamente 1,0–1,2",
+        "ar": "مضاعف هامش الأمان التصميمي، عادةً 1.0–1.2"
       }
     },
     {
@@ -80,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
         "tr": "Yuvarlama için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe",
         "fr": "Nombre de décimales pour l'arrondi du résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب الناتج"
       }
     }
   ],

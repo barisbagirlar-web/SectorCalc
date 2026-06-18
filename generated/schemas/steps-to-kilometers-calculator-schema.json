@@ -14,14 +14,15 @@
         "de": "Anzahl der Schritte",
         "fr": "Nombre d'étapes",
         "es": "Número de pasos",
-        "ar": "Number of Steps"
+        "ar": "عدد الخطوات"
       },
       "businessContext_i18n": {
         "en": "Total step count recorded by a pedometer, fitness tracker, or manual counting.",
         "tr": "Bir adımsayar, fitness takip cihazı veya manuel sayma ile kaydedilen toplam adım sayısı.",
         "de": "Gesamtschrittzahl, aufgezeichnet von einem Schrittzähler, Fitness-Tracker oder manueller Zählung.",
         "fr": "Nombre total de pas enregistré par un podomètre, un tracker d'activité ou un comptage manuel.",
-        "es": "Número total de pasos registrados por un podómetro, rastreador de actividad física o conteo manual."
+        "es": "Número total de pasos registrados por un podómetro, rastreador de actividad física o conteo manual.",
+        "ar": "إجمالي عدد الخطوات المسجل بواسطة عداد الخطى أو متتبع اللياقة البدنية أو العد اليدوي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schrittlänge",
         "fr": "Longueur de pas",
         "es": "Longitud del paso",
-        "ar": "Step Length"
+        "ar": "طول الخطوة"
       },
       "businessContext_i18n": {
         "en": "Measured length of one step in centimeters. Average adult walking step is ~76.2 cm. Used when height-based estimation is disabled.",
         "tr": "Bir adımın santimetre cinsinden ölçülen uzunluğu. Ortalama yetişkin yürüme adımı ~76.2 cm'dir. Boy bazlı tahmin devre dışı bırakıldığında kullanılır.",
         "de": "Gemessene Länge eines Schrittes in Zentimetern. Durchschnittlicher Erwachsenenschritt beträgt ~76,2 cm. Wird verwendet, wenn die Schätzung auf Körpergröße deaktiviert ist.",
         "fr": "Longueur mesurée d'un pas en centimètres. La longueur moyenne d'un pas adulte est d'environ 76,2 cm. Utilisé lorsque l'estimation basée sur la taille est désactivée.",
-        "es": "Longitud medida de un paso en centímetros. El paso promedio de un adulto al caminar es de ~76.2 cm. Se utiliza cuando la estimación basada en la altura está desactivada."
+        "es": "Longitud medida de un paso en centímetros. El paso promedio de un adulto al caminar es de ~76.2 cm. Se utiliza cuando la estimación basada en la altura está desactivada.",
+        "ar": "الطول المقاس للخطوة الواحدة بالسنتيمتر. متوسط خطوة المشي للبالغين ~76.2 سم. يُستخدم عند تعطيل التقدير بناءً على الطول."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters. Used as the basis for estimating step length (when height estimation is toggled on).",
         "tr": "Santimetre cinsinden vücut boyu. Adım uzunluğunu tahmin etmek için temel olarak kullanılır (boy tahmini açık olduğunda).",
         "de": "Körpergröße in Zentimetern. Wird als Grundlage zur Schätzung der Schrittlänge verwendet (wenn Größenschätzung aktiviert ist).",
         "fr": "Taille du corps en centimètres. Utilisée comme base pour estimer la longueur du pas (lorsque l'estimation par la taille est activée).",
-        "es": "Altura del cuerpo en centímetros. Se utiliza como base para estimar la longitud del paso (cuando la estimación por altura está activada)."
+        "es": "Altura del cuerpo en centímetros. Se utiliza como base para estimar la longitud del paso (cuando la estimación por altura está activada).",
+        "ar": "طول الجسم بالسنتيمتر. يُستخدم كأساس لتقدير طول الخطوة (عند تفعيل التقدير من الطول)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schätzung aus Körpergröße",
         "fr": "Estimation à partir de la taille",
         "es": "Estimación desde la altura",
-        "ar": "Estimate from Height"
+        "ar": "تقدير من الطول"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to calculate step length automatically from height (stride ratio * height); set to 0 to use the manual step length.",
         "tr": "Adım uzunluğunu otomatik olarak boydan hesaplamak için 1'e ayarlayın (adım oranı * boy); manuel adım uzunluğu kullanmak için 0'a ayarlayın.",
         "de": "Auf 1 setzen, um die Schrittlänge automatisch aus der Körpergröße zu berechnen (Schrittverhältnis * Größe); auf 0 setzen, um die manuelle Schrittlänge zu verwenden.",
         "fr": "Mettre à 1 pour calculer automatiquement la longueur du pas à partir de la taille (rapport de foulée * taille) ; mettre à 0 pour utiliser la longueur de pas manuelle.",
-        "es": "Establecer en 1 para calcular la longitud del paso automáticamente desde la altura (relación de zancada * altura); establecer en 0 para usar la longitud del paso manual."
+        "es": "Establecer en 1 para calcular la longitud del paso automáticamente desde la altura (relación de zancada * altura); establecer en 0 para usar la longitud del paso manual.",
+        "ar": "اضبط على 1 لحساب طول الخطوة تلقائيًا من الطول (نسبة الخطوة إلى الطول * الطول)؛ اضبط على 0 لاستخدام طول الخطوة اليدوي."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Schritt-zu-Größen-Verhältnis",
         "fr": "Rapport longueur de foulée / taille",
         "es": "Relación zancada-altura",
-        "ar": "Stride-to-Height Ratio"
+        "ar": "نسبة الخطوة إلى الطول"
       },
       "businessContext_i18n": {
         "en": "Ratio of step length to height. Typical range: 0.40–0.50. 0.46 is a commonly accepted average for walking.",
         "tr": "Adım uzunluğunun boya oranı. Tipik aralık: 0.40–0.50. Yürüyüş için genel kabul gören ortalama 0.46'dır.",
         "de": "Verhältnis von Schrittlänge zu Körpergröße. Typischer Bereich: 0,40–0,50. 0,46 ist ein allgemein akzeptierter Durchschnitt für Gehen.",
         "fr": "Rapport entre la longueur du pas et la taille. Plage typique : 0,40–0,50. 0,46 est une moyenne couramment acceptée pour la marche.",
-        "es": "Relación entre la longitud del paso y la altura. Rango típico: 0.40–0.50. 0.46 es un promedio comúnmente aceptado para caminar."
+        "es": "Relación entre la longitud del paso y la altura. Rango típico: 0.40–0.50. 0.46 es un promedio comúnmente aceptado para caminar.",
+        "ar": "نسبة طول الخطوة إلى الطول. النطاق النموذجي: 0.40–0.50. 0.46 هو متوسط مقبول شائع للمشي."
       }
     }
   ],

@@ -14,14 +14,15 @@
         "de": "Proben-mV-Messwert",
         "fr": "Lecture mV de l'échantillon",
         "es": "Lectura de mV de muestra",
-        "ar": "Sample mV Reading"
+        "ar": "قراءة الميلي فولت للعينة"
       },
       "businessContext_i18n": {
         "en": "Millivolt reading of soil-water suspension from pH electrode",
         "tr": "pH elektrotundan toprak-su süspansiyonunun milivolt okuması",
         "de": "Millivolt-Messwert der Boden-Wasser-Suspension von der pH-Elektrode",
         "fr": "Lecture en millivolts de la suspension sol-eau de l'électrode pH",
-        "es": "Lectura en milivoltios de la suspensión suelo-agua del electrodo de pH"
+        "es": "Lectura en milivoltios de la suspensión suelo-agua del electrodo de pH",
+        "ar": "قراءة الميلي فولت لمعلق التربة والماء من قطب الأس الهيدروجيني"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenz-mV-Messwert",
         "fr": "Lecture mV de référence",
         "es": "Lectura de mV de referencia",
-        "ar": "Reference mV Reading"
+        "ar": "قراءة الميلي فولت المرجعية"
       },
       "businessContext_i18n": {
         "en": "Millivolt reading of known pH buffer solution",
         "tr": "Bilinen pH tampon çözeltisinin milivolt okuması",
         "de": "Millivolt-Messwert einer bekannten pH-Pufferlösung",
         "fr": "Lecture en millivolts d'une solution tampon de pH connu",
-        "es": "Lectura en milivoltios de la solución tampón de pH conocida"
+        "es": "Lectura en milivoltios de la solución tampón de pH conocida",
+        "ar": "قراءة الميلي فولت لمحلول منظم الأس الهيدروجيني المعروف"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Puffer-pH",
         "fr": "pH du tampon",
         "es": "pH del tampón",
-        "ar": "Buffer pH"
+        "ar": "الأس الهيدروجيني للمحلول المنظم"
       },
       "businessContext_i18n": {
         "en": "pH value of the reference buffer solution",
         "tr": "Referans tampon çözeltisinin pH değeri",
         "de": "pH-Wert der Referenzpufferlösung",
         "fr": "Valeur du pH de la solution tampon de référence",
-        "es": "Valor de pH de la solución tampón de referencia"
+        "es": "Valor de pH de la solución tampón de referencia",
+        "ar": "قيمة الأس الهيدروجيني للمحلول المنظم المرجعي"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Temperatur",
         "fr": "Température",
         "es": "Temperatura",
-        "ar": "Temperature"
+        "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
         "en": "Temperature of the samples and buffers (assumed equal)",
         "tr": "Numunelerin ve tamponların sıcaklığı (eşit olduğu varsayılır)",
         "de": "Temperatur der Proben und Puffer (als gleich angenommen)",
         "fr": "Température des échantillons et des tampons (supposée égale)",
-        "es": "Temperatura de las muestras y tampones (se asume igual)"
+        "es": "Temperatura de las muestras y tampones (se asume igual)",
+        "ar": "درجة حرارة العينات والمحاليل المنظمة (يفترض أنها متساوية)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Steigung %",
         "fr": "Pente %",
         "es": "Pendiente %",
-        "ar": "Slope %"
+        "ar": "نسبة الميل %"
       },
       "businessContext_i18n": {
         "en": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)",
         "tr": "Elektrod eğiminin teorik Nernst eğimine göre yüzdesi (%100 = 25°C'de 59.16 mV/pH)",
         "de": "Elektrodensteigung in Prozent relativ zur theoretischen Nernst-Steigung (100% = 59,16 mV/pH bei 25°C)",
         "fr": "Pourcentage de pente d'électrode par rapport à la pente nernstienne théorique (100 % = 59,16 mV/pH à 25 °C)",
-        "es": "Porcentaje de pendiente del electrodo respecto a la pendiente nernstiana teórica (100% = 59,16 mV/pH a 25°C)"
+        "es": "Porcentaje de pendiente del electrodo respecto a la pendiente nernstiana teórica (100% = 59,16 mV/pH a 25°C)",
+        "ar": "نسبة ميل القطب بالنسبة للميل النيرنستي النظري (100% = 59.16 مللي فولت/أس هيدروجيني عند 25°م)"
       }
     }
   ],

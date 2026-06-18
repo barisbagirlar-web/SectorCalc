@@ -13,14 +13,16 @@
         "tr": "Kazanç (K)",
         "de": "Verstärkung (K)",
         "fr": "Gain (K)",
-        "es": "Gain (K)",
-        "ar": "Gain (K)"
+        "es": "Ganancia (K)",
+        "ar": "الكسب (K)"
       },
       "businessContext_i18n": {
         "en": "Steady-state gain of the system.",
         "tr": "Sistemin kararlı durum kazancı.",
         "de": "Stationäre Verstärkung des Systems.",
-        "fr": "Gain statique du système."
+        "fr": "Gain statique du système.",
+        "es": "Ganancia en estado estacionario del sistema.",
+        "ar": "كسب الحالة المستقرة للنظام."
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Dämpfungsverhältnis (ζ)",
         "fr": "Coefficient d'amortissement (ζ)",
         "es": "Relación de amortiguamiento (ζ)",
-        "ar": "Damping Ratio (ζ)"
+        "ar": "نسبة التخميد (ζ)"
       },
       "businessContext_i18n": {
         "en": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1.",
         "tr": "İkinci derece sistemin sönüm oranı. >0 olmalıdır. Az sönümlü için 0<ζ<1.",
         "de": "Dämpfungsfaktor des Systems zweiter Ordnung. Muss >0 sein. Für unterkritische Dämpfung: 0<ζ<1.",
-        "fr": "Coefficient d'amortissement du système du second ordre. Doit être >0. Pour un système sous-amorti, 0<ζ<1."
+        "fr": "Coefficient d'amortissement du système du second ordre. Doit être >0. Pour un système sous-amorti, 0<ζ<1.",
+        "es": "Relación de amortiguamiento del sistema de segundo orden. Debe ser >0. Para subamortiguado, 0<ζ<1.",
+        "ar": "نسبة التخميد للنظام من الدرجة الثانية. يجب أن تكون >0. للتخميد المنخفض، 0<ζ<1."
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Doğal Frekans (ω_n)",
         "de": "Eigenfrequenz (ω_n)",
         "fr": "Fréquence naturelle (ω_n)",
-        "es": "Natural Frequency (ω_n)",
-        "ar": "Natural Frequency (ω_n)"
+        "es": "Frecuencia natural (ω_n)",
+        "ar": "التردد الطبيعي (ω_n)"
       },
       "businessContext_i18n": {
         "en": "Natural frequency in radians per second.",
         "tr": "Doğal frekans (rad/saniye cinsinden).",
         "de": "Eigenfrequenz in Radiant pro Sekunde.",
-        "fr": "Fréquence naturelle en radians par seconde."
+        "fr": "Fréquence naturelle en radians par seconde.",
+        "es": "Frecuencia natural en radianes por segundo.",
+        "ar": "التردد الطبيعي بوحدة راديان في الثانية."
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Adım Giriş Genliği",
         "de": "Amplitude des Sprungeingangs",
         "fr": "Amplitude de l'échelon d'entrée",
-        "es": "Step Input Amplitude",
-        "ar": "Step Input Amplitude"
+        "es": "Amplitud de la entrada escalón",
+        "ar": "سعة إشارة الدخل الخطوية"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the step input signal applied.",
         "tr": "Uygulanan adım giriş sinyalinin büyüklüğü.",
         "de": "Größe des angelegten Sprungeingangssignals.",
-        "fr": "Amplitude du signal d'entrée en échelon appliqué."
+        "fr": "Amplitude du signal d'entrée en échelon appliqué.",
+        "es": "Magnitud de la señal de entrada escalón aplicada.",
+        "ar": "مقدار إشارة الدخل الخطوية المطبقة."
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Zaman Gecikmesi (τ)",
         "de": "Totzeit (τ)",
         "fr": "Temps mort (τ)",
-        "es": "Time Delay (τ)",
-        "ar": "Time Delay (τ)"
+        "es": "Retardo de tiempo (τ)",
+        "ar": "التأخير الزمني (τ)"
       },
       "businessContext_i18n": {
         "en": "Transport delay or dead time in seconds.",
         "tr": "Taşıma gecikmesi veya ölü zaman (saniye cinsinden).",
         "de": "Transportverzögerung oder Totzeit in Sekunden.",
-        "fr": "Retard de transport ou temps mort en secondes."
+        "fr": "Retard de transport ou temps mort en secondes.",
+        "es": "Retardo de transporte o tiempo muerto en segundos.",
+        "ar": "تأخير النقل أو الوقت الميت بالثواني."
       }
     }
   ],

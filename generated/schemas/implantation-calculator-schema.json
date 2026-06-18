@@ -14,14 +14,15 @@
         "de": "Referenz X (Rechtswert)",
         "fr": "Référence X (Est)",
         "es": "Referencia X (Este)",
-        "ar": "Reference X (Easting)"
+        "ar": "المرجع X (شرق)"
       },
       "businessContext_i18n": {
         "en": "The easting coordinate of the known reference point.",
         "tr": "Bilinen referans noktasının doğu koordinatı.",
         "de": "Die Rechtswert-Koordinate des bekannten Referenzpunktes.",
         "fr": "Coordonnée est du point de référence connu.",
-        "es": "La coordenada este del punto de referencia conocido."
+        "es": "La coordenada este del punto de referencia conocido.",
+        "ar": "إحداثي شرق لنقطة المرجع المعروفة."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenz Y (Hochwert)",
         "fr": "Référence Y (Nord)",
         "es": "Referencia Y (Norte)",
-        "ar": "Reference Y (Northing)"
+        "ar": "المرجع Y (شمال)"
       },
       "businessContext_i18n": {
         "en": "The northing coordinate of the known reference point.",
         "tr": "Bilinen referans noktasının kuzey koordinatı.",
         "de": "Die Hochwert-Koordinate des bekannten Referenzpunktes.",
         "fr": "Coordonnée nord du point de référence connu.",
-        "es": "La coordenada norte del punto de referencia conocido."
+        "es": "La coordenada norte del punto de referencia conocido.",
+        "ar": "إحداثي شمال لنقطة المرجع المعروفة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Entfernung",
         "fr": "Distance",
         "es": "Distancia",
-        "ar": "Distance"
+        "ar": "المسافة"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance from reference to target point.",
         "tr": "Referanstan hedef noktaya yatay mesafe.",
         "de": "Horizontaler Abstand vom Referenz- zum Zielpunkt.",
         "fr": "Distance horizontale du point de référence au point cible.",
-        "es": "Distancia horizontal desde la referencia hasta el punto objetivo."
+        "es": "Distancia horizontal desde la referencia hasta el punto objetivo.",
+        "ar": "المسافة الأفقية من المرجع إلى النقطة المستهدفة."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Azimutwinkel",
         "fr": "Angle d'azimut",
         "es": "Ángulo de acimut",
-        "ar": "Azimuth Angle"
+        "ar": "زاوية السمت"
       },
       "businessContext_i18n": {
         "en": "Clockwise angle from north direction to the target direction.",
         "tr": "Kuzey yönünden hedef yönüne saat yönünde açı.",
         "de": "Im Uhrzeigersinn von Norden zur Zielrichtung gemessener Winkel.",
         "fr": "Angle horaire du nord vers la direction cible.",
-        "es": "Ángulo en sentido horario desde la dirección norte hasta la dirección objetivo."
+        "es": "Ángulo en sentido horario desde la dirección norte hasta la dirección objetivo.",
+        "ar": "الزاوية في اتجاه عقارب الساعة من الشمال إلى الاتجاه المستهدف."
       }
     }
   ],
   "formulas": {
-    "result": "refX + refY + distance",
-    "result_copy": "refX + refY + distance"
+    "normalized_product": "refX * refY * distance * azimuth",
+    "result": "refX * refY * distance * azimuth"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "X = ${targetX} m",
-      "Y = ${targetY} m"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "targetY",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

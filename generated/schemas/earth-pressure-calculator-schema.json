@@ -14,14 +14,15 @@
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
         "es": "Altura del muro",
-        "ar": "Wall Height"
+        "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the retaining wall from base to top.",
         "tr": "İstinat duvarının tabandan tepeye dikey yüksekliği.",
         "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Krone.",
         "fr": "Hauteur verticale du mur de soutènement de la base au sommet.",
-        "es": "Altura vertical del muro de contención desde la base hasta la parte superior."
+        "es": "Altura vertical del muro de contención desde la base hasta la parte superior.",
+        "ar": "الارتفاع الرأسي للجدار الاستنادي من القاعدة إلى القمة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bodenwichte",
         "fr": "Poids volumique du sol",
         "es": "Peso unitario del suelo",
-        "ar": "Soil Unit Weight"
+        "ar": "وزن وحدة التربة"
       },
       "businessContext_i18n": {
         "en": "Unit weight of the backfill soil.",
         "tr": "Dolgu zeminin birim hacim ağırlığı.",
         "de": "Wichte des Hinterfüllbodens.",
         "fr": "Poids unitaire du sol de remblai.",
-        "es": "Peso unitario del suelo de relleno."
+        "es": "Peso unitario del suelo de relleno.",
+        "ar": "وزن الوحدة لتربة الردم"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Reibungswinkel",
         "fr": "Angle de frottement",
         "es": "Ángulo de fricción",
-        "ar": "Friction Angle"
+        "ar": "زاوية الاحتكاك"
       },
       "businessContext_i18n": {
         "en": "Internal friction angle of the soil.",
         "tr": "Zeminin içsel sürtünme açısı.",
         "de": "Innerer Reibungswinkel des Bodens.",
         "fr": "Angle de frottement interne du sol.",
-        "es": "Ángulo de fricción interna del suelo."
+        "es": "Ángulo de fricción interna del suelo.",
+        "ar": "زاوية الاحتكاك الداخلي للتربة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kohäsion",
         "fr": "Cohésion",
         "es": "Cohesión",
-        "ar": "Cohesion"
+        "ar": "التماسك"
       },
       "businessContext_i18n": {
         "en": "Cohesion of the soil. Enter 0 for granular soils.",
         "tr": "Zeminin kohezyonu. Granüler zeminler için 0 girin.",
         "de": "Kohäsion des Bodens. Bei rolligen Böden 0 eingeben.",
         "fr": "Cohésion du sol. Entrez 0 pour les sols granulaires.",
-        "es": "Cohesión del suelo. Ingrese 0 para suelos granulares."
+        "es": "Cohesión del suelo. Ingrese 0 para suelos granulares.",
+        "ar": "تماسك التربة. أدخل 0 للتربة الحبيبية"
       }
     },
     {
@@ -106,35 +110,39 @@
         "de": "Auflast",
         "fr": "Charge de surcharge",
         "es": "Sobrecarga",
-        "ar": "Surcharge Load"
+        "ar": "حمل السطوح"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load applied on the backfill surface.",
         "tr": "Dolgu yüzeyine uygulanan düzgün yayılı sürşarj yükü.",
         "de": "Gleichmäßige Auflast auf der Hinterfülloberfläche.",
         "fr": "Charge de surcharge uniforme appliquée sur la surface du remblai.",
-        "es": "Carga de sobrecarga uniforme aplicada sobre la superficie del relleno."
+        "es": "Carga de sobrecarga uniforme aplicada sobre la superficie del relleno.",
+        "ar": "حمل سطوح منتظم مطبق على سطح الردم"
       }
     }
   ],
   "formulas": {
-    "result": "height + soilUnitWeight + frictionAngle",
-    "result_copy": "height + soilUnitWeight + frictionAngle"
+    "normalized_product": "height * soilUnitWeight * frictionAngle * cohesion",
+    "result": "height * soilUnitWeight * frictionAngle * cohesion * (surcharge)",
+    "adjustment_factor": "surcharge"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "activePressureCoefficient",
-      "passivePressureCoefficient",
-      "basePressureActive",
-      "momentBaseActive"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "momentBaseActive",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

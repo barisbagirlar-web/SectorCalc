@@ -13,14 +13,16 @@
         "tr": "ABD MPG",
         "de": "US-MPG",
         "fr": "MPG US",
-        "es": "US MPG",
-        "ar": "US MPG"
+        "es": "MPG estadounidense",
+        "ar": "MPG أمريكي"
       },
       "businessContext_i18n": {
         "en": "Fuel economy in miles per US gallon",
         "tr": "Mil başına ABD galonu cinsinden yakıt ekonomisi",
         "de": "Kraftstoffverbrauch in Meilen pro US-Gallone",
-        "fr": "Consommation de carburant en miles par gallon US"
+        "fr": "Consommation de carburant en miles par gallon US",
+        "es": "Rendimiento de combustible en millas por galón estadounidense",
+        "ar": "استهلاك الوقود بالأميال لكل جالون أمريكي"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon",
         "tr": "ABD mpg'yi İngiliz mpg'ye dönüştürme faktörü. 1 ABD galonu = 0,832674 İngiliz galonu esas alınmıştır.",
         "de": "Faktor zur Umrechnung von US-mpg in UK-mpg. Basierend auf 1 US-Gallone = 0,832674 UK-Gallone",
-        "fr": "Facteur pour convertir les mpg US en mpg UK. Basé sur 1 gallon US = 0,832674 gallon UK"
+        "fr": "Facteur pour convertir les mpg US en mpg UK. Basé sur 1 gallon US = 0,832674 gallon UK",
+        "es": "Factor para convertir mpg estadounidense a mpg británica. Basado en 1 galón estadounidense = 0,832674 galón británico",
+        "ar": "معامل تحويل MPG الأمريكي إلى MPG البريطاني. بناءً على 1 جالون أمريكي = 0.832674 جالون بريطاني"
       }
     },
     {
@@ -58,14 +62,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
         "fr": "Nombre de décimales pour le résultat arrondi",
-        "es": "Número de decimales para la salida redondeada"
+        "es": "Número de decimales para la salida redondeada",
+        "ar": "عدد المنازل العشرية للمخرجات المقربة"
       }
     },
     {
@@ -81,13 +86,15 @@
         "de": "Referenzwert",
         "fr": "Valeur de référence",
         "es": "Valor de referencia",
-        "ar": "Reference Value"
+        "ar": "القيمة المرجعية"
       },
       "businessContext_i18n": {
         "en": "Optional reference UK mpg value for comparison",
         "tr": "Karşılaştırma için isteğe bağlı referans İngiliz mpg değeri",
         "de": "Optionaler Referenz-UK-mpg-Wert zum Vergleich",
-        "fr": "Valeur de référence optionnelle en mpg UK pour comparaison"
+        "fr": "Valeur de référence optionnelle en mpg UK pour comparaison",
+        "es": "Valor opcional de referencia de mpg británica para comparación",
+        "ar": "قيمة MPG بريطانية مرجعية اختيارية للمقارنة"
       }
     }
   ],

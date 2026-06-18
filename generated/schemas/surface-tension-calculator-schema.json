@@ -14,14 +14,15 @@
         "de": "Flüssigkeitsdichte",
         "fr": "Densité du liquide",
         "es": "Densidad del líquido",
-        "ar": "Liquid Density"
+        "ar": "كثافة المائع"
       },
       "businessContext_i18n": {
         "en": "Density of the liquid at measurement temperature",
         "tr": "Ölçüm sıcaklığında sıvının yoğunluğu",
         "de": "Dichte der Flüssigkeit bei Messtemperatur",
         "fr": "Densité du liquide à la température de mesure",
-        "es": "Densidad del líquido a la temperatura de medición"
+        "es": "Densidad del líquido a la temperatura de medición",
+        "ar": "كثافة السائل عند درجة حرارة القياس"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Erdbeschleunigung",
         "fr": "Accélération due à la gravité",
         "es": "Aceleración debida a la gravedad",
-        "ar": "Acceleration due to Gravity"
+        "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Standard gravity or local gravity value",
         "tr": "Standart yerçekimi veya yerel yerçekimi değeri",
         "de": "Standardgravitation oder lokale Gravitation",
         "fr": "Gravité standard ou gravité locale",
-        "es": "Gravedad estándar o gravedad local"
+        "es": "Gravedad estándar o gravedad local",
+        "ar": "قيمة الجاذبية القياسية أو المحلية"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kapillarsteighöhe",
         "fr": "Hauteur de remontée capillaire",
         "es": "Altura de ascenso capilar",
-        "ar": "Capillary Rise Height"
+        "ar": "ارتفاع الصعود الشعري"
       },
       "businessContext_i18n": {
         "en": "Measured height difference between liquid in capillary and free surface",
         "tr": "Kılcal borudaki sıvı ile serbest yüzey arasındaki ölçülen yükseklik farkı",
         "de": "Gemessener Höhenunterschied zwischen Flüssigkeit in Kapillare und freier Oberfläche",
         "fr": "Différence de hauteur mesurée entre le liquide dans le capillaire et la surface libre",
-        "es": "Diferencia de altura medida entre el líquido en el capilar y la superficie libre"
+        "es": "Diferencia de altura medida entre el líquido en el capilar y la superficie libre",
+        "ar": "فرق الارتفاع المقاس بين السائل في الأنبوب الشعري والسطح الحر"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Kapillarradius",
         "fr": "Rayon du capillaire",
         "es": "Radio del capilar",
-        "ar": "Capillary Radius"
+        "ar": "نصف قطر الأنبوب الشعري"
       },
       "businessContext_i18n": {
         "en": "Inner radius of the capillary tube",
         "tr": "Kılcal borunun iç yarıçapı",
         "de": "Innenradius des Kapillarrohrs",
         "fr": "Rayon intérieur du tube capillaire",
-        "es": "Radio interior del tubo capilar"
+        "es": "Radio interior del tubo capilar",
+        "ar": "نصف القطر الداخلي للأنبوب الشعري"
       }
     },
     {
@@ -106,37 +110,39 @@
         "de": "Eingriffswinkel",
         "fr": "Angle de contact",
         "es": "Ángulo de contacto",
-        "ar": "Contact Angle"
+        "ar": "زاوية التلامس"
       },
       "businessContext_i18n": {
         "en": "Contact angle between liquid and capillary wall, 0° for completely wetting liquids",
         "tr": "Sıvı ile kılcal duvar arasındaki temas açısı, tamamen ıslatan sıvılar için 0°",
         "de": "Kontaktwinkel zwischen Flüssigkeit und Kapillarwand, 0° für vollständig benetzende Flüssigkeiten",
         "fr": "Angle de contact entre le liquide et la paroi du capillaire, 0° pour les liquides parfaitement mouillants",
-        "es": "Ángulo de contacto entre el líquido y la pared del capilar, 0° para líquidos completamente mojantes"
+        "es": "Ángulo de contacto entre el líquido y la pared del capilar, 0° para líquidos completamente mojantes",
+        "ar": "زاوية التلامس بين السائل وجدار الأنبوب الشعري، 0° للسوائل المبللة تمامًا"
       }
     }
   ],
   "formulas": {
-    "result": "density + gravity + height",
-    "result_aux": "density + gravity + height"
+    "normalized_product": "density * gravity * height * radius",
+    "result": "density * gravity * height * radius * (contactAngle)",
+    "adjustment_factor": "contactAngle"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Capillary Rise Height: {{height}} m",
-      "Capillary Radius: {{radius}} m",
-      "Density: {{density}} kg/m³",
-      "Gravity: {{gravity}} m/s²",
-      "Contact Angle: {{contactAngle}}°",
-      "Calculated Surface Tension: {{surfaceTension}} N/m (×1000 => {{surfaceTension * 1000}} mN/m)"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "surfaceTension_aux",
-    "unit": "kg/m³"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

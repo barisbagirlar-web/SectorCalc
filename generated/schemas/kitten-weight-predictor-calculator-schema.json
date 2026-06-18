@@ -14,14 +14,15 @@
         "de": "Alter (Wochen)",
         "fr": "Âge (semaines)",
         "es": "Edad (semanas)",
-        "ar": "Age (weeks)"
+        "ar": "العمر (أسابيع)"
       },
       "businessContext_i18n": {
         "en": "Current age of kitten in weeks",
         "tr": "Yavru kedinin hafta cinsinden mevcut yaşı",
         "de": "Aktuelles Alter des Kätzchens in Wochen",
         "fr": "Âge actuel du chaton en semaines",
-        "es": "Edad actual del gatito en semanas"
+        "es": "Edad actual del gatito en semanas",
+        "ar": "العمر الحالي للقط بالأسابيع"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Aktuelles Gewicht",
         "fr": "Poids actuel",
         "es": "Peso actual",
-        "ar": "Current Weight"
+        "ar": "الوزن الحالي"
       },
       "businessContext_i18n": {
         "en": "Current weight of kitten in grams",
         "tr": "Yavru kedinin gram cinsinden mevcut ağırlığı",
         "de": "Aktuelles Gewicht des Kätzchens in Gramm",
         "fr": "Poids actuel du chaton en grammes",
-        "es": "Peso actual del gatito en gramos"
+        "es": "Peso actual del gatito en gramos",
+        "ar": "الوزن الحالي للقط بالجرام"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Geburtsgewicht",
         "fr": "Poids à la naissance",
         "es": "Peso al nacer",
-        "ar": "Birth Weight"
+        "ar": "وزن الولادة"
       },
       "businessContext_i18n": {
         "en": "Weight at birth in grams",
         "tr": "Gram cinsinden doğum ağırlığı",
         "de": "Gewicht bei der Geburt in Gramm",
         "fr": "Poids à la naissance en grammes",
-        "es": "Peso al nacer en gramos"
+        "es": "Peso al nacer en gramos",
+        "ar": "الوزن عند الولادة بالجرام"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rassengrößenfaktor",
         "fr": "Facteur de taille de race",
         "es": "Factor de tamaño de raza",
-        "ar": "Breed Size Factor"
+        "ar": "عامل حجم السلالة"
       },
       "businessContext_i18n": {
         "en": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)",
         "tr": "Irk boyut çarpanı (ör. küçük 0.8, orta 1.0, büyük 1.2)",
         "de": "Rassengrößen-Multiplikator (z. B. 0,8 klein, 1,0 mittel, 1,2 groß)",
         "fr": "Multiplicateur de taille de race (ex. 0,8 petit, 1,0 moyen, 1,2 grand)",
-        "es": "Multiplicador de tamaño de raza (p. ej., 0.8 pequeño, 1.0 mediano, 1.2 grande)"
+        "es": "Multiplicador de tamaño de raza (p. ej., 0.8 pequeño, 1.0 mediano, 1.2 grande)",
+        "ar": "مضاعف حجم السلالة (مثل 0.8 صغير، 1.0 متوسط، 1.2 كبير)"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Geschlechtsfaktor",
         "fr": "Facteur de sexe",
         "es": "Factor de sexo",
-        "ar": "Sex Factor"
+        "ar": "عامل الجنس"
       },
       "businessContext_i18n": {
         "en": "Sex multiplier (1.0 female, 1.1 male)",
         "tr": "Cinsiyet çarpanı (dişi 1.0, erkek 1.1)",
         "de": "Geschlechts-Multiplikator (1,0 weiblich, 1,1 männlich)",
         "fr": "Multiplicateur de sexe (1,0 femelle, 1,1 mâle)",
-        "es": "Multiplicador de sexo (1.0 hembra, 1.1 macho)"
+        "es": "Multiplicador de sexo (1.0 hembra, 1.1 macho)",
+        "ar": "مضاعف الجنس (1.0 أنثى، 1.1 ذكر)"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Tägliche Kalorienaufnahme",
         "fr": "Apport calorique quotidien",
         "es": "Ingesta calórica diaria",
-        "ar": "Daily Calorie Intake"
+        "ar": "السعرات الحرارية اليومية"
       },
       "businessContext_i18n": {
         "en": "Average daily calorie intake affecting growth rate",
         "tr": "Büyüme hızını etkileyen ortalama günlük kalori alımı",
         "de": "Durchschnittliche tägliche Kalorienaufnahme, die die Wachstumsrate beeinflusst",
         "fr": "Apport calorique quotidien moyen affectant le taux de croissance",
-        "es": "Ingesta calórica diaria promedio que afecta la tasa de crecimiento"
+        "es": "Ingesta calórica diaria promedio que afecta la tasa de crecimiento",
+        "ar": "متوسط السعرات الحرارية اليومية المؤثرة على معدل النمو"
       }
     }
   ],
   "formulas": {
-    "result": "ageInWeeks + currentWeight + birthWeight",
-    "result_copy": "ageInWeeks + currentWeight + birthWeight"
+    "normalized_product": "ageInWeeks * currentWeight * birthWeight * breedSizeFactor",
+    "result": "ageInWeeks * currentWeight * birthWeight * breedSizeFactor * (sexFactor * dailyCalories)",
+    "adjustment_factor": "sexFactor * dailyCalories"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "growthRate",
-      "basePrediction",
-      "weightAt20Weeks"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "weightAt20Weeks",
-    "unit": "weeks"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

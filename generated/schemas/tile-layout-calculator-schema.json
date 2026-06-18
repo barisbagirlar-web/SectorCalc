@@ -14,14 +14,15 @@
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
         "es": "Longitud de la habitación",
-        "ar": "Oda Uzunluğu"
+        "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
         "en": "Odanın uzunluğu (metre)",
         "tr": "Odanın uzunluğu (metre)",
         "de": "Raumlänge (Meter)",
         "fr": "Longueur de la pièce (mètres)",
-        "es": "Largo de la habitación (metros)"
+        "es": "Largo de la habitación (metros)",
+        "ar": "طول الغرفة (متر)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
         "es": "Ancho de la habitación",
-        "ar": "Oda Genişliği"
+        "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
         "en": "Odanın genişliği (metre)",
         "tr": "Odanın genişliği (metre)",
         "de": "Raumbreite (Meter)",
         "fr": "Largeur de la pièce (mètres)",
-        "es": "Ancho de la habitación (metros)"
+        "es": "Ancho de la habitación (metros)",
+        "ar": "عرض الغرفة (متر)"
       }
     },
     {
@@ -59,14 +61,16 @@
         "tr": "Fayans Uzunluğu",
         "de": "Fliesenlänge",
         "fr": "Longueur du carreau",
-        "es": "Fayans Uzunluğu",
-        "ar": "Fayans Uzunluğu"
+        "es": "Largo del azulejo",
+        "ar": "طول البلاطة"
       },
       "businessContext_i18n": {
         "en": "Fayansın uzun kenarı (santimetre)",
         "tr": "Fayansın uzun kenarı (santimetre)",
         "de": "Lange Seite der Fliese (Zentimeter)",
-        "fr": "Côté long du carreau (centimètres)"
+        "fr": "Côté long du carreau (centimètres)",
+        "es": "Lado largo del azulejo (centímetros)",
+        "ar": "الضلع الطويل للبلاطة (سنتيمتر)"
       }
     },
     {
@@ -81,14 +85,16 @@
         "tr": "Fayans Genişliği",
         "de": "Fliesenbreite",
         "fr": "Largeur du carreau",
-        "es": "Fayans Genişliği",
-        "ar": "Fayans Genişliği"
+        "es": "Ancho del azulejo",
+        "ar": "عرض البلاطة"
       },
       "businessContext_i18n": {
         "en": "Fayansın kısa kenarı (santimetre)",
         "tr": "Fayansın kısa kenarı (santimetre)",
         "de": "Kurze Seite der Fliese (Zentimeter)",
-        "fr": "Côté court du carreau (centimètres)"
+        "fr": "Côté court du carreau (centimètres)",
+        "es": "Lado corto del azulejo (centímetros)",
+        "ar": "الضلع القصير للبلاطة (سنتيمتر)"
       }
     },
     {
@@ -103,14 +109,16 @@
         "tr": "Derz Aralığı",
         "de": "Fugenabstand",
         "fr": "Espacement des joints",
-        "es": "Derz Aralığı",
-        "ar": "Derz Aralığı"
+        "es": "Espaciado de junta",
+        "ar": "تباعد الفواصل"
       },
       "businessContext_i18n": {
         "en": "Derz kalınlığı (milimetre)",
         "tr": "Derz kalınlığı (milimetre)",
         "de": "Fugendicke (Millimeter)",
-        "fr": "Épaisseur du joint (millimètres)"
+        "fr": "Épaisseur du joint (millimètres)",
+        "es": "Espesor de la capa (milímetros)",
+        "ar": "سمك الفاصل (مليمتر)"
       }
     },
     {
@@ -126,34 +134,39 @@
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
         "es": "Porcentaje de desperdicio",
-        "ar": "Fire Oranı"
+        "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
         "en": "Kırılma/kesim kaybı yüzdesi",
         "tr": "Kırılma/kesim kaybı yüzdesi",
         "de": "Prozentsatz für Bruch-/Schnittverlust",
-        "fr": "Pourcentage de perte par casse/coupe"
+        "fr": "Pourcentage de perte par casse/coupe",
+        "es": "Porcentaje de pérdida por rotura/corte",
+        "ar": "نسبة الفاقد بسبب الكسر/القطع"
       }
     }
   ],
   "formulas": {
-    "result": "roomLength + roomWidth + tileLength",
-    "result_copy": "roomLength + roomWidth + tileLength"
+    "normalized_product": "roomLength * roomWidth * tileLength * tileWidth",
+    "result": "roomLength * roomWidth * tileLength * tileWidth * (groutWidth * (wastePercent / 100))",
+    "adjustment_factor": "groutWidth * (wastePercent / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "horizontalTiles",
-      "verticalTiles",
-      "tilesWithoutWaste",
-      "wasteTiles"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "wasteTiles",
-    "unit": "m"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

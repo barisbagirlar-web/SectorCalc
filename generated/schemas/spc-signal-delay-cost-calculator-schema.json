@@ -25,14 +25,16 @@
         "tr": "Proses Çevrim Süresi (dakika)",
         "de": "Prozesszykluszeit (Minuten)",
         "fr": "Temps de cycle (minutes)",
-        "es": "Tiempo de ciclo del proceso (minutos)"
+        "es": "Tiempo de ciclo del proceso (minutos)",
+        "ar": "زمن الدورة (دقائق)"
       },
       "businessContext_i18n": {
         "en": "Average time to complete one production cycle. Used to estimate units produced per shift.",
         "tr": "Bir üretim çevrimini tamamlamak için ortalama süre. Vardiya başına üretilen birimleri tahmin etmek için kullanılır.",
         "de": "Durchschnittliche Zeit für einen vollständigen Produktionszyklus. Wird zur Schätzung der produzierten Einheiten pro Schicht verwendet.",
         "fr": "Temps moyen pour terminer un cycle de production. Utilisé pour estimer les unités produites par quart.",
-        "es": "Tiempo promedio para completar un ciclo de producción. Se utiliza para estimar unidades producidas por turno."
+        "es": "Tiempo promedio para completar un ciclo de producción. Se utiliza para estimar unidades producidas por turno.",
+        "ar": "متوسط الوقت لإكمال دورة إنتاج واحدة. يُستخدم لتقدير الوحدات المنتجة لكل وردية."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Çevrim Başına Birim",
         "de": "Einheiten pro Zyklus",
         "fr": "Unités par cycle",
-        "es": "Unidades por ciclo"
+        "es": "Unidades por ciclo",
+        "ar": "الوحدات لكل دورة"
       },
       "businessContext_i18n": {
         "en": "Number of units produced in one complete cycle.",
         "tr": "Bir tam çevrimde üretilen birim sayısı.",
         "de": "Anzahl der Einheiten, die in einem vollständigen Zyklus produziert werden.",
         "fr": "Nombre d'unités produites en un cycle complet.",
-        "es": "Número de unidades producidas en un ciclo completo."
+        "es": "Número de unidades producidas en un ciclo completo.",
+        "ar": "عدد الوحدات المنتجة في دورة كاملة واحدة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Kontrol Dışıyken Hata Oranı",
         "de": "Fehlerrate bei Außerkontrolle",
         "fr": "Taux de défauts hors contrôle",
-        "es": "Tasa de defectos cuando está fuera de control"
+        "es": "Tasa de defectos cuando está fuera de control",
+        "ar": "نسبة العيوب عند الخروج عن السيطرة"
       },
       "businessContext_i18n": {
         "en": "Expected defect percentage when the process is out of control (based on historical SPC data).",
         "tr": "Proses kontrol dışıyken beklenen hata yüzdesi (geçmiş SPC verilerine dayanarak).",
         "de": "Erwarteter Fehlerprozentsatz, wenn der Prozess außer Kontrolle ist (basierend auf historischen SPC-Daten).",
         "fr": "Pourcentage de défauts attendu lorsque le processus est hors contrôle (basé sur les données SPC historiques).",
-        "es": "Porcentaje de defectos esperado cuando el proceso está fuera de control (basado en datos históricos de Control Estadístico de Procesos)."
+        "es": "Porcentaje de defectos esperado cuando el proceso está fuera de control (basado en datos históricos de Control Estadístico de Procesos).",
+        "ar": "نسبة العيوب المتوقعة عندما تكون العملية خارج السيطرة (بناءً على بيانات SPC التاريخية)."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Kontrol Altındayken Hata Oranı",
         "de": "Fehlerrate bei Unterkontrolle",
         "fr": "Taux de défauts sous contrôle",
-        "es": "Tasa de defectos cuando está en control"
+        "es": "Tasa de defectos cuando está en control",
+        "ar": "نسبة العيوب عند السيطرة"
       },
       "businessContext_i18n": {
         "en": "Baseline defect percentage when the process is stable and in control.",
         "tr": "Proses kararlı ve kontrol altındayken temel hata yüzdesi.",
         "de": "Basis-Fehlerprozentsatz, wenn der Prozess stabil und unter Kontrolle ist.",
         "fr": "Pourcentage de défauts de base lorsque le processus est stable et sous contrôle.",
-        "es": "Porcentaje de defectos base cuando el proceso es estable y está en control."
+        "es": "Porcentaje de defectos base cuando el proceso es estable y está en control.",
+        "ar": "نسبة العيوب الأساسية عندما تكون العملية مستقرة وتحت السيطرة."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Hata Başına Maliyet",
         "de": "Kosten pro Fehler",
         "fr": "Coût par défaut",
-        "es": "Costo por defecto"
+        "es": "Costo por defecto",
+        "ar": "تكلفة العيب الواحد"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defective unit (scrap, rework, warranty, etc.).",
         "tr": "Hatalı birim başına ortalama maliyet (fire, yeniden işleme, garanti vb.).",
         "de": "Durchschnittliche Kosten pro fehlerhafter Einheit (Ausschuss, Nacharbeit, Garantie usw.).",
         "fr": "Coût moyen par unité défectueuse (rebut, reprise, garantie, etc.).",
-        "es": "Coste promedio incurrido por unidad defectuosa (desperdicio, retrabajo, garantía, etc.)."
+        "es": "Coste promedio incurrido por unidad defectuosa (desperdicio, retrabajo, garantía, etc.).",
+        "ar": "متوسط التكلفة المتكبدة لكل وحدة معيبة (هدر، إعادة عمل، ضمان، إلخ)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Tespit Gecikmesi (saat)",
         "de": "Erkennungsverzögerung (Stunden)",
         "fr": "Délai de détection (heures)",
-        "es": "Retraso de detección (horas)"
+        "es": "Retraso de detección (horas)",
+        "ar": "تأخير الكشف (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Time from when the process goes out of control until the signal is detected (e.g., sampling interval, lab delay).",
         "tr": "Prosesin kontrolden çıkması ile sinyalin tespit edilmesi arasındaki süre (örneğin, numune alma aralığı, laboratuvar gecikmesi).",
         "de": "Zeit vom Außerkontrollgehen des Prozesses bis zur Signalerfassung (z. B. Probenahmeintervall, Laborverzögerung).",
         "fr": "Temps entre le moment où le processus devient hors contrôle et la détection du signal (ex. intervalle d'échantillonnage, délai laboratoire).",
-        "es": "Tiempo desde que el proceso sale de control hasta que se detecta la señal (por ejemplo, intervalo de muestreo, retraso de laboratorio)."
+        "es": "Tiempo desde que el proceso sale de control hasta que se detecta la señal (por ejemplo, intervalo de muestreo, retraso de laboratorio).",
+        "ar": "الوقت من خروج العملية عن السيطرة حتى اكتشاف الإشارة (مثل فترة أخذ العينات، تأخير المختبر)."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Yanıt Gecikmesi (saat)",
         "de": "Reaktionsverzögerung (Stunden)",
         "fr": "Délai de réponse (heures)",
-        "es": "Retraso de respuesta (horas)"
+        "es": "Retraso de respuesta (horas)",
+        "ar": "تأخير الاستجابة (ساعات)"
       },
       "businessContext_i18n": {
         "en": "Time from detection until corrective action is implemented (e.g., root cause analysis, adjustment).",
         "tr": "Tespitten düzeltici faaliyetin uygulanmasına kadar geçen süre (örneğin, kök neden analizi, ayarlama).",
         "de": "Zeit von der Erkennung bis zur Umsetzung von Korrekturmaßnahmen (z. B. Ursachenanalyse, Anpassung).",
         "fr": "Temps entre la détection et la mise en œuvre de l'action corrective (ex. analyse des causes racines, ajustement).",
-        "es": "Tiempo desde la detección hasta que se implementa la acción correctiva (p. ej., análisis de causa raíz, ajuste)."
+        "es": "Tiempo desde la detección hasta que se implementa la acción correctiva (p. ej., análisis de causa raíz, ajuste).",
+        "ar": "الوقت من الكشف حتى تنفيذ الإجراء التصحيحي (مثل تحليل السبب الجذري، التعديل)."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Vardiya Saati (günlük)",
         "de": "Schichtstunden pro Tag",
         "fr": "Heures de quart par jour",
-        "es": "Horas de turno por día"
+        "es": "Horas de turno por día",
+        "ar": "ساعات الوردية في اليوم"
       },
       "businessContext_i18n": {
         "en": "Number of production hours per shift. Used to calculate daily production volume.",
         "tr": "Vardiya başına üretim saati sayısı. Günlük üretim hacmini hesaplamak için kullanılır.",
         "de": "Anzahl der Produktionsstunden pro Schicht. Wird zur Berechnung des täglichen Produktionsvolumens verwendet.",
         "fr": "Nombre d'heures de production par quart. Utilisé pour calculer le volume de production quotidien.",
-        "es": "Número de horas de producción por turno. Se utiliza para calcular el volumen de producción diario."
+        "es": "Número de horas de producción por turno. Se utiliza para calcular el volumen de producción diario.",
+        "ar": "عدد ساعات الإنتاج لكل وردية. يُستخدم لحساب حجم الإنتاج اليومي."
       }
     }
   ],
@@ -244,18 +260,28 @@
     ]
   },
   "formulas": {
-    "result": "process_cycle_time_min + units_per_cycle + defect_rate_out_of_control",
-    "result_copy": "process_cycle_time_min + units_per_cycle + defect_rate_out_of_control"
+    "base_cost": "units_per_cycle * cost_per_defect",
+    "adjusted_cost": "units_per_cycle * cost_per_defect * (1 + (defect_rate_out_of_control / 100))",
+    "result": "units_per_cycle * cost_per_defect * (1 + (defect_rate_out_of_control / 100)) * (process_cycle_time_min)",
+    "factor_process_cycle_time_min": "process_cycle_time_min"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_process_cycle_time_min"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "min"
+    "unit": "USD"
   },
   "toolName": "spc-signal-delay-cost-calculator",
   "catalogCategory": "everyday-life",

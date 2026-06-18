@@ -14,14 +14,15 @@
         "de": "Dividend",
         "fr": "Dividende",
         "es": "Dividendo",
-        "ar": "Dividend"
+        "ar": "المقسوم"
       },
       "businessContext_i18n": {
         "en": "The number to be divided",
         "tr": "Bölünecek sayı",
         "de": "Die zu teilende Zahl",
         "fr": "Le nombre à diviser",
-        "es": "El número a dividir"
+        "es": "El número a dividir",
+        "ar": "العدد المراد قسمته"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Divisor",
         "fr": "Diviseur",
         "es": "Divisor",
-        "ar": "Divisor"
+        "ar": "المقسوم عليه"
       },
       "businessContext_i18n": {
         "en": "The number to divide by (must be non-zero)",
         "tr": "Bölen sayı (sıfır olmamalıdır)",
         "de": "Die Zahl, durch die geteilt wird (muss ungleich Null sein)",
         "fr": "Le nombre par lequel diviser (doit être non nul)",
-        "es": "El número por el que dividir (debe ser distinto de cero)"
+        "es": "El número por el que dividir (debe ser distinto de cero)",
+        "ar": "العدد الذي يقسم عليه (يجب ألا يكون صفرًا)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
         "fr": "Nombre de décimales pour arrondir le résultat",
-        "es": "Número de decimales para redondear el resultado"
+        "es": "Número de decimales para redondear el resultado",
+        "ar": "عدد المنازل العشرية لتقريب النتيجة"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rundungsmodus",
         "fr": "Mode d'arrondi",
         "es": "Modo de redondeo",
-        "ar": "Rounding Mode"
+        "ar": "وضع التقريب"
       },
       "businessContext_i18n": {
         "en": "0 = floor, 1 = half up, 2 = ceiling",
         "tr": "0 = taban, 1 = yarı yukarı, 2 = tavan",
         "de": "0 = abrunden, 1 = kaufmännisch runden, 2 = aufrunden",
         "fr": "0 = plancher, 1 = demi supérieur, 2 = plafond",
-        "es": "0 = suelo, 1 = redondeo medio, 2 = techo"
+        "es": "0 = suelo, 1 = redondeo medio, 2 = techo",
+        "ar": "0 = التقريب إلى الأسفل، 1 = التقريب إلى النصف لأعلى، 2 = التقريب إلى الأعلى"
       }
     }
   ],

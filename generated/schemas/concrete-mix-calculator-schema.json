@@ -14,14 +14,15 @@
         "de": "Beton Hacmi",
         "fr": "Volume de béton",
         "es": "Volumen de hormigón",
-        "ar": "Concrete Volume"
+        "ar": "حجم الخرسانة"
       },
       "businessContext_i18n": {
         "en": "Required volume of concrete in cubic meters.",
         "tr": "Metreküp cinsinden gerekli beton hacmi.",
         "de": "Metreküp cinsinden gerekli beton hacmi.",
         "fr": "Volume de béton requis en mètres cubes.",
-        "es": "Volumen requerido de hormigón en metros cúbicos."
+        "es": "Volumen requerido de hormigón en metros cúbicos.",
+        "ar": "حجم الخرسانة المطلوب بالمتر المكعب."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Çimento Oranı",
         "fr": "Proportion de ciment",
         "es": "Proporción de cemento",
-        "ar": "Cement Ratio"
+        "ar": "نسبة الأسمنت"
       },
       "businessContext_i18n": {
         "en": "Part of cement in the concrete mix ratio (e.g., 1 for 1:2:4).",
         "tr": "Beton karışım oranındaki çimento payı (örneğin, 1:2:4 için 1).",
         "de": "Beton karışım oranındaki çimento kısmı (örneğin 1:2:4 için 1).",
         "fr": "Part de ciment dans le mélange de béton (ex. 1 pour 1:2:4).",
-        "es": "Parte de cemento en la mezcla (ej. 1 para 1:2:4)."
+        "es": "Parte de cemento en la mezcla (ej. 1 para 1:2:4).",
+        "ar": "جزء الأسمنت في نسبة خلط الخرسانة (مثال: 1 في 1:2:4)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Kum Oranı",
         "fr": "Proportion de sable",
         "es": "Proporción de arena",
-        "ar": "Sand Ratio"
+        "ar": "نسبة الرمل"
       },
       "businessContext_i18n": {
         "en": "Part of sand in the concrete mix ratio.",
         "tr": "Karışım oranındaki kum payı.",
         "de": "Beton karışım oranındaki kum kısmı.",
         "fr": "Part de sable dans le mélange de béton.",
-        "es": "Parte de arena en la mezcla."
+        "es": "Parte de arena en la mezcla.",
+        "ar": "جزء الرمل في نسبة خلط الخرسانة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Agrega Oranı",
         "fr": "Proportion de granulats",
         "es": "Proporción de árido",
-        "ar": "Aggregate Ratio"
+        "ar": "نسبة الركام"
       },
       "businessContext_i18n": {
         "en": "Part of aggregate (coarse aggregate) in the mix ratio.",
         "tr": "Karışım oranındaki agrega (iri agrega) payı.",
         "de": "Karışım oranındaki agrega (iri agrega) kısmı.",
         "fr": "Part de granulats (gros granulats) dans le mélange.",
-        "es": "Parte de árido grueso en la mezcla."
+        "es": "Parte de árido grueso en la mezcla.",
+        "ar": "جزء الركام (الركام الخشن) في نسبة الخلط."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Su-Çimento Oranı",
         "fr": "Rapport eau-ciment",
         "es": "Relación agua-cemento",
-        "ar": "Water-Cement Ratio"
+        "ar": "نسبة الماء إلى الأسمنت"
       },
       "businessContext_i18n": {
         "en": "Ratio of water to cement by weight for desired workability.",
         "tr": "İstenen işlenebilirlik için ağırlıkça suyun çimentoya oranı.",
         "de": "İstenen işlenebilirlik için ağırlıkça suyun çimentoya oranı.",
         "fr": "Rapport de l'eau au ciment en poids pour une ouvrabilité souhaitée.",
-        "es": "Relación agua/cemento en peso para la trabajabilidad deseada."
+        "es": "Relación agua/cemento en peso para la trabajabilidad deseada.",
+        "ar": "نسبة وزن الماء إلى الأسمنت لتحقيق قابلية التشغيل المطلوبة."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Kuru Hacim Faktörü",
         "fr": "Facteur de volume sec",
         "es": "Factor de volumen seco",
-        "ar": "Dry Volume Factor"
+        "ar": "معامل الحجم الجاف"
       },
       "businessContext_i18n": {
         "en": "Multiplication factor to convert wet volume to dry volume, accounting for air voids.",
         "tr": "Hava boşluklarını hesaba katmak için yaş hacmi kuru hacme dönüştüren çarpma faktörü.",
         "de": "Hava boşluklarını hesaba katmak için yaş hacmi kuru hacme dönüştüren çarpma faktörü.",
         "fr": "Facteur de multiplication pour convertir le volume humide en volume sec, en tenant compte des vides d'air.",
-        "es": "Factor para convertir volumen húmedo a seco, considerando huecos de aire."
+        "es": "Factor para convertir volumen húmedo a seco, considerando huecos de aire.",
+        "ar": "معامل ضرب لتحويل الحجم الرطب إلى حجم جاف، مع مراعاة الفراغات الهوائية."
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Fire %",
         "fr": "Pourcentage de perte",
         "es": "% de desperdicio",
-        "ar": "Wastage %"
+        "ar": "نسبة الهدر %"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to account for handling and compaction losses.",
         "tr": "Taşıma ve sıkıştırma kayıplarını karşılamak için ekstra malzeme yüzdesi.",
         "de": "Taşıma ve sıkıştırma kayıplarını karşılamak için ek malzeme yüzdesi.",
         "fr": "Pourcentage de matériau supplémentaire pour tenir compte des pertes de manutention et de compactage.",
-        "es": "Porcentaje de material extra por manipulación y pérdidas por compactación."
+        "es": "Porcentaje de material extra por manipulación y pérdidas por compactación.",
+        "ar": "نسبة المواد الإضافية لتعويض خسائر المناولة والدمك."
       }
     }
   ],

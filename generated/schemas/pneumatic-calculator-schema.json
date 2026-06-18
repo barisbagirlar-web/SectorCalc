@@ -14,14 +14,15 @@
         "de": "Bohrungsdurchmesser",
         "fr": "Diamètre d'alésage",
         "es": "Diámetro del agujero",
-        "ar": "Bore Diameter"
+        "ar": "قطر التجويف"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pneumatic cylinder bore",
         "tr": "Pnömatik silindir deliğinin iç çapı.",
         "de": "Innendurchmesser der Pneumatikzylinderbohrung",
         "fr": "Diamètre intérieur de l'alésage du vérin pneumatique",
-        "es": "Diámetro interior del cilindro neumático"
+        "es": "Diámetro interior del cilindro neumático",
+        "ar": "القطر الداخلي لأسطوانة الهواء المضغوط"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Kolbenstangendurchmesser",
         "fr": "Diamètre de la tige",
         "es": "Diámetro del vástago",
-        "ar": "Rod Diameter"
+        "ar": "قطر القضيب"
       },
       "businessContext_i18n": {
         "en": "Diameter of the piston rod (0 for rodless cylinder)",
         "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0).",
         "de": "Durchmesser der Kolbenstange (0 für kolbenstangenlosen Zylinder)",
         "fr": "Diamètre de la tige de piston (0 pour vérin sans tige)",
-        "es": "Diámetro del vástago del pistón (0 para cilindro sin vástago)"
+        "es": "Diámetro del vástago del pistón (0 para cilindro sin vástago)",
+        "ar": "قطر قضيب المكبس (0 لأسطوانة بدون قضيب)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Arbeitsdruck",
         "fr": "Pression de service",
         "es": "Presión de trabajo",
-        "ar": "Working Pressure"
+        "ar": "ضغط العمل"
       },
       "businessContext_i18n": {
         "en": "Gauge pressure of compressed air supply",
         "tr": "Basınçlı hava beslemesinin gösterge basıncı",
         "de": "Überdruck der Druckluftversorgung",
         "fr": "Pression manométrique de l'alimentation en air comprimé",
-        "es": "Presión manométrica del suministro de aire comprimido"
+        "es": "Presión manométrica del suministro de aire comprimido",
+        "ar": "ضغط المقياس لإمداد الهواء المضغوط"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Hublänge",
         "fr": "Longueur de course",
         "es": "Longitud de carrera",
-        "ar": "Stroke Length"
+        "ar": "طول الشوط"
       },
       "businessContext_i18n": {
         "en": "Distance the piston travels per cycle",
         "tr": "Pistonun çevrim başına kat ettiği mesafe",
         "de": "Vom Kolben pro Zyklus zurückgelegte Strecke",
         "fr": "Distance parcourue par le piston par cycle",
-        "es": "Distancia que recorre el pistón por ciclo"
+        "es": "Distancia que recorre el pistón por ciclo",
+        "ar": "المسافة التي يقطعها المكبس في كل دورة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Zyklen pro Minute",
         "fr": "Cycles par minute",
         "es": "Ciclos por minuto",
-        "ar": "Cycles per Minute"
+        "ar": "الدورات في الدقيقة"
       },
       "businessContext_i18n": {
         "en": "Operating frequency",
         "tr": "Çalışma frekansı",
         "de": "Betriebsfrequenz",
         "fr": "Fréquence de fonctionnement",
-        "es": "Frecuencia de operación"
+        "es": "Frecuencia de operación",
+        "ar": "تردد التشغيل"
       }
     },
     {
@@ -129,34 +134,39 @@
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
         "es": "Factor de seguridad",
-        "ar": "Safety Factor"
+        "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
         "en": "Recommended additional force percentage for selection",
         "tr": "Seçim için önerilen ek kuvvet yüzdesi",
         "de": "Empfohlener zusätzlicher Kraftprozentsatz für die Auswahl",
         "fr": "Pourcentage de force supplémentaire recommandé pour la sélection",
-        "es": "Porcentaje de fuerza adicional recomendado para la selección"
+        "es": "Porcentaje de fuerza adicional recomendado para la selección",
+        "ar": "نسبة القوة الإضافية الموصى بها للاختيار"
       }
     }
   ],
   "formulas": {
-    "result": "boreDiameter + rodDiameter + pressure",
-    "result_copy": "boreDiameter + rodDiameter + pressure"
+    "normalized_product": "boreDiameter * rodDiameter * pressure * stroke",
+    "result": "boreDiameter * rodDiameter * pressure * stroke * (cyclesPerMinute * (safetyFactor / 100))",
+    "adjustment_factor": "cyclesPerMinute * (safetyFactor / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "forceRetract",
-      "freeAirPerMinute",
-      "recommendedForce"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "recommendedForce",
-    "unit": "mm",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "freeAirPerMinute": "min"
     }

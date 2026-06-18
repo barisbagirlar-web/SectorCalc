@@ -14,14 +14,15 @@
         "de": "Körpergewicht",
         "fr": "Poids corporel",
         "es": "Peso corporal",
-        "ar": "Body Weight"
+        "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
         "en": "Total body weight in kilograms",
         "tr": "Toplam vücut ağırlığı (kg)",
         "de": "Gesamtkörpergewicht in Kilogramm",
         "fr": "Poids corporel total en kilogrammes",
-        "es": "Peso corporal total en kilogramos"
+        "es": "Peso corporal total en kilogramos",
+        "ar": "إجمالي وزن الجسم بالكيلوجرام"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe",
         "fr": "Taille",
         "es": "Altura",
-        "ar": "Height"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters for lean mass estimation",
         "tr": "Yağsız kütle tahmini için santimetre cinsinden boy",
         "de": "Körpergröße in Zentimetern für die Schätzung der fettfreien Masse",
         "fr": "Taille en centimètres pour l'estimation de la masse maigre",
-        "es": "Altura en centímetros para la estimación de masa magra"
+        "es": "Altura en centímetros para la estimación de masa magra",
+        "ar": "الطول بالسنتيمتر لتقدير الكتلة الخالية من الدهون"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Alter",
         "fr": "Âge",
         "es": "Edad",
-        "ar": "Age"
+        "ar": "العمر"
       },
       "businessContext_i18n": {
         "en": "Age in years (for context, not used in core calculation)",
         "tr": "Yıl cinsinden yaş (bağlam için, temel hesaplamada kullanılmaz)",
         "de": "Alter in Jahren (für Kontext, nicht in der Kernberechnung verwendet)",
         "fr": "Âge en années (pour contexte, non utilisé dans le calcul principal)",
-        "es": "Edad en años (para contexto, no se usa en el cálculo principal)"
+        "es": "Edad en años (para contexto, no se usa en el cálculo principal)",
+        "ar": "العمر بالسنوات (للسياق، لا يُستخدم في الحساب الأساسي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Geschlecht",
         "fr": "Genre",
         "es": "Género",
-        "ar": "Gender"
+        "ar": "الجنس"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male; used in lean mass formula",
         "tr": "Kadın için 0, erkek için 1; yağsız kütle formülünde kullanılır",
         "de": "0 für weiblich, 1 für männlich; verwendet in der Formel für fettfreie Masse",
         "fr": "0 pour femme, 1 pour homme ; utilisé dans la formule de masse maigre",
-        "es": "0 para mujer, 1 para hombre; se usa en la fórmula de masa magra"
+        "es": "0 para mujer, 1 para hombre; se usa en la fórmula de masa magra",
+        "ar": "0 للأنثى، 1 للذكر؛ يُستخدم في معادلة الكتلة الخالية من الدهون"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Proteinfaktor",
         "fr": "Facteur protéique",
         "es": "Factor de proteína",
-        "ar": "Protein Factor"
+        "ar": "عامل البروتين"
       },
       "businessContext_i18n": {
         "en": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)",
         "tr": "Kg başına günlük protein ihtiyacı (hareketsiz için 0.8, aktif için 1.2-1.7, kas gelişimi için 2.2)",
         "de": "Täglicher Proteinbedarf pro kg (0,8 für sitzend, 1,2-1,7 für aktiv, 2,2 für Muskelaufbau)",
         "fr": "Besoin quotidien en protéines par kg (0,8 pour sédentaire, 1,2-1,7 pour actif, 2,2 pour prise de muscle)",
-        "es": "Requerimiento diario de proteína por kg (0.8 para sedentario, 1.2-1.7 para activo, 2.2 para ganancia muscular)"
+        "es": "Requerimiento diario de proteína por kg (0.8 para sedentario, 1.2-1.7 para activo, 2.2 para ganancia muscular)",
+        "ar": "الاحتياج اليومي من البروتين لكل كجم (0.8 للخامل، 1.2-1.7 للنشط، 2.2 لبناء العضلات)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Fettfreie Körpermasse verwenden",
         "fr": "Utiliser la masse maigre",
         "es": "Usar masa corporal magra",
-        "ar": "Use Lean Body Mass"
+        "ar": "استخدام الكتلة الخالية من الدهون"
       },
       "businessContext_i18n": {
         "en": "0 to base on total weight, 1 to base on estimated lean body mass",
         "tr": "Toplam ağırlığa dayanmak için 0, tahmini yağsız vücut kütlesine dayanmak için 1",
         "de": "0 basierend auf Gesamtgewicht, 1 basierend auf geschätzter fettfreier Körpermasse",
         "fr": "0 pour baser sur le poids total, 1 pour baser sur la masse maigre estimée",
-        "es": "0 para basar en peso total, 1 para basar en masa magra estimada"
+        "es": "0 para basar en peso total, 1 para basar en masa magra estimada",
+        "ar": "0 للاعتماد على الوزن الإجمالي، 1 للاعتماد على الكتلة الخالية من الدهون المقدرة"
       }
     }
   ],

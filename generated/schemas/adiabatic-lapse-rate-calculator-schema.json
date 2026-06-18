@@ -14,14 +14,15 @@
         "de": "Anfangshöhe",
         "fr": "Altitude initiale",
         "es": "Altitud inicial",
-        "ar": "Initial Altitude"
+        "ar": "الارتفاع الأولي"
       },
       "businessContext_i18n": {
         "en": "Altitude of the reference point where initial temperature is measured.",
         "tr": "Başlangıç sıcaklığının ölçüldüğü referans noktasının rakımı.",
         "de": "Höhe des Referenzpunkts, an dem die Anfangstemperatur gemessen wird.",
         "fr": "Altitude du point de référence où la température initiale est mesurée.",
-        "es": "Altitud del punto de referencia donde se mide la temperatura inicial."
+        "es": "Altitud del punto de referencia donde se mide la temperatura inicial.",
+        "ar": "ارتفاع النقطة المرجعية حيث يتم قياس درجة الحرارة الأولية."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Endhöhe",
         "fr": "Altitude finale",
         "es": "Altitud final",
-        "ar": "Final Altitude"
+        "ar": "الارتفاع النهائي"
       },
       "businessContext_i18n": {
         "en": "Altitude at which temperature is to be calculated.",
         "tr": "Sıcaklığın hesaplanacağı rakım.",
         "de": "Höhe, auf die die Temperatur berechnet werden soll.",
         "fr": "Altitude à laquelle la température doit être calculée.",
-        "es": "Altitud a la que se calculará la temperatura."
+        "es": "Altitud a la que se calculará la temperatura.",
+        "ar": "الارتفاع الذي سيتم حساب درجة الحرارة عنده."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anfangstemperatur",
         "fr": "Température initiale",
         "es": "Temperatura inicial",
-        "ar": "Initial Temperature"
+        "ar": "درجة الحرارة الأولية"
       },
       "businessContext_i18n": {
         "en": "Temperature at the initial altitude (in Kelvin). For Celsius, use same numeric temperature change.",
         "tr": "Başlangıç yüksekliğindeki sıcaklık (Kelvin cinsinden). Celsius için aynı sayısal sıcaklık değişimini kullanın.",
         "de": "Temperatur in der Ausgangshöhe (in Kelvin). Für Celsius denselben numerischen Temperaturwechsel verwenden.",
         "fr": "Température à l'altitude initiale (en Kelvin). Pour Celsius, utiliser la même variation numérique de température.",
-        "es": "Temperatura en la altitud inicial (en Kelvin). Para Celsius, use el mismo cambio numérico de temperatura."
+        "es": "Temperatura en la altitud inicial (en Kelvin). Para Celsius, use el mismo cambio numérico de temperatura.",
+        "ar": "درجة الحرارة عند الارتفاع الأولي (بالكلفن). لاستخدام الدرجة المئوية، استخدم نفس التغير العددي لدرجة الحرارة."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Spezifische Wärmekapazität",
         "fr": "Capacité thermique massique",
         "es": "Capacidad calorífica específica",
-        "ar": "Specific Heat Capacity"
+        "ar": "السعة الحرارية النوعية"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of air at constant pressure (dry air ≈ 1005 J/(kg·K)).",
         "tr": "Sabit basınçta havanın özgül ısı kapasitesi (kuru hava ≈ 1005 J/(kg·K)).",
         "de": "Spezifische Wärmekapazität von Luft bei konstantem Druck (trockene Luft ≈ 1005 J/(kg·K)).",
         "fr": "Capacité thermique massique de l'air à pression constante (air sec ≈ 1005 J/(kg·K)).",
-        "es": "Capacidad calorífica específica del aire a presión constante (aire seco ≈ 1005 J/(kg·K))."
+        "es": "Capacidad calorífica específica del aire a presión constante (aire seco ≈ 1005 J/(kg·K)).",
+        "ar": "السعة الحرارية النوعية للهواء عند ضغط ثابت (الهواء الجاف ≈ 1005 جول/(كجم·كلفن))."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Erdbeschleunigung",
         "fr": "Accélération de la pesanteur",
         "es": "Aceleración de la gravedad",
-        "ar": "Gravity Acceleration"
+        "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (standard 9.81 m/s²).",
         "tr": "Yerçekimi ivmesi (standart 9,81 m/s²).",
         "de": "Erdbeschleunigung (Standard 9,81 m/s²).",
         "fr": "Accélération due à la gravité (standard 9,81 m/s²).",
-        "es": "Aceleración debida a la gravedad (estándar 9.81 m/s²)."
+        "es": "Aceleración debida a la gravedad (estándar 9.81 m/s²).",
+        "ar": "تسارع الجاذبية الأرضية (المعيار 9.81 م/ث²)."
       }
     }
   ],

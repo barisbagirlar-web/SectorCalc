@@ -14,14 +14,15 @@
         "de": "X-Wert / Eingabe",
         "fr": "Valeur X / Entrée",
         "es": "Valor X / Entrada",
-        "ar": "X Value / Input"
+        "ar": "قيمة X / الإدخال"
       },
       "businessContext_i18n": {
         "en": "The x-coordinate if using atan2, or the value for arctan.",
         "tr": "atan2 kullanılıyorsa x-koordinatı, arctan için değer.",
         "de": "Die x-Koordinate bei Verwendung von atan2 oder der Wert für arctan.",
         "fr": "La coordonnée x si atan2 est utilisé, ou la valeur pour arctan.",
-        "es": "La coordenada x si se usa atan2, o el valor para arctan."
+        "es": "La coordenada x si se usa atan2, o el valor para arctan.",
+        "ar": "الإحداثي x إذا تم استخدام atan2، أو القيمة لـ arctan."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Y-Wert (optional)",
         "fr": "Valeur Y (optionnelle)",
         "es": "Valor Y (opcional)",
-        "ar": "Y Value (optional)"
+        "ar": "قيمة Y (اختياري)"
       },
       "businessContext_i18n": {
         "en": "If provided and non-zero, computes atan2(y, x) instead of arctan(x).",
         "tr": "Sağlanırsa ve sıfır değilse, arctan(x) yerine atan2(y, x) hesaplar.",
         "de": "Wenn angegeben und ungleich Null, wird atan2(y, x) anstelle von arctan(x) berechnet.",
         "fr": "Si fournie et non nulle, calcule atan2(y, x) au lieu de arctan(x).",
-        "es": "Si se proporciona y no es cero, calcula atan2(y, x) en lugar de arctan(x)."
+        "es": "Si se proporciona y no es cero, calcula atan2(y, x) en lugar de arctan(x).",
+        "ar": "إذا تم توفيرها وكانت غير صفرية، يتم حساب atan2(y, x) بدلاً من arctan(x)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Ausgabeeinheit",
         "fr": "Unité de sortie",
         "es": "Unidad de salida",
-        "ar": "Output Unit"
+        "ar": "وحدة الإخراج"
       },
       "businessContext_i18n": {
         "en": "0 for radians, 1 for degrees.",
         "tr": "0 radyan, 1 derece.",
         "de": "0 für Bogenmaß, 1 für Grad.",
         "fr": "0 pour radians, 1 pour degrés.",
-        "es": "0 para radianes, 1 para grados."
+        "es": "0 para radianes, 1 para grados.",
+        "ar": "0 للراديان، 1 للدرجات."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
         "es": "Precisión decimal",
-        "ar": "Decimal Precision"
+        "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final output.",
         "tr": "Nihai çıktı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die endgültige Ausgabe.",
         "fr": "Nombre de décimales pour la sortie finale.",
-        "es": "Número de decimales para la salida final."
+        "es": "Número de decimales para la salida final.",
+        "ar": "عدد المنازل العشرية للإخراج النهائي."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Eingabeskalierung",
         "fr": "Échelle d'entrée",
         "es": "Escala de entrada",
-        "ar": "Input Scale"
+        "ar": "مقياس الإدخال"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to x and y before calculation.",
         "tr": "Hesaplamadan önce x ve y'ye uygulanan çarpan.",
         "de": "Multiplikator, der vor der Berechnung auf x und y angewendet wird.",
         "fr": "Multiplicateur appliqué à x et y avant le calcul.",
-        "es": "Multiplicador aplicado a x e y antes del cálculo."
+        "es": "Multiplicador aplicado a x e y antes del cálculo.",
+        "ar": "المضاعف المطبق على x و y قبل الحساب."
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "Offset-Winkel",
         "fr": "Angle de décalage",
         "es": "Ángulo de compensación",
-        "ar": "Offset Angle"
+        "ar": "زاوية الإزاحة"
       },
       "businessContext_i18n": {
         "en": "Angle added to the result in the output unit.",
         "tr": "Sonuca çıktı biriminde eklenen açı.",
         "de": "Winkel, der zum Ergebnis in der Ausgabeeinheit addiert wird.",
         "fr": "Angle ajouté au résultat dans l'unité de sortie.",
-        "es": "Ángulo añadido al resultado en la unidad de salida."
+        "es": "Ángulo añadido al resultado en la unidad de salida.",
+        "ar": "الزاوية المضافة إلى النتيجة بوحدة الإخراج."
       }
     }
   ],
   "formulas": {
-    "result": "x + y + outputUnit",
-    "result_copy": "x + y + outputUnit"
+    "normalized_product": "x * y * outputUnit * precision",
+    "result": "x * y * outputUnit * precision * (scale * offset)",
+    "adjustment_factor": "scale * offset"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "rawRad",
-      "finalBeforeRound"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "finalBeforeRound",
-    "unit": "dp"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

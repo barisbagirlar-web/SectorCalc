@@ -14,14 +14,15 @@
         "de": "Gewicht (kg)",
         "fr": "Poids (kg)",
         "es": "Peso (kg)",
-        "ar": "Weight (kg)"
+        "ar": "الوزن (كجم)"
       },
       "businessContext_i18n": {
         "en": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
         "tr": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
         "de": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
         "fr": "Entrez le poids corporel en kilogrammes. Si non disponible, utilisez le poids en livres.",
-        "es": "Vücut ağırlığını kilogram olarak girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
+        "es": "Vücut ağırlığını kilogram olarak girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
+        "ar": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Größe (cm)",
         "fr": "Taille (cm)",
         "es": "Altura (cm)",
-        "ar": "Height (cm)"
+        "ar": "الطول (سم)"
       },
       "businessContext_i18n": {
         "en": "Enter body height in centimeters. If not available, use height in inches instead.",
         "tr": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın.",
         "de": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın.",
         "fr": "Entrez la taille corporelle en centimètres. Si non disponible, utilisez la taille en pouces.",
-        "es": "Vücut boyunu santimetre olarak girin. Mevcut değilse, inç cinsinden boy kullanın."
+        "es": "Vücut boyunu santimetre olarak girin. Mevcut değilse, inç cinsinden boy kullanın.",
+        "ar": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Gewicht (lb)",
         "fr": "Poids (lb)",
         "es": "Peso (lb)",
-        "ar": "Weight (lb)"
+        "ar": "الوزن (رطل)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
         "tr": "Alternatif: vücut ağırlığını pound cinsinden girin. Kg cinsinden ağırlık sağlanırsa yok sayılır.",
         "de": "Alternatif: vücut ağırlığını pound cinsinden girin. kg cinsinden ağırlık sağlanırsa dikkate alınmaz.",
         "fr": "Alternative : entrez le poids corporel en livres. Ignoré si le poids en kg est fourni.",
-        "es": "Alternatif: vücut ağırlığını pound olarak girin. kg cinsinden ağırlık sağlanmışsa yok sayılır."
+        "es": "Alternatif: vücut ağırlığını pound olarak girin. kg cinsinden ağırlık sağlanmışsa yok sayılır.",
+        "ar": "Alternatif: vücut ağırlığını pound cinsinden girin. kg cinsinden ağırlık sağlanmışsa yok sayılır."
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Boy (inç)",
         "fr": "Taille (po)",
         "es": "Boy (inç)",
-        "ar": "Height (in)"
+        "ar": "Boy (inç)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
         "tr": "Alternatif: vücut boyunu inç cinsinden girin. Cm cinsinden boy sağlanırsa yok sayılır.",
         "de": "Alternatif: vücut boyunu inç cinsinden girin. cm cinsinden boy sağlanırsa dikkate alınmaz.",
         "fr": "Alternative : entrez la taille corporelle en pouces. Ignoré si la taille en cm est fournie.",
-        "es": "Alternatif: vücut boyunu inç olarak girin. cm cinsinden boy sağlanmışsa yok sayılır."
+        "es": "Alternatif: vücut boyunu inç olarak girin. cm cinsinden boy sağlanmışsa yok sayılır.",
+        "ar": "Alternatif: vücut boyunu inç cinsinden girin. cm cinsinden boy sağlanmışsa yok sayılır."
       }
     }
   ],
   "formulas": {
-    "result": "weight_kg + height_cm + weight_lb",
-    "result_copy": "weight_kg + height_cm + weight_lb"
+    "normalized_product": "weight_kg * height_cm * weight_lb * height_in",
+    "result": "weight_kg * height_cm * weight_lb * height_in"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "bsa_mosteller_m2",
-      "bsa_dubois_ft2"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "bsa_dubois_ft2",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

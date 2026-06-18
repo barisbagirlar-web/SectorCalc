@@ -14,14 +14,15 @@
         "de": "Wert",
         "fr": "Valeur",
         "es": "Valor",
-        "ar": "Değer"
+        "ar": "القيمة"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek sayısal değer",
         "tr": "Dönüştürülecek sayısal değer",
         "de": "Umzurechnender Zahlenwert",
         "fr": "Valeur numérique à convertir",
-        "es": "Valor numérico a convertir"
+        "es": "Valor numérico a convertir",
+        "ar": "القيمة العددية المراد تحويلها"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Quelleinheit",
         "fr": "Unité source",
         "es": "Unidad de origen",
-        "ar": "Kaynak Birim"
+        "ar": "الوحدة المصدر"
       },
       "businessContext_i18n": {
         "en": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
         "tr": "Kaynak birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
         "de": "Quelleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)",
         "fr": "Code de l'unité source (0: mètre, 1: pied, 2: pouce, 3: cm)",
-        "es": "Código de unidad de origen (0: metro, 1: pie, 2: pulgada, 3: cm)"
+        "es": "Código de unidad de origen (0: metro, 1: pie, 2: pulgada, 3: cm)",
+        "ar": "رمز الوحدة المصدر (0: متر، 1: قدم، 2: بوصة، 3: سم)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zieleinheit",
         "fr": "Unité cible",
         "es": "Unidad de destino",
-        "ar": "Hedef Birim"
+        "ar": "الوحدة الهدف"
       },
       "businessContext_i18n": {
         "en": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
         "tr": "Hedef birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
         "de": "Zieleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)",
         "fr": "Code de l'unité cible (0: mètre, 1: pied, 2: pouce, 3: cm)",
-        "es": "Código de unidad de destino (0: metro, 1: pie, 2: pulgada, 3: cm)"
+        "es": "Código de unidad de destino (0: metro, 1: pie, 2: pulgada, 3: cm)",
+        "ar": "رمز الوحدة الهدف (0: متر، 1: قدم، 2: بوصة، 3: سم)"
       }
     },
     {
@@ -83,32 +86,37 @@
         "de": "Genauigkeit",
         "fr": "Précision",
         "es": "Precisión",
-        "ar": "Hassasiyet"
+        "ar": "الدقة"
       },
       "businessContext_i18n": {
         "en": "Ondalık basamak sayısı",
         "tr": "Ondalık basamak sayısı",
         "de": "Anzahl Dezimalstellen",
         "fr": "Nombre de décimales",
-        "es": "Número de decimales"
+        "es": "Número de decimales",
+        "ar": "عدد المنازل العشرية"
       }
     }
   ],
   "formulas": {
-    "result": "value + fromUnit + toUnit",
-    "result_copy": "value + fromUnit + toUnit"
+    "normalized_product": "value * fromUnit * toUnit * precision",
+    "result": "value * fromUnit * toUnit * precision"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "breakdown"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "convertedValue_aux",
-    "unit": "birim"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

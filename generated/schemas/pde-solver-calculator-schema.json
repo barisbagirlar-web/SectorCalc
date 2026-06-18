@@ -14,14 +14,15 @@
         "de": "Temperaturleitfähigkeit (α)",
         "fr": "Diffusivité thermique (α)",
         "es": "Difusividad térmica (α)",
-        "ar": "Thermal Diffusivity (α)"
+        "ar": "الانتشارية الحرارية (α)"
       },
       "businessContext_i18n": {
         "en": "Material property",
         "tr": "Malzeme özelliği",
         "de": "Materialeigenschaft",
         "fr": "Propriété du matériau",
-        "es": "Propiedad del material"
+        "es": "Propiedad del material",
+        "ar": "خاصية المادة"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Stablänge (L)",
         "fr": "Longueur de la tige (L)",
         "es": "Longitud de la barra (L)",
-        "ar": "Rod Length (L)"
+        "ar": "طول القضيب (L)"
       },
       "businessContext_i18n": {
         "en": "Domain size",
         "tr": "Alan boyutu",
         "de": "Domänengröße",
         "fr": "Taille du domaine",
-        "es": "Tamaño del dominio"
+        "es": "Tamaño del dominio",
+        "ar": "حجم المجال"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Position (x)",
         "fr": "Position (x)",
         "es": "Posición (x)",
-        "ar": "Position (x)"
+        "ar": "الموضع (x)"
       },
       "businessContext_i18n": {
         "en": "Measurement point",
         "tr": "Ölçüm noktası",
         "de": "Messpunkt",
         "fr": "Point de mesure",
-        "es": "Punto de medición"
+        "es": "Punto de medición",
+        "ar": "نقطة القياس"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Zeit (t)",
         "fr": "Temps (t)",
         "es": "Tiempo (t)",
-        "ar": "Time (t)"
+        "ar": "الزمن (t)"
       },
       "businessContext_i18n": {
         "en": "Elapsed time",
         "tr": "Geçen süre",
         "de": "Verstrichene Zeit",
         "fr": "Temps écoulé",
-        "es": "Tiempo transcurrido"
+        "es": "Tiempo transcurrido",
+        "ar": "الوقت المنقضي"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Koeffizient A1",
         "fr": "Coefficient A1",
         "es": "Coeficiente A1",
-        "ar": "Coefficient A1"
+        "ar": "المعامل A1"
       },
       "businessContext_i18n": {
         "en": "First harmonic amplitude",
         "tr": "Birinci harmonik genlik",
         "de": "Erste harmonische Amplitude",
         "fr": "Amplitude de la première harmonique",
-        "es": "Amplitud del primer armónico"
+        "es": "Amplitud del primer armónico",
+        "ar": "سعة التوافقي الأول"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Koeffizient A2",
         "fr": "Coefficient A2",
         "es": "Coeficiente A2",
-        "ar": "Coefficient A2"
+        "ar": "المعامل A2"
       },
       "businessContext_i18n": {
         "en": "Second harmonic amplitude",
         "tr": "İkinci harmonik genlik",
         "de": "Zweite harmonische Amplitude",
         "fr": "Amplitude de la deuxième harmonique",
-        "es": "Amplitud del segundo armónico"
+        "es": "Amplitud del segundo armónico",
+        "ar": "سعة التوافقي الثاني"
       }
     },
     {
@@ -152,34 +158,39 @@
         "de": "Koeffizient A3",
         "fr": "Coefficient A3",
         "es": "Coeficiente A3",
-        "ar": "Coefficient A3"
+        "ar": "المعامل A3"
       },
       "businessContext_i18n": {
         "en": "Third harmonic amplitude",
         "tr": "Üçüncü harmonik genlik",
         "de": "Dritte harmonische Amplitude",
         "fr": "Amplitude de la troisième harmonique",
-        "es": "Amplitud del tercer armónico"
+        "es": "Amplitud del tercer armónico",
+        "ar": "سعة التوافقي الثالث"
       }
     }
   ],
   "formulas": {
-    "result": "alpha + length + x",
-    "result_copy": "alpha + length + x"
+    "normalized_product": "alpha * length * x * time",
+    "result": "alpha * length * x * time * (A1 * A2 * A3)",
+    "adjustment_factor": "A1 * A2 * A3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "harmonic1",
-      "harmonic2",
-      "harmonic3"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "harmonic3",
-    "unit": "m²/s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

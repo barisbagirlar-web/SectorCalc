@@ -14,14 +14,15 @@
         "de": "Lesepunktzahl",
         "fr": "Score de lecture",
         "es": "Puntaje de lectura",
-        "ar": "Reading Score"
+        "ar": "درجة القراءة"
       },
       "businessContext_i18n": {
         "en": "Raw score from the Reading section (0-25)",
         "tr": "Okuma bölümünden ham puan (0-25)",
         "de": "Rohpunktzahl aus dem Leseteil (0-25)",
         "fr": "Score brut de la section Lecture (0-25)",
-        "es": "Puntuación bruta de la sección de Reading (0-25)"
+        "es": "Puntuación bruta de la sección de Reading (0-25)",
+        "ar": "الدرجة الخام من قسم القراءة (0-25)"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schreibpunktzahl",
         "fr": "Score d'écriture",
         "es": "Puntuación de Writing",
-        "ar": "Writing Score"
+        "ar": "درجة الكتابة"
       },
       "businessContext_i18n": {
         "en": "Raw score from the Writing section (0-25)",
         "tr": "Yazma bölümünden ham puan (0-25)",
         "de": "Rohpunktzahl aus dem Schreibleil (0-25)",
         "fr": "Score brut de la section Écriture (0-25)",
-        "es": "Puntuación bruta de la sección de Writing (0-25)"
+        "es": "Puntuación bruta de la sección de Writing (0-25)",
+        "ar": "الدرجة الخام من قسم الكتابة (0-25)"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Hörpunktzahl",
         "fr": "Score d'écoute",
         "es": "Puntuación de Listening",
-        "ar": "Listening Score"
+        "ar": "درجة الاستماع"
       },
       "businessContext_i18n": {
         "en": "Raw score from the Listening section (0-25)",
         "tr": "Dinleme bölümünden ham puan (0-25)",
         "de": "Rohpunktzahl aus dem Hörteil (0-25)",
         "fr": "Score brut de la section Écoute (0-25)",
-        "es": "Puntuación bruta de la sección de Listening (0-25)"
+        "es": "Puntuación bruta de la sección de Listening (0-25)",
+        "ar": "الدرجة الخام من قسم الاستماع (0-25)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Sprechpunktzahl",
         "fr": "Score d'expression orale",
         "es": "Puntuación de Speaking",
-        "ar": "Speaking Score"
+        "ar": "درجة التحدث"
       },
       "businessContext_i18n": {
         "en": "Raw score from the Speaking section (0-25)",
         "tr": "Konuşma bölümünden ham puan (0-25)",
         "de": "Rohpunktzahl aus dem Sprechteil (0-25)",
         "fr": "Score brut de la section Expression orale (0-25)",
-        "es": "Puntuación bruta de la sección de Speaking (0-25)"
+        "es": "Puntuación bruta de la sección de Speaking (0-25)",
+        "ar": "الدرجة الخام من قسم التحدث (0-25)"
       }
     },
     {
@@ -106,33 +110,39 @@
         "de": "Punktzahl Sprachgebrauch",
         "fr": "Score d'utilisation de l'anglais",
         "es": "Puntuación de Use of English",
-        "ar": "Use of English Score"
+        "ar": "درجة استخدام اللغة الإنجليزية"
       },
       "businessContext_i18n": {
         "en": "Raw score from the Use of English section (0-25)",
         "tr": "Dil Bilgisi bölümünden ham puan (0-25)",
         "de": "Rohpunktzahl aus dem Sprachgebrauchsteil (0-25)",
         "fr": "Score brut de la section Utilisation de l'anglais (0-25)",
-        "es": "Puntuación bruta de la sección de Use of English (0-25)"
+        "es": "Puntuación bruta de la sección de Use of English (0-25)",
+        "ar": "الدرجة الخام من قسم استخدام اللغة الإنجليزية (0-25)"
       }
     }
   ],
   "formulas": {
-    "totalRawScore": "readingScore + writingScore + listeningScore + speakingScore + useOfEnglishScore",
-    "totalRawScore_aux": "readingScore + writingScore + listeningScore + speakingScore + useOfEnglishScore"
+    "normalized_product": "readingScore * writingScore * listeningScore * speakingScore",
+    "result": "readingScore * writingScore * listeningScore * speakingScore * (useOfEnglishScore)",
+    "adjustment_factor": "useOfEnglishScore"
   },
   "outputs": {
-    "primary": "totalRawScore_aux",
+    "primary": "result",
     "breakdown": [
-      "totalRawScore",
-      "cefrLevel"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "cefrLevel",
-    "unit": "points"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",

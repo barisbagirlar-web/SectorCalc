@@ -25,14 +25,16 @@
         "tr": "Çalışmadaki Parça Sayısı",
         "de": "Anzahl der Teile in der Studie",
         "fr": "Nombre de pièces dans l'étude",
-        "es": "Número de piezas en el estudio"
+        "es": "Número de piezas en el estudio",
+        "ar": "عدد القطع في الدراسة"
       },
       "businessContext_i18n": {
         "en": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines.",
         "tr": "Gage R&R çalışması için seçilen farklı parça sayısı, AIAG MSA kılavuzuna göre genellikle 5-20.",
         "de": "Anzahl der ausgewählten unterschiedlichen Teile für die Gage-R&R-Studie, typischerweise 5-20 gemäß AIAG-MSA-Richtlinien.",
         "fr": "Nombre de pièces distinctes sélectionnées pour l'étude R&R, généralement 5 à 20 selon les directives AIAG MSA.",
-        "es": "Número de piezas distintas seleccionadas para el estudio de R&R del calibre, típicamente 5-20 según las pautas de AIAG MSA."
+        "es": "Número de piezas distintas seleccionadas para el estudio de R&R del calibre, típicamente 5-20 según las pautas de AIAG MSA.",
+        "ar": "عدد القطع المميزة المختارة لدراسة Gage R&R، عادة من 5 إلى 20 وفقًا لإرشادات AIAG MSA."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Değerlendirici Sayısı",
         "de": "Anzahl der Prüfer",
         "fr": "Nombre d'opérateurs",
-        "es": "Número de evaluadores"
+        "es": "Número de evaluadores",
+        "ar": "عدد المقيّمين"
       },
       "businessContext_i18n": {
         "en": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation.",
         "tr": "Ölçümleri gerçekleştiren operatör veya değerlendirici sayısı, tekrarlanabilirlik tahmini için minimum 2.",
         "de": "Anzahl der Bediener oder Prüfer, die Messungen durchführen, mindestens 2 für die Reproduzierbarkeitsschätzung.",
         "fr": "Nombre d'opérateurs ou d'évaluateurs effectuant les mesures, minimum 2 pour l'estimation de la reproductibilité.",
-        "es": "Número de operadores o evaluadores que realizan mediciones, mínimo 2 para la estimación de reproducibilidad."
+        "es": "Número de operadores o evaluadores que realizan mediciones, mínimo 2 para la estimación de reproducibilidad.",
+        "ar": "عدد المشغلين أو المقيّمين الذين يقومون بالقياسات، الحد الأدنى 2 لتقدير قابلية التكرار."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Parça Başına Deneme Sayısı",
         "de": "Anzahl der Wiederholungen pro Teil",
         "fr": "Nombre d'essais par pièce",
-        "es": "Número de ensayos por pieza"
+        "es": "Número de ensayos por pieza",
+        "ar": "عدد المحاولات لكل قطعة"
       },
       "businessContext_i18n": {
         "en": "Number of repeated measurements per part per appraiser, typically 2-3.",
         "tr": "Her değerlendirici tarafından her parça için yapılan tekrarlı ölçüm sayısı, genellikle 2-3.",
         "de": "Anzahl der wiederholten Messungen pro Teil und Prüfer, typischerweise 2-3.",
         "fr": "Nombre de mesures répétées par pièce par opérateur, généralement 2 à 3.",
-        "es": "Número de mediciones repetidas por pieza por evaluador, típicamente 2-3."
+        "es": "Número de mediciones repetidas por pieza por evaluador, típicamente 2-3.",
+        "ar": "عدد القياسات المتكررة لكل قطعة لكل مقيّم، عادة 2-3."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Toplam Gözlemlenen Değişim (Standart Sapma)",
         "de": "Gesamte beobachtete Variation (Standardabweichung)",
         "fr": "Variation totale observée (écart type)",
-        "es": "Variación total observada (desviación estándar)"
+        "es": "Variación total observada (desviación estándar)",
+        "ar": "التباين الكلي الملاحظ (الانحراف المعياري)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of all measurements in the study, representing total process variation.",
         "tr": "Çalışmadaki tüm ölçümlerin standart sapması, toplam proses değişimini temsil eder.",
         "de": "Standardabweichung aller Messungen in der Studie, die die gesamte Prozessvariation darstellt.",
         "fr": "Écart-type de toutes les mesures de l'étude, représentant la variation totale du procédé.",
-        "es": "Desviación estándar de todas las mediciones en el estudio, representando la variación total del proceso."
+        "es": "Desviación estándar de todas las mediciones en el estudio, representando la variación total del proceso.",
+        "ar": "الانحراف المعياري لجميع القياسات في الدراسة، ويمثل التباين الكلي للعملية."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Tekrarlanabilirlik Değişimi (Std Sapma)",
         "de": "Wiederholbarkeitsvariation (Standardabweichung)",
         "fr": "Variation de répétabilité (Écart-type)",
-        "es": "Variación de repetibilidad (desviación estándar)"
+        "es": "Variación de repetibilidad (desviación estándar)",
+        "ar": "تباين التكرارية (الانحراف المعياري)"
       },
       "businessContext_i18n": {
         "en": "Variation due to equipment (same operator, same part, repeated measurements).",
         "tr": "Ekipmandan kaynaklanan değişim (aynı operatör, aynı parça, tekrarlanan ölçümler).",
         "de": "Variation aufgrund der Ausrüstung (gleicher Bediener, gleiches Teil, wiederholte Messungen).",
         "fr": "Variation due à l'équipement (même opérateur, même pièce, mesures répétées).",
-        "es": "Variación debida al equipo (mismo operador, misma pieza, mediciones repetidas)."
+        "es": "Variación debida al equipo (mismo operador, misma pieza, mediciones repetidas).",
+        "ar": "التباين الناتج عن المعدات (نفس المشغل، نفس القطعة، قياسات متكررة)."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Yeniden Üretilebilirlik Değişimi (Std Sapma)",
         "de": "Reproduzierbarkeitsstreuung (Std-Abw.)",
         "fr": "Variation de reproductibilité (Écart-type)",
-        "es": "Variación de Reproducibilidad (Desviación Estándar)"
+        "es": "Variación de Reproducibilidad (Desviación Estándar)",
+        "ar": "تباين قابلية التكرار (الانحراف المعياري)"
       },
       "businessContext_i18n": {
         "en": "Variation due to different operators measuring the same part.",
         "tr": "Aynı parçayı ölçen farklı operatörlerden kaynaklanan değişim.",
         "de": "Streuung durch verschiedene Bediener, die dasselbe Teil messen.",
         "fr": "Variation due à différents opérateurs mesurant la même pièce.",
-        "es": "Variación debida a diferentes operadores midiendo la misma pieza."
+        "es": "Variación debida a diferentes operadores midiendo la misma pieza.",
+        "ar": "التباين الناتج عن اختلاف المشغلين عند قياس نفس القطعة."
       }
     },
     {
@@ -169,14 +181,16 @@
         "tr": "Hata Başına Maliyet (Dahili)",
         "de": "Kosten pro Fehler (intern)",
         "fr": "Coût par défaut (interne)",
-        "es": "Costo por Defecto (Interno)"
+        "es": "Costo por Defecto (Interno)",
+        "ar": "تكلفة العيب الواحد (داخلي)"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection).",
         "tr": "Uygun olmayan bir birimin dahili olarak tespit edilmesi durumunda oluşan ortalama maliyet (fire, yeniden işleme, muayene).",
         "de": "Durchschnittliche Kosten, die bei intern erkannter Nichtkonformität anfallen (Ausschuss, Nacharbeit, Prüfung).",
         "fr": "Coût moyen encouru lorsqu'une unité non conforme est détectée en interne (rebut, reprise, inspection).",
-        "es": "Costo promedio incurrido cuando una unidad no conforme se detecta internamente (desperdicio, retrabajo, inspección)."
+        "es": "Costo promedio incurrido cuando una unidad no conforme se detecta internamente (desperdicio, retrabajo, inspección).",
+        "ar": "متوسط التكلفة المتكبدة عند اكتشاف وحدة غير مطابقة داخليًا (هدر، إعادة عمل، فحص)."
       }
     },
     {
@@ -193,14 +207,16 @@
         "tr": "Kaçan Hata Başına Maliyet (Harici)",
         "de": "Kosten pro entgangenem Fehler (extern)",
         "fr": "Coût par défaut échappé (externe)",
-        "es": "Costo por Defecto Escapado (Externo)"
+        "es": "Costo por Defecto Escapado (Externo)",
+        "ar": "تكلفة العيب المتسرب (خارجي)"
       },
       "businessContext_i18n": {
         "en": "Average cost when a defect reaches the customer (warranty, liability, lost sales).",
         "tr": "Bir hatanın müşteriye ulaşması durumunda oluşan ortalama maliyet (garanti, sorumluluk, kaybedilen satışlar).",
         "de": "Durchschnittliche Kosten, wenn ein Fehler den Kunden erreicht (Garantie, Haftung, Umsatzverluste).",
         "fr": "Coût moyen lorsqu'un défaut atteint le client (garantie, responsabilité, pertes de ventes).",
-        "es": "Costo promedio cuando un defecto llega al cliente (garantía, responsabilidad, pérdida de ventas)."
+        "es": "Costo promedio cuando un defecto llega al cliente (garantía, responsabilidad, pérdida de ventas).",
+        "ar": "متوسط التكلفة عندما يصل العيب إلى العميل (ضمان، مسؤولية، خسارة مبيعات)."
       }
     }
   ],
@@ -260,18 +276,30 @@
     ]
   },
   "formulas": {
-    "result": "num_parts + num_appraisers + num_trials",
-    "result_copy": "num_parts + num_appraisers + num_trials"
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "num_parts * 1 * 1 * cost_per_defect",
+    "result": "num_parts * 1 * 1 * cost_per_defect * (num_appraisers * num_trials)",
+    "factor_num_appraisers": "num_appraisers",
+    "factor_num_trials": "num_trials"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost",
+      "factor_num_appraisers",
+      "factor_num_trials"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "parts"
+    "unit": "USD"
   },
   "toolName": "msa-gage-rr-cost-calculator",
   "catalogCategory": "manufacturing-workshop",

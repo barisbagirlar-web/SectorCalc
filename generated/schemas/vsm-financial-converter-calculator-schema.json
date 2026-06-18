@@ -25,13 +25,16 @@
         "tr": "Yıllık Talep (birim)",
         "de": "Jahresbedarf (Einheiten)",
         "fr": "Demande annuelle (unités)",
-        "es": "Demanda anual (unidades)"
+        "es": "Demanda anual (unidades)",
+        "ar": "الطلب السنوي (وحدات)"
       },
       "businessContext_i18n": {
         "en": "Total customer demand per year for the product family under analysis.",
         "tr": "Analiz edilen ürün ailesi için yıllık toplam müşteri talebi.",
         "de": "Gesamte Kundennachfrage pro Jahr für die analysierte Produktfamilie.",
-        "fr": "Demande totale du client par an pour la famille de produits analysée."
+        "fr": "Demande totale du client par an pour la famille de produits analysée.",
+        "es": "Demanda total del cliente por año para la familia de productos bajo análisis.",
+        "ar": "إجمالي طلب العملاء السنوي لعائلة المنتج قيد التحليل."
       }
     },
     {
@@ -47,13 +50,17 @@
         "en": "Selling Price per unit",
         "tr": "Birim Satış Fiyatı",
         "de": "Verkaufspreis pro Einheit",
-        "fr": "Prix de vente unitaire"
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por unidad",
+        "ar": "سعر البيع لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Average selling price per unit to the customer.",
         "tr": "Müşteriye birim başına ortalama satış fiyatı.",
         "de": "Durchschnittlicher Verkaufspreis pro Einheit an den Kunden.",
-        "fr": "Prix de vente moyen unitaire au client."
+        "fr": "Prix de vente moyen unitaire au client.",
+        "es": "Precio de venta promedio por unidad al cliente.",
+        "ar": "متوسط سعر البيع لكل وحدة للعميل."
       }
     },
     {
@@ -69,13 +76,17 @@
         "en": "Material Cost per unit",
         "tr": "Birim Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
-        "fr": "Coût matière unitaire"
+        "fr": "Coût matière unitaire",
+        "es": "Costo de material por unidad",
+        "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit.",
         "tr": "Birim başına direkt malzeme maliyeti.",
         "de": "Direkte Materialkosten pro Einheit.",
-        "fr": "Coût direct matière par unité."
+        "fr": "Coût direct matière par unité.",
+        "es": "Costo directo de material por unidad.",
+        "ar": "تكلفة المواد المباشرة لكل وحدة."
       }
     },
     {
@@ -91,13 +102,17 @@
         "en": "Labor Cost per hour",
         "tr": "Saatlik İşçilik Maliyeti",
         "de": "Arbeitskosten pro Stunde",
-        "fr": "Coût de main-d'œuvre par heure"
+        "fr": "Coût de main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
+        "ar": "تكلفة العمالة لكل ساعة"
       },
       "businessContext_i18n": {
         "en": "Fully loaded labor cost per operator hour.",
         "tr": "Operatör saati başına tam yüklü işçilik maliyeti.",
         "de": "Voll belastete Arbeitskosten pro Bedienstundenstunde.",
-        "fr": "Coût de main-d'œuvre entièrement chargé par heure opérateur."
+        "fr": "Coût de main-d'œuvre entièrement chargé par heure opérateur.",
+        "es": "Costo de mano de obra totalmente cargado por hora de operador.",
+        "ar": "تكلفة العمالة الكاملة لكل ساعة مشغل."
       }
     },
     {
@@ -113,13 +128,17 @@
         "en": "Total Cycle Time (minutes)",
         "tr": "Toplam Çevrim Süresi (dakika)",
         "de": "Gesamte Zykluszeit (Minuten)",
-        "fr": "Temps de cycle total (minutes)"
+        "fr": "Temps de cycle total (minutes)",
+        "es": "Tiempo de ciclo total (minutos)",
+        "ar": "إجمالي وقت الدورة (بالدقائق)"
       },
       "businessContext_i18n": {
         "en": "Sum of all process cycle times for one unit through the value stream.",
         "tr": "Değer akışı boyunca bir birim için tüm proses çevrim sürelerinin toplamı.",
         "de": "Summe aller Prozesszykluszeiten für eine Einheit durch den Wertstrom.",
-        "fr": "Somme de tous les temps de cycle de processus pour une unité à travers la chaîne de valeur."
+        "fr": "Somme de tous les temps de cycle de processus pour une unité à travers la chaîne de valeur.",
+        "es": "Suma de todos los tiempos de ciclo del proceso para una unidad a través del flujo de valor.",
+        "ar": "مجموع أوقات دورة العمليات لوحدة واحدة عبر تيار القيمة."
       }
     },
     {
@@ -135,13 +154,17 @@
         "en": "Total Value-Added Time (minutes)",
         "tr": "Toplam Katma Değer Süresi (dakika)",
         "de": "Gesamte Wertschöpfungszeit (Minuten)",
-        "fr": "Temps à valeur ajoutée total (minutes)"
+        "fr": "Temps à valeur ajoutée total (minutes)",
+        "es": "Tiempo total de valor agregado (minutos)",
+        "ar": "إجمالي الوقت المضاف للقيمة (بالدقائق)"
       },
       "businessContext_i18n": {
         "en": "Sum of only value-added process times (ISO 22400, Lean definition).",
         "tr": "Yalnızca katma değerli proses sürelerinin toplamı (ISO 22400, Yalın tanımı).",
         "de": "Summe nur der wertschöpfenden Prozesszeiten (ISO 22400, Lean-Definition).",
-        "fr": "Somme des temps de processus à valeur ajoutée uniquement (définition ISO 22400, Lean)."
+        "fr": "Somme des temps de processus à valeur ajoutée uniquement (définition ISO 22400, Lean).",
+        "es": "Suma de solo los tiempos de proceso de valor agregado (ISO 22400, definición Lean).",
+        "ar": "مجموع أوقات العمليات ذات القيمة المضافة فقط (ISO 22400، تعريف اللين)."
       }
     },
     {
@@ -158,13 +181,16 @@
         "tr": "Hata Oranı (%)",
         "de": "Ausschussrate (%)",
         "fr": "Taux de rebut (%)",
-        "es": "Tasa de defectos (%)"
+        "es": "Tasa de defectos (%)",
+        "ar": "معدل العيوب (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that require rework or are scrapped (First Pass Yield).",
         "tr": "Yeniden işlem veya fire olan birimlerin yüzdesi (İlk Geçiş Verimi).",
         "de": "Prozentsatz der Einheiten, die Nacharbeit oder Ausschuss erfordern (First Pass Yield).",
-        "fr": "Pourcentage d'unités nécessitant une reprise ou mises au rebut (rendement de premier passage)."
+        "fr": "Pourcentage d'unités nécessitant une reprise ou mises au rebut (rendement de premier passage).",
+        "es": "Porcentaje de unidades que requieren retrabajo o se convierten en desperdicio (Rendimiento de primer paso).",
+        "ar": "نسبة الوحدات التي تتطلب إعادة عمل أو يتم هدرها (العائد من المحاولة الأولى)."
       }
     },
     {
@@ -180,13 +206,17 @@
         "en": "Rework Cost per defective unit",
         "tr": "Hatalı Birim Başına Yeniden İşlem Maliyeti",
         "de": "Nacharbeitskosten pro fehlerhafter Einheit",
-        "fr": "Coût de reprise par unité défectueuse"
+        "fr": "Coût de reprise par unité défectueuse",
+        "es": "Costo de retrabajo por unidad defectuosa",
+        "ar": "تكلفة إعادة العمل لكل وحدة معيبة"
       },
       "businessContext_i18n": {
         "en": "Additional cost to rework one defective unit (labor + material).",
         "tr": "Bir hatalı birimi yeniden işlemek için ek maliyet (işçilik + malzeme).",
         "de": "Zusätzliche Kosten für die Nacharbeit einer fehlerhaften Einheit (Arbeit + Material).",
-        "fr": "Coût supplémentaire pour reprendre une unité défectueuse (main-d'œuvre + matière)."
+        "fr": "Coût supplémentaire pour reprendre une unité défectueuse (main-d'œuvre + matière).",
+        "es": "Costo adicional para retrabajar una unidad defectuosa (mano de obra + material).",
+        "ar": "التكلفة الإضافية لإعادة عمل وحدة معيبة واحدة (عمالة + مواد)."
       }
     }
   ],
@@ -239,18 +269,28 @@
     ]
   },
   "formulas": {
-    "result": "annualDemand + sellingPrice + materialCostPerUnit",
-    "result_copy": "annualDemand + sellingPrice + materialCostPerUnit"
+    "base_cost": "annualDemand * sellingPrice",
+    "adjusted_cost": "annualDemand * sellingPrice * (1 + (defectRate / 100))",
+    "result": "annualDemand * sellingPrice * (1 + (defectRate / 100)) * (materialCostPerUnit)",
+    "factor_materialCostPerUnit": "materialCostPerUnit"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_materialCostPerUnit"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units/year"
+    "unit": "USD"
   },
   "toolName": "vsm-financial-converter-calculator",
   "catalogCategory": "conversion",

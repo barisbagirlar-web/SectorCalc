@@ -14,14 +14,15 @@
         "de": "Messwert",
         "fr": "Valeur du compteur",
         "es": "Valor del medidor",
-        "ar": "Meter Value"
+        "ar": "قيمة المتر"
       },
       "businessContext_i18n": {
         "en": "The length measurement in meters.",
         "tr": "Metre cinsinden uzunluk ölçümü.",
         "de": "Die Längenmessung in Metern.",
         "fr": "Mesure de longueur en mètres.",
-        "es": "Medición de longitud en metros."
+        "es": "Medición de longitud en metros.",
+        "ar": "قياس الطول بالأمتار."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
         "es": "Factor de conversión",
-        "ar": "Conversion Factor"
+        "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
         "en": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units.",
         "tr": "Kalibrasyon faktörü. Standart 100 cm/m'dir. Standart dışı birimler kullanılıyorsa ayarlayın.",
         "de": "Kalibrierfaktor. Standard ist 100 cm/m. Bei nicht standardmäßigen Einheiten anpassen.",
         "fr": "Facteur d'étalonnage. La valeur standard est 100 cm/m. Ajuster si des unités non standard sont utilisées.",
-        "es": "Factor de calibración. El estándar es 100 cm/m. Ajuste si usa unidades no estándar."
+        "es": "Factor de calibración. El estándar es 100 cm/m. Ajuste si usa unidades no estándar.",
+        "ar": "عامل المعايرة. المعيار هو 100 سم/م. قم بالتعديل إذا كنت تستخدم وحدات غير قياسية."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Messunsicherheit (%)",
         "fr": "Incertitude de mesure (%)",
         "es": "Incertidumbre de medición (%)",
-        "ar": "Measurement Uncertainty (%)"
+        "ar": "عدم يقين القياس (%)"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty of the measurement, for error propagation.",
         "tr": "Hata yayılımı için ölçümün bağıl belirsizliği.",
         "de": "Relative Unsicherheit der Messung für die Fehlerfortpflanzung.",
         "fr": "Incertitude relative de la mesure, pour la propagation des erreurs.",
-        "es": "Incertidumbre relativa de la medición, para propagación de errores."
+        "es": "Incertidumbre relativa de la medición, para propagación de errores.",
+        "ar": "عدم اليقين النسبي للقياس، لانتشار الخطأ."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Dezimalstellen",
         "fr": "Décimales",
         "es": "Decimales",
-        "ar": "Decimal Places"
+        "ar": "الأماكن العشرية"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding.",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Ausgaberundung.",
         "fr": "Nombre de décimales pour l'arrondi du résultat.",
-        "es": "Número de decimales para el redondeo de salida."
+        "es": "Número de decimales para el redondeo de salida.",
+        "ar": "عدد المنازل العشرية لتقريب المخرجات."
       }
     }
   ],

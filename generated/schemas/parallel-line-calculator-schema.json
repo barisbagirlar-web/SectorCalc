@@ -14,14 +14,15 @@
         "de": "Widerstand R1",
         "fr": "Résistance R1",
         "es": "Resistencia R1",
-        "ar": "Resistor R1"
+        "ar": "المقاوم R1"
       },
       "businessContext_i18n": {
         "en": "Resistance value of the first resistor in the parallel network.",
         "tr": "Paralel devredeki birinci direncin direnç değeri.",
         "de": "Widerstandswert des ersten Widerstands in der Parallelschaltung.",
         "fr": "Valeur de résistance de la première résistance dans le réseau parallèle.",
-        "es": "Valor de resistencia de la primera resistencia en la red en paralelo."
+        "es": "Valor de resistencia de la primera resistencia en la red en paralelo.",
+        "ar": "قيمة مقاومة المقاوم الأول في الشبكة الموصلة على التوازي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Widerstand R2",
         "fr": "Résistance R2",
         "es": "Resistencia R2",
-        "ar": "Resistor R2"
+        "ar": "المقاوم R2"
       },
       "businessContext_i18n": {
         "en": "Resistance value of the second resistor in the parallel network.",
         "tr": "Paralel devredeki ikinci direncin direnç değeri.",
         "de": "Widerstandswert des zweiten Widerstands in der Parallelschaltung.",
         "fr": "Valeur de résistance de la deuxième résistance dans le réseau parallèle.",
-        "es": "Valor de resistencia de la segunda resistencia en la red en paralelo."
+        "es": "Valor de resistencia de la segunda resistencia en la red en paralelo.",
+        "ar": "قيمة مقاومة المقاوم الثاني في الشبكة الموصلة على التوازي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Widerstand R3",
         "fr": "Résistance R3",
         "es": "Resistencia R3",
-        "ar": "Resistor R3"
+        "ar": "المقاوم R3"
       },
       "businessContext_i18n": {
         "en": "Resistance value of the third resistor in the parallel network.",
         "tr": "Paralel devredeki üçüncü direncin direnç değeri.",
         "de": "Widerstandswert des dritten Widerstands in der Parallelschaltung.",
         "fr": "Valeur de résistance de la troisième résistance dans le réseau parallèle.",
-        "es": "Valor de resistencia de la tercera resistencia en la red en paralelo."
+        "es": "Valor de resistencia de la tercera resistencia en la red en paralelo.",
+        "ar": "قيمة مقاومة المقاوم الثالث في الشبكة الموصلة على التوازي."
       }
     },
     {
@@ -83,36 +86,37 @@
         "de": "Widerstand R4",
         "fr": "Résistance R4",
         "es": "Resistencia R4",
-        "ar": "Resistor R4"
+        "ar": "المقاوم R4"
       },
       "businessContext_i18n": {
         "en": "Resistance value of the fourth resistor in the parallel network.",
         "tr": "Paralel devredeki dördüncü direncin direnç değeri.",
         "de": "Widerstandswert des vierten Widerstands in der Parallelschaltung.",
         "fr": "Valeur de résistance de la quatrième résistance dans le réseau parallèle.",
-        "es": "Valor de resistencia de la cuarta resistencia en la red en paralelo."
+        "es": "Valor de resistencia de la cuarta resistencia en la red en paralelo.",
+        "ar": "قيمة مقاومة المقاوم الرابع في الشبكة الموصلة على التوازي."
       }
     }
   ],
   "formulas": {
-    "result": "R1 + R2 + R3",
-    "result_copy": "R1 + R2 + R3"
+    "normalized_product": "R1 * R2 * R3 * R4",
+    "result": "R1 * R2 * R3 * R4"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "conductanceR1",
-      "conductanceR2",
-      "conductanceR3",
-      "conductanceR4",
-      "totalConductance"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalConductance",
-    "unit": "Ω"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Telekomünikasyon",

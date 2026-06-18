@@ -14,14 +14,15 @@
         "de": "Anschaffungskosten ($)",
         "fr": "Coût de l'actif ($)",
         "es": "Costo del activo ($)",
-        "ar": "Asset Cost ($)"
+        "ar": "تكلفة الأصل ($)"
       },
       "businessContext_i18n": {
         "en": "The total capitalized cost of the asset.",
         "tr": "Varlığın toplam aktifleştirilmiş maliyeti.",
         "de": "Die gesamten aktivierten Kosten des Vermögenswerts.",
         "fr": "Coût total capitalisé de l'actif.",
-        "es": "Costo total capitalizado del activo."
+        "es": "Costo total capitalizado del activo.",
+        "ar": "إجمالي التكلفة الرأسمالية للأصل."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Bonusabschreibung (%)",
         "fr": "Amortissement bonus (%)",
         "es": "Depreciación adicional (%)",
-        "ar": "Bonus Depreciation (%)"
+        "ar": "الإهلاك الإضافي (%)"
       },
       "businessContext_i18n": {
         "en": "Additional first-year bonus depreciation percentage.",
         "tr": "Ek ilk yıl bonus amortisman yüzdesi.",
         "de": "Zusätzliche Bonusabschreibung im ersten Jahr in Prozent.",
         "fr": "Pourcentage d'amortissement bonus supplémentaire de première année.",
-        "es": "Porcentaje de depreciación adicional del primer año."
+        "es": "Porcentaje de depreciación adicional del primer año.",
+        "ar": "نسبة الإهلاك الإضافي للسنة الأولى."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Abschreibung nach § 179 ($)",
         "fr": "Dépense Section 179 ($)",
         "es": "Gasto Sección 179 ($)",
-        "ar": "Section 179 Expensing ($)"
+        "ar": "مصروفات القسم 179 ($)"
       },
       "businessContext_i18n": {
         "en": "Immediate expense deduction under Section 179.",
         "tr": "Bölüm 179 kapsamında anında gider indirimi.",
         "de": "Sofortabzug nach § 179.",
         "fr": "Déduction immédiate de dépense selon la Section 179.",
-        "es": "Deducción inmediata de gastos según la Sección 179."
+        "es": "Deducción inmediata de gastos según la Sección 179.",
+        "ar": "خصم المصروفات الفوري بموجب القسم 179."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "MACRS-Satz Jahr 1 (%)",
         "fr": "Taux MACRS Année 1 (%)",
         "es": "Tasa MACRS Año 1 (%)",
-        "ar": "Year 1 MACRS Rate (%)"
+        "ar": "معدل MACRS للسنة الأولى (%)"
       },
       "businessContext_i18n": {
         "en": "MACRS depreciation rate for the first year based on asset class and convention.",
         "tr": "Varlık sınıfı ve sözleşmeye dayalı ilk yıl MACRS amortisman oranı.",
         "de": "MACRS-Abschreibungssatz für das erste Jahr basierend auf Anlageklasse und Konvention.",
         "fr": "Taux d'amortissement MACRS pour la première année basé sur la classe d'actif et la convention.",
-        "es": "Tasa de depreciación MACRS para el primer año según la clase de activo y convención."
+        "es": "Tasa de depreciación MACRS para el primer año según la clase de activo y convención.",
+        "ar": "معدل إهلاك MACRS للسنة الأولى بناءً على فئة الأصل والاتفاقية."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Nutzungsdauer (Jahre)",
         "fr": "Période de récupération (années)",
         "es": "Período de recuperación (años)",
-        "ar": "Recovery Period (years)"
+        "ar": "فترة الاسترداد (سنوات)"
       },
       "businessContext_i18n": {
         "en": "The MACRS recovery period of the asset (3,5,7,10,15,20).",
         "tr": "Varlığın MACRS amortisman süresi (3,5,7,10,15,20).",
         "de": "Die MACRS-Nutzungsdauer des Vermögenswerts (3,5,7,10,15,20).",
         "fr": "La période de récupération MACRS de l'actif (3,5,7,10,15,20).",
-        "es": "Período de recuperación MACRS del activo (3,5,7,10,15,20)."
+        "es": "Período de recuperación MACRS del activo (3,5,7,10,15,20).",
+        "ar": "فترة استرداد MACRS للأصل (3،5،7،10،15،20)."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa impositiva (%)",
-        "ar": "Tax Rate (%)"
+        "ar": "معدل الضريبة (%)"
       },
       "businessContext_i18n": {
         "en": "Corporate income tax rate for calculating tax savings from depreciation.",
         "tr": "Amortismandan kaynaklanan vergi tasarrufunu hesaplamak için kurumlar vergisi oranı.",
         "de": "Körperschaftsteuersatz zur Berechnung der Steuerersparnis aus Abschreibungen.",
         "fr": "Taux d'impôt sur les sociétés pour calculer les économies d'impôt liées à l'amortissement.",
-        "es": "Tasa de impuesto corporativo para calcular el ahorro fiscal por depreciación."
+        "es": "Tasa de impuesto corporativo para calcular el ahorro fiscal por depreciación.",
+        "ar": "معدل ضريبة دخل الشركات لحساب التوفير الضريبي من الإهلاك."
       }
     }
   ],

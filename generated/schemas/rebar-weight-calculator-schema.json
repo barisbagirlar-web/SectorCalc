@@ -14,14 +14,15 @@
         "de": "Durchmesser",
         "fr": "Diamètre",
         "es": "Diámetro",
-        "ar": "Diameter"
+        "ar": "القطر"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of rebar",
         "tr": "Donatı nominal çapı",
         "de": "Nenndurchmesser des Bewehrungsstabs",
         "fr": "Diamètre nominal de l'armature",
-        "es": "Diámetro nominal de la barra"
+        "es": "Diámetro nominal de la barra",
+        "ar": "القطر الاسمي لحديد التسليح"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Länge",
         "fr": "Longueur",
         "es": "Longitud",
-        "ar": "Length"
+        "ar": "الطول"
       },
       "businessContext_i18n": {
         "en": "Length of each rebar piece",
         "tr": "Her bir donatı parçasının uzunluğu",
         "de": "Länge jedes Bewehrungsstabs",
         "fr": "Longueur de chaque barre d'armature",
-        "es": "Longitud de cada barra"
+        "es": "Longitud de cada barra",
+        "ar": "طول كل قطعة حديد تسليح"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",
-        "ar": "Quantity"
+        "ar": "الكمية"
       },
       "businessContext_i18n": {
         "en": "Number of rebars",
         "tr": "Donatı sayısı",
         "de": "Anzahl der Bewehrungsstäbe",
         "fr": "Nombre d'armatures",
-        "es": "Número de barras"
+        "es": "Número de barras",
+        "ar": "عدد حديد التسليح"
       }
     },
     {
@@ -83,33 +86,37 @@
         "de": "Dichte",
         "fr": "Densité",
         "es": "Densidad",
-        "ar": "Density"
+        "ar": "الكثافة"
       },
       "businessContext_i18n": {
         "en": "Density of steel (typically 7850 kg/m³)",
         "tr": "Çeliğin yoğunluğu (tipik olarak 7850 kg/m³)",
         "de": "Dichte von Stahl (typischerweise 7850 kg/m³)",
         "fr": "Densité de l'acier (généralement 7850 kg/m³)",
-        "es": "Densidad del acero (típicamente 7850 kg/m³)"
+        "es": "Densidad del acero (típicamente 7850 kg/m³)",
+        "ar": "كثافة الفولاذ (عادة 7850 كجم/م³)"
       }
     }
   ],
   "formulas": {
-    "result": "diameter + length + quantity",
-    "result_copy": "diameter + length + quantity"
+    "normalized_product": "diameter * length * quantity * density",
+    "result": "diameter * length * quantity * density"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "weightPerPiece",
-      "totalWeight"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalWeight",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",

@@ -14,14 +14,15 @@
         "de": "Grundgesamtheit",
         "fr": "Taille de la population",
         "es": "Tamaño de la población",
-        "ar": "Population Size"
+        "ar": "حجم المجتمع"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the population to be audited.",
         "tr": "Denetlenecek popülasyondaki toplam öğe sayısı.",
         "de": "Gesamtzahl der zu prüfenden Elemente in der Grundgesamtheit.",
         "fr": "Nombre total d'éléments dans la population à auditer.",
-        "es": "Número total de elementos en la población a auditar."
+        "es": "Número total de elementos en la población a auditar.",
+        "ar": "إجمالي عدد العناصر في المجتمع المراد تدقيقه."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
-        "ar": "Z-Score"
+        "ar": "درجة Z"
       },
       "businessContext_i18n": {
         "en": "Z-score corresponding to the desired confidence level (e.g., 1.96 for 95%).",
         "tr": "İstenen güven düzeyine karşılık gelen Z-skoru (örneğin, %95 için 1,96).",
         "de": "Z-Wert entsprechend dem gewünschten Konfidenzniveau (z. B. 1,96 für 95 %).",
         "fr": "Score Z correspondant au niveau de confiance souhaité (ex. 1,96 pour 95 %).",
-        "es": "Puntuación Z correspondiente al nivel de confianza deseado (ej. 1.96 para 95%)."
+        "es": "Puntuación Z correspondiente al nivel de confianza deseado (ej. 1.96 para 95%).",
+        "ar": "درجة Z المقابلة لمستوى الثقة المطلوب (مثل 1.96 لمستوى 95%)."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Fehlermarge",
         "fr": "Marge d'erreur",
         "es": "Margen de error",
-        "ar": "Margin of Error"
+        "ar": "هامش الخطأ"
       },
       "businessContext_i18n": {
         "en": "Acceptable margin of error as a percentage (e.g., 5 for ±5%).",
         "tr": "Yüzde olarak kabul edilebilir hata payı (örneğin, ±%5 için 5).",
         "de": "Akzeptable Fehlermarge in Prozent (z. B. 5 für ±5 %).",
         "fr": "Marge d'erreur acceptable en pourcentage (ex. 5 pour ±5 %).",
-        "es": "Margen de error aceptable como porcentaje (ej. 5 para ±5%)."
+        "es": "Margen de error aceptable como porcentaje (ej. 5 para ±5%).",
+        "ar": "هامش الخطأ المقبول كنسبة مئوية (مثل 5 لـ ±5%)."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Geschätzter Anteil",
         "fr": "Proportion estimée",
         "es": "Proporción estimada",
-        "ar": "Estimated Proportion"
+        "ar": "النسبة المقدرة"
       },
       "businessContext_i18n": {
         "en": "Estimated proportion of an attribute present in the population (0 to 1). Use 0.5 for maximum variability.",
         "tr": "Popülasyonda bulunan bir özelliğin tahmini oranı (0 ile 1 arası). Maksimum değişkenlik için 0,5 kullanın.",
         "de": "Geschätzter Anteil eines Attributs in der Grundgesamtheit (0 bis 1). Verwenden Sie 0,5 für maximale Variabilität.",
         "fr": "Proportion estimée d'un attribut présent dans la population (0 à 1). Utilisez 0,5 pour une variabilité maximale.",
-        "es": "Proporción estimada de un atributo presente en la población (0 a 1). Use 0.5 para máxima variabilidad."
+        "es": "Proporción estimada de un atributo presente en la población (0 a 1). Use 0.5 para máxima variabilidad.",
+        "ar": "النسبة المقدرة لخاصية موجودة في المجتمع (0 إلى 1). استخدم 0.5 لأقصى تباين."
       }
     },
     {
@@ -106,34 +110,39 @@
         "de": "Erwartete Rücklaufquote",
         "fr": "Taux de réponse attendu",
         "es": "Tasa de respuesta esperada",
-        "ar": "Expected Response Rate"
+        "ar": "معدل الاستجابة المتوقع"
       },
       "businessContext_i18n": {
         "en": "Expected response rate to adjust sample size for non-response (e.g., 80 for 80%).",
         "tr": "Yanıtsızlık için örneklem büyüklüğünü ayarlamak üzere beklenen yanıt oranı (örneğin, %80 için 80).",
         "de": "Erwartete Rücklaufquote zur Anpassung der Stichprobengröße an Nichtbeantwortung (z. B. 80 für 80 %).",
         "fr": "Taux de réponse attendu pour ajuster la taille de l'échantillon en cas de non-réponse (ex. 80 pour 80 %).",
-        "es": "Tasa de respuesta esperada para ajustar el tamaño de la muestra por falta de respuesta (ej. 80 para 80%)."
+        "es": "Tasa de respuesta esperada para ajustar el tamaño de la muestra por falta de respuesta (ej. 80 para 80%).",
+        "ar": "معدل الاستجابة المتوقع لتعديل حجم العينة لعدم الاستجابة (مثل 80 لـ 80%)."
       }
     }
   ],
   "formulas": {
-    "result": "populationSize + zScore + marginOfError",
-    "result_copy": "populationSize + zScore + marginOfError"
+    "normalized_product": "populationSize * zScore * (marginOfError / 100) * proportion",
+    "result": "populationSize * zScore * (marginOfError / 100) * proportion * ((responseRate / 100))",
+    "adjustment_factor": "(responseRate / 100)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "uncorrectedSampleSize",
-      "finitePopulationCorrectionFactor",
-      "adjustedSampleSize"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "adjustedSampleSize",
-    "unit": "items",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
       "uncorrectedSampleSize": "A",
       "adjustedSampleSize": "A"

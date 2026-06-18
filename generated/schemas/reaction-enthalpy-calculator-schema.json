@@ -14,14 +14,15 @@
         "de": "Reaktionsenthalpie bei Referenztemperatur (ΔH°)",
         "fr": "Enthalpie de réaction à la température de référence (ΔH°)",
         "es": "Entalpía de reacción a temperatura de referencia (ΔH°)",
-        "ar": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)"
+        "ar": "المحتوى الحراري للتفاعل عند درجة الحرارة المرجعية (ΔH°)"
       },
       "businessContext_i18n": {
         "en": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
         "tr": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
         "de": "Standardreaktionsenthalpie, normalerweise bei 298 K",
         "fr": "Enthalpie standard de réaction, généralement à 298 K",
-        "es": "Entalpía de reacción estándar, generalmente a 298 K"
+        "es": "Entalpía de reacción estándar, generalmente a 298 K",
+        "ar": "المحتوى الحراري القياسي للتفاعل، عادةً عند 298 كلفن"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Referenztemperatur (T_ref)",
         "fr": "Température de référence (T_ref)",
         "es": "Temperatura de referencia (T_ref)",
-        "ar": "Referans Sıcaklık (T_ref)"
+        "ar": "درجة الحرارة المرجعية (T_ref)"
       },
       "businessContext_i18n": {
         "en": "Referans sıcaklık, genellikle 298.15 K",
         "tr": "Referans sıcaklık, genellikle 298.15 K",
         "de": "Referenz-Temperatur, normalerweise 298,15 K",
         "fr": "Température de référence, généralement 298.15 K",
-        "es": "Temperatura de referencia, generalmente 298.15 K"
+        "es": "Temperatura de referencia, generalmente 298.15 K",
+        "ar": "درجة الحرارة المرجعية، عادةً 298.15 كلفن"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Zieltemperatur (T)",
         "fr": "Température cible (T)",
         "es": "Temperatura objetivo (T)",
-        "ar": "Hedef Sıcaklık (T)"
+        "ar": "درجة الحرارة المستهدفة (T)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonun gerçekleştiği sıcaklık",
         "tr": "Reaksiyonun gerçekleştiği sıcaklık",
         "de": "Temperatur, bei der die Reaktion stattfindet",
         "fr": "Température à laquelle la réaction a lieu",
-        "es": "Temperatura a la que ocurre la reacción"
+        "es": "Temperatura a la que ocurre la reacción",
+        "ar": "درجة الحرارة التي يحدث عندها التفاعل"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Summe der Wärmekapazitäten der Produkte (ΣCp_Produkte)",
         "fr": "Somme des capacités thermiques des produits (ΣCp_produits)",
         "es": "Suma de capacidades caloríficas de productos (ΣCp_productos)",
-        "ar": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)"
+        "ar": "مجموع السعات الحرارية للنواتج (ΣCp_النواتج)"
       },
       "businessContext_i18n": {
         "en": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "tr": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "de": "Summe der Wärmekapazitäten der Produkte bei konstantem Druck, multipliziert mit den stöchiometrischen Koeffizienten",
         "fr": "Somme des capacités thermiques à pression constante des produits multipliées par leurs coefficients stœchiométriques",
-        "es": "Suma de las capacidades caloríficas a presión constante de los productos multiplicadas por sus coeficientes estequiométricos"
+        "es": "Suma de las capacidades caloríficas a presión constante de los productos multiplicadas por sus coeficientes estequiométricos",
+        "ar": "مجموع السعات الحرارية عند ضغط ثابت للنواتج مضروبة في المعاملات المتكافئة"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Summe der Wärmekapazitäten der Reaktanten (ΣCp_Reaktanten)",
         "fr": "Somme des capacités thermiques des réactifs (ΣCp_réactifs)",
         "es": "Suma de capacidades caloríficas de reactivos (ΣCp_reactivos)",
-        "ar": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)"
+        "ar": "مجموع السعات الحرارية للمتفاعلات (ΣCp_المتفاعلات)"
       },
       "businessContext_i18n": {
         "en": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "tr": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "de": "Summe der Wärmekapazitäten der Reaktanten bei konstantem Druck, multipliziert mit den stöchiometrischen Koeffizienten",
         "fr": "Somme des capacités thermiques à pression constante des réactifs multipliées par leurs coefficients stœchiométriques",
-        "es": "Suma de las capacidades caloríficas a presión constante de los reactivos multiplicadas por sus coeficientes estequiométricos"
+        "es": "Suma de las capacidades caloríficas a presión constante de los reactivos multiplicadas por sus coeficientes estequiométricos",
+        "ar": "مجموع السعات الحرارية عند ضغط ثابت للمتفاعلات مضروبة في المعاملات المتكافئة"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Stoffmenge (n)",
         "fr": "Nombre de moles (n)",
         "es": "Número de moles (n)",
-        "ar": "Mol Sayısı (n)"
+        "ar": "عدد المولات (n)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
         "tr": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
         "de": "Anzahl der Mol, auf die die Reaktion bezogen wird (Skalierungsfaktor)",
         "fr": "Nombre de moles de la réaction (facteur d'échelle)",
-        "es": "Cantidad de moles sobre la que se realiza la reacción (factor de escala)"
+        "es": "Cantidad de moles sobre la que se realiza la reacción (factor de escala)",
+        "ar": "عدد مولات التفاعل (عامل القياس)"
       }
     }
   ],

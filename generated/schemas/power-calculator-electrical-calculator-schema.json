@@ -14,14 +14,15 @@
         "de": "Spannung (V)",
         "fr": "Tension (V)",
         "es": "Voltaje (V)",
-        "ar": "Voltage (V)"
+        "ar": "الجهد (فولت)"
       },
       "businessContext_i18n": {
         "en": "Supply voltage",
         "tr": "Besleme gerilimi",
         "de": "Versorgungsspannung",
         "fr": "Tension d'alimentation",
-        "es": "Tensión de alimentación"
+        "es": "Tensión de alimentación",
+        "ar": "جهد الإمداد"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Strom (A)",
         "fr": "Courant (A)",
         "es": "Corriente (A)",
-        "ar": "Current (A)"
+        "ar": "التيار (أمبير)"
       },
       "businessContext_i18n": {
         "en": "Load current",
         "tr": "Yük akımı",
         "de": "Laststrom",
         "fr": "Courant de charge",
-        "es": "Corriente de carga"
+        "es": "Corriente de carga",
+        "ar": "تيار الحمل"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
         "es": "Factor de potencia",
-        "ar": "Power Factor"
+        "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
         "en": "cos φ (0.8 inductive typically)",
         "tr": "cos φ (genellikle endüktif 0,8)",
         "de": "cos φ (0,8 induktiv typisch)",
         "fr": "cos φ (0,8 inductif typiquement)",
-        "es": "cos φ (0.8 inductivo típicamente)"
+        "es": "cos φ (0.8 inductivo típicamente)",
+        "ar": "معامل القدرة (عادة 0.8 حثي)"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Phasenzahl",
         "fr": "Nombre de phases",
         "es": "Número de fases",
-        "ar": "Phase Count"
+        "ar": "عدد الأطوار"
       },
       "businessContext_i18n": {
         "en": "1 for single-phase, 3 for three-phase",
         "tr": "1 tek fazlı, 3 üç fazlı",
         "de": "1 für Einphasen-, 3 für Dreiphasenbetrieb",
         "fr": "1 pour monophasé, 3 pour triphasé",
-        "es": "1 para monofásico, 3 para trifásico"
+        "es": "1 para monofásico, 3 para trifásico",
+        "ar": "1 للطور الواحد، 3 لثلاثة أطوار"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Wirkungsgrad",
         "fr": "Rendement",
         "es": "Eficiencia",
-        "ar": "Efficiency"
+        "ar": "الكفاءة"
       },
       "businessContext_i18n": {
         "en": "0 to 1",
         "tr": "0 ile 1 arası",
         "de": "0 bis 1",
         "fr": "0 à 1",
-        "es": "0 a 1"
+        "es": "0 a 1",
+        "ar": "0 إلى 1"
       }
     },
     {
@@ -129,33 +134,39 @@
         "de": "AC (1) oder DC (0)",
         "fr": "CA (1) ou CC (0)",
         "es": "CA (1) o CC (0)",
-        "ar": "AC (1) or DC (0)"
+        "ar": "تيار متردد (1) أو تيار مستمر (0)"
       },
       "businessContext_i18n": {
         "en": "0 for DC, 1 for AC",
         "tr": "0 DC, 1 AC",
         "de": "0 für DC, 1 für AC",
         "fr": "0 pour CC, 1 pour CA",
-        "es": "0 para CC, 1 para CA"
+        "es": "0 para CC, 1 para CA",
+        "ar": "0 للتيار المستمر، 1 للتيار المتردد"
       }
     }
   ],
   "formulas": {
-    "result": "voltage + current + powerFactor",
-    "result_copy": "voltage + current + powerFactor"
+    "normalized_product": "voltage * current * powerFactor * phaseCount",
+    "result": "voltage * current * powerFactor * phaseCount * ((efficiency / 100) * isAC)",
+    "adjustment_factor": "(efficiency / 100) * isAC"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "apparentPower_VA",
-      "reactivePower_VAR"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "reactivePower_VAR",
-    "unit": "V"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Enerji & Elektrik",

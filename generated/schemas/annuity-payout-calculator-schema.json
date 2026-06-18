@@ -14,14 +14,15 @@
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión inicial",
-        "ar": "Initial Investment"
+        "ar": "الاستثمار الأولي"
       },
       "businessContext_i18n": {
         "en": "The present value or lump sum used to purchase the annuity.",
         "tr": "Geliri satın almak için kullanılan bugünkü değer veya toplu meblağ.",
         "de": "Der Barwert oder die Einmalzahlung zum Kauf der Rente.",
         "fr": "Valeur actuelle ou somme forfaitaire utilisée pour acheter la rente.",
-        "es": "El valor presente o suma global utilizada para comprar la anualidad."
+        "es": "El valor presente o suma global utilizada para comprar la anualidad.",
+        "ar": "القيمة الحالية أو المبلغ المقطوع المستخدم لشراء القسط السنوي."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
         "es": "Tasa de Interés Anual",
-        "ar": "Annual Interest Rate"
+        "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
         "tr": "Yıllık nominal faiz oranı.",
         "de": "Jährlicher nominaler Zinssatz.",
         "fr": "Taux d'intérêt nominal annuel.",
-        "es": "Tasa de interés nominal anual."
+        "es": "Tasa de interés nominal anual.",
+        "ar": "معدل الفائدة الاسمي السنوي."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
-        "ar": "Number of Years"
+        "ar": "عدد السنوات"
       },
       "businessContext_i18n": {
         "en": "Total number of years over which payments are made.",
         "tr": "Ödemelerin yapıldığı toplam yıl sayısı.",
         "de": "Gesamtzahl der Jahre, über die Zahlungen geleistet werden.",
         "fr": "Nombre total d'années sur lesquelles les paiements sont effectués.",
-        "es": "Número total de años durante los cuales se realizan los pagos."
+        "es": "Número total de años durante los cuales se realizan los pagos.",
+        "ar": "إجمالي عدد السنوات التي تتم خلالها الدفعات."
       }
     },
     {
@@ -83,32 +86,38 @@
         "de": "Zahlungen pro Jahr",
         "fr": "Paiements par an",
         "es": "Pagos por año",
-        "ar": "Payments Per Year"
+        "ar": "الدفعات في السنة"
       },
       "businessContext_i18n": {
         "en": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually.",
         "tr": "Ödeme sıklığı: aylık için 12, üç aylık için 4, yıllık için 1.",
         "de": "Häufigkeit der Zahlungen: 12 für monatlich, 4 für vierteljährlich, 1 für jährlich.",
         "fr": "Fréquence des paiements : 12 pour mensuel, 4 pour trimestriel, 1 pour annuel.",
-        "es": "Frecuencia de pagos: 12 para mensual, 4 para trimestral, 1 para anual."
+        "es": "Frecuencia de pagos: 12 para mensual, 4 para trimestral, 1 para anual.",
+        "ar": "تكرار الدفعات: 12 للشهري، 4 للربع سنوي، 1 للسنوي."
       }
     }
   ],
   "formulas": {
-    "result": "principal + annualRate + years",
-    "result_copy": "principal + annualRate + years"
+    "base_cost": "years * principal",
+    "adjusted_cost": "years * principal * (1 + (annualRate / 100))",
+    "result": "years * principal * (1 + (annualRate / 100))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "totalPayout",
-      "totalInterest"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "totalInterest",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
   "category": "Finans & Yatırım",

@@ -14,14 +14,15 @@
         "de": "Einlassdruck",
         "fr": "Pression d'entrée",
         "es": "Presión de entrada",
-        "ar": "Inlet Pressure"
+        "ar": "ضغط الدخول"
       },
       "businessContext_i18n": {
         "en": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar).",
         "tr": "Kompresör girişindeki mutlak basınç, tipik olarak atmosfer basıncı (1 bar).",
         "de": "Der absolute Druck am Verdichtereinlass, typischerweise Atmosphärendruck (1 bar).",
         "fr": "Pression absolue à l'entrée du compresseur, généralement la pression atmosphérique (1 bar).",
-        "es": "Presión absoluta en la entrada del compresor, típicamente presión atmosférica (1 bar)."
+        "es": "Presión absoluta en la entrada del compresor, típicamente presión atmosférica (1 bar).",
+        "ar": "الضغط المطلق عند مدخل الضاغط، عادةً الضغط الجوي (1 بار)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Auslassdruck",
         "fr": "Pression de sortie",
         "es": "Presión de salida",
-        "ar": "Outlet Pressure"
+        "ar": "ضغط الخروج"
       },
       "businessContext_i18n": {
         "en": "The desired discharge pressure after compression.",
         "tr": "Sıkıştırma sonrası istenen boşaltma basıncı.",
         "de": "Der gewünschte Austrittsdruck nach der Verdichtung.",
         "fr": "Pression de refoulement souhaitée après compression.",
-        "es": "Presión de descarga deseada después de la compresión."
+        "es": "Presión de descarga deseada después de la compresión.",
+        "ar": "ضغط التفريغ المطلوب بعد الضغط."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchflussrate (Einlassbedingungen)",
         "fr": "Débit (conditions d'entrée)",
         "es": "Caudal (condiciones de entrada)",
-        "ar": "Flow Rate (Inlet Conditions)"
+        "ar": "معدل التدفق (ظروف الدخول)"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate at inlet pressure and temperature.",
         "tr": "Giriş basıncı ve sıcaklığındaki hacimsel debi.",
         "de": "Volumetrische Durchflussrate bei Einlassdruck und -temperatur.",
         "fr": "Débit volumétrique à la pression et température d'entrée.",
-        "es": "Caudal volumétrico a presión y temperatura de entrada."
+        "es": "Caudal volumétrico a presión y temperatura de entrada.",
+        "ar": "معدل التدفق الحجمي عند ضغط ودرجة حرارة الدخول."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Adiabatenexponent (k)",
         "fr": "Indice adiabatique (k)",
         "es": "Índice adiabático (k)",
-        "ar": "Adiabatic Index (k)"
+        "ar": "معامل ثبات الانتروبيا (k)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air.",
         "tr": "Gazın özgül ısı oranı (Cp/Cv), tipik olarak hava için 1.4.",
         "de": "Verhältnis der spezifischen Wärmen (Cp/Cv) für das Gas, typischerweise 1,4 für Luft.",
         "fr": "Rapport des chaleurs spécifiques (Cp/Cv) pour le gaz, typiquement 1,4 pour l'air.",
-        "es": "Relación de calores específicos (Cp/Cv) del gas, típicamente 1.4 para aire."
+        "es": "Relación de calores específicos (Cp/Cv) del gas, típicamente 1.4 para aire.",
+        "ar": "نسبة السعات الحرارية (Cp/Cv) للغاز، عادةً 1.4 للهواء."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Isentroper Verdichterwirkungsgrad",
         "fr": "Rendement isentropique du compresseur",
         "es": "Eficiencia isentrópica del compresor",
-        "ar": "Compressor Isentropic Efficiency"
+        "ar": "كفاءة الضاغط الأيزنتروبية"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the compressor in converting adiabatic work to shaft work.",
         "tr": "Kompresörün adyabatik işi mil işine dönüştürme verimliliği.",
         "de": "Wirkungsgrad des Verdichters bei der Umwandlung von adiabater Arbeit in Wellenarbeit.",
         "fr": "Efficacité du compresseur à convertir le travail adiabatique en travail sur l'arbre.",
-        "es": "Eficiencia del compresor para convertir trabajo adiabático en trabajo en el eje."
+        "es": "Eficiencia del compresor para convertir trabajo adiabático en trabajo en el eje.",
+        "ar": "كفاءة الضاغط في تحويل الشغل الأدياباتي إلى شغل عمود."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Motorwirkungsgrad",
         "fr": "Rendement du moteur",
         "es": "Eficiencia del motor",
-        "ar": "Motor Efficiency"
+        "ar": "كفاءة المحرك"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the electric motor driving the compressor.",
         "tr": "Kompresörü tahrik eden elektrik motorunun verimliliği.",
         "de": "Wirkungsgrad des Elektromotors, der den Verdichter antreibt.",
         "fr": "Efficacité du moteur électrique entraînant le compresseur.",
-        "es": "Eficiencia del motor eléctrico que acciona el compresor."
+        "es": "Eficiencia del motor eléctrico que acciona el compresor.",
+        "ar": "كفاءة المحرك الكهربائي الذي يقود الضاغط."
       }
     }
   ],

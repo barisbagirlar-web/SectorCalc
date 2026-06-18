@@ -14,14 +14,15 @@
         "de": "Statische Saughöhe",
         "fr": "Hauteur statique d'aspiration",
         "es": "Altura estática de succión",
-        "ar": "Suction Static Head"
+        "ar": "الرأس السكوني للشفط"
       },
       "businessContext_i18n": {
         "en": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below).",
         "tr": "Akışkan kaynağı yüzeyinin pompa merkez hattına göre kotu (kaynak pompanın üstündeyse pozitif, altındaysa negatif).",
         "de": "Höhe der Fluidquelle relativ zur Pumpenmitte (positiv, wenn Quelle oberhalb der Pumpe, negativ, wenn darunter).",
         "fr": "Élévation de la surface de la source de fluide par rapport à l'axe de la pompe (positive si la source est au-dessus de la pompe, négative si en dessous).",
-        "es": "Elevación de la superficie de la fuente de fluido con respecto a la línea central de la bomba (positiva si la fuente está por encima de la bomba, negativa si está por debajo)."
+        "es": "Elevación de la superficie de la fuente de fluido con respecto a la línea central de la bomba (positiva si la fuente está por encima de la bomba, negativa si está por debajo).",
+        "ar": "ارتفاع سطح مصدر السائل بالنسبة لمحور المضخة (موجب إذا كان المصدر أعلى من المضخة، سالب إذا كان أقل)."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Statische Druckhöhe",
         "fr": "Hauteur statique de refoulement",
         "es": "Altura estática de descarga",
-        "ar": "Discharge Static Head"
+        "ar": "الرأس السكوني للتصريف"
       },
       "businessContext_i18n": {
         "en": "Elevation of discharge point relative to pump centerline.",
         "tr": "Basma noktasının pompa merkez hattına göre kotu.",
         "de": "Höhe des Austrittspunkts relativ zur Pumpenmitte.",
         "fr": "Élévation du point de refoulement par rapport à l'axe de la pompe.",
-        "es": "Elevación del punto de descarga con respecto a la línea central de la bomba."
+        "es": "Elevación del punto de descarga con respecto a la línea central de la bomba.",
+        "ar": "ارتفاع نقطة التصريف بالنسبة لمحور المضخة."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Durchflussrate",
         "fr": "Débit",
         "es": "Caudal",
-        "ar": "Flow Rate"
+        "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the fluid in liters per second.",
         "tr": "Saniyede litre cinsinden akışkanın hacimsel debisi.",
         "de": "Volumetrischer Durchfluss des Fluids in Litern pro Sekunde.",
         "fr": "Débit volumétrique du fluide en litres par seconde.",
-        "es": "Caudal volumétrico del fluido en litros por segundo."
+        "es": "Caudal volumétrico del fluido en litros por segundo.",
+        "ar": "معدل التدفق الحجمي للسائل باللتر في الثانية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Rohrlänge",
         "fr": "Longueur du tuyau",
         "es": "Longitud de la tubería",
-        "ar": "Pipe Length"
+        "ar": "طول الأنبوب"
       },
       "businessContext_i18n": {
         "en": "Total length of straight pipe between suction and discharge.",
         "tr": "Emme ve basma arasındaki düz borunun toplam uzunluğu.",
         "de": "Gesamtlänge der geraden Rohrleitung zwischen Saug- und Druckseite.",
         "fr": "Longueur totale de tuyauterie droite entre l'aspiration et le refoulement.",
-        "es": "Longitud total de tubería recta entre succión y descarga."
+        "es": "Longitud total de tubería recta entre succión y descarga.",
+        "ar": "الطول الإجمالي للأنبوب المستقيم بين الشفط والتصريف."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Rohrinnendurchmesser",
         "fr": "Diamètre intérieur du tuyau",
         "es": "Diámetro interno de la tubería",
-        "ar": "Pipe Internal Diameter"
+        "ar": "القطر الداخلي للأنبوب"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pipe.",
         "tr": "Boru iç çapı.",
         "de": "Innendurchmesser des Rohres.",
         "fr": "Diamètre intérieur du tuyau.",
-        "es": "Diámetro interior de la tubería."
+        "es": "Diámetro interior de la tubería.",
+        "ar": "القطر الداخلي للأنبوب."
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Hazen-Williams C-Faktor",
         "fr": "Coefficient de Hazen-Williams C",
         "es": "Factor C de Hazen-Williams",
-        "ar": "Hazen-Williams C-Factor"
+        "ar": "معامل هازن-ويليامز C"
       },
       "businessContext_i18n": {
         "en": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC).",
         "tr": "Boru pürüzlülük katsayısı (ör. çelik için 120, PVC için 150).",
         "de": "Rohrrauigkeitskoeffizient (z.B. 120 für Stahl, 150 für PVC).",
         "fr": "Coefficient de rugosité de la conduite (ex. 120 pour acier, 150 pour PVC).",
-        "es": "Coeficiente de rugosidad de la tubería (p. ej., 120 para acero, 150 para PVC)."
+        "es": "Coeficiente de rugosidad de la tubería (p. ej., 120 para acero, 150 para PVC).",
+        "ar": "معامل خشونة الأنبوب (مثل 120 للصلب، 150 للـ PVC)."
       }
     }
   ],

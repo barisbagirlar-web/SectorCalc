@@ -25,14 +25,16 @@
         "tr": "Sistem Basıncı",
         "de": "Systemdruck",
         "fr": "Pression du système",
-        "es": "Presión del sistema"
+        "es": "Presión del sistema",
+        "ar": "ضغط النظام"
       },
       "businessContext_i18n": {
         "en": "Operating pressure of the compressed air system; higher pressure increases leak flow rate.",
         "tr": "Basınçlı hava sisteminin işletme basıncı; daha yüksek basınç kaçak debisini artırır.",
         "de": "Betriebsdruck des Druckluftsystems; höherer Druck erhöht die Leckdurchflussrate.",
         "fr": "Pression de fonctionnement du système d'air comprimé ; une pression plus élevée augmente le débit de fuite.",
-        "es": "Presión de operación del sistema de aire comprimido; mayor presión aumenta el caudal de fuga."
+        "es": "Presión de operación del sistema de aire comprimido; mayor presión aumenta el caudal de fuga.",
+        "ar": "ضغط تشغيل نظام الهواء المضغوط؛ الضغط الأعلى يزيد من معدل تدفق التسرب."
       }
     },
     {
@@ -49,14 +51,16 @@
         "tr": "Eşdeğer Kaçak Çapı",
         "de": "Äquivalenter Leckdurchmesser",
         "fr": "Diamètre équivalent de fuite",
-        "es": "Diámetro equivalente de fuga"
+        "es": "Diámetro equivalente de fuga",
+        "ar": "قطر التسرب المكافئ"
       },
       "businessContext_i18n": {
         "en": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\".",
         "tr": "Ortalama kaçak boyutunu temsil eden yuvarlak bir orifisin çapı. Yaygın boyutlar: 1/8\", 1/4\", 1/2\".",
         "de": "Durchmesser einer runden Öffnung, die die durchschnittliche Leckgröße darstellt. Übliche Größen: 1/8\", 1/4\", 1/2\".",
         "fr": "Diamètre d'un orifice rond représentant la taille moyenne de fuite. Tailles courantes : 1/8\", 1/4\", 1/2\".",
-        "es": "Diámetro de un orificio redondo que representa el tamaño promedio de fuga. Tamaños comunes: 1/8\", 1/4\", 1/2\"."
+        "es": "Diámetro de un orificio redondo que representa el tamaño promedio de fuga. Tamaños comunes: 1/8\", 1/4\", 1/2\".",
+        "ar": "قطر فتحة دائرية تمثل متوسط حجم التسرب. الأحجام الشائعة: 1/8 بوصة، 1/4 بوصة، 1/2 بوصة."
       }
     },
     {
@@ -73,14 +77,16 @@
         "tr": "Kaçak Sayısı",
         "de": "Anzahl der Lecks",
         "fr": "Nombre de fuites",
-        "es": "Número de fugas"
+        "es": "Número de fugas",
+        "ar": "عدد التسريبات"
       },
       "businessContext_i18n": {
         "en": "Total number of identified or estimated leaks in the system.",
         "tr": "Sistemde tespit edilen veya tahmin edilen toplam kaçak sayısı.",
         "de": "Gesamtzahl der identifizierten oder geschätzten Lecks im System.",
         "fr": "Nombre total de fuites identifiées ou estimées dans le système.",
-        "es": "Número total de fugas identificadas o estimadas en el sistema."
+        "es": "Número total de fugas identificadas o estimadas en el sistema.",
+        "ar": "إجمالي عدد التسريبات المحددة أو المقدرة في النظام."
       }
     },
     {
@@ -97,14 +103,16 @@
         "tr": "Yıllık Çalışma Saati",
         "de": "Jährliche Betriebsstunden",
         "fr": "Heures de fonctionnement annuelles",
-        "es": "Horas de operación anuales"
+        "es": "Horas de operación anuales",
+        "ar": "ساعات التشغيل السنوية"
       },
       "businessContext_i18n": {
         "en": "Total hours the compressor runs per year. Continuous operation = 8760 h.",
         "tr": "Kompresörün yılda çalıştığı toplam saat. Sürekli çalışma = 8760 saat.",
         "de": "Gesamtbetriebsstunden des Kompressors pro Jahr. Dauerbetrieb = 8760 h.",
         "fr": "Nombre total d'heures de fonctionnement du compresseur par an. Fonctionnement continu = 8760 h.",
-        "es": "Horas totales que el compresor funciona al año. Operación continua = 8760 h."
+        "es": "Horas totales que el compresor funciona al año. Operación continua = 8760 h.",
+        "ar": "إجمالي ساعات تشغيل الضاغط سنويًا. التشغيل المستمر = 8760 ساعة."
       }
     },
     {
@@ -121,14 +129,16 @@
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
         "fr": "Coût de l'électricité",
-        "es": "Coste de electricidad"
+        "es": "Coste de electricidad",
+        "ar": "تكلفة الكهرباء"
       },
       "businessContext_i18n": {
         "en": "Average blended cost of electricity per kilowatt-hour.",
         "tr": "Kilovat-saat başına harmanlanmış ortalama elektrik maliyeti.",
         "de": "Durchschnittliche Mischkosten für Strom pro Kilowattstunde.",
         "fr": "Coût moyen pondéré de l'électricité par kilowattheure.",
-        "es": "Costo promedio combinado de electricidad por kilovatio-hora."
+        "es": "Costo promedio combinado de electricidad por kilovatio-hora.",
+        "ar": "متوسط التكلفة المختلطة للكهرباء لكل كيلوواط ساعة."
       }
     },
     {
@@ -145,14 +155,16 @@
         "tr": "Kompresör Verimi",
         "de": "Kompressorwirkungsgrad",
         "fr": "Rendement du compresseur",
-        "es": "Eficiencia del compresor"
+        "es": "Eficiencia del compresor",
+        "ar": "كفاءة الضاغط"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%.",
         "tr": "Kompresör sisteminin genel verimi (motor + sürücü + kompresör). Tipik aralık %70-85.",
         "de": "Gesamtwirkungsgrad des Kompressorsystems (Motor + Antrieb + Kompressor). Typischer Bereich 70-85%.",
         "fr": "Rendement global du système de compresseur (moteur + variateur + compresseur). Plage typique 70-85 %.",
-        "es": "Eficiencia general del sistema del compresor (motor + variador + compresor). Rango típico 70-85%."
+        "es": "Eficiencia general del sistema del compresor (motor + variador + compresor). Rango típico 70-85%.",
+        "ar": "الكفاءة الإجمالية لنظام الضاغط (محرك + محرك + ضاغط). النطاق النموذجي 70-85%."
       }
     },
     {
@@ -171,14 +183,16 @@
         "tr": "Kaçak Tipi",
         "de": "Lecktyp",
         "fr": "Type de fuite",
-        "es": "Tipo de fuga"
+        "es": "Tipo de fuga",
+        "ar": "نوع التسرب"
       },
       "businessContext_i18n": {
         "en": "Geometry of the leak affects discharge coefficient. Round orifice is most common.",
         "tr": "Kaçağın geometrisi boşaltma katsayısını etkiler. Yuvarlak orifis en yaygın olanıdır.",
         "de": "Die Geometrie des Lecks beeinflusst den Ausflusskoeffizienten. Runde Öffnung ist am häufigsten.",
         "fr": "La géométrie de la fuite affecte le coefficient de décharge. L'orifice rond est le plus courant.",
-        "es": "La geometría de la fuga afecta el coeficiente de descarga. El orificio redondo es el más común."
+        "es": "La geometría de la fuga afecta el coeficiente de descarga. El orificio redondo es el más común.",
+        "ar": "هندسة التسرب تؤثر على معامل التصريف. الفتحة الدائرية هي الأكثر شيوعًا."
       },
       "unit": "unit"
     },
@@ -193,14 +207,16 @@
         "tr": "Bakım Maliyetini Dahil Et",
         "de": "Wartungskosten einbeziehen",
         "fr": "Inclure le coût de maintenance",
-        "es": "Incluir costo de mantenimiento"
+        "es": "Incluir costo de mantenimiento",
+        "ar": "تضمين تكلفة الصيانة"
       },
       "businessContext_i18n": {
         "en": "If true, adds estimated labor and material cost for leak repair.",
         "tr": "Doğruysa, sızıntı onarımı için tahmini işçilik ve malzeme maliyeti ekler.",
         "de": "Wenn wahr, werden geschätzte Arbeits- und Materialkosten für die Leckreparatur hinzugefügt.",
         "fr": "Si vrai, ajoute le coût estimé de la main-d'œuvre et des matériaux pour la réparation de fuite.",
-        "es": "Si es verdadero, agrega el costo estimado de mano de obra y material para la reparación de fugas."
+        "es": "Si es verdadero, agrega el costo estimado de mano de obra y material para la reparación de fugas.",
+        "ar": "إذا كان صحيحًا، يضيف تكلفة العمالة والمواد المقدرة لإصلاح التسرب."
       },
       "unit": "unit"
     }
@@ -247,18 +263,26 @@
     ]
   },
   "formulas": {
-    "result": "system_pressure + leak_diameter + number_of_leaks",
-    "result_copy": "system_pressure + leak_diameter + number_of_leaks"
+    "annual_exposure_hours": "operating_hours",
+    "direct_labor_cost": "number_of_leaks * (compressor_efficiency / 100) * operating_hours * electricity_cost",
+    "result": "number_of_leaks * (compressor_efficiency / 100) * operating_hours * electricity_cost * leak_diameter"
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [],
-    "hiddenLossDrivers": [],
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "psig"
+    "unit": "USD"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -14,14 +14,15 @@
         "de": "Laserleistung",
         "fr": "Puissance laser",
         "es": "Potencia del láser",
-        "ar": "Laser Power"
+        "ar": "قوة الليزر"
       },
       "businessContext_i18n": {
         "en": "Nominal laser output power",
         "tr": "Nominal lazer çıkış gücü",
         "de": "Nennleistung des Lasers",
         "fr": "Puissance nominale de sortie du laser",
-        "es": "Potencia nominal de salida del láser"
+        "es": "Potencia nominal de salida del láser",
+        "ar": "قوة خرج الليزر الاسمية"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Schnittgeschwindigkeit",
         "fr": "Vitesse de coupe",
         "es": "Velocidad de corte",
-        "ar": "Cutting Speed"
+        "ar": "سرعة القطع"
       },
       "businessContext_i18n": {
         "en": "Speed of the cutting head",
         "tr": "Kesme kafasının hızı",
         "de": "Geschwindigkeit des Schneidkopfes",
         "fr": "Vitesse de la tête de coupe",
-        "es": "Velocidad del cabezal de corte"
+        "es": "Velocidad del cabezal de corte",
+        "ar": "سرعة رأس القطع"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Materialdicke",
         "fr": "Épaisseur du matériau",
         "es": "Espesor del material",
-        "ar": "Material Thickness"
+        "ar": "سمك المادة"
       },
       "businessContext_i18n": {
         "en": "Thickness of the material being cut",
         "tr": "Kesilen malzemenin kalınlığı",
         "de": "Dicke des zu schneidenden Materials",
         "fr": "Épaisseur du matériau à couper",
-        "es": "Espesor del material que se está cortando"
+        "es": "Espesor del material que se está cortando",
+        "ar": "سمك المادة المراد قطعها"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Schnittfugenbreite",
         "fr": "Largeur de saignée",
         "es": "Ancho de corte",
-        "ar": "Kerf Width"
+        "ar": "عرض الشق"
       },
       "businessContext_i18n": {
         "en": "Width of the cut kerf",
         "tr": "Kesim kerf genişliği",
         "de": "Breite der Schnittfuge",
         "fr": "Largeur de la saignée de coupe",
-        "es": "Ancho del corte"
+        "es": "Ancho del corte",
+        "ar": "عرض شق القطع"
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Materialabsorptionskoeffizient",
         "fr": "Coefficient d'absorption du matériau",
         "es": "Coeficiente de absorción del material",
-        "ar": "Material Absorption Coefficient"
+        "ar": "معامل امتصاص المادة"
       },
       "businessContext_i18n": {
         "en": "Fraction of laser energy absorbed by the material (0-1)",
         "tr": "Malzeme tarafından soğurulan lazer enerjisi oranı (0-1)",
         "de": "Anteil der vom Material absorbierten Laserenergie (0-1)",
         "fr": "Fraction de l'énergie laser absorbée par le matériau (0-1)",
-        "es": "Fracción de energía láser absorbida por el material (0-1)"
+        "es": "Fracción de energía láser absorbida por el material (0-1)",
+        "ar": "جزء طاقة الليزر الممتصة من المادة (0-1)"
       }
     },
     {
@@ -129,14 +134,15 @@
         "de": "Betriebskosten pro Stunde",
         "fr": "Coût de fonctionnement par heure",
         "es": "Coste operativo por hora",
-        "ar": "Operating Cost per Hour"
+        "ar": "تكلفة التشغيل لكل ساعة"
       },
       "businessContext_i18n": {
         "en": "Total operating cost including electricity, maintenance, and labor",
         "tr": "Elektrik, bakım ve işçilik dahil toplam işletme maliyeti",
         "de": "Gesamtbetriebskosten inkl. Strom, Wartung und Arbeit",
         "fr": "Coût total de fonctionnement incluant électricité, maintenance et main-d'œuvre",
-        "es": "Coste operativo total incluyendo electricidad, mantenimiento y mano de obra"
+        "es": "Coste operativo total incluyendo electricidad, mantenimiento y mano de obra",
+        "ar": "إجمالي التكلفة التشغيلية بما في ذلك الكهرباء والصيانة والعمالة"
       }
     },
     {
@@ -152,14 +158,15 @@
         "de": "Gesamtschnittlänge",
         "fr": "Longueur totale de coupe",
         "es": "Longitud total de corte",
-        "ar": "Total Cut Length"
+        "ar": "إجمالي طول القطع"
       },
       "businessContext_i18n": {
         "en": "Total length of the laser cut path for the job",
         "tr": "İş için lazer kesim yolunun toplam uzunluğu",
         "de": "Gesamtlänge des Laserschneidpfads für den Auftrag",
         "fr": "Longueur totale du trajet de coupe laser pour la tâche",
-        "es": "Longitud total de la trayectoria de corte láser para el trabajo"
+        "es": "Longitud total de la trayectoria de corte láser para el trabajo",
+        "ar": "الطول الإجمالي لمسار القطع بالليزر للوظيفة"
       }
     },
     {
@@ -175,14 +182,15 @@
         "de": "Rüstzeit",
         "fr": "Temps de réglage",
         "es": "Tiempo de preparación",
-        "ar": "Setup Time"
+        "ar": "وقت الإعداد"
       },
       "businessContext_i18n": {
         "en": "Time required to load/unload material and set up the machine",
         "tr": "Malzeme yükleme/boşaltma ve makine kurulumu için gereken süre",
         "de": "Zeit für Be- und Entladen sowie Einrichten der Maschine",
         "fr": "Temps nécessaire pour charger/décharger le matériau et configurer la machine",
-        "es": "Tiempo necesario para cargar/descargar material y configurar la máquina"
+        "es": "Tiempo necesario para cargar/descargar material y configurar la máquina",
+        "ar": "الوقت اللازم لتحميل/تفريغ المواد وإعداد الماكينة"
       }
     }
   ],

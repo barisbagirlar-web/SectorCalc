@@ -13,14 +13,16 @@
         "tr": "Sıfır Olmayan Fark Sayısı (n)",
         "de": "Anzahl der Nicht-Null-Differenzen (n)",
         "fr": "Nombre de différences non nulles (n)",
-        "es": "Number of Non-Zero Differences (n)",
-        "ar": "Number of Non-Zero Differences (n)"
+        "es": "Número de diferencias no nulas (n)",
+        "ar": "عدد الفروق غير الصفرية (n)"
       },
       "businessContext_i18n": {
         "en": "Sample size after excluding zero differences",
         "tr": "Sıfır farklar çıkarıldıktan sonraki örneklem büyüklüğü",
         "de": "Stichprobengröße nach Ausschluss von Null-Differenzen",
-        "fr": "Taille de l'échantillon après exclusion des différences nulles"
+        "fr": "Taille de l'échantillon après exclusion des différences nulles",
+        "es": "Tamaño de muestra después de excluir diferencias cero",
+        "ar": "حجم العينة بعد استبعاد الفروق الصفرية"
       }
     },
     {
@@ -35,14 +37,16 @@
         "tr": "Pozitif Sıraların Toplamı (T+)",
         "de": "Summe der positiven Ränge (T+)",
         "fr": "Somme des rangs positifs (T+)",
-        "es": "Sum of Positive Ranks (T+)",
-        "ar": "Sum of Positive Ranks (T+)"
+        "es": "Suma de rangos positivos (T+)",
+        "ar": "مجموع الرتب الموجبة (T+)"
       },
       "businessContext_i18n": {
         "en": "Wilcoxon signed-rank test statistic",
         "tr": "Wilcoxon işaretli sıra test istatistiği",
         "de": "Wilcoxon-Vorzeichen-Rang-Teststatistik",
-        "fr": "Statistique du test des rangs signés de Wilcoxon"
+        "fr": "Statistique du test des rangs signés de Wilcoxon",
+        "es": "Estadístico de prueba de Wilcoxon de rangos con signo",
+        "ar": "إحصائية اختبار ويلكوكسون للرتب المُشار إليها"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Süreklilik Düzeltmesi (1 = Evet, 0 = Hayır)",
         "de": "Stetigkeitskorrektur (1 = Ja, 0 = Nein)",
         "fr": "Correction de continuité (1 = Oui, 0 = Non)",
-        "es": "Continuity Correction (1 = Yes, 0 = No)",
-        "ar": "Continuity Correction (1 = Yes, 0 = No)"
+        "es": "Corrección de continuidad (1 = Sí, 0 = No)",
+        "ar": "تصحيح الاستمرارية (1 = نعم، 0 = لا)"
       },
       "businessContext_i18n": {
         "en": "Apply Yates' continuity correction for normal approximation",
         "tr": "Normal yaklaşım için Yates süreklilik düzeltmesini uygula",
         "de": "Yates-Stetigkeitskorrektur für Normalapproximation anwenden",
-        "fr": "Appliquer la correction de continuité de Yates pour l'approximation normale"
+        "fr": "Appliquer la correction de continuité de Yates pour l'approximation normale",
+        "es": "Aplicar corrección de continuidad de Yates para aproximación normal",
+        "ar": "تطبيق تصحيح ييتس للاستمرارية للتقريب الطبيعي"
       }
     },
     {
@@ -80,13 +86,15 @@
         "de": "Dezimalstellen für Ausgabe",
         "fr": "Nombre de décimales pour le résultat",
         "es": "Decimales para el resultado",
-        "ar": "Decimal Places for Output"
+        "ar": "عدد المنازل العشرية للمخرجات"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the z-score",
         "tr": "Z-skorunun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für den z-Wert",
-        "fr": "Nombre de décimales pour arrondir le z-score"
+        "fr": "Nombre de décimales pour arrondir le z-score",
+        "es": "Número de decimales para redondear el puntaje z",
+        "ar": "عدد المنازل العشرية لتقريب درجة z"
       }
     }
   ],

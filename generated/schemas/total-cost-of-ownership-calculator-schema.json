@@ -14,13 +14,15 @@
         "de": "Kaufpreis",
         "fr": "Prix d'achat",
         "es": "Precio de compra",
-        "ar": "Purchase Price"
+        "ar": "سعر الشراء"
       },
       "businessContext_i18n": {
         "en": "Initial acquisition cost of the asset",
         "tr": "Varlığın ilk edinim maliyeti",
         "de": "Anschaffungskosten des Vermögenswerts",
-        "fr": "Coût d'acquisition initial de l'actif"
+        "fr": "Coût d'acquisition initial de l'actif",
+        "es": "Costo inicial de adquisición del activo",
+        "ar": "تكلفة الاقتناء الأولية للأصل"
       }
     },
     {
@@ -36,13 +38,15 @@
         "de": "Jährliche Wartungskosten",
         "fr": "Coût d'entretien annuel",
         "es": "Costo de mantenimiento anual",
-        "ar": "Annual Maintenance Cost"
+        "ar": "تكلفة الصيانة السنوية"
       },
       "businessContext_i18n": {
         "en": "Yearly maintenance expense",
         "tr": "Yıllık bakım gideri",
         "de": "Jährliche Wartungskosten",
-        "fr": "Dépense annuelle de maintenance"
+        "fr": "Dépense annuelle de maintenance",
+        "es": "Gasto anual de mantenimiento",
+        "ar": "مصاريف الصيانة السنوية"
       }
     },
     {
@@ -57,14 +61,16 @@
         "tr": "Yıllık Enerji Maliyeti",
         "de": "Jährliche Energiekosten",
         "fr": "Coût énergétique annuel",
-        "es": "Annual Energy Cost",
-        "ar": "Annual Energy Cost"
+        "es": "Coste energético anual",
+        "ar": "تكلفة الطاقة السنوية"
       },
       "businessContext_i18n": {
         "en": "Yearly energy or fuel cost",
         "tr": "Yıllık enerji veya yakıt maliyeti",
         "de": "Jährliche Energie- oder Brennstoffkosten",
-        "fr": "Coût annuel de l'énergie ou du carburant"
+        "fr": "Coût annuel de l'énergie ou du carburant",
+        "es": "Costo anual de energía o combustible",
+        "ar": "تكلفة الطاقة أو الوقود السنوية"
       }
     },
     {
@@ -79,14 +85,16 @@
         "tr": "Hurda Değeri",
         "de": "Wiederverkaufswert",
         "fr": "Valeur de revente",
-        "es": "Resale Value",
-        "ar": "Resale Value"
+        "es": "Valor de reventa",
+        "ar": "قيمة إعادة البيع"
       },
       "businessContext_i18n": {
         "en": "Expected resale or salvage value at end of ownership period",
         "tr": "Sahiplik süresi sonunda beklenen hurda veya kalıntı değer",
         "de": "Erwarteter Restwert am Ende der Besitzdauer",
-        "fr": "Valeur de revente ou de récupération attendue à la fin de la période de possession"
+        "fr": "Valeur de revente ou de récupération attendue à la fin de la période de possession",
+        "es": "Valor de reventa o rescate esperado al final del período de propiedad",
+        "ar": "قيمة إعادة البيع أو الخردة المتوقعة في نهاية فترة الملكية"
       }
     },
     {
@@ -101,14 +109,16 @@
         "tr": "Sahiplik Süresi",
         "de": "Besitzdauer",
         "fr": "Période de possession",
-        "es": "Ownership Period",
-        "ar": "Ownership Period"
+        "es": "Período de propiedad",
+        "ar": "فترة الملكية"
       },
       "businessContext_i18n": {
         "en": "Duration of ownership in years",
         "tr": "Sahiplik süresi (yıl olarak)",
         "de": "Besitzdauer in Jahren",
-        "fr": "Durée de possession en années"
+        "fr": "Durée de possession en années",
+        "es": "Duración de la propiedad en años",
+        "ar": "مدة الملكية بالسنوات"
       }
     },
     {
@@ -124,13 +134,15 @@
         "de": "Jährlicher Diskontsatz",
         "fr": "Taux d'actualisation annuel",
         "es": "Tasa de descuento anual",
-        "ar": "Annual Discount Rate"
+        "ar": "معدل الخصم السنوي"
       },
       "businessContext_i18n": {
         "en": "Discount rate reflecting time value of money",
         "tr": "Paranın zaman değerini yansıtan iskonto oranı",
         "de": "Abzinsungssatz, der den Zeitwert des Geldes widerspiegelt",
-        "fr": "Taux d'actualisation reflétant la valeur temporelle de l'argent"
+        "fr": "Taux d'actualisation reflétant la valeur temporelle de l'argent",
+        "es": "Tasa de descuento que refleja el valor del dinero en el tiempo",
+        "ar": "معدل الخصم يعكس القيمة الزمنية للنقود"
       }
     }
   ],

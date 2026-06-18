@@ -14,14 +14,15 @@
         "de": "Nominalrendite",
         "fr": "Rendement nominal",
         "es": "Rendimiento nominal",
-        "ar": "Nominal Return"
+        "ar": "العائد الاسمي"
       },
       "businessContext_i18n": {
         "en": "Yıllık nominal getiri oranı",
         "tr": "Yıllık nominal getiri oranı",
         "de": "Jährliche nominale Rendite",
         "fr": "Taux de rendement nominal annuel",
-        "es": "Tasa de rendimiento nominal anual"
+        "es": "Tasa de rendimiento nominal anual",
+        "ar": "معدل العائد الاسمي السنوي"
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Inflationsrate",
         "fr": "Taux d'inflation",
         "es": "Tasa de inflación",
-        "ar": "Enflasyon Oranı"
+        "ar": "معدل التضخم"
       },
       "businessContext_i18n": {
         "en": "Yıllık enflasyon oranı",
         "tr": "Yıllık enflasyon oranı",
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
-        "es": "Tasa de inflación anual"
+        "es": "Tasa de inflación anual",
+        "ar": "معدل التضخم السنوي"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Steuersatz",
         "fr": "Taux d'imposition",
         "es": "Tasa impositiva",
-        "ar": "Vergi Oranı"
+        "ar": "معدل الضريبة"
       },
       "businessContext_i18n": {
         "en": "Getiri üzerindeki vergi oranı (varsa)",
         "tr": "Getiri üzerindeki vergi oranı (varsa)",
         "de": "Steuersatz auf die Rendite (falls zutreffend)",
         "fr": "Taux d'imposition sur le rendement (le cas échéant)",
-        "es": "Tasa impositiva sobre el rendimiento (si corresponde)"
+        "es": "Tasa impositiva sobre el rendimiento (si corresponde)",
+        "ar": "معدل الضريبة على العائد (إن وجد)"
       }
     },
     {
@@ -83,32 +86,36 @@
         "de": "Investitionsbetrag",
         "fr": "Montant de l'investissement",
         "es": "Monto de inversión",
-        "ar": "Yatırım Tutarı"
+        "ar": "مبلغ الاستثمار"
       },
       "businessContext_i18n": {
         "en": "Başlangıç yatırım miktarı",
         "tr": "Başlangıç yatırım miktarı",
         "de": "Anfänglicher Investitionsbetrag",
         "fr": "Montant de l'investissement initial",
-        "es": "Monto de inversión inicial"
+        "es": "Monto de inversión inicial",
+        "ar": "مبلغ الاستثمار الأولي"
       }
     }
   ],
   "formulas": {
-    "result": "nominalReturn + inflationRate + taxRate",
-    "result_aux": "nominalReturn + inflationRate + taxRate"
+    "normalized_product": "(nominalReturn / 100) * (inflationRate / 100) * (taxRate / 100) * investmentAmount",
+    "result": "(nominalReturn / 100) * (inflationRate / 100) * (taxRate / 100) * investmentAmount"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "realValue",
-      "nominalAfterTax"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "nominalAfterTax",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Finans & Yatırım",

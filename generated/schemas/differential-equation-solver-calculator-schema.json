@@ -14,14 +14,15 @@
         "de": "Anfangswert y₀",
         "fr": "Valeur initiale y₀",
         "es": "Valor inicial y₀",
-        "ar": "Initial value y₀"
+        "ar": "القيمة الأولية y₀"
       },
       "businessContext_i18n": {
         "en": "Value of y at initial time t₀",
         "tr": "y'nin başlangıç zamanı t₀'daki değeri",
         "de": "Wert von y zum Anfangszeitpunkt t₀",
         "fr": "Valeur de y au temps initial t₀",
-        "es": "Valor de y en el tiempo inicial t₀"
+        "es": "Valor de y en el tiempo inicial t₀",
+        "ar": "قيمة y عند الزمن الأولي t₀"
       }
     },
     {
@@ -35,16 +36,17 @@
         "en": "Coefficient a",
         "tr": "Katsayı a",
         "de": "Koeffizient a",
-        "fr": "Coefficient a",
+        "fr": "Distance (km)",
         "es": "Coeficiente a",
-        "ar": "Coefficient a"
+        "ar": "المعامل a"
       },
       "businessContext_i18n": {
         "en": "Growth (positive) or decay (negative) rate in dy/dt = a·y + b",
         "tr": "dy/dt = a·y + b'de büyüme (pozitif) veya azalma (negatif) oranı",
         "de": "Wachstums- (positiv) oder Zerfallsrate (negativ) in dy/dt = a·y + b",
         "fr": "Taux de croissance (positif) ou de décroissance (négatif) dans dy/dt = a·y + b",
-        "es": "Tasa de crecimiento (positiva) o decrecimiento (negativa) en dy/dt = a·y + b"
+        "es": "Tasa de crecimiento (positiva) o decrecimiento (negativa) en dy/dt = a·y + b",
+        "ar": "معدل النمو (موجب) أو الاضمحلال (سالب) في dy/dt = a·y + b"
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Konstante b",
         "fr": "Constante b",
         "es": "Constante b",
-        "ar": "Constant b"
+        "ar": "الثابت b"
       },
       "businessContext_i18n": {
         "en": "Constant forcing term in dy/dt = a·y + b",
         "tr": "dy/dt = a·y + b'de sabit zorlama terimi",
         "de": "Konstanter Antriebsterm in dy/dt = a·y + b",
         "fr": "Terme de forçage constant dans dy/dt = a·y + b",
-        "es": "Término forzante constante en dy/dt = a·y + b"
+        "es": "Término forzante constante en dy/dt = a·y + b",
+        "ar": "حد القوة الثابت في dy/dt = a·y + b"
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Anfangszeit t₀",
         "fr": "Temps initial t₀",
         "es": "Tiempo inicial t₀",
-        "ar": "Initial time t₀"
+        "ar": "الزمن الأولي t₀"
       },
       "businessContext_i18n": {
         "en": "Time at which initial condition y₀ is given",
         "tr": "Başlangıç koşulu y₀'nın verildiği zaman",
         "de": "Zeitpunkt, zu dem die Anfangsbedingung y₀ gegeben ist",
         "fr": "Temps auquel la condition initiale y₀ est donnée",
-        "es": "Tiempo en el que se da la condición inicial y₀"
+        "es": "Tiempo en el que se da la condición inicial y₀",
+        "ar": "الزمن الذي تُعطى عنده الحالة الأولية y₀"
       }
     },
     {
@@ -106,32 +110,39 @@
         "de": "Zeit t",
         "fr": "Temps t",
         "es": "Tiempo t",
-        "ar": "Time t"
+        "ar": "الوقت (t)"
       },
       "businessContext_i18n": {
         "en": "Time at which to compute y(t)",
         "tr": "y(t)'nin hesaplanacağı zaman",
         "de": "Zeitpunkt, zu dem y(t) berechnet werden soll",
         "fr": "Temps auquel calculer y(t)",
-        "es": "Tiempo en el que calcular y(t)"
+        "es": "Tiempo en el que calcular y(t)",
+        "ar": "الوقت الذي يتم عنده حساب y(t)"
       }
     }
   ],
   "formulas": {
-    "result": "y0 + a + b",
-    "result_copy": "y0 + a + b"
+    "normalized_product": "y0 * a * b * t0",
+    "result": "y0 * a * b * t0 * (t)",
+    "adjustment_factor": "t"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "derivative"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "derivative",
-    "unit": "1/time"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

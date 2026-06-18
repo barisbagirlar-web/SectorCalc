@@ -14,14 +14,15 @@
         "de": "Anzahl der Personen (n)",
         "fr": "Nombre de personnes (n)",
         "es": "Número de personas (n)",
-        "ar": "Number of People (n)"
+        "ar": "عدد الأشخاص (ن)"
       },
       "businessContext_i18n": {
         "en": "Total participants standing in the elimination circle.",
         "tr": "Eleme çemberinde duran toplam katılımcı sayısı.",
         "de": "Gesamtzahl der Teilnehmer, die im Eliminationskreis stehen.",
         "fr": "Nombre total de participants debout dans le cercle d'élimination.",
-        "es": "Total de participantes de pie en el círculo de eliminación."
+        "es": "Total de participantes de pie en el círculo de eliminación.",
+        "ar": "إجمالي المشاركين الواقفين في دائرة الإقصاء."
       }
     },
     {
@@ -33,7 +34,7 @@
         "de": "auto_input_2",
         "fr": "entrée_auto_2",
         "es": "entrada_auto_2",
-        "ar": "auto_input_2"
+        "ar": "المدخل التلقائي 2"
       },
       "type": "number",
       "unit": "unit",
@@ -45,7 +46,7 @@
         "de": "Automatisch generierte Eingabe 2.",
         "fr": "Entrée générée automatiquement 2.",
         "es": "Entrada generada automáticamente 2.",
-        "ar": "Auto-generated input 2."
+        "ar": "المدخل التلقائي 2."
       }
     },
     {
@@ -57,7 +58,7 @@
         "de": "auto_input_3",
         "fr": "Entrée automatique 3",
         "es": "entrada_automática_3",
-        "ar": "auto_input_3"
+        "ar": "المدخل التلقائي 3"
       },
       "type": "number",
       "unit": "unit",
@@ -69,27 +70,29 @@
         "de": "Automatisch generierte Eingabe 3.",
         "fr": "Entrée générée automatiquement 3.",
         "es": "Entrada generada automáticamente 3.",
-        "ar": "Auto-generated input 3."
+        "ar": "المدخل التلقائي 3."
       }
     }
   ],
   "formulas": {
-    "result": "n + auto_input_2 + auto_input_3",
-    "result_copy": "n + auto_input_2 + auto_input_3"
+    "normalized_product": "n * auto_input_2 * auto_input_3",
+    "result": "n * auto_input_2 * auto_input_3"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "largestPowerOfTwo",
-      "remainder",
-      "survivor"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "survivor",
-    "unit": "people"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",

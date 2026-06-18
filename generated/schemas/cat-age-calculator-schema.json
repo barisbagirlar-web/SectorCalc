@@ -14,14 +14,15 @@
         "de": "Katzenalter (Jahre)",
         "fr": "Âge du chat (années)",
         "es": "Edad del gato (años)",
-        "ar": "Cat Age (Years)"
+        "ar": "عمر القطة (بالسنوات)"
       },
       "businessContext_i18n": {
         "en": "The whole number of years the cat has lived. Minimum 0.",
         "tr": "Kedinin yaşadığı tam yıl sayısı. Minimum 0.",
         "de": "Die gesamte Anzahl der Jahre, die die Katze gelebt hat. Minimum 0.",
         "fr": "Nombre entier d'années de vie du chat. Minimum 0.",
-        "es": "Número entero de años que ha vivido el gato. Mínimo 0."
+        "es": "Número entero de años que ha vivido el gato. Mínimo 0.",
+        "ar": "عدد السنوات الكاملة التي عاشتها القطة. الحد الأدنى 0."
       }
     },
     {
@@ -37,14 +38,15 @@
         "de": "Katzenalter (zusätzliche Monate)",
         "fr": "Âge du chat (mois supplémentaires)",
         "es": "Edad del gato (meses adicionales)",
-        "ar": "Cat Age (Additional Months)"
+        "ar": "عمر القطة (الأشهر الإضافية)"
       },
       "businessContext_i18n": {
         "en": "Additional months beyond whole years, from 0 to 11. For cats under 1 year, use years=0 and enter months here.",
         "tr": "Tam yılların ötesindeki ek aylar, 0 ile 11 arasında. 1 yaşından küçük kediler için yıl=0 kullanın ve ayları buraya girin.",
         "de": "Zusätzliche Monate über die vollen Jahre hinaus, von 0 bis 11. Für Katzen unter 1 Jahr verwenden Sie Jahre=0 und geben Sie die Monate hier ein.",
         "fr": "Mois supplémentaires au-delà des années entières, de 0 à 11. Pour les chats de moins d'un an, utiliser années=0 et saisir les mois ici.",
-        "es": "Meses adicionales más allá de los años completos, de 0 a 11. Para gatos menores de 1 año, use años=0 e ingrese los meses aquí."
+        "es": "Meses adicionales más allá de los años completos, de 0 a 11. Para gatos menores de 1 año, use años=0 e ingrese los meses aquí.",
+        "ar": "الأشهر الإضافية بعد السنوات الكاملة، من 0 إلى 11. للقطط أقل من سنة، استخدم سنوات=0 وأدخل الأشهر هنا."
       }
     },
     {
@@ -60,14 +62,15 @@
         "de": "Lebensstilfaktor",
         "fr": "Facteur de mode de vie",
         "es": "Factor de estilo de vida",
-        "ar": "Lifestyle Factor"
+        "ar": "عامل نمط الحياة"
       },
       "businessContext_i18n": {
         "en": "Adjustment for indoor/outdoor lifestyle: Indoor only = 1.0, Outdoor access = 0.9, Feral = 0.8. Lower factor means slower aging in human years.",
         "tr": "İç/dış mekan yaşam tarzına göre ayarlama: Yalnızca iç mekan = 1.0, Dış mekana erişim = 0.9, Sokak kedisi = 0.8. Düşük faktör, insan yılı cinsinden daha yavaş yaşlanma anlamına gelir.",
         "de": "Anpassung für Innen-/Außenlebensstil: Nur Innenhaltung = 1,0, Zugang nach draußen = 0,9, verwildert = 0,8. Niedrigerer Faktor bedeutet langsamere Alterung in Menschenjahren.",
         "fr": "Ajustement pour le mode de vie intérieur/extérieur : Intérieur uniquement = 1,0, Accès extérieur = 0,9, Errant = 0,8. Un facteur plus faible signifie un vieillissement plus lent en années humaines.",
-        "es": "Ajuste por estilo de vida interior/exterior: Solo interior = 1.0, Acceso exterior = 0.9, Callejero = 0.8. Un factor más bajo significa un envejecimiento más lento en años humanos."
+        "es": "Ajuste por estilo de vida interior/exterior: Solo interior = 1.0, Acceso exterior = 0.9, Callejero = 0.8. Un factor más bajo significa un envejecimiento más lento en años humanos.",
+        "ar": "تعديل لنمط الحياة داخل/خارج المنزل: داخلي فقط = 1.0، وصول خارجي = 0.9، وحشي = 0.8. العامل الأقل يعني شيخوخة أبطأ بالسنوات البشرية."
       }
     },
     {
@@ -83,14 +86,15 @@
         "de": "Futterqualitätsfaktor",
         "fr": "Facteur de qualité alimentaire",
         "es": "Factor de calidad de la dieta",
-        "ar": "Diet Quality Factor"
+        "ar": "عامل جودة النظام الغذائي"
       },
       "businessContext_i18n": {
         "en": "Adjustment for diet quality: Premium diet = 0.95, Normal diet = 1.0, Poor diet = 1.1. Higher factor means faster aging.",
         "tr": "Diyet kalitesine göre ayarlama: Premium diyet = 0.95, Normal diyet = 1.0, Kötü diyet = 1.1. Yüksek faktör daha hızlı yaşlanma anlamına gelir.",
         "de": "Anpassung für Futterqualität: Premium-Futter = 0,95, Normales Futter = 1,0, Schlechtes Futter = 1,1. Höherer Faktor bedeutet schnellere Alterung.",
         "fr": "Ajustement pour la qualité de l'alimentation : Alimentation premium = 0,95, Alimentation normale = 1,0, Alimentation pauvre = 1,1. Un facteur plus élevé signifie un vieillissement plus rapide.",
-        "es": "Ajuste por calidad de la dieta: Dieta premium = 0.95, Dieta normal = 1.0, Dieta pobre = 1.1. Un factor más alto significa un envejecimiento más rápido."
+        "es": "Ajuste por calidad de la dieta: Dieta premium = 0.95, Dieta normal = 1.0, Dieta pobre = 1.1. Un factor más alto significa un envejecimiento más rápido.",
+        "ar": "تعديل لجودة النظام الغذائي: نظام ممتاز = 0.95، نظام عادي = 1.0، نظام سيء = 1.1. العامل الأعلى يعني شيخوخة أسرع."
       }
     },
     {
@@ -106,14 +110,15 @@
         "de": "Kastrationsfaktor",
         "fr": "Facteur de stérilisation",
         "es": "Factor de esterilización/castración",
-        "ar": "Neutered/Spayed Factor"
+        "ar": "عامل التعقيم/الإخصاء"
       },
       "businessContext_i18n": {
         "en": "Adjustment if neutered/spayed: Yes = 1.0, No = 1.05. Intact cats may age slightly faster due to stress.",
         "tr": "Kısırlaştırılmışsa ayarlama: Evet = 1.0, Hayır = 1.05. Kısırlaştırılmamış kediler stres nedeniyle biraz daha hızlı yaşlanabilir.",
         "de": "Anpassung bei Kastration/Sterilisation: Ja = 1,0, Nein = 1,05. Nicht kastrierte Katzen können aufgrund von Stress etwas schneller altern.",
         "fr": "Ajustement si stérilisé : Oui = 1,0, Non = 1,05. Les chats non stérilisés peuvent vieillir légèrement plus vite en raison du stress.",
-        "es": "Ajuste si está esterilizado/castrado: Sí = 1.0, No = 1.05. Los gatos intactos pueden envejecer ligeramente más rápido debido al estrés."
+        "es": "Ajuste si está esterilizado/castrado: Sí = 1.0, No = 1.05. Los gatos intactos pueden envejecer ligeramente más rápido debido al estrés.",
+        "ar": "تعديل إذا تم التعقيم/الإخصاء: نعم = 1.0، لا = 1.05. القطط غير المعقمة قد تشيخ أسرع قليلاً بسبب الإجهاد."
       }
     }
   ],
