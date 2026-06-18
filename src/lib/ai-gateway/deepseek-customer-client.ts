@@ -146,21 +146,27 @@ export async function runDeepSeekCustomerAssistant(request: CustomerAiRequest) {
     baseURL: "https://api.deepseek.com",
   });
 
-  const completion = await client.chat.completions.create({
-    model: routing.model,
-    messages: [
-      {
-        role: "system",
-        content:
-          buildCustomerAiSystemPrompt(request) +
-          "\nReturn only valid JSON. No markdown. No prose.",
+  const completion = await client.chat.completions.create(
+    {
+      model: routing.model,
+      messages: [
+        {
+          role: "system",
+          content:
+            buildCustomerAiSystemPrompt(request) +
+            "\nReturn only valid JSON. No markdown. No prose.",
+        },
+        ...buildConversationMessages(request),
+      ],
+      max_tokens: 2048,
+      response_format: {
+        type: "json_object",
       },
-      ...buildConversationMessages(request),
-    ],
-    response_format: {
-      type: "json_object",
     },
-  });
+    {
+      timeout: routing.tier === "pro" ? 20_000 : 10_000,
+    },
+  );
 
   const rawText = completion.choices[0]?.message?.content || "";
 

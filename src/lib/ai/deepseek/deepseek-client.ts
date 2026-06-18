@@ -1,5 +1,9 @@
 /**
  * DeepSeek JSON client — server/script only. Never import from client components.
+ *
+ * Production client wrapping deepseek-core for JSON-parsed responses.
+ * Core handles: adaptive timeout, exponential backoff+jitter, rate-limit detection,
+ * circuit breaker, model fallback, max_tokens.
  */
 import {
   DEEPSEEK_TASK_CONFIG,
@@ -9,23 +13,22 @@ import {
   type DeepSeekJsonResult,
   type DeepSeekTaskType,
 } from "@/lib/ai/deepseek/deepseek-types";
+import { callDeepSeekCore } from "@/lib/ai/deepseek/deepseek-core";
 import {
   logSanitizedJsonFailure,
-  parseExpectedJson,
+  parseDeepSeekResponse,
   writeRawDebugOnFailure,
   type JsonGuardResult,
 } from "@/lib/ai/deepseek/deepseek-json-guard";
 import { redactSecretsLite } from "@/lib/ai/deepseek/deepseek-redaction-lite";
 
 const DEFAULT_MODEL = "deepseek-chat";
-const DEFAULT_TIMEOUT_MS = 20_000;
-const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 
 export function getDeepSeekClientConfig(): DeepSeekClientConfig {
   return {
     apiKey: process.env.DEEPSEEK_API_KEY?.trim() || undefined,
     model: process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL,
-    timeoutMs: Number(process.env.DEEPSEEK_TIMEOUT_MS || DEFAULT_TIMEOUT_MS),
+    timeoutMs: Number(process.env.DEEPSEEK_TIMEOUT_MS || 20_000),
   };
 }
 
@@ -39,14 +42,6 @@ export function sanitizeDeepSeekErrorMessage(message: string): string {
 
   return sanitized;
 }
-
-type DeepSeekApiResponse = {
-  choices?: Array<{
-    finish_reason?: string | null;
-    message?: { content?: string | null };
-  }>;
-  error?: { message?: string };
-};
 
 function failure<T>(
   errorCode: DeepSeekErrorCode,
@@ -62,10 +57,6 @@ function failure<T>(
   };
 }
 
-async function sleep(ms: number): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export async function callDeepSeekJson<T>(
   taskType: DeepSeekTaskType,
   messages: DeepSeekChatMessage[],
@@ -78,87 +69,49 @@ export async function callDeepSeekJson<T>(
   }
 
   const taskConfig = DEEPSEEK_TASK_CONFIG[taskType];
-  const redactedMessages = messages.map((message) => ({
-    ...message,
-    content: redactSecretsLite(message.content),
-  }));
 
-  let lastError: string | undefined;
+  const coreResponse = await callDeepSeekCore({
+    taskType,
+    messages,
+    temperature: taskConfig.temperature,
+    model: config.model,
+    timeoutMs: config.timeoutMs,
+  });
 
-  for (let attempt = 0; attempt <= taskConfig.maxRetries; attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), config.timeoutMs);
-
-    try {
-      const response = await fetch(DEEPSEEK_API_URL, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${config.apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: config.model,
-          temperature: taskConfig.temperature,
-          messages: redactedMessages,
-          response_format: { type: "json_object" },
-        }),
-        signal: controller.signal,
-      });
-
-      const payload = (await response.json()) as DeepSeekApiResponse;
-
-      if (!response.ok) {
-        lastError = payload.error?.message || `HTTP ${response.status}`;
-        if (attempt < taskConfig.maxRetries) {
-          await sleep(400);
-          continue;
-        }
-        return failure("api_error", lastError);
-      }
-
-      const finishReason = payload.choices?.[0]?.finish_reason ?? null;
-      const rawText = payload.choices?.[0]?.message?.content ?? "";
-      const parsed = parseExpectedJson(rawText, finishReason, validate);
-
-      if (!parsed.ok) {
-        lastError = parsed.message || parsed.reason;
-        if (parsed.reason === "invalid_json" || parsed.reason === "truncated") {
-          logSanitizedJsonFailure(rawText, parsed.reason);
-        }
-        if (attempt < taskConfig.maxRetries) {
-          await sleep(400);
-          continue;
-        }
-        const debugPath =
-          parsed.reason === "invalid_json" || parsed.reason === "truncated"
-            ? writeRawDebugOnFailure(rawText, parsed.reason)
-            : undefined;
-        return failure("invalid_json", lastError, debugPath);
-      }
-
-      return { ok: true, data: parsed.data };
-    } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") {
-        lastError = "Request timed out";
-        if (attempt < taskConfig.maxRetries) {
-          await sleep(400);
-          continue;
-        }
-        return failure("timeout", lastError);
-      }
-
-      lastError = error instanceof Error ? error.message : String(error);
-      if (attempt < taskConfig.maxRetries) {
-        await sleep(400);
-        continue;
-      }
-      return failure("api_error", lastError);
-    } finally {
-      clearTimeout(timeout);
-    }
+  if (!coreResponse.ok) {
+    const errorCode: DeepSeekErrorCode =
+      coreResponse.errorCode === "rate_limited" || coreResponse.errorCode === "circuit_breaker_open"
+        ? "api_error"
+        : coreResponse.errorCode === "timeout"
+          ? "timeout"
+          : coreResponse.errorCode === "max_retries_exceeded"
+            ? "api_error"
+            : coreResponse.errorCode;
+    const debugPath =
+      coreResponse.errorCode === "timeout" && coreResponse.message
+        ? writeRawDebugOnFailure(coreResponse.message, coreResponse.errorCategory)
+        : undefined;
+    return failure(errorCode, coreResponse.message, debugPath);
   }
 
-  return failure("api_error", lastError);
+  const guardResult = parseDeepSeekResponse(
+    coreResponse.data.content,
+    coreResponse.data.finishReason,
+    validate,
+  );
+
+  if (!guardResult.ok) {
+    if (guardResult.reason === "invalid_json" || guardResult.reason === "truncated") {
+      logSanitizedJsonFailure(coreResponse.data.content, guardResult.reason);
+    }
+    const debugPath =
+      guardResult.reason === "invalid_json" || guardResult.reason === "truncated"
+        ? writeRawDebugOnFailure(coreResponse.data.content, guardResult.reason)
+        : undefined;
+    return failure("invalid_json", guardResult.message, debugPath);
+  }
+
+  return { ok: true, data: guardResult.data };
 }
 
 export async function callDeepSeekHealthcheck(): Promise<
@@ -169,7 +122,7 @@ export async function callDeepSeekHealthcheck(): Promise<
   );
 
   return callDeepSeekJson(
-    "formula_audit",
+    "healthcheck",
     [
       { role: "system", content: buildHealthcheckSystemPrompt() },
       { role: "user", content: buildHealthcheckUserPrompt() },

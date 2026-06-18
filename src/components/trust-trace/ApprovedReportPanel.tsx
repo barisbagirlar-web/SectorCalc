@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { CreateApprovedReportInput, ApprovedReportPayload } from "@/lib/trust-trace/types";
 import { ValidationStamp } from "./ValidationStamp";
 import { TrustTraceSummary } from "./TrustTraceSummary";
@@ -34,6 +35,7 @@ export function ApprovedReportPanel({
   userEmail,
   isEligible = true,
 }: Props) {
+  const t = useTranslations("verify");
   const [state, setState] = useState<
     "idle" | "creating" | "done" | "error"
   >("idle");
@@ -47,9 +49,9 @@ export function ApprovedReportPanel({
         data-calculation-summary="false"
         className="rounded-md border border-gray-200 bg-gray-50 p-3 text-center text-xs text-gray-500"
       >
-        <p className="font-medium text-gray-700">Premium Decision Summary</p>
+        <p className="font-medium text-gray-700">{t("premiumSummary")}</p>
         <p className="mt-1">
-          Upgrade to Pro to save detailed calculation summaries with your results.
+          {t("upgradeToSave")}
         </p>
       </div>
     );
@@ -146,15 +148,15 @@ export function ApprovedReportPanel({
       data-calculation-summary="pending"
       className="rounded-md border border-gray-200 bg-gray-50 p-3"
     >
-      <p className="text-sm font-medium text-gray-700">Save Decision Summary</p>
+      <p className="text-sm font-medium text-gray-700">{t("saveSummary")}</p>
       <p className="mt-1 text-xs text-gray-500">
-        Save this calculation with inputs and results for your records.
+        {t("saveSummaryDesc")}
       </p>
       {state === "error" && errorMsg && (
         <p className="mt-1 text-xs text-red-600">
           {errorMsg === "auth_required"
-            ? "Sign in to save decision summaries."
-            : "Could not save summary. Please try again."}
+            ? t("signInToSave")
+            : t("saveFailed")}
         </p>
       )}
       <button
@@ -163,7 +165,7 @@ export function ApprovedReportPanel({
         onClick={handleCreate}
         className="mt-2 inline-flex items-center gap-1.5 rounded border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        {state === "creating" ? "Saving…" : "Save Decision Summary"}
+        {state === "creating" ? t("saving") : t("saveSummary")}
       </button>
     </div>
   );

@@ -30,7 +30,7 @@ interface PrintLabels {
   readonly acceptable: string;
 }
 
-const PRINT_LABELS: Record<"en" | "tr", PrintLabels> = {
+const PRINT_LABELS: Record<string, PrintLabels> = {
   en: {
     sampleBanner: "Sample report — unlock the full decision report to export without this label.",
     generated: "Generated",
@@ -74,6 +74,94 @@ const PRINT_LABELS: Record<"en" | "tr", PrintLabels> = {
     warning: "Uyarı",
     acceptable: "Kabul edilebilir",
   },
+  de: {
+    sampleBanner:
+      "Musterbericht — schalten Sie den vollständigen Entscheidungsbericht frei, um ohne dieses Label zu exportieren.",
+    generated: "Erstellt",
+    sector: "Branche",
+    executiveSummary: "Management-Zusammenfassung",
+    hiddenLossDrivers: "Versteckte Verlusttreiber",
+    driver: "Treiber",
+    value: "Wert",
+    description: "Beschreibung",
+    thresholdCheck: "Schwellenwertprüfung",
+    metric: "Kennzahl",
+    status: "Status",
+    message: "Meldung",
+    suggestedActions: "Empfohlene Maßnahmen",
+    assumptions: "Annahmen",
+    legalNote: "Rechtlicher Hinweis",
+    reportId: "Berichts-ID",
+    critical: "Kritisch",
+    warning: "Warnung",
+    acceptable: "Akzeptabel",
+  },
+  fr: {
+    sampleBanner:
+      "Rapport échantillon — débloquez le rapport de décision complet pour exporter sans ce label.",
+    generated: "Généré",
+    sector: "Secteur",
+    executiveSummary: "Résumé Exécutif",
+    hiddenLossDrivers: "Facteurs de perte cachés",
+    driver: "Facteur",
+    value: "Valeur",
+    description: "Description",
+    thresholdCheck: "Vérification des seuils",
+    metric: "Métrique",
+    status: "Statut",
+    message: "Message",
+    suggestedActions: "Actions suggérées",
+    assumptions: "Hypothèses",
+    legalNote: "Mention légale",
+    reportId: "ID du rapport",
+    critical: "Critique",
+    warning: "Avertissement",
+    acceptable: "Acceptable",
+  },
+  es: {
+    sampleBanner:
+      "Informe de muestra — desbloquee el informe de decisión completo para exportar sin esta etiqueta.",
+    generated: "Generado",
+    sector: "Sector",
+    executiveSummary: "Resumen Ejecutivo",
+    hiddenLossDrivers: "Impulsores de pérdida ocultos",
+    driver: "Factor",
+    value: "Valor",
+    description: "Descripción",
+    thresholdCheck: "Comprobación de umbrales",
+    metric: "Métrica",
+    status: "Estado",
+    message: "Mensaje",
+    suggestedActions: "Acciones sugeridas",
+    assumptions: "Supuestos",
+    legalNote: "Aviso legal",
+    reportId: "ID del informe",
+    critical: "Crítico",
+    warning: "Advertencia",
+    acceptable: "Aceptable",
+  },
+  ar: {
+    sampleBanner:
+      "تقرير عينة — قم بإلغاء قفل تقرير القرار الكامل للتصدير بدون هذه العلامة.",
+    generated: "تم الإنشاء",
+    sector: "القطاع",
+    executiveSummary: "الملخص التنفيذي",
+    hiddenLossDrivers: "محركات الخسارة المخفية",
+    driver: "المحرك",
+    value: "القيمة",
+    description: "الوصف",
+    thresholdCheck: "فحص الحدود",
+    metric: "المقياس",
+    status: "الحالة",
+    message: "الرسالة",
+    suggestedActions: "الإجراءات المقترحة",
+    assumptions: "الافتراضات",
+    legalNote: "إخلاء مسؤولية قانوني",
+    reportId: "معرف التقرير",
+    critical: "حرج",
+    warning: "تحذير",
+    acceptable: "مقبول",
+  },
 };
 
 function statusLabel(
@@ -107,7 +195,7 @@ export function PremiumPrintableReport({
   isSample = false,
 }: PremiumPrintableReportProps) {
   const formatLocale = normalizeLocale(locale);
-  const labels = PRINT_LABELS[formatLocale === "tr" ? "tr" : "en"];
+  const labels = PRINT_LABELS[formatLocale] ?? PRINT_LABELS["en"];
   const generatedLabel = formatLocalizedDate(payload.generatedAt, formatLocale);
   const verdictStatusLabel = statusLabel(payload.executiveVerdict.status, labels);
 

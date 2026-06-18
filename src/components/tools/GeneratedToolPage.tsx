@@ -169,7 +169,9 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
   if (error || !calculator || !zodSchema) {
     return (
       <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-800">
-        {error ?? t("loadError")}
+        {error
+          ? translateCalculatorPhrase(error, locale)
+          : t("loadError")}
       </div>
     );
   }
@@ -251,7 +253,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
             {hiddenDrivers.length > 0 ? (
               <ul className="list-disc space-y-1 pl-5 text-sm text-red-800">
                 {hiddenDrivers.map((driver) => (
-                    <li key={driver}>{translateCalculatorPhrase(driver, locale)}</li>
+                    <li key={driver}>{driver}</li>
                 ))}
               </ul>
             ) : (
@@ -264,7 +266,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
             {suggestedActions.length > 0 ? (
               <ul className="list-disc space-y-1 pl-5 text-sm text-green-900">
                 {suggestedActions.map((action) => (
-                      <li key={action}>{translateCalculatorPhrase(action, locale)}</li>
+                      <li key={action}>{action}</li>
                 ))}
               </ul>
             ) : (

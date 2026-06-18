@@ -3,6 +3,18 @@ import { absoluteLocalizedUrl, absoluteUrl } from "@/lib/semantic/site-url";
 import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
 import type { SemanticToolContract } from "@/lib/semantic/tool-semantic-types";
 
+/**
+ * Build an enhanced CalculateAction schema for any tool.
+ *
+ * This schema enables:
+ * - AI agents to understand tool input/output parameters
+ * - Google to display rich results for calculation-type queries
+ * - Semantic search engines to index calculation capabilities
+ * - Featured snippet eligibility for "how to calculate X" queries
+ *
+ * Uses schema.org Action type with CalculateAction additionalType
+ * for maximum compatibility with both Google and AI crawlers.
+ */
 export function buildCalculateActionSchema(
   tool: SemanticToolContract,
   locale: string,
@@ -14,7 +26,8 @@ export function buildCalculateActionSchema(
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "Action",
-    additionalType: "https://www.sectorcalc.com/semantic/CalculateAction",
+    additionalType: "https://schema.org/CalculateAction",
+    "@id": `https://www.sectorcalc.com/semantic/CalculateAction:${tool.toolSlug}`,
     identifier: `CalculateAction:${tool.toolSlug}`,
     name: `${title} — CalculateAction`,
     description,
@@ -26,6 +39,7 @@ export function buildCalculateActionSchema(
         "https://schema.org/DesktopWebPlatform",
         "https://schema.org/MobileWebPlatform",
       ],
+      contentType: "application/json",
     },
     object: {
       "@type": "SoftwareApplication",
@@ -50,6 +64,11 @@ export function buildCalculateActionSchema(
       unitText: param.unitText,
       valueReference: param.key,
     })),
+    provider: {
+      "@type": "Organization",
+      "@id": `${absoluteUrl("/")}#organization`,
+      name: "SectorCalc",
+    },
   }) as JsonLdRecord;
 }
 
@@ -75,7 +94,8 @@ export function buildCalculateActionSchemaLegacy(input: {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "Action",
-    additionalType: "https://www.sectorcalc.com/semantic/CalculateAction",
+    additionalType: "https://schema.org/CalculateAction",
+    "@id": `https://www.sectorcalc.com/semantic/CalculateAction:${input.toolSlug}`,
     identifier: `CalculateAction:${input.toolSlug}`,
     name: `${input.name} — CalculateAction`,
     description: input.description,

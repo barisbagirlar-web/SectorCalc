@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
       static: 300,
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
-    staticGenerationRetryCount: 5,
+    staticGenerationRetryCount: 2,
     // Avoid SSG worker batching races (missing page.js) on large locale trees.
     cpus: 1,
     workerThreads: false,
@@ -50,12 +50,53 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      // Security headers (HSTS, XSS protection, etc.)
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+        ],
+      },
+      // Sitemap cache headers
       {
         source: "/sitemap/:path*",
         headers: [
           {
             key: "Cache-Control",
             value: "public, max-age=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      // AI metadata cache
+      {
+        source: "/(ai\\.txt|llms\\.txt|ai-.*\\.(?:json|txt|jsonl)|sectorcalc-index\\.txt|services-products\\.txt|faq-knowledge\\.txt)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=7200, stale-while-revalidate=86400",
+          },
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
           },
         ],
       },
@@ -91,10 +132,6 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
-        {
-          source: "/sitemap/:locale.xml",
-          destination: "/sitemap/:locale",
-        },
         { source: "/", destination: "/en" },
         {
           source: `/:path((?!${LOCALE_REWRITE_EXCLUDE_PATTERN}).*)`,

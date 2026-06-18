@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { VerifyReportPublicResult } from "@/lib/trust-trace/types";
 
 type VerifyReportApiResponse =
@@ -20,35 +21,39 @@ function isVerified(result: VerifyReportApiResponse): boolean {
   return result.ok === true && result.status === "verified" && result.hashMatches;
 }
 
-function resultMessage(result: VerifyReportApiResponse): string {
-  if (result.ok === false) {
-    return result.message ?? "Verification request failed. Check the report ID and try again.";
-  }
+function useResultMessage(t: ReturnType<typeof useTranslations>) {
+  return function resultMessage(result: VerifyReportApiResponse): string {
+    if (result.ok === false) {
+      return result.message ?? t("formServiceUnavailable");
+    }
 
-  switch (result.status) {
-    case "verified":
-      return result.hashMatches
-        ? "Report is valid and approved."
-        : "Report found, but the calculation hash does not match.";
-    case "hash_mismatch":
-      return "Report found, but the calculation hash does not match.";
-    case "revoked":
-      return "This report exists but has been revoked.";
-    case "not_found":
-      return "Report not found or invalid.";
-    default:
-      return "Unable to verify this report.";
-  }
+    switch (result.status) {
+      case "verified":
+        return result.hashMatches
+          ? t("formValidApproved")
+          : t("formHashMismatch");
+      case "hash_mismatch":
+        return t("formHashMismatch");
+      case "revoked":
+        return t("formRevoked");
+      case "not_found":
+        return t("formNotFound");
+      default:
+        return t("formUnableToVerify");
+    }
+  };
 }
 
 export function VerifyReportForm({
   initialReportId = "",
   initialHash = "",
 }: VerifyReportFormProps) {
+  const t = useTranslations("verify");
   const [reportId, setReportId] = useState(initialReportId);
   const [hash, setHash] = useState(initialHash);
   const [result, setResult] = useState<VerifyReportApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
+  const getMessage = useResultMessage(t);
 
   async function verify() {
     const trimmedReportId = reportId.trim();
@@ -56,7 +61,7 @@ export function VerifyReportForm({
       setResult({
         ok: false,
         error: "missing_params",
-        message: "Report ID is required.",
+        message: t("formReportIdRequired"),
       });
       return;
     }
@@ -78,7 +83,7 @@ export function VerifyReportForm({
       setResult({
         ok: false,
         error: "lookup_failed",
-        message: "Verification service is unavailable. Try again shortly.",
+        message: t("formServiceUnavailable"),
       });
     } finally {
       setLoading(false);
@@ -92,10 +97,10 @@ export function VerifyReportForm({
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
       <div className="space-y-4">
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-gray-800">Report ID</span>
+          <span className="mb-1 block text-sm font-medium text-gray-800">{t("formReportId")}</span>
           <input
             type="text"
-            placeholder="SC-YYYYMMDD-TOOL-ID"
+            placeholder={t("formReportIdPlaceholder")}
             value={reportId}
             onChange={(event) => setReportId(event.target.value)}
             className="min-h-11 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-sm text-gray-900"
@@ -106,11 +111,11 @@ export function VerifyReportForm({
 
         <label className="block">
           <span className="mb-1 block text-sm font-medium text-gray-800">
-            Calculation hash (optional)
+            {t("formCalcHash")}
           </span>
           <input
             type="text"
-            placeholder="64-character SHA-256 hash"
+            placeholder={t("formHashPlaceholder")}
             value={hash}
             onChange={(event) => setHash(event.target.value)}
             className="min-h-11 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-sm text-gray-900"
@@ -125,7 +130,7 @@ export function VerifyReportForm({
           disabled={loading}
           className="min-h-11 rounded-md bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {loading ? "Checking..." : "Verify report"}
+          {loading ? t("formChecking") : t("formVerifyBtn")}
         </button>
       </div>
 
@@ -138,32 +143,32 @@ export function VerifyReportForm({
           }`}
           aria-live="polite"
         >
-          <p className="text-sm font-semibold">{resultMessage(result)}</p>
+          <p className="text-sm font-semibold">{getMessage(result)}</p>
 
           {result.ok === true && result.status !== "not_found" ? (
             <dl className="mt-3 space-y-2 text-sm">
               <div>
-                <dt className="font-medium">Report ID</dt>
+                <dt className="font-medium">{t("formReportId")}</dt>
                 <dd className="break-all font-mono text-xs">{result.reportId}</dd>
               </div>
               {result.validationStampId ? (
                 <div>
-                  <dt className="font-medium">Validation stamp</dt>
+                  <dt className="font-medium">{t("labelValidationStamp")}</dt>
                   <dd className="break-all font-mono text-xs">{result.validationStampId}</dd>
                 </div>
               ) : null}
               {publicSummary ? (
                 <>
                   <div>
-                    <dt className="font-medium">Tool</dt>
+                    <dt className="font-medium">{t("labelTool")}</dt>
                     <dd>{publicSummary.toolSlug}</dd>
                   </div>
                   <div>
-                    <dt className="font-medium">Formula version</dt>
+                    <dt className="font-medium">{t("labelFormulaVersion")}</dt>
                     <dd>{publicSummary.formulaVersion}</dd>
                   </div>
                   <div>
-                    <dt className="font-medium">Issued at</dt>
+                    <dt className="font-medium">{t("labelIssuedAt")}</dt>
                     <dd>{publicSummary.issuedAt}</dd>
                   </div>
                 </>
@@ -174,8 +179,7 @@ export function VerifyReportForm({
       ) : null}
 
       <p className="mt-4 text-xs leading-relaxed text-gray-600">
-        Public verification returns limited metadata only. Full input and result snapshots are never
-        exposed on this page.
+        {t("formFootnote")}
       </p>
     </div>
   );

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { DeepSeekSuggestionEnvelope, DeepSeekRepairSuggestion } from "@/lib/ai/deepseek/deepseek-types";
+import type { DeepSeekCoreResponse, DeepSeekSuggestionEnvelope, DeepSeekRepairSuggestion } from "@/lib/ai/deepseek/deepseek-types";
 import { redactSecretsLite } from "@/lib/ai/deepseek/deepseek-redaction-lite";
 
 export type JsonGuardRejectReason =
@@ -301,3 +301,69 @@ export function parseExpectedJson<T>(
 }
 
 export { validateBulkRepairEnvelope as validateRepairEnvelope } from "@/lib/ai/deepseek/bulk-tool-repair-json-guard";
+
+/* ── Standardised JSON pipeline ── */
+
+/**
+ * Full pipeline: raw string -> cleaned -> parsed -> validated.
+ * Single entry point for all DeepSeek JSON responses.
+ */
+export function parseDeepSeekResponse<T>(
+  raw: string,
+  finishReason: string | null | undefined,
+  validate: (parsed: unknown) => JsonGuardResult<T>,
+): JsonGuardResult<T> {
+  const finishCheck = assertFinishReasonAllowsJson(finishReason);
+  if (!finishCheck.ok) {
+    return finishCheck;
+  }
+
+  const secretCheck = rejectIfContainsSecrets(raw);
+  if (!secretCheck.ok) {
+    return secretCheck;
+  }
+
+  const cleaned = extractFirstJsonObjectOrArray(raw);
+  if (!cleaned) {
+    return { ok: false, reason: "invalid_json", message: "Could not extract JSON from response." };
+  }
+
+  const stripped = removeTrailingCommas(cleaned);
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(stripped);
+  } catch (error) {
+    logSanitizedJsonFailure(raw, "invalid_json");
+    return {
+      ok: false,
+      reason: "invalid_json",
+      message: error instanceof Error ? error.message : "JSON parse failed.",
+    };
+  }
+
+  return validate(parsed);
+}
+
+/**
+ * Convenience wrapper: takes a DeepSeekCoreResponse and validates it.
+ * Handles both ok and !ok paths uniformly.
+ */
+export function parseCoreResponse<T>(
+  coreResponse: DeepSeekCoreResponse,
+  validate: (parsed: unknown) => JsonGuardResult<T>,
+): JsonGuardResult<T> {
+  if (!coreResponse.ok) {
+    return {
+      ok: false,
+      reason: "invalid_json",
+      message: coreResponse.message,
+    };
+  }
+
+  return parseDeepSeekResponse(
+    coreResponse.data.content,
+    coreResponse.data.finishReason,
+    validate,
+  );
+}

@@ -50,6 +50,8 @@ import {
   resolveToolCalculationAllowed,
   resolveToolFormPresence,
 } from "@/components/tools/resolve-tool-form-presence";
+import { EngineeringInterpretationPanel } from "@/components/interpretation/EngineeringInterpretationPanel";
+import type { InterpretPremiumResultRequest } from "@/lib/ai/engineering-interpretation/types";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -211,6 +213,46 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     }
     return { inputSnapshot, resultSnapshot };
   }, [result, values]);
+
+  const interpretationRequest = useMemo<InterpretPremiumResultRequest | null>(() => {
+    if (!result || !reportData) return null;
+    const inputs: Record<string, string | number | boolean> = {};
+    for (const [key, value] of Object.entries(values)) {
+      if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+        inputs[key] = value;
+      }
+    }
+    const outputs = result.outputs.map((o) => ({
+      id: o.id,
+      label: o.label,
+      value: o.formatted,
+      unit: o.unit || undefined,
+    }));
+    return {
+      toolId: schema.id,
+      toolName: displayName,
+      sectorSlug: schema.sectorSlug,
+      locale,
+      inputs,
+      outputs,
+      verdict: reportData.verdict.verdict,
+      bigNumber: {
+        label: result.bigNumber.label,
+        value: result.bigNumber.formatted,
+      },
+    };
+  }, [result, reportData, values, schema, displayName, locale]);
+
+  const interpretationPanel = useMemo(() => {
+    if (!interpretationRequest) return undefined;
+    return (
+      <EngineeringInterpretationPanel
+        key={`interpret-${schema.id}-${submitted ? "submitted" : "idle"}`}
+        request={interpretationRequest}
+        shouldFetch
+      />
+    );
+  }, [interpretationRequest, displayName, schema.id, submitted]);
 
   const schemaGuidanceFields = useMemo(
     () =>
@@ -462,6 +504,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                   ) : null}
                 </div>
               }
+              interpretationContent={interpretationPanel}
             />
           ) : null
         }

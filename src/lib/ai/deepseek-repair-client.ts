@@ -63,22 +63,28 @@ export async function runDeepSeekRepairAnalysis(
     baseURL: "https://api.deepseek.com",
   });
 
-  const completion = await client.chat.completions.create({
-    model,
-    messages: [
-      {
-        role: "system",
-        content: `${buildRepairSystemPrompt()}\n${DEEPSEEK_JSON_SCHEMA_HINT}`,
+  const completion = await client.chat.completions.create(
+    {
+      model,
+      messages: [
+        {
+          role: "system",
+          content: `${buildRepairSystemPrompt()}\n${DEEPSEEK_JSON_SCHEMA_HINT}`,
+        },
+        {
+          role: "user",
+          content: buildRepairUserPrompt(payload, env.maxInputChars),
+        },
+      ],
+      max_tokens: 4096,
+      response_format: {
+        type: "json_object",
       },
-      {
-        role: "user",
-        content: buildRepairUserPrompt(payload, env.maxInputChars),
-      },
-    ],
-    response_format: {
-      type: "json_object",
     },
-  });
+    {
+      timeout: 90_000,
+    },
+  );
 
   const rawText = completion.choices[0]?.message?.content || "";
 

@@ -1,5 +1,6 @@
 /**
  * Build-time locale sitemap shards — served from public/sitemap/*.xml on CDN.
+ * Index (sitemap.xml) is served via SSR/ISR for dynamic freshness.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

@@ -49,7 +49,9 @@ export function registryParityOk() {
   if (toolCount === 0) {
     return loaderCount === 0;
   }
-  return loaderCount === toolCount;
+  // Trust gate may exclude FAIL/QUARANTINE tools from the registry.
+  // Allow loaderCount <= toolCount as long as registry is non-empty.
+  return loaderCount > 0 && loaderCount <= toolCount;
 }
 
 export function describeGeneratedArtifactState() {

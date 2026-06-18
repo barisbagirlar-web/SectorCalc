@@ -59,39 +59,19 @@ export function TraceLivingAvatar({ size = "md", className }: TraceLivingAvatarP
             height="160%"
             colorInterpolationFilters="sRGB"
           >
-            <feTurbulence type="fractalNoise" numOctaves="4" seed="3" result="noiseA">
-              <animate
-                attributeName="baseFrequency"
-                values="0.007 0.013;0.015 0.008;0.010 0.017;0.018 0.009;0.007 0.013"
-                dur="5.5s"
-                repeatCount="indefinite"
-              />
-              <animate attributeName="seed" values="1;6;3;9;5;1" dur="9s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feTurbulence type="turbulence" numOctaves="2" seed="8" result="noiseB">
-              <animate
-                attributeName="baseFrequency"
-                values="0.018 0.006;0.009 0.015;0.014 0.011;0.018 0.006"
-                dur="3.8s"
-                repeatCount="indefinite"
-              />
-              <animate attributeName="seed" values="8;2;11;7;8" dur="6.2s" repeatCount="indefinite" />
-            </feTurbulence>
+            <feTurbulence type="fractalNoise" numOctaves="4" seed="3" result="noiseA" />
+            <feTurbulence type="turbulence" numOctaves="2" seed="8" result="noiseB" />
             <feBlend in="noiseA" in2="noiseB" mode="screen" result="noise" />
+            <feGaussianBlur in="noise" stdDeviation="1.8" result="smoothNoise" />
             <feDisplacementMap
               in="SourceGraphic"
-              in2="noise"
+              in2="smoothNoise"
               scale={liquidScale}
               xChannelSelector="R"
               yChannelSelector="G"
-            >
-              <animate
-                attributeName="scale"
-                values={`${liquidScale};${liquidScaleMax};${Math.round(liquidScale * 0.85)};${liquidScaleMax};${liquidScale}`}
-                dur="4.2s"
-                repeatCount="indefinite"
-              />
-            </feDisplacementMap>
+              edgeMode="duplicate"
+            />
+            <feGaussianBlur stdDeviation="0.35" />
           </filter>
 
           <radialGradient id={bodyGradId} cx="68%" cy="24%" r="72%">
@@ -107,72 +87,21 @@ export function TraceLivingAvatar({ size = "md", className }: TraceLivingAvatarP
             <stop offset="35%" stopColor="rgba(123,92,255,0.42)" />
             <stop offset="68%" stopColor="rgba(52,211,153,0.28)" />
             <stop offset="100%" stopColor="rgba(11,120,255,0.18)" />
-            <animateTransform
-              attributeName="gradientTransform"
-              type="rotate"
-              from="0 0.5 0.5"
-              to="360 0.5 0.5"
-              dur="7s"
-              repeatCount="indefinite"
-            />
           </linearGradient>
 
           <linearGradient id={nodeGradientId} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0B78FF">
-              <animate
-                attributeName="stop-color"
-                values="#0B78FF;#22E6FF;#7B5CFF;#0B78FF"
-                dur="3.2s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="50%" stopColor="#22E6FF">
-              <animate
-                attributeName="stop-color"
-                values="#22E6FF;#6DF0FF;#A78BFA;#22E6FF"
-                dur="3.2s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" stopColor="#6DF0FF">
-              <animate
-                attributeName="stop-color"
-                values="#6DF0FF;#0B78FF;#34D399;#6DF0FF"
-                dur="3.2s"
-                repeatCount="indefinite"
-              />
-            </stop>
+            <stop offset="0%" stopColor="#0B78FF" />
+            <stop offset="50%" stopColor="#22E6FF" />
+            <stop offset="100%" stopColor="#6DF0FF" />
           </linearGradient>
 
           <filter id={glowFilterId} x="-40%" y="-40%" width="180%" height="180%">
-            <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#001B4D" floodOpacity="0.35">
-              <animate
-                attributeName="flood-opacity"
-                values="0.25;0.55;0.25"
-                dur="2.8s"
-                repeatCount="indefinite"
-              />
-            </feDropShadow>
-            <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#22E6FF" floodOpacity="0.2">
-              <animate
-                attributeName="flood-opacity"
-                values="0.1;0.45;0.1"
-                dur="2.2s"
-                repeatCount="indefinite"
-              />
-            </feDropShadow>
+            <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#001B4D" floodOpacity="0.35" />
+            <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#22E6FF" floodOpacity="0.2" />
           </filter>
         </defs>
 
         <g className="sc-trace-living__liquid-orbit">
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 60 58"
-            to="360 60 58"
-            dur="13s"
-            repeatCount="indefinite"
-          />
           <g filter={`url(#${liquidFilterId})`}>
             <path className="sc-trace-living__liquid-body" d={BLOB_PATH} fill={`url(#${bodyGradId})`} />
             <path className="sc-trace-living__liquid-sheen" d={BLOB_PATH} fill={`url(#${spinGradId})`} />

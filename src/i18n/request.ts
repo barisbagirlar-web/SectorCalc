@@ -6,6 +6,7 @@ import {
   mergeLocaleMessages,
 } from "@/lib/i18n/merge-locale-messages";
 import { collectLocaleKeyParityGaps } from "@/lib/locale-center/locale-dictionary";
+import { getOTATranslations } from "@/lib/i18n/ota";
 
 async function loadManufacturingOsMessages(locale: string) {
   try {
@@ -76,6 +77,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const messages =
     locale === "en" ? localeMessages : mergeLocaleMessages(enMessages, localeMessages);
 
+  // OTA: overlay live translations from Lokalise when TMS is enabled
+  const otaTranslations = await getOTATranslations(locale);
+  const mergedMessages = otaTranslations
+    ? mergeLocaleMessages(messages, otaTranslations)
+    : messages;
+
   if (locale !== "en") {
     const missingKeys = collectMissingTranslationKeys(enMessages, localeMessages, locale);
     reportMissingTranslations(locale, missingKeys);
@@ -93,7 +100,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: {
-      ...messages,
+      ...mergedMessages,
       manufacturingOs: manufacturingOsMessages,
       seoAuthority: seoAuthorityMessages,
       leadMagnet: leadMagnetMessages,

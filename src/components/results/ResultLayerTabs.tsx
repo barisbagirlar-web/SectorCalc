@@ -5,19 +5,34 @@ import { useTranslations } from "next-intl";
 import { QuickResultPanel } from "@/components/results/QuickResultPanel";
 import { DeepTracePanel } from "@/components/results/DeepTracePanel";
 
+type TabId = "quick" | "deep" | "interpretation";
+
+type TabButton = {
+  readonly id: TabId;
+  readonly labelKey: string;
+};
+
 type ResultLayerTabsProps = {
   readonly quickContent: ReactNode;
   readonly deepContent?: ReactNode;
+  readonly interpretationContent?: ReactNode;
   readonly quickHeadline?: string;
   readonly quickUnitLabel?: string;
   readonly quickSummary?: string;
   readonly quickWarning?: string;
-  readonly defaultLayer?: "quick" | "deep";
+  readonly defaultLayer?: TabId;
 };
+
+const ALL_TABS: readonly TabButton[] = [
+  { id: "quick", labelKey: "quickTab" },
+  { id: "deep", labelKey: "deepTab" },
+  { id: "interpretation", labelKey: "interpretationTab" },
+];
 
 export function ResultLayerTabs({
   quickContent,
   deepContent,
+  interpretationContent,
   quickHeadline,
   quickUnitLabel,
   quickSummary,
@@ -25,35 +40,32 @@ export function ResultLayerTabs({
   defaultLayer = "quick",
 }: ResultLayerTabsProps) {
   const t = useTranslations("resultLayers");
-  const [layer, setLayer] = useState<"quick" | "deep">(defaultLayer);
+  const [layer, setLayer] = useState<TabId>(defaultLayer);
+
+  const availableTabs = ALL_TABS.filter((tab) => {
+    if (tab.id === "quick") return true;
+    if (tab.id === "deep") return Boolean(deepContent);
+    if (tab.id === "interpretation") return interpretationContent !== undefined;
+    return false;
+  });
 
   return (
     <div className="space-y-4" data-result-layer-tabs="true">
       <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          className={`rounded-full px-4 py-2 text-sm font-medium ${
-            layer === "quick"
-              ? "bg-slate-900 text-white"
-              : "border border-slate-300 bg-white text-slate-700"
-          }`}
-          onClick={() => setLayer("quick")}
-        >
-          {t("quickTab")}
-        </button>
-        {deepContent ? (
+        {availableTabs.map((tab) => (
           <button
+            key={tab.id}
             type="button"
             className={`rounded-full px-4 py-2 text-sm font-medium ${
-              layer === "deep"
+              layer === tab.id
                 ? "bg-slate-900 text-white"
                 : "border border-slate-300 bg-white text-slate-700"
             }`}
-            onClick={() => setLayer("deep")}
+            onClick={() => setLayer(tab.id)}
           >
-            {t("deepTab")}
+            {t(tab.labelKey)}
           </button>
-        ) : null}
+        ))}
       </div>
 
       {layer === "quick" ? (
@@ -65,9 +77,15 @@ export function ResultLayerTabs({
         >
           {quickContent}
         </QuickResultPanel>
-      ) : (
+      ) : null}
+
+      {layer === "deep" && deepContent ? (
         <DeepTracePanel title={t("deepTitle")}>{deepContent}</DeepTracePanel>
-      )}
+      ) : null}
+
+      {layer === "interpretation" && interpretationContent ? (
+        <DeepTracePanel title={t("interpretationTitle")}>{interpretationContent}</DeepTracePanel>
+      ) : null}
     </div>
   );
 }

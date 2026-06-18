@@ -115,6 +115,7 @@ export function buildSoftwareApplicationJsonLd(locale = "en"): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${siteUrl}/#software-application`,
     name: SITE.siteName,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
@@ -158,6 +159,11 @@ export function buildCalculatorJsonLd(
     provider: {
       "@id": `${siteUrl}/#organization`,
     },
+    // Speakable specification for voice/AI assistants
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".tool-description", ".result-summary"],
+    },
   }) as JsonLdRecord;
 }
 
@@ -181,6 +187,11 @@ export function buildPremiumAnalyzerJsonLd(
       url: localizedUrl(locale, "/pricing"),
       priceCurrency: "USD",
       description: "Single decision reports from $9 or Pro access from $19/mo.",
+    },
+    // Speakable specification for voice/AI
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".tool-description", ".verdict-summary"],
     },
   }) as JsonLdRecord;
 }
@@ -303,6 +314,98 @@ export function buildArticleJsonLd(
     },
     inLanguage: locale,
     mainEntityOfPage: localizedUrl(locale, `/guides/${article.slug}`),
+  }) as JsonLdRecord;
+}
+
+/**
+ * Build a HowTo schema for featured snippet eligibility.
+ * Use on guide pages and tutorial-style content to win
+ * "how-to" featured snippets in search results.
+ */
+export function buildHowToJsonLd(
+  howTo: {
+    readonly name: string;
+    readonly description: string;
+    readonly steps: ReadonlyArray<{
+      readonly name: string;
+      readonly text: string;
+      readonly image?: string;
+    }>;
+    readonly totalTime?: string;
+    readonly tool?: string;
+  },
+  locale = "en"
+): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo.name,
+    description: howTo.description,
+    inLanguage: locale,
+    step: howTo.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.image ? { image: step.image } : {}),
+    })),
+    ...(howTo.totalTime ? { totalTime: howTo.totalTime } : {}),
+    ...(howTo.tool ? { tool: { "@type": "HowToTool", name: howTo.tool } } : {}),
+  }) as JsonLdRecord;
+}
+
+/**
+ * Build a SpeakableSpecification schema for voice/AI search optimization.
+ * This tells Google Assistant, Siri, Alexa which parts of the page
+ * are optimized for voice playback.
+ */
+export function buildSpeakableJsonLd(
+  cssSelectors: readonly string[],
+  locale = "en"
+): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteUrl}/#speakable`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+    inLanguage: locale,
+  }) as JsonLdRecord;
+}
+
+/**
+ * Build a VideoObject schema for video content.
+ * Videos get rich featured snippets and increased CTR.
+ */
+export function buildVideoObjectJsonLd(
+  video: {
+    readonly name: string;
+    readonly description: string;
+    readonly thumbnailUrl: string;
+    readonly contentUrl: string;
+    readonly embedUrl?: string;
+    readonly uploadDate: string;
+    readonly duration?: string;
+  },
+  locale = "en"
+): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.name,
+    description: video.description,
+    thumbnailUrl: video.thumbnailUrl,
+    contentUrl: video.contentUrl,
+    ...(video.embedUrl ? { embedUrl: video.embedUrl } : {}),
+    uploadDate: video.uploadDate,
+    ...(video.duration ? { duration: video.duration } : {}),
+    inLanguage: locale,
+    publisher: {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+    },
   }) as JsonLdRecord;
 }
 

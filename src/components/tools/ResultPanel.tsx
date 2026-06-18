@@ -9,6 +9,7 @@ import {
 } from "@/lib/cbam/compliance";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import {
   resolveBreakdownOutputUnit,
   resolvePrimaryOutputUnit,
@@ -258,36 +259,36 @@ export function ResultPanel({
 
       const html =
         "<!DOCTYPE html><html><head><meta charset='UTF-8' />" +
-        "<title>SectorCalc Report</title>" +
+        `<title>${translateCalculatorPhrase("SectorCalc Calculation Report", locale)}</title>` +
         "<style>body{font-family:system-ui,sans-serif;padding:24px;color:#111}" +
         ".stamp{display:inline-block;background:#f0fdf4;color:#15803d;border:1px solid #86efac;border-radius:4px;padding:2px 10px;font-size:12px;font-weight:600}" +
         ".trust{display:flex;gap:16px;align-items:flex-start;margin:16px 0;padding:12px;border:1px solid #e5e7eb;border-radius:8px}" +
         "table{border-collapse:collapse;width:100%;margin-top:12px}td,th{border:1px solid #e5e7eb;padding:6px 8px;text-align:left;font-size:13px}" +
         "th{background:#f9fafb}.mono{font-family:monospace;font-size:11px;word-break:break-all}</style></head><body>" +
-        "<h1>SectorCalc Calculation Report</h1>" +
-        "<p><span class='stamp'>Trust Trace</span></p>" +
-        `<p><strong>Tool:</strong> ${escapeHtml(slug)}</p>` +
+        `<h1>${translateCalculatorPhrase("SectorCalc Calculation Report", locale)}</h1>` +
+        `<p><span class='stamp'>${translateCalculatorPhrase("Trust Trace", locale)}</span></p>` +
+        `<p><strong>${translateCalculatorPhrase("Tool:", locale)}</strong> ${escapeHtml(slug)}</p>` +
         (reportId
-          ? `<p><strong>Report ID:</strong> <span class='mono'>${escapeHtml(reportId)}</span></p>`
+          ? `<p><strong>${translateCalculatorPhrase("Report ID:", locale)}</strong> <span class='mono'>${escapeHtml(reportId)}</span></p>`
           : "") +
         (validationStampId
-          ? `<p><strong>Validation stamp:</strong> <span class='mono'>${escapeHtml(validationStampId)}</span></p>`
+          ? `<p><strong>${translateCalculatorPhrase("Validation Stamp:", locale)}</strong> <span class='mono'>${escapeHtml(validationStampId)}</span></p>`
           : "") +
-        `<p><strong>Primary result:</strong> ${escapeHtml(primaryDisplay)}</p>` +
-        `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='Verify QR' width='140' height='140' />` +
-        `<div><p><strong>Verification hash</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
+        `<p><strong>${translateCalculatorPhrase("Primary Result:", locale)}</strong> ${escapeHtml(primaryDisplay)}</p>` +
+        `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='${translateCalculatorPhrase("Verify QR Code", locale)}' width='140' height='140' />` +
+        `<div><p><strong>${translateCalculatorPhrase("Verification Hash", locale)}</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
         `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p>` +
         (reportId
-          ? `<p style='font-size:12px;margin-top:8px'>Verify with Report ID at ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
+          ? `<p style='font-size:12px;margin-top:8px'>${translateCalculatorPhrase("Verify with Report ID at", locale)} ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
           : "") +
         `</div></div>` +
         (cbamReport
-          ? `<h2>CBAM</h2><table><tr><th>Metric</th><th>Value</th></tr>` +
-            `<tr><td>Product carbon footprint</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +
-            `<tr><td>CBAM adjustment</td><td>€${cbamReport.cbamAdjustment.toFixed(2)}</td></tr>` +
-            `<tr><td>Status</td><td>${escapeHtml(cbamReport.complianceStatus)}</td></tr></table>`
+          ? `<h2>${translateCalculatorPhrase("CBAM", locale)}</h2><table><tr><th>${translateCalculatorPhrase("Metric", locale)}</th><th>${translateCalculatorPhrase("Value", locale)}</th></tr>` +
+            `<tr><td>${translateCalculatorPhrase("Product Carbon Footprint", locale)}</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +
+            `<tr><td>${translateCalculatorPhrase("CBAM Adjustment", locale)}</td><td>€${cbamReport.cbamAdjustment.toFixed(2)}</td></tr>` +
+            `<tr><td>${translateCalculatorPhrase("Status", locale)}</td><td>${escapeHtml(cbamReport.complianceStatus)}</td></tr></table>`
           : "") +
-        "<p style='font-size:11px;color:#6b7280;margin-top:24px'>Technical simulation only. Not financial, legal, or engineering advice.</p>" +
+        `<p style='font-size:11px;color:#6b7280;margin-top:24px'>${translateCalculatorPhrase("Technical simulation only. Not financial, legal, or engineering advice.", locale)}</p>` +
         "</body></html>";
 
       downloadBlob(
@@ -305,7 +306,7 @@ export function ResultPanel({
       return;
     }
 
-    const webhookUrl = window.prompt("ERP Webhook URL'nizi girin:");
+    const webhookUrl = window.prompt(translateCalculatorPhrase("Enter ERP Webhook URL", locale));
     if (!webhookUrl) {
       return;
     }
@@ -323,9 +324,13 @@ export function ResultPanel({
         }),
       });
 
-      window.alert(response.ok ? "ERP'ye gönderildi." : "Gönderilemedi.");
+      window.alert(
+        response.ok
+          ? translateCalculatorPhrase("Sent to ERP", locale)
+          : translateCalculatorPhrase("Send failed", locale),
+      );
     } catch {
-      window.alert("Gönderilemedi.");
+      window.alert(translateCalculatorPhrase("Send failed", locale));
     } finally {
       setErpBusy(false);
     }
@@ -409,14 +414,16 @@ export function ResultPanel({
         {breakdownSection}
         {cbamReport ? (
           <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3 text-left text-sm">
-            <p className="font-semibold text-slate-800">CBAM uyum özeti</p>
+            <p className="font-semibold text-slate-800">
+              {translateCalculatorPhrase("CBAM Compliance Summary", locale)}
+            </p>
             <dl className="mt-2 space-y-1 text-slate-600">
               <div className="flex justify-between gap-3">
-                <dt>Karbon ayak izi</dt>
+                <dt>{translateCalculatorPhrase("Carbon Footprint", locale)}</dt>
                 <dd>{cbamReport.productCarbonFootprint.toFixed(0)} kg CO2e</dd>
               </div>
               <div className="flex justify-between gap-3">
-                <dt>CBAM düzeltmesi</dt>
+                <dt>{translateCalculatorPhrase("CBAM Adjustment", locale)}</dt>
                 <dd>
                   {new Intl.NumberFormat(locale, {
                     style: "currency",
@@ -426,7 +433,7 @@ export function ResultPanel({
                 </dd>
               </div>
               <div className="flex justify-between gap-3">
-                <dt>Durum</dt>
+                <dt>{translateCalculatorPhrase("Status", locale)}</dt>
                 <dd className="capitalize">{cbamReport.complianceStatus}</dd>
               </div>
             </dl>
@@ -447,7 +454,9 @@ export function ResultPanel({
               disabled={exportBusy}
               className="rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60"
             >
-              {exportBusy ? "PDF hazırlanıyor…" : "PDF İndir"}
+              {exportBusy
+                ? translateCalculatorPhrase("Preparing PDF…", locale)
+                : translateCalculatorPhrase("Download PDF", locale)}
             </button>
             <button
               type="button"
@@ -455,7 +464,9 @@ export function ResultPanel({
               disabled={erpBusy}
               className="rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60"
             >
-              {erpBusy ? "Gönderiliyor…" : "ERP'ye Gönder"}
+              {erpBusy
+                ? translateCalculatorPhrase("Sending…", locale)
+                : translateCalculatorPhrase("Send to ERP", locale)}
             </button>
           </div>
         ) : null}

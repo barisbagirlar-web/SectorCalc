@@ -1,12 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import { callDeepSeekCore } from "@/lib/ai/deepseek/deepseek-core";
+import { resetCircuitBreaker } from "@/lib/ai/deepseek/deepseek-core";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import { buildFreeOmniSchemaPrompt } from "./free-omni-prompt";
 import { isStubSchemaContent, isStubSchemaFile } from "./is-stub-schema";
 import { INDUSTRIAL_STANDARDS } from "./industrial-standards";
 import { loadEnvLocal, PROJECT_ROOT } from "./load-env";
 import {
-  repairJsonText,
   schemaHasFullI18n,
   validateIndustrialSchema,
 } from "./schema-json-utils";
@@ -22,8 +23,6 @@ export const OUTPUT_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 export const PROGRESS_PATH = path.join(PROJECT_ROOT, "scripts/data/omni-batch-progress.json");
 export const PID_PATH = path.join(PROJECT_ROOT, "scripts/data/omni-batch.pid");
 export const LEGACY_PROGRESS_PATH = path.join(PROJECT_ROOT, ".batch-progress.json");
-
-const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 
 export type RawSchema = Record<string, unknown>;
 
@@ -160,46 +159,29 @@ async function fetchSchemaFromDeepSeek(
   attempt: number,
   options: BatchEngineOptions,
 ): Promise<RawSchema | null> {
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
-  if (!apiKey) throw new Error("DEEPSEEK_API_KEY missing");
+  const coreResult = await callDeepSeekCore({
+    taskType: "schema_generation",
+    temperature: 0.15,
+    maxTokens: 3200,
+    timeoutMs: options.fetchTimeoutMs,
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are an ISO 9001-certified industrial mathematics engineer (ECMI). Output valid JSON only. Use domain-correct, compilable formulas. All 6 locales (en,tr,de,fr,es,ar) required in every label_i18n and businessContext_i18n object.",
+      },
+      { role: "user", content: buildFreeOmniSchemaPrompt(entry) },
+    ],
+  });
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), options.fetchTimeoutMs);
+  if (!coreResult.ok) {
+    log(options, `❌ ${entry.slug} attempt ${attempt}: ${coreResult.message}`);
+    return null;
+  }
 
+  const content = coreResult.data.content;
   try {
-    const res = await fetch(DEEPSEEK_API_URL, {
-      method: "POST",
-      signal: controller.signal,
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: process.env.DEEPSEEK_MODEL?.trim() || "deepseek-chat",
-        temperature: 0.15,
-        max_tokens: 3200,
-        response_format: { type: "json_object" },
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are an ISO 9001-certified industrial mathematics engineer (ECMI). Output valid JSON only. Use domain-correct, compilable formulas. All 6 locales (en,tr,de,fr,es,ar) required in every label_i18n and businessContext_i18n object.",
-          },
-          { role: "user", content: buildFreeOmniSchemaPrompt(entry) },
-        ],
-      }),
-    });
-
-    const payload = (await res.json()) as {
-      choices?: { message?: { content?: string } }[];
-      error?: { message?: string };
-    };
-
-    if (!res.ok) {
-      log(options, `❌ ${entry.slug} HTTP ${res.status} attempt ${attempt}: ${payload.error?.message ?? "unknown"}`);
-      return null;
-    }
-
-    const content = payload.choices?.[0]?.message?.content ?? "{}";
-    const cleaned = repairJsonText(content);
-    const enriched = enrichSchema(JSON.parse(cleaned) as RawSchema, entry);
+    const enriched = enrichSchema(JSON.parse(content) as RawSchema, entry);
     const normalized = normalizeRawGeneratedSchema(enriched, entry.slug);
     if (!normalized) {
       log(options, `❌ ${entry.slug} normalize failed attempt ${attempt}`);
@@ -221,10 +203,8 @@ async function fetchSchemaFromDeepSeek(
     return enriched;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    log(options, `❌ ${entry.slug} fetch error attempt ${attempt}: ${message}`);
+    log(options, `❌ ${entry.slug} parse error attempt ${attempt}: ${message}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -298,6 +278,7 @@ export async function runBatchEngine(options: BatchEngineOptions): Promise<{
   stopped: boolean;
 }> {
   loadEnvLocal();
+  resetCircuitBreaker();
   const limit = parseCliLimit(options.argv);
   const progress = loadProgress();
 
@@ -317,6 +298,30 @@ export async function runBatchEngine(options: BatchEngineOptions): Promise<{
   let cursor = 0;
   let stopped = false;
 
+  /* Adaptive concurrency state */
+  const SLIDING_WINDOW_SIZE = 10;
+  const recentResults: Array<"ok" | "fail"> = [];
+  let currentConcurrency = options.concurrency;
+
+  function computeFailRate(): number {
+    if (recentResults.length === 0) return 0;
+    const fails = recentResults.filter((r) => r === "fail").length;
+    return fails / recentResults.length;
+  }
+
+  function adaptConcurrency(): void {
+    const rate = computeFailRate();
+    if (rate > 0.3 && currentConcurrency > 1) {
+      currentConcurrency -= 1;
+      log(options, `⚡ High fail rate (${(rate * 100).toFixed(0)}%) — reducing concurrency to ${currentConcurrency}`);
+      resetCircuitBreaker();
+    } else if (rate < 0.1 && recentResults.length >= SLIDING_WINDOW_SIZE && currentConcurrency < options.concurrency) {
+      currentConcurrency += 1;
+      log(options, `⚡ Low fail rate (${(rate * 100).toFixed(0)}%) — increasing concurrency to ${currentConcurrency}`);
+      resetCircuitBreaker();
+    }
+  }
+
   async function worker(workerId: number): Promise<void> {
     while (!options.shouldStop?.()) {
       const index = cursor;
@@ -330,10 +335,16 @@ export async function runBatchEngine(options: BatchEngineOptions): Promise<{
       if (result === "ok") ok += 1;
       else fail += 1;
 
+      recentResults.push(result);
+      if (recentResults.length > SLIDING_WINDOW_SIZE) {
+        recentResults.shift();
+      }
+      adaptConcurrency();
+
       if ((ok + fail) % options.concurrency === 0 || index + 1 === entries.length) {
         log(
           options,
-          `progress ${Math.min(index + 1, entries.length)}/${entries.length} ok=${ok} fail=${fail} completed=${progress.completed.length}`,
+          `progress ${Math.min(index + 1, entries.length)}/${entries.length} ok=${ok} fail=${fail} completed=${progress.completed.length} concurrency=${currentConcurrency}`,
         );
       }
 
@@ -344,7 +355,7 @@ export async function runBatchEngine(options: BatchEngineOptions): Promise<{
     stopped = true;
   }
 
-  const workers = Array.from({ length: Math.max(1, options.concurrency) }, (_, i) => worker(i + 1));
+  const workers = Array.from({ length: Math.max(1, currentConcurrency) }, (_, i) => worker(i + 1));
   await Promise.all(workers);
 
   log(options, `Done ok=${ok} fail=${fail} stopped=${stopped || Boolean(options.shouldStop?.())}`);

@@ -64,3 +64,5 @@ scripts/data/omni-batch.pid
 
 # Build-time sitemap shards (prebuild: generate:sitemap-static)
 public/sitemap/*.xml
+# Dynamic sitemap index (SSR/ISR, not checked in)
+public/sitemap.xml

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import PageHero from "@/components/shared/PageHero";
@@ -15,10 +15,10 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "verify" });
   return createPageMetadata({
-    title: "Verify Calculation Summary — SectorCalc",
-    description:
-      "Check whether a SectorCalc premium decision summary report ID and calculation hash match our approved report registry.",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     path: "/verify",
     locale: locale as AppLocale,
   });
@@ -28,13 +28,14 @@ export default async function VerifyPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
   const { reportId, hash } = await searchParams;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "verify" });
 
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Trust Trace"
-        title="Verify calculation summary"
-        description="Enter a report ID from a premium decision summary. Optionally include the calculation hash to confirm the stored record matches."
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
       />
       <Container className="pb-12 pt-2">
         <div className="mx-auto max-w-2xl">

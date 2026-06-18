@@ -11,6 +11,7 @@ import { ResultPanel } from "@/components/tools/ResultPanel";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
+import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
 import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
@@ -121,7 +122,8 @@ function FreeToolFormField({
   const inputId = `free-${slug}-${input.id}`;
   const errorId = `${inputId}-error`;
   const fieldError = errors[input.id];
-  const errorMessage = fieldError?.message ? String(fieldError.message) : undefined;
+  const rawErrorMessage = fieldError?.message ? String(fieldError.message) : undefined;
+  const errorMessage = rawErrorMessage ? translateZodErrorMessage(rawErrorMessage, locale) : undefined;
   const showUnitSelector = shouldShowGeneratedUnitSelector(input);
   const unitOptions = showUnitSelector
     ? getGeneratedInputUnitOptions(input, locale, unitSystem)

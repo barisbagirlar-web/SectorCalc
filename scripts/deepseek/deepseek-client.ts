@@ -1,18 +1,15 @@
+/**
+ * DeepSeek script-grade client — batch scanning, schema generation, industrial tools.
+ *
+ * Wraps deepseek-core for all API calls.
+ * Core handles: adaptive timeout, exponential backoff+jitter, rate-limit detection,
+ * circuit breaker, model fallback, max_tokens, token bucket rate limiting.
+ */
 import type { DeepSeekToolScanPayload, IndustrialToolSchema } from "./types";
 import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { callDeepSeekCore } from "@/lib/ai/deepseek/deepseek-core";
 
-const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
-const DEFAULT_MODEL = "deepseek-chat";
-const DEFAULT_TIMEOUT_MS = 60_000;
-const DEFAULT_MAX_RETRIES = 3;
-
-function getMaxRetries(): number {
-  const configured = Number(process.env.DEEPSEEK_MAX_RETRIES ?? DEFAULT_MAX_RETRIES);
-  if (!Number.isFinite(configured) || configured < 0) {
-    return DEFAULT_MAX_RETRIES;
-  }
-  return configured;
-}
+/* ── Shared helpers ── */
 
 type DeepSeekApiResponse = {
   choices?: Array<{
@@ -77,9 +74,7 @@ function parseToolScanPayload(raw: string, expectedSlug: string): DeepSeekToolSc
   return record as DeepSeekToolScanPayload;
 }
 
-async function sleep(ms: number): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, ms));
-}
+/* ── scanToolWithDeepSeek ── */
 
 export async function scanToolWithDeepSeek(input: {
   readonly systemPrompt: string;
@@ -91,70 +86,52 @@ export async function scanToolWithDeepSeek(input: {
     throw new Error("DEEPSEEK_API_KEY missing in environment (.env.local).");
   }
 
-  const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
-  const timeoutMs = Number(process.env.DEEPSEEK_TIMEOUT_MS || DEFAULT_TIMEOUT_MS);
-  let lastError = "Unknown DeepSeek error";
+  const coreResult = await callDeepSeekCore({
+    taskType: "batch_scan",
+    messages: [
+      { role: "system", content: input.systemPrompt },
+      { role: "user", content: input.userPrompt },
+    ],
+  });
 
-  for (let attempt = 0; attempt <= getMaxRetries(); attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-
-    try {
-      const response = await fetch(DEEPSEEK_API_URL, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model,
-          temperature: 0.1,
-          response_format: { type: "json_object" },
-          messages: [
-            { role: "system", content: input.systemPrompt },
-            { role: "user", content: input.userPrompt },
-          ],
-        }),
-        signal: controller.signal,
-      });
-
-      const payload = (await response.json()) as DeepSeekApiResponse;
-      if (!response.ok) {
-        lastError = payload.error?.message || `HTTP ${response.status}`;
-        if (attempt < getMaxRetries()) {
-          await sleep(500 * (attempt + 1));
-          continue;
-        }
-        throw new Error(lastError);
-      }
-
-      const rawText = payload.choices?.[0]?.message?.content ?? "";
-      return parseToolScanPayload(rawText, input.slug);
-    } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") {
-        lastError = "DeepSeek request timed out";
-      } else if (error instanceof Error) {
-        lastError = error.message;
-      } else {
-        lastError = String(error);
-      }
-
-      if (attempt < getMaxRetries()) {
-        await sleep(500 * (attempt + 1));
-        continue;
-      }
-      throw new Error(lastError);
-    } finally {
-      clearTimeout(timeout);
-    }
+  if (!coreResult.ok) {
+    throw new Error(`DeepSeek scan failed: ${coreResult.message} (attempts: ${coreResult.attempts})`);
   }
 
-  throw new Error(lastError);
+  return parseToolScanPayload(coreResult.data.content, input.slug);
 }
 
-export function getDeepSeekModelName(): string {
-  return process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
+/* ── fetchIndustrialToolSchema ── */
+
+export async function fetchIndustrialToolSchema(input: {
+  readonly prompt: string;
+  readonly slug: string;
+}): Promise<IndustrialToolSchema> {
+  const raw = await deepseekClient(input.prompt);
+  return parseIndustrialToolSchema(raw, input.slug);
 }
+
+/* ── deepseekClient (raw string output) ── */
+
+export async function deepseekClient(prompt: string): Promise<string> {
+  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  if (!apiKey) {
+    throw new Error("DEEPSEEK_API_KEY missing in environment (.env.local).");
+  }
+
+  const coreResult = await callDeepSeekCore({
+    taskType: "batch_scan",
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  if (!coreResult.ok) {
+    throw new Error(`DeepSeek request failed: ${coreResult.message} (attempts: ${coreResult.attempts})`);
+  }
+
+  return coreResult.data.content.trim();
+}
+
+/* ── IndustrialToolSchema parsing ── */
 
 function isInputType(value: unknown): value is IndustrialToolSchema["inputs"][number]["type"] {
   return value === "number" || value === "select" || value === "boolean";
@@ -303,73 +280,7 @@ export function parseIndustrialToolSchema(raw: string, expectedSlug: string): In
   };
 }
 
-export async function fetchIndustrialToolSchema(input: {
-  readonly prompt: string;
-  readonly slug: string;
-}): Promise<IndustrialToolSchema> {
-  const raw = await deepseekClient(input.prompt);
-  return parseIndustrialToolSchema(raw, input.slug);
-}
-
-export async function deepseekClient(prompt: string): Promise<string> {
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
-  if (!apiKey) {
-    throw new Error("DEEPSEEK_API_KEY missing in environment (.env.local).");
-  }
-
-  const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
-  const timeoutMs = Number(process.env.DEEPSEEK_TIMEOUT_MS || DEFAULT_TIMEOUT_MS);
-  let lastError = "Unknown DeepSeek error";
-
-  for (let attempt = 0; attempt <= getMaxRetries(); attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-
-    try {
-      const response = await fetch(DEEPSEEK_API_URL, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model,
-          temperature: 0.1,
-          response_format: { type: "json_object" },
-          messages: [{ role: "user", content: prompt }],
-        }),
-        signal: controller.signal,
-      });
-
-      const payload = (await response.json()) as DeepSeekApiResponse;
-      if (!response.ok) {
-        lastError = payload.error?.message || `HTTP ${response.status}`;
-        if (attempt < getMaxRetries()) {
-          await sleep(500 * (attempt + 1));
-          continue;
-        }
-        throw new Error(lastError);
-      }
-
-      return payload.choices?.[0]?.message?.content?.trim() ?? "";
-    } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") {
-        lastError = "DeepSeek request timed out";
-      } else if (error instanceof Error) {
-        lastError = error.message;
-      } else {
-        lastError = String(error);
-      }
-
-      if (attempt < getMaxRetries()) {
-        await sleep(500 * (attempt + 1));
-        continue;
-      }
-      throw new Error(lastError);
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
-
-  throw new Error(lastError);
+/** @deprecated Use getDeepSeekModelName from env config */
+export function getDeepSeekModelName(): string {
+  return process.env.DEEPSEEK_MODEL?.trim() || "deepseek-chat";
 }

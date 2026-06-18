@@ -6254,13 +6254,10 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   isolation: isolate;
   overflow: visible;
   transform: translateZ(0);
-  animation: sc-trace-organism-float 4.2s ease-in-out infinite;
-  will-change: transform;
 }
 .sc-trace-living--sm {
   width: 1.25rem;
   height: 1.25rem;
-  animation-duration: 7s;
 }
 .sc-trace-living--md {
   width: 3.5rem;
@@ -6273,10 +6270,6 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace-living--fab {
   width: 100%;
   height: 100%;
-  animation-duration: 3.4s;
-}
-.sc-trace-living--fab .sc-trace-living__ripple {
-  animation-duration: 2.8s;
 }
 .sc-trace-living__aura {
   position: absolute;
@@ -6289,9 +6282,6 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     rgba(11, 120, 255, 0.28) 38%,
     transparent 72%
   );
-  animation:
-    sc-trace-organism-aura-pulse 2.8s ease-in-out infinite alternate,
-    sc-trace-organism-jelly 5.6s ease-in-out infinite alternate;
   filter: blur(10px);
   pointer-events: none;
 }
@@ -6304,9 +6294,6 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     rgba(34, 230, 255, 0.18) 42%,
     transparent 70%
   );
-  animation:
-    sc-trace-organism-aura-pulse 3.6s ease-in-out infinite alternate-reverse,
-    sc-trace-organism-orbit 11s linear infinite;
   filter: blur(14px);
 }
 .sc-trace-living--sm .sc-trace-living__aura {
@@ -6324,14 +6311,8 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   border: 2.5px solid rgba(34, 230, 255, 0.65);
   opacity: 0;
   pointer-events: none;
-  animation: sc-trace-organism-ripple 3.2s ease-out infinite;
 }
-.sc-trace-living__ripple--2 {
-  animation-delay: 1.2s;
-}
-.sc-trace-living__ripple--3 {
-  animation-delay: 2.4s;
-}
+
 .sc-trace-living--sm .sc-trace-living__ripple {
   display: none;
 }
@@ -6358,43 +6339,29 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 .sc-trace-living__liquid-highlight {
   mix-blend-mode: screen;
-  animation: sc-trace-organism-droplet-highlight 3.6s ease-in-out infinite;
 }
 .sc-trace-living__liquid-depth {
   mix-blend-mode: multiply;
-  animation: sc-trace-organism-depth 4.8s ease-in-out infinite alternate;
 }
 .sc-trace-living__glyph {
   transform-origin: 58% 54%;
-  animation: sc-trace-organism-glyph-float 5.4s ease-in-out infinite;
 }
-.sc-trace-living--sm .sc-trace-living__glyph {
-  animation-duration: 7s;
-}
+
 .sc-trace-living__bubble {
   transform-origin: 58% 58%;
-  animation: sc-trace-organism-bubble-breathe 3.6s ease-in-out infinite;
 }
 .sc-trace-living__wave-group {
   transform-origin: 50% 58%;
-  animation: sc-trace-organism-wave 2.4s ease-in-out infinite;
 }
 .sc-trace-living__wave {
   opacity: 1;
   stroke-dasharray: 80;
   stroke-dashoffset: 80;
-  animation: sc-trace-organism-wave-draw 2.4s ease-in-out infinite;
 }
 .sc-trace-living__node {
   transform-origin: center;
-  animation: sc-trace-organism-node-pulse 2s ease-in-out infinite;
 }
-.sc-trace-living__node--2 {
-  animation-delay: 0.45s;
-}
-.sc-trace-living__node--3 {
-  animation-delay: 0.95s;
-}
+
 @keyframes sc-trace-organism-float {
   0%,
   100% {
@@ -6629,25 +6596,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     height: 5rem;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .sc-trace-living {
-    animation: none;
-  }
-  .sc-trace-living__aura,
-  .sc-trace-living__ripple,
-  .sc-trace-living__liquid-highlight,
-  .sc-trace-living__liquid-depth,
-  .sc-trace-living__glyph,
-  .sc-trace-living__bubble,
-  .sc-trace-living__wave-group,
-  .sc-trace-living__wave,
-  .sc-trace-living__node {
-    animation: none;
-  }
-  .sc-trace-living__wave {
-    stroke-dashoffset: 0;
-  }
-}
+
 
 .sc-trace {
   position: fixed;

@@ -23,8 +23,13 @@ export async function GET(request: Request, context: RouteContext): Promise<Resp
     return new Response("Not Found", { status: 404 });
   }
 
-  const baseUrl = resolveSitemapBaseUrl(request);
-  const urls = await getLocaleSitemapUrlRecords(locale, baseUrl);
-  const xml = generateSitemapUrlsetXml(urls);
-  return createSitemapXmlResponse(xml, request);
+  try {
+    const baseUrl = resolveSitemapBaseUrl(request);
+    const urls = await getLocaleSitemapUrlRecords(locale, baseUrl);
+    const xml = generateSitemapUrlsetXml(urls);
+    return createSitemapXmlResponse(xml, request);
+  } catch (error) {
+    console.error(`sitemap/${locale}.xml SSR failed:`, error);
+    return new Response("Not Found", { status: 404 });
+  }
 }

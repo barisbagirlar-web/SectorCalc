@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { ApprovedReportPayload } from "@/lib/trust-trace/types";
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
 };
 
 export function ValidationStamp({ report, locale: _locale }: Props) {
+  const t = useTranslations("verify");
+
   return (
     <div
       data-calculation-summary="true"
@@ -29,13 +32,13 @@ export function ValidationStamp({ report, locale: _locale }: Props) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-sm font-semibold text-blue-800">
-          Premium Decision Summary
+          {t("premiumSummary")}
         </p>
         <p className="mt-0.5 break-all font-mono text-xs text-blue-700">
           {report.reportId}
         </p>
         <p className="mt-0.5 text-xs text-blue-600">
-          Calculation ID: <span className="font-mono">{report.calculationHash.slice(0, 16)}…</span>
+          {t("calcId")}: <span className="font-mono">{report.calculationHash.slice(0, 16)}&hellip;</span>
         </p>
       </div>
     </div>

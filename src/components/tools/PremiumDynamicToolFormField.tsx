@@ -10,6 +10,7 @@ import {
 } from "@/lib/generated-tools/unit-conversion";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
 import { useLocale } from "next-intl";
 
 type PremiumDynamicToolFormFieldProps = {
@@ -38,7 +39,8 @@ export function PremiumDynamicToolFormField({
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
   const fieldError = errors[input.id];
-  const errorMessage = fieldError?.message ? String(fieldError.message) : undefined;
+  const rawErrorMessage = fieldError?.message ? String(fieldError.message) : undefined;
+  const errorMessage = rawErrorMessage ? translateZodErrorMessage(rawErrorMessage, locale) : undefined;
   const showUnitSelector = shouldShowGeneratedUnitSelector(input);
   const unitOptions = showUnitSelector
     ? getGeneratedInputUnitOptions(input, locale, unitSystem)

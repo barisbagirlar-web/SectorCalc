@@ -58,19 +58,52 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
     >
       <head>
         {locale === "en" ? <GeoLocaleBootstrapScript /> : null}
+
+        {/* === DNS PREFETCH & PRECONNECT (Predictive Preconnect) === */}
+        <link rel="dns-prefetch" href="https://www.sectorcalc.com" />
+        <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+        <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
+        <link rel="dns-prefetch" href="https://securetoken.googleapis.com" />
+        <link rel="preconnect" href="https://firestore.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossOrigin="anonymous" />
+
+        {/* === ORIGIN TRIALS & PRELOAD HINTS === */}
+        <link rel="preload" href="/manifest.webmanifest" as="fetch" crossOrigin="anonymous" />
+
+        {/* === SEO HEAD LINKS (AI txt, LLMs, etc.) === */}
         <SeoHeadLinks />
         <LlmsTxtLink />
         <AuthorAuthorityHeadLinks />
+
+        {/* === PUBSUBHUBBUB (Instant indexing notifications) === */}
         <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
-        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides" />
+        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides — Calculation guides, industry insights and decision tool walkthroughs" />
+
+        {/* === PWA MANIFEST === */}
         <link rel="manifest" href="/manifest.webmanifest" />
+
+        {/* === THEME COLOR === */}
         <meta name="theme-color" content={THEME_COLOR} />
+        <meta name="color-scheme" content="light dark" />
+
+        {/* === SEARCH ENGINE VERIFICATION === */}
         <meta name="google-site-verification" content="YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY" />
         <meta name="msvalidate.01" content="C97289CA0F699D6B9053113A5E8FAD2A" />
+
+        {/* === MOBILE & APP METADATA === */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="SectorCalc" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        {/* === AI & CRAWLER METADATA === */}
+        <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:160, max-image-preview:large" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
+        {/* === GLOBAL JSON-LD SCHEMA (Entity Graph + WebSite + Software) === */}
         <JsonLd
           data={[
             buildEntityGraph(locale),

@@ -155,7 +155,7 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=16384",
       FORCE_COLOR: "0",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { ApprovedReportPayload } from "@/lib/trust-trace/types";
 import {
   buildApprovedReportHtml,
@@ -23,6 +24,7 @@ function downloadBlob(content: string, filename: string, mimeType: string) {
 }
 
 export function ApprovedReportActions({ report }: Props) {
+  const t = useTranslations("verify");
   const [copied, setCopied] = useState(false);
 
   function handleCopyReportId() {
@@ -71,7 +73,7 @@ export function ApprovedReportActions({ report }: Props) {
         onClick={handleCopyReportId}
         className="inline-flex items-center gap-1.5 rounded border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        {copied ? "Copied!" : "Copy Report ID"}
+        {copied ? t("copied") : t("copyReportId")}
       </button>
 
       <button
@@ -79,7 +81,7 @@ export function ApprovedReportActions({ report }: Props) {
         onClick={handleDownloadHtml}
         className="inline-flex items-center gap-1.5 rounded border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Download PDF/HTML
+        {t("downloadHtml")}
       </button>
 
       <button
@@ -87,7 +89,7 @@ export function ApprovedReportActions({ report }: Props) {
         onClick={handleDownloadCsv}
         className="inline-flex items-center gap-1.5 rounded border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Download CSV
+        {t("downloadCsv")}
       </button>
 
       <button
@@ -95,7 +97,7 @@ export function ApprovedReportActions({ report }: Props) {
         onClick={handleDownloadWord}
         className="inline-flex items-center gap-1.5 rounded border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Download Word
+        {t("downloadWord")}
       </button>
 
       <button
@@ -103,7 +105,7 @@ export function ApprovedReportActions({ report }: Props) {
         onClick={handlePrint}
         className="inline-flex items-center gap-1.5 rounded border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Print
+        {t("print")}
       </button>
     </div>
   );

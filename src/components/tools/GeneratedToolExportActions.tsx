@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { useSubscription } from "@/hooks/useSubscription";
 import {
@@ -9,6 +9,7 @@ import {
   serializeGeneratedToolCsv,
 } from "@/lib/generated-tools/generated-tool-export";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 
 type GeneratedToolExportActionsProps = {
   readonly slug: string;
@@ -25,6 +26,7 @@ export function GeneratedToolExportActions({
   inputs,
   result,
 }: GeneratedToolExportActionsProps) {
+  const locale = useLocale();
   const t = useTranslations("generatedTool.export");
   const { isPro, loading } = useSubscription();
   const exportLocked = schema.premiumRequired && !isPro;
@@ -87,7 +89,7 @@ export function GeneratedToolExportActions({
       {schema.premiumFeatures.length > 0 ? (
         <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-body-charcoal">
           {schema.premiumFeatures.slice(0, 3).map((feature) => (
-            <li key={feature}>{feature}</li>
+            <li key={feature}>{translateCalculatorPhrase(feature, locale)}</li>
           ))}
         </ul>
       ) : null}

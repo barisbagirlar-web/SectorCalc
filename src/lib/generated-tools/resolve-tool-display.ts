@@ -3,6 +3,7 @@ import {
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { resolveGeneratedToolDisplayTitle } from "@/lib/i18n/generated-tool-display-i18n";
 
@@ -66,7 +67,10 @@ export function resolveGeneratedToolDescription(
   if (contexts.length > 0) {
     return contexts.join(" ");
   }
-  return "Sector-specific calculator — enter inputs to see results.";
+  return translateCalculatorPhrase(
+    "Sector-specific calculator — enter inputs to see results.",
+    locale,
+  );
 }
 
 export function resolvePrimaryOutputKey(schema: GeneratedToolSchema): string {

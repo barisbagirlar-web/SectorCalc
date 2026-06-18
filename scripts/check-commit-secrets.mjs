@@ -27,6 +27,18 @@ const ENV_EXAMPLE_PUBLIC_CALCULATE_LINE =
 const ENV_EXAMPLE_UPSTASH_LINE =
   /^\s*#?\s*UPSTASH_REDIS_REST_[A-Z0-9_]+\s*=/;
 
+/** AI customer model names — not secrets, just model identifiers. */
+const ENV_EXAMPLE_AI_MODEL_LINE =
+  /^\s*#?\s*AI_CUSTOMER_(FLASH|PRO)_MODEL\s*=\s*"deepseek-(chat|reasoner)"\s*$/;
+
+/** Lokalise TMS template lines — empty values or public flags. */
+const ENV_EXAMPLE_LOKALISE_LINE =
+  /^\s*#?\s*LOKALISE_[A-Z_]+(?:_TOKEN|_ID|_PULL|_VERSION|_ENABLED)?\s*=\s*(?:"[^"]*"|true|false|\d+\.\d+\.\d+)?\s*$/;
+
+/** NEXT_PUBLIC Lokalise OTA token template — empty in example. */
+const ENV_EXAMPLE_NEXT_PUBLIC_LOKALISE_LINE =
+  /^\s*#?\s*NEXT_PUBLIC_LOKALISE_[A-Z_]+\s*=\s*(?:"[^"]*")?\s*$/;
+
 const DIFF_SECRET_PATTERNS = [
   /BEGIN PRIVATE KEY/,
   /BEGIN RSA PRIVATE KEY/,
@@ -89,7 +101,10 @@ function checkEnvExampleDiff() {
       !ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed) &&
       !ENV_EXAMPLE_PUBLIC_SITE_URL_LINE.test(trimmed) &&
       !ENV_EXAMPLE_PUBLIC_CALCULATE_LINE.test(trimmed) &&
-      !ENV_EXAMPLE_UPSTASH_LINE.test(trimmed)
+      !ENV_EXAMPLE_UPSTASH_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_AI_MODEL_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_LOKALISE_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_NEXT_PUBLIC_LOKALISE_LINE.test(trimmed)
     ) {
       violations.push(trimmed);
     }
