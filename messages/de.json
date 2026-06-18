@@ -30658,7 +30658,9 @@
     },
     "medicare-part-d-calculator": {
       "copay_catastrophic": {
-        "label": "Katastrophale Zuzahlung ($)"
+        "label": "Katastrophale Zuzahlung ($)",
+        "placeholder": "Katastrophale Kostenbeteiligung",
+        "helper": "Medicare Part D katastrophale Kostenbeteiligung nach Erreichen der katastrophalen Schwelle"
       },
       "primary_value": {
         "label": "Primärwert",
