@@ -52,11 +52,28 @@ function assertJsonObject(rel) {
 }
 
 /** Hub routes that must never 404 after a production build. */
-const CRITICAL_HUB_ROUTES = ["/free-tools", "/tr/free-tools", "/tr"];
+const CRITICAL_HUB_ROUTES = [
+  {
+    route: "/free-tools",
+    appPaths: ["/(english)/free-tools/page"],
+    legacyPageModule: join("(english)", "free-tools", "page.js"),
+  },
+  {
+    route: "/tr/free-tools",
+    appPaths: ["/[locale]/free-tools/page"],
+    legacyPageModule: join("[locale]", "free-tools", "page.js"),
+  },
+  {
+    route: "/tr",
+    appPaths: ["/[locale]/page"],
+    legacyPageModule: join("[locale]", "page.js"),
+  },
+];
 
 /** @returns {string[]} */
 function assertCriticalHubRoutes() {
   const manifestPath = join(NEXT, "prerender-manifest.json");
+  const appPathsPath = join(NEXT, "server/app-paths-manifest.json");
   if (!existsSync(manifestPath)) {
     return [];
   }
@@ -70,19 +87,29 @@ function assertCriticalHubRoutes() {
     return [];
   }
 
+  /** @type {Set<string>} */
+  let appPaths = new Set();
+  if (existsSync(appPathsPath)) {
+    try {
+      appPaths = new Set(Object.keys(JSON.parse(readFileSync(appPathsPath, "utf8"))));
+    } catch {
+      appPaths = new Set();
+    }
+  }
+
   const errors = [];
-  for (const route of CRITICAL_HUB_ROUTES) {
+  for (const { route, appPaths: expectedAppPaths, legacyPageModule } of CRITICAL_HUB_ROUTES) {
     if (prerenderRoutes.has(route)) {
       continue;
     }
 
-    const relative =
-      route === "/free-tools"
-        ? join("(english)", "free-tools", "page.js")
-        : join("[locale]", ...route.slice(1).split("/"), "page.js");
-    const pageModule = join(NEXT, "server", "app", relative);
+    if (expectedAppPaths.some((appPath) => appPaths.has(appPath))) {
+      continue;
+    }
 
-    if (!existsSync(pageModule)) {
+    const legacyPagePath = join(NEXT, "server", "app", legacyPageModule);
+
+    if (!existsSync(legacyPagePath)) {
       errors.push(`critical hub route missing: ${route}`);
     }
   }
