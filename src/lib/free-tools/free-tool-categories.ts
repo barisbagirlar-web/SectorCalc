@@ -52,6 +52,8 @@ export type FreeToolCategoryEntry = {
   readonly slug: FreeToolCategorySlug;
   readonly order: number;
   readonly icon: string;
+  /** Premium line-art SVG symbol (inline, copper/navy stroke, 48×48 viewBox). */
+  readonly symbolSvg: string;
   readonly title: Readonly<Record<SupportedLocale, string>>;
   readonly tagline: Readonly<Record<SupportedLocale, string>>;
   /** Field domain (alan) — e.g. "Engineering", "Finance", "Health" */
@@ -62,6 +64,53 @@ export type FreeToolCategoryEntry = {
   readonly socialPurpose: Readonly<Record<SupportedLocale, string>>;
 };
 
+/* ──────────────────────────────────────────────
+ * Premium line-art SVG symbols (copper style)
+ * Each is a clean 48×48 viewBox with stroke-width="1.5"
+ * using sc-copper (#B87333) or sc-navy (#1B2A4A) tones.
+ * Follows same design language as premium-categories.ts.
+ * ────────────────────────────────────────────── */
+
+const SYM_BASE = 'viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+
+/* --- Reused from premium-categories.ts (20 matching slugs) --- */
+const SYM_QUALITY = `<svg ${SYM_BASE}><polygon points="24,4 29,18 44,18 32,27 35,42 24,33 13,42 16,27 4,18 19,18"/><circle cx="24" cy="22" r="4"/></svg>`;
+const SYM_TECH = `<svg ${SYM_BASE}><rect x="10" y="10" width="28" height="28" rx="4"/><circle cx="24" cy="24" r="6"/><line x1="24" y1="10" x2="24" y2="4"/><line x1="24" y1="38" x2="24" y2="44"/><line x1="10" y1="24" x2="4" y2="24"/><line x1="38" y1="24" x2="44" y2="24"/></svg>`;
+const SYM_FINANCE = `<svg ${SYM_BASE}><line x1="24" y1="8" x2="24" y2="40"/><path d="M14 14c0-4 4-6 10-6s10 2 10 6-4 6-10 6-10 2-10 6 4 6 10 6 10-2 10-6"/></svg>`;
+const SYM_ELECTRIC = `<svg ${SYM_BASE}><path d="M20 4l-8 20h8l-4 20 16-24h-8l8-16z"/></svg>`;
+const SYM_LEAF = `<svg ${SYM_BASE}><path d="M24 12c-8 0-14 6-14 14v8c0 2 2 4 4 4h20c2 0 4-2 4-4v-8c0-8-6-14-14-14z"/><path d="M24 12V4"/><path d="M18 32l6-8 6 8"/></svg>`;
+const SYM_CNC = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="8"/><path d="M24 8v6M24 34v6M8 24h6M34 24h6"/><path d="M14 14l4 4M30 30l4 4M30 14l-4 4M14 30l4-4"/></svg>`;
+const SYM_METAL = `<svg ${SYM_BASE}><rect x="8" y="16" width="32" height="20" rx="2"/><path d="M8 16l6-8h20l6 8"/><line x1="24" y1="16" x2="24" y2="36"/><line x1="14" y1="24" x2="18" y2="24"/><line x1="30" y1="24" x2="34" y2="24"/></svg>`;
+const SYM_PROCESS = `<svg ${SYM_BASE}><circle cx="16" cy="16" r="6"/><circle cx="36" cy="16" r="6"/><line x1="22" y1="16" x2="30" y2="16"/><line x1="16" y1="22" x2="16" y2="40"/><line x1="36" y1="22" x2="36" y2="40"/><line x1="16" y1="40" x2="36" y2="40"/></svg>`;
+const SYM_HSE = `<svg ${SYM_BASE}><path d="M24 6L8 14v8c0 12 6 18 16 20 10-2 16-8 16-20v-8L24 6z"/><line x1="24" y1="18" x2="24" y2="28"/><circle cx="24" cy="32" r="1.5"/></svg>`;
+const SYM_MAINTENANCE = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="14"/><path d="M24 10v14l8 8"/><path d="M10 8l4 4M38 8l-4 4M10 40l4-4M38 40l-4-4"/></svg>`;
+const SYM_PROJECT = `<svg ${SYM_BASE}><rect x="8" y="6" width="32" height="36" rx="3"/><line x1="16" y1="14" x2="32" y2="14"/><line x1="16" y1="22" x2="32" y2="22"/><line x1="16" y1="30" x2="28" y2="30"/><circle cx="34" cy="34" r="3"/></svg>`;
+const SYM_WORKFORCE = `<svg ${SYM_BASE}><circle cx="18" cy="14" r="6"/><circle cx="34" cy="16" r="5"/><path d="M8 40c0-8 4-12 10-12s10 4 10 12"/><path d="M28 38c0-6 3-10 8-10s8 4 8 10"/></svg>`;
+const SYM_PROCUREMENT = `<svg ${SYM_BASE}><rect x="6" y="10" width="36" height="28" rx="3"/><line x1="6" y1="18" x2="42" y2="18"/><line x1="18" y1="10" x2="18" y2="38"/><circle cx="14" cy="26" r="2"/><circle cx="14" cy="32" r="2"/></svg>`;
+const SYM_FOOD = `<svg ${SYM_BASE}><path d="M12 40V8h6v14h4V8h6v14h4V8h6v32"/><line x1="8" y1="40" x2="40" y2="40"/></svg>`;
+const SYM_LEAN = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="18"/><path d="M12 24h24M24 12v24"/><path d="M18 24l6-6 6 6M24 18l-6 6 6 6"/></svg>`;
+const SYM_TEXTILE = `<svg ${SYM_BASE}><rect x="8" y="8" width="32" height="32" rx="2"/><line x1="8" y1="20" x2="40" y2="20"/><line x1="8" y1="28" x2="40" y2="28"/><line x1="20" y1="8" x2="20" y2="40"/><line x1="28" y1="8" x2="28" y2="40"/></svg>`;
+const SYM_THERMAL = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="14"/><path d="M24 10c-3 0-6 2-6 6 0 4 6 8 6 8s6-4 6-8c0-4-3-6-6-6z"/><path d="M14 36l24-24"/></svg>`;
+const SYM_BOX = `<svg ${SYM_BASE}><rect x="6" y="14" width="36" height="24" rx="2"/><path d="M6 14l18 6 18-6"/><line x1="24" y1="20" x2="24" y2="38"/><line x1="12" y1="26" x2="16" y2="24"/><line x1="36" y1="26" x2="32" y2="24"/></svg>`;
+const SYM_GLOBE = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="10" ry="18"/><line x1="6" y1="24" x2="42" y2="24"/><path d="M12 12c4-2 8-2 12 0s8 2 12 0M12 36c4 2 8 2 12 0s8-2 12 0"/></svg>`;
+const SYM_FACTORY = `<svg ${SYM_BASE}><rect x="6" y="14" width="36" height="26" rx="2"/><line x1="6" y1="24" x2="42" y2="24"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><line x1="24" y1="14" x2="24" y2="24"/><path d="M24 10V6"/></svg>`;
+
+/* --- New premium symbols for free-only categories (14 slugs) --- */
+const SYM_MATH = `<svg ${SYM_BASE}><path d="M8 8h32v32H8z"/><path d="M16 16l16 16M32 16L16 32"/><circle cx="24" cy="24" r="3"/></svg>`;
+const SYM_HEALTH = `<svg ${SYM_BASE}><path d="M24 8C14 8 8 16 8 24s6 16 16 16 16-8 16-16S34 8 24 8z"/><path d="M24 16v16M16 24h16"/></svg>`;
+const SYM_CONVERSION = `<svg ${SYM_BASE}><rect x="6" y="18" width="16" height="20" rx="2"/><rect x="26" y="10" width="16" height="28" rx="2"/><line x1="22" y1="28" x2="26" y2="28"/><path d="M14 12v6M38 30v8"/></svg>`;
+const SYM_AUTOMOTIVE = `<svg ${SYM_BASE}><rect x="6" y="24" width="36" height="14" rx="4"/><circle cx="16" cy="34" r="5"/><circle cx="32" cy="34" r="5"/><path d="M10 24l4-10h20l4 10"/><line x1="6" y1="28" x2="42" y2="28"/></svg>`;
+const SYM_MARITIME = `<svg ${SYM_BASE}><path d="M8 28l8-16h16l8 16"/><rect x="4" y="28" width="40" height="12" rx="2"/><line x1="24" y1="12" x2="24" y2="6"/><path d="M14 18l10-6 10 6"/></svg>`;
+const SYM_MINING = `<svg ${SYM_BASE}><path d="M8 36l6-24h20l6 24"/><line x1="14" y1="28" x2="34" y2="28"/><rect x="18" y="36" width="12" height="8"/><path d="M24 16v8M20 20h8"/><line x1="8" y1="44" x2="40" y2="44"/></svg>`;
+const SYM_FURNITURE = `<svg ${SYM_BASE}><rect x="8" y="12" width="32" height="20" rx="2"/><rect x="14" y="32" width="6" height="10"/><rect x="28" y="32" width="6" height="10"/><line x1="8" y1="20" x2="40" y2="20"/><line x1="14" y1="26" x2="18" y2="26"/></svg>`;
+const SYM_CLEANING = `<svg ${SYM_BASE}><rect x="18" y="6" width="12" height="32" rx="4"/><rect x="14" y="30" width="20" height="12" rx="2"/><path d="M28 12l8 4M28 16l8 6M28 20l6 8"/><circle cx="24" cy="38" r="2"/></svg>`;
+const SYM_WATER = `<svg ${SYM_BASE}><path d="M24 6c-4 8-12 16-12 22 0 6.6 5.4 12 12 12s12-5.4 12-12c0-6-8-14-12-22z"/><line x1="18" y1="22" x2="30" y2="22"/><line x1="16" y1="28" x2="32" y2="28"/></svg>`;
+const SYM_TOURISM = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="8"/><path d="M24 6v8M24 34v8M6 24h8M34 24h8"/><path d="M10 10l8 8M30 30l8 8M30 10l-8 8M10 30l8-8"/></svg>`;
+const SYM_EDUCATION = `<svg ${SYM_BASE}><path d="M6 18l18-10 18 10-18 10z"/><path d="M6 18v14l18 10 18-10V18"/><line x1="12" y1="22" x2="12" y2="34"/><line x1="18" y1="19" x2="18" y2="31"/><line x1="30" y1="19" x2="30" y2="31"/><line x1="36" y1="22" x2="36" y2="34"/></svg>`;
+const SYM_PROPERTY = `<svg ${SYM_BASE}><path d="M8 24l16-14 16 14"/><rect x="14" y="26" width="20" height="16" rx="1"/><rect x="20" y="30" width="8" height="12"/><rect x="32" y="8" width="8" height="10" rx="1"/><line x1="8" y1="40" x2="40" y2="40"/></svg>`;
+const SYM_AERO = `<svg ${SYM_BASE}><ellipse cx="24" cy="24" rx="18" ry="8"/><line x1="24" y1="16" x2="24" y2="8"/><path d="M16 24l-8 16M32 24l8 16"/><line x1="14" y1="24" x2="34" y2="24"/><path d="M24 8c-4 0-8 4-8 8"/><path d="M24 8c4 0 8 4 8 8"/></svg>`;
+const SYM_OTHER = `<svg ${SYM_BASE}><circle cx="24" cy="24" r="18"/><circle cx="18" cy="20" r="2.5"/><circle cx="24" cy="20" r="2.5"/><circle cx="30" cy="20" r="2.5"/><path d="M16 30c4-3 12-3 16 0"/></svg>`;
+
 // ─── Category definitions ───────────────────────────────────────────────────
 
 export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
@@ -70,6 +119,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "finance-sales-working-capital",
     order: 1,
     icon: "Landmark",
+    symbolSvg: SYM_FINANCE,
     title: {
       en: "Finance, Sales & Working Capital",
       tr: "Finans, Satış ve İşletme Sermayesi",
@@ -117,6 +167,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "quality-six-sigma",
     order: 2,
     icon: "Sigma",
+    symbolSvg: SYM_QUALITY,
     title: {
       en: "Quality, SPC & Six Sigma",
       tr: "Kalite, SPC ve Altı Sigma",
@@ -164,6 +215,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "technology-ai-cloud-cyber",
     order: 3,
     icon: "Monitor",
+    symbolSvg: SYM_TECH,
     title: {
       en: "Technology, AI, Cloud & Cyber",
       tr: "Teknoloji, AI, Bulut ve Siber Güvenlik",
@@ -211,6 +263,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "electrical-power-systems",
     order: 4,
     icon: "Zap",
+    symbolSvg: SYM_ELECTRIC,
     title: {
       en: "Electrical, Panel & Power Systems",
       tr: "Elektrik, Pano ve Güç Sistemleri",
@@ -258,6 +311,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "sustainability-resource-esg",
     order: 5,
     icon: "Leaf",
+    symbolSvg: SYM_LEAF,
     title: {
       en: "Environment, Resources & ESG",
       tr: "Çevre, Kaynak ve Sürdürülebilirlik",
@@ -305,6 +359,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "cnc-additive-manufacturing",
     order: 6,
     icon: "Cog",
+    symbolSvg: SYM_CNC,
     title: {
       en: "CNC, 3D Printing & Advanced Manufacturing",
       tr: "CNC, 3B Baskı ve İleri İmalat",
@@ -352,6 +407,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "metal-plastics-forming",
     order: 7,
     icon: "Anvil",
+    symbolSvg: SYM_METAL,
     title: {
       en: "Metals, Plastics & Forming",
       tr: "Metal, Plastik ve Şekillendirme",
@@ -399,6 +455,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "process-chemical",
     order: 8,
     icon: "FlaskConical",
+    symbolSvg: SYM_PROCESS,
     title: {
       en: "Chemistry, Process & Fluids",
       tr: "Kimya, Proses ve Akışkanlar",
@@ -446,6 +503,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "hse-ergonomics",
     order: 9,
     icon: "ShieldAlert",
+    symbolSvg: SYM_HSE,
     title: {
       en: "HSE, Ergonomics & Risk",
       tr: "İSG, Ergonomi ve Risk Yönetimi",
@@ -493,6 +551,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "maintenance-reliability",
     order: 10,
     icon: "Wrench",
+    symbolSvg: SYM_MAINTENANCE,
     title: {
       en: "Maintenance & Reliability",
       tr: "Bakım, Arıza ve Güvenilirlik",
@@ -540,6 +599,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "project-construction-management",
     order: 11,
     icon: "HardHat",
+    symbolSvg: SYM_PROJECT,
     title: {
       en: "Construction & Project Management",
       tr: "İnşaat ve Proje Yönetimi",
@@ -587,6 +647,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "workforce-hr",
     order: 12,
     icon: "Users",
+    symbolSvg: SYM_WORKFORCE,
     title: {
       en: "Workforce, Shift & HR",
       tr: "İş Gücü, Vardiya ve İnsan Kaynakları",
@@ -634,6 +695,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "procurement-supply-chain",
     order: 13,
     icon: "Warehouse",
+    symbolSvg: SYM_PROCUREMENT,
     title: {
       en: "Procurement, Supply Chain & Logistics",
       tr: "Tedarik, Satınalma ve Lojistik",
@@ -681,6 +743,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "food-cold-chain-hygiene",
     order: 14,
     icon: "Salad",
+    symbolSvg: SYM_FOOD,
     title: {
       en: "Food, Cold Chain & Hygiene",
       tr: "Gıda, Soğuk Zincir ve Hijyen",
@@ -728,6 +791,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "lean-production",
     order: 15,
     icon: "ArrowLeftRight",
+    symbolSvg: SYM_LEAN,
     title: {
       en: "Efficiency, Lean & OEE",
       tr: "Verimlilik, Yalın Üretim ve OEE",
@@ -775,6 +839,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "textile-print-lab",
     order: 16,
     icon: "Shirt",
+    symbolSvg: SYM_TEXTILE,
     title: {
       en: "Textile, Printing & Laboratory",
       tr: "Tekstil, Baskı ve Laboratuvar",
@@ -822,6 +887,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "mechanical-hvac-energy-loss",
     order: 17,
     icon: "Thermometer",
+    symbolSvg: SYM_THERMAL,
     title: {
       en: "Mechanical, HVAC & Energy Loss",
       tr: "Mekanik, HVAC ve Enerji Kayıpları",
@@ -869,6 +935,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "packaging-local-business",
     order: 18,
     icon: "Package",
+    symbolSvg: SYM_BOX,
     title: {
       en: "Packaging & Local Business Tools",
       tr: "Ambalaj ve Yerel İşletme Araçları",
@@ -916,6 +983,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "global-compliance-trade",
     order: 19,
     icon: "Globe",
+    symbolSvg: SYM_GLOBE,
     title: {
       en: "Global Trade, Compliance & Tax",
       tr: "Küresel Ticaret, Uyum ve Vergi",
@@ -963,6 +1031,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "digital-factory-automation",
     order: 20,
     icon: "Cpu",
+    symbolSvg: SYM_FACTORY,
     title: {
       en: "Automation & Digital Factory",
       tr: "Otomasyon ve Dijital Fabrika",
@@ -1010,6 +1079,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "mathematics-statistics",
     order: 21,
     icon: "Calculator",
+    symbolSvg: SYM_MATH,
     title: {
       en: "Mathematics, Statistics & Analytics",
       tr: "Matematik, İstatistik ve Analiz",
@@ -1057,6 +1127,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "health-fitness-daily-life",
     order: 22,
     icon: "Heart",
+    symbolSvg: SYM_HEALTH,
     title: {
       en: "Health, Sports & Daily Life",
       tr: "Sağlık, Spor ve Günlük Yaşam",
@@ -1104,6 +1175,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "conversion-measurement",
     order: 23,
     icon: "Ruler",
+    symbolSvg: SYM_CONVERSION,
     title: {
       en: "Conversion & Measurement",
       tr: "Dönüşüm ve Ölçüm",
@@ -1151,6 +1223,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "automotive-transport",
     order: 24,
     icon: "CarFront",
+    symbolSvg: SYM_AUTOMOTIVE,
     title: {
       en: "Automotive & Transport",
       tr: "Otomotiv & Taşımacılık",
@@ -1198,6 +1271,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "maritime-shipping",
     order: 25,
     icon: "Ship",
+    symbolSvg: SYM_MARITIME,
     title: {
       en: "Maritime & Shipping",
       tr: "Denizcilik & Nakliye",
@@ -1245,6 +1319,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "mining-geology",
     order: 26,
     icon: "Pickaxe",
+    symbolSvg: SYM_MINING,
     title: {
       en: "Mining & Geology",
       tr: "Madencilik & Jeoloji",
@@ -1292,6 +1367,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "furniture-woodworking",
     order: 27,
     icon: "Armchair",
+    symbolSvg: SYM_FURNITURE,
     title: {
       en: "Furniture & Woodworking",
       tr: "Mobilya & Ahşap İşleri",
@@ -1339,6 +1415,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "cleaning-facility",
     order: 28,
     icon: "Sparkles",
+    symbolSvg: SYM_CLEANING,
     title: {
       en: "Cleaning & Facility Management",
       tr: "Temizlik & Tesis Yönetimi",
@@ -1386,6 +1463,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "water-wastewater",
     order: 29,
     icon: "Droplets",
+    symbolSvg: SYM_WATER,
     title: {
       en: "Water & Wastewater",
       tr: "Su & Atıksu Yönetimi",
@@ -1433,6 +1511,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "tourism-hospitality",
     order: 30,
     icon: "Luggage",
+    symbolSvg: SYM_TOURISM,
     title: {
       en: "Tourism & Hospitality",
       tr: "Turizm & Konaklama",
@@ -1480,6 +1559,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "education-academic",
     order: 31,
     icon: "GraduationCap",
+    symbolSvg: SYM_EDUCATION,
     title: {
       en: "Education & Academic",
       tr: "Eğitim & Akademik",
@@ -1527,6 +1607,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "real-estate-property",
     order: 32,
     icon: "KeyRound",
+    symbolSvg: SYM_PROPERTY,
     title: {
       en: "Real Estate & Property",
       tr: "Emlak & Gayrimenkul",
@@ -1574,6 +1655,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     slug: "aerospace-aviation",
     order: 33,
     icon: "Plane",
+    symbolSvg: SYM_AERO,
     title: {
       en: "Aerospace & Aviation",
       tr: "Havacılık & Uzay",
@@ -1613,6 +1695,54 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
       fr: "Exploration spatiale et sécurité aérienne",
       es: "Exploración espacial y seguridad aérea",
       ar: "استكشاف الفضاء والسلامة الجوية",
+    },
+  },
+
+  // ── 34. OTHER (fallback) ─────────────────────────────────────────────────
+  {
+    slug: "other",
+    order: 99,
+    icon: "FolderOpen",
+    symbolSvg: SYM_OTHER,
+    title: {
+      en: "Other & Cross-Field Tools",
+      tr: "Diğer ve Çapraz Alan Araçları",
+      de: "Sonstige & bereichsübergreifende Tools",
+      fr: "Autres outils et outils transversaux",
+      es: "Otras herramientas y herramientas transversales",
+      ar: "أدوات أخرى ومتعددة المجالات",
+    },
+    tagline: {
+      en: "General-purpose and cross-domain calculators not fitting a single category.",
+      tr: "Tek bir kategoriye girmeyen genel amaçlı ve çapraz alan hesaplayıcıları.",
+      de: "Allzweck- und bereichsübergreifende Rechner, die keiner einzelnen Kategorie zugeordnet sind.",
+      fr: "Calculatrices polyvalentes et transversales ne relevant pas d'une seule catégorie.",
+      es: "Calculadoras de uso general y transversales que no encajan en una sola categoría.",
+      ar: "آلات حاسبة عامة ومتعددة التخصصات لا تندرج تحت فئة واحدة.",
+    },
+    field: {
+      en: "Multidisciplinary",
+      tr: "Çok Disiplinli",
+      de: "Multidisziplinär",
+      fr: "Multidisciplinaire",
+      es: "Multidisciplinario",
+      ar: "متعدد التخصصات",
+    },
+    domain: {
+      en: "General Purpose",
+      tr: "Genel Amaçlı",
+      de: "Allzweck",
+      fr: "Usage général",
+      es: "Propósito general",
+      ar: "أغراض عامة",
+    },
+    socialPurpose: {
+      en: "Knowledge Accessibility",
+      tr: "Bilgiye Erişilebilirlik",
+      de: "Wissenszugänglichkeit",
+      fr: "Accessibilité des connaissances",
+      es: "Accesibilidad al conocimiento",
+      ar: "إمكانية الوصول إلى المعرفة",
     },
   },
 ];
@@ -1656,6 +1786,12 @@ export function resolveFreeToolCategoryTagline(
 export function resolveFreeToolCategoryIcon(slug: string): string {
   const category = getFreeToolCategoryBySlug(slug);
   return category?.icon ?? "FolderOpen";
+}
+
+/** Resolve the premium SVG symbol string for a given category slug. */
+export function resolveFreeToolCategorySymbolSvg(slug: string): string {
+  const category = getFreeToolCategoryBySlug(slug);
+  return category?.symbolSvg ?? SYM_OTHER;
 }
 
 export function resolveFreeToolCategoryField(slug: string, locale: string): string {

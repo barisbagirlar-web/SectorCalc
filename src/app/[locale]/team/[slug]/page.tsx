@@ -14,6 +14,10 @@ import {
 } from "@/lib/seo/academic-team-pages";
 import { buildAcademicTeamProfileJsonLd } from "@/lib/semantic/build-academic-team-profile-jsonld";
 
+// Team profile pages are server-rendered (not pre-built) to avoid SSG
+// module-not-found on large static trees. This keeps the build fast and stable.
+export const dynamic = "force-dynamic";
+
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams(): Array<{ locale: string; slug: string }> {

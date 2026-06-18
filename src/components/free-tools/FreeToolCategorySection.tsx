@@ -39,10 +39,10 @@ export function FreeToolCategorySection({
 
   return (
     <section className="mb-12" data-category-slug={slug}>
-      {/* Category header — premium style */}
+      {/* Category header — premium line-art SVG symbol */}
       <div className="mb-2 flex items-center gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-copper/30 bg-white">
-          <FreeToolCategoryIcon iconKey={iconKey} />
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-copper/30 bg-white">
+          <FreeToolCategoryIcon iconKey={iconKey} className="h-6 w-6 text-copper" />
         </div>
         <div className="min-w-0">
           <h2 className="text-lg font-semibold tracking-tight text-gray-900">

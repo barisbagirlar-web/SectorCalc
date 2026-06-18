@@ -99,7 +99,7 @@ export default async function IndustriesPage({ params }: PageProps) {
             {/* Category grid — premium category tiles with field/domain/social purpose */}
             <div className="mb-8">
               <h2 className="mb-4 text-lg font-bold text-gray-800">
-                {t("categoryTitle")}
+                {t("functionTitle")}
               </h2>
               <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
                 <CategoriesHubGrid

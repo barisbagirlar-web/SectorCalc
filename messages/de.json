@@ -1816,7 +1816,8 @@
     "metaDescription": "Fertigung, Bauwesen, Energie, Logistik, Finanzen und mehr. Branchenspezifische Rechner.",
     "subtitle": "Entdecken Sie Rechner für Ihre Branche.",
     "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
-    "categoryTitle": "NACH SEKTOR DURCHSUCHEN"
+    "categoryTitle": "NACH SEKTOR DURCHSUCHEN",
+    "functionTitle": "NACH FUNKTION DURCHSUCHEN"
   },
   "calculator": {
     "calculate": "Jetzt berechnen",
@@ -3526,7 +3527,8 @@
       "reportSubmitFailed": "Meldung konnte nicht gesendet werden. Bitte erneut versuchen.",
       "calculationStandardLabel": "Berechnungsstandard",
       "voteCorrectMessage": "Schnelle Bedienerbewertung: Berechnungsergebnis scheint korrekt.",
-      "voteIncorrectMessage": "Schnelle Bedienerbewertung: Berechnungsergebnis scheint fehlerhaft."
+      "voteIncorrectMessage": "Schnelle Bedienerbewertung: Berechnungsergebnis scheint fehlerhaft.",
+      "unitSuffix": "{label} unit"
     },
     "freeForm": {
       "defaultDescription": "Schnelle Branchenrechnung — Eingaben eintragen für das Ergebnis.",
@@ -3554,7 +3556,9 @@
       "reportClose": "Schließen",
       "reportMessageTooShort": "Bitte mindestens 10 Zeichen eingeben.",
       "reportSubmitFailed": "Meldung konnte nicht gesendet werden. Bitte erneut versuchen.",
-      "unitSuffix": "{label} Einheit"
+      "unitSuffix": "{label} Einheit",
+      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
     },
     "aboutTool": {
       "sectionLabel": "Über dieses Tool",
@@ -67872,7 +67876,37 @@
     "signInToSave": "Melden Sie sich an, um Entscheidungsübersichten zu speichern.",
     "saveFailed": "Übersicht konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
     "saving": "Wird gespeichert…",
-    "calcId": "Berechnungs-ID"
+    "calcId": "Berechnungs-ID",
+    "glossaryUi": {
+      "enterErpWebhookUrl": "ERP-Webhook-URL eingeben",
+      "preparingPdf": "PDF wird erstellt…",
+      "downloadPdf": "PDF herunterladen",
+      "sending": "Wird gesendet…",
+      "sendToErp": "An ERP senden",
+      "sentToErp": "An ERP gesendet",
+      "sendFailed": "Senden fehlgeschlagen",
+      "cbamComplianceSummary": "CBAM-Konformitätsübersicht",
+      "carbonFootprint": "CO2-Fußabdruck",
+      "cbamAdjustment": "CBAM-Anpassung",
+      "status": "Status",
+      "sectorcalcCalculationReport": "SectorCalc Berechnungsbericht",
+      "trustTrace": "Trust Trace",
+      "toolLabel": "Werkzeug:",
+      "reportIdLabel": "Berichts-ID:",
+      "validationStamp": "Validierungsstempel:",
+      "primaryResultLabel": "Primärergebnis:",
+      "verifyQrCode": "QR-Code verifizieren",
+      "verificationHash": "Verifizierungs-Hash",
+      "verifyWithReportIdAt": "Mit Berichts-ID verifizieren unter",
+      "productCarbonFootprint": "Produkt-CO2-Fußabdruck",
+      "cbam": "CBAM",
+      "metric": "Kennzahl",
+      "value": "Wert",
+      "technicalSimulationOnly": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
+      "sectorSpecificCalculator": "Branchenspezifischer Rechner — Eingaben eingeben, um Ergebnisse zu sehen.",
+      "calculatorModuleNotFound": "Rechnermodul nicht gefunden.",
+      "failedToLoadCalculator": "Rechner konnte nicht geladen werden."
+    }
   },
   "freeTlInputs": {
     "medicare-part-d-calculator": {
@@ -67893,36 +67927,6 @@
     "subtitle": "Finden Sie Berechnungswerkzeuge nach Branche, Berufsfeld und Geschäftsmodell.",
     "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
     "categoryTitle": "NACH BRANCHE DURCHSUCHEN"
-  },
-  "glossaryUi": {
-    "enterErpWebhookUrl": "ERP-Webhook-URL eingeben",
-    "preparingPdf": "PDF wird erstellt…",
-    "downloadPdf": "PDF herunterladen",
-    "sending": "Wird gesendet…",
-    "sendToErp": "An ERP senden",
-    "sentToErp": "An ERP gesendet",
-    "sendFailed": "Senden fehlgeschlagen",
-    "cbamComplianceSummary": "CBAM-Konformitätsübersicht",
-    "carbonFootprint": "CO2-Fußabdruck",
-    "cbamAdjustment": "CBAM-Anpassung",
-    "status": "Status",
-    "sectorcalcCalculationReport": "SectorCalc Berechnungsbericht",
-    "trustTrace": "Trust Trace",
-    "toolLabel": "Werkzeug:",
-    "reportIdLabel": "Berichts-ID:",
-    "validationStamp": "Validierungsstempel:",
-    "primaryResultLabel": "Primärergebnis:",
-    "verifyQrCode": "QR-Code verifizieren",
-    "verificationHash": "Verifizierungs-Hash",
-    "verifyWithReportIdAt": "Mit Berichts-ID verifizieren unter",
-    "productCarbonFootprint": "Produkt-CO2-Fußabdruck",
-    "cbam": "CBAM",
-    "metric": "Kennzahl",
-    "value": "Wert",
-    "technicalSimulationOnly": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
-    "sectorSpecificCalculator": "Branchenspezifischer Rechner — Eingaben eingeben, um Ergebnisse zu sehen.",
-    "calculatorModuleNotFound": "Rechnermodul nicht gefunden.",
-    "failedToLoadCalculator": "Rechner konnte nicht geladen werden."
   },
   "toolFinder": {
     "eyebrow": "Werkzeugfinder",

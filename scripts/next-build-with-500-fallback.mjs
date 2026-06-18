@@ -19,6 +19,7 @@ import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs"
 
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
+const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
 const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
 const PERSISTENT_BUILD_LOG = join(ROOT, ".vercel-last-build.log");
@@ -341,6 +342,8 @@ try {
       console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
+      // Remove webpack filesystem cache — corrupted JSON causes SSG parse failures.
+      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
       continue;
@@ -350,6 +353,7 @@ try {
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
+      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
     }

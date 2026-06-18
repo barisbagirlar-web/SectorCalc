@@ -69,6 +69,11 @@ try {
   ensureManifestStubs();
   console.log("firebase-hosting-build: running full npm run build pipeline…");
   run("npm", ["run", "build"]);
+
+  // Finalize build artifacts (export-marker.json, 500 fallback, etc.)
+  run("node", ["scripts/finalize-next-build.mjs"]);
+  run("node", ["scripts/validate-next-build.mjs"]);
+  console.log("firebase-hosting-build: build complete, ready for Firebase deploy.");
 } finally {
   releaseGlobalBuildLock();
 }

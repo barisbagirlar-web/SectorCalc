@@ -65,25 +65,18 @@ export function FreeToolsCategoryGroupedContent({
     return groups;
   }, [filteredTools]);
 
-  // Build ordered category sections
+  // Build ordered category sections (includes "other" from registry)
   const categorySections = useMemo(() => {
     const sections: Array<{
       slug: FreeToolCategorySlug;
       tools: ToolData[];
     }> = [];
 
-    // Add sorted known categories
     for (const cat of getOrderedFreeToolCategories()) {
       const catTools = categoryGroups.get(cat.slug);
       if (catTools && catTools.length > 0) {
         sections.push({ slug: cat.slug, tools: catTools });
       }
-    }
-
-    // Add any unmatched tools under "other"
-    const otherTools = categoryGroups.get("other");
-    if (otherTools && otherTools.length > 0) {
-      sections.push({ slug: "other", tools: otherTools });
     }
 
     return sections;

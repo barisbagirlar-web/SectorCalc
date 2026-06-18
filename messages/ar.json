@@ -1811,7 +1811,8 @@
     "metaDescription": "التصنيع، البناء، الطاقة، اللوجستيات، المالية، وغيرها. حاسبات خاصة بكل قطاع صناعي.",
     "subtitle": "اكتشف الحاسبات المناسبة لصناعتك.",
     "searchPlaceholder": "ابحث عن قطاع، مهنة، أو أداة...",
-    "categoryTitle": "تصفح حسب القطاع"
+    "categoryTitle": "تصفح حسب القطاع",
+    "functionTitle": "تصفح حسب الوظيفة"
   },
   "calculator": {
     "calculate": "احسب الآن",
@@ -3548,7 +3549,8 @@
       "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى.",
       "calculationStandardLabel": "معيار الحساب",
       "voteCorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو صحيحة.",
-      "voteIncorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو غير صحيحة."
+      "voteIncorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو غير صحيحة.",
+      "unitSuffix": "{label} unit"
     },
     "freeForm": {
       "defaultDescription": "حساب قطاعي سريع — أدخل المدخلات لرؤية النتيجة.",
@@ -3576,7 +3578,9 @@
       "reportClose": "إغلاق",
       "reportMessageTooShort": "يرجى إدخال 10 أحرف على الأقل.",
       "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى.",
-      "unitSuffix": "{label} وحدة"
+      "unitSuffix": "{label} وحدة",
+      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
     },
     "aboutTool": {
       "sectionLabel": "حول هذه الأداة",
@@ -67864,43 +67868,43 @@
     "signInToSave": "سجل الدخول لحفظ ملخصات القرار.",
     "saveFailed": "تعذر حفظ الملخص. يرجى المحاولة مرة أخرى.",
     "saving": "جارٍ الحفظ…",
-    "calcId": "معرف الحساب"
+    "calcId": "معرف الحساب",
+    "glossaryUi": {
+      "enterErpWebhookUrl": "أدخل رابط webhook لنظام ERP",
+      "preparingPdf": "جارٍ تحضير PDF…",
+      "downloadPdf": "تحميل PDF",
+      "sending": "جارٍ الإرسال…",
+      "sendToErp": "إرسال إلى ERP",
+      "sentToErp": "تم الإرسال إلى ERP",
+      "sendFailed": "فشل الإرسال",
+      "cbamComplianceSummary": "ملخص الامتثال لـ CBAM",
+      "carbonFootprint": "البصمة الكربونية",
+      "cbamAdjustment": "تعديل CBAM",
+      "status": "الحالة",
+      "sectorcalcCalculationReport": "تقرير حساب SectorCalc",
+      "trustTrace": "Trust Trace",
+      "toolLabel": "الأداة:",
+      "reportIdLabel": "معرف التقرير:",
+      "validationStamp": "ختم التحقق:",
+      "primaryResultLabel": "النتيجة الأساسية:",
+      "verifyQrCode": "التحقق من رمز QR",
+      "verificationHash": "تجزئة التحقق",
+      "verifyWithReportIdAt": "تحقق باستخدام معرف التقرير في",
+      "productCarbonFootprint": "البصمة الكربونية للمنتج",
+      "cbam": "CBAM",
+      "metric": "المقياس",
+      "value": "القيمة",
+      "technicalSimulationOnly": "محاكاة فنية فقط. ليست نصيحة مالية أو قانونية أو هندسية.",
+      "sectorSpecificCalculator": "آلة حاسبة خاصة بالقطاع — أدخل المدخلات لرؤية النتائج.",
+      "calculatorModuleNotFound": "لم يتم العثور على وحدة الحساب.",
+      "failedToLoadCalculator": "فشل تحميل الآلة الحاسبة."
+    }
   },
   "sector": {
     "title": "حاسبات القطاع",
     "subtitle": "ابحث عن أدوات الحساب حسب قطاعك، ومهنتك، ونموذج عملك.",
     "searchPlaceholder": "ابحث عن قطاع، مهنة، أو أداة...",
     "categoryTitle": "تصفح حسب القطاع"
-  },
-  "glossaryUi": {
-    "enterErpWebhookUrl": "أدخل رابط webhook لنظام ERP",
-    "preparingPdf": "جارٍ تحضير PDF…",
-    "downloadPdf": "تحميل PDF",
-    "sending": "جارٍ الإرسال…",
-    "sendToErp": "إرسال إلى ERP",
-    "sentToErp": "تم الإرسال إلى ERP",
-    "sendFailed": "فشل الإرسال",
-    "cbamComplianceSummary": "ملخص الامتثال لـ CBAM",
-    "carbonFootprint": "البصمة الكربونية",
-    "cbamAdjustment": "تعديل CBAM",
-    "status": "الحالة",
-    "sectorcalcCalculationReport": "تقرير حساب SectorCalc",
-    "trustTrace": "Trust Trace",
-    "toolLabel": "الأداة:",
-    "reportIdLabel": "معرف التقرير:",
-    "validationStamp": "ختم التحقق:",
-    "primaryResultLabel": "النتيجة الأساسية:",
-    "verifyQrCode": "التحقق من رمز QR",
-    "verificationHash": "تجزئة التحقق",
-    "verifyWithReportIdAt": "تحقق باستخدام معرف التقرير في",
-    "productCarbonFootprint": "البصمة الكربونية للمنتج",
-    "cbam": "CBAM",
-    "metric": "المقياس",
-    "value": "القيمة",
-    "technicalSimulationOnly": "محاكاة فنية فقط. ليست نصيحة مالية أو قانونية أو هندسية.",
-    "sectorSpecificCalculator": "آلة حاسبة خاصة بالقطاع — أدخل المدخلات لرؤية النتائج.",
-    "calculatorModuleNotFound": "لم يتم العثور على وحدة الحساب.",
-    "failedToLoadCalculator": "فشل تحميل الآلة الحاسبة."
   },
   "toolFinder": {
     "eyebrow": "باحث الأدوات",

@@ -1,82 +1,14 @@
 /**
- * Premium-style category icon resolver.
- * Maps iconKey strings to actual Lucide components for optimal tree-shaking.
+ * Free Tool Category Icon — Premium line-art SVG symbol renderer.
+ *
+ * Renders the premium-style SVG symbol for a given free tool category.
+ * Falls back to the generic "other" symbol for unknown slugs.
+ *
+ * The SVGs use 48×48 viewBox with stroke-width="1.5" and currentColor stroke,
+ * matching the premium-categories.ts design language (copper/navy tones).
  */
 
-import {
-  Landmark,
-  Sigma,
-  Monitor,
-  Zap,
-  Leaf,
-  Cog,
-  Anvil,
-  FlaskConical,
-  ShieldAlert,
-  Wrench,
-  HardHat,
-  Users,
-  Warehouse,
-  Salad,
-  ArrowLeftRight,
-  Shirt,
-  Thermometer,
-  Package,
-  Globe,
-  Cpu,
-  Calculator,
-  Heart,
-  Ruler,
-  CarFront,
-  Ship,
-  Pickaxe,
-  Armchair,
-  Sparkles,
-  Droplets,
-  Luggage,
-  GraduationCap,
-  KeyRound,
-  Plane,
-  FolderOpen,
-  type LucideIcon,
-} from "lucide-react";
-
-const ICON_MAP: Readonly<Record<string, LucideIcon>> = {
-  Landmark,
-  Sigma,
-  Monitor,
-  Zap,
-  Leaf,
-  Cog,
-  Anvil,
-  FlaskConical,
-  ShieldAlert,
-  Wrench,
-  HardHat,
-  Users,
-  Warehouse,
-  Salad,
-  ArrowLeftRight,
-  Shirt,
-  Thermometer,
-  Package,
-  Globe,
-  Cpu,
-  Calculator,
-  Heart,
-  Ruler,
-  CarFront,
-  Ship,
-  Pickaxe,
-  Armchair,
-  Sparkles,
-  Droplets,
-  Luggage,
-  GraduationCap,
-  KeyRound,
-  Plane,
-  FolderOpen,
-};
+import { resolveFreeToolCategorySymbolSvg } from "@/lib/free-tools/free-tool-categories";
 
 type FreeToolCategoryIconProps = {
   readonly iconKey: string;
@@ -87,6 +19,17 @@ export function FreeToolCategoryIcon({
   iconKey,
   className = "h-5 w-5 text-copper",
 }: FreeToolCategoryIconProps) {
-  const Icon = ICON_MAP[iconKey] ?? FolderOpen;
-  return <Icon className={className} aria-hidden="true" />;
+  const svgString = resolveFreeToolCategorySymbolSvg(iconKey);
+
+  if (!svgString) {
+    return null;
+  }
+
+  return (
+    <span
+      className={className}
+      aria-hidden="true"
+      dangerouslySetInnerHTML={{ __html: svgString }}
+    />
+  );
 }

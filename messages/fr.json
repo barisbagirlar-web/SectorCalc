@@ -1821,7 +1821,8 @@
     "metaDescription": "Fabrication, construction, énergie, logistique, finance et plus encore. Calculateurs spécifiques à chaque secteur.",
     "subtitle": "Découvrez les calculateurs pour votre secteur d'activité.",
     "searchPlaceholder": "Rechercher un secteur, un métier ou un outil...",
-    "categoryTitle": "PARCOURIR PAR SECTEUR"
+    "categoryTitle": "PARCOURIR PAR SECTEUR",
+    "functionTitle": "PARCOURIR PAR FONCTION"
   },
   "calculator": {
     "calculate": "Calculer",
@@ -3526,7 +3527,8 @@
       "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez.",
       "calculationStandardLabel": "Norme de calcul",
       "voteCorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble correct.",
-      "voteIncorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble incorrect."
+      "voteIncorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble incorrect.",
+      "unitSuffix": "{label} unit"
     },
     "freeForm": {
       "defaultDescription": "Calcul sectoriel rapide — saisissez les entrées pour voir le résultat.",
@@ -3554,7 +3556,9 @@
       "reportClose": "Fermer",
       "reportMessageTooShort": "Veuillez saisir au moins 10 caractères.",
       "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez.",
-      "unitSuffix": "{label} unité"
+      "unitSuffix": "{label} unité",
+      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
     },
     "aboutTool": {
       "sectionLabel": "À propos de cet outil",
@@ -67869,43 +67873,43 @@
     "signInToSave": "Connectez-vous pour enregistrer des résumés de décision.",
     "saveFailed": "Impossible d'enregistrer le résumé. Veuillez réessayer.",
     "saving": "Enregistrement…",
-    "calcId": "ID de calcul"
+    "calcId": "ID de calcul",
+    "glossaryUi": {
+      "enterErpWebhookUrl": "Saisir l'URL du webhook ERP",
+      "preparingPdf": "Préparation du PDF…",
+      "downloadPdf": "Télécharger le PDF",
+      "sending": "Envoi en cours…",
+      "sendToErp": "Envoyer à l'ERP",
+      "sentToErp": "Envoyé à l'ERP",
+      "sendFailed": "Échec de l'envoi",
+      "cbamComplianceSummary": "Résumé de conformité CBAM",
+      "carbonFootprint": "Empreinte carbone",
+      "cbamAdjustment": "Ajustement CBAM",
+      "status": "Statut",
+      "sectorcalcCalculationReport": "Rapport de calcul SectorCalc",
+      "trustTrace": "Trust Trace",
+      "toolLabel": "Outil :",
+      "reportIdLabel": "ID du rapport :",
+      "validationStamp": "Cachet de validation :",
+      "primaryResultLabel": "Résultat principal :",
+      "verifyQrCode": "Vérifier le code QR",
+      "verificationHash": "Hash de vérification",
+      "verifyWithReportIdAt": "Vérifier avec l'ID du rapport sur",
+      "productCarbonFootprint": "Empreinte carbone du produit",
+      "cbam": "CBAM",
+      "metric": "Métrique",
+      "value": "Valeur",
+      "technicalSimulationOnly": "Simulation technique uniquement. Pas un conseil financier, juridique ou d'ingénierie.",
+      "sectorSpecificCalculator": "Calculateur sectoriel — saisissez les données pour voir les résultats.",
+      "calculatorModuleNotFound": "Module de calcul introuvable.",
+      "failedToLoadCalculator": "Échec du chargement du calculateur."
+    }
   },
   "sector": {
     "title": "Calculateurs Sectoriels",
     "subtitle": "Trouvez des outils de calcul par secteur, métier et modèle d'entreprise.",
     "searchPlaceholder": "Rechercher un secteur, un métier ou un outil...",
     "categoryTitle": "PARCOURIR PAR SECTEUR"
-  },
-  "glossaryUi": {
-    "enterErpWebhookUrl": "Saisir l'URL du webhook ERP",
-    "preparingPdf": "Préparation du PDF…",
-    "downloadPdf": "Télécharger le PDF",
-    "sending": "Envoi en cours…",
-    "sendToErp": "Envoyer à l'ERP",
-    "sentToErp": "Envoyé à l'ERP",
-    "sendFailed": "Échec de l'envoi",
-    "cbamComplianceSummary": "Résumé de conformité CBAM",
-    "carbonFootprint": "Empreinte carbone",
-    "cbamAdjustment": "Ajustement CBAM",
-    "status": "Statut",
-    "sectorcalcCalculationReport": "Rapport de calcul SectorCalc",
-    "trustTrace": "Trust Trace",
-    "toolLabel": "Outil :",
-    "reportIdLabel": "ID du rapport :",
-    "validationStamp": "Cachet de validation :",
-    "primaryResultLabel": "Résultat principal :",
-    "verifyQrCode": "Vérifier le code QR",
-    "verificationHash": "Hash de vérification",
-    "verifyWithReportIdAt": "Vérifier avec l'ID du rapport sur",
-    "productCarbonFootprint": "Empreinte carbone du produit",
-    "cbam": "CBAM",
-    "metric": "Métrique",
-    "value": "Valeur",
-    "technicalSimulationOnly": "Simulation technique uniquement. Pas un conseil financier, juridique ou d'ingénierie.",
-    "sectorSpecificCalculator": "Calculateur sectoriel — saisissez les données pour voir les résultats.",
-    "calculatorModuleNotFound": "Module de calcul introuvable.",
-    "failedToLoadCalculator": "Échec du chargement du calculateur."
   },
   "toolFinder": {
     "eyebrow": "Chercheur d'outils",
