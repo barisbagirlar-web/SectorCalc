@@ -121,9 +121,12 @@ export type GeneratedToolResult = {
   readonly [key: string]: unknown;
 };
 
+export type TrustGateStatus = "PASS" | "WARN" | "FAIL" | "RUNTIME_FAIL" | "QUARANTINE";
+
 export type GeneratedCalculatorModule = {
   readonly inputSchema: import("zod").ZodTypeAny;
   readonly calculate: (input: Record<string, unknown>) => GeneratedToolResult;
+  readonly trustStatus?: TrustGateStatus;
 };
 
 export type GeneratedInputGroup = {

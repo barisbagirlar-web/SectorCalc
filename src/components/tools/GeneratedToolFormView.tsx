@@ -38,7 +38,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("generatedTool");
-  const { loading, error, calculator, zodSchema } = useToolSchema(slug, schema);
+  const { loading, error, calculator, zodSchema, trustStatus } = useToolSchema(slug, schema);
   const [result, setResult] = useState<GeneratedToolResult | null>(null);
   const [lastInputs, setLastInputs] = useState<Record<string, unknown>>({});
 
@@ -77,6 +77,8 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     );
   }
 
+  const isQuarantine = trustStatus === "QUARANTINE";
+
   const handleCalculate = (values: Record<string, unknown>) => {
     setLastInputs(values);
     setResult(runGeneratedToolCalculation(calculator, values));
@@ -110,6 +112,13 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
       {result && formattedPrimary ? (
         <ClaimReviewJsonLd claimReviewed={`${title}: ${formattedPrimary}`} pageUrl={pageUrl} />
       ) : null}
+
+      {isQuarantine ? (
+        <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <strong className="font-semibold">{t("quarantineWarning")}</strong>
+        </div>
+      ) : null}
+
       {isPremium ? (
         <DynamicToolForm
           slug={slug}

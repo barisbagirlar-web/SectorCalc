@@ -9,7 +9,7 @@ import { join } from "node:path";
 const ROOT = join(import.meta.dirname, "..");
 const TRANSLATIONS_PATH = join(ROOT, "scripts/data/free-tool-catalog-translations.json");
 const OUT_JSON = join(ROOT, "src/data/free-tool-catalog-i18n.generated.json");
-const LOCALES = ["tr", "de", "fr", "es", "ar"];
+const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 
 const translations = JSON.parse(readFileSync(TRANSLATIONS_PATH, "utf8"));
 

@@ -3522,6 +3522,7 @@
     "diagramAlt": "مخطط {title} التوضيحي",
     "loading": "جارٍ تحميل الحاسبة…",
     "loadError": "تعذّر تحميل وحدة الحاسبة.",
+    "quarantineWarning": "تستخدم هذه الحاسبة صيغًا تقديرية — تحقق من النتائج وفقًا لمعاييرك.",
     "premiumUpsell": {
       "ariaLabel": "الترقية إلى التحليل المميز",
       "message": "هل تريد تحليلاً أكثر تفصيلاً لهذا الحساب؟",
@@ -66324,7 +66325,18 @@
       "low": "ثقة منخفضة"
     },
     "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
-    "aiAnalysisLabel": "تحليل هندسي مدعوم بالذكاء الاصطناعي"
+    "aiAnalysisLabel": "تحليل هندسي مدعوم بالذكاء الاصطناعي",
+    "priority_immediate": "فوري",
+    "priority_short_term": "قصير المدى",
+    "priority_long_term": "طويل المدى",
+    "fieldNote_assumptions": "افتراضات النموذج",
+    "fieldNote_dataQuality": "جودة البيانات",
+    "fieldNote_expertConsult": "استشارة خبير مطلوبة",
+    "fieldNote_boundary": "الظروف الحدودية ونطاق الصلاحية",
+    "fieldNote_nextDepth": "تحليلات إضافية موصى بها",
+    "fieldNote_regulatory": "المعايير واللوائح",
+    "fieldNote_default": "ملاحظة فنية",
+    "expectedImpact": "الأثر المتوقع: "
   },
   "developerShowcase": {
     "meta": {

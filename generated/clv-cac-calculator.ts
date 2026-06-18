@@ -30,10 +30,12 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Clv_cac_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.purchase_frequency * input.avg_order_value; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.purchase_frequency * input.avg_order_value * (1 + (input.gross_margin_pct / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.purchase_frequency * input.avg_order_value * (1 + (input.gross_margin_pct / 100)) * (input.customer_lifetime_years); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.customer_lifetime_years; results["factor_customer_lifetime_years"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_customer_lifetime_years"] = 0; }
+  try { const v = input.purchase_frequency * input.avg_order_value; results["annual_revenue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_revenue"] = 0; }
+  try { const v = input.purchase_frequency * input.avg_order_value * (input.gross_margin_pct / 100); results["annual_gross_profit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_gross_profit"] = 0; }
+  try { const v = input.purchase_frequency * input.avg_order_value * (input.gross_margin_pct / 100) * input.customer_lifetime_years; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (asFormulaNumber(results["result"])) / input.cac_total; results["clv_cac_ratio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["clv_cac_ratio"] = 0; }
+  try { const v = 100 - input.retention_rate; results["churn_rate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["churn_rate"] = 0; }
+  try { const v = input.cac_total / (input.purchase_frequency * input.avg_order_value * input.gross_margin_pct / 100 / 12); results["payback_months"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["payback_months"] = 0; }
   return results;
 }
 
@@ -48,8 +50,8 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["Customer churn beyond modeled retention rate","Unpaid referrals and word-of-mouth value not captured","Cross-sell and upsell revenue not included"];
+  const suggestedActions: string[] = ["Increase retention rate by 5% to improve CLV by 15-20%","Reduce CAC through referral program or channel optimization","Segment customers by profitability — focus on top 20%"];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
@@ -61,7 +63,7 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario simulation","Benchmarking against industry standards (WERC, Lean Six Sigma)","Automated alerting via email"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario simulation","Cohort analysis & segmentation","Automated alerting via email"],
   };
 }
 

@@ -19,10 +19,15 @@ const nextConfig: NextConfig = {
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 300,
   webpack: (config, { dev }) => {
-    // Webpack filesystem cache disabled for reliability on macOS.
-    // Without it, clean compilation is slower but avoids OOM and corruption issues.
+    // Webpack filesystem cache — use dedicated per-build cache directory.
     if (!dev) {
-      config.cache = false;
+      config.cache = {
+        type: "filesystem",
+        cacheDirectory: path.join(process.cwd(), "node_modules/.cache/webpack"),
+        buildDependencies: {
+          config: [path.join(process.cwd(), "next.config.ts")],
+        },
+      };
     }
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -39,7 +44,7 @@ const nextConfig: NextConfig = {
     staticGenerationRetryCount: 5,
     // Avoid SSG worker batching races (missing page.js) on large locale trees.
     workerThreads: false,
-    cpus: 1,
+    cpus: 2,
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 50,
   },

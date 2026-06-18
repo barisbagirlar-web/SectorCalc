@@ -8,7 +8,7 @@
     "CSV export",
     "Trend analysis",
     "Multi-scenario simulation",
-    "Benchmarking against industry standards (WERC, Lean Six Sigma)",
+    "Cohort analysis & segmentation",
     "Automated alerting via email"
   ],
   "inputs": [
@@ -282,36 +282,51 @@
     ]
   },
   "formulas": {
-    "base_cost": "purchase_frequency * avg_order_value",
-    "adjusted_cost": "purchase_frequency * avg_order_value * (1 + (gross_margin_pct / 100))",
-    "result": "purchase_frequency * avg_order_value * (1 + (gross_margin_pct / 100)) * (customer_lifetime_years)",
-    "factor_customer_lifetime_years": "customer_lifetime_years"
+    "annual_revenue": "purchase_frequency * avg_order_value",
+    "annual_gross_profit": "purchase_frequency * avg_order_value * (gross_margin_pct / 100)",
+    "result": "purchase_frequency * avg_order_value * (gross_margin_pct / 100) * customer_lifetime_years",
+    "clv_cac_ratio": "result / cac_total",
+    "churn_rate": "100 - retention_rate",
+    "payback_months": "cac_total / (purchase_frequency * avg_order_value * gross_margin_pct / 100 / 12)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_customer_lifetime_years"
+      "annual_revenue",
+      "annual_gross_profit",
+      "result",
+      "clv_cac_ratio",
+      "payback_months",
+      "churn_rate"
     ],
+    "breakdownUnits": {
+      "annual_revenue": "USD",
+      "annual_gross_profit": "USD",
+      "result": "USD",
+      "clv_cac_ratio": "ratio",
+      "payback_months": "months",
+      "churn_rate": "%"
+    },
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "Customer churn beyond modeled retention rate",
+      "Unpaid referrals and word-of-mouth value not captured",
+      "Cross-sell and upsell revenue not included"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Increase retention rate by 5% to improve CLV by 15-20%",
+      "Reduce CAC through referral program or channel optimization",
+      "Segment customers by profitability — focus on top 20%"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"
   },
-  "catalogCategory": "everyday-life",
-  "sectorSlug": "daily-renovation",
+  "catalogCategory": "finance-business",
+  "sectorSlug": "finance-sales",
   "categorySlug": "finance-sales-working-capital",
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Ticaret",
+  "category": "Finans & Satış",
+  "sector": "Finans & İK",
   "toolName": "clv-cac-calculator",
-  "sectorId": "perakende",
-  "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "sectorId": "finans",
+  "profession": "Pazarlama Müdürü",
+  "categoryId": "finance"
 }

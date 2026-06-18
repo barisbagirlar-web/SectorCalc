@@ -14,6 +14,7 @@ export type UseToolSchemaState = {
   readonly error: string | null;
   readonly calculator: GeneratedCalculatorModule | null;
   readonly zodSchema: z.ZodTypeAny | null;
+  readonly trustStatus: string | null;
 };
 
 export function useToolSchema(slug: string, _schema: GeneratedToolSchema): UseToolSchemaState {
@@ -64,6 +65,7 @@ export function useToolSchema(slug: string, _schema: GeneratedToolSchema): UseTo
     error,
     calculator,
     zodSchema,
+    trustStatus: calculator?.trustStatus ?? null,
   };
 }
 

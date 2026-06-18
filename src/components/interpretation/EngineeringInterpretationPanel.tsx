@@ -32,9 +32,9 @@ const SEVERITY_COLORS: Record<InterpretationRisk["severity"], string> = {
 };
 
 const PRIORITY_LABELS: Record<InterpretationRecommendation["priority"], string> = {
-  immediate: "Acil / Immediate",
-  short_term: "Kısa Vade / Short-term",
-  long_term: "Uzun Vade / Long-term",
+  immediate: "immediate",
+  short_term: "short_term",
+  long_term: "long_term",
 };
 
 const PRIORITY_COLORS: Record<InterpretationRecommendation["priority"], string> = {
@@ -98,10 +98,10 @@ function SeverityBadge({ severity }: { severity: InterpretationRisk["severity"] 
   );
 }
 
-function PriorityBadge({ priority }: { priority: InterpretationRecommendation["priority"] }) {
+function PriorityBadge({ priority, label }: { priority: InterpretationRecommendation["priority"]; label: string }) {
   return (
     <span className={`inline-block rounded-full px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-wider ${PRIORITY_COLORS[priority]}`}>
-      {PRIORITY_LABELS[priority]}
+      {label}
     </span>
   );
 }
@@ -137,75 +137,29 @@ function LoadingSkeleton() {
 function FieldNoteCard({
   note,
   index,
-  locale,
+  tFieldNote,
 }: {
   note: string;
   index: number;
-  locale: string;
+  tFieldNote: (key: string) => string;
 }) {
   /* Detect category from content */
   const matched = FN_CATEGORY_PATTERNS.find((cat) =>
     cat.patterns.some((p) => p.test(note)),
   );
 
-  const CATEGORY_LABELS: Record<string, string> = {
-    fieldNoteAssumptions:
-      locale === "tr" ? "Model Varsayımları" :
-      locale === "de" ? "Modellannahmen" :
-      locale === "fr" ? "Hypothèses du Modèle" :
-      locale === "es" ? "Supuestos del Modelo" :
-      locale === "ar" ? "افتراضات النموذج" :
-      "Model Assumptions",
-
-    fieldNoteDataQuality:
-      locale === "tr" ? "Veri Kalitesi" :
-      locale === "de" ? "Datenqualität" :
-      locale === "fr" ? "Qualité des Données" :
-      locale === "es" ? "Calidad de los Datos" :
-      locale === "ar" ? "جودة البيانات" :
-      "Data Quality",
-
-    fieldNoteExpertConsult:
-      locale === "tr" ? "Uzman Görüşü Gerekiyor" :
-      locale === "de" ? "Expertenrat Erforderlich" :
-      locale === "fr" ? "Avis d'Expert Requis" :
-      locale === "es" ? "Se Requiere Opinión de Experto" :
-      locale === "ar" ? "استشارة خبير مطلوبة" :
-      "Expert Consultation Required",
-
-    fieldNoteBoundary:
-      locale === "tr" ? "Sınır Koşulları ve Geçerlilik Aralığı" :
-      locale === "de" ? "Grenzbedingungen und Gültigkeitsbereich" :
-      locale === "fr" ? "Conditions aux Limites et Plage de Validité" :
-      locale === "es" ? "Condiciones Límite y Rango de Validez" :
-      locale === "ar" ? "الظروف الحدودية ونطاق الصلاحية" :
-      "Boundary Conditions & Validity Range",
-
-    fieldNoteNextDepth:
-      locale === "tr" ? "İleri Analiz Önerileri" :
-      locale === "de" ? "Weiterführende Analysen" :
-      locale === "fr" ? "Analyses Approfondies Recommandées" :
-      locale === "es" ? "Análisis Adicionales Recomendados" :
-      locale === "ar" ? "تحليلات إضافية موصى بها" :
-      "Recommended Further Analysis",
-
-    fieldNoteRegulatory:
-      locale === "tr" ? "Standartlar ve Mevzuat" :
-      locale === "de" ? "Normen und Vorschriften" :
-      locale === "fr" ? "Normes et Réglementation" :
-      locale === "es" ? "Normas y Reglamentación" :
-      locale === "ar" ? "المعايير واللوائح" :
-      "Standards & Regulatory Compliance",
+  const CATEGORY_KEYS: Record<string, string> = {
+    fieldNoteAssumptions: "fieldNote_assumptions",
+    fieldNoteDataQuality: "fieldNote_dataQuality",
+    fieldNoteExpertConsult: "fieldNote_expertConsult",
+    fieldNoteBoundary: "fieldNote_boundary",
+    fieldNoteNextDepth: "fieldNote_nextDepth",
+    fieldNoteRegulatory: "fieldNote_regulatory",
   };
 
   const categoryLabel = matched
-    ? CATEGORY_LABELS[matched.labelKey] ?? "Technical Advisory"
-    : (locale === "tr" ? "Teknik Not" :
-       locale === "de" ? "Technische Notiz" :
-       locale === "fr" ? "Note Technique" :
-       locale === "es" ? "Nota Técnica" :
-       locale === "ar" ? "ملاحظة فنية" :
-       "Technical Advisory");
+    ? tFieldNote(CATEGORY_KEYS[matched.labelKey] ?? "fieldNote_default")
+    : tFieldNote("fieldNote_default");
 
   /* Split into "header" (first sentence fragment before colon) and body */
   const colonIdx = note.indexOf(":");
@@ -253,7 +207,6 @@ export function EngineeringInterpretationPanel({
   const t = useTranslations("engineeringInterpretation");
   const [state, setState] = useState<PanelState>({ status: "idle" });
   const fetchRef = useRef(false);
-  const locale = request.locale;
 
   const fetchInterpretation = useCallback(async () => {
     if (fetchRef.current) return;
@@ -439,16 +392,11 @@ export function EngineeringInterpretationPanel({
               >
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <span className="text-sm font-bold text-slate-900">{rec.action}</span>
-                  <PriorityBadge priority={rec.priority} />
+                  <PriorityBadge priority={rec.priority} label={t(`priority_${rec.priority}`)} />
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   <span className="font-semibold text-slate-700">
-                    {locale === "tr" ? "Beklenen Etki: " :
-                     locale === "de" ? "Erwartete Auswirkung: " :
-                     locale === "fr" ? "Impact Attendu: " :
-                     locale === "es" ? "Impacto Esperado: " :
-                     locale === "ar" ? "الأثر المتوقع: " :
-                     "Expected Impact: "}
+                    {t("expectedImpact")}
                   </span>
                   {rec.expectedImpact}
                 </p>
@@ -471,7 +419,7 @@ export function EngineeringInterpretationPanel({
                 key={`fn-${index}`}
                 note={note}
                 index={index}
-                locale={locale}
+                tFieldNote={t}
               />
             ))}
           </div>
