@@ -22,7 +22,7 @@ export function calculateCBAM(
     complianceStatus,
     recommendations:
       complianceStatus === "warning"
-        ? ["Karbon ayak izinizi azaltmak için yenilenebilir enerji kullanın."]
+        ? ["Use renewable energy to reduce your carbon footprint."]
         : [],
   };
 }

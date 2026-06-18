@@ -3,6 +3,7 @@ import { TOOL_REFERENCE_CREATOR } from "@/config/tool-reference-creator";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { absoluteLocalizedUrl, SITE_URL } from "@/lib/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 
 export function buildGeneratedToolProductJsonLd(input: {
   readonly toolName: string;
@@ -47,7 +48,10 @@ export function buildGeneratedToolProductJsonLd(input: {
         affiliation: TOOL_REFERENCE_CREATOR.affiliation,
       },
       reviewBody:
-        "Industrial calculation methodology reviewed for formula transparency and sector applicability.",
+        translateCalculatorPhrase(
+          "Industrial calculation methodology reviewed for formula transparency and sector applicability.",
+          input.locale,
+        ),
       publisher: { "@id": `${SITE_URL}/#organization` },
     },
   }) as JsonLdRecord;

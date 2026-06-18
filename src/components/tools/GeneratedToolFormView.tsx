@@ -163,7 +163,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
               onClick={handlePrintPremiumReport}
               className="sc-cta-primary sc-ledger-cta-primary min-h-[44px] px-6"
             >
-              ⬇ Premium PDF Raporu İndir
+              ⬇ {t("downloadPdfReport")}
             </button>
           </div>
         </>

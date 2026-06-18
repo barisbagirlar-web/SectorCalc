@@ -121,6 +121,271 @@ const TR_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => TR_CONFIDENCE[level],
 };
 
+
+const DE_LABELS: SevenMudaRev5LabelCore = {
+  quickSummaryTitle: "Entscheidungsübersicht",
+  executiveSummary: "Managementübersicht",
+  totalWasteCost: "Gesamtverschwendungskosten",
+  annualizedWasteCost: "Jährliche Verschwendungskosten",
+  wasteCostPerUnit: "Verschwendungskosten pro Einheit",
+  periodRevenue: "Periodenumsatz",
+  periodGrossMarginValue: "Periodenbruttomarge",
+  wasteToRevenueRatio: "Verschwendungs-Umsatz-Verhältnis",
+  wasteToGrossMarginRatio: "Verschwendungs-Bruttomarge-Verhältnis",
+  highestWasteCategory: "Größte Verschwendungskategorie",
+  firstActionCategory: "Erste Aktionskategorie",
+  confidenceLevel: "Datenvertrauensniveau",
+  riskAdjustedPriorityScore: "Risikobereinigter Prioritätsscore",
+  doubleCountRisk: "Doppelzählungsrisiko",
+  doubleCountDetected: "Erkannt",
+  doubleCountNone: "Keine erkannt",
+  decisionVerdict: "Entscheidungsurteil",
+  summaryLevel: "Zusammenfassungsstufe",
+  biggestCostCategory: "Größte Kostenkategorie",
+  dataConfidence: "Datenvertrauen",
+  wasteBreakdown: "Verschwendungsaufschlüsselung",
+  category: "Kategorie",
+  cost: "Kosten",
+  share: "Anteil",
+  actionPriority: "Aktionspriorität",
+  recommendedActionOrder: "Empfohlene Aktionsreihenfolge",
+  recoveryScenarios: "Rückgewinnungsszenarien",
+  reduction: "Reduzierung",
+  periodSavings: "Periodeneinsparungen",
+  annualSavings: "Jährliche Einsparungen",
+  warnings: "Warnungen",
+  noWarnings: "Keine Warnungen",
+  categoryName: (key) => DE_CATEGORY_NAMES[key],
+  summaryLevelText: (level) => DE_SUMMARY_LEVELS[level],
+  confidenceText: (level) => DE_CONFIDENCE[level],
+};
+
+const DE_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+  none: "Keine Daten eingegeben",
+  overproduction: "Überproduktion",
+  waiting: "Warten",
+  transport: "Transport",
+  inventory: "Bestand",
+  motion: "Bewegung",
+  overprocessing: "Überbearbeitung",
+  defects: "Ausschuss",
+};
+
+const DE_SUMMARY_LEVELS: Record<
+  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  string
+> = {
+  no_detected_waste: "Keine Verschwendung erkannt",
+  low: "Niedrige Exposition",
+  medium: "Mittlere Exposition",
+  high: "Hohe Exposition",
+  critical: "Kritische Exposition",
+};
+
+const DE_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+  high: "Hoch",
+  medium: "Mittel",
+  low: "Niedrig",
+};
+
+const FR_LABELS: SevenMudaRev5LabelCore = {
+  quickSummaryTitle: "Résumé rapide",
+  executiveSummary: "Synthèse",
+  totalWasteCost: "Coût total des déchets",
+  annualizedWasteCost: "Coût annualisé des déchets",
+  wasteCostPerUnit: "Coût des déchets par unité",
+  periodRevenue: "Chiffre d'affaires de la période",
+  periodGrossMarginValue: "Marge brute de la période",
+  wasteToRevenueRatio: "Ratio déchets/chiffre d'affaires",
+  wasteToGrossMarginRatio: "Ratio déchets/marge brute",
+  highestWasteCategory: "Catégorie de déchets la plus importante",
+  firstActionCategory: "Première catégorie d'action",
+  confidenceLevel: "Niveau de confiance des données",
+  riskAdjustedPriorityScore: "Score de priorité ajusté au risque",
+  doubleCountRisk: "Risque de double comptage",
+  doubleCountDetected: "Détecté",
+  doubleCountNone: "Aucun détecté",
+  decisionVerdict: "Verdict de décision",
+  summaryLevel: "Niveau de résumé",
+  biggestCostCategory: "Catégorie de coût la plus élevée",
+  dataConfidence: "Confiance des données",
+  wasteBreakdown: "Répartition des déchets",
+  category: "Catégorie",
+  cost: "Coût",
+  share: "Part",
+  actionPriority: "Priorité d'action",
+  recommendedActionOrder: "Ordre d'action recommandé",
+  recoveryScenarios: "Scénarios de récupération",
+  reduction: "Réduction",
+  periodSavings: "Économies de la période",
+  annualSavings: "Économies annualisées",
+  warnings: "Avertissements",
+  noWarnings: "Aucun avertissement",
+  categoryName: (key) => FR_CATEGORY_NAMES[key],
+  summaryLevelText: (level) => FR_SUMMARY_LEVELS[level],
+  confidenceText: (level) => FR_CONFIDENCE[level],
+};
+
+const FR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+  none: "Aucune donnée saisie",
+  overproduction: "Surproduction",
+  waiting: "Attente",
+  transport: "Transport",
+  inventory: "Stock",
+  motion: "Mouvement",
+  overprocessing: "Traitement excessif",
+  defects: "Défauts",
+};
+
+const FR_SUMMARY_LEVELS: Record<
+  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  string
+> = {
+  no_detected_waste: "Aucun déchet détecté",
+  low: "Exposition faible",
+  medium: "Exposition moyenne",
+  high: "Exposition élevée",
+  critical: "Exposition critique",
+};
+
+const FR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+  high: "Élevée",
+  medium: "Moyenne",
+  low: "Faible",
+};
+
+const ES_LABELS: SevenMudaRev5LabelCore = {
+  quickSummaryTitle: "Resumen rápido",
+  executiveSummary: "Resumen ejecutivo",
+  totalWasteCost: "Costo total de desperdicio",
+  annualizedWasteCost: "Costo anualizado de desperdicio",
+  wasteCostPerUnit: "Costo de desperdicio por unidad",
+  periodRevenue: "Ingresos del período",
+  periodGrossMarginValue: "Margen bruto del período",
+  wasteToRevenueRatio: "Relación desperdicio/ingresos",
+  wasteToGrossMarginRatio: "Relación desperdicio/margen bruto",
+  highestWasteCategory: "Categoría de mayor desperdicio",
+  firstActionCategory: "Primera categoría de acción",
+  confidenceLevel: "Nivel de confianza de datos",
+  riskAdjustedPriorityScore: "Puntaje de prioridad ajustado por riesgo",
+  doubleCountRisk: "Riesgo de doble conteo",
+  doubleCountDetected: "Detectado",
+  doubleCountNone: "Ninguno detectado",
+  decisionVerdict: "Veredicto de decisión",
+  summaryLevel: "Nivel de resumen",
+  biggestCostCategory: "Categoría de mayor costo",
+  dataConfidence: "Confianza de datos",
+  wasteBreakdown: "Desglose de desperdicio",
+  category: "Categoría",
+  cost: "Costo",
+  share: "Participación",
+  actionPriority: "Prioridad de acción",
+  recommendedActionOrder: "Orden de acción recomendado",
+  recoveryScenarios: "Escenarios de recuperación",
+  reduction: "Reducción",
+  periodSavings: "Ahorros del período",
+  annualSavings: "Ahorros anuales",
+  warnings: "Advertencias",
+  noWarnings: "Sin advertencias",
+  categoryName: (key) => ES_CATEGORY_NAMES[key],
+  summaryLevelText: (level) => ES_SUMMARY_LEVELS[level],
+  confidenceText: (level) => ES_CONFIDENCE[level],
+};
+
+const ES_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+  none: "Sin datos ingresados",
+  overproduction: "Sobreproducción",
+  waiting: "Espera",
+  transport: "Transporte",
+  inventory: "Inventario",
+  motion: "Movimiento",
+  overprocessing: "Sobreprocesamiento",
+  defects: "Defectos",
+};
+
+const ES_SUMMARY_LEVELS: Record<
+  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  string
+> = {
+  no_detected_waste: "Sin desperdicio detectado",
+  low: "Exposición baja",
+  medium: "Exposición media",
+  high: "Exposición alta",
+  critical: "Exposición crítica",
+};
+
+const ES_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+  high: "Alta",
+  medium: "Media",
+  low: "Baja",
+};
+
+const AR_LABELS: SevenMudaRev5LabelCore = {
+  quickSummaryTitle: "ملخص القرار",
+  executiveSummary: "الملخص التنفيذي",
+  totalWasteCost: "إجمالي تكلفة الهدر",
+  annualizedWasteCost: "تكلفة الهدر السنوية",
+  wasteCostPerUnit: "تكلفة الهدر لكل وحدة",
+  periodRevenue: "إيرادات الفترة",
+  periodGrossMarginValue: "قيمة هامش الربح الإجمالي للفترة",
+  wasteToRevenueRatio: "نسبة الهدر إلى الإيرادات",
+  wasteToGrossMarginRatio: "نسبة الهدر إلى هامش الربح الإجمالي",
+  highestWasteCategory: "أكبر فئة هدر",
+  firstActionCategory: "فئة الإجراء الأول",
+  confidenceLevel: "مستوى الثقة في البيانات",
+  riskAdjustedPriorityScore: "درجة الأولوية المعدلة حسب المخاطر",
+  doubleCountRisk: "خطر الازدواج في العد",
+  doubleCountDetected: "تم الكشف",
+  doubleCountNone: "لم يتم الكشف",
+  decisionVerdict: "حكم القرار",
+  summaryLevel: "مستوى الملخص",
+  biggestCostCategory: "أكبر فئة تكلفة",
+  dataConfidence: "ثقة البيانات",
+  wasteBreakdown: "تفصيل الهدر",
+  category: "الفئة",
+  cost: "التكلفة",
+  share: "الحصة",
+  actionPriority: "أولوية الإجراء",
+  recommendedActionOrder: "ترتيب الإجراءات الموصى بها",
+  recoveryScenarios: "سيناريوهات الاسترداد",
+  reduction: "التخفيض",
+  periodSavings: "توفير الفترة",
+  annualSavings: "التوفير السنوي",
+  warnings: "تحذيرات",
+  noWarnings: "لا توجد تحذيرات",
+  categoryName: (key) => AR_CATEGORY_NAMES[key],
+  summaryLevelText: (level) => AR_SUMMARY_LEVELS[level],
+  confidenceText: (level) => AR_CONFIDENCE[level],
+};
+
+const AR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+  none: "لم يتم إدخال بيانات",
+  overproduction: "إنتاج زائد",
+  waiting: "انتظار",
+  transport: "نقل",
+  inventory: "مخزون",
+  motion: "حركة",
+  overprocessing: "معالجة زائدة",
+  defects: "عيوب",
+};
+
+const AR_SUMMARY_LEVELS: Record<
+  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  string
+> = {
+  no_detected_waste: "لا يوجد هدر مكتشف",
+  low: "تعرض منخفض",
+  medium: "تعرض متوسط",
+  high: "تعرض عالي",
+  critical: "تعرض حرج",
+};
+
+const AR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+  high: "عالية",
+  medium: "متوسطة",
+  low: "منخفضة",
+};
+
 const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   none: "No data entered",
   overproduction: "Overproduction",
@@ -182,11 +447,11 @@ const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
   readonly tr: string;
 }> = [
   {
-    en: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
+    en: "Analysis period exceeds annual working days. Annualized result may be inversely scaled.",
     tr: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
   },
   {
-    en: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
+    en: "Manual opportunity cost mode selected but hourly opportunity cost is zero. Waiting cost assumed zero.",
     tr: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
   },
 ];
@@ -213,8 +478,15 @@ export function resolveSevenMudaRev5WarningMessage(locale: string, rawWarning: s
   return createResolveWarningMessage(locale)(rawWarning);
 }
 
+const LOCALE_LABEL_MAP: Record<string, SevenMudaRev5LabelCore> = {
+  tr: TR_LABELS,
+  de: DE_LABELS,
+  fr: FR_LABELS,
+  es: ES_LABELS,
+  ar: AR_LABELS,
+};
+
 export function resolveSevenMudaRev5Labels(locale: string): SevenMudaRev5Labels {
-  return normalizeLocale(locale) === "tr"
-    ? withWarningResolver(TR_LABELS, locale)
-    : withWarningResolver(EN_LABELS, locale);
+  const base = LOCALE_LABEL_MAP[normalizeLocale(locale)] ?? EN_LABELS;
+  return withWarningResolver(base, locale);
 }

@@ -18,12 +18,7 @@ interface FreeToolResultDisplayProps {
  sector: RevenueSector;
 }
 
-const LOCKED_VERDICT_ITEMS = [
- "P90 safe price",
- "Margin leak breakdown",
- "Recommended action",
- "Sensitivity matrix",
-] as const;
+const LOCKED_VERDICT_ITEMS_COUNT = 4;
 
 export function FreeToolResultDisplay({
  riskScore,
@@ -67,17 +62,17 @@ export function FreeToolResultDisplay({
 
  <div className="overflow-hidden rounded-sm border border-amber/25 bg-deep-navy p-6">
  <p className="text-xs font-semibold uppercase tracking-wider text-amber">
- Withheld from free tier
+ {t("withheldFromFree")}
  </p>
  <ul className="mt-4 space-y-2.5">
- {LOCKED_VERDICT_ITEMS.map((item) => (
+ {Array.from({ length: LOCKED_VERDICT_ITEMS_COUNT }, (_, i) => (
  <li
- key={item}
+ key={i}
  className="flex items-center justify-between gap-3 text-sm text-white/75"
  >
- <span>{item}</span>
+ <span>{t(`lockedVerdictItems.${i}`)}</span>
  <span className="shrink-0 font-mono text-xs uppercase tracking-wider text-amber/80">
- Pro
+ {t("proBadge")}
  </span>
  </li>
  ))}

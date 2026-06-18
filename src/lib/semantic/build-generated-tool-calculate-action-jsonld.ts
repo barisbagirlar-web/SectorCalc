@@ -1,6 +1,7 @@
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { absoluteLocalizedUrl, absoluteUrl } from "@/lib/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 
 export function buildGeneratedToolCalculateActionJsonLd(input: {
   readonly toolName: string;
@@ -40,8 +41,8 @@ export function buildGeneratedToolCalculateActionJsonLd(input: {
     },
     instrument: input.schema.inputs.map((param) => ({
       "@type": "PropertyValueSpecification",
-      name: param.label,
-      description: param.businessContext,
+      name: resolveGeneratedI18nText(param.label_i18n, input.locale, param.label),
+      description: resolveGeneratedI18nText(param.businessContext_i18n, input.locale, param.businessContext),
       unitText: param.unit,
       valueRequired: true,
       valueName: param.id,
