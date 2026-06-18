@@ -33,6 +33,8 @@ import {
  cbamCategoryFromProductionTons,
  cityFromTier,
 } from "@/lib/tools/calculation-formulas";
+import { getPremiumLegalNote, normalizeLocale } from "@/lib/format/localization";
+import type { SupportedLocale } from "@/lib/format/localization";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -478,6 +480,14 @@ function calcRoute(values: PremiumInputValues): BaseCostMeta {
  };
 }
 
+function validateStringOpt<T extends string>(
+  values: PremiumInputValues, key: string, valid: readonly T[], fallback: T,
+): T {
+  const v = values[key];
+  const s = typeof v === "string" ? v : fallback;
+  return (valid as readonly string[]).includes(s) ? s as T : fallback;
+}
+
 function calcCrop(values: PremiumInputValues): BaseCostMeta {
  const area = num(values, "areaHectares");
  const yieldResult = calculateCropYieldOptimizerResult({
@@ -547,12 +557,12 @@ function calcEnergy(values: PremiumInputValues): BaseCostMeta {
 }
 
 function calcCbam(values: PremiumInputValues): BaseCostMeta {
- const source = (values.energySource as string) || "electricity";
+ const source = String(values.energySource ?? "electricity");
  const prod = num(values, "productionTons");
  const cbam = calculateCbamComplianceResult({
  productionTons: prod,
  productCategory: cbamCategoryFromProductionTons(prod),
- energySource: source as "coal" | "gas" | "electricity" | "renewable",
+ energySource: (["coal", "gas", "electricity", "renewable"].includes(source) ? source : "electricity") as "coal" | "gas" | "electricity" | "renewable",
  euImportValueEur: num(values, "euImportValue") || 1,
  processEfficiency: Math.max(0, 100 - (num(values, "processEmissionsFactor") || 0.2) * 10),
  transportDistanceKm: yes(values, "includesTransport") ? 800 : 0,
@@ -565,14 +575,14 @@ function calcCbam(values: PremiumInputValues): BaseCostMeta {
 }
 
 function calcRenovation(values: PremiumInputValues): BaseCostMeta {
- const quality = (values.materialQuality as string) || "standard";
- const season = (values.season as string) || "summer";
- const budget = calculateRenovationBudgetOptimizerResult({
+const quality = validateStringOpt(values, "materialQuality", ["basic", "standard", "premium"] as const, "standard");
+const season = validateStringOpt(values, "season", ["summer", "winter"] as const, "summer");
+const budget = calculateRenovationBudgetOptimizerResult({
  areaM2: num(values, "areaM2"),
- materialQuality: quality as "basic" | "standard" | "premium",
+ materialQuality: quality,
  includeLabor: yes(values, "includeLabor"),
- city: cityFromTier((values.cityTier as string) || "standard"),
- season: season as "summer" | "winter",
+ city: cityFromTier(String(values.cityTier ?? "standard")),
+ season: season,
  buildingAge: season === "winter" ? 25 : 12,
  floorCount: 3,
  });
@@ -822,7 +832,8 @@ function buildReportSections(
 
 export function calculatePremiumDecisionReport(
  slug: string,
- values: PremiumInputValues
+ values: PremiumInputValues,
+ locale: SupportedLocale | string = "en",
 ): PremiumDecisionReport {
  const contract = getPremiumToolContract(slug);
  if (!contract) {
@@ -941,7 +952,7 @@ export function calculatePremiumDecisionReport(
  hiddenLossDrivers,
  sensitivity
  ),
- legalNote: LEGAL_NOTE,
+ legalNote: getPremiumLegalNote(normalizeLocale(locale)),
  architecture: {
   profile: fallbackProfile,
   fieldPanel,

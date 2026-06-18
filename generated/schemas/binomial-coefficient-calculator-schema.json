@@ -100,7 +100,7 @@
   ],
   "formulas": {
     "k_eff": "(useSymmetry && k > n/2) ? n - k : k",
-    "breakdownFormula": "`C(n,k) = n! / (k! * (n-k)!)`"
+    "breakdownFormula": "k_eff === 0 || k_eff === n ? 1 : k_eff === 1 ? n : k_eff === 2 ? n*(n-1)/2 : k_eff === 3 ? n*(n-1)*(n-2)/6 : k_eff === 4 ? n*(n-1)*(n-2)*(n-3)/24 : k_eff === 5 ? n*(n-1)*(n-2)*(n-3)*(n-4)/120 : 0"
   },
   "outputs": {
     "primary": "breakdownFormula",

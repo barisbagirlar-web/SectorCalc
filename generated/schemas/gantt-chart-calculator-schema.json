@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "tasks",
       "default": 5,
-      "businessContext": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
+      "businessContext": "Total number of tasks. Increasing tasks may extend project duration.",
       "label_i18n": {
         "en": "Number of Tasks",
         "tr": "Görev Sayısı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Her bir görevin tamamlanması için gereken süre (gün).",
+      "businessContext": "Time required to complete each task (days).",
       "label_i18n": {
         "en": "Duration per Task",
         "tr": "Görev Başına Süre",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
+      "businessContext": "Overlap percentage between consecutive tasks (fast-tracking). Between 0-100%.",
       "label_i18n": {
         "en": "Overlap Percentage",
         "tr": "Örtüşme Yüzdesi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "İlk göreve başlamadan önceki gecikme süresi.",
+      "businessContext": "Delay time before starting the first task.",
       "label_i18n": {
         "en": "Start Delay",
         "tr": "Başlangıç Gecikmesi",

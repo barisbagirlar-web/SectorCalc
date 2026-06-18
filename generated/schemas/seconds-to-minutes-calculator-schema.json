@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Ölçülen saniye cinsinden süre",
+      "businessContext": "Measured duration in seconds",
       "label_i18n": {
         "en": "Saniye",
         "tr": "Seconds",
@@ -27,11 +27,11 @@
     },
     {
       "id": "scaleFactor",
-      "label": "Ölçek Faktörü",
+      "label": "Scale Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
+      "businessContext": "Multiplicative calibration factor (e.g., 1.0002 for clock drift)",
       "label_i18n": {
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
+      "businessContext": "Additive calibration offset (zero error)",
       "label_i18n": {
         "en": "Ofset (Saniye)",
         "tr": "Offset (Seconds)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "ondalık basamak",
       "default": 2,
-      "businessContext": "Çıktı dakika için ondalık basamak sayısı",
+      "businessContext": "Number of decimal places for output minutes",
       "label_i18n": {
         "en": "Yuvarlama Hassasiyeti",
         "tr": "Rounding Precision",
@@ -99,11 +99,11 @@
     },
     {
       "id": "roundingMethod",
-      "label": "Yuvarlama Yöntemi",
+      "label": "Rounding Method",
       "type": "number",
       "unit": "kod",
       "default": 1,
-      "businessContext": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
+      "businessContext": "Rounding method: 0=floor, 1=round, 2=ceil",
       "label_i18n": {
         "en": "Rounding method",
         "tr": "Yuvarlama Yöntemi",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Termal kompanzasyon için ortam sıcaklığı",
+      "businessContext": "Ambient temperature for thermal compensation",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
@@ -147,11 +147,11 @@
     },
     {
       "id": "tempCoefficient",
-      "label": "Sıcaklık Katsayısı",
+      "label": "Temperature Coefficient",
       "type": "number",
       "unit": "1/°C",
       "default": 0,
-      "businessContext": "°C başına zamanlama hatası sıcaklık katsayısı",
+      "businessContext": "Timing error temperature coefficient per °C",
       "label_i18n": {
         "en": "Temperature coefficient",
         "tr": "Sıcaklık Katsayısı",
@@ -175,7 +175,7 @@
       "type": "number",
       "unit": "%RH",
       "default": 50,
-      "businessContext": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
+      "businessContext": "Relative humidity (included for completeness, usually neglected)",
       "label_i18n": {
         "en": "Nem",
         "tr": "Humidity",

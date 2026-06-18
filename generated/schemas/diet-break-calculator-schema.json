@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "dailyCalories",
-      "label": "Günlük Kalori Hedefi",
+      "label": "Daily Calorie Goal",
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Çalışanın günlük enerji ihtiyacı",
+      "businessContext": "Employee's daily energy requirement",
       "label_i18n": {
         "en": "Daily Calorie Goal",
         "tr": "Günlük Kalori Hedefi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "dietDays",
-      "label": "Diyet Gün Sayısı",
+      "label": "Number of Diet Days",
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Diyet uygulanacak gün sayısı",
+      "businessContext": "Number of days the diet will be applied",
       "label_i18n": {
         "en": "Number of diet days",
         "tr": "Diyet Gün Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "breakDays",
-      "label": "Diyet Arası Gün Sayısı",
+      "label": "Number of Diet Break Days",
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Diyete ara verilecek gün sayısı",
+      "businessContext": "Number of days to take a break from the diet",
       "label_i18n": {
         "en": "Number of diet break days",
         "tr": "Diyet Arası Gün Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "activityFactor",
-      "label": "Aktivite Faktörü",
+      "label": "Activity Factor",
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Sedanter (1.2), Hafif Aktif (1.375), Orta Aktif (1.55), Çok Aktif (1.725)",
+      "businessContext": "Sedentary (1.2), Lightly Active (1.375), Moderately Active (1.55), Very Active (1.725)",
       "label_i18n": {
         "en": "Activity factor",
         "tr": "Aktivite Faktörü",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Çalışanın vücut ağırlığı",
+      "businessContext": "Employee's body weight",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",

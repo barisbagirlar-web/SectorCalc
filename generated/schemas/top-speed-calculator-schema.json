@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "enginePower",
-      "label": "Motor Gücü",
+      "label": "Engine Power",
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
+      "businessContext": "Maximum engine power of the vehicle (in kW). Critical parameter for emission and performance calculations.",
       "label_i18n": {
         "en": "Engine Power",
         "tr": "Motor Gücü",
@@ -27,11 +27,11 @@
     },
     {
       "id": "dragCoefficient",
-      "label": "Sürtünme Katsayısı (Cd)",
+      "label": "Drag Coefficient (Cd)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.3,
-      "businessContext": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
+      "businessContext": "Aerodynamic drag coefficient of the vehicle. Must be validated by wind tunnel tests.",
       "label_i18n": {
         "en": "Drag Coefficient (Cd)",
         "tr": "Sürtünme Katsayısı (Cd)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "frontalArea",
-      "label": "Ön Kesit Alanı",
+      "label": "Frontal Area",
       "type": "number",
       "unit": "m²",
       "default": 2.2,
-      "businessContext": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
+      "businessContext": "Maximum cross-sectional area perpendicular to the vehicle's direction of motion. Should be obtained from CAD model or laser measurement.",
       "label_i18n": {
         "en": "Frontal Area",
         "tr": "Ön Kesit Alanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "vehicleMass",
-      "label": "Araç Kütlesi",
+      "label": "Vehicle Mass",
       "type": "number",
       "unit": "kg",
       "default": 1500,
-      "businessContext": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
+      "businessContext": "Fully loaded mass including driver and fuel. Must be weighed according to ISO 2416.",
       "label_i18n": {
         "en": "Vehicle Mass",
         "tr": "Araç Kütlesi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.015,
-      "businessContext": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+      "businessContext": "Rolling resistance coefficient between tire and road surface. Tested according to SAE J2452.",
       "label_i18n": {
         "en": "Rolling Resistance Coefficient",
         "tr": "Yuvarlanma Direnci Katsayısı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+      "businessContext": "Standard air density at sea level and 15°C. Can be corrected for altitude.",
       "label_i18n": {
         "en": "Air Density",
         "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+      "businessContext": "Total efficiency from engine output to wheels. Must be determined with reliable measurements.",
       "label_i18n": {
         "en": "Drivetrain Efficiency",
         "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",

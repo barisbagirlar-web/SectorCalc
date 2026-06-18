@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "cifValue",
-      "label": "CIF Değeri",
+      "label": "CIF Value",
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Mal bedeli, sigorta ve navlun dahil ithal edilen malın toplam değeri (USD cinsinden).",
+      "businessContext": "Total value of imported goods including cost, insurance, and freight (in USD).",
       "label_i18n": {
         "en": "CIF Value",
         "tr": "CIF Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "customsDutyRate",
-      "label": "Gümrük Vergisi Oranı",
+      "label": "Customs Duty Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Gümrük tarife pozisyonuna göre uygulanan vergi oranı (yüzde).",
+      "businessContext": "Tax rate applied according to the customs tariff position (percentage).",
       "label_i18n": {
         "en": "Customs Duty Rate",
         "tr": "Gümrük Vergisi Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "vatRate",
-      "label": "KDV Oranı",
+      "label": "VAT Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Katma değer vergisi oranı (yüzde).",
+      "businessContext": "Value Added Tax rate (percent).",
       "label_i18n": {
         "en": "VAT Rate",
         "tr": "KDV Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "yerel/1 USD",
       "default": 1,
-      "businessContext": "USD'nin yerel para birimi karşısındaki değeri.",
+      "businessContext": "Value of USD against local currency.",
       "label_i18n": {
         "en": "Exchange Rate",
         "tr": "Döviz Kuru",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Özel tüketim vergisi veya ek gümrük vergisi oranı (varsa, yüzde).",
+      "businessContext": "Special consumption tax or additional customs duty rate (if any, percent).",
       "label_i18n": {
         "en": "Additional Tax Rate",
         "tr": "Ek Vergi Oranı",

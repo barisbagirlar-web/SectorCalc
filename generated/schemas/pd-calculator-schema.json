@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "diameter",
-      "label": "Boru Çapı",
+      "label": "Pipe Diameter",
       "type": "number",
       "unit": "m",
       "default": 0.1,
@@ -27,7 +27,7 @@
     },
     {
       "id": "length",
-      "label": "Boru Uzunluğu",
+      "label": "Pipe Length",
       "type": "number",
       "unit": "m",
       "default": 100,
@@ -75,7 +75,7 @@
     },
     {
       "id": "density",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Fluid Density",
       "type": "number",
       "unit": "kg/m3",
       "default": 998.2,
@@ -123,7 +123,7 @@
     },
     {
       "id": "roughness",
-      "label": "Yüzey Pürüzlülüğü",
+      "label": "Surface Roughness",
       "type": "number",
       "unit": "m",
       "default": 0.000046,

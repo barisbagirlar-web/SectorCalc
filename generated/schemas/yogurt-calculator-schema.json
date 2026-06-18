@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "milkCostPerLiter",
-      "label": "Süt Maliyeti (Litre)",
+      "label": "Milk Cost (Litre)",
       "type": "number",
       "unit": "₺/L",
       "default": 5,
@@ -27,7 +27,7 @@
     },
     {
       "id": "milkYieldPerLiter",
-      "label": "Süt Verimi (kg/L)",
+      "label": "Milk Yield (kg/L)",
       "type": "number",
       "unit": "kg/L",
       "default": 0.95,
@@ -51,11 +51,11 @@
     },
     {
       "id": "starterCultureCostPerBatch",
-      "label": "Starter Kültür Maliyeti (Parti Başına)",
+      "label": "Starter Culture Cost (Per Batch)",
       "type": "number",
       "unit": "₺",
       "default": 10,
-      "businessContext": "Katkı Maliyeti",
+      "businessContext": "Additive Cost",
       "label_i18n": {
         "en": "Starter Culture Cost (per Batch)",
         "tr": "Starter Kültür Maliyeti (Parti Başına)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "batchSizeLiters",
-      "label": "Parti Büyüklüğü (Litre)",
+      "label": "Batch Size (Liters)",
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "Parti Büyüklüğü",
+      "businessContext": "Batch Size",
       "label_i18n": {
         "en": "Batch Size (Liters)",
         "tr": "Parti Büyüklüğü (Litre)",
@@ -99,7 +99,7 @@
     },
     {
       "id": "packagingCostPerKg",
-      "label": "Ambalaj Maliyeti (kg Başına)",
+      "label": "Packaging Cost (Per kg)",
       "type": "number",
       "unit": "₺/kg",
       "default": 2,
@@ -123,7 +123,7 @@
     },
     {
       "id": "overheadCostPerBatch",
-      "label": "Genel Giderler (Parti Başına)",
+      "label": "Overhead Costs (Per Batch)",
       "type": "number",
       "unit": "₺",
       "default": 50,

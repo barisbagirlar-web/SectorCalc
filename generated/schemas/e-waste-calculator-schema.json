@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "deviceCount",
-      "label": "E-waste Cihaz Sayısı",
+      "label": "E-waste Device Count",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Bertaraf edilecek elektronik cihazların toplam sayısı.",
+      "businessContext": "Total number of electronic devices to be disposed of.",
       "label_i18n": {
         "en": "Number of E-waste Devices",
         "tr": "E-atık Cihaz Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "avgWeight",
-      "label": "Ortalama Cihaz Ağırlığı",
+      "label": "Average Device Weight",
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Tek bir cihazın ortalama ağırlığı (kg).",
+      "businessContext": "Average weight of a single device (kg).",
       "label_i18n": {
         "en": "Average Device Weight",
         "tr": "Ortalama Cihaz Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "recyclablePercent",
-      "label": "Geri Dönüştürülebilir Malzeme Oranı",
+      "label": "Recyclable Material Rate",
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Cihazın toplam ağırlığının geri dönüştürülebilir malzeme yüzdesi.",
+      "businessContext": "Percentage of the device's total weight that is recyclable material.",
       "label_i18n": {
         "en": "Recyclable Material Rate",
         "tr": "Geri Dönüştürülebilir Malzeme Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "recoveryRate",
-      "label": "Geri Kazanım Verimliliği",
+      "label": "Recovery Efficiency",
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Geri dönüştürülebilir malzemenin geri kazanım oranı (süreç verimliliği).",
+      "businessContext": "Recovery rate of recyclable material (process efficiency).",
       "label_i18n": {
         "en": "Recovery Efficiency",
         "tr": "Geri Kazanım Verimliliği",

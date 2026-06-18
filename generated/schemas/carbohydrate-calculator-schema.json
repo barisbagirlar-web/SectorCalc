@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı",
+      "businessContext": "Body Weight",
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu",
+      "businessContext": "Height",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Yaşınız",
+      "businessContext": "Your Age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (1:Erkek, 0:Kadın)",
+      "businessContext": "Gender (1:Male, 0:Female)",
       "label_i18n": {
         "en": "Cinsiyet",
         "tr": "Gender",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "PAL",
       "default": 1.55,
-      "businessContext": "Fiziksel aktivite düzeyi faktörü (1.2-2.5)",
+      "businessContext": "Physical activity level factor (1.2-2.5)",
       "label_i18n": {
         "en": "Aktivite Seviyesi",
         "tr": "Activity Level",
@@ -123,11 +123,11 @@
     },
     {
       "id": "carbPercentage",
-      "label": "Karbonhidrat Oranı",
+      "label": "Carbohydrate Ratio",
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Günlük kaloride karbonhidrat yüzdesi",
+      "businessContext": "Percentage of daily calories from carbohydrates",
       "label_i18n": {
         "en": "Carbohydrate ratio",
         "tr": "Karbonhidrat Oranı",

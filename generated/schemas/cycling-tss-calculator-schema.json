@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "durationMinutes",
-      "label": "Antrenman Süresi (dakika)",
+      "label": "Training Duration (minutes)",
       "type": "number",
       "unit": "dk",
       "default": 60,
-      "businessContext": "Toplam sürüş süresi dakika cinsinden.",
+      "businessContext": "Total ride time in minutes.",
       "label_i18n": {
         "en": "Training Duration (minutes)",
         "tr": "Antrenman Süresi (dakika)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "watt",
       "default": 200,
-      "businessContext": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
+      "businessContext": "Normalized power of the ride, in watts. Reflects the physiological cost of variable efforts.",
       "label_i18n": {
         "en": "Normalized Power (NP)",
         "tr": "Normalize Güç (NP)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "watt",
       "default": 250,
-      "businessContext": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
+      "businessContext": "Maximum average power sustainable for one hour, in watts.",
       "label_i18n": {
         "en": "Functional Threshold Power (FTP)",
         "tr": "Fonksiyonel Eşik Gücü (FTP)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "averagePower",
-      "label": "Ortalama Güç",
+      "label": "Average Power",
       "type": "number",
       "unit": "watt",
       "default": 0,
-      "businessContext": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
+      "businessContext": "Arithmetic mean power of the ride. Optional for calculating Variability Index (VI).",
       "label_i18n": {
         "en": "Average Power",
         "tr": "Ortalama Güç",

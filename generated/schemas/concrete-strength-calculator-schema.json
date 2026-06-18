@@ -124,10 +124,10 @@
   ],
   "formulas": {
     "waterCementRatio": "waterContent / cementContent",
-    "waterCementRatio_aux": "waterContent / cementContent"
+    "compressiveStrength": "constantA / (constantB ** (waterContent / cementContent))"
   },
   "outputs": {
-    "primary": "waterCementRatio",
+    "primary": "compressiveStrength",
     "breakdown": [
       {
         "id": "waterCementRatio",
@@ -135,8 +135,13 @@
         "unit": "dimensionless"
       },
       {
-        "id": "strength28Day",
-        "label": "28-Day Strength",
+        "id": "compressiveStrength",
+        "label": "Compressive Strength",
+        "unit": "MPa"
+      },
+      {
+        "id": "strengthAtAge",
+        "label": "Strength at Given Age",
         "unit": "MPa"
       }
     ],
@@ -145,7 +150,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "compressiveStrength",
-    "unit": "%"
+    "unit": "MPa"
   },
   "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
@@ -157,8 +162,39 @@
   "profession": "İnşaat Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "cementContent",
+        "condition": "> 0",
+        "message": "Cement content must be positive"
+      },
+      {
+        "field": "waterContent",
+        "condition": "> 0",
+        "message": "Water content must be positive"
+      },
+      {
+        "field": "age",
+        "condition": ">= 1",
+        "message": "Age must be at least 1 day"
+      },
+      {
+        "field": "constantA",
+        "condition": "> 0",
+        "message": "Constant A must be positive"
+      },
+      {
+        "field": "constantB",
+        "condition": "> 0",
+        "message": "Constant B must be positive"
+      }
+    ],
+    "thresholds": {
+      "compressiveStrength": {
+        "min": 0,
+        "max": 200
+      }
+    }
   },
   "premiumFeatures": []
 }

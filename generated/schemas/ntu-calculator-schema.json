@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "ntus_value",
-      "label": "NTU Değeri",
+      "label": "NTU Value",
       "type": "number",
       "unit": "NTU",
       "default": 15,
-      "businessContext": "Ölçülen bulanıklık değeri (NTU cinsinden).",
+      "businessContext": "Measured turbidity value (in NTU).",
       "label_i18n": {
         "en": "NTU Value",
         "tr": "NTU Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "slope_a",
-      "label": "Eğim Katsayısı (a)",
+      "label": "Slope Coefficient (a)",
       "type": "number",
       "unit": "mg/L/NTU",
       "default": 2.1,
-      "businessContext": "Sahaya özgü kalibrasyon eğimi. TSS = a × NTU + b",
+      "businessContext": "Site-specific calibration slope. TSS = a × NTU + b",
       "label_i18n": {
         "en": "Slope Coefficient (a)",
         "tr": "Eğim Katsayısı (a)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "intercept_b",
-      "label": "Kesişim Sabiti (b)",
+      "label": "Intercept Constant (b)",
       "type": "number",
       "unit": "mg/L",
       "default": 3.2,
-      "businessContext": "Sahaya özgü kalibrasyon kesişim değeri.",
+      "businessContext": "Site-specific calibration intercept value.",
       "label_i18n": {
         "en": "Intercept Constant (b)",
         "tr": "Kesişim Sabiti (b)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "dilution_factor",
-      "label": "Seyreltme Faktörü",
+      "label": "Dilution Factor",
       "type": "number",
       "unit": "birimsiz",
       "default": 1,
-      "businessContext": "Numune seyreltildiyse seyreltme oranı. Seyreltme yoksa 1.",
+      "businessContext": "Dilution ratio if sample was diluted. 1 if no dilution.",
       "label_i18n": {
         "en": "Dilution Factor",
         "tr": "Seyreltme Faktörü",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "indicatedAirSpeed",
-      "label": "Gösterge Hava Hızı (IAS)",
+      "label": "Indicated Airspeed (IAS)",
       "type": "number",
       "unit": "knot",
       "default": 150,
-      "businessContext": "Pitot-statik sistemden okunan hız (knot).",
+      "businessContext": "Speed read from pitot-static system (knots).",
       "label_i18n": {
         "en": "Indicated Airspeed (IAS)",
         "tr": "Gösterge Hava Hızı (IAS)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "pressureAltitude",
-      "label": "Basınç İrtifası",
+      "label": "Pressure Altitude",
       "type": "number",
       "unit": "feet",
       "default": 10000,
-      "businessContext": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet).",
+      "businessContext": "Altitude measured with standard pressure setting (29.92 inHg) in feet.",
       "label_i18n": {
         "en": "Pressure Altitude",
         "tr": "Basınç İrtifası",
@@ -51,11 +51,11 @@
     },
     {
       "id": "outsideAirTemperature",
-      "label": "Dış Hava Sıcaklığı (OAT)",
+      "label": "Outside Air Temperature (OAT)",
       "type": "number",
       "unit": "°C",
       "default": -5,
-      "businessContext": "Serbest hava sıcaklığı (°C).",
+      "businessContext": "Free air temperature (°C).",
       "label_i18n": {
         "en": "Outside Air Temperature (OAT)",
         "tr": "Dış Hava Sıcaklığı (OAT)",

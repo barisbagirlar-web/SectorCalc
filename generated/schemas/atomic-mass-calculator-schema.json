@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "protonCount",
-      "label": "Proton Sayısı",
+      "label": "Proton Number",
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki proton sayısı (atom numarası)",
+      "businessContext": "Number of protons in the atom (atomic number)",
       "label_i18n": {
         "en": "Number of Protons",
         "tr": "Proton Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "neutronCount",
-      "label": "Nötron Sayısı",
+      "label": "Neutron Number",
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki nötron sayısı",
+      "businessContext": "Number of neutrons in the atom",
       "label_i18n": {
         "en": "Number of Neutrons",
         "tr": "Nötron Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
+      "businessContext": "Number of electrons in the atom (equal to number of protons in neutral atom)",
       "label_i18n": {
         "en": "Number of electrons",
         "tr": "Elektron Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "u",
       "default": 1.007276,
-      "businessContext": "Bir protonun atomik kütle birimi cinsinden kütlesi",
+      "businessContext": "Mass of a proton in atomic mass units",
       "label_i18n": {
         "en": "Proton mass",
         "tr": "Proton Kütlesi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "u",
       "default": 1.008665,
-      "businessContext": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
+      "businessContext": "Mass of a neutron in atomic mass units",
       "label_i18n": {
         "en": "Neutron mass",
         "tr": "Nötron Kütlesi",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "u",
       "default": 0.00054858,
-      "businessContext": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
+      "businessContext": "Mass of an electron in atomic mass units",
       "label_i18n": {
         "en": "Electron mass",
         "tr": "Elektron Kütlesi",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "MeV",
       "default": 0,
-      "businessContext": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
+      "businessContext": "Binding energy of the nucleus (optional, for mass correction if available)",
       "label_i18n": {
         "en": "Binding energy",
         "tr": "Bağlanma Enerjisi",

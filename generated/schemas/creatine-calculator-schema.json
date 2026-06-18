@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalUnits",
-      "label": "Toplam Üretim Adedi",
+      "label": "Total Production Quantity",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Toplam üretilecek takviye adedi",
+      "businessContext": "Total number of supplements to be produced",
       "label_i18n": {
         "en": "Total production quantity",
         "tr": "Toplam Üretim Adedi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Her bir ürün başına kreatin miktarı",
+      "businessContext": "Amount of creatine per product",
       "label_i18n": {
         "en": "Birim Dozaj (g)",
         "tr": "Unit Dosage (g)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "lossRate",
-      "label": "Üretim Kayıp Oranı (%)",
+      "label": "Production Loss Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Üretim sürecinde meydana gelen kreatin fire oranı",
+      "businessContext": "Creatine waste rate during production",
       "label_i18n": {
         "en": "Production loss rate (%)",
         "tr": "Üretim Kayıp Oranı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "purity",
-      "label": "Kreatin Saflık Oranı (%)",
+      "label": "Creatine Purity Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 99,
-      "businessContext": "Kullanılan kreatin hammaddesinin saflık yüzdesi",
+      "businessContext": "Purity percentage of the creatine raw material used",
       "label_i18n": {
         "en": "Creatine purity rate (%)",
         "tr": "Kreatin Saflık Oranı (%)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 500,
-      "businessContext": "Kreatin hammaddesinin kg başına maliyeti",
+      "businessContext": "Cost per kg of creatine raw material",
       "label_i18n": {
         "en": "Kreatin Birim Maliyeti (TL/kg)",
         "tr": "Creatine Unit Cost (TL/kg)",

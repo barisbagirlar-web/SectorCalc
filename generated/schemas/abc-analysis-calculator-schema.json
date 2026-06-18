@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualDemand",
-      "label": "Yıllık Talep Miktarı",
+      "label": "Annual Demand Quantity",
       "type": "number",
       "unit": "adet",
       "default": 1200,
-      "businessContext": "Yıllık talep miktarı (adet)",
+      "businessContext": "Annual demand quantity (units)",
       "label_i18n": {
         "en": "Annual Demand Quantity",
         "tr": "Yıllık Talep Miktarı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "totalUsageValue",
-      "label": "Toplam Kullanım Değeri",
+      "label": "Total Usage Value",
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Tüm stok kalemlerinin toplam yıllık kullanım değeri (TL)",
+      "businessContext": "Total annual usage value of all stock items (TL)",
       "label_i18n": {
         "en": "Total Usage Value",
         "tr": "Toplam Kullanım Değeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "aClassThreshold",
-      "label": "A Sınıfı Eşiği",
+      "label": "A Class Threshold",
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "A sınıfı için kümülatif değer yüzdesi eşiği",
+      "businessContext": "Cumulative value percentage threshold for A class",
       "label_i18n": {
         "en": "A Class Threshold",
         "tr": "A Sınıfı Eşiği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "bClassThreshold",
-      "label": "B Sınıfı Eşiği",
+      "label": "B Class Threshold",
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "B sınıfı için kümülatif değer yüzdesi eşiği",
+      "businessContext": "Cumulative value percentage threshold for B class",
       "label_i18n": {
         "en": "B Class Threshold",
         "tr": "B Sınıfı Eşiği",

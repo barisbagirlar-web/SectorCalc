@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "massReactantFed",
-      "label": "Reaktan Kütlesi",
+      "label": "Reactant Mass",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Reaktöre beslenen toplam reaktan kütlesi",
+      "businessContext": "Total reactant mass fed to reactor",
       "label_i18n": {
         "en": "Reactant mass",
         "tr": "Reaktan Kütlesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "molarMassReactant",
-      "label": "Reaktan Mol Kütlesi",
+      "label": "Reactant Molar Mass",
       "type": "number",
       "unit": "kg/kmol",
       "default": 50,
-      "businessContext": "Reaktanın molar kütlesi",
+      "businessContext": "Molar mass of reactant",
       "label_i18n": {
         "en": "Reactant molar mass",
         "tr": "Reaktan Mol Kütlesi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "conversion",
-      "label": "Dönüşüm Oranı",
+      "label": "Conversion Rate",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.5,
-      "businessContext": "Reaktanın fraksiyonel dönüşümü (0–1)",
+      "businessContext": "Fractional conversion of reactant (0–1)",
       "label_i18n": {
         "en": "Conversion Rate",
         "tr": "Dönüşüm Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "massDesired",
-      "label": "İstenen Ürün Kütlesi",
+      "label": "Desired Product Mass",
       "type": "number",
       "unit": "kg",
       "default": 40,
-      "businessContext": "Elde edilen istenen ürün kütlesi",
+      "businessContext": "Mass of desired product obtained",
       "label_i18n": {
         "en": "Desired product mass",
         "tr": "İstenen Ürün Kütlesi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "molarMassDesired",
-      "label": "İstenen Ürün Mol Kütlesi",
+      "label": "Desired Product Molar Mass",
       "type": "number",
       "unit": "kg/kmol",
       "default": 80,
-      "businessContext": "İstenen ürünün molar kütlesi",
+      "businessContext": "Molar mass of desired product",
       "label_i18n": {
         "en": "Molar mass of desired product",
         "tr": "İstenen Ürün Mol Kütlesi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "massUndesired",
-      "label": "İstenmeyen Ürün Kütlesi",
+      "label": "Mass of undesired product",
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Oluşan istenmeyen yan ürün kütlesi",
+      "businessContext": "Mass of undesired byproduct formed",
       "label_i18n": {
         "en": "Mass of undesired product",
         "tr": "İstenmeyen Ürün Kütlesi",
@@ -147,11 +147,11 @@
     },
     {
       "id": "molarMassUndesired",
-      "label": "İstenmeyen Ürün Mol Kütlesi",
+      "label": "Molar mass of undesired product",
       "type": "number",
       "unit": "kg/kmol",
       "default": 60,
-      "businessContext": "İstenmeyen ürünün molar kütlesi",
+      "businessContext": "Molar mass of undesired product",
       "label_i18n": {
         "en": "Molar mass of undesired product",
         "tr": "İstenmeyen Ürün Mol Kütlesi",

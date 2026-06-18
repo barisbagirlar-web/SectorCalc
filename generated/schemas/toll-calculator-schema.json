@@ -27,11 +27,11 @@
     },
     {
       "id": "base_toll_rate",
-      "label": "Temel Geçiş Ücreti (TL/km)",
+      "label": "Base Toll Rate (TL/km)",
       "type": "number",
       "unit": "TL/km",
       "default": 0.25,
-      "businessContext": "Araç sınıfına göre km başına temel ücret",
+      "businessContext": "Base rate per km according to vehicle class",
       "label_i18n": {
         "en": "Base Toll Rate (TL/km)",
         "tr": "Temel Geçiş Ücreti (TL/km)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "axle_multiplier",
-      "label": "Aks/Köprü Çarpanı",
+      "label": "Axle/Bridge Multiplier",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
+      "businessContext": "Multiplier based on number of axles or class (e.g., 2 axles:1.0, 3 axles:1.5, 4 axles:2.0)",
       "label_i18n": {
         "en": "Axle/Bridge Multiplier",
         "tr": "Aks/Köprü Çarpanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fixed_toll_fee",
-      "label": "Sabit Geçiş Ücreti (TL)",
+      "label": "Fixed Toll Fee (TL)",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Varsa sabit köprü/otoyol giriş ücreti",
+      "businessContext": "Fixed bridge/highway entry fee if applicable",
       "label_i18n": {
         "en": "Fixed Toll Fee (TL)",
         "tr": "Sabit Geçiş Ücreti (TL)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "weight_factor",
-      "label": "Ağırlık Faktörü",
+      "label": "Weight Factor",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
+      "businessContext": "Environmental or infrastructure contribution multiplier based on vehicle weight (e.g., >10 tons)",
       "label_i18n": {
         "en": "Weight Factor",
         "tr": "Ağırlık Faktörü",
@@ -123,11 +123,11 @@
     },
     {
       "id": "vat_rate",
-      "label": "KDV Oranı (%)",
+      "label": "VAT Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Uygulanan katma değer vergisi oranı",
+      "businessContext": "Applied value-added tax rate",
       "label_i18n": {
         "en": "VAT rate (%)",
         "tr": "KDV Oranı (%)",

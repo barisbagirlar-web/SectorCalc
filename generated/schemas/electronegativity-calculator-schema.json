@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "ionizationEnergy",
-      "label": "Iyonlaşma Enerjisi",
+      "label": "Ionization Energy",
       "type": "number",
       "unit": "eV",
       "default": 13.6,
-      "businessContext": "Elementin birinci iyonlaşma enerjisi.",
+      "businessContext": "First ionization energy of the element.",
       "label_i18n": {
         "en": "Ionization Energy",
         "tr": "İyonlaşma Enerjisi",
@@ -27,7 +27,7 @@
     },
     {
       "id": "electronAffinity",
-      "label": "Elektron İlgisi",
+      "label": "Electron Affinity",
       "type": "number",
       "unit": "eV",
       "default": 0.754,
@@ -51,11 +51,11 @@
     },
     {
       "id": "effectiveNuclearCharge",
-      "label": "Efektif Nükleer Yük (Z_eff)",
+      "label": "Effective Nuclear Charge (Z_eff)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Slater kurallarına göre hesaplanmış efektif nükleer yük.",
+      "businessContext": "Effective nuclear charge calculated according to Slater's rules.",
       "label_i18n": {
         "en": "Effective Nuclear Charge (Z_eff)",
         "tr": "Efektif Nükleer Yük (Z_eff)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "covalentRadius",
-      "label": "Kovalent Yarıçap",
+      "label": "Covalent Radius",
       "type": "number",
       "unit": "Å",
       "default": 0.37,
-      "businessContext": "Elementin kovalent yarıçapı.",
+      "businessContext": "Covalent radius of the element.",
       "label_i18n": {
         "en": "Covalent Radius",
         "tr": "Kovalent Yarıçap",

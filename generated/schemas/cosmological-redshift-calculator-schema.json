@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "observedWavelength",
-      "label": "Gözlenen Dalga Boyu",
+      "label": "Observed Wavelength",
       "type": "number",
       "unit": "nm",
       "default": 656.3,
-      "businessContext": "Kırmızıya kayan spektrum çizgisinin ölçülen dalga boyu",
+      "businessContext": "Measured wavelength of the redshifted spectral line",
       "label_i18n": {
         "en": "Observed wavelength",
         "tr": "Gözlenen Dalga Boyu",
@@ -27,7 +27,7 @@
     },
     {
       "id": "emittedWavelength",
-      "label": "Yayılan Dalga Boyu",
+      "label": "Emitted Wavelength",
       "type": "number",
       "unit": "nm",
       "default": 656.3,
@@ -51,7 +51,7 @@
     },
     {
       "id": "speedOfLight",
-      "label": "Işık Hızı",
+      "label": "Speed of Light",
       "type": "number",
       "unit": "km/s",
       "default": 299792,
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "km/s/Mpc",
       "default": 70,
-      "businessContext": "Evrenin genişleme hızı",
+      "businessContext": "Expansion rate of the universe",
       "label_i18n": {
         "en": "Hubble Sabiti",
         "tr": "Hubble Constant",

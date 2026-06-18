@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Maksimum tek tekrar kaldırabileceğiniz ağırlık",
+      "businessContext": "Maximum weight you can lift for one repetition",
       "label_i18n": {
         "en": "1RM (kg)",
         "tr": "1TM (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "trainingMaxPercent",
-      "label": "Training Max Yüzdesi (%)",
+      "label": "Training Max Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Genellikle %90 kullanılır",
+      "businessContext": "Usually 90% is used",
       "label_i18n": {
         "en": "Training Max Percentage (%)",
         "tr": "Training Max Yüzdesi (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "set1Percent",
-      "label": "1. Set Yüzdesi (%)",
+      "label": "1st Set Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "İlk çalışma setinin training max'e göre yüzdesi",
+      "businessContext": "Percentage of the first working set relative to training max",
       "label_i18n": {
         "en": "1st Set Percentage (%)",
         "tr": "1. Set Yüzdesi (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "set2Percent",
-      "label": "2. Set Yüzdesi (%)",
+      "label": "2nd Set Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "İkinci çalışma setinin yüzdesi",
+      "businessContext": "Percentage of the second working set",
       "label_i18n": {
         "en": "2nd Set Percentage (%)",
         "tr": "2. Set Yüzdesi (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "set3Percent",
-      "label": "3. Set Yüzdesi (%)",
+      "label": "3rd Set Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Son çalışma setinin yüzdesi",
+      "businessContext": "Percentage of the last working set",
       "label_i18n": {
         "en": "3rd Set Percentage (%)",
         "tr": "3. Set Yüzdesi (%)",

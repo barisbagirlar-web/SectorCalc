@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "maskInt": "cidr === 0 ? 0 : (0xFFFFFFFF << (32 - cidr)) >>> 0",
-    "maskInt_aux": "cidr === 0 ? 0 : (0xFFFFFFFF << (32 - cidr)) >>> 0"
+    "maskInt": "cidr === 0 ? 0 : (4294967295 << (32 - cidr)) >>> 0",
+    "maskInt_aux": "cidr === 0 ? 0 : (4294967295 << (32 - cidr)) >>> 0"
   },
   "outputs": {
     "primary": "maskInt_aux",

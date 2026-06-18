@@ -29,8 +29,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Concrete_yield_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.cementMass + input.waterMass + input.fineAggregateMass + input.coarseAggregateMass + input.admixtureMass; results["totalMass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = (input.cementMass + input.waterMass + input.fineAggregateMass + input.coarseAggregateMass + input.admixtureMass) / input.freshDensity; results["yieldVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldVolume"] = 0; }
-  try { const v = ((input.cementMass + input.waterMass + input.fineAggregateMass + input.coarseAggregateMass + input.admixtureMass) / input.freshDensity) / (input.cementMass / input.bagMass); results["yieldPerBag"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldPerBag"] = 0; }
+  try { const v = (asFormulaNumber(results["totalMass"])) / input.freshDensity; results["yieldVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["yieldVolume"])) / (input.cementMass / input.bagMass); results["yieldPerBag"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldPerBag"] = 0; }
   return results;
 }
 

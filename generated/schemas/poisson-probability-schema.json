@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "lambda",
-      "label": "Ortalama Olay Sayısı (λ)",
+      "label": "Average Number of Events (λ)",
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
+      "businessContext": "Expected average number of events in a given time interval",
       "label_i18n": {
         "en": "Average Number of Events (λ)",
         "tr": "Ortalama Olay Sayısı (λ)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "k",
-      "label": "Hedef Olay Sayısı (k)",
+      "label": "Target Number of Events (k)",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Olasılığı hesaplanacak tam olay sayısı",
+      "businessContext": "Exact number of events for which probability will be calculated",
       "label_i18n": {
         "en": "Target Number of Events (k)",
         "tr": "Hedef Olay Sayısı (k)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "kumulatif",
-      "label": "Kümülatif (k veya daha az)",
+      "label": "Cumulative (k or less)",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Kümülatif olasılık için üst sınır (k dahil)",
+      "businessContext": "Upper bound for cumulative probability (k inclusive)",
       "label_i18n": {
         "en": "Cumulative (k or less)",
         "tr": "Kümülatif (k veya daha az)",

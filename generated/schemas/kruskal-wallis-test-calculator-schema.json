@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n1",
-      "label": "Grup 1 Örneklem Büyüklüğü",
+      "label": "Group 1 Sample Size",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Birinci grubun örneklem büyüklüğü (n1)",
+      "businessContext": "Sample size of the first group (n1)",
       "label_i18n": {
         "en": "Group 1 Sample Size",
         "tr": "Grup 1 Örneklem Büyüklüğü",
@@ -27,11 +27,11 @@
     },
     {
       "id": "n2",
-      "label": "Grup 2 Örneklem Büyüklüğü",
+      "label": "Group 2 Sample Size",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "İkinci grubun örneklem büyüklüğü (n2)",
+      "businessContext": "Sample size of the second group (n2)",
       "label_i18n": {
         "en": "Group 2 Sample Size",
         "tr": "Grup 2 Örneklem Büyüklüğü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "n3",
-      "label": "Grup 3 Örneklem Büyüklüğü",
+      "label": "Group 3 Sample Size",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Üçüncü grubun örneklem büyüklüğü (n3)",
+      "businessContext": "Sample size of the third group (n3)",
       "label_i18n": {
         "en": "Group 3 Sample Size",
         "tr": "Grup 3 Örneklem Büyüklüğü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "R1",
-      "label": "Grup 1 Sıra Toplamı",
+      "label": "Group 1 Rank Sum",
       "type": "number",
       "unit": "unit",
       "default": 100,
-      "businessContext": "Birinci grubun sıra toplamı (R1)",
+      "businessContext": "Rank sum of the first group (R1)",
       "label_i18n": {
         "en": "Group 1 Rank Sum",
         "tr": "Grup 1 Sıra Toplamı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "R2",
-      "label": "Grup 2 Sıra Toplamı",
+      "label": "Group 2 Rank Sum",
       "type": "number",
       "unit": "unit",
       "default": 150,
-      "businessContext": "İkinci grubun sıra toplamı (R2)",
+      "businessContext": "Rank sum of the second group (R2)",
       "label_i18n": {
         "en": "Group 2 Rank Sum",
         "tr": "Grup 2 Sıra Toplamı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "R3",
-      "label": "Grup 3 Sıra Toplamı",
+      "label": "Group 3 Rank Sum",
       "type": "number",
       "unit": "unit",
       "default": 200,
-      "businessContext": "Üçüncü grubun sıra toplamı (R3)",
+      "businessContext": "Rank sum of the third group (R3)",
       "label_i18n": {
         "en": "Group 3 Rank Sum",
         "tr": "Grup 3 Sıra Toplamı",

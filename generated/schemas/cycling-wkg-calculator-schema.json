@@ -114,9 +114,10 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "normalizedWkg",
-    "unit": "kg",
+    "unit": "W/kg",
     "breakdownUnits": {
-      "normalizedWkg": "kg"
+      "totalWeight": "kg",
+      "normalizedWkg": "W/kg"
     }
   },
   "category": "İSG & Risk",

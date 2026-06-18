@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "floorArea",
-      "label": "Toplam Kapalı Alan",
+      "label": "Total Floor Area",
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Binanın toplam kapalı alanı",
+      "businessContext": "Total floor area of the building",
       "label_i18n": {
         "en": "Total floor area",
         "tr": "Toplam Kapalı Alan",
@@ -27,11 +27,11 @@
     },
     {
       "id": "electricity",
-      "label": "Yıllık Elektrik Tüketimi",
+      "label": "Annual Electricity Consumption",
       "type": "number",
       "unit": "kWh",
       "default": 50000,
-      "businessContext": "Şebekeden çekilen yıllık elektrik enerjisi",
+      "businessContext": "Annual electricity energy drawn from the grid",
       "label_i18n": {
         "en": "Annual electricity consumption",
         "tr": "Yıllık Elektrik Tüketimi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "gridFactor",
-      "label": "Elektrik Emisyon Faktörü",
+      "label": "Electricity Emission Factor",
       "type": "number",
       "unit": "kgCO₂/kWh",
       "default": 0.475,
-      "businessContext": "Şebeke elektriği için karbon emisyon faktörü",
+      "businessContext": "Carbon emission factor for grid electricity",
       "label_i18n": {
         "en": "Electricity emission factor",
         "tr": "Elektrik Emisyon Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "gas",
-      "label": "Yıllık Doğalgaz Tüketimi",
+      "label": "Annual Natural Gas Consumption",
       "type": "number",
       "unit": "m³",
       "default": 10000,
-      "businessContext": "Yıllık doğalgaz tüketim miktarı",
+      "businessContext": "Annual natural gas consumption amount",
       "label_i18n": {
         "en": "Annual natural gas consumption",
         "tr": "Yıllık Doğalgaz Tüketimi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "gasFactor",
-      "label": "Doğalgaz Emisyon Faktörü",
+      "label": "Natural Gas Emission Factor",
       "type": "number",
       "unit": "kgCO₂/m³",
       "default": 0.184,
-      "businessContext": "Doğalgazın standart emisyon faktörü",
+      "businessContext": "Standard emission factor for natural gas",
       "label_i18n": {
         "en": "Natural gas emission factor",
         "tr": "Doğalgaz Emisyon Faktörü",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "kWh",
       "default": 10000,
-      "businessContext": "Binada üretilen ve tüketilen yenilenebilir enerji",
+      "businessContext": "Renewable energy produced and consumed in the building",
       "label_i18n": {
         "en": "On-site Renewable Energy",
         "tr": "Sahada Yenilenebilir Enerji",

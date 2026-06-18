@@ -24,7 +24,6 @@ function evaluateAllFormulas(input: Cash_ratio_calculatorInput): Record<string, 
   const results: Record<string, number | string> = {};
   try { const v = input.cash + input.bankDeposits + input.shortTermInvestments; results["totalCash"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCash"] = 0; }
   try { const v = (asFormulaNumber(results["totalCash"])) / input.currentLiabilities; results["cashRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cashRatio"] = 0; }
-  try { const v = input.currentLiabilities; results["currentLiabilities"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["currentLiabilities"] = 0; }
   return results;
 }
 

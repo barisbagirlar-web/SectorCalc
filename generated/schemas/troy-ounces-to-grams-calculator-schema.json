@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "oz t",
       "default": 1,
-      "businessContext": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)",
+      "businessContext": "Weight value to convert (in troy ounces)",
       "label_i18n": {
         "en": "Troy Ons",
         "tr": "Troy Ounce",
@@ -27,11 +27,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Dönüşüm Oranı",
+      "label": "Conversion Rate",
       "type": "number",
       "unit": "g/oz t",
       "default": 31.1034768,
-      "businessContext": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
+      "businessContext": "Gram equivalent of 1 troy ounce. Default is the international standard value.",
       "label_i18n": {
         "en": "Conversion Rate",
         "tr": "Dönüşüm Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to show in the result",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır.",
+      "businessContext": "Number of items with the same weight. Used to calculate total grams.",
       "label_i18n": {
         "en": "Adet",
         "tr": "Quantity",

@@ -28,6 +28,7 @@ function evaluateAllFormulas(input: Coin_value_calculatorInput): Record<string, 
   const results: Record<string, number | string> = {};
   try { const v = input.pennyCount*1 + input.nickelCount*5 + input.dimeCount*10 + input.quarterCount*25 + input.halfDollarCount*50 + input.dollarCoinCount*100; results["totalCents"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCents"] = 0; }
   try { const v = input.pennyCount + input.nickelCount + input.dimeCount + input.quarterCount + input.halfDollarCount + input.dollarCoinCount; results["totalCoins"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCoins"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCents"])) / 100; results["totalDollars"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDollars"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCoin_value_calculator(input: Coin_value_calculatorInput): Coin_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCoins"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalDollars"]);
   const breakdown = {
     
   };

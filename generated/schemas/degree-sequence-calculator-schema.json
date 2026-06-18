@@ -187,7 +187,44 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "d1",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      },
+      {
+        "field": "d2",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      },
+      {
+        "field": "d3",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      },
+      {
+        "field": "d4",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      },
+      {
+        "field": "d5",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      },
+      {
+        "field": "d6",
+        "type": "min",
+        "value": 0,
+        "message": "Degree must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

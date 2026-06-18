@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "hours",
-      "label": "Süre (Saat)",
+      "label": "Time (Hours)",
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Antrenman süresinin saat cinsinden kısmı.",
+      "businessContext": "The hours portion of the training duration.",
       "label_i18n": {
         "en": "Time (Hours)",
         "tr": "Süre (Saat)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "minutes",
-      "label": "Süre (Dakika)",
+      "label": "Time (Minutes)",
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Antrenman süresinin dakika cinsinden kısmı.",
+      "businessContext": "The minutes portion of the training duration.",
       "label_i18n": {
         "en": "Time (Minutes)",
         "tr": "Süre (Dakika)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "ftp",
-      "label": "Fonksiyonel Eşik Güç (FTP)",
+      "label": "Functional Threshold Power (FTP)",
       "type": "number",
       "unit": "Watt",
       "default": 250,
-      "businessContext": "Sporcunun fonksiyonel eşik gücü (watt).",
+      "businessContext": "Athlete's functional threshold power (watts).",
       "label_i18n": {
         "en": "Functional Threshold Power (FTP)",
         "tr": "Fonksiyonel Eşik Güç (FTP)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "Watt",
       "default": 200,
-      "businessContext": "Antrenman seansının normalize gücü (watt).",
+      "businessContext": "Normalized power of the training session (watts).",
       "label_i18n": {
         "en": "Normalized Power (NP)",
         "tr": "Normalize Güç (NP)",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Ürünün vergi hariç birim fiyatı",
+      "businessContext": "Unit price of the product excluding tax",
       "label_i18n": {
         "en": "Birim Fiyat",
         "tr": "Unit Price",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Satılan veya üretilen birim sayısı",
+      "businessContext": "Number of units sold or produced",
       "label_i18n": {
         "en": "Miktar",
         "tr": "Quantity",
@@ -51,11 +51,11 @@
     },
     {
       "id": "adValoremRate",
-      "label": "Ad Valorem Oranı",
+      "label": "Ad Valorem Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Vergi matrahına uygulanan yüzdesel oran",
+      "businessContext": "Percentage rate applied to the tax base",
       "label_i18n": {
         "en": "Ad Valorem rate (%)",
         "tr": "Ad Valorem Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Her birim başına uygulanan sabit vergi tutarı",
+      "businessContext": "Fixed tax amount applied per unit",
       "label_i18n": {
         "en": "Birim Spesifik Vergi",
         "tr": "Specific Tax per Unit",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "n (Toplam Eleman Sayısı)",
+      "label": "n (Total Number of Items)",
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
+      "businessContext": "Total number of items; e.g., total number of products in a production batch.",
       "label_i18n": {
         "en": "n (Total Number of Elements)",
         "tr": "n (Toplam Eleman Sayısı)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "r",
-      "label": "r (Seçilecek Eleman Sayısı)",
+      "label": "r (Number of Items to Select)",
       "type": "number",
       "unit": "unit",
       "default": 3,
-      "businessContext": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
+      "businessContext": "How many to select; e.g., number of samples to be taken randomly for quality control.",
       "label_i18n": {
         "en": "r (Number of Elements to Select)",
         "tr": "r (Seçilecek Eleman Sayısı)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "decimalPlaces",
-      "label": "Ondalık Basamak (Yuvarlama)",
+      "label": "Decimal Places (Rounding)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
+      "businessContext": "Number of decimal places to round the result to (usually 0, integer).",
       "label_i18n": {
         "en": "Decimal Places (Rounding)",
         "tr": "Ondalık Basamak (Yuvarlama)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "maxIterations",
-      "label": "Maksimum İterasyon (Güvenlik Limiti)",
+      "label": "Maximum Iterations (Safety Limit)",
       "type": "number",
       "unit": "unit",
       "default": 1000,
-      "businessContext": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
+      "businessContext": "Iteration limit for factorial calculation (protection for large numbers).",
       "label_i18n": {
         "en": "Maximum Iterations (Safety Limit)",
         "tr": "Maksimum İterasyon (Güvenlik Limiti)",

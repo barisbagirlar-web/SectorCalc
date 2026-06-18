@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Kullanıcı Ağırlığı",
+      "label": "User Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
+      "businessContext": "User's body weight in kilograms. Higher weight leads to more calorie burn.",
       "label_i18n": {
         "en": "User Weight",
         "tr": "Kullanıcı Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "jumpRate",
-      "label": "Zıplama Hızı",
+      "label": "Jumping Speed",
       "type": "number",
       "unit": "zıplama/dk",
       "default": 100,
-      "businessContext": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
+      "businessContext": "Average number of jumps per minute. Higher speed increases exercise intensity.",
       "label_i18n": {
         "en": "Jumping Speed",
         "tr": "Zıplama Hızı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "duration",
-      "label": "Egzersiz Süresi",
+      "label": "Exercise Duration",
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
+      "businessContext": "Total duration of jump rope exercise (minutes). As duration increases, total calories and number of jumps increase.",
       "label_i18n": {
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "MET",
-      "label": "MET Değeri",
+      "label": "MET Value",
       "type": "number",
       "unit": "unit",
       "default": 11.8,
-      "businessContext": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
+      "businessContext": "Metabolic equivalent of exercise. Typical value for jump rope is 11.8. May vary depending on intensity.",
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",

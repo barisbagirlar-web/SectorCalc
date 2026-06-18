@@ -22,9 +22,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Debt_to_equity_ratio_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = (input.longTermDebt + input.currentLiabilities + input.otherLiabilities) / (input.totalAssets - (input.longTermDebt + input.currentLiabilities + input.otherLiabilities)); results["debtToEquity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["debtToEquity"] = 0; }
   try { const v = input.longTermDebt + input.currentLiabilities + input.otherLiabilities; results["totalLiabilities"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalLiabilities"] = 0; }
-  try { const v = input.totalAssets - (input.longTermDebt + input.currentLiabilities + input.otherLiabilities); results["shareholdersEquity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shareholdersEquity"] = 0; }
+  try { const v = input.totalAssets - (asFormulaNumber(results["totalLiabilities"])); results["shareholdersEquity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shareholdersEquity"] = 0; }
+  try { const v = (asFormulaNumber(results["totalLiabilities"])) / (asFormulaNumber(results["shareholdersEquity"])); results["debtToEquity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["debtToEquity"] = 0; }
   return results;
 }
 

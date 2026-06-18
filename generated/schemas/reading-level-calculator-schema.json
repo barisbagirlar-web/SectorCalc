@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Metindeki toplam kelime sayısı",
+      "businessContext": "Total number of words in the text",
       "label_i18n": {
         "en": "Total Word Count",
         "tr": "Toplam Kelime Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "totalSentences",
-      "label": "Toplam Cümle Sayısı",
+      "label": "Total Sentence Count",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Metindeki toplam cümle sayısı",
+      "businessContext": "Total number of sentences in the text",
       "label_i18n": {
         "en": "Total Sentence Count",
         "tr": "Toplam Cümle Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "totalSyllables",
-      "label": "Toplam Hece Sayısı",
+      "label": "Total Syllable Count",
       "type": "number",
       "unit": "adet",
       "default": 150,
-      "businessContext": "Metindeki toplam hece sayısı",
+      "businessContext": "Total number of syllables in the text",
       "label_i18n": {
         "en": "Total Syllable Count",
         "tr": "Toplam Hece Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalComplexWords",
-      "label": "Çok Heceli Kelime Sayısı",
+      "label": "Polysyllabic Word Count",
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "3 veya daha fazla heceli kelime sayısı",
+      "businessContext": "Number of words with 3 or more syllables",
       "label_i18n": {
         "en": "Polysyllabic Word Count",
         "tr": "Çok Heceli Kelime Sayısı",

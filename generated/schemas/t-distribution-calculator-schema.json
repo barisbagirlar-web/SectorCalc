@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "t_value",
-      "label": "t Değeri",
+      "label": "t Value",
       "type": "number",
       "unit": "unit",
       "default": 1.5,
-      "businessContext": "Hesaplanan t istatistiği",
+      "businessContext": "Calculated t statistic",
       "label_i18n": {
         "en": "t Value",
         "tr": "t Değeri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Örneklem büyüklüğü eksi bir",
+      "businessContext": "Sample size minus one",
       "label_i18n": {
         "en": "Serbestlik Derecesi",
         "tr": "Degrees of freedom",
@@ -51,7 +51,7 @@
     },
     {
       "id": "tails",
-      "label": "Kuyruk Sayısı",
+      "label": "Number of Tails",
       "type": "number",
       "unit": "unit",
       "default": 2,

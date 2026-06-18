@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 20,
-      "businessContext": "Hastanın son ölçülen 25(OH)D seviyesi",
+      "businessContext": "The patient's most recently measured 25(OH)D level",
       "label_i18n": {
         "en": "Mevcut D vitamini (ng/mL)",
         "tr": "Current Vitamin D (ng/mL)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 50,
-      "businessContext": "Ulaşılmak istenen hedef seviye",
+      "businessContext": "The target level to be achieved",
       "label_i18n": {
         "en": "Hedef D vitamini (ng/mL)",
         "tr": "Target Vitamin D (ng/mL)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "weight",
-      "label": "Vücut ağırlığı (kg)",
+      "label": "Body weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Hastanın vücut ağırlığı",
+      "businessContext": "The patient's body weight",
       "label_i18n": {
         "en": "Body weight (kg)",
         "tr": "Vücut ağırlığı (kg)",
@@ -75,7 +75,7 @@
     },
     {
       "id": "age",
-      "label": "Yaş (yıl)",
+      "label": "Age (years)",
       "type": "number",
       "unit": "yıl",
       "default": 30,

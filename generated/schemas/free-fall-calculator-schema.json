@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initialHeight",
-      "label": "Başlangıç Yüksekliği",
+      "label": "Initial Height",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
+      "businessContext": "Height at which the object starts free fall (meters).",
       "label_i18n": {
         "en": "Initial height",
         "tr": "Başlangıç Yüksekliği",
@@ -27,11 +27,11 @@
     },
     {
       "id": "initialVelocity",
-      "label": "Başlangıç Hızı",
+      "label": "Initial Velocity",
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
+      "businessContext": "Initial vertical velocity of the object (positive downward).",
       "label_i18n": {
         "en": "Initial velocity",
         "tr": "Başlangıç Hızı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "accelerationDueToGravity",
-      "label": "Yerçekimi İvmesi",
+      "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.80665,
-      "businessContext": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
+      "businessContext": "Standard gravitational acceleration (9.80665 m/s² for Earth).",
       "label_i18n": {
         "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "mass",
-      "label": "Kütle",
+      "label": "Mass",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
+      "businessContext": "Mass of the object (used for kinetic energy calculation).",
       "label_i18n": {
         "en": "Mass",
         "tr": "Kütle",

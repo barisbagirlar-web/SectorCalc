@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "area",
-      "label": "Arazi Alanı",
+      "label": "Land Area",
       "type": "number",
       "unit": "m²",
       "default": 1000,
@@ -27,11 +27,11 @@
     },
     {
       "id": "emitterFlowRate",
-      "label": "Damlatıcı Debisi",
+      "label": "Emitter Flow Rate",
       "type": "number",
       "unit": "L/h",
       "default": 2,
-      "businessContext": "Her bir damlatıcının saatte verdiği su miktarı",
+      "businessContext": "Amount of water delivered by each emitter per hour",
       "label_i18n": {
         "en": "Dripper Flow Rate",
         "tr": "Damlatıcı Debisi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "emitterSpacing",
-      "label": "Damlatıcı Aralığı",
+      "label": "Emitter Spacing",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Lateral üzerindeki damlatıcılar arası mesafe",
+      "businessContext": "Distance between emitters on the lateral",
       "label_i18n": {
         "en": "Dripper Spacing",
         "tr": "Damlatıcı Aralığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "lateralSpacing",
-      "label": "Lateral Aralığı",
+      "label": "Lateral Spacing",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Damlama hatları arası mesafe",
+      "businessContext": "Distance between drip lines",
       "label_i18n": {
         "en": "Lateral Spacing",
         "tr": "Lateral Aralığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "irrigationDepth",
-      "label": "Sulama Suyu Derinliği",
+      "label": "Irrigation Water Depth",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Her sulamada uygulanacak net su yüksekliği",
+      "businessContext": "Net water depth to be applied per irrigation",
       "label_i18n": {
         "en": "Irrigation Water Depth",
         "tr": "Sulama Suyu Derinliği",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
+      "businessContext": "Water conveyance and distribution efficiency of the irrigation system (0-100)",
       "label_i18n": {
         "en": "Sistem Verimi",
         "tr": "System Efficiency",

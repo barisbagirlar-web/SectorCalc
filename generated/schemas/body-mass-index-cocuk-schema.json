@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 30,
-      "businessContext": "Çocuğun kilogram cinsinden vücut ağırlığı",
+      "businessContext": "Child's body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 130,
-      "businessContext": "Çocuğun santimetre cinsinden boy uzunluğu",
+      "businessContext": "Child's height in centimeters",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 8,
-      "businessContext": "Çocuğun yıl cinsinden yaşı",
+      "businessContext": "Child's age in years",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -75,11 +75,11 @@
     },
     {
       "id": "gender",
-      "label": "Cinsiyet (0=Kız, 1=Erkek)",
+      "label": "Sex (0=Female, 1=Male)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Çocuğun cinsiyeti: 0 kız, 1 erkek",
+      "businessContext": "Child's sex: 0 female, 1 male",
       "label_i18n": {
         "en": "Sex (0=Female, 1=Male)",
         "tr": "Cinsiyet (0=Kız, 1=Erkek)",

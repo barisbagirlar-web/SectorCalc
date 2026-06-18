@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı (kg)",
+      "businessContext": "Body weight (kg)",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Yaş (yıl)",
+      "businessContext": "Age (years)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "(0=Female, 1=Male)",
       "default": 1,
-      "businessContext": "Cinsiyet: 0 kadın, 1 erkek",
+      "businessContext": "Gender: 0 female, 1 male",
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.55,
-      "businessContext": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)",
+      "businessContext": "Activity level multiplier (1.2: sedentary, 1.55: moderate, 1.9: very active)",
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "kcal",
       "default": 300,
-      "businessContext": "Günlük kalori fazlası (kcal/gün)",
+      "businessContext": "Daily calorie surplus (kcal/day)",
       "label_i18n": {
         "en": "Daily Calorie Surplus",
         "tr": "Günlük Kalori Fazlası",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "g",
       "default": 160,
-      "businessContext": "Günlük protein alımı (g/gün)",
+      "businessContext": "Daily protein intake (g/day)",
       "label_i18n": {
         "en": "Daily Protein Intake",
         "tr": "Günlük Protein Alımı",

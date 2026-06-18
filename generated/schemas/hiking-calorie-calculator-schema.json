@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "bodyWeight",
-      "label": "Vücut Ağırlığı (kg)",
+      "label": "Body weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
+      "businessContext": "Hiker's body weight (in kg)",
       "label_i18n": {
         "en": "Body weight (kg)",
         "tr": "Vücut Ağırlığı (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "packWeight",
-      "label": "Sırt Çantası Ağırlığı (kg)",
+      "label": "Backpack weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Sırt çantası ve ekipmanın toplam ağırlığı",
+      "businessContext": "Total weight of backpack and equipment",
       "label_i18n": {
         "en": "Backpack weight (kg)",
         "tr": "Sırt Çantası Ağırlığı (kg)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Toplam yürüyüş mesafesi",
+      "businessContext": "Total walking distance",
       "label_i18n": {
         "en": "Mesafe (km)",
         "tr": "Mesafe (km)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "elevationGain",
-      "label": "Yükseklik Kazancı (m)",
+      "label": "Height gain (m)",
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Toplam pozitif yükseklik kazanımı",
+      "businessContext": "Total positive elevation gain",
       "label_i18n": {
         "en": "Height gain (m)",
         "tr": "Yükseklik Kazancı (m)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "terrainFactor",
-      "label": "Arazi Zorluk Faktörü",
+      "label": "Terrain Difficulty Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.2,
-      "businessContext": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
+      "businessContext": "Multiplier for terrain difficulty: 1.0 asphalt, 1.2 gravel, 1.5 rough",
       "label_i18n": {
         "en": "Terrain Difficulty Factor",
         "tr": "Arazi Zorluk Faktörü",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initialL",
-      "label": "Başlangıç L*",
+      "label": "Initial L*",
       "type": "number",
       "unit": "unit",
       "default": 90,
-      "businessContext": "Ilk L* değeri (açıklık-koyuluk)",
+      "businessContext": "Initial L* value (lightness-darkness)",
       "label_i18n": {
         "en": "Initial L*",
         "tr": "Başlangıç L*",
@@ -27,11 +27,11 @@
     },
     {
       "id": "initiala",
-      "label": "Başlangıç a*",
+      "label": "Initial a*",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Ilk a* değeri (kırmızı-yeşil)",
+      "businessContext": "Initial a* value (red-green)",
       "label_i18n": {
         "en": "Initial a*",
         "tr": "Başlangıç a*",
@@ -51,11 +51,11 @@
     },
     {
       "id": "initialb",
-      "label": "Başlangıç b*",
+      "label": "Initial b*",
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Ilk b* değeri (sarı-mavi)",
+      "businessContext": "Initial b* value (yellow-blue)",
       "label_i18n": {
         "en": "Initial b*",
         "tr": "Başlangıç b*",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 95,
-      "businessContext": "Sonuç L* değeri",
+      "businessContext": "Result L* value",
       "label_i18n": {
         "en": "Result L*",
         "tr": "Sonuç L*",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": -0.5,
-      "businessContext": "Sonuç a* değeri",
+      "businessContext": "Result a* value",
       "label_i18n": {
         "en": "Result a*",
         "tr": "Sonuç a*",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuç b* değeri",
+      "businessContext": "Result b* value",
       "label_i18n": {
         "en": "Result b*",
         "tr": "Sonuç b*",

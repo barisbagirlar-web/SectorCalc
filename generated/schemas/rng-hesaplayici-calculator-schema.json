@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "birimsiz",
       "default": 12345,
-      "businessContext": "LCG algoritması için başlangıç tohum değeri.",
+      "businessContext": "Initial seed value for the LCG algorithm.",
       "label_i18n": {
         "en": "Seed value",
         "tr": "Başlangıç Değeri (Seed)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "multiplier",
-      "label": "Çarpan (a)",
+      "label": "Multiplier (a)",
       "type": "number",
       "unit": "birimsiz",
       "default": 1664525,
-      "businessContext": "Doğrusal eşleşik üretecin çarpan katsayısı.",
+      "businessContext": "Multiplier coefficient of the linear congruential generator.",
       "label_i18n": {
         "en": "Multiplier (a)",
         "tr": "Çarpan (a)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "increment",
-      "label": "Artış (c)",
+      "label": "Increment (c)",
       "type": "number",
       "unit": "birimsiz",
       "default": 1013904223,
-      "businessContext": "Doğrusal eşleşik üretecin artış sabiti.",
+      "businessContext": "Increment constant of the linear congruential generator.",
       "label_i18n": {
         "en": "Increment (c)",
         "tr": "Artış (c)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "modulus",
-      "label": "Modül (m)",
+      "label": "Module (m)",
       "type": "number",
       "unit": "birimsiz",
       "default": 4294967296,
-      "businessContext": "Modül değeri, genellikle 2^32.",
+      "businessContext": "Modulus value, typically 2^32.",
       "label_i18n": {
         "en": "Module (m)",
         "tr": "Modül (m)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "outputMin",
-      "label": "Çıkış Alt Sınır",
+      "label": "Output Lower Bound",
       "type": "number",
       "unit": "birimsiz",
       "default": 0,
-      "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
+      "businessContext": "Lower bound of the desired range for the scaled random number.",
       "label_i18n": {
         "en": "Output lower bound",
         "tr": "Çıkış Alt Sınır",
@@ -123,11 +123,11 @@
     },
     {
       "id": "outputMax",
-      "label": "Çıkış Üst Sınır",
+      "label": "Output Upper Bound",
       "type": "number",
       "unit": "birimsiz",
       "default": 100,
-      "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
+      "businessContext": "Upper limit of the desired range for the scaled random number.",
       "label_i18n": {
         "en": "Output upper bound",
         "tr": "Çıkış Üst Sınır",

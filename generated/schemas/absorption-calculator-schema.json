@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "budgetedOverhead",
-      "label": "Bütçelenen Genel Üretim Gideri",
+      "label": "Budgeted General Production Overhead",
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Bütçelenen sabit genel üretim gideri tutarı",
+      "businessContext": "Budgeted fixed general production overhead amount",
       "label_i18n": {
         "en": "Budgeted General Production Overhead",
         "tr": "Bütçelenen Genel Üretim Gideri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "budgetedActivity",
-      "label": "Bütçelenen Faaliyet Düzeyi",
+      "label": "Budgeted Activity Level",
       "type": "number",
       "unit": "saat",
       "default": 10000,
-      "businessContext": "Bütçe döneminde planlanan makine çalışma saati",
+      "businessContext": "Planned machine operating hours in the budget period",
       "label_i18n": {
         "en": "Budgeted Activity Level",
         "tr": "Bütçelenen Faaliyet Düzeyi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "actualActivity",
-      "label": "Gerçekleşen Faaliyet Düzeyi",
+      "label": "Actual Activity Level",
       "type": "number",
       "unit": "saat",
       "default": 9500,
-      "businessContext": "Gerçekleşen makine çalışma saati",
+      "businessContext": "Actual machine operating hours",
       "label_i18n": {
         "en": "Actual Activity Level",
         "tr": "Gerçekleşen Faaliyet Düzeyi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "actualOverhead",
-      "label": "Gerçekleşen Genel Üretim Gideri",
+      "label": "Actual General Production Overhead",
       "type": "number",
       "unit": "TL",
       "default": 105000,
-      "businessContext": "Gerçekleşen sabit genel üretim gideri tutarı",
+      "businessContext": "Actual fixed general production overhead amount",
       "label_i18n": {
         "en": "Actual General Production Overhead",
         "tr": "Gerçekleşen Genel Üretim Gideri",

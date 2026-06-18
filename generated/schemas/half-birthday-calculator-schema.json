@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "birthDay",
-      "label": "Doğum Günü",
+      "label": "Birth Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Doğum günü (1–31 arası)",
+      "businessContext": "Birth Day (1–31)",
       "label_i18n": {
         "en": "Birth Day",
         "tr": "Doğum Günü",
@@ -27,11 +27,11 @@
     },
     {
       "id": "birthMonth",
-      "label": "Doğum Ayı",
+      "label": "Birth Month",
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Doğum ayı (1–12 arası)",
+      "businessContext": "Birth Month (1–12)",
       "label_i18n": {
         "en": "Birth Month",
         "tr": "Doğum Ayı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "birthYear",
-      "label": "Doğum Yılı",
+      "label": "Birth Year",
       "type": "number",
       "unit": "yıl",
       "default": 2000,
-      "businessContext": "Doğum yılı",
+      "businessContext": "Birth Year",
       "label_i18n": {
         "en": "Birth Year",
         "tr": "Doğum Yılı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "monthOffset",
-      "label": "Ay Farkı",
+      "label": "Month Difference",
       "type": "number",
       "unit": "ay",
       "default": 6,
-      "businessContext": "İleri sarılacak ay sayısı (yarı doğum günü için 6)",
+      "businessContext": "Number of months to advance (6 for half birthday)",
       "label_i18n": {
         "en": "Month difference",
         "tr": "Ay Farkı",

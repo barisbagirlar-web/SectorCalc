@@ -149,7 +149,23 @@
   "profession": "Kimyager",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "positiveTemperature",
+        "expression": "temperature > 0",
+        "message": "Temperature must be greater than 0 K."
+      },
+      {
+        "id": "positiveElectrons",
+        "expression": "numberOfElectrons > 0",
+        "message": "Number of electrons must be positive."
+      },
+      {
+        "id": "positiveQ",
+        "expression": "reactionQuotient > 0",
+        "message": "Reaction quotient must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

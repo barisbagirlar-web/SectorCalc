@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "cm",
       "default": 280,
-      "businessContext": "Katlar arası bitmiş döşeme yüksekliği",
+      "businessContext": "Finished floor height between floors",
       "label_i18n": {
         "en": "Total Height",
         "tr": "Toplam Yükseklik",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 28,
-      "businessContext": "Her bir basamağın yatay derinliği (genellikle 25-32 cm)",
+      "businessContext": "Horizontal depth of each step (typically 25-32 cm)",
       "label_i18n": {
         "en": "Step Depth",
         "tr": "Basamak Derinliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "riserHeightTarget",
-      "label": "Hedef Rıht Yüksekliği",
+      "label": "Target Riser Height",
       "type": "number",
       "unit": "cm",
       "default": 17,
-      "businessContext": "Konfor ve yönetmelik için hedeflenen rıht yüksekliği (genellikle 15-18 cm)",
+      "businessContext": "Target riser height for comfort and regulations (typically 15-18 cm)",
       "label_i18n": {
         "en": "Target Riser Height",
         "tr": "Hedef Rıht Yüksekliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "stairWidth",
-      "label": "Merdiven Genişliği",
+      "label": "Stair Width",
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Merdiven kolunun net genişliği",
+      "businessContext": "Net width of the staircase",
       "label_i18n": {
         "en": "Stair Width",
         "tr": "Merdiven Genişliği",

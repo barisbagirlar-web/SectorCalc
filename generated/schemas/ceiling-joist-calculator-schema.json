@@ -149,7 +149,8 @@
   "formulas": {
     "totalLoad": "liveLoad + deadLoad",
     "uniformLoad": "(liveLoad + deadLoad) * spacing / 144",
-    "allowableDeflection": "span * 12 / 240"
+    "allowableDeflection": "span * 12 / 240",
+    "actualDeflection": "(5 * uniformLoad * (span * 12)^4) / (384 * eModulus * iValue)"
   },
   "outputs": {
     "primary": "allowableDeflection",
@@ -157,6 +158,7 @@
       "totalLoad",
       "uniformLoad",
       "allowableDeflection",
+      "actualDeflection",
       "isSafe"
     ],
     "hiddenLossDrivers": [],
@@ -176,7 +178,44 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "spanPositive",
+        "field": "span",
+        "condition": "> 0",
+        "message": "Span must be positive"
+      },
+      {
+        "id": "spacingPositive",
+        "field": "spacing",
+        "condition": "> 0",
+        "message": "Spacing must be positive"
+      },
+      {
+        "id": "liveLoadNonNegative",
+        "field": "liveLoad",
+        "condition": ">= 0",
+        "message": "Live load must be non-negative"
+      },
+      {
+        "id": "deadLoadNonNegative",
+        "field": "deadLoad",
+        "condition": ">= 0",
+        "message": "Dead load must be non-negative"
+      },
+      {
+        "id": "eModulusPositive",
+        "field": "eModulus",
+        "condition": "> 0",
+        "message": "Modulus of Elasticity must be positive"
+      },
+      {
+        "id": "iValuePositive",
+        "field": "iValue",
+        "condition": "> 0",
+        "message": "Moment of Inertia must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

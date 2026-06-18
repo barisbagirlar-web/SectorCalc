@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "x",
-      "label": "Değişken x",
+      "label": "Variable x",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "Hesaplanacak değişken değeri",
+      "businessContext": "Variable value to be calculated",
       "label_i18n": {
         "en": "Variable x",
         "tr": "Değişken x",
@@ -27,11 +27,11 @@
     },
     {
       "id": "a",
-      "label": "Sinüs katsayısı (a)",
+      "label": "Sine coefficient (a)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Sinüs fonksiyonunun çarpanı",
+      "businessContext": "Multiplier of the sine function",
       "label_i18n": {
         "en": "Sine coefficient (a)",
         "tr": "Sinüs katsayısı (a)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "b",
-      "label": "Sinüs frekansı (b)",
+      "label": "Sine frequency (b)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Sinüs içindeki çarpan",
+      "businessContext": "Multiplier inside sine",
       "label_i18n": {
         "en": "Sine frequency (b)",
         "tr": "Sinüs frekansı (b)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "c",
-      "label": "Kosinüs katsayısı (c)",
+      "label": "Cosine coefficient (c)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Kosinüs fonksiyonunun çarpanı",
+      "businessContext": "Multiplier of cosine function",
       "label_i18n": {
         "en": "Cosine coefficient (c)",
         "tr": "Kosinüs katsayısı (c)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "d",
-      "label": "Kosinüs frekansı (d)",
+      "label": "Cosine frequency (d)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Kosinüs içindeki çarpan",
+      "businessContext": "Multiplier inside cosine",
       "label_i18n": {
         "en": "Cosine frequency (d)",
         "tr": "Kosinüs frekansı (d)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "e",
-      "label": "Üstel katsayısı (e)",
+      "label": "Exponential coefficient (e)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "e^x teriminin katsayısı",
+      "businessContext": "Coefficient of e^x term",
       "label_i18n": {
         "en": "Exponential coefficient (e)",
         "tr": "Üstel katsayısı (e)",

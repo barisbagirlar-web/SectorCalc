@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 4,
-      "businessContext": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir.",
+      "businessContext": "This field indicates the original number of servings in the recipe.",
       "label_i18n": {
         "en": "Orijinal Porsiyon",
         "tr": "Orijinal porsiyon",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 8,
-      "businessContext": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir.",
+      "businessContext": "This field indicates the desired target number of servings.",
       "label_i18n": {
         "en": "Hedef Porsiyon",
         "tr": "Hedef porsiyon",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "birim",
       "default": 200,
-      "businessContext": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "businessContext": "This field indicates the original quantity of the first ingredient (grams, ml, etc.).",
       "label_i18n": {
         "en": "Ingredient 1 Quantity",
         "tr": "Malzeme 1 Miktarı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "businessContext": "This field indicates the original quantity of the second ingredient (grams, ml, etc.).",
       "label_i18n": {
         "en": "Ingredient 2 Quantity",
         "tr": "Malzeme 2 Miktarı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "birim",
       "default": 50,
-      "businessContext": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "businessContext": "This field indicates the original quantity of the third material (grams, ml, etc.).",
       "label_i18n": {
         "en": "Ingredient 3 Quantity",
         "tr": "Malzeme 3 Miktarı",

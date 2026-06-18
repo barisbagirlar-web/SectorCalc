@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "total_units_produced",
-      "label": "Toplam Üretilen Birim",
+      "label": "Total Units Produced",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Üretim hattından çıkan toplam ürün miktarı",
+      "businessContext": "Total quantity of products coming out of the production line",
       "label_i18n": {
         "en": "Total Units Produced",
         "tr": "Toplam Üretilen Birim",
@@ -27,11 +27,11 @@
     },
     {
       "id": "total_labor_hours",
-      "label": "Toplam İşçilik Saati",
+      "label": "Total Labor Hours",
       "type": "number",
       "unit": "saat",
       "default": 100,
-      "businessContext": "Üretim için harcanan toplam insan gücü süresi",
+      "businessContext": "Total human labor time spent on production",
       "label_i18n": {
         "en": "Total Labor Hours",
         "tr": "Toplam İşçilik Saati",
@@ -51,11 +51,11 @@
     },
     {
       "id": "defect_rate",
-      "label": "Hata Oranı",
+      "label": "Error Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretilen ürünler içindeki hatalı oranı",
+      "businessContext": "Rate of defective products among produced items",
       "label_i18n": {
         "en": "Error Rate (%)",
         "tr": "Hata Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet/saat",
       "default": 10,
-      "businessContext": "Referans olarak kabul edilen saatlik üretim miktarı",
+      "businessContext": "Hourly production quantity accepted as reference",
       "label_i18n": {
         "en": "Standard Productivity",
         "tr": "Standart Verimlilik",

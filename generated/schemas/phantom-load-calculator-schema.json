@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "standbyWatt",
-      "label": "Cihaz Bekleme Gücü",
+      "label": "Device Standby Power",
       "type": "number",
       "unit": "W",
       "default": 5,
-      "businessContext": "Cihazın bekleme modunda tükettiği güç, watt cinsinden.",
+      "businessContext": "Power consumed by the device in standby mode, in watts.",
       "label_i18n": {
         "en": "Device Standby Power",
         "tr": "Cihaz Bekleme Gücü",
@@ -27,11 +27,11 @@
     },
     {
       "id": "numberOfDevices",
-      "label": "Cihaz Sayısı",
+      "label": "Number of Devices",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı bekleme gücüne sahip cihaz sayısı.",
+      "businessContext": "Number of devices with the same standby power.",
       "label_i18n": {
         "en": "Number of devices",
         "tr": "Cihaz Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "standbyHoursPerDay",
-      "label": "Günlük Bekleme Süresi",
+      "label": "Daily Standby Time",
       "type": "number",
       "unit": "saat/gün",
       "default": 24,
-      "businessContext": "Cihazın bir günde bekleme modunda kaldığı saat.",
+      "businessContext": "Hours the device remains in standby mode per day.",
       "label_i18n": {
         "en": "Daily Standby Duration",
         "tr": "Günlük Bekleme Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "electricityCost",
-      "label": "Elektrik Birim Fiyatı",
+      "label": "Electricity Unit Price",
       "type": "number",
       "unit": "TL/kWh",
       "default": 1.5,
-      "businessContext": "Elektrik birim fiyatı (TL/kWh cinsinden).",
+      "businessContext": "Electricity unit price (in TL/kWh).",
       "label_i18n": {
         "en": "Electricity Unit Price",
         "tr": "Elektrik Birim Fiyatı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "carbonFactor",
-      "label": "Karbon Emisyon Faktörü",
+      "label": "Carbon Emission Factor",
       "type": "number",
       "unit": "kg CO2/kWh",
       "default": 0.5,
-      "businessContext": "Birim elektrik tüketimi başına salınan CO2 miktarı.",
+      "businessContext": "Amount of CO2 emitted per unit of electricity consumption.",
       "label_i18n": {
         "en": "Carbon Emission Factor",
         "tr": "Karbon Emisyon Faktörü",
@@ -123,11 +123,11 @@
     },
     {
       "id": "operatingDaysPerYear",
-      "label": "Yıllık Çalışma Gün Sayısı",
+      "label": "Annual Working Days",
       "type": "number",
       "unit": "gün/yıl",
       "default": 365,
-      "businessContext": "Cihazların yıl boyunca çalıştığı gün sayısı.",
+      "businessContext": "Number of days the devices operate per year.",
       "label_i18n": {
         "en": "Annual Operating Days",
         "tr": "Yıllık Çalışma Gün Sayısı",

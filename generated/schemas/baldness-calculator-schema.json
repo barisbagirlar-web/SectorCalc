@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı",
+      "businessContext": "User's age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -31,10 +31,10 @@
       "type": "number",
       "unit": "ölçek 0-1",
       "default": 0.5,
-      "businessContext": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)",
+      "businessContext": "Father's baldness level (0: none, 1: completely bald)",
       "label_i18n": {
-        "en": "Baba Kellik Durumu",
-        "tr": "Father's Baldness Status",
+        "en": "Father's Baldness Status",
+        "tr": "Baba Kellik Durumu",
         "de": "Vater Glatzenbildung",
         "fr": "Calvitie du père",
         "es": "Calvicie del padre",
@@ -55,10 +55,10 @@
       "type": "number",
       "unit": "0-10",
       "default": 5,
-      "businessContext": "Günlük stres seviyesi (0: yok, 10: çok yüksek)",
+      "businessContext": "Daily stress level (0: none, 10: very high)",
       "label_i18n": {
-        "en": "Stres Seviyesi",
-        "tr": "Stress Level",
+        "en": "Stress Level",
+        "tr": "Stres Seviyesi",
         "de": "Stresslevel",
         "fr": "Niveau de stress",
         "es": "Nivel de estrés",
@@ -79,18 +79,18 @@
       "type": "number",
       "unit": "ng/dL",
       "default": 50,
-      "businessContext": "Kandaki DHT hormon seviyesi",
+      "businessContext": "Blood DHT hormone level",
       "label_i18n": {
-        "en": "DHT Seviyesi",
-        "tr": "DHT Level",
+        "en": "DHT Level",
+        "tr": "DHT Seviyesi",
         "de": "DHT-Spiegel",
         "fr": "Niveau de DHT",
         "es": "Nivel de DHT",
         "ar": "مستوى DHT"
       },
       "businessContext_i18n": {
-        "en": "Kandaki DHT hormon seviyesi",
-        "tr": "Blood DHT Hormone Level",
+        "en": "Blood DHT hormone level",
+        "tr": "Kandaki DHT hormon seviyesi",
         "de": "DHT-Hormonspiegel im Blut",
         "fr": "Niveau d'hormone DHT dans le sang",
         "es": "Nivel de hormona DHT en sangre",
@@ -99,11 +99,11 @@
     },
     {
       "id": "hair_density",
-      "label": "Saç Yoğunluğu",
+      "label": "Hair Density",
       "type": "number",
       "unit": "adet/cm²",
       "default": 200,
-      "businessContext": "Mevcut saç yoğunluğu (saç teli/cm²)",
+      "businessContext": "Current hair density (hairs/cm²)",
       "label_i18n": {
         "en": "Hair Density",
         "tr": "Saç Yoğunluğu",
@@ -124,10 +124,14 @@
   ],
   "formulas": {
     "genetic_factor": "father_baldness * 0.6",
-    "genetic_factor_aux": "father_baldness * 0.6"
+    "stress_impact": "stress_level * 0.05",
+    "age_factor": "age * 0.01",
+    "dht_factor": "dht_level * 0.002",
+    "density_factor": "hair_density * 0.001",
+    "baldness_probability": "genetic_factor + stress_impact + age_factor + dht_factor - density_factor"
   },
   "outputs": {
-    "primary": "genetic_factor_aux",
+    "primary": "baldness_probability",
     "breakdown": [
       "genetic_factor",
       "stress_impact",

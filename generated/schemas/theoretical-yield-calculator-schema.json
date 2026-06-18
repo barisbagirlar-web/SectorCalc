@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "massOfReactant",
-      "label": "Kütle (Reaktan)",
+      "label": "Mass (Reactant)",
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Reaktanın kütlesi, gram cinsinden.",
+      "businessContext": "Mass of the reactant, in grams.",
       "label_i18n": {
         "en": "Mass (Reactant)",
         "tr": "Kütle (Reaktan)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "molarMassReactant",
-      "label": "Molar Kütle (Reaktan)",
+      "label": "Molar Mass (Reactant)",
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Reaktanın molar kütlesi.",
+      "businessContext": "Molar mass of the reactant.",
       "label_i18n": {
         "en": "Molar Mass (Reactant)",
         "tr": "Molar Kütle (Reaktan)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "stoichReactant",
-      "label": "Stokiyometrik Katsayı (Reaktan)",
+      "label": "Stoichiometric Coefficient (Reactant)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Reaktanın denklemdeki katsayısı.",
+      "businessContext": "Coefficient of the reactant in the equation.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Reactant)",
         "tr": "Stokiyometrik Katsayı (Reaktan)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "stoichProduct",
-      "label": "Stokiyometrik Katsayı (Ürün)",
+      "label": "Stoichiometric Coefficient (Product)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Ürünün denklemdeki katsayısı.",
+      "businessContext": "Coefficient of the product in the equation.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Product)",
         "tr": "Stokiyometrik Katsayı (Ürün)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "molarMassProduct",
-      "label": "Molar Kütle (Ürün)",
+      "label": "Molar Mass (Product)",
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Ürünün molar kütlesi.",
+      "businessContext": "Molar mass of the product.",
       "label_i18n": {
         "en": "Molar Mass (Product)",
         "tr": "Molar Kütle (Ürün)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "beginningAR",
-      "label": "Dönem Başı Ticari Alacaklar",
+      "label": "Beginning Trade Receivables",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem başındaki brüt ticari alacak tutarı",
+      "businessContext": "Gross trade receivables at the beginning of the period",
       "label_i18n": {
         "en": "Beginning Trade Receivables",
         "tr": "Dönem Başı Ticari Alacaklar",
@@ -27,11 +27,11 @@
     },
     {
       "id": "endingAR",
-      "label": "Dönem Sonu Ticari Alacaklar",
+      "label": "Ending Trade Receivables",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem sonundaki brüt ticari alacak tutarı",
+      "businessContext": "Gross trade receivables at the end of the period",
       "label_i18n": {
         "en": "Ending Trade Receivables",
         "tr": "Dönem Sonu Ticari Alacaklar",
@@ -51,11 +51,11 @@
     },
     {
       "id": "netCreditSales",
-      "label": "Net Kredili Satışlar",
+      "label": "Net Credit Sales",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)",
+      "businessContext": "Total credit sales during the period (gross sales less returns and discounts)",
       "label_i18n": {
         "en": "Net Credit Sales",
         "tr": "Net Kredili Satışlar",
@@ -75,11 +75,11 @@
     },
     {
       "id": "periodDays",
-      "label": "Dönem Gün Sayısı",
+      "label": "Number of Days in Period",
       "type": "number",
       "unit": "gün",
       "default": 365,
-      "businessContext": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)",
+      "businessContext": "Number of days in the period for DSO calculation (usually 365 or 90)",
       "label_i18n": {
         "en": "Number of Days in Period",
         "tr": "Dönem Gün Sayısı",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
+      "businessContext": "Current body fat percentage (measured by caliper, DXA, or bioimpedance).",
       "label_i18n": {
         "en": "Current Body Fat (%)",
         "tr": "Mevcut Vücut Yağ Oranı (%)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Hedef vücut yağ yüzdesi.",
+      "businessContext": "Target body fat percentage.",
       "label_i18n": {
         "en": "Desired Body Fat (%)",
         "tr": "Hedef Vücut Yağ Oranı (%)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Güncel vücut ağırlığı (kg).",
+      "businessContext": "Current body weight (kg).",
       "label_i18n": {
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu (cm).",
+      "businessContext": "Height (cm).",
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
+      "businessContext": "Age (years). To account for metabolic changes.",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "factor",
       "default": 1.55,
-      "businessContext": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
+      "businessContext": "Physical activity multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 heavy training).",
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",

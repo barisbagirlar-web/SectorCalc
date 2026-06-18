@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "asciiChars",
-      "label": "ASCII Karakter Sayısı (1 bayt)",
+      "label": "ASCII Character Count (1 byte)",
       "type": "number",
       "unit": "adet",
       "default": 0,
@@ -27,7 +27,7 @@
     },
     {
       "id": "twoByteChars",
-      "label": "2 Baytlık Karakter Sayısı",
+      "label": "2-Byte Character Count",
       "type": "number",
       "unit": "adet",
       "default": 0,
@@ -51,7 +51,7 @@
     },
     {
       "id": "threeByteChars",
-      "label": "3 Baytlık Karakter Sayısı",
+      "label": "3-Byte Character Count",
       "type": "number",
       "unit": "adet",
       "default": 0,
@@ -75,7 +75,7 @@
     },
     {
       "id": "fourByteChars",
-      "label": "4 Baytlık Karakter Sayısı",
+      "label": "4-Byte Character Count",
       "type": "number",
       "unit": "adet",
       "default": 0,
@@ -99,7 +99,7 @@
     },
     {
       "id": "bomIncluded",
-      "label": "BOM Dahil mi? (0=Hayır, 1=Evet)",
+      "label": "Include BOM? (0=No, 1=Yes)",
       "type": "number",
       "unit": "unit",
       "default": 0,

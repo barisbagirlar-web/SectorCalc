@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "beamLength",
-      "label": "Kiriş Uzunluğu",
+      "label": "Beam Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Kirişin toplam uzunluğu (m)",
+      "businessContext": "Total length of beam (m)",
       "label_i18n": {
         "en": "Beam Length",
         "tr": "Kiriş Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "loadMagnitude",
-      "label": "Yük Büyüklüğü",
+      "label": "Load Magnitude",
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Tekil yükün büyüklüğü (kN)",
+      "businessContext": "Magnitude of point load (kN)",
       "label_i18n": {
         "en": "Load Magnitude",
         "tr": "Yük Büyüklüğü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "loadPosition",
-      "label": "Yük Konumu",
+      "label": "Load Position",
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Yükün sol mesnetten uzaklığı (m)",
+      "businessContext": "Distance of load from left support (m)",
       "label_i18n": {
         "en": "Load Position",
         "tr": "Yük Konumu",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
+      "businessContext": "Distance of section for moment calculation from left support (m)",
       "label_i18n": {
         "en": "Kesit Konumu",
         "tr": "Cross-Section Location",

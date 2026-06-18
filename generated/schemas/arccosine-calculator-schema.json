@@ -99,21 +99,23 @@
     }
   ],
   "formulas": {
-    "breakdown": "adjacent",
-    "breakdown_aux": "adjacent"
+    "ratio": "adjacent / hypotenuse",
+    "ratio_aux": "adjacent / hypotenuse"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "ratio_aux",
     "breakdown": [
-      "breakdown[0]",
-      "breakdown[1]",
-      "breakdown[2]"
+      "ratio",
+      "angleRadians",
+      "angleDegrees",
+      "angleOutput",
+      "roundedAngle"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "roundedAngle",
     "unit": "m"
   },
   "category": "Dönüşüm & Ölçüm",
@@ -126,7 +128,33 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "adjacent",
+        "condition": ">= 0",
+        "message": "Adjacent side must be non-negative."
+      },
+      {
+        "field": "hypotenuse",
+        "condition": "> 0",
+        "message": "Hypotenuse must be greater than zero."
+      },
+      {
+        "field": "hypotenuse",
+        "condition": ">= adjacent",
+        "message": "Hypotenuse must be greater than or equal to adjacent side."
+      },
+      {
+        "field": "outputUnit",
+        "condition": "in [0,1]",
+        "message": "Output unit must be 0 (radians) or 1 (degrees)."
+      },
+      {
+        "field": "precision",
+        "condition": ">= 0",
+        "message": "Precision must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wheelDiameter",
-      "label": "Tekerlek Çapı",
+      "label": "Wheel Diameter",
       "type": "number",
       "unit": "mm",
       "default": 622,
-      "businessContext": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)",
+      "businessContext": "Standard rim diameter as defined in ISO 5775 (ETRTO 622 - 700C)",
       "label_i18n": {
         "en": "Wheel Diameter",
         "tr": "Tekerlek Çapı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "RPM",
       "default": 90,
-      "businessContext": "Pedal çevirme sıklığı (dakikadaki devir sayısı)",
+      "businessContext": "Pedal cadence (revolutions per minute)",
       "label_i18n": {
         "en": "Kadans",
         "tr": "Cadence",
@@ -51,11 +51,11 @@
     },
     {
       "id": "chainringTeeth",
-      "label": "Ayna Dişli",
+      "label": "Chainring",
       "type": "number",
       "unit": "diş",
       "default": 50,
-      "businessContext": "Ön aynakol dişli sayısı",
+      "businessContext": "Number of front chainring teeth",
       "label_i18n": {
         "en": "Chainring",
         "tr": "Ayna Dişli",
@@ -75,11 +75,11 @@
     },
     {
       "id": "cogTeeth",
-      "label": "Rubik Dişli",
+      "label": "Rear Sprocket",
       "type": "number",
       "unit": "diş",
       "default": 17,
-      "businessContext": "Arka rubik dişli sayısı",
+      "businessContext": "Number of rear sprocket teeth",
       "label_i18n": {
         "en": "Sprocket",
         "tr": "Rubik Dişli",
@@ -99,11 +99,11 @@
     },
     {
       "id": "timeMinutes",
-      "label": "Süre",
+      "label": "Duration",
       "type": "number",
       "unit": "dk",
       "default": 60,
-      "businessContext": "Hesaplama süresi (dakika)",
+      "businessContext": "Calculation time (minutes)",
       "label_i18n": {
         "en": "Duration",
         "tr": "Süre",

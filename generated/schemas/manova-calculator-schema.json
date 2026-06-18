@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n1",
-      "label": "Grup 1 Örneklem Büyüklüğü",
+      "label": "Group 1 Sample Size",
       "type": "number",
       "unit": "adet",
       "default": 30,
-      "businessContext": "Birinci grubun gözlem sayısı",
+      "businessContext": "Number of observations in the first group",
       "label_i18n": {
         "en": "Group 1 Sample Size",
         "tr": "Grup 1 Örneklem Büyüklüğü",
@@ -27,11 +27,11 @@
     },
     {
       "id": "n2",
-      "label": "Grup 2 Örneklem Büyüklüğü",
+      "label": "Group 2 Sample Size",
       "type": "number",
       "unit": "adet",
       "default": 30,
-      "businessContext": "İkinci grubun gözlem sayısı",
+      "businessContext": "Number of observations in the second group",
       "label_i18n": {
         "en": "Group 2 Sample Size",
         "tr": "Grup 2 Örneklem Büyüklüğü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "d1",
-      "label": "Ortalama Farkı DV1",
+      "label": "Mean Difference DV1",
       "type": "number",
       "unit": "birim",
       "default": 0.5,
-      "businessContext": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+      "businessContext": "Mean difference between two groups in the first dependent variable",
       "label_i18n": {
         "en": "Mean Difference DV1",
         "tr": "Ortalama Farkı DV1",
@@ -75,11 +75,11 @@
     },
     {
       "id": "d2",
-      "label": "Ortalama Farkı DV2",
+      "label": "Mean Difference DV2",
       "type": "number",
       "unit": "birim",
       "default": 0.3,
-      "businessContext": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+      "businessContext": "Mean difference between two groups in the second dependent variable",
       "label_i18n": {
         "en": "Mean Difference DV2",
         "tr": "Ortalama Farkı DV2",
@@ -99,11 +99,11 @@
     },
     {
       "id": "v1",
-      "label": "Havuzlanmış Varyans DV1",
+      "label": "Pooled Variance DV1",
       "type": "number",
       "unit": "birim^2",
       "default": 1,
-      "businessContext": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+      "businessContext": "Pooled variance of two groups for the first dependent variable",
       "label_i18n": {
         "en": "Pooled Variance DV1",
         "tr": "Havuzlanmış Varyans DV1",
@@ -123,11 +123,11 @@
     },
     {
       "id": "v2",
-      "label": "Havuzlanmış Varyans DV2",
+      "label": "Pooled Variance DV2",
       "type": "number",
       "unit": "birim^2",
       "default": 1,
-      "businessContext": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+      "businessContext": "Pooled variance of two groups for the second dependent variable",
       "label_i18n": {
         "en": "Pooled Variance DV2",
         "tr": "Havuzlanmış Varyans DV2",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "observedTime",
-      "label": "Gözlemlenen Süre (saniye)",
+      "label": "Observed Time (seconds)",
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Kronometre ile ölçülen çevrim süresi",
+      "businessContext": "Cycle time measured with stopwatch",
       "label_i18n": {
         "en": "Observed Time (seconds)",
         "tr": "Gözlemlenen Süre (saniye)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "cycles",
-      "label": "Tekrar Sayısı",
+      "label": "Number of Repetitions",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Ölçülen parça veya operasyon sayısı",
+      "businessContext": "Number of measured parts or operations",
       "label_i18n": {
         "en": "Number of Repetitions",
         "tr": "Tekrar Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)",
+      "businessContext": "Performance percentage of worker relative to normal pace (100 = normal)",
       "label_i18n": {
         "en": "Tempo Takdiri (%)",
         "tr": "Pace Estimate (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Dinlenme, gecikme ve kişisel ihtiyaç payı",
+      "businessContext": "Allowance for rest, delay, and personal needs",
       "label_i18n": {
         "en": "Pay (Avans) (%)",
         "tr": "Share (Advance) (%)",

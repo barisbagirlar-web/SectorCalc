@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "a11",
-      "label": "a11 (Satır 1, Sütun 1)",
+      "label": "a11 (Row 1, Column 1)",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Matrisin 1. satır, 1. sütun elemanı",
+      "businessContext": "Matrix element at row 1, column 1",
       "label_i18n": {
         "en": "a11 (Row 1, Column 1)",
         "tr": "a11 (Satır 1, Sütun 1)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Matrisin 1. satır, 2. sütun elemanı",
+      "businessContext": "Matrix element at row 1, column 2",
       "label_i18n": {
         "en": "a12 (Row 1, Column 2)",
         "tr": "a12 (Satır 1, Sütun 2)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 4,
-      "businessContext": "Matrisin 2. satır, 1. sütun elemanı",
+      "businessContext": "Matrix element at row 2, column 1",
       "label_i18n": {
         "en": "a21 (Row 2, Column 1)",
         "tr": "a21 (Satır 2, Sütun 1)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 3,
-      "businessContext": "Matrisin 2. satır, 2. sütun elemanı",
+      "businessContext": "Matrix element at row 2, column 2",
       "label_i18n": {
         "en": "a22 (Row 2, Column 2)",
         "tr": "a22 (Satır 2, Sütun 2)",

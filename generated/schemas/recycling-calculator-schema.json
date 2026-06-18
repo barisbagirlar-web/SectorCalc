@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalWaste",
-      "label": "Toplam Atık (kg)",
+      "label": "Total Waste (kg)",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
+      "businessContext": "Total amount of waste generated in the production process",
       "label_i18n": {
         "en": "Total Waste (kg)",
         "tr": "Toplam Atık (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "recycledAmount",
-      "label": "Geri Dönüştürülen Miktar (kg)",
+      "label": "Recycled Amount (kg)",
       "type": "number",
       "unit": "kg",
       "default": 300,
-      "businessContext": "Geri dönüşüme gönderilen atık miktarı",
+      "businessContext": "Amount of waste sent for recycling",
       "label_i18n": {
         "en": "Recycled Amount (kg)",
         "tr": "Geri Dönüştürülen Miktar (kg)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "contaminationRate",
-      "label": "Kirlilik Oranı (%)",
+      "label": "Pollution Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Geri dönüştürülen malzemedeki kirlilik oranı",
+      "businessContext": "Contamination rate in recycled material",
       "label_i18n": {
         "en": "Pollution Rate (%)",
         "tr": "Kirlilik Oranı (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 0.5,
-      "businessContext": "Atığın kg başına bertaraf maliyeti",
+      "businessContext": "Disposal cost per kg of waste",
       "label_i18n": {
         "en": "Bertaraf Maliyeti (TL/kg)",
         "tr": "Disposal cost (TL/kg)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "revenuePerKg",
-      "label": "Geri Dönüşüm Geliri (TL/kg)",
+      "label": "Recycling Revenue (TL/kg)",
       "type": "number",
       "unit": "TL/kg",
       "default": 1.2,
-      "businessContext": "Geri dönüştürülen malzemenin kg başına satış geliri",
+      "businessContext": "Sales revenue per kg of recycled material",
       "label_i18n": {
         "en": "Recycling Revenue (TL/kg)",
         "tr": "Geri Dönüşüm Geliri (TL/kg)",

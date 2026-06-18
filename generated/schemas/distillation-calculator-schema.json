@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kmol/h",
       "default": 100,
-      "businessContext": "Besleme akış hızı (F)",
+      "businessContext": "Feed flow rate (F)",
       "label_i18n": {
         "en": "Feed Flow Rate",
         "tr": "Besleme Akış Hızı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.5,
-      "businessContext": "Besleme bileşimi (hafif bileşen mol kesri, xF)",
+      "businessContext": "Feed composition (light component mole fraction, xF)",
       "label_i18n": {
         "en": "Feed Composition",
         "tr": "Besleme Bileşimi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.95,
-      "businessContext": "Üst ürün bileşimi (xD)",
+      "businessContext": "Distillate composition (xD)",
       "label_i18n": {
         "en": "Distillate Composition",
         "tr": "Üst Ürün Bileşimi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.05,
-      "businessContext": "Dip ürün bileşimi (xB)",
+      "businessContext": "Bottom product composition (xB)",
       "label_i18n": {
         "en": "Bottoms Composition",
         "tr": "Dip Ürün Bileşimi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2.5,
-      "businessContext": "Bağıl uçuculuk (alfa)",
+      "businessContext": "Relative volatility (alpha)",
       "label_i18n": {
         "en": "Relative Volatility",
         "tr": "Bağıl Uçuculuk",

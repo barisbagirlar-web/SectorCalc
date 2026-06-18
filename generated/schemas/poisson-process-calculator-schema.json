@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "rate",
-      "label": "Ortalama Geliş Hızı (λ)",
+      "label": "Average Arrival Rate (λ)",
       "type": "number",
       "unit": "olay/saat",
       "default": 5,
-      "businessContext": "Birim zamanda meydana gelen ortalama olay sayısı",
+      "businessContext": "Average number of events per unit time",
       "label_i18n": {
         "en": "Average Arrival Rate (λ)",
         "tr": "Ortalama Geliş Hızı (λ)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "t1",
-      "label": "Zaman Aralığı 1 (t₁)",
+      "label": "Time Interval 1 (t₁)",
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Olasılık hesabı için birinci zaman dilimi",
+      "businessContext": "First time interval for probability calculation",
       "label_i18n": {
         "en": "Time Interval 1 (t₁)",
         "tr": "Zaman Aralığı 1 (t₁)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "t2",
-      "label": "Zaman Aralığı 2 (t₂)",
+      "label": "Time Interval 2 (t₂)",
       "type": "number",
       "unit": "saat",
       "default": 2,
-      "businessContext": "Olasılık hesabı için ikinci zaman dilimi",
+      "businessContext": "Second time interval for probability calculation",
       "label_i18n": {
         "en": "Time Interval 2 (t₂)",
         "tr": "Zaman Aralığı 2 (t₂)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "t3",
-      "label": "Zaman Aralığı 3 (t₃)",
+      "label": "Time Interval 3 (t₃)",
       "type": "number",
       "unit": "saat",
       "default": 3,
-      "businessContext": "Olasılık hesabı için üçüncü zaman dilimi",
+      "businessContext": "Third time interval for probability calculation",
       "label_i18n": {
         "en": "Time Interval 3 (t₃)",
         "tr": "Zaman Aralığı 3 (t₃)",

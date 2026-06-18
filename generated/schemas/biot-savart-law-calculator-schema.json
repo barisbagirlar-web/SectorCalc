@@ -123,22 +123,26 @@
     }
   ],
   "formulas": {
-    "factor": "1e-7 * I / r",
-    "factor_aux": "1e-7 * I / r"
+    "normalized_product": "I * r * zp * z1",
+    "result": "I * r * zp * z1 * (z2)",
+    "adjustment_factor": "z2"
   },
   "outputs": {
-    "primary": "factor_aux",
+    "primary": "result",
     "breakdown": [
-      "cosTheta1",
-      "cosTheta2",
-      "factor"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "factor",
-    "unit": "A"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Enerji & Elektrik",
@@ -150,7 +154,13 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "r_positive",
+        "condition": "r > 0",
+        "message": "Perpendicular distance must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

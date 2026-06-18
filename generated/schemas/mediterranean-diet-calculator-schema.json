@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "oliveOil",
-      "label": "Günlük Zeytinyağı Tüketimi",
+      "label": "Daily Olive Oil Consumption",
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Günlük zeytinyağı tüketim miktarı (gram)",
+      "businessContext": "Daily olive oil consumption amount (grams)",
       "label_i18n": {
         "en": "Daily Olive Oil Consumption",
         "tr": "Günlük Zeytinyağı Tüketimi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "vegetables",
-      "label": "Günlük Sebze Porsiyonu",
+      "label": "Daily Vegetable Serving",
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Günlük tüketilen sebze porsiyonu",
+      "businessContext": "Daily vegetable serving consumed",
       "label_i18n": {
         "en": "Daily Vegetable Serving",
         "tr": "Günlük Sebze Porsiyonu",
@@ -51,11 +51,11 @@
     },
     {
       "id": "fruit",
-      "label": "Günlük Meyve Porsiyonu",
+      "label": "Daily Fruit Serving",
       "type": "number",
       "unit": "porsiyon",
       "default": 2,
-      "businessContext": "Günlük tüketilen meyve porsiyonu",
+      "businessContext": "Daily fruit serving consumed",
       "label_i18n": {
         "en": "Daily Fruit Serving",
         "tr": "Günlük Meyve Porsiyonu",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fish",
-      "label": "Haftalık Balık Tüketimi",
+      "label": "Weekly Fish Consumption",
       "type": "number",
       "unit": "porsiyon",
       "default": 2,
-      "businessContext": "Haftalık balık tüketim porsiyonu",
+      "businessContext": "Weekly fish consumption serving",
       "label_i18n": {
         "en": "Weekly Fish Consumption",
         "tr": "Haftalık Balık Tüketimi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "legumes",
-      "label": "Haftalık Bakliyat Tüketimi",
+      "label": "Weekly Legume Consumption",
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Haftalık bakliyat tüketim porsiyonu",
+      "businessContext": "Weekly legume consumption serving",
       "label_i18n": {
         "en": "Weekly Legume Consumption",
         "tr": "Haftalık Bakliyat Tüketimi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "wholeGrains",
-      "label": "Günlük Tam Tahıl Porsiyonu",
+      "label": "Daily Whole Grain Serving",
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Günlük tüketilen tam tahıl porsiyonu",
+      "businessContext": "Daily whole grain serving consumed",
       "label_i18n": {
         "en": "Daily whole grain servings",
         "tr": "Günlük Tam Tahıl Porsiyonu",

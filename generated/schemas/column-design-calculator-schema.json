@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "P",
-      "label": "Eksenel Yük (Axial Load)",
+      "label": "Axial Load",
       "type": "number",
       "unit": "kN",
       "default": 100,
-      "businessContext": "Kolon üzerine uygulanan eksenel basınç yükü.",
+      "businessContext": "Axial compressive load applied to the column.",
       "label_i18n": {
         "en": "Axial Load",
         "tr": "Eksenel Yük",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
+      "businessContext": "The buckling length of the column depends on the end connection conditions.",
       "label_i18n": {
         "en": "Etkili Uzunluk (Effective Length)",
         "tr": "Etkili Uzunluk",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "GPa",
       "default": 200,
-      "businessContext": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
+      "businessContext": "Modulus of elasticity of the material; for steel ~200 GPa.",
       "label_i18n": {
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "cm⁴",
       "default": 1000,
-      "businessContext": "Kesitin zayıf eksene göre alan atalet momenti.",
+      "businessContext": "Area moment of inertia of the section about the weak axis.",
       "label_i18n": {
         "en": "Atalet Momenti (Moment of Inertia)",
         "tr": "Atalet Momenti",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "cm²",
       "default": 50,
-      "businessContext": "Kolon kesitinin toplam alanı.",
+      "businessContext": "Total area of the column cross-section.",
       "label_i18n": {
         "en": "Cross-Sectional Area",
         "tr": "Kesit Alanı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
+      "businessContext": "Yield strength of the material; for structural steel typically 235-355 MPa.",
       "label_i18n": {
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Tasarımda istenen güvenlik katsayısı.",
+      "businessContext": "Safety factor desired in the design.",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",

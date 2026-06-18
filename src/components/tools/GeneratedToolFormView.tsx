@@ -148,24 +148,13 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
       ) : null}
 
       {isPremium && result ? (
-        <>
-          <PremiumResultSummary
-            slug={slug}
-            schema={schema}
-            result={result}
-            inputs={lastInputs}
-            onOpenFullReport={handlePrintPremiumReport}
-          />
-          <div className="mt-4 flex justify-center">
-            <button
-              type="button"
-              onClick={handlePrintPremiumReport}
-              className="sc-cta-primary sc-ledger-cta-primary min-h-[44px] px-6"
-            >
-              ⬇ {t("downloadPdfReport")}
-            </button>
-          </div>
-        </>
+        <PremiumResultSummary
+          slug={slug}
+          schema={schema}
+          result={result}
+          inputs={lastInputs}
+          onOpenFullReport={handlePrintPremiumReport}
+        />
       ) : null}
 
       <ToolDescription content={aboutContent} isPremium={isPremium} />

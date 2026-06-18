@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 50,
-      "businessContext": "Hastanın yaşı (yıl)",
+      "businessContext": "Patient's age (years)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -27,11 +27,11 @@
     },
     {
       "id": "gender",
-      "label": "Cinsiyet (Erkek:1, Kadın:0)",
+      "label": "Gender (Male:1, Female:0)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (1: Erkek, 0: Kadın)",
+      "businessContext": "Gender (1: Male, 0: Female)",
       "label_i18n": {
         "en": "Gender (Male:1, Female:0)",
         "tr": "Cinsiyet (Erkek:1, Kadın:0)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "systolicBP",
-      "label": "Sistolik Kan Basıncı",
+      "label": "Systolic Blood Pressure",
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Sistolik kan basıncı (mmHg)",
+      "businessContext": "Systolic blood pressure (mmHg)",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "smoking",
-      "label": "Sigara (Evet:1, Hayır:0)",
+      "label": "Smoking (Yes:1, No:0)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Sigara içme durumu (1: Evet, 0: Hayır)",
+      "businessContext": "Smoking status (1: Yes, 0: No)",
       "label_i18n": {
         "en": "Smoking (Yes:1, No:0)",
         "tr": "Sigara (Evet:1, Hayır:0)",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Diyabet varlığı (1: Var, 0: Yok)",
+      "businessContext": "Diabetes presence (1: Yes, 0: No)",
       "label_i18n": {
         "en": "Diyabet (Var:1, Yok:0)",
         "tr": "Diabetes (Yes:1, No:0)",

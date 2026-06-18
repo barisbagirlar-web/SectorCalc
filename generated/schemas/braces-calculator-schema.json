@@ -51,11 +51,11 @@
     },
     {
       "id": "bays",
-      "label": "Bölme Sayısı",
+      "label": "Number of Compartments",
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Brace takılacak bölme sayısı",
+      "businessContext": "Number of compartments for braces",
       "label_i18n": {
         "en": "Number of Compartments",
         "tr": "Bölme Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "crossSectionArea",
-      "label": "Kesit Alanı",
+      "label": "Cross-sectional Area",
       "type": "number",
       "unit": "m²",
       "default": 0.001,
-      "businessContext": "Bir brace'in enine kesit alanı",
+      "businessContext": "Cross-sectional area of a brace",
       "label_i18n": {
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "materialDensity",
-      "label": "Malzeme Yoğunluğu",
+      "label": "Material Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Brace malzemesinin yoğunluğu (ör. çelik)",
+      "businessContext": "Density of brace material (e.g., steel)",
       "label_i18n": {
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "radian",
-      "label": "Radyan Değeri",
+      "label": "Radian Value",
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Dönüştürülecek açının radyan cinsinden değeri",
+      "businessContext": "Value of the angle to be converted in radians",
       "label_i18n": {
         "en": "Radian Value",
         "tr": "Radyan Değeri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 57.29577951308232,
-      "businessContext": "Radyandan dereceye dönüşüm sabiti (180/π)",
+      "businessContext": "Conversion constant from radians to degrees (180/π)",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Dönüşüm sonucuna eklenecek ek derece miktarı",
+      "businessContext": "Additional degrees to be added to the conversion result",
       "label_i18n": {
         "en": "Derece Ofseti",
         "tr": "Degree offset",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to show in the result",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

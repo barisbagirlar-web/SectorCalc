@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "run1Distance",
-      "label": "1. Koşu Mesafesi",
+      "label": "1st Run Distance",
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "İlk koşu etabının mesafesi",
+      "businessContext": "Distance of the first run segment",
       "label_i18n": {
         "en": "1st Run Distance",
         "tr": "1. Koşu Mesafesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "run1Time",
-      "label": "1. Koşu Süresi",
+      "label": "1st Run Time",
       "type": "number",
-      "unit": "dakika",
+      "unit": "min",
       "default": 25,
-      "businessContext": "İlk koşu etabının süresi",
+      "businessContext": "Time of the first run segment",
       "label_i18n": {
         "en": "1st Run Time",
         "tr": "1. Koşu Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "transition1",
-      "label": "1. Geçiş Süresi (T1)",
+      "label": "1st Transition Time (T1)",
       "type": "number",
-      "unit": "dakika",
+      "unit": "min",
       "default": 1,
-      "businessContext": "Koşudan bisiklete geçiş süresi",
+      "businessContext": "Transition time from run to bike",
       "label_i18n": {
         "en": "1st Transition Time (T1)",
         "tr": "1. Geçiş Süresi (T1)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "bikeDistance",
-      "label": "Bisiklet Mesafesi",
+      "label": "Bike Distance",
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Bisiklet etabının mesafesi",
+      "businessContext": "Distance of the bike segment",
       "label_i18n": {
         "en": "Bisiklet Mesafesi",
         "tr": "Bicycle Distance",
@@ -99,11 +99,11 @@
     },
     {
       "id": "bikeTime",
-      "label": "Bisiklet Süresi",
+      "label": "Bike Time",
       "type": "number",
-      "unit": "dakika",
+      "unit": "min",
       "default": 40,
-      "businessContext": "Bisiklet etabının süresi",
+      "businessContext": "Time of the bike segment",
       "label_i18n": {
         "en": "Bicycle Duration",
         "tr": "Bisiklet Süresi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "transition2",
-      "label": "2. Geçiş Süresi (T2)",
+      "label": "2nd Transition Time (T2)",
       "type": "number",
-      "unit": "dakika",
+      "unit": "min",
       "default": 1,
-      "businessContext": "Bisikletten ikinci koşuya geçiş süresi",
+      "businessContext": "Transition time from bike to second run",
       "label_i18n": {
         "en": "2nd Transition Time (T2)",
         "tr": "2. Geçiş Süresi (T2)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "run2Distance",
-      "label": "2. Koşu Mesafesi",
+      "label": "2nd Run Distance",
       "type": "number",
       "unit": "km",
       "default": 2.5,
-      "businessContext": "İkinci koşu etabının mesafesi",
+      "businessContext": "Distance of the second run segment",
       "label_i18n": {
         "en": "2nd Run Distance",
         "tr": "2. Koşu Mesafesi",
@@ -171,11 +171,11 @@
     },
     {
       "id": "run2Time",
-      "label": "2. Koşu Süresi",
+      "label": "2nd Run Time",
       "type": "number",
-      "unit": "dakika",
+      "unit": "min",
       "default": 12,
-      "businessContext": "İkinci koşu etabının süresi",
+      "businessContext": "Time of the second run segment",
       "label_i18n": {
         "en": "2nd Run Duration",
         "tr": "2. Koşu Süresi",
@@ -197,7 +197,7 @@
   "formulas": {
     "totalTimeMinutes": "run1Time + transition1 + bikeTime + transition2 + run2Time",
     "totalDistanceKm": "run1Distance + bikeDistance + run2Distance",
-    "averageSpeedKmh": "(run1Distance + bikeDistance + run2Distance) / ((run1Time + transition1 + bikeTime + transition2 + run2Time) / 60)",
+    "averageSpeedKmh": "totalDistanceKm / (totalTimeMinutes / 60)",
     "run1PaceMinPerKm": "run1Time / run1Distance",
     "bikeSpeedKmh": "bikeDistance / (bikeTime / 60)",
     "run2PaceMinPerKm": "run2Time / run2Distance"
@@ -218,15 +218,15 @@
     "dataConfidenceAdjusted": "run2PaceMinPerKm",
     "unit": "min"
   },
-  "category": "İSG & Risk",
+  "category": "Fitness & Spor",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "technology-ai-cloud-cyber",
+  "sectorSlug": "fitness-spor",
+  "categorySlug": "fitness-spor",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "safety",
+  "categoryId": "fitness-spor",
   "validation": {
     "rules": [],
     "thresholds": {}

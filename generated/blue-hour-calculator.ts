@@ -27,7 +27,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Blue_hour_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = 12 - (input.longitude / 15) - input.timezone_offset; results["solar_noon"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["solar_noon"] = 0; }
-  try { const v = 12 - (input.longitude / 15) - input.timezone_offset; results["solar_noon_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["solar_noon_aux"] = 0; }
+  try { const v = input.sunrise_time; results["blue_hour_morning_end"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["blue_hour_morning_end"] = 0; }
+  try { const v = input.sunset_time; results["blue_hour_evening_start"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["blue_hour_evening_start"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBlue_hour_calculator(input: Blue_hour_calculatorInput): Blue_hour_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["solar_noon_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["blue_hour_evening_start"]);
   const breakdown = {
     
   };

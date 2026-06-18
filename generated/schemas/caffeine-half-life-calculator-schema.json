@@ -99,13 +99,14 @@
     }
   ],
   "formulas": {
-    "breakdown": "initialDose",
-    "breakdown_aux": "initialDose"
+    "remainingCaffeine": "initialDose * (0.5 ^ (elapsedTime / halfLife))",
+    "remainingCaffeinePerKg": "remainingCaffeine / bodyWeight",
+    "halfLivesElapsed": "elapsedTime / halfLife"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "remainingCaffeine",
     "breakdown": [
-      "remainingCaffeine_mg_per_kg",
+      "remainingCaffeinePerKg",
       "halfLivesElapsed"
     ],
     "hiddenLossDrivers": [],
@@ -115,7 +116,8 @@
     "dataConfidenceAdjusted": "halfLivesElapsed",
     "unit": "mg",
     "breakdownUnits": {
-      "remainingCaffeine_mg_per_kg": "kg"
+      "remainingCaffeinePerKg": "mg/kg",
+      "halfLivesElapsed": "count"
     }
   },
   "category": "İSG & Risk",
@@ -128,7 +130,32 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialDose",
+        "min": 0,
+        "max": 2000,
+        "message": "Initial dose must be between 0 and 2000 mg."
+      },
+      {
+        "field": "halfLife",
+        "min": 0.5,
+        "max": 24,
+        "message": "Half-life must be between 0.5 and 24 hours."
+      },
+      {
+        "field": "elapsedTime",
+        "min": 0,
+        "max": 72,
+        "message": "Elapsed time must be between 0 and 72 hours."
+      },
+      {
+        "field": "bodyWeight",
+        "min": 20,
+        "max": 300,
+        "message": "Body weight must be between 20 and 300 kg."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

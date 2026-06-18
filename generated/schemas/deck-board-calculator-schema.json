@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "deckLength",
-      "label": "Deck Uzunluğu (ft)",
+      "label": "Deck Length (ft)",
       "type": "number",
       "unit": "ft",
       "default": 12,
@@ -27,7 +27,7 @@
     },
     {
       "id": "deckWidth",
-      "label": "Deck Genişliği (ft)",
+      "label": "Deck Width (ft)",
       "type": "number",
       "unit": "ft",
       "default": 10,
@@ -51,7 +51,7 @@
     },
     {
       "id": "boardLength",
-      "label": "Tahta Uzunluğu (ft)",
+      "label": "Board Length (ft)",
       "type": "number",
       "unit": "ft",
       "default": 8,
@@ -75,7 +75,7 @@
     },
     {
       "id": "boardWidth",
-      "label": "Tahta Genişliği (in)",
+      "label": "Board Width (in)",
       "type": "number",
       "unit": "in",
       "default": 5.5,
@@ -99,7 +99,7 @@
     },
     {
       "id": "gap",
-      "label": "Boşluk (in)",
+      "label": "Gap (in)",
       "type": "number",
       "unit": "in",
       "default": 0.125,
@@ -123,7 +123,7 @@
     },
     {
       "id": "wasteFactor",
-      "label": "Fire Oranı (%)",
+      "label": "Waste Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 10,

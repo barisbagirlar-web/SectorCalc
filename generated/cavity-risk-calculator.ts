@@ -26,8 +26,12 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Cavity_risk_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = (input.meltTemp - 700) / 100 + (input.moldTemp - 150) / 50; results["thermalFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thermalFactor"] = 0; }
+  try { const v = 1 - (input.injectionPressure / 200); results["pressureFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressureFactor"] = 0; }
+  try { const v = input.coolingRate / 100; results["coolingRisk"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["coolingRisk"] = 0; }
   try { const v = 1 - (input.alloyPurity / 100); results["purityFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["purityFactor"] = 0; }
   try { const v = 1 - (input.ventingEfficiency / 100); results["ventingFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ventingFactor"] = 0; }
+  try { const v = ((asFormulaNumber(results["thermalFactor"])) + (asFormulaNumber(results["pressureFactor"])) + (asFormulaNumber(results["coolingRisk"])) + (asFormulaNumber(results["purityFactor"])) + (asFormulaNumber(results["ventingFactor"]))) / 5; results["cavityRiskIndex"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cavityRiskIndex"] = 0; }
   return results;
 }
 
@@ -38,7 +42,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCavity_risk_calculator(input: Cavity_risk_calculatorInput): Cavity_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ventingFactor"]);
+  const totalWasteCost = toNumericFormulaValue(values["cavityRiskIndex"]);
   const breakdown = {
     
   };

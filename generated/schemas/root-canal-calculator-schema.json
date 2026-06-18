@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "apicalDiameter",
-      "label": "Apikal Çap (D0)",
+      "label": "Apical Diameter (D0)",
       "type": "number",
       "unit": "mm",
       "default": 0.15,
-      "businessContext": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası.",
+      "businessContext": "Initial diameter at the apical region of the root canal, typically between 0.10-0.30 mm.",
       "label_i18n": {
         "en": "Apical Diameter (D0)",
         "tr": "Apikal Çap (D0)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "d16Diameter",
-      "label": "D16 Çapı",
+      "label": "D16 Diameter",
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm).",
+      "businessContext": "Diameter of the instrument 16 mm from the tip (typically 1.0 mm for standard ISO instruments).",
       "label_i18n": {
         "en": "D16 Diameter",
         "tr": "D16 Çapı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "workingLength",
-      "label": "Çalışma Boyu",
+      "label": "Working Length",
       "type": "number",
       "unit": "mm",
       "default": 22,
-      "businessContext": "Referans noktasından apikale kadar olan çalışma uzunluğu.",
+      "businessContext": "Working length from reference point to apex.",
       "label_i18n": {
         "en": "Working Length",
         "tr": "Çalışma Boyu",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mm",
       "default": 1.2,
-      "businessContext": "İstenen koronal genişlik (orifis çapı).",
+      "businessContext": "Desired coronal width (orifice diameter).",
       "label_i18n": {
         "en": "Target Coronal Diameter",
         "tr": "Hedef Koronal Çap",

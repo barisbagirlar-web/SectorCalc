@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "metValue",
-      "label": "MET Değeri",
+      "label": "MET Value",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Gerçekleştirilen aktivitenin MET değeri",
+      "businessContext": "MET value of the activity performed",
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+      "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "durationMin",
-      "label": "Süre",
+      "label": "Duration",
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Aktivitenin dakika cinsinden süresi",
+      "businessContext": "Duration of the activity in minutes",
       "label_i18n": {
         "en": "Duration",
         "tr": "Süre",
@@ -75,11 +75,11 @@
     },
     {
       "id": "adjustmentFactor",
-      "label": "Düzeltme Faktörü",
+      "label": "Correction Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)",
+      "businessContext": "Adjustment coefficient for individual metabolic differences (default 1)",
       "label_i18n": {
         "en": "Correction factor",
         "tr": "Düzeltme Faktörü",

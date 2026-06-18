@@ -58,6 +58,7 @@ export function arePremiumToolInputsValid(
 export function calculatePremiumToolResult(
   tool: RevenueTool,
   values: PremiumToolInputValues,
+  locale = "en",
 ): PremiumToolResult {
   const contract = getPremiumToolContract(tool.paidSlug);
   if (!contract) {
@@ -72,7 +73,7 @@ export function calculatePremiumToolResult(
     };
   }
 
-  const report = calculatePremiumDecisionReport(tool.paidSlug, values);
+  const report = calculatePremiumDecisionReport(tool.paidSlug, values, locale);
   return mapDecisionReportToPremiumToolResult(report);
 }
 

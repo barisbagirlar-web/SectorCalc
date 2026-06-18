@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "total_material_input",
-      "label": "Toplam Hammadde Girişi",
+      "label": "Total Raw Material Input",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Üretim sürecine giren toplam hammadde miktarı",
+      "businessContext": "Total amount of raw material entering the production process",
       "label_i18n": {
         "en": "Total Raw Material Input",
         "tr": "Toplam Hammadde Girişi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "recycled_input",
-      "label": "Geri Dönüştürülmüş Girdi",
+      "label": "Recycled Input",
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
+      "businessContext": "Amount of input from recycled material",
       "label_i18n": {
         "en": "Recycled Input",
         "tr": "Geri Dönüştürülmüş Girdi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "reused_input",
-      "label": "Yeniden Kullanılan Girdi",
+      "label": "Reused Input",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
+      "businessContext": "Amount of input provided through reuse",
       "label_i18n": {
         "en": "Reused Input",
         "tr": "Yeniden Kullanılan Girdi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "total_waste_generated",
-      "label": "Toplam Atık Üretimi",
+      "label": "Total Waste Generated",
       "type": "number",
       "unit": "kg",
       "default": 300,
-      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
+      "businessContext": "Total amount of waste generated in the production process",
       "label_i18n": {
         "en": "Total Waste Generated",
         "tr": "Toplam Atık Üretimi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "recycled_waste",
-      "label": "Geri Dönüştürülen Atık",
+      "label": "Recycled Waste",
       "type": "number",
       "unit": "kg",
       "default": 150,
-      "businessContext": "Atığın geri dönüştürülen kısmı",
+      "businessContext": "The portion of waste that is recycled",
       "label_i18n": {
         "en": "Recycled Waste",
         "tr": "Geri Dönüştürülen Atık",
@@ -123,11 +123,11 @@
     },
     {
       "id": "reused_waste",
-      "label": "Yeniden Kullanılan Atık",
+      "label": "Reused Waste",
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Atığın yeniden kullanılan kısmı",
+      "businessContext": "The portion of waste that is reused",
       "label_i18n": {
         "en": "Reused Waste",
         "tr": "Yeniden Kullanılan Atık",

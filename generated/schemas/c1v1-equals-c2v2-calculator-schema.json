@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "c1",
-      "label": "Başlangıç Konsantrasyonu (C1)",
+      "label": "Initial Concentration (C1)",
       "type": "number",
       "unit": "mg/mL",
       "default": 100,
-      "businessContext": "Stok çözelti konsantrasyonu",
+      "businessContext": "Stock solution concentration",
       "label_i18n": {
         "en": "Initial Concentration (C1)",
         "tr": "Başlangıç Konsantrasyonu (C1)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "v1",
-      "label": "Başlangıç Hacmi (V1)",
+      "label": "Initial Volume (V1)",
       "type": "number",
       "unit": "mL",
       "default": 10,
-      "businessContext": "Kullanılacak stok miktarı",
+      "businessContext": "Amount of stock to use",
       "label_i18n": {
         "en": "Initial Volume (V1)",
         "tr": "Başlangıç Hacmi (V1)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mg/mL",
       "default": 20,
-      "businessContext": "İstenen son konsantrasyon",
+      "businessContext": "Desired final concentration",
       "label_i18n": {
         "en": "Hedef Konsantrasyon (C2)",
         "tr": "Target Concentration (C2)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fire",
-      "label": "Fire Payı (%)",
+      "label": "Waste Allowance (%)",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Proses sırasında oluşabilecek kayıp için eklenen fazlalık yüzdesi",
+      "businessContext": "Percentage of excess added for possible loss during process",
       "label_i18n": {
         "en": "Waste Allowance (%)",
         "tr": "Fire Payı (%)",

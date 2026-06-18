@@ -99,6 +99,7 @@
     }
   ],
   "formulas": {
+    "eventHorizonRadius": "2 * 1.4766 * mass",
     "photonSphereRadius": "3 * 1.4766 * mass",
     "iscoRadius": "6 * 1.4766 * mass"
   },
@@ -127,7 +128,34 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "mass",
+        "rule": "min",
+        "value": 0.1,
+        "message": "Mass must be positive."
+      },
+      {
+        "field": "spin",
+        "rule": "range",
+        "min": 0,
+        "max": 1,
+        "message": "Spin must be between 0 and 1."
+      },
+      {
+        "field": "charge",
+        "rule": "range",
+        "min": 0,
+        "max": 1,
+        "message": "Charge must be between 0 and 1."
+      },
+      {
+        "field": "distance",
+        "rule": "min",
+        "value": 0,
+        "message": "Distance must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

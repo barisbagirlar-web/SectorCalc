@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalWallArea",
-      "label": "Toplam Duvar Alanı",
+      "label": "Total Wall Area",
       "type": "number",
       "unit": "sq ft",
       "default": 1000,
-      "businessContext": "Tüm duvarların brüt alanı",
+      "businessContext": "Gross area of all walls",
       "label_i18n": {
         "en": "Total Wall Area",
         "tr": "Toplam Duvar Alanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "doorWindowArea",
-      "label": "Kapı ve Pencere Alanı",
+      "label": "Door and Window Area",
       "type": "number",
       "unit": "sq ft",
       "default": 100,
-      "businessContext": "Kaplama yapılmayacak alan",
+      "businessContext": "Area not to be covered",
       "label_i18n": {
         "en": "Door and Window Area",
         "tr": "Kapı ve Pencere Alanı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "panelCoverage",
-      "label": "Panel Kaplama Alanı",
+      "label": "Panel Covering Area",
       "type": "number",
       "unit": "sq ft",
       "default": 8,
-      "businessContext": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)",
+      "businessContext": "Area covered by one panel (usually 12 ft x 8 in = 8 sq ft)",
       "label_i18n": {
         "en": "Panel Covering Area",
         "tr": "Panel Kaplama Alanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "pricePerPanel",
-      "label": "Panel Başına Fiyat",
+      "label": "Price per Panel",
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Bir panelin satın alma maliyeti",
+      "businessContext": "Purchase cost of one panel",
       "label_i18n": {
         "en": "Price per Panel",
         "tr": "Panel Başına Fiyat",
@@ -99,11 +99,11 @@
     },
     {
       "id": "wastePercentage",
-      "label": "Fire Yüzdesi",
+      "label": "Fire Percentage",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi",
+      "businessContext": "Additional material percentage from cutting and errors",
       "label_i18n": {
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",

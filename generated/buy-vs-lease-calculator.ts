@@ -25,7 +25,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Buy_vs_lease_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.discountRate / 100 / 12; results["monthlyRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = input.discountRate / 100 / 12; results["monthlyRate_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyRate_aux"] = 0; }
+  try { const v = input.purchasePrice - input.residualValue / (1 + (asFormulaNumber(results["monthlyRate"]))) ^ input.leaseTerm; results["npvBuying"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["npvBuying"] = 0; }
+  try { const v = input.leasePayment * (1 - (1 + (asFormulaNumber(results["monthlyRate"]))) ^ -input.leaseTerm) / (asFormulaNumber(results["monthlyRate"])); results["npvLeasing"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["npvLeasing"] = 0; }
+  try { const v = (asFormulaNumber(results["npvBuying"])) - (asFormulaNumber(results["npvLeasing"])); results["netAdvantage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netAdvantage"] = 0; }
   return results;
 }
 
@@ -36,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBuy_vs_lease_calculator(input: Buy_vs_lease_calculatorInput): Buy_vs_lease_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["monthlyRate_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["netAdvantage"]);
   const breakdown = {
     
   };

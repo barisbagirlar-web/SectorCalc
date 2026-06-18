@@ -195,21 +195,27 @@
     }
   ],
   "formulas": {
-    "breakdown": "childAge",
-    "breakdown_aux": "childAge"
+    "futureAnnualCost": "annualCost * (1 + inflationRate/100)^yearsUntilCollege",
+    "totalCost": "futureAnnualCost * durationOfStudy",
+    "futureValueSavings": "currentSavings * (1 + returnRate/100)^yearsUntilCollege + monthlyContribution * 12 * (((1 + returnRate/100)^yearsUntilCollege - 1) / (returnRate/100))",
+    "shortfall": "totalCost - futureValueSavings",
+    "requiredMonthlyContribution": "shortfall / (12 * (((1 + returnRate/100)^yearsUntilCollege - 1) / (returnRate/100)))"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "shortfall",
     "breakdown": [
-      "${breakdown[0]}",
-      "${breakdown[1]}"
+      "futureAnnualCost",
+      "totalCost",
+      "futureValueSavings",
+      "shortfall",
+      "requiredMonthlyContribution"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "years"
+    "dataConfidenceAdjusted": "shortfall",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Günlük Yaşam & Ev",
@@ -221,7 +227,48 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "childAge",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "yearsUntilCollege",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "annualCost",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "inflationRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "returnRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "currentSavings",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "monthlyContribution",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "durationOfStudy",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

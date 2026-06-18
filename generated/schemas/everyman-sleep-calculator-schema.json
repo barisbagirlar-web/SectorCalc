@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "coreHours",
-      "label": "Çekirdek Uyku (saat)",
+      "label": "Core Sleep (hours)",
       "type": "number",
       "unit": "saat",
       "default": 3.5,
-      "businessContext": "Çekirdek uyku süresinin saat kısmı.",
+      "businessContext": "Hour part of core sleep duration.",
       "label_i18n": {
         "en": "Core Sleep (hours)",
         "tr": "Çekirdek Uyku (saat)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "coreMinutes",
-      "label": "Çekirdek Uyku (dakika)",
+      "label": "Core Sleep (minutes)",
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Çekirdek uyku süresinin dakika kısmı.",
+      "businessContext": "Minute part of core sleep duration.",
       "label_i18n": {
         "en": "Core Sleep (minutes)",
         "tr": "Çekirdek Uyku (dakika)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "napCount",
-      "label": "Şekerleme Sayısı",
+      "label": "Number of Naps",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Günlük şekerleme sayısı.",
+      "businessContext": "Number of daily naps.",
       "label_i18n": {
         "en": "Number of Naps",
         "tr": "Şekerleme Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "napDuration",
-      "label": "Şekerleme Süresi (dakika)",
+      "label": "Nap Duration (minutes)",
       "type": "number",
       "unit": "dakika",
       "default": 20,
-      "businessContext": "Her bir şekerlemenin dakika cinsinden süresi.",
+      "businessContext": "Duration of each candy in minutes.",
       "label_i18n": {
         "en": "Nap Duration (minutes)",
         "tr": "Şekerleme Süresi (dakika)",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "u",
       "default": 1,
-      "businessContext": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden.",
+      "businessContext": "Mass of a single atom or molecule, in atomic mass units (u).",
       "label_i18n": {
         "en": "Atomic mass (u)",
         "tr": "Atomik Kütle (u)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 6.02214076e+23,
-      "businessContext": "Dönüştürülecek toplam atom/molekül sayısı.",
+      "businessContext": "Total number of atoms/molecules to convert.",
       "label_i18n": {
         "en": "Number of entities",
         "tr": "Varlık Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Dönüşüm Faktörü (u → kg)",
+      "label": "Conversion Factor (u → kg)",
       "type": "number",
       "unit": "kg/u",
       "default": 1.6605390666e-27,
-      "businessContext": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018).",
+      "businessContext": "Equivalent of 1 atomic mass unit in kilograms (CODATA 2018).",
       "label_i18n": {
         "en": "Conversion Factor (u → kg)",
         "tr": "Dönüşüm Faktörü (u → kg)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "batchSize",
-      "label": "Parti Büyüklüğü (İsteğe bağlı)",
+      "label": "Batch Size (Optional)",
       "type": "number",
       "unit": "parti",
       "default": 1,
-      "businessContext": "Eğer birden fazla parti varsa çarpan olarak kullanılır.",
+      "businessContext": "Used as a multiplier if there are multiple batches.",
       "label_i18n": {
         "en": "Batch Size (Optional)",
         "tr": "Parti Büyüklüğü (İsteğe bağlı)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "outputUnitMultiplier",
-      "label": "Çıktı Birim Çarpanı",
+      "label": "Output Unit Multiplier",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için).",
+      "businessContext": "Multiplier to convert output unit from kg to another unit (e.g., 1000 for g, 1000000 for mg).",
       "label_i18n": {
         "en": "Output Unit Factor",
         "tr": "Çıktı Birim Çarpanı",

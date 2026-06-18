@@ -133,7 +133,48 @@
   "profession": "Ağ Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "non_negative",
+        "type": "min",
+        "value": 0,
+        "inputIds": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "message": "All observed frequencies must be non-negative.",
+        "message_i18n": {
+          "en": "All observed frequencies must be non-negative.",
+          "tr": "Tüm gözlenen frekanslar negatif olmamalıdır.",
+          "de": "Alle beobachteten Häufigkeiten müssen nicht-negativ sein.",
+          "fr": "Toutes les fréquences observées doivent être non négatives.",
+          "es": "Todas las frecuencias observadas deben ser no negativas.",
+          "ar": "يجب أن تكون جميع التكرارات الملاحظة غير سالبة."
+        }
+      },
+      {
+        "id": "positive_total",
+        "type": "custom",
+        "condition": "a + b + c + d > 0",
+        "inputIds": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "message": "Total observed count must be greater than zero.",
+        "message_i18n": {
+          "en": "Total observed count must be greater than zero.",
+          "tr": "Toplam gözlenen sayı sıfırdan büyük olmalıdır.",
+          "de": "Die Gesamtzahl der beobachteten Werte muss größer als Null sein.",
+          "fr": "Le nombre total d'observations doit être supérieur à zéro.",
+          "es": "El recuento total observado debe ser mayor que cero.",
+          "ar": "يجب أن يكون العدد الإجمالي للملاحظات أكبر من الصفر."
+        }
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

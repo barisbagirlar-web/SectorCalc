@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualDemand",
-      "label": "Yıllık Talep",
+      "label": "Annual Demand",
       "type": "number",
       "unit": "adet/yıl",
       "default": 1000,
-      "businessContext": "Ürünün yıllık talep miktarı",
+      "businessContext": "Annual demand quantity of the product",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep",
@@ -27,11 +27,11 @@
     },
     {
       "id": "orderingCost",
-      "label": "Sipariş Maliyeti",
+      "label": "Ordering Cost",
       "type": "number",
       "unit": "para birimi/sipariş",
       "default": 50,
-      "businessContext": "Her sipariş için sabit maliyet",
+      "businessContext": "Fixed cost per order",
       "label_i18n": {
         "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "para birimi/adet/yıl",
       "default": 2,
-      "businessContext": "Bir adet ürünü bir yıl stokta tutma maliyeti",
+      "businessContext": "Cost of holding one unit in stock for one year",
       "label_i18n": {
         "en": "Stokta Tutma Maliyeti",
         "tr": "Holding Cost",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "para birimi/adet",
       "default": 0,
-      "businessContext": "Ürün başına satın alma maliyeti (opsiyonel)",
+      "businessContext": "Purchase cost per unit (optional)",
       "label_i18n": {
         "en": "Birim Maliyet",
         "tr": "Unit Cost",
@@ -99,11 +99,11 @@
     },
     {
       "id": "leadTimeDays",
-      "label": "Tedarik Süresi",
+      "label": "Lead Time",
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
+      "businessContext": "Lead time between order placement and delivery (days)",
       "label_i18n": {
         "en": "Lead Time",
         "tr": "Tedarik Süresi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "workingDaysPerYear",
-      "label": "Yıllık Çalışma Günü",
+      "label": "Annual Working Days",
       "type": "number",
       "unit": "gün",
       "default": 250,
-      "businessContext": "Yıldaki çalışma günü sayısı",
+      "businessContext": "Number of working days per year",
       "label_i18n": {
         "en": "Annual Working Days",
         "tr": "Yıllık Çalışma Günü",

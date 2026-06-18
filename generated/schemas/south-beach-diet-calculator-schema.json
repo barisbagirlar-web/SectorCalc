@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı",
+      "businessContext": "User's age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının ağırlığı (kg)",
+      "businessContext": "User's weight (kg)",
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu (cm)",
+      "businessContext": "User's height (cm)",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "0: Kadın, 1: Erkek",
+      "businessContext": "0: Female, 1: Male",
       "label_i18n": {
         "en": "Cinsiyet",
         "tr": "Gender",
@@ -99,11 +99,11 @@
     },
     {
       "id": "activityFactor",
-      "label": "Aktivite Çarpanı",
+      "label": "Activity Multiplier",
       "type": "number",
       "unit": "unit",
       "default": 1.2,
-      "businessContext": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
+      "businessContext": "Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9",
       "label_i18n": {
         "en": "Activity multiplier",
         "tr": "Aktivite Çarpanı",

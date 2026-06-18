@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Gazın kapladığı hacim (litre)",
+      "businessContext": "Volume occupied by the gas (liters)",
       "label_i18n": {
         "en": "Hacim (V)",
         "tr": "Volume (V)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "temperature",
-      "label": "Sıcaklık (T)",
+      "label": "Temperature (T)",
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Gazın mutlak sıcaklığı (Kelvin)",
+      "businessContext": "Absolute temperature of the gas (Kelvin)",
       "label_i18n": {
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "moles",
-      "label": "Mol Sayısı (n)",
+      "label": "Number of Moles (n)",
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Gazın mol miktarı",
+      "businessContext": "Amount of gas in moles",
       "label_i18n": {
         "en": "Number of Moles (n)",
         "tr": "Mol Sayısı (n)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "L²·atm/mol²",
       "default": 1.355,
-      "businessContext": "Çekim kuvveti sabiti (a)",
+      "businessContext": "Attraction force constant (a)",
       "label_i18n": {
         "en": "Van der Waals Sabiti a",
         "tr": "Van der Waals Constant a",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "L/mol",
       "default": 0.032,
-      "businessContext": "Molekül hacim sabiti (b)",
+      "businessContext": "Molecular volume constant (b)",
       "label_i18n": {
         "en": "Van der Waals Sabiti b",
         "tr": "Van der Waals Constant b",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "L·atm/(mol·K)",
       "default": 0.082057,
-      "businessContext": "İdeal gaz sabiti",
+      "businessContext": "Ideal gas constant",
       "label_i18n": {
         "en": "Gaz Sabiti (R)",
         "tr": "Gaz Sabiti (R) (J/(mol·K))",

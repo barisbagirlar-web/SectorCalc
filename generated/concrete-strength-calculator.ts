@@ -25,7 +25,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Concrete_strength_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.waterContent / input.cementContent; results["waterCementRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["waterCementRatio"] = 0; }
-  try { const v = input.waterContent / input.cementContent; results["waterCementRatio_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["waterCementRatio_aux"] = 0; }
+  try { const v = input.constantA / (input.constantB ** (input.waterContent / input.cementContent)); results["compressiveStrength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compressiveStrength"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateConcrete_strength_calculator(input: Concrete_strength_calculatorInput): Concrete_strength_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["waterCementRatio"]);
+  const totalWasteCost = toNumericFormulaValue(values["compressiveStrength"]);
   const breakdown = {
     
   };

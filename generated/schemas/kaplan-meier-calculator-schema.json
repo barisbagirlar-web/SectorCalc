@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "zaman birimi",
       "default": 0,
-      "businessContext": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu).",
+      "businessContext": "Time at which the first event occurs (or end of the first interval).",
       "label_i18n": {
         "en": "Zaman 1",
         "tr": "Süre 1",
@@ -27,11 +27,11 @@
     },
     {
       "id": "risk1",
-      "label": "Risk Altındaki Sayı 1",
+      "label": "Number at Risk 1",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "İlk olaydan hemen önce risk altındaki denek sayısı.",
+      "businessContext": "Number of subjects at risk just before the first event.",
       "label_i18n": {
         "en": "Number at Risk 1",
         "tr": "Risk Altındaki Sayı 1",
@@ -51,11 +51,11 @@
     },
     {
       "id": "events1",
-      "label": "Olay Sayısı 1",
+      "label": "Number of Events 1",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı.",
+      "businessContext": "Number of events (failures) occurring at Time 1.",
       "label_i18n": {
         "en": "Number of Events 1",
         "tr": "Olay Sayısı 1",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "zaman birimi",
       "default": 0,
-      "businessContext": "İkinci olayın gerçekleştiği zaman.",
+      "businessContext": "Time at which the second event occurs.",
       "label_i18n": {
         "en": "Zaman 2",
         "tr": "Süre 2",
@@ -99,11 +99,11 @@
     },
     {
       "id": "risk2",
-      "label": "Risk Altındaki Sayı 2",
+      "label": "Number at Risk 2",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra).",
+      "businessContext": "Number of subjects at risk just before the second event (after subtracting losses at Time 1).",
       "label_i18n": {
         "en": "Number at Risk 2",
         "tr": "Risk Altındaki Sayı 2",
@@ -123,11 +123,11 @@
     },
     {
       "id": "events2",
-      "label": "Olay Sayısı 2",
+      "label": "Number of Events 2",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Zaman 2'de meydana gelen olay sayısı.",
+      "businessContext": "Number of events occurring at Time 2.",
       "label_i18n": {
         "en": "Number of Events 2",
         "tr": "Olay Sayısı 2",

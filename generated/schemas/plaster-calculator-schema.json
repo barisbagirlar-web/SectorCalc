@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wallLength",
-      "label": "Duvar Uzunluğu",
+      "label": "Wall Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
+      "businessContext": "Horizontal length of the wall to be plastered (meters). Typical interior wall: 3-6m.",
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "wallHeight",
-      "label": "Duvar Yüksekliği",
+      "label": "Wall Height",
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
+      "businessContext": "Vertical height of the wall to be plastered (meters). Standard ceiling height: 2.4-2.7m.",
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "plasterThickness",
-      "label": "Sıva Kalınlığı",
+      "label": "Plaster Thickness",
       "type": "number",
       "unit": "cm",
       "default": 2,
-      "businessContext": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
+      "businessContext": "Plaster thickness to be applied (cm). Typical interior plaster: 1-2cm, exterior plaster: 2-3cm.",
       "label_i18n": {
         "en": "Plaster Thickness",
         "tr": "Sıva Kalınlığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "mixRatioCement",
-      "label": "Çimento Oranı (Hacim)",
+      "label": "Cement Ratio (Volume)",
       "type": "number",
       "unit": "kısım",
       "default": 1,
-      "businessContext": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
+      "businessContext": "Amount of cement in the mortar mix (by volume). E.g., in a 1:4 mix, cement=1, sand=4.",
       "label_i18n": {
         "en": "Cement Ratio (Volume)",
         "tr": "Çimento Oranı (Hacim)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "mixRatioSand",
-      "label": "Kum Oranı (Hacim)",
+      "label": "Sand Ratio (Volume)",
       "type": "number",
       "unit": "kısım",
       "default": 4,
-      "businessContext": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
+      "businessContext": "Amount of sand in the mortar mix (by volume). E.g., in a 1:4 mix, sand=4.",
       "label_i18n": {
         "en": "Sand Ratio (Volume)",
         "tr": "Kum Oranı (Hacim)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "cementBagWeight",
-      "label": "Çimento Torba Ağırlığı",
+      "label": "Cement Bag Weight",
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
+      "businessContext": "Weight of one bag of cement (kg). Typical: 50 kg.",
       "label_i18n": {
         "en": "Cement Bag Weight",
         "tr": "Çimento Torba Ağırlığı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
+      "businessContext": "Waste during application (percent). Typically 5-15%.",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

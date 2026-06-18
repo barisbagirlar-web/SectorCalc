@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalSentences",
-      "label": "Toplam Cümle Sayısı",
+      "label": "Total Sentence Count",
       "type": "number",
       "unit": "unit",
       "default": 30,
-      "businessContext": "Analiz edilen metindeki toplam cümle sayısı",
+      "businessContext": "Total number of sentences in the analyzed text",
       "label_i18n": {
         "en": "Total Sentence Count",
         "tr": "Toplam Cümle Sayısı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
+      "businessContext": "Number of words with 3 or more syllables in the text",
       "label_i18n": {
         "en": "Total polysyllabic word count (3+ syllables)",
         "tr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 30,
-      "businessContext": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
+      "businessContext": "Number of sample sentences used in standard SMOG calculation (usually 30)",
       "label_i18n": {
         "en": "Sample sentence count",
         "tr": "Örneklem Cümle Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 300,
-      "businessContext": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
+      "businessContext": "Total number of words in the text (for information, not used in formula)",
       "label_i18n": {
         "en": "Total Word Count",
         "tr": "Toplam Kelime Sayısı",

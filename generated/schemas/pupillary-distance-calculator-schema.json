@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "rightPd",
-      "label": "Sağ Göz PD (mm)",
+      "label": "Right Eye PD (mm)",
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Sağ göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür).",
+      "businessContext": "Monocular PD distance from center to pupil for the right eye (measured from the center of the nose bridge).",
       "label_i18n": {
         "en": "Right Eye PD (mm)",
         "tr": "Sağ Göz PD (mm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "leftPd",
-      "label": "Sol Göz PD (mm)",
+      "label": "Left Eye PD (mm)",
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Sol göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür).",
+      "businessContext": "Monocular PD distance from center to pupil for left eye (measured from center of nasal bridge).",
       "label_i18n": {
         "en": "Left Eye PD (mm)",
         "tr": "Sol Göz PD (mm)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Tipik okuma veya yakın çalışma mesafesi (santimetre cinsinden).",
+      "businessContext": "Typical reading or near work distance (in centimeters).",
       "label_i18n": {
         "en": "Near Working Distance (cm)",
         "tr": "Yakın Çalışma Mesafesi (cm)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Göz yüzeyi ile gözlük camı arasındaki mesafe (genellikle 12 mm).",
+      "businessContext": "Distance between eye surface and spectacle lens (usually 12 mm).",
       "label_i18n": {
         "en": "Tepe Mesafesi (mm)",
         "tr": "Peak distance (mm)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "mm",
       "default": 15,
-      "businessContext": "Korneadan gözün dönme merkezine olan mesafe (tipik 15 mm).",
+      "businessContext": "Distance from cornea to center of rotation of the eye (typically 15 mm).",
       "label_i18n": {
         "en": "Center of Rotation Distance (mm)",
         "tr": "Dönme Merkezi Mesafesi (mm)",

@@ -147,11 +147,14 @@
     }
   ],
   "formulas": {
-    "machine_factor": "0.3 * machine_downtime * 100",
-    "machine_factor_aux": "0.3 * machine_downtime * 100"
+    "human_factor": "operator_error_rate * 0.5",
+    "machine_factor": "machine_downtime * 100 * 0.3",
+    "measurement_factor": "measurement_variance * 10",
+    "environmental_factor": "(process_temperature_variance * 0.2) + (noise_level / 100)",
+    "anxiety_index": "human_factor + machine_factor + measurement_factor + environmental_factor"
   },
   "outputs": {
-    "primary": "machine_factor_aux",
+    "primary": "anxiety_index",
     "breakdown": [
       "human_factor",
       "machine_factor",

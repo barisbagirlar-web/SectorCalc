@@ -22,8 +22,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Caffeine_half_life_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.initialDose; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.initialDose; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.initialDose * (0.5 ^ (input.elapsedTime / input.halfLife)); results["remainingCaffeine"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remainingCaffeine"] = 0; }
+  try { const v = (asFormulaNumber(results["remainingCaffeine"])) / input.bodyWeight; results["remainingCaffeinePerKg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remainingCaffeinePerKg"] = 0; }
+  try { const v = input.elapsedTime / input.halfLife; results["halfLivesElapsed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["halfLivesElapsed"] = 0; }
   return results;
 }
 
@@ -34,7 +35,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCaffeine_half_life_calculator(input: Caffeine_half_life_calculatorInput): Caffeine_half_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["remainingCaffeine"]);
   const breakdown = {
     
   };

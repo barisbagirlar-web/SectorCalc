@@ -27,7 +27,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Atm_to_bar_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.pressure_atm * input.conversion_factor; results["primary"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.pressure_atm; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.pressure_atm * input.conversion_factor; results["primary_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["primary_aux"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateAtm_to_bar_calculator(input: Atm_to_bar_calculatorInput): Atm_to_bar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = toNumericFormulaValue(values["primary_aux"]);
   const breakdown = {
     
   };

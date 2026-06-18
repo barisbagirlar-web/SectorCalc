@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "speed",
-      "label": "Hız",
+      "label": "Speed",
       "type": "number",
       "unit": "km/sa",
       "default": 50,
-      "businessContext": "Araç hızı (km/saat cinsinden)",
+      "businessContext": "Vehicle speed (km/h)",
       "label_i18n": {
         "en": "Speed",
         "tr": "Hız",
@@ -27,11 +27,11 @@
     },
     {
       "id": "reactionTime",
-      "label": "Tepki Süresi",
+      "label": "Reaction Time",
       "type": "number",
       "unit": "s",
       "default": 1.5,
-      "businessContext": "Sürücünün tepki süresi (saniye)",
+      "businessContext": "Driver's reaction time (seconds)",
       "label_i18n": {
         "en": "Reaction time",
         "tr": "Tepki Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "friction",
-      "label": "Sürtünme Katsayısı (μ)",
+      "label": "Friction Coefficient (μ)",
       "type": "number",
       "unit": "unit",
       "default": 0.7,
-      "businessContext": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
+      "businessContext": "Friction coefficient between tire and road (dry asphalt: 0.7)",
       "label_i18n": {
         "en": "Friction coefficient (μ)",
         "tr": "Sürtünme Katsayısı (μ)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "gradient",
-      "label": "Yol Eğimi",
+      "label": "Road Slope",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
+      "businessContext": "Road slope (%; positive: uphill, negative: downhill)",
       "label_i18n": {
         "en": "Road grade",
         "tr": "Yol Eğimi",

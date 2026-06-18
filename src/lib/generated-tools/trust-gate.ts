@@ -12,7 +12,7 @@ export type TrustGateResult = {
 
 const FORBIDDEN_FUNCTION_MARKERS = ["f(", "g(", "calc(", "calculate("] as const;
 
-const DEFAULT_CATEGORY = "Üretim & İmalat";
+const DEFAULT_CATEGORY = "General";
 
 function hasForbiddenFunctions(formulas: Record<string, unknown> | undefined): boolean {
   if (!formulas) {

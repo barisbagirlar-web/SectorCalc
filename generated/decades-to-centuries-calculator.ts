@@ -27,7 +27,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Decades_to_centuries_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.decades / 10; results["rawCenturies"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawCenturies"] = 0; }
-  try { const v = input.decades / 10; results["rawCenturies_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawCenturies_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["rawCenturies"])) * (1 - input.measurementError / input.decades); results["lowerBound"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lowerBound"] = 0; }
+  try { const v = (asFormulaNumber(results["rawCenturies"])) * (1 + input.measurementError / input.decades); results["upperBound"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["upperBound"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateDecades_to_centuries_calculator(input: Decades_to_centuries_calculatorInput): Decades_to_centuries_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawCenturies_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["upperBound"]);
   const breakdown = {
     
   };

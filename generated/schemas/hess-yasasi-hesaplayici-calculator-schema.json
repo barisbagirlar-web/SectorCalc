@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4).",
+      "businessContext": "Number of reaction steps to calculate total enthalpy change using Hess's law (max 4).",
       "label_i18n": {
         "en": "Number of Steps",
         "tr": "Adım Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "step1_dH",
-      "label": "1. Adım ΔH",
+      "label": "Step 1 ΔH",
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Birinci reaksiyon adımının entalpi değişimi.",
+      "businessContext": "Enthalpy change of the first reaction step.",
       "label_i18n": {
         "en": "Step 1 ΔH",
         "tr": "1. Adım ΔH",
@@ -51,11 +51,11 @@
     },
     {
       "id": "step2_dH",
-      "label": "2. Adım ΔH",
+      "label": "Step 2 ΔH",
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "İkinci reaksiyon adımının entalpi değişimi.",
+      "businessContext": "Enthalpy change of the second reaction step.",
       "label_i18n": {
         "en": "Step 2 ΔH",
         "tr": "2. Adım ΔH",
@@ -75,11 +75,11 @@
     },
     {
       "id": "step3_dH",
-      "label": "3. Adım ΔH",
+      "label": "Step 3 ΔH",
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Üçüncü reaksiyon adımının entalpi değişimi.",
+      "businessContext": "Enthalpy change of the third reaction step.",
       "label_i18n": {
         "en": "Step 3 ΔH",
         "tr": "3. Adım ΔH",
@@ -99,11 +99,11 @@
     },
     {
       "id": "step4_dH",
-      "label": "4. Adım ΔH",
+      "label": "Step 4 ΔH",
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Dördüncü reaksiyon adımının entalpi değişimi.",
+      "businessContext": "Enthalpy change of the fourth reaction step.",
       "label_i18n": {
         "en": "Step 4 ΔH",
         "tr": "4. Adım ΔH",

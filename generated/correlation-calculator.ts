@@ -33,8 +33,8 @@ function evaluateAllFormulas(input: Correlation_calculatorInput): Record<string,
   try { const v = input.x1 + input.x2 + input.x3 + input.x4; results["sumX"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumX"] = 0; }
   try { const v = input.y1 + input.y2 + input.y3 + input.y4; results["sumY"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumY"] = 0; }
   try { const v = input.x1*input.y1 + input.x2*input.y2 + input.x3*input.y3 + input.x4*input.y4; results["sumXY"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumXY"] = 0; }
-  try { const v = input.x1**2 + input.x2**2 + input.x3**2 + input.x4**2; results["sumX2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumX2"] = 0; }
-  try { const v = input.y1**2 + input.y2**2 + input.y3**2 + input.y4**2; results["sumY2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumY2"] = 0; }
+  try { const v = input.x1*input.x1 + input.x2*input.x2 + input.x3*input.x3 + input.x4*input.x4; results["sumX2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumX2"] = 0; }
+  try { const v = input.y1*input.y1 + input.y2*input.y2 + input.y3*input.y3 + input.y4*input.y4; results["sumY2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumY2"] = 0; }
   try { const v = 4 * (asFormulaNumber(results["sumXY"])) - (asFormulaNumber(results["sumX"])) * (asFormulaNumber(results["sumY"])); results["numerator"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["numerator"] = 0; }
   return results;
 }

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.95,
-      "businessContext": "Yüzeyin siyah cisim idealine göre yayma oranı",
+      "businessContext": "Emissivity of the surface relative to black body ideal",
       "label_i18n": {
         "en": "Emissivity (ε)",
         "tr": "Yayma Oranı (ε)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "area",
-      "label": "Yüzey Alanı",
+      "label": "Surface Area",
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Işınım yapan yüzeyin alanı",
+      "businessContext": "Area of radiating surface",
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Mutlak sıcaklık (Kelvin cinsinden)",
+      "businessContext": "Absolute temperature (in Kelvin)",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "W/(m²·K⁴)",
       "default": 5.670367e-8,
-      "businessContext": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
+      "businessContext": "Fundamental physical constant, default value is TÜV approved",
       "label_i18n": {
         "en": "Stefan-Boltzmann Constant",
         "tr": "Stefan-Boltzmann Sabiti",

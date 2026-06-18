@@ -147,11 +147,14 @@
     }
   ],
   "formulas": {
-    "breakdown": "wallWidth",
-    "breakdown_aux": "wallWidth"
+    "wallArea": "wallWidth * wallHeight",
+    "brickAreaWithMortar": "(brickLength / 1000 + mortarJoint / 1000) * (brickHeight / 1000 + mortarJoint / 1000)",
+    "bricksWithoutWaste": "wallArea / brickAreaWithMortar",
+    "wasteBricks": "bricksWithoutWaste * wasteFactor / 100",
+    "totalBricks": "bricksWithoutWaste + wasteBricks"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "totalBricks",
     "breakdown": [
       "wallArea",
       "brickAreaWithMortar",
@@ -163,7 +166,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "wasteBricks",
-    "unit": "m"
+    "unit": "pieces"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İnşaat & Yapı",
@@ -175,7 +178,38 @@
   "profession": "İnşaat Mühendisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "wallWidth",
+        "condition": "> 0",
+        "message": "Wall width must be positive"
+      },
+      {
+        "field": "wallHeight",
+        "condition": "> 0",
+        "message": "Wall height must be positive"
+      },
+      {
+        "field": "brickLength",
+        "condition": "> 0",
+        "message": "Brick length must be positive"
+      },
+      {
+        "field": "brickHeight",
+        "condition": "> 0",
+        "message": "Brick height must be positive"
+      },
+      {
+        "field": "mortarJoint",
+        "condition": ">= 0",
+        "message": "Mortar joint thickness must be non-negative"
+      },
+      {
+        "field": "wasteFactor",
+        "condition": ">= 0",
+        "message": "Waste factor must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

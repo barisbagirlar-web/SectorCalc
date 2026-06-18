@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "numberOfBundles",
-      "label": "Paket Sayısı",
+      "label": "Number of Packages",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Satın alınan paket adedi",
+      "businessContext": "Number of packages purchased",
       "label_i18n": {
         "en": "Number of packages",
         "tr": "Paket Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "itemsPerBundle",
-      "label": "Paket Başına Ürün",
+      "label": "Products per Package",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Bir paketteki ürün sayısı",
+      "businessContext": "Number of products in a package",
       "label_i18n": {
         "en": "Products per package",
         "tr": "Paket Başına Ürün",
@@ -51,11 +51,11 @@
     },
     {
       "id": "pricePerItem",
-      "label": "Birim Fiyatı",
+      "label": "Unit Price",
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "Tek bir ürünün liste fiyatı",
+      "businessContext": "List price of a single product",
       "label_i18n": {
         "en": "Unit price",
         "tr": "Birim Fiyatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "bundleDiscountPercent",
-      "label": "Paket İndirimi (%)",
+      "label": "Package Discount (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Paket olarak alındığında uygulanacak indirim yüzdesi",
+      "businessContext": "Discount percentage applied when purchased as a package",
       "label_i18n": {
         "en": "Package Discount (%)",
         "tr": "Paket İndirimi (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "bulkThreshold",
-      "label": "Toplu Alım Eşiği",
+      "label": "Bulk Purchase Threshold",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
+      "businessContext": "Additional bulk discount applies when this number or more packages are purchased",
       "label_i18n": {
         "en": "Bulk Purchase Threshold",
         "tr": "Toplu Alım Eşiği",
@@ -123,11 +123,11 @@
     },
     {
       "id": "bulkDiscountPercent",
-      "label": "Toplu İndirim Oranı (%)",
+      "label": "Bulk Discount Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
+      "businessContext": "When the bulk purchase threshold is exceeded, the additional discount percentage applied after the package discount",
       "label_i18n": {
         "en": "Bulk Discount Rate (%)",
         "tr": "Toplu İndirim Oranı (%)",

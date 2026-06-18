@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Gözlem Sayısı",
+      "label": "Number of Observations",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Veri setindeki gözlem sayısı (örn. 10)",
+      "businessContext": "Number of observations in the dataset (e.g., 10)",
       "label_i18n": {
         "en": "Number of observations",
         "tr": "Gözlem Sayısı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Tüm gözlem değerlerinin toplamı",
+      "businessContext": "Sum of all observation values",
       "label_i18n": {
         "en": "Toplam (∑x)",
         "tr": "Total (∑x)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "sumX2",
-      "label": "Kareler Toplamı (∑x²)",
+      "label": "Sum of Squares (∑x²)",
       "type": "number",
       "unit": "birim²",
       "default": 0,
-      "businessContext": "Her bir gözlem değerinin karesinin toplamı",
+      "businessContext": "Sum of squares of each observation value",
       "label_i18n": {
         "en": "Sum of squares (∑x²)",
         "tr": "Kareler Toplamı (∑x²)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "isPopulation",
-      "label": "Popülasyon mu?",
+      "label": "Population?",
       "type": "number",
       "unit": "yok",
       "default": 1,
-      "businessContext": "1: Popülasyon varyansı, 0: Örneklem varyansı",
+      "businessContext": "1: Population variance, 0: Sample variance",
       "label_i18n": {
         "en": "Is it population?",
         "tr": "Popülasyon mu?",

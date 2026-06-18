@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "dosePerShot",
-      "label": "Shot Başına Kahve Dozu",
+      "label": "Coffee Dose Per Shot",
       "type": "number",
       "unit": "g",
       "default": 18,
-      "businessContext": "Bir shot espresso için kullanılan kahve miktarı (gram)",
+      "businessContext": "Amount of coffee used for one espresso shot (grams)",
       "label_i18n": {
         "en": "Coffee dose per shot",
         "tr": "Shot Başına Kahve Dozu",
@@ -27,7 +27,7 @@
     },
     {
       "id": "coffeeBagPrice",
-      "label": "Kahve Paketi Fiyatı",
+      "label": "Coffee Package Price",
       "type": "number",
       "unit": "EUR",
       "default": 10,
@@ -51,11 +51,11 @@
     },
     {
       "id": "bagWeight",
-      "label": "Paket Ağırlığı",
+      "label": "Package Weight",
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Kahve paketinin net ağırlığı",
+      "businessContext": "Net weight of the coffee package",
       "label_i18n": {
         "en": "Package weight",
         "tr": "Paket Ağırlığı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Öğütme ve hazırlık sırasında oluşan kahve kaybı yüzdesi",
+      "businessContext": "Percentage of coffee loss during grinding and preparation",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

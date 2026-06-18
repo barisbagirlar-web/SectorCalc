@@ -10,6 +10,7 @@ import type {
 } from "@/lib/generated-tools/types";
 import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
 import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
+import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import { normalizeLocale } from "@/lib/format/localization";
@@ -115,6 +116,22 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const trustTraceId = `TT-${slugUpper.slice(0, 4)}-${now.toISOString().slice(0, 10).replace(/-/g, "")}-0001`;
   const docId = `SC-${now.getFullYear()}-${slugUpper.slice(0, 6)}-0001`;
 
+  const primaryIsNumber = typeof primaryRaw === "number" && Number.isFinite(primaryRaw);
+  const riskScore =
+    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0
+      ? Math.min(
+          Math.max(
+            Math.round((1 - result.dataConfidenceAdjusted / ((primaryRaw as number) * 2)) * 100),
+            0,
+          ),
+          100,
+        )
+      : 45;
+  const riskColor = riskScore <= 30 ? "#22C55E" : riskScore <= 60 ? "#F59E0B" : "#EF4444";
+  const riskLabelKey = riskScore <= 30 ? "riskLow" : riskScore <= 60 ? "riskMedium" : "riskHigh";
+  const gaugeCircumference = Math.PI * 40;
+  const gaugeOffset = gaugeCircumference * (1 - riskScore / 100);
+
   return (
     <>
       <style>{INDUSTRIAL_PRINT_CSS}</style>
@@ -140,9 +157,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
         </div>
 
         <div className="cover-hero">
-          <div className="tool-badge">
-            CNC &amp; {t("sectionFindings")}
-          </div>
+          <div className="tool-badge">{t("badgeDefault")}</div>
           <h1 className="report-title">{title}</h1>
           <p className="report-subtitle">{t("methodologyNote")}</p>
           <div className="primary-result-card">
@@ -152,7 +167,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               <div className="prc-value">{formattedPrimary}</div>
               <div className="prc-desc">
                 {t("simulationNotice")} &nbsp;
-                <span className="badge amber">⚠ {t("riskMedium")}</span>
+                <span className={`badge ${riskScore <= 30 ? "green" : riskScore <= 60 ? "amber" : "red"}`}>⚠ {t(riskLabelKey)}</span>
               </div>
             </div>
           </div>
@@ -173,7 +188,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaConfidence")}</div>
-            <div className="meta-val"><span className="badge amber">{t("confidenceProbable")}</span></div>
+            <div className="meta-val"><span className={`badge ${riskScore <= 30 ? "green" : riskScore <= 60 ? "amber" : "red"}`}>{t(riskLabelKey)}</span></div>
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaEngine")}</div>
@@ -207,7 +222,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                     typeof val === "number"
                       ? formatGeneratedNumericValue(val, input.id, locale)
                       : String(val ?? "—");
-                  const inputLabel = input.label ?? input.id;
+                  const inputLabel = resolveGeneratedI18nText(input.label_i18n, locale, input.label ?? input.id);
                   return (
                     <tr key={input.id}>
                       <td>{inputLabel}</td>
@@ -314,7 +329,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                   <div className="gauge-wrap">
                     <svg className="gauge-svg" viewBox="0 0 100 55">
                       <path d="M10 50 A 40 40 0 0 1 90 50" stroke="rgba(255,255,255,0.08)" strokeWidth="8" fill="none" strokeLinecap="round" />
-                      <path d="M10 50 A 40 40 0 0 1 90 50" stroke="url(#gauge-grad)" strokeWidth="8" fill="none" strokeLinecap="round" strokeDasharray="125.6" strokeDashoffset="66.6" />
+                      <path d="M10 50 A 40 40 0 0 1 90 50" stroke="url(#gauge-grad)" strokeWidth="8" fill="none" strokeLinecap="round" strokeDasharray={`${gaugeCircumference}`} strokeDashoffset={`${gaugeOffset}`} />
                       <defs>
                         <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="#22C55E" />
@@ -323,23 +338,23 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                         </linearGradient>
                       </defs>
                     </svg>
-                    <div className="gauge-score-text">47</div>
+                    <div className="gauge-score-text">{riskScore}</div>
                   </div>
-                  <div className="gauge-labels">
+                    <div className="gauge-labels">
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#22C55E" }} />
                       <span className="gauge-row-label">{t("riskLow")} (0–30)</span>
-                      <span className="gauge-row-val">—</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskLow" ? `◀ ${t("riskLow")}` : "—"}</span>
                     </div>
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#F59E0B" }} />
                       <span className="gauge-row-label">{t("riskMedium")} (31–60)</span>
-                      <span className="gauge-row-val">◀ {t("preAssessment")}</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskMedium" ? `◀ ${t("riskMedium")}` : "—"}</span>
                     </div>
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#EF4444" }} />
                       <span className="gauge-row-label">{t("riskHigh")} (61–100)</span>
-                      <span className="gauge-row-val">—</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskHigh" ? `◀ ${t("riskHigh")}` : "—"}</span>
                     </div>
                   </div>
                 </div>

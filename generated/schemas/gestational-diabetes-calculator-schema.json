@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "age",
-      "label": "Anne Yaşı",
+      "label": "Maternal Age",
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir.",
+      "businessContext": "The age of the expectant mother is one of the factors affecting the risk of gestational diabetes.",
       "label_i18n": {
         "en": "Maternal Age",
         "tr": "Anne Yaşı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "bmi",
-      "label": "Vücut Kitle İndeksi (BMI)",
+      "label": "Body Mass Index (BMI)",
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir.",
+      "businessContext": "Pre-pregnancy BMI is an important parameter in determining the risk of gestational diabetes.",
       "label_i18n": {
         "en": "Body Mass Index (BMI)",
         "tr": "Vücut Kitle İndeksi (BMI)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "previousGDM",
-      "label": "Önceki Gebelikte GDM Öyküsü",
+      "label": "Previous Gestational Diabetes History",
       "type": "number",
       "unit": "0=Hayır, 1=Evet",
       "default": 0,
-      "businessContext": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır.",
+      "businessContext": "Having had gestational diabetes before increases the risk of recurrence.",
       "label_i18n": {
         "en": "History of GDM in Previous Pregnancy",
         "tr": "Önceki Gebelikte GDM Öyküsü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "familyDiabetes",
-      "label": "Ailede Diyabet Öyküsü",
+      "label": "Family History of Diabetes",
       "type": "number",
       "unit": "0=Hayır, 1=Evet",
       "default": 0,
-      "businessContext": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür.",
+      "businessContext": "Presence of diabetes in first-degree relatives is a risk factor.",
       "label_i18n": {
         "en": "Family History of Diabetes",
         "tr": "Ailede Diyabet Öyküsü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "fastingGlucose",
-      "label": "Açlık Kan Şekeri",
+      "label": "Fasting Blood Sugar",
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır.",
+      "businessContext": "Fasting blood sugar level during pregnancy is used in diabetes screening.",
       "label_i18n": {
         "en": "Fasting Blood Sugar",
         "tr": "Açlık Kan Şekeri",
@@ -123,11 +123,11 @@
     },
     {
       "id": "ogtt1h",
-      "label": "OGTT 1. Saat Kan Şekeri",
+      "label": "OGTT 1st Hour Blood Sugar",
       "type": "number",
       "unit": "mg/dL",
       "default": 140,
-      "businessContext": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir.",
+      "businessContext": "The 1-hour value of the oral glucose tolerance test is one of the diagnostic criteria.",
       "label_i18n": {
         "en": "OGTT 1-Hour Blood Sugar",
         "tr": "OGTT 1. Saat Kan Şekeri",
@@ -147,11 +147,11 @@
     },
     {
       "id": "ogtt2h",
-      "label": "OGTT 2. Saat Kan Şekeri",
+      "label": "OGTT 2nd Hour Blood Sugar",
       "type": "number",
       "unit": "mg/dL",
       "default": 120,
-      "businessContext": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir.",
+      "businessContext": "The 2-hour value of the oral glucose tolerance test is one of the diagnostic criteria.",
       "label_i18n": {
         "en": "OGTT 2-Hour Blood Sugar",
         "tr": "OGTT 2. Saat Kan Şekeri",
@@ -171,11 +171,11 @@
     },
     {
       "id": "gestationalWeek",
-      "label": "Gebelik Haftası",
+      "label": "Gestational Week",
       "type": "number",
       "unit": "hafta",
       "default": 24,
-      "businessContext": "Tarama genellikle 24-28. haftalar arasında yapılır.",
+      "businessContext": "Screening is usually performed between 24-28 weeks.",
       "label_i18n": {
         "en": "Gestational Week",
         "tr": "Gebelik Haftası",

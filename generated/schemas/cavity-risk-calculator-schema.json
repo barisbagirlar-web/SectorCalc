@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "meltTemp",
-      "label": "Eriyik Sıcaklığı",
+      "label": "Melt Temperature",
       "type": "number",
       "unit": "°C",
       "default": 720,
-      "businessContext": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
+      "businessContext": "Metal melt temperature affects gas solubility and fluidity. High temperature may increase porosity risk.",
       "label_i18n": {
         "en": "Melt temperature",
         "tr": "Eriyik Sıcaklığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "moldTemp",
-      "label": "Kalıp Sıcaklığı",
+      "label": "Mold Temperature",
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
+      "businessContext": "Mold temperature determines solidification rate. Improper mold temperature leads to shrinkage cavities.",
       "label_i18n": {
         "en": "Mold temperature",
         "tr": "Kalıp Sıcaklığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "injectionPressure",
-      "label": "Enjeksiyon Basıncı",
+      "label": "Injection Pressure",
       "type": "number",
       "unit": "MPa",
       "default": 100,
-      "businessContext": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
+      "businessContext": "Pressure ensures the metal completely fills the mold. Low pressure causes void formation.",
       "label_i18n": {
         "en": "Injection pressure",
         "tr": "Enjeksiyon Basıncı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "coolingRate",
-      "label": "Soğuma Hızı",
+      "label": "Cooling Rate",
       "type": "number",
       "unit": "°C/s",
       "default": 50,
-      "businessContext": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
+      "businessContext": "Rapid cooling can cause the metal to solidify before feeding and lead to micro-porosity.",
       "label_i18n": {
         "en": "Cooling Rate",
         "tr": "Soğuma Hızı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "alloyPurity",
-      "label": "Alaşım Saflığı",
+      "label": "Alloy Purity",
       "type": "number",
       "unit": "%",
       "default": 99.5,
-      "businessContext": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
+      "businessContext": "Impurities cause gas bubbles and structural defects. As purity increases, risk decreases.",
       "label_i18n": {
         "en": "Alloy Purity",
         "tr": "Alaşım Saflığı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "ventingEfficiency",
-      "label": "Havalandırma Verimi",
+      "label": "Ventilation Efficiency",
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
+      "businessContext": "Ventilation ensures the removal of air from the mold. Insufficient ventilation creates voids due to gas entrapment.",
       "label_i18n": {
         "en": "Venting Efficiency",
         "tr": "Havalandırma Verimi",
@@ -147,16 +147,20 @@
     }
   ],
   "formulas": {
+    "thermalFactor": "(meltTemp - 700) / 100 + (moldTemp - 150) / 50",
+    "pressureFactor": "1 - (injectionPressure / 200)",
+    "coolingRisk": "coolingRate / 100",
     "purityFactor": "1 - (alloyPurity / 100)",
-    "ventingFactor": "1 - (ventingEfficiency / 100)"
+    "ventingFactor": "1 - (ventingEfficiency / 100)",
+    "cavityRiskIndex": "(thermalFactor + pressureFactor + coolingRisk + purityFactor + ventingFactor) / 5"
   },
   "outputs": {
-    "primary": "ventingFactor",
+    "primary": "cavityRiskIndex",
     "breakdown": [
       "thermalFactor",
       "pressureFactor",
-      "purityFactor",
       "coolingRisk",
+      "purityFactor",
       "ventingFactor"
     ],
     "hiddenLossDrivers": [],
@@ -164,7 +168,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "cavityRiskIndex",
-    "unit": "°C"
+    "unit": "index"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Metal & Kaynak",
@@ -176,8 +180,75 @@
   "profession": "Kalıp Uzmanı",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "meltTemp",
+        "rule": "min",
+        "value": 600
+      },
+      {
+        "field": "meltTemp",
+        "rule": "max",
+        "value": 900
+      },
+      {
+        "field": "moldTemp",
+        "rule": "min",
+        "value": 50
+      },
+      {
+        "field": "moldTemp",
+        "rule": "max",
+        "value": 400
+      },
+      {
+        "field": "injectionPressure",
+        "rule": "min",
+        "value": 50
+      },
+      {
+        "field": "injectionPressure",
+        "rule": "max",
+        "value": 200
+      },
+      {
+        "field": "coolingRate",
+        "rule": "min",
+        "value": 10
+      },
+      {
+        "field": "coolingRate",
+        "rule": "max",
+        "value": 200
+      },
+      {
+        "field": "alloyPurity",
+        "rule": "min",
+        "value": 90
+      },
+      {
+        "field": "alloyPurity",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "ventingEfficiency",
+        "rule": "min",
+        "value": 50
+      },
+      {
+        "field": "ventingEfficiency",
+        "rule": "max",
+        "value": 100
+      }
+    ],
+    "thresholds": {
+      "cavityRiskIndex": {
+        "low": 0.3,
+        "medium": 0.6,
+        "high": 0.8
+      }
+    }
   },
   "premiumFeatures": []
 }

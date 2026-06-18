@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "upstreamPressure",
-      "label": "Giriş Basıncı",
+      "label": "Inlet Pressure",
       "type": "number",
       "unit": "bar",
       "default": 10,
-      "businessContext": "Vana girişindeki akışkan basıncı",
+      "businessContext": "Fluid pressure at valve inlet",
       "label_i18n": {
         "en": "Inlet Pressure",
         "tr": "Giriş Basıncı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "flowRate",
-      "label": "Akış Debisi",
+      "label": "Flow Rate",
       "type": "number",
       "unit": "L/dk",
       "default": 100,
-      "businessContext": "Vana üzerinden geçen akışkan debisi",
+      "businessContext": "Flow rate through the valve",
       "label_i18n": {
         "en": "Flow Rate",
         "tr": "Akış Debisi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "specificGravity",
-      "label": "Özgül Ağırlık",
+      "label": "Specific Gravity",
       "type": "number",
       "unit": "(su=1)",
       "default": 1,
-      "businessContext": "Akışkanın suya göre özgül ağırlığı",
+      "businessContext": "Specific gravity of fluid relative to water",
       "label_i18n": {
         "en": "Specific Gravity",
         "tr": "Özgül Ağırlık",
@@ -75,11 +75,11 @@
     },
     {
       "id": "kvCoefficient",
-      "label": "Kv Katsayısı",
+      "label": "Kv Coefficient",
       "type": "number",
       "unit": "m³/h @ 1 bar",
       "default": 10,
-      "businessContext": "Vana akış katsayısı (Kv)",
+      "businessContext": "Valve flow coefficient (Kv)",
       "label_i18n": {
         "en": "Kv Coefficient",
         "tr": "Kv Katsayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Emniyet Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "≥1",
       "default": 1.2,
-      "businessContext": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
+      "businessContext": "Safety factor applied to calculated pressure drop",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Faktörü",

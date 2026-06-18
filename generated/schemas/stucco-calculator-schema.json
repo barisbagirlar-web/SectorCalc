@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wallArea",
-      "label": "Duvar Alanı",
+      "label": "Wall Area",
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Sıvanacak toplam duvar alanı (m² cinsinden).",
+      "businessContext": "Total wall area to be plastered (in m²).",
       "label_i18n": {
         "en": "Wall area",
         "tr": "Duvar Alanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "thickness",
-      "label": "Sıva Kalınlığı",
+      "label": "Plaster Thickness",
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
+      "businessContext": "Total plaster thickness to be applied (in mm).",
       "label_i18n": {
         "en": "Plaster Thickness",
         "tr": "Sıva Kalınlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "kgPerSqmPerMm",
-      "label": "Karışım Yoğunluğu",
+      "label": "Mix Density",
       "type": "number",
       "unit": "kg/(m²·mm)",
       "default": 1,
-      "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
+      "businessContext": "Weight of dry plaster mix required for 1 mm thickness on 1 m² area (kg). Typical value is 1.0 kg/(m²·mm).",
       "label_i18n": {
         "en": "Mixture density",
         "tr": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
@@ -75,11 +75,11 @@
     },
     {
       "id": "bagWeight",
-      "label": "Torba Ağırlığı",
+      "label": "Bag Weight",
       "type": "number",
       "unit": "kg",
       "default": 25,
-      "businessContext": "Bir torba sıva karışımının net ağırlığı (kg).",
+      "businessContext": "Net weight of one bag of plaster mix (kg).",
       "label_i18n": {
         "en": "Bag weight",
         "tr": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
+      "businessContext": "Waste percentage during application (in %).",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

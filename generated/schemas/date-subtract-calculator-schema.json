@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "startDateSerial",
-      "label": "Başlangıç Tarihi (Seri No)",
+      "label": "Start Date (Serial No)",
       "type": "number",
       "unit": "gün",
       "default": 44927,
-      "businessContext": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
+      "businessContext": "Start date serial number (e.g., 44927 = 2023-01-01)",
       "label_i18n": {
         "en": "Start date (serial number)",
         "tr": "Başlangıç Tarihi (Seri No)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "endDateSerial",
-      "label": "Bitiş Tarihi (Seri No)",
+      "label": "End Date (Serial No)",
       "type": "number",
       "unit": "gün",
       "default": 44937,
-      "businessContext": "Bitiş tarihi seri numarası",
+      "businessContext": "End date serial number",
       "label_i18n": {
         "en": "End date (serial number)",
         "tr": "Bitiş Tarihi (Seri No)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "includeEndDay",
-      "label": "Son Gün Dahil",
+      "label": "Include Last Day",
       "type": "number",
       "unit": "boolean",
       "default": 1,
-      "businessContext": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
+      "businessContext": "Include end day (1: yes, 0: no)",
       "label_i18n": {
         "en": "Include last day",
         "tr": "Son Gün Dahil",
@@ -75,11 +75,11 @@
     },
     {
       "id": "outputUnitFactor",
-      "label": "Çıktı Birim Çarpanı",
+      "label": "Output Unit Multiplier",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
+      "businessContext": "Output unit multiplier (1: day, 24: hour, 1440: minute, 86400: second)",
       "label_i18n": {
         "en": "Output Unit Factor",
         "tr": "Çıktı Birim Çarpanı",

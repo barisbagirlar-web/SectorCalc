@@ -147,11 +147,16 @@
     }
   ],
   "formulas": {
-    "emissions": "electricityUsage",
-    "emissions_aux": "electricityUsage"
+    "electricity": "electricityUsage * 0.000233",
+    "naturalGas": "naturalGasUsage * 0.0053",
+    "vehicle": "vehicleMiles * 0.000411",
+    "flights": "flightMiles * 0.00024",
+    "waste": "wasteGeneration * 0.00025",
+    "water": "waterUsage * 0.000001",
+    "totalEmissions": "electricity + naturalGas + vehicle + flights + waste + water"
   },
   "outputs": {
-    "primary": "emissions_aux",
+    "primary": "totalEmissions",
     "breakdown": [
       "Electricity: {electricity.toFixed(2)} metric tons",
       "Natural Gas: {naturalGas.toFixed(2)} metric tons",
@@ -165,7 +170,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "round2",
-    "unit": "kWh"
+    "unit": "metric tons"
   },
   "category": "Sürdürülebilirlik",
   "sector": "Çevre & Sürdürülebilirlik",
@@ -177,7 +182,38 @@
   "profession": "Çevre Mühendisi",
   "categoryId": "sustainability",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "electricityUsage",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "naturalGasUsage",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "vehicleMiles",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "flightMiles",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "wasteGeneration",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "waterUsage",
+        "type": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

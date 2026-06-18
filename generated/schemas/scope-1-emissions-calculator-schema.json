@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "litre",
       "default": 0,
-      "businessContext": "Araçlarda kullanılan benzin",
+      "businessContext": "Gasoline used in vehicles",
       "label_i18n": {
         "en": "Gasoline Consumption (Mobile)",
         "tr": "Benzin Tüketimi (Mobil)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "diesel_mobile",
-      "label": "Dizel Tüketimi (Mobil)",
+      "label": "Diesel Consumption (Mobile)",
       "type": "number",
       "unit": "litre",
       "default": 0,
-      "businessContext": "Araçlarda kullanılan dizel",
+      "businessContext": "Diesel used in vehicles",
       "label_i18n": {
         "en": "Diesel Consumption (Mobile)",
         "tr": "Dizel Tüketimi (Mobil)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "lpg_volume",
-      "label": "LPG Tüketimi",
+      "label": "LPG Consumption",
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "LPG tüketimi (kg)",
+      "businessContext": "LPG consumption (kg)",
       "label_i18n": {
         "en": "LPG Consumption",
         "tr": "LPG Tüketimi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "coal_ton",
-      "label": "Kömür Tüketimi",
+      "label": "Coal Consumption",
       "type": "number",
       "unit": "ton",
       "default": 0,
-      "businessContext": "Kömür tüketimi (ton)",
+      "businessContext": "Coal consumption (ton)",
       "label_i18n": {
         "en": "Coal Consumption",
         "tr": "Kömür Tüketimi",
@@ -147,11 +147,11 @@
     },
     {
       "id": "refrigerant_leak",
-      "label": "Soğutucu Kaçağı",
+      "label": "Refrigerant Leakage",
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)",
+      "businessContext": "Refrigerant gas leakage (kg, R-410A equivalent)",
       "label_i18n": {
         "en": "Refrigerant Leakage",
         "tr": "Soğutucu Kaçağı",
@@ -171,11 +171,11 @@
     },
     {
       "id": "process_emissions",
-      "label": "Proses Emisyonları",
+      "label": "Process Emissions",
       "type": "number",
       "unit": "tCO₂",
       "default": 0,
-      "businessContext": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)",
+      "businessContext": "Direct emissions from production process (ton CO₂)",
       "label_i18n": {
         "en": "Process Emissions",
         "tr": "Proses Emisyonları",

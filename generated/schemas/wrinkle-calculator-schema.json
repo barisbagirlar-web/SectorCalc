@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Sac malzemenin kalınlığı",
+      "businessContext": "Sheet material thickness",
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",
@@ -27,11 +27,11 @@
     },
     {
       "id": "blankDiameter",
-      "label": "Blank Çapı",
+      "label": "Blank Diameter",
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Başlangıç sac çapı (blanck çapı)",
+      "businessContext": "Initial sheet diameter (blank diameter)",
       "label_i18n": {
         "en": "Blank Diameter",
         "tr": "Blank Çapı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "punchDiameter",
-      "label": "Zımba Çapı",
+      "label": "Punch Diameter",
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Deep drawing zımba çapı",
+      "businessContext": "Deep drawing punch diameter",
       "label_i18n": {
         "en": "Punch Diameter",
         "tr": "Zımba Çapı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "drawDepth",
-      "label": "Çekme Derinliği",
+      "label": "Drawing Depth",
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Deep drawing derinliği",
+      "businessContext": "Deep drawing depth",
       "label_i18n": {
         "en": "Drawing Depth",
         "tr": "Çekme Derinliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "yieldStrength",
-      "label": "Akma Dayanımı",
+      "label": "Yield Strength",
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma dayanımı (Re)",
+      "businessContext": "Material yield strength (Re)",
       "label_i18n": {
         "en": "Yield strength",
         "tr": "Akma Dayanımı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "elasticModulus",
-      "label": "Elastisite Modülü",
+      "label": "Elastic Modulus",
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Malzemenin elastisite modülü (E)",
+      "businessContext": "Material elastic modulus (E)",
       "label_i18n": {
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",

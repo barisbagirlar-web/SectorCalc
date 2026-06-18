@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
+      "businessContext": "Sequence number of the term to be calculated (starts from 0).",
       "label_i18n": {
         "en": "Terim indeksi (n)",
         "tr": "Term index (n)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "n=0 için dizi değeri.",
+      "businessContext": "Sequence value for n=0.",
       "label_i18n": {
         "en": "Initial value a0",
         "tr": "Başlangıç değeri a0",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "n=1 için dizi değeri.",
+      "businessContext": "Sequence value for n=1.",
       "label_i18n": {
         "en": "Initial value a1",
         "tr": "Başlangıç değeri a1",
@@ -75,11 +75,11 @@
     },
     {
       "id": "c1",
-      "label": "Katsayı c1 (önceki terimin çarpanı)",
+      "label": "Coefficient c1 (multiplier of the previous term)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "a_{n-1} teriminin katsayısı.",
+      "businessContext": "Coefficient of the a_{n-1} term.",
       "label_i18n": {
         "en": "Coefficient c1 (multiplier of the previous term)",
         "tr": "Katsayı c1 (önceki terimin çarpanı)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "c2",
-      "label": "Katsayı c2 (iki önceki terimin çarpanı)",
+      "label": "Coefficient c2 (multiplier of the term two steps before)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "a_{n-2} teriminin katsayısı.",
+      "businessContext": "Coefficient of the a_{n-2} term.",
       "label_i18n": {
         "en": "Coefficient c2 (multiplier of the term two steps back)",
         "tr": "Katsayı c2 (iki önceki terimin çarpanı)",

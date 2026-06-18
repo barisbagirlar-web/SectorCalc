@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "objectLength",
-      "label": "Ürün Uzunluğu",
+      "label": "Product Length",
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Ürünün boyu (uzunluk)",
+      "businessContext": "Product length (length)",
       "label_i18n": {
         "en": "Product Length",
         "tr": "Ürün Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "objectWidth",
-      "label": "Ürün Genişliği",
+      "label": "Product Width",
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Ürünün eni (genişlik)",
+      "businessContext": "Product width (width)",
       "label_i18n": {
         "en": "Product Width",
         "tr": "Ürün Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "objectHeight",
-      "label": "Ürün Yüksekliği",
+      "label": "Product Height",
       "type": "number",
       "unit": "cm",
       "default": 3,
-      "businessContext": "Ürünün yüksekliği",
+      "businessContext": "Product height",
       "label_i18n": {
         "en": "Product Height",
         "tr": "Ürün Yüksekliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "clearance",
-      "label": "Boşluk Payı",
+      "label": "Clearance",
       "type": "number",
       "unit": "cm",
       "default": 0.5,
-      "businessContext": "Ürün ile kutu arasındaki boşluk (her kenarda eşit)",
+      "businessContext": "Clearance between product and box (equal on each side)",
       "label_i18n": {
         "en": "Clearance",
         "tr": "Boşluk Payı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "wallThickness",
-      "label": "Kutu Et Kalınlığı",
+      "label": "Box Wall Thickness",
       "type": "number",
       "unit": "cm",
       "default": 0.3,
-      "businessContext": "Kutu malzemesinin kalınlığı",
+      "businessContext": "Thickness of box material",
       "label_i18n": {
         "en": "Box Wall Thickness",
         "tr": "Kutu Et Kalınlığı",

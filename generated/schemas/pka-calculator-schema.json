@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Zayıf asidin başlangıç konsantrasyonu",
+      "businessContext": "Initial concentration of weak acid",
       "label_i18n": {
         "en": "Acid Concentration",
         "tr": "Asit Konsantrasyonu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "measuredpH",
-      "label": "Ölçülen pH",
+      "label": "Measured pH",
       "type": "number",
       "unit": "unit",
       "default": 3,
-      "businessContext": "Çözeltinin ölçülen pH değeri",
+      "businessContext": "Measured pH value of the solution",
       "label_i18n": {
         "en": "Measured pH",
         "tr": "Ölçülen pH",
@@ -51,11 +51,11 @@
     },
     {
       "id": "knownKa",
-      "label": "Bilinen Ka Değeri",
+      "label": "Known Ka Value",
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
+      "businessContext": "If the acid dissociation constant is known, enter for direct calculation (optional)",
       "label_i18n": {
         "en": "Known Ka value",
         "tr": "Bilinen Ka Değeri",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
+      "businessContext": "Solution temperature (does not affect calculation, for recording purposes)",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",

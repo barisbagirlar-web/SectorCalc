@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "birthYear",
-      "label": "Doğum Yılı",
+      "label": "Birth Year",
       "type": "number",
       "unit": "yıl",
       "default": 1990,
-      "businessContext": "Kişinin doğduğu yıl",
+      "businessContext": "Person's birth year",
       "label_i18n": {
         "en": "Birth Year",
         "tr": "Doğum Yılı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "birthMonth",
-      "label": "Doğum Ay",
+      "label": "Birth Month",
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Kişinin doğduğu ay (1-12)",
+      "businessContext": "Person's birth month (1-12)",
       "label_i18n": {
         "en": "Birth Month",
         "tr": "Doğum Ay",
@@ -51,11 +51,11 @@
     },
     {
       "id": "birthDay",
-      "label": "Doğum Gün",
+      "label": "Birth Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Kişinin doğduğu gün",
+      "businessContext": "Day of birth",
       "label_i18n": {
         "en": "Birth Day",
         "tr": "Doğum Gün",
@@ -75,11 +75,11 @@
     },
     {
       "id": "refYear",
-      "label": "Referans Yıl",
+      "label": "Reference Year",
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Yaş hesaplanacak yıl",
+      "businessContext": "Year for age calculation",
       "label_i18n": {
         "en": "Reference Year",
         "tr": "Referans Yıl",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Yaş hesaplanacak ay (1-12)",
+      "businessContext": "Month for age calculation (1-12)",
       "label_i18n": {
         "en": "Referans Ay",
         "tr": "Reference Month",
@@ -123,11 +123,11 @@
     },
     {
       "id": "refDay",
-      "label": "Referans Gün",
+      "label": "Reference Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Yaş hesaplanacak gün",
+      "businessContext": "Day for age calculation",
       "label_i18n": {
         "en": "Reference Day",
         "tr": "Referans Gün",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kPa",
       "default": 100,
-      "businessContext": "Dönüştürülecek kPa cinsinden basınç değeri",
+      "businessContext": "Pressure value in kPa to be converted",
       "label_i18n": {
         "en": "Pressure (kPa)",
         "tr": "Basınç (kPa)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Dönüşüm Katsayısı",
+      "label": "Conversion Factor",
       "type": "number",
       "unit": "psi/kPa",
       "default": 0.1450377377,
-      "businessContext": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
+      "businessContext": "Factor used to convert kPa to psi (default standard value)",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Katsayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçtaki ondalık basamak sayısı",
+      "businessContext": "Number of decimal places in the result",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
+      "businessContext": "Constant offset to be added after linear conversion (usually 0)",
       "label_i18n": {
         "en": "Ofset (psi)",
         "tr": "Sapma (psi)",

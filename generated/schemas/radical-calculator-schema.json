@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "multiplier",
-      "label": "Çarpan",
+      "label": "Multiplier",
       "type": "number",
       "unit": "unit",
       "default": 1,
@@ -27,7 +27,7 @@
     },
     {
       "id": "radicand",
-      "label": "Köklü Sayı",
+      "label": "Radicand",
       "type": "number",
       "unit": "unit",
       "default": 16,
@@ -51,7 +51,7 @@
     },
     {
       "id": "index",
-      "label": "Kök Derecesi",
+      "label": "Root Degree",
       "type": "number",
       "unit": "unit",
       "default": 2,
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Sonuca eklenecek sabit sayı",
+      "businessContext": "Constant to add to result",
       "label_i18n": {
         "en": "Ek Terim",
         "tr": "Extra term",

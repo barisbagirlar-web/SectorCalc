@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "durationA",
-      "label": "A Aktivitesi Süresi",
+      "label": "Duration of Activity A",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "A aktivitesinin tamamlanma süresi (gün)",
+      "businessContext": "Completion time of activity A (days)",
       "label_i18n": {
         "en": "Duration of Activity A",
         "tr": "A Aktivitesi Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "durationB",
-      "label": "B Aktivitesi Süresi",
+      "label": "Duration of Activity B",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "B aktivitesinin tamamlanma süresi (gün)",
+      "businessContext": "Completion time of activity B (days)",
       "label_i18n": {
         "en": "Duration of Activity B",
         "tr": "B Aktivitesi Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "durationC",
-      "label": "C Aktivitesi Süresi",
+      "label": "C Activity Duration",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "C aktivitesinin tamamlanma süresi (gün)",
+      "businessContext": "Completion time of C activity (days)",
       "label_i18n": {
         "en": "C Activity Duration",
         "tr": "C Aktivitesi Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "durationD",
-      "label": "D Aktivitesi Süresi",
+      "label": "D Activity Duration",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "D aktivitesinin tamamlanma süresi (gün)",
+      "businessContext": "Completion time of D activity (days)",
       "label_i18n": {
         "en": "D Activity Duration",
         "tr": "D Aktivitesi Süresi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "durationE",
-      "label": "E Aktivitesi Süresi",
+      "label": "E Activity Duration",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "E aktivitesinin tamamlanma süresi (gün)",
+      "businessContext": "Completion time of E activity (days)",
       "label_i18n": {
         "en": "E Activity Duration",
         "tr": "E Aktivitesi Süresi",

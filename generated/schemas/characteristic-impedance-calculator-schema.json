@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2.25,
-      "businessContext": "Bağıl dielektrik geçirgenlik",
+      "businessContext": "Relative permittivity",
       "label_i18n": {
         "en": "Dielektrik Sabiti (εr)",
         "tr": "Dielectric Constant (εr)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "mu_r",
-      "label": "Manyetik Geçirgenlik (μr)",
+      "label": "Magnetic Permeability (μr)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Bağıl manyetik geçirgenlik",
+      "businessContext": "Relative magnetic permeability",
       "label_i18n": {
         "en": "Magnetic permeability (μr)",
         "tr": "Manyetik Geçirgenlik (μr)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "D",
-      "label": "Dış İletken İç Çapı (D)",
+      "label": "Outer Conductor Inner Diameter (D)",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Dış iletkenin iç çapı",
+      "businessContext": "Outer conductor inner diameter",
       "label_i18n": {
         "en": "Outer conductor inner diameter (D)",
         "tr": "Dış İletken İç Çapı (D)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "d",
-      "label": "İç İletken Dış Çapı (d)",
+      "label": "Inner Conductor Outer Diameter (d)",
       "type": "number",
       "unit": "mm",
       "default": 2.8,
-      "businessContext": "İç iletkenin dış çapı",
+      "businessContext": "Inner conductor outer diameter",
       "label_i18n": {
         "en": "Inner conductor outer diameter (d)",
         "tr": "İç İletken Dış Çapı (d)",

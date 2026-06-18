@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "THz",
       "default": 0,
-      "businessContext": "Girilen foton frekansı, terahertz cinsinden",
+      "businessContext": "Entered photon frequency, in terahertz",
       "label_i18n": {
         "en": "Frequency (THz)",
         "tr": "Frekans (THz)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "c",
-      "label": "Işık Hızı (×10⁸ m/s)",
+      "label": "Speed of Light (×10⁸ m/s)",
       "type": "number",
       "unit": "10⁸ m/s",
       "default": 2.99792458,
-      "businessContext": "Vakum ışık hızı, standart değer",
+      "businessContext": "Vacuum speed of light, standard value",
       "label_i18n": {
         "en": "Speed of Light (×10⁸ m/s)",
         "tr": "Işık Hızı (×10⁸ m/s)",

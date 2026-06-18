@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Şirketin piyasa değeri (örn. milyon TL, USD)",
+      "businessContext": "Market value of the company (e.g., million TL, USD).",
       "label_i18n": {
         "en": "Market Value",
         "tr": "Piyasa Değeri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Kısa ve uzun vadeli borç toplamı",
+      "businessContext": "Total short and long term debt",
       "label_i18n": {
         "en": "Total Debt",
         "tr": "Toplam Borç",
@@ -51,11 +51,11 @@
     },
     {
       "id": "minority_interest",
-      "label": "Azınlık Payları",
+      "label": "Minority Interests",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Azınlık hissedarların payları (varsa)",
+      "businessContext": "Minority shareholders' interests (if any)",
       "label_i18n": {
         "en": "Minority Interests",
         "tr": "Azınlık Payları",
@@ -75,11 +75,11 @@
     },
     {
       "id": "preferred_stock",
-      "label": "İmtiyazlı Hisse Senetleri",
+      "label": "Preferred Stocks",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İmtiyazlı hisse senedi değeri (varsa)",
+      "businessContext": "Preferred stock value (if any)",
       "label_i18n": {
         "en": "Preferred Shares",
         "tr": "İmtiyazlı Hisse Senetleri",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Nakit ve nakde eşdeğer varlıklar toplamı",
+      "businessContext": "Total cash and cash equivalents",
       "label_i18n": {
         "en": "Nakit ve Benzerleri",
         "tr": "Cash & Equivalents",
@@ -123,11 +123,11 @@
     },
     {
       "id": "ebitda",
-      "label": "FAVÖK (EBITDA)",
+      "label": "EBITDA",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faiz, amortisman ve vergi öncesi kar",
+      "businessContext": "Earnings before interest, depreciation and taxes",
       "label_i18n": {
         "en": "EBITDA",
         "tr": "FAVÖK (EBITDA)",

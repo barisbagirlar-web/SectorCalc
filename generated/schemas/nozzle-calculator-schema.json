@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "pressureDrop",
-      "label": "Basınç Farkı (ΔP)",
+      "label": "Pressure Difference (ΔP)",
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Nozzle giriş ve çıkışı arasındaki basınç farkı",
+      "businessContext": "Pressure difference between nozzle inlet and outlet",
       "label_i18n": {
         "en": "Pressure Difference (ΔP)",
         "tr": "Basınç Farkı (ΔP)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "diameter",
-      "label": "Nozzle Çapı",
+      "label": "Nozzle Diameter",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Nozzle orifis çapı",
+      "businessContext": "Nozzle orifice diameter",
       "label_i18n": {
         "en": "Nozzle Diameter",
         "tr": "Nozzle Çapı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "dischargeCoefficient",
-      "label": "Deşarj Katsayısı (Cd)",
+      "label": "Discharge Coefficient (Cd)",
       "type": "number",
       "unit": "-",
       "default": 0.98,
-      "businessContext": "Nozzle geometrisine bağlı akış katsayısı",
+      "businessContext": "Flow coefficient depending on nozzle geometry",
       "label_i18n": {
         "en": "Discharge Coefficient (Cd)",
         "tr": "Deşarj Katsayısı (Cd)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "density",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Fluid Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)",
+      "businessContext": "Fluid density (e.g., 1000 kg/m³ for water)",
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m²/s",
       "default": 0.000001,
-      "businessContext": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)",
+      "businessContext": "Kinematic viscosity of fluid (e.g., 1e-6 m²/s for water)",
       "label_i18n": {
         "en": "Kinematic Viscosity",
         "tr": "Kinematik Viskozite",

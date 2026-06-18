@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "flourWeight",
-      "label": "Un Ağırlığı (g)",
+      "label": "Flour Weight (g)",
       "type": "number",
       "unit": "g",
       "default": 500,
@@ -27,11 +27,11 @@
     },
     {
       "id": "hydration",
-      "label": "Hidrasyon Oranı (%)",
+      "label": "Hydration Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Su oranı",
+      "businessContext": "Water ratio",
       "label_i18n": {
         "en": "Hydration rate (%)",
         "tr": "Hidrasyon Oranı (%)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "starterPercent",
-      "label": "Başlatıcı Oranı (%)",
+      "label": "Starter Ratio (%)",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Ekşi maya miktarı",
+      "businessContext": "Sourdough amount",
       "label_i18n": {
         "en": "Starter ratio (%)",
         "tr": "Başlatıcı Oranı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "saltPercent",
-      "label": "Tuz Oranı (%)",
+      "label": "Salt Ratio (%)",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Tuz miktarı",
+      "businessContext": "Salt amount",
       "label_i18n": {
         "en": "Salt ratio (%)",
         "tr": "Tuz Oranı (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "loafCount",
-      "label": "Ekmek Sayısı",
+      "label": "Number of Breads",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Üretim adedi",
+      "businessContext": "Production quantity",
       "label_i18n": {
         "en": "Number of loaves",
         "tr": "Ekmek Sayısı",

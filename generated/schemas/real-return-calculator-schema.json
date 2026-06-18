@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yıllık nominal getiri oranı",
+      "businessContext": "Annual nominal return rate",
       "label_i18n": {
         "en": "Nominal Return",
         "tr": "Nominal Getiri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Yıllık enflasyon oranı",
+      "businessContext": "Annual inflation rate",
       "label_i18n": {
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "taxRate",
-      "label": "Vergi Oranı",
+      "label": "Tax Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Getiri üzerindeki vergi oranı (varsa)",
+      "businessContext": "Tax rate on returns (if any)",
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "investmentAmount",
-      "label": "Yatırım Tutarı",
+      "label": "Investment Amount",
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Başlangıç yatırım miktarı",
+      "businessContext": "Initial investment amount",
       "label_i18n": {
         "en": "Investment Amount",
         "tr": "Yatırım Tutarı",

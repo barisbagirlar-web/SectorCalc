@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Katlar arası yükseklik.",
+      "businessContext": "Height between floors.",
       "label_i18n": {
         "en": "Total Height",
         "tr": "Toplam Yükseklik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mm",
       "default": 280,
-      "businessContext": "Bir basamağın yatay derinliği.",
+      "businessContext": "Horizontal depth of a step.",
       "label_i18n": {
         "en": "Step Depth",
         "tr": "Basamak Derinliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "stepWidth",
-      "label": "Merdiven Genişliği",
+      "label": "Stair Width",
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Merdiven kol genişliği.",
+      "businessContext": "Stair flight width.",
       "label_i18n": {
         "en": "Stair Width",
         "tr": "Merdiven Genişliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "waistThickness",
-      "label": "Eğik Döşeme Kalınlığı",
+      "label": "Slab Thickness",
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Taşıyıcı eğik plakanın kalınlığı.",
+      "businessContext": "Thickness of the load-bearing inclined slab.",
       "label_i18n": {
         "en": "Slab Thickness",
         "tr": "Eğik Döşeme Kalınlığı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "landingLength",
-      "label": "Sahanlık Uzunluğu",
+      "label": "Landing Length",
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Varsa sahanlığın uzunluğu, yoksa 0.",
+      "businessContext": "Length of the landing if present, otherwise 0.",
       "label_i18n": {
         "en": "Landing Length",
         "tr": "Sahanlık Uzunluğu",

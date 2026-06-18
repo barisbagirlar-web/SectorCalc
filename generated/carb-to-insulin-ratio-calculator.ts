@@ -25,7 +25,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Carb_to_insulin_ratio_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.carbs / input.icr; results["meal_dose"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["meal_dose"] = 0; }
-  try { const v = input.carbs / input.icr; results["meal_dose_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["meal_dose_aux"] = 0; }
+  try { const v = (input.current_bg - input.target_bg) / input.isf; results["correction_dose"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correction_dose"] = 0; }
+  try { const v = (asFormulaNumber(results["meal_dose"])) + (asFormulaNumber(results["correction_dose"])); results["total_insulin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_insulin"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCarb_to_insulin_ratio_calculator(input: Carb_to_insulin_ratio_calculatorInput): Carb_to_insulin_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["meal_dose_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["total_insulin"]);
   const breakdown = {
     
   };

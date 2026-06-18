@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m³/s",
       "default": 1,
-      "businessContext": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
+      "businessContext": "Amount of air the system must carry. Calculated based on cooling/heating load.",
       "label_i18n": {
         "en": "Hava Debisi",
         "tr": "Air Flow Rate",
@@ -27,11 +27,11 @@
     },
     {
       "id": "velocity",
-      "label": "Hava Hızı",
+      "label": "Air Velocity",
       "type": "number",
       "unit": "m/s",
       "default": 5,
-      "businessContext": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
+      "businessContext": "Maximum allowable air velocity in the duct. Depends on noise and pressure loss limits. Typical comfort applications 5-8 m/s.",
       "label_i18n": {
         "en": "Air Velocity",
         "tr": "Hava Hızı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "aspectRatio",
-      "label": "En/Boy Oranı",
+      "label": "Aspect Ratio",
       "type": "number",
       "unit": "oran",
       "default": 1,
-      "businessContext": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
+      "businessContext": "Ratio of width to height in a rectangular duct. Used for space constraint and cost optimization. 1 gives a square duct.",
       "label_i18n": {
         "en": "Aspect Ratio",
         "tr": "En/Boy Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "-",
       "default": 1.1,
-      "businessContext": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
+      "businessContext": "Factor that increases flow rate for calculation uncertainties, leakage, or future capacity increase.",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",

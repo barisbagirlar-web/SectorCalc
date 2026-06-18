@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kcal/gün",
       "default": 2000,
-      "businessContext": "Bireyin dinlenim durumundaki günlük enerji tüketimi",
+      "businessContext": "Daily energy expenditure of an individual at rest",
       "label_i18n": {
         "en": "Basal Energy Expenditure",
         "tr": "Bazal Enerji Harcaması",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kcal/gün",
       "default": 1500,
-      "businessContext": "Diyet sırasında alınan ortalama günlük enerji",
+      "businessContext": "Average daily energy intake during the diet",
       "label_i18n": {
         "en": "Daily Energy Intake",
         "tr": "Günlük Enerji Alımı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "gün",
       "default": 30,
-      "businessContext": "Kalori açığının uygulandığı süre",
+      "businessContext": "Duration of calorie deficit application",
       "label_i18n": {
         "en": "Diet Duration",
         "tr": "Diyet Süresi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Diyet öncesi veya mevcut vücut ağırlığı",
+      "businessContext": "Body weight before diet or current body weight",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "gün",
       "default": 14,
-      "businessContext": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)",
+      "businessContext": "Half-life of thermogenic adaptation (usually 7-14 days)",
       "label_i18n": {
         "en": "Adaptasyon Zaman Sabiti",
         "tr": "Adaptation Time Constant",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı",
+      "businessContext": "Total of metabolically active tissues such as muscle, bone, and organs",
       "label_i18n": {
         "en": "Lean Body Mass",
         "tr": "Yağsız Vücut Kütlesi",

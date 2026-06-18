@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "inventoryTurnover",
-      "label": "Envanter Devir Hızı",
+      "label": "Inventory Turnover Rate",
       "type": "number",
       "unit": "ratio",
       "default": 5,
-      "businessContext": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
+      "businessContext": "Annual inventory turnover rate (cost of goods sold / average inventory)",
       "label_i18n": {
         "en": "Inventory Turnover Rate",
         "tr": "Envanter Devir Hızı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "machineUtilization",
-      "label": "Makine Kullanım Oranı",
+      "label": "Machine Utilization Rate",
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
+      "businessContext": "Ratio of actual machine operating time to planned time",
       "label_i18n": {
         "en": "Machine Utilization Rate",
         "tr": "Makine Kullanım Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "orderAccuracy",
-      "label": "Sipariş Doğruluk Oranı",
+      "label": "Order Accuracy Rate",
       "type": "number",
       "unit": "%",
       "default": 98,
-      "businessContext": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
+      "businessContext": "Ratio of orders delivered without defects to total orders",
       "label_i18n": {
         "en": "Order Accuracy Rate",
         "tr": "Sipariş Doğruluk Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "defectRate",
-      "label": "Hata Oranı",
+      "label": "Error Rate",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Üretimdeki kusurlu ürün oranı",
+      "businessContext": "Defective product rate in production",
       "label_i18n": {
         "en": "Error Rate (%)",
         "tr": "Hata Oranı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "maintenanceCompliance",
-      "label": "Bakım Uyum Oranı",
+      "label": "Maintenance Compliance Rate",
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
+      "businessContext": "Rate of planned maintenance tasks completed on time",
       "label_i18n": {
         "en": "Maintenance Compliance Rate",
         "tr": "Bakım Uyum Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "safetyScore",
-      "label": "İş Güvenliği Skoru",
+      "label": "Occupational Safety Score",
       "type": "number",
       "unit": "score",
       "default": 95,
-      "businessContext": "İSG denetim puanı (0-100)",
+      "businessContext": "OHS audit score (0-100)",
       "label_i18n": {
         "en": "Occupational Safety Score",
         "tr": "İş Güvenliği Skoru",

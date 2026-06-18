@@ -27,6 +27,7 @@ function evaluateAllFormulas(input: Chi_square_test_calculatorInput): Record<str
   try { const v = (input.a + input.b) * (input.b + input.d) / (asFormulaNumber(results["total"])); results["expectedB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedB"] = 0; }
   try { const v = (input.c + input.d) * (input.a + input.c) / (asFormulaNumber(results["total"])); results["expectedC"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedC"] = 0; }
   try { const v = (input.c + input.d) * (input.b + input.d) / (asFormulaNumber(results["total"])); results["expectedD"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedD"] = 0; }
+  try { const v = ((input.a - (asFormulaNumber(results["expectedA"])))**2 / (asFormulaNumber(results["expectedA"]))) + ((input.b - (asFormulaNumber(results["expectedB"])))**2 / (asFormulaNumber(results["expectedB"]))) + ((input.c - (asFormulaNumber(results["expectedC"])))**2 / (asFormulaNumber(results["expectedC"]))) + ((input.d - (asFormulaNumber(results["expectedD"])))**2 / (asFormulaNumber(results["expectedD"]))); results["chiSquare"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSquare"] = 0; }
   return results;
 }
 
@@ -37,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateChi_square_test_calculator(input: Chi_square_test_calculatorInput): Chi_square_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["expectedD"]);
+  const totalWasteCost = toNumericFormulaValue(values["chiSquare"]);
   const breakdown = {
     
   };

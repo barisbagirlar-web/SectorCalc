@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir.",
+      "businessContext": "Age is one of the main factors affecting the probability of conception.",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -75,11 +75,11 @@
     },
     {
       "id": "monthsTrying",
-      "label": "Deneme Süresi",
+      "label": "Trial Period",
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır.",
+      "businessContext": "The number of months actively trying to conceive, used to calculate cumulative probability.",
       "label_i18n": {
         "en": "Trial duration",
         "tr": "Deneme Süresi",

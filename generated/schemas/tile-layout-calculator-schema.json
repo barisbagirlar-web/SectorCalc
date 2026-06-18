@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roomLength",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın uzunluğu (metre)",
+      "businessContext": "Length of the room (meters)",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,7 +27,7 @@
     },
     {
       "id": "roomWidth",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 4,
@@ -51,11 +51,11 @@
     },
     {
       "id": "tileLength",
-      "label": "Fayans Uzunluğu",
+      "label": "Tile Length",
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Fayansın uzun kenarı (santimetre)",
+      "businessContext": "Long side of the tile (centimeters)",
       "label_i18n": {
         "en": "Tile Length",
         "tr": "Fayans Uzunluğu",
@@ -75,11 +75,11 @@
     },
     {
       "id": "tileWidth",
-      "label": "Fayans Genişliği",
+      "label": "Tile Width",
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Fayansın kısa kenarı (santimetre)",
+      "businessContext": "Short side of the tile (centimeters)",
       "label_i18n": {
         "en": "Tile Width",
         "tr": "Fayans Genişliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "groutWidth",
-      "label": "Derz Aralığı",
+      "label": "Joint Spacing",
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Derz kalınlığı (milimetre)",
+      "businessContext": "Joint thickness (millimeters)",
       "label_i18n": {
         "en": "Joint Spacing",
         "tr": "Derz Aralığı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kırılma/kesim kaybı yüzdesi",
+      "businessContext": "Breakage/cutting loss percentage",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

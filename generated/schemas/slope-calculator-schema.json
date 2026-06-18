@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının yatay koordinatı",
+      "businessContext": "Horizontal coordinate of the starting point",
       "label_i18n": {
         "en": "X₁ Coordinate",
         "tr": "X₁ Koordinatı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının düşey koordinatı",
+      "businessContext": "Vertical coordinate of the starting point",
       "label_i18n": {
         "en": "Y₁ Coordinate",
         "tr": "Y₁ Koordinatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "x2",
-      "label": "X₂ Koordinatı",
+      "label": "X₂ Coordinate",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Bitiş noktasının yatay koordinatı",
+      "businessContext": "Horizontal coordinate of the ending point",
       "label_i18n": {
         "en": "X₂ Coordinate",
         "tr": "X₂ Koordinatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "y2",
-      "label": "Y₂ Koordinatı",
+      "label": "Y₂ Coordinate",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Bitiş noktasının düşey koordinatı",
+      "businessContext": "Vertical coordinate of the ending point",
       "label_i18n": {
         "en": "Y₂ Coordinate",
         "tr": "Y₂ Koordinatı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "meatCost",
-      "label": "Günlük Et Maliyeti (kişi başı)",
+      "label": "Daily Meat Cost (per person)",
       "type": "number",
       "unit": "TL",
       "default": 30,
-      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği etin toplam maliyeti",
+      "businessContext": "Total cost of meat consumed by one person on a daily paleo diet",
       "label_i18n": {
         "en": "Daily Meat Cost (per person)",
         "tr": "Günlük Et Maliyeti (kişi başı)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "vegCost",
-      "label": "Günlük Sebze Maliyeti (kişi başı)",
+      "label": "Daily Vegetable Cost (per person)",
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği sebzenin toplam maliyeti",
+      "businessContext": "Total cost of vegetables consumed by one person in a daily paleo diet",
       "label_i18n": {
         "en": "Daily Vegetable Cost (per person)",
         "tr": "Günlük Sebze Maliyeti (kişi başı)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "fruitCost",
-      "label": "Günlük Meyve Maliyeti (kişi başı)",
+      "label": "Daily Fruit Cost (per person)",
       "type": "number",
       "unit": "TL",
       "default": 5,
-      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği meyvenin toplam maliyeti",
+      "businessContext": "Total cost of fruit consumed by one person in a daily paleo diet",
       "label_i18n": {
         "en": "Daily Fruit Cost (per person)",
         "tr": "Günlük Meyve Maliyeti (kişi başı)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "nutCost",
-      "label": "Günlük Kuruyemiş Maliyeti (kişi başı)",
+      "label": "Daily Nut Cost (per person)",
       "type": "number",
       "unit": "TL",
       "default": 5,
-      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği kuruyemişin toplam maliyeti",
+      "businessContext": "Total cost of nuts consumed by one person in a daily paleo diet",
       "label_i18n": {
         "en": "Daily Nut Cost (per person)",
         "tr": "Günlük Kuruyemiş Maliyeti (kişi başı)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "numberOfPeople",
-      "label": "Kişi Sayısı",
+      "label": "Number of People",
       "type": "number",
       "unit": "kişi",
       "default": 1,
-      "businessContext": "Paleo diyetini uygulayan kişi sayısı",
+      "businessContext": "Number of people following the paleo diet",
       "label_i18n": {
         "en": "Number of People",
         "tr": "Kişi Sayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "numberOfDays",
-      "label": "Gün Sayısı",
+      "label": "Number of Days",
       "type": "number",
       "unit": "gün",
       "default": 30,
-      "businessContext": "Maliyetin hesaplanacağı dönem (gün)",
+      "businessContext": "Period for cost calculation (days)",
       "label_i18n": {
         "en": "Number of Days",
         "tr": "Gün Sayısı",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Sürekli çalışan cihazların toplam aktif güç tüketimi",
+      "businessContext": "Total active power consumption of continuously operating devices",
       "label_i18n": {
         "en": "Average Load Power",
         "tr": "Ortalama Yük Gücü",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)",
+      "businessContext": "Nominal operating voltage of the battery bank (result of series/parallel connection)",
       "label_i18n": {
         "en": "Battery Bank Voltage",
         "tr": "Akü Bankası Gerilimi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "Ah",
       "default": 100,
-      "businessContext": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)",
+      "businessContext": "Total ampere-hour capacity of the battery bank (total capacity for batteries connected only in parallel)",
       "label_i18n": {
         "en": "Total Battery Capacity",
         "tr": "Toplam Akü Kapasitesi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)",
+      "businessContext": "Maximum discharge percentage allowed to protect battery life (e.g., 50% for lead-acid)",
       "label_i18n": {
         "en": "Depth of Discharge (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)",
+      "businessContext": "Efficiency ratio of inverter or DC/DC converter (typically 85-95%)",
       "label_i18n": {
         "en": "Inverter Efficiency",
         "tr": "İnverter Verimliliği",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite",
+      "businessContext": "Safety margin added to the calculation (≥1). 1: no margin, 1.1: 10% backup capacity",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı",
+      "businessContext": "Coefficient compensating for capacity loss at low temperatures (≤1). 1: room temperature",
       "label_i18n": {
         "en": "Temperature Correction Factor",
         "tr": "Sıcaklık Düzeltme Faktörü",

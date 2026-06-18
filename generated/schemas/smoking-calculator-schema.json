@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "cigarettesPerDay",
-      "label": "Günlük sigara tüketimi",
+      "label": "Daily cigarette consumption",
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Günde içilen ortalama sigara sayısı",
+      "businessContext": "Average number of cigarettes smoked per day",
       "label_i18n": {
         "en": "Daily cigarette consumption",
         "tr": "Günlük sigara tüketimi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TL",
       "default": 30,
-      "businessContext": "Bir paketin ortalama satın alma fiyatı",
+      "businessContext": "Average purchase price of a pack",
       "label_i18n": {
         "en": "Package price",
         "tr": "Paket fiyatı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Kaç yıldır sigara içildiği veya incelenecek süre",
+      "businessContext": "How many years the person has smoked or the period to be examined",
       "label_i18n": {
         "en": "Years smoked",
         "tr": "İçilen yıl",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "fahrenheit",
-      "label": "Fahrenheit Sıcaklık",
+      "label": "Fahrenheit Temperature",
       "type": "number",
       "unit": "°F",
       "default": 32,
-      "businessContext": "Dönüştürülecek Fahrenheit sıcaklık değeri",
+      "businessContext": "Fahrenheit temperature value to convert",
       "label_i18n": {
         "en": "Fahrenheit temperature",
         "tr": "Fahrenheit Sıcaklık",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
+      "businessContext": "Number of decimal places to show in result (0-10)",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
@@ -51,11 +51,11 @@
     },
     {
       "id": "atmosphericPressure",
-      "label": "Atmosfer Basıncı",
+      "label": "Atmospheric Pressure",
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
+      "businessContext": "Ambient pressure (for ISO 9001 record, no effect on calculation)",
       "label_i18n": {
         "en": "Atmospheric pressure",
         "tr": "Atmosfer Basıncı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Bağıl nem (ISO 9001 kaydı için)",
+      "businessContext": "Relative humidity (for ISO 9001 record)",
       "label_i18n": {
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",

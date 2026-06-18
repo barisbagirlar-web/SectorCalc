@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "feedFlow",
-      "label": "Besleme Akış Hızı",
+      "label": "Feed Flow Rate",
       "type": "number",
       "unit": "kg/h",
       "default": 1000,
-      "businessContext": "Damıtma kolonuna beslenen toplam akış hızı.",
+      "businessContext": "Total flow rate fed to the distillation column.",
       "label_i18n": {
         "en": "Feed Flow Rate",
         "tr": "Besleme Akış Hızı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mol kesri",
       "default": 0.5,
-      "businessContext": "Besleme akımındaki hafif bileşenin mol kesri.",
+      "businessContext": "Mole fraction of the light component in the feed stream.",
       "label_i18n": {
         "en": "Besleme Kompozisyonu",
         "tr": "Feed composition",
@@ -51,11 +51,11 @@
     },
     {
       "id": "distillateFlow",
-      "label": "Distilat Akış Hızı",
+      "label": "Distillate Flow Rate",
       "type": "number",
       "unit": "kg/h",
       "default": 300,
-      "businessContext": "Kolon üst ürünü olarak alınan distilat akış hızı.",
+      "businessContext": "Flow rate of distillate taken as the top product of the column.",
       "label_i18n": {
         "en": "Distillate Flow Rate",
         "tr": "Distilat Akış Hızı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mol kesri",
       "default": 0.95,
-      "businessContext": "Distilat akımındaki hafif bileşenin mol kesri.",
+      "businessContext": "Mole fraction of the light component in the distillate stream.",
       "label_i18n": {
         "en": "Distilat Kompozisyonu",
         "tr": "Distillate composition",
@@ -99,11 +99,11 @@
     },
     {
       "id": "refluxFlow",
-      "label": "Reflü Akış Hızı",
+      "label": "Reflux Flow Rate",
       "type": "number",
       "unit": "kg/h",
       "default": 600,
-      "businessContext": "Kolon içine geri döndürülen sıvı akış hızı.",
+      "businessContext": "Flow rate of liquid returned to the column.",
       "label_i18n": {
         "en": "Reflux Flow Rate",
         "tr": "Reflü Akış Hızı",

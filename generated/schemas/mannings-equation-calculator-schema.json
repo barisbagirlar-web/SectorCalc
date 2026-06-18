@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0.013,
-      "businessContext": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
+      "businessContext": "Dimensionless roughness coefficient. Selected according to concrete, earth channel or natural stream type.",
       "label_i18n": {
         "en": "Manning's Roughness Coefficient (n)",
         "tr": "Manning Pürüzlülük Katsayısı (n)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Akış kesit alanının ıslak çevreye oranı (A/P).",
+      "businessContext": "Ratio of flow cross-sectional area to wetted perimeter (A/P).",
       "label_i18n": {
         "en": "Hydraulic Radius (R)",
         "tr": "Hidrolik Yarıçap (R)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.001,
-      "businessContext": "Kanal taban eğimi (düşey/yatay).",
+      "businessContext": "Channel bottom slope (vertical/horizontal).",
       "label_i18n": {
         "en": "Channel Slope (S)",
         "tr": "Kanal Eğimi (S)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m²",
       "default": 5,
-      "businessContext": "Akışın dolu kesit alanı.",
+      "businessContext": "Full cross-sectional area of flow.",
       "label_i18n": {
         "en": "Cross-sectional Flow Area (A)",
         "tr": "Kesit Akış Alanı (A)",

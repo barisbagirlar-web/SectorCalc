@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 1000,
-      "businessContext": "Ürün/hizmetin KDV hariç tutarı",
+      "businessContext": "Amount of product/service excluding VAT",
       "label_i18n": {
         "en": "Net Amount (TRY)",
         "tr": "Net Tutar (TRY)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "vatRate",
-      "label": "KDV Oranı (%)",
+      "label": "VAT Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Geçerli KDV oranı",
+      "businessContext": "Applicable VAT rate",
       "label_i18n": {
         "en": "VAT rate (%)",
         "tr": "KDV Oranı (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Net tutar üzerinden yüzde indirim",
+      "businessContext": "Percentage discount on net amount",
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İskonto (%)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "KDV matrahına eklenen diğer masraflar",
+      "businessContext": "Other expenses added to VAT base",
       "label_i18n": {
         "en": "Additional Expenses (TRY)",
         "tr": "Ek Giderler (TRY)",

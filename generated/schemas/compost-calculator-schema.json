@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "greenWeight",
-      "label": "Yeşil Malzeme Ağırlığı",
+      "label": "Green Material Weight",
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Nitrojen zengini yeşil malzeme (ör. mutfak atıkları) ağırlığı.",
+      "businessContext": "Weight of nitrogen-rich green material (e.g., kitchen waste).",
       "label_i18n": {
         "en": "Green Material Weight",
         "tr": "Yeşil Malzeme Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "greenC",
-      "label": "Yeşil Malzeme Karbon Oranı",
+      "label": "Green Material Carbon Ratio",
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Yeşil malzemedeki karbon yüzdesi (kuru ağırlıkça).",
+      "businessContext": "Carbon percentage in green material (dry weight basis).",
       "label_i18n": {
         "en": "Green Material Carbon Ratio",
         "tr": "Yeşil Malzeme Karbon Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "greenN",
-      "label": "Yeşil Malzeme Azot Oranı",
+      "label": "Green Material Nitrogen Ratio",
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Yeşil malzemedeki azot yüzdesi (kuru ağırlıkça).",
+      "businessContext": "Nitrogen percentage in green material (dry weight basis).",
       "label_i18n": {
         "en": "Green Material Nitrogen Ratio",
         "tr": "Yeşil Malzeme Azot Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "brownWeight",
-      "label": "Kahverengi Malzeme Ağırlığı",
+      "label": "Brown Material Weight",
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Karbon zengini kahverengi malzeme (ör. kuru yapraklar) ağırlığı.",
+      "businessContext": "Weight of carbon-rich brown material (e.g., dry leaves).",
       "label_i18n": {
         "en": "Brown Material Weight",
         "tr": "Kahverengi Malzeme Ağırlığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "brownC",
-      "label": "Kahverengi Malzeme Karbon Oranı",
+      "label": "Brown Material Carbon Ratio",
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Kahverengi malzemedeki karbon yüzdesi (kuru ağırlıkça).",
+      "businessContext": "Carbon percentage in brown material (dry weight basis).",
       "label_i18n": {
         "en": "Brown Material Carbon Ratio",
         "tr": "Kahverengi Malzeme Karbon Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "brownN",
-      "label": "Kahverengi Malzeme Azot Oranı",
+      "label": "Brown Material Nitrogen Ratio",
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Kahverengi malzemedeki azot yüzdesi (kuru ağırlıkça).",
+      "businessContext": "Nitrogen percentage in brown material (dry weight basis).",
       "label_i18n": {
         "en": "Brown Material Nitrogen Ratio",
         "tr": "Kahverengi Malzeme Azot Oranı",

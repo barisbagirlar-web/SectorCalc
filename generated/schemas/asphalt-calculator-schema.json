@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Asfaltlanacak alanın uzunluğu",
+      "businessContext": "Length of the area to be paved",
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Asfaltlanacak alanın genişliği",
+      "businessContext": "Width of the area to be paved",
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Asfalt tabakasının kalınlığı",
+      "businessContext": "Thickness of the asphalt layer",
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "t/m³",
       "default": 2.4,
-      "businessContext": "Sıkıştırılmış asfalt yoğunluğu",
+      "businessContext": "Compacted asphalt density",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
@@ -99,11 +99,11 @@
     },
     {
       "id": "compactionFactor",
-      "label": "Sıkıştırma Faktörü",
+      "label": "Compaction Factor",
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Sıkıştırma faktörü yüzdesi",
+      "businessContext": "Compaction factor percentage",
       "label_i18n": {
         "en": "Compaction Factor",
         "tr": "Sıkıştırma Faktörü",

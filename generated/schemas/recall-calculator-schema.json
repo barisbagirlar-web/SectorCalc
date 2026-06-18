@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalUnitsProduced",
-      "label": "Toplam Üretim Miktarı",
+      "label": "Total Production Quantity",
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Üretilen toplam birim sayısı",
+      "businessContext": "Total number of units produced",
       "label_i18n": {
         "en": "Total Production Quantity",
         "tr": "Toplam Üretim Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "defectRate",
-      "label": "Kusur Oranı",
+      "label": "Defect Rate",
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Ürünlerdeki kusurluluk oranı",
+      "businessContext": "Defect rate in products",
       "label_i18n": {
         "en": "Defect Rate",
         "tr": "Kusur Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "recallEffectiveness",
-      "label": "Geri Çağırma Etkinliği",
+      "label": "Recall Effectiveness",
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)",
+      "businessContext": "Effectiveness of the recall campaign (percentage of defective products reached)",
       "label_i18n": {
         "en": "Recall Effectiveness",
         "tr": "Geri Çağırma Etkinliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "costPerRecallUnit",
-      "label": "Birim Geri Çağırma Maliyeti",
+      "label": "Unit Recall Cost",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)",
+      "businessContext": "Recall processing cost per unit (logistics, communication)",
       "label_i18n": {
         "en": "Unit Recall Cost",
         "tr": "Birim Geri Çağırma Maliyeti",
@@ -99,11 +99,11 @@
     },
     {
       "id": "fixedRecallCost",
-      "label": "Sabit Geri Çağırma Maliyeti",
+      "label": "Fixed Recall Cost",
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Sabit yönetim ve organizasyon maliyeti",
+      "businessContext": "Fixed management and organization cost",
       "label_i18n": {
         "en": "Fixed Recall Cost",
         "tr": "Sabit Geri Çağırma Maliyeti",
@@ -123,11 +123,11 @@
     },
     {
       "id": "replacementCostPerUnit",
-      "label": "Birim Değiştirme Maliyeti",
+      "label": "Unit Replacement Cost",
       "type": "number",
       "unit": "TL",
       "default": 30,
-      "businessContext": "Birim başına değiştirme veya onarım maliyeti",
+      "businessContext": "Replacement or repair cost per unit",
       "label_i18n": {
         "en": "Unit Replacement Cost",
         "tr": "Birim Değiştirme Maliyeti",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Gün cinsinden süre, saniyeye çevrilecek",
+      "businessContext": "Duration in days, to convert to seconds",
       "label_i18n": {
         "en": "Day",
         "tr": "Gün",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Saat cinsinden süre, saniyeye çevrilecek",
+      "businessContext": "Duration in hours, to convert to seconds",
       "label_i18n": {
         "en": "Hour",
         "tr": "Saat",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "dk",
       "default": 0,
-      "businessContext": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
+      "businessContext": "Duration in minutes (main input), to convert to seconds",
       "label_i18n": {
         "en": "Dakika",
         "tr": "Minutes",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Doğrudan saniye olarak eklenecek süre",
+      "businessContext": "Duration to be added directly in seconds",
       "label_i18n": {
         "en": "Saniye",
         "tr": "Seconds",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
+      "businessContext": "Number of decimal places to show in result (0 rounds to integer, max 10 recommended)",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

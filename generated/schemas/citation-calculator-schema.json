@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "numCitations",
-      "label": "Kesilen Ceza Sayısı",
+      "label": "Number of Fines Issued",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Toplam kesilen trafik veya lojistik ceza sayısı",
+      "businessContext": "Total number of traffic or logistics fines issued",
       "label_i18n": {
         "en": "Number of Fines Issued",
         "tr": "Kesilen Ceza Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "finePerCitation",
-      "label": "Ceza Başına Para Cezası",
+      "label": "Fine Amount per Fine",
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
+      "businessContext": "Base fine amount to be paid for each penalty",
       "label_i18n": {
         "en": "Fine Amount per Fine",
         "tr": "Ceza Başına Para Cezası",
@@ -51,11 +51,11 @@
     },
     {
       "id": "severityMultiplier",
-      "label": "Ağırlaştırıcı Çarpan",
+      "label": "Aggravating Multiplier",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
+      "businessContext": "Multiplier based on penalty severity (e.g., recurrence, crop damage, etc.)",
       "label_i18n": {
         "en": "Aggravating multiplier",
         "tr": "Ağırlaştırıcı Çarpan",
@@ -75,11 +75,11 @@
     },
     {
       "id": "processingFeePerCitation",
-      "label": "İşlem Ücreti (Ceza Başına)",
+      "label": "Processing Fee (Per Penalty)",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Her ceza için tahsil edilen idari işlem ücreti",
+      "businessContext": "Administrative processing fee charged for each penalty",
       "label_i18n": {
         "en": "Processing fee per penalty (USD)",
         "tr": "İşlem Ücreti (Ceza Başına)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "earlyPaymentDiscount",
-      "label": "Erken Ödeme İndirimi (%)",
+      "label": "Early Payment Discount (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
+      "businessContext": "Percentage discount applied for early payment (0 if no discount)",
       "label_i18n": {
         "en": "Early payment discount (%)",
         "tr": "Erken Ödeme İndirimi (%)",

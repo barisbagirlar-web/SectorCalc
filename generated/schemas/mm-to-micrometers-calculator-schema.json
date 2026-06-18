@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mmValue",
-      "label": "Milimetre Değeri",
+      "label": "Millimeter Value",
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Dönüştürülecek ölçüm değeri",
+      "businessContext": "Measurement value to convert",
       "label_i18n": {
         "en": "Millimeter Value",
         "tr": "Milimetre Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "calibration",
-      "label": "Kalibrasyon Düzeltme Faktörü",
+      "label": "Calibration Correction Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Ölçüm cihazı kalibrasyon katsayısı",
+      "businessContext": "Measurement device calibration coefficient",
       "label_i18n": {
         "en": "Calibration Correction Factor",
         "tr": "Kalibrasyon Düzeltme Faktörü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "scaleFactor",
-      "label": "Ölçek Faktörü",
+      "label": "Scale Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Çizim/plan ölçek katsayısı",
+      "businessContext": "Drawing/plan scale coefficient",
       "label_i18n": {
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
@@ -75,7 +75,7 @@
     },
     {
       "id": "uncertaintyMm",
-      "label": "Ölçüm Belirsizliği (mm)",
+      "label": "Measurement Uncertainty (mm)",
       "type": "number",
       "unit": "mm",
       "default": 0.001,
@@ -99,11 +99,11 @@
     },
     {
       "id": "coverageFactor",
-      "label": "Genişletme Faktörü (k)",
+      "label": "Coverage Factor (k)",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Belirsizlik genişletme katsayısı (genelde 2)",
+      "businessContext": "Uncertainty coverage coefficient (usually 2)",
       "label_i18n": {
         "en": "Expansion Factor (k)",
         "tr": "Genişletme Faktörü (k)",

@@ -151,7 +151,33 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "totalDebt",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "interestRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "monthlyPayment",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "extraPayment",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "numDebts",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

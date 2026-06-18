@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "vibrationLevel",
-      "label": "Titreşim Seviyesi",
+      "label": "Vibration Level",
       "type": "number",
       "unit": "mm/s",
       "default": 2.5,
-      "businessContext": "Ekipman titreşim RMS değeri",
+      "businessContext": "Equipment vibration RMS value",
       "label_i18n": {
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "°C",
       "default": 60,
-      "businessContext": "Ekipman çalışma sıcaklığı",
+      "businessContext": "Equipment operating temperature",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
@@ -51,11 +51,11 @@
     },
     {
       "id": "runtimeHours",
-      "label": "Çalışma Süresi",
+      "label": "Operating Time",
       "type": "number",
       "unit": "saat",
       "default": 2000,
-      "businessContext": "Son bakımdan sonra çalışma saati",
+      "businessContext": "Operating hours since last maintenance",
       "label_i18n": {
         "en": "Operating Time",
         "tr": "Çalışma Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "oilQuality",
-      "label": "Yağ Kalitesi",
+      "label": "Oil Quality",
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Yağ kalite endeksi (0-100)",
+      "businessContext": "Oil quality index (0-100)",
       "label_i18n": {
         "en": "Oil Quality",
         "tr": "Yağ Kalitesi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "noiseLevel",
-      "label": "Gürültü Seviyesi",
+      "label": "Noise Level",
       "type": "number",
       "unit": "dB",
       "default": 85,
-      "businessContext": "Ortalama gürültü seviyesi",
+      "businessContext": "Average noise level",
       "label_i18n": {
         "en": "Noise Level",
         "tr": "Gürültü Seviyesi",

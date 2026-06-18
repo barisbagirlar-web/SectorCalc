@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "billAmount",
-      "label": "Fatura Tutarı (Vergi Hariç)",
+      "label": "Invoice Amount (Excluding Tax)",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Yemek öncesi vergi hariç toplam tutar",
+      "businessContext": "Total amount before tax for the meal",
       "label_i18n": {
         "en": "Invoice Amount (Excluding Tax)",
         "tr": "Fatura Tutarı (Vergi Hariç)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "taxAmount",
-      "label": "Vergi Tutarı",
+      "label": "Tax Amount",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Yemek faturasındaki toplam vergi miktarı",
+      "businessContext": "Total tax amount on the meal invoice",
       "label_i18n": {
         "en": "Tax Amount",
         "tr": "Vergi Tutarı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "tipPercentage",
-      "label": "Bahşiş Oranı",
+      "label": "Tip Rate",
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
+      "businessContext": "Tip percentage to apply on the pre-tax amount",
       "label_i18n": {
         "en": "Tip Rate",
         "tr": "Bahşiş Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfPeople",
-      "label": "Kişi Sayısı",
+      "label": "Number of People",
       "type": "number",
       "unit": "kişi",
       "default": 1,
-      "businessContext": "Hesabı paylaşacak kişi sayısı",
+      "businessContext": "Number of people to share the bill",
       "label_i18n": {
         "en": "Number of People",
         "tr": "Kişi Sayısı",

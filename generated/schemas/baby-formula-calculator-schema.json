@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "babyWeight",
-      "label": "Bebeğin Ağırlığı (kg)",
+      "label": "Baby's Weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 4,
-      "businessContext": "Bebeğin mevcut ağırlığı.",
+      "businessContext": "Baby's current weight.",
       "label_i18n": {
         "en": "Baby's Weight (kg)",
         "tr": "Bebeğin Ağırlığı (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "feedingCount",
-      "label": "Günlük Öğün Sayısı",
+      "label": "Daily Number of Meals",
       "type": "number",
       "unit": "kez",
       "default": 8,
-      "businessContext": "Bebeğin günde kaç kez beslendiği.",
+      "businessContext": "How many times a day the baby is fed.",
       "label_i18n": {
         "en": "Number of Daily Meals",
         "tr": "Günlük Öğün Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "dailyMlPerKg",
-      "label": "Günlük Sıvı İhtiyacı (ml/kg)",
+      "label": "Daily Fluid Requirement (ml/kg)",
       "type": "number",
       "unit": "ml/kg",
       "default": 150,
-      "businessContext": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
+      "businessContext": "Daily amount of formula needed per kg of baby's weight (usually 150-200 ml).",
       "label_i18n": {
         "en": "Daily Fluid Requirement (ml/kg)",
         "tr": "Günlük Sıvı İhtiyacı (ml/kg)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "ml",
       "default": 60,
-      "businessContext": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
+      "businessContext": "Amount of water to be added for one scoop of formula powder (manufacturer's instructions).",
       "label_i18n": {
         "en": "Water amount per scoop",
         "tr": "Bir Ölçek İçin Su Miktarı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "g",
       "default": 4.5,
-      "businessContext": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
+      "businessContext": "Weight of one scoop of formula powder (usually 4-5g).",
       "label_i18n": {
         "en": "Weight per scoop of powder",
         "tr": "Bir Ölçek Toz Ağırlığı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "bpd",
-      "label": "Biparietal Çap (BPD)",
+      "label": "Biparietal Diameter (BPD)",
       "type": "number",
       "unit": "cm",
       "default": 7.5,
-      "businessContext": "Fetal başın iki parietal kemik arasındaki en geniş çap",
+      "businessContext": "The widest diameter between the two parietal bones of the fetal head",
       "label_i18n": {
         "en": "Biparietal Diameter (BPD)",
         "tr": "Biparietal Çap (BPD)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "hc",
-      "label": "Baş Çevresi (HC)",
+      "label": "Head Circumference (HC)",
       "type": "number",
       "unit": "cm",
       "default": 27,
-      "businessContext": "Fetal başın çevresi",
+      "businessContext": "Circumference of the fetal head",
       "label_i18n": {
         "en": "Head Circumference (HC)",
         "tr": "Baş Çevresi (HC)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "ac",
-      "label": "Karın Çevresi (AC)",
+      "label": "Abdominal Circumference (AC)",
       "type": "number",
       "unit": "cm",
       "default": 25.5,
-      "businessContext": "Fetal karın çevresi",
+      "businessContext": "Fetal abdominal circumference",
       "label_i18n": {
         "en": "Abdominal Circumference (AC)",
         "tr": "Karın Çevresi (AC)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fl",
-      "label": "Femur Uzunluğu (FL)",
+      "label": "Femur Length (FL)",
       "type": "number",
       "unit": "cm",
       "default": 5.6,
-      "businessContext": "Fetal uyluk kemiği uzunluğu",
+      "businessContext": "Fetal thigh bone length",
       "label_i18n": {
         "en": "Femur Length (FL)",
         "tr": "Femur Uzunluğu (FL)",

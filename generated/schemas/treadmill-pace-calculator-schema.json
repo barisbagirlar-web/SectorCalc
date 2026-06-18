@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Koşu bandında katedilen mesafe",
+      "businessContext": "Distance covered on treadmill",
       "label_i18n": {
         "en": "Mesafe (km)",
         "tr": "Mesafe (km)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Koşu süresinin saat kısmı",
+      "businessContext": "Hour part of running time",
       "label_i18n": {
         "en": "Hour",
         "tr": "Saat",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Koşu süresinin dakika kısmı",
+      "businessContext": "Minute part of running time",
       "label_i18n": {
         "en": "Dakika",
         "tr": "Minutes",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "sn",
       "default": 0,
-      "businessContext": "Koşu süresinin saniye kısmı",
+      "businessContext": "Second part of running time",
       "label_i18n": {
         "en": "Saniye",
         "tr": "Seconds",

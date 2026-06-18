@@ -29,6 +29,7 @@ function evaluateAllFormulas(input: Ceiling_joist_calculatorInput): Record<strin
   try { const v = input.liveLoad + input.deadLoad; results["totalLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalLoad"] = 0; }
   try { const v = (input.liveLoad + input.deadLoad) * input.spacing / 144; results["uniformLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uniformLoad"] = 0; }
   try { const v = input.span * 12 / 240; results["allowableDeflection"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["allowableDeflection"] = 0; }
+  try { const v = (5 * (asFormulaNumber(results["uniformLoad"])) * (input.span * 12)**4) / (384 * input.eModulus * input.iValue); results["actualDeflection"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actualDeflection"] = 0; }
   return results;
 }
 

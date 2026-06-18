@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "numberOfGuests",
-      "label": "Misafir Sayısı",
+      "label": "Number of Guests",
       "type": "number",
       "unit": "kişi",
       "default": 50,
-      "businessContext": "Katılım sayısı",
+      "businessContext": "Number of Attendees",
       "label_i18n": {
         "en": "Number of guests",
         "tr": "Misafir Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "costPerMeal",
-      "label": "Öğün Başı Maliyet",
+      "label": "Cost per Meal",
       "type": "number",
       "unit": "TRY",
       "default": 75,
-      "businessContext": "Menü birim fiyatı",
+      "businessContext": "Menu unit price",
       "label_i18n": {
         "en": "Cost per meal",
         "tr": "Öğün Başı Maliyet",
@@ -51,11 +51,11 @@
     },
     {
       "id": "numberOfCourses",
-      "label": "Kur Sayısı",
+      "label": "Number of Currencies",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Çorba, ana yemek, tatlı gibi",
+      "businessContext": "Soup, main course, dessert, etc.",
       "label_i18n": {
         "en": "Number of courses",
         "tr": "Kur Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "serviceChargePercent",
-      "label": "Servis Ücreti (%)",
+      "label": "Service Fee (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Garson, servis ekipmanı",
+      "businessContext": "Waiter, service equipment",
       "label_i18n": {
         "en": "Service charge (%)",
         "tr": "Servis Ücreti (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "wasteFactor",
-      "label": "Fire Oranı (%)",
+      "label": "Waste Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Hazırlık kaybı",
+      "businessContext": "Preparation loss",
       "label_i18n": {
         "en": "Waste rate (%)",
         "tr": "Fire Oranı (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "vatRate",
-      "label": "KDV Oranı (%)",
+      "label": "VAT Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Vergi oranı",
+      "businessContext": "Tax rate",
       "label_i18n": {
         "en": "VAT rate (%)",
         "tr": "KDV Oranı (%)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "a",
-      "label": "Kübik katsayı (a)",
+      "label": "Cubic coefficient (a)",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Polinomun x³ terimi katsayısı",
+      "businessContext": "Coefficient of x³ term",
       "label_i18n": {
         "en": "Cubic coefficient (a)",
         "tr": "Kübik katsayı (a)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "b",
-      "label": "Kare katsayı (b)",
+      "label": "Quadratic coefficient (b)",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Polinomun x² terimi katsayısı",
+      "businessContext": "Coefficient of x² term",
       "label_i18n": {
         "en": "Quadratic coefficient (b)",
         "tr": "Kare katsayı (b)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "c",
-      "label": "Doğrusal katsayı (c)",
+      "label": "Linear coefficient (c)",
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Polinomun x terimi katsayısı",
+      "businessContext": "Coefficient of x term",
       "label_i18n": {
         "en": "Linear coefficient (c)",
         "tr": "Doğrusal katsayı (c)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "x1",
-      "label": "Alt sınır (x₁)",
+      "label": "Lower bound (x₁)",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İntegral alt sınırı",
+      "businessContext": "Lower limit of integration",
       "label_i18n": {
         "en": "Lower bound (x₁)",
         "tr": "Alt sınır (x₁)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "x2",
-      "label": "Üst sınır (x₂)",
+      "label": "Upper limit (x₂)",
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "İntegral üst sınırı",
+      "businessContext": "Upper limit of integration",
       "label_i18n": {
         "en": "Upper limit (x₂)",
         "tr": "Üst sınır (x₂)",

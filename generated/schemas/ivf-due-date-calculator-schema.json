@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "transferYear",
-      "label": "Transfer Yıl",
+      "label": "Transfer Year",
       "type": "number",
       "unit": "yıl",
       "default": 2024,
-      "businessContext": "Embriyo transferinin yapıldığı yıl",
+      "businessContext": "Year of embryo transfer",
       "label_i18n": {
         "en": "Transfer Year",
         "tr": "Transfer Yılı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Embriyo transfer ayı (1-12)",
+      "businessContext": "Embryo transfer month (1-12)",
       "label_i18n": {
         "en": "Transfer Ay",
         "tr": "Transfer Ayı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "transferDay",
-      "label": "Transfer Gün",
+      "label": "Transfer Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Embriyo transfer günü (1-31)",
+      "businessContext": "Embryo transfer day (1-31)",
       "label_i18n": {
         "en": "Transfer Day",
         "tr": "Transfer Günü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "embryoAge",
-      "label": "Embriyo Yaşı",
+      "label": "Embryo Age",
       "type": "number",
       "unit": "gün",
       "default": 3,
-      "businessContext": "Transfer anındaki embriyo yaşı (örn. 3 veya 5 gün)",
+      "businessContext": "Embryo age at transfer (e.g., 3 or 5 days)",
       "label_i18n": {
         "en": "Embryo Age",
         "tr": "Embriyo Yaşı",

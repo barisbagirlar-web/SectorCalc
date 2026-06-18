@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "adults",
-      "label": "Yetişkin Sayısı",
+      "label": "Number of Adults",
       "type": "number",
       "unit": "kişi",
       "default": 10,
-      "businessContext": "Partiye katılacak yetişkin sayısı",
+      "businessContext": "Number of adults attending the party",
       "label_i18n": {
         "en": "Number of Adults",
         "tr": "Yetişkin Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "children",
-      "label": "Çocuk Sayısı",
+      "label": "Number of Children",
       "type": "number",
       "unit": "kişi",
       "default": 5,
-      "businessContext": "Partiye katılacak çocuk sayısı (12 yaş altı)",
+      "businessContext": "Number of children attending the party (under 12)",
       "label_i18n": {
         "en": "Number of Children",
         "tr": "Çocuk Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hours",
-      "label": "Parti Süresi",
+      "label": "Party Duration",
       "type": "number",
       "unit": "saat",
       "default": 3,
-      "businessContext": "Partinin tahmini süresi (saat)",
+      "businessContext": "Estimated duration of the party (hours)",
       "label_i18n": {
         "en": "Party Duration",
         "tr": "Parti Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "veggieRatio",
-      "label": "Vejetaryen Oranı",
+      "label": "Vegetarian Ratio",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Misafirler içindeki vejetaryen oranı (yüzde)",
+      "businessContext": "Ratio of vegetarians among guests (percent)",
       "label_i18n": {
         "en": "Vegetarian Ratio",
         "tr": "Vejetaryen Oranı",

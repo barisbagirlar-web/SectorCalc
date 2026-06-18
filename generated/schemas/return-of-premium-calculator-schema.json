@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "monthlyPremium",
-      "label": "Aylık Prim (TL)",
+      "label": "Monthly Premium (TL)",
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Poliçe için ödenen aylık prim tutarı",
+      "businessContext": "Monthly premium amount paid for the policy",
       "label_i18n": {
         "en": "Monthly Premium (TRY)",
         "tr": "Aylık Prim (TL)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "policyTermYears",
-      "label": "Poliçe Süresi (Yıl)",
+      "label": "Policy Term (Years)",
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Poliçenin toplam süresi",
+      "businessContext": "Total duration of the policy",
       "label_i18n": {
         "en": "Policy Term (Years)",
         "tr": "Poliçe Süresi (Yıl)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "interestRate",
-      "label": "Yıllık Faiz Oranı (%)",
+      "label": "Annual Interest Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
+      "businessContext": "Annual compound interest rate applied to returned premiums",
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Poliçe süresince hasar talebi olup olmadığı",
+      "businessContext": "Whether there has been a claim during the policy term",
       "label_i18n": {
         "en": "Hasar Talebi (0: Yok, 1: Var)",
         "tr": "Damage Claim (0: No, 1: Yes)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "adminFeeRate",
-      "label": "Yönetim Gideri Kesintisi (%)",
+      "label": "Administrative Expense Deduction (%)",
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "İade tutarından kesilecek yönetim gideri oranı",
+      "businessContext": "Administrative expense rate to be deducted from the refund amount",
       "label_i18n": {
         "en": "Administrative Expense Deduction (%)",
         "tr": "Yönetim Gideri Kesintisi (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "returnTaxRate",
-      "label": "İade Vergi Oranı (%)",
+      "label": "Refund Tax Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "İade tutarı üzerinden alınan vergi oranı",
+      "businessContext": "Tax rate applied on the refund amount",
       "label_i18n": {
         "en": "Refund Tax Rate (%)",
         "tr": "İade Vergi Oranı (%)",

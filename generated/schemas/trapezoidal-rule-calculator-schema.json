@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "lowerLimit",
-      "label": "Alt Sınır (a)",
+      "label": "Lower Limit (a)",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İntegrasyon başlangıç noktası",
+      "businessContext": "Integration start point",
       "label_i18n": {
         "en": "Lower limit (a)",
         "tr": "Alt Sınır (a)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "upperLimit",
-      "label": "Üst Sınır (b)",
+      "label": "Upper Limit (b)",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "İntegrasyon bitiş noktası",
+      "businessContext": "Integration end point",
       "label_i18n": {
         "en": "Upper limit (b)",
         "tr": "Üst Sınır (b)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "intervals",
-      "label": "Aralık Sayısı (n)",
+      "label": "Number of intervals (n)",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Trapezoid bölme sayısı",
+      "businessContext": "Number of trapezoid partitions",
       "label_i18n": {
         "en": "Number of intervals (n)",
         "tr": "Aralık Sayısı (n)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fa",
-      "label": "f(a) Değeri",
+      "label": "f(a) Value",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Alt sınırda fonksiyon değeri",
+      "businessContext": "Function value at lower bound",
       "label_i18n": {
         "en": "f(a) Value",
         "tr": "f(a) Değeri",
@@ -99,11 +99,11 @@
     },
     {
       "id": "fb",
-      "label": "f(b) Değeri",
+      "label": "f(b) Value",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Üst sınırda fonksiyon değeri",
+      "businessContext": "Function value at upper bound",
       "label_i18n": {
         "en": "f(b) Value",
         "tr": "f(b) Değeri",
@@ -123,11 +123,11 @@
     },
     {
       "id": "sumMid",
-      "label": "İç Nokta Değerleri Toplamı",
+      "label": "Sum of Interior Point Values",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Tüm ara noktalardaki f(x) değerleri toplamı",
+      "businessContext": "Sum of f(x) values at all intermediate points",
       "label_i18n": {
         "en": "Sum of interior point values",
         "tr": "İç Nokta Değerleri Toplamı",

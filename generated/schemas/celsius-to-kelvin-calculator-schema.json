@@ -118,9 +118,13 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "upperBoundK",
-    "unit": "°C",
+    "unit": "K",
     "breakdownUnits": {
-      "adjustedCelsius": "°C"
+      "adjustedCelsius": "°C",
+      "kelvinExact": "K",
+      "roundedKelvin": "K",
+      "lowerBoundK": "K",
+      "upperBoundK": "K"
     }
   },
   "category": "Dönüşüm & Ölçüm",

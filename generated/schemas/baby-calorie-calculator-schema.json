@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Bebek Ağırlığı (kg)",
+      "label": "Baby Weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 4.5,
-      "businessContext": "Bebeğin ağırlığı kilogram cinsinden.",
+      "businessContext": "Baby's weight in kilograms.",
       "label_i18n": {
         "en": "Baby Weight (kg)",
         "tr": "Bebek Ağırlığı (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "age",
-      "label": "Bebek Yaşı (ay)",
+      "label": "Baby Age (months)",
       "type": "number",
       "unit": "ay",
       "default": 2,
-      "businessContext": "Bebeğin tamamlanmış ay cinsinden yaşı.",
+      "businessContext": "Baby's age in completed months.",
       "label_i18n": {
         "en": "Baby Age (months)",
         "tr": "Bebek Yaşı (ay)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "feedingMultiplier",
-      "label": "Beslenme Çarpanı",
+      "label": "Feeding Multiplier",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
+      "businessContext": "1.0 for breast milk, 1.05 for formula, 1.1 for mixed feeding.",
       "label_i18n": {
         "en": "Feeding Multiplier",
         "tr": "Beslenme Çarpanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "solidCalories",
-      "label": "Ek Gıda Kalorisi (kcal)",
+      "label": "Complementary Food Calories (kcal)",
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
+      "businessContext": "Extra calories from complementary foods for ages 6 months and above.",
       "label_i18n": {
         "en": "Complementary Food Calories (kcal)",
         "tr": "Ek Gıda Kalorisi (kcal)",

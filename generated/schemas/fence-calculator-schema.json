@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalLength",
-      "label": "Toplam Çit Uzunluğu",
+      "label": "Total Fence Length",
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Çit hattının toplam uzunluğu (kapılar hariç)",
+      "businessContext": "Total length of the fence line (excluding gates)",
       "label_i18n": {
         "en": "Total Fence Length",
         "tr": "Toplam Çit Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "fenceHeight",
-      "label": "Çit Yüksekliği",
+      "label": "Fence Height",
       "type": "number",
       "unit": "m",
       "default": 1.8,
-      "businessContext": "Panel yüksekliği",
+      "businessContext": "Panel height",
       "label_i18n": {
         "en": "Fence Height",
         "tr": "Çit Yüksekliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "postSpacing",
-      "label": "Direk Aralığı",
+      "label": "Post Spacing",
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Direkler arası mesafe",
+      "businessContext": "Distance between poles",
       "label_i18n": {
         "en": "Post Spacing",
         "tr": "Direk Aralığı",
@@ -75,7 +75,7 @@
     },
     {
       "id": "pricePerPost",
-      "label": "Direk Birim Fiyatı",
+      "label": "Unit Price of Pole",
       "type": "number",
       "unit": "EUR",
       "default": 15,
@@ -99,11 +99,11 @@
     },
     {
       "id": "pricePanelPerSqm",
-      "label": "Panel Metrekare Fiyatı",
+      "label": "Panel Price per Square Meter",
       "type": "number",
       "unit": "EUR/m²",
       "default": 20,
-      "businessContext": "Panel malzemesinin metrekare başına fiyatı",
+      "businessContext": "Price per square meter of panel material",
       "label_i18n": {
         "en": "Panel price per square meter",
         "tr": "Panel Metrekare Fiyatı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "numberOfGates",
-      "label": "Kapı Sayısı",
+      "label": "Number of Doors",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Çite eklenecek kapı adedi",
+      "businessContext": "Number of gates to add to the fence",
       "label_i18n": {
         "en": "Number of Doors",
         "tr": "Kapı Sayısı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "pricePerGate",
-      "label": "Kapı Birim Fiyatı",
+      "label": "Unit Price of Gate",
       "type": "number",
       "unit": "EUR",
       "default": 200,
-      "businessContext": "Bir kapı maliyeti",
+      "businessContext": "Cost of one gate",
       "label_i18n": {
         "en": "Unit price of gate",
         "tr": "Kapı Birim Fiyatı",
@@ -171,11 +171,11 @@
     },
     {
       "id": "concreteCostPerPost",
-      "label": "Direk Başı Beton Maliyeti",
+      "label": "Concrete Cost per Pole",
       "type": "number",
       "unit": "EUR",
       "default": 5,
-      "businessContext": "Bir direk için gerekli betonun toplam maliyeti",
+      "businessContext": "Total cost of concrete required for one pole",
       "label_i18n": {
         "en": "Concrete cost per pole",
         "tr": "Direk Başı Beton Maliyeti",

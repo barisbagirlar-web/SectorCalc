@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "outerDiameter",
-      "label": "Dış Çap (OD)",
+      "label": "Outer Diameter (OD)",
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Flanşın dış çapı, milimetre cinsinden.",
+      "businessContext": "Outer diameter of the flange, in millimeters.",
       "label_i18n": {
         "en": "Outer Diameter (OD)",
         "tr": "Dış Çap (OD)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Flanş kalınlığı.",
+      "businessContext": "Flange thickness.",
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",
@@ -51,11 +51,11 @@
     },
     {
       "id": "boltCircleDiameter",
-      "label": "Cıvata Dairesi Çapı",
+      "label": "Bolt Circle Diameter",
       "type": "number",
       "unit": "mm",
       "default": 160,
-      "businessContext": "Cıvata deliklerinin merkezinden geçen dairenin çapı.",
+      "businessContext": "Diameter of the circle passing through the center of the bolt holes.",
       "label_i18n": {
         "en": "Bolt Circle Diameter",
         "tr": "Cıvata Dairesi Çapı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfBolts",
-      "label": "Cıvata Sayısı",
+      "label": "Number of Bolts",
       "type": "number",
       "unit": "adet",
       "default": 8,
-      "businessContext": "Cıvata deliği sayısı.",
+      "businessContext": "Number of bolt holes.",
       "label_i18n": {
         "en": "Number of Bolts",
         "tr": "Cıvata Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "boltHoleDiameter",
-      "label": "Cıvata Deliği Çapı",
+      "label": "Bolt Hole Diameter",
       "type": "number",
       "unit": "mm",
       "default": 18,
-      "businessContext": "Her bir cıvata deliğinin çapı.",
+      "businessContext": "Diameter of each bolt hole.",
       "label_i18n": {
         "en": "Bolt Hole Diameter",
         "tr": "Cıvata Deliği Çapı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "density",
-      "label": "Malzeme Yoğunluğu",
+      "label": "Material Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³).",
+      "businessContext": "Density of flange material (e.g., steel 7850 kg/m³).",
       "label_i18n": {
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",

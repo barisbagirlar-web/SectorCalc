@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "plannedProductionTime",
-      "label": "Planlanan Üretim Süresi",
+      "label": "Planned Production Time",
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Vardiya süresi veya planlanan üretim süresi",
+      "businessContext": "Shift duration or planned production time",
       "label_i18n": {
         "en": "Planned Production Time",
         "tr": "Planlanan Üretim Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "actualRunTime",
-      "label": "Gerçekleşen Çalışma Süresi",
+      "label": "Actual Operating Time",
       "type": "number",
       "unit": "saat",
       "default": 7.5,
-      "businessContext": "Arızalar, duruşlar sonrası net üretim süresi",
+      "businessContext": "Net production time after breakdowns and stops",
       "label_i18n": {
         "en": "Actual Operating Time",
         "tr": "Gerçekleşen Çalışma Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "idealCycleTime",
-      "label": "İdeal Çevrim Süresi",
+      "label": "Ideal Cycle Time",
       "type": "number",
       "unit": "dakika/adet",
       "default": 0.5,
-      "businessContext": "Bir ürünün ideal üretim süresi",
+      "businessContext": "Ideal production time per unit",
       "label_i18n": {
         "en": "Ideal Cycle Time",
         "tr": "İdeal Çevrim Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalCount",
-      "label": "Toplam Üretim Adedi",
+      "label": "Total Production Quantity",
       "type": "number",
       "unit": "adet",
       "default": 800,
-      "businessContext": "Toplam üretilen parça sayısı",
+      "businessContext": "Total number of parts produced",
       "label_i18n": {
         "en": "Total production quantity",
         "tr": "Toplam Üretim Adedi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "goodCount",
-      "label": "Sağlam Ürün Adedi",
+      "label": "Good Units Count",
       "type": "number",
       "unit": "adet",
       "default": 760,
-      "businessContext": "Kalite kontrolden geçen ürün sayısı",
+      "businessContext": "Number of products passing quality control",
       "label_i18n": {
         "en": "Good Units Count",
         "tr": "Sağlam Ürün Adedi",

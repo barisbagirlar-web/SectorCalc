@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "hours",
       "default": 14,
-      "businessContext": "Şu anki saat (0-24 arası ondalıklı)",
+      "businessContext": "Current time (0-24 decimal)",
       "label_i18n": {
         "en": "Current Time (hours from midnight)",
         "tr": "Geçerli Saat (gece yarısından itibaren saat)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "hours",
       "default": 17,
-      "businessContext": "Uyanmak istenilen saat (0-24 arası ondalıklı)",
+      "businessContext": "Desired wake-up time (0-24 decimal)",
       "label_i18n": {
         "en": "Desired Wake-Up Time (hours from midnight)",
         "tr": "İstenen Uyanma Saati (gece yarısından itibaren saat)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "min",
       "default": 90,
-      "businessContext": "Bir tam uyku döngüsünün ortalama süresi (varsayılan 90 dk)",
+      "businessContext": "Average duration of one sleep cycle (default 90 min)",
       "label_i18n": {
         "en": "Sleep Cycle Length (minutes)",
         "tr": "Uyku Döngüsü Uzunluğu (dakika)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "min",
       "default": 10,
-      "businessContext": "Sersemlik yapmadan dinçlik sağlayan en kısa şekerleme süresi",
+      "businessContext": "Shortest nap duration that provides alertness without grogginess",
       "label_i18n": {
         "en": "Minimum Effective Nap (minutes)",
         "tr": "Minimum Etkili Şekerleme (dakika)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Sersemlik riski oluşmayan en uzun kısa şekerleme süresi",
+      "businessContext": "Longest short nap duration without risk of grogginess",
       "label_i18n": {
         "en": "Maximum Short Nap (minutes)",
         "tr": "Maksimum Kısa Şekerleme (dakika)",

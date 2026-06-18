@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "MHz",
       "default": 2400,
-      "businessContext": "Çalışma frekansı, dalga boyunu ve anten boyutlandırmasını belirler.",
+      "businessContext": "Operating frequency determines wavelength and antenna sizing.",
       "label_i18n": {
         "en": "Frekans",
         "tr": "Frequency",
@@ -27,11 +27,11 @@
     },
     {
       "id": "diameter",
-      "label": "Anten Çapı",
+      "label": "Antenna Diameter",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Parabolik anten yansıtıcı çapı, kazanç ve hüzme genişliğini doğrudan etkiler.",
+      "businessContext": "Parabolic antenna reflector diameter directly affects gain and beamwidth.",
       "label_i18n": {
         "en": "Antenna Diameter",
         "tr": "Anten Çapı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "oransal",
       "default": 0.6,
-      "businessContext": "Açıklık verimliliği, antenin teorik maksimum performansa ne kadar yakın olduğunu gösterir.",
+      "businessContext": "Aperture efficiency indicates how close the antenna is to theoretical maximum performance.",
       "label_i18n": {
         "en": "Verimlilik",
         "tr": "Efficiency",

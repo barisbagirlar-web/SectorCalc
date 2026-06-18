@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "connectedLoad",
-      "label": "Toplam Bağlı Yük",
+      "label": "Total Connected Load",
       "type": "number",
       "unit": "kW",
       "default": 100,
@@ -27,7 +27,7 @@
     },
     {
       "id": "demandFactor",
-      "label": "Talep Faktörü",
+      "label": "Demand Factor",
       "type": "number",
       "unit": "-",
       "default": 0.8,
@@ -51,7 +51,7 @@
     },
     {
       "id": "powerFactor",
-      "label": "Güç Faktörü",
+      "label": "Power Factor",
       "type": "number",
       "unit": "-",
       "default": 0.9,
@@ -75,7 +75,7 @@
     },
     {
       "id": "reserveMargin",
-      "label": "Yedek Kapasite Marjı",
+      "label": "Spare Capacity Margin",
       "type": "number",
       "unit": "%",
       "default": 10,

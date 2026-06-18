@@ -99,26 +99,24 @@
     }
   ],
   "formulas": {
-    "score": "fever + exudates + lymphadenopathy + cough_absence",
-    "fever": "fever",
-    "exudates": "exudates",
-    "lymphadenopathy": "lymphadenopathy",
-    "cough_absence": "cough_absence"
+    "normalized_product": "fever * exudates * lymphadenopathy * cough_absence",
+    "result": "fever * exudates * lymphadenopathy * cough_absence"
   },
   "outputs": {
-    "primary": "score",
+    "primary": "result",
     "breakdown": [
-      "fever",
-      "exudates",
-      "lymphadenopathy",
-      "cough_absence"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "cough_absence",
-    "unit": "point"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

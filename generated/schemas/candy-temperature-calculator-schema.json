@@ -116,6 +116,11 @@
         "unit": "°F"
       },
       {
+        "label": "Adjusted Temperature (°F)",
+        "value": "adjustedF",
+        "unit": "°F"
+      },
+      {
         "label": "Temperature in Celsius (°C)",
         "value": "adjustedC",
         "unit": "°C"
@@ -126,7 +131,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "adjustedC",
-    "unit": "ft"
+    "unit": "°C"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Havacılık & Uzay",
@@ -138,7 +143,32 @@
   "profession": "Tasarım Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "stageIndex",
+        "type": "range",
+        "min": 0,
+        "max": 7
+      },
+      {
+        "field": "altitudeFt",
+        "type": "range",
+        "min": -1000,
+        "max": 30000
+      },
+      {
+        "field": "customTempF",
+        "type": "range",
+        "min": 200,
+        "max": 400
+      },
+      {
+        "field": "thermometerOffsetF",
+        "type": "range",
+        "min": -10,
+        "max": 10
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

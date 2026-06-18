@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "x1",
-      "label": "x1 Değeri",
+      "label": "x1 Value",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "İlk veri noktasının bağımsız değişken değeri",
+      "businessContext": "Independent variable value of the first data point",
       "label_i18n": {
         "en": "x1 Value",
         "tr": "x1 Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "y1",
-      "label": "y1 Değeri",
+      "label": "y1 Value",
       "type": "number",
       "unit": "kg",
       "default": 2,
-      "businessContext": "İlk veri noktasının bağımlı değişken değeri",
+      "businessContext": "Dependent variable value of the first data point",
       "label_i18n": {
         "en": "y1 Value",
         "tr": "y1 Değeri",
@@ -51,11 +51,11 @@
     },
     {
       "id": "x2",
-      "label": "x2 Değeri",
+      "label": "x2 Value",
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "İkinci veri noktasının bağımsız değişken değeri",
+      "businessContext": "Independent variable value of the second data point",
       "label_i18n": {
         "en": "x2 Value",
         "tr": "x2 Değeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "y2",
-      "label": "y2 Değeri",
+      "label": "y2 Value",
       "type": "number",
       "unit": "kg",
       "default": 18,
-      "businessContext": "İkinci veri noktasının bağımlı değişken değeri",
+      "businessContext": "Dependent variable value of the second data point",
       "label_i18n": {
         "en": "y2 Value",
         "tr": "y2 Değeri",

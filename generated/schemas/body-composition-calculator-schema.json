@@ -175,11 +175,12 @@
     "bmi_aux": "weight / ((height/100) ** 2)"
   },
   "outputs": {
-    "primary": "bmi_aux",
+    "primary": "bmi",
     "breakdown": [
       "bmi",
       "leanBodyMass",
-      "fatMass"
+      "fatMass",
+      "bodyFatPercentage"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -198,7 +199,45 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "weight",
+        "min": 20,
+        "max": 300
+      },
+      {
+        "field": "height",
+        "min": 100,
+        "max": 250
+      },
+      {
+        "field": "age",
+        "min": 18,
+        "max": 120
+      },
+      {
+        "field": "gender",
+        "allowed": [
+          0,
+          1
+        ]
+      },
+      {
+        "field": "waist",
+        "min": 50,
+        "max": 200
+      },
+      {
+        "field": "hip",
+        "min": 50,
+        "max": 200
+      },
+      {
+        "field": "neck",
+        "min": 20,
+        "max": 80
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

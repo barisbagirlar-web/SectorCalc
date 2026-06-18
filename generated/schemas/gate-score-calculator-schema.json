@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "scoreG",
-      "label": "G Puanı",
+      "label": "G Score",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Good (İyi) kriter puanı",
+      "businessContext": "Good criterion score",
       "label_i18n": {
         "en": "G Score",
         "tr": "G Puanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "scoreA",
-      "label": "A Puanı",
+      "label": "A Score",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Average (Ortalama) kriter puanı",
+      "businessContext": "Average criterion score",
       "label_i18n": {
         "en": "A Score",
         "tr": "A Puanı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "scoreT",
-      "label": "T Puanı",
+      "label": "T Score",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tolerable (Kabul Edilebilir) kriter puanı",
+      "businessContext": "Tolerable criterion score",
       "label_i18n": {
         "en": "T Score",
         "tr": "T Puanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "scoreE",
-      "label": "E Puanı",
+      "label": "E Score",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Excellent (Mükemmel) kriter puanı",
+      "businessContext": "Excellent criterion score",
       "label_i18n": {
         "en": "E Score",
         "tr": "E Puanı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "weightG",
-      "label": "G Ağırlığı",
+      "label": "G Weight",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "G kategorisi ağırlık yüzdesi",
+      "businessContext": "G category weight percentage",
       "label_i18n": {
         "en": "G Weight",
         "tr": "G Ağırlığı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "weightA",
-      "label": "A Ağırlığı",
+      "label": "A Weight",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "A kategorisi ağırlık yüzdesi",
+      "businessContext": "A category weight percentage",
       "label_i18n": {
         "en": "A Weight",
         "tr": "A Ağırlığı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "weightT",
-      "label": "T Ağırlığı",
+      "label": "T Weight",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "T kategorisi ağırlık yüzdesi",
+      "businessContext": "T category weight percentage",
       "label_i18n": {
         "en": "T Weight",
         "tr": "T Ağırlığı",
@@ -171,11 +171,11 @@
     },
     {
       "id": "weightE",
-      "label": "E Ağırlığı",
+      "label": "E Weight",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "E kategorisi ağırlık yüzdesi",
+      "businessContext": "E category weight percentage",
       "label_i18n": {
         "en": "E Weight",
         "tr": "E Ağırlığı",

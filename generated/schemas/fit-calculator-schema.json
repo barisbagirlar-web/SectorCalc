@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Mil ve delik için ortak nominal çap",
+      "businessContext": "Common nominal diameter for shaft and hole",
       "label_i18n": {
         "en": "Nominal Diameter",
         "tr": "Nominal Çap",
@@ -27,11 +27,11 @@
     },
     {
       "id": "holeUpperDev",
-      "label": "Delik Üst Sapma",
+      "label": "Hole Upper Deviation",
       "type": "number",
       "unit": "mm",
       "default": 0.025,
-      "businessContext": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
+      "businessContext": "Hole tolerance upper limit deviation (e.g., for H7 +0.025mm)",
       "label_i18n": {
         "en": "Hole Upper Deviation",
         "tr": "Delik Üst Sapma",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Delik tolerans alt sınır sapması (örn. H7 için 0)",
+      "businessContext": "Hole tolerance lower limit deviation (e.g., for H7 0)",
       "label_i18n": {
         "en": "Delik Alt Sapma",
         "tr": "Delik alt sapma",
@@ -75,11 +75,11 @@
     },
     {
       "id": "shaftUpperDev",
-      "label": "Mil Üst Sapma",
+      "label": "Shaft Upper Deviation",
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
+      "businessContext": "Shaft tolerance upper limit deviation (e.g., for h6 0)",
       "label_i18n": {
         "en": "Shaft Upper Deviation",
         "tr": "Mil Üst Sapma",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "mm",
       "default": -0.016,
-      "businessContext": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)",
+      "businessContext": "Shaft tolerance lower limit deviation (e.g., for h6 -0.016mm)",
       "label_i18n": {
         "en": "Mil Alt Sapma",
         "tr": "Mil alt sapma",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kWh",
       "default": 1,
-      "businessContext": "Doğrudan kWh cinsinden enerji değeri",
+      "businessContext": "Energy value directly in kWh",
       "label_i18n": {
         "en": "Enerji (kWh)",
         "tr": "Enerji (kWh)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kW",
       "default": 0,
-      "businessContext": "Alternatif hesaplama: Güç değeri",
+      "businessContext": "Alternative calculation: Power value",
       "label_i18n": {
         "en": "Power (kW)",
         "tr": "Güç (kW)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Alternatif hesaplama: Süre",
+      "businessContext": "Alternative calculation: Duration",
       "label_i18n": {
         "en": "Zaman (saat)",
         "tr": "Süre (saat)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "conversion_factor",
-      "label": "Dönüşüm Katsayısı",
+      "label": "Conversion Factor",
       "type": "number",
       "unit": "J/kWh",
       "default": 3600000,
-      "businessContext": "Dönüşüm katsayısı (varsayılan 3.6e6)",
+      "businessContext": "Conversion factor (default 3.6e6)",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Katsayısı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuç yuvarlama",
+      "businessContext": "Result rounding",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

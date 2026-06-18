@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Bugünkü para miktarı.",
+      "businessContext": "Today's amount of money.",
       "label_i18n": {
         "en": "Present Value",
         "tr": "Bugünkü Değer",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Yıllık enflasyon oranı.",
+      "businessContext": "Annual inflation rate.",
       "label_i18n": {
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Enflasyonun uygulanacağı süre.",
+      "businessContext": "Duration for which inflation is applied.",
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "times/year",
       "default": 1,
-      "businessContext": "Yıllık bileşikleme sıklığı.",
+      "businessContext": "Annual compounding frequency.",
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",

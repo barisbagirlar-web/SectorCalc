@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wallLength",
-      "label": "Duvar Uzunluğu",
+      "label": "Wall Length",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Duvarın toplam yatay uzunluğu, metre cinsinden.",
+      "businessContext": "Total horizontal length of the wall, in meters.",
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "wallHeight",
-      "label": "Duvar Yüksekliği",
+      "label": "Wall Height",
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Duvarın dikey yüksekliği, metre cinsinden.",
+      "businessContext": "Vertical height of the wall, in meters.",
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "blockLength",
-      "label": "Briket Uzunluğu",
+      "label": "Brick Length",
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Bir briketin uzun kenarı, santimetre cinsinden.",
+      "businessContext": "Long side of a brick, in centimeters.",
       "label_i18n": {
         "en": "Brick Length",
         "tr": "Briket Uzunluğu",
@@ -75,11 +75,11 @@
     },
     {
       "id": "blockHeight",
-      "label": "Briket Yüksekliği",
+      "label": "Brick Height",
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Bir briketin kısa kenarı (yüksekliği), santimetre cinsinden.",
+      "businessContext": "Short side (height) of a briquette, in centimeters.",
       "label_i18n": {
         "en": "Brick Height",
         "tr": "Briket Yüksekliği",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "cm",
       "default": 1,
-      "businessContext": "Briketler arasındaki harç kalınlığı, santimetre cinsinden.",
+      "businessContext": "Mortar thickness between briquettes, in centimeters.",
       "label_i18n": {
         "en": "Mortar Thickness",
         "tr": "Harç Kalınlığı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesme, kırılma vb. nedenlerle oluşan tahmini fire yüzdesi.",
+      "businessContext": "Estimated waste percentage due to cutting, breakage, etc.",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

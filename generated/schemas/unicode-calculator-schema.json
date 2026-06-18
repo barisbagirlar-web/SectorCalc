@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "charCount",
-      "label": "Karakter Sayısı",
+      "label": "Character Count",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "İşlenecek toplam Unicode karakter sayısı",
+      "businessContext": "Total number of Unicode characters to process",
       "label_i18n": {
         "en": "Character Count",
         "tr": "Karakter Sayısı",
@@ -27,7 +27,7 @@
     },
     {
       "id": "encoding",
-      "label": "Kodlama Seçimi",
+      "label": "Encoding Selection",
       "type": "number",
       "unit": "seçim",
       "default": 1,
@@ -51,11 +51,11 @@
     },
     {
       "id": "overhead",
-      "label": "Ek Yük",
+      "label": "Extra Load",
       "type": "number",
       "unit": "byte",
       "default": 0,
-      "businessContext": "Her bir metin öbeği için ek protokol/metadata byte",
+      "businessContext": "Extra protocol/metadata bytes per text chunk",
       "label_i18n": {
         "en": "Additional Load",
         "tr": "Ek Yük",
@@ -75,11 +75,11 @@
     },
     {
       "id": "lineCount",
-      "label": "Öbek Sayısı",
+      "label": "Number of Chunks",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Kaç ayrı metin öbeği (satır/parça) olduğu",
+      "businessContext": "How many separate text chunks (lines/parts) there are",
       "label_i18n": {
         "en": "Number of Chunks",
         "tr": "Öbek Sayısı",

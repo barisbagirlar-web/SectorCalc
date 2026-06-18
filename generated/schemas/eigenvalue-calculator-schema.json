@@ -100,18 +100,16 @@
   ],
   "formulas": {
     "trace": "a + d",
-    "determinant": "a * d - b * c",
-    "a___d": "a + d",
-    "a___d___b___c": "a * d - b * c"
+    "determinant": "a * d - b * c"
   },
   "outputs": {
-    "primary": "a___d___b___c",
+    "primary": "determinant",
     "breakdown": [
-      "a + d",
-      "a * d - b * c",
-      "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
-      "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
-      "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
+      "trace",
+      "determinant",
+      "discriminant",
+      "eigenvalue1",
+      "eigenvalue2"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [

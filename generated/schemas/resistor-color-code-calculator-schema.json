@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9).",
+      "businessContext": "First significant digit of resistance value (0-9, usually 1-9 in standards).",
       "label_i18n": {
         "en": "1. Bant (Rakam)",
         "tr": "Band 1 (Number)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Direnç değerinin ikinci anlamlı basamağı (0-9).",
+      "businessContext": "Second significant digit of resistance value (0-9).",
       "label_i18n": {
         "en": "2. Bant (Rakam)",
         "tr": "Band 2 (Number)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "multiplier",
-      "label": "Çarpan (10ˣ)",
+      "label": "Multiplier (10ˣ)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …).",
+      "businessContext": "Exponent of 10 as multiplier (0: ×1, 1: ×10, 2: ×100, …).",
       "label_i18n": {
         "en": "Multiplier (10ˣ)",
         "tr": "Çarpan (10ˣ)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20).",
+      "businessContext": "Tolerance in percent (e.g., 5 → ±5%, 10 → ±10%, 20 → ±20%).",
       "label_i18n": {
         "en": "Tolerance (%)",
         "tr": "Tolerans (%)",

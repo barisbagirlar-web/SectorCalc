@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 210,
-      "businessContext": "Kağıt genişliği (mm cinsinden)",
+      "businessContext": "Paper width (mm)",
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
@@ -27,11 +27,11 @@
     },
     {
       "id": "height",
-      "label": "Yükseklik",
+      "label": "Height",
       "type": "number",
       "unit": "mm",
       "default": 297,
-      "businessContext": "Kağıt yüksekliği (mm cinsinden)",
+      "businessContext": "Paper height (mm)",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -51,11 +51,11 @@
     },
     {
       "id": "scalingPercent",
-      "label": "Ölçek",
+      "label": "Scale",
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Ölçeklendirme yüzdesi (%)",
+      "businessContext": "Scaling percentage (%)",
       "label_i18n": {
         "en": "Scale",
         "tr": "Ölçek",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "g/m²",
       "default": 80,
-      "businessContext": "Kağıt gramajı (g/m²)",
+      "businessContext": "Paper grammage (g/m²)",
       "label_i18n": {
         "en": "Grammage",
         "tr": "Gramaj",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Kağıt adedi",
+      "businessContext": "Number of sheets",
       "label_i18n": {
         "en": "Adet",
         "tr": "Quantity",

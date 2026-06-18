@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "meters",
-      "label": "Metre Değeri",
+      "label": "Meter Value",
       "type": "number",
       "unit": "m",
       "default": 1,
@@ -123,7 +123,7 @@
     },
     {
       "id": "expansionCoeff",
-      "label": "Isıl Genleşme Katsayısı",
+      "label": "Coefficient of Thermal Expansion",
       "type": "number",
       "unit": "1/°C",
       "default": 0.000011,
@@ -147,7 +147,7 @@
     },
     {
       "id": "tempDelta",
-      "label": "Sıcaklık Sapması",
+      "label": "Temperature Deviation",
       "type": "number",
       "unit": "°C",
       "default": 0,

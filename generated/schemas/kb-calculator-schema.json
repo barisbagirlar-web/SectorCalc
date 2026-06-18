@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wireDia",
-      "label": "Tel Çapı (d)",
+      "label": "Wire Diameter (d)",
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Yay teli çapı",
+      "businessContext": "Spring wire diameter",
       "label_i18n": {
         "en": "Wire Diameter (d)",
         "tr": "Tel Çapı (d)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "coilDia",
-      "label": "Ortalama Sarım Çapı (D)",
+      "label": "Mean Coil Diameter (D)",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Yayın ortalama çapı",
+      "businessContext": "Average coil diameter",
       "label_i18n": {
         "en": "Mean Coil Diameter (D)",
         "tr": "Ortalama Sarım Çapı (D)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "activeCoils",
-      "label": "Aktif Sarım Sayısı (n)",
+      "label": "Number of Active Coils (n)",
       "type": "number",
       "unit": "-",
       "default": 10,
-      "businessContext": "Yayın aktif sarım sayısı",
+      "businessContext": "Number of active coils",
       "label_i18n": {
         "en": "Number of active coils (n)",
         "tr": "Aktif Sarım Sayısı (n)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "shearModulus",
-      "label": "Kayma Modülü (G)",
+      "label": "Shear Modulus (G)",
       "type": "number",
       "unit": "MPa",
       "default": 80000,
-      "businessContext": "Malzemenin kayma modülü (çelik için 80000 MPa)",
+      "businessContext": "Shear modulus of material (80000 MPa for steel)",
       "label_i18n": {
         "en": "Shear modulus (G)",
         "tr": "Kayma Modülü (G)",

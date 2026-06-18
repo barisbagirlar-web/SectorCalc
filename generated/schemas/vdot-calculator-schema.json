@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Titreşim Frekansı (Hz)",
+      "label": "Vibration Frequency (Hz)",
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "Makinanın çalışma frekansı",
+      "businessContext": "Machine operating frequency",
       "label_i18n": {
         "en": "Vibration Frequency (Hz)",
         "tr": "Titreşim Frekansı (Hz)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Ölçülen titreşim genliği",
+      "businessContext": "Measured vibration amplitude",
       "label_i18n": {
         "en": "Genlik (mm)",
         "tr": "Amplitude (mm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "sonumleme",
-      "label": "Sönümleme Katsayısı",
+      "label": "Damping Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 0.05,
-      "businessContext": "Sistem sönümleme karakteristiği",
+      "businessContext": "System damping characteristic",
       "label_i18n": {
         "en": "Damping Coefficient",
         "tr": "Sönümleme Katsayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "malzemeFaktoru",
-      "label": "Malzeme Faktörü (GPa)",
+      "label": "Material Factor (GPa)",
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Kullanılan malzemenin elastisite modülü",
+      "businessContext": "Elastic modulus of the material used",
       "label_i18n": {
         "en": "Material Factor (GPa)",
         "tr": "Malzeme Faktörü (GPa)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "guvenlikFaktoru",
-      "label": "Güvenlik Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 1.5,
-      "businessContext": "Operasyonel güvenlik payı",
+      "businessContext": "Operational safety margin",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",

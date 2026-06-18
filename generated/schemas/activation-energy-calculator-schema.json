@@ -136,11 +136,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "inverseTemperatureDifference",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "activationEnergy",
+    "unit": "J/mol",
     "breakdownUnits": {
-      "lnRatio": "%",
-      "inverseTemperatureDifference": "°C"
+      "lnRatio": "dimensionless",
+      "inverseTemperatureDifference": "1/K"
     }
   },
   "category": "Enerji & Karbon",
@@ -153,7 +153,23 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "positive_k",
+        "condition": "k1 > 0 and k2 > 0",
+        "message": "Rate constants must be positive."
+      },
+      {
+        "id": "positive_T",
+        "condition": "T1 > 0 and T2 > 0",
+        "message": "Temperatures must be positive."
+      },
+      {
+        "id": "T1_not_equal_T2",
+        "condition": "T1 != T2",
+        "message": "Temperatures must be different."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

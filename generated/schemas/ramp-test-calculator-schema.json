@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "startValue",
-      "label": "Başlangıç Değeri",
+      "label": "Initial Value",
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "Rampa başlangıç değeri (V)",
+      "businessContext": "Ramp start value (V)",
       "label_i18n": {
         "en": "Starting Value",
         "tr": "Başlangıç Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "endValue",
-      "label": "Bitiş Değeri",
+      "label": "End Value",
       "type": "number",
       "unit": "V",
       "default": 10,
-      "businessContext": "Rampa bitiş değeri (V)",
+      "businessContext": "Ramp end value (V)",
       "label_i18n": {
         "en": "Final Value",
         "tr": "Bitiş Değeri",
@@ -51,11 +51,11 @@
     },
     {
       "id": "rampTime",
-      "label": "Rampa Süresi",
+      "label": "Ramp Duration",
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Rampa süresi (s)",
+      "businessContext": "Ramp duration (s)",
       "label_i18n": {
         "en": "Ramp Duration",
         "tr": "Rampa Süresi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Rampa adım sayısı",
+      "businessContext": "Number of ramp steps",
       "label_i18n": {
         "en": "Number of Steps",
         "tr": "Adım Sayısı",

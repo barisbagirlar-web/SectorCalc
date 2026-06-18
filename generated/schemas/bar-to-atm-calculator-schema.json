@@ -99,11 +99,14 @@
     }
   ],
   "formulas": {
-    "breakdown": "pressure_bar",
-    "breakdown_aux": "pressure_bar"
+    "adjusted_pressure": "pressure_bar + calibration_offset_bar",
+    "pressure_atm": "adjusted_pressure * 0.986923",
+    "uncertainty_atm": "pressure_atm * uncertainty_percent / 100",
+    "result_min": "pressure_atm - uncertainty_atm",
+    "result_max": "pressure_atm + uncertainty_atm"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "pressure_atm",
     "breakdown": [
       "Adjusted pressure after calibration offset.",
       "Final converted value with uncertainty range."
@@ -112,10 +115,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "bar",
+    "dataConfidenceAdjusted": "adjusted_pressure",
+    "unit": "atm",
     "breakdownUnits": {
-      "Adjusted pressure after calibration offset.": "%"
+      "Adjusted pressure after calibration offset.": "bar",
+      "Final converted value with uncertainty range.": "atm"
     }
   },
   "category": "Matematik & Analiz",
@@ -128,7 +132,28 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "pressure_bar",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "uncertainty_percent",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimal_places",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimal_places",
+        "rule": "max",
+        "value": 10
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

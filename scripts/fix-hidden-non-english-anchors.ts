@@ -16,6 +16,18 @@ const MODEL = "deepseek-chat";
 const BATCH_SIZE = 20;
 const RATE_LIMIT_MS = 500;
 
+const FOREIGN_PATTERNS: Record<string, RegExp> = {
+  tr: /[çğıöşüÇĞİÖŞÜ]/,
+  de: /[äöüßÄÖÜ]/,
+  fr: /[àâçéèêëîïôùûüæœÀÂÇÉÈÊËÎÏÔÙÛÜÆŒ]/,
+  es: /[áéíóúñü¿¡ÁÉÍÓÚÑÜ]/,
+  ar: /[\u0600-\u06FF]/,
+};
+
+function hasNonEnglishChars(text: string): boolean {
+  return Object.values(FOREIGN_PATTERNS).some((re) => re.test(text));
+}
+
 type LocaleMap = Record<string, string>;
 type SchemaInput = Record<string, unknown>;
 type SchemaFile = Record<string, unknown>;
@@ -199,11 +211,14 @@ async function main() {
         const i18n = inputs[i][i18nKey] as LocaleMap | undefined;
         if (!i18n) continue;
         const en = (i18n.en ?? "").trim();
-        if (!en) continue;
-        const tr = (i18n.tr ?? "").trim();
-        if (en === tr) {
-          suspectTexts.add(en);
-          suspectJobs.push({ file: fname, idx: i, field: f, text: en });
+        const raw = (inputs[i][f] as string ?? "").trim();
+        if (!raw || !en) continue;
+        // Only flag if raw === en AND raw has NO foreign characters.
+        // Cases with foreign chars were already fixed by fix-raw-schema-fields.ts
+        const hasForeign = hasNonEnglishChars(raw);
+        if (!hasForeign && raw === en && raw.length > 3) {
+          suspectTexts.add(raw);
+          suspectJobs.push({ file: fname, idx: i, field: f, text: raw });
         }
       }
     }
@@ -261,6 +276,9 @@ async function main() {
     const i18nKey = job.field === "label" ? "label_i18n" : "businessContext_i18n";
     const existing = inputs[job.idx][i18nKey] as LocaleMap | undefined;
     inputs[job.idx][i18nKey] = { ...(existing ?? {}), en: fix.correction };
+    // Also fix the raw label/businessContext field (used by bundle builder)
+    const rawKey = job.field;
+    inputs[job.idx][rawKey] = fix.correction;
     enFixed += 1;
   }
   console.log(`Fixed ${enFixed} English anchor(s).`);

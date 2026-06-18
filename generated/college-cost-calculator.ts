@@ -26,8 +26,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: College_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.tuition + input.living + input.books; results["grossTotal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["grossTotal"] = 0; }
+  try { const v = (asFormulaNumber(results["grossTotal"])) * input.years; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
   try { const v = input.scholarship * input.years; results["totalScholarship"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScholarship"] = 0; }
-  try { const v = input.scholarship * input.years; results["totalScholarship_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScholarship_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCost"])) - (asFormulaNumber(results["totalScholarship"])); results["netCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netCost"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCost"])) * (1 + input.inflation/100); results["inflatedCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inflatedCost"] = 0; }
   return results;
 }
 
@@ -38,7 +41,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCollege_cost_calculator(input: College_cost_calculatorInput): College_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalScholarship_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["netCost"]);
   const breakdown = {
     
   };

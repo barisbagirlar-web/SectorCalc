@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "weeklyDeposit",
-      "label": "Haftalık Para Yatırma",
+      "label": "Weekly Deposit",
       "type": "number",
       "unit": "TL",
       "default": 50,
@@ -27,7 +27,7 @@
     },
     {
       "id": "numberOfWeeks",
-      "label": "Hafta Sayısı",
+      "label": "Number of Weeks",
       "type": "number",
       "unit": "adet",
       "default": 50,
@@ -75,7 +75,7 @@
     },
     {
       "id": "compoundingFrequency",
-      "label": "Faizlendirme Sıklığı (yıllık)",
+      "label": "Compounding Frequency (annual)",
       "type": "number",
       "unit": "kez/yıl",
       "default": 52,
@@ -99,7 +99,7 @@
     },
     {
       "id": "startingBalance",
-      "label": "Başlangıç Bakiyesi",
+      "label": "Starting Balance",
       "type": "number",
       "unit": "TL",
       "default": 0,

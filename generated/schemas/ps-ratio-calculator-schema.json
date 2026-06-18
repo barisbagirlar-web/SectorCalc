@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Şirketin toplam piyasa değeri",
+      "businessContext": "Total Market Value of the Company",
       "label_i18n": {
         "en": "Market Value",
         "tr": "Piyasa Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "totalSales",
-      "label": "Toplam Satışlar",
+      "label": "Total Sales",
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Şirketin yıllık toplam satış geliri",
+      "businessContext": "Company's annual total sales revenue",
       "label_i18n": {
         "en": "Total Sales",
         "tr": "Toplam Satışlar",
@@ -51,11 +51,11 @@
     },
     {
       "id": "pricePerShare",
-      "label": "Hisse Fiyatı",
+      "label": "Stock Price",
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Bir hissenin güncel fiyatı",
+      "businessContext": "Current price of one share",
       "label_i18n": {
         "en": "Stock Price",
         "tr": "Hisse Fiyatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "salesPerShare",
-      "label": "Hisse Başına Satış",
+      "label": "Sales Per Share",
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Hisse başına yıllık satış geliri",
+      "businessContext": "Annual sales revenue per share",
       "label_i18n": {
         "en": "Sales Per Share",
         "tr": "Hisse Başına Satış",

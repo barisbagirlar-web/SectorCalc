@@ -75,11 +75,11 @@
     },
     {
       "id": "distance2",
-      "label": "Yük 2 Referans Mesafesi",
+      "label": "Load 2 Reference Distance",
       "type": "number",
       "unit": "m",
       "default": 1.2,
-      "businessContext": "İkinci yükün referans noktasına yatay mesafesi",
+      "businessContext": "Horizontal distance of the second load from the reference point",
       "label_i18n": {
         "en": "Load 2 Reference Distance",
         "tr": "Yük 2 Referans Mesafesi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "weight3",
-      "label": "Yük 3 Ağırlık",
+      "label": "Load 3 Weight",
       "type": "number",
       "unit": "kg",
       "default": 600,
-      "businessContext": "Üçüncü yükün kütlesi",
+      "businessContext": "Mass of the third load",
       "label_i18n": {
         "en": "Load 3 Weight",
         "tr": "Yük 3 Ağırlık",
@@ -123,11 +123,11 @@
     },
     {
       "id": "distance3",
-      "label": "Yük 3 Referans Mesafesi",
+      "label": "Load 3 Reference Distance",
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Üçüncü yükün referans noktasına yatay mesafesi",
+      "businessContext": "Horizontal distance of the third load from the reference point",
       "label_i18n": {
         "en": "Load 3 Reference Distance",
         "tr": "Yük 3 Referans Mesafesi",
@@ -147,11 +147,11 @@
     },
     {
       "id": "referencePoint",
-      "label": "Referans Noktası Konumu",
+      "label": "Reference Point Location",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans noktasının başlangıç pozisyonu (genellikle 0)",
+      "businessContext": "Starting position of the reference point (usually 0)",
       "label_i18n": {
         "en": "Reference Point Location",
         "tr": "Referans Noktası Konumu",

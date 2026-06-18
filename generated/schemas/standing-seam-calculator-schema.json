@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roofLength",
-      "label": "Çatı Uzunluğu (Mahya-Saçak)",
+      "label": "Roof Length (Ridge-Eave)",
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)",
+      "businessContext": "Slope length of roof from ridge to eave (in feet)",
       "label_i18n": {
         "en": "Roof Length (Ridge to Eave)",
         "tr": "Çatı Uzunluğu (Mahya-Saçak)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roofWidth",
-      "label": "Çatı Genişliği",
+      "label": "Roof Width",
       "type": "number",
       "unit": "ft",
       "default": 50,
-      "businessContext": "Çatının eğime dik yöndeki toplam genişliği (feet)",
+      "businessContext": "Total width of roof perpendicular to slope (in feet)",
       "label_i18n": {
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "panelCoverage",
-      "label": "Panel Kaplama Genişliği",
+      "label": "Panel Coverage Width",
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç.",
+      "businessContext": "Coverage width of one panel (in inches). Typical for standing seam panels is 12-18 inches.",
       "label_i18n": {
         "en": "Panel Coverage Width",
         "tr": "Panel Kaplama Genişliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "overhang",
-      "label": "Saçak Payı",
+      "label": "Eave Overhang",
       "type": "number",
       "unit": "in",
       "default": 2,
-      "businessContext": "Saçakta bırakılan çıkma payı (inç)",
+      "businessContext": "Overhang allowance at eave (in inches)",
       "label_i18n": {
         "en": "Eave Overhang",
         "tr": "Saçak Payı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "clipSpacing",
-      "label": "Klips Aralığı",
+      "label": "Clip Spacing",
       "type": "number",
       "unit": "in",
       "default": 24,
-      "businessContext": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç.",
+      "businessContext": "Center-to-center spacing of clips along each panel seam (in inches). Typical 12-24 inches.",
       "label_i18n": {
         "en": "Clip Spacing",
         "tr": "Klips Aralığı",

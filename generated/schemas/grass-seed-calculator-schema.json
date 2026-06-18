@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "g/m²",
       "default": 30,
-      "businessContext": "Metrekare başına tohum gram miktarı",
+      "businessContext": "Grams of seed per square meter",
       "label_i18n": {
         "en": "Seeding Rate",
         "tr": "Tohumlama Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "wasteFactor",
-      "label": "Fire Faktörü",
+      "label": "Fire Factor",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Uygulama kaybı yüzdesi",
+      "businessContext": "Application loss percentage",
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Fire Faktörü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "germinationRate",
-      "label": "Çimlenme Oranı",
+      "label": "Germination rate",
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Tohumların çimlenme yüzdesi",
+      "businessContext": "Seed germination percentage",
       "label_i18n": {
         "en": "Germination Rate",
         "tr": "Çimlenme Oranı (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "seedPurity",
-      "label": "Tohum Saflığı",
+      "label": "Seed Purity",
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Tohum karışımının saflık yüzdesi",
+      "businessContext": "Purity percentage of seed mixture",
       "label_i18n": {
         "en": "Seed purity",
         "tr": "Tohum Saflığı (%)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "overseedingFactor",
-      "label": "Yeniden Tohumlama Faktörü",
+      "label": "Reseeding Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
+      "businessContext": "Reseeding multiplier (1 = new turf, >1 = additional seeding to existing turf)",
       "label_i18n": {
         "en": "Reseeding factor",
         "tr": "Yeniden Tohumlama Faktörü",

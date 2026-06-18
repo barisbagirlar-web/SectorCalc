@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "dimensionalAccuracy",
-      "label": "Boyutsal Doğruluk Puanı",
+      "label": "Dimensional Accuracy Score",
       "type": "number",
       "unit": "mm sapma",
       "default": 0.05,
-      "businessContext": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk.",
+      "businessContext": "Deviation of the part from target dimensions, in mm. Lower value indicates better accuracy.",
       "label_i18n": {
         "en": "Dimensional Accuracy Score",
         "tr": "Boyutsal Doğruluk Puanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "surfaceRoughness",
-      "label": "Yüzey Pürüzlülüğü Puanı",
+      "label": "Surface Roughness Score",
       "type": "number",
       "unit": "Ra µm",
       "default": 0.8,
-      "businessContext": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi.",
+      "businessContext": "Surface roughness in Ra, micrometers. Lower value indicates better surface quality.",
       "label_i18n": {
         "en": "Surface Roughness Score",
         "tr": "Yüzey Pürüzlülüğü Puanı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hardnessValue",
-      "label": "Sertlik Değeri Puanı",
+      "label": "Hardness Value Score",
       "type": "number",
       "unit": "HRC",
       "default": 60,
-      "businessContext": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir.",
+      "businessContext": "Rockwell C hardness value. Indicates compliance with desired specification.",
       "label_i18n": {
         "en": "Hardness Value Score",
         "tr": "Sertlik Değeri Puanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "materialConsistency",
-      "label": "Malzeme Homojenlik Puanı",
+      "label": "Material Homogeneity Score",
       "type": "number",
       "unit": "% uyum",
       "default": 95,
-      "businessContext": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal.",
+      "businessContext": "Percentage of material composition compliance with standard. 100 is ideal.",
       "label_i18n": {
         "en": "Material Homogeneity Score",
         "tr": "Malzeme Homojenlik Puanı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "visualDefects",
-      "label": "Görsel Hata Sayısı",
+      "label": "Visual Defect Count",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi.",
+      "businessContext": "Number of visual defects detected on the part. Lower is better.",
       "label_i18n": {
         "en": "Visual Defect Count",
         "tr": "Görsel Hata Sayısı",

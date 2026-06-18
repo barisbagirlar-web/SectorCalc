@@ -22,9 +22,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Annual_compound_interest_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.principal; results["finalAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalAmount"] = 0; }
-  try { const v = input.principal; results["totalInterest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInterest"] = 0; }
-  try { const v = input.principal; results["effectiveAnnualRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveAnnualRate"] = 0; }
+  try { const v = input.principal * (1 + input.annualRate / (100 * input.compoundFreq)) ^ (input.compoundFreq * input.years); results["finalAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["finalAmount"])) - input.principal; results["totalInterest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = (1 + input.annualRate / (100 * input.compoundFreq)) ^ input.compoundFreq - 1; results["effectiveAnnualRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveAnnualRate"] = 0; }
   return results;
 }
 

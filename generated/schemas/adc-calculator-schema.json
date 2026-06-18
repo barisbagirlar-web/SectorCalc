@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "bit",
       "default": 12,
-      "businessContext": "ADC'nin bit çözünürlüğü",
+      "businessContext": "ADC bit resolution",
       "label_i18n": {
         "en": "Resolution (bits)",
         "tr": "Çözünürlük (bit)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "V",
       "default": 3.3,
-      "businessContext": "Tam ölçek referans gerilimi",
+      "businessContext": "Full-scale reference voltage",
       "label_i18n": {
         "en": "Referans Gerilimi",
         "tr": "Reference Voltage",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "V",
       "default": 1.65,
-      "businessContext": "Dönüştürülecek analog giriş gerilimi",
+      "businessContext": "Analog input voltage to be converted",
       "label_i18n": {
         "en": "Input Voltage",
         "tr": "Giriş Gerilimi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Sinyal kazancı",
+      "businessContext": "Signal gain",
       "label_i18n": {
         "en": "Gain",
         "tr": "Kazanç",

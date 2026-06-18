@@ -26,8 +26,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Brick_veneer_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.wallWidth; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.wallWidth; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.wallWidth * input.wallHeight; results["wallArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wallArea"] = 0; }
+  try { const v = (input.brickLength / 1000 + input.mortarJoint / 1000) * (input.brickHeight / 1000 + input.mortarJoint / 1000); results["brickAreaWithMortar"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["brickAreaWithMortar"] = 0; }
+  try { const v = (asFormulaNumber(results["wallArea"])) / (asFormulaNumber(results["brickAreaWithMortar"])); results["bricksWithoutWaste"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bricksWithoutWaste"] = 0; }
+  try { const v = (asFormulaNumber(results["bricksWithoutWaste"])) * input.wasteFactor / 100; results["wasteBricks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteBricks"] = 0; }
+  try { const v = (asFormulaNumber(results["bricksWithoutWaste"])) + (asFormulaNumber(results["wasteBricks"])); results["totalBricks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalBricks"] = 0; }
   return results;
 }
 
@@ -38,7 +41,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBrick_veneer_calculator(input: Brick_veneer_calculatorInput): Brick_veneer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalBricks"]);
   const breakdown = {
     
   };

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Açı değeri (derece cinsinden)",
+      "businessContext": "Angle value (in degrees)",
       "label_i18n": {
         "en": "Derece",
         "tr": "Degrees",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Açı değeri (dakika cinsinden)",
+      "businessContext": "Angle value (in minutes)",
       "label_i18n": {
         "en": "Dakika",
         "tr": "Minutes",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "\"",
       "default": 0,
-      "businessContext": "Açı değeri (saniye cinsinden)",
+      "businessContext": "Angle value (in seconds)",
       "label_i18n": {
         "en": "Saniye",
         "tr": "Seconds",
@@ -75,11 +75,11 @@
     },
     {
       "id": "decimalDegrees",
-      "label": "Ondalık Derece",
+      "label": "Decimal Degrees",
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Ondalık derece cinsinden açı değeri",
+      "businessContext": "Angle value in decimal degrees",
       "label_i18n": {
         "en": "Decimal degrees",
         "tr": "Ondalık Derece",

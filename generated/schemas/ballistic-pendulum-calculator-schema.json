@@ -129,6 +129,7 @@
   "outputs": {
     "primary": "angle_rad_aux",
     "breakdown": [
+      "angle_rad",
       "height_rise"
     ],
     "hiddenLossDrivers": [],
@@ -136,7 +137,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "velocity",
-    "unit": "kg"
+    "unit": "m/s"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",
@@ -148,7 +149,33 @@
   "profession": "Mühendis",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "projectile_mass",
+        "condition": "> 0",
+        "message": "Projectile mass must be positive"
+      },
+      {
+        "field": "pendulum_mass",
+        "condition": "> 0",
+        "message": "Pendulum mass must be positive"
+      },
+      {
+        "field": "pendulum_length",
+        "condition": "> 0",
+        "message": "Pendulum length must be positive"
+      },
+      {
+        "field": "angle",
+        "condition": ">= 0 and <= 90",
+        "message": "Angle must be between 0 and 90 degrees"
+      },
+      {
+        "field": "gravity",
+        "condition": "> 0",
+        "message": "Gravity must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

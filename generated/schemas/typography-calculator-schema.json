@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "viewingDistance",
-      "label": "Görüş Mesafesi",
+      "label": "Visibility distance",
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Gözlemci ile tabela/etiket arasındaki mesafe",
+      "businessContext": "Distance between observer and sign/label",
       "label_i18n": {
         "en": "Viewing Distance",
         "tr": "Görüş Mesafesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "ageFactor",
-      "label": "Yaş Faktörü",
+      "label": "Age factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
+      "businessContext": "Correction based on user age group (20-40:1, 40-55:1.2, 55+:1.4)",
       "label_i18n": {
         "en": "Age Factor",
         "tr": "Yaş Faktörü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "lightingFactor",
-      "label": "Aydınlatma Faktörü",
+      "label": "Lighting factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
+      "businessContext": "Correction based on ambient lighting conditions (bright:1, dim:1.5)",
       "label_i18n": {
         "en": "Lighting Factor",
         "tr": "Aydınlatma Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
+      "businessContext": "Correction based on criticality level (information:1, warning:1.5, danger:2)",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",

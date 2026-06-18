@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Proses sıcaklığı",
+      "businessContext": "Process Temperature",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
@@ -27,11 +27,11 @@
     },
     {
       "id": "shearRate",
-      "label": "Kayma Hızı",
+      "label": "Slip Velocity",
       "type": "number",
       "unit": "1/s",
       "default": 10,
-      "businessContext": "Akışkanın maruz kaldığı kayma hızı",
+      "businessContext": "Shear rate to which the fluid is exposed",
       "label_i18n": {
         "en": "Slip Velocity",
         "tr": "Kayma Hızı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "consistencyIndex",
-      "label": "Kıvam İndisi",
+      "label": "Consistency Index",
       "type": "number",
       "unit": "Pa·s^n",
       "default": 0.5,
-      "businessContext": "Power-law modeli tutarlılık katsayısı",
+      "businessContext": "Power-law model consistency coefficient",
       "label_i18n": {
         "en": "Consistency Index",
         "tr": "Kıvam İndisi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "flowBehaviorIndex",
-      "label": "Akış Davranış İndisi",
+      "label": "Flow Behavior Index",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.8,
-      "businessContext": "Power-law modeli akışkanlık katsayısı",
+      "businessContext": "Power-law model fluidity coefficient",
       "label_i18n": {
         "en": "Flow Behavior Index",
         "tr": "Akış Davranış İndisi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkan yoğunluğu",
+      "businessContext": "Fluid density",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.0001,
-      "businessContext": "Hacimsel akış hızı",
+      "businessContext": "Volumetric flow rate",
       "label_i18n": {
         "en": "Debi",
         "tr": "Flow Rate",
@@ -147,11 +147,11 @@
     },
     {
       "id": "pipeDiameter",
-      "label": "Boru Çapı",
+      "label": "Pipe Diameter",
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Taşıma borusu iç çapı",
+      "businessContext": "Transport pipe inner diameter",
       "label_i18n": {
         "en": "Pipe diameter",
         "tr": "Boru Çapı",

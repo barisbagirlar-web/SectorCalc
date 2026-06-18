@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Üretime giren toplam hammadde miktarı",
+      "businessContext": "Total raw material quantity entering production",
       "label_i18n": {
         "en": "Toplam Malzeme (kg)",
         "tr": "Toplam malzeme (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "goodProduct",
-      "label": "İyi Ürün (kg)",
+      "label": "Good Product (kg)",
       "type": "number",
       "unit": "kg",
       "default": 85,
-      "businessContext": "Kalite kontrolden geçen nihai ürün ağırlığı",
+      "businessContext": "Final product weight passing quality control",
       "label_i18n": {
         "en": "Good product (kg)",
         "tr": "İyi Ürün (kg)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "reworkMaterial",
-      "label": "Yeniden İşlenebilir (kg)",
+      "label": "Recyclable (kg)",
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Tamir edilebilir hurda miktarı",
+      "businessContext": "Repairable scrap quantity",
       "label_i18n": {
         "en": "Reworkable (kg)",
         "tr": "Yeniden İşlenebilir (kg)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "scrapPrice",
-      "label": "Hurda Fiyatı (TL/kg)",
+      "label": "Scrap Price (TL/kg)",
       "type": "number",
       "unit": "TL/kg",
       "default": 2.5,
-      "businessContext": "Güncel hurda alım fiyatı",
+      "businessContext": "Current scrap purchase price",
       "label_i18n": {
         "en": "Scrap price (TL/kg)",
         "tr": "Hurda Fiyatı (TL/kg)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "laborOverhead",
-      "label": "İşçilik ve Genel Gider (TL/kg)",
+      "label": "Labor and Overhead (TL/kg)",
       "type": "number",
       "unit": "TL/kg",
       "default": 5,
-      "businessContext": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
+      "businessContext": "Distribution of labor and general production costs per kg",
       "label_i18n": {
         "en": "Labor and overhead (TL/kg)",
         "tr": "İşçilik ve Genel Gider (TL/kg)",

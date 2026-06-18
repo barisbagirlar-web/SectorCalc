@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "averageMonthlyEarnings",
-      "label": "Ortalama Aylık Kazanç",
+      "label": "Average Monthly Earnings",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Çalışanın ortalama aylık kazancı",
+      "businessContext": "Employee's average monthly earnings",
       "label_i18n": {
         "en": "Average Monthly Earnings",
         "tr": "Ortalama Aylık Kazanç",
@@ -27,11 +27,11 @@
     },
     {
       "id": "yearsOfCoverage",
-      "label": "Sigortalılık Süresi (Yıl)",
+      "label": "Insurance Period (Years)",
       "type": "number",
       "unit": "yıl",
       "default": 0,
-      "businessContext": "Çalışanın toplam sigortalılık süresi",
+      "businessContext": "Employee's total insurance period",
       "label_i18n": {
         "en": "Insurance Period (Years)",
         "tr": "Sigortalılık Süresi (Yıl)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "survivorAge",
-      "label": "Hak Sahibi Yaşı",
+      "label": "Beneficiary Age",
       "type": "number",
       "unit": "yaş",
       "default": 0,
-      "businessContext": "Hak sahibinin yaşı (eş veya çocuk)",
+      "businessContext": "Age of the beneficiary (spouse or child)",
       "label_i18n": {
         "en": "Beneficiary Age",
         "tr": "Hak Sahibi Yaşı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfChildren",
-      "label": "Hak Sahibi Çocuk Sayısı",
+      "label": "Number of Beneficiary Children",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Ölen sigortalının hak sahibi çocuk sayısı",
+      "businessContext": "Number of beneficiary children of the deceased insured",
       "label_i18n": {
         "en": "Number of Beneficiary Children",
         "tr": "Hak Sahibi Çocuk Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "isSpouse",
-      "label": "Eş Hak Sahibi mi?",
+      "label": "Is Spouse a Beneficiary?",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
+      "businessContext": "Whether the beneficiary is a spouse (1: Yes, 0: No)",
       "label_i18n": {
         "en": "Is Spouse a Beneficiary?",
         "tr": "Eş Hak Sahibi mi?",

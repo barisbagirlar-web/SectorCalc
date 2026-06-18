@@ -25,7 +25,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Benefit_cost_ratio_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.discountRate / 100; results["r"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r"] = 0; }
-  try { const v = input.discountRate / 100; results["r_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r_aux"] = 0; }
+  try { const v = input.annualBenefits * (1 - (1 + (asFormulaNumber(results["r"])))^(-input.projectLife)) / (asFormulaNumber(results["r"])); results["pvBenefits"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pvBenefits"] = 0; }
+  try { const v = input.annualCosts * (1 - (1 + (asFormulaNumber(results["r"])))^(-input.projectLife)) / (asFormulaNumber(results["r"])); results["pvCosts"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pvCosts"] = 0; }
+  try { const v = input.initialCost + (asFormulaNumber(results["pvCosts"])); results["totalPVcosts"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPVcosts"] = 0; }
+  try { const v = (asFormulaNumber(results["pvBenefits"])) / (asFormulaNumber(results["totalPVcosts"])); results["benefitCostRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["benefitCostRatio"] = 0; }
   return results;
 }
 
@@ -36,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBenefit_cost_ratio_calculator(input: Benefit_cost_ratio_calculatorInput): Benefit_cost_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["r"]);
+  const totalWasteCost = toNumericFormulaValue(values["benefitCostRatio"]);
   const breakdown = {
     
   };

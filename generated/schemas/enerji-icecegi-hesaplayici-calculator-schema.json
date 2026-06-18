@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Tüketilen enerji içeceği porsiyon adedi.",
+      "businessContext": "Number of energy drink servings consumed.",
       "label_i18n": {
         "en": "Number of Portions",
         "tr": "Porsiyon Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "caffeinePerServing",
-      "label": "Porsiyon Başına Kafein",
+      "label": "Caffeine per Serving",
       "type": "number",
       "unit": "mg",
       "default": 80,
-      "businessContext": "Bir porsiyondaki kafein miktarı.",
+      "businessContext": "Amount of caffeine in one serving.",
       "label_i18n": {
         "en": "Caffeine per Serving",
         "tr": "Porsiyon Başına Kafein",
@@ -51,11 +51,11 @@
     },
     {
       "id": "sugarPerServing",
-      "label": "Porsiyon Başına Şeker",
+      "label": "Sugar Per Serving",
       "type": "number",
       "unit": "g",
       "default": 27,
-      "businessContext": "Bir porsiyondaki şeker miktarı.",
+      "businessContext": "Amount of sugar in one serving.",
       "label_i18n": {
         "en": "Sugar per Serving",
         "tr": "Porsiyon Başına Şeker",
@@ -75,11 +75,11 @@
     },
     {
       "id": "costPerCan",
-      "label": "Kutu Başına Maliyet",
+      "label": "Cost Per Can",
       "type": "number",
       "unit": "TL",
       "default": 2.5,
-      "businessContext": "Bir kutu enerji içeceğinin satın alma maliyeti.",
+      "businessContext": "Purchase cost of one can of energy drink.",
       "label_i18n": {
         "en": "Cost per Can",
         "tr": "Kutu Başına Maliyet",
@@ -99,11 +99,11 @@
     },
     {
       "id": "servingsPerCan",
-      "label": "Kutu Başına Porsiyon",
+      "label": "Servings Per Can",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Bir kutudaki porsiyon sayısı.",
+      "businessContext": "Number of servings in one can.",
       "label_i18n": {
         "en": "Servings per Can",
         "tr": "Kutu Başına Porsiyon",

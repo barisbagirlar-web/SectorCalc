@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalMeditationTime",
-      "label": "Meditasyon Süresi",
+      "label": "Meditation Duration",
       "type": "number",
       "unit": "dk",
       "default": 15,
-      "businessContext": "Hazırlık ve soğuma hariç ana meditasyon süresi",
+      "businessContext": "Main meditation duration excluding preparation and cooldown",
       "label_i18n": {
         "en": "Meditation Duration",
         "tr": "Meditasyon Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "preparationTime",
-      "label": "Hazırlık Süresi",
+      "label": "Preparation Time",
       "type": "number",
       "unit": "dk",
       "default": 2,
-      "businessContext": "Meditasyon öncesi yerleşme ve gevşeme için ayrılan süre",
+      "businessContext": "Time allocated for settling and relaxing before meditation",
       "label_i18n": {
         "en": "Preparation Time",
         "tr": "Hazırlık Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "coolDownTime",
-      "label": "Soğuma Süresi",
+      "label": "Cool-down Time",
       "type": "number",
       "unit": "dk",
       "default": 2,
-      "businessContext": "Meditasyon sonrası yavaşça geri dönüş için ayrılan süre",
+      "businessContext": "Time allocated for slowly returning after meditation",
       "label_i18n": {
         "en": "Cool-down Time",
         "tr": "Soğuma Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "bellInterval",
-      "label": "Zil Aralığı",
+      "label": "Bell Interval",
       "type": "number",
       "unit": "dk",
       "default": 5,
-      "businessContext": "Meditasyon süresince çalacak ziller arasındaki süre",
+      "businessContext": "Interval between bells during meditation",
       "label_i18n": {
         "en": "Bell Interval",
         "tr": "Zil Aralığı",

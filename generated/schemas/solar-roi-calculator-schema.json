@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TL",
       "default": 50000,
-      "businessContext": "Güneş paneli sisteminin toplam kurulum maliyeti (TL)",
+      "businessContext": "Total installation cost of the solar panel system (TL)",
       "label_i18n": {
         "en": "System Cost",
         "tr": "Sistem Maliyeti",
@@ -27,11 +27,11 @@
     },
     {
       "id": "yillikUretim",
-      "label": "Yıllık Enerji Üretimi",
+      "label": "Annual energy production",
       "type": "number",
       "unit": "kWh",
       "default": 5000,
-      "businessContext": "Sistemin yıllık tahmini enerji üretimi (kWh)",
+      "businessContext": "Estimated annual energy production of the system (kWh)",
       "label_i18n": {
         "en": "Annual energy production",
         "tr": "Yıllık Enerji Üretimi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "elektrikFiyati",
-      "label": "Elektrik Birim Fiyatı",
+      "label": "Electricity Unit Price",
       "type": "number",
       "unit": "TL/kWh",
       "default": 1.2,
-      "businessContext": "Elektrik birim fiyatı (TL/kWh)",
+      "businessContext": "Electricity unit price (TL/kWh)",
       "label_i18n": {
         "en": "Electricity Unit Price",
         "tr": "Elektrik Birim Fiyatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "sistemOmru",
-      "label": "Sistem Ömrü",
+      "label": "System lifetime",
       "type": "number",
       "unit": "yıl",
       "default": 25,
-      "businessContext": "Sistemin beklenen kullanım ömrü (yıl)",
+      "businessContext": "Expected system lifetime (years)",
       "label_i18n": {
         "en": "System lifetime",
         "tr": "Sistem Ömrü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "tesvikOrani",
-      "label": "Teşvik Oranı",
+      "label": "Incentive rate",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Devlet teşvik oranı (%)",
+      "businessContext": "Government incentive rate (%)",
       "label_i18n": {
         "en": "Incentive rate",
         "tr": "Teşvik Oranı",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Dikdörtgenin milimetre cinsinden uzunluğu.",
+      "businessContext": "Length of the rectangle in millimeters.",
       "label_i18n": {
         "en": "Uzunluk (mm)",
         "tr": "Length (mm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "widthMm",
-      "label": "Genişlik (mm)",
+      "label": "Width (mm)",
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Dikdörtgenin milimetre cinsinden genişliği.",
+      "businessContext": "Width of the rectangle in millimeters.",
       "label_i18n": {
         "en": "Width (mm)",
         "tr": "Genişlik (mm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Alan Dönüşüm Faktörü",
+      "label": "Area Conversion Factor",
       "type": "number",
       "unit": "m²/mm²",
       "default": 0.000001,
-      "businessContext": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
+      "businessContext": "Factor to convert square millimeters to square meters. 1 mm² = 1e-6 m².",
       "label_i18n": {
         "en": "Area Conversion Factor",
         "tr": "Alan dönüşüm faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
+      "businessContext": "Manufacturing tolerance, percentage to be applied to both dimensions.",
       "label_i18n": {
         "en": "Tolerance (%)",
         "tr": "Tolerans (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Emniyet Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
+      "businessContext": "Safety factor to be applied to the area calculation.",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Faktörü",

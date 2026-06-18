@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Eşlik eden kronik hastalık sayısı",
+      "businessContext": "Number of comorbid chronic diseases",
       "label_i18n": {
         "en": "Number of Comorbidities",
         "tr": "Komorbidite Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "puan",
       "default": 5,
-      "businessContext": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)",
+      "businessContext": "Barthel Index-like functional independence measure (7: fully independent, 0: fully dependent)",
       "label_i18n": {
         "en": "Activities of Daily Living Score (0-7)",
         "tr": "Günlük Yaşam Aktiviteleri Skoru (0-7)",

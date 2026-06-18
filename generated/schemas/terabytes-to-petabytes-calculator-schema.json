@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TB",
       "default": 1,
-      "businessContext": "Tüm disklerin toplam ham depolama kapasitesi.",
+      "businessContext": "Total raw storage capacity of all disks.",
       "label_i18n": {
         "en": "Toplam Ham Kapasite (TB)",
         "tr": "Total raw capacity (TB)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "raidUsableMultiplier",
-      "label": "RAID Kullanılabilirlik Oranı",
+      "label": "RAID Usability Ratio",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
+      "businessContext": "Ratio of usable capacity to raw capacity depending on RAID configuration. E.g., RAID 5 (n-1)/n, RAID 10 = 0.5.",
       "label_i18n": {
         "en": "RAID Usability Ratio",
         "tr": "RAID Kullanılabilirlik Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "formatOverheadPercent",
-      "label": "Formatlama Kaybı (%)",
+      "label": "Formatting Loss (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
+      "businessContext": "Percentage of space allocated for file system formatting and metadata.",
       "label_i18n": {
         "en": "Formatting Loss (%)",
         "tr": "Formatlama Kaybı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "PB Dönüşüm Katsayısı",
+      "label": "PB Conversion Factor",
       "type": "number",
       "unit": "TB/PB",
       "default": 1000,
-      "businessContext": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
+      "businessContext": "How many terabytes in 1 petabyte. SI: 1000, Binary: 1024.",
       "label_i18n": {
         "en": "PB Conversion Factor",
         "tr": "PB Dönüşüm Katsayısı",

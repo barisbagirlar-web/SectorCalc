@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Veri Sayısı (n)",
+      "label": "Number of Data Points (n)",
       "type": "number",
       "unit": "unit",
       "default": 10,
@@ -27,11 +27,11 @@
     },
     {
       "id": "sumX",
-      "label": "x Toplamı (Σx)",
+      "label": "Sum of x (Σx)",
       "type": "number",
       "unit": "unit",
       "default": 55,
-      "businessContext": "Bağımsız değişkenin toplamı",
+      "businessContext": "Sum of independent variable",
       "label_i18n": {
         "en": "Sum of x (Σx)",
         "tr": "x Toplamı (Σx)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "sumY",
-      "label": "y Toplamı (Σy)",
+      "label": "Sum of y (Σy)",
       "type": "number",
       "unit": "unit",
       "default": 100,
-      "businessContext": "Bağımlı değişkenin toplamı",
+      "businessContext": "Sum of dependent variable",
       "label_i18n": {
         "en": "Sum of y (Σy)",
         "tr": "y Toplamı (Σy)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "sumXY",
-      "label": "x·y Toplamı (Σxy)",
+      "label": "Sum of x·y (Σxy)",
       "type": "number",
       "unit": "unit",
       "default": 600,
-      "businessContext": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı",
+      "businessContext": "Sum of products of independent and dependent variables",
       "label_i18n": {
         "en": "Sum of x·y (Σxy)",
         "tr": "x·y Toplamı (Σxy)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "sumX2",
-      "label": "x² Toplamı (Σx²)",
+      "label": "Sum of x² (Σx²)",
       "type": "number",
       "unit": "unit",
       "default": 385,
-      "businessContext": "Bağımsız değişkenin karelerinin toplamı",
+      "businessContext": "Sum of squares of independent variable",
       "label_i18n": {
         "en": "Sum of x² (Σx²)",
         "tr": "x² Toplamı (Σx²)",

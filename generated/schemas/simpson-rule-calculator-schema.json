@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "lowerLimit",
-      "label": "Alt Sınır (a)",
+      "label": "Lower Limit (a)",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İntegrasyonun başlangıç noktası",
+      "businessContext": "Start point of integration",
       "label_i18n": {
         "en": "Lower limit (a)",
         "tr": "Alt Sınır (a)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "upperLimit",
-      "label": "Üst Sınır (b)",
+      "label": "Upper Limit (b)",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "İntegrasyonun bitiş noktası",
+      "businessContext": "End point of integration",
       "label_i18n": {
         "en": "Upper limit (b)",
         "tr": "Üst Sınır (b)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+3h) fonksiyon değeri",
+      "businessContext": "f(a+3h) function value",
       "label_i18n": {
         "en": "y₃ (value at point a+3h)",
         "tr": "y₃ (a+3h noktasındaki değer)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "y4",
-      "label": "y₄ (b noktasındaki değer)",
+      "label": "y₄ (value at point b)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(b) fonksiyon değeri",
+      "businessContext": "f(b) function value",
       "label_i18n": {
         "en": "y₄ (value at point b)",
         "tr": "y₄ (b noktasındaki değer)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "netIncome",
-      "label": "Net Kâr",
+      "label": "Net Profit",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Şirketin net dönem karı",
+      "businessContext": "Net profit for the period",
       "label_i18n": {
         "en": "Net Profit",
         "tr": "Net Kâr",
@@ -27,11 +27,11 @@
     },
     {
       "id": "operatingCashFlow",
-      "label": "Operasyonel Nakit Akışı",
+      "label": "Operating Cash Flow",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faaliyetlerden elde edilen nakit akışı",
+      "businessContext": "Cash flow from operations",
       "label_i18n": {
         "en": "Operating Cash Flow",
         "tr": "Operasyonel Nakit Akışı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "totalAssetsStart",
-      "label": "Toplam Varlıklar (Dönem Başı)",
+      "label": "Total Assets (Beginning of Period)",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Dönem başı toplam aktifler",
+      "businessContext": "Total assets at beginning of period",
       "label_i18n": {
         "en": "Total Assets (Beginning of Period)",
         "tr": "Toplam Varlıklar (Dönem Başı)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalAssetsEnd",
-      "label": "Toplam Varlıklar (Dönem Sonu)",
+      "label": "Total Assets (End of Period)",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Dönem sonu toplam aktifler",
+      "businessContext": "Total assets at end of period",
       "label_i18n": {
         "en": "Total Assets (End of Period)",
         "tr": "Toplam Varlıklar (Dönem Sonu)",

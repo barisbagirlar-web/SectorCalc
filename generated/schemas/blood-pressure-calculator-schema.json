@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "systolic",
-      "label": "Sistolik Basınç (mmHg)",
+      "label": "Systolic Pressure (mmHg)",
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Sistolik kan basıncı ölçümü",
+      "businessContext": "Systolic blood pressure measurement",
       "label_i18n": {
         "en": "Systolic Pressure (mmHg)",
         "tr": "Sistolik Basınç (mmHg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "diastolic",
-      "label": "Diastolik Basınç (mmHg)",
+      "label": "Diastolic Pressure (mmHg)",
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Diastolik kan basıncı ölçümü",
+      "businessContext": "Diastolic blood pressure measurement",
       "label_i18n": {
         "en": "Diastolic Pressure (mmHg)",
         "tr": "Diastolik Basınç (mmHg)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "heartRate",
-      "label": "Nabız (bpm)",
+      "label": "Pulse (bpm)",
       "type": "number",
       "unit": "bpm",
       "default": 72,
-      "businessContext": "Dakikadaki kalp atışı sayısı",
+      "businessContext": "Heartbeats per minute",
       "label_i18n": {
         "en": "Pulse (bpm)",
         "tr": "Nabız (bpm)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "depth",
-      "label": "Maksimum Depresyon Derinliği (mm)",
+      "label": "Maximum Depression Depth (mm)",
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Ölçülen en derin çukur derinliği",
+      "businessContext": "Measured deepest pit depth",
       "label_i18n": {
         "en": "Maximum depression depth (mm)",
         "tr": "Maksimum Depresyon Derinliği (mm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "area",
-      "label": "Depresyon Alanı (mm²)",
+      "label": "Depression Area (mm²)",
       "type": "number",
       "unit": "mm²",
       "default": 10,
-      "businessContext": "Depresyonun yüzey alanı",
+      "businessContext": "Surface area of depression",
       "label_i18n": {
         "en": "Depression area (mm²)",
         "tr": "Depresyon Alanı (mm²)",
@@ -51,7 +51,7 @@
     },
     {
       "id": "count",
-      "label": "Depresyon Sayısı",
+      "label": "Number of Depressions",
       "type": "number",
       "unit": "adet",
       "default": 1,
@@ -75,11 +75,11 @@
     },
     {
       "id": "sharpness",
-      "label": "Kenar Keskinliği (1-5)",
+      "label": "Edge Sharpness (1-5)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
+      "businessContext": "Sharpness degree of depression edges (1: round, 5: sharp)",
       "label_i18n": {
         "en": "Edge sharpness (1-5)",
         "tr": "Kenar Keskinliği (1-5)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "materialFactor",
-      "label": "Malzeme Direnç Faktörü",
+      "label": "Material Resistance Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
+      "businessContext": "Coefficient indicating material's resistance to depression (0.5-2.0)",
       "label_i18n": {
         "en": "Material resistance factor",
         "tr": "Malzeme Direnç Faktörü",

@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "nmValue",
-      "label": "Nanometre Değeri",
+      "label": "Nanometer Value",
       "type": "number",
       "unit": "nm",
       "default": 1,
@@ -27,7 +27,7 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Dönüşüm Çarpanı",
+      "label": "Conversion Factor",
       "type": "number",
       "unit": "nm/m",
       "default": 1000000000,
@@ -51,11 +51,11 @@
     },
     {
       "id": "precision",
-      "label": "Hassasiyet (Ondalık)",
+      "label": "Precision (Decimal)",
       "type": "number",
       "unit": "unit",
       "default": 9,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to show in the result",
       "label_i18n": {
         "en": "Precision (Decimal)",
         "tr": "Hassasiyet (Ondalık)",
@@ -75,7 +75,7 @@
     },
     {
       "id": "scaling",
-      "label": "Ölçekleme",
+      "label": "Scaling",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Sonuca eklenecek sabit değer",
+      "businessContext": "Constant value to add to the result",
       "label_i18n": {
         "en": "Offset",
         "tr": "Ofset",
@@ -123,11 +123,11 @@
     },
     {
       "id": "targetUnitFactor",
-      "label": "Hedef Birim Çarpanı",
+      "label": "Target Unit Multiplier",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
+      "businessContext": "Conversion factor from meters to desired unit (e.g., 100 for cm, 0.001 for km)",
       "label_i18n": {
         "en": "Target unit multiplier",
         "tr": "Hedef Birim Çarpanı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "scientificNotation",
-      "label": "Bilimsel Gösterim",
+      "label": "Scientific Notation",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
+      "businessContext": "If 1, result is shown in scientific notation; if 0, normal",
       "label_i18n": {
         "en": "Scientific notation",
         "tr": "Bilimsel Gösterim",

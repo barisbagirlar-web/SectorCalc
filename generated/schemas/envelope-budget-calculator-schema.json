@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalIncome",
-      "label": "Aylık Net Gelir",
+      "label": "Monthly Net Income",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Aylık toplam net gelir (maaş, yan gelir vb.)",
+      "businessContext": "Monthly total net income (salary, side income, etc.)",
       "label_i18n": {
         "en": "Monthly net income",
         "tr": "Aylık Net Gelir",
@@ -27,11 +27,11 @@
     },
     {
       "id": "needsPct",
-      "label": "İhtiyaçlar Yüzdesi",
+      "label": "Needs Percentage",
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Kira, fatura, gıda gibi zorunlu harcamalar için ayrılan yüzde",
+      "businessContext": "Percentage allocated for mandatory expenses such as rent, bills, food",
       "label_i18n": {
         "en": "Needs Percentage",
         "tr": "İhtiyaçlar Yüzdesi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "wantsPct",
-      "label": "İstekler Yüzdesi",
+      "label": "Wants Percentage",
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Eğlence, tatil, dışarıda yemek gibi isteğe bağlı harcamalar için ayrılan yüzde",
+      "businessContext": "Percentage allocated for discretionary expenses such as entertainment, vacation, dining out",
       "label_i18n": {
         "en": "Wants Percentage",
         "tr": "İstekler Yüzdesi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "savingsPct",
-      "label": "Tasarruf Yüzdesi",
+      "label": "Savings Percentage",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Birikim, yatırım veya borç ödeme için ayrılan yüzde",
+      "businessContext": "Percentage allocated for savings, investment, or debt repayment",
       "label_i18n": {
         "en": "Savings Percentage",
         "tr": "Tasarruf Yüzdesi",

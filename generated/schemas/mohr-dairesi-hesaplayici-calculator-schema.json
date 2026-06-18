@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi.",
+      "businessContext": "Normal stress in x-direction for stress transformation and principal stress calculation in mechanical design verification.",
       "label_i18n": {
         "en": "Normal Stress σx",
         "tr": "Normal Gerilme σx",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi.",
+      "businessContext": "Normal stress in y-direction for stress transformation and principal stress calculation in mechanical design verification.",
       "label_i18n": {
         "en": "Normal Stress σy",
         "tr": "Normal Gerilme σy",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi.",
+      "businessContext": "Shear stress for stress transformation and principal stress calculation in mechanical design verification.",
       "label_i18n": {
         "en": "Shear Stress τxy",
         "tr": "Kayma Gerilmesi τxy",
@@ -75,11 +75,11 @@
     },
     {
       "id": "theta",
-      "label": "Dönme Açısı θ",
+      "label": "Rotation Angle θ",
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı.",
+      "businessContext": "Rotation angle for stress transformation in mechanical design verification.",
       "label_i18n": {
         "en": "Rotation Angle θ",
         "tr": "Dönme Açısı θ",

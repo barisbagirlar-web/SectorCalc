@@ -198,8 +198,8 @@
     "sumX": "x1 + x2 + x3 + x4",
     "sumY": "y1 + y2 + y3 + y4",
     "sumXY": "x1*y1 + x2*y2 + x3*y3 + x4*y4",
-    "sumX2": "x1**2 + x2**2 + x3**2 + x4**2",
-    "sumY2": "y1**2 + y2**2 + y3**2 + y4**2",
+    "sumX2": "x1*x1 + x2*x2 + x3*x3 + x4*x4",
+    "sumY2": "y1*y1 + y2*y2 + y3*y3 + y4*y4",
     "numerator": "4 * sumXY - sumX * sumY"
   },
   "outputs": {
@@ -211,7 +211,8 @@
       "sumX2",
       "sumY2",
       "numerator",
-      "denominator"
+      "denominator",
+      "correlationCoefficient"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [

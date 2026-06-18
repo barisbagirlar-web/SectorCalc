@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "powerRating",
-      "label": "Güç (Watt)",
+      "label": "Power (Watt)",
       "type": "number",
       "unit": "W",
       "default": 1000,
-      "businessContext": "Cihazın nominal gücü",
+      "businessContext": "Nominal power of the device",
       "label_i18n": {
         "en": "Power (Watt)",
         "tr": "Güç (Watt)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "usageHoursPerDay",
-      "label": "Günlük Kullanım Saati",
+      "label": "Daily Usage Hours",
       "type": "number",
       "unit": "saat/gün",
       "default": 5,
-      "businessContext": "Cihazın günlük ortalama çalışma süresi",
+      "businessContext": "Average daily operating time of the device",
       "label_i18n": {
         "en": "Daily Usage Hours",
         "tr": "Günlük Kullanım Saati",
@@ -51,11 +51,11 @@
     },
     {
       "id": "daysPerMonth",
-      "label": "Aylık Kullanım Günü",
+      "label": "Monthly Usage Days",
       "type": "number",
       "unit": "gün/ay",
       "default": 30,
-      "businessContext": "Cihazın ayda kaç gün kullanıldığı",
+      "businessContext": "Number of days per month the device is used",
       "label_i18n": {
         "en": "Monthly Usage Days",
         "tr": "Aylık Kullanım Günü",
@@ -75,7 +75,7 @@
     },
     {
       "id": "electricityCost",
-      "label": "Elektrik Birim Fiyatı",
+      "label": "Electricity Unit Price",
       "type": "number",
       "unit": "TL/kWh",
       "default": 0.12,
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı özellikteki cihaz sayısı",
+      "businessContext": "Number of devices with the same specifications",
       "label_i18n": {
         "en": "Cihaz Adedi",
         "tr": "Cihaz Sayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "standbyPower",
-      "label": "StandBy Gücü",
+      "label": "Standby Power",
       "type": "number",
       "unit": "W",
       "default": 0,
-      "businessContext": "Cihazın bekleme modunda tükettiği güç",
+      "businessContext": "Power consumed by the device in standby mode",
       "label_i18n": {
         "en": "Standby Power (kW)",
         "tr": "StandBy Gücü",

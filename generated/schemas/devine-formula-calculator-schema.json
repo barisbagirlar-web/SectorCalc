@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kişinin santimetre cinsinden boy uzunluğu",
+      "businessContext": "Person's height in centimeters",
       "label_i18n": {
         "en": "Boy (cm)",
         "tr": "Height (cm)",
@@ -27,7 +27,7 @@
     },
     {
       "id": "sex",
-      "label": "Cinsiyet (0:Kadın, 1:Erkek)",
+      "label": "Gender (0:Female, 1:Male)",
       "type": "number",
       "unit": "unit",
       "default": 0,
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kişinin yaşı (referans amaçlı)",
+      "businessContext": "Person's age (for reference)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -75,11 +75,11 @@
     },
     {
       "id": "currentWeight",
-      "label": "Mevcut Ağırlık",
+      "label": "Current Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin mevcut ağırlığı (karşılaştırma için)",
+      "businessContext": "Person's current weight (for comparison)",
       "label_i18n": {
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",

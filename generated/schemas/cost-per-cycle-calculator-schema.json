@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Üretim başına bir defalık kurulum maliyeti",
+      "businessContext": "One-time setup cost per production",
       "label_i18n": {
         "en": "Kurulum Maliyeti",
         "tr": "Setup Cost",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Toplam üretim çevrimi veya parça sayısı",
+      "businessContext": "Total production cycles or number of parts",
       "label_i18n": {
         "en": "Number of cycles",
         "tr": "Çevrim Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL/çevrim",
       "default": 0,
-      "businessContext": "Her çevrim başına malzeme maliyeti",
+      "businessContext": "Material cost per cycle",
       "label_i18n": {
         "en": "Birim Malzeme Maliyeti",
         "tr": "Unit Material Cost",
@@ -75,11 +75,11 @@
     },
     {
       "id": "laborCostPerHour",
-      "label": "Saatlik İşçilik Maliyeti",
+      "label": "Hourly Labor Cost",
       "type": "number",
       "unit": "TL/saat",
       "default": 0,
-      "businessContext": "Bir saatlik işçilik maliyeti",
+      "businessContext": "Labor cost per hour",
       "label_i18n": {
         "en": "Hourly Labor Cost",
         "tr": "Saatlik İşçilik Maliyeti",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "saat",
       "default": 0.01,
-      "businessContext": "Bir çevrimin tamamlanma süresi (saat)",
+      "businessContext": "Completion time of one cycle (hours)",
       "label_i18n": {
         "en": "Cycle time",
         "tr": "Çevrim Süresi",
@@ -123,7 +123,7 @@
     },
     {
       "id": "overheadRate",
-      "label": "Genel Gider Oranı",
+      "label": "Overhead Rate",
       "type": "number",
       "unit": "TL/saat",
       "default": 0,

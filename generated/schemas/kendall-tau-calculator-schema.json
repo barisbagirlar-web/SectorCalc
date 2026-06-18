@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Gözlem Sayısı (n)",
+      "label": "Number of Observations (n)",
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Karşılaştırılan sıralı veri çiftlerinin sayısı",
+      "businessContext": "Number of compared ordered data pairs",
       "label_i18n": {
         "en": "Number of observations (n)",
         "tr": "Gözlem Sayısı (n)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "P",
-      "label": "Uyumlu Çiftler (P)",
+      "label": "Concordant Pairs (P)",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Her iki sıralamada aynı yönde olan gözlem çifti sayısı",
+      "businessContext": "Number of observation pairs in the same direction in both rankings",
       "label_i18n": {
         "en": "Concordant pairs (P)",
         "tr": "Uyumlu Çiftler (P)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "Q",
-      "label": "Uyumsuz Çiftler (Q)",
+      "label": "Discordant Pairs (Q)",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Her iki sıralamada ters yönde olan gözlem çifti sayısı",
+      "businessContext": "Number of observation pairs in opposite directions in both rankings",
       "label_i18n": {
         "en": "Discordant pairs (Q)",
         "tr": "Uyumsuz Çiftler (Q)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "T",
-      "label": "X Tied Çiftler (T)",
+      "label": "X Tied Pairs (T)",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Sadece X sıralamasında eşit olan çift sayısı",
+      "businessContext": "Number of pairs tied only in X ranking",
       "label_i18n": {
         "en": "X tied pairs (T)",
         "tr": "X Tied Çiftler (T)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "U",
-      "label": "Y Tied Çiftler (U)",
+      "label": "Y Tied Pairs (U)",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Sadece Y sıralamasında eşit olan çift sayısı",
+      "businessContext": "Number of pairs tied only in Y ranking",
       "label_i18n": {
         "en": "Y tied pairs (U)",
         "tr": "Y Tied Çiftler (U)",

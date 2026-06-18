@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "pressure_kgfcm2",
-      "label": "Basınç (kgf/cm²)",
+      "label": "Pressure (kgf/cm²)",
       "type": "number",
       "unit": "kgf/cm²",
       "default": 1,
-      "businessContext": "Manometre veya basınç göstergesinden okunan değer",
+      "businessContext": "Value read from the manometer or pressure gauge",
       "label_i18n": {
         "en": "Pressure (kgf/cm²)",
         "tr": "Basınç (kgf/cm²)",

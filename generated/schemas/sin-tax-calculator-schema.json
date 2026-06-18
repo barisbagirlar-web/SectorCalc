@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Ürünün vergi öncesi birim fiyatı",
+      "businessContext": "Unit price of product before tax",
       "label_i18n": {
         "en": "Unit Price Without Tax",
         "tr": "Vergisiz Birim Fiyat",
@@ -51,11 +51,11 @@
     },
     {
       "id": "vatRate",
-      "label": "KDV Oranı",
+      "label": "VAT Rate",
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Katma Değer Vergisi oranı",
+      "businessContext": "Value Added Tax rate",
       "label_i18n": {
         "en": "VAT Rate",
         "tr": "KDV Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Ürün miktarı",
+      "businessContext": "Product quantity",
       "label_i18n": {
         "en": "Miktar",
         "tr": "Quantity",

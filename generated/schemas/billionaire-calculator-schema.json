@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "currentNetWorth",
-      "label": "Mevcut Net Varlık ($)",
+      "label": "Current Net Assets ($)",
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Mevcut birikim ve yatırımların toplam değeri",
+      "businessContext": "Total value of current savings and investments",
       "label_i18n": {
         "en": "Current Net Assets ($)",
         "tr": "Mevcut Net Varlık ($)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "annualIncome",
-      "label": "Yıllık Gelir ($)",
+      "label": "Annual Income ($)",
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Yıllık toplam gelir (vergiler hariç)",
+      "businessContext": "Total annual income (before taxes)",
       "label_i18n": {
         "en": "Annual Income ($)",
         "tr": "Yıllık Gelir ($)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "savingsRate",
-      "label": "Tasarruf Oranı (%)",
+      "label": "Savings Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Gelirin yatırıma ayrılan yüzdesi",
+      "businessContext": "Percentage of income allocated to investment",
       "label_i18n": {
         "en": "Savings Rate (%)",
         "tr": "Tasarruf Oranı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "annualReturn",
-      "label": "Yıllık Getiri (%)",
+      "label": "Annual Return (%)",
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Yatırım portföyünün ortalama yıllık nominal getirisi",
+      "businessContext": "Average annual nominal return of the investment portfolio",
       "label_i18n": {
         "en": "Annual Return (%)",
         "tr": "Yıllık Getiri (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "desiredNetWorth",
-      "label": "Hedef Net Varlık ($)",
+      "label": "Target Net Worth ($)",
       "type": "number",
       "unit": "$",
       "default": 1000000000,
-      "businessContext": "Ulaşılmak istenen servet miktarı (varsayılan 1 milyar)",
+      "businessContext": "Desired wealth amount (default 1 billion)",
       "label_i18n": {
         "en": "Target Net Worth ($)",
         "tr": "Hedef Net Varlık ($)",
@@ -123,11 +123,11 @@
     }
   ],
   "formulas": {
-    "S": "annualIncome * (savingsRate / 100)",
-    "annualSavings": "S"
+    "annualSavings": "annualIncome * (savingsRate / 100)",
+    "annualSavings_aux": "annualIncome * (savingsRate / 100)"
   },
   "outputs": {
-    "primary": "annualSavings",
+    "primary": "annualSavings_aux",
     "breakdown": [
       "annualSavings",
       "totalContributions",

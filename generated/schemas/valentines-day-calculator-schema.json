@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "budget",
-      "label": "Bütçe (TL)",
+      "label": "Budget (TL)",
       "type": "number",
       "unit": "TL",
       "default": 500,
@@ -27,11 +27,11 @@
     },
     {
       "id": "numPeople",
-      "label": "Kişi Sayısı",
+      "label": "Number of People",
       "type": "number",
       "unit": "kişi",
       "default": 2,
-      "businessContext": "Hediye alınacak kişi sayısı",
+      "businessContext": "Number of gift recipients",
       "label_i18n": {
         "en": "Number of People",
         "tr": "Kişi Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL",
       "default": 200,
-      "businessContext": "Ana hediye için harcanan tutar",
+      "businessContext": "Amount spent on the main gift",
       "label_i18n": {
         "en": "Hediye Maliyeti (TL)",
         "tr": "Gift Cost (TL)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 150,
-      "businessContext": "Akşam yemeği harcaması",
+      "businessContext": "Dinner expense",
       "label_i18n": {
         "en": "Yemek Maliyeti (TL)",
         "tr": "Meal Cost (TL)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "flowerCost",
-      "label": "Çiçek Maliyeti (TL)",
+      "label": "Flower Cost (TL)",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Çiçek buketi maliyeti",
+      "businessContext": "Flower bouquet cost",
       "label_i18n": {
         "en": "Flower cost (TL)",
         "tr": "Çiçek Maliyeti (TL)",
@@ -123,7 +123,7 @@
     },
     {
       "id": "otherCost",
-      "label": "Diğer Maliyetler (TL)",
+      "label": "Other Costs (TL)",
       "type": "number",
       "unit": "TL",
       "default": 50,

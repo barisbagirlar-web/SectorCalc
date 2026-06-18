@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "productCost",
-      "label": "Ürün Maliyeti (Adet)",
+      "label": "Product Cost (per unit)",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Print-on-demand ürün başına üretim maliyeti",
+      "businessContext": "Print-on-demand production cost per unit",
       "label_i18n": {
         "en": "Product Cost (per unit)",
         "tr": "Ürün Maliyeti (Adet)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sellingPrice",
-      "label": "Satış Fiyatı (Adet)",
+      "label": "Sales Price (per unit)",
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Müşteriye satılan birim fiyat",
+      "businessContext": "Unit price sold to customer",
       "label_i18n": {
         "en": "Selling Price (per unit)",
         "tr": "Satış Fiyatı (Adet)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "quantity",
-      "label": "Sipariş Adedi",
+      "label": "Order Quantity",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Satılan toplam ürün adedi",
+      "businessContext": "Total number of products sold",
       "label_i18n": {
         "en": "Order Quantity",
         "tr": "Sipariş Adedi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 20,
-      "businessContext": "Ürün başına ortalama kargo maliyeti",
+      "businessContext": "Average shipping cost per product",
       "label_i18n": {
         "en": "Shipping Cost (Unit)",
         "tr": "Nakliye Maliyeti (Birim)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "platformFee",
-      "label": "Platform Komisyon Oranı",
+      "label": "Platform Commission Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Satış platformunun aldığı yüzdesel komisyon",
+      "businessContext": "Percentage commission taken by the sales platform",
       "label_i18n": {
         "en": "Platform Commission Rate",
         "tr": "Platform Komisyon Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "additionalCosts",
-      "label": "Diğer Sabit Giderler",
+      "label": "Other Fixed Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
+      "businessContext": "Total additional fixed costs such as design, listing",
       "label_i18n": {
         "en": "Other Fixed Expenses",
         "tr": "Diğer Sabit Giderler",

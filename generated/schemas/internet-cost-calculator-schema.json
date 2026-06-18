@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "monthlyBaseFee",
-      "label": "Aylık Temel Ücret",
+      "label": "Monthly Base Fee",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Aylık sabit internet ücreti",
+      "businessContext": "Monthly fixed internet fee",
       "label_i18n": {
         "en": "Monthly Base Fee",
         "tr": "Aylık Temel Ücret",
@@ -27,11 +27,11 @@
     },
     {
       "id": "dataCap",
-      "label": "Veri Kotası",
+      "label": "Data Quota",
       "type": "number",
       "unit": "GB",
       "default": 100,
-      "businessContext": "Aylık veri kullanım sınırı",
+      "businessContext": "Monthly data usage limit",
       "label_i18n": {
         "en": "Data Quota",
         "tr": "Veri Kotası",
@@ -51,11 +51,11 @@
     },
     {
       "id": "overageRate",
-      "label": "Aşım Ücreti (GB başına)",
+      "label": "Overage Fee (per GB)",
       "type": "number",
       "unit": "TL/GB",
       "default": 2,
-      "businessContext": "Kota aşımında GB başına ek ücret",
+      "businessContext": "Extra fee per GB for exceeding quota",
       "label_i18n": {
         "en": "Overage Fee (per GB)",
         "tr": "Aşım Ücreti (GB başına)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "usage",
-      "label": "Kullanım Miktarı",
+      "label": "Usage Amount",
       "type": "number",
       "unit": "GB",
       "default": 120,
-      "businessContext": "Gerçekleşen aylık veri kullanımı",
+      "businessContext": "Actual monthly data usage",
       "label_i18n": {
         "en": "Usage Amount",
         "tr": "Kullanım Miktarı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "discountPercent",
-      "label": "Taahhüt İndirimi",
+      "label": "Commitment Discount",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Sözleşme süresine bağlı yüzde indirim",
+      "businessContext": "Percentage discount based on contract duration",
       "label_i18n": {
         "en": "Commitment Discount",
         "tr": "Taahhüt İndirimi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "taxRate",
-      "label": "Vergi Oranı",
+      "label": "Tax Rate",
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Uygulanan vergi yüzdesi",
+      "businessContext": "Applied tax percentage",
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",

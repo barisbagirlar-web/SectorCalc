@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "fruitWeight",
-      "label": "Meyve Miktarı (kg)",
+      "label": "Fruit Quantity (kg)",
       "type": "number",
       "unit": "kg",
       "default": 100,
@@ -27,7 +27,7 @@
     },
     {
       "id": "extractionRate",
-      "label": "Ekstraksiyon Oranı (%)",
+      "label": "Extraction Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 70,
@@ -75,7 +75,7 @@
     },
     {
       "id": "otherAdditives",
-      "label": "Diğer Katkılar (kg)",
+      "label": "Other Additives (kg)",
       "type": "number",
       "unit": "kg",
       "default": 0,

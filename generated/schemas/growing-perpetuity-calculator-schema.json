@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initialCashFlow",
-      "label": "İlk Nakit Akışı",
+      "label": "Initial Cash Flow",
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
+      "businessContext": "Cash flow expected to be obtained at the end of the first period (usually the next year)",
       "label_i18n": {
         "en": "Initial Cash Flow",
         "tr": "İlk Nakit Akışı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "discountRate",
-      "label": "İskonto Oranı",
+      "label": "Discount Rate",
       "type": "number",
       "unit": "percentage",
       "default": 10,
-      "businessContext": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
+      "businessContext": "The expected rate of return or cost of capital for the investor, used as the discount rate",
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İskonto Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "growthRate",
-      "label": "Büyüme Oranı",
+      "label": "Growth Rate",
       "type": "number",
       "unit": "percentage",
       "default": 3,
-      "businessContext": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
+      "businessContext": "Constant growth rate of cash flows each period, must be less than the discount rate",
       "label_i18n": {
         "en": "Growth Rate",
         "tr": "Büyüme Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "timingFlag",
-      "label": "Ödeme Zamanlaması",
+      "label": "Payment Timing",
       "type": "number",
       "unit": "binary (0=Dönem Sonu, 1=Dönem Başı)",
       "default": 0,
-      "businessContext": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
+      "businessContext": "Specifies whether cash flows occur at the end of the period (0) or at the beginning of the period (1)",
       "label_i18n": {
         "en": "Payment Timing",
         "tr": "Ödeme Zamanlaması",

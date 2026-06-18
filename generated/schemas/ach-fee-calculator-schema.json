@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "transactionsPerMonth",
-      "label": "Aylık İşlem Sayısı",
+      "label": "Monthly Transaction Count",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Bir ay içindeki toplam ACH işlem sayısı.",
+      "businessContext": "Total number of ACH transactions in a month.",
       "label_i18n": {
         "en": "Monthly Transaction Count",
         "tr": "Aylık İşlem Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "flatFeePerTransaction",
-      "label": "İşlem Başı Sabit Ücret",
+      "label": "Fixed Fee per Transaction",
       "type": "number",
       "unit": "TL",
       "default": 0.5,
-      "businessContext": "Her işlem için ödenen sabit ücret.",
+      "businessContext": "Fixed fee paid for each transaction.",
       "label_i18n": {
         "en": "Fixed Fee per Transaction",
         "tr": "İşlem Başı Sabit Ücret",
@@ -51,11 +51,11 @@
     },
     {
       "id": "percentageFeeRate",
-      "label": "İşlem Hacmi Yüzdelik Ücreti",
+      "label": "Transaction Volume Percentage Fee",
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
+      "businessContext": "Percentage rate charged on total transaction volume.",
       "label_i18n": {
         "en": "Percentage Fee on Transaction Volume",
         "tr": "İşlem Hacmi Yüzdelik Ücreti",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalMonthlyVolume",
-      "label": "Aylık Toplam İşlem Hacmi",
+      "label": "Monthly Total Transaction Volume",
       "type": "number",
       "unit": "TL",
       "default": 50000,
-      "businessContext": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
+      "businessContext": "Total monetary volume of all ACH transactions within a month.",
       "label_i18n": {
         "en": "Monthly Total Transaction Volume",
         "tr": "Aylık Toplam İşlem Hacmi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "ACH hizmeti için aylık ödenen sabit ücret.",
+      "businessContext": "Fixed monthly fee paid for ACH service.",
       "label_i18n": {
         "en": "Monthly Fixed Fee",
         "tr": "Aylık Sabit Ücret",

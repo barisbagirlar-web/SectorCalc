@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "density",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Fluid Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225.",
+      "businessContext": "Fluid density (kg/m³). For water 1000, for air approximately 1.225.",
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "gravity",
-      "label": "Yerçekimi İvmesi",
+      "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81.",
+      "businessContext": "Gravitational acceleration (m/s²). On Earth's surface average ~9.81.",
       "label_i18n": {
         "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "height",
-      "label": "Yükseklik / Derinlik",
+      "label": "Height / Depth",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Sıvı sütununun yüksekliği veya derinlik (m).",
+      "businessContext": "Height or depth of liquid column (m).",
       "label_i18n": {
         "en": "Height / Depth",
         "tr": "Yükseklik / Derinlik",
@@ -75,11 +75,11 @@
     },
     {
       "id": "atmPressure",
-      "label": "Atmosfer Basıncı",
+      "label": "Atmospheric Pressure",
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325.",
+      "businessContext": "Atmospheric pressure at surface (Pa). Standard 101325 at sea level.",
       "label_i18n": {
         "en": "Atmospheric pressure",
         "tr": "Atmosfer Basıncı",

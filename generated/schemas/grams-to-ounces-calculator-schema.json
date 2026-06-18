@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Ölçülecek maddenin gram cinsinden ağırlığı",
+      "businessContext": "Weight of the substance to be measured in grams",
       "label_i18n": {
         "en": "Gram Amount",
         "tr": "Gram Miktarı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "oz/g",
       "default": 0.0352739619,
-      "businessContext": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
+      "businessContext": "Conversion coefficient from grams to ounces, default international value.",
       "label_i18n": {
         "en": "Conversion Factor (oz/g)",
         "tr": "Dönüşüm Faktörü (oz/g)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
+      "businessContext": "Number of pieces of the same weight; used for total ounce calculation.",
       "label_i18n": {
         "en": "Batch Quantity (pieces)",
         "tr": "Parti Miktarı (adet)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "basamak",
       "default": 4,
-      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to round the result",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

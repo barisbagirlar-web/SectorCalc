@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "distance_km",
-      "label": "Uçuş Mesafesi",
+      "label": "Flight Distance",
       "type": "number",
       "unit": "km",
       "default": 1000,
-      "businessContext": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
+      "businessContext": "Great circle distance between departure and arrival points",
       "label_i18n": {
         "en": "Flight Distance",
         "tr": "Uçuş Mesafesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "fuel_burn_per_100_pkm",
-      "label": "Yakıt Tüketimi",
+      "label": "Fuel Consumption",
       "type": "number",
       "unit": "L/100 pkm",
       "default": 3.5,
-      "businessContext": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
+      "businessContext": "Average fuel consumption in liters per 100 passenger-kilometers (varies by aircraft type)",
       "label_i18n": {
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "emission_factor_kg_per_liter",
-      "label": "Emisyon Faktörü",
+      "label": "Emission Factor",
       "type": "number",
       "unit": "kg CO₂/L",
       "default": 2.52,
-      "businessContext": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
+      "businessContext": "Amount of CO₂ emitted per liter from burning jet fuel",
       "label_i18n": {
         "en": "Emission Factor",
         "tr": "Emisyon Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "class_multiplier",
-      "label": "Sınıf Çarpanı",
+      "label": "Class Multiplier",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
+      "businessContext": "Correction factor based on the area ratio occupied by the seat class, e.g., Economy=1, Business=2, First=3",
       "label_i18n": {
         "en": "Class Multiplier",
         "tr": "Sınıf Çarpanı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "radiative_forcing_index",
-      "label": "Işınımsal Zorlama İndisi",
+      "label": "Radiative Forcing Index",
       "type": "number",
       "unit": "çarpan",
       "default": 1.9,
-      "businessContext": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
+      "businessContext": "Multiplier accounting for the additional climate impact of emissions released at high altitude (IPCC recommendation: 1.9)",
       "label_i18n": {
         "en": "Radiative Forcing Index",
         "tr": "Işınımsal Zorlama İndisi",

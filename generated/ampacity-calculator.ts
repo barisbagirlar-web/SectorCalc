@@ -24,8 +24,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Ampacity_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.bundlingFactor; results["bundlingFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bundlingFactor"] = 0; }
-  try { const v = input.materialFactor; results["materialFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialFactor"] = 0; }
+  try { const v = input.area * 1.5; results["baseAmpacity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseAmpacity"] = 0; }
+  try { const v = 1 - (input.ambientTemp - 30) * 0.005; results["tempFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tempFactor"] = 0; }
+  try { const v = (asFormulaNumber(results["baseAmpacity"])) * (asFormulaNumber(results["tempFactor"])) * input.bundlingFactor * input.materialFactor; results["finalAmpacity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalAmpacity"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateAmpacity_calculator(input: Ampacity_calculatorInput): Ampacity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["materialFactor"]);
+  const totalWasteCost = toNumericFormulaValue(values["finalAmpacity"]);
   const breakdown = {
     
   };

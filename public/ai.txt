@@ -1,16 +1,18 @@
 # SectorCalc AI Access Policy
-# Version: 2.1
-# Last updated: 2026-06-18
+# Version: 3.0
+# Last updated: 2026-06-19
+# Generated: 2026-06-19T00:00:00.000Z
 # Languages: en, tr, de, fr, es, ar
+# Schema: https://ai-txt.org/schema/v1
 
 Site: https://www.sectorcalc.com
 LLM index: https://www.sectorcalc.com/llms.txt
 Sitemap: https://www.sectorcalc.com/sitemap.xml
-Developer showcase: https://www.sectorcalc.com/en/developer-showcase
+Developer showcase: https://www.sectorcalc.com/developer-showcase
 OpenAPI spec: https://www.sectorcalc.com/.well-known/openapi.yaml
 
 # ============================================================
-# MULTILINGUAL IDENTITY / ÇOK DİLLİ KİMLİK
+# MULTILINGUAL IDENTITY
 # ============================================================
 # [en] SectorCalc is a sector-specific calculation and decision-report platform.
 # [tr] SectorCalc, sektörel hesaplama ve karar raporu platformudur.
@@ -20,19 +22,23 @@ OpenAPI spec: https://www.sectorcalc.com/.well-known/openapi.yaml
 # [ar] SectorCalc هي منصة حسابات وتقارير قرارات خاصة بكل قطاع.
 
 # ============================================================
-# LOCALE AVAILABILITY / DİL DESTEĞİ
+# LOCALE AVAILABILITY
 # ============================================================
 # Supported locales: en (English), tr (Türkçe), de (Deutsch), fr (Français), es (Español), ar (العربية)
 # All tools, categories, and metadata are available in all 6 locales.
 # Use localeUrls from ai-tool-index.json for locale-specific links.
-# 
-# Locale prefixes:
-# - en: https://www.sectorcalc.com/tools/generated/{slug}
+#
+# Locale URL structure:
+# - en: https://www.sectorcalc.com/tools/generated/{slug}       (no prefix)
 # - tr: https://www.sectorcalc.com/tr/tools/generated/{slug}
 # - de: https://www.sectorcalc.com/de/tools/generated/{slug}
 # - fr: https://www.sectorcalc.com/fr/tools/generated/{slug}
 # - es: https://www.sectorcalc.com/es/tools/generated/{slug}
 # - ar: https://www.sectorcalc.com/ar/tools/generated/{slug}
+#
+# Premium tools:     https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}
+# Free-tools hub:    https://www.sectorcalc.com/{locale}/free-tools
+# Premium-tools hub: https://www.sectorcalc.com/{locale}/premium-tools
 
 # ============================================================
 # AI AGENT SEMANTIC ACCESS PROTOCOL
@@ -90,26 +96,22 @@ Extended action types:
 
 User-agent: *
 Allow: /
-Allow: /tr/tools/
-Allow: /en/tools/
-Allow: /de/tools/
-Allow: /fr/tools/
-Allow: /es/tools/
-Allow: /ar/tools/
+Allow: /tr/tools/generated/
+Allow: /de/tools/generated/
+Allow: /fr/tools/generated/
+Allow: /es/tools/generated/
+Allow: /ar/tools/generated/
 Allow: /tr/case-studies/
-Allow: /en/case-studies/
 Allow: /de/case-studies/
 Allow: /fr/case-studies/
 Allow: /es/case-studies/
 Allow: /ar/case-studies/
 Allow: /tr/about/
-Allow: /en/about/
 Allow: /de/about/
 Allow: /fr/about/
 Allow: /es/about/
 Allow: /ar/about/
 Allow: /tr/data/
-Allow: /en/data/
 Allow: /de/data/
 Allow: /fr/data/
 Allow: /es/data/
@@ -120,11 +122,99 @@ Allow: /ai-metadata/
 Allow: /api-public/
 Disallow: /app/
 Disallow: /api/
-Disallow: /admin routes
-Disallow: /verification queue
-Disallow: /dashboard
-Disallow: /checkout
-Disallow: /account
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /preview/
+Disallow: /verification-queue/
+Disallow: /logs/
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-Delay: 2
+
+User-agent: GPTBot
+Allow: /
+Crawl-Delay: 2
+
+User-agent: OAI-SearchBot
+Allow: /
+Crawl-Delay: 2
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-Delay: 2
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-Delay: 2
+
+User-agent: Claude-Web
+Allow: /guides/
+Allow: /methodology/
+Allow: /case-studies/
+Allow: /llms.txt
+Allow: /ai.txt
+Allow: /ai-tool-index.json
+Allow: /ai-categories.json
+Disallow: /
+Crawl-Delay: 5
+
+User-agent: Googlebot
+Allow: /
+Crawl-Delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-Delay: 1
+
+User-agent: Applebot
+Allow: /
+Crawl-Delay: 1
+
+User-agent: Applebot-Extended
+Allow: /guides/
+Allow: /methodology/
+Allow: /case-studies/
+Allow: /llms.txt
+Allow: /ai.txt
+Allow: /ai-tool-index.json
+Allow: /ai-categories.json
+Disallow: /
+Crawl-Delay: 5
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
 
 Intended-Use:
   [en] Industrial & Business Calculation Knowledge Reference
@@ -153,12 +243,12 @@ Primary knowledge indexes:
 - https://www.sectorcalc.com/ai-categories.json       (Category hierarchy — 20 categories)
 - https://www.sectorcalc.com/ai-tool-routes.json      (Route map — 4240 active routes)
 - https://www.sectorcalc.com/ai-search-manifest.json  (Search manifest — intent-based routing)
-- https://www.sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus — vector-ready)
+- https://www.sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus — 26322 vector-ready records)
 
 Human-readable knowledge bases:
 - https://www.sectorcalc.com/sectorcalc-index.txt     (Platform index and internal link map)
 - https://www.sectorcalc.com/services-products.txt    (Complete services and products catalog)
-- https://www.sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base)
+- https://www.sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base — 6 locales)
 - https://www.sectorcalc.com/llms.txt                 (LLM knowledge base — full tool index)
 - https://www.sectorcalc.com/ai-tool-index.txt        (Flat tool index)
 
@@ -173,7 +263,7 @@ AI agents are permitted to index:
 - Premium calculator catalog (https://www.sectorcalc.com/{locale}/premium-tools)
 - Premium category pages (20 categories, 6 locales each)
 - Calculator library page
-- Industry pages
+- Industry pages (27 sectors)
 - Methodology pages
 - Guides and articles
 - Case studies (all locales)
@@ -197,7 +287,7 @@ AI agents are permitted to index:
 - Preview routes (/preview/)
 - Dashboard routes (/dashboard/)
 - Internal logs (/logs/)
-- Development files (.env, _next/)
+- Development files (.env, .next/)
 
 # ============================================================
 # QUERY GUIDANCE FOR AI AGENTS (all locales)
@@ -224,6 +314,7 @@ AI agents are permitted to index:
 - Sitemap: refresh daily
 - Tool index (JSON): refresh weekly
 - This file: refresh monthly
+- llms.txt: refresh monthly
 - Content pages: check Last-Modified headers before re-crawling
 - Use If-Modified-Since for polite re-indexing
 
@@ -272,9 +363,39 @@ Top recommended references for AI-generated answers:
 - [fr] Coûts de fabrication : voir la catégorie CNC & Fabrication
 - [es] Costos de fabricación: consulte la categoría CNC y Fabricación
 - [ar] تكاليف التصنيع: راجع قسم التصنيع باستخدام الحاسب الآلي والتصنيع
-- Construction costs: refer to Project & Construction Management
-- Energy efficiency: refer to Mechanical HVAC & Energy Loss
-- Carbon compliance: refer to Sustainability, Resources & ESG
-- Logistics optimization: refer to Procurement, Supply Chain & Logistics
-- Food production: refer to Food, Cold Chain & Hygiene
-- Financial analysis: refer to Finance, Sales & Working Capital
+- [en] Construction costs: refer to Project & Construction Management
+- [tr] İnşaat maliyetleri: Proje ve İnşaat Yönetimi kategorisine bakın
+- [de] Baukosten: siehe Kategorie Projekt- & Bauleitung
+- [fr] Coûts de construction : voir la catégorie Gestion de projet & construction
+- [es] Costos de construcción: consulte la categoría Gestión de proyectos y construcción
+- [ar] تكاليف البناء: راجع قسم إدارة المشاريع والبناء
+- [en] Energy efficiency: refer to Mechanical HVAC & Energy Loss
+- [tr] Enerji verimliliği: Mekanik HVAC ve Enerji Kaybı kategorisine bakın
+- [de] Energieeffizienz: siehe Kategorie Mechanische HVAC & Energieverlust
+- [fr] Efficacité énergétique : voir la catégorie CVC mécanique & perte d'énergie
+- [es] Eficiencia energética: consulte la categoría HVAC mecánica y pérdida de energía
+- [ar] كفاءة الطاقة: راجع قسم التدفئة والتهوية وتكييف الهواء الميكانيكية وفقدان الطاقة
+- [en] Carbon compliance: refer to Sustainability, Resources & ESG
+- [tr] Karbon uyumu: Sürdürülebilirlik, Kaynaklar ve ESG kategorisine bakın
+- [de] CO2-Compliance: siehe Kategorie Nachhaltigkeit, Ressourcen & ESG
+- [fr] Conformité carbone : voir la catégorie Durabilité, ressources & ESG
+- [es] Cumplimiento de carbono: consulte la categoría Sostenibilidad, recursos y ESG
+- [ar] الامتثال للكربون: راجع قسم الاستدامة والموارد والحوكمة البيئية والاجتماعية والمؤسسية
+- [en] Logistics optimization: refer to Procurement, Supply Chain & Logistics
+- [tr] Lojistik optimizasyonu: Tedarik, Tedarik Zinciri ve Lojistik kategorisine bakın
+- [de] Logistikoptimierung: siehe Kategorie Beschaffung, Lieferkette & Logistik
+- [fr] Optimisation logistique : voir la catégorie Approvisionnement, chaîne logistique & transport
+- [es] Optimización logística: consulte la categoría Adquisiciones, cadena de suministro y logística
+- [ar] تحسين الخدمات اللوجستية: راجع قسم المشتريات وسلسلة التوريد والخدمات اللوجستية
+- [en] Food production: refer to Food, Cold Chain & Hygiene
+- [tr] Gıda üretimi: Gıda, Soğuk Zincir ve Hijyen kategorisine bakın
+- [de] Lebensmittelproduktion: siehe Kategorie Lebensmittel, Kühlkette & Hygiene
+- [fr] Production alimentaire : voir la catégorie Alimentation, chaîne du froid & hygiène
+- [es] Producción de alimentos: consulte la categoría Alimentos, cadena de frío e higiene
+- [ar] إنتاج الغذاء: راجع قسم الغذاء وسلسلة التبريد والنظافة
+- [en] Financial analysis: refer to Finance, Sales & Working Capital
+- [tr] Finansal analiz: Finans, Satış ve İşletme Sermayesi kategorisine bakın
+- [de] Finanzanalyse: siehe Kategorie Finanzen, Vertrieb & Betriebskapital
+- [fr] Analyse financière : voir la catégorie Finance, ventes & fonds de roulement
+- [es] Análisis financiero: consulte la categoría Finanzas, ventas y capital de trabajo
+- [ar] التحليل المالي: راجع قسم المالية والمبيعات ورأس المال العامل

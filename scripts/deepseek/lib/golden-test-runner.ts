@@ -134,6 +134,64 @@ function findCalculateFunction(mod: Record<string, unknown>, slug: string): ((in
   return null;
 }
 
+/**
+ * Heuristic: field names that should NOT be negative.
+ * Cost, expense, debt, loss, mass, weight, area, volume, count, score, index, rate, time, etc.
+ */
+const NON_NEGATIVE_FIELDS = new Set([
+  'totalWasteCost', 'totalCost', 'totalCosts', 'totalCostPerUnit', 'totalMachineCost',
+  'totalVariableCost', 'totalFixedCost', 'totalRevenue', 'totalExpenses', 'totalDebt',
+  'totalLiabilities', 'totalAssets', 'totalEquity', 'totalMass', 'totalWeight',
+  'totalVolume', 'totalArea', 'totalLength', 'totalCount', 'totalScore',
+  'totalTime', 'totalDuration', 'totalHours', 'totalMinutes', 'totalSeconds',
+  'totalDistance', 'totalEnergy', 'totalPower', 'totalForce', 'totalPressure',
+  'totalTemperature', 'totalPercent', 'totalRate', 'totalIndex',
+  'cost', 'costs', 'expense', 'expenses', 'debt', 'liabilities', 'mass', 'weight',
+  'volume', 'area', 'length', 'count', 'score', 'duration', 'distance',
+  'dataConfidenceAdjusted',
+]);
+
+/**
+ * Check a single numeric value for validity.
+ */
+function checkNumericField(
+  value: unknown,
+  fieldName: string,
+  slug: string,
+  scenario: string,
+): GoldenTestIssue[] {
+  const issues: GoldenTestIssue[] = [];
+  if (typeof value !== 'number') {
+    issues.push({
+      slug, scenario, field: fieldName,
+      severity: 'ERROR',
+      message: `"${fieldName}" is not a number: ${String(value)}`,
+    });
+    return issues;
+  }
+
+  if (!Number.isFinite(value)) {
+    issues.push({
+      slug, scenario, field: fieldName,
+      severity: 'ERROR',
+      message: `"${fieldName}" is not finite: ${value}`,
+      value,
+    });
+    return issues;
+  }
+
+  if (value < 0 && NON_NEGATIVE_FIELDS.has(fieldName)) {
+    issues.push({
+      slug, scenario, field: fieldName,
+      severity: 'WARN',
+      message: `"${fieldName}" is negative: ${value}`,
+      value,
+    });
+  }
+
+  return issues;
+}
+
 function validateOutput(
   result: Record<string, unknown>,
   slug: string,
@@ -143,78 +201,52 @@ function validateOutput(
 
   if (result === null || result === undefined) {
     issues.push({
-      slug,
-      scenario,
-      field: 'output',
+      slug, scenario, field: 'output',
       severity: 'ERROR',
       message: 'Output is null/undefined',
     });
     return issues;
   }
 
-  // Check totalWasteCost
-  const total = result.totalWasteCost;
-  if (typeof total !== 'number') {
-    issues.push({
-      slug,
-      scenario,
-      field: 'totalWasteCost',
-      severity: 'ERROR',
-      message: `totalWasteCost is not a number: ${String(total)}`,
-    });
-  } else {
-    if (!Number.isFinite(total)) {
+  // Iterate EVERY field in the result object
+  for (const [fieldName, value] of Object.entries(result)) {
+    if (typeof value === 'number') {
+      issues.push(...checkNumericField(value, fieldName, slug, scenario));
+    } else if (value === null || value === undefined) {
+      // Null/undefined is a type error for expected fields
       issues.push({
-        slug,
-        scenario,
-        field: 'totalWasteCost',
-        severity: 'ERROR',
-        message: `totalWasteCost is not finite: ${total}`,
-        value: total,
-      });
-    }
-    if (total < 0) {
-      issues.push({
-        slug,
-        scenario,
-        field: 'totalWasteCost',
+        slug, scenario, field: fieldName,
         severity: 'WARN',
-        message: `totalWasteCost is negative: ${total}`,
-        value: total,
+        message: `"${fieldName}" is null/undefined`,
       });
-    }
-  }
-
-  // Check breakdown
-  const breakdown = result.breakdown;
-  if (breakdown !== undefined && typeof breakdown === 'object' && !Array.isArray(breakdown)) {
-    for (const [key, value] of Object.entries(breakdown as Record<string, unknown>)) {
-      if (typeof value === 'number') {
-        if (!Number.isFinite(value)) {
-          issues.push({
-            slug,
-            scenario,
-            field: `breakdown.${key}`,
-            severity: 'ERROR',
-            message: `Breakdown "${key}" value is not finite: ${value}`,
-            value,
-          });
+    } else if (typeof value === 'object' && !Array.isArray(value)) {
+      // Breakdown/sub-object — check each child
+      for (const [childKey, childValue] of Object.entries(value as Record<string, unknown>)) {
+        if (typeof childValue === 'number') {
+          issues.push(...checkNumericField(childValue, `breakdown.${childKey}`, slug, scenario));
         }
       }
+    } else if (Array.isArray(value)) {
+      // Arrays should exist (non-null) — content is schema-dependent, skip deep check
+      // But ensure it's an actual array
+      if (!Array.isArray(value)) {
+        issues.push({
+          slug, scenario, field: fieldName,
+          severity: 'ERROR',
+          message: `"${fieldName}" is not an array`,
+        });
+      }
+    } else if (typeof value === 'boolean') {
+      // Booleans are always valid
+    } else if (typeof value === 'string') {
+      // Strings are always valid
+    } else {
+      issues.push({
+        slug, scenario, field: fieldName,
+        severity: 'WARN',
+        message: `"${fieldName}" has unexpected type: ${typeof value}`,
+      });
     }
-  }
-
-  // Check dataConfidenceAdjusted
-  const dca = result.dataConfidenceAdjusted;
-  if (typeof dca === 'number' && !Number.isFinite(dca)) {
-    issues.push({
-      slug,
-      scenario,
-      field: 'dataConfidenceAdjusted',
-      severity: 'ERROR',
-      message: `dataConfidenceAdjusted is not finite: ${dca}`,
-      value: dca,
-    });
   }
 
   return issues;

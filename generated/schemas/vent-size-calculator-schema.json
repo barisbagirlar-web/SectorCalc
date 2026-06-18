@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m³",
       "default": 100,
-      "businessContext": "Havalandırma yapılacak odanın toplam iç hacmi",
+      "businessContext": "Total internal volume of the room to be ventilated",
       "label_i18n": {
         "en": "Oda Hacmi",
         "tr": "Room Volume",
@@ -27,11 +27,11 @@
     },
     {
       "id": "ach",
-      "label": "Hava Değişim Sayısı (ACH)",
+      "label": "Air Changes per Hour (ACH)",
       "type": "number",
       "unit": "1/saat",
       "default": 5,
-      "businessContext": "Saatte istenen hava değişim sayısı",
+      "businessContext": "Desired number of air changes per hour",
       "label_i18n": {
         "en": "Air Changes per Hour (ACH)",
         "tr": "Hava Değişim Sayısı (ACH)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "velocity",
-      "label": "Hava Hızı",
+      "label": "Air Velocity",
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Menfezden geçen havanın ortalama hızı",
+      "businessContext": "Average velocity of air passing through the vent",
       "label_i18n": {
         "en": "Air Velocity",
         "tr": "Hava Hızı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1.2,
-      "businessContext": "Hesaplamaya eklenen emniyet payı",
+      "businessContext": "Safety factor added to the calculation",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",

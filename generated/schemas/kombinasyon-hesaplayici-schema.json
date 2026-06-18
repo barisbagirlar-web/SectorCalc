@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Toplam Eleman Sayısı (n)",
+      "label": "Total Number of Elements (n)",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Kümenin toplam eleman sayısı",
+      "businessContext": "Total number of elements in the set",
       "label_i18n": {
         "en": "Total Number of Elements (n)",
         "tr": "Toplam Eleman Sayısı (n)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "r",
-      "label": "Seçilecek Eleman Sayısı (r)",
+      "label": "Number of Elements to Choose (r)",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Kombinasyon için seçilecek eleman sayısı",
+      "businessContext": "Number of elements to choose for combination",
       "label_i18n": {
         "en": "Number of Elements to Choose (r)",
         "tr": "Seçilecek Eleman Sayısı (r)",

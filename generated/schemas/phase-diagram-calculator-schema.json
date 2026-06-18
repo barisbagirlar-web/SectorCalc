@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "alloyComposition",
-      "label": "Alaşım Bileşimi (C₀)",
+      "label": "Alloy Composition (C₀)",
       "type": "number",
       "unit": "% ağ.",
       "default": 30,
@@ -27,7 +27,7 @@
     },
     {
       "id": "solidComposition",
-      "label": "Katı Bileşimi (Cs)",
+      "label": "Solid Composition (Cs)",
       "type": "number",
       "unit": "% ağ.",
       "default": 10,
@@ -51,7 +51,7 @@
     },
     {
       "id": "liquidComposition",
-      "label": "Sıvı Bileşimi (Cl)",
+      "label": "Liquid Composition (Cl)",
       "type": "number",
       "unit": "% ağ.",
       "default": 60,

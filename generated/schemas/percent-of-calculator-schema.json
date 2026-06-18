@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "Hesaplama yapılacak temel değer.",
+      "businessContext": "Base value to be calculated.",
       "label_i18n": {
         "en": "Base Amount",
         "tr": "Temel Tutar",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
+      "businessContext": "Percentage rate to be calculated on the base amount.",
       "label_i18n": {
         "en": "Percent",
         "tr": "Yüzde",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Yüzde sonucuna eklenecek sabit miktar.",
+      "businessContext": "Fixed amount to be added to the percentage result.",
       "label_i18n": {
         "en": "Fixed Additional Amount",
         "tr": "Sabit Ek Tutar",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+      "businessContext": "Number of decimal places to round the result.",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "purchaseAmount",
-      "label": "Satın Alma Tutarı",
+      "label": "Purchase Amount",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Toplam satış faturası tutarı (TL)",
+      "businessContext": "Total sales invoice amount (TL)",
       "label_i18n": {
         "en": "Purchase Amount",
         "tr": "Satın Alma Tutarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "cashbackRate",
-      "label": "Nakit İade Oranı",
+      "label": "Cashback Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Nakit iade yüzdesi",
+      "businessContext": "Cashback percentage",
       "label_i18n": {
         "en": "Cashback Rate",
         "tr": "Nakit İade Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Nakit iade kazanmak için gerekli minimum harcama limiti",
+      "businessContext": "Minimum spending limit required to earn cashback",
       "label_i18n": {
         "en": "Minimum Harcama",
         "tr": "Minimum Spend",
@@ -75,11 +75,11 @@
     },
     {
       "id": "maxCashback",
-      "label": "Maksimum İade Limiti",
+      "label": "Maximum Cashback Limit",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Maksimum nakit iade miktarı (0 = limitsiz)",
+      "businessContext": "Maximum cashback amount (0 = unlimited)",
       "label_i18n": {
         "en": "Maximum Cashback Limit",
         "tr": "Maksimum İade Limiti",
@@ -99,11 +99,11 @@
     },
     {
       "id": "campaignMultiplier",
-      "label": "Kampanya Çarpanı",
+      "label": "Campaign Multiplier",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Özel dönem kampanya katsayısı",
+      "businessContext": "Special period campaign coefficient",
       "label_i18n": {
         "en": "Campaign Multiplier",
         "tr": "Kampanya Çarpanı",

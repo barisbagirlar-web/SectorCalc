@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Başlangıç konsantrasyonu (mol/L cinsinden)",
+      "businessContext": "Initial concentration (in mol/L)",
       "label_i18n": {
         "en": "Initial Concentration (C₀)",
         "tr": "Başlangıç Konsantrasyonu (C₀)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "1/s",
       "default": 0.1,
-      "businessContext": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
+      "businessContext": "First-order reaction rate constant (in s⁻¹)",
       "label_i18n": {
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Reaksiyon süresi (saniye cinsinden)",
+      "businessContext": "Reaction time (in seconds)",
       "label_i18n": {
         "en": "Time (t)",
         "tr": "Zaman (t)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "–",
       "default": 1,
-      "businessContext": "Reaksiyon mertebesi (birinci derece için sabit 1)",
+      "businessContext": "Reaction order (constant 1 for first order)",
       "label_i18n": {
         "en": "Reaction Order",
         "tr": "Reaksiyon Mertebesi",

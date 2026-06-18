@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "dailyEnergyConsumption",
-      "label": "Günlük Enerji Tüketimi",
+      "label": "Daily Energy Consumption",
       "type": "number",
       "unit": "kWh",
       "default": 10,
-      "businessContext": "Toplam günlük enerji ihtiyacı",
+      "businessContext": "Total daily energy requirement",
       "label_i18n": {
         "en": "Daily Energy Consumption",
         "tr": "Günlük Enerji Tüketimi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "peakSunHours",
-      "label": "Efektif Güneşlenme Süresi",
+      "label": "Effective Sunshine Duration",
       "type": "number",
       "unit": "saat",
       "default": 5,
-      "businessContext": "Günlük ortalama tam güneş ışığı süresi",
+      "businessContext": "Daily average full sunlight duration",
       "label_i18n": {
         "en": "Effective Sunshine Duration",
         "tr": "Efektif Güneşlenme Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "systemVoltage",
-      "label": "Sistem Voltajı",
+      "label": "System Voltage",
       "type": "number",
       "unit": "V",
       "default": 24,
-      "businessContext": "Akü bankası voltajı",
+      "businessContext": "Battery bank voltage",
       "label_i18n": {
         "en": "System Voltage",
         "tr": "Sistem Voltajı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Akünün kullanılabilir kapasite oranı (0-1 arası)",
+      "businessContext": "Usable capacity ratio of the battery (0-1)",
       "label_i18n": {
         "en": "Depth of Discharge (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "daysOfAutonomy",
-      "label": "Otonomi Gün Sayısı",
+      "label": "Days of autonomy",
       "type": "number",
       "unit": "gün",
       "default": 3,
-      "businessContext": "Güneşsiz günlerde sistemin çalışma süresi",
+      "businessContext": "System operating time on sunless days",
       "label_i18n": {
         "en": "Days of autonomy",
         "tr": "Otonomi Gün Sayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "batteryEfficiency",
-      "label": "Akü Verimliliği",
+      "label": "Battery efficiency",
       "type": "number",
       "unit": "oran",
       "default": 0.85,
-      "businessContext": "Akü şarj/deşarj verimliliği (0-1)",
+      "businessContext": "Battery charge/discharge efficiency (0-1)",
       "label_i18n": {
         "en": "Battery efficiency",
         "tr": "Akü Verimliliği",
@@ -147,11 +147,11 @@
     },
     {
       "id": "batteryCapacityAh",
-      "label": "Tek Akü Kapasitesi",
+      "label": "Single battery capacity",
       "type": "number",
       "unit": "Ah",
       "default": 200,
-      "businessContext": "Kullanılacak her bir akünün kapasitesi",
+      "businessContext": "Capacity of each battery to be used",
       "label_i18n": {
         "en": "Single battery capacity",
         "tr": "Tek Akü Kapasitesi",

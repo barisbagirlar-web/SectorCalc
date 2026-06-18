@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wheelDiameter",
-      "label": "Tekerlek Çapı (mm)",
+      "label": "Wheel Diameter (mm)",
       "type": "number",
       "unit": "mm",
       "default": 700,
-      "businessContext": "Bisiklet tekerleğinin dış çapı, lastik dahil (mm)",
+      "businessContext": "Outer diameter of the bicycle wheel, including tire (mm)",
       "label_i18n": {
         "en": "Wheel Diameter (mm)",
         "tr": "Tekerlek Çapı (mm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "frontTeeth",
-      "label": "Ön Dişli Sayısı",
+      "label": "Front Sprocket Teeth",
       "type": "number",
       "unit": "diş",
       "default": 50,
-      "businessContext": "Aynakol dişlisi üzerindeki diş sayısı",
+      "businessContext": "Number of teeth on the chainring",
       "label_i18n": {
         "en": "Number of Front Chainrings",
         "tr": "Ön Dişli Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "rearTeeth",
-      "label": "Arka Dişli Sayısı",
+      "label": "Rear Sprocket Teeth",
       "type": "number",
       "unit": "diş",
       "default": 15,
-      "businessContext": "Rubie dişlisi üzerindeki diş sayısı",
+      "businessContext": "Number of teeth on the rear sprocket",
       "label_i18n": {
         "en": "Number of Rear Sprockets",
         "tr": "Arka Dişli Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "timeMinutes",
-      "label": "Süre (dk)",
+      "label": "Duration (min)",
       "type": "number",
       "unit": "dk",
       "default": 60,
-      "businessContext": "Toplam sürüş süresi (dakika)",
+      "businessContext": "Total ride time (minutes)",
       "label_i18n": {
         "en": "Duration (min)",
         "tr": "Süre (dk)",

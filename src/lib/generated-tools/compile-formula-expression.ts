@@ -458,6 +458,40 @@ function transformBooleanMultiplyOne(expression: string): string {
 
 export { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
 
+/**
+ * Convert {variableName} template syntax → variableName.
+ * Some schemas use "{var}" as a placeholder; jsep rejects bare "{".
+ */
+function stripCurlyBraceVariableMarkers(expression: string): string {
+  return expression.replace(/\{([a-zA-Z_]\w*)\}/g, "$1");
+}
+
+/**
+ * Convert hex literals (0x...) → decimal numbers.
+ * jsep does not parse 0x-prefixed hex literals.
+ */
+function replaceHexLiterals(expression: string): string {
+  return expression.replace(/0x[0-9a-fA-F]+/g, (match) => {
+    const decimal = parseInt(match, 10);
+    return Number.isFinite(decimal) ? String(decimal) : match;
+  });
+}
+
+/**
+ * Strip backtick template-literal wrappers.
+ * Display-description formulas like `C(n,k) = ...` are not executable JS.
+ */
+function stripBacktickWrappers(expression: string): string {
+  const t = expression.trim();
+  if (t.startsWith("`") && t.endsWith("`")) {
+    const inner = t.slice(1, -1).trim();
+    // If the inner text is not a formula but a display string (contains spaces, =, etc.),
+    // we cannot execute it. Return the expression as-is so the caller handles the failure.
+    return inner;
+  }
+  return expression;
+}
+
 export function compileFormulaExpression(
   rawExpression: string,
   options: {
@@ -478,6 +512,10 @@ export function compileFormulaExpression(
   expression = stripNonAsciiOperators(expression);
   expression = normalizeGreekFormulaAliases(expression);
   expression = transformUniformSumDiscount(expression);
+  // ── New systematic normalizations ──
+  expression = stripBacktickWrappers(expression);
+  expression = stripCurlyBraceVariableMarkers(expression);
+  expression = replaceHexLiterals(expression);
   if (!expression) {
     logCompileFailure("PARSE_FAILURE", rawExpression, "Expression empty after stripping", options);
     return null;

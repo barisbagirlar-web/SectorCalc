@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "originalShape",
-      "label": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+      "label": "Original Pan Shape (1=Round, 2=Rectangle)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
+      "businessContext": "Shape of the original pan; 1 for round (use diameter), 2 for rectangle (sides)",
       "label_i18n": {
         "en": "Original Mold Shape (1=Round, 2=Rectangle)",
         "tr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "originalDim1",
-      "label": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+      "label": "Original Pan Dimension 1 (Diameter for round, Length for rectangle)",
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Orijinal kalıbın birinci boyutu",
+      "businessContext": "First dimension of the original pan",
       "label_i18n": {
         "en": "Original Mold Dimension 1 (Diameter for round, Length for rectangle)",
         "tr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "originalDim2",
-      "label": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+      "label": "Original Pan Dimension 2 (Width only for rectangle, leave 0 for round)",
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
+      "businessContext": "Second dimension of the original pan; 0 for round",
       "label_i18n": {
         "en": "Original Mold Dimension 2 (Width for rectangle only, leave 0 for round)",
         "tr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "originalDepth",
-      "label": "Orijinal Kalıp Derinliği",
+      "label": "Original Mold Depth",
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Orijinal kalıbın derinliği",
+      "businessContext": "Original mold depth",
       "label_i18n": {
         "en": "Original Mold Depth",
         "tr": "Orijinal Kalıp Derinliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "targetShape",
-      "label": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+      "label": "Target Mold Shape (1=Round, 2=Rectangle)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hedef kalıbın şekli",
+      "businessContext": "Target mold shape",
       "label_i18n": {
         "en": "Target Mold Shape (1=Round, 2=Rectangle)",
         "tr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "targetDim1",
-      "label": "Hedef Kalıp Ölçüsü 1",
+      "label": "Target Mold Dimension 1",
       "type": "number",
       "unit": "cm",
       "default": 24,
-      "businessContext": "Hedef kalıbın birinci boyutu",
+      "businessContext": "First dimension of target mold",
       "label_i18n": {
         "en": "Target Mold Dimension 1",
         "tr": "Hedef Kalıp Ölçüsü 1",
@@ -147,11 +147,11 @@
     },
     {
       "id": "targetDim2",
-      "label": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+      "label": "Target Mold Dimension 2 (Width for rectangle, 0 for round)",
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Hedef kalıbın ikinci boyutu",
+      "businessContext": "Second dimension of target mold",
       "label_i18n": {
         "en": "Target Mold Dimension 2 (Width for rectangle, 0 for round)",
         "tr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
@@ -171,11 +171,11 @@
     },
     {
       "id": "targetDepth",
-      "label": "Hedef Kalıp Derinliği",
+      "label": "Target Mold Depth",
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Hedef kalıbın derinliği",
+      "businessContext": "Target mold depth",
       "label_i18n": {
         "en": "Target Mold Depth",
         "tr": "Hedef Kalıp Derinliği",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initialValue",
-      "label": "Başlangıç Değeri",
+      "label": "Initial Value",
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
+      "businessContext": "Performance indicator value at the start of the improvement process (quantity, rate, etc.)",
       "label_i18n": {
         "en": "Starting Value",
         "tr": "Başlangıç Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "targetValue",
-      "label": "Hedef Değer",
+      "label": "Target Value",
       "type": "number",
       "unit": "birim",
       "default": 80,
-      "businessContext": "Ulaşılmak istenen hedef performans göstergesi değeri",
+      "businessContext": "Desired target performance indicator value",
       "label_i18n": {
         "en": "Target Value",
         "tr": "Hedef Değer",
@@ -51,11 +51,11 @@
     },
     {
       "id": "currentValue",
-      "label": "Mevcut Değer",
+      "label": "Current Value",
       "type": "number",
       "unit": "birim",
       "default": 90,
-      "businessContext": "Şu anki güncel performans göstergesi değeri",
+      "businessContext": "Current performance indicator value",
       "label_i18n": {
         "en": "Current Value",
         "tr": "Mevcut Değer",
@@ -75,11 +75,11 @@
     },
     {
       "id": "yearsElapsed",
-      "label": "Geçen Yıl",
+      "label": "Last Year",
       "type": "number",
       "unit": "yıl",
       "default": 1,
-      "businessContext": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
+      "businessContext": "Time elapsed from start to present (in years)",
       "label_i18n": {
         "en": "Last Year",
         "tr": "Geçen Yıl",
@@ -99,11 +99,11 @@
     },
     {
       "id": "confidenceFactor",
-      "label": "Güven Kat Sayısı",
+      "label": "Confidence Coefficient",
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
+      "businessContext": "Confidence level multiplier applied to the calculated improvement rate (1: standard, >1: more conservative estimate)",
       "label_i18n": {
         "en": "Safety factor",
         "tr": "Güven Kat Sayısı",

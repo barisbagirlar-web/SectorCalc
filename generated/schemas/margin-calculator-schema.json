@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Ürün veya hizmet başına maliyet",
+      "businessContext": "Cost per product or service",
       "label_i18n": {
         "en": "Birim Maliyet",
         "tr": "Unit Cost",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sellingPrice",
-      "label": "Liste Satış Fiyatı",
+      "label": "List Selling Price",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "İndirim öncesi satış fiyatı",
+      "businessContext": "Sale price before discount",
       "label_i18n": {
         "en": "List Selling Price",
         "tr": "Liste Satış Fiyatı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "Adet",
       "default": 1,
-      "businessContext": "Satılan ürün adedi",
+      "businessContext": "Number of products sold",
       "label_i18n": {
         "en": "Miktar",
         "tr": "Quantity",
@@ -75,11 +75,11 @@
     },
     {
       "id": "discount",
-      "label": "İndirim Oranı",
+      "label": "Discount Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Satış fiyatı üzerinden yüzde indirim",
+      "businessContext": "Percentage discount on sale price",
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İndirim Oranı",

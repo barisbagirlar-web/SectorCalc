@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "₺",
       "default": 100000,
-      "businessContext": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)",
+      "businessContext": "Total initial investment (franchise fee, equipment, etc.)",
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "monthlyRevenue",
-      "label": "Aylık Gelir",
+      "label": "Monthly Income",
       "type": "number",
       "unit": "₺/ay",
       "default": 50000,
-      "businessContext": "Beklenen aylık brüt gelir",
+      "businessContext": "Expected monthly gross revenue",
       "label_i18n": {
         "en": "Monthly Income",
         "tr": "Aylık Gelir",
@@ -51,11 +51,11 @@
     },
     {
       "id": "royaltyRate",
-      "label": "Royalty Oranı",
+      "label": "Royalty Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Aylık gelirden yüzde olarak royalty kesintisi",
+      "businessContext": "Royalty deduction as percentage of monthly revenue",
       "label_i18n": {
         "en": "Royalty Rate",
         "tr": "Royalty Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "marketingFeeRate",
-      "label": "Pazarlama Fon Oranı",
+      "label": "Marketing Fund Rate",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi",
+      "businessContext": "Marketing fund deduction as percentage of monthly income",
       "label_i18n": {
         "en": "Marketing Fund Rate",
         "tr": "Pazarlama Fon Oranı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "₺/ay",
       "default": 20000,
-      "businessContext": "Kira, personel, malzeme vb. aylık operasyonel giderler",
+      "businessContext": "Monthly operational expenses (rent, personnel, materials, etc.)",
       "label_i18n": {
         "en": "Operasyonel Giderler",
         "tr": "Operasyonel giderler",
@@ -123,11 +123,11 @@
     },
     {
       "id": "otherFeesMonthly",
-      "label": "Diğer Aylık Ücretler",
+      "label": "Other Monthly Fees",
       "type": "number",
       "unit": "₺/ay",
       "default": 0,
-      "businessContext": "Diğer aylık sabit ücretler (lisans, yazılım vb.)",
+      "businessContext": "Other monthly fixed fees (licenses, software, etc.)",
       "label_i18n": {
         "en": "Other monthly fees",
         "tr": "Diğer Aylık Ücretler",

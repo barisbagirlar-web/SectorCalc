@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "monthlyIncome",
-      "label": "Aylık Net Gelir",
+      "label": "Monthly Net Income",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Vergi sonrası aylık net gelir",
+      "businessContext": "Monthly net income after tax",
       "label_i18n": {
         "en": "Monthly net income",
         "tr": "Aylık Net Gelir",
@@ -27,14 +27,14 @@
     },
     {
       "id": "rent",
-      "label": "Kira",
+      "label": "Rent",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Aylık kira veya konut kredisi ödemesi",
+      "businessContext": "Monthly rent or mortgage payment",
       "label_i18n": {
-        "en": "Kira",
-        "tr": "Rent",
+        "en": "Rent",
+        "tr": "Kira",
         "de": "Miete",
         "fr": "Loyer",
         "es": "Alquiler",
@@ -51,14 +51,14 @@
     },
     {
       "id": "utilities",
-      "label": "Faturalar",
+      "label": "Bills",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Elektrik, su, doğalgaz, internet vb. faturalar",
+      "businessContext": "Electricity, water, gas, internet, etc. bills",
       "label_i18n": {
-        "en": "Faturalar",
-        "tr": "Bills",
+        "en": "Bills",
+        "tr": "Faturalar",
         "de": "Nebenkosten",
         "fr": "Factures",
         "es": "Facturas",
@@ -75,11 +75,11 @@
     },
     {
       "id": "grocery",
-      "label": "Mutfak Masrafları",
+      "label": "Kitchen Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Aylık gıda ve market harcamaları",
+      "businessContext": "Monthly food and grocery expenses",
       "label_i18n": {
         "en": "Kitchen expenses",
         "tr": "Mutfak Masrafları",
@@ -99,11 +99,11 @@
     },
     {
       "id": "transportation",
-      "label": "Ulaşım",
+      "label": "Transportation",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Yakıt, toplu taşıma, araç bakım vb. ulaşım giderleri",
+      "businessContext": "Fuel, public transport, vehicle maintenance, etc. transportation expenses",
       "label_i18n": {
         "en": "Transportation",
         "tr": "Ulaşım",
@@ -123,14 +123,14 @@
     },
     {
       "id": "savings",
-      "label": "Tasarruf",
+      "label": "Savings",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Aylık düzenli tasarruf miktarı",
+      "businessContext": "Monthly regular savings amount",
       "label_i18n": {
-        "en": "Tasarruf",
-        "tr": "Savings",
+        "en": "Savings",
+        "tr": "Tasarruf",
         "de": "Ersparnisse",
         "fr": "Épargne",
         "es": "Ahorro",
@@ -147,11 +147,11 @@
     },
     {
       "id": "otherExpenses",
-      "label": "Diğer Giderler",
+      "label": "Other Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Eğlence, sağlık, giyim vb. diğer harcamalar",
+      "businessContext": "Entertainment, health, clothing, etc. other expenses",
       "label_i18n": {
         "en": "Other expenses",
         "tr": "Diğer Giderler",

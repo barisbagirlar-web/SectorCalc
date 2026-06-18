@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "cardLength",
-      "label": "Kart Uzunluğu",
+      "label": "Card Length",
       "type": "number",
       "unit": "mm",
       "default": 85.6,
-      "businessContext": "Kartın uzun kenarı",
+      "businessContext": "Long side of the card",
       "label_i18n": {
         "en": "Card Length",
         "tr": "Kart Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "cardWidth",
-      "label": "Kart Genişliği",
+      "label": "Card Width",
       "type": "number",
       "unit": "mm",
       "default": 54,
-      "businessContext": "Kartın kısa kenarı",
+      "businessContext": "Short side of the card",
       "label_i18n": {
         "en": "Card Width",
         "tr": "Kart Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "cardThickness",
-      "label": "Kart Kalınlığı",
+      "label": "Card Thickness",
       "type": "number",
       "unit": "mm",
       "default": 0.76,
-      "businessContext": "Kart kalınlığı",
+      "businessContext": "Card thickness",
       "label_i18n": {
         "en": "Card Thickness",
         "tr": "Kart Kalınlığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "materialDensity",
-      "label": "Malzeme Yoğunluğu",
+      "label": "Material Density",
       "type": "number",
       "unit": "g/cm³",
       "default": 1.35,
-      "businessContext": "PVC malzeme yoğunluğu",
+      "businessContext": "PVC material density",
       "label_i18n": {
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
@@ -99,11 +99,11 @@
     },
     {
       "id": "materialCostPerKg",
-      "label": "Malzeme Birim Fiyatı",
+      "label": "Material unit price",
       "type": "number",
       "unit": "TL/kg",
       "default": 10,
-      "businessContext": "Hammadde kilogram fiyatı",
+      "businessContext": "Raw material price per kilogram",
       "label_i18n": {
         "en": "Material unit price",
         "tr": "Malzeme Birim Fiyatı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretim firesi yüzdesi",
+      "businessContext": "Production waste percentage",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",
@@ -147,7 +147,7 @@
     },
     {
       "id": "batchSize",
-      "label": "Parti Büyüklüğü",
+      "label": "Batch Size",
       "type": "number",
       "unit": "adet",
       "default": 1000,

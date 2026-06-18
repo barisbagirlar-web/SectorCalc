@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "startingCustomers",
-      "label": "Dönem Başı Müşteri Sayısı",
+      "label": "Number of Customers at Start of Period",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Ölçüm döneminin başındaki aktif müşteri sayısı",
+      "businessContext": "Number of active customers at the beginning of the measurement period",
       "label_i18n": {
         "en": "Number of Customers at Start of Period",
         "tr": "Dönem Başı Müşteri Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "lostCustomers",
-      "label": "Kaybedilen Müşteri Sayısı",
+      "label": "Number of Lost Customers",
       "type": "number",
       "unit": "adet",
       "default": 50,
-      "businessContext": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
+      "businessContext": "Number of customers lost (churned) during the period",
       "label_i18n": {
         "en": "Number of Lost Customers",
         "tr": "Kaybedilen Müşteri Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "startingMRR",
-      "label": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+      "label": "Monthly Recurring Revenue (MRR) at the beginning of the period",
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Dönem başındaki toplam aylık yinelenen gelir",
+      "businessContext": "Total monthly recurring revenue at the beginning of the period",
       "label_i18n": {
         "en": "Monthly Recurring Revenue (MRR) at the beginning of the period",
         "tr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
+      "businessContext": "Monthly recurring revenue lost from churned customers",
       "label_i18n": {
         "en": "Kaybedilen MRR",
         "tr": "Kaybedilen MRR (kW)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "periodMonths",
-      "label": "Ölçüm Dönemi (Ay)",
+      "label": "Measurement Period (Month)",
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
+      "businessContext": "Period over which the churn rate is calculated (usually monthly)",
       "label_i18n": {
         "en": "Measurement period (months)",
         "tr": "Ölçüm Dönemi (Ay)",

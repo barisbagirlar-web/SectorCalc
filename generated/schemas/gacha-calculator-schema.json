@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "costPerPull",
-      "label": "Tek Çekim Maliyeti",
+      "label": "Single Draw Cost",
       "type": "number",
       "unit": "TRY",
       "default": 10,
-      "businessContext": "Bir gacha çekiminin birim maliyeti.",
+      "businessContext": "Unit cost of one gacha draw.",
       "label_i18n": {
         "en": "Single Draw Cost",
         "tr": "Tek çekim maliyeti",
@@ -27,11 +27,11 @@
     },
     {
       "id": "baseProbability",
-      "label": "Temel Başarı Olasılığı",
+      "label": "Base Success Probability",
       "type": "number",
       "unit": "%",
       "default": 0.6,
-      "businessContext": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
+      "businessContext": "Probability of obtaining a successful result in each draw (percent).",
       "label_i18n": {
         "en": "Base Success Probability",
         "tr": "Temel başarı olasılığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hardPityAt",
-      "label": "Garanti Eşiği (Çekim Sayısı)",
+      "label": "Pity Threshold (Number of Draws)",
       "type": "number",
       "unit": "adet",
       "default": 90,
-      "businessContext": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
+      "businessContext": "Success is guaranteed when this number of draws is reached. 0 means no guarantee.",
       "label_i18n": {
         "en": "Pity Threshold (Number of Draws)",
         "tr": "Garanti eşiği (çekim sayısı)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "desiredSuccesses",
-      "label": "Hedef Başarı Sayısı",
+      "label": "Target Number of Successes",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Elde edilmek istenen başarılı sonuç sayısı.",
+      "businessContext": "Number of successful results desired.",
       "label_i18n": {
         "en": "Target Number of Successes",
         "tr": "Hedef başarı sayısı",

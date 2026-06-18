@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "averageOrderValue",
-      "label": "Ortalama Sipariş Değeri",
+      "label": "Average Order Value",
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Müşteri başına ortalama harcama tutarı.",
+      "businessContext": "Average spending amount per customer.",
       "label_i18n": {
         "en": "Average Order Value",
         "tr": "Ortalama Sipariş Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "orderFrequency",
-      "label": "Yıllık Sipariş Sıklığı",
+      "label": "Annual Order Frequency",
       "type": "number",
       "unit": "adet/yıl",
       "default": 4,
-      "businessContext": "Müşterinin yılda kaç kez sipariş verdiği.",
+      "businessContext": "How many times a customer orders per year.",
       "label_i18n": {
         "en": "Annual Order Frequency",
         "tr": "Yıllık Sipariş Sıklığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "customerLifespan",
-      "label": "Müşteri Ömrü",
+      "label": "Customer Lifetime",
       "type": "number",
       "unit": "yıl",
       "default": 3,
-      "businessContext": "Müşterinin aktif kaldığı süre.",
+      "businessContext": "Duration the customer remains active.",
       "label_i18n": {
         "en": "Customer Lifetime",
         "tr": "Müşteri Ömrü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "profitMargin",
-      "label": "Kar Marjı",
+      "label": "Profit Margin",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Sipariş değerinden elde edilen kar oranı.",
+      "businessContext": "Profit rate obtained from order value.",
       "label_i18n": {
         "en": "Profit Margin",
         "tr": "Kar Marjı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "discountRate",
-      "label": "İndirim Oranı",
+      "label": "Discount Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. %0 basit CLV için.",
+      "businessContext": "Rate used to discount future cash flows to present value. 0% for simple CLV.",
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "annualProfit": "({averageOrderValue} * {orderFrequency} * ({profitMargin} / 100))",
-    "totalProfitUndiscounted": "({annualProfit} * {customerLifespan})"
+    "annualProfit": "(averageOrderValue * orderFrequency * (profitMargin / 100))",
+    "totalProfitUndiscounted": "(annualProfit * customerLifespan)"
   },
   "outputs": {
     "primary": "totalProfitUndiscounted",

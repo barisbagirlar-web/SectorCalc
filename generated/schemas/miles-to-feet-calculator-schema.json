@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mi",
       "default": 1,
-      "businessContext": "Dönüştürülecek mil değeri",
+      "businessContext": "Mile value to convert",
       "label_i18n": {
         "en": "Mil",
         "tr": "Miles",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuç gösterim hassasiyeti",
+      "businessContext": "Result display precision",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
@@ -51,11 +51,11 @@
     },
     {
       "id": "showYards",
-      "label": "Yard Gösterimi",
+      "label": "Yard Display",
       "type": "number",
       "unit": "flag",
       "default": 1,
-      "businessContext": "Yard cinsinden eşdeğeri göster",
+      "businessContext": "Show equivalent in yards",
       "label_i18n": {
         "en": "Yard Display",
         "tr": "Yard Gösterimi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "conversionFactor",
-      "label": "Dönüşüm Katsayısı",
+      "label": "Conversion Factor",
       "type": "number",
       "unit": "ft/mi",
       "default": 5280,
-      "businessContext": "Özel dönüşüm faktörü (standart: 5280)",
+      "businessContext": "Custom conversion factor (standard: 5280)",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Katsayısı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "length",
-      "label": "Parça Uzunluğu (mm)",
+      "label": "Part Length (mm)",
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "İşlenecek ahşap parçanın uzunluğu",
+      "businessContext": "Length of the wood piece to be processed",
       "label_i18n": {
         "en": "Part Length (mm)",
         "tr": "Parça Uzunluğu (mm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "width",
-      "label": "Parça Genişliği (mm)",
+      "label": "Part Width (mm)",
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "İşlenecek ahşap parçanın genişliği",
+      "businessContext": "Width of the wood piece to be processed",
       "label_i18n": {
         "en": "Part Width (mm)",
         "tr": "Parça Genişliği (mm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "thickness",
-      "label": "Parça Kalınlığı (mm)",
+      "label": "Part Thickness (mm)",
       "type": "number",
       "unit": "mm",
       "default": 18,
-      "businessContext": "Ahşap malzemenin kalınlığı",
+      "businessContext": "Thickness of the wood material",
       "label_i18n": {
         "en": "Part Thickness (mm)",
         "tr": "Parça Kalınlığı (mm)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "quantity",
-      "label": "Parça Adedi",
+      "label": "Number of Parts",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Üretilecek parça sayısı",
+      "businessContext": "Number of parts to be produced",
       "label_i18n": {
         "en": "Number of Parts",
         "tr": "Parça Adedi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "wastePercent",
-      "label": "Fire Oranı (%)",
+      "label": "Waste Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve işleme sırasında oluşan fire yüzdesi",
+      "businessContext": "Percentage of waste during cutting and processing",
       "label_i18n": {
         "en": "Waste rate (%)",
         "tr": "Fire Oranı (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "density",
-      "label": "Yoğunluk (kg/m³)",
+      "label": "Density (kg/m³)",
       "type": "number",
       "unit": "kg/m³",
       "default": 700,
-      "businessContext": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
+      "businessContext": "Density of the wood material (e.g., pine ~500, oak ~700)",
       "label_i18n": {
         "en": "Density (kg/m³)",
         "tr": "Yoğunluk (kg/m³)",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "TL/m³",
       "default": 12000,
-      "businessContext": "Ahşap malzemenin metreküp başına maliyeti",
+      "businessContext": "Cost per cubic meter of wood material",
       "label_i18n": {
         "en": "Birim Maliyet (TL/m³)",
         "tr": "Unit Cost (TL/m³)",

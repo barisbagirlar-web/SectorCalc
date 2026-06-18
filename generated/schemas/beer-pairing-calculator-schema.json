@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "IBU",
       "default": 30,
-      "businessContext": "Biranın Uluslararası Acılık Birimi cinsinden acılık derecesi",
+      "businessContext": "Bitterness of beer in International Bitterness Units",
       "label_i18n": {
         "en": "Bira IBU",
         "tr": "Beer IBU",
@@ -27,11 +27,11 @@
     },
     {
       "id": "beerABV",
-      "label": "Bira Alkol Oranı",
+      "label": "Beer Alcohol Content",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Biranın alkol oranı (% hacim)",
+      "businessContext": "Alcohol content of beer (% volume)",
       "label_i18n": {
         "en": "Beer Alcohol Percentage",
         "tr": "Bira Alkol Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "foodRichness",
-      "label": "Yiyecek Zenginlik/Yoğunluk",
+      "label": "Food Richness/Density",
       "type": "number",
       "unit": "ölçek",
       "default": 5,
-      "businessContext": "1 (hafif) ile 10 (ağır/yoğun) arasında yiyecek yoğunluğu",
+      "businessContext": "Food density between 1 (light) and 10 (heavy/dense)",
       "label_i18n": {
         "en": "Food Richness/Density",
         "tr": "Yiyecek Zenginlik/Yoğunluk",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "ölçek",
       "default": 3,
-      "businessContext": "1 (baharatsız) ile 10 (çok baharatlı) arasında",
+      "businessContext": "Between 1 (no spices) and 10 (very spicy)",
       "label_i18n": {
         "en": "Yiyecek Baharat Seviyesi",
         "tr": "Food Spice Level",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "ölçek",
       "default": 3,
-      "businessContext": "1 (düşük) ile 10 (yüksek) asidite seviyesi",
+      "businessContext": "Acidity level between 1 (low) and 10 (high)",
       "label_i18n": {
         "en": "Yiyecek Asidite",
         "tr": "Food Acidity",

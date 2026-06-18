@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "investmentAmount",
-      "label": "Yatırım Tutarı",
+      "label": "Investment Amount",
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Mevcut yatırımın başlangıç tutarı",
+      "businessContext": "Initial amount of current investment",
       "label_i18n": {
         "en": "Investment Amount",
         "tr": "Yatırım Tutarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "currentReturnRate",
-      "label": "Mevcut Getiri Oranı",
+      "label": "Current Rate of Return",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Mevcut yatırımın yıllık getiri oranı",
+      "businessContext": "Annual rate of return on current investment",
       "label_i18n": {
         "en": "Current Rate of Return",
         "tr": "Mevcut Getiri Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "alternativeReturnRate",
-      "label": "Alternatif Getiri Oranı",
+      "label": "Alternative Rate of Return",
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Alternatif yatırımın yıllık getiri oranı",
+      "businessContext": "Annual rate of return on alternative investment",
       "label_i18n": {
         "en": "Alternative Rate of Return",
         "tr": "Alternatif Getiri Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "Yıl",
       "default": 1,
-      "businessContext": "Yatırım süresi (yıl)",
+      "businessContext": "Investment period (years)",
       "label_i18n": {
         "en": "Vade",
         "tr": "Term",

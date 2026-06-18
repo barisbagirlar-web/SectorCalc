@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "lowerBound",
-      "label": "Alt Sınır (a)",
+      "label": "Lower Limit (a)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Entegrasyon başlangıcı",
+      "businessContext": "Integration start",
       "label_i18n": {
         "en": "Lower limit (a)",
         "tr": "Alt Sınır (a)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "upperBound",
-      "label": "Üst Sınır (b)",
+      "label": "Upper Limit (b)",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Entegrasyon bitişi",
+      "businessContext": "Integration end",
       "label_i18n": {
         "en": "Upper limit (b)",
         "tr": "Üst Sınır (b)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "coeffA",
-      "label": "Katsayı A (ax²)",
+      "label": "Coefficient A (ax²)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "İkinci dereceden katsayı",
+      "businessContext": "Quadratic coefficient",
       "label_i18n": {
         "en": "Coefficient A (ax²)",
         "tr": "Katsayı A (ax²)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "coeffB",
-      "label": "Katsayı B (bx)",
+      "label": "Coefficient B (bx)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Birinci dereceden katsayı",
+      "businessContext": "First-order coefficient",
       "label_i18n": {
         "en": "Coefficient B (bx)",
         "tr": "Katsayı B (bx)",
@@ -99,7 +99,7 @@
     },
     {
       "id": "coeffC",
-      "label": "Katsayı C (c)",
+      "label": "Coefficient C (c)",
       "type": "number",
       "unit": "unit",
       "default": 0,

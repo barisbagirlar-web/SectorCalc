@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Yatırımın başlangıçta yatırılan toplam tutar.",
+      "businessContext": "Total initial investment amount.",
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "monthlyContribution",
-      "label": "Aylık Katkı",
+      "label": "Monthly Contribution",
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Her ay düzenli olarak yatırılan tutar.",
+      "businessContext": "Regular monthly investment amount.",
       "label_i18n": {
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "annualReturnRate",
-      "label": "Yıllık Getiri Oranı",
+      "label": "Annual Return Rate",
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "ETF'nin beklenen yıllık nominal getiri oranı.",
+      "businessContext": "Expected annual nominal return rate of the ETF.",
       "label_i18n": {
         "en": "Annual return rate",
         "tr": "Yıllık Getiri Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "investmentPeriod",
-      "label": "Yatırım Süresi",
+      "label": "Investment Period",
       "type": "number",
       "unit": "yıl",
       "default": 20,
-      "businessContext": "Yatırımın devam edeceği toplam süre.",
+      "businessContext": "Total duration of the investment.",
       "label_i18n": {
         "en": "Investment period",
         "tr": "Yatırım Süresi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "expenseRatio",
-      "label": "Yıllık Gider Oranı",
+      "label": "Annual Expense Ratio",
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "ETF yönetim ücreti ve diğer yıllık giderleri kapsayan oran.",
+      "businessContext": "Ratio covering ETF management fee and other annual expenses.",
       "label_i18n": {
         "en": "Annual expense ratio",
         "tr": "Yıllık Gider Oranı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Uzun vadeli ortalama yıllık enflasyon oranı.",
+      "businessContext": "Long-term average annual inflation rate.",
       "label_i18n": {
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "fieldArea",
-      "label": "Tarla Alanı",
+      "label": "Field Area",
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Kabak ekili tarla alanı",
+      "businessContext": "Pumpkin planted field area",
       "label_i18n": {
         "en": "Field Area",
         "tr": "Tarla Alanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "plantDensity",
-      "label": "Bitki Sıklığı",
+      "label": "Plant Density",
       "type": "number",
       "unit": "adet/m²",
       "default": 0.5,
-      "businessContext": "Metrekare başına düşen kabak bitkisi sayısı",
+      "businessContext": "Number of pumpkin plants per square meter",
       "label_i18n": {
         "en": "Plant Density",
         "tr": "Bitki Sıklığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "pumpkinsPerPlant",
-      "label": "Bitki Başı Kabak",
+      "label": "Pumpkins per Plant",
       "type": "number",
       "unit": "adet",
       "default": 1.5,
-      "businessContext": "Bitki başına ortalama hasat edilen kabak sayısı",
+      "businessContext": "Average number of pumpkins harvested per plant",
       "label_i18n": {
         "en": "Pumpkins per Plant",
         "tr": "Bitki Başı Kabak",
@@ -75,11 +75,11 @@
     },
     {
       "id": "avgWeight",
-      "label": "Ortalama Ağırlık",
+      "label": "Average Weight",
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Kabak başına ortalama ağırlık",
+      "businessContext": "Average weight per pumpkin",
       "label_i18n": {
         "en": "Average Weight",
         "tr": "Ortalama Ağırlık",
@@ -99,11 +99,11 @@
     },
     {
       "id": "lossRate",
-      "label": "Kayıp Oranı",
+      "label": "Loss Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Zararlı, hasar vb. nedenli kayıp yüzdesi",
+      "businessContext": "Percentage loss due to pests, damage, etc.",
       "label_i18n": {
         "en": "Loss Rate",
         "tr": "Kayıp Oranı",

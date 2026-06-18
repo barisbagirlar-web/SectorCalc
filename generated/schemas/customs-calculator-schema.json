@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "cifValue",
-      "label": "CIF Değeri",
+      "label": "CIF Value",
       "type": "number",
       "unit": "TRY",
       "default": 1000,
@@ -27,11 +27,11 @@
     },
     {
       "id": "dutyRate",
-      "label": "Gümrük Vergisi Oranı (%)",
+      "label": "Customs Duty Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gümrük vergisi oranı",
+      "businessContext": "Customs duty rate",
       "label_i18n": {
         "en": "Customs Duty Rate (%)",
         "tr": "Gümrük Vergisi Oranı (%)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "vatRate",
-      "label": "KDV Oranı (%)",
+      "label": "VAT Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Katma Değer Vergisi oranı",
+      "businessContext": "Value Added Tax rate",
       "label_i18n": {
         "en": "VAT rate (%)",
         "tr": "KDV Oranı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "exciseRate",
-      "label": "ÖTV Oranı (%)",
+      "label": "Special Consumption Tax Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Özel Tüketim Vergisi oranı (varsa)",
+      "businessContext": "Special Consumption Tax rate (if any)",
       "label_i18n": {
         "en": "Special Consumption Tax Rate (%)",
         "tr": "ÖTV Oranı (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "fixedFee",
-      "label": "Sabit Ücret",
+      "label": "Fixed Fee",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar",
+      "businessContext": "Fixed expenses such as stamp duty, customs presentation fee, etc.",
       "label_i18n": {
         "en": "Fixed Fee",
         "tr": "Sabit Ücret",

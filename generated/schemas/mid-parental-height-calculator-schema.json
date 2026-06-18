@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "cm",
       "default": 180,
-      "businessContext": "Babanın boyu santimetre cinsinden",
+      "businessContext": "Father's height in centimeters",
       "label_i18n": {
         "en": "Baba Boyu (cm)",
         "tr": "Father's Height (cm)",
@@ -51,7 +51,7 @@
     },
     {
       "id": "childSex",
-      "label": "Çocuk Cinsiyeti",
+      "label": "Child Gender",
       "type": "number",
       "unit": "none",
       "default": 1,
@@ -75,11 +75,11 @@
     },
     {
       "id": "resultUnit",
-      "label": "Sonuç Birimi",
+      "label": "Result Unit",
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0: cm, 1: inç",
+      "businessContext": "0: cm, 1: in",
       "label_i18n": {
         "en": "Result Unit",
         "tr": "Sonuç Birimi",

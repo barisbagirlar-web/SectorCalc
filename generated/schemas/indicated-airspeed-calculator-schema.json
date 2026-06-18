@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "Pa",
       "default": 102925,
-      "businessContext": "Pitot tüpünden okunan toplam basınç değeri",
+      "businessContext": "Total pressure value read from the pitot tube",
       "label_i18n": {
         "en": "Pitot Pressure (Pa)",
         "tr": "Pitot Basıncı (Pa)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Statik porttan alınan atmosfer basıncı",
+      "businessContext": "Atmospheric pressure from the static port",
       "label_i18n": {
         "en": "Static Pressure (Pa)",
         "tr": "Statik Basınç (Pa)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
+      "businessContext": "International Standard Atmosphere (ISA) sea level air density",
       "label_i18n": {
         "en": "Air Density (kg/m³)",
         "tr": "Hava Yoğunluğu (kg/m³)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
+      "businessContext": "Correction coefficient for pitot-static system position error, usually taken as 1.0",
       "label_i18n": {
         "en": "Position Error Correction Factor",
         "tr": "Pozisyon Hatası Düzeltme Faktörü",

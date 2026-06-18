@@ -172,8 +172,8 @@
   ],
   "formulas": {
     "totalMass": "cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass",
-    "yieldVolume": "(cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass) / freshDensity",
-    "yieldPerBag": "((cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass) / freshDensity) / (cementMass / bagMass)"
+    "yieldVolume": "totalMass / freshDensity",
+    "yieldPerBag": "yieldVolume / (cementMass / bagMass)"
   },
   "outputs": {
     "primary": "yieldVolume",
@@ -186,7 +186,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "yieldPerBag",
-    "unit": "kg"
+    "unit": "m³"
   },
   "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",

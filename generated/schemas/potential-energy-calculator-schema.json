@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass",
-      "label": "Kütle",
+      "label": "Mass",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin kütlesi",
+      "businessContext": "Mass of the object",
       "label_i18n": {
         "en": "Mass",
         "tr": "Kütle",
@@ -27,11 +27,11 @@
     },
     {
       "id": "gravity",
-      "label": "Yerçekimi İvmesi",
+      "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerçekimi ivmesi, varsayılan 9.81 m/s²",
+      "businessContext": "Gravitational acceleration, default 9.81 m/s²",
       "label_i18n": {
         "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "initialHeight",
-      "label": "Başlangıç Yüksekliği",
+      "label": "Initial Height",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans seviyesinden başlangıç yüksekliği",
+      "businessContext": "Initial height from reference level",
       "label_i18n": {
         "en": "Initial height",
         "tr": "Başlangıç Yüksekliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "finalHeight",
-      "label": "Bitiş Yüksekliği",
+      "label": "Final Height",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans seviyesinden bitiş yüksekliği",
+      "businessContext": "Final height from reference level",
       "label_i18n": {
         "en": "Final Height",
         "tr": "Bitiş Yüksekliği",

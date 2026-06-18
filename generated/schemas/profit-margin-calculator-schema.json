@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "EUR",
       "default": 100000,
-      "businessContext": "Toplam gelir (satış gelirleri)",
+      "businessContext": "Total revenue (sales revenue)",
       "label_i18n": {
         "en": "Total Revenue",
         "tr": "Toplam Gelir",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "EUR",
       "default": 60000,
-      "businessContext": "Satılan malın maliyeti (direkt giderler)",
+      "businessContext": "Cost of goods sold (direct expenses)",
       "label_i18n": {
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "EUR",
       "default": 5000,
-      "businessContext": "Diğer giderler (faiz, amortisman vb.)",
+      "businessContext": "Other expenses (interest, depreciation, etc.)",
       "label_i18n": {
         "en": "Other Expenses",
         "tr": "Diğer Giderler",

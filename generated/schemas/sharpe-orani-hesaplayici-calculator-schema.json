@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "expectedReturn",
-      "label": "Beklenen Getiri (Dönem, %)",
+      "label": "Expected Return (Period, %)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Portföyün hesaplama dönemindeki yüzde getirisi",
+      "businessContext": "Percentage return of the portfolio over the calculation period",
       "label_i18n": {
         "en": "Expected Return (Period, %)",
         "tr": "Beklenen Getiri (Dönem, %)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
+      "businessContext": "Risk-free rate for the same period (e.g., government bond)",
       "label_i18n": {
         "en": "Risk-Free Return (Period, %)",
         "tr": "Risksiz Getiri (Dönem, %)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
+      "businessContext": "Volatility/variability of portfolio return in the same period",
       "label_i18n": {
         "en": "Portfolio Standard Deviation (Period, %)",
         "tr": "Portföy Standart Sapması (Dönem, %)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet/yıl",
       "default": 12,
-      "businessContext": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
+      "businessContext": "Number of calculation periods in a year (e.g., 12 for monthly, 252 for daily)",
       "label_i18n": {
         "en": "Number of Periods per Year",
         "tr": "Yıllık Dönem Sayısı",

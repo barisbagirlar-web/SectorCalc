@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl net kar / toplam varlıklar pozitif ise 1, değilse 0.",
+      "businessContext": "1 if current year net profit / total assets is positive, otherwise 0.",
       "label_i18n": {
         "en": "ROA Positive",
         "tr": "ROA Pozitif",
@@ -27,11 +27,11 @@
     },
     {
       "id": "cfoPositive",
-      "label": "İşletme Nakit Akışı Pozitif",
+      "label": "Operating Cash Flow Positive",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl faaliyet nakit akışı pozitif ise 1, değilse 0.",
+      "businessContext": "1 if current year operating cash flow is positive, otherwise 0.",
       "label_i18n": {
         "en": "Operating Cash Flow Positive",
         "tr": "İşletme Nakit Akışı Pozitif",
@@ -51,11 +51,11 @@
     },
     {
       "id": "roaIncreased",
-      "label": "ROA Artışı",
+      "label": "ROA Increase",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0.",
+      "businessContext": "1 if current year ROA increased compared to previous year, otherwise 0.",
       "label_i18n": {
         "en": "ROA Increase",
         "tr": "ROA Artışı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "accrualLow",
-      "label": "Düşük Tahakkuk",
+      "label": "Low Accruals",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "İşletme nakit akışı net kardan büyükse 1, değilse 0.",
+      "businessContext": "1 if operating cash flow is greater than net profit, otherwise 0.",
       "label_i18n": {
         "en": "Low Accruals",
         "tr": "Düşük Tahakkuk",
@@ -99,11 +99,11 @@
     },
     {
       "id": "leverageDecreased",
-      "label": "Kaldıraç Azalışı",
+      "label": "Leverage Decrease",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0.",
+      "businessContext": "1 if long-term debt / total assets ratio decreased, otherwise 0.",
       "label_i18n": {
         "en": "Leverage Decrease",
         "tr": "Kaldıraç Azalışı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "currentRatioIncreased",
-      "label": "Cari Oran Artışı",
+      "label": "Current Ratio Increase",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0.",
+      "businessContext": "1 if current year current ratio increased compared to previous year, otherwise 0.",
       "label_i18n": {
         "en": "Current Ratio Increase",
         "tr": "Cari Oran Artışı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "grossMarginIncreased",
-      "label": "Brüt Kar Marjı Artışı",
+      "label": "Gross Profit Margin Increase",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0.",
+      "businessContext": "1 if current year gross profit margin increased compared to previous year, otherwise 0.",
       "label_i18n": {
         "en": "Gross Profit Margin Increase",
         "tr": "Brüt Kar Marjı Artışı",
@@ -171,11 +171,11 @@
     },
     {
       "id": "assetTurnoverIncreased",
-      "label": "Varlık Devir Hızı Artışı",
+      "label": "Asset Turnover Increase",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0.",
+      "businessContext": "1 if current year asset turnover increased compared to previous year, otherwise 0.",
       "label_i18n": {
         "en": "Asset Turnover Increase",
         "tr": "Varlık Devir Hızı Artışı",

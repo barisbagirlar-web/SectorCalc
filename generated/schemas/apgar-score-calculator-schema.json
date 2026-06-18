@@ -123,28 +123,26 @@
     }
   ],
   "formulas": {
-    "totalScore": "appearance + pulse + grimace + activity + respiration",
-    "appearance": "appearance",
-    "pulse": "pulse",
-    "grimace": "grimace",
-    "activity": "activity",
-    "respiration": "respiration"
+    "normalized_product": "appearance * pulse * grimace * activity",
+    "result": "appearance * pulse * grimace * activity * (respiration)",
+    "adjustment_factor": "respiration"
   },
   "outputs": {
-    "primary": "totalScore",
+    "primary": "result",
     "breakdown": [
-      "appearance",
-      "pulse",
-      "grimace",
-      "activity",
-      "respiration"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "respiration",
-    "unit": "points",
+    "dataConfidenceAdjusted": "result",
+    "unit": "units",
     "breakdownUnits": {
       "respiration": "%"
     }

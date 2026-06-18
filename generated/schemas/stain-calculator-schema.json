@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "surfaceArea",
-      "label": "Yüzey Alanı",
+      "label": "Surface Area",
       "type": "number",
       "unit": "m²",
       "default": 10,
@@ -27,7 +27,7 @@
     },
     {
       "id": "stainIntensity",
-      "label": "Leke Yoğunluğu",
+      "label": "Stain Density",
       "type": "number",
       "unit": "%",
       "default": 50,
@@ -51,7 +51,7 @@
     },
     {
       "id": "coverageRate",
-      "label": "Kaplama Oranı",
+      "label": "Coverage Rate",
       "type": "number",
       "unit": "m²/L",
       "default": 10,
@@ -75,7 +75,7 @@
     },
     {
       "id": "efficiency",
-      "label": "Temizlik Verimliliği",
+      "label": "Cleaning Efficiency",
       "type": "number",
       "unit": "%",
       "default": 80,
@@ -99,7 +99,7 @@
     },
     {
       "id": "numberOfCoats",
-      "label": "Uygulama Katmanı",
+      "label": "Application Layer",
       "type": "number",
       "unit": "adet",
       "default": 1,

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Portföyün yıllıklandırılmış getiri oranı.",
+      "businessContext": "Annualized return rate of the portfolio.",
       "label_i18n": {
         "en": "Annual Portfolio Return (%)",
         "tr": "Yıllık Portföy Getirisi (%)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Genellikle aynı vadedeki devlet tahvili faizi.",
+      "businessContext": "Usually the interest rate on a government bond of the same maturity.",
       "label_i18n": {
         "en": "Annual Risk-Free Return (%)",
         "tr": "Yıllık Risksiz Getiri (%)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Portföyün günlük getirilerinin standart sapması.",
+      "businessContext": "Standard deviation of the portfolio's daily returns.",
       "label_i18n": {
         "en": "Daily Standard Deviation (%)",
         "tr": "Günlük Standart Sapma (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "gün",
       "default": 252,
-      "businessContext": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
+      "businessContext": "Number of trading days per year; typically 252 for stock markets.",
       "label_i18n": {
         "en": "Annual Trading Days",
         "tr": "Yıllık İşlem Günü Sayısı",

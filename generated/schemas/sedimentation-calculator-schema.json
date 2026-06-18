@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "particleDiameter",
-      "label": "Partikül Çapı",
+      "label": "Particle Diameter",
       "type": "number",
       "unit": "m",
       "default": 0.0001,
-      "businessContext": "Tipik çap 0.1 mm",
+      "businessContext": "Typical diameter 0.1 mm",
       "label_i18n": {
         "en": "Particle diameter",
         "tr": "Partikül Çapı",
@@ -27,7 +27,7 @@
     },
     {
       "id": "particleDensity",
-      "label": "Partikül Yoğunluğu",
+      "label": "Particle Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 2600,
@@ -51,7 +51,7 @@
     },
     {
       "id": "fluidDensity",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Fluid Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
@@ -75,11 +75,11 @@
     },
     {
       "id": "fluidViscosity",
-      "label": "Akışkan Dinamik Viskozitesi",
+      "label": "Fluid Dynamic Viscosity",
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Su için ≈ 0.001 Pa·s (20°C)",
+      "businessContext": "For water ≈ 0.001 Pa·s (20°C)",
       "label_i18n": {
         "en": "Fluid dynamic viscosity",
         "tr": "Akışkan Dinamik Viskozitesi",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.1,
-      "businessContext": "Tesis tasarım debisi",
+      "businessContext": "Plant design flow rate",
       "label_i18n": {
         "en": "Debi",
         "tr": "Flow Rate",
@@ -123,11 +123,11 @@
     },
     {
       "id": "basinLength",
-      "label": "Havuz Uzunluğu",
+      "label": "Pool Length",
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Çökeltim havuzu boyu",
+      "businessContext": "Sedimentation tank length",
       "label_i18n": {
         "en": "Pool length",
         "tr": "Havuz Uzunluğu",
@@ -147,11 +147,11 @@
     },
     {
       "id": "basinWidth",
-      "label": "Havuz Genişliği",
+      "label": "Pool Width",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Çökeltim havuzu eni",
+      "businessContext": "Sedimentation tank width",
       "label_i18n": {
         "en": "Pool width",
         "tr": "Havuz Genişliği",
@@ -171,7 +171,7 @@
     },
     {
       "id": "basinDepth",
-      "label": "Havuz Derinliği",
+      "label": "Pool Depth",
       "type": "number",
       "unit": "m",
       "default": 3,

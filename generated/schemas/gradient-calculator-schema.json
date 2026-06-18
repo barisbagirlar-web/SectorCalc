@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "startEasting",
-      "label": "Başlangıç Doğu",
+      "label": "Initial Easting",
       "type": "number",
       "unit": "m",
       "default": 0,
@@ -27,7 +27,7 @@
     },
     {
       "id": "startNorthing",
-      "label": "Başlangıç Kuzey",
+      "label": "Start North",
       "type": "number",
       "unit": "m",
       "default": 0,
@@ -51,7 +51,7 @@
     },
     {
       "id": "startElevation",
-      "label": "Başlangıç Yükseklik",
+      "label": "Start Elevation",
       "type": "number",
       "unit": "m",
       "default": 0,
@@ -75,7 +75,7 @@
     },
     {
       "id": "endEasting",
-      "label": "Bitiş Doğu",
+      "label": "End East",
       "type": "number",
       "unit": "m",
       "default": 1,
@@ -99,7 +99,7 @@
     },
     {
       "id": "endNorthing",
-      "label": "Bitiş Kuzey",
+      "label": "End North",
       "type": "number",
       "unit": "m",
       "default": 0,
@@ -123,7 +123,7 @@
     },
     {
       "id": "endElevation",
-      "label": "Bitiş Yükseklik",
+      "label": "End Elevation",
       "type": "number",
       "unit": "m",
       "default": 1,

@@ -161,7 +161,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "E_resultant",
-    "unit": "C"
+    "unit": "N/C"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -173,7 +173,26 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "r1_positive",
+        "field": "r1",
+        "condition": ">0",
+        "message": "Distance 1 must be positive"
+      },
+      {
+        "id": "r2_positive",
+        "field": "r2",
+        "condition": ">0",
+        "message": "Distance 2 must be positive"
+      },
+      {
+        "id": "epsilon_r_positive",
+        "field": "epsilon_r",
+        "condition": ">0",
+        "message": "Relative permittivity must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

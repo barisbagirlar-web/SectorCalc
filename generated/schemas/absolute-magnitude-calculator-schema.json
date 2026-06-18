@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "apparentMagnitude",
-      "label": "Görünür Parlaklık (m)",
+      "label": "Apparent Brightness (m)",
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Gök cisminin gözlemlenen parlaklık değeri",
+      "businessContext": "Observed brightness value of the celestial body",
       "label_i18n": {
         "en": "Apparent Brightness (m)",
         "tr": "Görünür Parlaklık (m)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "pc",
       "default": 10,
-      "businessContext": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
+      "businessContext": "Distance of the celestial body from Earth (in parsecs)",
       "label_i18n": {
         "en": "Distance (d)",
         "tr": "Uzaklık (d)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Yıldızlararası toz nedeniyle parlaklık kaybı",
+      "businessContext": "Brightness loss due to interstellar dust",
       "label_i18n": {
         "en": "Extinction (A_V)",
         "tr": "Sönümleme (A_V)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
+      "businessContext": "Correction for transition from visual brightness to bolometric brightness",
       "label_i18n": {
         "en": "Bolometric Correction (BC)",
         "tr": "Bolometrik Düzeltme (BC)",

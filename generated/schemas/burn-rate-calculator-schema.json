@@ -7,10 +7,10 @@
       "type": "number",
       "unit": "TRY",
       "default": 100000,
-      "businessContext": "Mevcut toplam nakit rezervi miktarı.",
+      "businessContext": "Current total cash reserve amount.",
       "label_i18n": {
-        "en": "Nakit Rezervi",
-        "tr": "Cash Reserve",
+        "en": "Cash Reserve",
+        "tr": "Nakit Rezervi",
         "de": "Bargeldreserve",
         "fr": "Réserve de trésorerie",
         "es": "Reserva de efectivo",
@@ -27,11 +27,11 @@
     },
     {
       "id": "monthlyFixedExpenses",
-      "label": "Aylık Sabit Giderler",
+      "label": "Monthly Fixed Expenses",
       "type": "number",
       "unit": "TRY",
       "default": 20000,
-      "businessContext": "Kira, maaşlar, sabit abonelikler gibi her ay düzenli ödenen giderler.",
+      "businessContext": "Expenses paid regularly each month, such as rent, salaries, and fixed subscriptions.",
       "label_i18n": {
         "en": "Monthly Fixed Expenses",
         "tr": "Aylık Sabit Giderler",
@@ -51,11 +51,11 @@
     },
     {
       "id": "monthlyVariableExpenses",
-      "label": "Aylık Değişken Giderler",
+      "label": "Monthly Variable Expenses",
       "type": "number",
       "unit": "TRY",
       "default": 10000,
-      "businessContext": "Pazarlama, hammadde, seyahat gibi aydan aya değişen giderler.",
+      "businessContext": "Expenses that vary from month to month, such as marketing, raw materials, and travel.",
       "label_i18n": {
         "en": "Monthly Variable Expenses",
         "tr": "Aylık Değişken Giderler",
@@ -75,11 +75,11 @@
     },
     {
       "id": "monthlyRevenue",
-      "label": "Aylık Gelir",
+      "label": "Monthly Income",
       "type": "number",
       "unit": "TRY",
       "default": 5000,
-      "businessContext": "Satışlardan veya diğer kaynaklardan elde edilen aylık toplam gelir.",
+      "businessContext": "Total monthly income from sales or other sources.",
       "label_i18n": {
         "en": "Monthly Income",
         "tr": "Aylık Gelir",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Dış yarıçap metre cinsinden.",
+      "businessContext": "Outer radius in meters.",
       "label_i18n": {
         "en": "Outer Radius (R)",
         "tr": "Dış Yarıçap (R)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "İç yarıçap metre cinsinden (dolu silindir için 0).",
+      "businessContext": "Inner radius in meters (0 for solid cylinder).",
       "label_i18n": {
         "en": "Inner Radius (r)",
         "tr": "İç Yarıçap (r)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Silindir yüksekliği metre cinsinden.",
+      "businessContext": "Cylinder height in meters.",
       "label_i18n": {
         "en": "Height (h)",
         "tr": "Yükseklik (h)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üretilecek silindir sayısı.",
+      "businessContext": "Number of cylinders to be produced.",
       "label_i18n": {
         "en": "Adet (n)",
         "tr": "Quantity (n)",

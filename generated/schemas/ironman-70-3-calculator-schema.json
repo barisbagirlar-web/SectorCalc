@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "swim_pace",
-      "label": "Yüzme Temposu (dk/100m)",
+      "label": "Swim Pace (min/100m)",
       "type": "number",
       "unit": "dk/100m",
       "default": 2,
-      "businessContext": "1.9 km yüzme için ortalama tempo.",
+      "businessContext": "Average pace for 1.9 km swim.",
       "label_i18n": {
         "en": "Swim Pace (min/100m)",
         "tr": "Yüzme Temposu (dk/100m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "bike_speed",
-      "label": "Bisiklet Hızı (km/sa)",
+      "label": "Bike Speed (km/h)",
       "type": "number",
       "unit": "km/sa",
       "default": 30,
-      "businessContext": "90 km bisiklet için ortalama hız.",
+      "businessContext": "Average speed for 90 km bike.",
       "label_i18n": {
         "en": "Bike Speed (km/h)",
         "tr": "Bisiklet Hızı (km/sa)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "run_pace",
-      "label": "Koşu Temposu (dk/km)",
+      "label": "Run Pace (min/km)",
       "type": "number",
       "unit": "dk/km",
       "default": 5.5,
-      "businessContext": "21.1 km koşu için ortalama tempo.",
+      "businessContext": "Average pace for 21.1 km run.",
       "label_i18n": {
         "en": "Run Pace (min/km)",
         "tr": "Koşu Temposu (dk/km)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "t1",
-      "label": "T1 Süresi (dk)",
+      "label": "T1 Duration (min)",
       "type": "number",
       "unit": "dk",
       "default": 3,
-      "businessContext": "Yüzmeden bisiklete geçiş süresi.",
+      "businessContext": "Transition time from swimming to cycling.",
       "label_i18n": {
         "en": "T1 Duration (min)",
         "tr": "T1 Süresi (dk)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "t2",
-      "label": "T2 Süresi (dk)",
+      "label": "T2 Duration (min)",
       "type": "number",
       "unit": "dk",
       "default": 2,
-      "businessContext": "Bisikletten koşuya geçiş süresi.",
+      "businessContext": "Transition time from cycling to running.",
       "label_i18n": {
         "en": "T2 Duration (min)",
         "tr": "T2 Süresi (dk)",

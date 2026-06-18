@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "treeHeight",
-      "label": "Ağaç Yüksekliği (m)",
+      "label": "Tree Height (m)",
       "type": "number",
       "unit": "m",
       "default": 15,
-      "businessContext": "Ağacın toplam yüksekliği (metre).",
+      "businessContext": "Total height of the tree (meters).",
       "label_i18n": {
         "en": "Tree Height (m)",
         "tr": "Ağaç Yüksekliği (m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "dbh",
-      "label": "Gövde Çapı (cm)",
+      "label": "Trunk Diameter (cm)",
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Göğüs yüksekliğindeki çap (1.3 m).",
+      "businessContext": "Diameter at breast height (1.3 m).",
       "label_i18n": {
         "en": "Trunk Diameter (cm)",
         "tr": "Gövde Çapı (cm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "woodDensity",
-      "label": "Odun Yoğunluğu (kg/m³)",
+      "label": "Wood Density (kg/m³)",
       "type": "number",
       "unit": "kg/m³",
       "default": 600,
-      "businessContext": "Kuru odun yoğunluğu (türe göre 300-900).",
+      "businessContext": "Dry wood density (300-900 depending on species).",
       "label_i18n": {
         "en": "Wood Density (kg/m³)",
         "tr": "Odun Yoğunluğu (kg/m³)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Biyokütledeki karbon oranı (genelde 0.47-0.5).",
+      "businessContext": "Carbon ratio in biomass (usually 0.47-0.5).",
       "label_i18n": {
         "en": "Carbon Ratio",
         "tr": "Karbon Oranı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Gövde hacmi düzeltme faktörü (0.4-0.6).",
+      "businessContext": "Stem volume correction factor (0.4-0.6).",
       "label_i18n": {
         "en": "Form Factor",
         "tr": "Form Faktörü",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "oran",
       "default": 0.3,
-      "businessContext": "Gövde biyokütlesine oranla dal miktarı.",
+      "businessContext": "Branch biomass ratio relative to stem biomass.",
       "label_i18n": {
         "en": "Branch Biomass Ratio",
         "tr": "Dal Biyokütle Oranı",

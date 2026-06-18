@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "value1",
-      "label": "Ölçüm 1",
+      "label": "Measurement 1",
       "type": "number",
       "unit": "birim",
       "default": 10,
-      "businessContext": "İlk ölçüm değeri",
+      "businessContext": "First measurement value",
       "label_i18n": {
         "en": "Measurement 1",
         "tr": "Ölçüm 1",
@@ -27,11 +27,11 @@
     },
     {
       "id": "threshold1",
-      "label": "Eşik 1",
+      "label": "Threshold 1",
       "type": "number",
       "unit": "birim",
       "default": 5,
-      "businessContext": "1. ölçüm için minimum kabul değeri",
+      "businessContext": "Minimum acceptance value for measurement 1",
       "label_i18n": {
         "en": "Threshold 1",
         "tr": "Eşik 1",
@@ -51,11 +51,11 @@
     },
     {
       "id": "value2",
-      "label": "Ölçüm 2",
+      "label": "Measurement 2",
       "type": "number",
       "unit": "birim",
       "default": 20,
-      "businessContext": "İkinci ölçüm değeri",
+      "businessContext": "Second measurement value",
       "label_i18n": {
         "en": "Measurement 2",
         "tr": "Ölçüm 2",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "birim",
       "default": 15,
-      "businessContext": "2. ölçüm için minimum kabul değeri",
+      "businessContext": "Minimum acceptance value for 2nd measurement",
       "label_i18n": {
         "en": "Threshold 2",
         "tr": "Eşik 2",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "birim",
       "default": 30,
-      "businessContext": "Üçüncü ölçüm değeri",
+      "businessContext": "Third measurement value",
       "label_i18n": {
         "en": "Measurement 3",
         "tr": "Ölçüm 3",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "birim",
       "default": 25,
-      "businessContext": "3. ölçüm için minimum kabul değeri",
+      "businessContext": "Minimum acceptance value for 3rd measurement",
       "label_i18n": {
         "en": "Threshold 3",
         "tr": "Eşik 3",

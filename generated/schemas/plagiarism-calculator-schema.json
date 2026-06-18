@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "matchingWords",
-      "label": "Eşleşen Kelime Sayısı",
+      "label": "Number of Matching Words",
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Her iki belgede bulunan aynı kelimelerin sayısı",
+      "businessContext": "Number of identical words found in both documents",
       "label_i18n": {
         "en": "Number of matching words",
         "tr": "Eşleşen Kelime Sayısı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Belge A'nın toplam kelime sayısı",
+      "businessContext": "Total word count of Document A",
       "label_i18n": {
         "en": "Document A Total Words",
         "tr": "Belge A Toplam Kelime Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Belge B'nin toplam kelime sayısı",
+      "businessContext": "Total word count of Document B",
       "label_i18n": {
         "en": "Document B Total Words",
         "tr": "Belge B Toplam Kelime Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "matchingCitations",
-      "label": "Eşleşen Atıf Sayısı",
+      "label": "Number of Matching Citations",
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "İki belge arasındaki ortak atıf sayısı",
+      "businessContext": "Number of common citations between the two documents",
       "label_i18n": {
         "en": "Number of matching citations",
         "tr": "Eşleşen Atıf Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "totalCitationsA",
-      "label": "Belge A Toplam Atıf",
+      "label": "Total Citations in Document A",
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "Belge A'daki toplam atıf sayısı",
+      "businessContext": "Total number of citations in Document A",
       "label_i18n": {
         "en": "Total citations in Document A",
         "tr": "Belge A Toplam Atıf",
@@ -123,11 +123,11 @@
     },
     {
       "id": "totalCitationsB",
-      "label": "Belge B Toplam Atıf",
+      "label": "Total Citations in Document B",
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "Belge B'deki toplam atıf sayısı",
+      "businessContext": "Total number of citations in Document B",
       "label_i18n": {
         "en": "Total citations in Document B",
         "tr": "Belge B Toplam Atıf",

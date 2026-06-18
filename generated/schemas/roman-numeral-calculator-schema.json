@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme",
+      "businessContext": "1=Addition, 2=Subtraction, 3=Multiplication, 4=Division",
       "label_i18n": {
         "en": "Operation",
         "tr": "İşlem",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)",
+      "businessContext": "Number of decimal places for the result (0 rounds to integer)",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

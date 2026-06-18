@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "truePositive",
-      "label": "Doğru Pozitif (DP)",
+      "label": "True Positive (TP)",
       "type": "number",
       "unit": "adet",
       "default": 80,
-      "businessContext": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
+      "businessContext": "Number of actual positive cases correctly identified as positive by the test.",
       "label_i18n": {
         "en": "True Positive (TP)",
         "tr": "Doğru Pozitif (DP)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "falsePositive",
-      "label": "Yanlış Pozitif (YP)",
+      "label": "False Positive (FP)",
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
+      "businessContext": "Number of actual negative cases incorrectly identified as positive by the test.",
       "label_i18n": {
         "en": "False Positive (FP)",
         "tr": "Yanlış Pozitif (YP)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "falseNegative",
-      "label": "Yanlış Negatif (YN)",
+      "label": "False Negative (FN)",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
+      "businessContext": "Number of actual positive cases incorrectly identified as negative by the test.",
       "label_i18n": {
         "en": "False Negative (FN)",
         "tr": "Yanlış Negatif (YN)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "trueNegative",
-      "label": "Doğru Negatif (DN)",
+      "label": "True Negative (TN)",
       "type": "number",
       "unit": "adet",
       "default": 90,
-      "businessContext": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
+      "businessContext": "Number of actual negative cases correctly identified as negative by the test.",
       "label_i18n": {
         "en": "True Negative (TN)",
         "tr": "Doğru Negatif (DN)",

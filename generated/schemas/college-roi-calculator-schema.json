@@ -202,7 +202,43 @@
   "profession": "Öğretmen",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "tuitionCost",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "yearsCollege",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "alternativeSalary",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "startingSalary",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "salaryGrowth",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "workingYears",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "discountRate",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -124,10 +124,12 @@
   ],
   "formulas": {
     "monthlyRate": "discountRate / 100 / 12",
-    "monthlyRate_aux": "discountRate / 100 / 12"
+    "npvBuying": "purchasePrice - residualValue / (1 + monthlyRate) ^ leaseTerm",
+    "npvLeasing": "leasePayment * (1 - (1 + monthlyRate) ^ -leaseTerm) / monthlyRate",
+    "netAdvantage": "npvBuying - npvLeasing"
   },
   "outputs": {
-    "primary": "monthlyRate_aux",
+    "primary": "netAdvantage",
     "breakdown": [
       "npvBuying",
       "npvLeasing"

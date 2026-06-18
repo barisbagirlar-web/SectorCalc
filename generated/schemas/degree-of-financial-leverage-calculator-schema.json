@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "ebit",
-      "label": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+      "label": "EBIT (Earnings Before Interest and Taxes)",
       "type": "number",
       "unit": "currency",
       "default": 100000,
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Toplam borç faiz ödemeleri.",
+      "businessContext": "Total debt interest payments.",
       "label_i18n": {
         "en": "Faiz Gideri",
         "tr": "Interest Expense",
@@ -51,11 +51,11 @@
     },
     {
       "id": "taxRate",
-      "label": "Vergi Oranı",
+      "label": "Tax Rate",
       "type": "number",
       "unit": "decimal",
       "default": 0.25,
-      "businessContext": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
+      "businessContext": "Corporate tax rate (decimal, e.g., 0.25).",
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "preferredDividends",
-      "label": "İmtiyazlı Hisse Temettüsü",
+      "label": "Preferred Stock Dividend",
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
+      "businessContext": "Total dividends paid on preferred stock.",
       "label_i18n": {
         "en": "Preferred Stock Dividend",
         "tr": "İmtiyazlı Hisse Temettüsü",

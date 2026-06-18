@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Komşuluk yarıçapı (maksimum mesafe)",
+      "businessContext": "Neighborhood radius (maximum distance)",
       "label_i18n": {
         "en": "Epsilon (ε)",
         "tr": "Epsilon (ε)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Yoğun bölge için minimum nokta sayısı",
+      "businessContext": "Minimum number of points for dense region",
       "label_i18n": {
         "en": "Minimum Nokta (MinPts)",
         "tr": "Minimum Points (MinPts)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "ε yarıçapı içindeki nokta sayısı",
+      "businessContext": "Number of points within ε radius",
       "label_i18n": {
         "en": "Number of neighbors",
         "tr": "Komşu Sayısı",

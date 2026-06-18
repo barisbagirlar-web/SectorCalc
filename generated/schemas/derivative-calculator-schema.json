@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "x",
-      "label": "x değeri",
+      "label": "x value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Türev hesaplanacak nokta",
+      "businessContext": "Point at which to calculate derivative",
       "label_i18n": {
         "en": "x value",
         "tr": "x değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "a",
-      "label": "1. Terim Katsayısı",
+      "label": "1st Term Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci terimin katsayısı",
+      "businessContext": "Coefficient of the first term",
       "label_i18n": {
         "en": "1st Term Coefficient",
         "tr": "1. Terim Katsayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "n",
-      "label": "1. Terim Üssü",
+      "label": "1st Term Exponent",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci terimin üssü",
+      "businessContext": "Exponent of the first term",
       "label_i18n": {
         "en": "1st Term Exponent",
         "tr": "1. Terim Üssü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "b",
-      "label": "2. Terim Katsayısı",
+      "label": "2nd Term Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci terimin katsayısı",
+      "businessContext": "Coefficient of the second term",
       "label_i18n": {
         "en": "2nd Term Coefficient",
         "tr": "2. Terim Katsayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "m",
-      "label": "2. Terim Üssü",
+      "label": "2nd Term Exponent",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci terimin üssü",
+      "businessContext": "Exponent of the second term",
       "label_i18n": {
         "en": "2nd Term Exponent",
         "tr": "2. Terim Üssü",
@@ -123,11 +123,11 @@
     },
     {
       "id": "c",
-      "label": "3. Terim Katsayısı",
+      "label": "3rd Term Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü terimin katsayısı",
+      "businessContext": "Coefficient of the third term",
       "label_i18n": {
         "en": "3rd Term Coefficient",
         "tr": "3. Terim Katsayısı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "p",
-      "label": "3. Terim Üssü",
+      "label": "3rd Term Exponent",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü terimin üssü",
+      "businessContext": "Exponent of the third term",
       "label_i18n": {
         "en": "3rd Term Exponent",
         "tr": "3. Terim Üssü",

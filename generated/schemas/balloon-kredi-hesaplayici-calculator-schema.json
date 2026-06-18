@@ -75,11 +75,11 @@
     },
     {
       "id": "balloonPercent",
-      "label": "Balon Ödeme Yüzdesi",
+      "label": "Balloon Payment Percentage",
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Balon ödeme, anaparanın yüzdesi",
+      "businessContext": "Balloon payment as percentage of principal",
       "label_i18n": {
         "en": "Balloon Payment Percentage (%)",
         "tr": "Balon Ödeme Yüzdesi",

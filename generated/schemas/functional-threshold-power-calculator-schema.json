@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "avgPower20min",
-      "label": "20 Dakika Ortalama Güç",
+      "label": "20 Minute Average Power",
       "type": "number",
       "unit": "W",
       "default": 250,
-      "businessContext": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
+      "businessContext": "Average power produced during 20-minute maximal effort (watts)",
       "label_i18n": {
         "en": "20-Minute Average Power",
         "tr": "20 Dakika Ortalama Güç",
@@ -27,11 +27,11 @@
     },
     {
       "id": "weight",
-      "label": "Sürücü Ağırlığı",
+      "label": "Rider Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Sürücünün ağırlığı (kilogram)",
+      "businessContext": "Rider's weight (kilograms)",
       "label_i18n": {
         "en": "Rider Weight",
         "tr": "Sürücü Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "factor",
-      "label": "Ayarlama Faktörü",
+      "label": "Adjustment Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.95,
-      "businessContext": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
+      "businessContext": "Coefficient used to calculate FTP (0.95 for standard 20 min test)",
       "label_i18n": {
         "en": "Adjustment Factor",
         "tr": "Ayarlama Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "testDuration",
-      "label": "Test Süresi",
+      "label": "Test Duration",
       "type": "number",
       "unit": "dk",
       "default": 20,
-      "businessContext": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
+      "businessContext": "Test duration (minutes), for reference, does not affect calculation",
       "label_i18n": {
         "en": "Test Duration",
         "tr": "Test Süresi",

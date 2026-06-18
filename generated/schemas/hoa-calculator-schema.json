@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass",
-      "label": "Kütle (m)",
+      "label": "Mass (m)",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
+      "businessContext": "Mass of the substance being heated or cooled (kg)",
       "label_i18n": {
         "en": "Mass (m)",
         "tr": "Kütle (m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "specificHeat",
-      "label": "Özgül Isı (c)",
+      "label": "Specific Heat (c)",
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 4184,
-      "businessContext": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
+      "businessContext": "Specific heat capacity of the material (J/(kg·K)), for water 4184",
       "label_i18n": {
         "en": "Specific Heat (c)",
         "tr": "Özgül Isı (c)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "initialTemperature",
-      "label": "Başlangıç Sıcaklığı (T₁)",
+      "label": "Initial Temperature (T₁)",
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Başlangıç sıcaklık değeri (°C)",
+      "businessContext": "Initial temperature value (°C)",
       "label_i18n": {
         "en": "Initial Temperature (T₁)",
         "tr": "Başlangıç Sıcaklığı (T₁)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "finalTemperature",
-      "label": "Bitiş Sıcaklığı (T₂)",
+      "label": "Final Temperature (T₂)",
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Hedef veya son sıcaklık değeri (°C)",
+      "businessContext": "Target or final temperature value (°C)",
       "label_i18n": {
         "en": "Final Temperature (T₂)",
         "tr": "Bitiş Sıcaklığı (T₂)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "heatLossFactor",
-      "label": "Isı Kaybı Faktörü",
+      "label": "Heat Loss Factor",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
+      "businessContext": "Percentage heat loss due to environment, insulation, etc. (0–100)",
       "label_i18n": {
         "en": "Heat Loss Factor",
         "tr": "Isı Kaybı Faktörü",

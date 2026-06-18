@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "temp",
-      "label": "Ortam Sıcaklığı",
+      "label": "Ambient Temperature",
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Beton kürleme ortamının ortalama sıcaklığı",
+      "businessContext": "Average temperature of the concrete curing environment",
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
+      "businessContext": "Curing time factor depending on cement type (e.g., Type I: 1.0, Type II: 1.1, Type III: 0.8)",
       "label_i18n": {
         "en": "Cement Type Factor",
         "tr": "Çimento Tipi Faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
+      "businessContext": "Required curing time under standard conditions (23°C, 100% humidity, Type I cement)",
       "label_i18n": {
         "en": "Base Curing Time",
         "tr": "Baz Kür Süresi",

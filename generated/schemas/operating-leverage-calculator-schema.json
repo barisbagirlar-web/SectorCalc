@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "salesVolume",
-      "label": "Satış Hacmi (birim)",
+      "label": "Sales Volume (units)",
       "type": "number",
       "unit": "birim",
       "default": 1000,
-      "businessContext": "Satılan ürün adedi",
+      "businessContext": "Number of products sold",
       "label_i18n": {
         "en": "Sales Volume (units)",
         "tr": "Satış Hacmi (birim)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 50,
-      "businessContext": "Ürün başına satış fiyatı",
+      "businessContext": "Sales price per product",
       "label_i18n": {
         "en": "Unit Selling Price",
         "tr": "Birim Satış Fiyatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "variableCostPerUnit",
-      "label": "Birim Değişken Maliyet",
+      "label": "Unit Variable Cost",
       "type": "number",
       "unit": "TL/birim",
       "default": 30,
-      "businessContext": "Her birim için değişken maliyet",
+      "businessContext": "Variable cost per unit",
       "label_i18n": {
         "en": "Unit Variable Cost",
         "tr": "Birim Değişken Maliyet",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Dönemsel sabit maliyetler toplamı",
+      "businessContext": "Total periodic fixed costs",
       "label_i18n": {
         "en": "Sabit Maliyetler",
         "tr": "Fixed Costs",

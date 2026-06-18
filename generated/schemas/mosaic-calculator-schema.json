@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "area",
-      "label": "Kaplama Alanı",
+      "label": "Coverage Area",
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Mozaik döşenecek toplam alan",
+      "businessContext": "Total area to be tiled with mosaic",
       "label_i18n": {
         "en": "Coverage Area",
         "tr": "Kaplama Alanı",
@@ -27,7 +27,7 @@
     },
     {
       "id": "tileLength",
-      "label": "Karo Uzunluğu",
+      "label": "Tile Length",
       "type": "number",
       "unit": "cm",
       "default": 2,
@@ -51,7 +51,7 @@
     },
     {
       "id": "tileWidth",
-      "label": "Karo Genişliği",
+      "label": "Tile Width",
       "type": "number",
       "unit": "cm",
       "default": 2,
@@ -75,11 +75,11 @@
     },
     {
       "id": "wasteFactor",
-      "label": "Fire Faktörü",
+      "label": "Fire Factor",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve zayiat için eklenen yüzde",
+      "businessContext": "Percentage added for cutting and waste",
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Fire Faktörü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "costPerTile",
-      "label": "Karo Başına Maliyet",
+      "label": "Cost per Tile",
       "type": "number",
       "unit": "currency",
       "default": 0.1,
-      "businessContext": "Karo birim fiyatı (para birimi cinsinden)",
+      "businessContext": "Unit price of tile (in currency)",
       "label_i18n": {
         "en": "Cost per Tile",
         "tr": "Karo Başına Maliyet",

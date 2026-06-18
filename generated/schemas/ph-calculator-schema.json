@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "L",
       "default": 0.05,
-      "businessContext": "Kullanılan asit çözeltisinin hacmi.",
+      "businessContext": "Volume of acid solution used.",
       "label_i18n": {
         "en": "Acid Volume",
         "tr": "Asit Hacmi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "concAcid",
-      "label": "Asit Derişimi",
+      "label": "Acid Concentration",
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Asit çözeltisinin konsantrasyonu.",
+      "businessContext": "Concentration of the acid solution.",
       "label_i18n": {
         "en": "Acid Concentration",
         "tr": "Asit Derişimi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "L",
       "default": 0.05,
-      "businessContext": "Kullanılan baz çözeltisinin hacmi.",
+      "businessContext": "Volume of base solution used.",
       "label_i18n": {
         "en": "Base Volume",
         "tr": "Baz Hacmi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "concBase",
-      "label": "Baz Derişimi",
+      "label": "Base Concentration",
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Baz çözeltisinin konsantrasyonu.",
+      "businessContext": "Concentration of the base solution.",
       "label_i18n": {
         "en": "Base Concentration",
         "tr": "Baz Derişimi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "Kw",
-      "label": "Su İyonlaşma Sabiti (Kw)",
+      "label": "Water Ionization Constant (Kw)",
       "type": "number",
       "unit": "unit",
       "default": 1e-14,
-      "businessContext": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14.",
+      "businessContext": "The ionization constant of water varies with temperature; for 25°C it is 1e-14.",
       "label_i18n": {
         "en": "Ion Product of Water (Kw)",
         "tr": "Su İyonlaşma Sabiti (Kw)",

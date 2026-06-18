@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "buyPrice",
-      "label": "Alış Fiyatı",
+      "label": "Purchase Price",
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Vadeli işlem sözleşmesinin alış birim fiyatı",
+      "businessContext": "Futures contract purchase unit price",
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Alış Fiyatı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sellPrice",
-      "label": "Satış Fiyatı",
+      "label": "Selling Price",
       "type": "number",
       "unit": "TL",
       "default": 110,
-      "businessContext": "Vadeli işlem sözleşmesinin satış birim fiyatı",
+      "businessContext": "Futures contract sale unit price",
       "label_i18n": {
         "en": "Sale Price",
         "tr": "Satış Fiyatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "contractSize",
-      "label": "Sözleşme Büyüklüğü",
+      "label": "Contract Size",
       "type": "number",
       "unit": "birim",
       "default": 1000,
-      "businessContext": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı",
+      "businessContext": "Quantity of underlying asset represented by one contract",
       "label_i18n": {
         "en": "Contract size",
         "tr": "Sözleşme Büyüklüğü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "contracts",
-      "label": "Kontrat Sayısı",
+      "label": "Number of Contracts",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı",
+      "businessContext": "Number of futures contracts bought/sold",
       "label_i18n": {
         "en": "Number of contracts",
         "tr": "Kontrat Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "marginRate",
-      "label": "Teminat Oranı",
+      "label": "Margin Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi",
+      "businessContext": "Percentage of contract value required as margin",
       "label_i18n": {
         "en": "Margin rate (%)",
         "tr": "Teminat Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "commission",
-      "label": "Komisyon (Sözleşme Başına)",
+      "label": "Commission (Per Contract)",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu",
+      "businessContext": "Transaction commission paid for buying or selling a contract",
       "label_i18n": {
         "en": "Commission (per contract)",
         "tr": "Komisyon (Sözleşme Başına)",

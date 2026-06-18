@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "measuredValue",
-      "label": "Ölçülen Değer",
+      "label": "Measured Value",
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
+      "businessContext": "Actual measurement result (e.g., measured dimension of the manufactured part)",
       "label_i18n": {
         "en": "Measured Value",
         "tr": "Ölçülen Değer",
@@ -27,11 +27,11 @@
     },
     {
       "id": "trueValue",
-      "label": "Referans Değer",
+      "label": "Reference Value",
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Kabul edilen referans veya teorik değer (nominal ölçü)",
+      "businessContext": "Accepted reference or theoretical value (nominal measurement)",
       "label_i18n": {
         "en": "Reference Value",
         "tr": "Referans Değer",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
+      "businessContext": "Acceptable percentage error limit (quality control limit)",
       "label_i18n": {
         "en": "Tolerance (%)",
         "tr": "Tolerans (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "measurementUncertainty",
-      "label": "Ölçüm Belirsizliği",
+      "label": "Measurement Uncertainty",
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
+      "businessContext": "Standard uncertainty of the measurement process (for k=1)",
       "label_i18n": {
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "coverageFactor",
-      "label": "Kapsam Faktörü (k)",
+      "label": "Coverage Factor (k)",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
+      "businessContext": "Coefficient for expanded uncertainty; typically 2 for 95% confidence",
       "label_i18n": {
         "en": "Coverage Factor (k)",
         "tr": "Kapsam Faktörü (k)",

@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "interestRate",
-      "label": "Yıllık Faiz Oranı (%)",
+      "label": "Annual Interest Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 8,
@@ -27,11 +27,11 @@
     },
     {
       "id": "taxRate",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Getiri üzerinden alınan vergi oranı (0 ise vergi yok).",
+      "businessContext": "Tax rate on the return (0 if no tax).",
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "compoundingFrequency",
-      "label": "Bileşik Dönemi (yıl başına)",
+      "label": "Compounding Period (per year)",
       "type": "number",
       "unit": "dönem/yıl",
       "default": 1,
-      "businessContext": "Faizin yılda kaç kez bileşiklendiği (ör. aylık için 12).",
+      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly).",
       "label_i18n": {
         "en": "Compounding Period (per year)",
         "tr": "Bileşik Dönemi (yıl başına)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "principal",
-      "label": "Başlangıç Anapara",
+      "label": "Initial Principal",
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Opsiyonel: 3 katına çıkacak başlangıç tutarı.",
+      "businessContext": "Optional: Initial amount to triple.",
       "label_i18n": {
         "en": "Initial Principal",
         "tr": "Başlangıç Anapara",

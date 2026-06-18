@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "decimalValue",
-      "label": "Ondalıklı Değer",
+      "label": "Decimal Value",
       "type": "number",
       "unit": "unit",
       "default": 0.5,
-      "businessContext": "Kesire dönüştürülecek ondalıklı sayı",
+      "businessContext": "Decimal number to be converted to fraction",
       "label_i18n": {
         "en": "Decimal Value",
         "tr": "Ondalıklı Değer",
@@ -27,14 +27,14 @@
     },
     {
       "id": "maxDenom",
-      "label": "Maksimum Payda",
+      "label": "Maximum Denominator",
       "type": "number",
       "unit": "unit",
       "default": 10000,
-      "businessContext": "Kesir yaklaşımı için izin verilen en büyük payda",
+      "businessContext": "Maximum denominator allowed for fraction approximation",
       "label_i18n": {
-        "en": "Maksimum Payda",
-        "tr": "Max Denominator",
+        "en": "Maximum Denominator",
+        "tr": "Maksimum Payda",
         "de": "Maximaler Nenner",
         "fr": "Dénominateur maximum",
         "es": "Denominador Máximo",
@@ -51,11 +51,11 @@
     },
     {
       "id": "simplify",
-      "label": "Sadeleştirme",
+      "label": "Simplify",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
+      "businessContext": "Reduce fraction to its simplest form (1: Yes, 0: No)",
       "label_i18n": {
         "en": "Simplify",
         "tr": "Sadeleştirme",
@@ -75,11 +75,11 @@
     },
     {
       "id": "format",
-      "label": "Kesir Formatı",
+      "label": "Fraction Format",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
+      "businessContext": "0: Simple Fraction, 1: Mixed Number, 2: Improper Fraction",
       "label_i18n": {
         "en": "Fraction Format",
         "tr": "Kesir Formatı",
@@ -99,14 +99,14 @@
     },
     {
       "id": "rounding",
-      "label": "Yuvarlama Modu",
+      "label": "Rounding Mode",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "0: En Yakın, 1: Aşağı, 2: Yukarı",
+      "businessContext": "0: Nearest, 1: Down, 2: Up",
       "label_i18n": {
-        "en": "Yuvarlama Modu",
-        "tr": "Rounding Mode",
+        "en": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
         "fr": "Mode d'arrondi",
         "es": "Modo de Redondeo",
@@ -123,14 +123,14 @@
     },
     {
       "id": "tolerance",
-      "label": "Tolerans",
+      "label": "Tolerance",
       "type": "number",
       "unit": "unit",
       "default": 1e-9,
-      "businessContext": "Ondalıklı sayının kesir eşleşmesi için tolerans",
+      "businessContext": "Tolerance for decimal to fraction matching",
       "label_i18n": {
-        "en": "Tolerans",
-        "tr": "Tolerance",
+        "en": "Tolerance",
+        "tr": "Tolerans",
         "de": "Toleranz",
         "fr": "Tolérance",
         "es": "Tolerancia",
@@ -147,21 +147,21 @@
     }
   ],
   "formulas": {
-    "breakdown": "decimalValue",
-    "breakdown_aux": "decimalValue"
+    "denominator": "maxDenom",
+    "denominator_aux": "maxDenom"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "denominator_aux",
     "breakdown": [
-      "Pay",
-      "Payda",
-      "Tam Kısım"
+      "numerator",
+      "denominator",
+      "wholePart"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "Payda",
+    "dataConfidenceAdjusted": "denominator",
     "unit": "—"
   },
   "category": "Matematik & Analiz",
@@ -174,7 +174,19 @@
   "profession": "Veri Analisti",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "decimalValue",
+        "rule": "required",
+        "message": "Decimal value is required"
+      },
+      {
+        "field": "maxDenom",
+        "rule": "min",
+        "value": 1,
+        "message": "Maximum denominator must be at least 1"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

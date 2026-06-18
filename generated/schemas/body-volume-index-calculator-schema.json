@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Ayakta, ayakkabısız ölçülen boy uzunluğu",
+      "businessContext": "Standing height measured without shoes",
       "label_i18n": {
         "en": "Boy (cm)",
         "tr": "Height (cm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "weight",
-      "label": "Ağırlık (kg)",
+      "label": "Weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Dijital terazi ile ölçülen vücut ağırlığı",
+      "businessContext": "Body weight measured with a digital scale",
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "waist",
-      "label": "Bel Çevresi (cm)",
+      "label": "Waist Circumference (cm)",
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "En dar noktadan (genellikle göbek deliğinin hemen üstü) ölçülen bel çevresi",
+      "businessContext": "Waist circumference measured at the narrowest point (usually just above the navel)",
       "label_i18n": {
         "en": "Waist Circumference (cm)",
         "tr": "Bel Çevresi (cm)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "hip",
-      "label": "Kalça Çevresi (cm)",
+      "label": "Hip circumference (cm)",
       "type": "number",
       "unit": "cm",
       "default": 95,
-      "businessContext": "En geniş noktadan (kalça çıkıntısı üzerinden) ölçülen kalça çevresi",
+      "businessContext": "Hip circumference measured at the widest point (over the hip protrusion)",
       "label_i18n": {
         "en": "Hip circumference (cm)",
         "tr": "Kalça Çevresi (cm)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "chest",
-      "label": "Göğüs Çevresi (cm)",
+      "label": "Chest circumference (cm)",
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Koltuk altı hizasından, normal solunumda ölçülen göğüs çevresi",
+      "businessContext": "Chest circumference measured at armpit level, during normal breathing",
       "label_i18n": {
         "en": "Chest circumference (cm)",
         "tr": "Göğüs Çevresi (cm)",

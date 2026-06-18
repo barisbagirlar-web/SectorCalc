@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roomLength",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
+      "businessContext": "Length of the room to be carpeted in the main direction (meters).",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roomWidth",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Halı döşenecek odanın enlemesine genişliği (metre).",
+      "businessContext": "Width of the room to be carpeted (meters).",
       "label_i18n": {
         "en": "Room Width",
         "tr": "Oda Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "carpetRollWidth",
-      "label": "Halı Rulo Eni",
+      "label": "Carpet Roll Width",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
+      "businessContext": "Standard carpet roll width; can be 3, 4, 5 m in the market.",
       "label_i18n": {
         "en": "Carpet Roll Width",
         "tr": "Halı Rulo Eni",
@@ -75,11 +75,11 @@
     },
     {
       "id": "carpetPricePerSqm",
-      "label": "Halı Birim Fiyatı",
+      "label": "Carpet Unit Price",
       "type": "number",
       "unit": "TRY/m²",
       "default": 50,
-      "businessContext": "Seçilen halının metrekare başına satış fiyatı.",
+      "businessContext": "Sales price per square meter of the selected carpet.",
       "label_i18n": {
         "en": "Carpet Unit Price",
         "tr": "Halı Birim Fiyatı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
+      "businessContext": "Additional material percentage for cutting, pattern matching and seams.",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "installationCostPerSqm",
-      "label": "Döşeme İşçilik Bedeli",
+      "label": "Installation Labor Cost",
       "type": "number",
       "unit": "TRY/m²",
       "default": 20,
-      "businessContext": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
+      "businessContext": "Labor cost per square meter charged by the craftsman for laying the carpet.",
       "label_i18n": {
         "en": "Installation Labor Cost",
         "tr": "Döşeme İşçilik Bedeli",

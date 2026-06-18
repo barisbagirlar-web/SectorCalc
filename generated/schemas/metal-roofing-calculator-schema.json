@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roofArea",
-      "label": "Çatı Alanı",
+      "label": "Roof Area",
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Metal çatı kaplanacak toplam alan",
+      "businessContext": "Total area to be covered with metal roofing",
       "label_i18n": {
         "en": "Roof area",
         "tr": "Çatı Alanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "materialCostPerUnit",
-      "label": "Malzeme Birim Fiyatı",
+      "label": "Material unit price",
       "type": "number",
       "unit": "€/m²",
       "default": 15,
-      "businessContext": "Metal kaplama malzemesinin metrekare fiyatı",
+      "businessContext": "Price per square meter of metal cladding material",
       "label_i18n": {
         "en": "Material unit price",
         "tr": "Malzeme Birim Fiyatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "laborCostPerUnit",
-      "label": "İşçilik Birim Fiyatı",
+      "label": "Unit Labor Price",
       "type": "number",
       "unit": "€/m²",
       "default": 10,
-      "businessContext": "Metrekare başına işçilik maliyeti",
+      "businessContext": "Labor cost per square meter",
       "label_i18n": {
         "en": "Unit labor cost",
         "tr": "İşçilik Birim Fiyatı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve montaj fire yüzdesi",
+      "businessContext": "Cutting and assembly waste percentage",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

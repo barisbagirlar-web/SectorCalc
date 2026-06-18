@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Kilometre cinsinden parkur uzunluğu",
+      "businessContext": "Course length in kilometers",
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
@@ -27,11 +27,11 @@
     },
     {
       "id": "elevation_gain",
-      "label": "Tırmanış",
+      "label": "Climb",
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
+      "businessContext": "Total climb in meters (positive altitude gain)",
       "label_i18n": {
         "en": "Ascent",
         "tr": "Tırmanış",
@@ -51,11 +51,11 @@
     },
     {
       "id": "elevation_loss",
-      "label": "İniş",
+      "label": "Descent",
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
+      "businessContext": "Total descent in meters (negative altitude loss)",
       "label_i18n": {
         "en": "Descent",
         "tr": "İniş",
@@ -75,11 +75,11 @@
     },
     {
       "id": "base_pace",
-      "label": "Düz Tempo",
+      "label": "Flat Pace",
       "type": "number",
       "unit": "min/km",
       "default": 6,
-      "businessContext": "Düz zeminde koşu temposu (dakika:km)",
+      "businessContext": "Running pace on flat ground (min:km)",
       "label_i18n": {
         "en": "Flat Pace",
         "tr": "Düz Tempo",
@@ -99,11 +99,11 @@
     },
     {
       "id": "ascent_factor",
-      "label": "Tırmanış Faktörü",
+      "label": "Climb Factor",
       "type": "number",
       "unit": "min/m",
       "default": 0.1,
-      "businessContext": "Her bir metre tırmanış için eklenen süre (dakika)",
+      "businessContext": "Additional time per meter of climb (minutes)",
       "label_i18n": {
         "en": "Ascent Factor",
         "tr": "Tırmanış Faktörü",
@@ -123,11 +123,11 @@
     },
     {
       "id": "descent_factor",
-      "label": "İniş Faktörü",
+      "label": "Descent Factor",
       "type": "number",
       "unit": "min/m",
       "default": 0.05,
-      "businessContext": "Her bir metre iniş için eklenen süre (dakika)",
+      "businessContext": "Additional time per meter of descent (minutes)",
       "label_i18n": {
         "en": "Descent Factor",
         "tr": "İniş Faktörü",

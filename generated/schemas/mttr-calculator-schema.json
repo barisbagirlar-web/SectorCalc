@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "repairTime",
-      "label": "Onarım Süresi",
+      "label": "Repair Time",
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)",
+      "businessContext": "Active time spent on equipment repair (fault detection, disassembly, repair, assembly, testing)",
       "label_i18n": {
         "en": "Repair Time",
         "tr": "Onarım Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "adminDelay",
-      "label": "İdari Gecikme",
+      "label": "Administrative Delay",
       "type": "number",
       "unit": "saat",
       "default": 2,
-      "businessContext": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler",
+      "businessContext": "Delays due to work order approval, waiting, and other administrative processes",
       "label_i18n": {
         "en": "Administrative Delay",
         "tr": "İdari Gecikme",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler",
+      "businessContext": "Delays due to logistical reasons such as spare part supply, transportation, or waiting for personnel",
       "label_i18n": {
         "en": "Logistics Delay",
         "tr": "Lojistik Gecikme",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfRepairs",
-      "label": "Onarım Sayısı",
+      "label": "Number of Repairs",
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı",
+      "businessContext": "Total number of repair events occurring in a specific period",
       "label_i18n": {
         "en": "Number of Repairs",
         "tr": "Onarım Sayısı",

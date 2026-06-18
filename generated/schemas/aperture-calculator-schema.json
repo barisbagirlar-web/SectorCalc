@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "focalLength",
-      "label": "Odak Uzaklığı (mm)",
+      "label": "Focal Length (mm)",
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Lensin odak uzaklığı, milimetre cinsinden.",
+      "businessContext": "Focal length of the lens, in millimeters.",
       "label_i18n": {
         "en": "Focal Length (mm)",
         "tr": "Odak Uzaklığı (mm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "fNumber",
-      "label": "f-Değeri (f-Stop)",
+      "label": "f-Value (f-Stop)",
       "type": "number",
       "unit": "unit",
       "default": 2.8,
-      "businessContext": "Diyafram açıklığının f-stop değeri (ör. 2.8).",
+      "businessContext": "Aperture f-stop value (e.g., 2.8).",
       "label_i18n": {
         "en": "f-Number (f-Stop)",
         "tr": "f-Değeri (f-Stop)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "transmissionPercent",
-      "label": "Işık Geçirgenliği (%)",
+      "label": "Light Transmittance (%)",
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Lensin ışık geçirgenlik yüzdesi (ideal lenslerde 100).",
+      "businessContext": "Lens light transmittance percentage (100 for ideal lenses).",
       "label_i18n": {
         "en": "Light Transmission (%)",
         "tr": "Işık Geçirgenliği (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "nm",
       "default": 550,
-      "businessContext": "Işığın dalga boyu (nanometre), genelde yeşil 550 nm.",
+      "businessContext": "Wavelength of light (nanometers), typically green 550 nm.",
       "label_i18n": {
         "en": "Wavelength (nm)",
         "tr": "Dalga Boyu (nm)",

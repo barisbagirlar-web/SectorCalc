@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Dönüştürülecek viskozite değeri",
+      "businessContext": "Viscosity value to be converted",
       "label_i18n": {
         "en": "Value",
         "tr": "Değer",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır.",
+      "businessContext": "The density of the fluid is only used when converting between dynamic and kinematic viscosity.",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",

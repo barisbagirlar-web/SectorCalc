@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: x-bileşeninin x’e göre değişimi",
+      "businessContext": "Partial derivative: change of x-component with respect to x",
       "label_i18n": {
         "en": "∂F_x/∂x",
         "tr": "∂F_x/∂x",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: y-bileşeninin y’ye göre değişimi",
+      "businessContext": "Partial derivative: change of y-component with respect to y",
       "label_i18n": {
         "en": "∂F_y/∂y",
         "tr": "∂F_y/∂y",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: z-bileşeninin z’ye göre değişimi",
+      "businessContext": "Partial derivative: change of z-component with respect to z",
       "label_i18n": {
         "en": "∂F_z/∂z",
         "tr": "∂F_z/∂z",
@@ -75,11 +75,11 @@
     },
     {
       "id": "x",
-      "label": "x-koordinatı",
+      "label": "x-coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının x koordinatı",
+      "businessContext": "x-coordinate of evaluation point",
       "label_i18n": {
         "en": "x-coordinate",
         "tr": "x-koordinatı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "y",
-      "label": "y-koordinatı",
+      "label": "y-coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının y koordinatı",
+      "businessContext": "y-coordinate of evaluation point",
       "label_i18n": {
         "en": "y-coordinate",
         "tr": "y-koordinatı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "z",
-      "label": "z-koordinatı",
+      "label": "z-coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının z koordinatı",
+      "businessContext": "z coordinate of evaluation point",
       "label_i18n": {
         "en": "z-coordinate",
         "tr": "z-koordinatı",

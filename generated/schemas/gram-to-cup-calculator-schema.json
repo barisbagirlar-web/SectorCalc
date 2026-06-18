@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mL",
       "default": 240,
-      "businessContext": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
+      "businessContext": "Volume of the standard cup used in milliliters. Typically 240 mL in the US, 250 mL in the metric system.",
       "label_i18n": {
         "en": "Glass Volume (mL)",
         "tr": "Cam Hacmi (mL)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "packingFactor",
-      "label": "Sıkıştırma Faktörü",
+      "label": "Compaction Factor",
       "type": "number",
       "unit": "oransız",
       "default": 1,
-      "businessContext": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
+      "businessContext": "Factor indicating how compacted the material is (1 = normal, >1 denser).",
       "label_i18n": {
         "en": "Compaction Factor",
         "tr": "Sıkıştırma Faktörü",

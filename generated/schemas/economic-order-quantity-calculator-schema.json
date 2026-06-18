@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualDemand",
-      "label": "Yıllık Talep Miktarı",
+      "label": "Annual Demand Quantity",
       "type": "number",
       "unit": "adet/yıl",
       "default": 10000,
-      "businessContext": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı.",
+      "businessContext": "Amount of material sold or used in production annually.",
       "label_i18n": {
         "en": "Annual Demand Quantity",
         "tr": "Yıllık Talep Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "orderingCost",
-      "label": "Sipariş Maliyeti",
+      "label": "Ordering Cost",
       "type": "number",
       "unit": "TL/sipariş",
       "default": 50,
-      "businessContext": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar.",
+      "businessContext": "All expenses related to placing and receiving an order.",
       "label_i18n": {
         "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL/birim/yıl",
       "default": 2,
-      "businessContext": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.).",
+      "businessContext": "Cost of storing one unit of stock for one year (insurance, depreciation, opportunity cost, etc.).",
       "label_i18n": {
         "en": "Stokta Tutma Maliyeti",
         "tr": "Holding Cost",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 10,
-      "businessContext": "Satın alınan veya üretilen malzemenin birim başına maliyeti.",
+      "businessContext": "Cost per unit of purchased or produced material.",
       "label_i18n": {
         "en": "Birim Maliyeti",
         "tr": "Unit Cost",

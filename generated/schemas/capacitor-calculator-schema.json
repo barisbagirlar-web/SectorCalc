@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "F",
       "default": 0.001,
-      "businessContext": "Kapasitörün kapasitans değeri (Farad)",
+      "businessContext": "Capacitor capacitance value (Farad)",
       "label_i18n": {
         "en": "Kapasitans (C)",
         "tr": "Capacitance (C)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Kapasitöre uygulanan gerilim (Volt)",
+      "businessContext": "Voltage applied to capacitor (Volt)",
       "label_i18n": {
         "en": "Gerilim (V)",
         "tr": "Voltage (V)",
@@ -51,7 +51,7 @@
     },
     {
       "id": "resistance",
-      "label": "Direnç (R)",
+      "label": "Resistance (R)",
       "type": "number",
       "unit": "Ω",
       "default": 1000,
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "AC sinyalin frekansı (Hertz)",
+      "businessContext": "Frequency of AC signal (Hertz)",
       "label_i18n": {
         "en": "Frekans (f)",
         "tr": "Frequency (f)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "s",
       "default": 0.001,
-      "businessContext": "Değerlendirilen zaman anı (saniye)",
+      "businessContext": "Time instant evaluated (seconds)",
       "label_i18n": {
         "en": "Zaman (t)",
         "tr": "Time (t)",

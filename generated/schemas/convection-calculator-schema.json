@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "L",
-      "label": "Plaka Yüksekliği (L)",
+      "label": "Plate Height (L)",
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Taşınımın gerçekleştiği dikey plakanın yüksekliği.",
+      "businessContext": "Height of the vertical plate where convection occurs.",
       "label_i18n": {
         "en": "Plate Height (L)",
         "tr": "Plaka Yüksekliği (L)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "W",
-      "label": "Plaka Genişliği (W)",
+      "label": "Plate Width (W)",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Isı transfer alanı hesabı için plaka genişliği.",
+      "businessContext": "Plate width for heat transfer area calculation.",
       "label_i18n": {
         "en": "Plate Width (W)",
         "tr": "Plaka Genişliği (W)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "Ts",
-      "label": "Yüzey Sıcaklığı",
+      "label": "Surface Temperature",
       "type": "number",
       "unit": "°C",
       "default": 50,
-      "businessContext": "Plaka yüzey sıcaklığı.",
+      "businessContext": "Plate surface temperature.",
       "label_i18n": {
         "en": "Surface Temperature",
         "tr": "Yüzey Sıcaklığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "Tinf",
-      "label": "Akışkan Sıcaklığı",
+      "label": "Fluid Temperature",
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ortam akışkan sıcaklığı (genellikle hava).",
+      "businessContext": "Ambient fluid temperature (usually air).",
       "label_i18n": {
         "en": "Fluid Temperature",
         "tr": "Akışkan Sıcaklığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "k",
-      "label": "Isıl İletkenlik (k)",
+      "label": "Thermal Conductivity (k)",
       "type": "number",
       "unit": "W/mK",
       "default": 0.0257,
-      "businessContext": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK).",
+      "businessContext": "Thermal conductivity of the fluid (for air ~0.0257 W/mK).",
       "label_i18n": {
         "en": "Thermal Conductivity (k)",
         "tr": "Isıl İletkenlik (k)",
@@ -123,14 +123,14 @@
     },
     {
       "id": "nu",
-      "label": "Kinematik Viskozite (ν)",
+      "label": "Kinematic Viscosity (ν)",
       "type": "number",
       "unit": "m²/s",
       "default": 0.000016,
-      "businessContext": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s).",
+      "businessContext": "Kinematic viscosity of the fluid (for air ~1.6e-5 m²/s).",
       "label_i18n": {
-        "en": "Kinematik Viskozite (ν)",
-        "tr": "Kinematik Viskozite (ν) (m²/s)",
+        "en": "Kinematic Viscosity (ν)",
+        "tr": "Kinematik Viskozite (ν)",
         "de": "Kinematische Viskosität (ν)",
         "fr": "Viscosité cinématique (ν)",
         "es": "Viscosidad cinemática (ν)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "Pr",
-      "label": "Prandtl Sayısı (Pr)",
+      "label": "Prandtl Number (Pr)",
       "type": "number",
       "unit": "unit",
       "default": 0.7,
-      "businessContext": "Akışkanın Prandtl sayısı (hava için ~0.7).",
+      "businessContext": "Prandtl number of the fluid (~0.7 for air).",
       "label_i18n": {
         "en": "Prandtl Number (Pr)",
         "tr": "Prandtl Sayısı (Pr)",

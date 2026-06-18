@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 2800,
-      "businessContext": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)",
+      "businessContext": "Vertical distance from ground floor to finished surface of the next floor (in mm)",
       "label_i18n": {
         "en": "Total Rise",
         "tr": "Toplam Yükseklik",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 15,
-      "businessContext": "Basamak sayısı (yükselen sayısı)",
+      "businessContext": "Number of steps (number of risers)",
       "label_i18n": {
         "en": "Number of Risers",
         "tr": "Rıht Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mm",
       "default": 280,
-      "businessContext": "Her bir basamağın yatay derinliği (mm cinsinden)",
+      "businessContext": "Horizontal depth of each step (in mm)",
       "label_i18n": {
         "en": "Tread Depth",
         "tr": "Basamak Derinliği",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mm",
       "default": 286,
-      "businessContext": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)",
+      "businessContext": "Beam width (e.g., actual width for 2x12 inch nominal lumber ~286 mm)",
       "label_i18n": {
         "en": "Stringer Width",
         "tr": "Kiriş Genişliği",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "mm",
       "default": 25,
-      "businessContext": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)",
+      "businessContext": "Nosing overhang from the riser face (in mm)",
       "label_i18n": {
         "en": "Nosing Overhang",
         "tr": "Basamak Taşması",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X entegrasyon alt sınırı",
+      "businessContext": "X integration lower limit",
       "label_i18n": {
         "en": "X Lower Limit",
         "tr": "X Alt Sınır",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "X entegrasyon üst sınırı",
+      "businessContext": "X integration upper limit",
       "label_i18n": {
         "en": "X Upper Limit",
         "tr": "X Üst Sınır",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y entegrasyon alt sınırı",
+      "businessContext": "Y integration lower limit",
       "label_i18n": {
         "en": "Y Lower Limit",
         "tr": "Y Alt Sınır",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Y entegrasyon üst sınırı",
+      "businessContext": "Y integration upper limit",
       "label_i18n": {
         "en": "Y Upper Limit",
         "tr": "Y Üst Sınır",
@@ -99,11 +99,11 @@
     },
     {
       "id": "zLower",
-      "label": "Z Alt Sınır",
+      "label": "Z Lower Limit",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z entegrasyon alt sınırı",
+      "businessContext": "Z integration lower limit",
       "label_i18n": {
         "en": "Z Lower Limit",
         "tr": "Z Alt Sınır",
@@ -123,11 +123,11 @@
     },
     {
       "id": "zUpper",
-      "label": "Z Üst Sınır",
+      "label": "Z Upper Limit",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Z entegrasyon üst sınırı",
+      "businessContext": "Z integration upper limit",
       "label_i18n": {
         "en": "Z Upper Limit",
         "tr": "Z Üst Sınır",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Sabit yoğunluk",
+      "businessContext": "Constant density",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",

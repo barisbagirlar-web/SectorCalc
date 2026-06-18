@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "h",
       "default": 100,
-      "businessContext": "Toplam iş yükü (saat cinsinden).",
+      "businessContext": "Total workload (in hours).",
       "label_i18n": {
         "en": "Total Work Hours",
         "tr": "Toplam Çalışma Saati",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Bir vardiyadaki planlanmış çalışma saati.",
+      "businessContext": "Planned working hours per shift.",
       "label_i18n": {
         "en": "Daily Shift Hours",
         "tr": "Günlük Vardiya Saati",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "h",
       "default": 0.5,
-      "businessContext": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
+      "businessContext": "Break time per shift (reduces effective working time).",
       "label_i18n": {
         "en": "Break Hours per Shift",
         "tr": "Vardiya Başına Mola Süresi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
+      "businessContext": "Number of shifts per day (e.g., 1, 2, or 3).",
       "label_i18n": {
         "en": "Shifts per Day",
         "tr": "Günlük Vardiya Sayısı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
+      "businessContext": "Production efficiency factor (0-1). 1 = 100% efficiency.",
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
+      "businessContext": "One-time setup time (added to workload).",
       "label_i18n": {
         "en": "Setup Time",
         "tr": "Kurulum Süresi",

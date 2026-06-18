@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Kaldırılan Ağırlık (kg)",
+      "label": "Weight Lifted (kg)",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Kaldırılan ağırlık, kilogram cinsinden.",
+      "businessContext": "Weight lifted, in kilograms.",
       "label_i18n": {
         "en": "Weight Lifted (kg)",
         "tr": "Kaldırılan Ağırlık (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "reps",
-      "label": "Tekrar Sayısı",
+      "label": "Number of Repetitions",
       "type": "number",
       "unit": "tekrar",
       "default": 5,
-      "businessContext": "Yapılan tekrar sayısı.",
+      "businessContext": "Number of repetitions performed.",
       "label_i18n": {
         "en": "Number of Repetitions",
         "tr": "Tekrar Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "trainingMaxPercentage",
-      "label": "Training Max Yüzdesi (%)",
+      "label": "Training Max Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır.",
+      "businessContext": "Training max as a percentage of 1RM. In the Wendler 5/3/1 program, 90% is typically used.",
       "label_i18n": {
         "en": "Training Max Percentage (%)",
         "tr": "Training Max Yüzdesi (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "coefficientA",
-      "label": "Katsayı A",
+      "label": "Coefficient A",
       "type": "number",
       "unit": "unit",
       "default": 1.0278,
-      "businessContext": "Brzycki formülünde kullanılan A katsayısı.",
+      "businessContext": "Coefficient A used in the Brzycki formula.",
       "label_i18n": {
         "en": "Coefficient A",
         "tr": "Katsayı A",
@@ -99,11 +99,11 @@
     },
     {
       "id": "coefficientB",
-      "label": "Katsayı B",
+      "label": "Coefficient B",
       "type": "number",
       "unit": "unit",
       "default": 0.0278,
-      "businessContext": "Brzycki formülünde kullanılan B katsayısı.",
+      "businessContext": "Coefficient B used in the Brzycki formula.",
       "label_i18n": {
         "en": "Coefficient B",
         "tr": "Katsayı B",

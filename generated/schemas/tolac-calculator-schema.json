@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "laborRate",
-      "label": "Saatlik İşçilik Ücreti",
+      "label": "Hourly Labor Cost",
       "type": "number",
       "unit": "EUR/saat",
       "default": 25,
-      "businessContext": "Bir işçinin saatlik maliyeti (brüt)",
+      "businessContext": "Hourly cost of a worker (gross)",
       "label_i18n": {
         "en": "Hourly Labor Wage",
         "tr": "Saatlik İşçilik Ücreti",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "EUR/saat",
       "default": 50,
-      "businessContext": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
+      "businessContext": "Hourly cost of the machine including depreciation, energy, maintenance",
       "label_i18n": {
         "en": "Makine Saatlik Maliyeti",
         "tr": "Machine hourly cost",
@@ -51,11 +51,11 @@
     },
     {
       "id": "cycleTime",
-      "label": "Birim Çevrim Süresi",
+      "label": "Unit Cycle Time",
       "type": "number",
       "unit": "dakika",
       "default": 5,
-      "businessContext": "Bir birim ürünün işlenme süresi (operasyon süresi)",
+      "businessContext": "Processing time per unit product (operation time)",
       "label_i18n": {
         "en": "Unit Cycle Time",
         "tr": "Birim Çevrim Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "batchSize",
-      "label": "Parti Büyüklüğü",
+      "label": "Batch Size",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Bir partide üretilen toplam ürün sayısı",
+      "businessContext": "Total number of products produced in a batch",
       "label_i18n": {
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "EUR/adet",
       "default": 10,
-      "businessContext": "Ürün başına hammadde ve sarf malzeme maliyeti",
+      "businessContext": "Raw material and consumable cost per product",
       "label_i18n": {
         "en": "Birim Malzeme Maliyeti",
         "tr": "Unit Material Cost",
@@ -123,11 +123,11 @@
     },
     {
       "id": "overheadPercentage",
-      "label": "Genel Gider Oranı",
+      "label": "Overhead Rate",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
+      "businessContext": "Percentage of general production overhead calculated on labor",
       "label_i18n": {
         "en": "Overhead Rate",
         "tr": "Genel Gider Oranı",

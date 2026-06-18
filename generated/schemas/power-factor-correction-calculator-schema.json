@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "realPower",
-      "label": "Aktif Güç (kW)",
+      "label": "Active Power (kW)",
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Tesisteki toplam gerçek güç tüketimi",
+      "businessContext": "Total real power consumption in the facility",
       "label_i18n": {
         "en": "Active Power (kW)",
         "tr": "Aktif Güç (kW)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "existingPowerFactor",
-      "label": "Mevcut Güç Faktörü",
+      "label": "Current Power Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.8,
-      "businessContext": "Düzeltme öncesi mevcut cos φ değeri",
+      "businessContext": "Current cos φ value before correction",
       "label_i18n": {
         "en": "Current Power Factor",
         "tr": "Mevcut Güç Faktörü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "targetPowerFactor",
-      "label": "Hedef Güç Faktörü",
+      "label": "Target Power Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.95,
-      "businessContext": "Ulaşılmak istenen cos φ değeri",
+      "businessContext": "Desired cos φ value to be achieved",
       "label_i18n": {
         "en": "Target Power Factor",
         "tr": "Hedef Güç Faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL/kWh",
       "default": 0.8,
-      "businessContext": "Reaktif enerji ceza bedelini hesaplamak için",
+      "businessContext": "To calculate the reactive energy penalty cost",
       "label_i18n": {
         "en": "Electricity Tariff",
         "tr": "Elektrik Tarifesi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "hoursPerDay",
-      "label": "Günlük Çalışma Saati",
+      "label": "Daily Working Hours",
       "type": "number",
       "unit": "saat/gün",
       "default": 24,
-      "businessContext": "Yıllık kullanım süresini belirlemek için",
+      "businessContext": "To determine the annual usage time",
       "label_i18n": {
         "en": "Daily Working Hours",
         "tr": "Günlük Çalışma Saati",

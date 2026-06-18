@@ -100,7 +100,7 @@
   ],
   "formulas": {
     "zodiacIndex": "((birthYear - 4) % 12 + 12) % 12",
-    "zodiacIndex_aux": "((birthYear - 4) % 12 + 12) % 12"
+    "elementIndex": "((birthYear - 4) % 10 + 10) % 10"
   },
   "outputs": {
     "primary": "zodiacIndex",
@@ -125,7 +125,32 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "birthYear",
+        "type": "range",
+        "min": 1900,
+        "max": 2100
+      },
+      {
+        "field": "birthMonth",
+        "type": "range",
+        "min": 1,
+        "max": 12
+      },
+      {
+        "field": "birthDay",
+        "type": "range",
+        "min": 1,
+        "max": 31
+      },
+      {
+        "field": "birthHour",
+        "type": "range",
+        "min": 0,
+        "max": 23
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

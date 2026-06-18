@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "noiseLevel_dBA",
-      "label": "Gürültü Seviyesi (dBA)",
+      "label": "Noise Level (dBA)",
       "type": "number",
       "unit": "dBA",
       "default": 85,
-      "businessContext": "Çalışma ortamındaki ortalama gürültü seviyesi",
+      "businessContext": "Average noise level in the working environment",
       "label_i18n": {
         "en": "Noise Level (dBA)",
         "tr": "Gürültü Seviyesi (dBA)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "exposureDuration_h",
-      "label": "Günlük Maruziyet Süresi",
+      "label": "Daily Exposure Duration",
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Çalışanın gürültüye maruz kaldığı günlük süre",
+      "businessContext": "Daily duration of employee exposure to noise",
       "label_i18n": {
         "en": "Daily Exposure Duration",
         "tr": "Günlük Maruziyet Süresi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 40,
-      "businessContext": "Çalışanın yaşı",
+      "businessContext": "Employee age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -75,11 +75,11 @@
     },
     {
       "id": "exposureYears",
-      "label": "Maruziyet Yılı",
+      "label": "Exposure Year",
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Toplam gürültü maruziyet yılı",
+      "businessContext": "Total noise exposure years",
       "label_i18n": {
         "en": "Exposure Years",
         "tr": "Maruziyet Yılı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "hearingProtection_dB",
-      "label": "İşitme Koruyucu NRR",
+      "label": "Hearing Protector NRR",
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "Kullanılan işitme koruyucunun Gürültü Azaltma Değeri (NRR)",
+      "businessContext": "Noise Reduction Rating (NRR) of the hearing protector used",
       "label_i18n": {
         "en": "Hearing Protector NRR",
         "tr": "İşitme Koruyucu NRR",

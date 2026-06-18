@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "fuelMassFlow",
-      "label": "Yakıt Kütle Akış Hızı",
+      "label": "Fuel Mass Flow Rate",
       "type": "number",
       "unit": "kg/h",
       "default": 200,
-      "businessContext": "Motor veya kazan tarafından tüketilen yakıtın kütlesel akış hızı.",
+      "businessContext": "Mass flow rate of fuel consumed by the engine or boiler.",
       "label_i18n": {
         "en": "Fuel Mass Flow Rate",
         "tr": "Yakıt Kütle Akış Hızı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "powerOutput",
-      "label": "Güç Çıkışı",
+      "label": "Power Output",
       "type": "number",
       "unit": "kW",
       "default": 1000,
-      "businessContext": "Motorun veya tesisin net güç çıkışı.",
+      "businessContext": "Net power output of the engine or plant.",
       "label_i18n": {
         "en": "Power Output",
         "tr": "Güç Çıkışı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "carbonContent",
-      "label": "Karbon İçeriği",
+      "label": "Carbon Content",
       "type": "number",
       "unit": "kg C/kg yakıt",
       "default": 0.86,
-      "businessContext": "Yakıtın birim kütlesi başına içerdiği karbon miktarı (ör. motorin için ~0.86, doğalgaz için ~0.75).",
+      "businessContext": "Amount of carbon per unit mass of fuel (e.g., ~0.86 for diesel, ~0.75 for natural gas).",
       "label_i18n": {
         "en": "Carbon Content",
         "tr": "Karbon İçeriği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "oxidationFactor",
-      "label": "Oksidasyon Faktörü",
+      "label": "Oxidation Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.99,
-      "businessContext": "Yakıttaki karbonun yanma sırasında CO2'ye dönüşme oranı (genellikle 0.99).",
+      "businessContext": "Fraction of carbon in fuel that is converted to CO2 during combustion (typically 0.99).",
       "label_i18n": {
         "en": "Oxidation Factor",
         "tr": "Oksidasyon Faktörü",

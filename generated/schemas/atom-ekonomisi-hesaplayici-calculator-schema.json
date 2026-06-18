@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "productMW",
-      "label": "Ürün Molekül Ağırlığı",
+      "label": "Product Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Hedef ürünün molekül ağırlığı",
+      "businessContext": "Molecular weight of the target product",
       "label_i18n": {
         "en": "Product Molecular Weight",
         "tr": "Ürün Molekül Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "reactantMW1",
-      "label": "Reaktan 1 Molekül Ağırlığı",
+      "label": "Reactant 1 Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 50,
-      "businessContext": "Birinci reaktanın molekül ağırlığı",
+      "businessContext": "Molecular weight of the first reactant",
       "label_i18n": {
         "en": "Reactant 1 Molecular Weight",
         "tr": "Reaktan 1 Molekül Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "reactantMW2",
-      "label": "Reaktan 2 Molekül Ağırlığı",
+      "label": "Reactant 2 Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 50,
-      "businessContext": "İkinci reaktanın molekül ağırlığı",
+      "businessContext": "Molecular weight of the second reactant",
       "label_i18n": {
         "en": "Reactant 2 Molecular Weight",
         "tr": "Reaktan 2 Molekül Ağırlığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "reactantMW3",
-      "label": "Reaktan 3 Molekül Ağırlığı",
+      "label": "Reactant 3 Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Üçüncü reaktanın molekül ağırlığı (isteğe bağlı)",
+      "businessContext": "Molecular weight of the third reactant (optional)",
       "label_i18n": {
         "en": "Reactant 3 Molecular Weight",
         "tr": "Reaktan 3 Molekül Ağırlığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "reactantMW4",
-      "label": "Reaktan 4 Molekül Ağırlığı",
+      "label": "Reactant 4 Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Dördüncü reaktanın molekül ağırlığı (isteğe bağlı)",
+      "businessContext": "Molecular weight of the fourth reactant (optional)",
       "label_i18n": {
         "en": "Reactant 4 Molecular Weight",
         "tr": "Reaktan 4 Molekül Ağırlığı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "reactantMW5",
-      "label": "Reaktan 5 Molekül Ağırlığı",
+      "label": "Reactant 5 Molecular Weight",
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Beşinci reaktanın molekül ağırlığı (isteğe bağlı)",
+      "businessContext": "Molecular weight of the fifth reactant (optional)",
       "label_i18n": {
         "en": "Reactant 5 Molecular Weight",
         "tr": "Reaktan 5 Molekül Ağırlığı",

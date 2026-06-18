@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "width",
-      "label": "Bina Genişliği (Açıklık)",
+      "label": "Building Width (Span)",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Mahya ile saçak arası toplam yatay mesafe",
+      "businessContext": "Total horizontal distance between ridge and eaves",
       "label_i18n": {
         "en": "Building Width (Span)",
         "tr": "Bina Genişliği (Açıklık)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "length",
-      "label": "Bina Uzunluğu",
+      "label": "Building Length",
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Bina boyu, mahya yönündeki uzunluk",
+      "businessContext": "Building length, length along the ridge direction",
       "label_i18n": {
         "en": "Building Length",
         "tr": "Bina Uzunluğu",
@@ -51,11 +51,11 @@
     },
     {
       "id": "lowerAngle",
-      "label": "Alt Eğim Açısı",
+      "label": "Lower Slope Angle",
       "type": "number",
       "unit": "derece",
       "default": 60,
-      "businessContext": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı",
+      "businessContext": "Angle of the lower surface from eaves to break point with horizontal",
       "label_i18n": {
         "en": "Lower Slope Angle",
         "tr": "Alt Eğim Açısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "upperAngle",
-      "label": "Üst Eğim Açısı",
+      "label": "Upper Slope Angle",
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı",
+      "businessContext": "Angle of the upper surface from break point to ridge with horizontal",
       "label_i18n": {
         "en": "Upper Slope Angle",
         "tr": "Üst Eğim Açısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "lowerRun",
-      "label": "Alt İz Düşüm Mesafesi",
+      "label": "Lower Horizontal Projection Distance",
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Saçaktan kırılma noktasına kadar yatay mesafe",
+      "businessContext": "Horizontal distance from eaves to break point",
       "label_i18n": {
         "en": "Lower Horizontal Projection Distance",
         "tr": "Alt İz Düşüm Mesafesi",

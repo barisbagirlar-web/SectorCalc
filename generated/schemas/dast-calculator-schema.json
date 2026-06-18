@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Çekme testinde ölçülen maksimum kuvvet",
+      "businessContext": "Maximum force measured in tensile test",
       "label_i18n": {
         "en": "Uygulanan Kuvvet",
         "tr": "Applied Force",
@@ -27,11 +27,11 @@
     },
     {
       "id": "area",
-      "label": "Yapışma Alanı",
+      "label": "Bonding Area",
       "type": "number",
       "unit": "mm²",
       "default": 100,
-      "businessContext": "Test numunesinin yapışma yüzey alanı",
+      "businessContext": "Bonding surface area of the test specimen",
       "label_i18n": {
         "en": "Bonding Area",
         "tr": "Yapışma Alanı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "°C",
       "default": 23,
-      "businessContext": "Test ortamının sıcaklığı",
+      "businessContext": "Temperature of the test environment",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Test ortamının bağıl nemi",
+      "businessContext": "Relative humidity of the test environment",
       "label_i18n": {
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "mm/dak",
       "default": 10,
-      "businessContext": "Test sırasında çene hareket hızı",
+      "businessContext": "Crosshead speed during test",
       "label_i18n": {
         "en": "Tensile speed",
         "tr": "Çekme Hızı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "grapeWeight",
-      "label": "Üzüm Ağırlığı (kg)",
+      "label": "Grape Weight (kg)",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Toplam üzüm miktarı",
+      "businessContext": "Total grape amount",
       "label_i18n": {
         "en": "Grape weight (kg)",
         "tr": "Üzüm Ağırlığı (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sugarContent",
-      "label": "Şeker Oranı (g/L)",
+      "label": "Sugar Content (g/L)",
       "type": "number",
       "unit": "g/L",
       "default": 220,
-      "businessContext": "Üzümün şeker konsantrasyonu",
+      "businessContext": "Sugar concentration of grapes",
       "label_i18n": {
         "en": "Sugar content (g/L)",
         "tr": "Şeker Oranı (g/L)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "yieldPercent",
-      "label": "Şıra Verimi (%)",
+      "label": "Must Yield (%)",
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Presleme sonrası şıra oranı",
+      "businessContext": "Must ratio after pressing",
       "label_i18n": {
         "en": "Must yield (%)",
         "tr": "Şıra Verimi (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "alcoholConversion",
-      "label": "Alkol Dönüşüm Faktörü",
+      "label": "Alcohol Conversion Factor",
       "type": "number",
       "unit": "% alc./g şeker",
       "default": 0.55,
-      "businessContext": "Her g şekerden oluşan alkol yüzdesi",
+      "businessContext": "Alcohol percentage from each g of sugar",
       "label_i18n": {
         "en": "Alcohol conversion factor",
         "tr": "Alkol Dönüşüm Faktörü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "fermentationLoss",
-      "label": "Fermantasyon Kaybı (%)",
+      "label": "Fermentation Loss (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Fermantasyon sırasında hacim kaybı",
+      "businessContext": "Volume loss during fermentation",
       "label_i18n": {
         "en": "Fermentation loss (%)",
         "tr": "Fermantasyon Kaybı (%)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "bottleVolume",
-      "label": "Şişe Hacmi (L)",
+      "label": "Bottle Volume (L)",
       "type": "number",
       "unit": "L",
       "default": 0.75,
-      "businessContext": "Standart şişe hacmi",
+      "businessContext": "Standard bottle volume",
       "label_i18n": {
         "en": "Bottle volume (L)",
         "tr": "Şişe Hacmi (L)",

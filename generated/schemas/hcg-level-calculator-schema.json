@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass1",
-      "label": "1. Kütle (kg)",
+      "label": "1st Mass (kg)",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Birinci öğenin kütlesi",
+      "businessContext": "Mass of the first item",
       "label_i18n": {
         "en": "Mass 1 (kg)",
         "tr": "1. Kütle (kg)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Birinci öğenin yatay referans noktasına uzaklığı",
+      "businessContext": "Distance of the first item from the horizontal reference point",
       "label_i18n": {
         "en": "1. Pozisyon (m)",
         "tr": "1. Konum (m)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "mass2",
-      "label": "2. Kütle (kg)",
+      "label": "2nd Mass (kg)",
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "İkinci öğenin kütlesi",
+      "businessContext": "Mass of the second item",
       "label_i18n": {
         "en": "Mass 2 (kg)",
         "tr": "2. Kütle (kg)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "İkinci öğenin yatay referans noktasına uzaklığı",
+      "businessContext": "Distance of the second item from the horizontal reference point",
       "label_i18n": {
         "en": "2. Pozisyon (m)",
         "tr": "2. Konum (m)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "mass3",
-      "label": "3. Kütle (kg)",
+      "label": "3. Mass (kg)",
       "type": "number",
       "unit": "kg",
       "default": 150,
-      "businessContext": "Üçüncü öğenin kütlesi",
+      "businessContext": "Mass of the third item",
       "label_i18n": {
         "en": "3. Mass (kg)",
         "tr": "3. Kütle (kg)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Üçüncü öğenin yatay referans noktasına uzaklığı",
+      "businessContext": "Distance of the third item from the horizontal reference point",
       "label_i18n": {
         "en": "3. Pozisyon (m)",
         "tr": "3. Konum (m)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "mass4",
-      "label": "4. Kütle (kg)",
+      "label": "4. Mass (kg)",
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Dördüncü öğenin kütlesi",
+      "businessContext": "Mass of the fourth item",
       "label_i18n": {
         "en": "4. Mass (kg)",
         "tr": "4. Kütle (kg)",
@@ -175,7 +175,7 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Dördüncü öğenin yatay referans noktasına uzaklığı",
+      "businessContext": "Distance of the fourth item from the horizontal reference point",
       "label_i18n": {
         "en": "4. Pozisyon (m)",
         "tr": "4. Konum (m)",

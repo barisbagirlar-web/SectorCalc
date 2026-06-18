@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Integrand genlik çarpanı",
+      "businessContext": "Integrand amplitude multiplier",
       "label_i18n": {
         "en": "Amplitude (A)",
         "tr": "Amplitüd (A)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "B",
-      "label": "Bozunum katsayısı (B, >0)",
+      "label": "Decay coefficient (B, >0)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üstel bozunma hızı",
+      "businessContext": "Exponential decay rate",
       "label_i18n": {
         "en": "Decay coefficient (B, >0)",
         "tr": "Bozunum katsayısı (B, >0)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "İntegral başlangıcı",
+      "businessContext": "Integral start",
       "label_i18n": {
         "en": "Lower limit (a)",
         "tr": "Alt sınır (a)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Üssün kayma noktası",
+      "businessContext": "Exponent shift point",
       "label_i18n": {
         "en": "Slip (x₀)",
         "tr": "Kayma (x₀)",

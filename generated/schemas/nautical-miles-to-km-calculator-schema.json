@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "NM",
       "default": 0,
-      "businessContext": "Dönüştürülecek deniz mili miktarı",
+      "businessContext": "Amount of nautical miles to convert",
       "label_i18n": {
         "en": "Nautical Mile",
         "tr": "Deniz Mili",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "km/NM",
       "default": 1.852,
-      "businessContext": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
+      "businessContext": "International standard conversion factor (1 NM = 1.852 km). Can be changed for customer-specific cases.",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "numberOfTrips",
-      "label": "Sefer Sayısı",
+      "label": "Number of Trips",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
+      "businessContext": "Number of repetitions of the same distance; used for total distance calculation.",
       "label_i18n": {
         "en": "Number of trips",
         "tr": "Sefer Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
+      "businessContext": "Number of decimal places to show in the result (0–6)",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

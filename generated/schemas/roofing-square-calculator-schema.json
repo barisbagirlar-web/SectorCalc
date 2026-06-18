@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roofLength",
-      "label": "Çatı Uzunluğu",
+      "label": "Roof Length",
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Çatı taban alanının uzun kenarı",
+      "businessContext": "Long side of the roof base area",
       "label_i18n": {
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roofWidth",
-      "label": "Çatı Genişliği",
+      "label": "Roof Width",
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Çatı taban alanının kısa kenarı",
+      "businessContext": "Short side of the roof base area",
       "label_i18n": {
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "pitchAngle",
-      "label": "Çatı Eğim Açısı",
+      "label": "Roof Pitch Angle",
       "type": "number",
       "unit": "derece",
       "default": 20,
-      "businessContext": "Çatı eğim açısı, yatay düzleme göre",
+      "businessContext": "Roof pitch angle relative to horizontal plane",
       "label_i18n": {
         "en": "Roof Pitch Angle",
         "tr": "Çatı Eğim Açısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "wastePercent",
-      "label": "Fire Yüzdesi",
+      "label": "Fire Percentage",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve hata payı için eklenen fire oranı",
+      "businessContext": "Waste rate added for cutting and error margin",
       "label_i18n": {
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",

@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "startIndex",
-      "label": "Başlangıç İndeksi",
+      "label": "Start Index",
       "type": "number",
       "unit": "unit",
       "default": 0,
@@ -27,11 +27,11 @@
     },
     {
       "id": "firstTerm",
-      "label": "İlk Terim (F₀)",
+      "label": "First Term (F₀)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Dizinin başlangıç indeksindeki değeri.",
+      "businessContext": "The value of the sequence at the start index.",
       "label_i18n": {
         "en": "First Term (F₀)",
         "tr": "İlk terim (F₀)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "secondTerm",
-      "label": "İkinci Terim (F₁)",
+      "label": "Second Term (F₁)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Dizinin başlangıç indeksi + 1'deki değeri.",
+      "businessContext": "The value of the sequence at start index + 1.",
       "label_i18n": {
         "en": "Second Term (F₁)",
         "tr": "İkinci terim (F₁)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "multiplierA",
-      "label": "Çarpan a",
+      "label": "Multiplier a",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Bir önceki terim için katsayı (F(n-1)).",
+      "businessContext": "Coefficient for the previous term (F(n-1)).",
       "label_i18n": {
         "en": "Multiplier a",
         "tr": "Çarpan a",
@@ -99,11 +99,11 @@
     },
     {
       "id": "multiplierB",
-      "label": "Çarpan b",
+      "label": "Multiplier b",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "İki önceki terim için katsayı (F(n-2)).",
+      "businessContext": "Coefficient for the term two steps back (F(n-2)).",
       "label_i18n": {
         "en": "Multiplier b",
         "tr": "Çarpan b",
@@ -123,11 +123,11 @@
     },
     {
       "id": "termCount",
-      "label": "Terim Sayısı",
+      "label": "Number of Terms",
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Oluşturulacak toplam terim sayısı.",
+      "businessContext": "Total number of terms to generate.",
       "label_i18n": {
         "en": "Number of Terms",
         "tr": "Terim Sayısı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
+      "businessContext": "Number of decimal places for rounding (0 for integer).",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

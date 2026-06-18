@@ -51,11 +51,11 @@
     },
     {
       "id": "sampleSizeB",
-      "label": "Örneklem Boyutu B",
+      "label": "Sample Size B",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "B varyantı için testteki toplam örnek sayısı",
+      "businessContext": "Total number of samples in the test for variant B",
       "label_i18n": {
         "en": "Sample Size B",
         "tr": "Örneklem Boyutu B",
@@ -75,11 +75,11 @@
     },
     {
       "id": "conversionsB",
-      "label": "Dönüşüm B",
+      "label": "Conversions B",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "B varyantı için başarılı dönüşüm sayısı",
+      "businessContext": "Number of successful conversions for variant B",
       "label_i18n": {
         "en": "Conversions B",
         "tr": "Dönüşüm B",
@@ -99,11 +99,11 @@
     },
     {
       "id": "confidence",
-      "label": "Güven Düzeyi",
+      "label": "Confidence Level",
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "İstatistiksel anlamlılık için hedef güven seviyesi (genellikle 95)",
+      "businessContext": "Target confidence level for statistical significance (usually 95)",
       "label_i18n": {
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "Redoks yarı hücresinin standart potansiyeli",
+      "businessContext": "Standard potential of the redox half-cell",
       "label_i18n": {
         "en": "Standard Electrode Potential (E°)",
         "tr": "Standart Elektrot Potansiyeli (E°)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "temp",
-      "label": "Sıcaklık (T)",
+      "label": "Temperature (T)",
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyon sıcaklığı",
+      "businessContext": "Reaction temperature",
       "label_i18n": {
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "n",
-      "label": "Aktarılan Elektron Sayısı (n)",
+      "label": "Number of Electrons Transferred (n)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Yarı reaksiyonda transfer edilen elektron sayısı",
+      "businessContext": "Number of electrons transferred in the half-reaction",
       "label_i18n": {
         "en": "Number of electrons transferred (n)",
         "tr": "Aktarılan Elektron Sayısı (n)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "C_ox",
-      "label": "Yükseltgenmiş Tür Derişimi [Ox]",
+      "label": "Concentration of Oxidized Species [Ox]",
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Yükseltgenmiş türün molar derişimi",
+      "businessContext": "Molar concentration of the oxidized species",
       "label_i18n": {
         "en": "Concentration of oxidized species [Ox]",
         "tr": "Yükseltgenmiş Tür Derişimi [Ox]",
@@ -99,11 +99,11 @@
     },
     {
       "id": "C_red",
-      "label": "İndirgenmiş Tür Derişimi [Red]",
+      "label": "Concentration of Reduced Species [Red]",
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "İndirgenmiş türün molar derişimi",
+      "businessContext": "Molar concentration of the reduced species",
       "label_i18n": {
         "en": "Concentration of reduced species [Red]",
         "tr": "İndirgenmiş Tür Derişimi [Red]",

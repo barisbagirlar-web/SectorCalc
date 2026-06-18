@@ -30,8 +30,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Chi_square_goodness_of_fit_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.o1; results["chiSq"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq"] = 0; }
-  try { const v = input.o1; results["df"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["df"] = 0; }
+  try { const v = ((input.o1-input.e1)**2/input.e1)+((input.o2-input.e2)**2/input.e2)+((input.o3-input.e3)**2/input.e3); results["chiSq"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq"] = 0; }
+  try { const v = 3-1; results["df"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["df"] = 0; }
   return results;
 }
 

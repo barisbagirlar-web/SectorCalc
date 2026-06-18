@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Eğitim için ayrılmış mevcut toplu para",
+      "businessContext": "Total lump sum available for education",
       "label_i18n": {
         "en": "Mevcut Birikim",
         "tr": "Current Stock",
@@ -27,11 +27,11 @@
     },
     {
       "id": "monthlyContribution",
-      "label": "Aylık Katkı",
+      "label": "Monthly Contribution",
       "type": "number",
       "unit": "TL/ay",
       "default": 200,
-      "businessContext": "Her ay düzenli olarak biriktirilecek tutar",
+      "businessContext": "Amount to be saved regularly each month",
       "label_i18n": {
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%/yıl",
       "default": 7,
-      "businessContext": "Yatırımın yıllık nominal getiri oranı",
+      "businessContext": "Annual nominal rate of return on investment",
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "years",
-      "label": "Vade (Yıl)",
+      "label": "Maturity (Years)",
       "type": "number",
       "unit": "yıl",
       "default": 18,
-      "businessContext": "Eğitim başlangıcına kalan süre",
+      "businessContext": "Time remaining until start of education",
       "label_i18n": {
         "en": "Term (Years)",
         "tr": "Vade (Yıl)",

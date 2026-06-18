@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
+      "businessContext": "Total number of products/parts to be produced or divided.",
       "label_i18n": {
         "en": "Total Amount",
         "tr": "Toplam Tutar",
@@ -27,11 +27,11 @@
     },
     {
       "id": "batchSize",
-      "label": "Parti Büyüklüğü",
+      "label": "Batch Size",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Her bir partide yer alan ürün/parça sayısı.",
+      "businessContext": "Number of products/parts in each batch.",
       "label_i18n": {
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
+      "businessContext": "Remainder value to be compared with the result of the modulo operation; for match check.",
       "label_i18n": {
         "en": "Target Remaining",
         "tr": "Hedef Kalan",
@@ -75,11 +75,11 @@
     },
     {
       "id": "offset",
-      "label": "Başlangıç Kaydırma",
+      "label": "Initial Offset",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
+      "businessContext": "Fixed offset to be added to the total quantity; for example, if there is an initial remainder.",
       "label_i18n": {
         "en": "Initial Offset",
         "tr": "Başlangıç Kaydırma",

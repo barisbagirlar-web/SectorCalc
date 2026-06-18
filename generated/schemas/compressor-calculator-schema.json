@@ -148,14 +148,17 @@
   ],
   "formulas": {
     "pressureRatio": "outletPressure / inletPressure",
-    "pressureRatio_aux": "outletPressure / inletPressure"
+    "adiabaticPower": "flowRate * inletPressure * 100 * (pressureRatio ^ ((adiabaticIndex - 1) / adiabaticIndex) - 1) / (adiabaticIndex - 1) / 60",
+    "shaftPower": "adiabaticPower / (compressorEfficiency / 100)",
+    "motorPower": "shaftPower / (motorEfficiency / 100)"
   },
   "outputs": {
     "primary": "pressureRatio",
     "breakdown": [
+      "Pressure Ratio",
       "Adiabatic Power (kW)",
       "Shaft Power (kW)",
-      "Pressure Ratio"
+      "Motor Power (kW)"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -164,7 +167,10 @@
     "dataConfidenceAdjusted": "pressureRatio",
     "unit": "%",
     "breakdownUnits": {
-      "Pressure Ratio": "%"
+      "Pressure Ratio": "%",
+      "Adiabatic Power (kW)": "kW",
+      "Shaft Power (kW)": "kW",
+      "Motor Power (kW)": "kW"
     }
   },
   "category": "Teknik & Mühendislik",
@@ -177,7 +183,38 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "inletPressure",
+        "condition": "> 0",
+        "message": "Inlet pressure must be positive."
+      },
+      {
+        "field": "outletPressure",
+        "condition": "> inletPressure",
+        "message": "Outlet pressure must be greater than inlet pressure."
+      },
+      {
+        "field": "flowRate",
+        "condition": "> 0",
+        "message": "Flow rate must be positive."
+      },
+      {
+        "field": "adiabaticIndex",
+        "condition": "> 1",
+        "message": "Adiabatic index must be greater than 1."
+      },
+      {
+        "field": "compressorEfficiency",
+        "condition": "> 0 and <= 100",
+        "message": "Compressor efficiency must be between 0 and 100."
+      },
+      {
+        "field": "motorEfficiency",
+        "condition": "> 0 and <= 100",
+        "message": "Motor efficiency must be between 0 and 100."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

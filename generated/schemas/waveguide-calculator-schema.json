@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "width",
-      "label": "Genişlik (a)",
+      "label": "Width (a)",
       "type": "number",
       "unit": "mm",
       "default": 22.86,
-      "businessContext": "Dalga kılavuzu geniş iç boyutu",
+      "businessContext": "Waveguide wide inner dimension",
       "label_i18n": {
         "en": "Width (a)",
         "tr": "Genişlik (a)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "height",
-      "label": "Yükseklik (b)",
+      "label": "Height (b)",
       "type": "number",
       "unit": "mm",
       "default": 10.16,
-      "businessContext": "Dalga kılavuzu dar iç boyutu",
+      "businessContext": "Waveguide narrow inner dimension",
       "label_i18n": {
         "en": "Height (b)",
         "tr": "Yükseklik (b)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "frequency",
-      "label": "Çalışma Frekansı",
+      "label": "Operating Frequency",
       "type": "number",
       "unit": "GHz",
       "default": 10,
-      "businessContext": "İşletim frekansı",
+      "businessContext": "Operating frequency",
       "label_i18n": {
         "en": "Operating frequency",
         "tr": "Çalışma Frekansı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "permittivity",
-      "label": "Bağıl Dielektrik Sabiti",
+      "label": "Relative Dielectric Constant",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "İç dielektrik malzeme (hava için 1)",
+      "businessContext": "Internal dielectric material (1 for air)",
       "label_i18n": {
         "en": "Relative Dielectric Constant",
         "tr": "Bağıl Dielektrik Sabiti",

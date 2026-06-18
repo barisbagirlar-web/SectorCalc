@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kg)",
+      "businessContext": "User's body weight (kg)",
       "label_i18n": {
         "en": "Kilo",
         "tr": "Weight",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boy uzunluğu (cm)",
+      "businessContext": "User's height (cm)",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı (yıl)",
+      "businessContext": "User's age (years)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "0: Erkek, 1: Kadın",
       "default": 0,
-      "businessContext": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın",
+      "businessContext": "Gender selection: 0 = Male, 1 = Female",
       "label_i18n": {
         "en": "Cinsiyet",
         "tr": "Gender",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1.2,
-      "businessContext": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)",
+      "businessContext": "Physical activity multiplier: 1.2 (sedentary), 1.375 (light), 1.55 (moderate), 1.725 (intense), 1.9 (very intense)",
       "label_i18n": {
         "en": "Aktivite Seviyesi",
         "tr": "Activity Level",

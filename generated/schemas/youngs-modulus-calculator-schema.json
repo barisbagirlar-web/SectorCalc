@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Çekme testinde uygulanan kuvvet",
+      "businessContext": "Force applied in tensile test",
       "label_i18n": {
         "en": "Uygulanan Kuvvet",
         "tr": "Applied Force",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Malzemenin başlangıçtaki boyu",
+      "businessContext": "Initial length of the material",
       "label_i18n": {
         "en": "Orijinal Uzunluk",
         "tr": "Original Length",
@@ -51,11 +51,11 @@
     },
     {
       "id": "diameter",
-      "label": "Çap",
+      "label": "Diameter",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Silindirik numunenin çapı (dairesel kesit için)",
+      "businessContext": "Diameter of cylindrical specimen (for circular cross-section)",
       "label_i18n": {
         "en": "Diameter",
         "tr": "Çap",
@@ -75,11 +75,11 @@
     },
     {
       "id": "elongation",
-      "label": "Uzama Miktarı",
+      "label": "Elongation Amount",
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Kuvvet altında meydana gelen uzama",
+      "businessContext": "Elongation occurring under force",
       "label_i18n": {
         "en": "Elongation Amount",
         "tr": "Uzama Miktarı",

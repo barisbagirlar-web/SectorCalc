@@ -31,7 +31,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: College_savings_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.currentSavings + input.annualContribution * input.yearsToCollege; results["totalContributions"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalContributions"] = 0; }
-  try { const v = input.currentSavings + input.annualContribution * input.yearsToCollege; results["totalContributions_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalContributions_aux"] = 0; }
+  try { const v = input.currentSavings * (1 + input.expectedReturn/100)^input.yearsToCollege + input.annualContribution * (((1 + input.expectedReturn/100)^input.yearsToCollege - 1) / (input.expectedReturn/100)); results["totalSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalSavings"] = 0; }
+  try { const v = input.annualCollegeCost * (1 + input.inflationRate/100)^input.yearsToCollege * input.collegeYears; results["inflationAdjustedCollegeCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inflationAdjustedCollegeCost"] = 0; }
+  try { const v = (asFormulaNumber(results["totalSavings"])) - (asFormulaNumber(results["totalContributions"])); results["totalInterestEarned"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInterestEarned"] = 0; }
+  try { const v = (asFormulaNumber(results["inflationAdjustedCollegeCost"])) - (asFormulaNumber(results["totalSavings"])); results["shortfall"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shortfall"] = 0; }
   return results;
 }
 
@@ -42,7 +45,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCollege_savings_calculator(input: College_savings_calculatorInput): College_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalContributions_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["shortfall"]);
   const breakdown = {
     
   };

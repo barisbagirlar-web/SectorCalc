@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "fo2",
-      "label": "Oksijen Yüzdesi (FO2)",
+      "label": "Oxygen Percentage (FO2)",
       "type": "number",
       "unit": "%",
       "default": 32,
-      "businessContext": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır.",
+      "businessContext": "Oxygen percentage in the breathing nitrox gas. Usually between 21-40%.",
       "label_i18n": {
         "en": "Oxygen percentage (FO2)",
         "tr": "Oksijen Yüzdesi (FO2)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "po2_work",
-      "label": "Çalışma PO2",
+      "label": "Working PO2",
       "type": "number",
       "unit": "bar",
       "default": 1.4,
-      "businessContext": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar.",
+      "businessContext": "Maximum partial pressure of oxygen during the working phase. Standard is 1.4 bar.",
       "label_i18n": {
         "en": "Working PO2",
         "tr": "Çalışma PO2",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "bar",
       "default": 1.6,
-      "businessContext": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar.",
+      "businessContext": "Maximum allowable partial pressure of oxygen during decompression stops. Usually 1.6 bar.",
       "label_i18n": {
         "en": "Decompression PO2",
         "tr": "Dekompresyon PO2",
@@ -75,11 +75,11 @@
     },
     {
       "id": "depth",
-      "label": "Gerçek Derinlik",
+      "label": "Actual Depth",
       "type": "number",
       "unit": "m",
       "default": 30,
-      "businessContext": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği.",
+      "businessContext": "Actual dive depth for equivalent air depth (EAD) calculation.",
       "label_i18n": {
         "en": "Actual depth",
         "tr": "Gerçek Derinlik",

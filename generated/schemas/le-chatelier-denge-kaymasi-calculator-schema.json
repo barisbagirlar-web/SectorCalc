@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initA",
-      "label": "Başlangıç A Derişimi",
+      "label": "Initial Concentration of A",
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi",
+      "businessContext": "Initial molar concentration of reactant A",
       "label_i18n": {
         "en": "Initial Concentration of A",
         "tr": "Başlangıç A Derişimi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "initB",
-      "label": "Başlangıç B Derişimi",
+      "label": "Initial Concentration of B",
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi",
+      "businessContext": "Initial molar concentration of reaction product B",
       "label_i18n": {
         "en": "Initial Concentration of B",
         "tr": "Başlangıç B Derişimi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti",
+      "businessContext": "Equilibrium constant in terms of concentration for the reaction A ⇌ B",
       "label_i18n": {
         "en": "Denge Sabiti (Kc)",
         "tr": "Denge Sabiti (Kc)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "deltaA",
-      "label": "Eklenen A Miktarı",
+      "label": "Amount of A Added",
       "type": "number",
       "unit": "mol/L",
       "default": 0.5,
-      "businessContext": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)",
+      "businessContext": "Change in molar concentration of A added later to the system (positive addition, negative removal)",
       "label_i18n": {
         "en": "Amount of A Added",
         "tr": "Eklenen A Miktarı",

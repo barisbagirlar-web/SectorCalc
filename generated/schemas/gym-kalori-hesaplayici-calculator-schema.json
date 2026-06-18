@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "duration",
-      "label": "Egzersiz Süresi",
+      "label": "Exercise Duration",
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Kullanıcının günlük egzersiz süresi (dakika)",
+      "businessContext": "User's daily exercise duration (minutes)",
       "label_i18n": {
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)",
+      "businessContext": "User's body weight (kg)",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "met",
-      "label": "Aktivite MET Değeri",
+      "label": "Activity MET Value",
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
+      "businessContext": "Metabolic equivalent of activity (1 MET = 3.5 ml O2/kg/min)",
       "label_i18n": {
         "en": "Activity MET Value",
         "tr": "Aktivite MET Değeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "intensity",
-      "label": "Yoğunluk Faktörü",
+      "label": "Intensity Factor",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
+      "businessContext": "Correction coefficient based on exercise intensity (1 = normal, >1 high intensity)",
       "label_i18n": {
         "en": "Intensity Factor",
         "tr": "Yoğunluk Faktörü",

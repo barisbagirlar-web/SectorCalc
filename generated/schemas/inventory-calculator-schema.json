@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualDemand",
-      "label": "Yıllık Talep",
+      "label": "Annual Demand",
       "type": "number",
       "unit": "units",
       "default": 1200,
-      "businessContext": "Yıllık talep miktarı (adet)",
+      "businessContext": "Annual demand quantity (units)",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep",
@@ -27,11 +27,11 @@
     },
     {
       "id": "orderingCost",
-      "label": "Sipariş Maliyeti",
+      "label": "Ordering Cost",
       "type": "number",
       "unit": "TRY",
       "default": 50,
-      "businessContext": "Sipariş başına maliyet (TL)",
+      "businessContext": "Cost per order (TL)",
       "label_i18n": {
         "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TRY/unit/year",
       "default": 2,
-      "businessContext": "Yıllık birim başına elde tutma maliyeti",
+      "businessContext": "Annual holding cost per unit",
       "label_i18n": {
         "en": "Unit Holding Cost",
         "tr": "Birim Elde Tutma Maliyeti",
@@ -75,11 +75,11 @@
     },
     {
       "id": "dailyDemand",
-      "label": "Günlük Talep",
+      "label": "Daily Demand",
       "type": "number",
       "unit": "units/day",
       "default": 5,
-      "businessContext": "Günlük ortalama talep miktarı",
+      "businessContext": "Average daily demand quantity",
       "label_i18n": {
         "en": "Daily demand",
         "tr": "Günlük Talep",
@@ -99,11 +99,11 @@
     },
     {
       "id": "leadTimeDays",
-      "label": "Tedarik Süresi",
+      "label": "Lead Time",
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Siparişin teslim süresi (gün)",
+      "businessContext": "Order lead time (days)",
       "label_i18n": {
         "en": "Lead Time",
         "tr": "Tedarik Süresi",

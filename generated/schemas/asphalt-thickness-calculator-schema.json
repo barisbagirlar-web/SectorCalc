@@ -27,11 +27,11 @@
     },
     {
       "id": "mass",
-      "label": "Kütle",
+      "label": "Mass",
       "type": "number",
       "unit": "kg",
       "default": 240000,
-      "businessContext": "Asfalt karışımının toplam kütlesi (kg cinsinden)",
+      "businessContext": "Total mass of asphalt mixture (in kg)",
       "label_i18n": {
         "en": "Mass",
         "tr": "Kütle",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Sıkıştırılmış asfaltın yoğunluğu (tipik: 2400 kg/m³)",
+      "businessContext": "Density of compacted asphalt (typical: 2400 kg/m³)",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
@@ -75,11 +75,11 @@
     },
     {
       "id": "wasteFactor",
-      "label": "Atık Faktörü",
+      "label": "Waste Factor",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Malzeme kaybı oranı (%)",
+      "businessContext": "Material loss rate (%)",
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",

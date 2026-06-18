@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "homeValue",
-      "label": "Ev Değeri",
+      "label": "Home Value",
       "type": "number",
       "unit": "TL",
       "default": 500000,
-      "businessContext": "Ev sigortası için evin toplam değeri.",
+      "businessContext": "Total value of the home for home insurance.",
       "label_i18n": {
         "en": "Home Value",
         "tr": "Ev Değeri",

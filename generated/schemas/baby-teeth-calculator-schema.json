@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "ageMonths",
-      "label": "Bebeğin Ayı",
+      "label": "Baby's Month",
       "type": "number",
       "unit": "ay",
       "default": 12,
-      "businessContext": "Bebeğin güncel yaşı (ay olarak).",
+      "businessContext": "Baby's current age (in months).",
       "label_i18n": {
         "en": "Baby's month",
         "tr": "Bebeğin Ayı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "geneticFactor",
-      "label": "Genetik Faktör",
+      "label": "Genetic Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Aile geçmişine göre diş çıkarma hızı katsayısı (1.0 = ortalama).",
+      "businessContext": "Teething speed coefficient based on family history (1.0 = average).",
       "label_i18n": {
         "en": "Genetic Factor",
         "tr": "Genetik Faktör",
@@ -51,11 +51,11 @@
     },
     {
       "id": "calciumIntake",
-      "label": "Günlük Kalsiyum Alımı",
+      "label": "Daily Calcium Intake",
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "Bebeğin günlük ortalama kalsiyum alımı.",
+      "businessContext": "Baby's average daily calcium intake.",
       "label_i18n": {
         "en": "Daily Calcium Intake",
         "tr": "Günlük Kalsiyum Alımı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "breastfeedingDuration",
-      "label": "Emzirme Süresi",
+      "label": "Breastfeeding Duration",
       "type": "number",
       "unit": "ay",
       "default": 6,
-      "businessContext": "Sadece anne sütüyle beslenme süresi.",
+      "businessContext": "Duration of exclusive breastfeeding.",
       "label_i18n": {
         "en": "Breastfeeding Duration",
         "tr": "Emzirme Süresi",

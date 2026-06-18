@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "dailyHours",
-      "label": "Günlük Eğitim Saati",
+      "label": "Daily Training Hours",
       "type": "number",
       "unit": "saat",
       "default": 2,
-      "businessContext": "Operatörün ortalama günlük eğitim süresi.",
+      "businessContext": "Operator's average daily training duration.",
       "label_i18n": {
         "en": "Daily Training Hours",
         "tr": "Günlük Eğitim Saati",
@@ -27,11 +27,11 @@
     },
     {
       "id": "trainingDays",
-      "label": "Haftalık Eğitim Günü",
+      "label": "Weekly Training Days",
       "type": "number",
       "unit": "gün",
       "default": 5,
-      "businessContext": "Bir haftada eğitim yapılan gün sayısı.",
+      "businessContext": "Number of training days per week.",
       "label_i18n": {
         "en": "Weekly Training Days",
         "tr": "Haftalık Eğitim Günü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "recoveryFactor",
-      "label": "Dinlenme Faktörü",
+      "label": "Rest Factor",
       "type": "number",
       "unit": "puan (1-10)",
       "default": 7,
-      "businessContext": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan.",
+      "businessContext": "Score from 1-10 reflecting sleep, nutrition and rest quality.",
       "label_i18n": {
         "en": "Rest Factor",
         "tr": "Dinlenme Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "experience",
-      "label": "Deneyim (yıl)",
+      "label": "Experience (years)",
       "type": "number",
       "unit": "yıl",
       "default": 2,
-      "businessContext": "Operatörün ilgili görevdeki toplam deneyim süresi.",
+      "businessContext": "Operator's total experience time in the relevant task.",
       "label_i18n": {
         "en": "Experience (years)",
         "tr": "Deneyim (yıl)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "seviye (1-5)",
       "default": 3,
-      "businessContext": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık).",
+      "businessContext": "Difficulty and complexity level of the work performed (1: simple, 5: very complex).",
       "label_i18n": {
         "en": "Job Complexity",
         "tr": "İş Karmaşıklığı",

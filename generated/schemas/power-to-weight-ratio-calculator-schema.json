@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Motor çıkış gücü (kW)",
+      "businessContext": "Motor output power (kW)",
       "label_i18n": {
         "en": "Engine Power",
         "tr": "Motor Gücü",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 1200,
-      "businessContext": "Araç boş ağırlığı (kg)",
+      "businessContext": "Vehicle curb weight (kg)",
       "label_i18n": {
         "en": "Vehicle Mass",
         "tr": "Araç Kütlesi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Güç aktarım verimi (%)",
+      "businessContext": "Power transmission efficiency (%)",
       "label_i18n": {
         "en": "Drivetrain Efficiency",
         "tr": "Aktarma Organı Verimliliği",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Yük ve yolcu ağırlığı (kg)",
+      "businessContext": "Load and passenger weight (kg)",
       "label_i18n": {
         "en": "Payload",
         "tr": "Yük",

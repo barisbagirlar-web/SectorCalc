@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Kazı alanının uzunluğu",
+      "businessContext": "Length of excavation area",
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Kazı alanının genişliği",
+      "businessContext": "Width of excavation area",
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Kazı derinliği",
+      "businessContext": "Excavation depth",
       "label_i18n": {
         "en": "Derinlik",
         "tr": "Depth",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Toprağın kabarma yüzdesi (genişleme faktörü)",
+      "businessContext": "Soil swell percentage (expansion factor)",
       "label_i18n": {
         "en": "Swell Factor",
         "tr": "Kabarma Faktörü",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kazı sırasında oluşan fire (ziyan) yüzdesi",
+      "businessContext": "Percentage of waste (loss) during excavation",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

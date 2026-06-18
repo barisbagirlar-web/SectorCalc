@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki azot yüzdesi",
+      "businessContext": "Nitrogen percentage in fertilizer",
       "label_i18n": {
         "en": "Nitrogen (N) %",
         "tr": "Azot (N) %",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki fosfor yüzdesi",
+      "businessContext": "Phosphorus percentage in fertilizer",
       "label_i18n": {
         "en": "Phosphorus (P2O5) %",
         "tr": "Fosfor (P2O5) %",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki potasyum yüzdesi",
+      "businessContext": "Potassium percentage in fertilizer",
       "label_i18n": {
         "en": "Potassium (K2O) %",
         "tr": "Potasyum (K2O) %",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalWeight",
-      "label": "Toplam Gübre Ağırlığı",
+      "label": "Total Fertilizer Weight",
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Kullanılacak toplam gübre miktarı",
+      "businessContext": "Total amount of fertilizer to be used",
       "label_i18n": {
         "en": "Total Fertilizer Weight",
         "tr": "Toplam Gübre Ağırlığı",

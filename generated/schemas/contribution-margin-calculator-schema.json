@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 60,
-      "businessContext": "Birim başına doğrudan değişken maliyet",
+      "businessContext": "Direct variable cost per unit",
       "label_i18n": {
         "en": "Variable Cost (Unit)",
         "tr": "Değişken Maliyet (Birim)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Satılan toplam birim sayısı",
+      "businessContext": "Total number of units sold",
       "label_i18n": {
         "en": "Quantity Sold",
         "tr": "Satılan Miktar",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 20000,
-      "businessContext": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
+      "businessContext": "Total fixed costs (optional for operating profit calculation)",
       "label_i18n": {
         "en": "Sabit Maliyetler",
         "tr": "Fixed Costs",

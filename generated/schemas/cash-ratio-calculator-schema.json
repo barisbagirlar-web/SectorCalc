@@ -9,8 +9,8 @@
       "default": 0,
       "businessContext": "Şirketin kasasında bulunan nakit para",
       "label_i18n": {
-        "en": "Nakit",
-        "tr": "Cash",
+        "en": "Cash",
+        "tr": "Nakit",
         "de": "Bargeld",
         "fr": "Trésorerie",
         "es": "Efectivo",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Bir yıl içinde ödenmesi gereken borçlar",
       "label_i18n": {
-        "en": "Short-Term Liabilities",
+        "en": "Current Liabilities",
         "tr": "Kısa Vadeli Yükümlülükler",
         "de": "Kurzfristige Verbindlichkeiten",
         "fr": "Passifs à court terme",
@@ -100,8 +100,7 @@
   ],
   "formulas": {
     "totalCash": "cash + bankDeposits + shortTermInvestments",
-    "cashRatio": "totalCash / currentLiabilities",
-    "currentLiabilities": "currentLiabilities"
+    "cashRatio": "totalCash / currentLiabilities"
   },
   "outputs": {
     "primary": "cashRatio",

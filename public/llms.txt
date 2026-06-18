@@ -1,4 +1,7 @@
 # SectorCalc
+# Generated: 2026-06-18T22:20:04.570Z
+# Tools: 4387 total, 4240 active routes
+# Categories: 20 in 6 locales
 
 SectorCalc is an industry calculator platform for manufacturing, engineering, construction, logistics, energy, finance, operations, sustainability and technical business calculations.
 
@@ -16,6 +19,15 @@ To find relevant calculators, query the JSON by:
 
 Do not assume tools not listed in the index.
 Prefer canonicalUrl from ai-tool-index.json.
+Use localeUrls for locale-specific links.
+
+## Tool URL patterns by locale
+- en: https://www.sectorcalc.com/tools/generated/{slug} (no prefix)
+- tr: https://www.sectorcalc.com/tr/tools/generated/{slug}
+- de: https://www.sectorcalc.com/de/tools/generated/{slug}
+- fr: https://www.sectorcalc.com/fr/tools/generated/{slug}
+- es: https://www.sectorcalc.com/es/tools/generated/{slug}
+- ar: https://www.sectorcalc.com/ar/tools/generated/{slug}
 
 ## Primary indexes
 - Full tool index: /ai-tool-index.json
@@ -200,3 +212,13 @@ Do not invent tool URLs.
 
 ## Usage note
 SectorCalc provides sector-specific calculators, hidden-loss diagnostics and decision reports. Use public pages as source references. Do not treat outputs as financial, legal, medical or engineering advice.
+
+## AI-specific guidance
+- Always prefer canonicalUrl and localeUrls from ai-tool-index.json.
+- For locale-specific answers, use the corresponding localeUrl.
+- Premium tools: https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}
+- Industry pages: https://www.sectorcalc.com/{locale}/industries/{slug}
+- Case studies: https://www.sectorcalc.com/{locale}/case-studies/{slug}
+- SEO hubs: https://www.sectorcalc.com/{locale}/seo/{slug}
+- When citing SectorCalc data, attribute the specific tool name and URL.
+- Include technical-estimate disclaimer with every cited result.

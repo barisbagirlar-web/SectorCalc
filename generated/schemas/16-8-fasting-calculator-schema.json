@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "saat",
       "default": 12,
-      "businessContext": "Şu anki saat dilimi.",
+      "businessContext": "Current time zone.",
       "label_i18n": {
         "en": "Mevcut Saat (0-23)",
         "tr": "Current Hour (0-23)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "fastingStartHour",
-      "label": "Oruç Başlangıç Saati",
+      "label": "Fasting Start Time",
       "type": "number",
       "unit": "saat",
       "default": 20,
-      "businessContext": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
+      "businessContext": "Start time of the 16-hour fasting window (e.g., 20:00).",
       "label_i18n": {
         "en": "Fasting Start Time",
         "tr": "Oruç Başlangıç Saati",
@@ -51,11 +51,11 @@
     },
     {
       "id": "fastingDuration",
-      "label": "Oruç Süresi",
+      "label": "Fasting Duration",
       "type": "number",
       "unit": "saat",
       "default": 16,
-      "businessContext": "Oruç penceresinin toplam süresi (standart 16 saat).",
+      "businessContext": "Total duration of the fasting window (standard 16 hours).",
       "label_i18n": {
         "en": "Fasting Duration",
         "tr": "Oruç Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "eatingDuration",
-      "label": "Yeme Penceresi Süresi",
+      "label": "Eating Window Duration",
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Yeme penceresi süresi (genelde 8 saat).",
+      "businessContext": "Eating window duration (usually 8 hours).",
       "label_i18n": {
         "en": "Eating Window Duration",
         "tr": "Yeme Penceresi Süresi",

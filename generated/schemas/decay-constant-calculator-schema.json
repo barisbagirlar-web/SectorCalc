@@ -151,7 +151,7 @@
     "meanLifetimeBased_aux": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null"
   },
   "outputs": {
-    "primary": "meanLifetimeBased_aux",
+    "primary": "meanLifetimeBased",
     "breakdown": [
       "halfLifeBased",
       "meanLifetimeBased",
@@ -162,7 +162,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "quantityBased",
-    "unit": "s"
+    "unit": "1/s"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -174,7 +174,14 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "atLeastOneInput",
+        "type": "custom",
+        "condition": "halfLife > 0 || meanLifetime > 0 || (initialQuantity > 0 && finalQuantity > 0 && timeElapsed > 0)",
+        "message": "Provide at least one set of inputs: half-life, mean lifetime, or initial/final quantities with time."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Motor kutup sayısı",
+      "businessContext": "Number of motor poles",
       "label_i18n": {
         "en": "Number of Poles",
         "tr": "Kutup Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kW",
       "default": 10,
-      "businessContext": "Motor mil gücü",
+      "businessContext": "Motor shaft power",
       "label_i18n": {
         "en": "Output Power (kW)",
         "tr": "Çıkış Gücü (kW)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Hat voltajı",
+      "businessContext": "Line voltage",
       "label_i18n": {
         "en": "Gerilim (V)",
         "tr": "Voltage (V)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "A",
       "default": 20,
-      "businessContext": "Hat akımı",
+      "businessContext": "Line current",
       "label_i18n": {
         "en": "Current (A)",
         "tr": "Akım (A)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "powerFactor",
-      "label": "Güç Faktörü",
+      "label": "Power Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.85,
-      "businessContext": "Motor güç faktörü",
+      "businessContext": "Motor power factor",
       "label_i18n": {
         "en": "Power factor",
         "tr": "Güç Faktörü",

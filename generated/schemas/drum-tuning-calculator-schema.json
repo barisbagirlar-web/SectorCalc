@@ -123,21 +123,22 @@
     }
   ],
   "formulas": {
-    "breakdown": "drumDiameter",
-    "breakdown_aux": "drumDiameter"
+    "result": "drumDiameter + headThickness + headDensity",
+    "result_aux": "drumDiameter + headThickness + headDensity"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "result",
     "breakdown": [
-      "First Overtone (Hz)",
-      "Second Overtone (Hz)"
+      "fundamentalFrequency",
+      "firstOvertone",
+      "secondOvertone"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "cm"
+    "dataConfidenceAdjusted": "fundamentalFrequency",
+    "unit": "Hz"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -149,7 +150,33 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "drumDiameter",
+        "condition": "> 0",
+        "message": "Drum diameter must be positive."
+      },
+      {
+        "field": "headThickness",
+        "condition": "> 0",
+        "message": "Head thickness must be positive."
+      },
+      {
+        "field": "headDensity",
+        "condition": "> 0",
+        "message": "Head density must be positive."
+      },
+      {
+        "field": "tension",
+        "condition": ">= 0",
+        "message": "Tension must be non-negative."
+      },
+      {
+        "field": "densityAdjustment",
+        "condition": "> 0",
+        "message": "Density adjustment factor must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

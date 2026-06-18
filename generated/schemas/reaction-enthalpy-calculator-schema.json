@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "deltaHref",
-      "label": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+      "label": "Reaction Enthalpy at Reference Temperature (ΔH°)",
       "type": "number",
       "unit": "kJ",
       "default": 0,
-      "businessContext": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
+      "businessContext": "Standard reaction enthalpy, usually at 298 K",
       "label_i18n": {
         "en": "Reaction Enthalpy at Reference Temperature (ΔH°)",
         "tr": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "Tref",
-      "label": "Referans Sıcaklık (T_ref)",
+      "label": "Reference Temperature (T_ref)",
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Referans sıcaklık, genellikle 298.15 K",
+      "businessContext": "Reference temperature, usually 298.15 K",
       "label_i18n": {
         "en": "Reference Temperature (T_ref)",
         "tr": "Referans Sıcaklık (T_ref)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "T",
-      "label": "Hedef Sıcaklık (T)",
+      "label": "Target Temperature (T)",
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyonun gerçekleştiği sıcaklık",
+      "businessContext": "Temperature at which the reaction occurs",
       "label_i18n": {
         "en": "Target Temperature (T)",
         "tr": "Hedef Sıcaklık (T)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "cpProducts",
-      "label": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+      "label": "Sum of Heat Capacities of Products (ΣCp_products)",
       "type": "number",
       "unit": "kJ/K",
       "default": 0,
-      "businessContext": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+      "businessContext": "Sum of heat capacities at constant pressure of products multiplied by stoichiometric coefficients",
       "label_i18n": {
         "en": "Sum of Heat Capacities of Products (ΣCp_products)",
         "tr": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "cpReactants",
-      "label": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+      "label": "Sum of Heat Capacities of Reactants (ΣCp_reactants)",
       "type": "number",
       "unit": "kJ/K",
       "default": 0,
-      "businessContext": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+      "businessContext": "Sum of heat capacities at constant pressure of reactants multiplied by stoichiometric coefficients",
       "label_i18n": {
         "en": "Sum of Heat Capacities of Reactants (ΣCp_reactants)",
         "tr": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "moles",
-      "label": "Mol Sayısı (n)",
+      "label": "Number of Moles (n)",
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
+      "businessContext": "Number of moles over which the reaction occurs (scale factor)",
       "label_i18n": {
         "en": "Number of Moles (n)",
         "tr": "Mol Sayısı (n)",

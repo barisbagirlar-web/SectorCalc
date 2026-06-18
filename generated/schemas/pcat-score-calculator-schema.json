@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "usl",
-      "label": "Üst Spesifikasyon Limiti (USL)",
+      "label": "Upper Specification Limit (USL)",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Müşteri tarafından kabul edilebilir üst sınır",
+      "businessContext": "Upper limit acceptable to the customer",
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
         "tr": "Üst Spesifikasyon Limiti (USL)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Müşteri tarafından kabul edilebilir alt sınır",
+      "businessContext": "Lower limit acceptable to the customer",
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
         "tr": "Alt Spesifikasyon Limiti (LSL)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "mean",
-      "label": "Proses Ortalaması",
+      "label": "Process Mean",
       "type": "number",
       "unit": "mm",
       "default": 7.5,
-      "businessContext": "Ölçülen parçaların ortalama değeri",
+      "businessContext": "Average value of measured parts",
       "label_i18n": {
         "en": "Process average",
         "tr": "Proses Ortalaması",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Prosesin değişkenlik ölçüsü",
+      "businessContext": "Measure of process variability",
       "label_i18n": {
         "en": "Standard Deviation",
         "tr": "Standart Sapma",

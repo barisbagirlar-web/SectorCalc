@@ -46,7 +46,7 @@ ${PROGRAMMATIC_SEO_PAGES.map((page) => `- ${page.title}: ${base}${addLocaleToPat
 const services = `# SectorCalc Services & Products
 
 ## Free calculators (${FREE_TRAFFIC_TOOLS.length})
-${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.title}: ${base}${addLocaleToPath(`/tools/free/${tool.slug}`, "en")}`).join("\n")}
+${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.title}: ${base}${addLocaleToPath(`/tools/generated/${tool.slug}`, "en")}`).join("\n")}
 
 ## Premium decision reports (${listPremiumSchemaSlugs().length})
 ${listPremiumSchemaSlugs().map((slug) => `- ${slug}: ${base}${addLocaleToPath(`/tools/premium-schema/${slug}`, "en")}`).join("\n")}

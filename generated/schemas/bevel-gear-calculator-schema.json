@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "module",
-      "label": "Modül (m)",
+      "label": "Module (m)",
       "type": "number",
       "unit": "mm",
       "default": 4,
-      "businessContext": "Modül, dişli boyutlandırma için standart bir parametredir.",
+      "businessContext": "Module is a standard parameter for gear sizing.",
       "label_i18n": {
         "en": "Module (m)",
         "tr": "Modül (m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "z1",
-      "label": "Pinyon Diş Sayısı (z₁)",
+      "label": "Pinion Number of Teeth (z₁)",
       "type": "number",
       "unit": "unit",
       "default": 20,
-      "businessContext": "Küçük (pinyon) dişlinin diş sayısı.",
+      "businessContext": "Number of teeth on the small (pinion) gear.",
       "label_i18n": {
         "en": "Pinion Tooth Count (z₁)",
         "tr": "Pinyon Diş Sayısı (z₁)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "z2",
-      "label": "Ayna Diş Sayısı (z₂)",
+      "label": "Gear Number of Teeth (z₂)",
       "type": "number",
       "unit": "unit",
       "default": 40,
-      "businessContext": "Büyük (ayna) dişlinin diş sayısı.",
+      "businessContext": "Number of teeth on the large (gear) gear.",
       "label_i18n": {
         "en": "Gear Tooth Count (z₂)",
         "tr": "Ayna Diş Sayısı (z₂)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "shaftAngle",
-      "label": "Mil Açısı (Σ)",
+      "label": "Shaft Angle (Σ)",
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Kesişen iki mil arasındaki açı (genellikle 90°).",
+      "businessContext": "Angle between two intersecting shafts (usually 90°).",
       "label_i18n": {
         "en": "Shaft Angle (Σ)",
         "tr": "Mil Açısı (Σ)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "pressureAngle",
-      "label": "Kavrama Açısı (α)",
+      "label": "Pressure Angle (α)",
       "type": "number",
       "unit": "°",
       "default": 20,
-      "businessContext": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
+      "businessContext": "Standard pressure angle; mostly 20° is used.",
       "label_i18n": {
         "en": "Pressure Angle (α)",
         "tr": "Kavrama Açısı (α)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "faceWidthFactor",
-      "label": "Diş Genişliği Faktörü (k)",
+      "label": "Face Width Factor (k)",
       "type": "number",
       "unit": "unit",
       "default": 0.3,
-      "businessContext": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
+      "businessContext": "Ratio of face width to cone distance (generally in the range 0.2 – 0.3).",
       "label_i18n": {
         "en": "Face Width Factor (k)",
         "tr": "Diş Genişliği Faktörü (k)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "months",
-      "label": "Ay Sayısı",
+      "label": "Number of months",
       "type": "number",
       "unit": "ay",
       "default": 12,
-      "businessContext": "Dönüştürülecek toplam ay miktarı",
+      "businessContext": "Total number of months to convert",
       "label_i18n": {
         "en": "Number of months",
         "tr": "Ay Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "monthsPerYear",
-      "label": "Yıldaki Ay Sayısı",
+      "label": "Number of months in a year",
       "type": "number",
       "unit": "ay/yıl",
       "default": 12,
-      "businessContext": "Bir yıldaki ay sayısı (standart 12)",
+      "businessContext": "Number of months in a year (standard 12)",
       "label_i18n": {
         "en": "Number of months in a year",
         "tr": "Yıldaki Ay Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçtaki ondalık basamak sayısı",
+      "businessContext": "Number of decimal places in the result",
       "label_i18n": {
         "en": "Precision (Decimal Places)",
         "tr": "Hassasiyet (Ondalık Basamak)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "includeRemainder",
-      "label": "Kalan Ay Göster",
+      "label": "Show Remaining Months",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "1: kalan ay göster, 0: gösterme",
+      "businessContext": "1: show remaining months, 0: do not show",
       "label_i18n": {
         "en": "Show Remaining Months",
         "tr": "Kalan Ay Göster",

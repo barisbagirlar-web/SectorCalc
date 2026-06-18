@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "currentProduction",
-      "label": "Mevcut Aylık Üretim",
+      "label": "Current Monthly Production",
       "type": "number",
       "unit": "adet/ay",
       "default": 5000,
-      "businessContext": "Mevcut aylık üretim adedi (birim/ay)",
+      "businessContext": "Current monthly production quantity (units/month)",
       "label_i18n": {
         "en": "Current monthly production",
         "tr": "Mevcut Aylık Üretim",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Birim başına satış fiyatı (TL)",
+      "businessContext": "Sales price per unit (TL)",
       "label_i18n": {
         "en": "Unit Selling Price",
         "tr": "Birim Satış Fiyatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "variableCost",
-      "label": "Birim Değişken Maliyet",
+      "label": "Unit Variable Cost",
       "type": "number",
       "unit": "TL",
       "default": 60,
-      "businessContext": "Birim başına değişken maliyet (TL)",
+      "businessContext": "Variable cost per unit (TL)",
       "label_i18n": {
         "en": "Unit Variable Cost",
         "tr": "Birim Değişken Maliyet",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 150000,
-      "businessContext": "Mevcut aylık sabit maliyetler (TL/ay)",
+      "businessContext": "Current monthly fixed costs (TL/month)",
       "label_i18n": {
         "en": "Mevcut Sabit Maliyetler",
         "tr": "Mevcut Sabit Giderler",
@@ -99,11 +99,11 @@
     },
     {
       "id": "levelUpPercent",
-      "label": "Üretim Artış Yüzdesi",
+      "label": "Production Increase Percentage",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Üretim seviyesini artırma hedef yüzdesi (%)",
+      "businessContext": "Target percentage to increase production level (%)",
       "label_i18n": {
         "en": "Production increase percentage",
         "tr": "Üretim Artış Yüzdesi",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 30000,
-      "businessContext": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
+      "businessContext": "Additional monthly fixed cost required for level jump (TL/month)",
       "label_i18n": {
         "en": "Ek Sabit Maliyet",
         "tr": "Ek Sabit Gider",

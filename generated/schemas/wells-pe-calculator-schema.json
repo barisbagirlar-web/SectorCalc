@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mudDensity",
-      "label": "Sondaj Çamur Yoğunluğu",
+      "label": "Drilling Mud Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1200,
-      "businessContext": "Sondaj sıvısının statik yoğunluğu.",
+      "businessContext": "Static density of the drilling fluid.",
       "label_i18n": {
         "en": "Drilling Mud Density",
         "tr": "Sondaj Çamur Yoğunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "trueVerticalDepth",
-      "label": "Gerçek Dikey Derinlik (TVD)",
+      "label": "True Vertical Depth (TVD)",
       "type": "number",
       "unit": "m",
       "default": 1000,
-      "businessContext": "Kuyunun gerçek dikey derinliği.",
+      "businessContext": "True vertical depth of the well.",
       "label_i18n": {
         "en": "True Vertical Depth (TVD)",
         "tr": "Gerçek Dikey Derinlik (TVD)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "annularPressureLoss",
-      "label": "Halka Boşluğu Basınç Kaybı",
+      "label": "Annular Pressure Loss",
       "type": "number",
       "unit": "Pa",
       "default": 500000,
-      "businessContext": "Halka boşluğundaki sürtünme basınç kaybı.",
+      "businessContext": "Friction pressure loss in the ring gap.",
       "label_i18n": {
         "en": "Annular Pressure Loss",
         "tr": "Halka Boşluğu Basınç Kaybı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "gravity",
-      "label": "Yerçekimi İvmesi",
+      "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standart yerçekimi ivmesi, genellikle 9.81 m/s².",
+      "businessContext": "Standard gravitational acceleration, usually 9.81 m/s².",
       "label_i18n": {
         "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",

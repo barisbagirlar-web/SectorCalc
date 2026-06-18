@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "T1",
-      "label": "Kompresör Giriş Sıcaklığı (T1)",
+      "label": "Compressor Inlet Temperature (T1)",
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Brayton çevriminde kompresör giriş sıcaklığı",
+      "businessContext": "Compressor inlet temperature in Brayton cycle",
       "label_i18n": {
         "en": "Compressor Inlet Temperature (T1)",
         "tr": "Kompresör Giriş Sıcaklığı (T1)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "T3",
-      "label": "Türbin Giriş Sıcaklığı (T3)",
+      "label": "Turbine Inlet Temperature (T3)",
       "type": "number",
       "unit": "K",
       "default": 1200,
-      "businessContext": "Brayton çevriminde türbin giriş sıcaklığı",
+      "businessContext": "Turbine inlet temperature in Brayton cycle",
       "label_i18n": {
         "en": "Turbine Inlet Temperature (T3)",
         "tr": "Türbin Giriş Sıcaklığı (T3)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "rp",
-      "label": "Basınç Oranı (rp)",
+      "label": "Pressure Ratio (rp)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 10,
-      "businessContext": "Kompresör ve türbin boyunca basınç oranı",
+      "businessContext": "Pressure ratio across compressor and turbine",
       "label_i18n": {
         "en": "Pressure Ratio (rp)",
         "tr": "Basınç Oranı (rp)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "eta_c",
-      "label": "Kompresör İzantropik Verimi (ηc)",
+      "label": "Compressor Isentropic Efficiency (ηc)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.85,
-      "businessContext": "Kompresörün izantropik verimi (0-1 arası)",
+      "businessContext": "Isentropic efficiency of compressor (0-1)",
       "label_i18n": {
         "en": "Compressor Isentropic Efficiency (ηc)",
         "tr": "Kompresör İzantropik Verimi (ηc)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "eta_t",
-      "label": "Türbin İzantropik Verimi (ηt)",
+      "label": "Turbine Isentropic Efficiency (ηt)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.9,
-      "businessContext": "Türbinin izantropik verimi (0-1 arası)",
+      "businessContext": "Isentropic efficiency of turbine (0-1)",
       "label_i18n": {
         "en": "Turbine Isentropic Efficiency (ηt)",
         "tr": "Türbin İzantropik Verimi (ηt)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "gamma",
-      "label": "Özgül Isı Oranı (γ)",
+      "label": "Specific Heat Ratio (γ)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.4,
-      "businessContext": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
+      "businessContext": "Specific heat ratio of working fluid (cp/cv)",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "cp",
-      "label": "Sabit Basınçta Özgül Isı (cp)",
+      "label": "Specific Heat at Constant Pressure (cp)",
       "type": "number",
       "unit": "kJ/kgK",
       "default": 1.005,
-      "businessContext": "Sabit basınçta özgül ısı kapasitesi",
+      "businessContext": "Specific heat capacity at constant pressure",
       "label_i18n": {
         "en": "Specific Heat at Constant Pressure (cp)",
         "tr": "Sabit Basınçta Özgül Isı (cp)",

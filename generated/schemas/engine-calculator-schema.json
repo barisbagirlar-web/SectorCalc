@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "rpm",
       "default": 3000,
-      "businessContext": "Motor devri (dakikadaki dönüş sayısı)",
+      "businessContext": "Engine speed (revolutions per minute)",
       "label_i18n": {
         "en": "Engine Speed",
         "tr": "Motor Devri",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "L/h",
       "default": 15,
-      "businessContext": "Saatlik yakıt tüketimi",
+      "businessContext": "Hourly fuel consumption",
       "label_i18n": {
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg/L",
       "default": 0.84,
-      "businessContext": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)",
+      "businessContext": "Fuel density (typical for diesel: 0.84 kg/L)",
       "label_i18n": {
         "en": "Fuel Density",
         "tr": "Yakıt Yoğunluğu",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "MJ/kg",
       "default": 42.5,
-      "businessContext": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)",
+      "businessContext": "Fuel lower heating value (typical for diesel: 42.5 MJ/kg)",
       "label_i18n": {
         "en": "Fuel Heating Value",
         "tr": "Yakıt Isıl Değeri",

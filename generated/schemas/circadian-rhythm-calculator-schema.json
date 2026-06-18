@@ -138,9 +138,11 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "alertness",
-    "unit": "h",
+    "unit": "unitless",
     "breakdownUnits": {
-      "hoursSinceWake": "h"
+      "hoursSinceWake": "h",
+      "circadianFactor": "unitless",
+      "alertness": "unitless"
     }
   },
   "category": "Finans & Yatırım",
@@ -153,7 +155,53 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "wakeTime",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "wakeTime",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "currentTime",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "currentTime",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "sleepDuration",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sleepDuration",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "circadianAmplitude",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "baselineAlertness",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "baselineAlertness",
+        "rule": "max",
+        "value": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

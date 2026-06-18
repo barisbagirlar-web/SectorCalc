@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
+      "businessContext": "Length determines the dimensions of the room and is the basic measure for calculating the area to be painted.",
       "label_i18n": {
         "en": "Room Length (m)",
         "tr": "Oda Uzunluğu (m)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Genişlik, odanın boyutlarını belirler.",
+      "businessContext": "Width determines the dimensions of the room.",
       "label_i18n": {
         "en": "Room Width (m)",
         "tr": "Oda Genişliği (m)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
+      "businessContext": "Height is used to calculate the wall area.",
       "label_i18n": {
         "en": "Room Height (m)",
         "tr": "Oda Yüksekliği (m)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
+      "businessContext": "Number of doors provides a standard deduction of 2 m² to calculate the unpainted area.",
       "label_i18n": {
         "en": "Number of Doors",
         "tr": "Kapı sayısı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
+      "businessContext": "Number of windows provides a standard deduction of 1.5 m² to calculate the unpainted area.",
       "label_i18n": {
         "en": "Number of Windows",
         "tr": "Pencere Sayısı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "m²/L",
       "default": 10,
-      "businessContext": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
+      "businessContext": "Coverage per liter of paint, based on manufacturer data.",
       "label_i18n": {
         "en": "Paint Coverage (m²/L)",
         "tr": "Boya Kaplama Alanı (m²/L)",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
+      "businessContext": "Number of coats to apply directly affects the total paint required.",
       "label_i18n": {
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
@@ -175,7 +175,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
+      "businessContext": "Determines whether the ceiling will be painted, affecting the area calculation.",
       "label_i18n": {
         "en": "Include Ceiling (1=Yes, 0=No)",
         "tr": "Tavanı Dahil Et (1=Evet, 0=Hayır)",

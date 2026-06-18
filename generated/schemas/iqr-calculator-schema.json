@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "min",
-      "label": "Minimum Değer",
+      "label": "Minimum Value",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setindeki en küçük değer",
+      "businessContext": "Smallest value in the dataset",
       "label_i18n": {
         "en": "Minimum Value",
         "tr": "Minimum Değer",
@@ -27,11 +27,11 @@
     },
     {
       "id": "q1",
-      "label": "1. Çeyrek (Q1)",
+      "label": "1st Quartile (Q1)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin birinci çeyreği (25. yüzdelik)",
+      "businessContext": "First quartile of the dataset (25th percentile)",
       "label_i18n": {
         "en": "1st Quartile (Q1)",
         "tr": "1. Çeyrek (Q1)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin medyanı (50. yüzdelik)",
+      "businessContext": "Median of the dataset (50th percentile)",
       "label_i18n": {
         "en": "Medyan (Q2)",
         "tr": "Medyan (Q2)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "q3",
-      "label": "3. Çeyrek (Q3)",
+      "label": "3rd Quartile (Q3)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin üçüncü çeyreği (75. yüzdelik)",
+      "businessContext": "Third quartile of the dataset (75th percentile)",
       "label_i18n": {
         "en": "3rd Quartile (Q3)",
         "tr": "3. Çeyrek (Q3)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "max",
-      "label": "Maksimum Değer",
+      "label": "Maximum Value",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setindeki en büyük değer",
+      "businessContext": "Largest value in the dataset",
       "label_i18n": {
         "en": "Maximum Value",
         "tr": "Maksimum Değer",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "conversionType",
-      "label": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+      "label": "Conversion Type (1: Cartesian→Polar, 2: Polar→Cartesian)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
+      "businessContext": "Determines conversion direction: 1 Cartesian to Polar, 2 Polar to Cartesian",
       "label_i18n": {
         "en": "Conversion Type (1: Cartesian→Polar, 2: Polar→Cartesian)",
         "tr": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "x",
-      "label": "X koordinatı",
+      "label": "X coordinate",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Kartezyen sistemde yatay bileşen (boyutsuz)",
+      "businessContext": "Horizontal component in Cartesian system (dimensionless)",
       "label_i18n": {
         "en": "X coordinate",
         "tr": "X koordinatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "y",
-      "label": "Y koordinatı",
+      "label": "Y coordinate",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Kartezyen sistemde düşey bileşen (boyutsuz)",
+      "businessContext": "Vertical component in Cartesian system (dimensionless)",
       "label_i18n": {
         "en": "Y coordinate",
         "tr": "Y koordinatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "r",
-      "label": "Radyal uzaklık (r)",
+      "label": "Radial distance (r)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Polar koordinatlarda orijine uzaklık",
+      "businessContext": "Distance from origin in polar coordinates",
       "label_i18n": {
         "en": "Radial distance (r)",
         "tr": "Radyal uzaklık (r)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "theta",
-      "label": "Açı (θ)",
+      "label": "Angle (θ)",
       "type": "number",
       "unit": "derece",
       "default": 0,
-      "businessContext": "Polar açı, derece cinsinden pozitif x eksenine göre",
+      "businessContext": "Polar angle in degrees relative to positive x-axis",
       "label_i18n": {
         "en": "Angle (θ)",
         "tr": "Açı (θ)",

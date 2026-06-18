@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 3,
-      "businessContext": "Birim başına işçilik maliyeti",
+      "businessContext": "Labor cost per unit",
       "label_i18n": {
         "en": "Unit Labor Cost",
         "tr": "Birim İşçilik Maliyeti",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "saat/adet",
       "default": 0.1,
-      "businessContext": "Birim başına makine süresi",
+      "businessContext": "Machine time per unit",
       "label_i18n": {
         "en": "Unit Machine Time",
         "tr": "Birim Makine Süresi",

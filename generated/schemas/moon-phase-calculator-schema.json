@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2023,
-      "businessContext": "Hesaplanacak ay fazı için yıl bilgisi",
+      "businessContext": "Year information for the month phase to be calculated",
       "label_i18n": {
         "en": "Year",
         "tr": "Yıl",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hesaplanacak ay fazı için ay bilgisi (1-12)",
+      "businessContext": "Month information for the month phase to be calculated (1-12)",
       "label_i18n": {
         "en": "Ay",
         "tr": "Month",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hesaplanacak ay fazı için gün bilgisi",
+      "businessContext": "Day information for the month phase to be calculated",
       "label_i18n": {
         "en": "Day",
         "tr": "Gün",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)",
+      "businessContext": "Decimal hour of the day (e.g., 12.5 = 12:30 UTC)",
       "label_i18n": {
         "en": "Hour (UTC)",
         "tr": "Saat (UTC)",

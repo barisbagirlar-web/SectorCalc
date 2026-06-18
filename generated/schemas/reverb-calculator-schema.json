@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "length",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Odanın uzunluğu (metre)",
+      "businessContext": "Length of the room (meters)",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,7 +27,7 @@
     },
     {
       "id": "width",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 8,
@@ -51,7 +51,7 @@
     },
     {
       "id": "height",
-      "label": "Oda Yüksekliği",
+      "label": "Room Height",
       "type": "number",
       "unit": "m",
       "default": 3,

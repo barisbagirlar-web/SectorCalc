@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "diceCount",
-      "label": "Zar Sayısı",
+      "label": "Number of Dice",
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Kullanılan zar adedi (Catan için 2)",
+      "businessContext": "Number of dice used (2 for Catan)",
       "label_i18n": {
         "en": "Number of dice",
         "tr": "Zar Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "diceSides",
-      "label": "Zar Yüz Sayısı",
+      "label": "Number of Die Faces",
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Her bir zarın yüz sayısı",
+      "businessContext": "Number of faces on each die",
       "label_i18n": {
         "en": "Number of die faces",
         "tr": "Zar Yüz Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 7,
-      "businessContext": "Hangi toplamın üretim tetiklediği",
+      "businessContext": "Which total triggers production",
       "label_i18n": {
         "en": "Hedef Toplam",
         "tr": "Target Total",
@@ -75,11 +75,11 @@
     },
     {
       "id": "settlementCount",
-      "label": "Yerleşim Sayısı",
+      "label": "Number of Settlements",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Bu altıgen üzerindeki yerleşim sayısı",
+      "businessContext": "Number of settlements on this hex",
       "label_i18n": {
         "en": "Number of settlements",
         "tr": "Yerleşim Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "rolls",
-      "label": "Tur Sayısı",
+      "label": "Number of Turns",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
+      "businessContext": "Number of dice rolls (turns) after which probability is calculated",
       "label_i18n": {
         "en": "Number of turns",
         "tr": "Tur Sayısı",

@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "averagePower",
-      "label": "Ortalama Güç",
+      "label": "Average Power",
       "type": "number",
       "unit": "W",
       "default": 250,
@@ -27,11 +27,11 @@
     },
     {
       "id": "factor",
-      "label": "Faktör",
+      "label": "Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.95,
-      "businessContext": "FTP dönüşüm faktörü (20 dk test için 0.95).",
+      "businessContext": "FTP conversion factor (0.95 for 20 min test).",
       "label_i18n": {
         "en": "Factor",
         "tr": "Faktör",
@@ -75,7 +75,7 @@
     },
     {
       "id": "testDuration",
-      "label": "Test Süresi",
+      "label": "Test Duration",
       "type": "number",
       "unit": "dk",
       "default": 20,

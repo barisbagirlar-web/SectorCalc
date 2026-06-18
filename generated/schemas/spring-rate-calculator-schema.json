@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Çelik tel çapı",
+      "businessContext": "Steel wire diameter",
       "label_i18n": {
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Ortalama bobin çapı",
+      "businessContext": "Mean coil diameter",
       "label_i18n": {
         "en": "Mean Coil Diameter",
         "tr": "Ortalama bobin çapı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Aktif sarım sayısı",
+      "businessContext": "Number of active coils",
       "label_i18n": {
         "en": "Number of Active Coils",
         "tr": "Aktif bobin sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "GPa",
       "default": 79.3,
-      "businessContext": "Kayma modülü (çelik için tipik)",
+      "businessContext": "Shear modulus (typical for steel)",
       "label_i18n": {
         "en": "Shear Modulus (G)",
         "tr": "Kayma Modülü (G)",

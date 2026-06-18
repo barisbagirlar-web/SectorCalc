@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalSales",
-      "label": "Toplam Satış",
+      "label": "Total Sales",
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Satış temsilcisinin toplam satış tutarı",
+      "businessContext": "Total sales amount of the sales representative",
       "label_i18n": {
         "en": "Total Sales",
         "tr": "Toplam Satış",
@@ -27,11 +27,11 @@
     },
     {
       "id": "baseCommissionRate",
-      "label": "Temel Komisyon Oranı",
+      "label": "Base Commission Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Temel seviyedeki komisyon yüzdesi",
+      "businessContext": "Commission percentage at the base level",
       "label_i18n": {
         "en": "Base Commission Rate",
         "tr": "Temel Komisyon Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "highTierThreshold",
-      "label": "Yüksek Kademe Eşiği",
+      "label": "High Tier Threshold",
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Yüksek komisyon oranının uygulanacağı satış eşiği",
+      "businessContext": "Sales threshold for applying the high commission rate",
       "label_i18n": {
         "en": "High Tier Threshold",
         "tr": "Yüksek Kademe Eşiği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "highTierRate",
-      "label": "Yüksek Kademe Oranı",
+      "label": "High Tier Rate",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi",
+      "businessContext": "Commission percentage applied at high sales level",
       "label_i18n": {
         "en": "High Tier Rate",
         "tr": "Yüksek Kademe Oranı",

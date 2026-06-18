@@ -51,7 +51,7 @@
     },
     {
       "id": "bun",
-      "label": "Kan Üre Azotu (BUN)",
+      "label": "Blood Urea Nitrogen (BUN)",
       "type": "number",
       "unit": "mg/dL",
       "default": 14,
@@ -75,11 +75,11 @@
     },
     {
       "id": "measuredOsmolarity",
-      "label": "Ölçülen Osmolarite",
+      "label": "Measured Osmolality",
       "type": "number",
       "unit": "mOsm/L",
       "default": 285,
-      "businessContext": "Ölçülen serum ozmolaritesi (opsiyonel)",
+      "businessContext": "Measured serum osmolality (optional)",
       "label_i18n": {
         "en": "Measured Osmolarity",
         "tr": "Ölçülen Osmolarite",

@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Billionaire_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.annualIncome * (input.savingsRate / 100); results["S"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["S"] = 0; }
-  try { const v = (asFormulaNumber(results["S"])); results["annualSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualSavings"] = 0; }
+  try { const v = input.annualIncome * (input.savingsRate / 100); results["annualSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualSavings"] = 0; }
+  try { const v = input.annualIncome * (input.savingsRate / 100); results["annualSavings_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualSavings_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBillionaire_calculator(input: Billionaire_calculatorInput): Billionaire_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["annualSavings"]);
+  const totalWasteCost = toNumericFormulaValue(values["annualSavings_aux"]);
   const breakdown = {
     
   };

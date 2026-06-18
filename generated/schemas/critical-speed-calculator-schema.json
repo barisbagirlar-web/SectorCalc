@@ -138,8 +138,9 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "criticalSpeedRPM",
-    "unit": "m",
+    "unit": "rpm",
     "breakdownUnits": {
+      "angularFrequency": "rad/s",
       "criticalSpeedRPM": "rpm"
     }
   },
@@ -153,7 +154,33 @@
   "profession": "İnşaat Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "shaftLength",
+        "condition": "> 0",
+        "message": "Shaft length must be positive."
+      },
+      {
+        "field": "shaftDiameter",
+        "condition": "> 0",
+        "message": "Shaft diameter must be positive."
+      },
+      {
+        "field": "youngsModulus",
+        "condition": "> 0",
+        "message": "Young's modulus must be positive."
+      },
+      {
+        "field": "density",
+        "condition": "> 0",
+        "message": "Density must be positive."
+      },
+      {
+        "field": "supportFactor",
+        "condition": "> 0",
+        "message": "Support factor must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

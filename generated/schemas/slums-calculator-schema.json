@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "length",
-      "label": "Kargo Uzunluğu",
+      "label": "Cargo Length",
       "type": "number",
       "unit": "cm",
       "default": 120,
-      "businessContext": "Gönderinin uzunluğu",
+      "businessContext": "Length of the shipment",
       "label_i18n": {
         "en": "Cargo Length",
         "tr": "Kargo Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "width",
-      "label": "Kargo Genişliği",
+      "label": "Cargo Width",
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Gönderinin genişliği",
+      "businessContext": "Width of the shipment",
       "label_i18n": {
         "en": "Cargo Width",
         "tr": "Kargo Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "height",
-      "label": "Kargo Yüksekliği",
+      "label": "Cargo Height",
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Gönderinin yüksekliği",
+      "businessContext": "Height of shipment",
       "label_i18n": {
         "en": "Cargo Height",
         "tr": "Kargo Yüksekliği",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Gönderinin ağırlığı",
+      "businessContext": "Weight of shipment",
       "label_i18n": {
         "en": "Cargo weight",
         "tr": "Kargo Ağırlığı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Bir paletin veya konteynerin taşıma kapasitesi",
+      "businessContext": "Carrying capacity of a pallet or container",
       "label_i18n": {
         "en": "Unit load capacity",
         "tr": "Birim Yük Kapasitesi",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "m³",
       "default": 1.5,
-      "businessContext": "Bir birim yükün kapladığı hacim",
+      "businessContext": "Volume occupied by one unit load",
       "label_i18n": {
         "en": "Unit load volume",
         "tr": "Birim Yük Hacmi",

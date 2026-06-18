@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "cap",
-      "label": "Çap (D)",
+      "label": "Diameter (D)",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Parabolik çanağın çapı (metre cinsinden).",
+      "businessContext": "Diameter of the parabolic dish (in meters).",
       "label_i18n": {
         "en": "Diameter (D)",
         "tr": "Çap (D)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.25,
-      "businessContext": "Çanağın merkez derinliği.",
+      "businessContext": "Center depth of the dish.",
       "label_i18n": {
         "en": "Depth (d)",
         "tr": "Derinlik (d)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "MHz",
       "default": 3000,
-      "businessContext": "İşletim frekansı (MHz).",
+      "businessContext": "Operating frequency (MHz).",
       "label_i18n": {
         "en": "Frekans (f)",
         "tr": "Frequency (f)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Açıklık verimliliği (yüzde olarak, örn. 60 → %60).",
+      "businessContext": "Aperture efficiency (in percent, e.g., 60 → 60%).",
       "label_i18n": {
         "en": "Efficiency (η)",
         "tr": "Verimlilik (η)",

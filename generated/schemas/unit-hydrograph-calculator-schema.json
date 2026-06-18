@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "km²",
       "default": 10,
-      "businessContext": "Havza alanı",
+      "businessContext": "Basin area",
       "label_i18n": {
         "en": "Drainage Area",
         "tr": "Drenaj Alanı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "hr",
       "default": 1.5,
-      "businessContext": "Akış zamanı",
+      "businessContext": "Flow time",
       "label_i18n": {
         "en": "Time of Concentration",
         "tr": "Toparlanma Süresi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2.08,
-      "businessContext": "Pik faktörü",
+      "businessContext": "Peak factor",
       "label_i18n": {
         "en": "Peak Rate Factor",
         "tr": "Pik Akış Faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "hr",
       "default": 0.2,
-      "businessContext": "Yağış süresi",
+      "businessContext": "Rainfall duration",
       "label_i18n": {
         "en": "Rainfall Duration",
         "tr": "Yağış Süresi",

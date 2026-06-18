@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "x1",
-      "label": "Başlangıç X Koordinatı",
+      "label": "Initial X Coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının X koordinatı",
+      "businessContext": "X coordinate of start point",
       "label_i18n": {
         "en": "Initial X Coordinate",
         "tr": "Başlangıç X Koordinatı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "y1",
-      "label": "Başlangıç Y Koordinatı",
+      "label": "Start Y Coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının Y koordinatı",
+      "businessContext": "Y coordinate of start point",
       "label_i18n": {
         "en": "Start point Y coordinate",
         "tr": "Başlangıç Y Koordinatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "x2",
-      "label": "Bitiş X Koordinatı",
+      "label": "End X Coordinate",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının X koordinatı",
+      "businessContext": "X coordinate of end point",
       "label_i18n": {
         "en": "End point X coordinate",
         "tr": "Bitiş X Koordinatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "y2",
-      "label": "Bitiş Y Koordinatı",
+      "label": "End Y Coordinate",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının Y koordinatı",
+      "businessContext": "Y coordinate of end point",
       "label_i18n": {
         "en": "End point Y coordinate",
         "tr": "Bitiş Y Koordinatı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "cx",
-      "label": "X Katsayısı",
+      "label": "X Coefficient",
       "type": "number",
       "unit": "birim/m²",
       "default": 0,
-      "businessContext": "X değişkeninin katsayısı",
+      "businessContext": "Coefficient of X variable",
       "label_i18n": {
         "en": "X coefficient",
         "tr": "X Katsayısı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "cy",
-      "label": "Y Katsayısı",
+      "label": "Y Coefficient",
       "type": "number",
       "unit": "birim/m²",
       "default": 0,
-      "businessContext": "Y değişkeninin katsayısı",
+      "businessContext": "Coefficient of Y variable",
       "label_i18n": {
         "en": "Y coefficient",
         "tr": "Y Katsayısı",

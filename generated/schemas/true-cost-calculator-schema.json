@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "materialCost",
-      "label": "Hammadde Maliyeti (birim başına)",
+      "label": "Raw Material Cost (per unit)",
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Üretim birim başına direkt malzeme maliyeti",
+      "businessContext": "Direct material cost per production unit",
       "label_i18n": {
         "en": "Raw Material Cost (per unit)",
         "tr": "Hammadde Maliyeti (birim başına)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "laborCost",
-      "label": "İşçilik Maliyeti (birim başına)",
+      "label": "Labor Cost (per unit)",
       "type": "number",
       "unit": "TRY",
       "default": 50,
-      "businessContext": "Birim başı direkt işçilik maliyeti",
+      "businessContext": "Direct labor cost per unit",
       "label_i18n": {
         "en": "Labor cost (per unit)",
         "tr": "İşçilik Maliyeti (birim başına)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "energyCost",
-      "label": "Enerji Maliyeti (birim başına)",
+      "label": "Energy Cost (per unit)",
       "type": "number",
       "unit": "TRY",
       "default": 20,
-      "businessContext": "Üretim birim başı enerji tüketim maliyeti",
+      "businessContext": "Energy consumption cost per production unit",
       "label_i18n": {
         "en": "Energy cost (per unit)",
         "tr": "Enerji Maliyeti (birim başına)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "overheadRate",
-      "label": "Genel Üretim Gider Oranı",
+      "label": "General Production Overhead Rate",
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
+      "businessContext": "General production overhead percentage applied on direct costs",
       "label_i18n": {
         "en": "General production overhead rate",
         "tr": "Genel Üretim Gider Oranı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
+      "businessContext": "Scrap rate in the production process; used as loss rate in effective cost calculation",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

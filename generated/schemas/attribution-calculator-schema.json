@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalValue",
-      "label": "Dağıtılacak Toplam Tutar",
+      "label": "Total Amount to Distribute",
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Toplam dağıtılacak maliyet veya gelir tutarı",
+      "businessContext": "Total cost or revenue amount to distribute",
       "label_i18n": {
         "en": "Total Amount to Allocate",
         "tr": "Dağıtılacak Toplam Tutar",
@@ -27,11 +27,11 @@
     },
     {
       "id": "factor1",
-      "label": "1. Faktör Katkısı",
+      "label": "Factor 1 Contribution",
       "type": "number",
       "unit": "saat",
       "default": 50,
-      "businessContext": "Birinci atıf faktörünün katkı miktarı (ör. makine saati)",
+      "businessContext": "Contribution amount of the first attribution factor (e.g., machine hours)",
       "label_i18n": {
         "en": "Factor 1 Contribution",
         "tr": "1. Faktör Katkısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "factor2",
-      "label": "2. Faktör Katkısı",
+      "label": "Factor 2 Contribution",
       "type": "number",
       "unit": "saat",
       "default": 30,
-      "businessContext": "İkinci atıf faktörünün katkı miktarı",
+      "businessContext": "Contribution amount of the second attribution factor",
       "label_i18n": {
         "en": "Factor 2 Contribution",
         "tr": "2. Faktör Katkısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "factor3",
-      "label": "3. Faktör Katkısı",
+      "label": "Factor 3 Contribution",
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Üçüncü atıf faktörünün katkı miktarı",
+      "businessContext": "Contribution amount of the third attribution factor",
       "label_i18n": {
         "en": "Factor 3 Contribution",
         "tr": "3. Faktör Katkısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "factor4",
-      "label": "4. Faktör Katkısı",
+      "label": "4. Factor Contribution",
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Dördüncü atıf faktörünün katkı miktarı",
+      "businessContext": "Contribution amount of the fourth attribution factor",
       "label_i18n": {
         "en": "4. Factor Contribution",
         "tr": "4. Faktör Katkısı",

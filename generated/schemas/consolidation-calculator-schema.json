@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "currentTotalDebt",
-      "label": "Toplam Mevcut Borç",
+      "label": "Total Current Debt",
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Mevcut tüm borçların toplam anapara tutarı",
+      "businessContext": "Total principal amount of all current debts",
       "label_i18n": {
         "en": "Total Current Debt",
         "tr": "Toplam Mevcut Borç",
@@ -27,11 +27,11 @@
     },
     {
       "id": "currentMonthlyPayment",
-      "label": "Mevcut Aylık Ödeme",
+      "label": "Current Monthly Payment",
       "type": "number",
       "unit": "TL",
       "default": 2000,
-      "businessContext": "Tüm mevcut borçlar için aylık toplam ödeme",
+      "businessContext": "Total monthly payment for all current debts",
       "label_i18n": {
         "en": "Current Monthly Payment",
         "tr": "Mevcut Aylık Ödeme",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "ay",
       "default": 60,
-      "businessContext": "Mevcut borçların ortalama kalan vadesi (ay cinsinden)",
+      "businessContext": "Average remaining maturity of existing debts (in months)",
       "label_i18n": {
         "en": "Kalan Vade",
         "tr": "Kalan Vade (ay)",
@@ -176,7 +176,38 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "currentTotalDebt",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "currentMonthlyPayment",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "currentRemainingMonths",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "newInterestRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "newTermMonths",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "consolidationFee",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "feetPerSecond",
-      "label": "Hız (ft/s)",
+      "label": "Speed (ft/s)",
       "type": "number",
       "unit": "ft/s",
       "default": 1,
-      "businessContext": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
+      "businessContext": "Speed value to convert, in feet/second",
       "label_i18n": {
         "en": "Speed (ft/s)",
         "tr": "Hız (ft/s)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "precision",
-      "label": "Ondalık Hassasiyet",
+      "label": "Decimal Precision",
       "type": "number",
       "unit": "basamak",
       "default": 2,
-      "businessContext": "Çıktıdaki ondalık basamak sayısı",
+      "businessContext": "Number of decimal places in the output",
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "ft/s",
       "default": 0,
-      "businessContext": "Girişe eklenecek sabit ofset (kalibrasyon için)",
+      "businessContext": "Constant offset added to input (for calibration)",
       "label_i18n": {
         "en": "Kalibrasyon Ofseti",
         "tr": "Calibration Offset",
@@ -75,11 +75,11 @@
     },
     {
       "id": "outputUnitScaling",
-      "label": "Çıktı Birim Ölçekleme",
+      "label": "Output Unit Scaling",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
+      "businessContext": "Multiplier to convert mph to another unit; 1 for mph",
       "label_i18n": {
         "en": "Output Unit Scaling",
         "tr": "Çıktı Birim Ölçekleme",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Yatırım portföyünün dönemsel getirisi.",
+      "businessContext": "Periodic return of the investment portfolio.",
       "label_i18n": {
         "en": "Portfolio Return",
         "tr": "Portföy Getirisi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Karşılaştırma ölçütünün dönemsel getirisi.",
+      "businessContext": "Periodic return of the benchmark.",
       "label_i18n": {
         "en": "Benchmark Return",
         "tr": "Karşılaştırma Ölçütü Getirisi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Aktif getirinin standart sapması.",
+      "businessContext": "Standard deviation of active return.",
       "label_i18n": {
         "en": "Tracking Error",
         "tr": "İzleme Hatası",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "periods/year",
       "default": 12,
-      "businessContext": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
+      "businessContext": "Number of periods for annualization (e.g., monthly:12, daily:252).",
       "label_i18n": {
         "en": "Annualization Factor",
         "tr": "Yıllıklandırma Faktörü",

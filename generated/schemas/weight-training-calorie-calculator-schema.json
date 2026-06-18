@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Kullanıcının vücut ağırlığı (kg)",
+      "businessContext": "User's body weight (kg)",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "durationHours",
-      "label": "Süre (Saat)",
+      "label": "Time (Hours)",
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Antrenman süresi saat cinsinden",
+      "businessContext": "Training duration in hours",
       "label_i18n": {
         "en": "Time (Hours)",
         "tr": "Süre (Saat)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "durationMinutes",
-      "label": "Süre (Dakika)",
+      "label": "Time (Minutes)",
       "type": "number",
       "unit": "dk",
       "default": 45,
-      "businessContext": "Antrenman süresi dakika cinsinden",
+      "businessContext": "Training duration in minutes",
       "label_i18n": {
         "en": "Time (Minutes)",
         "tr": "Süre (Dakika)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "metValue",
-      "label": "MET Değeri",
+      "label": "MET Value",
       "type": "number",
       "unit": "MET",
       "default": 4,
-      "businessContext": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası",
+      "businessContext": "MET (Metabolic Equivalent) value of the activity. For weight training, typically between 3-6",
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",

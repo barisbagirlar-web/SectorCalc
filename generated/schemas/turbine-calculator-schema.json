@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
+      "businessContext": "Standard air density at sea level at 15°C. Varies with altitude and temperature.",
       "label_i18n": {
         "en": "Air Density",
         "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
@@ -27,11 +27,11 @@
     },
     {
       "id": "rotorDiameter",
-      "label": "Rotor Çapı",
+      "label": "Rotor Diameter",
       "type": "number",
       "unit": "m",
       "default": 80,
-      "businessContext": "Türbin kanatlarının süpürdüğü dairenin çapı.",
+      "businessContext": "Diameter of the circle swept by the turbine blades.",
       "label_i18n": {
         "en": "Rotor diameter",
         "tr": "Rotor Çapı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "windSpeed",
-      "label": "Rüzgar Hızı",
+      "label": "Wind Speed",
       "type": "number",
       "unit": "m/s",
       "default": 12,
-      "businessContext": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
+      "businessContext": "Average wind speed at blade height.",
       "label_i18n": {
         "en": "Wind speed",
         "tr": "Rüzgar Hızı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
+      "businessContext": "Overall aerodynamic and mechanical efficiency of the turbine. Typically between 35-45%.",
       "label_i18n": {
         "en": "Verimlilik",
         "tr": "Efficiency",

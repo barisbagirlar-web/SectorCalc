@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Chinese_zodiac_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = ((input.birthYear - 4) % 12 + 12) % 12; results["zodiacIndex"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["zodiacIndex"] = 0; }
-  try { const v = ((input.birthYear - 4) % 12 + 12) % 12; results["zodiacIndex_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["zodiacIndex_aux"] = 0; }
+  try { const v = ((input.birthYear - 4) % 10 + 10) % 10; results["elementIndex"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["elementIndex"] = 0; }
   return results;
 }
 

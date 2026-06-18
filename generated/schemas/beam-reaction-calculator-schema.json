@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "beamLength",
-      "label": "Kiriş Uzunluğu",
+      "label": "Beam Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Basit mesnetli kirişin toplam açıklık uzunluğu (m).",
+      "businessContext": "Simply supported beam total span length (m).",
       "label_i18n": {
         "en": "Beam Length",
         "tr": "Kiriş Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "load1",
-      "label": "Yük 1",
+      "label": "Load 1",
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Birinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
+      "businessContext": "Intensity of the first point load (kN). Enter 0 if not used.",
       "label_i18n": {
         "en": "Load 1",
         "tr": "Yük 1",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Yük 1'in sol mesnetten uzaklığı (m).",
+      "businessContext": "Distance of Load 1 from the left support (m).",
       "label_i18n": {
         "en": "Konum 1",
         "tr": "Location 1",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kN",
       "default": 0,
-      "businessContext": "İkinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
+      "businessContext": "Intensity of the second point load (kN). Enter 0 if not used.",
       "label_i18n": {
         "en": "Load 2",
         "tr": "Yük 2",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Yük 2'nin sol mesnetten uzaklığı (m).",
+      "businessContext": "Distance of Load 2 from the left support (m).",
       "label_i18n": {
         "en": "Konum 2",
         "tr": "Location 2",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "kN",
       "default": 0,
-      "businessContext": "Üçüncü tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
+      "businessContext": "Intensity of the third point load (kN). Enter 0 if not used.",
       "label_i18n": {
         "en": "Load 3",
         "tr": "Yük 3",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Yük 3'ün sol mesnetten uzaklığı (m).",
+      "businessContext": "Distance of Load 3 from the left support (m).",
       "label_i18n": {
         "en": "Konum 3",
         "tr": "Location 3",

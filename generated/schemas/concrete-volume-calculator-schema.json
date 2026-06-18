@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Döşeme uzunluğu",
+      "businessContext": "Slab length",
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Döşeme genişliği",
+      "businessContext": "Slab width",
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 15,
-      "businessContext": "Beton kalınlığı",
+      "businessContext": "Concrete thickness",
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Beton fire payı",
+      "businessContext": "Concrete waste allowance",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "density",
-      "label": "Beton Yoğunluğu",
+      "label": "Concrete Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Beton yoğunluğu",
+      "businessContext": "Concrete density",
       "label_i18n": {
         "en": "Concrete Density",
         "tr": "Beton Yoğunluğu",

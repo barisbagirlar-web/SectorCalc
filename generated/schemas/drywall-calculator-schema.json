@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roomLength",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın uzunluğu (metre cinsinden). Ör: 5",
+      "businessContext": "Length of the room (in meters). Example: 5",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roomWidth",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Odanın genişliği (metre cinsinden). Ör: 4",
+      "businessContext": "Width of the room (in meters). Example: 4",
       "label_i18n": {
         "en": "Room Width",
         "tr": "Oda Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "roomHeight",
-      "label": "Oda Yüksekliği",
+      "label": "Room Height",
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
+      "businessContext": "Wall height (in meters). Example: 2.5",
       "label_i18n": {
         "en": "Room Height",
         "tr": "Oda Yüksekliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfDoors",
-      "label": "Kapı Sayısı",
+      "label": "Number of Doors",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
+      "businessContext": "Number of doors to subtract (each door 2 m²). Example: 1",
       "label_i18n": {
         "en": "Number of Doors",
         "tr": "Kapı Sayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "numberOfWindows",
-      "label": "Pencere Sayısı",
+      "label": "Number of Windows",
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
+      "businessContext": "Number of windows to subtract (each window 1.5 m²). Example: 2",
       "label_i18n": {
         "en": "Number of Windows",
         "tr": "Pencere Sayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "panelArea",
-      "label": "Alçıpan Alanı",
+      "label": "Drywall Area",
       "type": "number",
       "unit": "m²",
       "default": 2.88,
-      "businessContext": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
+      "businessContext": "Area of a single drywall sheet (m²). Standard 1.2x2.4m = 2.88 m². Example: 2.88",
       "label_i18n": {
         "en": "Drywall Area",
         "tr": "Alçıpan Alanı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
+      "businessContext": "Percentage to add for cutting and waste. Example: 10",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "containerCount",
-      "label": "Konteyner Sayısı",
+      "label": "Number of Containers",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Konteyner sayısı",
+      "businessContext": "Number of containers",
       "label_i18n": {
         "en": "Number of Containers",
         "tr": "Konteyner Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "gallonsPerContainer",
-      "label": "Konteyner Başına Galon",
+      "label": "Gallons per Container",
       "type": "number",
       "unit": "gal",
       "default": 0,
-      "businessContext": "Konteyner başına galon",
+      "businessContext": "Gallons per container",
       "label_i18n": {
         "en": "Gallons per Container",
         "tr": "Konteyner Başına Galon",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "0: ABD galonu, 1: İngiliz galonu",
+      "businessContext": "0: US gallon, 1: Imperial gallon",
       "label_i18n": {
         "en": "Galon Tipi",
         "tr": "Galon tipi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "customFactor",
-      "label": "Özel Dönüşüm Faktörü",
+      "label": "Custom Conversion Factor",
       "type": "number",
       "unit": "L/gal",
       "default": 0,
-      "businessContext": "0 ise birim tipine göre standart faktör kullanılır",
+      "businessContext": "If 0, standard factor according to unit type is used",
       "label_i18n": {
         "en": "Custom Conversion Factor",
         "tr": "Özel Dönüşüm Faktörü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "wastePercentage",
-      "label": "Fire Yüzdesi",
+      "label": "Fire Percentage",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Proses firesini yüzde olarak girin (ör. 5)",
+      "businessContext": "Enter the process fire as a percentage (e.g., 5)",
       "label_i18n": {
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "outputDecimals",
-      "label": "Ondalık Basamak Sayısı",
+      "label": "Number of Decimal Places",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to show in the result",
       "label_i18n": {
         "en": "Number of Decimal Places",
         "tr": "Ondalık Basamak Sayısı",

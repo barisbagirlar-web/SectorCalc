@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 5,
-      "businessContext": "Köpeğin insan yaşı cinsinden yaşı",
+      "businessContext": "Dog's age in human years",
       "label_i18n": {
         "en": "Human Age",
         "tr": "İnsan Yaşı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "indeks",
       "default": 2,
-      "businessContext": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)",
+      "businessContext": "1: Small (e.g., Chihuahua), 2: Medium (e.g., Beagle), 3: Large (e.g., Labrador), 4: Giant (e.g., Great Dane)",
       "label_i18n": {
         "en": "Irk Boyutu",
         "tr": "Breed Size",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg",
       "default": 15,
-      "businessContext": "Köpeğin yaklaşık ağırlığı (kg cinsinden)",
+      "businessContext": "Dog's approximate weight (in kg)",
       "label_i18n": {
         "en": "Dog's Weight",
         "tr": "Köpeğin Ağırlığı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "puan",
       "default": 2,
-      "businessContext": "1: Düşük, 2: Orta, 3: Yüksek",
+      "businessContext": "1: Low, 2: Medium, 3: High",
       "label_i18n": {
         "en": "Aktivite Seviyesi",
         "tr": "Activity Level",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Bodrumun uzun kenarı",
+      "businessContext": "Long side of the basement",
       "label_i18n": {
         "en": "Basement Length (m)",
         "tr": "Bodrum Uzunluğu (m)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Bodrumun kısa kenarı",
+      "businessContext": "Short side of the basement",
       "label_i18n": {
         "en": "Basement Width (m)",
         "tr": "Bodrum Genişliği (m)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
+      "businessContext": "Height from basement floor to ground level",
       "label_i18n": {
         "en": "Basement Depth (m)",
         "tr": "Bodrum Derinliği (m)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "cm",
       "default": 25,
-      "businessContext": "Beton duvar kalınlığı",
+      "businessContext": "Concrete wall thickness",
       "label_i18n": {
         "en": "Wall Thickness (cm)",
         "tr": "Duvar Kalınlığı (cm)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Taban döşemesi kalınlığı",
+      "businessContext": "Slab thickness",
       "label_i18n": {
         "en": "Slab Thickness (cm)",
         "tr": "Döşeme Kalınlığı (cm)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "TL/m³",
       "default": 1200,
-      "businessContext": "Birim metreküp beton fiyatı",
+      "businessContext": "Unit price of concrete per cubic meter",
       "label_i18n": {
         "en": "Beton Maliyeti (TL/m³)",
         "tr": "Concrete Cost (TL/m³)",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "TL/m²",
       "default": 50,
-      "businessContext": "Birim metrekare su yalıtım fiyatı",
+      "businessContext": "Unit waterproofing price per square meter",
       "label_i18n": {
         "en": "Waterproofing Cost (TL/m²)",
         "tr": "Su Yalıtım Maliyeti (TL/m²)",

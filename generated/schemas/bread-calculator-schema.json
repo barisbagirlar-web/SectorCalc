@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "flourWeight",
-      "label": "Un Miktarı",
+      "label": "Flour Amount",
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Tarifin ana bileşeni olan unun gram cinsinden ağırlığı",
+      "businessContext": "Weight of flour, the main ingredient of the recipe, in grams",
       "label_i18n": {
         "en": "Flour Amount",
         "tr": "Un Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "hydration",
-      "label": "Hidrasyon Oranı",
+      "label": "Hydration Ratio",
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Un ağırlığına göre su yüzdesi",
+      "businessContext": "Water percentage relative to flour weight",
       "label_i18n": {
         "en": "Hydration Ratio",
         "tr": "Hidrasyon Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "yeast",
-      "label": "Maya Oranı",
+      "label": "Yeast Ratio",
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Un ağırlığına göre yaş maya yüzdesi",
+      "businessContext": "Fresh yeast percentage relative to flour weight",
       "label_i18n": {
         "en": "Yeast Ratio",
         "tr": "Maya Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "salt",
-      "label": "Tuz Oranı",
+      "label": "Salt Ratio",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Un ağırlığına göre tuz yüzdesi",
+      "businessContext": "Salt percentage relative to flour weight",
       "label_i18n": {
         "en": "Salt Ratio",
         "tr": "Tuz Oranı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "sugar",
-      "label": "Şeker Oranı",
+      "label": "Sugar Ratio",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Un ağırlığına göre şeker yüzdesi",
+      "businessContext": "Sugar percentage relative to flour weight",
       "label_i18n": {
         "en": "Sugar Ratio",
         "tr": "Şeker Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "fat",
-      "label": "Yağ Oranı",
+      "label": "Fat Ratio",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Un ağırlığına göre sıvı yağ veya tereyağı yüzdesi",
+      "businessContext": "Oil or butter percentage relative to flour weight",
       "label_i18n": {
         "en": "Fat Ratio",
         "tr": "Yağ Oranı",

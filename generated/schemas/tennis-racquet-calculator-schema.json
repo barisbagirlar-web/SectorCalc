@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "g",
       "default": 300,
-      "businessContext": "Mevcut raket kütlesi",
+      "businessContext": "Current racket mass",
       "label_i18n": {
         "en": "Racquet Mass (g)",
         "tr": "Raket Kütlesi (g)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 32,
-      "businessContext": "Mevcut raket denge noktasının butt'a uzaklığı",
+      "businessContext": "Distance from current racket balance point to butt",
       "label_i18n": {
         "en": "Racquet Balance (cm from butt)",
         "tr": "Raket Dengesi (butt'tan cm)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg·cm²",
       "default": 320,
-      "businessContext": "Mevcut raket salınım ağırlığı",
+      "businessContext": "Current racket swing weight",
       "label_i18n": {
         "en": "Racquet Swing Weight (kg·cm²)",
         "tr": "Raket Salınım Ağırlığı (kg·cm²)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Eklenecek ağırlık",
+      "businessContext": "Weight to add",
       "label_i18n": {
         "en": "Added Mass (g)",
         "tr": "Eklenen Kütle (g)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "cm",
       "default": 68.5,
-      "businessContext": "Ağırlığın ekleneceği konum (butt'a uzaklık)",
+      "businessContext": "Position where weight is added (distance from butt)",
       "label_i18n": {
         "en": "Added Position (cm from butt)",
         "tr": "Eklenen Konum (butt'tan cm)",

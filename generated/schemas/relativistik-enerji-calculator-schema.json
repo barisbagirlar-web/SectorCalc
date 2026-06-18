@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass",
-      "label": "Kütle (m₀)",
+      "label": "Mass (m₀)",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Durgun kütle",
+      "businessContext": "Rest mass",
       "label_i18n": {
         "en": "Mass (m₀)",
         "tr": "Kütle (m₀)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "c",
-      "label": "Işık Hızı (c)",
+      "label": "Speed of Light (c)",
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
+      "businessContext": "Vacuum speed of light, ISO 80000-7:2019 constant",
       "label_i18n": {
         "en": "Speed of Light (c)",
         "tr": "Işık Hızı (c)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "v",
-      "label": "Hız (v)",
+      "label": "Speed (v)",
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Cismin hızı, c'den küçük olmalıdır",
+      "businessContext": "Speed of the object, must be less than c",
       "label_i18n": {
         "en": "Velocity (v)",
         "tr": "Hız (v)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "unitFactor",
-      "label": "Enerji Birim Çarpanı",
+      "label": "Energy Unit Multiplier",
       "type": "number",
       "unit": "(çarpan)",
       "default": 1,
-      "businessContext": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
+      "businessContext": "Unit conversion multiplier for energy output (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
       "label_i18n": {
         "en": "Energy Unit Multiplier",
         "tr": "Enerji Birim Çarpanı",

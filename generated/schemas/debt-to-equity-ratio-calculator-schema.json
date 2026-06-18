@@ -99,9 +99,9 @@
     }
   ],
   "formulas": {
-    "debtToEquity": "(longTermDebt + currentLiabilities + otherLiabilities) / (totalAssets - (longTermDebt + currentLiabilities + otherLiabilities))",
     "totalLiabilities": "longTermDebt + currentLiabilities + otherLiabilities",
-    "shareholdersEquity": "totalAssets - (longTermDebt + currentLiabilities + otherLiabilities)"
+    "shareholdersEquity": "totalAssets - totalLiabilities",
+    "debtToEquity": "totalLiabilities / shareholdersEquity"
   },
   "outputs": {
     "primary": "debtToEquity",

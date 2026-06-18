@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2025,
-      "businessContext": "Hafta numarası hesaplanacak yıl",
+      "businessContext": "Year for week number calculation",
       "label_i18n": {
         "en": "Year",
         "tr": "Yıl",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hafta numarası hesaplanacak ay (1-12)",
+      "businessContext": "Month for week number calculation (1-12)",
       "label_i18n": {
         "en": "Ay",
         "tr": "Month",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Hafta numarası hesaplanacak gün (1-31)",
+      "businessContext": "Day for week number calculation (1-31)",
       "label_i18n": {
         "en": "Day",
         "tr": "Gün",
@@ -75,11 +75,11 @@
     },
     {
       "id": "weekStartDay",
-      "label": "Hafta Başlangıç Günü",
+      "label": "Week Start Day",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)",
+      "businessContext": "Day the week starts (0=Sunday, 1=Monday, ..., 6=Saturday)",
       "label_i18n": {
         "en": "Week Start Day",
         "tr": "Hafta Başlangıç Günü",

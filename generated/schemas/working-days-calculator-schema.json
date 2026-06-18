@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "startDate",
-      "label": "Başlangıç Tarihi (Seri No)",
+      "label": "Start Date (Serial No)",
       "type": "number",
       "unit": "gün",
       "default": 44927,
@@ -27,7 +27,7 @@
     },
     {
       "id": "endDate",
-      "label": "Bitiş Tarihi (Seri No)",
+      "label": "End Date (Serial No)",
       "type": "number",
       "unit": "gün",
       "default": 44957,
@@ -51,7 +51,7 @@
     },
     {
       "id": "includeStart",
-      "label": "Başlangıç Günü Dahil",
+      "label": "Include Start Day",
       "type": "number",
       "unit": "unit",
       "default": 1,
@@ -75,7 +75,7 @@
     },
     {
       "id": "includeEnd",
-      "label": "Bitiş Günü Dahil",
+      "label": "Include End Day",
       "type": "number",
       "unit": "unit",
       "default": 1,
@@ -99,7 +99,7 @@
     },
     {
       "id": "weekendDaysPerWeek",
-      "label": "Haftalık Tatil Gün Sayısı",
+      "label": "Number of Weekly Holiday Days",
       "type": "number",
       "unit": "gün",
       "default": 2,

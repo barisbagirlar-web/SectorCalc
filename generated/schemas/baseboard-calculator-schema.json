@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roomLength",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın bir kenarının uzunluğu",
+      "businessContext": "Length of one side of the room",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roomWidth",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Odanın diğer kenarının genişliği",
+      "businessContext": "Width of the other side of the room",
       "label_i18n": {
         "en": "Room Width",
         "tr": "Oda Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "numberOfDoors",
-      "label": "Kapı Sayısı",
+      "label": "Number of Doors",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Süpürgelikten düşülecek kapı boşluğu sayısı",
+      "businessContext": "Number of door openings to subtract from baseboard",
       "label_i18n": {
         "en": "Number of Doors",
         "tr": "Kapı Sayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "doorWidth",
-      "label": "Kapı Genişliği",
+      "label": "Door Width",
       "type": "number",
       "unit": "m",
       "default": 0.9,
-      "businessContext": "Bir kapı boşluğunun genişliği",
+      "businessContext": "Width of one door opening",
       "label_i18n": {
         "en": "Door Width",
         "tr": "Kapı Genişliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "baseboardLengthPerPiece",
-      "label": "Parça Boyu",
+      "label": "Piece Length",
       "type": "number",
       "unit": "m",
       "default": 2.4,
-      "businessContext": "Bir süpürgelik parçasının uzunluğu",
+      "businessContext": "Length of one baseboard piece",
       "label_i18n": {
         "en": "Piece Length",
         "tr": "Parça Boyu",
@@ -123,11 +123,11 @@
     },
     {
       "id": "pricePerPiece",
-      "label": "Parça Fiyatı",
+      "label": "Piece Price",
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "Bir süpürgelik parçasının birim fiyatı",
+      "businessContext": "Unit price of a baseboard piece",
       "label_i18n": {
         "en": "Piece Price (USD)",
         "tr": "Parça Fiyatı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi",
+      "businessContext": "Percentage of extra material due to cutting and errors",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

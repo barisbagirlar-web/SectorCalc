@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "MHz",
       "default": 144,
-      "businessContext": "Çalışma frekansı (MHz)",
+      "businessContext": "Operating frequency (MHz)",
       "label_i18n": {
         "en": "Frekans",
         "tr": "Frequency",
@@ -27,11 +27,11 @@
     },
     {
       "id": "numElements",
-      "label": "Eleman Sayısı",
+      "label": "Number of Elements",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Reflektör ve sürücü dahil toplam eleman sayısı",
+      "businessContext": "Total number of elements including reflector and driver",
       "label_i18n": {
         "en": "Number of Elements",
         "tr": "Eleman Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "birimsiz",
       "default": 0.95,
-      "businessContext": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
+      "businessContext": "Skin effect correction coefficient, typically 0.95",
       "label_i18n": {
         "en": "Velocity factor",
         "tr": "Hız Faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "birimsiz",
       "default": 0.2,
-      "businessContext": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
+      "businessContext": "Inter-element wavelength ratio (e.g., 0.2λ)",
       "label_i18n": {
         "en": "Spacing factor",
         "tr": "Aralık Katsayısı",

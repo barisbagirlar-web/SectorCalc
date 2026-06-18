@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "hardnessValue",
-      "label": "Sertlik Değeri",
+      "label": "Strength Value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Ölçülen sertlik değeri (girdiğiniz skalada)",
+      "businessContext": "Measured strength value (in the scale you entered)",
       "label_i18n": {
         "en": "Strength value",
         "tr": "Sertlik Değeri",
@@ -27,7 +27,7 @@
     },
     {
       "id": "scaleFrom",
-      "label": "Sertlik Skalası",
+      "label": "Strength Scale",
       "type": "number",
       "unit": "skala kodu",
       "default": 1,

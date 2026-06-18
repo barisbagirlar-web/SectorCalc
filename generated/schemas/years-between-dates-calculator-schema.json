@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Başlangıç tarihinin gün bileşeni (1-31)",
+      "businessContext": "Day component of start date (1-31)",
       "label_i18n": {
         "en": "Start Day",
         "tr": "Başlangıç Günü",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Başlangıç tarihinin ay bileşeni (1-12)",
+      "businessContext": "Month component of start date (1-12)",
       "label_i18n": {
         "en": "Start Month",
         "tr": "Başlangıç Ayı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Başlangıç tarihinin yıl bileşeni",
+      "businessContext": "Year component of start date",
       "label_i18n": {
         "en": "Start Year",
         "tr": "Başlangıç Yılı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "endDay",
-      "label": "Bitiş Günü",
+      "label": "End Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Bitiş tarihinin gün bileşeni (1-31)",
+      "businessContext": "Day component of end date (1-31)",
       "label_i18n": {
         "en": "End day",
         "tr": "Bitiş Günü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "endMonth",
-      "label": "Bitiş Ayı",
+      "label": "End Month",
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Bitiş tarihinin ay bileşeni (1-12)",
+      "businessContext": "Month component of end date (1-12)",
       "label_i18n": {
         "en": "End month",
         "tr": "Bitiş Ayı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "endYear",
-      "label": "Bitiş Yılı",
+      "label": "End Year",
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Bitiş tarihinin yıl bileşeni",
+      "businessContext": "Year component of end date",
       "label_i18n": {
         "en": "End year",
         "tr": "Bitiş Yılı",

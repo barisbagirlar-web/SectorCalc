@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Üretim hattı kurulum süresindeki gecikme",
+      "businessContext": "Production line setup time delay",
       "label_i18n": {
         "en": "Kurulum Gecikmesi",
         "tr": "Setup Delay",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Malzeme veya iş emri kuyruk bekleme süresi gecikmesi",
+      "businessContext": "Material or work order queue waiting time delay",
       "label_i18n": {
         "en": "Kuyrukta Bekleme Gecikmesi",
         "tr": "Queue Wait Delay",
@@ -51,11 +51,11 @@
     },
     {
       "id": "processDelay",
-      "label": "İşlem Gecikmesi",
+      "label": "Process Delay",
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "İşleme süresindeki gecikme",
+      "businessContext": "Processing time delay",
       "label_i18n": {
         "en": "Processing delay",
         "tr": "İşlem Gecikmesi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "transportDelay",
-      "label": "Taşıma Gecikmesi",
+      "label": "Transport Delay",
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Malzeme taşıma veya lojistik gecikmesi",
+      "businessContext": "Material handling or logistics delay",
       "label_i18n": {
         "en": "Transportation delay",
         "tr": "Taşıma Gecikmesi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "unplannedDelay",
-      "label": "Planlanmamış Gecikme",
+      "label": "Unscheduled Delay",
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Arıza, bakım vb. planlanmamış gecikmeler",
+      "businessContext": "Unscheduled delays such as breakdowns, maintenance, etc.",
       "label_i18n": {
         "en": "Unscheduled delay",
         "tr": "Planlanmamış Gecikme",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "incidentAngle",
-      "label": "Geliş Açısı",
+      "label": "Angle of Incidence",
       "type": "number",
       "unit": "derece (°)",
       "default": 30,
-      "businessContext": "Işığın birinci ortamdaki geliş açısı.",
+      "businessContext": "Angle of incidence of light in the first medium.",
       "label_i18n": {
         "en": "Angle of Incidence",
         "tr": "Geliş Açısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "refractiveIndex1",
-      "label": "Birinci Ortam Kırılma İndisi",
+      "label": "Refractive Index of First Medium",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Birinci ortamın kırılma indisi (n1).",
+      "businessContext": "Refractive index of the first medium (n1).",
       "label_i18n": {
         "en": "Refractive Index of First Medium",
         "tr": "Birinci Ortam Kırılma İndisi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "refractiveIndex2",
-      "label": "İkinci Ortam Kırılma İndisi",
+      "label": "Refractive Index of Second Medium",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "İkinci ortamın kırılma indisi (n2).",
+      "businessContext": "Refractive index of the second medium (n2).",
       "label_i18n": {
         "en": "Refractive Index of Second Medium",
         "tr": "İkinci Ortam Kırılma İndisi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
+      "businessContext": "Thickness of the medium through which light passes (for lateral shift calculation).",
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",

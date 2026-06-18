@@ -126,8 +126,8 @@
     "bilirubinPoints": "totalBilirubin < 2 ? 1 : (totalBilirubin <= 3 ? 2 : 3)",
     "albuminPoints": "serumAlbumin > 3.5 ? 1 : (serumAlbumin >= 2.8 ? 2 : 3)",
     "inrPoints": "inr < 1.7 ? 1 : (inr <= 2.3 ? 2 : 3)",
-    "ascitesPoints": "ascites + 1",
-    "encephalopathyPoints": "encephalopathy + 1",
+    "ascitesPoints": "ascites == 0 ? 1 : (ascites == 1 ? 2 : 3)",
+    "encephalopathyPoints": "encephalopathy == 0 ? 1 : (encephalopathy == 1 ? 2 : 3)",
     "totalScore": "bilirubinPoints + albuminPoints + inrPoints + ascitesPoints + encephalopathyPoints"
   },
   "outputs": {

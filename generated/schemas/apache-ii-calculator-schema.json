@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "operatorSkill",
-      "label": "Operatör Yetkinlik Seviyesi",
+      "label": "Operator Competency Level",
       "type": "number",
       "unit": "1-10",
       "default": 5,
-      "businessContext": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir.",
+      "businessContext": "Operator competency level rated from 1 to 10. Higher score indicates better performance.",
       "label_i18n": {
         "en": "Operator Competency Level",
         "tr": "Operatör Yetkinlik Seviyesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "machineAge",
-      "label": "Makine Yaşı",
+      "label": "Machine Age",
       "type": "number",
-      "unit": "yıl",
+      "unit": "years",
       "default": 5,
-      "businessContext": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir.",
+      "businessContext": "Machine age in years. Older machines show lower efficiency.",
       "label_i18n": {
         "en": "Machine Age",
         "tr": "Makine Yaşı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "maintenanceFrequency",
-      "label": "Bakım Sıklığı",
+      "label": "Maintenance Frequency",
       "type": "number",
-      "unit": "adet/ay",
+      "unit": "per month",
       "default": 2,
-      "businessContext": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar.",
+      "businessContext": "Average number of maintenance per month. More frequent maintenance provides higher reliability.",
       "label_i18n": {
         "en": "Maintenance Frequency",
         "tr": "Bakım Sıklığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "ambientTemp",
-      "label": "Ortam Sıcaklığı",
+      "label": "Ambient Temperature",
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür.",
+      "businessContext": "Operating ambient temperature. 25°C is considered ideal, deviations reduce efficiency.",
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "vibrationLevel",
-      "label": "Titreşim Seviyesi",
+      "label": "Vibration Level",
       "type": "number",
       "unit": "mm/s",
       "default": 2,
-      "businessContext": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür.",
+      "businessContext": "Machine vibration level. Higher vibration increases failure risk and reduces efficiency.",
       "label_i18n": {
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "energyConsumption",
-      "label": "Enerji Tüketimi",
+      "label": "Energy Consumption",
       "type": "number",
-      "unit": "kWh/saat",
+      "unit": "kWh/h",
       "default": 50,
-      "businessContext": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür.",
+      "businessContext": "Hourly energy consumption. High consumption increases costs and reduces efficiency score.",
       "label_i18n": {
         "en": "Energy Consumption",
         "tr": "Enerji Tüketimi",
@@ -163,7 +163,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "equipmentEffectivenessScore",
-    "unit": "1-10"
+    "unit": "1-100"
   },
   "category": "İSG & Risk",
   "sector": "İSG & İş Güvenliği",
@@ -175,8 +175,39 @@
   "profession": "Risk Değerlendirici",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "operatorSkill",
+        "rule": "min:1, max:10"
+      },
+      {
+        "field": "machineAge",
+        "rule": "min:0, max:50"
+      },
+      {
+        "field": "maintenanceFrequency",
+        "rule": "min:0, max:30"
+      },
+      {
+        "field": "ambientTemp",
+        "rule": "min:-10, max:50"
+      },
+      {
+        "field": "vibrationLevel",
+        "rule": "min:0, max:20"
+      },
+      {
+        "field": "energyConsumption",
+        "rule": "min:0, max:200"
+      }
+    ],
+    "thresholds": {
+      "equipmentEffectivenessScore": {
+        "low": 40,
+        "medium": 70,
+        "high": 90
+      }
+    }
   },
   "premiumFeatures": []
 }

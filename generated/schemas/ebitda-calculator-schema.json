@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Toplam gelir (satışlar)",
+      "businessContext": "Total revenue (sales)",
       "label_i18n": {
         "en": "Total Revenue",
         "tr": "Toplam Gelir",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Satılan malın maliyeti",
+      "businessContext": "Cost of goods sold",
       "label_i18n": {
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faaliyet giderleri (amortisman hariç)",
+      "businessContext": "Operating expenses (excluding depreciation)",
       "label_i18n": {
         "en": "Operating Expenses (excl. D&A)",
         "tr": "Faaliyet Giderleri (amortisman hariç)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İtfa gideri",
+      "businessContext": "Depreciation expense",
       "label_i18n": {
         "en": "Amortization",
         "tr": "İtfa Gideri",

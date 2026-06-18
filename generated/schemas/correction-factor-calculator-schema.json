@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m³",
       "default": 1000,
-      "businessContext": "Gerçek çalışma koşullarında ölçülen hacim",
+      "businessContext": "Volume measured under actual operating conditions",
       "label_i18n": {
         "en": "Measured Volume",
         "tr": "Ölçülen Hacim",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Gerçek çalışma sıcaklığı",
+      "businessContext": "Actual operating temperature",
       "label_i18n": {
         "en": "Measured Temperature",
         "tr": "Ölçülen Sıcaklık",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Gerçek çalışma basıncı (mutlak)",
+      "businessContext": "Actual operating pressure (absolute)",
       "label_i18n": {
         "en": "Measured Pressure",
         "tr": "Ölçülen Basınç",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Referans standart sıcaklık",
+      "businessContext": "Reference standard temperature",
       "label_i18n": {
         "en": "Standard Temperature",
         "tr": "Standart Sıcaklık",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Referans standart basınç (mutlak)",
+      "businessContext": "Reference standard pressure (absolute)",
       "label_i18n": {
         "en": "Standard Pressure",
         "tr": "Standart Basınç",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Gaz sıkıştırılabilirlik faktörü (ideal gaz için 1)",
+      "businessContext": "Gas compressibility factor (1 for ideal gas)",
       "label_i18n": {
         "en": "Compressibility Factor (Z)",
         "tr": "Sıkıştırılabilirlik Faktörü (Z)",

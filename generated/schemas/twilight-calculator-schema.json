@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Nominal güç tüketimi (Watt)",
+      "businessContext": "Nominal power consumption (Watt)",
       "label_i18n": {
         "en": "Full Power Consumption",
         "tr": "Tam Güç Tüketimi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Karartma yüzdesi",
+      "businessContext": "Dimming percentage",
       "label_i18n": {
         "en": "Dimming Percentage",
         "tr": "Karartma Yüzdesi",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2.2,
-      "businessContext": "LED sönümlendirme eğrisi üssü",
+      "businessContext": "LED dimming curve exponent",
       "label_i18n": {
         "en": "Dimming Curve Exponent",
         "tr": "Karartma Eğrisi Üssü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "h",
       "default": 12,
-      "businessContext": "Günlük çalışma saati",
+      "businessContext": "Daily operating hours",
       "label_i18n": {
         "en": "Daily Operating Hours",
         "tr": "Günlük Çalışma Saati",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "₺/kWh",
       "default": 0.15,
-      "businessContext": "Elektrik birim fiyatı",
+      "businessContext": "Electricity unit price",
       "label_i18n": {
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",

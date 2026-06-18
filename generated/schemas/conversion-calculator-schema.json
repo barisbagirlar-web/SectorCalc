@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "birim",
       "default": 1,
-      "businessContext": "Dönüştürülecek sayısal değer",
+      "businessContext": "Numeric value to convert",
       "label_i18n": {
         "en": "Value",
         "tr": "Değer",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "basamak",
       "default": 2,
-      "businessContext": "Ondalık basamak sayısı",
+      "businessContext": "Number of decimal places",
       "label_i18n": {
         "en": "Hassasiyet",
         "tr": "Sensitivity",

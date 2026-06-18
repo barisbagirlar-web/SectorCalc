@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "loadWeight",
-      "label": "Yük Ağırlığı",
+      "label": "Load Weight",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak yükün ağırlığı (kg)",
+      "businessContext": "Weight of the load to be lifted (kg)",
       "label_i18n": {
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "numberOfLegs",
-      "label": "Sapan Ayağı Sayısı",
+      "label": "Number of Sling Legs",
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Kaldırma aparatındaki sapan ayak sayısı",
+      "businessContext": "Number of sling legs on the lifting device",
       "label_i18n": {
         "en": "Number of Sling Legs",
         "tr": "Sapan Ayağı Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "slingAngle",
-      "label": "Sapan Açısı (düşeyle)",
+      "label": "Sling Angle (from vertical)",
       "type": "number",
       "unit": "derece",
       "default": 60,
-      "businessContext": "Sapanın düşeyle yaptığı açı (0-90 arası)",
+      "businessContext": "Angle of the sling from vertical (0-90)",
       "label_i18n": {
         "en": "Sling Angle (from vertical)",
         "tr": "Sapan Açısı (düşeyle)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kat",
       "default": 5,
-      "businessContext": "Kaldırma ekipmanı için emniyet katsayısı (genellikle 4-7)",
+      "businessContext": "Safety factor for lifting equipment (usually 4-7)",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "dynamicFactor",
-      "label": "Darbe Faktörü",
+      "label": "Impact Factor",
       "type": "number",
       "unit": "kat",
       "default": 1.1,
-      "businessContext": "Ani hareketlerden kaynaklanan ek yük faktörü (genellikle 1.1-1.3)",
+      "businessContext": "Additional load factor from sudden movements (usually 1.1-1.3)",
       "label_i18n": {
         "en": "Impact Factor",
         "tr": "Darbe Faktörü",
@@ -123,11 +123,11 @@
     },
     {
       "id": "loadDistributionFactor",
-      "label": "Yük Dağılım Faktörü",
+      "label": "Load Distribution Factor",
       "type": "number",
       "unit": "oran",
       "default": 1,
-      "businessContext": "Asimetrik yük dağılımını hesaba katmak için faktör (1.0 simetrik dağılım)",
+      "businessContext": "Factor to account for asymmetric load distribution (1.0 symmetric distribution)",
       "label_i18n": {
         "en": "Load Distribution Factor",
         "tr": "Yük Dağılım Faktörü",

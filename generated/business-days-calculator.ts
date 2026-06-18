@@ -23,8 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Business_days_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.totalCalendarDays - input.saturdays - input.sundays - input.holidays; results["businessDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["businessDays"] = 0; }
-  try { const v = input.saturdays + input.sundays; results["totalWeekendDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeekendDays"] = 0; }
-  try { const v = input.saturdays + input.sundays + input.holidays; results["totalNonWorkingDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalNonWorkingDays"] = 0; }
+  try { const v = input.totalCalendarDays - input.saturdays - input.sundays - input.holidays; results["businessDays_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["businessDays_aux"] = 0; }
   return results;
 }
 

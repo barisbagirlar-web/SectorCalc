@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "makine saati",
       "default": 100,
-      "businessContext": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü",
+      "businessContext": "Total workload occurring in the short term (e.g., 7 days)",
       "label_i18n": {
         "en": "Acute Load (Total)",
         "tr": "Akut Yük (Toplam)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Akut yükün ölçüldüğü gün sayısı",
+      "businessContext": "Number of days over which acute load is measured",
       "label_i18n": {
         "en": "Acute Period (Days)",
         "tr": "Akut Dönem (Gün)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "makine saati",
       "default": 400,
-      "businessContext": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü",
+      "businessContext": "Total workload occurring over the long term (e.g., 28 days)",
       "label_i18n": {
         "en": "Chronic Load (Total)",
         "tr": "Kronik Yük (Toplam)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "gün",
       "default": 28,
-      "businessContext": "Kronik yükün ölçüldüğü gün sayısı",
+      "businessContext": "Number of days over which chronic load is measured",
       "label_i18n": {
         "en": "Chronic Period (Days)",
         "tr": "Kronik Dönem (Gün)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "oran",
       "default": 1.5,
-      "businessContext": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)",
+      "businessContext": "ACWR threshold value considered risky (usually 1.5)",
       "label_i18n": {
         "en": "Threshold Value",
         "tr": "Eşik Değer",

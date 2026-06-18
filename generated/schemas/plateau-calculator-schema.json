@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "initialOutput",
-      "label": "Başlangıç Performansı",
+      "label": "Initial Performance",
       "type": "number",
       "unit": "birim/saat",
       "default": 10,
-      "businessContext": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
+      "businessContext": "Hourly output at the starting point of the learning curve",
       "label_i18n": {
         "en": "Initial Performance",
         "tr": "Başlangıç Performansı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "outputAfterPeriod",
-      "label": "Öğrenme Sonrası Performans",
+      "label": "Performance After Learning",
       "type": "number",
       "unit": "birim/saat",
       "default": 20,
-      "businessContext": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
+      "businessContext": "Hourly output achieved after a certain learning period",
       "label_i18n": {
         "en": "Performance After Learning",
         "tr": "Öğrenme Sonrası Performans",
@@ -51,11 +51,11 @@
     },
     {
       "id": "timePeriod",
-      "label": "Öğrenme Süresi",
+      "label": "Learning Duration",
       "type": "number",
       "unit": "hafta",
       "default": 8,
-      "businessContext": "Performans ölçümleri arasındaki geçen hafta sayısı",
+      "businessContext": "Number of weeks elapsed between performance measurements",
       "label_i18n": {
         "en": "Learning Duration",
         "tr": "Öğrenme Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "learningRate",
-      "label": "Öğrenme Hızı Sabiti",
+      "label": "Learning Rate Constant",
       "type": "number",
       "unit": "1/hafta",
       "default": 0.25,
-      "businessContext": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
+      "businessContext": "Steepness coefficient of the learning curve for the exponential approximation model",
       "label_i18n": {
         "en": "Learning Rate Constant",
         "tr": "Öğrenme Hızı Sabiti",

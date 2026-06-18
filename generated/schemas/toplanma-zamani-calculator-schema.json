@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
+      "businessContext": "Flow path length from the farthest point of the basin to the outlet (meters)",
       "label_i18n": {
         "en": "Flow Length",
         "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
+      "businessContext": "Average slope percentage along the flow path (%)",
       "label_i18n": {
         "en": "Slope (%)",
         "tr": "Eğim (%)",

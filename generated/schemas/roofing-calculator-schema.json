@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roofLength",
-      "label": "Çatı Uzunluğu",
+      "label": "Roof Length",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Çatının yatay uzunluğu (saçaklar dahil)",
+      "businessContext": "Horizontal length of the roof (including eaves)",
       "label_i18n": {
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roofWidth",
-      "label": "Çatı Genişliği",
+      "label": "Roof Width",
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Çatının yatay genişliği (saçaklar dahil)",
+      "businessContext": "Horizontal width of the roof (including eaves)",
       "label_i18n": {
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "roofPitch",
-      "label": "Çatı Eğimi",
+      "label": "Roof Slope",
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Çatının yatayla yaptığı açı (0-90 derece)",
+      "businessContext": "Angle of the roof with the horizontal (0-90 degrees)",
       "label_i18n": {
         "en": "Roof Pitch",
         "tr": "Çatı Eğimi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "materialCostPerSqm",
-      "label": "Malzeme Maliyeti (m² başına)",
+      "label": "Material Cost (per m²)",
       "type": "number",
       "unit": "TL/m²",
       "default": 50,
-      "businessContext": "Çatı kaplama malzemesinin metrekare fiyatı",
+      "businessContext": "Price per square meter of roofing material",
       "label_i18n": {
         "en": "Material Cost (per m²)",
         "tr": "Malzeme Maliyeti (m² başına)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "laborCostPerSqm",
-      "label": "İşçilik Maliyeti (m² başına)",
+      "label": "Labor Cost (per m²)",
       "type": "number",
       "unit": "TL/m²",
       "default": 30,
-      "businessContext": "İşçilik maliyeti (metrekare başına)",
+      "businessContext": "Labor cost (per square meter)",
       "label_i18n": {
         "en": "Labor Cost (per m²)",
         "tr": "İşçilik Maliyeti (m² başına)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve montaj firesi (yüzde olarak)",
+      "businessContext": "Cutting and installation waste (as percentage)",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

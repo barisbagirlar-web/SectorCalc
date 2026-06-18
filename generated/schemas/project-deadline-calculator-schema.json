@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalTasks",
-      "label": "Toplam Görev Sayısı",
+      "label": "Total Number of Tasks",
       "type": "number",
       "unit": "tasks",
       "default": 100,
-      "businessContext": "Proje kapsamındaki toplam iş paketi veya görev sayısı",
+      "businessContext": "Total number of work packages or tasks within the project scope",
       "label_i18n": {
         "en": "Total Number of Tasks",
         "tr": "Toplam Görev Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "tasksPerDay",
-      "label": "Günlük Tamamlanan Görev",
+      "label": "Daily Completed Tasks",
       "type": "number",
       "unit": "tasks/day",
       "default": 5,
-      "businessContext": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı",
+      "businessContext": "Average number of tasks a team member can complete per day",
       "label_i18n": {
         "en": "Daily Completed Tasks",
         "tr": "Günlük Tamamlanan Görev",
@@ -51,11 +51,11 @@
     },
     {
       "id": "teamSize",
-      "label": "Ekip Büyüklüğü",
+      "label": "Team Size",
       "type": "number",
       "unit": "people",
       "default": 3,
-      "businessContext": "Projede çalışan toplam kişi sayısı",
+      "businessContext": "Total number of people working on the project",
       "label_i18n": {
         "en": "Team Size",
         "tr": "Ekip Büyüklüğü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "complexityFactor",
-      "label": "Karmaşıklık Faktörü",
+      "label": "Complexity Factor",
       "type": "number",
       "unit": "unit",
       "default": 1.2,
-      "businessContext": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)",
+      "businessContext": "Multiplier that increases time based on project complexity (1.0 = simple, 1.5 = complex)",
       "label_i18n": {
         "en": "Complexity Factor",
         "tr": "Karmaşıklık Faktörü",
@@ -99,11 +99,11 @@
     },
     {
       "id": "contingencyPercent",
-      "label": "Yedek Süre Oranı",
+      "label": "Buffer Time Ratio",
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi",
+      "businessContext": "Percentage of buffer time allocated for unforeseen delays",
       "label_i18n": {
         "en": "Buffer Time Ratio",
         "tr": "Yedek Süre Oranı",

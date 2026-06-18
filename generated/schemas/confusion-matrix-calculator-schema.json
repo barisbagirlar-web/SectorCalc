@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "true_positives",
-      "label": "Gerçek Pozitif (TP)",
+      "label": "True Positive (TP)",
       "type": "number",
       "unit": "adet",
       "default": 50,
-      "businessContext": "Doğru pozitif olarak sınıflandırılan örnek sayısı.",
+      "businessContext": "Number of samples classified as true positive.",
       "label_i18n": {
         "en": "True Positive (TP)",
         "tr": "Gerçek Pozitif (TP)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "false_positives",
-      "label": "Yanlış Pozitif (FP)",
+      "label": "False Positive (FP)",
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Yanlış pozitif olarak sınıflandırılan örnek sayısı.",
+      "businessContext": "Number of samples classified as false positive.",
       "label_i18n": {
         "en": "False Positive (FP)",
         "tr": "Yanlış Pozitif (FP)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "true_negatives",
-      "label": "Gerçek Negatif (TN)",
+      "label": "True Negative (TN)",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Doğru negatif olarak sınıflandırılan örnek sayısı.",
+      "businessContext": "Number of samples classified as true negative.",
       "label_i18n": {
         "en": "True Negative (TN)",
         "tr": "Gerçek Negatif (TN)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "false_negatives",
-      "label": "Yanlış Negatif (FN)",
+      "label": "False Negative (FN)",
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Yanlış negatif olarak sınıflandırılan örnek sayısı.",
+      "businessContext": "Number of samples classified as false negative.",
       "label_i18n": {
         "en": "False Negative (FN)",
         "tr": "Yanlış Negatif (FN)",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "loadWeight",
-      "label": "Yük Ağırlığı",
+      "label": "Load Weight",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak toplam yük ağırlığı",
+      "businessContext": "Total load weight to be lifted",
       "label_i18n": {
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "numberOfSlingLegs",
-      "label": "Sapan Kol Sayısı",
+      "label": "Number of Sling Legs",
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)",
+      "businessContext": "Number of sling legs supporting the load (usually 1, 2, 3, or 4)",
       "label_i18n": {
         "en": "Number of Sling Legs",
         "tr": "Sapan Kol Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "slingAngle",
-      "label": "Sapan Açısı (Dikeyden)",
+      "label": "Sling Angle (from Vertical)",
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
+      "businessContext": "Angle between the vertical axis and the sling leg (0° vertical sling, 90° horizontal sling)",
       "label_i18n": {
         "en": "Sling Angle (from Vertical)",
         "tr": "Sapan Açısı (Dikeyden)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 5,
-      "businessContext": "Uygulanacak emniyet faktörü (örn. 5:1)",
+      "businessContext": "Safety factor to be applied (e.g., 5:1)",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "dynamicFactor",
-      "label": "Dinamik Katsayı",
+      "label": "Dynamic Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 1.2,
-      "businessContext": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
+      "businessContext": "Dynamic loading effect (factor to multiply static load)",
       "label_i18n": {
         "en": "Dynamic Coefficient",
         "tr": "Dinamik Katsayı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "efficiencyFactor",
-      "label": "Verimlilik Faktörü",
+      "label": "Efficiency Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.8,
-      "businessContext": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
+      "businessContext": "Correction factor for non-ideal load distribution among slings (0-1, 1 perfect distribution)",
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",

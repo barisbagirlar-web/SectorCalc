@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "Süre girdisi (saat)",
+      "businessContext": "Time input (hours)",
       "label_i18n": {
         "en": "Hour",
         "tr": "Saat",
@@ -27,11 +27,11 @@
     },
     {
       "id": "batchSize",
-      "label": "Parti Büyüklüğü",
+      "label": "Batch Size",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "İşlenen parti miktarı",
+      "businessContext": "Processed batch quantity",
       "label_i18n": {
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
@@ -51,7 +51,7 @@
     },
     {
       "id": "machineCount",
-      "label": "Makine Sayısı",
+      "label": "Number of Machines",
       "type": "number",
       "unit": "adet",
       "default": 1,
@@ -75,11 +75,11 @@
     },
     {
       "id": "adjustmentPercent",
-      "label": "Ayarlama Yüzdesi",
+      "label": "Adjustment Percentage",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Kayıp veya kazanç faktörü (%)",
+      "businessContext": "Loss or gain factor (%)",
       "label_i18n": {
         "en": "Adjustment Percentage",
         "tr": "Ayarlama Yüzdesi",

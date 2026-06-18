@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roomLength",
-      "label": "Oda Uzunluğu",
+      "label": "Room Length",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
+      "businessContext": "Length of the room to be floored (in meters).",
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "roomWidth",
-      "label": "Oda Genişliği",
+      "label": "Room Width",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
+      "businessContext": "Width of the room to be floored (in meters).",
       "label_i18n": {
         "en": "Room Width",
         "tr": "Oda Genişliği",
@@ -51,11 +51,11 @@
     },
     {
       "id": "tileLength",
-      "label": "Karo Uzunluğu",
+      "label": "Tile Length",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+      "businessContext": "Long side measurement of a tile (in meters). E.g., 30 cm = 0.3 m.",
       "label_i18n": {
         "en": "Tile Length",
         "tr": "Karo Uzunluğu",
@@ -75,11 +75,11 @@
     },
     {
       "id": "tileWidth",
-      "label": "Karo Genişliği",
+      "label": "Tile Width",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+      "businessContext": "Short side measurement of a tile (in meters). E.g., 30 cm = 0.3 m.",
       "label_i18n": {
         "en": "Tile Width",
         "tr": "Karo Genişliği",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 15,
-      "businessContext": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
+      "businessContext": "Purchase price of one tile (in TL).",
       "label_i18n": {
         "en": "Price per Tile",
         "tr": "Karo Başına Fiyat",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
+      "businessContext": "Percentage to add for losses such as cutting, breakage. E.g., 10.",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

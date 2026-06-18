@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Boyanacak toplam yüzey alanı",
+      "businessContext": "Total surface area to be painted",
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m²/L",
       "default": 10,
-      "businessContext": "Boya kapsama oranı (üretici verisi)",
+      "businessContext": "Paint coverage rate (manufacturer data)",
       "label_i18n": {
         "en": "Coverage Rate",
         "tr": "Kaplama Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Uygulanacak kat sayısı",
+      "businessContext": "Number of coats to apply",
       "label_i18n": {
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Yangın, aşırı püskürtme vb. kayıplar",
+      "businessContext": "Losses due to fire, overspray, etc.",
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",

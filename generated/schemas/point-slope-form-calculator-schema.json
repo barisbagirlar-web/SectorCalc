@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "x1",
-      "label": "x₁ Koordinatı",
+      "label": "x₁ Coordinate",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Bilinen noktanın x koordinatı",
+      "businessContext": "x coordinate of the known point",
       "label_i18n": {
         "en": "x₁ Coordinate",
         "tr": "x₁ Koordinatı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "y1",
-      "label": "y₁ Koordinatı",
+      "label": "y₁ Coordinate",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Bilinen noktanın y koordinatı",
+      "businessContext": "y coordinate of the known point",
       "label_i18n": {
         "en": "y₁ Coordinate",
         "tr": "y₁ Koordinatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "m",
-      "label": "Eğim (m)",
+      "label": "Slope (m)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Doğrunun eğimi",
+      "businessContext": "Slope of the line",
       "label_i18n": {
         "en": "Slope (m)",
         "tr": "Eğim (m)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "x",
-      "label": "Hedef x Değeri",
+      "label": "Target x Value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
+      "businessContext": "x value at which y will be calculated (default 0, gives y-intercept)",
       "label_i18n": {
         "en": "Target x Value",
         "tr": "Hedef x Değeri",

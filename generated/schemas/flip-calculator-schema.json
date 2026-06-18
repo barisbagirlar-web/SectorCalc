@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "purchasePrice",
-      "label": "Alış Fiyatı",
+      "label": "Purchase Price",
       "type": "number",
       "unit": "€",
       "default": 100000,
-      "businessContext": "Gayrimenkulün satın alma bedeli",
+      "businessContext": "Purchase price of the property",
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Alış Fiyatı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "€",
       "default": 5000,
-      "businessContext": "Emlak vergisi, sigorta, faiz gibi sahip olma süresindeki maliyetler",
+      "businessContext": "Costs during ownership such as property tax, insurance, interest",
       "label_i18n": {
         "en": "Elde Etme Maliyetleri",
         "tr": "Elde etme maliyetleri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "sellingPrice",
-      "label": "Satış Fiyatı",
+      "label": "Selling Price",
       "type": "number",
       "unit": "€",
       "default": 150000,
-      "businessContext": "Gayrimenkulün satış fiyatı",
+      "businessContext": "Selling price of the property",
       "label_i18n": {
         "en": "Sale Price",
         "tr": "Satış Fiyatı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "sellingCosts",
-      "label": "Satış Giderleri",
+      "label": "Selling Expenses",
       "type": "number",
       "unit": "€",
       "default": 10000,
-      "businessContext": "Emlakçı komisyonu, tapu harçları, pazarlama giderleri",
+      "businessContext": "Real estate commission, title fees, marketing expenses",
       "label_i18n": {
         "en": "Sales Expenses",
         "tr": "Satış Giderleri",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "€",
       "default": 3000,
-      "businessContext": "Kredi faizi, dosya masrafları gibi finansman giderleri",
+      "businessContext": "Financing costs such as loan interest, processing fees",
       "label_i18n": {
         "en": "Finansman Maliyeti",
         "tr": "Finansman maliyeti",

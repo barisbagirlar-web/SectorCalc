@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "plateThickness",
-      "label": "Plaka Kalınlığı",
+      "label": "Plate Thickness",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Kaynaklı parça kalınlığı",
+      "businessContext": "Welded Part Thickness",
       "label_i18n": {
         "en": "Plate Thickness",
         "tr": "Plaka Kalınlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "rootGap",
-      "label": "Kök Aralığı",
+      "label": "Root Gap",
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Kaynak ağzı kök aralığı",
+      "businessContext": "Weld Root Gap",
       "label_i18n": {
         "en": "Root Gap",
         "tr": "Kök Aralığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "bevelAngle",
-      "label": "Pah Açısı",
+      "label": "Bevel Angle",
       "type": "number",
       "unit": "derece",
       "default": 60,
-      "businessContext": "V-kaynak ağzı açısı",
+      "businessContext": "V-Groove Angle",
       "label_i18n": {
         "en": "Bevel Angle",
         "tr": "Pah Açısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "reinforcementHeight",
-      "label": "Takviye Yüksekliği",
+      "label": "Reinforcement Height",
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Kaynak tepesi takviye yüksekliği",
+      "businessContext": "Weld Reinforcement Height",
       "label_i18n": {
         "en": "Reinforcement Height",
         "tr": "Takviye Yüksekliği",
@@ -99,11 +99,11 @@
     },
     {
       "id": "weldLength",
-      "label": "Kaynak Uzunluğu",
+      "label": "Weld Length",
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Toplam kaynak dikiş boyu",
+      "businessContext": "Total Weld Length",
       "label_i18n": {
         "en": "Weld Length",
         "tr": "Kaynak Uzunluğu",
@@ -123,11 +123,11 @@
     },
     {
       "id": "materialDensity",
-      "label": "Malzeme Yoğunluğu",
+      "label": "Material Density",
       "type": "number",
       "unit": "g/cm³",
       "default": 7.85,
-      "businessContext": "Kaynak metalinin yoğunluğu (çelik: 7.85)",
+      "businessContext": "Weld Metal Density (steel: 7.85)",
       "label_i18n": {
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "actualValue1",
-      "label": "Gerçek Değer 1",
+      "label": "True Value 1",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İlk ölçülen gerçek değer.",
+      "businessContext": "First measured true value.",
       "label_i18n": {
         "en": "True Value 1",
         "tr": "Gerçek Değer 1",
@@ -27,11 +27,11 @@
     },
     {
       "id": "predictedValue1",
-      "label": "Tahmini Değer 1",
+      "label": "Estimated Value 1",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İlk tahmin edilen veya model çıktısı değer.",
+      "businessContext": "First estimated or model output value.",
       "label_i18n": {
         "en": "Estimated Value 1",
         "tr": "Tahmini Değer 1",
@@ -51,11 +51,11 @@
     },
     {
       "id": "actualValue2",
-      "label": "Gerçek Değer 2",
+      "label": "Actual Value 2",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İkinci gerçek değer.",
+      "businessContext": "Second actual value.",
       "label_i18n": {
         "en": "Actual Value 2",
         "tr": "Gerçek Değer 2",
@@ -75,11 +75,11 @@
     },
     {
       "id": "predictedValue2",
-      "label": "Tahmini Değer 2",
+      "label": "Estimated Value 2",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İkinci tahmin edilen değer.",
+      "businessContext": "Second estimated value.",
       "label_i18n": {
         "en": "Estimated Value 2",
         "tr": "Tahmini Değer 2",

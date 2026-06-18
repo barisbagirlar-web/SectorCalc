@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "materialUltimateStrength",
-      "label": "Malzeme Nihai Dayanımı",
+      "label": "Material Ultimate Strength",
       "type": "number",
       "unit": "MPa",
       "default": 400,
-      "businessContext": "Malzemenin çekme veya basma nihai dayanım değeri",
+      "businessContext": "Ultimate tensile or compressive strength value of the material",
       "label_i18n": {
         "en": "Ultimate Strength of Material",
         "tr": "Malzeme Nihai Dayanımı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "crossSectionArea",
-      "label": "Kesit Alanı",
+      "label": "Cross-sectional Area",
       "type": "number",
       "unit": "mm²",
       "default": 100,
-      "businessContext": "Elemanın net kesit alanı",
+      "businessContext": "Net cross-sectional area of the element",
       "label_i18n": {
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Katsayısı",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "Tasarımda kullanılan güvenlik faktörü",
+      "businessContext": "Safety factor used in design",
       "label_i18n": {
         "en": "Safety factor",
         "tr": "Güvenlik Katsayısı",

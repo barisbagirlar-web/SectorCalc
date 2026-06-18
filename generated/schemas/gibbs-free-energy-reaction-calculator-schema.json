@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "temperature",
-      "label": "Sıcaklık (T)",
+      "label": "Temperature (T)",
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
+      "businessContext": "The absolute temperature at which the reaction occurs (in Kelvin).",
       "label_i18n": {
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "deltaH",
-      "label": "Entalpi Değişimi (ΔH)",
+      "label": "Enthalpy Change (ΔH)",
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
+      "businessContext": "Standard enthalpy change of the reaction (sum of formation enthalpies of products - sum of formation enthalpies of reactants).",
       "label_i18n": {
         "en": "Enthalpy Change (ΔH)",
         "tr": "Entalpi Değişimi (ΔH)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "S_products",
-      "label": "Ürünlerin Toplam Entropisi",
+      "label": "Total Entropy of Products",
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 0,
-      "businessContext": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
+      "businessContext": "Total absolute entropies of the products formed in the reaction.",
       "label_i18n": {
         "en": "Total Entropy of Products",
         "tr": "Ürünlerin Toplam Entropisi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "S_reactants",
-      "label": "Reaktantların Toplam Entropisi",
+      "label": "Total Entropy of Reactants",
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 0,
-      "businessContext": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
+      "businessContext": "Total absolute entropies of the reactants entering the reaction.",
       "label_i18n": {
         "en": "Total Entropy of Reactants",
         "tr": "Reaktantların Toplam Entropisi",

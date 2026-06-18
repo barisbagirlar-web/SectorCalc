@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "rawMaterialEmissions",
-      "label": "Hammadde Emisyonları",
+      "label": "Raw Material Emissions",
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Hammadde üretiminden kaynaklanan karbon ayak izi",
+      "businessContext": "Carbon footprint from raw material production",
       "label_i18n": {
         "en": "Raw Material Emissions",
         "tr": "Hammadde Emisyonları",
@@ -27,11 +27,11 @@
     },
     {
       "id": "manufacturingEmissions",
-      "label": "Üretim Emisyonları",
+      "label": "Production Emissions",
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Üretim sürecinden kaynaklanan karbon ayak izi",
+      "businessContext": "Carbon footprint from the production process",
       "label_i18n": {
         "en": "Production Emissions",
         "tr": "Üretim Emisyonları",
@@ -51,11 +51,11 @@
     },
     {
       "id": "transportEmissions",
-      "label": "Nakliye Emisyonları",
+      "label": "Transportation Emissions",
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Taşıma ve lojistikten kaynaklanan karbon ayak izi",
+      "businessContext": "Carbon footprint from transportation and logistics",
       "label_i18n": {
         "en": "Transportation Emissions",
         "tr": "Nakliye Emisyonları",
@@ -75,11 +75,11 @@
     },
     {
       "id": "usePhaseEmissions",
-      "label": "Kullanım Fazı Emisyonları",
+      "label": "Use Phase Emissions",
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Ürünün kullanımı sırasında ortaya çıkan karbon ayak izi",
+      "businessContext": "Carbon footprint arising during product use",
       "label_i18n": {
         "en": "Use Phase Emissions",
         "tr": "Kullanım Fazı Emisyonları",
@@ -99,11 +99,11 @@
     },
     {
       "id": "endOfLifeEmissions",
-      "label": "Ömür Sonu Emisyonları",
+      "label": "End-of-Life Emissions",
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Bertaraf veya geri dönüşümden kaynaklanan karbon ayak izi",
+      "businessContext": "Carbon footprint from disposal or recycling",
       "label_i18n": {
         "en": "End-of-Life Emissions",
         "tr": "Ömür Sonu Emisyonları",

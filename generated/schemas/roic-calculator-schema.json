@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "ebit",
-      "label": "EBIT (Faiz ve Vergi Öncesi Kar)",
+      "label": "EBIT (Earnings Before Interest and Taxes)",
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Faiz ve vergi öncesi net faaliyet karıdır.",
+      "businessContext": "Net operating profit before interest and taxes.",
       "label_i18n": {
         "en": "EBIT (Earnings Before Interest and Taxes)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "taxRate",
-      "label": "Vergi Oranı",
+      "label": "Tax Rate",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Kurumlar vergisi oranıdır.",
+      "businessContext": "Corporate tax rate.",
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Şirketin toplam kısa ve uzun vadeli borçları.",
+      "businessContext": "Total short-term and long-term debts of the company.",
       "label_i18n": {
         "en": "Total Debt",
         "tr": "Toplam Borç",
@@ -75,11 +75,11 @@
     },
     {
       "id": "totalEquity",
-      "label": "Toplam Öz Sermaye",
+      "label": "Total Equity",
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Şirketin hissedarlara ait öz sermayesi.",
+      "businessContext": "Company's equity attributable to shareholders.",
       "label_i18n": {
         "en": "Total Equity",
         "tr": "Toplam Öz Sermaye",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Kasadaki nakit ve likit varlıklar.",
+      "businessContext": "Cash and liquid assets in the cash register.",
       "label_i18n": {
         "en": "Nakit ve Nakit Benzerleri",
         "tr": "Cash and cash equivalents",

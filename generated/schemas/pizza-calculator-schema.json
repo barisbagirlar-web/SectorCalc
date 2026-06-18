@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "pizzaDiameter",
-      "label": "Pizza Çapı",
+      "label": "Pizza Diameter",
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Pizzanın çapı (cm)",
+      "businessContext": "Pizza diameter (cm)",
       "label_i18n": {
         "en": "Pizza diameter",
         "tr": "Pizza Çapı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "pizzaPrice",
-      "label": "Pizza Fiyatı",
+      "label": "Pizza Price",
       "type": "number",
       "unit": "EUR",
       "default": 10,
-      "businessContext": "Bir pizzanın satış fiyatı",
+      "businessContext": "Selling price of one pizza",
       "label_i18n": {
         "en": "Pizza price",
         "tr": "Pizza Fiyatı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Sipariş edilen pizza adedi",
+      "businessContext": "Number of pizzas ordered",
       "label_i18n": {
         "en": "Adet",
         "tr": "Quantity",
@@ -75,11 +75,11 @@
     },
     {
       "id": "discountRate",
-      "label": "İndirim Oranı",
+      "label": "Discount Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Uygulanacak indirim yüzdesi",
+      "businessContext": "Discount percentage to apply",
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İndirim Oranı",

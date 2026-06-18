@@ -25,7 +25,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Baldness_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.father_baldness * 0.6; results["genetic_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["genetic_factor"] = 0; }
-  try { const v = input.father_baldness * 0.6; results["genetic_factor_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["genetic_factor_aux"] = 0; }
+  try { const v = input.stress_level * 0.05; results["stress_impact"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["stress_impact"] = 0; }
+  try { const v = input.age * 0.01; results["age_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["age_factor"] = 0; }
+  try { const v = input.dht_level * 0.002; results["dht_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dht_factor"] = 0; }
+  try { const v = input.hair_density * 0.001; results["density_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["density_factor"] = 0; }
+  try { const v = (asFormulaNumber(results["genetic_factor"])) + (asFormulaNumber(results["stress_impact"])) + (asFormulaNumber(results["age_factor"])) + (asFormulaNumber(results["dht_factor"])) - (asFormulaNumber(results["density_factor"])); results["baldness_probability"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baldness_probability"] = 0; }
   return results;
 }
 
@@ -36,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBaldness_calculator(input: Baldness_calculatorInput): Baldness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["genetic_factor_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["baldness_probability"]);
   const breakdown = {
     
   };

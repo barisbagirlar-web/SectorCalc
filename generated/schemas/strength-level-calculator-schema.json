@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Parçaya uygulanan kuvvet",
+      "businessContext": "Force applied to the part",
       "label_i18n": {
         "en": "Uygulanan Kuvvet",
         "tr": "Applied Force",
@@ -27,11 +27,11 @@
     },
     {
       "id": "crossSectionArea",
-      "label": "Kesit Alanı",
+      "label": "Cross-sectional Area",
       "type": "number",
       "unit": "mm²",
       "default": 50,
-      "businessContext": "Parçanın yükü taşıyan kesit alanı",
+      "businessContext": "Cross-sectional area of the part carrying the load",
       "label_i18n": {
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "yieldStrength",
-      "label": "Akma Dayanımı",
+      "label": "Yield Strength",
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma dayanımı",
+      "businessContext": "Yield strength of the material",
       "label_i18n": {
         "en": "Yield strength",
         "tr": "Akma Dayanımı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1.5,
-      "businessContext": "Tasarım emniyet katsayısı",
+      "businessContext": "Design safety factor",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",

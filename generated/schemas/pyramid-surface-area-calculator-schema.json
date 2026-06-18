@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
+      "businessContext": "Length of the base edge of a square pyramid in meters.",
       "label_i18n": {
         "en": "Base Edge Length",
         "tr": "Taban Kenar Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "height",
-      "label": "Yükseklik",
+      "label": "Height",
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Piramidin tabandan tepeye dikey yüksekliği.",
+      "businessContext": "Vertical height of the pyramid from base to apex.",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
+      "businessContext": "Enter if slant height is known; if 0, it is calculated from base and height.",
       "label_i18n": {
         "en": "Slant Height",
         "tr": "Yan Yüzey Yüksekliği",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5).",
+      "businessContext": "Material cutting and assembly waste rate (as decimal, e.g., 5 for 5%).",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

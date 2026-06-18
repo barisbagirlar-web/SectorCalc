@@ -101,10 +101,7 @@
   "formulas": {
     "sum": "char1 + char2 + char3 + char4",
     "average": "(char1 + char2 + char3 + char4) / 4",
-    "product": "char1 * char2 * char3 * char4",
-    "sum___char1___char2___char3___char4": "sum = char1 + char2 + char3 + char4",
-    "average____char1___char2___char3___char4": "average = (char1 + char2 + char3 + char4) / 4",
-    "product___char1___char2___char3___char4": "product = char1 * char2 * char3 * char4"
+    "product": "char1 * char2 * char3 * char4"
   },
   "outputs": {
     "primary": "sum",
@@ -120,7 +117,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "product___char1___char2___char3___char4",
+    "dataConfidenceAdjusted": "product",
     "unit": "ASCII code"
   },
   "category": "Matematik & Analiz",

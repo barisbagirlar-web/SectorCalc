@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "sigma_v",
-      "label": "Efektif Düşey Gerilme (σ'ᵥ)",
+      "label": "Effective Vertical Stress (σ'ᵥ)",
       "type": "number",
       "unit": "kPa",
       "default": 100,
@@ -27,7 +27,7 @@
     },
     {
       "id": "phi",
-      "label": "İçsel Sürtünme Açısı (φ)",
+      "label": "Internal Friction Angle (φ)",
       "type": "number",
       "unit": "°",
       "default": 30,
@@ -51,7 +51,7 @@
     },
     {
       "id": "OCR",
-      "label": "Ön Konsolidasyon Oranı (OCR)",
+      "label": "Overconsolidation Ratio (OCR)",
       "type": "number",
       "unit": "-",
       "default": 1,
@@ -75,7 +75,7 @@
     },
     {
       "id": "SF",
-      "label": "Güvenlik Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "-",
       "default": 1.5,

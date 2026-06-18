@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "T1_C",
-      "label": "Sıcaklık 1",
+      "label": "Temperature 1",
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Birinci sıcaklık değeri (Santigrat)",
+      "businessContext": "First temperature value (Celsius)",
       "label_i18n": {
         "en": "Temperature 1",
         "tr": "Sıcaklık 1",
@@ -27,11 +27,11 @@
     },
     {
       "id": "P1_kPa",
-      "label": "Basınç 1",
+      "label": "Pressure 1",
       "type": "number",
       "unit": "kPa",
       "default": 101.325,
-      "businessContext": "Birinci basınç değeri (kPa)",
+      "businessContext": "First pressure value (kPa)",
       "label_i18n": {
         "en": "Pressure 1",
         "tr": "Basınç 1",
@@ -51,11 +51,11 @@
     },
     {
       "id": "T2_C",
-      "label": "Sıcaklık 2",
+      "label": "Temperature 2",
       "type": "number",
       "unit": "°C",
       "default": 120,
-      "businessContext": "İkinci sıcaklık değeri (Santigrat)",
+      "businessContext": "Second temperature value (Celsius)",
       "label_i18n": {
         "en": "Temperature 2",
         "tr": "Sıcaklık 2",
@@ -75,11 +75,11 @@
     },
     {
       "id": "P2_kPa",
-      "label": "Basınç 2",
+      "label": "Pressure 2",
       "type": "number",
       "unit": "kPa",
       "default": 198.5,
-      "businessContext": "İkinci basınç değeri (kPa)",
+      "businessContext": "Second pressure value (kPa)",
       "label_i18n": {
         "en": "Pressure 2",
         "tr": "Basınç 2",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
+      "businessContext": "Ideal gas constant, typically 8.314 J/(mol·K)",
       "label_i18n": {
         "en": "Gaz Sabiti (R)",
         "tr": "Gaz Sabiti (R) (J/(mol·K))",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
+      "businessContext": "Molecular weight of the substance (optional, for mass-specific heat calculation)",
       "label_i18n": {
         "en": "Molecular Weight",
         "tr": "Molekül Ağırlığı",

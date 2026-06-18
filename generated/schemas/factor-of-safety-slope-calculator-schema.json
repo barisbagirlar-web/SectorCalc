@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "slopeAngle",
-      "label": "Şev Açısı",
+      "label": "Slope Angle",
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Eğimin yatay ile yaptığı açı",
+      "businessContext": "Angle of the slope with the horizontal",
       "label_i18n": {
         "en": "Slope angle (degrees)",
         "tr": "Şev Açısı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Zemin kohezyon değeri",
+      "businessContext": "Soil cohesion value",
       "label_i18n": {
         "en": "Kohezyon",
         "tr": "Cohesion",
@@ -51,11 +51,11 @@
     },
     {
       "id": "frictionAngle",
-      "label": "İçsel Sürtünme Açısı",
+      "label": "Internal Friction Angle",
       "type": "number",
       "unit": "°",
       "default": 25,
-      "businessContext": "Zemin için efektif kayma direnci açısı",
+      "businessContext": "Effective shear resistance angle for soil",
       "label_i18n": {
         "en": "Internal friction angle (degrees)",
         "tr": "İçsel Sürtünme Açısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "soilUnitWeight",
-      "label": "Zemin Birim Hacim Ağırlığı",
+      "label": "Unit Weight of Soil",
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Doğal birim ağırlık",
+      "businessContext": "Natural unit weight",
       "label_i18n": {
         "en": "Soil unit weight",
         "tr": "Zemin Birim Hacim Ağırlığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "slipDepth",
-      "label": "Kayma Derinliği",
+      "label": "Shear Depth",
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Yüzeyden kayma düzlemine dik derinlik",
+      "businessContext": "Perpendicular depth from surface to shear plane",
       "label_i18n": {
         "en": "Shear depth",
         "tr": "Kayma Derinliği",
@@ -123,11 +123,11 @@
     },
     {
       "id": "waterDepthAboveSlip",
-      "label": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+      "label": "Water Height Above Shear Plane",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Doygun zemin hesabı için su derinliği",
+      "businessContext": "Water depth for saturated soil calculation",
       "label_i18n": {
         "en": "Water height above shear plane",
         "tr": "Kayma Düzlemi Üzerindeki Su Yüksekliği",

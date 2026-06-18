@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "volume",
-      "label": "Başlangıç Hacmi",
+      "label": "Initial Volume",
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Seyreltilecek alkollü çözeltinin başlangıç hacmi.",
+      "businessContext": "Initial volume of the alcoholic solution to be diluted.",
       "label_i18n": {
         "en": "Initial Volume",
         "tr": "Başlangıç Hacmi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "% ABV",
       "default": 96,
-      "businessContext": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96).",
+      "businessContext": "Initial alcohol percentage by volume of the solution (e.g., 96%).",
       "label_i18n": {
         "en": "Initial Alcohol Percentage",
         "tr": "Başlangıç Alkol Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "% ABV",
       "default": 40,
-      "businessContext": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40).",
+      "businessContext": "Target alcohol percentage by volume to be achieved (e.g., 40%).",
       "label_i18n": {
         "en": "Target Alcohol Percentage",
         "tr": "Hedef Alkol Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır.",
+      "businessContext": "Ambient temperature; used as reference for volume correction.",
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",

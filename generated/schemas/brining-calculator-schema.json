@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "waterVolume",
-      "label": "Su Miktarı",
+      "label": "Amount of Water",
       "type": "number",
       "unit": "litre",
       "default": 1,
-      "businessContext": "Tuzlu su çözeltisi için kullanılacak su miktarı",
+      "businessContext": "Amount of water to be used for saline solution",
       "label_i18n": {
         "en": "Water amount",
         "tr": "Su Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "desiredSaltPercent",
-      "label": "Hedef Tuz Oranı",
+      "label": "Target Salt Ratio",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Arzu edilen ağırlıkça tuz yüzdesi",
+      "businessContext": "Desired salt percentage by weight",
       "label_i18n": {
         "en": "Target salt ratio",
         "tr": "Hedef Tuz Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "desiredSugarPercent",
-      "label": "Hedef Şeker Oranı",
+      "label": "Target Sugar Ratio",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi",
+      "businessContext": "Optional added sugar percentage by weight",
       "label_i18n": {
         "en": "Target sugar ratio",
         "tr": "Hedef Şeker Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "waterDensity",
-      "label": "Su Yoğunluğu",
+      "label": "Water Density",
       "type": "number",
       "unit": "g/mL",
       "default": 1,
-      "businessContext": "Su yoğunluğu (genelde 1 g/mL)",
+      "businessContext": "Water density (usually 1 g/mL)",
       "label_i18n": {
         "en": "Water density",
         "tr": "Su Yoğunluğu",

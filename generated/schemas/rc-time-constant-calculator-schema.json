@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "R",
-      "label": "Direnç (R)",
+      "label": "Resistance (R)",
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Direnç değeri, ohm cinsinden.",
+      "businessContext": "Resistance value in ohms.",
       "label_i18n": {
         "en": "Resistance (R)",
         "tr": "Direnç (R)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Kapasite değeri, farad cinsinden.",
+      "businessContext": "Capacitance value in farads.",
       "label_i18n": {
         "en": "Kapasite (C)",
         "tr": "Capacity (C)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "V",
       "default": 5,
-      "businessContext": "Uygulanan gerilim değeri, volt cinsinden.",
+      "businessContext": "Applied voltage value, in volts.",
       "label_i18n": {
         "en": "Uygulanan Gerilim (V₀)",
         "tr": "Applied voltage (V₀)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "s",
       "default": 0.001,
-      "businessContext": "Geçen zaman, saniye cinsinden.",
+      "businessContext": "Elapsed time, in seconds.",
       "label_i18n": {
         "en": "Zaman (t)",
         "tr": "Time (t)",

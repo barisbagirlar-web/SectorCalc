@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "milliseconds",
-      "label": "Milisaniye Değeri",
+      "label": "Millisecond Value",
       "type": "number",
       "unit": "ms",
       "default": 0,
-      "businessContext": "Dönüştürülecek ana süre ölçümü",
+      "businessContext": "Main time measurement to convert",
       "label_i18n": {
         "en": "Millisecond Value",
         "tr": "Milisaniye Değeri",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "µs",
       "default": 0,
-      "businessContext": "Sensör kaynaklı sistematik hata düzeltmesi",
+      "businessContext": "Systematic error correction from sensor",
       "label_i18n": {
         "en": "Kalibrasyon Ofseti",
         "tr": "Calibration Offset",
@@ -51,7 +51,7 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Emniyet Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Çıktı gösterim hassasiyeti",
+      "businessContext": "Output display precision",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

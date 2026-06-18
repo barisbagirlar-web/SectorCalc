@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)",
+      "businessContext": "Number of sides of a regular polygon (3 or greater)",
       "label_i18n": {
         "en": "Number of Edges",
         "tr": "Kenar Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sideLength",
-      "label": "Kenar Uzunluğu",
+      "label": "Side Length",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bir kenarın uzunluğu (metre)",
+      "businessContext": "Length of one side (meters)",
       "label_i18n": {
         "en": "Side Length",
         "tr": "Kenar Uzunluğu",
@@ -51,11 +51,11 @@
     },
     {
       "id": "unitScale",
-      "label": "Birim Ölçek",
+      "label": "Unit Scale",
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)",
+      "businessContext": "Unit conversion factor for output area (e.g., m² → cm²: 10000)",
       "label_i18n": {
         "en": "Unit Scale",
         "tr": "Birim Ölçek",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "businessContext": "Number of decimal places to show in the result",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

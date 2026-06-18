@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Duruşun toplam süresi",
+      "businessContext": "Total duration of downtime",
       "label_i18n": {
         "en": "Downtime (hours)",
         "tr": "Duruş Süresi (saat)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Duruştan etkilenen makine sayısı",
+      "businessContext": "Number of machines affected by downtime",
       "label_i18n": {
         "en": "Number of affected machines",
         "tr": "Etkilenen Makine Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL/saat",
       "default": 100,
-      "businessContext": "Makine başına saatlik maliyet (işçilik + amortisman)",
+      "businessContext": "Hourly cost per machine (labor + depreciation)",
       "label_i18n": {
         "en": "Makine Saatlik Maliyet",
         "tr": "Machine Hourly Cost",
@@ -75,11 +75,11 @@
     },
     {
       "id": "lostProductionPerHour",
-      "label": "Saatlik Üretim Kaybı",
+      "label": "Hourly production loss",
       "type": "number",
       "unit": "adet/saat",
       "default": 10,
-      "businessContext": "Makine başına saatlik kaybedilen üretim adedi",
+      "businessContext": "Hourly lost production units per machine",
       "label_i18n": {
         "en": "Hourly production loss",
         "tr": "Saatlik Üretim Kaybı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "profitPerUnit",
-      "label": "Birim Başına Kar",
+      "label": "Profit per Unit",
       "type": "number",
       "unit": "TL/adet",
       "default": 20,
-      "businessContext": "Üretilen her birimden elde edilen kar",
+      "businessContext": "Profit earned from each unit produced",
       "label_i18n": {
         "en": "Profit per unit",
         "tr": "Birim Başına Kar",
@@ -123,11 +123,11 @@
     },
     {
       "id": "overheadMultiplier",
-      "label": "Genel Gider Çarpanı",
+      "label": "Overhead Multiplier",
       "type": "number",
       "unit": "katsayı",
       "default": 1.5,
-      "businessContext": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
+      "businessContext": "Overhead multiplier applied to direct cost and lost profit (1.0 = no overhead)",
       "label_i18n": {
         "en": "Overhead multiplier",
         "tr": "Genel Gider Çarpanı",

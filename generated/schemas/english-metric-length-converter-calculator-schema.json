@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "in_inch",
-      "label": "İnç",
+      "label": "Inches",
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Uzunluk değeri inç cinsinden",
+      "businessContext": "Length value in inches",
       "label_i18n": {
         "en": "Inches",
         "tr": "İnç",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Uzunluk değeri fit cinsinden",
+      "businessContext": "Length value in feet",
       "label_i18n": {
         "en": "Fit",
         "tr": "Feet",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "yd",
       "default": 0,
-      "businessContext": "Uzunluk değeri yarda cinsinden",
+      "businessContext": "Length value in yards",
       "label_i18n": {
         "en": "Yarda",
         "tr": "Yards",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mi",
       "default": 0,
-      "businessContext": "Uzunluk değeri mil cinsinden",
+      "businessContext": "Length value in miles",
       "label_i18n": {
         "en": "Mil",
         "tr": "Miles",

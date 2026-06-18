@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "meditationMinutes",
-      "label": "Günlük Meditasyon Süresi",
+      "label": "Daily Meditation Duration",
       "type": "number",
       "unit": "dk",
       "default": 10,
-      "businessContext": "Çalışanın günlük meditasyon süresi (dakika)",
+      "businessContext": "Employee's daily meditation duration (minutes)",
       "label_i18n": {
         "en": "Daily Meditation Duration",
         "tr": "Günlük Meditasyon Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "meditationFrequency",
-      "label": "Haftalık Meditasyon Sıklığı",
+      "label": "Weekly Meditation Frequency",
       "type": "number",
       "unit": "gün",
       "default": 5,
-      "businessContext": "Haftada kaç gün meditasyon yapıldığı",
+      "businessContext": "Number of days per week meditation is performed",
       "label_i18n": {
         "en": "Weekly Meditation Frequency",
         "tr": "Haftalık Meditasyon Sıklığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "puan",
       "default": 5,
-      "businessContext": "0-10 arası, 10 en yüksek stres",
+      "businessContext": "0-10 scale, 10 highest stress",
       "label_i18n": {
         "en": "Stres Seviyesi",
         "tr": "Stress Level",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "puan",
       "default": 7,
-      "businessContext": "0-10 arası, 10 en yüksek odaklanma",
+      "businessContext": "0-10 scale, 10 highest focus",
       "label_i18n": {
         "en": "Concentration Level",
         "tr": "Konsantrasyon Seviyesi",

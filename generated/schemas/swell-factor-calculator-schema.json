@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m³",
       "default": 100,
-      "businessContext": "Yerinde sıkışmış malzeme hacmi",
+      "businessContext": "In-place stuck material volume",
       "label_i18n": {
         "en": "Bank/Hacim (Yerinde)",
         "tr": "Banka/Hacim (Yerinde)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Yerinde hacme göre yüzde artış",
+      "businessContext": "Percentage increase over in-place volume",
       "label_i18n": {
         "en": "Swell Factor",
         "tr": "Kabarma Faktörü",
@@ -51,11 +51,11 @@
     },
     {
       "id": "wasteFactorPercent",
-      "label": "Fire/Zayiat Faktörü",
+      "label": "Waste/Loss Factor",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Dökülme, sızıntı vb. kayıplar",
+      "businessContext": "Losses from spillage, leakage, etc.",
       "label_i18n": {
         "en": "Loss/Waste factor",
         "tr": "Fire/Zayiat Faktörü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m³",
       "default": 10,
-      "businessContext": "Bir kamyonun taşıma kapasitesi",
+      "businessContext": "Load capacity of a truck",
       "label_i18n": {
         "en": "Kamyon Kapasitesi",
         "tr": "Truck capacity",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Taşınacak yükün kütlesi (kg)",
+      "businessContext": "Mass of load to be transported (kg)",
       "label_i18n": {
         "en": "Load Mass",
         "tr": "Yük Kütlesi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yolun eğim yüzdesi",
+      "businessContext": "Road slope percentage",
       "label_i18n": {
         "en": "Slope (%)",
         "tr": "Eğim (%)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0.02,
-      "businessContext": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
+      "businessContext": "Road surface rolling resistance coefficient (e.g., 0.01-0.05)",
       "label_i18n": {
         "en": "Rolling Resistance Coefficient",
         "tr": "Yuvarlanma Direnci Katsayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m/s",
       "default": 1.5,
-      "businessContext": "Hedef hareket hızı (m/s)",
+      "businessContext": "Target travel speed (m/s)",
       "label_i18n": {
         "en": "Desired Speed",
         "tr": "İstenen Hız",
@@ -99,11 +99,11 @@
     },
     {
       "id": "horse_pull_force",
-      "label": "At Başına Çekme Kuvveti",
+      "label": "Traction Force per Horse",
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
+      "businessContext": "Average force a horse can continuously pull (N)",
       "label_i18n": {
         "en": "Traction Force per Horse",
         "tr": "At Başına Çekme Kuvveti",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Koşum ve aktarma sistemi verimliliği (%)",
+      "businessContext": "Harness and transmission system efficiency (%)",
       "label_i18n": {
         "en": "Verimlilik",
         "tr": "Efficiency",

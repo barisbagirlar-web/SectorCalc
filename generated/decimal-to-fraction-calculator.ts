@@ -26,8 +26,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Decimal_to_fraction_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.decimalValue; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.decimalValue; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.maxDenom; results["denominator"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["denominator"] = 0; }
+  try { const v = input.maxDenom; results["denominator_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["denominator_aux"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateDecimal_to_fraction_calculator(input: Decimal_to_fraction_calculatorInput): Decimal_to_fraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["denominator_aux"]);
   const breakdown = {
     
   };

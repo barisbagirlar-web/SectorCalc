@@ -124,10 +124,13 @@
   ],
   "formulas": {
     "r": "discountRate / 100",
-    "r_aux": "discountRate / 100"
+    "pvBenefits": "annualBenefits * (1 - (1 + r)^(-projectLife)) / r",
+    "pvCosts": "annualCosts * (1 - (1 + r)^(-projectLife)) / r",
+    "totalPVcosts": "initialCost + pvCosts",
+    "benefitCostRatio": "pvBenefits / totalPVcosts"
   },
   "outputs": {
-    "primary": "r",
+    "primary": "benefitCostRatio",
     "breakdown": [
       {
         "id": "pvBenefits",
@@ -159,8 +162,44 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "id": "positiveInitialCost",
+        "field": "initialCost",
+        "condition": "> 0",
+        "message": "Initial investment must be positive."
+      },
+      {
+        "id": "positiveAnnualBenefits",
+        "field": "annualBenefits",
+        "condition": "> 0",
+        "message": "Annual benefits must be positive."
+      },
+      {
+        "id": "positiveAnnualCosts",
+        "field": "annualCosts",
+        "condition": ">= 0",
+        "message": "Annual costs cannot be negative."
+      },
+      {
+        "id": "positiveProjectLife",
+        "field": "projectLife",
+        "condition": "> 0",
+        "message": "Project life must be positive."
+      },
+      {
+        "id": "positiveDiscountRate",
+        "field": "discountRate",
+        "condition": "> 0",
+        "message": "Discount rate must be positive."
+      }
+    ],
+    "thresholds": {
+      "benefitCostRatio": {
+        "min": 0,
+        "max": 100
+      }
+    }
   },
   "premiumFeatures": []
 }

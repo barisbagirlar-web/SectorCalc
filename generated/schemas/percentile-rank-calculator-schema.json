@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "target",
-      "label": "Hedef Değer",
+      "label": "Target Value",
       "type": "number",
       "unit": "birim",
       "default": 50,
-      "businessContext": "Yüzdelik sıralaması hesaplanacak değer",
+      "businessContext": "Value for which the percentile rank will be calculated",
       "label_i18n": {
         "en": "Target Value",
         "tr": "Hedef Değer",
@@ -27,11 +27,11 @@
     },
     {
       "id": "value1",
-      "label": "Referans Değer 1",
+      "label": "Reference Value 1",
       "type": "number",
       "unit": "birim",
       "default": 10,
-      "businessContext": "Örnek veri setindeki ilk ölçüm",
+      "businessContext": "First measurement in the sample dataset",
       "label_i18n": {
         "en": "Reference Value 1",
         "tr": "Referans Değer 1",
@@ -51,11 +51,11 @@
     },
     {
       "id": "value2",
-      "label": "Referans Değer 2",
+      "label": "Reference Value 2",
       "type": "number",
       "unit": "birim",
       "default": 20,
-      "businessContext": "Örnek veri setindeki ikinci ölçüm",
+      "businessContext": "Second measurement in the sample dataset",
       "label_i18n": {
         "en": "Reference Value 2",
         "tr": "Referans Değer 2",
@@ -75,11 +75,11 @@
     },
     {
       "id": "value3",
-      "label": "Referans Değer 3",
+      "label": "Reference Value 3",
       "type": "number",
       "unit": "birim",
       "default": 30,
-      "businessContext": "Örnek veri setindeki üçüncü ölçüm",
+      "businessContext": "Third measurement in the sample dataset",
       "label_i18n": {
         "en": "Reference Value 3",
         "tr": "Referans Değer 3",
@@ -99,11 +99,11 @@
     },
     {
       "id": "value4",
-      "label": "Referans Değer 4",
+      "label": "Reference Value 4",
       "type": "number",
       "unit": "birim",
       "default": 40,
-      "businessContext": "Örnek veri setindeki dördüncü ölçüm",
+      "businessContext": "Fourth measurement in the sample dataset",
       "label_i18n": {
         "en": "Reference Value 4",
         "tr": "Referans Değer 4",
@@ -123,11 +123,11 @@
     },
     {
       "id": "value5",
-      "label": "Referans Değer 5",
+      "label": "Reference Value 5",
       "type": "number",
       "unit": "birim",
       "default": 60,
-      "businessContext": "Örnek veri setindeki beşinci ölçüm",
+      "businessContext": "Fifth measurement in the sample dataset",
       "label_i18n": {
         "en": "Reference Value 5",
         "tr": "Referans Değer 5",

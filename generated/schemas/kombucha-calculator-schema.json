@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "waterVolume",
-      "label": "Su Miktarı",
+      "label": "Amount of Water",
       "type": "number",
       "unit": "L",
       "default": 5,
-      "businessContext": "Kombucha yapımında kullanılacak suyun litre cinsinden miktarı",
+      "businessContext": "Amount of water in liters to be used in kombucha making",
       "label_i18n": {
         "en": "Water amount",
         "tr": "Su Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "sugarMass",
-      "label": "Şeker Miktarı",
+      "label": "Sugar Amount",
       "type": "number",
       "unit": "g",
       "default": 200,
-      "businessContext": "Fermantasyon için eklenecek şekerin gram cinsinden ağırlığı",
+      "businessContext": "Weight of sugar in grams to be added for fermentation",
       "label_i18n": {
         "en": "Sugar Amount",
         "tr": "Şeker Miktarı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "teaMass",
-      "label": "Çay Miktarı",
+      "label": "Tea Amount",
       "type": "number",
       "unit": "g",
       "default": 20,
-      "businessContext": "Demlenecek çayın gram cinsinden ağırlığı",
+      "businessContext": "Weight of tea in grams to be brewed",
       "label_i18n": {
         "en": "Tea Amount",
         "tr": "Çay Miktarı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "starterVolume",
-      "label": "Starter Miktarı",
+      "label": "Starter Amount",
       "type": "number",
       "unit": "L",
       "default": 0.5,
-      "businessContext": "Önceki partiden kalan starter kombucha miktarı (litre)",
+      "businessContext": "Amount of starter kombucha left from previous batch (liters)",
       "label_i18n": {
         "en": "Starter Amount",
         "tr": "Starter Miktarı",

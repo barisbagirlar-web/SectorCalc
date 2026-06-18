@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass",
-      "label": "Kütle (m)",
+      "label": "Mass (m)",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin durgun kütlesi",
+      "businessContext": "Rest mass of the object",
       "label_i18n": {
         "en": "Mass (m)",
         "tr": "Kütle (m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "vx",
-      "label": "Hız X bileşeni",
+      "label": "Velocity X component",
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "X yönü hız",
+      "businessContext": "Velocity in X direction",
       "label_i18n": {
         "en": "Velocity X component",
         "tr": "Hız X bileşeni",
@@ -51,11 +51,11 @@
     },
     {
       "id": "vy",
-      "label": "Hız Y bileşeni",
+      "label": "Velocity Y component",
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Y yönü hız",
+      "businessContext": "Velocity in Y direction",
       "label_i18n": {
         "en": "Velocity Y component",
         "tr": "Hız Y bileşeni",
@@ -75,11 +75,11 @@
     },
     {
       "id": "vz",
-      "label": "Hız Z bileşeni",
+      "label": "Velocity Z component",
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Z yönü hız",
+      "businessContext": "Velocity in Z direction",
       "label_i18n": {
         "en": "Velocity Z component",
         "tr": "Hız Z bileşeni",
@@ -99,11 +99,11 @@
     },
     {
       "id": "c",
-      "label": "Işık Hızı (c)",
+      "label": "Speed of Light (c)",
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Vakumdaki ışık hızı, genellikle sabit",
+      "businessContext": "Speed of light in vacuum, usually constant",
       "label_i18n": {
         "en": "Speed of Light (c)",
         "tr": "Işık Hızı (c)",

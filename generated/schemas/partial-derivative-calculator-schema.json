@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Kiriş uzunluğu",
+      "businessContext": "Beam length",
       "label_i18n": {
         "en": "Length (L)",
         "tr": "Uzunluk (L)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "b",
-      "label": "Genişlik (b)",
+      "label": "Width (b)",
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Kesit genişliği",
+      "businessContext": "Section width",
       "label_i18n": {
         "en": "Width (b)",
         "tr": "Genişlik (b)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Kesit yüksekliği",
+      "businessContext": "Section height",
       "label_i18n": {
         "en": "Height (h)",
         "tr": "Yükseklik (h)",

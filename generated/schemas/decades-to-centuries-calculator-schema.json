@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "decades",
-      "label": "Süre (on yıl)",
+      "label": "Duration (decade)",
       "type": "number",
       "unit": "on yıl",
       "default": 1,
-      "businessContext": "Dönüştürülecek on yıl miktarı",
+      "businessContext": "Amount of decades to convert",
       "label_i18n": {
         "en": "Duration (decade)",
         "tr": "Süre (on yıl)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "precision",
-      "label": "Hassasiyet (ondalık basamak)",
+      "label": "Precision (decimal places)",
       "type": "number",
       "unit": "basamak",
       "default": 3,
-      "businessContext": "Hesaplama sonucu ondalık basamak sayısı",
+      "businessContext": "Number of decimal places for calculation result",
       "label_i18n": {
         "en": "Precision (decimal places)",
         "tr": "Hassasiyet (ondalık basamak)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "confidenceLevel",
-      "label": "Güven Aralığı (%)",
+      "label": "Confidence Interval (%)",
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "İstatistiksel güven aralığı yüzdesi",
+      "businessContext": "Statistical confidence interval percentage",
       "label_i18n": {
         "en": "Confidence Interval (%)",
         "tr": "Güven Aralığı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "measurementError",
-      "label": "Ölçüm Hatası (on yıl)",
+      "label": "Measurement Error (decade)",
       "type": "number",
       "unit": "on yıl",
       "default": 0.01,
-      "businessContext": "On yıl cinsinden ölçüm belirsizliği (±)",
+      "businessContext": "Measurement uncertainty in decades (±)",
       "label_i18n": {
         "en": "Measurement Error (decade)",
         "tr": "Ölçüm Hatası (on yıl)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "roundingMethod",
-      "label": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+      "label": "Rounding Method (0=round,1=floor,2=ceil)",
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
+      "businessContext": "0: round, 1: round down, 2: round up",
       "label_i18n": {
         "en": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
         "tr": "Rounding Method (0=round,1=floor,2=ceil)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "ambientTemp",
-      "label": "Ölçüm Sıcaklığı (°C)",
+      "label": "Measurement Temperature (°C)",
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
+      "businessContext": "Ambient temperature at which the measurement is taken (for traceability)",
       "label_i18n": {
         "en": "Measurement Temperature (°C)",
         "tr": "Ölçüm Sıcaklığı (°C)",
@@ -148,10 +148,11 @@
   ],
   "formulas": {
     "rawCenturies": "decades / 10",
-    "rawCenturies_aux": "decades / 10"
+    "lowerBound": "rawCenturies * (1 - measurementError / decades)",
+    "upperBound": "rawCenturies * (1 + measurementError / decades)"
   },
   "outputs": {
-    "primary": "rawCenturies_aux",
+    "primary": "upperBound",
     "breakdown": [
       "rawCenturies",
       "lowerBound",
@@ -162,7 +163,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "upperBound",
-    "unit": "on yıl"
+    "unit": "yüzyıl"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -174,7 +175,45 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "decades",
+        "rule": "gt",
+        "value": 0,
+        "message": "Decades must be greater than 0"
+      },
+      {
+        "field": "precision",
+        "rule": "gte",
+        "value": 0,
+        "message": "Precision must be non-negative"
+      },
+      {
+        "field": "confidenceLevel",
+        "rule": "between",
+        "value": [
+          0,
+          100
+        ],
+        "message": "Confidence level must be between 0 and 100"
+      },
+      {
+        "field": "measurementError",
+        "rule": "gte",
+        "value": 0,
+        "message": "Measurement error must be non-negative"
+      },
+      {
+        "field": "roundingMethod",
+        "rule": "in",
+        "value": [
+          0,
+          1,
+          2
+        ],
+        "message": "Rounding method must be 0, 1, or 2"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

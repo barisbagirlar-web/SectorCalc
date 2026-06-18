@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "spendingPerYear",
-      "label": "Yıllık Harcama",
+      "label": "Annual Spending",
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Kart ile yapılan yıllık toplam harcama",
+      "businessContext": "Total annual spending with card",
       "label_i18n": {
         "en": "Annual spending",
         "tr": "Yıllık Harcama",
@@ -27,11 +27,11 @@
     },
     {
       "id": "rewardsRate",
-      "label": "Ödül Oranı",
+      "label": "Reward Rate",
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Harcamalardan geri alınan ödül oranı",
+      "businessContext": "Reward rate earned on spending",
       "label_i18n": {
         "en": "Reward rate",
         "tr": "Ödül Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "annualFee",
-      "label": "Yıllık Ücret",
+      "label": "Annual Fee",
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Kart için ödenen yıllık ücret",
+      "businessContext": "Annual fee paid for the card",
       "label_i18n": {
         "en": "Annual fee",
         "tr": "Yıllık Ücret",
@@ -75,11 +75,11 @@
     },
     {
       "id": "otherBenefits",
-      "label": "Diğer Avantajlar",
+      "label": "Other Benefits",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Sigorta, lounge erişimi gibi parasal değerler",
+      "businessContext": "Monetary value of insurance, lounge access, etc.",
       "label_i18n": {
         "en": "Other benefits",
         "tr": "Diğer Avantajlar",
@@ -99,11 +99,11 @@
     },
     {
       "id": "interestRate",
-      "label": "Faiz Oranı",
+      "label": "Interest Rate",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Bakiye taşınırsa yıllık faiz oranı",
+      "businessContext": "Annual interest rate if balance is carried",
       "label_i18n": {
         "en": "Interest rate",
         "tr": "Faiz Oranı",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Yıllık ortalama taşınan bakiye",
+      "businessContext": "Average annual balance carried",
       "label_i18n": {
         "en": "Ortalama Bakiye",
         "tr": "Average Balance",

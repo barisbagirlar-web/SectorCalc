@@ -37,6 +37,9 @@ function evaluateAllFormulas(input: Brrrr_strategy_calculatorInput): Record<stri
   try { const v = input.loanTerm * 12; results["numberOfPayments"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["numberOfPayments"] = 0; }
   try { const v = input.monthlyRent * input.operatingExpensePercentage / 100; results["monthlyOperatingExpenses"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyOperatingExpenses"] = 0; }
   try { const v = input.arv - input.purchasePrice - input.rehabCost; results["equityGained"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["equityGained"] = 0; }
+  try { const v = (asFormulaNumber(results["refinanceAmount"])) * (asFormulaNumber(results["monthlyInterestRate"])) * (1 + (asFormulaNumber(results["monthlyInterestRate"])))^(asFormulaNumber(results["numberOfPayments"])) / ((1 + (asFormulaNumber(results["monthlyInterestRate"])))^(asFormulaNumber(results["numberOfPayments"])) - 1); results["monthlyPayment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyPayment"] = 0; }
+  try { const v = (input.monthlyRent - (asFormulaNumber(results["monthlyOperatingExpenses"])) - (asFormulaNumber(results["monthlyPayment"]))) * 12; results["annualCashFlow"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualCashFlow"] = 0; }
+  try { const v = (asFormulaNumber(results["annualCashFlow"])) / (asFormulaNumber(results["cashInvested"])) * 100; results["cashOnCashReturn"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cashOnCashReturn"] = 0; }
   return results;
 }
 

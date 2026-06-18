@@ -99,9 +99,9 @@
     }
   ],
   "formulas": {
-    "finalAmount": "principal",
-    "totalInterest": "principal",
-    "effectiveAnnualRate": "principal"
+    "finalAmount": "principal * (1 + annualRate / (100 * compoundFreq)) ^ (compoundFreq * years)",
+    "totalInterest": "finalAmount - principal",
+    "effectiveAnnualRate": "(1 + annualRate / (100 * compoundFreq)) ^ compoundFreq - 1"
   },
   "outputs": {
     "primary": "finalAmount",
@@ -126,7 +126,28 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "principal",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "annualRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "years",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "compoundFreq",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

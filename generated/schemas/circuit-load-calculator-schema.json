@@ -27,11 +27,11 @@
     },
     {
       "id": "currentPerDevice",
-      "label": "Cihaz Başına Akım (A)",
+      "label": "Current per Device (A)",
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Her bir cihazın çektiği akım",
+      "businessContext": "Current drawn by each device",
       "label_i18n": {
         "en": "Current per device (A)",
         "tr": "Cihaz Başına Akım (A)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "powerFactor",
-      "label": "Güç Faktörü",
+      "label": "Power Factor",
       "type": "number",
       "unit": "unit",
       "default": 0.8,
-      "businessContext": "Yükün güç faktörü (0-1 arası)",
+      "businessContext": "Load power factor (0-1)",
       "label_i18n": {
         "en": "Power factor",
         "tr": "Güç Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "numberOfDevices",
-      "label": "Cihaz Sayısı",
+      "label": "Number of Devices",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Paralel bağlı cihaz sayısı",
+      "businessContext": "Number of devices connected in parallel",
       "label_i18n": {
         "en": "Number of devices",
         "tr": "Cihaz Sayısı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1.25,
-      "businessContext": "Sürekli yük için NEC %125 kuralı",
+      "businessContext": "NEC 125% rule for continuous load",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "breakerRating",
-      "label": "Sigorta Akımı (A)",
+      "label": "Fuse Current (A)",
       "type": "number",
       "unit": "A",
       "default": 16,
-      "businessContext": "Devre kesici nominal akımı",
+      "businessContext": "Circuit breaker rated current",
       "label_i18n": {
         "en": "Fuse current (A)",
         "tr": "Sigorta Akımı (A)",

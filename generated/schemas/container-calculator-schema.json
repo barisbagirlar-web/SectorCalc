@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Sevk edilecek toplam birim sayısı",
+      "businessContext": "Total number of units to be shipped",
       "label_i18n": {
         "en": "Total Quantity",
         "tr": "Toplam Miktar",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet/palet",
       "default": 50,
-      "businessContext": "Bir palete sığan birim sayısı",
+      "businessContext": "Number of units that fit on one pallet",
       "label_i18n": {
         "en": "Units per Pallet",
         "tr": "Palet Başına Adet",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "palet/konteyner",
       "default": 20,
-      "businessContext": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
+      "businessContext": "Number of pallets that can be loaded into one container (e.g., 20 pallets = TEU)",
       "label_i18n": {
         "en": "Pallets per Container",
         "tr": "Konteyner Başına Palet",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Hasar, kayıp vb. için ek yedek yüzdesi",
+      "businessContext": "Additional reserve percentage for damage, loss, etc.",
       "label_i18n": {
         "en": "Spare Rate (%)",
         "tr": "Yedek Oranı (%)",

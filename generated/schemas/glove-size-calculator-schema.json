@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "handCircumferenceCm",
-      "label": "El Çevresi (cm)",
+      "label": "Hand Circumference (cm)",
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "El ayasının en geniş yerinden ölçülen çevre uzunluğu",
+      "businessContext": "Circumference measured at the widest part of the palm",
       "label_i18n": {
         "en": "Hand Circumference (cm)",
         "tr": "El Çevresi (cm)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "handLengthCm",
-      "label": "El Uzunluğu (cm)",
+      "label": "Hand Length (cm)",
       "type": "number",
       "unit": "cm",
       "default": 18.5,
-      "businessContext": "Orta parmak ucundan bilek kıvrımına kadar olan mesafe",
+      "businessContext": "Distance from the tip of the middle finger to the wrist crease",
       "label_i18n": {
         "en": "Hand Length (cm)",
         "tr": "El Uzunluğu (cm)",

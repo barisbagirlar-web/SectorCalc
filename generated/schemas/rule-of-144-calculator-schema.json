@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Yatırımın yıllık bileşik faiz oranı.",
+      "businessContext": "Annual compound interest rate of the investment.",
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "compoundingPeriods",
-      "label": "Yıllık Bileşik Dönem Sayısı",
+      "label": "Number of Compounding Periods per Year",
       "type": "number",
       "unit": "kez",
       "default": 1,
-      "businessContext": "Faizin yılda kaç kez bileşiklendiği.",
+      "businessContext": "Number of times interest is compounded per year.",
       "label_i18n": {
         "en": "Annual Compounding Periods",
         "tr": "Yıllık Bileşik Dönem Sayısı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "birim",
       "default": 1000,
-      "businessContext": "Başlangıçta yatırılan ana para.",
+      "businessContext": "Principal amount initially invested.",
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "targetMultiplier",
-      "label": "Hedef Çarpan",
+      "label": "Target Multiplier",
       "type": "number",
       "unit": "kat",
       "default": 2,
-      "businessContext": "Yatırımın kaç katına çıkmasının hedeflendiği.",
+      "businessContext": "Target multiple of the investment.",
       "label_i18n": {
         "en": "Target Multiple",
         "tr": "Hedef Çarpan",

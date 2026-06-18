@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "powerInput",
-      "label": "Güç Girişi",
+      "label": "Power Input",
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Sisteme verilen anlık güç.",
+      "businessContext": "Instantaneous power supplied to the system.",
       "label_i18n": {
         "en": "Power Input",
         "tr": "Güç Girişi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "massFlow",
-      "label": "Kütle Akışı",
+      "label": "Mass Flow",
       "type": "number",
       "unit": "kg/s",
       "default": 2,
-      "businessContext": "Isı transfer akışkanının kütlesel debisi.",
+      "businessContext": "Mass flow rate of the heat transfer fluid.",
       "label_i18n": {
         "en": "Mass Flow Rate",
         "tr": "Kütle Akışı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "specificHeat",
-      "label": "Özgül Isı",
+      "label": "Specific Heat",
       "type": "number",
       "unit": "kJ/kg·K",
       "default": 4.18,
-      "businessContext": "Akışkanın özgül ısı kapasitesi.",
+      "businessContext": "Specific heat capacity of the fluid.",
       "label_i18n": {
         "en": "Specific Heat",
         "tr": "Özgül Isı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "deltaTemp",
-      "label": "Sıcaklık Farkı",
+      "label": "Temperature Difference",
       "type": "number",
       "unit": "K",
       "default": 10,
-      "businessContext": "Giriş ve çıkış arasındaki sıcaklık farkı.",
+      "businessContext": "Temperature difference between inlet and outlet.",
       "label_i18n": {
         "en": "Temperature Difference",
         "tr": "Sıcaklık Farkı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "efficiencyFactor",
-      "label": "Verimlilik Faktörü",
+      "label": "Efficiency Factor",
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Sistem kayıplarını hesaba katan faktör.",
+      "businessContext": "Factor accounting for system losses.",
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",

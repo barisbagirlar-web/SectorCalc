@@ -24,8 +24,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Beam_size_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.udl * input.span * input.span / 8; results["M_max_Nmm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["M_max_Nmm"] = 0; }
+  try { const v = (asFormulaNumber(results["M_max_Nmm"])) * input.span * input.span / (8 * input.elasticModulus * input.deflectionRatio); results["I_req_mm4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["I_req_mm4"] = 0; }
   try { const v = input.span / input.deflectionRatio; results["delta_allow_mm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["delta_allow_mm"] = 0; }
-  try { const v = input.span / input.deflectionRatio; results["delta_allow_mm_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["delta_allow_mm_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBeam_size_calculator(input: Beam_size_calculatorInput): Beam_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["delta_allow_mm_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["I_req_mm4"]);
   const breakdown = {
     
   };

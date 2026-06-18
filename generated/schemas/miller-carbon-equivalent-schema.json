@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Karbon içeriği (ağırlıkça %), kaynak edilebilirliği en fazla etkileyen elementtir.",
+      "businessContext": "Carbon content (wt%), the element that most affects weldability.",
       "label_i18n": {
         "en": "C (Karbon)",
         "tr": "C (Carbon)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Manganez içeriği (ağırlıkça %), sertleşebilirliği ve mukavemeti artırır.",
+      "businessContext": "Manganese content (wt%), increases hardenability and strength.",
       "label_i18n": {
         "en": "Mn (Manganez)",
         "tr": "Mn (Manganese)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Krom içeriği (ağırlıkça %), korozyon direncini ve sertleşebilirliği etkiler.",
+      "businessContext": "Chromium content (wt%), affects corrosion resistance and hardenability.",
       "label_i18n": {
         "en": "Cr (Krom)",
         "tr": "Cr (Chromium)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Molibden içeriği (ağırlıkça %), yüksek sıcaklık dayanımı ve sertleşebilirlik sağlar.",
+      "businessContext": "Molybdenum content (wt%), provides high-temperature strength and hardenability.",
       "label_i18n": {
         "en": "Mo (Molibden)",
         "tr": "Mo (Molybdenum)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Vanadyum içeriği (ağırlıkça %), tane inceltici ve mukavemet artırıcı etki yapar.",
+      "businessContext": "Vanadium content (wt%), grain refiner and strength enhancer.",
       "label_i18n": {
         "en": "V (Vanadyum)",
         "tr": "V (Vanadium)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Nikel içeriği (ağırlıkça %), tokluğu ve düşük sıcaklık özelliklerini iyileştirir.",
+      "businessContext": "Nickel content (wt%), improves toughness and low-temperature properties.",
       "label_i18n": {
         "en": "Ni (Nikel)",
         "tr": "Ni (Nickel)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "copper",
-      "label": "Cu (Bakır)",
+      "label": "Cu (Copper)",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Bakır içeriği (ağırlıkça %), atmosferik korozyon direncini artırır, ancak kaynakta çatlak riskini yükseltebilir.",
+      "businessContext": "Copper content (wt%), increases atmospheric corrosion resistance, but may increase cracking risk in welding.",
       "label_i18n": {
         "en": "Cu (Copper)",
         "tr": "Cu (Bakır)",

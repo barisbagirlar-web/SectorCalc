@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of monthly rent reserved for operating expenses (taxes, insurance, maintenance, vacancy, management).",
+      "businessContext": "Percentage of monthly rent reserved for operating expenses.",
       "label_i18n": {
         "en": "Operating Expense Percentage",
         "tr": "İşletme Gideri Yüzdesi",
@@ -201,7 +201,10 @@
     "monthlyInterestRate": "refinanceRate / 100 / 12",
     "numberOfPayments": "loanTerm * 12",
     "monthlyOperatingExpenses": "monthlyRent * operatingExpensePercentage / 100",
-    "equityGained": "arv - purchasePrice - rehabCost"
+    "equityGained": "arv - purchasePrice - rehabCost",
+    "monthlyPayment": "refinanceAmount * monthlyInterestRate * (1 + monthlyInterestRate)^numberOfPayments / ((1 + monthlyInterestRate)^numberOfPayments - 1)",
+    "annualCashFlow": "(monthlyRent - monthlyOperatingExpenses - monthlyPayment) * 12",
+    "cashOnCashReturn": "annualCashFlow / cashInvested * 100"
   },
   "outputs": {
     "primary": "equityGained",

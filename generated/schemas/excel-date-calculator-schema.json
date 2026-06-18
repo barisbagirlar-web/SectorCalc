@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "startSerial",
-      "label": "Başlangıç Tarihi Seri Numarası",
+      "label": "Start Date Serial Number",
       "type": "number",
       "unit": "Excel seri no",
       "default": 44927,
-      "businessContext": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
+      "businessContext": "Excel serial number of start date (e.g., 44927 = 2023-01-01)",
       "label_i18n": {
         "en": "Start Date Serial Number",
         "tr": "Başlangıç Tarihi Seri Numarası",
@@ -27,11 +27,11 @@
     },
     {
       "id": "endSerial",
-      "label": "Bitiş Tarihi Seri Numarası",
+      "label": "End Date Serial Number",
       "type": "number",
       "unit": "Excel seri no",
       "default": 44927,
-      "businessContext": "Bitiş tarihinin Excel seri numarası",
+      "businessContext": "Excel serial number of end date",
       "label_i18n": {
         "en": "End Date Serial Number",
         "tr": "Bitiş Tarihi Seri Numarası",
@@ -51,11 +51,11 @@
     },
     {
       "id": "daysOffset",
-      "label": "Gün Kaydırma",
+      "label": "Day Shift",
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
+      "businessContext": "Number of days to add (positive) or subtract (negative) from start date",
       "label_i18n": {
         "en": "Day Offset",
         "tr": "Gün Kaydırma",
@@ -75,11 +75,11 @@
     },
     {
       "id": "adjustStart",
-      "label": "Başlangıcı Dahil Et",
+      "label": "Include Start",
       "type": "number",
       "unit": "bayrak (0/1)",
       "default": 0,
-      "businessContext": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
+      "businessContext": "Include start day in day difference calculation: 0 = No, 1 = Yes",
       "label_i18n": {
         "en": "Include Start",
         "tr": "Başlangıcı Dahil Et",

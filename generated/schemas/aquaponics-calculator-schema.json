@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "fishCount",
-      "label": "Balık Sayısı",
+      "label": "Number of Fish",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Havuzdaki toplam balık sayısı",
+      "businessContext": "Total number of fish in the pond",
       "label_i18n": {
         "en": "Number of Fish",
         "tr": "Balık Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "fishWeight",
-      "label": "Ortalama Balık Ağırlığı",
+      "label": "Average Fish Weight",
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "Balık başına ortalama ağırlık",
+      "businessContext": "Average weight per fish",
       "label_i18n": {
         "en": "Average Fish Weight (kg)",
         "tr": "Ortalama Balık Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "feedRate",
-      "label": "Günlük Yemleme Oranı",
+      "label": "Daily Feeding Rate",
       "type": "number",
       "unit": "%/gün",
       "default": 2,
-      "businessContext": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı",
+      "businessContext": "Feed amount as a percentage of daily body weight",
       "label_i18n": {
         "en": "Daily Feeding Rate (%)",
         "tr": "Günlük Yemleme Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 35,
-      "businessContext": "Yemdeki protein yüzdesi",
+      "businessContext": "Protein percentage in feed",
       "label_i18n": {
         "en": "Feed Protein",
         "tr": "Yem Proteini",
@@ -99,11 +99,11 @@
     },
     {
       "id": "plantNitrogenUptake",
-      "label": "Bitki Azot Alımı",
+      "label": "Plant Nitrogen Uptake",
       "type": "number",
       "unit": "g/m²/gün",
       "default": 1.5,
-      "businessContext": "Birim alan başına günlük azot alımı",
+      "businessContext": "Daily nitrogen uptake per unit area",
       "label_i18n": {
         "en": "Plant Nitrogen Uptake (kg/ha/day)",
         "tr": "Bitki Azot Alımı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "fishDensity",
-      "label": "Balık Yoğunluğu",
+      "label": "Fish Density",
       "type": "number",
       "unit": "balık/m³",
       "default": 30,
-      "businessContext": "Metreküp başına balık sayısı",
+      "businessContext": "Number of fish per cubic meter",
       "label_i18n": {
         "en": "Fish Density (fish/m³)",
         "tr": "Balık Yoğunluğu",

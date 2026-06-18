@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "adultDose",
-      "label": "Yetişkin Dozu",
+      "label": "Adult Dose",
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "İlacın standart yetişkin dozu (mg)",
+      "businessContext": "Standard adult dose of the drug (mg)",
       "label_i18n": {
         "en": "Adult dose",
         "tr": "Yetişkin Dozu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "childWeight",
-      "label": "Çocuk Ağırlığı",
+      "label": "Child Weight",
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Çocuğun vücut ağırlığı (kg)",
+      "businessContext": "Child's body weight (kg)",
       "label_i18n": {
         "en": "Child Weight",
         "tr": "Çocuk Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "childAge",
-      "label": "Çocuk Yaşı",
+      "label": "Child Age",
       "type": "number",
       "unit": "yıl",
       "default": 5,
-      "businessContext": "Çocuğun yaşı (yıl)",
+      "businessContext": "Child's age (years)",
       "label_i18n": {
         "en": "Child Age",
         "tr": "Çocuk Yaşı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "maxDosePerKg",
-      "label": "Maksimum Doz/kg/Gün",
+      "label": "Maximum Dose/kg/Day",
       "type": "number",
       "unit": "mg/kg/gün",
       "default": 80,
-      "businessContext": "Güvenli üst sınır mg/kg/gün (örn. 80)",
+      "businessContext": "Safe upper limit mg/kg/day (e.g., 80)",
       "label_i18n": {
         "en": "Maximum Dose/kg/Day",
         "tr": "Maksimum Doz/kg/Gün",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "mg/mL",
       "default": 100,
-      "businessContext": "Sıvı formdaki ilaç konsantrasyonu (mg/mL)",
+      "businessContext": "Liquid drug concentration (mg/mL)",
       "label_i18n": {
         "en": "Concentration",
         "tr": "Konsantrasyon",

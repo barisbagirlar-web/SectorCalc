@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualIncome",
-      "label": "Yıllık Net Gelir",
+      "label": "Annual Net Income",
       "type": "number",
       "unit": "₺/yıl",
       "default": 100000,
-      "businessContext": "Kişinin vergi sonrası yıllık net geliri",
+      "businessContext": "Person's annual net income after tax",
       "label_i18n": {
         "en": "Annual net income",
         "tr": "Yıllık Net Gelir",
@@ -27,11 +27,11 @@
     },
     {
       "id": "personalExpenseRate",
-      "label": "Kişisel Gider Oranı",
+      "label": "Personal Expense Ratio",
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Gelirin kişisel harcamalara ayrılan yüzdesi",
+      "businessContext": "Percentage of income allocated to personal expenses",
       "label_i18n": {
         "en": "Personal expense ratio",
         "tr": "Kişisel Gider Oranı",
@@ -51,7 +51,7 @@
     },
     {
       "id": "currentAge",
-      "label": "Mevcut Yaş",
+      "label": "Current Age",
       "type": "number",
       "unit": "yıl",
       "default": 35,
@@ -75,7 +75,7 @@
     },
     {
       "id": "retirementAge",
-      "label": "Emeklilik Yaşı",
+      "label": "Retirement Age",
       "type": "number",
       "unit": "yıl",
       "default": 65,
@@ -99,11 +99,11 @@
     },
     {
       "id": "discountRate",
-      "label": "İskonto Oranı",
+      "label": "Discount Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)",
+      "businessContext": "Discount rate for future cash flows (usually risk-free interest rate)",
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İskonto Oranı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "incomeGrowthRate",
-      "label": "Yıllık Gelir Artış Oranı",
+      "label": "Annual Income Growth Rate",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Beklenen yıllık reel gelir artış oranı",
+      "businessContext": "Expected annual real income growth rate",
       "label_i18n": {
         "en": "Annual Income Growth Rate",
         "tr": "Yıllık Gelir Artış Oranı",

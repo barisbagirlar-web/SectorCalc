@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "birthYear",
-      "label": "Doğum Yılı",
+      "label": "Birth Year",
       "type": "number",
       "unit": "year",
       "default": 1990,
-      "businessContext": "Kişinin doğum yılını giriniz.",
+      "businessContext": "Enter the person's birth year.",
       "label_i18n": {
         "en": "Birth Year",
         "tr": "Doğum Yılı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "birthMonth",
-      "label": "Doğum Ayı",
+      "label": "Birth Month",
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "1-12 arası değer giriniz (1=Ocak).",
+      "businessContext": "Enter a value between 1-12 (1=January).",
       "label_i18n": {
         "en": "Birth Month",
         "tr": "Doğum Ayı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "birthDay",
-      "label": "Doğum Günü",
+      "label": "Birth Day",
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "1-31 arası değer giriniz.",
+      "businessContext": "Enter a value between 1-31.",
       "label_i18n": {
         "en": "Birth Day",
         "tr": "Doğum Günü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "referenceYear",
-      "label": "Referans Yılı",
+      "label": "Reference Year",
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Yaşın hesaplanacağı referans yıl.",
+      "businessContext": "Reference year for calculating age.",
       "label_i18n": {
         "en": "Reference Year",
         "tr": "Referans Yılı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "referenceMonth",
-      "label": "Referans Ayı",
+      "label": "Reference Month",
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "1-12 arası değer giriniz (1=Ocak).",
+      "businessContext": "Enter a value between 1-12 (1=January).",
       "label_i18n": {
         "en": "Reference Month",
         "tr": "Referans Ayı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "referenceDay",
-      "label": "Referans Günü",
+      "label": "Reference Day",
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "1-31 arası değer giriniz.",
+      "businessContext": "Enter a value between 1-31.",
       "label_i18n": {
         "en": "Reference Day",
         "tr": "Referans Günü",

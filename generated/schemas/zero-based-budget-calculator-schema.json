@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "totalIncome",
-      "label": "Toplam Aylık Net Gelir",
+      "label": "Total Monthly Net Income",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Evinize giren tüm aylık net gelir (maaş, ek gelir, vb.)",
+      "businessContext": "All monthly net income entering your home (salary, additional income, etc.)",
       "label_i18n": {
         "en": "Total Monthly Net Income",
         "tr": "Toplam Aylık Net Gelir",
@@ -27,11 +27,11 @@
     },
     {
       "id": "housing",
-      "label": "Barınma Giderleri",
+      "label": "Housing Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Kira, mortgage, aidat, sigorta vb. toplamı",
+      "businessContext": "Total of rent, mortgage, dues, insurance, etc.",
       "label_i18n": {
         "en": "Housing Expenses",
         "tr": "Barınma Giderleri",
@@ -51,11 +51,11 @@
     },
     {
       "id": "food",
-      "label": "Gıda Giderleri",
+      "label": "Food Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Market alışverişi, dışarıda yemek, vb. aylık toplam",
+      "businessContext": "Monthly total of grocery shopping, dining out, etc.",
       "label_i18n": {
         "en": "Food Expenses",
         "tr": "Gıda Giderleri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "transport",
-      "label": "Ulaşım Giderleri",
+      "label": "Transportation Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Yakıt, toplu taşıma, araç bakım vb.",
+      "businessContext": "Fuel, public transport, vehicle maintenance, etc.",
       "label_i18n": {
         "en": "Transportation Expenses",
         "tr": "Ulaşım Giderleri",
@@ -99,11 +99,11 @@
     },
     {
       "id": "savings",
-      "label": "Tasarruf & Yatırım",
+      "label": "Savings & Investment",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Acil durum fonu, emeklilik, yatırım hesapları",
+      "businessContext": "Emergency fund, retirement, investment accounts",
       "label_i18n": {
         "en": "Savings & Investment",
         "tr": "Tasarruf & Yatırım",
@@ -123,11 +123,11 @@
     },
     {
       "id": "discretionary",
-      "label": "Kişisel Harcamalar",
+      "label": "Personal Expenses",
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Eğlence, abonelikler, giyim, hobiler vb.",
+      "businessContext": "Entertainment, subscriptions, clothing, hobbies, etc.",
       "label_i18n": {
         "en": "Personal Expenses",
         "tr": "Kişisel Harcamalar",

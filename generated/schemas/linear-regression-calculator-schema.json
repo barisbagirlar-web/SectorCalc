@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Veri Sayısı (n)",
+      "label": "Number of Data Points (n)",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "X ve Y değişkenleri için eşleştirilmiş veri noktası sayısı",
+      "businessContext": "Number of paired data points for X and Y variables",
       "label_i18n": {
         "en": "Number of data points (n)",
         "tr": "Veri Sayısı (n)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X değerlerinin toplamı",
+      "businessContext": "Sum of all X values",
       "label_i18n": {
         "en": "ΣX",
         "tr": "ΣX",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm Y değerlerinin toplamı",
+      "businessContext": "Sum of all Y values",
       "label_i18n": {
         "en": "ΣY",
         "tr": "ΣY",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X² değerlerinin toplamı",
+      "businessContext": "Sum of all X² values",
       "label_i18n": {
         "en": "ΣX²",
         "tr": "ΣX²",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X·Y çarpımlarının toplamı",
+      "businessContext": "Sum of all X·Y products",
       "label_i18n": {
         "en": "ΣXY",
         "tr": "ΣXY",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm Y² değerlerinin toplamı",
+      "businessContext": "Sum of all Y² values",
       "label_i18n": {
         "en": "ΣY²",
         "tr": "Sum of Y²",

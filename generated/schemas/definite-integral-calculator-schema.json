@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "coeffA",
-      "label": "Kübik katsayı (a x³)",
+      "label": "Cubic coefficient (a x³)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
@@ -27,7 +27,7 @@
     },
     {
       "id": "coeffB",
-      "label": "Kare katsayı (b x²)",
+      "label": "Quadratic coefficient (b x²)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
@@ -51,7 +51,7 @@
     },
     {
       "id": "coeffC",
-      "label": "Doğrusal katsayı (c x)",
+      "label": "Linear coefficient (c x)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
@@ -99,7 +99,7 @@
     },
     {
       "id": "lowerLimit",
-      "label": "Alt sınır",
+      "label": "Lower bound",
       "type": "number",
       "unit": "birim",
       "default": 0,
@@ -123,7 +123,7 @@
     },
     {
       "id": "upperLimit",
-      "label": "Üst sınır",
+      "label": "Upper bound",
       "type": "number",
       "unit": "birim",
       "default": 1,

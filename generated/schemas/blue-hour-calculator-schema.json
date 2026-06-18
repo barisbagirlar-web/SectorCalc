@@ -148,10 +148,11 @@
   ],
   "formulas": {
     "solar_noon": "12 - (longitude / 15) - timezone_offset",
-    "solar_noon_aux": "12 - (longitude / 15) - timezone_offset"
+    "blue_hour_morning_end": "sunrise_time",
+    "blue_hour_evening_start": "sunset_time"
   },
   "outputs": {
-    "primary": "solar_noon_aux",
+    "primary": "blue_hour_evening_start",
     "breakdown": [
       "Morning blue hour start (local time): {blue_hour_morning_start} hours",
       "Morning blue hour end (local time): {blue_hour_morning_end} hours",
@@ -171,8 +172,8 @@
       "Morning blue hour end (local time): {blue_hour_morning_end} hours": "h",
       "Evening blue hour start (local time): {blue_hour_evening_start} hours": "h",
       "Evening blue hour end (local time): {blue_hour_evening_end} hours": "h",
-      "Morning blue hour duration: {blue_hour_morning_duration} hours": "%",
-      "Evening blue hour duration: {blue_hour_evening_duration} hours": "%"
+      "Morning blue hour duration: {blue_hour_morning_duration} hours": "h",
+      "Evening blue hour duration: {blue_hour_evening_duration} hours": "h"
     }
   },
   "category": "Enerji & Karbon",
@@ -185,7 +186,58 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "sunrise_time",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sunrise_time",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "sunset_time",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sunset_time",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "latitude",
+        "rule": "min",
+        "value": -90
+      },
+      {
+        "field": "latitude",
+        "rule": "max",
+        "value": 90
+      },
+      {
+        "field": "longitude",
+        "rule": "min",
+        "value": -180
+      },
+      {
+        "field": "longitude",
+        "rule": "max",
+        "value": 180
+      },
+      {
+        "field": "day_of_year",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "day_of_year",
+        "rule": "max",
+        "value": 365
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

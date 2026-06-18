@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın x koordinatı",
+      "businessContext": "X coordinate of the first point",
       "label_i18n": {
         "en": "X₁ Coordinate",
         "tr": "X₁ Koordinatı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın y koordinatı",
+      "businessContext": "Y coordinate of the first point",
       "label_i18n": {
         "en": "Y₁ Coordinate",
         "tr": "Y₁ Koordinatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "x2",
-      "label": "X₂ Koordinatı",
+      "label": "X₂ Coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın x koordinatı",
+      "businessContext": "X coordinate of the second point",
       "label_i18n": {
         "en": "X₂ Coordinate",
         "tr": "X₂ Koordinatı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "y2",
-      "label": "Y₂ Koordinatı",
+      "label": "Y₂ Coordinate",
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın y koordinatı",
+      "businessContext": "Y coordinate of the second point",
       "label_i18n": {
         "en": "Y₂ Coordinate",
         "tr": "Y₂ Koordinatı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "w",
-      "label": "Ağırlık Faktörü",
+      "label": "Weight Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Mesafe ağırlık katsayısı",
+      "businessContext": "Distance weight coefficient",
       "label_i18n": {
         "en": "Weight Factor",
         "tr": "Ağırlık Faktörü",

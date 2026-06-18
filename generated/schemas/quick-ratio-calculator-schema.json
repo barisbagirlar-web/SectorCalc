@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Kasa, banka, kısa vadeli yatırımlar",
+      "businessContext": "Cash, bank, short-term investments",
       "label_i18n": {
         "en": "Nakit ve Nakit Benzerleri",
         "tr": "Cash and cash equivalents",
@@ -27,11 +27,11 @@
     },
     {
       "id": "marketableSecurities",
-      "label": "Menkul Kıymetler",
+      "label": "Marketable Securities",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar",
+      "businessContext": "Short-term investments that can be quickly converted to cash",
       "label_i18n": {
         "en": "Securities",
         "tr": "Menkul Kıymetler",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Müşterilerden alacaklar",
+      "businessContext": "Receivables from customers",
       "label_i18n": {
         "en": "Ticari Alacaklar",
         "tr": "Trade receivables",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "1 yıl içinde ödenmesi gereken borçlar",
+      "businessContext": "Liabilities due within 1 year",
       "label_i18n": {
         "en": "Short-Term Liabilities",
         "tr": "Kısa Vadeli Yükümlülükler",

@@ -130,16 +130,19 @@
     "primary": "treatmentEffectivenessFactor_aux",
     "breakdown": [
       "accelerationFactor",
+      "equivalentTime",
       "treatmentEffectivenessFactor"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "equivalentTime",
-    "unit": "°C",
+    "dataConfidenceAdjusted": "adjustedEquivalentTime",
+    "unit": "years",
     "breakdownUnits": {
-      "accelerationFactor": "%"
+      "accelerationFactor": "unit",
+      "equivalentTime": "years",
+      "treatmentEffectivenessFactor": "unit"
     }
   },
   "category": "Enerji & Karbon",
@@ -152,7 +155,39 @@
   "profession": "Mühendis",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "temperature",
+        "rule": "min",
+        "value": -273.15,
+        "message": "Temperature must be above absolute zero."
+      },
+      {
+        "field": "referenceTemperature",
+        "rule": "min",
+        "value": -273.15,
+        "message": "Reference temperature must be above absolute zero."
+      },
+      {
+        "field": "activationEnergy",
+        "rule": "min",
+        "value": 0,
+        "message": "Activation energy must be positive."
+      },
+      {
+        "field": "referenceTime",
+        "rule": "min",
+        "value": 0,
+        "message": "Reference time must be positive."
+      },
+      {
+        "field": "treatmentEffectiveness",
+        "rule": "range",
+        "min": 0,
+        "max": 1,
+        "message": "Treatment effectiveness must be between 0 and 1."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

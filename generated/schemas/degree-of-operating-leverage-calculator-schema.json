@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Satılan ürün miktarı",
+      "businessContext": "Quantity of products sold",
       "label_i18n": {
         "en": "Miktar",
         "tr": "Quantity",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 50,
-      "businessContext": "Ürün başına satış fiyatı",
+      "businessContext": "Sales price per product",
       "label_i18n": {
         "en": "Unit Selling Price",
         "tr": "Birim Satış Fiyatı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "variableCostPerUnit",
-      "label": "Birim Değişken Maliyet",
+      "label": "Unit Variable Cost",
       "type": "number",
       "unit": "TL/adet",
       "default": 30,
-      "businessContext": "Ürün başına değişken maliyet",
+      "businessContext": "Variable cost per unit",
       "label_i18n": {
         "en": "Unit Variable Cost",
         "tr": "Birim Değişken Maliyet",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Toplam sabit işletme maliyetleri",
+      "businessContext": "Total fixed operating costs",
       "label_i18n": {
         "en": "Sabit Maliyetler",
         "tr": "Fixed Costs",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Tüketilecek karbonhidrat miktarı",
+      "businessContext": "Amount of carbohydrates to be consumed",
       "label_i18n": {
         "en": "Karbonhidrat (g)",
         "tr": "Carbohydrates (g)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "currentBG",
-      "label": "Anlık Kan Şekeri",
+      "label": "Current Blood Sugar",
       "type": "number",
       "unit": "mg/dL",
       "default": 120,
-      "businessContext": "Ölçülen anlık kan şekeri seviyesi",
+      "businessContext": "Measured current blood sugar level",
       "label_i18n": {
         "en": "Current Blood Sugar",
         "tr": "Anlık Kan Şekeri",
@@ -51,11 +51,11 @@
     },
     {
       "id": "targetBG",
-      "label": "Hedef Kan Şekeri",
+      "label": "Target Blood Sugar",
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Ulaşılmak istenen ideal kan şekeri",
+      "businessContext": "Ideal blood sugar to be achieved",
       "label_i18n": {
         "en": "Target Blood Sugar",
         "tr": "Hedef Kan Şekeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "insulinToCarbRatio",
-      "label": "İnsülin-Karbonhidrat Oranı",
+      "label": "Insulin-to-Carbohydrate Ratio",
       "type": "number",
       "unit": "g/Ü",
       "default": 15,
-      "businessContext": "1 ünite insülinin etki ettiği karbonhidrat gramı",
+      "businessContext": "Grams of carbohydrates affected by 1 unit of insulin",
       "label_i18n": {
         "en": "Insulin-to-Carbohydrate Ratio",
         "tr": "İnsülin-Karbonhidrat Oranı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "insulinSensitivity",
-      "label": "İnsülin Duyarlılık Faktörü",
+      "label": "Insulin Sensitivity Factor",
       "type": "number",
       "unit": "mg/dL/Ü",
       "default": 50,
-      "businessContext": "1 ünite insülinin düşürdüğü kan şekeri miktarı",
+      "businessContext": "Amount of blood sugar lowered by 1 unit of insulin",
       "label_i18n": {
         "en": "Insulin Sensitivity Factor",
         "tr": "İnsülin Duyarlılık Faktörü",

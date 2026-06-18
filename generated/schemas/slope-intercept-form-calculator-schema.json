@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "slope",
-      "label": "Eğim (m)",
+      "label": "Slope (m)",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
+      "businessContext": "Slope of the line, the coefficient m in the equation y = mx + b.",
       "label_i18n": {
         "en": "Slope (m)",
         "tr": "Eğim (m)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "yIntercept",
-      "label": "y Kesişimi (b)",
+      "label": "y-Intercept (b)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Doğrunun y eksenini kestiği nokta.",
+      "businessContext": "The point where the line crosses the y-axis.",
       "label_i18n": {
         "en": "y-Intercept (b)",
         "tr": "y Kesişimi (b)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "xValue",
-      "label": "x Değeri",
+      "label": "x Value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "y değerini hesaplamak için verilen x koordinatı.",
+      "businessContext": "Given x coordinate to calculate the y value.",
       "label_i18n": {
         "en": "x Value",
         "tr": "x Değeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "yValue",
-      "label": "y Değeri",
+      "label": "y Value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "x değerini hesaplamak için verilen y koordinatı.",
+      "businessContext": "Given y coordinate to calculate the x value.",
       "label_i18n": {
         "en": "y Value",
         "tr": "y Değeri",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "availableTimePerShift",
-      "label": "Vardiya Başına Net Çalışma Süresi",
+      "label": "Net Working Time per Shift",
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Molalar düşüldükten sonraki net çalışma süresi",
+      "businessContext": "Net working time after deducting breaks",
       "label_i18n": {
         "en": "Net working time per shift",
         "tr": "Vardiya Başına Net Çalışma Süresi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "shiftsPerDay",
-      "label": "Günlük Vardiya Sayısı",
+      "label": "Number of Shifts per Day",
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Günlük vardiya sayısı",
+      "businessContext": "Number of daily shifts",
       "label_i18n": {
         "en": "Number of shifts per day",
         "tr": "Günlük Vardiya Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "demandPerDay",
-      "label": "Günlük Talep Miktarı",
+      "label": "Daily Demand Quantity",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Müşterinin günlük talep ettiği ürün adedi",
+      "businessContext": "Number of products demanded by the customer per day",
       "label_i18n": {
         "en": "Daily demand quantity",
         "tr": "Günlük Talep Miktarı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "efficiencyFactor",
-      "label": "Verimlilik Faktörü",
+      "label": "Efficiency Factor",
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı",
+      "businessContext": "Efficiency rate reflecting losses such as planned downtime, breakdowns, etc.",
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",

@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBody_composition_calculator(input: Body_composition_calculatorInput): Body_composition_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["bmi_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["bmi"]);
   const breakdown = {
     
   };

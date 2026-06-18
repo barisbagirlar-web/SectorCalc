@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "ton",
       "default": 10,
-      "businessContext": "Kaldırılacak yükün ağırlığı (ton)",
+      "businessContext": "Weight of load to be removed (ton)",
       "label_i18n": {
         "en": "Lifted Load",
         "tr": "Kaldırılan Yük",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ton",
       "default": 1,
-      "businessContext": "Donanım ağırlığı (ton)",
+      "businessContext": "Equipment weight (ton)",
       "label_i18n": {
         "en": "Rigging Weight",
         "tr": "Donanım Ağırlığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Dinamik faktör (vinç hareketleri)",
+      "businessContext": "Dynamic factor (crane movements)",
       "label_i18n": {
         "en": "Dynamic Factor",
         "tr": "Dinamik Faktör",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.1,
-      "businessContext": "Rüzgar faktörü",
+      "businessContext": "Wind factor",
       "label_i18n": {
         "en": "Wind Factor",
         "tr": "Rüzgar Faktörü",

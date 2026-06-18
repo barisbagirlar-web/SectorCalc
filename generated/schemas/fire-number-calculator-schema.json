@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TL",
       "default": 60000,
-      "businessContext": "Yıl bazında toplam harcamalar",
+      "businessContext": "Total expenses by year",
       "label_i18n": {
         "en": "Annual Expenses",
         "tr": "Yıllık Giderler",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Yıllık portföy çekim yüzdesi (genelde %4)",
+      "businessContext": "Annual portfolio withdrawal percentage (usually 4%)",
       "label_i18n": {
         "en": "Safe Withdrawal Rate",
         "tr": "Güvenli Çekim Oranı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Şu anki toplam yatırım portföyü değeri",
+      "businessContext": "Current total investment portfolio value",
       "label_i18n": {
         "en": "Mevcut Birikim",
         "tr": "Current Stock",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL",
       "default": 20000,
-      "businessContext": "Her yıl düzenli olarak yatırıma eklenen tutar",
+      "businessContext": "Amount added to investments regularly each year",
       "label_i18n": {
         "en": "Annual Savings",
         "tr": "Yıllık Tasarruf",
@@ -99,11 +99,11 @@
     },
     {
       "id": "expectedReturn",
-      "label": "Beklenen Yıllık Getiri",
+      "label": "Expected Annual Return",
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Portföyün yıllık ortalama nominal getiri beklentisi",
+      "businessContext": "Expected average annual nominal return of the portfolio",
       "label_i18n": {
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Uzun vadeli yıllık enflasyon tahmini",
+      "businessContext": "Long-term annual inflation estimate",
       "label_i18n": {
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "internalPressure",
-      "label": "İç Basınç",
+      "label": "Internal Pressure",
       "type": "number",
       "unit": "MPa",
       "default": 10,
-      "businessContext": "Boruda taşınan akışkanın iç basıncı",
+      "businessContext": "Internal pressure of the fluid in the pipe",
       "label_i18n": {
         "en": "Internal pressure",
         "tr": "İç Basınç",
@@ -27,11 +27,11 @@
     },
     {
       "id": "outerDiameter",
-      "label": "Dış Çap",
+      "label": "Outer Diameter",
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Borunun dış çapı",
+      "businessContext": "Pipe outer diameter",
       "label_i18n": {
         "en": "Outer Diameter",
         "tr": "Dış Çap",
@@ -51,11 +51,11 @@
     },
     {
       "id": "wallThickness",
-      "label": "Et Kalınlığı",
+      "label": "Wall Thickness",
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Boru cidar kalınlığı",
+      "businessContext": "Pipe wall thickness",
       "label_i18n": {
         "en": "Wall Thickness",
         "tr": "Et Kalınlığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "yieldStrength",
-      "label": "Akma Dayanımı",
+      "label": "Yield Strength",
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma dayanımı",
+      "businessContext": "Yield strength of the material",
       "label_i18n": {
         "en": "Yield strength",
         "tr": "Akma Dayanımı",

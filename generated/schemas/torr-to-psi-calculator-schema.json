@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "Torr",
       "default": 760,
-      "businessContext": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
+      "businessContext": "Pressure value in torr, measured or calculated.",
       "label_i18n": {
         "en": "Pressure (Torr)",
         "tr": "Ortalama Eğim (%)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "psi/Torr",
       "default": 0.01933677,
-      "businessContext": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+      "businessContext": "Standard conversion factor; can be adjusted according to calibration needs.",
       "label_i18n": {
         "en": "Conversion Factor (psi/Torr)",
         "tr": "Basınç (Torr)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "decimalPlaces",
-      "label": "Ondalık Basamak Sayısı",
+      "label": "Number of Decimal Places",
       "type": "number",
       "unit": "unit",
       "default": 4,
-      "businessContext": "Sonuç gösteriminde istenen ondalık hane sayısı.",
+      "businessContext": "Number of decimal places desired in the result display.",
       "label_i18n": {
         "en": "Number of Decimal Places",
         "tr": "Ondalık Basamak Sayısı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
+      "businessContext": "Offset added for zero adjustment or shift correction.",
       "label_i18n": {
         "en": "Kalibrasyon Ofseti (psi)",
         "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "legSize",
-      "label": "Köşe Kaynak Kalınlığı (a)",
+      "label": "Corner Weld Thickness (a)",
       "type": "number",
       "unit": "mm",
       "default": 6,
-      "businessContext": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
+      "businessContext": "Corner weld seam thickness as specified in the technical drawing.",
       "label_i18n": {
         "en": "Corner Weld Thickness (a)",
         "tr": "Köşe Kaynak Kalınlığı (a)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Köşe kaynağının toplam uzunluğu",
+      "businessContext": "Total length of fillet weld",
       "label_i18n": {
         "en": "Kaynak Boyu",
         "tr": "Kaynak boyu",
@@ -51,11 +51,11 @@
     },
     {
       "id": "yieldStrength",
-      "label": "Elektrot Akma Dayanımı",
+      "label": "Electrode Yield Strength",
       "type": "number",
       "unit": "MPa",
       "default": 235,
-      "businessContext": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
+      "businessContext": "Yield strength of the electrode material used (e.g., E42)",
       "label_i18n": {
         "en": "Electrode yield strength",
         "tr": "Elektrot Akma Dayanımı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Katsayısı",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 1.5,
-      "businessContext": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
+      "businessContext": "Structural safety factor for allowable stress calculation",
       "label_i18n": {
         "en": "Safety factor",
         "tr": "Güvenlik Katsayısı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "designLoad",
-      "label": "Tasarım Yükü",
+      "label": "Design Load",
       "type": "number",
       "unit": "kN",
       "default": 50,
-      "businessContext": "Kaynak bağlantısına etkiyen tasarım yükü",
+      "businessContext": "Design load acting on the weld connection",
       "label_i18n": {
         "en": "Design load",
         "tr": "Tasarım Yükü",

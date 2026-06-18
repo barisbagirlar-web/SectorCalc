@@ -51,11 +51,11 @@
     },
     {
       "id": "ndStops",
-      "label": "ND Stop Değeri",
+      "label": "ND Stop Value",
       "type": "number",
       "unit": "stop",
       "default": 0,
-      "businessContext": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
+      "businessContext": "Light reduction amount of the ND filter (in stops).",
       "label_i18n": {
         "en": "ND Stop Value",
         "tr": "ND Stop Değeri",
@@ -75,11 +75,11 @@
     },
     {
       "id": "od",
-      "label": "Optik Yoğunluk (OD)",
+      "label": "Optical Density (OD)",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
+      "businessContext": "Optical density value of the ND filter (e.g., 0.3, 0.6, 0.9).",
       "label_i18n": {
         "en": "Optical Density (OD)",
         "tr": "Optik Yoğunluk (OD)",

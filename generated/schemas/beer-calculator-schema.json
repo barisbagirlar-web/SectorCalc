@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "maltQuantity",
-      "label": "Malt Miktarı (kg)",
+      "label": "Malt Amount (kg)",
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Batch başına kullanılan malt miktarı",
+      "businessContext": "Amount of malt used per batch",
       "label_i18n": {
         "en": "Malt Amount (kg)",
         "tr": "Malt Miktarı (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "maltCostPerKg",
-      "label": "Malt Birim Fiyatı (TL/kg)",
+      "label": "Malt Unit Price (TL/kg)",
       "type": "number",
       "unit": "TL/kg",
       "default": 15,
-      "businessContext": "Maltın kilogram başına maliyeti",
+      "businessContext": "Cost per kilogram of malt",
       "label_i18n": {
         "en": "Malt Unit Price (TL/kg)",
         "tr": "Malt Birim Fiyatı (TL/kg)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hopsQuantity",
-      "label": "Şerbetçiotu Miktarı (g)",
+      "label": "Hops Amount (g)",
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Batch başına şerbetçiotu miktarı",
+      "businessContext": "Amount of hops per batch",
       "label_i18n": {
         "en": "Hops Amount (g)",
         "tr": "Şerbetçiotu Miktarı (g)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "hopsCostPer100g",
-      "label": "Şerbetçiotu 100g Fiyatı (TL)",
+      "label": "Hops 100g Price (TL)",
       "type": "number",
       "unit": "TL/100g",
       "default": 50,
-      "businessContext": "100 gram şerbetçiotu fiyatı",
+      "businessContext": "Price per 100 grams of hops",
       "label_i18n": {
         "en": "Hops 100g Price (TL)",
         "tr": "Şerbetçiotu 100g Fiyatı (TL)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TL",
       "default": 25,
-      "businessContext": "Batch başına maya maliyeti",
+      "businessContext": "Yeast cost per batch",
       "label_i18n": {
         "en": "Maya Maliyeti (TL)",
         "tr": "Yeast Cost (TL)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "energyCost",
-      "label": "Enerji Birim Fiyatı (TL/kWh)",
+      "label": "Energy Unit Price (TL/kWh)",
       "type": "number",
       "unit": "TL/kWh",
       "default": 2.5,
-      "businessContext": "Fabrika elektrik birim fiyatı",
+      "businessContext": "Factory electricity unit price",
       "label_i18n": {
         "en": "Energy Unit Price (TL/kWh)",
         "tr": "Enerji Birim Fiyatı (TL/kWh)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "batchVolume",
-      "label": "Üretim Hacmi (L)",
+      "label": "Production Volume (L)",
       "type": "number",
       "unit": "L",
       "default": 1000,
-      "businessContext": "Batch sonucu elde edilen bira miktarı (litre)",
+      "businessContext": "Amount of beer obtained per batch (liters)",
       "label_i18n": {
         "en": "Production Volume (L)",
         "tr": "Üretim Hacmi (L)",
@@ -175,7 +175,7 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
+      "businessContext": "Fixed cost per batch including labor, maintenance, depreciation, etc.",
       "label_i18n": {
         "en": "Genel Gider (TL)",
         "tr": "Overhead (TL)",

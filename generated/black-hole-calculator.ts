@@ -22,6 +22,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Black_hole_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = 2 * 1.4766 * input.mass; results["eventHorizonRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eventHorizonRadius"] = 0; }
   try { const v = 3 * 1.4766 * input.mass; results["photonSphereRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["photonSphereRadius"] = 0; }
   try { const v = 6 * 1.4766 * input.mass; results["iscoRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["iscoRadius"] = 0; }
   return results;

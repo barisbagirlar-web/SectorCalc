@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Kapasitör değeri (Farad cinsinden)",
+      "businessContext": "Capacitor value (in Farads)",
       "label_i18n": {
         "en": "Capacitance (C)",
         "tr": "Kapasitans (C)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Giriş sinyali frekansı",
+      "businessContext": "Input signal frequency",
       "label_i18n": {
         "en": "Frequency (f)",
         "tr": "Frekans (f)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "Giriş voltajı (tepe değeri)",
+      "businessContext": "Input voltage (peak value)",
       "label_i18n": {
         "en": "Input Voltage (Vin)",
         "tr": "Giriş voltajı (Vin)",

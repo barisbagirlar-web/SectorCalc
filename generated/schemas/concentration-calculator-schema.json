@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "volume1",
-      "label": "Çözelti 1 Hacmi (L)",
+      "label": "Solution 1 Volume (L)",
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Birinci çözeltinin litre cinsinden hacmi",
+      "businessContext": "Volume of the first solution in liters",
       "label_i18n": {
         "en": "Solution 1 Volume (L)",
         "tr": "Çözelti 1 Hacmi (L)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "concentration1",
-      "label": "Çözelti 1 Konsantrasyonu (mol/L)",
+      "label": "Solution 1 Concentration (mol/L)",
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Birinci çözeltinin molar konsantrasyonu",
+      "businessContext": "Molar concentration of the first solution",
       "label_i18n": {
         "en": "Solution 1 Concentration (mol/L)",
         "tr": "Çözelti 1 Konsantrasyonu (mol/L)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "volume2",
-      "label": "Çözelti 2 Hacmi (L)",
+      "label": "Solution 2 Volume (L)",
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "İkinci çözeltinin litre cinsinden hacmi (sıfır olabilir)",
+      "businessContext": "Volume of the second solution in liters (can be zero)",
       "label_i18n": {
         "en": "Solution 2 Volume (L)",
         "tr": "Çözelti 2 Hacmi (L)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "concentration2",
-      "label": "Çözelti 2 Konsantrasyonu (mol/L)",
+      "label": "Solution 2 Concentration (mol/L)",
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "İkinci çözeltinin molar konsantrasyonu (sıfır olabilir)",
+      "businessContext": "Molar concentration of the second solution (can be zero)",
       "label_i18n": {
         "en": "Solution 2 Concentration (mol/L)",
         "tr": "Çözelti 2 Konsantrasyonu (mol/L)",
@@ -114,7 +114,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "finalConcentration",
-    "unit": "%"
+    "unit": "mol/L"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Kimya & Proses",

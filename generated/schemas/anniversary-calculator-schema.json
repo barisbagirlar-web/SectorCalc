@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 2020,
-      "businessContext": "Tarih hesaplamasında başlangıç yılı",
+      "businessContext": "Start year for date calculation",
       "label_i18n": {
         "en": "Start Year",
         "tr": "Başlangıç Yılı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Tarih hesaplamasında başlangıç ayı (1-12)",
+      "businessContext": "Start month for date calculation (1-12)",
       "label_i18n": {
         "en": "Start Month",
         "tr": "Başlangıç Ayı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Tarih hesaplamasında başlangıç günü",
+      "businessContext": "Start day for date calculation",
       "label_i18n": {
         "en": "Start Day",
         "tr": "Başlangıç Günü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek yıl miktarı",
+      "businessContext": "Number of years to add to start date",
       "label_i18n": {
         "en": "Years to Add",
         "tr": "Eklenecek Yıl",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "ay",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek ay miktarı",
+      "businessContext": "Number of months to add to start date",
       "label_i18n": {
         "en": "Eklenecek Ay",
         "tr": "Month to Add",

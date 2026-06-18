@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Dış çap",
+      "businessContext": "Outer Diameter",
       "label_i18n": {
         "en": "Pipe Outer Diameter",
         "tr": "Boru Dış Çapı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Yalıtım kalınlığı",
+      "businessContext": "Insulation Thickness",
       "label_i18n": {
         "en": "Insulation Thickness",
         "tr": "Yalıtım Kalınlığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Boru uzunluğu",
+      "businessContext": "Pipe Length",
       "label_i18n": {
         "en": "Pipe Length",
         "tr": "Boru Uzunluğu",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0.035,
-      "businessContext": "Isı iletkenlik katsayısı",
+      "businessContext": "Thermal Conductivity Coefficient",
       "label_i18n": {
         "en": "Thermal Conductivity",
         "tr": "Isıl İletkenlik",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "°C",
       "default": 150,
-      "businessContext": "İç sıcaklık",
+      "businessContext": "Internal Temperature",
       "label_i18n": {
         "en": "Inner Temperature",
         "tr": "İç Sıcaklık",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ortam sıcaklığı",
+      "businessContext": "Ambient Temperature",
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 10,
-      "businessContext": "Taşınım katsayısı",
+      "businessContext": "Convection coefficient",
       "label_i18n": {
         "en": "Convection Coefficient",
         "tr": "Taşınım Katsayısı",

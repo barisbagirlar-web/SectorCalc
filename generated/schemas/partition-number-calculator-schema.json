@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Sayı (n)",
+      "label": "Number (n)",
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Bölme sayısı hesaplanacak pozitif tamsayı.",
+      "businessContext": "Positive integer for which the number of divisions will be calculated.",
       "label_i18n": {
         "en": "Number (n)",
         "tr": "Sayı (n)",
@@ -27,7 +27,7 @@
     },
     {
       "id": "pi",
-      "label": "Pi Sayısı",
+      "label": "Pi Number",
       "type": "number",
       "unit": "unit",
       "default": 3.141592653589793,
@@ -51,11 +51,11 @@
     },
     {
       "id": "sqrt3",
-      "label": "Karekök 3",
+      "label": "Square root of 3",
       "type": "number",
       "unit": "unit",
       "default": 1.7320508075688772,
-      "businessContext": "3'ün karekökü (√3).",
+      "businessContext": "Square root of 3 (√3).",
       "label_i18n": {
         "en": "Square root of 3",
         "tr": "Karekök 3",
@@ -75,11 +75,11 @@
     },
     {
       "id": "divisor",
-      "label": "Bölen Sabiti",
+      "label": "Divisor Constant",
       "type": "number",
       "unit": "unit",
       "default": 4,
-      "businessContext": "Hardy-Ramanujan yaklaşımındaki bölen sabiti.",
+      "businessContext": "Divisor constant in the Hardy-Ramanujan approximation.",
       "label_i18n": {
         "en": "Divisor Constant",
         "tr": "Bölen Sabiti",

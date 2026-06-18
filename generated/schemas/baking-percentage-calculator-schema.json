@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "flourWeight",
-      "label": "Un Ağırlığı",
+      "label": "Flour Weight",
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Ana un miktarı (gram). Fırıncı yüzdesinde %100 kabul edilir.",
+      "businessContext": "Main flour amount (grams). Accepted as 100% in baker's percentage.",
       "label_i18n": {
         "en": "Flour Weight",
         "tr": "Un Ağırlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "waterPercent",
-      "label": "Su Oranı",
+      "label": "Water Ratio",
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "Un ağırlığına göre su yüzdesi (fırıncı yüzdesi).",
+      "businessContext": "Water percentage based on flour weight (baker's percentage).",
       "label_i18n": {
         "en": "Water Ratio",
         "tr": "Su Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "saltPercent",
-      "label": "Tuz Oranı",
+      "label": "Salt Ratio",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Un ağırlığına göre tuz yüzdesi.",
+      "businessContext": "Salt percentage based on flour weight.",
       "label_i18n": {
         "en": "Salt Ratio",
         "tr": "Tuz Oranı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "yeastPercent",
-      "label": "Maya Oranı",
+      "label": "Yeast Ratio",
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Un ağırlığına göre maya yüzdesi.",
+      "businessContext": "Yeast percentage based on flour weight.",
       "label_i18n": {
         "en": "Yeast Ratio",
         "tr": "Maya Oranı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "otherPercent",
-      "label": "Diğer Malzeme Oranı",
+      "label": "Other Ingredient Ratio",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İsteğe bağlı diğer malzeme (ör. şeker, yağ) yüzdesi.",
+      "businessContext": "Optional other ingredient (e.g., sugar, fat) percentage.",
       "label_i18n": {
         "en": "Other Ingredient Ratio",
         "tr": "Diğer Malzeme Oranı",

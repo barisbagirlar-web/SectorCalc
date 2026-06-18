@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "width",
-      "label": "Kesit Genişliği",
+      "label": "Section Width",
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Dikdörtgen kesitin mm cinsinden genişliği",
+      "businessContext": "Width of rectangular section in mm",
       "label_i18n": {
         "en": "Section Width",
         "tr": "Kesit Genişliği",
@@ -27,11 +27,11 @@
     },
     {
       "id": "height",
-      "label": "Kesit Yüksekliği",
+      "label": "Section Height",
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Dikdörtgen kesitin mm cinsinden yüksekliği",
+      "businessContext": "Height of rectangular section in mm",
       "label_i18n": {
         "en": "Section Height",
         "tr": "Kesit Yüksekliği",

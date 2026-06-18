@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "buildingValue",
-      "label": "Bina Değeri (TL)",
+      "label": "Building Value (TL)",
       "type": "number",
       "unit": "TL",
       "default": 500000,
-      "businessContext": "Sigorta edilecek binanın toplam değeri",
+      "businessContext": "Total value of the building to be insured",
       "label_i18n": {
         "en": "Building Value (TL)",
         "tr": "Bina Değeri (TL)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "seismicZone",
-      "label": "Deprem Bölgesi Katsayısı",
+      "label": "Earthquake Zone Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
+      "businessContext": "Risk coefficient according to the earthquake zone where the building is located (0.5-2.0)",
       "label_i18n": {
         "en": "Earthquake Zone Coefficient",
         "tr": "Deprem Bölgesi Katsayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "constructionType",
-      "label": "Yapı Tipi Katsayısı",
+      "label": "Building Type Coefficient",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
+      "businessContext": "Risk coefficient according to the building material and structural system (reinforced concrete=1.0, steel=0.8, wood=1.5, etc.)",
       "label_i18n": {
         "en": "Building Type Coefficient",
         "tr": "Yapı Tipi Katsayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "buildingAge",
-      "label": "Bina Yaşı (yıl)",
+      "label": "Building Age (years)",
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
+      "businessContext": "The age of the building affects the wear and durability factor",
       "label_i18n": {
         "en": "Building Age (years)",
         "tr": "Bina Yaşı (yıl)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "deductible",
-      "label": "Muafiyet Oranı (%)",
+      "label": "Deductible Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
+      "businessContext": "The rate the insured will cover in case of damage, reflected in premium discount",
       "label_i18n": {
         "en": "Deductible Rate (%)",
         "tr": "Muafiyet Oranı (%)",

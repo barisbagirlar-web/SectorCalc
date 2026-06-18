@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "litre",
       "default": 20,
-      "businessContext": "Üretilecek toplam şıra hacmi",
+      "businessContext": "Total must volume to be produced",
       "label_i18n": {
         "en": "Parti Hacmi (L)",
         "tr": "Batch Volume (L)",
@@ -27,7 +27,7 @@
     },
     {
       "id": "targetABV",
-      "label": "Hedef Alkol Oranı (% ABV)",
+      "label": "Target Alcohol Percentage (% ABV)",
       "type": "number",
       "unit": "%",
       "default": 12,
@@ -51,11 +51,11 @@
     },
     {
       "id": "honeySugarContent",
-      "label": "Bal Şeker Oranı (%)",
+      "label": "Honey Sugar Percentage (%)",
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Balın içerdiği şeker yüzdesi, tipik %78-85",
+      "businessContext": "Sugar percentage in honey, typically 78-85%",
       "label_i18n": {
         "en": "Honey Sugar Percentage (%)",
         "tr": "Bal Şeker Oranı (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Mayanın şekeri alkole dönüştürme verimi, %100 teorik tam dönüşüm",
+      "businessContext": "Yeast's efficiency in converting sugar to alcohol, 100% theoretical complete conversion",
       "label_i18n": {
         "en": "Fermantasyon Verimi (%)",
         "tr": "Fermentation Yield (%)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "honeyDensity",
-      "label": "Bal Yoğunluğu",
+      "label": "Honey Density",
       "type": "number",
       "unit": "kg/L",
       "default": 1.36,
-      "businessContext": "Balın yoğunluğu, genelde 1.36 kg/L",
+      "businessContext": "Density of honey, typically 1.36 kg/L",
       "label_i18n": {
         "en": "Honey Density",
         "tr": "Bal Yoğunluğu",
@@ -123,11 +123,11 @@
     },
     {
       "id": "waterDensity",
-      "label": "Su Yoğunluğu",
+      "label": "Water Density",
       "type": "number",
       "unit": "kg/L",
       "default": 1,
-      "businessContext": "Suyun yoğunluğu, 1 kg/L",
+      "businessContext": "Density of water, 1 kg/L",
       "label_i18n": {
         "en": "Water density",
         "tr": "Su Yoğunluğu",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Tam gün sayısı",
+      "businessContext": "Number of full days",
       "label_i18n": {
         "en": "Day",
         "tr": "Gün",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Ek saat miktarı",
+      "businessContext": "Additional hours",
       "label_i18n": {
         "en": "Hour",
         "tr": "Saat",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Ek dakika miktarı",
+      "businessContext": "Additional minutes",
       "label_i18n": {
         "en": "Dakika",
         "tr": "Minutes",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "saniye",
       "default": 0,
-      "businessContext": "Ek saniye miktarı",
+      "businessContext": "Additional seconds",
       "label_i18n": {
         "en": "Saniye",
         "tr": "Seconds",

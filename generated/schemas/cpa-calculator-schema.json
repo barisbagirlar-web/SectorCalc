@@ -7,10 +7,10 @@
       "type": "number",
       "unit": "EUR",
       "default": 10000,
-      "businessContext": "Dönem içindeki toplam pazarlama harcamaları (reklam, kampanya vb.)",
+      "businessContext": "Total marketing expenses in the period (advertising, campaigns, etc.)",
       "label_i18n": {
-        "en": "Pazarlama Maliyeti",
-        "tr": "Marketing Cost",
+        "en": "Marketing Cost",
+        "tr": "Pazarlama Maliyeti",
         "de": "Marketingkosten",
         "fr": "Coût marketing",
         "es": "Costo de marketing",
@@ -27,11 +27,11 @@
     },
     {
       "id": "salesCost",
-      "label": "Satış Maliyeti",
+      "label": "Sales Cost",
       "type": "number",
       "unit": "EUR",
       "default": 5000,
-      "businessContext": "Satış personeli, ekipman ve diğer satış giderleri",
+      "businessContext": "Sales personnel, equipment and other sales expenses",
       "label_i18n": {
         "en": "Cost of sales",
         "tr": "Satış Maliyeti",
@@ -51,11 +51,11 @@
     },
     {
       "id": "overheadCost",
-      "label": "Genel Gider Payı",
+      "label": "Overhead Allocation",
       "type": "number",
       "unit": "EUR",
       "default": 2000,
-      "businessContext": "Müşteri edinimi için ayrılan genel yönetim gider payı",
+      "businessContext": "General administrative overhead allocated for customer acquisition",
       "label_i18n": {
         "en": "Overhead allocation",
         "tr": "Genel Gider Payı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "otherCost",
-      "label": "Diğer Maliyetler",
+      "label": "Other Costs",
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Yazılım, danışmanlık gibi ek edinim maliyetleri",
+      "businessContext": "Additional acquisition costs such as software, consulting",
       "label_i18n": {
         "en": "Other costs",
         "tr": "Diğer Maliyetler",
@@ -99,11 +99,11 @@
     },
     {
       "id": "acquiredCustomers",
-      "label": "Kazanılan Müşteri Sayısı",
+      "label": "Number of Customers Acquired",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "İlgili dönemde kazanılan yeni müşteri sayısı",
+      "businessContext": "Number of new customers acquired in the relevant period",
       "label_i18n": {
         "en": "Number of customers acquired",
         "tr": "Kazanılan Müşteri Sayısı",

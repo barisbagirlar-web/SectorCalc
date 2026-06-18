@@ -27,11 +27,11 @@
     },
     {
       "id": "speed",
-      "label": "Ortalama Hız (km/sa)",
+      "label": "Average Speed (km/h)",
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "Seyir hızı",
+      "businessContext": "Cruising speed",
       "label_i18n": {
         "en": "Average Speed (km/h)",
         "tr": "Ortalama hız (km/sa)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "fuelConsumption",
-      "label": "Yakıt Tüketimi (L/100km)",
+      "label": "Fuel Consumption (L/100km)",
       "type": "number",
       "unit": "L/100km",
       "default": 30,
-      "businessContext": "Aracın 100 km'de tükettiği yakıt",
+      "businessContext": "Fuel consumed by the vehicle per 100 km",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt tüketimi (L/100km)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "fuelCost",
-      "label": "Yakıt Birim Fiyatı (TL/L)",
+      "label": "Fuel Unit Price (TL/L)",
       "type": "number",
       "unit": "TL/L",
       "default": 25,
-      "businessContext": "Yakıtın litre fiyatı",
+      "businessContext": "Fuel price per liter",
       "label_i18n": {
         "en": "Fuel Unit Price (TL/L)",
         "tr": "Yakıt birim fiyatı (TL/L)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Yolculuk sırasında verilen mola sayısı",
+      "businessContext": "Number of breaks taken during the journey",
       "label_i18n": {
         "en": "Number of breaks",
         "tr": "Mola sayısı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "stopDuration",
-      "label": "Mola Süresi (dk)",
+      "label": "Break Duration (min)",
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Her mola için harcanan süre",
+      "businessContext": "Time spent per break",
       "label_i18n": {
         "en": "Break duration (min)",
         "tr": "Mola Süresi (dk)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "tollCost",
-      "label": "Geçiş Ücreti (TL)",
+      "label": "Toll Fee (TL)",
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Otoyol/geçiş ücretleri toplamı",
+      "businessContext": "Total highway/toll fees",
       "label_i18n": {
         "en": "Toll fee (TL)",
         "tr": "Geçiş Ücreti (TL)",
@@ -171,11 +171,11 @@
     },
     {
       "id": "driverWage",
-      "label": "Sürücü Yevmiyesi (TL/gün)",
+      "label": "Driver Daily Wage (TL/day)",
       "type": "number",
       "unit": "TL/gün",
       "default": 500,
-      "businessContext": "Sürücünün günlük maliyeti",
+      "businessContext": "Driver's daily cost",
       "label_i18n": {
         "en": "Driver daily wage (TL/day)",
         "tr": "Sürücü Yevmiyesi (TL/gün)",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "derece",
       "default": 41,
-      "businessContext": "Gözlem noktasının enlemi (-90 ile 90 arası)",
+      "businessContext": "Latitude of observation point (-90 to 90)",
       "label_i18n": {
         "en": "Enlem",
         "tr": "Latitude",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2024,
-      "businessContext": "Gözlem yılı",
+      "businessContext": "Observation year",
       "label_i18n": {
         "en": "Year",
         "tr": "Yıl",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 6,
-      "businessContext": "Gözlem ayı (1–12)",
+      "businessContext": "Observation month (1–12)",
       "label_i18n": {
         "en": "Ay",
         "tr": "Month",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 21,
-      "businessContext": "Gözlem günü (1–31)",
+      "businessContext": "Observation day (1–31)",
       "label_i18n": {
         "en": "Day",
         "tr": "Gün",
@@ -99,11 +99,11 @@
     },
     {
       "id": "utcOffset",
-      "label": "UTC Sapması",
+      "label": "UTC Offset",
       "type": "number",
       "unit": "saat",
       "default": 3,
-      "businessContext": "Zaman dilimi UTC farkı (Türkiye için +3)",
+      "businessContext": "Time zone UTC offset (+3 for Turkey)",
       "label_i18n": {
         "en": "UTC Offset",
         "tr": "UTC Sapması",

@@ -147,14 +147,19 @@
     }
   ],
   "formulas": {
+    "grossTotal": "tuition + living + books",
+    "totalCost": "grossTotal * years",
     "totalScholarship": "scholarship * years",
-    "totalScholarship_aux": "scholarship * years"
+    "netCost": "totalCost - totalScholarship",
+    "inflatedCost": "totalCost * (1 + inflation/100)"
   },
   "outputs": {
-    "primary": "totalScholarship_aux",
+    "primary": "netCost",
     "breakdown": [
       "grossTotal",
-      "totalScholarship"
+      "totalCost",
+      "totalScholarship",
+      "inflatedCost"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [

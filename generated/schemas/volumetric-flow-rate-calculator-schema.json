@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Boru iç çapı",
+      "businessContext": "Pipe inner diameter",
       "label_i18n": {
         "en": "Inner Diameter",
         "tr": "İç Çap",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Akışkan hızı",
+      "businessContext": "Fluid velocity",
       "label_i18n": {
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Kesit alanı (çap yerine kullanılabilir)",
+      "businessContext": "Cross-sectional area (can be used instead of diameter)",
       "label_i18n": {
         "en": "Cross-Sectional Area",
         "tr": "Kesit Alanı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 0,
-      "businessContext": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)",
+      "businessContext": "Fluid density (for mass flow conversion)",
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "kg/s",
       "default": 0,
-      "businessContext": "Kütlesel debi (hacimsel debiye dönüştürülür)",
+      "businessContext": "Mass flow rate (converted to volumetric flow rate)",
       "label_i18n": {
         "en": "Mass Flow Rate",
         "tr": "Kütlesel Debi",

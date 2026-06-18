@@ -123,13 +123,13 @@
     }
   ],
   "formulas": {
-    "delta_allow_mm": "span / deflectionRatio",
-    "delta_allow_mm_aux": "span / deflectionRatio"
+    "M_max_Nmm": "udl * span * span / 8",
+    "I_req_mm4": "M_max_Nmm * span * span / (8 * elasticModulus * deflectionRatio)",
+    "delta_allow_mm": "span / deflectionRatio"
   },
   "outputs": {
-    "primary": "delta_allow_mm_aux",
+    "primary": "I_req_mm4",
     "breakdown": [
-      "I_req_mm4",
       "M_max_Nmm",
       "delta_allow_mm"
     ],
@@ -137,10 +137,10 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "delta_allow_mm",
-    "unit": "mm",
+    "dataConfidenceAdjusted": "I_req_mm4",
+    "unit": "mm^4",
     "breakdownUnits": {
-      "M_max_Nmm": "mm",
+      "M_max_Nmm": "Nmm",
       "delta_allow_mm": "mm"
     }
   },
@@ -154,7 +154,38 @@
   "profession": "Yapısal Mühendis",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "positive-span",
+        "field": "span",
+        "condition": ">0",
+        "message": "Span must be positive."
+      },
+      {
+        "id": "positive-udl",
+        "field": "udl",
+        "condition": ">0",
+        "message": "UDL must be positive."
+      },
+      {
+        "id": "positive-stress",
+        "field": "allowableStress",
+        "condition": ">0",
+        "message": "Allowable stress must be positive."
+      },
+      {
+        "id": "positive-modulus",
+        "field": "elasticModulus",
+        "condition": ">0",
+        "message": "Elastic modulus must be positive."
+      },
+      {
+        "id": "positive-deflection-ratio",
+        "field": "deflectionRatio",
+        "condition": ">0",
+        "message": "Deflection ratio must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

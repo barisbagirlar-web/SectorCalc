@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY/birim",
       "default": 10,
-      "businessContext": "Birim ürün başına düşen hammadde maliyeti.",
+      "businessContext": "Raw material cost per unit product.",
       "label_i18n": {
         "en": "Hammadde Maliyeti",
         "tr": "Raw Material Cost",
@@ -27,11 +27,11 @@
     },
     {
       "id": "laborCostPerHour",
-      "label": "Saatlik İşçilik Maliyeti",
+      "label": "Hourly Labor Cost",
       "type": "number",
       "unit": "TRY/saat",
       "default": 50,
-      "businessContext": "Bir işçinin saatlik maliyeti.",
+      "businessContext": "Hourly cost of a worker.",
       "label_i18n": {
         "en": "Hourly Labor Cost",
         "tr": "Saatlik İşçilik Maliyeti",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hoursPerUnit",
-      "label": "Birim Başına İşçilik Süresi",
+      "label": "Labor Time per Unit",
       "type": "number",
       "unit": "saat",
       "default": 0.5,
-      "businessContext": "Bir birim ürün için harcanan işçilik süresi.",
+      "businessContext": "Labor time spent per unit product.",
       "label_i18n": {
         "en": "Labor Time per Unit",
         "tr": "Birim Başına İşçilik Süresi",
@@ -75,11 +75,11 @@
     },
     {
       "id": "energyCostPerUnit",
-      "label": "Enerji Gideri (birim başına)",
+      "label": "Energy Cost (per unit)",
       "type": "number",
       "unit": "TRY/birim",
       "default": 2,
-      "businessContext": "Birim ürün başına enerji maliyeti.",
+      "businessContext": "Energy cost per unit product.",
       "label_i18n": {
         "en": "Energy Cost (per unit)",
         "tr": "Enerji Gideri (birim başına)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 5,
-      "businessContext": "Ambalaj, nakliye gibi birim başı ek giderler.",
+      "businessContext": "Additional expenses per unit such as packaging, shipping.",
       "label_i18n": {
         "en": "Ek Maliyetler",
         "tr": "Additional Costs",
@@ -123,11 +123,11 @@
     },
     {
       "id": "overheadRate",
-      "label": "Genel Gider Oranı",
+      "label": "Overhead Rate",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
+      "businessContext": "Overhead percentage added on direct costs.",
       "label_i18n": {
         "en": "Overhead Rate",
         "tr": "Genel Gider Oranı",
@@ -147,11 +147,11 @@
     },
     {
       "id": "profitMargin",
-      "label": "Kâr Marjı",
+      "label": "Profit Margin",
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
+      "businessContext": "Profit percentage applied on total cost.",
       "label_i18n": {
         "en": "Profit Margin",
         "tr": "Kâr Marjı",

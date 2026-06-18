@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "wallThickness",
-      "label": "Duvar Kalınlığı",
+      "label": "Wall Thickness",
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Duvarın et kalınlığı (mm)",
+      "businessContext": "Wall thickness (mm)",
       "label_i18n": {
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "wallLength",
-      "label": "Duvar Uzunluğu",
+      "label": "Wall Length",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Duvarın uzunluğu (m)",
+      "businessContext": "Wall length (m)",
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu",
@@ -51,11 +51,11 @@
     },
     {
       "id": "wallHeight",
-      "label": "Duvar Yüksekliği",
+      "label": "Wall Height",
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Duvarın yüksekliği (m)",
+      "businessContext": "Wall height (m)",
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
@@ -75,11 +75,11 @@
     },
     {
       "id": "compressiveStrength",
-      "label": "Basınç Dayanımı",
+      "label": "Compressive Strength",
       "type": "number",
       "unit": "MPa",
       "default": 20,
-      "businessContext": "Malzeme basınç dayanımı (MPa)",
+      "businessContext": "Material compressive strength (MPa)",
       "label_i18n": {
         "en": "Compressive Strength",
         "tr": "Basınç Dayanımı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Güvenlik faktörü (birimsiz)",
+      "businessContext": "Safety factor (dimensionless)",
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 40,
-      "businessContext": "Hastanın kronolojik yaşı",
+      "businessContext": "Patient's chronological age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -27,11 +27,11 @@
     },
     {
       "id": "systolicBP",
-      "label": "Sistolik Kan Basıncı",
+      "label": "Systolic Blood Pressure",
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Ölçülen sistolik kan basıncı",
+      "businessContext": "Measured systolic blood pressure",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Açlık total kolesterol seviyesi",
+      "businessContext": "Fasting total cholesterol level",
       "label_i18n": {
         "en": "Total Kolesterol",
         "tr": "Total Cholesterol",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "Yüksek yoğunluklu lipoprotein seviyesi",
+      "businessContext": "High-density lipoprotein level",
       "label_i18n": {
         "en": "HDL Kolesterol",
         "tr": "HDL Cholesterol",
@@ -99,11 +99,11 @@
     },
     {
       "id": "smoker",
-      "label": "Sigara Kullanımı",
+      "label": "Smoking Status",
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0: İçmiyor, 1: İçiyor",
+      "businessContext": "0: Non-smoker, 1: Smoker",
       "label_i18n": {
         "en": "Smoking status",
         "tr": "Sigara Kullanımı",
@@ -147,7 +147,7 @@
     },
     {
       "id": "treatedBP",
-      "label": "Kan Basıncı Tedavisi",
+      "label": "Blood Pressure Treatment",
       "type": "number",
       "unit": "binary",
       "default": 0,

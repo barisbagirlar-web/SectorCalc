@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "diameter",
-      "label": "Tank Çapı",
+      "label": "Tank Diameter",
       "type": "number",
       "unit": "m",
       "default": 2,
@@ -27,7 +27,7 @@
     },
     {
       "id": "heightCylinder",
-      "label": "Silindir Yüksekliği",
+      "label": "Cylinder Height",
       "type": "number",
       "unit": "m",
       "default": 3,
@@ -51,7 +51,7 @@
     },
     {
       "id": "wallThickness",
-      "label": "Et Kalınlığı",
+      "label": "Wall Thickness",
       "type": "number",
       "unit": "mm",
       "default": 5,
@@ -75,7 +75,7 @@
     },
     {
       "id": "materialDensity",
-      "label": "Malzeme Yoğunluğu",
+      "label": "Material Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,

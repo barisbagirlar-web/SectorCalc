@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "loadWeight",
-      "label": "Yük Ağırlığı",
+      "label": "Load Weight",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak yükün toplam ağırlığı",
+      "businessContext": "Total weight of load to be lifted",
       "label_i18n": {
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
@@ -75,7 +75,7 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Faktörü",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "unit",
       "default": 5,

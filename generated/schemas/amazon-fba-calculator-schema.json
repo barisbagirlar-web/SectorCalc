@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Birim başına ürün edinme maliyeti",
+      "businessContext": "Product acquisition cost per unit",
       "label_i18n": {
         "en": "Product Cost (per unit)",
         "tr": "Ürün Maliyeti (Birim)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Amazon'da listelenecek nihai satış fiyatı",
+      "businessContext": "Final selling price to be listed on Amazon",
       "label_i18n": {
         "en": "Selling Price (incl. VAT)",
         "tr": "Satış Fiyatı (KDV Dahil)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Kategoriye göre Amazon komisyon oranı",
+      "businessContext": "Amazon commission rate by category",
       "label_i18n": {
         "en": "Amazon Referral Fee (%)",
         "tr": "Amazon Referans Ücreti (%)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
+      "businessContext": "Storage, packaging, and shipping fee charged by Amazon",
       "label_i18n": {
         "en": "FBA Processing Fee (per unit)",
         "tr": "FBA İşlem Ücreti (Birim)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Ürünlerin Amazon deposuna gönderim maliyeti",
+      "businessContext": "Cost of shipping products to Amazon warehouse",
       "label_i18n": {
         "en": "Amazon'a Nakliye (Birim)",
         "tr": "Shipping to Amazon (per unit)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "PPC reklam harcaması (birim başı dağıtılmış)",
+      "businessContext": "PPC advertising spend (distributed per unit)",
       "label_i18n": {
         "en": "Advertising Cost (Per Unit)",
         "tr": "Reklam Maliyeti (Birim Başı)",
@@ -147,11 +147,11 @@
     },
     {
       "id": "storageCost",
-      "label": "Depolama Ücreti (Birim Başı/Aylık)",
+      "label": "Storage Fee (Per Unit/Monthly)",
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Aylık depolama ücreti (varsa)",
+      "businessContext": "Monthly storage fee (if applicable)",
       "label_i18n": {
         "en": "Storage Fee (Per Unit/Month)",
         "tr": "Depolama Ücreti (Birim Başı/Aylık)",

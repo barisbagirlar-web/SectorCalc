@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "firstUnitTime",
-      "label": "İlk Birim Zamanı",
+      "label": "First Unit Time",
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
+      "businessContext": "Production time of the first unit. It is the base value in learning curve calculations.",
       "label_i18n": {
         "en": "First unit time (hours)",
         "tr": "İlk Birim Zamanı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "learningRate",
-      "label": "Öğrenme Oranı",
+      "label": "Learning Rate",
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
+      "businessContext": "Percentage decrease in unit time when cumulative production doubles. Typical values are between 70-90.",
       "label_i18n": {
         "en": "Learning rate (%)",
         "tr": "Öğrenme Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "cumulativeUnits",
-      "label": "Toplam Birim Sayısı",
+      "label": "Total Number of Units",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
+      "businessContext": "Cumulative number of units for which experience gain will be calculated.",
       "label_i18n": {
         "en": "Total number of units",
         "tr": "Toplam Birim Sayısı",

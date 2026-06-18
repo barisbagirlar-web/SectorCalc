@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet seçimi",
+      "businessContext": "Gender selection",
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
         "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı",
+      "businessContext": "Body Weight",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu",
+      "businessContext": "Height",
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Vücut yağ oranı",
+      "businessContext": "Body fat percentage",
       "label_i18n": {
         "en": "Body Fat Percentage",
         "tr": "Vücut yağ yüzdesi",

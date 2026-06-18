@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Alt integrasyon sınırı",
+      "businessContext": "Lower integration limit",
       "label_i18n": {
         "en": "Lower Limit (a)",
         "tr": "Alt sınır (a)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üst integrasyon sınırı",
+      "businessContext": "Upper integration limit",
       "label_i18n": {
         "en": "Upper Limit (b)",
         "tr": "Üst sınır (b)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Sabit terim katsayısı",
+      "businessContext": "Constant term coefficient",
       "label_i18n": {
         "en": "Constant Coefficient (c₀)",
         "tr": "Sabit katsayı (c₀)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "x terimi katsayısı",
+      "businessContext": "x term coefficient",
       "label_i18n": {
         "en": "Linear Coefficient (c₁)",
         "tr": "Doğrusal katsayı (c₁)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "x² terimi katsayısı",
+      "businessContext": "x² term coefficient",
       "label_i18n": {
         "en": "Quadratic Coefficient (c₂)",
         "tr": "İkinci derece katsayı (c₂)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "x³ terimi katsayısı",
+      "businessContext": "x³ term coefficient",
       "label_i18n": {
         "en": "Cubic Coefficient (c₃)",
         "tr": "Üçüncü derece katsayı (c₃)",

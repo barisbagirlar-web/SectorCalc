@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "cuttingSpeed",
-      "label": "Kesme Hızı (Vc)",
+      "label": "Cutting Speed (Vc)",
       "type": "number",
       "unit": "m/dk",
       "default": 150,
-      "businessContext": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
+      "businessContext": "Cutting speed depends on material and tool properties.",
       "label_i18n": {
         "en": "Cutting Speed (Vc)",
         "tr": "Kesme Hızı (Vc)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "feedPerTooth",
-      "label": "Diş Başı İlerleme (fz)",
+      "label": "Feed per Tooth (fz)",
       "type": "number",
       "unit": "mm/diş",
       "default": 0.15,
-      "businessContext": "Takım kataloğundan seçilen değer.",
+      "businessContext": "Value selected from tool catalog.",
       "label_i18n": {
         "en": "Feed per Tooth (fz)",
         "tr": "Diş Başı İlerleme (fz)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "numberOfTeeth",
-      "label": "Diş Sayısı (z)",
+      "label": "Number of Teeth (z)",
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Kesici takımın diş sayısı.",
+      "businessContext": "Number of teeth of the cutting tool.",
       "label_i18n": {
         "en": "Number of Teeth (z)",
         "tr": "Diş Sayısı (z)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "toolDiameter",
-      "label": "Takım Çapı (D)",
+      "label": "Tool Diameter (D)",
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Kesici takımın çapı.",
+      "businessContext": "Diameter of the cutting tool.",
       "label_i18n": {
         "en": "Tool Diameter (D)",
         "tr": "Takım Çapı (D)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "depthOfCut",
-      "label": "Kesme Derinliği (ap)",
+      "label": "Cutting Depth (ap)",
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Eksenel kesme derinliği.",
+      "businessContext": "Axial cutting depth.",
       "label_i18n": {
         "en": "Depth of Cut (ap)",
         "tr": "Kesme Derinliği (ap)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "widthOfCut",
-      "label": "Kesme Genişliği (ae)",
+      "label": "Cutting Width (ae)",
       "type": "number",
       "unit": "mm",
       "default": 8,
-      "businessContext": "Radyal kesme genişliği.",
+      "businessContext": "Radial cutting width.",
       "label_i18n": {
         "en": "Cutting Width (ae)",
         "tr": "Kesme Genişliği (ae)",

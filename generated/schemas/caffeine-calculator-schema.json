@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Tüketilen veya hazırlanan porsiyon sayısı",
+      "businessContext": "Number of portions consumed or prepared",
       "label_i18n": {
         "en": "Number of Portions",
         "tr": "Porsiyon Sayısı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "caffeineContentPer100ml",
-      "label": "100 ml'deki Kafein Miktarı",
+      "label": "Caffeine Amount per 100 ml",
       "type": "number",
       "unit": "mg/100ml",
       "default": 40,
-      "businessContext": "İçeceğin 100 ml'sinde bulunan kafein miktarı (mg)",
+      "businessContext": "Amount of caffeine in 100 ml of the drink (mg)",
       "label_i18n": {
         "en": "Caffeine Amount per 100 ml",
         "tr": "100 ml'deki Kafein Miktarı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin vücut ağırlığı (kg)",
+      "businessContext": "Person's body weight (kg)",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",

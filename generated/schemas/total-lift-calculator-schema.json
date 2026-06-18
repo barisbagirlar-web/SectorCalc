@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak ana yükün kütlesi (rigging hariç).",
+      "businessContext": "Mass of main load to be lifted (excluding rigging).",
       "label_i18n": {
         "en": "Load Mass",
         "tr": "Yük Kütlesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "gravity",
-      "label": "Yerçekimi İvmesi",
+      "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerel yerçekimi ivmesi değeri.",
+      "businessContext": "Local gravitational acceleration value.",
       "label_i18n": {
         "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "safetyFactor",
-      "label": "Güvenlik Katsayısı",
+      "label": "Safety Factor",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "Standartlara uygun güvenlik faktörü (EN 13001 vb.).",
+      "businessContext": "Safety factor according to standards (EN 13001 etc.).",
       "label_i18n": {
         "en": "Safety factor",
         "tr": "Güvenlik Katsayısı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "additionalLoad",
-      "label": "Ek Yük (Rigging)",
+      "label": "Additional Load (Rigging)",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi.",
+      "businessContext": "Total mass of equipment such as slings, hooks, spreader beams.",
       "label_i18n": {
         "en": "Additional Load (Rigging)",
         "tr": "Ek Yük (Rigging)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "liftAcceleration",
-      "label": "Kaldırma İvmesi",
+      "label": "Lifting Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 0.5,
-      "businessContext": "Kaldırma sırasındaki ivme (dinamik yük etkisi).",
+      "businessContext": "Acceleration during lifting (dynamic load effect).",
       "label_i18n": {
         "en": "Lifting Acceleration",
         "tr": "Kaldırma İvmesi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "frictionCoefficient",
-      "label": "Sürtünme Katsayısı",
+      "label": "Friction Coefficient",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.05,
-      "businessContext": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı.",
+      "businessContext": "Friction loss coefficient in lifting mechanism.",
       "label_i18n": {
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "waist_cm",
-      "label": "Bel Çevresi (cm)",
+      "label": "Waist Circumference (cm)",
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Bel çevresi ölçüsü santimetre cinsinden",
+      "businessContext": "Waist circumference measurement in centimeters",
       "label_i18n": {
         "en": "Waist Circumference (cm)",
         "tr": "Bel Çevresi (cm)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu santimetre cinsinden",
+      "businessContext": "Height in centimeters",
       "label_i18n": {
         "en": "Boy (cm)",
         "tr": "Height (cm)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "waist_in",
-      "label": "Bel Çevresi (in)",
+      "label": "Waist Circumference (in)",
       "type": "number",
       "unit": "in",
       "default": 35.43,
-      "businessContext": "Bel çevresi ölçüsü inç cinsinden",
+      "businessContext": "Waist circumference measurement in inches",
       "label_i18n": {
         "en": "Waist Circumference (in)",
         "tr": "Bel Çevresi (in)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "in",
       "default": 66.93,
-      "businessContext": "Boy uzunluğu inç cinsinden",
+      "businessContext": "Height in inches",
       "label_i18n": {
         "en": "Boy (in)",
         "tr": "Height (in)",

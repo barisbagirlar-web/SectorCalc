@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "orderQuantity",
-      "label": "Sipariş Miktarı",
+      "label": "Order Quantity",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Üretim için toplam sipariş miktarı",
+      "businessContext": "Total order quantity for production",
       "label_i18n": {
         "en": "Order Quantity",
         "tr": "Sipariş Miktarı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "unitWeight",
-      "label": "Birim Ağırlık",
+      "label": "Unit Weight",
       "type": "number",
       "unit": "kg/adet",
       "default": 2.5,
-      "businessContext": "Her bir ürünün ağırlığı",
+      "businessContext": "Weight of each product",
       "label_i18n": {
         "en": "Unit Weight",
         "tr": "Birim Ağırlık",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretim sürecinde beklenen fire yüzdesi",
+      "businessContext": "Expected waste percentage in the production process",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Makinelerin ortalama verimliliği",
+      "businessContext": "Average efficiency of machines",
       "label_i18n": {
         "en": "Machine Efficiency",
         "tr": "Makine Verimliliği",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 12.5,
-      "businessContext": "Kg başına hammadde maliyeti",
+      "businessContext": "Raw material cost per kg",
       "label_i18n": {
         "en": "Hammadde Maliyeti",
         "tr": "Raw Material Cost",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 25,
-      "businessContext": "Hastanın kronolojik yaşı (yıl olarak)",
+      "businessContext": "Patient's chronological age (in years)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -27,11 +27,11 @@
     },
     {
       "id": "extracted",
-      "label": "Çekilen Dişler",
+      "label": "Extracted Teeth",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Geçmişte çekilmiş daimi dişlerin sayısı",
+      "businessContext": "Number of permanent teeth extracted in the past",
       "label_i18n": {
         "en": "Extracted Teeth",
         "tr": "Çekilen Dişler",
@@ -51,11 +51,11 @@
     },
     {
       "id": "missing",
-      "label": "Eksik Dişler",
+      "label": "Missing Teeth",
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
+      "businessContext": "Number of permanent teeth absent from the mouth due to congenital or loss",
       "label_i18n": {
         "en": "Missing Teeth",
         "tr": "Eksik Dişler",
@@ -75,11 +75,11 @@
     },
     {
       "id": "wisdomOverride",
-      "label": "Yirmilik Diş Zorla",
+      "label": "Wisdom Tooth Force",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
+      "businessContext": "1 to include all wisdom teeth regardless of age, 0 otherwise",
       "label_i18n": {
         "en": "Wisdom Tooth Forced",
         "tr": "Yirmilik Diş Zorla",

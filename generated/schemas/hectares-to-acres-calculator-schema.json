@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Birinci tarla alanı hektar",
+      "businessContext": "First field area (ha)",
       "label_i18n": {
         "en": "Field 1 (ha)",
         "tr": "Alan 1 (ha)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "ha",
       "default": 0,
-      "businessContext": "İkinci tarla alanı hektar",
+      "businessContext": "Second field area (ha)",
       "label_i18n": {
         "en": "Field 2 (ha)",
         "tr": "Alan 2 (ha)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "ha",
       "default": 0,
-      "businessContext": "Üçüncü tarla alanı hektar",
+      "businessContext": "Third field area (ha)",
       "label_i18n": {
         "en": "Field 3 (ha)",
         "tr": "Alan 3 (ha)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "acre/ha",
       "default": 2.47105,
-      "businessContext": "1 hektar kaç acre? Standart uluslararası acre: 2.47105",
+      "businessContext": "How many acres in 1 hectare? Standard international acre: 2.47105",
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",

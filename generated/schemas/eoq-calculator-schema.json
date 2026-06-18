@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "annualDemand",
-      "label": "Yıllık Talep",
+      "label": "Annual Demand",
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Yıllık satılan veya kullanılan ürün miktarı",
+      "businessContext": "Annual quantity of products sold or used",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep",
@@ -27,11 +27,11 @@
     },
     {
       "id": "orderingCost",
-      "label": "Sipariş Maliyeti",
+      "label": "Ordering Cost",
       "type": "number",
       "unit": "TL/sipariş",
       "default": 100,
-      "businessContext": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
+      "businessContext": "Fixed cost incurred when placing an order (shipping, processing, etc.)",
       "label_i18n": {
         "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "TL/birim/yıl",
       "default": 5,
-      "businessContext": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
+      "businessContext": "Annual cost of storing, insuring, spoilage, etc. per unit of inventory",
       "label_i18n": {
         "en": "Elde Tutma Maliyeti",
         "tr": "Carrying Cost",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 0,
-      "businessContext": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
+      "businessContext": "Purchase cost per unit (added to total cost, optional)",
       "label_i18n": {
         "en": "Birim Maliyet",
         "tr": "Unit Cost",
@@ -99,11 +99,11 @@
     },
     {
       "id": "leadTimeDays",
-      "label": "Tedarik Süresi",
+      "label": "Lead Time",
       "type": "number",
       "unit": "gün",
       "default": 5,
-      "businessContext": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
+      "businessContext": "Time for order delivery (for reorder point)",
       "label_i18n": {
         "en": "Lead Time",
         "tr": "Tedarik Süresi",
@@ -123,11 +123,11 @@
     },
     {
       "id": "workingDaysPerYear",
-      "label": "Yıllık Çalışma Günü",
+      "label": "Annual Working Days",
       "type": "number",
       "unit": "gün/yıl",
       "default": 250,
-      "businessContext": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
+      "businessContext": "Annual working days (for demand distribution)",
       "label_i18n": {
         "en": "Annual Working Days",
         "tr": "Yıllık Çalışma Günü",

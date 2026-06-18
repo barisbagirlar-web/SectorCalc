@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "innerDiameter",
-      "label": "İç Çap",
+      "label": "Inner Diameter",
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Conta iç çapı (mm)",
+      "businessContext": "Gasket inner diameter (mm)",
       "label_i18n": {
         "en": "Inner Diameter",
         "tr": "İç Çap",
@@ -27,11 +27,11 @@
     },
     {
       "id": "outerDiameter",
-      "label": "Dış Çap",
+      "label": "Outer Diameter",
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Conta dış çapı (mm)",
+      "businessContext": "Gasket outer diameter (mm)",
       "label_i18n": {
         "en": "Outer Diameter",
         "tr": "Dış Çap",
@@ -51,11 +51,11 @@
     },
     {
       "id": "designPressure",
-      "label": "Tasarım Basıncı",
+      "label": "Design Pressure",
       "type": "number",
       "unit": "bar",
       "default": 16,
-      "businessContext": "Sistem tasarım basıncı (bar)",
+      "businessContext": "System design pressure (bar)",
       "label_i18n": {
         "en": "Design Pressure",
         "tr": "Tasarım Basıncı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "gasketFactor",
-      "label": "Conta Faktörü (m)",
+      "label": "Gasket Factor (m)",
       "type": "number",
       "unit": "unit",
       "default": 2.5,
-      "businessContext": "ASME contası faktörü (boyutsuz)",
+      "businessContext": "ASME gasket factor (dimensionless)",
       "label_i18n": {
         "en": "Gasket Factor (m)",
         "tr": "Conta Faktörü (m)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "boltCount",
-      "label": "Civata Sayısı",
+      "label": "Number of Bolts",
       "type": "number",
       "unit": "unit",
       "default": 4,
-      "businessContext": "Flanştaki toplam civata sayısı",
+      "businessContext": "Total number of bolts on the flange",
       "label_i18n": {
         "en": "Number of Bolts",
         "tr": "Civata Sayısı",

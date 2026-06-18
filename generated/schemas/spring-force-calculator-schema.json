@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "N/mm",
       "default": 0,
-      "businessContext": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
+      "businessContext": "Direct spring constant value. If left zero, it is calculated from geometry.",
       "label_i18n": {
         "en": "Spring Constant (k)",
         "tr": "Yay Sabiti (k)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "displacement",
-      "label": "Sıkıştırma Miktarı (x)",
+      "label": "Compression Amount (x)",
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Yayın sıkıştırma veya uzama miktarı.",
+      "businessContext": "Amount of compression or extension of the spring.",
       "label_i18n": {
         "en": "Compression Amount (x)",
         "tr": "Sıkıştırma Miktarı (x)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "wireDiameter",
-      "label": "Tel Çapı (d)",
+      "label": "Wire Diameter (d)",
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Yay telinin çapı.",
+      "businessContext": "Diameter of the spring wire.",
       "label_i18n": {
         "en": "Wire Diameter (d)",
         "tr": "Tel Çapı (d)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "coilDiameter",
-      "label": "Bobin Çapı (D)",
+      "label": "Coil Diameter (D)",
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Yayın ortalama bobin çapı.",
+      "businessContext": "Mean coil diameter of the spring.",
       "label_i18n": {
         "en": "Coil Diameter (D)",
         "tr": "Bobin Çapı (D)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "activeCoils",
-      "label": "Aktif Sarım Sayısı (n)",
+      "label": "Number of Active Coils (n)",
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Yaydaki aktif sarım sayısı.",
+      "businessContext": "Number of active coils in the spring.",
       "label_i18n": {
         "en": "Number of active coils (n)",
         "tr": "Aktif Sarım Sayısı (n)",
@@ -123,11 +123,11 @@
     },
     {
       "id": "shearModulus",
-      "label": "Kayma Modülü (G)",
+      "label": "Shear Modulus (G)",
       "type": "number",
       "unit": "MPa",
       "default": 80000,
-      "businessContext": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
+      "businessContext": "Shear modulus of the material. For steel, approximately 80 GPa.",
       "label_i18n": {
         "en": "Shear modulus (G)",
         "tr": "Kayma Modülü (G)",

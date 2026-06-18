@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "product_mass",
-      "label": "Ürün Kütlesi",
+      "label": "Product Mass",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Toplam ürün miktarı (kg)",
+      "businessContext": "Total product quantity (kg)",
       "label_i18n": {
         "en": "Product mass",
         "tr": "Ürün Kütlesi",
@@ -27,11 +27,11 @@
     },
     {
       "id": "target_sugar_pct",
-      "label": "Hedef Şeker Oranı",
+      "label": "Target Sugar Ratio",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Üründe istenen şeker yüzdesi",
+      "businessContext": "Desired sugar percentage in the product",
       "label_i18n": {
         "en": "Target sugar ratio",
         "tr": "Hedef Şeker Oranı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "sugar_purity",
-      "label": "Şeker Saflığı",
+      "label": "Sugar Purity",
       "type": "number",
       "unit": "%",
       "default": 99.5,
-      "businessContext": "Kullanılan şekerin saflık oranı",
+      "businessContext": "Purity ratio of the sugar used",
       "label_i18n": {
         "en": "Sugar purity",
         "tr": "Şeker Saflığı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "sugar_price",
-      "label": "Şeker Birim Fiyatı",
+      "label": "Sugar Unit Price",
       "type": "number",
       "unit": "TL/kg",
       "default": 5,
-      "businessContext": "Şekerin kg başına maliyeti",
+      "businessContext": "Cost per kg of sugar",
       "label_i18n": {
         "en": "Unit price of sugar",
         "tr": "Şeker Birim Fiyatı",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Üretilecek parti sayısı",
+      "businessContext": "Number of batches to produce",
       "label_i18n": {
         "en": "Parti Adedi",
         "tr": "Number of parts",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Proje alanının uzunluğu",
+      "businessContext": "Length of project area",
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Proje alanının genişliği",
+      "businessContext": "Width of project area",
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Agrega tabakasının derinliği",
+      "businessContext": "Depth of aggregate layer",
       "label_i18n": {
         "en": "Derinlik",
         "tr": "Depth",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1600,
-      "businessContext": "Kullanılan taşın yoğunluğu",
+      "businessContext": "Density of the stone used",
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
@@ -99,11 +99,11 @@
     },
     {
       "id": "costPerTon",
-      "label": "Ton Başına Maliyet",
+      "label": "Cost per Ton",
       "type": "number",
       "unit": "TL/ton",
       "default": 150,
-      "businessContext": "Agreganın ton başına satın alma maliyeti",
+      "businessContext": "Purchase cost of aggregate per ton",
       "label_i18n": {
         "en": "Cost per ton",
         "tr": "Ton Başına Maliyet",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Operasyonel fire oranı yüzdesi",
+      "businessContext": "Operational waste percentage",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

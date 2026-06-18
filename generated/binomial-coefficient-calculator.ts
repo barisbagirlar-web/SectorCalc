@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Binomial_coefficient_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (((input.useSymmetry && input.k > input.n/2) ? input.n - input.k : input.k) ? 1 : 0); results["k_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["k_eff"] = 0; }
-  results["breakdownFormula"] = 0;
+  try { const v = (asFormulaNumber(results["k_eff"])) === 0 || (asFormulaNumber(results["k_eff"])) === input.n ? 1 : (asFormulaNumber(results["k_eff"])) === 1 ? input.n : (asFormulaNumber(results["k_eff"])) === 2 ? input.n*(input.n-1)/2 : (asFormulaNumber(results["k_eff"])) === 3 ? input.n*(input.n-1)*(input.n-2)/6 : (asFormulaNumber(results["k_eff"])) === 4 ? input.n*(input.n-1)*(input.n-2)*(input.n-3)/24 : (asFormulaNumber(results["k_eff"])) === 5 ? input.n*(input.n-1)*(input.n-2)*(input.n-3)*(input.n-4)/120 : 0; results["breakdownFormula"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdownFormula"] = 0; }
   return results;
 }
 

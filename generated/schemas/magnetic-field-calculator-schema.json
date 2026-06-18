@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Elektrik akımı (Amper)",
+      "businessContext": "Electric current (Amperes)",
       "label_i18n": {
         "en": "Current (I)",
         "tr": "Akım (I)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 100,
-      "businessContext": "Bobindeki sarım sayısı",
+      "businessContext": "Number of turns in the coil",
       "label_i18n": {
         "en": "Number of Turns (N)",
         "tr": "Dönüş Sayısı (N)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Bobin uzunluğu (metre)",
+      "businessContext": "Coil length (meters)",
       "label_i18n": {
         "en": "Length (L)",
         "tr": "Uzunluk (L)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Çekirdek malzemenin bağıl manyetik geçirgenliği",
+      "businessContext": "Relative magnetic permeability of core material",
       "label_i18n": {
         "en": "Relative Permeability (μᵣ)",
         "tr": "Bağıl Geçirgenlik (μᵣ)",

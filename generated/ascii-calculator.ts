@@ -25,9 +25,6 @@ function evaluateAllFormulas(input: Ascii_calculatorInput): Record<string, numbe
   try { const v = input.char1 + input.char2 + input.char3 + input.char4; results["sum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum"] = 0; }
   try { const v = (input.char1 + input.char2 + input.char3 + input.char4) / 4; results["average"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["average"] = 0; }
   try { const v = input.char1 * input.char2 * input.char3 * input.char4; results["product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["product"] = 0; }
-  try { const v = input.char1 + input.char2 + input.char3 + input.char4; results["sum___char1___char2___char3___char4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum___char1___char2___char3___char4"] = 0; }
-  try { const v = (input.char1 + input.char2 + input.char3 + input.char4) / 4; results["average____char1___char2___char3___char4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["average____char1___char2___char3___char4"] = 0; }
-  try { const v = input.char1 * input.char2 * input.char3 * input.char4; results["product___char1___char2___char3___char4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["product___char1___char2___char3___char4"] = 0; }
   return results;
 }
 

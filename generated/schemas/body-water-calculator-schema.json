@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "binary (0 Kadın, 1 Erkek)",
       "default": 1,
-      "businessContext": "Kullanıcının cinsiyeti: 0 Kadın, 1 Erkek",
+      "businessContext": "User's gender: 0 Female, 1 Male",
       "label_i18n": {
         "en": "Cinsiyet",
         "tr": "Gender",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı (yıl cinsinden)",
+      "businessContext": "User's age (in years)",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)",
+      "businessContext": "User's body weight (kg)",
       "label_i18n": {
         "en": "Kilo",
         "tr": "Weight",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu (santimetre)",
+      "businessContext": "User's height (cm)",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",

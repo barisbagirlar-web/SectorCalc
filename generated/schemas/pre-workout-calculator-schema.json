@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+      "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 3,
-      "businessContext": "Vücut ağırlığı başına istenen kafein miktarı (mg)",
+      "businessContext": "Desired caffeine amount per body weight (mg)",
       "label_i18n": {
         "en": "Caffeine (mg/kg)",
         "tr": "Kafein (mg/kg)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 50,
-      "businessContext": "Vücut ağırlığı başına beta-alanin miktarı (mg)",
+      "businessContext": "Beta-alanine amount per body weight (mg)",
       "label_i18n": {
         "en": "Beta-Alanine (mg/kg)",
         "tr": "Beta-Alanin (mg/kg)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "citrullinePerKg",
-      "label": "Sitrülin Malat (mg/kg)",
+      "label": "Citrulline malate (mg/kg)",
       "type": "number",
       "unit": "mg/kg",
       "default": 80,
-      "businessContext": "Vücut ağırlığı başına sitrülin malat miktarı (mg)",
+      "businessContext": "Citrulline malate amount per body weight (mg)",
       "label_i18n": {
         "en": "Citrulline malate (mg/kg)",
         "tr": "Sitrülin Malat (mg/kg)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "water",
-      "label": "Su Miktarı",
+      "label": "Amount of Water",
       "type": "number",
       "unit": "ml",
       "default": 300,
-      "businessContext": "Karıştırma için önerilen su miktarı (ml)",
+      "businessContext": "Recommended water amount for mixing (ml)",
       "label_i18n": {
         "en": "Water amount",
         "tr": "Su Miktarı",

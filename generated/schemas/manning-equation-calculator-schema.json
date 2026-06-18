@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "roughness",
-      "label": "Manning Pürüzlülük Katsayısı (n)",
+      "label": "Manning Roughness Coefficient (n)",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.013,
-      "businessContext": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
+      "businessContext": "Surface roughness coefficient; 0.013 for concrete, 0.025 for gravel",
       "label_i18n": {
         "en": "Manning's Roughness Coefficient (n)",
         "tr": "Manning Pürüzlülük Katsayısı (n)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "hydraulicRadius",
-      "label": "Hidrolik Yarıçap (R)",
+      "label": "Hydraulic Radius (R)",
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Kesit alanının ıslak çevreye oranı",
+      "businessContext": "Ratio of cross-sectional area to wetted perimeter",
       "label_i18n": {
         "en": "Hydraulic Radius (R)",
         "tr": "Hidrolik Yarıçap (R)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "area",
-      "label": "Kesit Alanı (A)",
+      "label": "Cross-Sectional Area (A)",
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Akışın gerçekleştiği kesit alanı",
+      "businessContext": "Cross-sectional area where flow occurs",
       "label_i18n": {
         "en": "Cross-sectional Area (A)",
         "tr": "Kesit Alanı (A)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "slope",
-      "label": "Kanal Eğimi (S)",
+      "label": "Channel Slope (S)",
       "type": "number",
       "unit": "m/m",
       "default": 0.001,
-      "businessContext": "Enerji çizgisi eğimi, boyutsuz veya m/m",
+      "businessContext": "Energy line slope, dimensionless or m/m",
       "label_i18n": {
         "en": "Channel Slope (S)",
         "tr": "Kanal Eğimi (S)",

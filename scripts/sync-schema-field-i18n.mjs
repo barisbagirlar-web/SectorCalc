@@ -36,11 +36,15 @@ function loadGeneratedSchemaTools() {
   for (const fileName of files) {
     const slug = fileName.replace(/-schema\.json$/, "");
     const raw = JSON.parse(readFileSync(join(SCHEMAS_DIR, fileName), "utf8"));
-    const inputs = (raw.inputs ?? []).map((input) => ({
-      key: input.id,
-      label: input.label ?? "",
-      helper: input.businessContext ?? "",
-    }));
+    const inputs = (raw.inputs ?? []).map((input) => {
+      const label =
+        input.label_i18n?.en?.trim() || input.label?.trim() || "";
+      const helper =
+        input.businessContext_i18n?.en?.trim() ||
+        input.businessContext?.trim() ||
+        "";
+      return { key: input.id, label, helper };
+    });
     tools.push({ slug, inputs });
   }
 

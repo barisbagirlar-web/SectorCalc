@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "min",
-      "label": "Minimum Değer",
+      "label": "Minimum Value",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Rastgele sayı aralığının alt sınırı",
+      "businessContext": "Lower bound of the random number range",
       "label_i18n": {
         "en": "Minimum Value",
         "tr": "Minimum Değer",
@@ -27,11 +27,11 @@
     },
     {
       "id": "max",
-      "label": "Maksimum Değer",
+      "label": "Maximum Value",
       "type": "number",
       "unit": "unit",
       "default": 100,
-      "businessContext": "Rastgele sayı aralığının üst sınırı",
+      "businessContext": "Upper bound of the random number range",
       "label_i18n": {
         "en": "Maximum Value",
         "tr": "Maksimum Değer",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üretilecek rastgele sayı adedi",
+      "businessContext": "Number of random numbers to generate",
       "label_i18n": {
         "en": "Adet",
         "tr": "Quantity",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 42,
-      "businessContext": "Rastgele sayı üretimi için başlangıç değeri",
+      "businessContext": "Initial value for random number generation",
       "label_i18n": {
         "en": "Tohum (Seed)",
         "tr": "Seed",

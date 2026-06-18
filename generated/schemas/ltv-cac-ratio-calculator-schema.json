@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "arpu",
-      "label": "Aylık Ortalama Gelir (ARPU)",
+      "label": "Average Monthly Revenue (ARPU)",
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+      "businessContext": "Average revenue obtained from a customer per month.",
       "label_i18n": {
         "en": "Average Monthly Revenue (ARPU)",
         "tr": "Aylık Ortalama Gelir (ARPU)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "grossMargin",
-      "label": "Brüt Kar Marjı (%)",
+      "label": "Gross Profit Margin (%)",
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+      "businessContext": "Gross profit percentage obtained from each unit of product/service sold.",
       "label_i18n": {
         "en": "Gross Profit Margin (%)",
         "tr": "Brüt Kar Marjı (%)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "churn",
-      "label": "Aylık Kayıp Oranı (%)",
+      "label": "Monthly Churn Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+      "businessContext": "Rate indicating how much of the customer base is lost each month.",
       "label_i18n": {
         "en": "Monthly Churn Rate (%)",
         "tr": "Aylık Kayıp Oranı (%)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "discount",
-      "label": "İskonto Oranı (%)",
+      "label": "Discount Rate (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
+      "businessContext": "Annual discount rate used to find the present value of future cash flows.",
       "label_i18n": {
         "en": "Discount Rate (%)",
         "tr": "İskonto Oranı (%)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "TRY",
       "default": 50000,
-      "businessContext": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
+      "businessContext": "Total marketing and sales expenses in a given period.",
       "label_i18n": {
         "en": "Toplam Edinme Maliyeti",
         "tr": "Total Acquisition Cost",
@@ -123,11 +123,11 @@
     },
     {
       "id": "newCustomers",
-      "label": "Kazanılan Yeni Müşteri Sayısı",
+      "label": "Number of New Customers Acquired",
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Aynı dönemde kazanılan yeni müşteri sayısı.",
+      "businessContext": "Number of new customers acquired in the same period.",
       "label_i18n": {
         "en": "Number of New Customers Acquired",
         "tr": "Kazanılan Yeni Müşteri Sayısı",

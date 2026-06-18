@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "length",
-      "label": "Vücut Uzunluğu",
+      "label": "Body Length",
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Omuzdan kuyruk sokumuna kadar ölçülen uzunluk",
+      "businessContext": "Length measured from shoulder to tailbone",
       "label_i18n": {
         "en": "Body Length",
         "tr": "Vücut Uzunluğu",
@@ -27,11 +27,11 @@
     },
     {
       "id": "girth",
-      "label": "Göğüs Çevresi",
+      "label": "Chest Circumference",
       "type": "number",
       "unit": "cm",
       "default": 35,
-      "businessContext": "Ön bacakların hemen arkasından alınan göğüs çevresi ölçüsü",
+      "businessContext": "Chest circumference measurement taken just behind the front legs",
       "label_i18n": {
         "en": "Chest Circumference",
         "tr": "Göğüs Çevresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "breedFactor",
-      "label": "Irk Faktörü",
+      "label": "Breed Factor",
       "type": "number",
       "unit": "faktor",
       "default": 1,
-      "businessContext": "Irk büyüklüğüne göre düzeltme faktörü (Örn: Maine Coon 1.2, Siyam 0.9)",
+      "businessContext": "Correction factor by breed size (e.g., Maine Coon 1.2, Siamese 0.9)",
       "label_i18n": {
         "en": "Breed Factor",
         "tr": "Irk Faktörü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "sexFactor",
-      "label": "Cinsiyet Faktörü",
+      "label": "Gender Factor",
       "type": "number",
       "unit": "faktor",
       "default": 1,
-      "businessContext": "Erkek: 1.0, Dişi: 0.9",
+      "businessContext": "Male: 1.0, Female: 0.9",
       "label_i18n": {
         "en": "Gender factor",
         "tr": "Cinsiyet Faktörü",

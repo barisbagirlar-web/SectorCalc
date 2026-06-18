@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı",
+      "businessContext": "User's age",
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilosu",
+      "businessContext": "User's weight",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu",
+      "businessContext": "User's height",
       "label_i18n": {
         "en": "Height",
         "tr": "Yükseklik",
@@ -75,11 +75,11 @@
     },
     {
       "id": "coreTemp",
-      "label": "Çekirdek Vücut Sıcaklığı",
+      "label": "Core Body Temperature",
       "type": "number",
       "unit": "°C",
       "default": 37,
-      "businessContext": "Başlangıç vücut sıcaklığı",
+      "businessContext": "Initial body temperature",
       "label_i18n": {
         "en": "Core body temperature",
         "tr": "Çekirdek Vücut Sıcaklığı",
@@ -99,11 +99,11 @@
     },
     {
       "id": "ambientTemp",
-      "label": "Çevre Sıcaklığı",
+      "label": "Ambient Temperature",
       "type": "number",
       "unit": "°C",
       "default": 10,
-      "businessContext": "Soğuk maruziyet sıcaklığı",
+      "businessContext": "Cold exposure temperature",
       "label_i18n": {
         "en": "Ambient temperature",
         "tr": "Çevre Sıcaklığı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "exposureTime",
-      "label": "Maruziyet Süresi",
+      "label": "Exposure Duration",
       "type": "number",
       "unit": "dk",
       "default": 10,
-      "businessContext": "Soğuk maruziyet süresi",
+      "businessContext": "Cold exposure duration",
       "label_i18n": {
         "en": "Exposure duration",
         "tr": "Maruziyet Süresi",

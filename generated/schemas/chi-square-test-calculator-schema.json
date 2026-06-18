@@ -103,15 +103,17 @@
     "expectedA": "(a + b) * (a + c) / total",
     "expectedB": "(a + b) * (b + d) / total",
     "expectedC": "(c + d) * (a + c) / total",
-    "expectedD": "(c + d) * (b + d) / total"
+    "expectedD": "(c + d) * (b + d) / total",
+    "chiSquare": "((a - expectedA)^2 / expectedA) + ((b - expectedB)^2 / expectedB) + ((c - expectedC)^2 / expectedC) + ((d - expectedD)^2 / expectedD)"
   },
   "outputs": {
-    "primary": "expectedD",
+    "primary": "chiSquare",
     "breakdown": [
       "expectedA",
       "expectedB",
       "expectedC",
-      "expectedD"
+      "expectedD",
+      "chiSquare"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [

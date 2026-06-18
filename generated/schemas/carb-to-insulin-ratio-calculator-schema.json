@@ -124,10 +124,11 @@
   ],
   "formulas": {
     "meal_dose": "carbs / icr",
-    "meal_dose_aux": "carbs / icr"
+    "correction_dose": "(current_bg - target_bg) / isf",
+    "total_insulin": "meal_dose + correction_dose"
   },
   "outputs": {
-    "primary": "meal_dose_aux",
+    "primary": "total_insulin",
     "breakdown": [
       "Meal Insulin Dose (U)",
       "Correction Insulin Dose (U)"
@@ -137,7 +138,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "total_insulin",
-    "unit": "g"
+    "unit": "U"
   },
   "category": "Finans & Yatırım",
   "sector": "Sağlık & Tıp",
@@ -149,7 +150,33 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "carbs",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "icr",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "current_bg",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "target_bg",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "isf",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

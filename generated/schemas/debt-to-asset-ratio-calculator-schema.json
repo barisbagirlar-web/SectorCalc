@@ -99,22 +99,24 @@
     }
   ],
   "formulas": {
-    "totalLiabilities": "shortTermLiabilities + longTermLiabilities",
-    "totalAssets": "currentAssets + nonCurrentAssets",
-    "debtToAssetRatio": "totalAssets !== 0 ? (totalLiabilities / totalAssets) * 100 : null"
+    "normalized_product": "shortTermLiabilities * longTermLiabilities * currentAssets * nonCurrentAssets",
+    "result": "shortTermLiabilities * longTermLiabilities * currentAssets * nonCurrentAssets"
   },
   "outputs": {
-    "primary": "debtToAssetRatio",
+    "primary": "result",
     "breakdown": [
-      "totalLiabilities",
-      "totalAssets"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "debtToAssetRatio",
-    "unit": "%"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Makine & Üretim",

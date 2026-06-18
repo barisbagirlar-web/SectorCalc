@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "birthYear",
-      "label": "Doğum Yılı",
+      "label": "Birth Year",
       "type": "number",
       "unit": "yıl",
       "default": 1990,
-      "businessContext": "Kullanıcının doğum yılı",
+      "businessContext": "User's birth year",
       "label_i18n": {
         "en": "Birth Year",
         "tr": "Doğum Yılı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "birthMonth",
-      "label": "Doğum Ayı",
+      "label": "Birth Month",
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Kullanıcının doğum ayı (1-12)",
+      "businessContext": "User's birth month (1-12)",
       "label_i18n": {
         "en": "Birth Month",
         "tr": "Doğum Ayı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "birthDay",
-      "label": "Doğum Günü",
+      "label": "Birth Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Kullanıcının doğum günü (1-31)",
+      "businessContext": "User's birth day (1-31)",
       "label_i18n": {
         "en": "Birth Day",
         "tr": "Doğum Günü",
@@ -75,11 +75,11 @@
     },
     {
       "id": "currentYear",
-      "label": "Mevcut Yıl",
+      "label": "Current Year",
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Hesaplama yapılan yıl",
+      "businessContext": "Calculation year",
       "label_i18n": {
         "en": "Current Year",
         "tr": "Mevcut Yıl",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Hesaplama yapılan ay (1-12)",
+      "businessContext": "Calculation month (1-12)",
       "label_i18n": {
         "en": "Mevcut Ay",
         "tr": "Current Month",
@@ -123,11 +123,11 @@
     },
     {
       "id": "currentDay",
-      "label": "Mevcut Gün",
+      "label": "Current Day",
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Hesaplama yapılan gün (1-31)",
+      "businessContext": "Calculation day (1-31)",
       "label_i18n": {
         "en": "Current Day",
         "tr": "Mevcut Gün",

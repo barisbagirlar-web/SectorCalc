@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Toplam satış fırsatı sayısı (kazanılan, kaybedilen, beklemede)",
+      "businessContext": "Total number of sales opportunities (won, lost, pending)",
       "label_i18n": {
         "en": "Total Opportunities",
         "tr": "Toplam Fırsatlar",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "count",
       "default": 25,
-      "businessContext": "Kazanılan fırsat sayısı",
+      "businessContext": "Number of won opportunities",
       "label_i18n": {
         "en": "Won Opportunities",
         "tr": "Kazanılan Fırsatlar",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "count",
       "default": 20,
-      "businessContext": "Beklemedeki fırsat sayısı",
+      "businessContext": "Number of pending opportunities",
       "label_i18n": {
         "en": "Pending Opportunities",
         "tr": "Beklemedeki Fırsatlar",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Hedeflenen kazanma oranı (%)",
+      "businessContext": "Target win rate (%)",
       "label_i18n": {
         "en": "Target Win Rate",
         "tr": "Hedef Kazanma Oranı",

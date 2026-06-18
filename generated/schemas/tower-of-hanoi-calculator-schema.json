@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "diskSayisi",
-      "label": "Disk Sayısı",
+      "label": "Number of Disks",
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Hanoi kulelerindeki disk sayısı",
+      "businessContext": "Number of disks in the Tower of Hanoi",
       "label_i18n": {
         "en": "Number of Disks",
         "tr": "Disk Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "manuelSure",
-      "label": "Manuel Hamle Süresi",
+      "label": "Manual Move Time",
       "type": "number",
       "unit": "saniye",
       "default": 5,
-      "businessContext": "İnsan eliyle yapılan bir hamlenin süresi",
+      "businessContext": "Time for a move made by human hand",
       "label_i18n": {
         "en": "Manual Move Time",
         "tr": "Manuel Hamle Süresi",
@@ -51,11 +51,11 @@
     },
     {
       "id": "otomatikSure",
-      "label": "Otomatik Hamle Süresi",
+      "label": "Automatic Move Time",
       "type": "number",
       "unit": "saniye",
       "default": 1,
-      "businessContext": "Robotik kol ile yapılan bir hamlenin süresi",
+      "businessContext": "Time for a move made by robotic arm",
       "label_i18n": {
         "en": "Automatic Move Time",
         "tr": "Otomatik Hamle Süresi",

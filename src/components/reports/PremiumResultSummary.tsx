@@ -11,42 +11,17 @@ import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-u
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { normalizeLocale } from "@/lib/format/localization";
 
-/* ─── Tokens ──────────────────────────────────────────────────────── */
-const T = {
-  navy: "#0B1628",
-  navy2: "#112240",
-  slate: "#1E2D45",
-  slate2: "#253552",
-  gold: "#C9A84C",
-  gold2: "#E8C86A",
-  muted: "#8899B2",
-  white: "#FFFFFF",
-  green: "#22C55E",
-  amber: "#F59E0B",
-  red: "#EF4444",
-  blue: "#3B82F6",
-  border: "rgba(201,168,76,0.22)",
-} as const;
-
 /* ─── Badge ───────────────────────────────────────────────────────── */
-function Badge({ label, color }: { label: string; color: string }) {
+function Badge({ label, variant }: { label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }) {
+  const colors: Record<string, string> = {
+    gold: "bg-amber-50 text-amber-800 border-amber-200",
+    amber: "bg-orange-50 text-orange-700 border-orange-200",
+    green: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    blue: "bg-blue-50 text-blue-700 border-blue-200",
+    red: "bg-red-50 text-red-700 border-red-200",
+  };
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        background: `${color}22`,
-        color,
-        border: `1px solid ${color}44`,
-        borderRadius: 3,
-        padding: "2px 7px",
-        fontSize: 9,
-        fontWeight: 700,
-        letterSpacing: "0.07em",
-        textTransform: "uppercase",
-        whiteSpace: "nowrap",
-      }}
-    >
+    <span className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide border ${colors[variant]}`}>
       {label}
     </span>
   );
@@ -60,121 +35,44 @@ function Gauge({ score, color }: { score: number; color: string }) {
   const total = Math.PI * r;
   const filled = (score / 100) * total;
   return (
-    <svg viewBox="0 0 100 55" width={100} height={58}>
+    <svg viewBox="0 0 100 55" width={88} height={52}>
       <defs>
-        <linearGradient id="g-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor={T.green} />
-          <stop offset="50%" stopColor={T.amber} />
-          <stop offset="100%" stopColor={T.red} />
+        <linearGradient id="g-grad-sm" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22C55E" />
+          <stop offset="50%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#EF4444" />
         </linearGradient>
       </defs>
-      <path
-        d={`M${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
-        stroke="rgba(255,255,255,0.07)"
-        strokeWidth="7"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d={`M${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
-        stroke="url(#g-grad)"
-        strokeWidth="7"
-        fill="none"
-        strokeLinecap="round"
-        strokeDasharray={`${total}`}
-        strokeDashoffset={`${total - filled}`}
-      />
-      <text
-        x={cx}
-        y={cy + 9}
-        textAnchor="middle"
-        fontSize="10"
-        fontWeight="700"
-        fill={color}
-        fontFamily="monospace"
-      >
-        {score}
-      </text>
+      <path d={`M${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`} stroke="#E5E7EB" strokeWidth="6" fill="none" strokeLinecap="round" />
+      <path d={`M${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`} stroke="url(#g-grad-sm)" strokeWidth="6" fill="none" strokeLinecap="round" strokeDasharray={`${total}`} strokeDashoffset={`${total - filled}`} />
+      <text x={cx} y={cy + 9} textAnchor="middle" fontSize="10" fontWeight="700" fill={color} fontFamily="monospace">{score}</text>
     </svg>
   );
 }
 
 /* ─── Callout ─────────────────────────────────────────────────────── */
-const CALLOUT_COLORS: Record<string, { border: string; bg: string; titleColor: string }> = {
-  warning: { border: T.amber, bg: `${T.amber}0e`, titleColor: T.amber },
-  danger: { border: T.red, bg: `${T.red}0e`, titleColor: T.red },
-  success: { border: T.green, bg: `${T.green}0e`, titleColor: T.green },
-  info: { border: T.blue, bg: `${T.blue}0e`, titleColor: T.blue },
-};
-
 function Callout({ type, icon, title, text }: { type: string; icon: string; title: string; text: string }) {
-  const c = CALLOUT_COLORS[type] ?? CALLOUT_COLORS.info;
+  const borderMap: Record<string, string> = { warning: "border-l-amber-400", danger: "border-l-red-400", success: "border-l-emerald-400", info: "border-l-blue-400" };
+  const bgMap: Record<string, string> = { warning: "bg-amber-50", danger: "bg-red-50", success: "bg-emerald-50", info: "bg-blue-50" };
+  const titleColorMap: Record<string, string> = { warning: "text-amber-800", danger: "text-red-800", success: "text-emerald-800", info: "text-blue-800" };
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: 10,
-        background: c.bg,
-        borderLeft: `3px solid ${c.border}`,
-        borderRadius: 6,
-        padding: "10px 12px",
-        alignItems: "flex-start",
-      }}
-    >
-      <span style={{ fontSize: 12, flexShrink: 0, marginTop: 1 }}>{icon}</span>
-      <div style={{ flex: 1 }}>
-        <div
-          style={{
-            fontSize: 10,
-            fontWeight: 700,
-            color: c.titleColor,
-            textTransform: "uppercase",
-            letterSpacing: "0.07em",
-            marginBottom: 3,
-          }}
-        >
-          {title}
-        </div>
-        <div style={{ fontSize: 10, color: T.muted, lineHeight: 1.6 }}>{text}</div>
+    <div className={`flex gap-2.5 rounded-md p-2.5 border-l-4 ${borderMap[type] ?? "border-l-blue-400"} ${bgMap[type] ?? "bg-blue-50"}`}>
+      <span className="text-sm flex-shrink-0 mt-0.5">{icon}</span>
+      <div className="flex-1 min-w-0">
+        <div className={`text-[11px] font-bold uppercase tracking-wide mb-0.5 ${titleColorMap[type] ?? "text-blue-800"}`}>{title}</div>
+        <div className="text-xs text-gray-600 leading-relaxed">{text}</div>
       </div>
     </div>
   );
 }
 
-/* ─── Section Label ───────────────────────────────────────────────── */
-function SectionLabel({ num, title }: { num: string; title: string }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-      <span style={{ fontFamily: "monospace", fontSize: 9, color: T.gold, fontWeight: 700, letterSpacing: "0.05em" }}>
-        {num}
-      </span>
-      <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.12em", color: T.muted, fontWeight: 700 }}>
-        {title}
-      </span>
-      <div style={{ flex: 1, height: 1, background: T.border }} />
-    </div>
-  );
-}
-
-/* ─── Mini Result Card ────────────────────────────────────────────── */
+/* ─── Mini Card ───────────────────────────────────────────────────── */
 function MiniCard({ label, value, sub, highlight }: { label: string; value: string; sub: string; highlight: boolean }) {
   return (
-    <div
-      style={{
-        background: T.slate2,
-        border: `1px solid ${T.border}`,
-        borderTop: highlight ? `2px solid ${T.gold}` : `1px solid ${T.border}`,
-        borderRadius: 6,
-        padding: "10px 13px",
-      }}
-    >
-      <div style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.09em", color: T.muted, fontWeight: 600, marginBottom: 4 }}>
-        {label}
-      </div>
-      <div style={{ fontSize: 18, fontWeight: 700, color: T.gold2, fontFamily: "monospace", lineHeight: 1.1 }}>
-        {value}
-      </div>
-      <div style={{ fontSize: 10, color: T.muted, marginTop: 3 }}>{sub}</div>
+    <div className={`rounded-lg p-3 border ${highlight ? "border-amber-300 bg-amber-50/40" : "border-gray-200 bg-white"}`}>
+      <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1">{label}</div>
+      <div className="text-lg font-bold text-gray-900 font-mono leading-tight">{value}</div>
+      <div className="text-xs text-gray-400 mt-0.5">{sub}</div>
     </div>
   );
 }
@@ -188,13 +86,7 @@ export type PremiumResultSummaryProps = {
   readonly onOpenFullReport: () => void;
 };
 
-export function PremiumResultSummary({
-  slug,
-  schema,
-  result,
-  inputs,
-  onOpenFullReport,
-}: PremiumResultSummaryProps) {
+export function PremiumResultSummary({ slug, schema, result, inputs, onOpenFullReport }: PremiumResultSummaryProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool.reportSummary");
   const title = resolveGeneratedToolTitle(slug, schema, locale);
@@ -209,50 +101,34 @@ export function PremiumResultSummary({
 
   const breakdown = result.breakdown ?? {};
   const breakdownEntries = useMemo(
-    () =>
-      Object.entries(breakdown).filter(
-        (e): e is [string, number] => typeof e[1] === "number" && Number.isFinite(e[1]),
-      ),
+    () => Object.entries(breakdown).filter((e): e is [string, number] => typeof e[1] === "number" && Number.isFinite(e[1])),
     [breakdown],
   );
 
   const riskScore =
-    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber
-      ? Math.min(Math.round((1 - result.dataConfidenceAdjusted / ((primaryRaw as number) * 2)) * 100), 100)
+    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0
+      ? Math.min(Math.max(Math.round((1 - result.dataConfidenceAdjusted / ((primaryRaw as number) * 2)) * 100), 0), 100)
       : 45;
 
-  const riskColor = riskScore <= 30 ? T.green : riskScore <= 60 ? T.amber : T.red;
-  const riskLabelKey = riskScore <= 30 ? "riskLow" : riskScore <= 60 ? "riskMedium" : "riskHigh";
+  const riskColor = riskScore <= 30 ? "#22C55E" : riskScore <= 60 ? "#F59E0B" : "#EF4444";
+  const riskLabelKey: "riskLow" | "riskMedium" | "riskHigh" = riskScore <= 30 ? "riskLow" : riskScore <= 60 ? "riskMedium" : "riskHigh";
   const riskLabel = t(riskLabelKey);
+  const riskBadgeVariant: "green" | "amber" | "red" = riskScore <= 30 ? "green" : riskScore <= 60 ? "amber" : "red";
 
   const hiddenDrivers: readonly string[] = Array.isArray(result.hiddenLossDrivers) ? result.hiddenLossDrivers : [];
   const suggestedActions: readonly string[] = Array.isArray(result.suggestedActions) ? result.suggestedActions : [];
 
   const miniCards = useMemo(() => {
     const cards: Array<{ label: string; value: string; sub: string; highlight: boolean }> = [];
-
-    cards.push({
-      label: t("primaryResult"),
-      value: formattedPrimary,
-      sub: t("simulationNotice"),
-      highlight: true,
-    });
-
+    cards.push({ label: t("primaryResult"), value: formattedPrimary, sub: t("simulationNotice"), highlight: true });
     for (let i = 0; i < Math.min(breakdownEntries.length, 3); i++) {
       const [key, val] = breakdownEntries[i];
       const label = (schema.outputs.breakdown as Record<string, string> | undefined)?.[key] ?? key;
-      const formatted = formatGeneratedNumericValue(val, key, locale);
-      cards.push({ label, value: formatted, sub: t("breakdownItem"), highlight: false });
+      cards.push({ label, value: formatGeneratedNumericValue(val, key, locale), sub: t("breakdownItem"), highlight: false });
     }
-
     while (cards.length < 4) {
       if (cards.length === 1 && hiddenDrivers.length > 0) {
-        cards.push({
-          label: t("hiddenLosses"),
-          value: `${hiddenDrivers.length}`,
-          sub: t("detectedCount"),
-          highlight: false,
-        });
+        cards.push({ label: t("hiddenLosses"), value: `${hiddenDrivers.length}`, sub: t("detectedCount"), highlight: false });
       } else {
         const isRisk = cards.length % 2 === 0;
         cards.push({
@@ -263,217 +139,104 @@ export function PremiumResultSummary({
         });
       }
     }
-
     return cards.slice(0, 4);
   }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown]);
 
   const insights = useMemo(() => {
     const items: Array<{ type: string; icon: string; title: string; text: string }> = [];
-
     if (hiddenDrivers.length > 0) {
-      hiddenDrivers.slice(0, 2).forEach((d) => {
-        items.push({ type: "warning", icon: "⚠", title: t("hiddenLoss"), text: d });
-      });
+      hiddenDrivers.slice(0, 2).forEach((d) => items.push({ type: "warning", icon: "⚠", title: t("hiddenLoss"), text: d }));
     }
-
     if (suggestedActions.length > 0) {
-      suggestedActions.slice(0, 2).forEach((a) => {
-        items.push({ type: "info", icon: "↗", title: t("suggestedAction"), text: a });
-      });
+      suggestedActions.slice(0, 2).forEach((a) => items.push({ type: "info", icon: "↗", title: t("suggestedAction"), text: a }));
     }
-
     if (items.length === 0) {
+      items.push({ type: "success", icon: "✓", title: t("calculationComplete"), text: t("confidenceNote") });
       items.push({
-        type: "success",
-        icon: "✓",
-        title: t("calculationComplete"),
-        text: t("confidenceNote"),
-      });
-      items.push({
-        type: "info",
-        icon: "↗",
-        title: t("dataConfidencePrefix"),
-        text: `${t("dataConfidencePrefix")} ${typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber ? Math.round((result.dataConfidenceAdjusted / (primaryRaw as number)) * 100) + "%" : t("standardDeviation")}. ${t("lowConfidence")}.`,
+        type: "info", icon: "↗", title: t("dataConfidencePrefix"),
+        text: `${typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0 ? Math.round((result.dataConfidenceAdjusted / (primaryRaw as number)) * 100) + "%" : t("standardDeviation")}. ${t("lowConfidence")}.`,
       });
     }
-
     return items;
   }, [hiddenDrivers, suggestedActions, t, result.dataConfidenceAdjusted, primaryRaw, primaryIsNumber]);
 
   const confidenceBadges = useMemo(() => {
-    const badges: Array<{ label: string; color: string }> = [{ label: t("confidenceExact"), color: T.gold }];
-    if (hiddenDrivers.length > 0) {
-      badges.push({ label: t("confidenceProbable"), color: T.amber });
-    }
-    if (suggestedActions.length > 0) {
-      badges.push({ label: t("confidenceRecommended"), color: T.blue });
-    }
-    badges.push({ label: `${t("riskScore")}: ${riskLabel}`, color: riskColor });
+    const badges: Array<{ label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }> = [{ label: t("confidenceExact"), variant: "gold" }];
+    if (hiddenDrivers.length > 0) badges.push({ label: t("confidenceProbable"), variant: "amber" });
+    if (suggestedActions.length > 0) badges.push({ label: t("confidenceRecommended"), variant: "blue" });
+    badges.push({ label: `${t("riskScore")}: ${riskLabel}`, variant: riskBadgeVariant });
     return badges;
-  }, [t, hiddenDrivers, suggestedActions, riskLabel, riskColor]);
+  }, [t, hiddenDrivers, suggestedActions, riskLabel, riskBadgeVariant]);
 
   const now = new Date();
   const localeTag = normalizeLocale(locale);
-  const localeMap: Record<string, string> = {
-    tr: "tr-TR",
-    en: "en-US",
-    de: "de-DE",
-    fr: "fr-FR",
-    es: "es-ES",
-    ar: "ar",
-  };
-  const dateStr = now.toLocaleDateString(localeMap[localeTag] || "en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const localeMap: Record<string, string> = { tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar" };
+  const dateStr = now.toLocaleDateString(localeMap[localeTag] || "en-US", { year: "numeric", month: "long", day: "numeric" });
 
   return (
-    <div
-      style={{
-        background: T.navy,
-        borderRadius: 10,
-        overflow: "hidden",
-        boxShadow: "0 12px 48px rgba(0,0,0,0.35)",
-        fontFamily: "'Inter', system-ui, sans-serif",
-        marginTop: 24,
-      }}
-    >
-      <div style={{ height: 3, background: `linear-gradient(90deg, ${T.gold} 0%, ${T.gold2} 60%, transparent 100%)` }} />
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "14px 22px 12px",
-          background: T.navy2,
-          borderBottom: `1px solid ${T.border}`,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: 5,
-              background: `linear-gradient(135deg, ${T.gold}, ${T.gold2})`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 800,
-              fontSize: 11,
-              color: T.navy,
-            }}
-          >
-            SC
-          </div>
+    <div className="mt-6 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+      {/* Header bar */}
+      <div className="flex items-center justify-between px-5 py-3.5 bg-gray-50 border-b border-gray-200">
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded bg-amber-400 flex items-center justify-center font-extrabold text-[11px] text-white">SC</div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: T.white }}>{t("title")}</div>
-            <div style={{ fontSize: 9, color: T.muted, textTransform: "uppercase", letterSpacing: "0.07em" }}>
-              {title}
-            </div>
+            <div className="text-sm font-bold text-gray-900">{t("title")}</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-wider">{title}</div>
           </div>
         </div>
-        <div style={{ textAlign: "right", fontSize: 9, color: T.muted, fontFamily: "monospace" }}>
-          <div style={{ color: T.gold, fontWeight: 700, letterSpacing: "0.05em" }}>{dateStr}</div>
-          <div>{t("preAssessment")}</div>
+        <div className="text-right text-[10px] text-gray-400 font-mono">
+          <div className="text-amber-700 font-bold tracking-wide">{dateStr}</div>
+          <div className="text-gray-500">{t("preAssessment")}</div>
         </div>
       </div>
 
-      <div style={{ padding: "18px 22px 20px" }}>
-        <div
-          style={{
-            background: T.slate,
-            border: `1px solid ${T.border}`,
-            borderRadius: 8,
-            overflow: "hidden",
-            marginBottom: 14,
-            display: "flex",
-          }}
-        >
-          <div style={{ width: 4, background: `linear-gradient(180deg, ${T.gold}, ${T.gold2})`, flexShrink: 0 }} />
-          <div style={{ flex: 1, padding: "14px 18px", display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
-            <div style={{ flex: 1, minWidth: 160 }}>
-              <div style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.1em", color: T.muted, fontWeight: 700, marginBottom: 4 }}>
-                {schema.outputs.primary ?? t("primaryResult")}
-              </div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: T.gold2, fontFamily: "monospace", lineHeight: 1, marginBottom: 4 }}>
-                {formattedPrimary}
-              </div>
-              <div style={{ fontSize: 10, color: T.muted }}>{t("simulationNotice")}</div>
+      <div className="p-5">
+        {/* Primary Result + Gauge */}
+        <div className="flex gap-4 items-stretch mb-4">
+          <div className="flex-1 min-w-0 rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1">
+              {schema.outputs.primary ?? t("primaryResult")}
             </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div style={{ fontSize: 9, color: T.muted, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 2 }}>
-                {t("riskScore")}
-              </div>
-              <Gauge score={riskScore} color={riskColor} />
-              <div style={{ marginTop: 3 }}>
-                <Badge label={riskLabel} color={riskColor} />
-              </div>
-            </div>
+            <div className="text-3xl font-extrabold text-gray-900 font-mono leading-tight mb-1">{formattedPrimary}</div>
+            <div className="text-xs text-gray-400">{t("simulationNotice")}</div>
+          </div>
+          <div className="flex flex-col items-center justify-center px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 min-w-[110px]">
+            <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1 font-semibold">{t("riskScore")}</div>
+            <Gauge score={riskScore} color={riskColor} />
+            <div className="mt-1"><Badge label={riskLabel} variant={riskBadgeVariant} /></div>
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 14 }}>
-          {miniCards.map((card, i) => (
-            <MiniCard key={i} {...card} />
-          ))}
+        {/* 4 Mini Cards */}
+        <div className="grid grid-cols-2 gap-2.5 mb-4">
+          {miniCards.map((card, i) => <MiniCard key={i} {...card} />)}
         </div>
 
-        <div style={{ marginBottom: 14 }}>
-          <SectionLabel num="▸" title={t("calculationComments")} />
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {insights.map((ins, i) => (
-              <Callout key={i} {...ins} />
-            ))}
+        {/* Insights */}
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-500">{t("calculationComments")}</span>
+            <div className="flex-1 h-px bg-gray-200" />
+          </div>
+          <div className="flex flex-col gap-2">
+            {insights.map((ins, i) => <Callout key={i} {...ins} />)}
           </div>
         </div>
 
-        <div
-          style={{
-            background: T.slate2,
-            border: `1px solid ${T.border}`,
-            borderRadius: 6,
-            padding: "10px 14px",
-            marginBottom: 14,
-            display: "flex",
-            gap: 10,
-            flexWrap: "wrap",
-            alignItems: "center",
-          }}
-        >
-          <span style={{ fontSize: 9, color: T.muted, textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, flexShrink: 0 }}>
-            {t("dataConfidencePrefix")}
-          </span>
-          {confidenceBadges.map((b, i) => (
-            <Badge key={i} label={b.label} color={b.color} />
-          ))}
+        {/* Trust badges */}
+        <div className="flex flex-wrap gap-2 items-center px-3.5 py-2.5 rounded-lg border border-gray-200 bg-gray-50 mb-4">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 flex-shrink-0">{t("dataConfidencePrefix")}</span>
+          {confidenceBadges.map((b, i) => <Badge key={i} label={b.label} variant={b.variant} />)}
         </div>
 
-        <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", alignItems: "center" }}>
-          <span style={{ fontSize: 10, color: T.muted, lineHeight: 1.4, textAlign: "right" }}>
-            {t("detailedTooltip")}
-          </span>
+        {/* CTA — sole export button */}
+        <div className="flex justify-end">
           <button
             type="button"
             onClick={onOpenFullReport}
-            style={{
-              background: `linear-gradient(135deg, ${T.gold}, ${T.gold2})`,
-              color: T.navy,
-              border: "none",
-              borderRadius: 7,
-              padding: "11px 22px",
-              fontSize: 12,
-              fontWeight: 800,
-              cursor: "pointer",
-              letterSpacing: "0.03em",
-              fontFamily: "inherit",
-              boxShadow: `0 4px 18px ${T.gold}44`,
-              whiteSpace: "nowrap",
-            }}
+            className="sc-cta-primary sc-ledger-cta-primary min-h-[44px] px-5 text-sm font-bold inline-flex items-center gap-2"
           >
-            📄 {t("fullReportCta")}
+            <span>⬇</span> {t("printDownload")} — {t("fullReportCta")}
           </button>
         </div>
       </div>

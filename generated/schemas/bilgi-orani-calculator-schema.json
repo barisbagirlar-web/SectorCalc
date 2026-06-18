@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "portfoyGetiri",
-      "label": "Portföy Getirisi",
+      "label": "Portfolio Return",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Portföyün dönemsel getiri oranı.",
+      "businessContext": "Periodic return rate of the portfolio.",
       "label_i18n": {
         "en": "Portfolio Return",
         "tr": "Portföy Getirisi",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı.",
+      "businessContext": "Periodic return rate of the benchmark.",
       "label_i18n": {
         "en": "Benchmark Getirisi",
         "tr": "Benchmark Return",
@@ -51,11 +51,11 @@
     },
     {
       "id": "takipHatasi",
-      "label": "Takip Hatası",
+      "label": "Tracking Error",
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması.",
+      "businessContext": "Standard deviation of the difference between portfolio return and benchmark return.",
       "label_i18n": {
         "en": "Tracking Error",
         "tr": "Takip Hatası",
@@ -75,11 +75,11 @@
     },
     {
       "id": "yilliklastirmaCarpani",
-      "label": "Yıllıklaştırma Çarpanı",
+      "label": "Annualization Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır.",
+      "businessContext": "Factor used to annualize periodic returns and tracking error. For monthly data, typically √12 ≈ 3.464 is used.",
       "label_i18n": {
         "en": "Annualization Factor",
         "tr": "Yıllıklaştırma Çarpanı",

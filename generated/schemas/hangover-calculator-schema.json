@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "alcohol_grams",
-      "label": "Alkol Miktarı",
+      "label": "Alcohol Amount",
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Toplam tüketilen alkol miktarı (gram)",
+      "businessContext": "Total amount of alcohol consumed (grams)",
       "label_i18n": {
         "en": "Amount of alcohol",
         "tr": "Alkol Miktarı",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin vücut ağırlığı",
+      "businessContext": "Person's body weight",
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "hours",
-      "label": "İçki Süresi",
+      "label": "Drinking Duration",
       "type": "number",
       "unit": "saat",
       "default": 4,
-      "businessContext": "İçki içme süresi",
+      "businessContext": "Drinking duration",
       "label_i18n": {
         "en": "Drinking duration",
         "tr": "İçki Süresi",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (0: Kadın, 1: Erkek)",
+      "businessContext": "Gender (0: Female, 1: Male)",
       "label_i18n": {
         "en": "Cinsiyet",
         "tr": "Gender",
@@ -99,11 +99,11 @@
     },
     {
       "id": "food_intake",
-      "label": "Yemek Tüketimi",
+      "label": "Food Consumption",
       "type": "number",
       "unit": "unit",
       "default": 0.5,
-      "businessContext": "Yemek tüketimi (0: aç karnına, 1: tok)",
+      "businessContext": "Food consumption (0: on empty stomach, 1: full)",
       "label_i18n": {
         "en": "Food consumption",
         "tr": "Yemek Tüketimi",

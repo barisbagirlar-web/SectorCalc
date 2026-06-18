@@ -123,23 +123,26 @@
     }
   ],
   "formulas": {
-    "totalEquity": "commonStock + preferredStock + retainedEarnings + otherEquity",
-    "totalCapital": "totalDebt + totalEquity",
-    "debtToCapitalRatio": "(totalDebt / totalCapital) * 100"
+    "normalized_product": "totalDebt * commonStock * preferredStock * retainedEarnings",
+    "result": "totalDebt * commonStock * preferredStock * retainedEarnings * (otherEquity)",
+    "adjustment_factor": "otherEquity"
   },
   "outputs": {
-    "primary": "debtToCapitalRatio",
+    "primary": "result",
     "breakdown": [
-      "totalDebt",
-      "totalEquity",
-      "totalCapital"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "debtToCapitalRatio",
-    "unit": "%"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

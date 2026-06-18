@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "numMachines",
-      "label": "Makine Sayısı",
+      "label": "Number of Machines",
       "type": "number",
       "unit": "makine",
       "default": 10,
-      "businessContext": "Üretim hattındaki toplam makine sayısı",
+      "businessContext": "Total number of machines on the production line",
       "label_i18n": {
         "en": "Number of Machines",
         "tr": "Makine Sayısı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "hoursPerDay",
-      "label": "Günlük Çalışma Saati",
+      "label": "Daily Working Hours",
       "type": "number",
       "unit": "saat/gün",
       "default": 8,
-      "businessContext": "Vardiya başına günlük çalışma süresi",
+      "businessContext": "Daily working time per shift",
       "label_i18n": {
         "en": "Daily Working Hours",
         "tr": "Günlük Çalışma Saati",
@@ -51,11 +51,11 @@
     },
     {
       "id": "daysPerMonth",
-      "label": "Aylık Çalışma Günü",
+      "label": "Monthly Working Days",
       "type": "number",
       "unit": "gün",
       "default": 22,
-      "businessContext": "Bir ayda üretimin yapıldığı iş günü sayısı",
+      "businessContext": "Number of working days in a month when production takes place",
       "label_i18n": {
         "en": "Monthly Working Days",
         "tr": "Aylık Çalışma Günü",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
+      "businessContext": "Net efficiency rate after planned downtime, setup, and breakdowns",
       "label_i18n": {
         "en": "Verimlilik",
         "tr": "Efficiency",
@@ -99,11 +99,11 @@
     },
     {
       "id": "productDemand",
-      "label": "Aylık Talep",
+      "label": "Monthly Demand",
       "type": "number",
       "unit": "adet/ay",
       "default": 10000,
-      "businessContext": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
+      "businessContext": "Number of products to be produced monthly according to customer orders",
       "label_i18n": {
         "en": "Monthly Demand",
         "tr": "Aylık Talep",
@@ -123,11 +123,11 @@
     },
     {
       "id": "cycleTime",
-      "label": "Birim İşlem Süresi",
+      "label": "Unit Processing Time",
       "type": "number",
       "unit": "dakika/adet",
       "default": 1.5,
-      "businessContext": "Bir ürünün makineden geçiş süresi (cycle time)",
+      "businessContext": "Cycle time of a product through the machine",
       "label_i18n": {
         "en": "Unit Processing Time",
         "tr": "Birim İşlem Süresi",

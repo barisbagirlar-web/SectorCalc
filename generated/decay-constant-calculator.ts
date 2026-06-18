@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateDecay_constant_calculator(input: Decay_constant_calculatorInput): Decay_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["meanLifetimeBased_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["meanLifetimeBased"]);
   const breakdown = {
     
   };

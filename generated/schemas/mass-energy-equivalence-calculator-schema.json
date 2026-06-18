@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "mass_kg",
-      "label": "Kütle (kg)",
+      "label": "Mass (kg)",
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin kilogram cinsinden kütlesi",
+      "businessContext": "Mass of the object in kilograms",
       "label_i18n": {
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
@@ -27,11 +27,11 @@
     },
     {
       "id": "mass_g",
-      "label": "Kütle (g)",
+      "label": "Mass (g)",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Cismin gram cinsinden kütlesi (opsiyonel)",
+      "businessContext": "Mass of the object in grams (optional)",
       "label_i18n": {
         "en": "Mass (g)",
         "tr": "Kütle (g)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "mass_lb",
-      "label": "Kütle (lb)",
+      "label": "Mass (lb)",
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Cismin pound cinsinden kütlesi (opsiyonel)",
+      "businessContext": "Mass of the object in pounds (optional)",
       "label_i18n": {
         "en": "Mass (lb)",
         "tr": "Kütle (lb)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "mass_oz",
-      "label": "Kütle (oz)",
+      "label": "Mass (oz)",
       "type": "number",
       "unit": "oz",
       "default": 0,
-      "businessContext": "Cismin ons cinsinden kütlesi (opsiyonel)",
+      "businessContext": "Mass of the object in ounces (optional)",
       "label_i18n": {
         "en": "Mass (oz)",
         "tr": "Kütle (oz)",

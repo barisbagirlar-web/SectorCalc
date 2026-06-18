@@ -196,10 +196,13 @@
   ],
   "formulas": {
     "totalContributions": "currentSavings + annualContribution * yearsToCollege",
-    "totalContributions_aux": "currentSavings + annualContribution * yearsToCollege"
+    "totalSavings": "currentSavings * (1 + expectedReturn/100)^yearsToCollege + annualContribution * (((1 + expectedReturn/100)^yearsToCollege - 1) / (expectedReturn/100))",
+    "inflationAdjustedCollegeCost": "annualCollegeCost * (1 + inflationRate/100)^yearsToCollege * collegeYears",
+    "totalInterestEarned": "totalSavings - totalContributions",
+    "shortfall": "inflationAdjustedCollegeCost - totalSavings"
   },
   "outputs": {
-    "primary": "totalContributions_aux",
+    "primary": "shortfall",
     "breakdown": [
       "totalSavings",
       "inflationAdjustedCollegeCost",
@@ -211,7 +214,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "shortfall",
-    "unit": "years"
+    "unit": "$"
   },
   "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",

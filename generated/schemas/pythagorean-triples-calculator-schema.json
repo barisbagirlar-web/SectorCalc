@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Pisagor üçlüsü üretiminde büyük parametre",
+      "businessContext": "Large parameter in Pythagorean triple generation",
       "label_i18n": {
         "en": "m (m > n)",
         "tr": "m (m > n)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Pisagor üçlüsü üretiminde küçük parametre",
+      "businessContext": "Small parameter in Pythagorean triple generation",
       "label_i18n": {
         "en": "n (n < m)",
         "tr": "n (n < m)",
@@ -51,11 +51,11 @@
     },
     {
       "id": "scaleFactor",
-      "label": "Ölçek Çarpanı",
+      "label": "Scale Factor",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı",
+      "businessContext": "Positive integer to scale triangle sides",
       "label_i18n": {
         "en": "Scale factor",
         "tr": "Ölçek Çarpanı",
@@ -75,11 +75,11 @@
     },
     {
       "id": "maxHypotenuse",
-      "label": "Maksimum Hipotenüs",
+      "label": "Maximum Hypotenuse",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)",
+      "businessContext": "Optional: maximum value of the hypotenuse (0 for unlimited)",
       "label_i18n": {
         "en": "Maximum hypotenuse",
         "tr": "Maksimum Hipotenüs",

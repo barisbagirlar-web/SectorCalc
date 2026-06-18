@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "flowVelocity",
-      "label": "Akış Hızı",
+      "label": "Flow Velocity",
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Boru içindeki akışkan hızı (genelde su için 1-3 m/s)",
+      "businessContext": "Fluid velocity in pipe (typically 1-3 m/s for water)",
       "label_i18n": {
         "en": "Flow velocity",
         "tr": "Akış Hızı",
@@ -27,11 +27,11 @@
     },
     {
       "id": "pipeDiameter",
-      "label": "Boru Çapı",
+      "label": "Pipe Diameter",
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Boru iç çapı (metre cinsinden)",
+      "businessContext": "Pipe inner diameter (in meters)",
       "label_i18n": {
         "en": "Pipe diameter",
         "tr": "Boru Çapı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "pipeLength",
-      "label": "Boru Uzunluğu",
+      "label": "Pipe Length",
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Basınç dalgasının ilerlediği toplam boru uzunluğu",
+      "businessContext": "Total pipe length traveled by pressure wave",
       "label_i18n": {
         "en": "Pipe length",
         "tr": "Boru Uzunluğu",
@@ -75,11 +75,11 @@
     },
     {
       "id": "valveCloseTime",
-      "label": "Vana Kapanma Süresi",
+      "label": "Valve Closing Time",
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Vananın tamamen kapanması için geçen süre",
+      "businessContext": "Time required for the valve to fully close",
       "label_i18n": {
         "en": "Valve Closing Time",
         "tr": "Vana Kapanma Süresi",
@@ -99,11 +99,11 @@
     },
     {
       "id": "waveSpeed",
-      "label": "Basınç Dalga Hızı",
+      "label": "Pressure Wave Speed",
       "type": "number",
       "unit": "m/s",
       "default": 1200,
-      "businessContext": "Ortamdaki ses hızı / su darbesi dalga hızı (su için ~1200 m/s)",
+      "businessContext": "Speed of sound in the medium / water hammer wave speed (for water ~1200 m/s)",
       "label_i18n": {
         "en": "Pressure Wave Speed",
         "tr": "Basınç Dalga Hızı",
@@ -123,11 +123,11 @@
     },
     {
       "id": "fluidDensity",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Fluid Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkanın yoğunluğu (su için 1000 kg/m³)",
+      "businessContext": "Density of the fluid (for water 1000 kg/m³)",
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
@@ -147,11 +147,11 @@
     },
     {
       "id": "wallThickness",
-      "label": "Boru Et Kalınlığı",
+      "label": "Pipe Wall Thickness",
       "type": "number",
       "unit": "m",
       "default": 0.01,
-      "businessContext": "Boru cidar kalınlığı (gerilim hesabı için gerekli)",
+      "businessContext": "Pipe wall thickness (required for stress calculation)",
       "label_i18n": {
         "en": "Pipe Wall Thickness",
         "tr": "Boru Et Kalınlığı",

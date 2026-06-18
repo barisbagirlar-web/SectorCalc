@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yüzde olarak girilen değer",
+      "businessContext": "Value entered as percentage",
       "label_i18n": {
         "en": "Percentage Value",
         "tr": "Yüzde Değeri",
@@ -27,11 +27,11 @@
     },
     {
       "id": "simplify",
-      "label": "Sadeleştir",
+      "label": "Simplify",
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
+      "businessContext": "Option to simplify the fraction (1: Yes, 0: No) – note: simplification is not applied in this version",
       "label_i18n": {
         "en": "Simplify",
         "tr": "Sadeleştir",
@@ -51,11 +51,11 @@
     },
     {
       "id": "mixedNumber",
-      "label": "Tam Sayılı Kesir",
+      "label": "Mixed Number",
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
+      "businessContext": "Should the fraction be displayed as a mixed number? (1: Yes, 0: No)",
       "label_i18n": {
         "en": "Mixed Number Fraction",
         "tr": "Tam Sayılı Kesir",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Yüzde değerinin ondalık basamak sayısı",
+      "businessContext": "Number of decimal places for the percentage value",
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Planlanan yürüyüş mesafesi",
+      "businessContext": "Planned walking distance",
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
@@ -27,11 +27,11 @@
     },
     {
       "id": "elevationGain",
-      "label": "İrtifa Kazancı",
+      "label": "Altitude gain",
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Toplam tırmanılan yükseklik",
+      "businessContext": "Total climbed height",
       "label_i18n": {
         "en": "Altitude gain",
         "tr": "İrtifa Kazancı",
@@ -51,11 +51,11 @@
     },
     {
       "id": "averageSpeed",
-      "label": "Ortalama Hız",
+      "label": "Average speed",
       "type": "number",
       "unit": "km/h",
       "default": 5,
-      "businessContext": "Düz zeminde yürüyüş hızı",
+      "businessContext": "Walking speed on flat ground",
       "label_i18n": {
         "en": "Average speed",
         "tr": "Ortalama Hız",
@@ -75,11 +75,11 @@
     },
     {
       "id": "backpackWeight",
-      "label": "Çanta Ağırlığı",
+      "label": "Bag weight",
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Sırt çantasının ağırlığı",
+      "businessContext": "Backpack weight",
       "label_i18n": {
         "en": "Bag weight",
         "tr": "Çanta Ağırlığı",

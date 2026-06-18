@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "density",
-      "label": "Akışkan Yoğunluğu (ρ)",
+      "label": "Fluid Density (ρ)",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)",
+      "businessContext": "Fluid density (e.g., 1000 kg/m³ for water)",
       "label_i18n": {
         "en": "Fluid Density (ρ)",
         "tr": "Akışkan Yoğunluğu (ρ)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standart yerçekimi ivmesi; 9.81 m/s² alınır",
+      "businessContext": "Standard gravitational acceleration; taken as 9.81 m/s²",
       "label_i18n": {
         "en": "Gravitational acceleration (g)",
         "tr": "Yerçekimi İvmesi (g)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)",
+      "businessContext": "Absolute pressure at the inlet (e.g., atmospheric pressure 101325 Pa)",
       "label_i18n": {
         "en": "Pressure at point 1 (P₁)",
         "tr": "1 Noktası Basıncı (P₁)",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Giriş noktasındaki akış hızı",
+      "businessContext": "Flow velocity at the inlet",
       "label_i18n": {
         "en": "Velocity at point 1 (v₁)",
         "tr": "1 Noktası Hızı (v₁)",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Giriş noktasının referans seviyeye göre yüksekliği",
+      "businessContext": "Height of the inlet relative to the reference level",
       "label_i18n": {
         "en": "Elevation at point 1 (z₁)",
         "tr": "1 Noktası Yüksekliği (z₁)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Çıkış noktasındaki mutlak basınç",
+      "businessContext": "Absolute pressure at the outlet",
       "label_i18n": {
         "en": "Pressure at point 2 (P₂)",
         "tr": "2 Noktası Basıncı (P₂)",
@@ -151,7 +151,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Çıkış noktasının referans seviyeye göre yüksekliği",
+      "businessContext": "Height of the outlet relative to the reference level",
       "label_i18n": {
         "en": "Elevation at point 2 (z₂)",
         "tr": "2 Noktası Yüksekliği (z₂)",
@@ -175,7 +175,7 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir",
+      "businessContext": "Total head loss between the two points (friction, etc.); if 0 is entered, it is considered lossless",
       "label_i18n": {
         "en": "Head loss (hₗ)",
         "tr": "Yük Kaybı (hₗ)",
