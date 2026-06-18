@@ -1,0 +1,1082 @@
+{
+  "apy-calculator": {
+    "en": "Calculates Annual Percentage Yield (APY) with compounding effects, adjusted for industrial engineering standards including Lean, Six Sigma, and ISO metrics. Provides breakdown, loss drivers, and actionable suggestions.",
+    "tr": "Yıllık Yüzde Getiriyi (APY) bileşik etkilerle hesaplar, Yalın, Altı Sigma ve ISO metrikleri dahil endüstri mühendisliği standartlarına göre ayarlanmıştır. Döküm, kayıp sürücüleri ve eyleme dönüştürülebilir öneriler sunar.",
+    "de": "Berechnet die jährliche prozentuale Rendite (APY) mit Zinseszinseffekten, angepasst an industrielle Ingenieurstandards einschließlich Lean, Six Sigma und ISO-Kennzahlen. Bietet Aufschlüsselung, Verlusttreiber und umsetzbare Vorschläge.",
+    "fr": "Calcule le rendement annuel en pourcentage (APY) avec les effets de composition, ajusté aux normes d'ingénierie industrielle incluant les métriques Lean, Six Sigma et ISO. Fournit une répartition, les facteurs de perte et des suggestions exploitables.",
+    "es": "Calcula el rendimiento porcentual anual (APY) con efectos compuestos, ajustado a estándares de ingeniería industrial que incluyen métricas Lean, Six Sigma e ISO. Proporciona desglose, impulsores de pérdidas y sugerencias procesables.",
+    "ar": "يحسب العائد السنوي المئوي (APY) مع تأثيرات الفائدة المركبة، معدلاً وفقاً لمعايير الهندسة الصناعية بما في ذلك مقاييس اللين (Lean) وستة سيجما (Six Sigma) والأيزو (ISO). يوفر تحليلاً ومسببات الخسارة واقتراحات قابلة للتنفيذ."
+  },
+  "aql-sampling-risk-cost-calculator": {
+    "en": "Calculates the total cost of quality risk and sampling inspection based on Acceptable Quality Level (AQL), lot size, inspection level, and defect cost parameters. Aligns with ISO 2859-1, Six Sigma, and Lean principles.",
+    "tr": "Kabul Edilebilir Kalite Seviyesi (AQL), parti büyüklüğü, muayene seviyesi ve kusur maliyeti parametrelerine dayalı olarak kalite riski ve örnekleme muayenesinin toplam maliyetini hesaplar. ISO 2859-1, Altı Sigma ve Yalın ilkeleriyle uyumludur.",
+    "de": "Berechnet die Gesamtkosten des Qualitätsrisikos und der Stichprobenprüfung basierend auf annehmbarer Qualitätsgrenzlage (AQL), Losgröße, Prüfstufe und Fehlerkostenparametern. Entspricht ISO 2859-1, Six Sigma und Lean-Prinzipien.",
+    "fr": "Calcule le coût total du risque qualité et de l'inspection par échantillonnage basé sur le niveau de qualité acceptable (AQL), la taille du lot, le niveau d'inspection et les paramètres de coût des défauts. Aligné sur l'ISO 2859-1, les principes Six Sigma et Lean.",
+    "es": "Calcula el costo total del riesgo de calidad y la inspección por muestreo basado en el Nivel de Calidad Aceptable (AQL), tamaño del lote, nivel de inspección y parámetros de costo de defectos. Alineado con ISO 2859-1, principios Six Sigma y Lean.",
+    "ar": "يحسب التكلفة الإجمالية لمخاطر الجودة وفحص العينات بناءً على مستوى الجودة المقبول (AQL) وحجم الدفعة ومستوى الفحص ومعايير تكلفة العيوب. متوافق مع ISO 2859-1 ومبادئ ستة سيجما (Six Sigma) واللين (Lean)."
+  },
+  "auto-repair-parts-labor-quote-calculator": {
+    "en": "Industrial-grade calculator for generating accurate repair quotes based on parts, labor, overhead, and profit margin, compliant with ISO 9001 and Lean Six Sigma principles.",
+    "tr": "Parça, işçilik, genel gider ve kar marjına dayalı olarak doğru onarım teklifleri oluşturmak için endüstriyel sınıf hesap makinesi, ISO 9001 ve Yalın Altı Sigma ilkelerine uygundur.",
+    "de": "Industrietauglicher Rechner zur Erstellung genauer Reparaturkostenvoranschläge basierend auf Teilen, Arbeit, Gemeinkosten und Gewinnspanne, konform mit ISO 9001 und Lean Six Sigma-Prinzipien.",
+    "fr": "Calculatrice de qualité industrielle pour générer des devis de réparation précis basés sur les pièces, la main-d'œuvre, les frais généraux et la marge bénéficiaire, conforme aux principes ISO 9001 et Lean Six Sigma.",
+    "es": "Calculadora de grado industrial para generar presupuestos de reparación precisos basados en piezas, mano de obra, gastos generales y margen de beneficio, conforme a los principios ISO 9001 y Lean Six Sigma.",
+    "ar": "آلة حاسبة صناعية لتوليد عروض أسعار إصلاح دقيقة بناءً على قطع الغيار والعمالة والتكاليف العامة وهامش الربح، متوافقة مع مبادئ ISO 9001 واللين (Lean) وستة سيجما (Six Sigma)."
+  },
+  "auto-repair-quote-consistency-calculator": {
+    "en": "Industrial-grade tool to assess consistency of auto repair quotes against industry benchmarks (ISO, Lean, Six Sigma principles).",
+    "tr": "Oto tamir tekliflerinin endüstri kıyaslamalarına (ISO, Yalın, Altı Sigma ilkeleri) karşı tutarlılığını değerlendirmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Bewertung der Konsistenz von Autoreparaturangeboten im Vergleich zu Branchenbenchmarks (ISO, Lean, Six Sigma-Prinzipien).",
+    "fr": "Outil de qualité industrielle pour évaluer la cohérence des devis de réparation automobile par rapport aux références du secteur (principes ISO, Lean, Six Sigma).",
+    "es": "Herramienta de grado industrial para evaluar la consistencia de los presupuestos de reparación de automóviles frente a puntos de referencia de la industria (principios ISO, Lean, Six Sigma).",
+    "ar": "أداة صناعية لتقييم اتساق عروض أسعار إصلاح السيارات مقابل معايير الصناعة (مبادئ ISO واللين (Lean) وستة سيجما (Six Sigma))."
+  },
+  "auto-shop-margin-leak-calculator": {
+    "en": "Industrial-grade tool to identify and quantify margin leaks in automotive service and repair operations, aligned with Lean, Six Sigma, and WERC standards.",
+    "tr": "Otomotiv servis ve onarım operasyonlarındaki marj sızıntılarını belirlemek ve ölçmek için endüstriyel sınıf araç, Yalın, Altı Sigma ve WERC standartlarıyla uyumludur.",
+    "de": "Industrietaugliches Werkzeug zur Identifizierung und Quantifizierung von Margenverlusten in Kfz-Service- und Reparaturbetrieben, abgestimmt auf Lean-, Six Sigma- und WERC-Standards.",
+    "fr": "Outil de qualité industrielle pour identifier et quantifier les fuites de marge dans les opérations de service et de réparation automobile, aligné sur les normes Lean, Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para identificar y cuantificar fugas de margen en operaciones de servicio y reparación automotriz, alineada con los estándares Lean, Six Sigma y WERC.",
+    "ar": "أداة صناعية لتحديد وقياس تسربات الهامش في عمليات خدمة وإصلاح السيارات، متوافقة مع معايير اللين (Lean) وستة سيجما (Six Sigma) وWERC."
+  },
+  "beam-deflection-calculator": {
+    "en": "Industrial-grade beam deflection analysis tool based on Euler-Bernoulli beam theory, compliant with ISO 9001 and Six Sigma standards. Calculates maximum deflection, bending stress, and safety factors for simply supported beams under various loading conditions.",
+    "tr": "Euler-Bernoulli kiriş teorisine dayalı endüstriyel sınıf kiriş sehim analizi aracı, ISO 9001 ve Altı Sigma standartlarına uygundur. Basit mesnetli kirişler için çeşitli yükleme koşullarında maksimum sehim, eğilme gerilmesi ve güvenlik faktörlerini hesaplar.",
+    "de": "Industrietaugliches Balkendurchbiegungsanalysewerkzeug basierend auf der Euler-Bernoulli-Balkentheorie, konform mit ISO 9001 und Six Sigma-Standards. Berechnet maximale Durchbiegung, Biegespannung und Sicherheitsfaktoren für einfach gelagerte Träger unter verschiedenen Belastungsbedingungen.",
+    "fr": "Outil d'analyse de la déflexion des poutres de qualité industrielle basé sur la théorie des poutres d'Euler-Bernoulli, conforme aux normes ISO 9001 et Six Sigma. Calcule la déflexion maximale, la contrainte de flexion et les facteurs de sécurité pour les poutres simplement appuyées sous diverses conditions de charge.",
+    "es": "Herramienta de análisis de deflexión de vigas de grado industrial basada en la teoría de vigas de Euler-Bernoulli, conforme a las normas ISO 9001 y Six Sigma. Calcula la deflexión máxima, el esfuerzo de flexión y los factores de seguridad para vigas simplemente apoyadas bajo diversas condiciones de carga.",
+    "ar": "أداة تحليل انحراف العوارض الصناعية بناءً على نظرية أويلر-برنولي للعوارض، متوافقة مع معايير ISO 9001 وستة سيجما (Six Sigma). تحسب أقصى انحراف وإجهاد الانحناء وعوامل الأمان للعوارض المدعومة ببساطة تحت ظروف تحميل مختلفة."
+  },
+  "beam-weight-calculator": {
+    "en": "Industrial-grade beam weight estimation tool compliant with ISO 9001, Lean Six Sigma, and WERC standards. Calculates theoretical weight, material cost, and hidden loss drivers for steel beams.",
+    "tr": "ISO 9001, Yalın Altı Sigma ve WERC standartlarına uygun endüstriyel sınıf kiriş ağırlığı tahmin aracı. Çelik kirişler için teorik ağırlık, malzeme maliyeti ve gizli kayıp sürücülerini hesaplar.",
+    "de": "Industrietaugliches Balkengewichtsschätzungswerkzeug konform mit ISO 9001, Lean Six Sigma und WERC-Standards. Berechnet theoretisches Gewicht, Materialkosten und versteckte Verlusttreiber für Stahlträger.",
+    "fr": "Outil d'estimation du poids des poutres de qualité industrielle conforme aux normes ISO 9001, Lean Six Sigma et WERC. Calcule le poids théorique, le coût des matériaux et les facteurs de perte cachés pour les poutres en acier.",
+    "es": "Herramienta de estimación de peso de vigas de grado industrial conforme a las normas ISO 9001, Lean Six Sigma y WERC. Calcula el peso teórico, el costo del material y los impulsores de pérdida ocultos para vigas de acero.",
+    "ar": "أداة تقدير وزن العوارض الصناعية المتوافقة مع معايير ISO 9001 واللين (Lean) وستة سيجما (Six Sigma) وWERC. تحسب الوزن النظري وتكلفة المواد ومسببات الخسارة الخفية للعوارض الفولاذية."
+  },
+  "bmi-calculator": {
+    "en": "Industrial-grade BMI calculator with health risk assessment, lean body mass estimation, and actionable wellness insights based on ISO 8996 and Six Sigma health metrics.",
+    "tr": "Sağlık riski değerlendirmesi, yağsız vücut kütlesi tahmini ve ISO 8996 ve Altı Sigma sağlık metriklerine dayalı eyleme dönüştürülebilir sağlıklı yaşam içgörüleri ile endüstriyel sınıf BMI hesaplayıcı.",
+    "de": "Industrietauglicher BMI-Rechner mit Gesundheitsrisikobewertung, Schätzung der fettfreien Körpermasse und umsetzbaren Wellness-Erkenntnissen basierend auf ISO 8996 und Six Sigma-Gesundheitskennzahlen.",
+    "fr": "Calculatrice IMC de qualité industrielle avec évaluation des risques pour la santé, estimation de la masse corporelle maigre et informations exploitables sur le bien-être basées sur l'ISO 8996 et les métriques de santé Six Sigma.",
+    "es": "Calculadora de IMC de grado industrial con evaluación de riesgos para la salud, estimación de masa corporal magra e información procesable sobre bienestar basada en ISO 8996 y métricas de salud Six Sigma.",
+    "ar": "آلة حاسبة صناعية لمؤشر كتلة الجسم (BMI) مع تقييم مخاطر صحية وتقدير كتلة الجسم الخالية من الدهون ورؤى صحية قابلة للتنفيذ بناءً على ISO 8996 ومقاييس الصحة لستة سيجما (Six Sigma)."
+  },
+  "body-fat-calculator": {
+    "en": "Industrial-grade body fat estimation tool using anthropometric measurements and lean manufacturing principles for health and ergonomic risk assessment.",
+    "tr": "Antropometrik ölçümler ve sağlık ve ergonomik risk değerlendirmesi için yalın üretim ilkelerini kullanan endüstriyel sınıf vücut yağı tahmin aracı.",
+    "de": "Industrietaugliches Werkzeug zur Schätzung des Körperfetts unter Verwendung anthropometrischer Messungen und schlanker Fertigungsprinzipien für die Gesundheits- und ergonomische Risikobewertung.",
+    "fr": "Outil d'estimation de la graisse corporelle de qualité industrielle utilisant des mesures anthropométriques et des principes de fabrication Lean pour l'évaluation des risques sanitaires et ergonomiques.",
+    "es": "Herramienta de estimación de grasa corporal de grado industrial que utiliza mediciones antropométricas y principios de fabricación Lean para la evaluación de riesgos para la salud y ergonómicos.",
+    "ar": "أداة صناعية لتقدير الدهون في الجسم باستخدام القياسات الأنثروبومترية ومبادئ التصنيع الخالي من الهدر (Lean) لتقييم المخاطر الصحية والبيئة العملية."
+  },
+  "break-even-calculator": {
+    "en": "Industrial-grade break-even analysis tool compliant with ISO 9001, Lean, and Six Sigma standards. Calculates the minimum production volume required to cover all costs, incorporating fixed costs, variable costs, revenue, and quality-related losses.",
+    "tr": "ISO 9001, Yalın ve Altı Sigma standartlarına uygun endüstriyel sınıf başabaş noktası analiz aracı. Sabit maliyetler, değişken maliyetler, gelir ve kaliteyle ilgili kayıpları dahil ederek tüm maliyetleri karşılamak için gereken minimum üretim hacmini hesaplar.",
+    "de": "Industrietaugliches Break-Even-Analysewerkzeug konform mit ISO 9001, Lean- und Six Sigma-Standards. Berechnet das Mindestproduktionsvolumen, das erforderlich ist, um alle Kosten zu decken, unter Einbeziehung von Fixkosten, variablen Kosten, Umsatz und qualitätsbedingten Verlusten.",
+    "fr": "Outil d'analyse du seuil de rentabilité de qualité industrielle conforme aux normes ISO 9001, Lean et Six Sigma. Calcule le volume de production minimum requis pour couvrir tous les coûts, en intégrant les coûts fixes, les coûts variables, les revenus et les pertes liées à la qualité.",
+    "es": "Herramienta de análisis de punto de equilibrio de grado industrial conforme a las normas ISO 9001, Lean y Six Sigma. Calcula el volumen de producción mínimo requerido para cubrir todos los costos, incorporando costos fijos, costos variables, ingresos y pérdidas relacionadas con la calidad.",
+    "ar": "أداة تحليل نقطة التعادل الصناعية المتوافقة مع معايير ISO 9001 واللين (Lean) وستة سيجما (Six Sigma). تحسب الحد الأدنى لحجم الإنتاج المطلوب لتغطية جميع التكاليف، بما في ذلك التكاليف الثابتة والتكاليف المتغيرة والإيرادات والخسائر المتعلقة بالجودة."
+  },
+  "cash-flow-gap-calculator": {
+    "en": "Industrial-grade tool to calculate and analyze cash flow gaps using Lean, Six Sigma, and WERC standards. Identifies hidden loss drivers and provides actionable recommendations.",
+    "tr": "Yalın, Altı Sigma ve WERC standartlarını kullanarak nakit akışı açıklarını hesaplamak ve analiz etmek için endüstriyel sınıf araç. Gizli kayıp sürücülerini belirler ve eyleme dönüştürülebilir öneriler sunar.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung und Analyse von Cashflow-Lücken unter Verwendung von Lean-, Six Sigma- und WERC-Standards. Identifiziert versteckte Verlusttreiber und liefert umsetzbare Empfehlungen.",
+    "fr": "Outil de qualité industrielle pour calculer et analyser les écarts de trésorerie à l'aide des normes Lean, Six Sigma et WERC. Identifie les facteurs de perte cachés et fournit des recommandations exploitables.",
+    "es": "Herramienta de grado industrial para calcular y analizar brechas de flujo de efectivo utilizando estándares Lean, Six Sigma y WERC. Identifica impulsores de pérdida ocultos y proporciona recomendaciones procesables.",
+    "ar": "أداة صناعية لحساب وتحليل فجوات التدفق النقدي باستخدام معايير اللين (Lean) وستة سيجما (Six Sigma) وWERC. تحدد مسببات الخسارة الخفية وتقدم توصيات قابلة للتنفيذ."
+  },
+  "cbam-exposure-check-calculator": {
+    "en": "Calculates the financial exposure and operational risk from the EU Carbon Border Adjustment Mechanism (CBAM) for industrial facilities, incorporating production efficiency, carbon intensity, and compliance readiness.",
+    "tr": "AB Sınırda Karbon Düzenleme Mekanizması'ndan (CBAM) endüstriyel tesisler için finansal riski ve operasyonel riski hesaplar, üretim verimliliği, karbon yoğunluğu ve uyumluluk hazırlığını dahil eder.",
+    "de": "Berechnet das finanzielle Risiko und das operationelle Risiko aus dem EU- Grenzausgleichsmechanismus für Kohlenstoff (CBAM) für Industrieanlagen unter Einbeziehung von Produktionseffizienz, Kohlenstoffintensität und Compliance-Bereitschaft.",
+    "fr": "Calcule l'exposition financière et le risque opérationnel du mécanisme d'ajustement carbone aux frontières de l'UE (CBAM) pour les installations industrielles, en intégrant l'efficacité de production, l'intensité carbone et la préparation à la conformité.",
+    "es": "Calcula la exposición financiera y el riesgo operativo del Mecanismo de Ajuste en Frontera por Carbono de la UE (CBAM) para instalaciones industriales, incorporando eficiencia de producción, intensidad de carbono y preparación para el cumplimiento.",
+    "ar": "يحسب التعرض المالي والمخاطر التشغيلية من آلية تعديل الكربون على الحدود (CBAM) للاتحاد الأوروبي للمنشآت الصناعية، بما في ذلك كفاءة الإنتاج وكثافة الكربون والاستعداد للامتثال."
+  },
+  "celsius-to-fahrenheit-converter-calculator": {
+    "en": "Industrial-grade temperature conversion tool with precision validation, confidence adjustment, and actionable insights for process control and quality management.",
+    "tr": "Hassasiyet doğrulaması, güven ayarlaması ve süreç kontrolü ve kalite yönetimi için eyleme dönüştürülebilir içgörüler içeren endüstriyel sınıf sıcaklık dönüştürme aracı.",
+    "de": "Industrietaugliches Temperaturumrechnungswerkzeug mit Präzisionsvalidierung, Konfidenzanpassung und umsetzbaren Erkenntnissen für Prozesssteuerung und Qualitätsmanagement.",
+    "fr": "Outil de conversion de température de qualité industrielle avec validation de précision, ajustement de confiance et informations exploitables pour le contrôle des processus et la gestion de la qualité.",
+    "es": "Herramienta de conversión de temperatura de grado industrial con validación de precisión, ajuste de confianza e información procesable para el control de procesos y la gestión de calidad.",
+    "ar": "أداة تحويل درجة حرارة صناعية مع التحقق من الدقة وضبط الثقة ورؤى قابلة للتنفيذ للتحكم في العمليات وإدارة الجودة."
+  },
+  "changeover-matrix-optimizer-calculator": {
+    "en": "Industrial-grade tool for analyzing and optimizing changeover times between product families using Lean/SMED principles and Six Sigma methodologies.",
+    "tr": "Endüstriyel sınıf, Lean/SMED prensipleri ve Altı Sigma metodolojilerini kullanarak ürün aileleri arasındaki değişim sürelerini analiz etmek ve optimize etmek için araç.",
+    "de": "Industrietaugliches Werkzeug zur Analyse und Optimierung von Umrüstzeiten zwischen Produktfamilien unter Verwendung von Lean/SMED-Prinzipien und Six-Sigma-Methoden.",
+    "fr": "Outil de qualité industrielle pour analyser et optimiser les temps de changement entre familles de produits à l'aide des principes Lean/SMED et des méthodologies Six Sigma.",
+    "es": "Herramienta de grado industrial para analizar y optimizar los tiempos de cambio entre familias de productos utilizando principios Lean/SMED y metodologías Six Sigma.",
+    "ar": "أداة من الدرجة الصناعية لتحليل وتحسين أوقات التبديل بين عائلات المنتجات باستخدام مبادئ Lean/SMED ومنهجيات Six Sigma."
+  },
+  "cleaning-bid-optimizer-calculator": {
+    "en": "Industrial-grade tool for optimizing cleaning service bids based on labor, materials, equipment, overhead, and profit margin, with built-in waste reduction and quality adjustment factors.",
+    "tr": "İşçilik, malzeme, ekipman, genel gider ve kar marjına dayalı olarak temizlik hizmeti tekliflerini optimize etmek için endüstriyel sınıf araç, yerleşik atık azaltma ve kalite ayarlama faktörleriyle.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung von Reinigungsdienstleistungsangeboten basierend auf Arbeit, Material, Ausrüstung, Gemeinkosten und Gewinnspanne mit integrierten Abfallreduzierungs- und Qualitätsanpassungsfaktoren.",
+    "fr": "Outil de qualité industrielle pour optimiser les offres de services de nettoyage en fonction de la main-d'œuvre, des matériaux, de l'équipement, des frais généraux et de la marge bénéficiaire, avec des facteurs intégrés de réduction des déchets et d'ajustement de la qualité.",
+    "es": "Herramienta de grado industrial para optimizar las ofertas de servicios de limpieza basadas en mano de obra, materiales, equipo, gastos generales y margen de beneficio, con factores incorporados de reducción de residuos y ajuste de calidad.",
+    "ar": "أداة من الدرجة الصناعية لتحسين عروض خدمات التنظيف بناءً على العمالة والمواد والمعدات والتكاليف العامة وهامش الربح، مع عوامل مدمجة لتقليل النفايات وضبط الجودة."
+  },
+  "cloud-api-overrun-cost-calculator": {
+    "en": "Calculates the total cost impact of API overrun events in cloud services, incorporating latency penalties, retry costs, data egress, and SLA breach compensation. Aligns with ISO 9001, Six Sigma DMAIC, and WERC cost-to-serve standards.",
+    "tr": "Bulut hizmetlerinde API taşma olaylarının toplam maliyet etkisini hesaplar, gecikme cezaları, yeniden deneme maliyetleri, veri çıkışı ve SLA ihlali tazminatını dahil eder. ISO 9001, Altı Sigma DMAIC ve WERC hizmet maliyeti standartlarıyla uyumludur.",
+    "de": "Berechnet die Gesamtkostenauswirkungen von API-Überlaufergebnissen in Cloud-Diensten unter Einbeziehung von Latenzstrafen, Wiederholungskosten, Datenausgang und SLA-Verletzungsentschädigung. Entspricht ISO 9001, Six Sigma DMAIC und WERC-Kostendienststandards.",
+    "fr": "Calcule l'impact total des coûts des événements de dépassement d'API dans les services cloud, en intégrant les pénalités de latence, les coûts de nouvelle tentative, la sortie de données et l'indemnisation pour violation de SLA. Conforme aux normes ISO 9001, Six Sigma DMAIC et WERC cost-to-serve.",
+    "es": "Calcula el impacto total del costo de los eventos de desbordamiento de API en servicios en la nube, incorporando penalizaciones por latencia, costos de reintento, salida de datos y compensación por incumplimiento de SLA. Se alinea con ISO 9001, Six Sigma DMAIC y los estándares de costo de servicio de WERC.",
+    "ar": "يحسب التأثير الإجمالي لتكلفة أحداث تجاوز API في الخدمات السحابية، بما في ذلك غرامات زمن الوصول وتكاليف إعادة المحاولة وخروج البيانات وتعويض خرق اتفاقية مستوى الخدمة. يتوافق مع ISO 9001 و Six Sigma DMAIC ومعايير تكلفة الخدمة WERC."
+  },
+  "cm-to-inch-converter-calculator": {
+    "en": "Industrial-grade conversion tool for length measurements from centimeters to inches, with validation, confidence scoring, and actionable insights.",
+    "tr": "Santimetreden inçe uzunluk ölçümleri için endüstriyel sınıf dönüştürme aracı, doğrulama, güven puanlaması ve uygulanabilir içgörülerle.",
+    "de": "Industrietaugliches Umrechnungswerkzeug für Längenmaße von Zentimetern in Zoll mit Validierung, Konfidenzbewertung und umsetzbaren Erkenntnissen.",
+    "fr": "Outil de conversion de qualité industrielle pour les mesures de longueur des centimètres en pouces, avec validation, notation de confiance et informations exploitables.",
+    "es": "Herramienta de conversión de grado industrial para medidas de longitud de centímetros a pulgadas, con validación, puntuación de confianza e información procesable.",
+    "ar": "أداة تحويل من الدرجة الصناعية لقياسات الطول من السنتيمتر إلى البوصة، مع التحقق من الصحة وتسجيل الثقة والرؤى القابلة للتنفيذ."
+  },
+  "cnc-cycle-time-calculator": {
+    "en": "Calculates the total cycle time for CNC machining operations, including cutting, rapid traverse, tool change, and auxiliary times, with adjustments for material, tool wear, and machine efficiency. Aligns with ISO 9001, Lean Manufacturing, and Six Sigma standards.",
+    "tr": "CNC işleme operasyonları için toplam çevrim süresini hesaplar, kesme, hızlı travers, takım değiştirme ve yardımcı süreleri dahil, malzeme, takım aşınması ve makine verimliliği için ayarlamalarla. ISO 9001, Yalın Üretim ve Altı Sigma standartlarıyla uyumludur.",
+    "de": "Berechnet die Gesamtzykluszeit für CNC-Bearbeitungsvorgänge, einschließlich Schnitt-, Eilgang-, Werkzeugwechsel- und Hilfszeiten, mit Anpassungen für Material, Werkzeugverschleiß und Maschineneffizienz. Entspricht ISO 9001, Lean Manufacturing und Six Sigma Standards.",
+    "fr": "Calcule le temps de cycle total pour les opérations d'usinage CNC, y compris les temps de coupe, de déplacement rapide, de changement d'outil et auxiliaires, avec des ajustements pour le matériau, l'usure de l'outil et l'efficacité de la machine. Conforme aux normes ISO 9001, Lean Manufacturing et Six Sigma.",
+    "es": "Calcula el tiempo de ciclo total para operaciones de mecanizado CNC, incluidos los tiempos de corte, desplazamiento rápido, cambio de herramienta y auxiliares, con ajustes por material, desgaste de herramienta y eficiencia de la máquina. Se alinea con ISO 9001, Lean Manufacturing y estándares Six Sigma.",
+    "ar": "يحسب إجمالي وقت الدورة لعمليات التصنيع باستخدام الحاسب الآلي، بما في ذلك أوقات القطع والانتقال السريع وتغيير الأداة والمساعد، مع تعديلات للمادة وتآكل الأداة وكفاءة الماكينة. يتوافق مع ISO 9001 ومعايير التصنيع الخالي من الهدر و Six Sigma."
+  },
+  "cobot-vs-manual-labor-comparator-calculator": {
+    "en": "Industrial-grade decision support tool comparing collaborative robot (cobot) investment against manual labor costs, incorporating Lean, Six Sigma, and ISO standards.",
+    "tr": "İşbirlikçi robot (kobot) yatırımını manuel işçilik maliyetleriyle karşılaştıran endüstriyel sınıf karar destek aracı, Lean, Altı Sigma ve ISO standartlarını içerir.",
+    "de": "Industrietaugliches Entscheidungsunterstützungswerkzeug, das die Investition in kollaborative Roboter (Cobot) mit manuellen Arbeitskosten vergleicht und Lean-, Six-Sigma- und ISO-Standards integriert.",
+    "fr": "Outil d'aide à la décision de qualité industrielle comparant l'investissement dans un robot collaboratif (cobot) aux coûts de main-d'œuvre manuelle, intégrant les normes Lean, Six Sigma et ISO.",
+    "es": "Herramienta de apoyo a la decisión de grado industrial que compara la inversión en robots colaborativos (cobot) con los costos de mano de obra manual, incorporando estándares Lean, Six Sigma e ISO.",
+    "ar": "أداة دعم قرار من الدرجة الصناعية تقارن استثمار الروبوت التعاوني (cobot) بتكاليف العمالة اليدوية، وتدمج معايير Lean و Six Sigma و ISO."
+  },
+  "compound-interest-calculator": {
+    "en": "Industrial-grade compound interest calculator with lean and six sigma principles for financial forecasting and investment analysis.",
+    "tr": "Yalın ve altı sigma prensipleriyle finansal tahmin ve yatırım analizi için endüstriyel sınıf bileşik faiz hesaplayıcı.",
+    "de": "Industrietauglicher Zinseszinsrechner mit Lean- und Six-Sigma-Prinzipien für Finanzprognosen und Investitionsanalysen.",
+    "fr": "Calculateur d'intérêts composés de qualité industrielle avec des principes Lean et Six Sigma pour les prévisions financières et l'analyse des investissements.",
+    "es": "Calculadora de interés compuesto de grado industrial con principios Lean y Six Sigma para pronósticos financieros y análisis de inversiones.",
+    "ar": "حاسبة فائدة مركبة من الدرجة الصناعية مع مبادئ Lean و Six Sigma للتنبؤ المالي وتحليل الاستثمار."
+  },
+  "compressor-energy-cost-calculator": {
+    "en": "Industrial-grade tool to calculate total energy cost of compressed air systems, identify hidden losses, and suggest efficiency improvements based on ISO 50001, Lean, and Six Sigma principles.",
+    "tr": "Basınçlı hava sistemlerinin toplam enerji maliyetini hesaplamak, gizli kayıpları belirlemek ve ISO 50001, Yalın ve Altı Sigma prensiplerine dayalı verimlilik iyileştirmeleri önermek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung der Gesamtenergiekosten von Druckluftsystemen, zur Identifizierung versteckter Verluste und zur Vorschlag von Effizienzverbesserungen basierend auf ISO 50001, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de qualité industrielle pour calculer le coût énergétique total des systèmes d'air comprimé, identifier les pertes cachées et suggérer des améliorations d'efficacité basées sur les principes ISO 50001, Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para calcular el costo total de energía de los sistemas de aire comprimido, identificar pérdidas ocultas y sugerir mejoras de eficiencia basadas en los principios ISO 50001, Lean y Six Sigma.",
+    "ar": "أداة من الدرجة الصناعية لحساب التكلفة الإجمالية للطاقة لأنظمة الهواء المضغوط، وتحديد الخسائر المخفية، واقتراح تحسينات الكفاءة بناءً على مبادئ ISO 50001 و Lean و Six Sigma."
+  },
+  "compressor-leak-cost-calculator": {
+    "en": "Industrial-grade tool to quantify energy and financial losses from compressed air leaks, based on ISO 50001, Lean Six Sigma, and WERC guidelines.",
+    "tr": "Basınçlı hava kaçaklarından kaynaklanan enerji ve finansal kayıpları ölçmek için endüstriyel sınıf araç, ISO 50001, Yalın Altı Sigma ve WERC yönergelerine dayalı.",
+    "de": "Industrietaugliches Werkzeug zur Quantifizierung von Energie- und finanziellen Verlusten durch Druckluftlecks, basierend auf ISO 50001, Lean Six Sigma und WERC-Richtlinien.",
+    "fr": "Outil de qualité industrielle pour quantifier les pertes d'énergie et financières dues aux fuites d'air comprimé, basé sur les directives ISO 50001, Lean Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para cuantificar las pérdidas de energía y financieras por fugas de aire comprimido, basada en las directrices ISO 50001, Lean Six Sigma y WERC.",
+    "ar": "أداة من الدرجة الصناعية لقياس خسائر الطاقة والمالية الناتجة عن تسرب الهواء المضغوط، بناءً على إرشادات ISO 50001 و Lean Six Sigma و WERC."
+  },
+  "compressor-tank-sizing-calculator": {
+    "en": "Industrial-grade tool for sizing compressed air receiver tanks based on demand, pressure, and system dynamics. Compliant with ISO 8573-1, CAGI, and Lean Six Sigma standards.",
+    "tr": "Talep, basınç ve sistem dinamiklerine dayalı olarak basınçlı hava alıcı tanklarının boyutlandırılması için endüstriyel sınıf araç. ISO 8573-1, CAGI ve Yalın Altı Sigma standartlarına uygundur.",
+    "de": "Industrietaugliches Werkzeug zur Dimensionierung von Druckluftbehältern basierend auf Bedarf, Druck und Systemdynamik. Entspricht ISO 8573-1, CAGI und Lean Six Sigma Standards.",
+    "fr": "Outil de qualité industrielle pour dimensionner les réservoirs d'air comprimé en fonction de la demande, de la pression et de la dynamique du système. Conforme aux normes ISO 8573-1, CAGI et Lean Six Sigma.",
+    "es": "Herramienta de grado industrial para dimensionar tanques receptores de aire comprimido según la demanda, la presión y la dinámica del sistema. Cumple con las normas ISO 8573-1, CAGI y Lean Six Sigma.",
+    "ar": "أداة من الدرجة الصناعية لتحجيم خزانات استقبال الهواء المضغوط بناءً على الطلب والضغط وديناميكيات النظام. متوافقة مع معايير ISO 8573-1 و CAGI و Lean Six Sigma."
+  },
+  "container-load-calculator": {
+    "en": "Industrial-grade tool for optimizing container utilization, reducing shipping costs, and minimizing waste per ISO and Lean standards.",
+    "tr": "Konteyner kullanımını optimize etmek, nakliye maliyetlerini azaltmak ve ISO ve Yalın standartlara göre atığı en aza indirmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung der Containernutzung, Reduzierung der Versandkosten und Minimierung von Abfall gemäß ISO- und Lean-Standards.",
+    "fr": "Outil de qualité industrielle pour optimiser l'utilisation des conteneurs, réduire les coûts d'expédition et minimiser les déchets conformément aux normes ISO et Lean.",
+    "es": "Herramienta de grado industrial para optimizar la utilización de contenedores, reducir los costos de envío y minimizar los residuos según las normas ISO y Lean.",
+    "ar": "أداة من الدرجة الصناعية لتحسين استخدام الحاويات، وتقليل تكاليف الشحن، وتقليل النفايات وفقًا لمعايير ISO و Lean."
+  },
+  "contract-incentive-calculator": {
+    "en": "Industrial-grade tool for calculating contract incentive payouts based on performance metrics, quality, delivery, and cost efficiency. Aligns with ISO 9001, Lean Six Sigma, and WERC standards.",
+    "tr": "Performans metrikleri, kalite, teslimat ve maliyet verimliliğine dayalı sözleşme teşvik ödemelerini hesaplamak için endüstriyel sınıf araç. ISO 9001, Yalın Altı Sigma ve WERC standartlarıyla uyumludur.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung von Vertragsbonuszahlungen basierend auf Leistungskennzahlen, Qualität, Lieferung und Kosteneffizienz. Entspricht ISO 9001, Lean Six Sigma und WERC Standards.",
+    "fr": "Outil de qualité industrielle pour calculer les paiements incitatifs contractuels en fonction des indicateurs de performance, de la qualité, de la livraison et de l'efficacité des coûts. Conforme aux normes ISO 9001, Lean Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para calcular pagos de incentivos contractuales basados en métricas de rendimiento, calidad, entrega y eficiencia de costos. Se alinea con ISO 9001, Lean Six Sigma y estándares WERC.",
+    "ar": "أداة من الدرجة الصناعية لحساب مدفوعات الحوافز التعاقدية بناءً على مقاييس الأداء والجودة والتسليم وكفاءة التكلفة. تتوافق مع معايير ISO 9001 و Lean Six Sigma و WERC."
+  },
+  "cpk-ppm-converter-calculator": {
+    "en": "Converts Process Capability Index (Cpk) to Parts Per Million (PPM) defect rate and provides actionable insights for process improvement. Based on Six Sigma and ISO 22514 standards.",
+    "tr": "Süreç Yeterlilik İndeksini (Cpk) Milyonda Parça (PPM) hata oranına dönüştürür ve süreç iyileştirme için uygulanabilir içgörüler sağlar. Altı Sigma ve ISO 22514 standartlarına dayanır.",
+    "de": "Wandelt den Prozessfähigkeitsindex (Cpk) in die Fehlerrate Teile pro Million (PPM) um und liefert umsetzbare Erkenntnisse zur Prozessverbesserung. Basiert auf Six Sigma und ISO 22514.",
+    "fr": "Convertit l'indice de capabilité processus (Cpk) en taux de défauts en parties par million (PPM) et fournit des informations exploitables pour l'amélioration des processus. Basé sur Six Sigma et la norme ISO 22514.",
+    "es": "Convierte el índice de capacidad de proceso (Cpk) a tasa de defectos en partes por millón (PPM) y proporciona información procesable para la mejora del proceso. Basado en Six Sigma y la norma ISO 22514.",
+    "ar": "يحول مؤشر قدرة العملية (Cpk) إلى معدل العيوب بالأجزاء في المليون (PPM) ويوفر رؤى قابلة للتنفيذ لتحسين العملية. يعتمد على معايير Six Sigma و ISO 22514."
+  },
+  "cpm-delay-penalty-optimizer-calculator": {
+    "en": "Industrial-grade tool for optimizing delay penalties in Critical Path Method (CPM) project schedules, incorporating lean construction principles and Six Sigma variability reduction.",
+    "tr": "Kritik Yol Yöntemi (CPM) proje çizelgelerinde gecikme cezalarını optimize etmek için endüstriyel sınıf araç, yalın inşaat ilkelerini ve Altı Sigma değişkenlik azaltımını içerir.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung von Verzögerungsstrafen in CPM-Projektplänen unter Einbeziehung von Lean-Construction-Prinzipien und Six-Sigma-Variabilitätsreduzierung.",
+    "fr": "Outil de qualité industrielle pour optimiser les pénalités de retard dans les plannings de projet CPM, intégrant les principes de construction Lean et la réduction de la variabilité Six Sigma.",
+    "es": "Herramienta de grado industrial para optimizar las penalizaciones por retraso en los cronogramas de proyectos CPM, incorporando principios de construcción Lean y reducción de variabilidad Six Sigma.",
+    "ar": "أداة صناعية لتحسين عقوبات التأخير في جداول مشاريع طريقة المسار الحرج (CPM)، تتضمن مبادئ البناء الخالي من الهدر وتقليل التباين وفق Six Sigma."
+  },
+  "crop-yield-loss-analyzer-calculator": {
+    "en": "Industrial-grade tool to quantify yield losses, identify hidden loss drivers, and suggest corrective actions based on ISO, Lean, Six Sigma, and WERC standards.",
+    "tr": "Üretim kayıplarını ölçmek, gizli kayıp sürücülerini belirlemek ve ISO, Yalın, Altı Sigma ve WERC standartlarına dayalı düzeltici eylemler önermek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Quantifizierung von Ertragsverlusten, Identifizierung versteckter Verlusttreiber und Vorschlag von Korrekturmaßnahmen basierend auf ISO-, Lean-, Six-Sigma- und WERC-Standards.",
+    "fr": "Outil de qualité industrielle pour quantifier les pertes de rendement, identifier les facteurs de perte cachés et suggérer des actions correctives basées sur les normes ISO, Lean, Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para cuantificar pérdidas de rendimiento, identificar impulsores de pérdida ocultos y sugerir acciones correctivas basadas en normas ISO, Lean, Six Sigma y WERC.",
+    "ar": "أداة صناعية لقياس خسائر الإنتاجية، وتحديد محركات الخسارة الخفية، واقتراح إجراءات تصحيحية بناءً على معايير ISO و Lean و Six Sigma و WERC."
+  },
+  "currency-risk-calculator": {
+    "en": "Industrial-grade tool for assessing foreign exchange exposure and quantifying potential financial impact using ISO 31000, Lean, and Six Sigma principles.",
+    "tr": "Döviz kuru riskini değerlendirmek ve ISO 31000, Yalın ve Altı Sigma ilkelerini kullanarak potansiyel finansal etkiyi ölçmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Bewertung von Wechselkursrisiken und Quantifizierung potenzieller finanzieller Auswirkungen unter Verwendung von ISO 31000-, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de qualité industrielle pour évaluer l'exposition au risque de change et quantifier l'impact financier potentiel en utilisant les principes ISO 31000, Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para evaluar la exposición al tipo de cambio y cuantificar el impacto financiero potencial utilizando los principios ISO 31000, Lean y Six Sigma.",
+    "ar": "أداة صناعية لتقييم التعرض لمخاطر صرف العملات الأجنبية وقياس الأثر المالي المحتمل باستخدام مبادئ ISO 31000 و Lean و Six Sigma."
+  },
+  "cut-fill-balance-optimizer-calculator": {
+    "en": "Industrial-grade earthwork balancing tool for mass haul optimization, minimizing rehandle and haul costs using lean construction and Six Sigma principles.",
+    "tr": "Kütle taşıma optimizasyonu için endüstriyel sınıf toprak dengeleme aracı, yalın inşaat ve Altı Sigma ilkelerini kullanarak yeniden elleçleme ve taşıma maliyetlerini en aza indirir.",
+    "de": "Industrietaugliches Erdbewegungsausgleichswerkzeug zur Massentransportoptimierung, Minimierung von Rückhandhabungs- und Transportkosten unter Verwendung von Lean-Construction- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de nivellement des terrassements de qualité industrielle pour l'optimisation du transport en masse, minimisant les coûts de reprise et de transport en utilisant les principes de construction Lean et Six Sigma.",
+    "es": "Herramienta de nivelación de movimiento de tierras de grado industrial para la optimización del transporte masivo, minimizando los costos de remanejo y acarreo utilizando principios de construcción Lean y Six Sigma.",
+    "ar": "أداة صناعية لموازنة أعمال الحفر لتحسين النقل الجماعي، وتقليل تكاليف إعادة المناولة والنقل باستخدام مبادئ البناء الخالي من الهدر و Six Sigma."
+  },
+  "cutting-parameters-tool-life-calculator": {
+    "en": "Calculates tool life based on cutting speed, feed rate, depth of cut, and material properties, with adjustments for process reliability and hidden loss drivers.",
+    "tr": "Kesme hızı, ilerleme hızı, kesme derinliği ve malzeme özelliklerine dayalı olarak takım ömrünü hesaplar, süreç güvenilirliği ve gizli kayıp sürücüleri için ayarlamalar yapar.",
+    "de": "Berechnet die Werkzeugstandzeit basierend auf Schnittgeschwindigkeit, Vorschub, Schnitttiefe und Materialeigenschaften mit Anpassungen für Prozesszuverlässigkeit und versteckte Verlusttreiber.",
+    "fr": "Calcule la durée de vie de l'outil en fonction de la vitesse de coupe, de l'avance, de la profondeur de passe et des propriétés du matériau, avec des ajustements pour la fiabilité du processus et les facteurs de perte cachés.",
+    "es": "Calcula la vida útil de la herramienta basada en la velocidad de corte, la velocidad de avance, la profundidad de corte y las propiedades del material, con ajustes por confiabilidad del proceso y factores de pérdida ocultos.",
+    "ar": "يحسب عمر الأداة بناءً على سرعة القطع ومعدل التغذية وعمق القطع وخصائص المادة، مع تعديلات لموثوقية العملية ومحركات الخسارة الخفية."
+  },
+  "delivery-cost-calculator": {
+    "en": "Industrial-grade calculator for total delivery cost analysis per shipment, incorporating Lean logistics, Six Sigma variability, and WERC warehousing standards.",
+    "tr": "Sevkiyat başına toplam teslimat maliyeti analizi için endüstriyel sınıf hesap makinesi, Yalın lojistik, Altı Sigma değişkenliği ve WERC depolama standartlarını içerir.",
+    "de": "Industrietauglicher Rechner für die Gesamtlieferkostenanalyse pro Sendung unter Einbeziehung von Lean Logistics, Six Sigma Variabilität und WERC-Lagerstandards.",
+    "fr": "Calculateur de qualité industrielle pour l'analyse du coût total de livraison par expédition, intégrant la logistique Lean, la variabilité Six Sigma et les normes d'entreposage WERC.",
+    "es": "Calculadora de grado industrial para el análisis del costo total de entrega por envío, incorporando logística Lean, variabilidad Six Sigma y estándares de almacenamiento WERC.",
+    "ar": "آلة حاسبة صناعية لتحليل تكلفة التوصيل الإجمالية لكل شحنة، تتضمن الخدمات اللوجستية الخالية من الهدر وتغير Six Sigma ومعايير التخزين WERC."
+  },
+  "digital-twin-cost-comparator-calculator": {
+    "en": "Industrial-grade cost comparison tool for digital twin implementations, incorporating ISO 55000, Lean, Six Sigma, and WERC standards.",
+    "tr": "Dijital ikiz uygulamaları için endüstriyel sınıf maliyet karşılaştırma aracı, ISO 55000, Yalın, Altı Sigma ve WERC standartlarını içerir.",
+    "de": "Industrietaugliches Kostenvergleichswerkzeug für digitale Zwillingsimplementierungen unter Einbeziehung von ISO 55000, Lean, Six Sigma und WERC-Standards.",
+    "fr": "Outil de comparaison des coûts de qualité industrielle pour les implémentations de jumeaux numériques, intégrant les normes ISO 55000, Lean, Six Sigma et WERC.",
+    "es": "Herramienta de comparación de costos de grado industrial para implementaciones de gemelos digitales, que incorpora los estándares ISO 55000, Lean, Six Sigma y WERC.",
+    "ar": "أداة صناعية لمقارنة التكاليف لتطبيقات التوأم الرقمي، تتضمن معايير ISO 55000 و Lean و Six Sigma و WERC."
+  },
+  "discount-calculator": {
+    "en": "Industrial-grade discount analysis tool for evaluating pricing strategies, margin impact, and volume trade-offs. Aligns with ISO 9001 cost management and Lean Six Sigma value stream principles.",
+    "tr": "Fiyatlandırma stratejilerini, marj etkisini ve hacim ödünleşimlerini değerlendirmek için endüstriyel sınıf indirim analiz aracı. ISO 9001 maliyet yönetimi ve Yalın Altı Sigma değer akışı ilkeleriyle uyumludur.",
+    "de": "Industrietaugliches Rabattanalysewerkzeug zur Bewertung von Preisstrategien, Margenauswirkungen und Volumenabwägungen. Entspricht ISO 9001 Kostenmanagement und Lean Six Sigma Wertstromprinzipien.",
+    "fr": "Outil d'analyse des remises de qualité industrielle pour évaluer les stratégies de prix, l'impact sur les marges et les compromis de volume. Aligné sur la gestion des coûts ISO 9001 et les principes de la chaîne de valeur Lean Six Sigma.",
+    "es": "Herramienta de análisis de descuentos de grado industrial para evaluar estrategias de precios, impacto en el margen y compensaciones de volumen. Alineada con la gestión de costos ISO 9001 y los principios de flujo de valor Lean Six Sigma.",
+    "ar": "أداة صناعية لتحليل الخصم لتقييم استراتيجيات التسعير وتأثير الهامش والمقايضات الحجمية. متوافقة مع إدارة التكاليف ISO 9001 ومبادئ تدفق القيمة Lean Six Sigma."
+  },
+  "downtime-cost-calculator": {
+    "en": "Calculates the total cost of unplanned downtime based on lost production, labor, energy, quality, and recovery expenses, following industrial engineering standards (ISO 22400, Lean, Six Sigma).",
+    "tr": "Kayıp üretim, işçilik, enerji, kalite ve kurtarma giderlerine dayalı olarak plansız duruşların toplam maliyetini hesaplar, endüstri mühendisliği standartlarını (ISO 22400, Yalın, Altı Sigma) takip eder.",
+    "de": "Berechnet die Gesamtkosten ungeplanter Ausfallzeiten basierend auf Produktionsausfall, Arbeit, Energie, Qualität und Wiederherstellungskosten nach industrietechnischen Standards (ISO 22400, Lean, Six Sigma).",
+    "fr": "Calcule le coût total des arrêts non planifiés en fonction de la perte de production, de la main-d'œuvre, de l'énergie, de la qualité et des frais de récupération, conformément aux normes du génie industriel (ISO 22400, Lean, Six Sigma).",
+    "es": "Calcula el costo total del tiempo de inactividad no planificado basado en la producción perdida, mano de obra, energía, calidad y gastos de recuperación, siguiendo estándares de ingeniería industrial (ISO 22400, Lean, Six Sigma).",
+    "ar": "يحسب التكلفة الإجمالية للتوقف غير المخطط له بناءً على الإنتاج المفقود والعمالة والطاقة والجودة ونفقات الاسترداد، وفقًا لمعايير الهندسة الصناعية (ISO 22400 و Lean و Six Sigma)."
+  },
+  "dye-recipe-cost-optimizer-calculator": {
+    "en": "Industrial-grade tool for optimizing dye recipe costs using lean manufacturing and Six Sigma principles. Calculates total cost per batch, identifies hidden loss drivers, and suggests cost-reduction actions.",
+    "tr": "Yalın üretim ve Altı Sigma ilkelerini kullanarak boya reçetesi maliyetlerini optimize etmek için endüstriyel sınıf araç. Parti başına toplam maliyeti hesaplar, gizli kayıp sürücülerini belirler ve maliyet düşürme eylemleri önerir.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung von Farbstoffrezepturkosten unter Verwendung von Lean Manufacturing und Six Sigma Prinzipien. Berechnet die Gesamtkosten pro Charge, identifiziert versteckte Verlusttreiber und schlägt kostensenkende Maßnahmen vor.",
+    "fr": "Outil de qualité industrielle pour optimiser les coûts de formulation de teinture en utilisant les principes de fabrication Lean et Six Sigma. Calcule le coût total par lot, identifie les facteurs de perte cachés et suggère des actions de réduction des coûts.",
+    "es": "Herramienta de grado industrial para optimizar los costos de recetas de tintes utilizando principios de manufactura Lean y Six Sigma. Calcula el costo total por lote, identifica los impulsores de pérdida ocultos y sugiere acciones de reducción de costos.",
+    "ar": "أداة صناعية لتحسين تكاليف وصفات الصباغة باستخدام مبادئ التصنيع الخالي من الهدر و Six Sigma. تحسب التكلفة الإجمالية لكل دفعة، وتحدد محركات الخسارة الخفية، وتقترح إجراءات لخفض التكاليف."
+  },
+  "eoq-inventory-calculator": {
+    "en": "Industrial-grade Economic Order Quantity calculator with integrated cost analysis, safety stock, and reorder point optimization. Compliant with ISO 9001, Lean, Six Sigma, and WERC standards.",
+    "tr": "Entegre maliyet analizi, emniyet stoğu ve yeniden sipariş noktası optimizasyonu ile endüstriyel sınıf Ekonomik Sipariş Miktarı hesaplayıcısı. ISO 9001, Yalın, Altı Sigma ve WERC standartlarına uygundur.",
+    "de": "Industrietauglicher EOQ-Rechner mit integrierter Kostenanalyse, Sicherheitsbestand und Optimierung des Bestellpunkts. Konform mit ISO 9001, Lean, Six Sigma und WERC-Standards.",
+    "fr": "Calculateur de quantité économique de commande de qualité industrielle avec analyse des coûts intégrée, stock de sécurité et optimisation du point de commande. Conforme aux normes ISO 9001, Lean, Six Sigma et WERC.",
+    "es": "Calculadora de cantidad económica de pedido de grado industrial con análisis de costos integrado, stock de seguridad y optimización del punto de reorden. Cumple con los estándares ISO 9001, Lean, Six Sigma y WERC.",
+    "ar": "آلة حاسبة صناعية لكمية الطلب الاقتصادي مع تحليل التكاليف المتكامل ومخزون الأمان وتحسين نقطة إعادة الطلب. متوافقة مع معايير ISO 9001 و Lean و Six Sigma و WERC."
+  },
+  "evm-cost-forecast-calculator": {
+    "en": "Industrial-grade Earned Value Management cost forecasting tool with confidence-adjusted EAC, loss driver analysis, and actionable recommendations.",
+    "tr": "Güven ayarlı EAC, kayıp sürücü analizi ve uygulanabilir önerilerle endüstriyel sınıf Kazanılmış Değer Yönetimi maliyet tahmin aracı.",
+    "de": "Industrietaugliches EVM-Kostenvorhersagetool mit konfidenzbereinigtem EAC, Verlusttreiberanalyse und umsetzbaren Empfehlungen.",
+    "fr": "Outil de prévision des coûts de gestion de la valeur acquise de qualité industrielle avec EAC ajusté par la confiance, analyse des facteurs de perte et recommandations exploitables.",
+    "es": "Herramienta de pronóstico de costos de gestión del valor ganado de grado industrial con EAC ajustado por confianza, análisis de impulsores de pérdida y recomendaciones procesables.",
+    "ar": "أداة صناعية للتنبؤ بتكاليف إدارة القيمة المكتسبة مع التقدير عند الإنجاز المعدل بالثقة، وتحليل محركات الخسارة، وتوصيات قابلة للتنفيذ."
+  },
+  "factory-layout-distance-optimizer-calculator": {
+    "en": "Calculates the total material handling distance and identifies optimization opportunities based on facility layout, flow intensity, and path efficiency. Aligns with ISO 9001, Lean Manufacturing, and Six Sigma principles.",
+    "tr": "Toplam malzeme taşıma mesafesini hesaplar ve tesis düzeni, akış yoğunluğu ve yol verimliliğine dayalı optimizasyon fırsatlarını belirler. ISO 9001, Yalın Üretim ve Altı Sigma ilkeleriyle uyumludur.",
+    "de": "Berechnet die gesamte Materialtransportdistanz und identifiziert Optimierungsmöglichkeiten basierend auf Anlagenlayout, Flussintensität und Wegeffizienz. Entspricht ISO 9001, Lean Manufacturing und Six Sigma Prinzipien.",
+    "fr": "Calcule la distance totale de manutention et identifie les opportunités d'optimisation basées sur l'agencement des installations, l'intensité du flux et l'efficacité des trajets. Aligné sur les principes ISO 9001, Lean Manufacturing et Six Sigma.",
+    "es": "Calcula la distancia total de manejo de materiales e identifica oportunidades de optimización basadas en la distribución de la planta, la intensidad del flujo y la eficiencia de la ruta. Alineado con los principios ISO 9001, Lean Manufacturing y Six Sigma.",
+    "ar": "يحسب المسافة الإجمالية لمناولة المواد ويحدد فرص التحسين بناءً على تخطيط المنشأة وكثافة التدفق وكفاءة المسار. متوافق مع مبادئ ISO 9001 والتصنيع الخالي من الهدر و Six Sigma."
+  },
+  "feed-cost-estimator-calculator": {
+    "en": "Industrial-grade calculation tool for estimating total feed cost per animal per day, incorporating raw material costs, processing losses, and quality adjustments. Aligned with ISO 22000, Lean, Six Sigma, and WERC standards.",
+    "tr": "Hayvan başına günlük toplam yem maliyetini tahmin etmek için endüstriyel sınıf hesaplama aracı, hammadde maliyetleri, işleme kayıpları ve kalite ayarlamalarını içerir. ISO 22000, Yalın, Altı Sigma ve WERC standartlarıyla uyumludur.",
+    "de": "Industrietaugliches Berechnungswerkzeug zur Schätzung der Gesamtfutterkosten pro Tier und Tag unter Einbeziehung von Rohstoffkosten, Verarbeitungsverlusten und Qualitätsanpassungen. Entspricht ISO 22000, Lean, Six Sigma und WERC-Standards.",
+    "fr": "Outil de calcul de qualité industrielle pour estimer le coût total d'alimentation par animal par jour, intégrant les coûts des matières premières, les pertes de transformation et les ajustements de qualité. Aligné sur les normes ISO 22000, Lean, Six Sigma et WERC.",
+    "es": "Herramienta de cálculo de grado industrial para estimar el costo total de alimentación por animal por día, incorporando costos de materia prima, pérdidas de procesamiento y ajustes de calidad. Alineada con los estándares ISO 22000, Lean, Six Sigma y WERC.",
+    "ar": "أداة حساب صناعية لتقدير التكلفة الإجمالية للعلف لكل حيوان في اليوم، تتضمن تكاليف المواد الخام وخسائر المعالجة وتعديلات الجودة. متوافقة مع معايير ISO 22000 و Lean و Six Sigma و WERC."
+  },
+  "fertilizer-dosage-calculator": {
+    "en": "Industrial-grade calculator for optimal fertilizer application rates based on crop needs, soil analysis, and application efficiency, following ISO 14051, Lean Six Sigma, and WERC guidelines.",
+    "tr": "Mahsul ihtiyaçları, toprak analizi ve uygulama verimliliğine dayalı optimal gübre uygulama oranları için endüstriyel sınıf hesap makinesi, ISO 14051, Yalın Altı Sigma ve WERC yönergelerini takip eder.",
+    "de": "Industrietauglicher Rechner für optimale Düngemittelausbringungsmengen basierend auf Pflanzenbedarf, Bodenanalyse und Ausbringungseffizienz, nach ISO 14051, Lean Six Sigma und WERC-Richtlinien.",
+    "fr": "Calculateur de qualité industrielle pour des taux d'application d'engrais optimaux basés sur les besoins des cultures, l'analyse du sol et l'efficacité d'application, suivant les directives ISO 14051, Lean Six Sigma et WERC.",
+    "es": "Calculadora de grado industrial para tasas óptimas de aplicación de fertilizantes basadas en las necesidades del cultivo, análisis del suelo y eficiencia de aplicación, siguiendo las pautas ISO 14051, Lean Six Sigma y WERC.",
+    "ar": "آلة حاسبة صناعية لمعدلات التسميد المثلى بناءً على احتياجات المحصول وتحليل التربة وكفاءة التطبيق، وفقًا لإرشادات ISO 14051 و Lean Six Sigma و WERC."
+  },
+  "filament-recycling-cost-comparator-calculator": {
+    "en": "Industrial-grade tool to compare the total cost of recycling vs. virgin filament production, incorporating material yield, energy, labor, logistics, and quality-adjusted output. Aligns with ISO 14040/14044 LCA principles and Lean/Six Sigma waste reduction metrics.",
+    "tr": "Geri dönüşüm ve saf filament üretiminin toplam maliyetini karşılaştırmak için endüstriyel sınıf araç, malzeme verimi, enerji, işçilik, lojistik ve kalite ayarlı çıktıyı içerir. ISO 14040/14044 YDD ilkeleri ve Yalın/Altı Sigma atık azaltma metrikleriyle uyumludur.",
+    "de": "Industrietaugliches Werkzeug zum Vergleich der Gesamtkosten von Recycling vs. Neufilamentproduktion unter Einbeziehung von Materialausbeute, Energie, Arbeit, Logistik und qualitätsbereinigter Ausgabe. Entspricht ISO 14040/14044 Ökobilanzprinzipien und Lean/Six Sigma Abfallreduzierungsmetriken.",
+    "fr": "Outil de qualité industrielle pour comparer le coût total du recyclage par rapport à la production de filament vierge, intégrant le rendement matière, l'énergie, la main-d'œuvre, la logistique et la production ajustée à la qualité. Aligné sur les principes d'ACV ISO 14040/14044 et les métriques de réduction des déchets Lean/Six Sigma.",
+    "es": "Herramienta de grado industrial para comparar el costo total del reciclaje frente a la producción de filamento virgen, incorporando rendimiento de material, energía, mano de obra, logística y producción ajustada por calidad. Alineada con los principios de ACV ISO 14040/14044 y las métricas de reducción de desperdicios Lean/Six Sigma.",
+    "ar": "أداة صناعية لمقارنة التكلفة الإجمالية لإعادة التدوير مقابل إنتاج الخيوط البكر، تتضمن إنتاجية المواد والطاقة والعمالة والخدمات اللوجستية والمخرجات المعدلة حسب الجودة. متوافقة مع مبادئ تقييم دورة الحياة ISO 14040/14044 ومقاييس تقليل النفايات Lean/Six Sigma."
+  },
+  "fire-hydrant-flow-calculator": {
+    "en": "Industrial-grade tool for evaluating fire hydrant flow capacity, system pressure losses, and compliance with NFPA and ISO standards. Supports Lean Six Sigma DMAIC projects and WERC warehouse fire protection audits.",
+    "tr": "Yangın hidrantı akış kapasitesini, sistem basınç kayıplarını ve NFPA ve ISO standartlarına uygunluğu değerlendirmek için endüstriyel sınıf araç. Yalın Altı Sigma DMAIC projelerini ve WERC depo yangın koruma denetimlerini destekler.",
+    "de": "Industrietaugliches Werkzeug zur Bewertung der Durchflusskapazität von Feuerhydranten, Systemdruckverlusten und Einhaltung von NFPA- und ISO-Normen. Unterstützt Lean Six Sigma DMAIC-Projekte und WERC-Lagerfeuerschutzprüfungen.",
+    "fr": "Outil de qualité industrielle pour évaluer la capacité de débit des bouches d'incendie, les pertes de pression du système et la conformité aux normes NFPA et ISO. Prend en charge les projets DMAIC Lean Six Sigma et les audits de protection incendie des entrepôts WERC.",
+    "es": "Herramienta de grado industrial para evaluar la capacidad de flujo de hidrantes contra incendios, pérdidas de presión del sistema y cumplimiento con las normas NFPA e ISO. Apoya proyectos DMAIC Lean Six Sigma y auditorías de protección contra incendios en almacenes WERC.",
+    "ar": "أداة صناعية لتقييم سعة تدفق صنبور الإطفاء وفقدان ضغط النظام والامتثال لمعايير NFPA و ISO. تدعم مشاريع DMAIC Lean Six Sigma وعمليات تدقيق الحماية من الحرائق في المستودعات WERC."
+  },
+  "flexible-manufacturing-roi-calculator": {
+    "en": "Calculates the return on investment for implementing flexible manufacturing systems, considering setup time reduction, changeover costs, inventory savings, and capacity utilization improvements.",
+    "tr": "Esnek üretim sistemlerinin uygulanması için yatırım getirisini hesaplar, kurulum süresi azaltımı, değişim maliyetleri, envanter tasarrufları ve kapasite kullanım iyileştirmelerini dikkate alır.",
+    "de": "Berechnet die Kapitalrendite für die Implementierung flexibler Fertigungssysteme unter Berücksichtigung von Rüstzeitreduzierung, Umrüstkosten, Bestandseinsparungen und Kapazitätsauslastungsverbesserungen.",
+    "fr": "Calcule le retour sur investissement pour la mise en œuvre de systèmes de fabrication flexibles, en tenant compte de la réduction des temps de configuration, des coûts de changement, des économies de stocks et des améliorations de l'utilisation de la capacité.",
+    "es": "Calcula el retorno de la inversión para implementar sistemas de fabricación flexibles, considerando la reducción del tiempo de preparación, los costos de cambio, los ahorros de inventario y las mejoras en la utilización de la capacidad.",
+    "ar": "يحسب العائد على الاستثمار لتنفيذ أنظمة التصنيع المرنة، مع مراعاة تقليل وقت الإعداد وتكاليف التغيير وتوفير المخزون وتحسينات استخدام السعة."
+  },
+  "fraction-to-decimal-calculator": {
+    "en": "Converts fractions (including mixed numbers) to decimal equivalents with precision, uncertainty analysis, and industrial-grade rounding per ISO 80000-1 and Six Sigma standards.",
+    "tr": "Kesirleri (karışık sayılar dahil) ondalık eşdeğerlerine dönüştürür, hassasiyet, belirsizlik analizi ve ISO 80000-1 ve Altı Sigma standartlarına göre endüstriyel sınıf yuvarlama yapar.",
+    "de": "Wandelt Brüche (einschließlich gemischter Zahlen) in Dezimaläquivalente um, mit Präzision, Unsicherheitsanalyse und industrietauglicher Rundung nach ISO 80000-1 und Six Sigma Standards.",
+    "fr": "Convertit les fractions (y compris les nombres mixtes) en équivalents décimaux avec précision, analyse d'incertitude et arrondi de qualité industrielle selon les normes ISO 80000-1 et Six Sigma.",
+    "es": "Convierte fracciones (incluyendo números mixtos) a equivalentes decimales con precisión, análisis de incertidumbre y redondeo de grado industrial según las normas ISO 80000-1 y Six Sigma.",
+    "ar": "يحول الكسور (بما في ذلك الأعداد الكسرية) إلى مكافئات عشرية مع الدقة وتحليل عدم اليقين والتقريب الصناعي وفقًا لمعايير ISO 80000-1 و Six Sigma."
+  },
+  "fuel-route-drift-calculator": {
+    "en": "Industrial-grade tool for calculating fuel consumption drift due to route deviations, based on ISO 14040, Lean Six Sigma, and WERC logistics standards.",
+    "tr": "Rota sapmalarından kaynaklanan yakıt tüketimi kaymasını hesaplamak için endüstriyel sınıf araç, ISO 14040, Yalın Altı Sigma ve WERC lojistik standartlarına dayanır.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung der Kraftstoffverbrauchsabweichung aufgrund von Routenabweichungen, basierend auf ISO 14040, Lean Six Sigma und WERC Logistikstandards.",
+    "fr": "Outil de qualité industrielle pour calculer la dérive de consommation de carburant due aux écarts d'itinéraire, basé sur les normes ISO 14040, Lean Six Sigma et WERC logistique.",
+    "es": "Herramienta de grado industrial para calcular la desviación del consumo de combustible debido a desviaciones de ruta, basada en las normas ISO 14040, Lean Six Sigma y WERC logística.",
+    "ar": "أداة صناعية لحساب انحراف استهلاك الوقود بسبب انحرافات المسار، بناءً على معايير ISO 14040 و Lean Six Sigma و WERC اللوجستية."
+  },
+  "haccp-deviation-cost-calculator": {
+    "en": "Calculates the total cost impact of a HACCP deviation, including direct losses, rework, waste, and compliance penalties, with confidence-adjusted estimates and actionable recommendations.",
+    "tr": "Bir HACCP sapmasının toplam maliyet etkisini hesaplar, doğrudan kayıplar, yeniden işleme, atık ve uyum cezalarını içerir, güven ayarlı tahminler ve uygulanabilir öneriler sunar.",
+    "de": "Berechnet die Gesamtkostenauswirkungen einer HACCP-Abweichung, einschließlich direkter Verluste, Nacharbeit, Abfall und Compliance-Strafen, mit konfidenzbereinigten Schätzungen und umsetzbaren Empfehlungen.",
+    "fr": "Calcule l'impact total des coûts d'un écart HACCP, y compris les pertes directes, les reprises, les déchets et les pénalités de conformité, avec des estimations ajustées par la confiance et des recommandations exploitables.",
+    "es": "Calcula el impacto total del costo de una desviación HACCP, incluyendo pérdidas directas, retrabajo, desperdicio y sanciones por cumplimiento, con estimaciones ajustadas por confianza y recomendaciones procesables.",
+    "ar": "يحسب التأثير الإجمالي لتكلفة انحراف نظام تحليل المخاطر ونقاط التحكم الحرجة (HACCP)، بما في ذلك الخسائر المباشرة وإعادة العمل والنفايات وعقوبات الامتثال، مع تقديرات معدلة بالثقة وتوصيات قابلة للتنفيذ."
+  },
+  "heat-exchanger-fouling-loss-calculator": {
+    "en": "Calculates energy and production losses due to fouling in shell-and-tube heat exchangers, based on ISO 50001, Six Sigma DMAIC, and Lean manufacturing principles.",
+    "tr": "Gövde-boru tipi ısı değiştiricilerinde kirlenme nedeniyle enerji ve üretim kayıplarını hesaplar, ISO 50001, Altı Sigma DMAIC ve Yalın üretim ilkelerine dayanır.",
+    "de": "Berechnet Energie- und Produktionsverluste aufgrund von Verschmutzung in Rohrbündelwärmetauschern, basierend auf ISO 50001, Six Sigma DMAIC und Lean Manufacturing Prinzipien.",
+    "fr": "Calcule les pertes d'énergie et de production dues à l'encrassement dans les échangeurs de chaleur à calandre et à tubes, basé sur les principes ISO 50001, Six Sigma DMAIC et Lean Manufacturing.",
+    "es": "Calcula las pérdidas de energía y producción debido a la incrustación en intercambiadores de calor de carcasa y tubos, basado en los principios ISO 50001, Six Sigma DMAIC y Lean Manufacturing.",
+    "ar": "يحسب خسائر الطاقة والإنتاج بسبب التلوث في المبادلات الحرارية ذات الغلاف والأنبوب، بناءً على مبادئ ISO 50001 و Six Sigma DMAIC والتصنيع الخالي من الهدر."
+  },
+  "hp-to-kw-converter-calculator": {
+    "en": "Industrial-grade conversion tool with efficiency analysis, loss drivers, and actionable recommendations based on ISO 80000-4 and IEC 60034 standards.",
+    "tr": "Verimlilik analizi, kayıp sürücüleri ve ISO 80000-4 ve IEC 60034 standartlarına dayalı uygulanabilir öneriler içeren endüstriyel sınıf dönüşüm aracı.",
+    "de": "Industrietaugliches Umrechnungswerkzeug mit Effizienzanalyse, Verlusttreibern und umsetzbaren Empfehlungen basierend auf ISO 80000-4 und IEC 60034.",
+    "fr": "Outil de conversion de qualité industrielle avec analyse d'efficacité, facteurs de perte et recommandations exploitables basés sur les normes ISO 80000-4 et IEC 60034.",
+    "es": "Herramienta de conversión de grado industrial con análisis de eficiencia, impulsores de pérdida y recomendaciones procesables basadas en las normas ISO 80000-4 e IEC 60034.",
+    "ar": "أداة تحويل صناعية مع تحليل الكفاءة ومحركات الخسارة وتوصيات قابلة للتنفيذ بناءً على معايير ISO 80000-4 و IEC 60034."
+  },
+  "hvac-capacity-optimizer-calculator": {
+    "en": "Industrial-grade tool to optimize HVAC system capacity based on load, efficiency, and environmental factors, aligned with ISO 50001 and Lean Six Sigma principles.",
+    "tr": "Yük, verimlilik ve çevresel faktörlere dayalı HVAC sistemi kapasitesini optimize etmek için endüstriyel sınıf araç, ISO 50001 ve Yalın Altı Sigma ilkeleriyle uyumludur.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung der HVAC-Systemkapazität basierend auf Last, Effizienz und Umweltfaktoren, abgestimmt auf ISO 50001 und Lean Six Sigma Prinzipien.",
+    "fr": "Outil de qualité industrielle pour optimiser la capacité du système CVC en fonction de la charge, de l'efficacité et des facteurs environnementaux, aligné sur les principes ISO 50001 et Lean Six Sigma.",
+    "es": "Herramienta de grado industrial para optimizar la capacidad del sistema HVAC basada en carga, eficiencia y factores ambientales, alineada con los principios ISO 50001 y Lean Six Sigma.",
+    "ar": "أداة صناعية لتحسين سعة نظام التدفئة والتهوية وتكييف الهواء (HVAC) بناءً على الحمل والكفاءة والعوامل البيئية، متوافقة مع مبادئ ISO 50001 و Lean Six Sigma."
+  },
+  "hydraulic-system-energy-loss-calculator": {
+    "en": "Industrial-grade tool to calculate total energy loss in hydraulic systems, identify loss drivers, and suggest improvement actions based on ISO 4409, Lean, and Six Sigma principles.",
+    "tr": "Hidrolik sistemlerde toplam enerji kaybını hesaplamak, kayıp sürücülerini belirlemek ve ISO 4409, Yalın ve Altı Sigma prensiplerine dayalı iyileştirme eylemleri önermek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung des gesamten Energieverlusts in Hydrauliksystemen, Identifizierung von Verlusttreibern und Vorschlag von Verbesserungsmaßnahmen basierend auf ISO 4409, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de qualité industrielle pour calculer la perte d'énergie totale dans les systèmes hydrauliques, identifier les facteurs de perte et suggérer des actions d'amélioration basées sur les normes ISO 4409, Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para calcular la pérdida total de energía en sistemas hidráulicos, identificar los impulsores de pérdida y sugerir acciones de mejora basadas en ISO 4409, Lean y Six Sigma.",
+    "ar": "أداة صناعية لحساب إجمالي فقدان الطاقة في الأنظمة الهيدروليكية، وتحديد محركات الفقد، واقتراح إجراءات تحسين بناءً على ISO 4409 ومبادئ اللين وسيكس سيجما."
+  },
+  "inflation-escalation-calculator": {
+    "en": "Industrial-grade tool to compute the impact of inflation on material, labor, energy, and overhead costs over a specified period, with escalation factors and confidence adjustments.",
+    "tr": "Belirli bir dönem boyunca enflasyonun malzeme, işçilik, enerji ve genel gider maliyetleri üzerindeki etkisini, eskaltasyon faktörleri ve güven ayarlamaları ile hesaplamak için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung der Auswirkungen der Inflation auf Material-, Arbeits-, Energie- und Gemeinkosten über einen bestimmten Zeitraum mit Eskalationsfaktoren und Konfidenzanpassungen.",
+    "fr": "Outil de qualité industrielle pour calculer l'impact de l'inflation sur les coûts des matériaux, de la main-d'œuvre, de l'énergie et des frais généraux sur une période donnée, avec des facteurs d'escalade et des ajustements de confiance.",
+    "es": "Herramienta de grado industrial para calcular el impacto de la inflación en los costos de materiales, mano de obra, energía y gastos generales durante un período específico, con factores de escalamiento y ajustes de confianza.",
+    "ar": "أداة صناعية لحساب تأثير التضخم على تكاليف المواد والعمالة والطاقة والتكاليف العامة خلال فترة محددة، مع عوامل التصعيد وتعديلات الثقة."
+  },
+  "inventory-turnover-risk-calculator": {
+    "en": "Industrial-grade risk assessment for inventory turnover performance, incorporating variability, obsolescence, and carrying cost exposure. Aligns with ISO 9001, Lean, Six Sigma, and WERC DC Metrics.",
+    "tr": "Envanter devir hızı performansı için endüstriyel sınıf risk değerlendirmesi, değişkenlik, eskime ve taşıma maliyeti maruziyetini içerir. ISO 9001, Yalın, Altı Sigma ve WERC DC Metrikleri ile uyumludur.",
+    "de": "Industrietaugliche Risikobewertung für die Lagerumschlagleistung unter Einbeziehung von Variabilität, Veralterung und Lagerkostenexposition. Entspricht ISO 9001, Lean, Six Sigma und WERC DC Metrics.",
+    "fr": "Évaluation des risques de qualité industrielle pour la performance de rotation des stocks, intégrant la variabilité, l'obsolescence et l'exposition aux coûts de possession. Conforme aux normes ISO 9001, Lean, Six Sigma et WERC DC Metrics.",
+    "es": "Evaluación de riesgos de grado industrial para el rendimiento de rotación de inventario, incorporando variabilidad, obsolescencia y exposición al costo de mantenimiento. Alineado con ISO 9001, Lean, Six Sigma y WERC DC Metrics.",
+    "ar": "تقييم مخاطر صناعي لأداء دوران المخزون، يشمل التباين والتقادم والتعرض لتكلفة الحمل. متوافق مع ISO 9001 واللين وسيكس سيجما ومقاييس WERC DC."
+  },
+  "irrigation-cost-check-calculator": {
+    "en": "Industrial-grade tool to evaluate irrigation system cost efficiency, hidden losses, and actionable improvements based on ISO 14046, Lean Six Sigma, and WERC DC metrics.",
+    "tr": "Sulama sistemi maliyet verimliliğini, gizli kayıpları ve ISO 14046, Yalın Altı Sigma ve WERC DC metriklerine dayalı uygulanabilir iyileştirmeleri değerlendirmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Werkzeug zur Bewertung der Kosteneffizienz von Bewässerungssystemen, versteckten Verlusten und umsetzbaren Verbesserungen basierend auf ISO 14046, Lean Six Sigma und WERC DC-Metriken.",
+    "fr": "Outil de qualité industrielle pour évaluer l'efficacité des coûts du système d'irrigation, les pertes cachées et les améliorations exploitables basées sur les normes ISO 14046, Lean Six Sigma et WERC DC.",
+    "es": "Herramienta de grado industrial para evaluar la eficiencia de costos del sistema de riego, pérdidas ocultas y mejoras procesables basadas en ISO 14046, Lean Six Sigma y métricas WERC DC.",
+    "ar": "أداة صناعية لتقييم كفاءة تكلفة نظام الري، والخسائر الخفية، والتحسينات القابلة للتنفيذ بناءً على ISO 14046 واللين سيكس سيجما ومقاييس WERC DC."
+  },
+  "iso-50001-energy-baseline-calculator": {
+    "en": "Calculates the energy baseline and performance indicators per ISO 50001:2018, including normalization for production volume, weather, and other relevant variables.",
+    "tr": "ISO 50001:2018'e göre enerji taban çizgisini ve performans göstergelerini hesaplar, üretim hacmi, hava durumu ve diğer ilgili değişkenler için normalleştirme dahil.",
+    "de": "Berechnet die Energiebasislinie und Leistungsindikatoren gemäß ISO 50001:2018, einschließlich Normalisierung für Produktionsvolumen, Wetter und andere relevante Variablen.",
+    "fr": "Calcule la ligne de base énergétique et les indicateurs de performance selon ISO 50001:2018, y compris la normalisation pour le volume de production, les conditions météorologiques et d'autres variables pertinentes.",
+    "es": "Calcula la línea base de energía y los indicadores de rendimiento según ISO 50001:2018, incluida la normalización por volumen de producción, clima y otras variables relevantes.",
+    "ar": "يحسب خط الأساس للطاقة ومؤشرات الأداء وفقًا لـ ISO 50001:2018، بما في ذلك التطبيع لحجم الإنتاج والطقس والمتغيرات الأخرى ذات الصلة."
+  },
+  "kaizen-savings-tracker-calculator": {
+    "en": "Industrial-grade tool for calculating cost savings from Kaizen (continuous improvement) events, aligned with Lean, Six Sigma, and ISO 9001 standards. Tracks direct savings, productivity gains, quality improvements, and hidden loss drivers.",
+    "tr": "Kaizen (sürekli iyileştirme) etkinliklerinden elde edilen maliyet tasarruflarını hesaplamak için endüstriyel sınıf araç, Yalın, Altı Sigma ve ISO 9001 standartlarıyla uyumludur. Doğrudan tasarrufları, verimlilik kazanımlarını, kalite iyileştirmelerini ve gizli kayıp sürücülerini izler.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung von Kosteneinsparungen aus Kaizen-Ereignissen (kontinuierliche Verbesserung), ausgerichtet an Lean-, Six-Sigma- und ISO-9001-Standards. Verfolgt direkte Einsparungen, Produktivitätssteigerungen, Qualitätsverbesserungen und versteckte Verlusttreiber.",
+    "fr": "Outil de qualité industrielle pour calculer les économies de coûts des événements Kaizen (amélioration continue), conforme aux normes Lean, Six Sigma et ISO 9001. Suit les économies directes, les gains de productivité, les améliorations de qualité et les facteurs de perte cachés.",
+    "es": "Herramienta de grado industrial para calcular ahorros de costos de eventos Kaizen (mejora continua), alineada con los estándares Lean, Six Sigma e ISO 9001. Rastrea ahorros directos, ganancias de productividad, mejoras de calidad e impulsores de pérdida ocultos.",
+    "ar": "أداة صناعية لحساب توفير التكاليف من أحداث كايزن (التحسين المستمر)، متوافقة مع معايير اللين وسيكس سيجما وISO 9001. تتبع التوفير المباشر ومكاسب الإنتاجية وتحسينات الجودة ومحركات الخسارة الخفية."
+  },
+  "kg-to-lb-converter-calculator": {
+    "en": "Industrial-grade mass conversion tool with precision validation, loss analysis, and confidence-adjusted outputs compliant with ISO 80000-1 and WERC standards.",
+    "tr": "ISO 80000-1 ve WERC standartlarına uygun, hassasiyet doğrulaması, kayıp analizi ve güven ayarlı çıktılar içeren endüstriyel sınıf kütle dönüşüm aracı.",
+    "de": "Industrietaugliches Massenumrechnungswerkzeug mit Präzisionsvalidierung, Verlustanalyse und konfidenzbereinigten Ausgaben, konform mit ISO 80000-1 und WERC-Standards.",
+    "fr": "Outil de conversion de masse de qualité industrielle avec validation de précision, analyse des pertes et sorties ajustées par confiance, conforme aux normes ISO 80000-1 et WERC.",
+    "es": "Herramienta de conversión de masa de grado industrial con validación de precisión, análisis de pérdidas y salidas ajustadas por confianza, compatible con ISO 80000-1 y estándares WERC.",
+    "ar": "أداة تحويل الكتلة الصناعية مع التحقق من الدقة وتحليل الخسارة والمخرجات المعدلة بالثقة، متوافقة مع ISO 80000-1 ومعايير WERC."
+  },
+  "kwh-cost-calculator": {
+    "en": "Industrial-grade calculator for total cost of electrical energy consumption, incorporating demand charges, power factor penalties, and efficiency losses per ISO 50001 and Six Sigma DMAIC standards.",
+    "tr": "Talep ücretleri, güç faktörü cezaları ve ISO 50001 ve Altı Sigma DMAIC standartlarına göre verimlilik kayıplarını içeren toplam elektrik enerjisi tüketimi maliyeti hesaplayıcısı.",
+    "de": "Industrietauglicher Rechner für die Gesamtkosten des elektrischen Energieverbrauchs unter Einbeziehung von Leistungspreisen, Blindleistungsstrafen und Effizienzverlusten gemäß ISO 50001 und Six Sigma DMAIC.",
+    "fr": "Calculateur de qualité industrielle pour le coût total de la consommation d'énergie électrique, intégrant les frais de demande, les pénalités de facteur de puissance et les pertes d'efficacité selon les normes ISO 50001 et Six Sigma DMAIC.",
+    "es": "Calculadora de grado industrial para el costo total del consumo de energía eléctrica, que incorpora cargos por demanda, penalizaciones por factor de potencia y pérdidas de eficiencia según ISO 50001 y Six Sigma DMAIC.",
+    "ar": "آلة حاسبة صناعية للتكلفة الإجمالية لاستهلاك الطاقة الكهربائية، تتضمن رسوم الطلب وغرامات معامل القدرة وفقدان الكفاءة وفقًا لـ ISO 50001 و Six Sigma DMAIC."
+  },
+  "lbs-to-kg-converter-calculator": {
+    "en": "Industrial-grade conversion tool with mass-based loss analysis, confidence adjustment, and action recommendations per ISO 80000-1 and Lean Six Sigma standards.",
+    "tr": "ISO 80000-1 ve Yalın Altı Sigma standartlarına göre kütle bazlı kayıp analizi, güven ayarlaması ve eylem önerileri içeren endüstriyel sınıf dönüşüm aracı.",
+    "de": "Industrietaugliches Umrechnungswerkzeug mit massenbasierter Verlustanalyse, Konfidenzanpassung und Aktionsempfehlungen gemäß ISO 80000-1 und Lean Six Sigma.",
+    "fr": "Outil de conversion de qualité industrielle avec analyse des pertes basée sur la masse, ajustement de confiance et recommandations d'actions selon les normes ISO 80000-1 et Lean Six Sigma.",
+    "es": "Herramienta de conversión de grado industrial con análisis de pérdidas basado en masa, ajuste de confianza y recomendaciones de acción según ISO 80000-1 y Lean Six Sigma.",
+    "ar": "أداة تحويل صناعية مع تحليل الخسارة القائم على الكتلة، وتعديل الثقة، وتوصيات الإجراءات وفقًا لـ ISO 80000-1 واللين سيكس سيجما."
+  },
+  "lcm-calculator": {
+    "en": "Calculates total life cycle maintenance cost based on industrial engineering standards (ISO 15686, Lean, Six Sigma, WERC).",
+    "tr": "Endüstri mühendisliği standartlarına (ISO 15686, Yalın, Altı Sigma, WERC) dayalı toplam yaşam döngüsü bakım maliyetini hesaplar.",
+    "de": "Berechnet die gesamten Lebenszykluswartungskosten basierend auf industriellen Ingenieurstandards (ISO 15686, Lean, Six Sigma, WERC).",
+    "fr": "Calcule le coût total de maintenance du cycle de vie basé sur les normes d'ingénierie industrielle (ISO 15686, Lean, Six Sigma, WERC).",
+    "es": "Calcula el costo total de mantenimiento del ciclo de vida basado en estándares de ingeniería industrial (ISO 15686, Lean, Six Sigma, WERC).",
+    "ar": "يحسب التكلفة الإجمالية لصيانة دورة الحياة بناءً على معايير الهندسة الصناعية (ISO 15686، اللين، سيكس سيجما، WERC)."
+  },
+  "lightweight-cost-savings-calculator": {
+    "en": "Industrial-grade calculator for evaluating cost savings from lightweighting initiatives in logistics and manufacturing, aligned with Lean, Six Sigma, and WERC standards.",
+    "tr": "Lojistik ve imalatta hafifletme girişimlerinden elde edilen maliyet tasarruflarını değerlendirmek için endüstriyel sınıf hesaplayıcı, Yalın, Altı Sigma ve WERC standartlarıyla uyumludur.",
+    "de": "Industrietauglicher Rechner zur Bewertung von Kosteneinsparungen aus Leichtbauinitiativen in Logistik und Fertigung, ausgerichtet an Lean-, Six-Sigma- und WERC-Standards.",
+    "fr": "Calculateur de qualité industrielle pour évaluer les économies de coûts des initiatives d'allègement dans la logistique et la fabrication, conforme aux normes Lean, Six Sigma et WERC.",
+    "es": "Calculadora de grado industrial para evaluar ahorros de costos de iniciativas de aligeramiento en logística y fabricación, alineada con los estándares Lean, Six Sigma y WERC.",
+    "ar": "آلة حاسبة صناعية لتقييم توفير التكاليف من مبادرات تخفيف الوزن في الخدمات اللوجستية والتصنيع، متوافقة مع معايير اللين وسيكس سيجما وWERC."
+  },
+  "liters-to-gallons-converter-calculator": {
+    "en": "Industrial-grade conversion tool for liters to gallons, incorporating volume measurement standards, batch adjustments, and loss factors per ISO, Lean, and Six Sigma guidelines.",
+    "tr": "Litreleri galona dönüştürmek için endüstriyel sınıf dönüşüm aracı, hacim ölçüm standartlarını, parti ayarlamalarını ve ISO, Yalın ve Altı Sigma yönergelerine göre kayıp faktörlerini içerir.",
+    "de": "Industrietaugliches Umrechnungswerkzeug von Litern in Gallonen unter Einbeziehung von Volumenmessstandards, Chargenanpassungen und Verlustfaktoren gemäß ISO-, Lean- und Six-Sigma-Richtlinien.",
+    "fr": "Outil de conversion de qualité industrielle pour convertir des litres en gallons, intégrant les normes de mesure de volume, les ajustements de lot et les facteurs de perte selon les directives ISO, Lean et Six Sigma.",
+    "es": "Herramienta de conversión de grado industrial para convertir litros a galones, incorporando estándares de medición de volumen, ajustes de lote y factores de pérdida según las directrices ISO, Lean y Six Sigma.",
+    "ar": "أداة تحويل صناعية من اللترات إلى الجالونات، تتضمن معايير قياس الحجم، وتعديلات الدفعة، وعوامل الخسارة وفقًا لإرشادات ISO واللين وسيكس سيجما."
+  },
+  "logarithm-calculator": {
+    "en": "Industrial-grade logarithmic calculator for process scaling, decibel analysis, and logarithmic trend decomposition in manufacturing and logistics. Compliant with ISO 80000-2, Lean Six Sigma, and WERC DC Metrics.",
+    "tr": "Üretim ve lojistikte proses ölçekleme, desibel analizi ve logaritmik trend ayrıştırması için endüstriyel sınıf logaritmik hesaplayıcı. ISO 80000-2, Yalın Altı Sigma ve WERC DC Metrikleri ile uyumludur.",
+    "de": "Industrietauglicher logarithmischer Rechner für Prozessskalierung, Dezibelanalyse und logarithmische Trendzerlegung in Fertigung und Logistik. Konform mit ISO 80000-2, Lean Six Sigma und WERC DC Metrics.",
+    "fr": "Calculateur logarithmique de qualité industrielle pour la mise à l'échelle des processus, l'analyse en décibels et la décomposition des tendances logarithmiques dans la fabrication et la logistique. Conforme aux normes ISO 80000-2, Lean Six Sigma et WERC DC Metrics.",
+    "es": "Calculadora logarítmica de grado industrial para escalado de procesos, análisis de decibelios y descomposición de tendencias logarítmicas en fabricación y logística. Compatible con ISO 80000-2, Lean Six Sigma y WERC DC Metrics.",
+    "ar": "آلة حاسبة لوغاريتمية صناعية لتحجيم العمليات، وتحليل الديسيبل، وتحليل الاتجاه اللوغاريتمي في التصنيع والخدمات اللوجستية. متوافقة مع ISO 80000-2 واللين سيكس سيجما ومقاييس WERC DC."
+  },
+  "logistics-route-loss-calculator": {
+    "en": "Calculates total route loss (cost and time) for a logistics route, identifying hidden loss drivers and suggesting improvement actions based on industrial engineering standards (Lean, Six Sigma, WERC).",
+    "tr": "Bir lojistik rota için toplam rota kaybını (maliyet ve zaman) hesaplar, gizli kayıp sürücülerini belirler ve endüstri mühendisliği standartlarına (Yalın, Altı Sigma, WERC) dayalı iyileştirme eylemleri önerir.",
+    "de": "Berechnet den gesamten Streckenverlust (Kosten und Zeit) für eine Logistikroute, identifiziert versteckte Verlusttreiber und schlägt Verbesserungsmaßnahmen basierend auf industriellen Ingenieurstandards (Lean, Six Sigma, WERC) vor.",
+    "fr": "Calcule la perte totale d'itinéraire (coût et temps) pour un itinéraire logistique, identifie les facteurs de perte cachés et suggère des actions d'amélioration basées sur les normes d'ingénierie industrielle (Lean, Six Sigma, WERC).",
+    "es": "Calcula la pérdida total de ruta (costo y tiempo) para una ruta logística, identifica los impulsores de pérdida ocultos y sugiere acciones de mejora basadas en estándares de ingeniería industrial (Lean, Six Sigma, WERC).",
+    "ar": "يحسب إجمالي خسارة المسار (التكلفة والوقت) لمسار لوجستي، ويحدد محركات الخسارة الخفية، ويقترح إجراءات تحسين بناءً على معايير الهندسة الصناعية (اللين، سيكس سيجما، WERC)."
+  },
+  "machine-economic-life-calculator": {
+    "en": "Determines the optimal economic life of a machine by balancing capital costs, operating costs, and productivity losses, aligned with ISO 15663, Lean, and Six Sigma principles.",
+    "tr": "Sermaye maliyetleri, işletme maliyetleri ve verimlilik kayıplarını dengeleyerek bir makinenin optimal ekonomik ömrünü belirler, ISO 15663, Yalın ve Altı Sigma prensipleriyle uyumludur.",
+    "de": "Ermittelt die optimale wirtschaftliche Lebensdauer einer Maschine durch Abwägung von Kapitalkosten, Betriebskosten und Produktivitätsverlusten, ausgerichtet an ISO 15663, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Détermine la durée de vie économique optimale d'une machine en équilibrant les coûts d'investissement, les coûts d'exploitation et les pertes de productivité, conformément aux principes ISO 15663, Lean et Six Sigma.",
+    "es": "Determina la vida económica óptima de una máquina equilibrando los costos de capital, los costos operativos y las pérdidas de productividad, alineado con los principios ISO 15663, Lean y Six Sigma.",
+    "ar": "يحدد العمر الاقتصادي الأمثل للآلة من خلال موازنة التكاليف الرأسمالية وتكاليف التشغيل وخسائر الإنتاجية، بما يتماشى مع مبادئ ISO 15663 واللين وسيكس سيجما."
+  },
+  "machining-strategy-time-optimizer-calculator": {
+    "en": "Calculates optimal machining cycle time and identifies hidden losses using Lean, Six Sigma, and ISO 9001 principles.",
+    "tr": "Optimum işleme çevrim süresini hesaplar ve Yalın, Altı Sigma ve ISO 9001 prensiplerini kullanarak gizli kayıpları belirler.",
+    "de": "Berechnet die optimale Bearbeitungszykluszeit und identifiziert versteckte Verluste unter Verwendung von Lean-, Six-Sigma- und ISO-9001-Prinzipien.",
+    "fr": "Calcule le temps de cycle d'usinage optimal et identifie les pertes cachées en utilisant les principes Lean, Six Sigma et ISO 9001.",
+    "es": "Calcula el tiempo de ciclo de mecanizado óptimo e identifica pérdidas ocultas utilizando los principios Lean, Six Sigma e ISO 9001.",
+    "ar": "يحسب وقت دورة التشغيل الأمثل ويحدد الخسائر الخفية باستخدام مبادئ اللين وسيكس سيجما وISO 9001."
+  },
+  "material-replacement-cost-comparator-calculator": {
+    "en": "Industrial-grade tool to compare total cost of ownership and operational impact of replacing a current material with an alternative, incorporating quality, logistics, and risk factors.",
+    "tr": "Mevcut bir malzemeyi bir alternatifle değiştirmenin toplam sahip olma maliyetini ve operasyonel etkisini karşılaştırmak için endüstriyel sınıf araç, kalite, lojistik ve risk faktörlerini içerir.",
+    "de": "Industrietaugliches Werkzeug zum Vergleich der Gesamtbetriebskosten und der betrieblichen Auswirkungen des Ersetzens eines aktuellen Materials durch eine Alternative unter Einbeziehung von Qualitäts-, Logistik- und Risikofaktoren.",
+    "fr": "Outil de qualité industrielle pour comparer le coût total de possession et l'impact opérationnel du remplacement d'un matériau actuel par une alternative, intégrant les facteurs de qualité, logistiques et de risque.",
+    "es": "Herramienta de grado industrial para comparar el costo total de propiedad y el impacto operativo de reemplazar un material actual por una alternativa, incorporando factores de calidad, logística y riesgo.",
+    "ar": "أداة صناعية لمقارنة التكلفة الإجمالية للملكية والتأثير التشغيلي لاستبدال مادة حالية ببديل، مع تضمين عوامل الجودة والخدمات اللوجستية والمخاطر."
+  },
+  "mm-to-inch-converter-calculator": {
+    "en": "Industrial-grade conversion tool with precision validation, loss analysis, and confidence-adjusted output for engineering and manufacturing applications.",
+    "tr": "Mühendislik ve imalat uygulamaları için hassasiyet doğrulaması, kayıp analizi ve güven ayarlı çıktı içeren endüstriyel sınıf dönüşüm aracı.",
+    "de": "Industrietaugliches Umrechnungswerkzeug mit Präzisionsvalidierung, Verlustanalyse und konfidenzbereinigtem Output für technische und fertigungstechnische Anwendungen.",
+    "fr": "Outil de conversion de qualité industrielle avec validation de précision, analyse des pertes et sortie ajustée par confiance pour les applications d'ingénierie et de fabrication.",
+    "es": "Herramienta de conversión de grado industrial con validación de precisión, análisis de pérdidas y salida ajustada por confianza para aplicaciones de ingeniería y fabricación.",
+    "ar": "أداة تحويل صناعية مع التحقق من الدقة وتحليل الخسارة والمخرجات المعدلة بالثقة لتطبيقات الهندسة والتصنيع."
+  },
+  "moq-inventory-balance-calculator": {
+    "en": "Industrial-grade tool to calculate optimal inventory balance considering Minimum Order Quantities (MOQ), demand variability, and cost trade-offs. Aligns with Lean, Six Sigma, and WERC DC metrics.",
+    "tr": "Minimum Sipariş Miktarlarını (MOQ), talep değişkenliğini ve maliyet ödünleşimlerini dikkate alarak optimal envanter dengesini hesaplamak için endüstriyel sınıf araç. Yalın, Altı Sigma ve WERC DC metrikleriyle uyumludur.",
+    "de": "Industrietaugliches Werkzeug zur Berechnung des optimalen Lagerbestands unter Berücksichtigung von Mindestbestellmengen (MOQ), Nachfragevariabilität und Kostenabwägungen. Entspricht Lean-, Six-Sigma- und WERC-DC-Metriken.",
+    "fr": "Outil de qualité industrielle pour calculer l'équilibre optimal des stocks en tenant compte des quantités minimales de commande (MOQ), de la variabilité de la demande et des compromis de coûts. Conforme aux métriques Lean, Six Sigma et WERC DC.",
+    "es": "Herramienta de grado industrial para calcular el equilibrio óptimo de inventario considerando Cantidades Mínimas de Pedido (MOQ), variabilidad de la demanda y compensaciones de costos. Alineado con métricas Lean, Six Sigma y WERC DC.",
+    "ar": "أداة صناعية لحساب التوازن الأمثل للمخزون مع مراعاة الحد الأدنى لكميات الطلب (MOQ) وتقلب الطلب والمقايضات التكلفوية. متوافقة مع مقاييس اللين وسيكس سيجما وWERC DC."
+  },
+  "mpg-to-l-per-100km-converter-calculator": {
+    "en": "Industrial-grade converter from miles per gallon (MPG) to litres per 100 kilometres (L/100km) with embedded quality, efficiency, and environmental loss analysis. Compliant with ISO 14040, Six Sigma DMAIC, and WERC DC metrics.",
+    "tr": "Galon başına milden (MPG) 100 kilometrede litreye (L/100km) endüstriyel sınıf dönüştürücü, gömülü kalite, verimlilik ve çevresel kayıp analizi ile. ISO 14040, Altı Sigma DMAIC ve WERC DC metrikleriyle uyumludur.",
+    "de": "Industrietauglicher Umrechner von Meilen pro Gallone (MPG) in Liter pro 100 Kilometer (L/100km) mit integrierter Qualitäts-, Effizienz- und Umweltverlustanalyse. Konform mit ISO 14040, Six Sigma DMAIC und WERC DC Metrics.",
+    "fr": "Convertisseur de qualité industrielle de miles par gallon (MPG) en litres aux 100 kilomètres (L/100km) avec analyse intégrée de la qualité, de l'efficacité et des pertes environnementales. Conforme aux normes ISO 14040, Six Sigma DMAIC et WERC DC Metrics.",
+    "es": "Convertidor de grado industrial de millas por galón (MPG) a litros por 100 kilómetros (L/100km) con análisis integrado de calidad, eficiencia y pérdidas ambientales. Compatible con ISO 14040, Six Sigma DMAIC y WERC DC Metrics.",
+    "ar": "محول صناعي من ميل لكل جالون (MPG) إلى لتر لكل 100 كيلومتر (L/100km) مع تحليل مدمج للجودة والكفاءة والخسارة البيئية. متوافق مع ISO 14040 و Six Sigma DMAIC ومقاييس WERC DC."
+  },
+  "msa-gage-rr-cost-calculator": {
+    "en": "Calculates the total cost of measurement system variation (repeatability and reproducibility) based on MSA studies, including hidden losses and confidence-adjusted estimates.",
+    "tr": "MSA çalışmalarına dayalı olarak ölçüm sistemi varyasyonunun (tekrarlanabilirlik ve yeniden üretilebilirlik) toplam maliyetini, gizli kayıplar ve güven ayarlı tahminler dahil hesaplar.",
+    "de": "Berechnet die Gesamtkosten der Messsystemvariation (Wiederholbarkeit und Reproduzierbarkeit) basierend auf MSA-Studien, einschließlich versteckter Verluste und konfidenzbereinigter Schätzungen.",
+    "fr": "Calcule le coût total de la variation du système de mesure (répétabilité et reproductibilité) sur la base des études MSA, y compris les pertes cachées et les estimations ajustées par confiance.",
+    "es": "Calcula el costo total de la variación del sistema de medición (repetibilidad y reproducibilidad) basado en estudios MSA, incluyendo pérdidas ocultas y estimaciones ajustadas por confianza.",
+    "ar": "يحسب التكلفة الإجمالية لتباين نظام القياس (التكرارية وإعادة الإنتاجية) بناءً على دراسات MSA، بما في ذلك الخسائر الخفية والتقديرات المعدلة بالثقة."
+  },
+  "mtbf-mttr-financial-calculator": {
+    "en": "Calculates the financial impact of equipment reliability (MTBF) and maintainability (MTTR) based on industrial engineering standards (ISO 14224, ISO 55000, Six Sigma, Lean).",
+    "tr": "Ekipman güvenilirliğinin (MTBF) ve bakım yapılabilirliğinin (MTTR) finansal etkisini endüstri mühendisliği standartlarına (ISO 14224, ISO 55000, Altı Sigma, Yalın) göre hesaplar.",
+    "de": "Berechnet die finanziellen Auswirkungen der Gerätezuverlässigkeit (MTBF) und Instandhaltbarkeit (MTTR) basierend auf industriellen Ingenieurstandards (ISO 14224, ISO 55000, Six Sigma, Lean).",
+    "fr": "Calcule l'impact financier de la fiabilité (MTBF) et de la maintenabilité (MTTR) des équipements selon les normes d'ingénierie industrielle (ISO 14224, ISO 55000, Six Sigma, Lean).",
+    "es": "Calcula el impacto financiero de la confiabilidad del equipo (MTBF) y la mantenibilidad (MTTR) basado en estándares de ingeniería industrial (ISO 14224, ISO 55000, Six Sigma, Lean).",
+    "ar": "يحسب الأثر المالي لموثوقية المعدات (MTBF) وقابلية الصيانة (MTTR) بناءً على معايير الهندسة الصناعية (ISO 14224، ISO 55000، سيكس سيجما، اللين)."
+  },
+  "muda-waste-cost-calculator": {
+    "en": "Calculates the total cost of waste (Muda) in industrial processes based on Lean and Six Sigma principles, identifying hidden loss drivers and suggesting corrective actions.",
+    "tr": "Endüstriyel süreçlerdeki atık (Muda) toplam maliyetini Yalın ve Altı Sigma prensiplerine göre hesaplar, gizli kayıp sürücülerini belirler ve düzeltici eylemler önerir.",
+    "de": "Berechnet die Gesamtkosten von Verschwendung (Muda) in industriellen Prozessen basierend auf Lean- und Six-Sigma-Prinzipien, identifiziert versteckte Verlusttreiber und schlägt Korrekturmaßnahmen vor.",
+    "fr": "Calcule le coût total des déchets (Muda) dans les processus industriels selon les principes Lean et Six Sigma, identifie les facteurs de perte cachés et suggère des actions correctives.",
+    "es": "Calcula el costo total de desperdicio (Muda) en procesos industriales basado en principios Lean y Six Sigma, identifica los impulsores de pérdida ocultos y sugiere acciones correctivas.",
+    "ar": "يحسب التكلفة الإجمالية للهدر (مودا) في العمليات الصناعية بناءً على مبادئ اللين وسيكس سيجما، ويحدد محركات الخسارة الخفية، ويقترح إجراءات تصحيحية."
+  },
+  "noise-vibration-cost-calculator": {
+    "en": "Industrial-grade tool to quantify the total cost of noise and vibration in manufacturing environments, based on ISO 2631, ISO 9612, Lean, and Six Sigma principles.",
+    "tr": "Üretim ortamlarında gürültü ve titreşimin toplam maliyetini ölçmek için endüstriyel sınıf araç, ISO 2631, ISO 9612, Yalın ve Altı Sigma prensiplerine dayalıdır.",
+    "de": "Industrietaugliches Werkzeug zur Quantifizierung der Gesamtkosten von Lärm und Vibration in Fertigungsumgebungen, basierend auf ISO 2631, ISO 9612, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de qualité industrielle pour quantifier le coût total du bruit et des vibrations dans les environnements de fabrication, basé sur les normes ISO 2631, ISO 9612, les principes Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para cuantificar el costo total del ruido y la vibración en entornos de fabricación, basada en ISO 2631, ISO 9612, principios Lean y Six Sigma.",
+    "ar": "أداة صناعية لقياس التكلفة الإجمالية للضوضاء والاهتزاز في بيئات التصنيع، بناءً على ISO 2631 و ISO 9612 ومبادئ اللين وسيكس سيجما."
+  },
+  "npv-calculator": {
+    "en": "Industrial-grade NPV calculator with sensitivity analysis, loss driver identification, and confidence-adjusted outputs. Compliant with ISO 15686-5, Lean Six Sigma, and WERC standards.",
+    "tr": "Duyarlılık analizi, kayıp sürücü tanımlaması ve güven ayarlı çıktılar içeren endüstriyel sınıf NBD hesaplayıcısı. ISO 15686-5, Yalın Altı Sigma ve WERC standartlarıyla uyumludur.",
+    "de": "Industrietauglicher NPV-Rechner mit Sensitivitätsanalyse, Verlusttreiberidentifikation und konfidenzbereinigten Ausgaben. Konform mit ISO 15686-5, Lean Six Sigma und WERC-Standards.",
+    "fr": "Calculateur NPV de qualité industrielle avec analyse de sensibilité, identification des facteurs de perte et sorties ajustées par confiance. Conforme aux normes ISO 15686-5, Lean Six Sigma et WERC.",
+    "es": "Calculadora NPV de grado industrial con análisis de sensibilidad, identificación de impulsores de pérdida y salidas ajustadas por confianza. Compatible con ISO 15686-5, Lean Six Sigma y estándares WERC.",
+    "ar": "آلة حاسبة NPV صناعية مع تحليل الحساسية، وتحديد محركات الخسارة، ومخرجات معدلة بالثقة. متوافقة مع ISO 15686-5 واللين سيكس سيجما ومعايير WERC."
+  },
+  "oee-downtime-calculator": {
+    "en": "Calculates Overall Equipment Effectiveness (OEE) based on Availability, Performance, and Quality, with detailed downtime loss analysis and actionable improvement suggestions. Compliant with ISO 22400, Lean Manufacturing, and Six Sigma standards.",
+    "tr": "Genel Ekipman Etkinliğini (OEE) Kullanılabilirlik, Performans ve Kaliteye dayalı olarak hesaplar; ayrıntılı duruş kaybı analizi ve uygulanabilir iyileştirme önerileri sunar. ISO 22400, Yalın Üretim ve Altı Sigma standartlarına uygundur.",
+    "de": "Berechnet die Gesamtanlageneffektivität (OEE) basierend auf Verfügbarkeit, Leistung und Qualität mit detaillierter Stillstandsverlustanalyse und umsetzbaren Verbesserungsvorschlägen. Konform mit ISO 22400, Lean Manufacturing und Six Sigma.",
+    "fr": "Calcule l'efficacité globale des équipements (OEE) basée sur la disponibilité, la performance et la qualité, avec une analyse détaillée des pertes d'arrêt et des suggestions d'amélioration exploitables. Conforme aux normes ISO 22400, Lean Manufacturing et Six Sigma.",
+    "es": "Calcula la Efectividad General del Equipo (OEE) basada en Disponibilidad, Rendimiento y Calidad, con análisis detallado de pérdidas por paradas y sugerencias de mejora accionables. Cumple con ISO 22400, Lean Manufacturing y Six Sigma.",
+    "ar": "يحسب فعالية المعدات الشاملة (OEE) بناءً على التوفر والأداء والجودة، مع تحليل مفصل لفقدان وقت التوقف واقتراحات تحسين قابلة للتنفيذ. متوافق مع ISO 22400 والتصنيع الخالي من الهدر وستة سيجما."
+  },
+  "office-supplies-cost-calculator": {
+    "en": "Industrial-grade calculator for total cost of office supplies, incorporating lean inventory principles, waste reduction, and data confidence adjustments.",
+    "tr": "Ofis malzemelerinin toplam maliyeti için endüstriyel sınıf hesap makinesi; yalın envanter ilkeleri, israf azaltma ve veri güveni ayarlamalarını içerir.",
+    "de": "Industrietauglicher Rechner für die Gesamtkosten von Büromaterialien unter Einbeziehung von Lean-Inventory-Prinzipien, Abfallreduzierung und Datenkonfidenzanpassungen.",
+    "fr": "Calculateur de qualité industrielle pour le coût total des fournitures de bureau, intégrant les principes d'inventaire lean, la réduction des déchets et les ajustements de confiance des données.",
+    "es": "Calculadora de grado industrial para el costo total de suministros de oficina, incorporando principios de inventario lean, reducción de desperdicios y ajustes de confianza de datos.",
+    "ar": "آلة حاسبة صناعية للتكلفة الإجمالية للوازم المكتبية، تتضمن مبادئ المخزون الخالي من الهدر، وتقليل الهدر، وتعديلات ثقة البيانات."
+  },
+  "ohms-law-calculator": {
+    "en": "Industrial-grade calculator for electrical power and resistance analysis, compliant with IEC 60038, ISO 50001, and Lean Six Sigma standards.",
+    "tr": "Elektrik gücü ve direnç analizi için endüstriyel sınıf hesap makinesi; IEC 60038, ISO 50001 ve Yalın Altı Sigma standartlarına uygundur.",
+    "de": "Industrietauglicher Rechner für elektrische Leistungs- und Widerstandsanalyse, konform mit IEC 60038, ISO 50001 und Lean Six Sigma.",
+    "fr": "Calculateur de qualité industrielle pour l'analyse de la puissance électrique et de la résistance, conforme aux normes IEC 60038, ISO 50001 et Lean Six Sigma.",
+    "es": "Calculadora de grado industrial para análisis de potencia eléctrica y resistencia, conforme a las normas IEC 60038, ISO 50001 y Lean Six Sigma.",
+    "ar": "آلة حاسبة صناعية لتحليل الطاقة الكهربائية والمقاومة، متوافقة مع IEC 60038 وISO 50001 وLean Six Sigma."
+  },
+  "overtime-vs-hiring-breakeven-calculator": {
+    "en": "Industrial engineering tool to determine the breakeven point between using overtime and hiring additional full-time employees, incorporating labor costs, productivity, quality, and risk factors.",
+    "tr": "Fazla mesai kullanımı ile ek tam zamanlı çalışan işe alımı arasındaki başabaş noktasını belirlemek için endüstri mühendisliği aracı; işçilik maliyetleri, verimlilik, kalite ve risk faktörlerini içerir.",
+    "de": "Industrial Engineering Tool zur Bestimmung des Break-even-Punkts zwischen Überstundeneinsatz und Einstellung zusätzlicher Vollzeitkräfte unter Berücksichtigung von Arbeitskosten, Produktivität, Qualität und Risikofaktoren.",
+    "fr": "Outil d'ingénierie industrielle pour déterminer le seuil de rentabilité entre l'utilisation d'heures supplémentaires et l'embauche d'employés supplémentaires à temps plein, intégrant les coûts de main-d'œuvre, la productivité, la qualité et les facteurs de risque.",
+    "es": "Herramienta de ingeniería industrial para determinar el punto de equilibrio entre el uso de horas extra y la contratación de empleados adicionales a tiempo completo, incorporando costos laborales, productividad, calidad y factores de riesgo.",
+    "ar": "أداة هندسة صناعية لتحديد نقطة التعادل بين استخدام العمل الإضافي وتوظيف موظفين إضافيين بدوام كامل، مع تضمين تكاليف العمالة والإنتاجية والجودة وعوامل المخاطرة."
+  },
+  "ovulation-calculator": {
+    "en": "Industrial-grade tool to estimate ovulation date, fertile window, and cycle variability based on menstrual cycle data. Applies statistical process control (SPC) and lean principles to cycle tracking.",
+    "tr": "Adet döngüsü verilerine dayanarak yumurtlama tarihini, doğurgan pencereyi ve döngü değişkenliğini tahmin etmek için endüstriyel sınıf araç. Döngü takibine istatistiksel proses kontrolü (SPC) ve yalın ilkeler uygular.",
+    "de": "Industrietaugliches Tool zur Schätzung des Eisprungdatums, des fruchtbaren Fensters und der Zyklusvariabilität basierend auf Menstruationszyklusdaten. Wendet statistische Prozesskontrolle (SPC) und Lean-Prinzipien auf die Zyklusverfolgung an.",
+    "fr": "Outil de qualité industrielle pour estimer la date d'ovulation, la fenêtre fertile et la variabilité du cycle basée sur les données du cycle menstruel. Applique le contrôle statistique des processus (SPC) et les principes lean au suivi du cycle.",
+    "es": "Herramienta de grado industrial para estimar la fecha de ovulación, la ventana fértil y la variabilidad del ciclo basada en datos del ciclo menstrual. Aplica control estadístico de procesos (SPC) y principios lean al seguimiento del ciclo.",
+    "ar": "أداة صناعية لتقدير تاريخ الإباضة ونافذة الخصوبة وتقلب الدورة بناءً على بيانات الدورة الشهرية. تطبق التحكم الإحصائي في العمليات (SPC) ومبادئ اللين على تتبع الدورة."
+  },
+  "pallet-rack-optimizer-calculator": {
+    "en": "Industrial-grade tool for optimizing pallet rack storage efficiency, throughput, and structural integrity based on ISO 9001, Lean Warehousing, and WERC standards.",
+    "tr": "ISO 9001, Yalın Depolama ve WERC standartlarına dayalı olarak palet raf depolama verimliliğini, akış hızını ve yapısal bütünlüğü optimize etmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Tool zur Optimierung der Palettenregal-Lagereffizienz, des Durchsatzes und der strukturellen Integrität basierend auf ISO 9001, Lean Warehousing und WERC-Standards.",
+    "fr": "Outil de qualité industrielle pour optimiser l'efficacité du stockage en rayonnages à palettes, le débit et l'intégrité structurelle selon les normes ISO 9001, Lean Warehousing et WERC.",
+    "es": "Herramienta de grado industrial para optimizar la eficiencia de almacenamiento en racks de paletas, el rendimiento y la integridad estructural basada en ISO 9001, Lean Warehousing y estándares WERC.",
+    "ar": "أداة صناعية لتحسين كفاءة تخزين الرفوف المنصاتية والإنتاجية والسلامة الهيكلية بناءً على ISO 9001 والتخزين الخالي من الهدر ومعايير WERC."
+  },
+  "percentage-calculator": {
+    "en": "Industrial-grade percentage calculator for process yield, defect rate, and efficiency analysis, compliant with ISO 9001, Lean, and Six Sigma standards.",
+    "tr": "Proses verimi, kusur oranı ve verimlilik analizi için endüstriyel sınıf yüzde hesaplayıcı; ISO 9001, Yalın ve Altı Sigma standartlarına uygundur.",
+    "de": "Industrietauglicher Prozentrechner für Prozessausbeute, Fehlerrate und Effizienzanalyse, konform mit ISO 9001, Lean und Six Sigma.",
+    "fr": "Calculateur de pourcentage de qualité industrielle pour l'analyse du rendement de processus, du taux de défauts et de l'efficacité, conforme aux normes ISO 9001, Lean et Six Sigma.",
+    "es": "Calculadora de porcentaje de grado industrial para análisis de rendimiento de proceso, tasa de defectos y eficiencia, conforme a ISO 9001, Lean y Six Sigma.",
+    "ar": "آلة حاسبة للنسبة المئوية صناعية لتحليل إنتاجية العملية ومعدل العيوب والكفاءة، متوافقة مع ISO 9001 واللين وستة سيجما."
+  },
+  "pipe-flow-calculator": {
+    "en": "Industrial-grade pipe flow analysis tool based on Darcy-Weisbach, Bernoulli, and empirical friction factor correlations. Compliant with ISO 5167, ASME MFC, and Six Sigma measurement system analysis principles.",
+    "tr": "Darcy-Weisbach, Bernoulli ve ampirik sürtünme faktörü korelasyonlarına dayalı endüstriyel sınıf boru akışı analiz aracı. ISO 5167, ASME MFC ve Altı Sigma ölçüm sistemi analizi prensiplerine uygundur.",
+    "de": "Industrietaugliches Rohrströmungsanalysewerkzeug basierend auf Darcy-Weisbach, Bernoulli und empirischen Reibungsfaktorkorrelationen. Konform mit ISO 5167, ASME MFC und Six Sigma Messsystemanalyse-Prinzipien.",
+    "fr": "Outil d'analyse d'écoulement en canalisation de qualité industrielle basé sur Darcy-Weisbach, Bernoulli et les corrélations empiriques de facteur de frottement. Conforme aux normes ISO 5167, ASME MFC et aux principes d'analyse du système de mesure Six Sigma.",
+    "es": "Herramienta de análisis de flujo en tuberías de grado industrial basada en Darcy-Weisbach, Bernoulli y correlaciones empíricas de factor de fricción. Conforme a ISO 5167, ASME MFC y principios de análisis de sistema de medición Six Sigma.",
+    "ar": "أداة تحليل تدفق الأنابيب الصناعية بناءً على دارسي-ويسباخ وبرنولي وارتباطات معامل الاحتكاك التجريبية. متوافقة مع ISO 5167 وASME MFC ومبادئ تحليل نظام القياس لستة سيجما."
+  },
+  "poka-yoke-roi-calculator": {
+    "en": "Calculates the return on investment for implementing a poka-yoke (mistake-proofing) device or process, based on defect reduction, quality cost savings, and implementation expenses.",
+    "tr": "Bir poka-yoke (hata önleme) cihazı veya sürecinin uygulanması için yatırım getirisini, kusur azaltma, kalite maliyet tasarrufları ve uygulama giderlerine dayalı olarak hesaplar.",
+    "de": "Berechnet den Return on Investment für die Implementierung einer Poka-Yoke-Vorrichtung (Fehlersicherung) oder eines Prozesses, basierend auf Fehlerreduzierung, Qualitätskosteneinsparungen und Implementierungskosten.",
+    "fr": "Calcule le retour sur investissement de la mise en œuvre d'un dispositif ou d'un processus poka-yoke (anti-erreur), basé sur la réduction des défauts, les économies de coûts de qualité et les dépenses de mise en œuvre.",
+    "es": "Calcula el retorno de la inversión para implementar un dispositivo o proceso poka-yoke (a prueba de errores), basado en la reducción de defectos, ahorros en costos de calidad y gastos de implementación.",
+    "ar": "يحسب العائد على الاستثمار لتنفيذ جهاز أو عملية بوكا يوكي (منع الأخطاء)، بناءً على تقليل العيوب وتوفير تكاليف الجودة ونفقات التنفيذ."
+  },
+  "pregnancy-due-date-calculator": {
+    "en": "Industrial-grade calculator for estimating the expected due date (EDD) based on last menstrual period (LMP) and cycle variability, incorporating lean and six-sigma principles for process control and risk assessment.",
+    "tr": "Son adet dönemine (LMP) ve döngü değişkenliğine dayalı olarak beklenen doğum tarihini (EDD) tahmin etmek için endüstriyel sınıf hesap makinesi; proses kontrolü ve risk değerlendirmesi için yalın ve altı sigma ilkelerini içerir.",
+    "de": "Industrietauglicher Rechner zur Schätzung des voraussichtlichen Geburtstermins (EDD) basierend auf der letzten Menstruationsperiode (LMP) und Zyklusvariabilität unter Einbeziehung von Lean- und Six-Sigma-Prinzipien für Prozesskontrolle und Risikobewertung.",
+    "fr": "Calculateur de qualité industrielle pour estimer la date d'accouchement prévue (EDD) basée sur les dernières règles (LMP) et la variabilité du cycle, intégrant les principes lean et six sigma pour le contrôle des processus et l'évaluation des risques.",
+    "es": "Calculadora de grado industrial para estimar la fecha probable de parto (EDD) basada en el último período menstrual (LMP) y la variabilidad del ciclo, incorporando principios lean y six sigma para el control de procesos y la evaluación de riesgos.",
+    "ar": "آلة حاسبة صناعية لتقدير تاريخ الولادة المتوقع (EDD) بناءً على آخر دورة شهرية (LMP) وتقلب الدورة، مع دمج مبادئ اللين وستة سيجما للتحكم في العملية وتقييم المخاطر."
+  },
+  "pressure-vessel-thickness-calculator": {
+    "en": "Calculates minimum required wall thickness for cylindrical pressure vessels based on ASME BPVC Section VIII Div. 1 standards, with integrated safety factors, material utilization, and cost optimization.",
+    "tr": "ASME BPVC Bölüm VIII Kısım 1 standartlarına dayalı olarak silindirik basınçlı kaplar için gerekli minimum duvar kalınlığını hesaplar; entegre güvenlik faktörleri, malzeme kullanımı ve maliyet optimizasyonu içerir.",
+    "de": "Berechnet die erforderliche Mindestwanddicke für zylindrische Druckbehälter nach ASME BPVC Section VIII Div. 1 mit integrierten Sicherheitsfaktoren, Materialausnutzung und Kostenoptimierung.",
+    "fr": "Calcule l'épaisseur de paroi minimale requise pour les récipients sous pression cylindriques selon les normes ASME BPVC Section VIII Div. 1, avec facteurs de sécurité intégrés, utilisation des matériaux et optimisation des coûts.",
+    "es": "Calcula el espesor de pared mínimo requerido para recipientes a presión cilíndricos según las normas ASME BPVC Sección VIII Div. 1, con factores de seguridad integrados, utilización de materiales y optimización de costos.",
+    "ar": "يحسب الحد الأدنى لسمك الجدار المطلوب للأوعية الضغط الأسطوانية وفقًا لمعايير ASME BPVC القسم VIII القسم 1، مع عوامل أمان مدمجة واستخدام المواد وتحسين التكلفة."
+  },
+  "price-elasticity-simulator-calculator": {
+    "en": "Industrial-grade tool to simulate price elasticity of demand, compute revenue impact, and identify hidden loss drivers. Aligned with ISO 9001, Lean Six Sigma, and WERC DC metrics.",
+    "tr": "Fiyat esnekliği talebini simüle etmek, gelir etkisini hesaplamak ve gizli kayıp sürücülerini belirlemek için endüstriyel sınıf araç. ISO 9001, Yalın Altı Sigma ve WERC DC metrikleriyle uyumludur.",
+    "de": "Industrietaugliches Tool zur Simulation der Preiselastizität der Nachfrage, Berechnung der Umsatzauswirkungen und Identifizierung versteckter Verlusttreiber. Abgestimmt auf ISO 9001, Lean Six Sigma und WERC DC-Metriken.",
+    "fr": "Outil de qualité industrielle pour simuler l'élasticité-prix de la demande, calculer l'impact sur les revenus et identifier les facteurs de perte cachés. Aligné sur les normes ISO 9001, Lean Six Sigma et les métriques WERC DC.",
+    "es": "Herramienta de grado industrial para simular la elasticidad precio de la demanda, calcular el impacto en los ingresos e identificar impulsores de pérdidas ocultas. Alineado con ISO 9001, Lean Six Sigma y métricas WERC DC.",
+    "ar": "أداة صناعية لمحاكاة مرونة الطلب السعرية، وحساب تأثير الإيرادات، وتحديد محركات الخسارة الخفية. متوافقة مع ISO 9001 وLean Six Sigma ومقاييس WERC DC."
+  },
+  "probability-calculator": {
+    "en": "Industrial-grade probability and risk assessment tool based on ISO 31000, Six Sigma, and Lean principles. Computes process failure probability, defect rates, and overall process capability.",
+    "tr": "ISO 31000, Altı Sigma ve Yalın ilkelere dayalı endüstriyel sınıf olasılık ve risk değerlendirme aracı. Proses arıza olasılığını, kusur oranlarını ve genel proses yeteneğini hesaplar.",
+    "de": "Industrietaugliches Wahrscheinlichkeits- und Risikobewertungstool basierend auf ISO 31000, Six Sigma und Lean-Prinzipien. Berechnet Prozessausfallwahrscheinlichkeit, Fehlerraten und gesamte Prozessfähigkeit.",
+    "fr": "Outil d'évaluation des probabilités et des risques de qualité industrielle basé sur les normes ISO 31000, Six Sigma et les principes Lean. Calcule la probabilité de défaillance du processus, les taux de défauts et la capabilité globale du processus.",
+    "es": "Herramienta de evaluación de probabilidad y riesgo de grado industrial basada en ISO 31000, Six Sigma y principios Lean. Calcula la probabilidad de falla del proceso, tasas de defectos y capacidad general del proceso.",
+    "ar": "أداة تقييم الاحتمالات والمخاطر الصناعية بناءً على ISO 31000 وستة سيجما ومبادئ اللين. تحسب احتمالية فشل العملية ومعدلات العيوب وقدرة العملية الإجمالية."
+  },
+  "psi-to-bar-converter-calculator": {
+    "en": "Industrial-grade pressure unit converter with validation, loss analysis, and confidence-adjusted output. Compliant with ISO 80000-1, Lean Six Sigma, and WERC standards.",
+    "tr": "Doğrulama, kayıp analizi ve güven ayarlı çıktı ile endüstriyel sınıf basınç birimi dönüştürücü. ISO 80000-1, Yalın Altı Sigma ve WERC standartlarına uygundur.",
+    "de": "Industrietauglicher Druckeinheitenumrechner mit Validierung, Verlustanalyse und konfidenzangepasster Ausgabe. Konform mit ISO 80000-1, Lean Six Sigma und WERC-Standards.",
+    "fr": "Convertisseur d'unités de pression de qualité industrielle avec validation, analyse des pertes et sortie ajustée par confiance. Conforme aux normes ISO 80000-1, Lean Six Sigma et WERC.",
+    "es": "Convertidor de unidades de presión de grado industrial con validación, análisis de pérdidas y salida ajustada por confianza. Conforme a ISO 80000-1, Lean Six Sigma y estándares WERC.",
+    "ar": "محول وحدات الضغط الصناعي مع التحقق وتحليل الخسارة والمخرجات المعدلة بالثقة. متوافق مع ISO 80000-1 وLean Six Sigma ومعايير WERC."
+  },
+  "quadratic-formula-calculator": {
+    "en": "Industrial-grade quadratic equation solver with root analysis, discriminant evaluation, and process capability insights. Compliant with ISO 9001:2015 and Six Sigma DMAIC methodology.",
+    "tr": "Kök analizi, diskriminant değerlendirmesi ve proses yeteneği içgörüleri ile endüstriyel sınıf ikinci dereceden denklem çözücü. ISO 9001:2015 ve Altı Sigma DMAIC metodolojisine uygundur.",
+    "de": "Industrietauglicher quadratischer Gleichungslöser mit Wurzelanalyse, Diskriminantenbewertung und Prozessfähigkeitseinblicken. Konform mit ISO 9001:2015 und Six Sigma DMAIC-Methodik.",
+    "fr": "Solveur d'équation quadratique de qualité industrielle avec analyse des racines, évaluation du discriminant et informations sur la capabilité du processus. Conforme à l'ISO 9001:2015 et à la méthodologie Six Sigma DMAIC.",
+    "es": "Solucionador de ecuaciones cuadráticas de grado industrial con análisis de raíces, evaluación discriminante y perspectivas de capacidad de proceso. Conforme a ISO 9001:2015 y metodología Six Sigma DMAIC.",
+    "ar": "حل المعادلات التربيعية الصناعية مع تحليل الجذور وتقييم المميز ورؤى قدرة العملية. متوافق مع ISO 9001:2015 ومنهجية DMAIC لستة سيجما."
+  },
+  "quality-cost-paf-calculator": {
+    "en": "Calculates Prevention, Appraisal, and Failure (PAF) costs based on ISO 9001, Lean, and Six Sigma principles to identify quality cost drivers and improvement opportunities.",
+    "tr": "ISO 9001, Yalın ve Altı Sigma ilkelerine dayalı olarak Önleme, Değerlendirme ve Başarısızlık (PAF) maliyetlerini hesaplar; kalite maliyet sürücülerini ve iyileştirme fırsatlarını belirler.",
+    "de": "Berechnet Präventions-, Bewertungs- und Fehlerkosten (PAF) basierend auf ISO 9001, Lean und Six Sigma Prinzipien, um Qualitätskostentreiber und Verbesserungsmöglichkeiten zu identifizieren.",
+    "fr": "Calcule les coûts de prévention, d'évaluation et de défaillance (PAF) basés sur les principes ISO 9001, Lean et Six Sigma pour identifier les facteurs de coûts qualité et les opportunités d'amélioration.",
+    "es": "Calcula los costos de Prevención, Evaluación y Falla (PAF) basados en los principios ISO 9001, Lean y Six Sigma para identificar los impulsores de costos de calidad y oportunidades de mejora.",
+    "ar": "يحسب تكاليف الوقاية والتقييم والفشل (PAF) بناءً على مبادئ ISO 9001 واللين وستة سيجما لتحديد محركات تكلفة الجودة وفرص التحسين."
+  },
+  "quote-risk-analyzer-calculator": {
+    "en": "Industrial-grade risk assessment tool for manufacturing and logistics quoting, based on ISO 31000, Lean Six Sigma, and WERC standards.",
+    "tr": "ISO 31000, Yalın Altı Sigma ve WERC standartlarına dayalı olarak üretim ve lojistik teklif verme için endüstriyel sınıf risk değerlendirme aracı.",
+    "de": "Industrietaugliches Risikobewertungstool für Fertigungs- und Logistikangebote basierend auf ISO 31000, Lean Six Sigma und WERC-Standards.",
+    "fr": "Outil d'évaluation des risques de qualité industrielle pour les devis de fabrication et de logistique, basé sur les normes ISO 31000, Lean Six Sigma et WERC.",
+    "es": "Herramienta de evaluación de riesgos de grado industrial para cotizaciones de fabricación y logística, basada en ISO 31000, Lean Six Sigma y estándares WERC.",
+    "ar": "أداة تقييم المخاطر الصناعية لعروض الأسعار في التصنيع والخدمات اللوجستية، بناءً على ISO 31000 وLean Six Sigma ومعايير WERC."
+  },
+  "rca-recurring-cost-calculator": {
+    "en": "Industrial-grade recurring cost analysis tool based on Lean, Six Sigma, and ISO 14000 standards. Calculates total recurring cost, identifies hidden loss drivers, and suggests improvement actions.",
+    "tr": "Yalın, Altı Sigma ve ISO 14000 standartlarına dayalı endüstriyel sınıf yinelenen maliyet analiz aracı. Toplam yinelenen maliyeti hesaplar, gizli kayıp sürücülerini belirler ve iyileştirme eylemleri önerir.",
+    "de": "Industrietaugliches Analysewerkzeug für wiederkehrende Kosten basierend auf Lean, Six Sigma und ISO 14000. Berechnet die gesamten wiederkehrenden Kosten, identifiziert versteckte Verlusttreiber und schlägt Verbesserungsmaßnahmen vor.",
+    "fr": "Outil d'analyse des coûts récurrents de qualité industrielle basé sur les normes Lean, Six Sigma et ISO 14000. Calcule le coût récurrent total, identifie les facteurs de perte cachés et suggère des actions d'amélioration.",
+    "es": "Herramienta de análisis de costos recurrentes de grado industrial basada en Lean, Six Sigma y normas ISO 14000. Calcula el costo recurrente total, identifica impulsores de pérdidas ocultas y sugiere acciones de mejora.",
+    "ar": "أداة تحليل التكاليف المتكررة الصناعية بناءً على مبادئ اللين وستة سيجما وISO 14000. تحسب التكلفة المتكررة الإجمالية، وتحدد محركات الخسارة الخفية، وتقترح إجراءات تحسين."
+  },
+  "renewable-energy-roi-calculator": {
+    "en": "Industrial-grade ROI calculator for renewable energy investments, incorporating ISO 50001, Lean, and Six Sigma principles for energy efficiency and financial analysis.",
+    "tr": "Yenilenebilir enerji yatırımları için endüstriyel sınıf ROI hesaplayıcı; enerji verimliliği ve finansal analiz için ISO 50001, Yalın ve Altı Sigma ilkelerini içerir.",
+    "de": "Industrietauglicher ROI-Rechner für Investitionen in erneuerbare Energien unter Einbeziehung von ISO 50001, Lean und Six Sigma Prinzipien für Energieeffizienz und Finanzanalyse.",
+    "fr": "Calculateur de ROI de qualité industrielle pour les investissements dans les énergies renouvelables, intégrant les principes ISO 50001, Lean et Six Sigma pour l'efficacité énergétique et l'analyse financière.",
+    "es": "Calculadora de ROI de grado industrial para inversiones en energías renovables, incorporando principios ISO 50001, Lean y Six Sigma para eficiencia energética y análisis financiero.",
+    "ar": "آلة حاسبة للعائد على الاستثمار (ROI) صناعية لاستثمارات الطاقة المتجددة، تتضمن مبادئ ISO 50001 واللين وستة سيجما لكفاءة الطاقة والتحليل المالي."
+  },
+  "reynolds-number-calculator": {
+    "en": "Computes the Reynolds number for internal pipe flow to determine flow regime (laminar, transitional, turbulent) based on fluid properties and flow conditions. Compliant with ISO 5167, ASME MFC-2M, and Six Sigma DMAIC methodology.",
+    "tr": "İç boru akışı için Reynolds sayısını hesaplayarak akış rejimini (laminer, geçiş, türbülanslı) belirler; akışkan özellikleri ve akış koşullarına dayalıdır. ISO 5167, ASME MFC-2M ve Altı Sigma DMAIC metodolojisine uygundur.",
+    "de": "Berechnet die Reynolds-Zahl für interne Rohrströmung zur Bestimmung des Strömungsregimes (laminar, Übergang, turbulent) basierend auf Fluideigenschaften und Strömungsbedingungen. Konform mit ISO 5167, ASME MFC-2M und Six Sigma DMAIC-Methodik.",
+    "fr": "Calcule le nombre de Reynolds pour un écoulement interne en canalisation afin de déterminer le régime d'écoulement (laminaire, transitionnel, turbulent) en fonction des propriétés du fluide et des conditions d'écoulement. Conforme aux normes ISO 5167, ASME MFC-2M et à la méthodologie Six Sigma DMAIC.",
+    "es": "Calcula el número de Reynolds para flujo interno en tuberías para determinar el régimen de flujo (laminar, transicional, turbulento) basado en las propiedades del fluido y las condiciones de flujo. Conforme a ISO 5167, ASME MFC-2M y metodología Six Sigma DMAIC.",
+    "ar": "يحسب رقم رينولدز لتدفق الأنابيب الداخلي لتحديد نظام التدفق (صفحي، انتقالي، مضطرب) بناءً على خصائص المائع وظروف التدفق. متوافق مع ISO 5167 وASME MFC-2M ومنهجية DMAIC لستة سيجما."
+  },
+  "roi-calculator": {
+    "en": "Industrial-grade ROI calculator based on Lean, Six Sigma, and ISO standards for manufacturing and logistics operations.",
+    "tr": "Üretim ve lojistik operasyonları için Yalın, Altı Sigma ve ISO standartlarına dayalı endüstriyel sınıf ROI hesaplayıcı.",
+    "de": "Industrietauglicher ROI-Rechner basierend auf Lean, Six Sigma und ISO-Standards für Fertigungs- und Logistikbetriebe.",
+    "fr": "Calculateur de ROI de qualité industrielle basé sur les normes Lean, Six Sigma et ISO pour les opérations de fabrication et de logistique.",
+    "es": "Calculadora de ROI de grado industrial basada en estándares Lean, Six Sigma e ISO para operaciones de fabricación y logística.",
+    "ar": "آلة حاسبة للعائد على الاستثمار (ROI) صناعية بناءً على مبادئ اللين وستة سيجما ومعايير ISO لعمليات التصنيع والخدمات اللوجستية."
+  },
+  "roi-npv-calculator": {
+    "en": "Industrial-grade financial evaluation tool for capital investments, incorporating lean and six sigma principles, ISO standards, and WERC metrics.",
+    "tr": "Sermaye yatırımları için endüstriyel sınıf finansal değerlendirme aracı; yalın ve altı sigma ilkelerini, ISO standartlarını ve WERC metriklerini içerir.",
+    "de": "Industrietaugliches Finanzbewertungstool für Kapitalinvestitionen unter Einbeziehung von Lean- und Six-Sigma-Prinzipien, ISO-Standards und WERC-Metriken.",
+    "fr": "Outil d'évaluation financière de qualité industrielle pour les investissements en capital, intégrant les principes lean et six sigma, les normes ISO et les métriques WERC.",
+    "es": "Herramienta de evaluación financiera de grado industrial para inversiones de capital, incorporando principios lean y six sigma, normas ISO y métricas WERC.",
+    "ar": "أداة تقييم مالي صناعية للاستثمارات الرأسمالية، تتضمن مبادئ اللين وستة سيجما ومعايير ISO ومقاييس WERC."
+  },
+  "route-cost-calculator": {
+    "en": "Industrial-grade route cost analysis tool based on ISO 14040, Lean logistics, and Six Sigma principles. Calculates total cost per route including fuel, labor, maintenance, tolls, and hidden loss drivers.",
+    "tr": "ISO 14040, Yalın lojistik ve Altı Sigma ilkelerine dayalı endüstriyel sınıf rota maliyet analiz aracı. Rota başına toplam maliyeti hesaplar; yakıt, işçilik, bakım, geçiş ücretleri ve gizli kayıp sürücülerini içerir.",
+    "de": "Industrietaugliches Routenkostenanalysewerkzeug basierend auf ISO 14040, Lean-Logistik und Six-Sigma-Prinzipien. Berechnet die Gesamtkosten pro Route einschließlich Kraftstoff, Arbeit, Wartung, Maut und versteckter Verlusttreiber.",
+    "fr": "Outil d'analyse des coûts d'itinéraire de qualité industrielle basé sur les normes ISO 14040, la logistique Lean et les principes Six Sigma. Calcule le coût total par itinéraire, y compris le carburant, la main-d'œuvre, l'entretien, les péages et les facteurs de perte cachés.",
+    "es": "Herramienta de análisis de costos de ruta de grado industrial basada en ISO 14040, logística Lean y principios Six Sigma. Calcula el costo total por ruta, incluyendo combustible, mano de obra, mantenimiento, peajes e impulsores de pérdidas ocultas.",
+    "ar": "أداة تحليل تكلفة المسار الصناعية بناءً على ISO 14040 والخدمات اللوجستية الخالية من الهدر ومبادئ ستة سيجما. تحسب التكلفة الإجمالية لكل مسار بما في ذلك الوقود والعمالة والصيانة والرسوم ومحركات الخسارة الخفية."
+  },
+  "saas-shelfware-cost-calculator": {
+    "en": "Industrial-grade tool to quantify the financial impact of unused or underutilized SaaS licenses, based on Lean and Six Sigma waste reduction principles.",
+    "tr": "Kullanılmayan veya yetersiz kullanılan SaaS lisanslarının finansal etkisini ölçmek için endüstriyel sınıf araç; Yalın ve Altı Sigma israf azaltma ilkelerine dayalıdır.",
+    "de": "Industrietaugliches Tool zur Quantifizierung der finanziellen Auswirkungen ungenutzter oder untergenutzter SaaS-Lizenzen, basierend auf Lean- und Six-Sigma-Prinzipien zur Abfallreduzierung.",
+    "fr": "Outil de qualité industrielle pour quantifier l'impact financier des licences SaaS inutilisées ou sous-utilisées, basé sur les principes de réduction des déchets Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para cuantificar el impacto financiero de las licencias SaaS no utilizadas o infrautilizadas, basada en principios de reducción de desperdicios Lean y Six Sigma.",
+    "ar": "أداة صناعية لقياس الأثر المالي لتراخيص SaaS غير المستخدمة أو غير المستغلة بشكل كافٍ، بناءً على مبادئ تقليل الهدر في اللين وستة سيجما."
+  },
+  "scaffolding-rental-optimizer-calculator": {
+    "en": "Industrial-grade tool to optimize scaffolding rental costs, utilization, and logistics using Lean, Six Sigma, and WERC standards.",
+    "tr": "İskele kiralama maliyetlerini, kullanımını ve lojistiğini Yalın, Altı Sigma ve WERC standartlarını kullanarak optimize etmek için endüstriyel sınıf araç.",
+    "de": "Industrietaugliches Tool zur Optimierung von Gerüstmietkosten, -auslastung und -logistik unter Verwendung von Lean, Six Sigma und WERC-Standards.",
+    "fr": "Outil de qualité industrielle pour optimiser les coûts de location d'échafaudages, l'utilisation et la logistique en utilisant les normes Lean, Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para optimizar los costos de alquiler de andamios, la utilización y la logística utilizando estándares Lean, Six Sigma y WERC.",
+    "ar": "أداة صناعية لتحسين تكاليف تأجير السقالات واستخدامها ولوجستياتها باستخدام معايير اللين وستة سيجما وWERC."
+  },
+  "scrap-rate-optimizer-calculator": {
+    "en": "Industrial-grade tool for calculating and optimizing scrap rates in manufacturing processes, aligned with Lean, Six Sigma, and ISO 9001 standards.",
+    "tr": "Hurda oranlarını hesaplamak ve optimize etmek için endüstriyel sınıf araç, Yalın, Altı Sigma ve ISO 9001 standartlarıyla uyumlu.",
+    "de": "Industrielles Werkzeug zur Berechnung und Optimierung von Ausschussraten in Fertigungsprozessen, konform mit Lean, Six Sigma und ISO 9001.",
+    "fr": "Outil de qualité industrielle pour calculer et optimiser les taux de rebut dans les processus de fabrication, conforme aux normes Lean, Six Sigma et ISO 9001.",
+    "es": "Herramienta de grado industrial para calcular y optimizar las tasas de desperdicio en procesos de fabricación, alineada con los estándares Lean, Six Sigma e ISO 9001.",
+    "ar": "أداة صناعية لحساب وتحسين معدلات الخردة في عمليات التصنيع، متوافقة مع معايير لين وسيكس سيجما وإيزو 9001."
+  },
+  "seed-rate-calculator": {
+    "en": "Industrial-grade seed rate calculator for precision agriculture, incorporating ISO 5692, Six Sigma DMAIC, and Lean principles to optimize planting density, minimize waste, and maximize yield.",
+    "tr": "Hassas tarım için endüstriyel sınıf tohum oranı hesaplayıcı, ISO 5692, Altı Sigma DMAIC ve Yalın ilkelerini içererek ekim yoğunluğunu optimize eder, israfı en aza indirir ve verimi maksimize eder.",
+    "de": "Industrieller Saatgutmengenrechner für die Präzisionslandwirtschaft, der ISO 5692, Six Sigma DMAIC und Lean-Prinzipien integriert, um die Pflanzdichte zu optimieren, Abfall zu minimieren und den Ertrag zu maximieren.",
+    "fr": "Calculateur industriel de taux de semis pour l'agriculture de précision, intégrant les normes ISO 5692, Six Sigma DMAIC et les principes Lean pour optimiser la densité de plantation, minimiser les déchets et maximiser le rendement.",
+    "es": "Calculadora industrial de tasa de siembra para agricultura de precisión, que incorpora ISO 5692, Six Sigma DMAIC y principios Lean para optimizar la densidad de siembra, minimizar el desperdicio y maximizar el rendimiento.",
+    "ar": "آلة حاسبة صناعية لمعدل البذور للزراعة الدقيقة، تتضمن إيزو 5692 وسيكس سيجما DMAIC ومبادئ لين لتحسين كثافة الزراعة وتقليل الهدر وزيادة الإنتاجية."
+  },
+  "shift-cost-efficiency-calculator": {
+    "en": "Calculates the overall cost efficiency of a production shift based on labor, material, energy, quality, and downtime factors, aligned with ISO 22400, Lean, and Six Sigma principles.",
+    "tr": "Bir üretim vardiyasının genel maliyet verimliliğini işçilik, malzeme, enerji, kalite ve duruş faktörlerine dayanarak hesaplar, ISO 22400, Yalın ve Altı Sigma ilkeleriyle uyumlu.",
+    "de": "Berechnet die Gesamtkosteneffizienz einer Produktionsschicht basierend auf Arbeits-, Material-, Energie-, Qualitäts- und Ausfallfaktoren, konform mit ISO 22400, Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Calcule l'efficacité globale des coûts d'un quart de production en fonction de la main-d'œuvre, des matériaux, de l'énergie, de la qualité et des temps d'arrêt, conformément aux principes ISO 22400, Lean et Six Sigma.",
+    "es": "Calcula la eficiencia de costos general de un turno de producción basado en factores de mano de obra, material, energía, calidad y tiempo de inactividad, alineado con los principios ISO 22400, Lean y Six Sigma.",
+    "ar": "تحسب كفاءة التكلفة الإجمالية لنوبة إنتاج بناءً على عوامل العمل والمواد والطاقة والجودة والتوقف، متوافقة مع مبادئ إيزو 22400 ولين وسيكس سيجما."
+  },
+  "shop-hourly-rate-calculator": {
+    "en": "Calculates the true hourly cost of operating a manufacturing shop, incorporating direct labor, overhead, machine costs, and efficiency losses per industrial engineering standards (ISO 9000, Lean, Six Sigma, WERC).",
+    "tr": "Bir üretim atölyesini işletmenin gerçek saatlik maliyetini hesaplar, doğrudan işçilik, genel giderler, makine maliyetleri ve verimlilik kayıplarını endüstri mühendisliği standartlarına (ISO 9000, Yalın, Altı Sigma, WERC) göre içerir.",
+    "de": "Berechnet die tatsächlichen stündlichen Kosten für den Betrieb einer Fertigungswerkstatt unter Einbeziehung direkter Arbeit, Gemeinkosten, Maschinenkosten und Effizienzverluste gemäß den Normen des Industrial Engineering (ISO 9000, Lean, Six Sigma, WERC).",
+    "fr": "Calcule le coût horaire réel d'exploitation d'un atelier de fabrication, en intégrant la main-d'œuvre directe, les frais généraux, les coûts des machines et les pertes d'efficacité selon les normes du génie industriel (ISO 9000, Lean, Six Sigma, WERC).",
+    "es": "Calcula el costo horario real de operar un taller de fabricación, incorporando mano de obra directa, gastos generales, costos de máquina y pérdidas de eficiencia según los estándares de ingeniería industrial (ISO 9000, Lean, Six Sigma, WERC).",
+    "ar": "تحسب التكلفة الحقيقية للساعة لتشغيل ورشة تصنيع، متضمنة العمالة المباشرة والتكاليف العامة وتكاليف الآلات وخسائر الكفاءة وفقًا لمعايير الهندسة الصناعية (إيزو 9000 ولين وسيكس سيجما وWERC)."
+  },
+  "sleep-cycle-calculator": {
+    "en": "Industrial-grade tool to optimize sleep-wake timing based on circadian rhythm, sleep debt, and recovery efficiency. Aligns with ISO 10075 (ergonomic principles), Lean (waste of fatigue), and Six Sigma (variation reduction in rest).",
+    "tr": "Uyku-uyanıklık zamanlamasını sirkadiyen ritim, uyku borcu ve iyileşme verimliliğine göre optimize etmek için endüstriyel sınıf araç. ISO 10075 (ergonomik ilkeler), Yalın (yorgunluk israfı) ve Altı Sigma (dinlenmede varyasyon azaltma) ile uyumlu.",
+    "de": "Industrielles Werkzeug zur Optimierung des Schlaf-Wach-Zeitplans basierend auf zirkadianem Rhythmus, Schlafdefizit und Erholungseffizienz. Konform mit ISO 10075 (ergonomische Grundsätze), Lean (Verschwendung von Müdigkeit) und Six Sigma (Variationsreduzierung bei der Erholung).",
+    "fr": "Outil de qualité industrielle pour optimiser le timing veille-sommeil en fonction du rythme circadien, de la dette de sommeil et de l'efficacité de récupération. Conforme à l'ISO 10075 (principes ergonomiques), Lean (gaspillage de fatigue) et Six Sigma (réduction de la variation dans le repos).",
+    "es": "Herramienta de grado industrial para optimizar el tiempo de sueño-vigilia según el ritmo circadiano, la deuda de sueño y la eficiencia de recuperación. Alineada con ISO 10075 (principios ergonómicos), Lean (desperdicio de fatiga) y Six Sigma (reducción de variación en el descanso).",
+    "ar": "أداة صناعية لتحسين توقيت النوم والاستيقاظ بناءً على إيقاع الساعة البيولوجية وديون النوم وكفاءة التعافي. متوافقة مع إيزو 10075 (مبادئ بيئة العمل) ولين (هدر التعب) وسيكس سيجما (تقليل التباين في الراحة)."
+  },
+  "smed-changeover-optimizer-calculator": {
+    "en": "Calculates changeover time reduction potential using Single-Minute Exchange of Die (SMED) methodology, aligned with Lean Six Sigma and ISO 9001:2015 standards.",
+    "tr": "Tek Dakikada Kalıp Değiştirme (SMED) metodolojisini kullanarak değişim süresi azaltma potansiyelini hesaplar, Yalın Altı Sigma ve ISO 9001:2015 standartlarıyla uyumlu.",
+    "de": "Berechnet das Potenzial zur Reduzierung der Rüstzeit mit der SMED-Methode (Single-Minute Exchange of Die), konform mit Lean Six Sigma und ISO 9001:2015.",
+    "fr": "Calcule le potentiel de réduction du temps de changement de série à l'aide de la méthodologie SMED (Single-Minute Exchange of Die), conforme aux normes Lean Six Sigma et ISO 9001:2015.",
+    "es": "Calcula el potencial de reducción del tiempo de cambio utilizando la metodología SMED (Single-Minute Exchange of Die), alineado con los estándares Lean Six Sigma e ISO 9001:2015.",
+    "ar": "تحسب إمكانية تقليل وقت التغيير باستخدام منهجية التبادل الأحادي الدقيق للقوالب (SMED)، متوافقة مع معايير لين سيكس سيجما وإيزو 9001:2015."
+  },
+  "spc-limit-calculator": {
+    "en": "Calculates control limits for X-bar and R charts based on subgroup data, with process capability analysis and actionable insights per ISO 7870, Six Sigma, and Lean standards.",
+    "tr": "Alt grup verilerine dayanarak X-bar ve R grafikleri için kontrol limitlerini hesaplar, süreç yeterlilik analizi ve uygulanabilir içgörülerle birlikte ISO 7870, Altı Sigma ve Yalın standartlarına uygun.",
+    "de": "Berechnet die Regelgrenzen für X-Bar- und R-Karten basierend auf Untergruppendaten, mit Prozessfähigkeitsanalyse und umsetzbaren Erkenntnissen gemäß ISO 7870, Six Sigma und Lean.",
+    "fr": "Calcule les limites de contrôle pour les cartes X-bar et R à partir de données de sous-groupes, avec analyse de la capacité du processus et informations exploitables conformes aux normes ISO 7870, Six Sigma et Lean.",
+    "es": "Calcula los límites de control para gráficos X-barra y R basados en datos de subgrupos, con análisis de capacidad de proceso e información procesable según los estándares ISO 7870, Six Sigma y Lean.",
+    "ar": "تحسب حدود التحكم لمخططات X-bar و R بناءً على بيانات المجموعات الفرعية، مع تحليل قدرة العملية ورؤى قابلة للتنفيذ وفقًا لمعايير إيزو 7870 وسيكس سيجما ولين."
+  },
+  "spc-signal-delay-cost-calculator": {
+    "en": "Calculates the financial impact of delayed detection and response to out-of-control signals in statistical process control (SPC) systems, incorporating lean and six sigma principles.",
+    "tr": "İstatistiksel süreç kontrol (SPC) sistemlerinde kontrol dışı sinyallerin gecikmeli tespiti ve yanıtlanmasının finansal etkisini hesaplar, yalın ve altı sigma ilkelerini içerir.",
+    "de": "Berechnet die finanziellen Auswirkungen der verzögerten Erkennung und Reaktion auf außer Kontrolle geratene Signale in statistischen Prozesskontrollsystemen (SPC) unter Einbeziehung von Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Calcule l'impact financier de la détection et de la réponse tardives aux signaux hors contrôle dans les systèmes de contrôle statistique des processus (SPC), en intégrant les principes Lean et Six Sigma.",
+    "es": "Calcula el impacto financiero de la detección y respuesta tardías a señales fuera de control en sistemas de control estadístico de procesos (SPC), incorporando principios lean y six sigma.",
+    "ar": "تحسب الأثر المالي للكشف المتأخر والاستجابة للإشارات الخارجة عن السيطرة في أنظمة التحكم الإحصائي في العمليات (SPC)، متضمنة مبادئ لين وسيكس سيجما."
+  },
+  "sqft-to-sqm-converter-calculator": {
+    "en": "Industrial-grade area conversion tool with precision adjustments, tolerance analysis, and data confidence scoring based on ISO 80000-1 and Six Sigma measurement standards.",
+    "tr": "Hassas ayarlamalar, tolerans analizi ve ISO 80000-1 ve Altı Sigma ölçüm standartlarına dayalı veri güven puanlaması ile endüstriyel sınıf alan dönüştürme aracı.",
+    "de": "Industrielles Flächenumrechnungswerkzeug mit Präzisionseinstellungen, Toleranzanalyse und Datenvertrauensbewertung basierend auf ISO 80000-1 und Six-Sigma-Messstandards.",
+    "fr": "Outil industriel de conversion de surface avec réglages de précision, analyse de tolérance et évaluation de la confiance des données basée sur les normes ISO 80000-1 et Six Sigma.",
+    "es": "Herramienta industrial de conversión de áreas con ajustes de precisión, análisis de tolerancia y puntuación de confianza de datos basada en los estándares de medición ISO 80000-1 y Six Sigma.",
+    "ar": "أداة صناعية لتحويل المساحات مع تعديلات دقيقة وتحليل التفاوتات وتقييم ثقة البيانات بناءً على معايير إيزو 80000-1 وسيكس سيجما."
+  },
+  "standard-deviation-calculator": {
+    "en": "Industrial-grade standard deviation calculator for process variability analysis, compliant with ISO 5725, Six Sigma, and Lean manufacturing standards.",
+    "tr": "Süreç değişkenlik analizi için endüstriyel sınıf standart sapma hesaplayıcı, ISO 5725, Altı Sigma ve Yalın üretim standartlarına uygun.",
+    "de": "Industrieller Standardabweichungsrechner für die Prozessvariabilitätsanalyse, konform mit ISO 5725, Six Sigma und Lean Manufacturing.",
+    "fr": "Calculateur industriel d'écart type pour l'analyse de la variabilité des processus, conforme aux normes ISO 5725, Six Sigma et Lean manufacturing.",
+    "es": "Calculadora industrial de desviación estándar para el análisis de variabilidad de procesos, compatible con los estándares ISO 5725, Six Sigma y Lean manufacturing.",
+    "ar": "آلة حاسبة صناعية للانحراف المعياري لتحليل تباين العمليات، متوافقة مع معايير إيزو 5725 وسيكس سيجما والتصنيع الخالي من الهدر."
+  },
+  "steam-trap-energy-loss-calculator": {
+    "en": "Calculates the energy and cost losses from failed steam traps based on orifice size, steam pressure, and operating hours, following ISO 50001 and Six Sigma DMAIC principles.",
+    "tr": "Arızalı buhar tuzaklarından kaynaklanan enerji ve maliyet kayıplarını orifis boyutu, buhar basıncı ve çalışma saatlerine göre hesaplar, ISO 50001 ve Altı Sigma DMAIC ilkelerini takip eder.",
+    "de": "Berechnet die Energie- und Kostenverluste durch defekte Kondensatableiter basierend auf Öffnungsgröße, Dampfdruck und Betriebsstunden, nach ISO 50001 und Six Sigma DMAIC.",
+    "fr": "Calcule les pertes d'énergie et de coût dues aux purgeurs de vapeur défaillants en fonction de la taille de l'orifice, de la pression de vapeur et des heures de fonctionnement, suivant les principes ISO 50001 et Six Sigma DMAIC.",
+    "es": "Calcula las pérdidas de energía y costo de las trampas de vapor defectuosas según el tamaño del orificio, la presión del vapor y las horas de operación, siguiendo los principios ISO 50001 y Six Sigma DMAIC.",
+    "ar": "تحسب خسائر الطاقة والتكلفة الناتجة عن مصائد البخار الفاشلة بناءً على حجم الفتحة وضغط البخار وساعات التشغيل، وفقًا لمبادئ إيزو 50001 وسيكس سيجما DMAIC."
+  },
+  "subcontractor-margin-leak-detector-calculator": {
+    "en": "Industrial-grade tool to detect and quantify margin erosion in subcontractor operations, based on ISO 9001, Lean, Six Sigma, and WERC standards.",
+    "tr": "Taşeron operasyonlarında marj erozyonunu tespit etmek ve ölçmek için endüstriyel sınıf araç, ISO 9001, Yalın, Altı Sigma ve WERC standartlarına dayalı.",
+    "de": "Industrielles Werkzeug zur Erkennung und Quantifizierung von Margenerosion in Subunternehmerbetrieben, basierend auf ISO 9001, Lean, Six Sigma und WERC.",
+    "fr": "Outil de qualité industrielle pour détecter et quantifier l'érosion des marges dans les opérations de sous-traitance, basé sur les normes ISO 9001, Lean, Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para detectar y cuantificar la erosión del margen en operaciones de subcontratación, basada en los estándares ISO 9001, Lean, Six Sigma y WERC.",
+    "ar": "أداة صناعية للكشف عن تآكل الهامش في عمليات المقاولين من الباطن وقياسه، بناءً على معايير إيزو 9001 ولين وسيكس سيجما وWERC."
+  },
+  "supplier-performance-tco-calculator": {
+    "en": "Industrial-grade TCO model for supplier evaluation incorporating quality, logistics, and lifecycle costs per ISO 14040, Lean, and Six Sigma principles.",
+    "tr": "Kalite, lojistik ve yaşam döngüsü maliyetlerini ISO 14040, Yalın ve Altı Sigma ilkelerine göre içeren tedarikçi değerlendirmesi için endüstriyel sınıf TCO modeli.",
+    "de": "Industrielles TCO-Modell für die Lieferantenbewertung unter Einbeziehung von Qualität, Logistik und Lebenszykluskosten gemäß ISO 14040, Lean und Six Sigma.",
+    "fr": "Modèle TCO de qualité industrielle pour l'évaluation des fournisseurs intégrant la qualité, la logistique et les coûts du cycle de vie selon les principes ISO 14040, Lean et Six Sigma.",
+    "es": "Modelo TCO de grado industrial para la evaluación de proveedores que incorpora calidad, logística y costos del ciclo de vida según los principios ISO 14040, Lean y Six Sigma.",
+    "ar": "نموذج التكلفة الإجمالية للملكية (TCO) الصناعي لتقييم الموردين يتضمن الجودة والخدمات اللوجستية وتكاليف دورة الحياة وفقًا لمبادئ إيزو 14040 ولين وسيكس سيجما."
+  },
+  "supply-chain-disruption-risk-calculator": {
+    "en": "Industrial-grade risk assessment tool for quantifying and mitigating supply chain disruption risks based on ISO 31000, Lean, Six Sigma, and WERC standards.",
+    "tr": "Tedarik zinciri kesintisi risklerini ISO 31000, Yalın, Altı Sigma ve WERC standartlarına göre ölçmek ve azaltmak için endüstriyel sınıf risk değerlendirme aracı.",
+    "de": "Industrielles Risikobewertungswerkzeug zur Quantifizierung und Minderung von Lieferkettenunterbrechungsrisiken gemäß ISO 31000, Lean, Six Sigma und WERC.",
+    "fr": "Outil d'évaluation des risques de qualité industrielle pour quantifier et atténuer les risques de perturbation de la chaîne d'approvisionnement selon les normes ISO 31000, Lean, Six Sigma et WERC.",
+    "es": "Herramienta de evaluación de riesgos de grado industrial para cuantificar y mitigar los riesgos de interrupción de la cadena de suministro según los estándares ISO 31000, Lean, Six Sigma y WERC.",
+    "ar": "أداة تقييم مخاطر صناعية لقياس وتخفيف مخاطر اضطرابات سلسلة التوريد وفقًا لمعايير إيزو 31000 ولين وسيكس سيجما وWERC."
+  },
+  "taguchi-quality-loss-function-calculator": {
+    "en": "Calculates the financial loss due to deviation from target specification using Taguchi's quadratic loss function, incorporating cost of poor quality, process capability, and hidden factory losses. Aligns with Six Sigma and Lean methodologies.",
+    "tr": "Taguchi'nin ikinci dereceden kayıp fonksiyonunu kullanarak hedef spesifikasyondan sapma nedeniyle finansal kaybı hesaplar, düşük kalite maliyeti, süreç yeterliliği ve gizli fabrika kayıplarını içerir. Altı Sigma ve Yalın metodolojileriyle uyumlu.",
+    "de": "Berechnet den finanziellen Verlust aufgrund von Abweichungen von der Zielvorgabe unter Verwendung der quadratischen Verlustfunktion von Taguchi, unter Einbeziehung der Kosten schlechter Qualität, der Prozessfähigkeit und der versteckten Fabrikverluste. Konform mit Six Sigma und Lean.",
+    "fr": "Calcule la perte financière due à l'écart par rapport à la spécification cible à l'aide de la fonction de perte quadratique de Taguchi, intégrant le coût de la non-qualité, la capacité du processus et les pertes cachées de l'usine. Conforme aux méthodologies Six Sigma et Lean.",
+    "es": "Calcula la pérdida financiera por desviación de la especificación objetivo utilizando la función de pérdida cuadrática de Taguchi, incorporando el costo de la mala calidad, la capacidad del proceso y las pérdidas ocultas de la fábrica. Alineado con las metodologías Six Sigma y Lean.",
+    "ar": "تحسب الخسارة المالية الناتجة عن الانحراف عن المواصفات المستهدفة باستخدام دالة الخسارة التربيعية لتاغوتشي، متضمنة تكلفة الجودة الرديئة وقدرة العملية وخسائر المصنع الخفية. متوافقة مع منهجيات سيكس سيجما ولين."
+  },
+  "tdee-calculator": {
+    "en": "Industrial-grade TDEE calculator based on anthropometric inputs, activity factors, and metabolic adjustment formulas. Compliant with ISO 8996 (ergonomics of the thermal environment) and lean energy balance principles.",
+    "tr": "Antropometrik girdilere, aktivite faktörlerine ve metabolik ayarlama formüllerine dayalı endüstriyel sınıf TDEE hesaplayıcı. ISO 8996 (termal ortam ergonomisi) ve yalın enerji dengesi ilkeleriyle uyumlu.",
+    "de": "Industrieller TDEE-Rechner basierend auf anthropometrischen Eingaben, Aktivitätsfaktoren und metabolischen Anpassungsformeln. Konform mit ISO 8996 (Ergonomie der thermischen Umgebung) und Lean-Energiebilanzprinzipien.",
+    "fr": "Calculateur industriel de TDEE basé sur des entrées anthropométriques, des facteurs d'activité et des formules d'ajustement métabolique. Conforme à l'ISO 8996 (ergonomie de l'environnement thermique) et aux principes d'équilibre énergétique Lean.",
+    "es": "Calculadora industrial de TDEE basada en entradas antropométricas, factores de actividad y fórmulas de ajuste metabólico. Compatible con ISO 8996 (ergonomía del ambiente térmico) y principios de balance energético Lean.",
+    "ar": "آلة حاسبة صناعية لإجمالي إنفاق الطاقة اليومي (TDEE) بناءً على المدخلات الأنثروبومترية وعوامل النشاط وصيغ التعديل الأيضي. متوافقة مع إيزو 8996 (بيئة العمل الحرارية) ومبادئ توازن الطاقة الخالي من الهدر."
+  },
+  "textile-waste-risk-calculator": {
+    "en": "Industrial-grade tool to quantify and mitigate waste risk in textile manufacturing, based on ISO 14001, Lean Six Sigma, and WERC standards.",
+    "tr": "Tekstil üretiminde atık riskini ölçmek ve azaltmak için endüstriyel sınıf araç, ISO 14001, Yalın Altı Sigma ve WERC standartlarına dayalı.",
+    "de": "Industrielles Werkzeug zur Quantifizierung und Minderung des Abfallrisikos in der Textilherstellung, basierend auf ISO 14001, Lean Six Sigma und WERC.",
+    "fr": "Outil de qualité industrielle pour quantifier et atténuer le risque de déchets dans la fabrication textile, basé sur les normes ISO 14001, Lean Six Sigma et WERC.",
+    "es": "Herramienta de grado industrial para cuantificar y mitigar el riesgo de desperdicio en la fabricación textil, basada en los estándares ISO 14001, Lean Six Sigma y WERC.",
+    "ar": "أداة صناعية لقياس وتخفيف مخاطر النفايات في تصنيع المنسوجات، بناءً على معايير إيزو 14001 ولين سيكس سيجما وWERC."
+  },
+  "thermal-conductivity-calculator": {
+    "en": "Industrial-grade thermal conductivity analysis tool for materials, insulation, and heat transfer systems. Compliant with ISO 8301, ASTM C518, and Lean Six Sigma DMAIC principles.",
+    "tr": "Malzemeler, yalıtım ve ısı transfer sistemleri için endüstriyel sınıf termal iletkenlik analiz aracı. ISO 8301, ASTM C518 ve Yalın Altı Sigma DMAIC ilkeleriyle uyumlu.",
+    "de": "Industrielles Analysewerkzeug für die Wärmeleitfähigkeit von Materialien, Isolierung und Wärmeübertragungssystemen. Konform mit ISO 8301, ASTM C518 und Lean Six Sigma DMAIC.",
+    "fr": "Outil industriel d'analyse de la conductivité thermique pour les matériaux, l'isolation et les systèmes de transfert de chaleur. Conforme à l'ISO 8301, l'ASTM C518 et les principes Lean Six Sigma DMAIC.",
+    "es": "Herramienta industrial de análisis de conductividad térmica para materiales, aislamiento y sistemas de transferencia de calor. Compatible con ISO 8301, ASTM C518 y principios Lean Six Sigma DMAIC.",
+    "ar": "أداة صناعية لتحليل التوصيل الحراري للمواد والعزل وأنظمة نقل الحرارة. متوافقة مع إيزو 8301 وASTM C518 ومبادئ لين سيكس سيجما DMAIC."
+  },
+  "tool-wear-cost-calculator": {
+    "en": "Calculates the total cost of tool wear per part, including replacement, downtime, rework, and quality losses, based on industrial engineering standards (ISO 8688, Lean, Six Sigma).",
+    "tr": "Takım aşınmasının parça başına toplam maliyetini hesaplar; değiştirme, duruş süresi, yeniden işleme ve kalite kayıplarını içerir, endüstri mühendisliği standartlarına (ISO 8688, Yalın, Altı Sigma) dayanır.",
+    "de": "Berechnet die Gesamtkosten des Werkzeugverschleißes pro Teil, einschließlich Austausch, Stillstandszeiten, Nacharbeit und Qualitätsverlusten, basierend auf industrietechnischen Standards (ISO 8688, Lean, Six Sigma).",
+    "fr": "Calcule le coût total de l'usure de l'outil par pièce, incluant le remplacement, les temps d'arrêt, les reprises et les pertes de qualité, selon les normes du génie industriel (ISO 8688, Lean, Six Sigma).",
+    "es": "Calcula el costo total del desgaste de la herramienta por pieza, incluyendo reemplazo, tiempo de inactividad, retrabajo y pérdidas de calidad, basado en estándares de ingeniería industrial (ISO 8688, Lean, Six Sigma).",
+    "ar": "يحسب التكلفة الإجمالية لتآكل الأداة لكل قطعة، بما في ذلك الاستبدال ووقت التوقف وإعادة العمل وخسائر الجودة، بناءً على معايير الهندسة الصناعية (ISO 8688، لين، سيكس سيجما)."
+  },
+  "total-employee-cost-calculator": {
+    "en": "Industrial-grade calculator to compute the fully loaded cost of an employee, including direct compensation, indirect benefits, overhead, and productivity loss factors, aligned with ISO 30400, Lean, and Six Sigma standards.",
+    "tr": "Bir çalışanın tam yüklü maliyetini hesaplamak için endüstriyel sınıf hesap makinesi; doğrudan ücret, dolaylı yan haklar, genel giderler ve verimlilik kaybı faktörlerini içerir, ISO 30400, Yalın ve Altı Sigma standartlarına uyumludur.",
+    "de": "Industrietauglicher Rechner zur Berechnung der voll belasteten Kosten eines Mitarbeiters, einschließlich direkter Vergütung, indirekter Zusatzleistungen, Gemeinkosten und Produktivitätsverlustfaktoren, konform mit ISO 30400, Lean und Six Sigma.",
+    "fr": "Calculateur de qualité industrielle pour calculer le coût total chargé d'un employé, incluant la rémunération directe, les avantages indirects, les frais généraux et les facteurs de perte de productivité, conforme aux normes ISO 30400, Lean et Six Sigma.",
+    "es": "Calculadora de grado industrial para calcular el costo totalmente cargado de un empleado, incluyendo compensación directa, beneficios indirectos, gastos generales y factores de pérdida de productividad, alineada con las normas ISO 30400, Lean y Six Sigma.",
+    "ar": "آلة حاسبة من الدرجة الصناعية لحساب التكلفة الكاملة للموظف، بما في ذلك التعويض المباشر والمزايا غير المباشرة والتكاليف العامة وعوامل فقدان الإنتاجية، متوافقة مع معايير ISO 30400 ولين وسيكس سيجما."
+  },
+  "transfer-pricing-optimizer-calculator": {
+    "en": "Industrial-grade tool for optimizing intercompany transfer prices based on cost, market, and regulatory constraints, incorporating lean and Six Sigma principles.",
+    "tr": "Şirketler arası transfer fiyatlarını maliyet, piyasa ve düzenleyici kısıtlamalara göre optimize etmek için endüstriyel sınıf araç; yalın ve Altı Sigma ilkelerini içerir.",
+    "de": "Industrietaugliches Werkzeug zur Optimierung konzerninterner Verrechnungspreise basierend auf Kosten-, Markt- und regulatorischen Beschränkungen unter Einbeziehung von Lean- und Six-Sigma-Prinzipien.",
+    "fr": "Outil de qualité industrielle pour optimiser les prix de transfert interentreprises en fonction des contraintes de coût, de marché et réglementaires, intégrant les principes Lean et Six Sigma.",
+    "es": "Herramienta de grado industrial para optimizar los precios de transferencia entre empresas basada en restricciones de costos, mercado y regulatorias, incorporando principios Lean y Six Sigma.",
+    "ar": "أداة من الدرجة الصناعية لتحسين أسعار التحويل بين الشركات بناءً على قيود التكلفة والسوق والتنظيم، وتضمين مبادئ لين وسيكس سيجما."
+  },
+  "turnover-cost-calculator": {
+    "en": "Calculates total cost of employee turnover based on direct and indirect costs, using industrial engineering standards (ISO 30400, Lean, Six Sigma, WERC).",
+    "tr": "Doğrudan ve dolaylı maliyetlere dayanarak çalışan devir hızının toplam maliyetini hesaplar; endüstri mühendisliği standartlarını (ISO 30400, Yalın, Altı Sigma, WERC) kullanır.",
+    "de": "Berechnet die Gesamtkosten der Mitarbeiterfluktuation basierend auf direkten und indirekten Kosten unter Verwendung industrietechnischer Standards (ISO 30400, Lean, Six Sigma, WERC).",
+    "fr": "Calcule le coût total du roulement du personnel en fonction des coûts directs et indirects, en utilisant les normes du génie industriel (ISO 30400, Lean, Six Sigma, WERC).",
+    "es": "Calcula el costo total de la rotación de empleados basado en costos directos e indirectos, utilizando estándares de ingeniería industrial (ISO 30400, Lean, Six Sigma, WERC).",
+    "ar": "يحسب التكلفة الإجمالية لدوران الموظفين بناءً على التكاليف المباشرة وغير المباشرة، باستخدام معايير الهندسة الصناعية (ISO 30400، لين، سيكس سيجما، WERC)."
+  },
+  "vacuum-leak-energy-loss-calculator": {
+    "en": "Industrial-grade calculator to estimate energy loss, cost, and carbon emissions from vacuum leaks in compressed air systems, based on ISO 1217, ISO 8573-1, and Lean Six Sigma principles.",
+    "tr": "Basınçlı hava sistemlerindeki vakum kaçaklarından kaynaklanan enerji kaybını, maliyeti ve karbon emisyonlarını tahmin etmek için endüstriyel sınıf hesap makinesi; ISO 1217, ISO 8573-1 ve Yalın Altı Sigma ilkelerine dayanır.",
+    "de": "Industrietauglicher Rechner zur Schätzung von Energieverlust, Kosten und Kohlenstoffemissionen durch Vakuumlecks in Druckluftsystemen, basierend auf ISO 1217, ISO 8573-1 und Lean Six Sigma Prinzipien.",
+    "fr": "Calculateur de qualité industrielle pour estimer les pertes d'énergie, les coûts et les émissions de carbone dues aux fuites de vide dans les systèmes d'air comprimé, basé sur les normes ISO 1217, ISO 8573-1 et les principes Lean Six Sigma.",
+    "es": "Calculadora de grado industrial para estimar la pérdida de energía, el costo y las emisiones de carbono de fugas de vacío en sistemas de aire comprimido, basada en las normas ISO 1217, ISO 8573-1 y los principios Lean Six Sigma.",
+    "ar": "آلة حاسبة من الدرجة الصناعية لتقدير فقدان الطاقة والتكلفة وانبعاثات الكربون الناتجة عن تسربات الفراغ في أنظمة الهواء المضغوط، بناءً على ISO 1217 وISO 8573-1 ومبادئ لين سيكس سيجما."
+  },
+  "vector-addition-calculator": {
+    "en": "Industrial-grade vector addition tool for force, velocity, and displacement analysis in manufacturing and logistics. Compliant with ISO 80000-2, Lean Six Sigma, and WERC standards.",
+    "tr": "Üretim ve lojistikte kuvvet, hız ve yer değiştirme analizi için endüstriyel sınıf vektör toplama aracı. ISO 80000-2, Yalın Altı Sigma ve WERC standartlarına uyumludur.",
+    "de": "Industrietaugliches Vektoradditionswerkzeug für Kraft-, Geschwindigkeits- und Verschiebungsanalyse in Fertigung und Logistik. Konform mit ISO 80000-2, Lean Six Sigma und WERC Standards.",
+    "fr": "Outil d'addition vectorielle de qualité industrielle pour l'analyse des forces, vitesses et déplacements dans la fabrication et la logistique. Conforme aux normes ISO 80000-2, Lean Six Sigma et WERC.",
+    "es": "Herramienta de suma vectorial de grado industrial para el análisis de fuerza, velocidad y desplazamiento en fabricación y logística. Cumple con las normas ISO 80000-2, Lean Six Sigma y WERC.",
+    "ar": "أداة جمع متجهات من الدرجة الصناعية لتحليل القوة والسرعة والإزاحة في التصنيع والخدمات اللوجستية. متوافقة مع معايير ISO 80000-2 ولين سيكس سيجما وWERC."
+  },
+  "voltage-drop-calculator": {
+    "en": "Calculates voltage drop in electrical conductors per NEC and IEC standards, with loss drivers and corrective actions.",
+    "tr": "NEC ve IEC standartlarına göre elektrik iletkenlerinde voltaj düşüşünü hesaplar; kayıp sürücüleri ve düzeltici eylemlerle birlikte.",
+    "de": "Berechnet den Spannungsabfall in elektrischen Leitern nach NEC- und IEC-Normen, mit Verlusttreibern und Korrekturmaßnahmen.",
+    "fr": "Calcule la chute de tension dans les conducteurs électriques selon les normes NEC et IEC, avec les facteurs de perte et les actions correctives.",
+    "es": "Calcula la caída de tensión en conductores eléctricos según las normas NEC e IEC, con factores de pérdida y acciones correctivas.",
+    "ar": "يحسب انخفاض الجهد في الموصلات الكهربائية وفقًا لمعايير NEC وIEC، مع محركات الخسارة والإجراءات التصحيحية."
+  },
+  "volumetric-weight-calculator": {
+    "en": "Industrial-grade volumetric weight calculation tool compliant with ISO 9001, Lean Six Sigma, and WERC standards. Calculates dimensional weight, actual weight, chargeable weight, and provides cost optimization insights.",
+    "tr": "ISO 9001, Yalın Altı Sigma ve WERC standartlarına uyumlu endüstriyel sınıf hacimsel ağırlık hesaplama aracı. Boyutsal ağırlık, gerçek ağırlık, ücrete tabi ağırlık hesaplar ve maliyet optimizasyonu içgörüleri sağlar.",
+    "de": "Industrietaugliches Volumengewichtsberechnungstool konform mit ISO 9001, Lean Six Sigma und WERC Standards. Berechnet das Volumengewicht, das tatsächliche Gewicht, das berechnungsrelevante Gewicht und liefert Kosteneinsparungseinblicke.",
+    "fr": "Outil de calcul de poids volumétrique de qualité industrielle conforme aux normes ISO 9001, Lean Six Sigma et WERC. Calcule le poids dimensionnel, le poids réel, le poids facturable et fournit des informations d'optimisation des coûts.",
+    "es": "Herramienta de cálculo de peso volumétrico de grado industrial compatible con las normas ISO 9001, Lean Six Sigma y WERC. Calcula el peso dimensional, el peso real, el peso facturable y proporciona información de optimización de costos.",
+    "ar": "أداة حساب الوزن الحجمي من الدرجة الصناعية متوافقة مع معايير ISO 9001 ولين سيكس سيجما وWERC. تحسب الوزن البعدي والوزن الفعلي والوزن القابل للشحن وتوفر رؤى لتحسين التكلفة."
+  },
+  "vsm-financial-converter-calculator": {
+    "en": "Converts Value Stream Mapping operational metrics into financial impact, highlighting hidden losses and improvement opportunities based on Lean, Six Sigma, and ISO standards.",
+    "tr": "Değer Akış Haritası operasyonel metriklerini finansal etkiye dönüştürür, gizli kayıpları ve iyileştirme fırsatlarını Yalın, Altı Sigma ve ISO standartlarına göre vurgular.",
+    "de": "Wandelt operative Kennzahlen der Wertstromanalyse in finanzielle Auswirkungen um und hebt versteckte Verluste sowie Verbesserungsmöglichkeiten basierend auf Lean-, Six-Sigma- und ISO-Standards hervor.",
+    "fr": "Convertit les métriques opérationnelles de la cartographie de la chaîne de valeur en impact financier, mettant en évidence les pertes cachées et les opportunités d'amélioration selon les normes Lean, Six Sigma et ISO.",
+    "es": "Convierte las métricas operativas del Mapeo de Flujo de Valor en impacto financiero, destacando pérdidas ocultas y oportunidades de mejora basadas en los estándares Lean, Six Sigma e ISO.",
+    "ar": "يحول المقاييس التشغيلية لرسم خرائط تدفق القيمة إلى تأثير مالي، مع تسليط الضوء على الخسائر الخفية وفرص التحسين بناءً على معايير لين وسيكس سيجما وISO."
+  },
+  "water-intake-calculator": {
+    "en": "Industrial-grade water consumption estimation tool based on ISO 14046, Lean Six Sigma principles, and WERC water efficiency guidelines. Calculates total water intake, hidden losses, and provides actionable recommendations.",
+    "tr": "ISO 14046, Yalın Altı Sigma ilkeleri ve WERC su verimliliği yönergelerine dayalı endüstriyel sınıf su tüketimi tahmin aracı. Toplam su alımını, gizli kayıpları hesaplar ve uygulanabilir öneriler sunar.",
+    "de": "Industrietaugliches Werkzeug zur Schätzung des Wasserverbrauchs basierend auf ISO 14046, Lean Six Sigma Prinzipien und WERC Wasser-Effizienz-Richtlinien. Berechnet die gesamte Wasseraufnahme, versteckte Verluste und liefert umsetzbare Empfehlungen.",
+    "fr": "Outil d'estimation de la consommation d'eau de qualité industrielle basé sur la norme ISO 14046, les principes Lean Six Sigma et les directives d'efficacité de l'eau WERC. Calcule la consommation totale d'eau, les pertes cachées et fournit des recommandations exploitables.",
+    "es": "Herramienta de estimación del consumo de agua de grado industrial basada en ISO 14046, principios Lean Six Sigma y pautas de eficiencia hídrica de WERC. Calcula la ingesta total de agua, pérdidas ocultas y proporciona recomendaciones prácticas.",
+    "ar": "أداة تقدير استهلاك المياه من الدرجة الصناعية بناءً على ISO 14046 ومبادئ لين سيكس سيجما وإرشادات كفاءة المياه من WERC. تحسب إجمالي كمية المياه المستهلكة والخسائر الخفية وتقدم توصيات قابلة للتنفيذ."
+  },
+  "water-usage-optimizer-calculator": {
+    "en": "Industrial-grade tool for analyzing and optimizing water consumption in manufacturing facilities, aligned with ISO 14046, Lean Six Sigma, and WERC guidelines.",
+    "tr": "Üretim tesislerinde su tüketimini analiz etmek ve optimize etmek için endüstriyel sınıf araç; ISO 14046, Yalın Altı Sigma ve WERC yönergelerine uyumludur.",
+    "de": "Industrietaugliches Werkzeug zur Analyse und Optimierung des Wasserverbrauchs in Fertigungsanlagen, konform mit ISO 14046, Lean Six Sigma und WERC Richtlinien.",
+    "fr": "Outil de qualité industrielle pour analyser et optimiser la consommation d'eau dans les installations de fabrication, conforme aux normes ISO 14046, Lean Six Sigma et aux directives WERC.",
+    "es": "Herramienta de grado industrial para analizar y optimizar el consumo de agua en instalaciones de fabricación, alineada con ISO 14046, Lean Six Sigma y las pautas de WERC.",
+    "ar": "أداة من الدرجة الصناعية لتحليل وتحسين استهلاك المياه في مرافق التصنيع، متوافقة مع ISO 14046 ولين سيكس سيجما وإرشادات WERC."
+  },
+  "weld-strength-calculator": {
+    "en": "Industrial-grade weld strength analysis per ISO 5817, AWS D1.1, and Lean Six Sigma principles. Calculates allowable load, safety margin, and process capability with data confidence adjustment.",
+    "tr": "ISO 5817, AWS D1.1 ve Yalın Altı Sigma ilkelerine göre endüstriyel sınıf kaynak mukavemeti analizi. İzin verilen yükü, güvenlik marjını ve veri güven ayarlaması ile süreç yeteneğini hesaplar.",
+    "de": "Industrietaugliche Schweißfestigkeitsanalyse nach ISO 5817, AWS D1.1 und Lean Six Sigma Prinzipien. Berechnet die zulässige Last, Sicherheitsmarge und Prozessfähigkeit mit Datenkonfidenzanpassung.",
+    "fr": "Analyse de résistance de soudure de qualité industrielle selon ISO 5817, AWS D1.1 et les principes Lean Six Sigma. Calcule la charge admissible, la marge de sécurité et la capabilité du processus avec ajustement de la confiance des données.",
+    "es": "Análisis de resistencia de soldadura de grado industrial según ISO 5817, AWS D1.1 y principios Lean Six Sigma. Calcula la carga admisible, el margen de seguridad y la capacidad del proceso con ajuste de confianza de datos.",
+    "ar": "تحليل قوة اللحام من الدرجة الصناعية وفقًا لـ ISO 5817 وAWS D1.1 ومبادئ لين سيكس سيجما. يحسب الحمولة المسموح بها وهامش الأمان وقابلية العملية مع تعديل ثقة البيانات."
+  },
+  "weld-volume-cost-calculator": {
+    "en": "Industrial-grade calculator for estimating weld metal volume, weight, cost, and efficiency based on joint geometry, process parameters, and labor factors. Compliant with ISO 9692, AWS D1.1, and Lean Six Sigma standards.",
+    "tr": "Birleşme geometrisi, proses parametreleri ve işçilik faktörlerine dayanarak kaynak metali hacmini, ağırlığını, maliyetini ve verimliliğini tahmin etmek için endüstriyel sınıf hesap makinesi. ISO 9692, AWS D1.1 ve Yalın Altı Sigma standartlarına uyumludur.",
+    "de": "Industrietauglicher Rechner zur Schätzung von Schweißmetallvolumen, -gewicht, -kosten und -effizienz basierend auf Fugenform, Prozessparametern und Arbeitsfaktoren. Konform mit ISO 9692, AWS D1.1 und Lean Six Sigma Standards.",
+    "fr": "Calculateur de qualité industrielle pour estimer le volume, le poids, le coût et l'efficacité du métal déposé en fonction de la géométrie du joint, des paramètres de procédé et des facteurs de main-d'œuvre. Conforme aux normes ISO 9692, AWS D1.1 et Lean Six Sigma.",
+    "es": "Calculadora de grado industrial para estimar el volumen, peso, costo y eficiencia del metal de soldadura basada en la geometría de la junta, parámetros del proceso y factores laborales. Cumple con las normas ISO 9692, AWS D1.1 y Lean Six Sigma.",
+    "ar": "آلة حاسبة من الدرجة الصناعية لتقدير حجم ووزن وتكلفة وكفاءة معدن اللحام بناءً على هندسة الوصلة ومعلمات العملية وعوامل العمالة. متوافقة مع معايير ISO 9692 وAWS D1.1 ولين سيكس سيجما."
+  },
+  "welding-cost-calculator": {
+    "en": "Industrial-grade calculator for estimating total welding cost per weld, incorporating labor, consumables, energy, overhead, and quality loss drivers. Aligned with ISO 3834, AWS D1.1, and Lean Six Sigma principles.",
+    "tr": "Kaynak başına toplam kaynak maliyetini tahmin etmek için endüstriyel sınıf hesap makinesi; işçilik, sarf malzemeleri, enerji, genel giderler ve kalite kaybı sürücülerini içerir. ISO 3834, AWS D1.1 ve Yalın Altı Sigma ilkelerine uyumludur.",
+    "de": "Industrietauglicher Rechner zur Schätzung der gesamten Schweißkosten pro Schweißnaht unter Einbeziehung von Arbeit, Verbrauchsmaterialien, Energie, Gemeinkosten und Qualitätsverlusttreibern. Konform mit ISO 3834, AWS D1.1 und Lean Six Sigma Prinzipien.",
+    "fr": "Calculateur de qualité industrielle pour estimer le coût total de soudage par soudure, intégrant la main-d'œuvre, les consommables, l'énergie, les frais généraux et les facteurs de perte de qualité. Conforme aux normes ISO 3834, AWS D1.1 et aux principes Lean Six Sigma.",
+    "es": "Calculadora de grado industrial para estimar el costo total de soldadura por soldadura, incorporando mano de obra, consumibles, energía, gastos generales y factores de pérdida de calidad. Alineada con las normas ISO 3834, AWS D1.1 y los principios Lean Six Sigma.",
+    "ar": "آلة حاسبة من الدرجة الصناعية لتقدير التكلفة الإجمالية للحام لكل لحام، بما في ذلك العمالة والمواد الاستهلاكية والطاقة والتكاليف العامة ومحركات فقدان الجودة. متوافقة مع معايير ISO 3834 وAWS D1.1 ومبادئ لين سيكس سيجما."
+  },
+  "wind-load-calculator": {
+    "en": "Calculates wind load on structures based on ISO 4354 and ASCE 7 standards, incorporating terrain, exposure, and dynamic factors.",
+    "tr": "ISO 4354 ve ASCE 7 standartlarına göre yapılar üzerindeki rüzgar yükünü hesaplar; arazi, maruziyet ve dinamik faktörleri içerir.",
+    "de": "Berechnet die Windlast auf Bauwerke nach ISO 4354 und ASCE 7 unter Berücksichtigung von Gelände-, Expositions- und dynamischen Faktoren.",
+    "fr": "Calcule la charge de vent sur les structures selon les normes ISO 4354 et ASCE 7, en intégrant les facteurs de terrain, d'exposition et dynamiques.",
+    "es": "Calcula la carga de viento en estructuras según las normas ISO 4354 y ASCE 7, incorporando factores de terreno, exposición y dinámicos.",
+    "ar": "يحسب حمل الرياح على الهياكل وفقًا لمعايير ISO 4354 وASCE 7، مع تضمين عوامل التضاريس والتعرض والديناميكية."
+  },
+  "wps-preheat-temperature-calculator": {
+    "en": "Determines the minimum preheat temperature for welding based on material thickness, carbon equivalent, hydrogen level, and heat input, following ISO 13916 and AWS D1.1 standards.",
+    "tr": "Malzeme kalınlığı, karbon eşdeğeri, hidrojen seviyesi ve ısı girdisine dayanarak kaynak için minimum ön ısıtma sıcaklığını belirler; ISO 13916 ve AWS D1.1 standartlarını takip eder.",
+    "de": "Ermittelt die minimale Vorwärmtemperatur für das Schweißen basierend auf Materialdicke, Kohlenstoffäquivalent, Wasserstoffgehalt und Wärmeeintrag gemäß ISO 13916 und AWS D1.1.",
+    "fr": "Détermine la température de préchauffage minimale pour le soudage en fonction de l'épaisseur du matériau, de l'équivalent carbone, du niveau d'hydrogène et de l'apport thermique, conformément aux normes ISO 13916 et AWS D1.1.",
+    "es": "Determina la temperatura mínima de precalentamiento para soldadura basada en el espesor del material, el equivalente de carbono, el nivel de hidrógeno y el aporte de calor, siguiendo las normas ISO 13916 y AWS D1.1.",
+    "ar": "يحدد درجة حرارة التسخين المسبق الدنيا للحام بناءً على سمك المادة ومكافئ الكربون ومستوى الهيدروجين ومدخلات الحرارة، وفقًا لمعايير ISO 13916 وAWS D1.1."
+  },
+  "z-score-calculator": {
+    "en": "Industrial-grade Z-score calculator for process capability analysis, outlier detection, and statistical process control (SPC) based on ISO 3534-2 and Six Sigma standards.",
+    "tr": "Proses yetenek analizi, aykırı değer tespiti ve istatistiksel proses kontrolü (SPC) için endüstriyel sınıf Z-skoru hesaplayıcı; ISO 3534-2 ve Altı Sigma standartlarına dayanır.",
+    "de": "Industrietauglicher Z-Score-Rechner für Prozessfähigkeitsanalyse, Ausreißererkennung und statistische Prozesskontrolle (SPC) basierend auf ISO 3534-2 und Six Sigma Standards.",
+    "fr": "Calculateur de score Z de qualité industrielle pour l'analyse de capabilité des procédés, la détection des valeurs aberrantes et le contrôle statistique des procédés (SPC) basé sur les normes ISO 3534-2 et Six Sigma.",
+    "es": "Calculadora de puntuación Z de grado industrial para análisis de capacidad de proceso, detección de valores atípicos y control estadístico de procesos (SPC) basada en las normas ISO 3534-2 y Six Sigma.",
+    "ar": "آلة حاسبة من الدرجة الصناعية لحساب درجة Z لتحليل قدرة العملية واكتشاف القيم الشاذة والتحكم الإحصائي في العمليات (SPC) بناءً على معايير ISO 3534-2 وسيكس سيجما."
+  }
+}

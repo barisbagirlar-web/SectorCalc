@@ -15,6 +15,7 @@ const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
 const OUT_MAP = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
 const OUT_TITLES = join(ROOT, "src/data/generated-tool-titles-i18n.generated.json");
+const OUT_DESCRIPTIONS = join(ROOT, "src/data/generated-tool-descriptions-i18n.generated.json");
 const TARGET_LOCALES = ["tr", "de", "fr", "es", "ar"];
 const LOCALE_NAMES = {
   tr: "Turkish",
@@ -134,6 +135,7 @@ function collectWork(tools, map) {
   const labelQueue = [];
   const helperQueue = [];
   const titleQueue = [];
+  const descriptionQueue = [];
 
   for (const { slug, raw } of tools) {
     const titleEn = resolveToolTitleEn(raw, slug);
@@ -146,6 +148,17 @@ function collectWork(tools, map) {
       if (localeNeedsTranslation(map.toolTitles[slug], locale, titleEn)) {
         titleQueue.push({ kind: "title", slug, en: titleEn });
         break;
+      }
+    }
+
+    const descEn = raw.description?.trim();
+    if (descEn) {
+      if (!map.descriptions) map.descriptions = {};
+      if (!map.descriptions[slug]) {
+        map.descriptions[slug] = { en: descEn };
+      }
+      if (TARGET_LOCALES.some((locale) => localeNeedsTranslation(map.descriptions[slug], locale, descEn))) {
+        descriptionQueue.push({ slug, en: descEn });
       }
     }
 
@@ -175,7 +188,7 @@ function collectWork(tools, map) {
     }
   }
 
-  return { labelQueue, helperQueue, titleQueue };
+  return { labelQueue, helperQueue, titleQueue, descriptionQueue };
 }
 
 function parseDeepSeekJson(raw) {
@@ -303,12 +316,17 @@ function writeTitlesBundle(map) {
   writeFileSync(OUT_TITLES, `${JSON.stringify(map.toolTitles, null, 2)}\n`, "utf8");
 }
 
+function writeDescriptionsBundle(map) {
+  const bundle = map.descriptions ?? {};
+  writeFileSync(OUT_DESCRIPTIONS, `${JSON.stringify(bundle, null, 2)}\n`, "utf8");
+}
+
 async function main() {
   const map = loadMap();
   const tools = loadSchemas();
-  const { labelQueue, helperQueue, titleQueue } = collectWork(tools, map);
+  const { labelQueue, helperQueue, titleQueue, descriptionQueue } = collectWork(tools, map);
 
-  console.log(`schemas=${tools.length} labels_pending=${labelQueue.length} helpers_pending=${helperQueue.length} titles_pending=${titleQueue.length}`);
+  console.log(`schemas=${tools.length} labels_pending=${labelQueue.length} helpers_pending=${helperQueue.length} titles_pending=${titleQueue.length} descriptions_pending=${descriptionQueue.length}`);
 
   if (dryRun) {
     console.log("dry-run — no API calls");
@@ -344,10 +362,31 @@ async function main() {
     }
   }
 
+  if (descriptionQueue.length > 0) {
+    console.log(`Translating ${descriptionQueue.length} tool descriptions…`);
+    const uniqueDesc = [...new Set(descriptionQueue.map((item) => item.en))];
+    for (let i = 0; i < uniqueDesc.length; i += BATCH_SIZE) {
+      const batch = uniqueDesc.slice(i, i + BATCH_SIZE);
+      console.log(`  descriptions batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(uniqueDesc.length / BATCH_SIZE)}`);
+      const results = await translateBatchResilient("tool descriptions", batch);
+      for (const { slug, en } of descriptionQueue) {
+        const locales = results.get(en);
+        if (locales) {
+          map.descriptions[slug] = { ...(map.descriptions[slug] ?? {}), en, ...locales };
+          total += Object.keys(locales).length;
+        }
+      }
+      saveMap(map);
+      await new Promise((resolve) => setTimeout(resolve, 300));
+    }
+  }
+
   writeTitlesBundle(map);
+  writeDescriptionsBundle(map);
   console.log(`translate-generated-schema-copy: ${total} locale string(s) written`);
   console.log(`  map → ${OUT_MAP}`);
   console.log(`  titles → ${OUT_TITLES}`);
+  console.log(`  descriptions → ${OUT_DESCRIPTIONS}`);
 }
 
 main().catch((error) => {

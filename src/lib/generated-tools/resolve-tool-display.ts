@@ -5,7 +5,10 @@ import {
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
-import { resolveGeneratedToolDisplayTitle } from "@/lib/i18n/generated-tool-display-i18n";
+import {
+  resolveGeneratedToolDisplayTitle,
+  resolveGeneratedToolDisplayDescription,
+} from "@/lib/i18n/generated-tool-display-i18n";
 
 function humanizeSlug(slug: string): string {
   return slug
@@ -42,6 +45,11 @@ export function resolveGeneratedToolDescription(
 ): string {
   const aboutLong = schema.about?.description.long.trim();
   if (aboutLong) {
+    const bundleDesc = resolveGeneratedToolDisplayDescription(slug, aboutLong, locale);
+    if (bundleDesc && bundleDesc.trim() !== aboutLong) {
+      return bundleDesc.trim();
+    }
+
     const localizedLong = schema.about?.description.long_i18n
       ? resolveGeneratedI18nText(schema.about.description.long_i18n, locale, aboutLong)
       : aboutLong;
