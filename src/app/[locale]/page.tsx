@@ -18,7 +18,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
