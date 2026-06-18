@@ -33,6 +33,10 @@ export function getSchemaLegalNote(locale: SupportedLocale | string = "en"): str
 
 const Z_P90 = 1.2816;
 
+const PRIMED_SCHEMA_IDS = new Set<string>([
+  "7-israf-muda-avcisi-parasal-karsilik-calculator",
+]);
+
 function clamp(value: number, min: number, max: number): number {
   if (!Number.isFinite(value)) {
     return min;
@@ -75,7 +79,7 @@ export function normalizeSchemaInputs(
           : String(input.smartDefault ?? input.options?.[0]?.value ?? "");
       continue;
     }
-    let numeric = toNumber(rawValue, toNumber(input.smartDefault as number | string | undefined, 0));
+    let numeric = toNumber(rawValue, toNumber(input.smartDefault, 0));
     if (input.validation?.min !== undefined) {
       numeric = Math.max(input.validation.min, numeric);
     }
@@ -224,9 +228,6 @@ export function runPremiumSchemaEngine(
   const formatLocale = normalizeLocale(locale);
   const userInputs = normalizeSchemaInputs(schema, rawInputs);
 
-  const PRIMED_SCHEMA_IDS = new Set<string>([
-    "7-israf-muda-avcisi-parasal-karsilik-calculator",
-  ]);
   const needsPriming = PRIMED_SCHEMA_IDS.has(schema.id);
 
   bindSevenMudaEngineeringSchemaInputs(null);
@@ -265,12 +266,13 @@ function runPremiumSchemaEngineCore(
   }
 
   for (const step of schema.formulaPipeline) {
-    const formulaFn = getFormulaFn(step.formulaId);
-    if (!formulaFn) {
-      continue;
+    try {
+      const formulaFn = getFormulaFn(step.formulaId);
+      const mapped = buildFormulaInputs(step.inputMap, userInputs, computed);
+      computed[step.outputId] = formulaFn(mapped);
+    } catch {
+      computed[step.outputId] = 0;
     }
-    const mapped = buildFormulaInputs(step.inputMap, userInputs, computed);
-    computed[step.outputId] = formulaFn(mapped);
   }
 
   const outputs: SchemaPipelineOutput[] = schema.outputs.map((spec) => {

@@ -43,7 +43,6 @@ export function CompactCategoryCard({
         "border-slate-200",
         // Left border highlight on hover
         "before:absolute before:inset-y-2 before:left-0 before:w-[3px] before:rounded-r before:bg-transparent before:transition-all before:duration-200",
-        // eslint-disable-next-line tailwindcss/no-custom-classname
         "hover:before:bg-[var(--sc-left-border)]",
         tone.hoverBorder,
         tone.focusRing,

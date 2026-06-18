@@ -25,16 +25,16 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
     try {
       const parsed = getPrintData();
       if (!parsed) {
-        setError("Rapor verisi bulunamadı. Lütfen hesaplama aracına dönüp tekrar deneyin.");
+        setError("printErrorNoData");
         return;
       }
       if (parsed.slug !== slug) {
-        setError("Rapor verisi bu araçla eşleşmiyor.");
+        setError("printErrorMismatch");
         return;
       }
       setData(parsed);
     } catch {
-      setError("Rapor verisi okunamadı.");
+      setError("printErrorParse");
     }
   }, [slug]);
 
@@ -58,7 +58,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
     return (
       <div style={{ padding: 40, color: "#EF4444", fontFamily: "sans-serif" }}>
         <h1 style={{ fontSize: 20, marginBottom: 12 }}>{t("title")} — {t("preAssessment")}</h1>
-        <p>{error}</p>
+        <p>{t(error)}</p>
         <button
           onClick={() => window.close()}
           style={{

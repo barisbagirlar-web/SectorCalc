@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { PremiumGeneratedToolPrintContent } from "@/components/reports/PremiumGeneratedToolPrintContent";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -21,6 +21,7 @@ export async function generateMetadata({
   params: Promise<PrintRouteParams>;
 }): Promise<Metadata> {
   const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "generatedTool.reportSummary" });
   const schema = getGeneratedToolSchema(slug);
   if (!schema) {
     return {};
@@ -30,8 +31,8 @@ export async function generateMetadata({
 
   return {
     ...createPageMetadata({
-      title: `${displayName} — Premium Rapor | SectorCalc`,
-      description: `${displayName} premium mühendislik raporu.`,
+      title: `${displayName} — ${t("metaTitle")} | SectorCalc`,
+      description: `${displayName} ${t("metaDescription")}`,
       path: `/tools/generated/${slug}/print`,
       locale: locale as AppLocale,
     }),

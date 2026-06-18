@@ -100,13 +100,17 @@ export function round(value: number, digits = 2): number {
  return Math.round(value * factor) / factor;
 }
 
+const CURRENCY_SYMBOLS: Record<string, string> = {
+ USD: "$", EUR: "€", GBP: "£", JPY: "¥", CNY: "¥",
+ TRY: "₺", CHF: "CHF", CAD: "C$", AUD: "A$", AED: "د.إ",
+ SAR: "﷼", KRW: "₩", BRL: "R$", INR: "₹", RUB: "₽",
+};
+
 export function formatCurrency(value: number, currency = "USD"): string {
  const safe = assertFiniteNumber(value, 0);
  const formatted = Math.max(0, safe).toFixed(2);
- if (currency === "EUR") {
- return `€${formatted}`;
- }
- return `$${formatted}`;
+ const symbol = CURRENCY_SYMBOLS[currency] ?? `${currency} `;
+ return `${symbol}${formatted}`;
 }
 
 export function formatPercent(value: number, digits = 1): string {

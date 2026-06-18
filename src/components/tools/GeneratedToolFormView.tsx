@@ -51,6 +51,16 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     [locale, schema, slug],
   );
 
+  const handlePrintPremiumReport = useCallback(() => {
+    savePrintData({
+      slug,
+      inputs: lastInputs,
+      result: result as unknown as Record<string, unknown>,
+      schema: JSON.parse(JSON.stringify(schema)),
+    });
+    window.open(`/${locale}/tools/generated/${slug}/print`, "_blank");
+  }, [result, lastInputs, slug, locale, schema]);
+
   if (loading) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-6">
@@ -71,17 +81,6 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     setLastInputs(values);
     setResult(runGeneratedToolCalculation(calculator, values));
   };
-
-  const handlePrintPremiumReport = useCallback(() => {
-    if (!result) return;
-    savePrintData({
-      slug,
-      inputs: lastInputs,
-      result: result as unknown as Record<string, unknown>,
-      schema: JSON.parse(JSON.stringify(schema)),
-    });
-    window.open(`/${locale}/tools/generated/${slug}/print`, "_blank");
-  }, [result, lastInputs, slug, locale, schema]);
 
   const primaryRaw = result?.[primaryOutputKey];
   const primaryUnit = resolvePrimaryOutputUnit(schema);
