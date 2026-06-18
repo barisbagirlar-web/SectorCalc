@@ -33,7 +33,6 @@ function run(label, cmd) {
 
 const requiredPublic = [
   "llms.txt",
-  "ai.txt",
   "ai-tool-index.json",
   "ai-categories.json",
   "ai-tool-routes.json",
