@@ -30659,6 +30659,51 @@
     "medicare-part-d-calculator": {
       "copay_catastrophic": {
         "label": "Katastrophale Zuzahlung ($)"
+      },
+      "primary_value": {
+        "label": "Primary value",
+        "placeholder": "Enter primary value",
+        "helper": "Primary input for Medicare Part D Calculator."
+      },
+      "secondary_value": {
+        "label": "Secondary value",
+        "placeholder": "Enter secondary value",
+        "helper": "Secondary input for Medicare Part D Calculator."
+      },
+      "tertiary_value": {
+        "label": "Tertiary value",
+        "placeholder": "Enter tertiary value",
+        "helper": "Optional modifier for Medicare Part D Calculator."
+      },
+      "total_retail_drug_cost": {
+        "label": "Total Retail Drug Cost ($)",
+        "placeholder": "Enter total retail drug cost ($)",
+        "helper": "Total annual retail cost of prescription drugs before any insurance coverage."
+      },
+      "deductible": {
+        "label": "Deductible ($)",
+        "placeholder": "Enter deductible ($)",
+        "helper": "Annual deductible amount you must pay before Part D coverage begins."
+      },
+      "initial_coverage_limit": {
+        "label": "Initial Coverage Limit ($)",
+        "placeholder": "Enter initial coverage limit ($)",
+        "helper": "Maximum drug cost before entering the coverage gap (donut hole)."
+      },
+      "catastrophic_threshold": {
+        "label": "Catastrophic Threshold ($)",
+        "placeholder": "Enter catastrophic threshold ($)",
+        "helper": "Out-of-pocket threshold after which catastrophic coverage begins."
+      },
+      "coinsurance_initial": {
+        "label": "Initial Coinsurance (%)",
+        "placeholder": "Enter initial coinsurance (%)",
+        "helper": "Percentage of drug cost you pay during the initial coverage phase."
+      },
+      "coinsurance_gap": {
+        "label": "Gap Coinsurance (%)",
+        "placeholder": "Enter gap coinsurance (%)",
+        "helper": "Percentage of drug cost you pay while in the coverage gap (donut hole)."
       }
     },
     "medicare-premium-calculator": {
@@ -66286,7 +66331,18 @@
       "low": "Niedrige Zuverlässigkeit"
     },
     "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
-    "aiAnalysisLabel": "KI-gestützte technische Analyse"
+    "aiAnalysisLabel": "KI-gestützte technische Analyse",
+    "priority_immediate": "Sofort",
+    "priority_short_term": "Kurzfristig",
+    "priority_long_term": "Langfristig",
+    "fieldNote_assumptions": "Modellannahmen",
+    "fieldNote_dataQuality": "Datenqualität",
+    "fieldNote_expertConsult": "Expertenrat Erforderlich",
+    "fieldNote_boundary": "Grenzbedingungen und Gültigkeitsbereich",
+    "fieldNote_nextDepth": "Weiterführende Analysen",
+    "fieldNote_regulatory": "Normen und Vorschriften",
+    "fieldNote_default": "Technische Notiz",
+    "expectedImpact": "Erwartete Auswirkung: "
   },
   "developerShowcase": {
     "meta": {

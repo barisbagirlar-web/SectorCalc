@@ -282,7 +282,9 @@
       "setupTime": "Kurulum süresi (dk)",
       "cycleTime": "Çevrim süresi (dk)",
       "quantity": "Adet (birim)",
-      "submit": "Run"
+      "submit": "Run",
+      "subtitle": "CNC marj riski — hızlı kontrol",
+      "rateNote": "Fire oranı malzeme israfını yansıtır. Atölye verilerinize göre ayarlayın."
     },
     "result": {
       "title": "Çıktı",
@@ -303,7 +305,10 @@
       "naiveLabel": "Deterministik",
       "bufferLabel": "P90 tampon",
       "p90Label": "P90 güvenli",
-      "fullAnalyzerLink": "CNC hesaplama aracı →"
+      "fullAnalyzerLink": "CNC hesaplama aracı →",
+      "eyebrow": "Premium CNC risk raporu",
+      "body": "Tolerans kontrolü, duyarlılık senaryoları ve aksiyon planı ile tam marj risk analizi. Gizli kayıp sürücüleri ve önerilen fiyat ayarlamalarını içerir.",
+      "disclaimer": "Yalnızca teknik simülasyon. İş kararları almadan önce gerçek maliyet verilerinizle doğrulayın."
     },
     "phase2": {
       "label": "MarginCore Pilot",
@@ -26242,9 +26247,9 @@
         "helper": "Hesaplamayı ayarlamak için isteğe bağlı değer."
       },
       "account_balance": {
-        "label": "Account Balance ($)",
-        "placeholder": "Account Balance ($) girin",
-        "helper": "Account Balance ($) için hesaplamada kullanılan değer."
+        "label": "Hesap Bakiyesi ($)",
+        "placeholder": "Hesap Bakiyesi ($) girin",
+        "helper": "Hesap Bakiyesi ($) için hesaplamada kullanılan değer."
       },
       "life_expectancy_factor": {
         "label": "Life Expectancy Faktör (Yıl)",
@@ -44642,9 +44647,9 @@
         "helper": "Tariff Oran için hesaplamada kullanılan değer."
       },
       "duty_free_allowance": {
-        "label": "Duty-Free Allowance",
-        "placeholder": "Duty-Free Allowance girin",
-        "helper": "Duty-Free Allowance için hesaplamada kullanılan değer."
+        "label": "Gümrüksüz İzin",
+        "placeholder": "Gümrüksüz İzin girin",
+        "helper": "Gümrüksüz İzin için hesaplamada kullanılan değer."
       },
       "additional_duties": {
         "label": "Additional Duties",
@@ -67627,7 +67632,18 @@
       "low": "Düşük güven"
     },
     "networkError": "Ağ hatası. Lütfen bağlantınızı kontrol edin ve tekrar deneyin.",
-    "aiAnalysisLabel": "AI destekli mühendislik analizi"
+    "aiAnalysisLabel": "AI destekli mühendislik analizi",
+    "priority_immediate": "Acil",
+    "priority_short_term": "Kısa Vade",
+    "priority_long_term": "Uzun Vade",
+    "fieldNote_assumptions": "Model Varsayımları",
+    "fieldNote_dataQuality": "Veri Kalitesi",
+    "fieldNote_expertConsult": "Uzman Görüşü Gerekiyor",
+    "fieldNote_boundary": "Sınır Koşulları ve Geçerlilik Aralığı",
+    "fieldNote_nextDepth": "İleri Analiz Önerileri",
+    "fieldNote_regulatory": "Standartlar ve Mevzuat",
+    "fieldNote_default": "Teknik Not",
+    "expectedImpact": "Beklenen Etki: "
   },
   "developerShowcase": {
     "meta": {
@@ -68398,49 +68414,49 @@
       "description": "Sektöre özel karşılaştırma verilerini görüntüleyin ve operasyonel metriklerinizi sektör standartlarıyla karşılaştırın."
     },
     "semanticTitle": "Sektör Karşılaştırma Verileri",
-    "semanticAnswer": "Reference benchmarks for each sector",
+    "semanticAnswer": "Her sektör için referans karşılaştırmalar",
     "semanticBullet1": "Sonuçları sektör baz çizgileriyle karşılaştırın",
     "semanticBullet2": "Performans boşluklarını ve iyileştirme alanlarını belirleyin",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticBullet3": "Yapılandırılmış metrik karşılaştırmalarıyla ilerlemeyi takip edin",
     "eyebrow": "SectorCalc",
-    "headline": "Industry Benchmarks",
-    "sectorsTitle": "Available sectors",
-    "openLabel": "View benchmarks",
-    "backLink": "← Back to audit hub"
+    "headline": "Sektör Karşılaştırmaları",
+    "sectorsTitle": "Mevcut sektörler",
+    "openLabel": "Karşılaştırmaları görüntüle",
+    "backLink": "← Denetim merkezine dön"
   },
   "sustainabilityPage": {
     "meta": {
-      "title": "Sustainability — Sector Benchmarks",
-      "description": "View sustainability metrics and sector benchmarks for carbon, energy, and waste reduction."
+      "title": "Sürdürülebilirlik — Sektör Karşılaştırmaları",
+      "description": "Karbon, enerji ve atık azaltımı için sürdürülebilirlik metriklerini ve sektör karşılaştırmalarını görüntüleyin."
     },
-    "semanticTitle": "Sustainability Benchmarks",
-    "semanticAnswer": "Reference benchmarks for each sector",
-    "semanticBullet1": "Compare sustainability metrics against sector baselines",
-    "semanticBullet2": "Identify carbon, energy, and waste reduction opportunities",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticTitle": "Sürdürülebilirlik Karşılaştırmaları",
+    "semanticAnswer": "Her sektör için referans karşılaştırmalar",
+    "semanticBullet1": "Sürdürülebilirlik metriklerini sektör baz çizgileriyle karşılaştırın",
+    "semanticBullet2": "Karbon, enerji ve atık azaltım fırsatlarını belirleyin",
+    "semanticBullet3": "Yapılandırılmış metrik karşılaştırmalarıyla ilerlemeyi takip edin",
     "eyebrow": "SectorCalc",
-    "headline": "Sustainability Benchmarks",
-    "lead": "Compare your operational sustainability metrics against sector standards and identify reduction opportunities.",
-    "sectorsTitle": "Available sectors",
-    "auditLabel": "View audit",
-    "auditHub": "Audit hub",
-    "benchmarks": "Benchmarks"
+    "headline": "Sürdürülebilirlik Karşılaştırmaları",
+    "lead": "Operasyonel sürdürülebilirlik metriklerinizi sektör standartlarıyla karşılaştırın ve azaltım fırsatlarını belirleyin.",
+    "sectorsTitle": "Mevcut sektörler",
+    "auditLabel": "Denetimi görüntüle",
+    "auditHub": "Denetim merkezi",
+    "benchmarks": "Karşılaştırmalar"
   },
   "sampleReportPage": {
     "meta": {
-      "title": "Sample Decision Report",
-      "description": "Preview a sample decision report generated by SectorCalc's sector-specific calculation tools."
+      "title": "Örnek Karar Raporu",
+      "description": "SectorCalc'in sektöre özel hesaplama araçları tarafından oluşturulan örnek bir karar raporunu önizleyin."
     },
     "eyebrow": "SectorCalc",
-    "title": "Sample Decision Report",
-    "description": "This is a representative preview of a SectorCalc decision report generated from user-provided inputs and governed formula contracts.",
-    "sampleReportIncludes": "This sample report includes: calculation summary, risk drivers, suggested actions, assumptions, and Trust Trace metadata. Actual reports vary by sector and subscription tier.",
-    "startFree": "Start with a free tool →",
-    "ctaEyebrow": "Try it yourself",
-    "ctaTitle": "Run a free calculation",
-    "ctaSubtitle": "Explore sector-specific tools and see your own results in seconds.",
-    "ctaPrimary": "Browse free tools",
-    "ctaSecondary": "View pricing"
+    "title": "Örnek Karar Raporu",
+    "description": "Bu, kullanıcı tarafından sağlanan girdiler ve yönetilen formül sözleşmelerinden oluşturulan temsili bir SectorCalc karar raporu önizlemesidir.",
+    "sampleReportIncludes": "Bu örnek rapor şunları içerir: hesaplama özeti, risk sürücüleri, önerilen aksiyonlar, varsayımlar ve Trust Trace meta verileri. Gerçek raporlar sektöre ve abonelik seviyesine göre değişir.",
+    "startFree": "Ücretsiz bir araçla başlayın →",
+    "ctaEyebrow": "Kendiniz deneyin",
+    "ctaTitle": "Ücretsiz hesaplama çalıştırın",
+    "ctaSubtitle": "Sektöre özel araçları keşfedin ve saniyeler içinde kendi sonuçlarınızı görün.",
+    "ctaPrimary": "Ücretsiz araçlara göz atın",
+    "ctaSecondary": "Fiyatlandırmayı görüntüle"
   },
   "trustPage": {
     "meta": {
@@ -68482,37 +68498,37 @@
   },
   "auditPage": {
     "meta": {
-      "title": "Audit Hub — Sector Benchmarks",
-      "description": "Audit your operational metrics against sector benchmarks and identify improvement areas."
+      "title": "Denetim Merkezi — Sektör Karşılaştırmaları",
+      "description": "Operasyonel metriklerinizi sektör karşılaştırmalarına göre denetleyin ve iyileştirme alanlarını belirleyin."
     },
-    "semanticTitle": "Audit Hub",
-    "semanticAnswer": "Compare your metrics against sector standards",
-    "semanticBullet1": "Select a sector to view benchmark data",
-    "semanticBullet2": "Compare your operational metrics against standards",
-    "semanticBullet3": "Identify gaps and prioritize improvements",
-    "benchmarksLink": "Benchmarks",
-    "cbamLink": "CBAM Compliance"
+    "semanticTitle": "Denetim Merkezi",
+    "semanticAnswer": "Metriklerinizi sektör standartlarıyla karşılaştırın",
+    "semanticBullet1": "Karşılaştırma verilerini görüntülemek için bir sektör seçin",
+    "semanticBullet2": "Operasyonel metriklerinizi standartlarla karşılaştırın",
+    "semanticBullet3": "Boşlukları belirleyin ve iyileştirmelere öncelik verin",
+    "benchmarksLink": "Karşılaştırmalar",
+    "cbamLink": "CBAM Uyumluluğu"
   },
   "seoPage": {
-    "guidesEyebrow": "SectorCalc guides",
-    "authorityGuideEyebrow": "SectorCalc authority guide",
-    "whatYouCalculate": "What this page helps you calculate",
-    "faq": "FAQ",
-    "relatedGuides": "Related guides",
-    "seoHubIndex": "SEO hub index",
-    "relatedFreeCalculators": "Related free calculators",
-    "relatedPremiumCalculators": "Related premium calculators",
-    "exploreFurther": "Explore further",
-    "breadcrumbHome": "Home",
-    "breadcrumbGuides": "Guides",
-    "seoHub": "SEO hub",
-    "categories": "Categories",
-    "industryPage": "Industry page",
-    "allIndustries": "All industries",
-    "pricing": "Pricing",
-    "startFree": "Start with free calculators",
-    "viewPremium": "View premium calculators",
-    "legalFooter": "SectorCalc guides are technical decision-support resources based on standard formulas and transparent assumptions. They are not financial, legal, medical or engineering advice."
+    "guidesEyebrow": "SectorCalc rehberleri",
+    "authorityGuideEyebrow": "SectorCalc otorite rehberi",
+    "whatYouCalculate": "Bu sayfa neyi hesaplamanıza yardımcı oluyor",
+    "faq": "SSS",
+    "relatedGuides": "İlgili rehberler",
+    "seoHubIndex": "SEO merkez dizini",
+    "relatedFreeCalculators": "İlgili ücretsiz hesaplayıcılar",
+    "relatedPremiumCalculators": "İlgili premium hesaplayıcılar",
+    "exploreFurther": "Daha fazla keşfet",
+    "breadcrumbHome": "Ana Sayfa",
+    "breadcrumbGuides": "Rehberler",
+    "seoHub": "SEO merkezi",
+    "categories": "Kategoriler",
+    "industryPage": "Sektör sayfası",
+    "allIndustries": "Tüm sektörler",
+    "pricing": "Fiyatlandırma",
+    "startFree": "Ücretsiz hesaplayıcılarla başlayın",
+    "viewPremium": "Premium hesaplayıcıları görüntüle",
+    "legalFooter": "SectorCalc rehberleri, standart formüllere ve şeffaf varsayımlara dayanan teknik karar destek kaynaklarıdır. Finansal, yasal, tıbbi veya mühendislik tavsiyesi değildir."
   },
   "howItWorks": {
     "meta": {
@@ -68656,20 +68672,20 @@
   },
   "constructionBidMarginPage": {
     "meta": {
-      "title": "Construction Bid Margin — Change Order Risk",
-      "description": "Protect construction project margin before you sign change orders. Free bid check and premium change-order verdict reports."
+      "title": "İnşaat Teklif Marjı — Değişiklik Emri Riski",
+      "description": "Değişiklik emirlerini imzalamadan önce inşaat proje marjınızı koruyun. Ücretsiz teklif kontrolü ve premium değişiklik emri karar raporları."
     }
   },
   "cleaningContractMarginPage": {
     "meta": {
       "title": "Temizlik Sözleşme Marjı — Teklif Optimizasyonu",
-      "description": "Stop cleaning contracts that lose money every month. Free cost check and premium bid verdict reports for office cleaning."
+      "description": "Her ay para kaybettiren temizlik sözleşmelerini durdurun. Ofis temizliği için ücretsiz maliyet kontrolü ve premium teklif karar raporları."
     }
   },
   "cncQuoteRiskPage": {
     "meta": {
       "title": "CNC Teklif Risk Hesaplayıcı",
-      "description": "Spot underpriced CNC jobs before they kill your margin. Run a free machine time check, then unlock safe price verdicts with SectorCalc Pro."
+      "description": "Marjınızı tüketmeden önce düşük fiyatlı CNC işlerini tespit edin. Ücretsiz makine süresi kontrolü çalıştırın, ardından SectorCalc Pro ile güvenli fiyat kararlarının kilidini açın."
     }
   },
   "disclaimerPage": {

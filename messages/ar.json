@@ -214,7 +214,7 @@
     "singleFeatures": "One premium calculator verdict|Minimum safe السعر where applicable|Margin leak breakdown|PDF-ready report for that run",
     "singleCta": "احصل على الحكم الكامل مقابل 9$",
     "pro": "Pro",
-    "proPrice": "$19/mo",
+    "proPrice": "19 دولارًا شهريًا",
     "proPeriod": "",
     "proDescription": "For oلكلators and owners who need decision reports.",
     "proFeatures": "حاسبات Premium|تشخيص خسائر مخفية|فحوصات عتبات|تصدير PDF / CSV|مخرجات تقارير محفوظة",
@@ -227,7 +227,7 @@
     "proAnnualFeatures": "جميع حاسبات Premium|تقارير أحكام محفوظة|تصدير PDF|إعداد ذو أولوية عند التوفر",
     "proAnnualCta": "ابدأ Pro سنوي",
     "team": "الفريق",
-    "teamPrice": "$49/mo",
+    "teamPrice": "49 دولارًا شهريًا",
     "teamPeriod": "",
     "teamDescription": "للفرق والمستشارين.",
     "teamFeatures": "Multi-user access|Shared report workالتدفق|Custom templates|Priority support",
@@ -282,7 +282,9 @@
       "setupTime": "الإعداد time (min)",
       "cycleTime": "وقت الدورة (دقيقة)",
       "quantity": "الكمية (units)",
-      "submit": "Run"
+      "submit": "Run",
+      "subtitle": "مخاطر هامش CNC — فحص سريع",
+      "rateNote": "يعكس معدل الفاقد هدر المواد. اضبط بناءً على بيانات ورشة العمل الخاصة بك."
     },
     "result": {
       "title": "المخرجات",
@@ -303,7 +305,10 @@
       "naiveLabel": "حتمي",
       "bufferLabel": "مخزن P90",
       "p90Label": "P90 آمن",
-      "fullAnalyzerLink": "فتح CNC Audit Engine ←"
+      "fullAnalyzerLink": "فتح CNC Audit Engine ←",
+      "eyebrow": "تقرير مخاطر CNC المميز",
+      "body": "تحليل كامل لمخاطر الهامش مع فحص التسامح وسيناريوهات الحساسية وخطة العمل. يشمل محركات الخسارة المخفية وتعديلات الأسعار المقترحة.",
+      "disclaimer": "محاكاة فنية فقط. تحقق من بيانات التكلفة الفعلية قبل اتخاذ قرارات تجارية."
     },
     "phase2": {
       "label": "MarginCore · المرحلة 2",
@@ -515,52 +520,52 @@
   },
   "freeTrafficCatalog": {
     "metaTitle": "حاسبات مجانية | SectorCalc",
-    "metaDescription": "Free browser calculators for measurement, cost, finance, energy, conversion and everyday decisions. 100 active tools — no sign-up required.",
-    "eyebrow": "Free calculators",
-    "title": "Free sector calculators",
-    "lead": "Quick calculators for measurement, cost, finance, energy, conversion, health and everyday decisions.",
-    "explorerSub": "Choose a category first, then open the calculator you need.",
-    "hubHeadlineLead": "Your shop floor in",
-    "hubHeadlineTail": "free calculators",
-    "hubSub": "Pick a category, then open the calculator you need — browser-side, no sign-up.",
-    "hubCategoriesTitle": "Calculator categories",
-    "viewCalculators": "View calculators",
-    "viewCalculatorsOpen": "Calculators shown",
+    "metaDescription": "حاسبات مجانية عبر المتصفح للقياس والتكلفة والمالية والطاقة والتحويل والقرارات اليومية. 100 أداة نشطة — لا حاجة للتسجيل.",
+    "eyebrow": "حاسبات مجانية",
+    "title": "حاسبات قطاعية مجانية",
+    "lead": "حاسبات سريعة للقياس والتكلفة والمالية والطاقة والتحويل والصحة والقرارات اليومية.",
+    "explorerSub": "اختر فئة أولاً، ثم افتح الحاسبة التي تحتاجها.",
+    "hubHeadlineLead": "ورشتك في",
+    "hubHeadlineTail": "حاسبات مجانية",
+    "hubSub": "اختر فئة، ثم افتح الحاسبة التي تحتاجها — من جانب المتصفح، بدون تسجيل.",
+    "hubCategoriesTitle": "فئات الحاسبات",
+    "viewCalculators": "عرض الحاسبات",
+    "viewCalculatorsOpen": "الحاسبات المعروضة",
     "totalCount": "{traffic} free calculators · {sectors} sector tools · {categories} categories",
-    "categoryNavLabel": "Jump to category",
-    "featuredTitle": "Featured calculators",
-    "featuredLead": "Most searched free tools across finance, health, construction and industry.",
-    "openCalculator": "Open calculator",
-    "decisionAnalyzerNote": "Decision calculator available",
+    "categoryNavLabel": "الانتقال إلى الفئة",
+    "featuredTitle": "حاسبات مميزة",
+    "featuredLead": "أكثر الأدوات المجانية بحثًا عبر المالية والصحة والبناء والصناعة.",
+    "openCalculator": "فتح الحاسبة",
+    "decisionAnalyzerNote": "حاسبة القرارات متاحة",
     "categoryCount": "{count} calculators",
-    "includesTitle": "What free tools include",
-    "includes1": "2–5 inputs with units on every field",
-    "includes2": "Instant browser-side result",
-    "includes3": "Short plain-language explanation",
-    "includes4": "Link to related premium calculator when available",
-    "excludesTitle": "What free tools do not include",
-    "excludes1": "P90 safe price or accept / reject verdict",
-    "excludes2": "PDF export or saved report history",
-    "excludes3": "Margin leak diagnosis or sensitivity matrix",
-    "excludes4": "Account storage of free-tier inputs",
-    "sectorToolsTitle": "Sector decision tools",
-    "sectorToolsLead": "Industry-specific free checks tied to premium verdict calculators across 27 sectors.",
+    "includesTitle": "ما تتضمنه الأدوات المجانية",
+    "includes1": "2–5 مدخلات مع وحدات في كل حقل",
+    "includes2": "نتيجة فورية من جانب المتصفح",
+    "includes3": "شرح قصير بلغة بسيطة",
+    "includes4": "رابط للحاسبة المميزة ذات الصلة عند توفرها",
+    "excludesTitle": "ما لا تتضمنه الأدوات المجانية",
+    "excludes1": "السعر الآمن P90 أو حكم القبول/الرفض",
+    "excludes2": "تصدير PDF أو سجل التقارير المحفوظة",
+    "excludes3": "تشخيص تسرب الهامش أو مصفوفة الحساسية",
+    "excludes4": "تخزين مدخلات الطبقة المجانية في الحساب",
+    "sectorToolsTitle": "أدوات القرارات القطاعية",
+    "sectorToolsLead": "فحوصات مجانية خاصة بالصناعة مرتبطة بحاسبات الأحكام المميزة عبر 27 قطاعًا.",
     "sectorToolsCount": "{count} sector free tools across {industries} industries",
-    "premiumUpsellTitle": "Need a verdict, not just a number?",
-    "premiumUpsellBody": "Premium calculators add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
-    "premiumUpsellCta": "Explore premium calculators",
-    "premiumUpsellIndustries": "Browse by industry →",
+    "premiumUpsellTitle": "هل تحتاج إلى حكم، وليس مجرد رقم؟",
+    "premiumUpsellBody": "تضيف الحاسبات المميزة حدودًا سعرية آمنة، وكشف تسرب الهامش، وأحكام القبول/إعادة التسعير — مضمنة مع SectorCalc Pro.",
+    "premiumUpsellCta": "استكشاف الحاسبات المميزة",
+    "premiumUpsellIndustries": "تصفح حسب الصناعة ←",
     "categories": {
-      "construction-measurement": "Construction & measurement",
-      "finance-business": "Finance & business",
-      "manufacturing-workshop": "Manufacturing & workshop",
-      "energy-carbon": "Energy & carbon",
-      "logistics-travel": "Logistics & travel",
-      "agriculture-food": "Agriculture & food",
-      "everyday-life": "Everyday life",
-      "math-statistics": "Math & statistics",
-      "conversion": "Unit conversion",
-      "health-body": "Health & body",
+      "construction-measurement": "البناء والقياس",
+      "finance-business": "المالية والأعمال",
+      "manufacturing-workshop": "التصنيع والورش",
+      "energy-carbon": "الطاقة والكربون",
+      "logistics-travel": "اللوجستيات والسفر",
+      "agriculture-food": "الزراعة والغذاء",
+      "everyday-life": "الحياة اليومية",
+      "math-statistics": "الرياضيات والإحصاء",
+      "conversion": "تحويل الوحدات",
+      "health-body": "الصحة والجسم",
       "physics-science": "الفيزياء والعلوم",
       "chemistry-science": "الكيمياء",
       "engineering-science": "الهندسة",
@@ -572,16 +577,16 @@
       "hobbies-diy": "الهوايات والأعمال اليدوية"
     },
     "categoryDescriptions": {
-      "construction-measurement": "Area, volume, concrete, roofing and on-site measurement checks.",
-      "finance-business": "Margin, loan, payroll, tax and everyday business math.",
-      "manufacturing-workshop": "Machine time, scrap, OEE helpers and shop-floor quick checks.",
-      "energy-carbon": "kWh cost, fuel use, peak load and carbon exposure estimates.",
-      "logistics-travel": "Route cost, freight, fuel and travel time calculators.",
-      "agriculture-food": "Yield, feed, crop cost and food production quick math.",
-      "everyday-life": "Household, retail and personal decision calculators.",
-      "math-statistics": "Percentages, averages, ratios and statistical shortcuts.",
-      "conversion": "Length, weight, area, volume and unit converters.",
-      "health-body": "BMI, calorie and body metric estimators — not medical advice.",
+      "construction-measurement": "فحوصات المساحة والحجم والخرسانة والتسقيف والقياس في الموقع.",
+      "finance-business": "رياضيات الهامش والقرض والرواتب والضرائب والأعمال اليومية.",
+      "manufacturing-workshop": "وقت الماكينة والخردة ومساعدات OEE وفحوصات سريعة في ورشة العمل.",
+      "energy-carbon": "تقديرات تكلفة كيلوواط ساعة واستهلاك الوقود والحمولة القصوى والتعرض للكربون.",
+      "logistics-travel": "حاسبات تكلفة الطريق والشحن والوقود ووقت السفر.",
+      "agriculture-food": "حساب سريع للإنتاجية، التغذية، تكلفة المحصول والعائد.",
+      "everyday-life": "حاسبات القرارات الشخصية والتجزئة والمنزلية.",
+      "math-statistics": "اختصارات إحصائية، نسب، متوسطات ونسب مئوية.",
+      "conversion": "محولات الوحدات: الحجم، المساحة، الوزن، الطول.",
+      "health-body": "مقدرات السعرات الحرارية، مؤشر كتلة الجسم والمقاييس الجسمية — ليست نصيحة طبية.",
       "physics-science": "ميكانيكا وديناميكا حرارية وموجات.",
       "chemistry-science": "المولارية ودرجة الحموضة والحسابات الكيميائية.",
       "engineering-science": "إجهاد وموائع وهندسة ميكانيكية.",
@@ -593,30 +598,30 @@
       "hobbies-diy": "البستنة والحيوانات والحرف."
     },
     "tool": {
-      "calculate": "Calculate",
-      "awaiting": "Enter values and calculate to see your result here.",
-      "includesTitle": "What this result includes",
-      "includes1": "Formula-based estimate from your inputs",
-      "includes2": "Browser-only processing — inputs not stored",
-      "includes3": "Expanded formula for this calculator type",
-      "excludesTitle": "What this result does not include",
-      "excludes1": "Premium verdict or safe price floor",
-      "excludes2": "PDF export",
-      "excludes3": "Saved reports",
-      "excludes4": "Hidden-variable margin diagnosis",
-      "premiumBlockTitle": "See what this estimate misses",
-      "premiumBlockBody": "Free calculators show the first number. Premium calculators add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
-      "premiumCta": "See what this estimate misses →",
-      "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators",
+      "calculate": "احسب",
+      "awaiting": "أدخل القيم واحسب لترى نتيجتك هنا.",
+      "includesTitle": "ما تتضمنه هذه النتيجة",
+      "includes1": "تقدير قائم على معادلة من مدخلاتك",
+      "includes2": "معالجة داخل المتصفح فقط — لا تُخزَّن المدخلات",
+      "includes3": "معادلة موسعة لنوع هذه الحاسبة",
+      "excludesTitle": "ما لا تتضمنه هذه النتيجة",
+      "excludes1": "الحكم المميز أو الحد الأدنى الآمن للسعر",
+      "excludes2": "تصدير بصيغة PDF",
+      "excludes3": "تقارير محفوظة",
+      "excludes4": "تشخيص هامش المتغير المخفي",
+      "premiumBlockTitle": "اطلع على ما يفوته هذا التقدير",
+      "premiumBlockBody": "الحاسبات المجانية تُظهر الرقم الأول. الحاسبات المميزة تُضيف المحركات الخفية، العتبات، الإجراءات المقترحة وتقارير القرار الجاهزة للتصدير.",
+      "premiumCta": "اطلع على ما يفوته هذا التقدير ←",
+      "premiumBlockNote": "الأفضل عندما تؤثر النتيجة على التسعير، العمليات أو قرارات الإدارة.",
+      "relatedTitle": "حاسبات ذات صلة",
       "resultBlocked": "تم حظر النتيجة",
       "pilotAwaiting": "أدخل مدخلات التجربة الم mapped وشغّل الحساب."
     },
     "validation": {
-      "required": "Please select a value.",
-      "number": "Enter a valid number.",
-      "min": "Must be at least {min}.",
-      "max": "Must be at most {max}."
+      "required": "الرجاء تحديد قيمة.",
+      "number": "أدخل رقماً صحيحاً.",
+      "min": "يجب أن يكون على الأقل {min}.",
+      "max": "يجب أن يكون على الأكثر {max}."
     }
   },
   "contentAuthority": {
@@ -935,7 +940,7 @@
       "disclaimer": "صفوف توضيحية فقط. سجل التقارير المباشر يتطلب SectorCalc Pro وجلسة مسجّلة.",
       "columns": {
         "id": "معرّف التقرير",
-        "sector": "Sector",
+        "sector": "القطاع",
         "verdict": "الحكم",
         "updated": "محدّث",
         "status": "الحالة"
@@ -1219,7 +1224,7 @@
           "tags": [
             "عرض سعر",
             "إعداد",
-            "Shop Rate"
+            "سعر الورشة"
           ]
         },
         "technical": {
@@ -1911,7 +1916,7 @@
     }
   },
   "industryPage": {
-    "whoItsForLabel": "Who it is for:",
+    "whoItsForLabel": "لمن هذا:",
     "decisionLabel": "أي قرار يساعد فيه:",
     "freeCalculatorHeading": "حاسبة مجانية",
     "freeCalculatorNote": "Quick check only — no minimum safe السعر or accept/reject verdict.",
@@ -1990,1111 +1995,1111 @@
       "cncQuoteRiskAnalyzer": {
         "scenarios": {
           "quick_quote_check": {
-            "label": "Quick quote check",
-            "description": "Fast floor check with core time and rate inputs."
+            "label": "فحص سريع للعرض",
+            "description": "فحص سريع للحد الأدنى مع مدخلات الوقت والمعدل الأساسية."
           },
           "detailed_margin_review": {
-            "label": "Detailed margin review",
-            "description": "Full job cost stack including tooling and material."
+            "label": "مراجعة تفصيلية للهامش",
+            "description": "كامل تكلفة الوظيفة بما في ذلك الأدوات والمواد."
           }
         },
         "inputs": {
           "setupTime": {
-            "label": "Setup time",
-            "help": "Setup time"
+            "label": "وقت الإعداد",
+            "help": "وقت الإعداد"
           },
           "cycleTime": {
-            "label": "Cycle time",
-            "help": "Cycle time"
+            "label": "وقت الدورة",
+            "help": "وقت الدورة"
           },
           "quantity": {
-            "label": "Quantity",
-            "help": "Quantity"
+            "label": "الكمية",
+            "help": "الكمية"
           },
           "toolCost": {
-            "label": "Tooling and fixture cost",
-            "help": "Tooling and fixture cost"
+            "label": "تكلفة الأدوات والتركيبات",
+            "help": "تكلفة الأدوات والتركيبات"
           },
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "machineRate": {
-            "label": "Machine rate",
-            "help": "Machine rate"
+            "label": "معدل الآلة",
+            "help": "معدل الآلة"
           },
           "riskMargin": {
-            "label": "Risk margin",
-            "help": "Risk margin"
+            "label": "هامش المخاطرة",
+            "help": "هامش المخاطرة"
           }
         }
       },
       "changeOrderImpactAnalyzer": {
         "scenarios": {
           "small_change_order": {
-            "label": "Small change order",
-            "description": "Minor scope tweak with delay and crew cost focus."
+            "label": "أمر تغيير صغير",
+            "description": "تعديل بسيط في النطاق مع التركيز على التأخير وتكلفة الطاقم."
           },
           "major_scope_change": {
-            "label": "Major scope change",
-            "description": "Large scope shift with margin and schedule risk."
+            "label": "تغيير كبير في النطاق",
+            "description": "تحول كبير في النطاق مع مخاطر الهامش والجدول الزمني."
           }
         },
         "inputs": {
           "originalBudget": {
-            "label": "Original budget",
-            "help": "Original budget"
+            "label": "الميزانية الأصلية",
+            "help": "الميزانية الأصلية"
           },
           "changeEstimate": {
-            "label": "Change cost estimate",
-            "help": "Change cost estimate"
+            "label": "تقدير تكلفة التغيير",
+            "help": "تقدير تكلفة التغيير"
           },
           "delayDays": {
-            "label": "Delay days",
-            "help": "Delay days"
+            "label": "أيام التأخير",
+            "help": "أيام التأخير"
           },
           "crewCostPerDay": {
-            "label": "Crew cost per day",
-            "help": "Crew cost per day"
+            "label": "تكلفة الطاقم يومياً",
+            "help": "تكلفة الطاقم يومياً"
           },
           "marginTarget": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "الهامش المستهدف",
+            "help": "الهامش المستهدف"
           }
         }
       },
       "officeCleaningBidOptimizer": {
         "scenarios": {
           "recurring_cleaning": {
-            "label": "Recurring cleaning",
-            "description": "Monthly contract with visit frequency and labor stack."
+            "label": "التنظيف المتكرر",
+            "description": "عقد شهري مع تكرار الزيارات وتراكم العمالة."
           },
           "one_time_deep_clean": {
-            "label": "One-time deep clean",
-            "description": "Single deep-clean bid with supply and labor load."
+            "label": "تنظيف عميق لمرة واحدة",
+            "description": "عرض تنظيف عميق لمرة واحدة مع تحميل المستلزمات والعمالة."
           }
         },
         "inputs": {
           "areaSize": {
-            "label": "Area size",
-            "help": "Area size"
+            "label": "مساحة المنطقة",
+            "help": "مساحة المنطقة"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "hoursPerVisit": {
-            "label": "Hours per visit",
-            "help": "Hours per visit"
+            "label": "ساعات الزيارة",
+            "help": "ساعات الزيارة"
           },
           "supplyCost": {
-            "label": "Supply cost",
-            "help": "Supply cost"
+            "label": "تكلفة المستلزمات",
+            "help": "تكلفة المستلزمات"
           },
           "visitFrequency": {
-            "label": "Visits per month",
-            "help": "Visits per month"
+            "label": "الزيارات شهرياً",
+            "help": "الزيارات شهرياً"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "الهامش المستهدف",
+            "help": "الهامش المستهدف"
           }
         }
       },
       "menuProfitLeakDetector": {
         "scenarios": {
           "single_menu_item": {
-            "label": "Single menu item",
-            "description": "One dish margin after waste and delivery fees."
+            "label": "عنصر قائمة واحد",
+            "description": "هامش طبق واحد بعد الهدر ورسوم التوصيل."
           },
           "full_menu_review": {
-            "label": "Full menu review",
-            "description": "Menu-wide leak check with labor and supplier drift."
+            "label": "مراجعة القائمة الكاملة",
+            "description": "فحص تسرب على مستوى القائمة مع انحراف العمالة والموردين."
           }
         },
         "inputs": {
           "menuPrice": {
-            "label": "Menu price",
-            "help": "Menu price"
+            "label": "سعر القائمة",
+            "help": "سعر القائمة"
           },
           "ingredientCost": {
-            "label": "Ingredient cost",
-            "help": "Ingredient cost"
+            "label": "تكلفة المكونات",
+            "help": "تكلفة المكونات"
           },
           "wasteRate": {
-            "label": "Waste rate",
-            "help": "Waste rate"
+            "label": "معدل الهدر",
+            "help": "معدل الهدر"
           },
           "deliveryCommission": {
-            "label": "Delivery commission",
-            "help": "Delivery commission"
+            "label": "عمولة التوصيل",
+            "help": "عمولة التوصيل"
           },
           "laborCostPerItem": {
-            "label": "Labor cost per item",
-            "help": "Labor cost per item"
+            "label": "تكلفة العمالة لكل عنصر",
+            "help": "تكلفة العمالة لكل عنصر"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "الهامش المستهدف",
+            "help": "الهامش المستهدف"
           }
         }
       },
       "returnProfitErosionTool": {
         "scenarios": {
           "product_return_check": {
-            "label": "Product return check",
-            "description": "Single SKU return impact on net profit."
+            "label": "فحص إرجاع المنتج",
+            "description": "تأثير إرجاع وحدة SKU واحدة على صافي الربح."
           },
           "monthly_return_impact": {
-            "label": "Monthly return impact",
-            "description": "Monthly return volume with ad and logistics cost."
+            "label": "تأثير العائد الشهري",
+            "description": "حجم العائد الشهري مع تكلفة الإعلان والخدمات اللوجستية"
           }
         },
         "inputs": {
           "productPrice": {
-            "label": "Product price",
-            "help": "Product price"
+            "label": "سعر المنتج",
+            "help": "سعر المنتج"
           },
           "productCost": {
-            "label": "Product cost",
-            "help": "Product cost"
+            "label": "تكلفة المنتج",
+            "help": "تكلفة المنتج"
           },
           "shippingCost": {
-            "label": "Shipping cost",
-            "help": "Shipping cost"
+            "label": "تكلفة الشحن",
+            "help": "تكلفة الشحن"
           },
           "returnRate": {
-            "label": "Return rate",
-            "help": "Return rate"
+            "label": "معدل الإرجاع",
+            "help": "معدل الإرجاع"
           },
           "paymentFeeRate": {
-            "label": "Payment fee",
-            "help": "Payment fee"
+            "label": "رسوم الدفع",
+            "help": "رسوم الدفع"
           },
           "adCostPerSale": {
-            "label": "Ad cost per sale",
-            "help": "Ad cost per sale"
+            "label": "تكلفة الإعلان لكل عملية بيع",
+            "help": "تكلفة الإعلان لكل عملية بيع"
           }
         }
       },
       "weldingBidRiskAnalyzer": {
         "scenarios": {
           "field_repair": {
-            "label": "Field repair",
-            "description": "On-site weld repair with fit-up and labor focus."
+            "label": "الإصلاح الميداني",
+            "description": "إصلاح اللحام في الموقع مع التركيز على التجهيز والعمالة"
           },
           "production_weld_bid": {
-            "label": "Production weld bid",
-            "description": "Fab shop bid with consumables and rework risk."
+            "label": "عرض لحام الإنتاج",
+            "description": "عرض ورشة التصنيع مع المواد المستهلكة ومخاطر إعادة العمل"
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "gasConsumableCost": {
-            "label": "Gas and consumable cost",
-            "help": "Gas and consumable cost"
+            "label": "تكلفة الغاز والمواد المستهلكة",
+            "help": "تكلفة الغاز والمواد المستهلكة"
           },
           "fitUpHours": {
-            "label": "Fit-up hours",
-            "help": "Fit-up hours"
+            "label": "ساعات التجهيز",
+            "help": "ساعات التجهيز"
           },
           "reworkRiskPercent": {
-            "label": "Rework risk",
-            "help": "Rework risk"
+            "label": "مخاطر إعادة العمل",
+            "help": "مخاطر إعادة العمل"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "hvacProjectMarginGuard": {
         "scenarios": {
           "small_service_job": {
-            "label": "Small service job",
-            "description": "Replace or service call with core equipment and labor."
+            "label": "وظيفة خدمة صغيرة",
+            "description": "استبدال أو استدعاء خدمة مع المعدات الأساسية والعمالة"
           },
           "commercial_project": {
-            "label": "Commercial project",
-            "description": "Full install with ductwork and commissioning."
+            "label": "مشروع تجاري",
+            "description": "تركيب كامل مع مجاري الهواء والتشغيل"
           }
         },
         "inputs": {
           "equipmentCost": {
-            "label": "Equipment cost",
-            "help": "Equipment cost"
+            "label": "تكلفة المعدات",
+            "help": "تكلفة المعدات"
           },
           "ductworkCost": {
-            "label": "Ductwork cost",
-            "help": "Ductwork cost"
+            "label": "تكلفة مجاري الهواء",
+            "help": "تكلفة مجاري الهواء"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "commissioningCost": {
-            "label": "Commissioning cost",
-            "help": "Commissioning cost"
+            "label": "تكلفة التشغيل",
+            "help": "تكلفة التشغيل"
           },
           "callbackRiskPercent": {
-            "label": "Callback risk",
-            "help": "Callback risk"
+            "label": "مخاطر الاستدعاء",
+            "help": "مخاطر الاستدعاء"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "panelShopMarginVerdict": {
         "scenarios": {
           "small_control_panel": {
-            "label": "Small control panel",
-            "description": "Compact panel build with core labor and material."
+            "label": "لوحة تحكم صغيرة",
+            "description": "بناء لوحة مدمجة مع العمالة والمواد الأساسية"
           },
           "industrial_panel_project": {
-            "label": "Industrial panel project",
-            "description": "Multi-bay panel job with engineering and test load."
+            "label": "مشروع لوحة صناعية",
+            "description": "مشروع لوحة متعددة الأقسام مع الهندسة واختبار التحميل"
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "testingHours": {
-            "label": "Testing hours",
-            "help": "Testing hours"
+            "label": "ساعات الاختبار",
+            "help": "ساعات الاختبار"
           },
           "inspectionRiskPercent": {
-            "label": "Inspection risk",
-            "help": "Inspection risk"
+            "label": "مخاطر التفتيش",
+            "help": "مخاطر التفتيش"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "landscapingContractProfitTool": {
         "scenarios": {
           "maintenance_contract": {
-            "label": "Maintenance contract",
-            "description": "Recurring grounds maintenance with crew and fuel."
+            "label": "عقد الصيانة",
+            "description": "صيانة أرضية متكررة مع طاقم ووقود"
           },
           "installation_project": {
-            "label": "Installation project",
-            "description": "Install bid with material, labor and margin guard."
+            "label": "مشروع التركيب",
+            "description": "عرض تركيب مع المواد والعمالة وضمان الهامش"
           }
         },
         "inputs": {
           "crewHoursPerVisit": {
-            "label": "Crew hours per visit",
-            "help": "Crew hours per visit"
+            "label": "ساعات الطاقم لكل زيارة",
+            "help": "ساعات الطاقم لكل زيارة"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "fuelCostPerVisit": {
-            "label": "Fuel cost per visit",
-            "help": "Fuel cost per visit"
+            "label": "تكلفة الوقود لكل زيارة",
+            "help": "تكلفة الوقود لكل زيارة"
           },
           "supplyCostPerMonth": {
-            "label": "Supply cost per month",
-            "help": "Supply cost per month"
+            "label": "تكلفة التوريد شهرياً",
+            "help": "تكلفة التوريد شهرياً"
           },
           "visitsPerMonth": {
-            "label": "Visits per month",
-            "help": "Visits per month"
+            "label": "الزيارات شهرياً",
+            "help": "الزيارات شهرياً"
           },
           "equipmentWearCost": {
-            "label": "Equipment wear cost",
-            "help": "Equipment wear cost"
+            "label": "تكلفة تآكل المعدات",
+            "help": "تكلفة تآكل المعدات"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "autoShopMarginLeakDetector": {
         "scenarios": {
           "repair_order": {
-            "label": "Repair order",
-            "description": "Single repair order with parts and bay labor."
+            "label": "أمر إصلاح",
+            "description": "أمر إصلاح فردي مع قطع الغيار وعمالة الورشة"
           },
           "service_package": {
-            "label": "Service package",
-            "description": "Bundled service package with margin leak check."
+            "label": "حزمة خدمة",
+            "description": "حزمة خدمة مجمعة مع فحص تسرب الهامش"
           }
         },
         "inputs": {
           "quotedPrice": {
-            "label": "Quoted price",
-            "help": "Quoted price"
+            "label": "السعر المقتبس",
+            "help": "السعر المقتبس"
           },
           "diagnosticHours": {
-            "label": "Diagnostic hours",
-            "help": "Diagnostic hours"
+            "label": "ساعات التشخيص",
+            "help": "ساعات التشخيص"
           },
           "repairHours": {
-            "label": "Repair hours",
-            "help": "Repair hours"
+            "label": "ساعات الإصلاح",
+            "help": "ساعات الإصلاح"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "partsCost": {
-            "label": "Parts cost",
-            "help": "Parts cost"
+            "label": "تكلفة القطع",
+            "help": "تكلفة القطع"
           },
           "comebackRiskPercent": {
-            "label": "Comeback risk",
-            "help": "Comeback risk"
+            "label": "مخاطر العودة",
+            "help": "مخاطر العودة"
           },
           "partsMarkupPercent": {
-            "label": "Parts markup",
-            "help": "Parts markup"
+            "label": "هامش الربح على الأجزاء",
+            "help": "هامش الربح على الأجزاء"
           }
         }
       },
       "signageBidSafePriceTool": {
         "scenarios": {
           "indoor_signage": {
-            "label": "Indoor signage",
-            "description": "Interior sign bid with material and install labor."
+            "label": "اللوحات الداخلية",
+            "description": "عرض سعر للوحة داخلية يشمل المواد وأعمال التركيب."
           },
           "outdoor_installation": {
-            "label": "Outdoor installation",
-            "description": "Exterior sign with weatherproofing and rigging risk."
+            "label": "التركيب الخارجي",
+            "description": "لوحة خارجية مع العزل المائي ومخاطر الرفع."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "inkCost": {
-            "label": "Ink cost",
-            "help": "Ink cost"
+            "label": "تكلفة الحبر",
+            "help": "تكلفة الحبر"
           },
           "designHours": {
-            "label": "Design hours",
-            "help": "Design hours"
+            "label": "ساعات التصميم",
+            "help": "ساعات التصميم"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "installHours": {
-            "label": "Install hours",
-            "help": "Install hours"
+            "label": "ساعات التركيب",
+            "help": "ساعات التركيب"
           },
           "reprintRiskPercent": {
-            "label": "Reprint risk",
-            "help": "Reprint risk"
+            "label": "مخاطر إعادة الطباعة",
+            "help": "مخاطر إعادة الطباعة"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "plumbingJobMarginVerdict": {
         "scenarios": {
           "service_repair_job": {
-            "label": "Service repair job",
-            "description": "Service call with labor, parts and callback risk."
+            "label": "مهمة إصلاح خدمة",
+            "description": "زيارة خدمة تشمل العمالة وقطع الغيار ومخاطر إعادة الاتصال."
           },
           "installation_project": {
-            "label": "Installation project",
-            "description": "Rough-in or repipe project with full cost stack."
+            "label": "مشروع تركيب",
+            "description": "مشروع تمهيدي أو إعادة أنابيب مع هيكل تكلفة كامل."
           }
         },
         "inputs": {
           "partsCost": {
-            "label": "Parts cost",
-            "help": "Parts cost"
+            "label": "تكلفة الأجزاء",
+            "help": "تكلفة الأجزاء"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "fixtureCount": {
-            "label": "Fixture count",
-            "help": "Fixture count"
+            "label": "عدد التركيبات",
+            "help": "عدد التركيبات"
           },
           "materialRunCost": {
-            "label": "Material run cost",
-            "help": "Material run cost"
+            "label": "تكلفة تشغيل المواد",
+            "help": "تكلفة تشغيل المواد"
           },
           "callbackRiskPercent": {
-            "label": "Callback risk",
-            "help": "Callback risk"
+            "label": "مخاطر إعادة الاتصال",
+            "help": "مخاطر إعادة الاتصال"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "millworkBidRiskAnalyzer": {
         "scenarios": {
           "custom_cabinet_job": {
-            "label": "Custom cabinet job",
-            "description": "Custom millwork bid with shop labor and material."
+            "label": "مهمة خزانة مخصصة",
+            "description": "عرض سعر لأعمال النجارة المخصصة يشمل عمالة الورشة والمواد."
           },
           "commercial_millwork_bid": {
-            "label": "Commercial millwork bid",
-            "description": "Commercial package with tolerance and rework risk."
+            "label": "عرض سعر لأعمال النجارة التجارية",
+            "description": "حزمة تجارية مع مخاطر التفاوت وإعادة العمل."
           }
         },
         "inputs": {
           "sheetMaterialCost": {
-            "label": "Sheet material cost",
-            "help": "Sheet material cost"
+            "label": "تكلفة المواد الصفائحية",
+            "help": "تكلفة المواد الصفائحية"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "finishingCost": {
-            "label": "Finishing cost",
-            "help": "Finishing cost"
+            "label": "تكلفة التشطيب",
+            "help": "تكلفة التشطيب"
           },
           "installHours": {
-            "label": "Install hours",
-            "help": "Install hours"
+            "label": "ساعات التركيب",
+            "help": "ساعات التركيب"
           },
           "wasteRatePercent": {
-            "label": "Waste rate",
-            "help": "Waste rate"
+            "label": "نسبة الهدر",
+            "help": "نسبة الهدر"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "roofingContractMarginGuard": {
         "scenarios": {
           "residential_roofing": {
-            "label": "Residential roofing",
-            "description": "Residential re-roof with square and labor inputs."
+            "label": "الأسقف السكنية",
+            "description": "إعادة تسقيف سكني مع مدخلات المساحة والعمالة."
           },
           "commercial_roofing": {
-            "label": "Commercial roofing",
-            "description": "Commercial roof scope with tear-off and margin guard."
+            "label": "الأسقف التجارية",
+            "description": "نطاق الأسقف التجارية مع الإزالة وحماية الهامش."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "ساعات العمل",
+            "help": "ساعات العمل"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "tearOffCost": {
-            "label": "Tear-off cost",
-            "help": "Tear-off cost"
+            "label": "تكلفة الإزالة",
+            "help": "تكلفة الإزالة"
           },
           "dumpFees": {
-            "label": "Dump fees",
-            "help": "Dump fees"
+            "label": "رسوم التفريغ",
+            "help": "رسوم التفريغ"
           },
           "weatherDelayRiskPercent": {
-            "label": "Weather delay risk",
-            "help": "Weather delay risk"
+            "label": "مخاطر تأخير الطقس",
+            "help": "مخاطر تأخير الطقس"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "paintingJobProfitVerdict": {
         "scenarios": {
           "interior_painting": {
-            "label": "Interior painting",
-            "description": "Interior coat bid with prep and labor hours."
+            "label": "الدهانات الداخلية",
+            "description": "عرض طلاء داخلي مع التحضير وساعات العمل."
           },
           "exterior_project": {
-            "label": "Exterior project",
-            "description": "Exterior project with weather and access risk."
+            "label": "مشروع خارجي",
+            "description": "مشروع خارجي مع مخاطر الطقس والوصول."
           }
         },
         "inputs": {
           "paintCost": {
-            "label": "Paint cost",
-            "help": "Paint cost"
+            "label": "تكلفة الدهان",
+            "help": "تكلفة الدهان"
           },
           "prepHours": {
-            "label": "Prep hours",
-            "help": "Prep hours"
+            "label": "ساعات التحضير",
+            "help": "ساعات التحضير"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "scaffoldCost": {
-            "label": "Scaffold cost",
-            "help": "Scaffold cost"
+            "label": "تكلفة السقالات",
+            "help": "تكلفة السقالات"
           },
           "touchUpRiskPercent": {
-            "label": "Touch-up risk",
-            "help": "Touch-up risk"
+            "label": "مخاطر اللمسات النهائية",
+            "help": "مخاطر اللمسات النهائية"
           },
           "areaSize": {
-            "label": "Area size",
-            "help": "Area size"
+            "label": "حجم المساحة",
+            "help": "حجم المساحة"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "sheetMetalQuoteRiskTool": {
         "scenarios": {
           "quick_sheet_quote": {
-            "label": "Quick sheet quote",
-            "description": "Fast fab quote with material and run time."
+            "label": "عرض أسعار سريع للصفائح",
+            "description": "عرض أسعار سريع للتصنيع مع المواد ووقت التشغيل."
           },
           "detailed_fabrication_margin": {
-            "label": "Detailed fabrication margin",
-            "description": "Full fab stack with setup, scrap and margin band."
+            "label": "هامش التصنيع التفصيلي",
+            "description": "حزمة تصنيع كاملة مع الإعداد والخردة ونطاق الهامش."
           }
         },
         "inputs": {
           "programmingTime": {
-            "label": "Programming time",
-            "help": "Programming time"
+            "label": "وقت البرمجة",
+            "help": "وقت البرمجة"
           },
           "setupTime": {
-            "label": "Setup time",
-            "help": "Setup time"
+            "label": "وقت الإعداد",
+            "help": "وقت الإعداد"
           },
           "cutTime": {
-            "label": "Cut time",
-            "help": "Cut time"
+            "label": "وقت القطع",
+            "help": "وقت القطع"
           },
           "bendCount": {
-            "label": "Bend count",
-            "help": "Bend count"
+            "label": "عدد الثنيات",
+            "help": "عدد الثنيات"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "scrapRatePercent": {
-            "label": "Scrap rate",
-            "help": "Scrap rate"
+            "label": "نسبة الخردة",
+            "help": "نسبة الخردة"
           },
           "finishingCost": {
-            "label": "Finishing cost",
-            "help": "Finishing cost"
+            "label": "تكلفة التشطيب",
+            "help": "تكلفة التشطيب"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "3dPrintJobMarginTool": {
         "scenarios": {
           "prototype_print": {
-            "label": "Prototype print",
-            "description": "Single prototype job with machine and material time."
+            "label": "طباعة النموذج الأولي",
+            "description": "وظيفة نموذج أولي واحدة مع وقت الآلة والمواد."
           },
           "batch_production_print": {
-            "label": "Batch production print",
-            "description": "Batch run with amortized setup and failure risk."
+            "label": "طباعة الإنتاج الدفعي",
+            "description": "تشغيل دفعي مع توزيع تكاليف الإعداد ومخاطر الفشل."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "تكلفة المواد",
+            "help": "تكلفة المواد"
           },
           "printHours": {
-            "label": "Print hours",
-            "help": "Print hours"
+            "label": "ساعات الطباعة",
+            "help": "ساعات الطباعة"
           },
           "machineRate": {
-            "label": "Machine rate",
-            "help": "Machine rate"
+            "label": "معدل الآلة",
+            "help": "معدل الآلة"
           },
           "postProcessHours": {
-            "label": "Post-process hours",
-            "help": "Post-process hours"
+            "label": "ساعات ما بعد المعالجة",
+            "help": "ساعات ما بعد المعالجة"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "معدل الأجر",
+            "help": "معدل الأجر"
           },
           "failRatePercent": {
-            "label": "Fail rate",
-            "help": "Fail rate"
+            "label": "نسبة الفشل",
+            "help": "نسبة الفشل"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "routeOptimizationAnalyzer": {
         "scenarios": {
           "daily_delivery_route": {
-            "label": "Daily delivery route",
-            "description": "Daily route with stops, fuel and driver cost."
+            "label": "مسار التوصيل اليومي",
+            "description": "مسار يومي مع محطات التوقف وتكاليف الوقود والسائق."
           },
           "multi_stop_route_plan": {
-            "label": "Multi-stop route plan",
-            "description": "Multi-stop plan with freight loss and margin guard."
+            "label": "خطة مسار متعدد المحطات",
+            "description": "خطة متعددة المحطات مع خسائر الشحن وحماية الهامش."
           }
         },
         "inputs": {
           "distanceKm": {
-            "label": "Distance",
-            "help": "Distance"
+            "label": "المسافة",
+            "help": "المسافة"
           },
           "fuelPricePerKm": {
-            "label": "Fuel cost per km",
-            "help": "Fuel cost per km"
+            "label": "تكلفة الوقود لكل كيلومتر",
+            "help": "تكلفة الوقود لكل كيلومتر"
           },
           "driverHourlyRate": {
-            "label": "Driver hourly rate",
-            "help": "Driver hourly rate"
+            "label": "أجر السائق بالساعة",
+            "help": "أجر السائق بالساعة"
           },
           "estimatedHours": {
-            "label": "Estimated drive hours",
-            "help": "Estimated drive hours"
+            "label": "ساعات القيادة المقدرة",
+            "help": "ساعات القيادة المقدرة"
           },
           "returnEmpty": {
-            "label": "Empty return (deadhead)",
-            "help": "Empty return (deadhead)"
+            "label": "العودة فارغة (بدون حمولة)",
+            "help": "العودة فارغة (بدون حمولة)"
           },
           "hasTolls": {
-            "label": "Toll roads on route",
-            "help": "Toll roads on route"
+            "label": "طرق برسوم مرور على المسار",
+            "help": "طرق برسوم مرور على المسار"
           },
           "overweightRisk": {
-            "label": "Overweight / fine risk",
-            "help": "Overweight / fine risk"
+            "label": "مخاطر الوزن الزائد / الغرامات",
+            "help": "مخاطر الوزن الزائد / الغرامات"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "cropYieldLossAnalyzer": {
         "scenarios": {
           "field_yield_check": {
-            "label": "Field yield check",
-            "description": "Field-level yield gap vs expected output."
+            "label": "فحص إنتاجية الحقل",
+            "description": "فجوة الإنتاجية على مستوى الحقل مقابل الإنتاج المتوقع."
           },
           "seasonal_loss_review": {
-            "label": "Seasonal loss review",
-            "description": "Season-wide loss review with input and revenue impact."
+            "label": "مراجعة الخسائر الموسمية",
+            "description": "مراجعة الخسائر على مستوى الموسم مع تأثير المدخلات والإيرادات."
           }
         },
         "inputs": {
           "areaHectares": {
-            "label": "Field area",
-            "help": "Field area"
+            "label": "مساحة الحقل",
+            "help": "مساحة الحقل"
           },
           "expectedYieldTonnes": {
-            "label": "Expected yield",
-            "help": "Expected yield"
+            "label": "الإنتاجية المتوقعة",
+            "help": "الإنتاجية المتوقعة"
           },
           "fertilizerCost": {
-            "label": "Fertilizer cost",
-            "help": "Fertilizer cost"
+            "label": "تكلفة الأسمدة",
+            "help": "تكلفة الأسمدة"
           },
           "irrigationCost": {
-            "label": "Irrigation cost",
-            "help": "Irrigation cost"
+            "label": "تكلفة الري",
+            "help": "تكلفة الري"
           },
           "soilMoisturePercent": {
-            "label": "Soil moisture",
-            "help": "Soil moisture"
+            "label": "رطوبة التربة",
+            "help": "رطوبة التربة"
           },
           "weatherRiskIndex": {
-            "label": "Weather risk index",
-            "help": "Weather risk index"
+            "label": "مؤشر مخاطر الطقس",
+            "help": "مؤشر مخاطر الطقس"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "waterOptimizationVerdict": {
         "scenarios": {
           "irrigation_efficiency": {
-            "label": "Irrigation efficiency",
-            "description": "Irrigation system efficiency and cost leak check."
+            "label": "كفاءة الري",
+            "description": "كفاءة نظام الري وفحص تسرب التكاليف."
           },
           "facility_water_usage": {
-            "label": "Facility water usage",
-            "description": "Facility water use with utility and waste drivers."
+            "label": "استخدام المياه في المنشأة",
+            "description": "استخدام المياه في المنشأة مع محركات المرافق والنفايات."
           }
         },
         "inputs": {
           "areaHectares": {
-            "label": "Irrigated area",
-            "help": "Irrigated area"
+            "label": "المساحة المروية",
+            "help": "المساحة المروية"
           },
           "pumpingHours": {
-            "label": "Pumping hours",
-            "help": "Pumping hours"
+            "label": "ساعات الضخ",
+            "help": "ساعات الضخ"
           },
           "electricityRate": {
-            "label": "Electricity rate",
-            "help": "Electricity rate"
+            "label": "تعرفة الكهرباء",
+            "help": "تعرفة الكهرباء"
           },
           "waterRightsFee": {
-            "label": "Water rights fee",
-            "help": "Water rights fee"
+            "label": "رسوم حقوق المياه",
+            "help": "رسوم حقوق المياه"
           },
           "evaporationLossPercent": {
-            "label": "Evaporation loss",
-            "help": "Evaporation loss"
+            "label": "فقدان التبخر",
+            "help": "فقدان التبخر"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "feedEfficiencyAnalyzer": {
         "scenarios": {
           "daily_feed_check": {
-            "label": "Daily feed check",
-            "description": "Daily ration efficiency vs production output."
+            "label": "فحص العلف اليومي",
+            "description": "كفاءة الحصة اليومية مقابل الإنتاج."
           },
           "herd_feed_performance": {
-            "label": "Herd feed performance",
-            "description": "Herd-level feed cost and conversion review."
+            "label": "أداء علف القطيع",
+            "description": "مراجعة تكلفة العلف وتحويله على مستوى القطيع."
           }
         },
         "inputs": {
           "animalCount": {
-            "label": "Animal count",
-            "help": "Animal count"
+            "label": "عدد الحيوانات",
+            "help": "عدد الحيوانات"
           },
           "dailyFeedKg": {
-            "label": "Daily feed per head",
-            "help": "Daily feed per head"
+            "label": "العلف اليومي لكل رأس",
+            "help": "العلف اليومي لكل رأس"
           },
           "feedPricePerKg": {
-            "label": "Feed price",
-            "help": "Feed price"
+            "label": "سعر العلف",
+            "help": "سعر العلف"
           },
           "milkYieldPerDay": {
-            "label": "Milk yield per head",
-            "help": "Milk yield per head"
+            "label": "إنتاج الحليب لكل رأس",
+            "help": "إنتاج الحليب لكل رأس"
           },
           "feedWastePercent": {
-            "label": "Feed waste / spoilage",
-            "help": "Feed waste / spoilage"
+            "label": "هدر العلف / تلفه",
+            "help": "هدر العلف / تلفه"
           },
           "waterQualityIndex": {
-            "label": "Water quality index",
-            "help": "Water quality index"
+            "label": "مؤشر جودة المياه",
+            "help": "مؤشر جودة المياه"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الهدف",
+            "help": "هامش الهدف"
           }
         }
       },
       "dairyProfitDetector": {
         "scenarios": {
           "milk_batch_margin": {
-            "label": "Milk batch margin",
-            "description": "Batch margin after feed, labor and shrink."
+            "label": "هامش دفعة الحليب",
+            "description": "هامش الدفعة بعد العلف والعمالة والانكماش."
           },
           "monthly_dairy_profit": {
-            "label": "Monthly dairy profit",
-            "description": "Monthly dairy profit with overhead and price risk."
+            "label": "الربح الشهري للألبان",
+            "description": "الربح الشهري للألبان مع التكاليف العامة ومخاطر الأسعار."
           }
         },
         "inputs": {
           "cowCount": {
-            "label": "Cow count",
-            "help": "Cow count"
+            "label": "عدد الأبقار",
+            "help": "عدد الأبقار"
           },
           "litersPerCowPerDay": {
-            "label": "Milk per cow",
-            "help": "Milk per cow"
+            "label": "إنتاج الحليب لكل بقرة",
+            "help": "إنتاج الحليب لكل بقرة"
           },
           "milkPricePerLiter": {
-            "label": "Milk price",
-            "help": "Milk price"
+            "label": "سعر الحليب",
+            "help": "سعر الحليب"
           },
           "monthlyFeedCost": {
-            "label": "Monthly feed cost",
-            "help": "Monthly feed cost"
+            "label": "تكلفة العلف الشهرية",
+            "help": "تكلفة العلف الشهرية"
           },
           "laborCost": {
-            "label": "Monthly labor cost",
-            "help": "Monthly labor cost"
+            "label": "تكلفة العمالة الشهرية",
+            "help": "تكلفة العمالة الشهرية"
           },
           "vetAndHealth": {
-            "label": "Vet & health",
-            "help": "Vet & health"
+            "label": "الطب البيطري والصحة",
+            "help": "الطب البيطري والصحة"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الهدف",
+            "help": "هامش الهدف"
           }
         }
       },
       "energyEfficiencyReport": {
         "scenarios": {
           "facility_energy_check": {
-            "label": "Facility energy check",
-            "description": "Facility kWh cost and baseline efficiency review."
+            "label": "فحص الطاقة في المنشأة",
+            "description": "تكلفة كيلوواط ساعة للمنشأة ومراجعة كفاءة الأساس."
           },
           "equipment_efficiency_review": {
-            "label": "Equipment efficiency review",
-            "description": "Equipment-level efficiency and upgrade ROI signal."
+            "label": "مراجعة كفاءة المعدات",
+            "description": "مراجعة كفاءة على مستوى المعدات وإشارة عائد الاستثمار للترقية."
           }
         },
         "inputs": {
           "monthlyKwh": {
-            "label": "Monthly kWh",
-            "help": "Monthly kWh"
+            "label": "كيلوواط ساعة شهري",
+            "help": "كيلوواط ساعة شهري"
           },
           "tariffPerKwh": {
-            "label": "Tariff",
-            "help": "Tariff"
+            "label": "التعرفة",
+            "help": "التعرفة"
           },
           "demandCharge": {
-            "label": "Peak demand charge",
-            "help": "Peak demand charge"
+            "label": "رسوم الطلب الذروة",
+            "help": "رسوم الطلب الذروة"
           },
           "powerFactorPenalty": {
-            "label": "Power factor penalty",
-            "help": "Power factor penalty"
+            "label": "غرامة معامل القدرة",
+            "help": "غرامة معامل القدرة"
           },
           "efficiencyTargetPercent": {
-            "label": "Efficiency target",
-            "help": "Efficiency target"
+            "label": "هدف الكفاءة",
+            "help": "هدف الكفاءة"
           },
           "targetSavings": {
-            "label": "Target savings",
-            "help": "Target savings"
+            "label": "الوفورات المستهدفة",
+            "help": "الوفورات المستهدفة"
           }
         }
       },
       "cbamComplianceVerdict": {
         "scenarios": {
           "shipment_cbam_check": {
-            "label": "Shipment CBAM check",
-            "description": "Single shipment embedded emissions exposure."
+            "label": "فحص CBAM للشحنة",
+            "description": "التعرض للانبعاثات المضمنة لشحنة واحدة."
           },
           "annual_export_exposure": {
-            "label": "Annual export exposure",
-            "description": "Annual export volume with CBAM cost exposure."
+            "label": "التعرض السنوي للتصدير",
+            "description": "حجم التصدير السنوي مع التعرض لتكلفة CBAM."
           }
         },
         "inputs": {
           "productionTons": {
-            "label": "Production volume",
-            "help": "Production volume"
+            "label": "حجم الإنتاج",
+            "help": "حجم الإنتاج"
           },
           "energySource": {
-            "label": "Energy source",
-            "help": "Energy source"
+            "label": "مصدر الطاقة",
+            "help": "مصدر الطاقة"
           },
           "euImportValue": {
-            "label": "EU import value",
-            "help": "EU import value"
+            "label": "قيمة الاستيراد للاتحاد الأوروبي",
+            "help": "قيمة الاستيراد للاتحاد الأوروبي"
           },
           "processEmissionsFactor": {
-            "label": "Process emissions factor",
-            "help": "Process emissions factor"
+            "label": "عامل الانبعاثات العملية",
+            "help": "عامل الانبعاثات العملية"
           },
           "includesTransport": {
-            "label": "Include transport leg",
-            "help": "Include transport leg"
+            "label": "تضمين مرحلة النقل",
+            "help": "تضمين مرحلة النقل"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "هامش الربح المستهدف",
+            "help": "هامش الربح المستهدف"
           }
         }
       },
       "renovationBudgetOptimizer": {
         "scenarios": {
           "small_renovation": {
-            "label": "Small renovation",
-            "description": "Room or partial remodel budget guard."
+            "label": "تجديد صغير",
+            "description": "حاجز ميزانية تجديد غرفة أو جزء منها"
           },
           "full_project_budget": {
-            "label": "Full project budget",
-            "description": "Whole-home or full fit-out budget optimization."
+            "label": "ميزانية المشروع الكاملة",
+            "description": "تحسين ميزانية المنزل بالكامل أو التجهيز الكامل"
           }
         },
         "inputs": {
           "areaM2": {
-            "label": "Renovation area",
-            "help": "Renovation area"
+            "label": "مساحة التجديد",
+            "help": "مساحة التجديد"
           },
           "materialQuality": {
-            "label": "Material quality",
-            "help": "Material quality"
+            "label": "جودة المواد",
+            "help": "جودة المواد"
           },
           "includeLabor": {
-            "label": "Include labor",
-            "help": "Include labor"
+            "label": "تضمين العمالة",
+            "help": "تضمين العمالة"
           },
           "season": {
-            "label": "Season",
-            "help": "Season"
+            "label": "الموسم",
+            "help": "الموسم"
           },
           "cityTier": {
-            "label": "City cost tier",
-            "help": "City cost tier"
+            "label": "مستوى تكلفة المدينة",
+            "help": "مستوى تكلفة المدينة"
           },
           "contingencyPercent": {
-            "label": "Contingency",
-            "help": "Contingency"
+            "label": "الطوارئ",
+            "help": "الطوارئ"
           }
         }
       },
       "tripBudgetOptimizer": {
         "scenarios": {
           "simple_trip_budget": {
-            "label": "Simple trip budget",
-            "description": "Core travel cost stack for a short trip."
+            "label": "ميزانية رحلة بسيطة",
+            "description": "حزمة تكاليف السفر الأساسية لرحلة قصيرة"
           },
           "detailed_travel_plan": {
-            "label": "Detailed travel plan",
-            "description": "Multi-segment travel plan with margin-safe budget."
+            "label": "خطة سفر مفصلة",
+            "description": "خطة سفر متعددة المراحل مع ميزانية آمنة الهامش"
           }
         },
         "inputs": {
           "distanceKm": {
-            "label": "Distance",
-            "help": "Distance"
+            "label": "المسافة",
+            "help": "المسافة"
           },
           "consumptionPer100Km": {
-            "label": "Consumption",
-            "help": "Consumption"
+            "label": "الاستهلاك",
+            "help": "الاستهلاك"
           },
           "fuelPricePerLiter": {
-            "label": "Fuel price",
-            "help": "Fuel price"
+            "label": "سعر الوقود",
+            "help": "سعر الوقود"
           },
           "tollEstimate": {
-            "label": "Toll estimate",
-            "help": "Toll estimate"
+            "label": "تقدير الرسوم",
+            "help": "تقدير الرسوم"
           },
           "returnTrip": {
-            "label": "Return trip",
-            "help": "Return trip"
+            "label": "رحلة ذهاب وعودة",
+            "help": "رحلة ذهاب وعودة"
           },
           "parkingPerDay": {
-            "label": "Parking per day",
-            "help": "Parking per day"
+            "label": "رسوم المواقف يومياً",
+            "help": "رسوم المواقف يومياً"
           },
           "bufferPercent": {
-            "label": "Budget buffer",
-            "help": "Budget buffer"
+            "label": "حاجز الميزانية",
+            "help": "حاجز الميزانية"
           }
         }
       },
       "mealPlanningVerdict": {
         "scenarios": {
           "weekly_meal_plan": {
-            "label": "Weekly meal plan",
-            "description": "Weekly grocery and meal cost verdict."
+            "label": "خطة وجبات أسبوعية",
+            "description": "حكم تكلفة البقالة والوجبات الأسبوعية"
           },
           "family_budget_plan": {
-            "label": "Family budget plan",
-            "description": "Family-scale meal budget with waste and delivery risk."
+            "label": "خطة ميزانية الأسرة",
+            "description": "ميزانية وجبات على مستوى الأسرة مع مخاطر الهدر والتوصيل"
           }
         },
         "inputs": {
           "mealsPerWeek": {
-            "label": "Meals per week",
-            "help": "Meals per week"
+            "label": "عدد الوجبات في الأسبوع",
+            "help": "عدد الوجبات في الأسبوع"
           },
           "weeklyGroceryBudget": {
-            "label": "Weekly grocery budget",
-            "help": "Weekly grocery budget"
+            "label": "ميزانية البقالة الأسبوعية",
+            "help": "ميزانية البقالة الأسبوعية"
           },
           "foodWastePercent": {
-            "label": "Food waste",
-            "help": "Food waste"
+            "label": "هدر الطعام",
+            "help": "هدر الطعام"
           },
           "inflationBuffer": {
-            "label": "Price inflation buffer",
-            "help": "Price inflation buffer"
+            "label": "حاجز تضخم الأسعار",
+            "help": "حاجز تضخم الأسعار"
           },
           "householdSize": {
-            "label": "Household size",
-            "help": "Household size"
+            "label": "حجم الأسرة",
+            "help": "حجم الأسرة"
           },
           "targetSavings": {
-            "label": "Target savings",
-            "help": "Target savings"
+            "label": "الهدف الادخاري",
+            "help": "الهدف الادخاري"
           }
         }
       }
     },
     "compatibility": {
-      "missingContractField": "This calculator is missing a required contract input in Smart Form.",
-      "hiddenRequiredSimple": "Switch to Advanced mode to enter all required contract fields.",
-      "missingRequired": "Complete all required fields before running the calculation.",
-      "invalidInput": "Fix invalid inputs before running the calculation."
+      "missingContractField": "تفتقد هذه الآلة الحاسبة إلى إدخال عقد مطلوب في النموذج الذكي.",
+      "hiddenRequiredSimple": "انتقل إلى الوضع المتقدم لإدخال جميع حقول العقد المطلوبة.",
+      "missingRequired": "أكمل جميع الحقول المطلوبة قبل تشغيل الحساب.",
+      "invalidInput": "أصلح المدخلات غير الصالحة قبل تشغيل الحساب."
     }
   },
   "cta": {
@@ -3216,7 +3221,7 @@
     "canonicalNote": "القيمةs normalize to a canonical unit before any comparison.",
     "region": {
       "label": "المنطقة",
-      "global": "Global",
+      "global": "عالمي",
       "us": "الولايات المتحدة",
       "uk": "المملكة المتحدة",
       "eu": "أوروبا",
@@ -3593,8 +3598,8 @@
       "reportMessageTooShort": "يرجى إدخال 10 أحرف على الأقل.",
       "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى.",
       "unitSuffix": "{label} وحدة",
-      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
-      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
+      "voteCorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو صحيحة.",
+      "voteIncorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو غير صحيحة."
     },
     "aboutTool": {
       "sectionLabel": "حول هذه الأداة",
@@ -3806,9 +3811,9 @@
     "scenarioComparison": {
       "title": "مقارنة السيناريوهات (ماذا لو)",
       "description": "قارن مجموعات المدخلات المتفائلة والواقعية والمتشائمة جنبًا إلى جنب.",
-      "realistic": "Realistic",
-      "optimistic": "Optimistic",
-      "pessimistic": "Pessimistic",
+      "realistic": "واقعي",
+      "optimistic": "متفائل",
+      "pessimistic": "متشائم",
       "calculateAll": "حساب جميع السيناريوهات",
       "comparisonTitle": "نتائج المقارنة",
       "scenarioTotal": "الإجمالي: {value}",
@@ -5296,7 +5301,7 @@
       "usefullifeyears": {
         "label": "العمر الإنتاجي",
         "placeholder": "أدخل العمر الإنتاجي",
-        "helper": "Depreciation period"
+        "helper": "فترة الإهلاك"
       },
       "cost": {
         "label": "تكلفة الأصل",
@@ -5370,7 +5375,7 @@
       "quantity": {
         "label": "الكمية",
         "placeholder": "أدخل الكمية",
-        "helper": "Units produced"
+        "helper": "الوحدات المنتجة"
       }
     },
     "machine-time-calculator": {
@@ -5387,7 +5392,7 @@
       "quantity": {
         "label": "الكمية",
         "placeholder": "أدخل الكمية",
-        "helper": "Parts to run"
+        "helper": "الأجزاء المراد تشغيلها"
       },
       "machinerate": {
         "label": "Machine المعدل",
@@ -5498,12 +5503,12 @@
       "cutlengthm": {
         "label": "طول القطع",
         "placeholder": "أدخل طول القطع",
-        "helper": "Total cut path"
+        "helper": "مسار القطع الإجمالي"
       },
       "cutspeedmmin": {
         "label": "سرعة القطع",
         "placeholder": "أدخل سرعة القطع",
-        "helper": "Machine cut speed"
+        "helper": "سرعة قطع الماكينة"
       },
       "piercecount": {
         "label": "ثقوب",
@@ -5574,19 +5579,19 @@
       "goodoutputkg": {
         "label": "إنتاج جيد",
         "placeholder": "أدخل إنتاج جيد",
-        "helper": "Accepted output"
+        "helper": "المخرجات المقبولة"
       }
     },
     "scrap-rate-calculator": {
       "scrapunits": {
         "label": "وحدات الخردة",
         "placeholder": "أدخل وحدات الخردة",
-        "helper": "Rejected units"
+        "helper": "الوحدات المرفوضة"
       },
       "totalunits": {
         "label": "وحدات إجمالية",
         "placeholder": "أدخل وحدات إجمالية",
-        "helper": "Units processed"
+        "helper": "الوحدات المعالجة"
       }
     },
     "oee-calculator": {
@@ -5632,7 +5637,7 @@
       "partsproduced": {
         "label": "قطع",
         "placeholder": "أدخل قطع",
-        "helper": "Parts before change"
+        "helper": "الأجزاء قبل التغيير"
       }
     },
     "cutting-speed-calculator": {
@@ -5656,7 +5661,7 @@
       "teeth": {
         "label": "الأسنان",
         "placeholder": "أدخل الأسنان",
-        "helper": "Cutting edges"
+        "helper": "حواف القطع"
       },
       "feedpertoothmm": {
         "label": "تغذية/سن",
@@ -5673,7 +5678,7 @@
       "actual": {
         "label": "فعلي",
         "placeholder": "أدخل فعلي",
-        "helper": "Measured dimension"
+        "helper": "البعد المُقاس"
       }
     },
     "batch-yield-calculator": {
@@ -5685,7 +5690,7 @@
       "goodoutputqty": {
         "label": "إنتاج جيد",
         "placeholder": "أدخل إنتاج جيد",
-        "helper": "Accepted units"
+        "helper": "الوحدات المقبولة"
       }
     },
     "kwh-cost-calculator": {
@@ -5749,7 +5754,7 @@
       "kwh": {
         "label": "استخدام",
         "placeholder": "أدخل استخدام",
-        "helper": "Monthly kWh"
+        "helper": "كيلوواط ساعة شهريًا"
       },
       "rate": {
         "label": "الطاقة المعدل",
@@ -5759,7 +5764,7 @@
       "fixedcharge": {
         "label": "رسوم ثابتة",
         "placeholder": "أدخل رسوم ثابتة",
-        "helper": "Standing charge"
+        "helper": "رسوم ثابتة"
       },
       "units_consumed": {
         "label": "الوحدات المستهلكة",
@@ -5786,7 +5791,7 @@
       "powerkw": {
         "label": "القدرة",
         "placeholder": "أدخل القدرة",
-        "helper": "Connected load"
+        "helper": "الحمل المتصل"
       },
       "hoursperday": {
         "label": "الساعات/day",
@@ -5843,7 +5848,7 @@
       "emissionfactorkgperkwh": {
         "label": "معامل الانبعاث",
         "placeholder": "أدخل معامل الانبعاث",
-        "helper": "Grid factor"
+        "helper": "عامل الشبكة"
       }
     },
     "fuel-emission-calculator": {
@@ -5853,7 +5858,7 @@
         "helper": "الوقود consumed"
       },
       "kgco2perliter": {
-        "label": "Factor",
+        "label": "العامل",
         "placeholder": "أدخل Factor",
         "helper": "CO₂ لكل liter"
       },
@@ -5892,7 +5897,7 @@
       "efficiencypercent": {
         "label": "كفاءة",
         "placeholder": "أدخل كفاءة",
-        "helper": "System efficiency"
+        "helper": "كفاءة النظام"
       }
     },
     "heat-loss-calculator": {
@@ -5931,7 +5936,7 @@
       "usefuloutputkwh": {
         "label": "إنتاج مفيد",
         "placeholder": "أدخل إنتاج مفيد",
-        "helper": "Heat delivered"
+        "helper": "الحرارة المُسلمة"
       },
       "fuelinputkwh": {
         "label": "مدخل الوقود",
@@ -6000,7 +6005,7 @@
       "emissionston": {
         "label": "انبعاثات",
         "placeholder": "أدخل انبعاثات",
-        "helper": "Embedded emissions"
+        "helper": "الانبعاثات المضمنة"
       },
       "carbonprice": {
         "label": "سعر الكربون",
@@ -6291,7 +6296,7 @@
       "palletcount": {
         "label": "بالتات",
         "placeholder": "أدخل بالتات",
-        "helper": "Stored pallets"
+        "helper": "المنصات المخزنة"
       },
       "costperpalletperday": {
         "label": "التكلفة/pallet/day",
@@ -6511,7 +6516,7 @@
       "minutes": {
         "label": "المدة",
         "placeholder": "أدخل المدة",
-        "helper": "Run time"
+        "helper": "وقت التشغيل"
       },
       "daily_water_usage_per_person": {
         "label": "استهلاك المياه اليومي للفرد",
@@ -6533,7 +6538,7 @@
       "cows": {
         "label": "أبقار",
         "placeholder": "أدخل أبقار",
-        "helper": "Milking cows"
+        "helper": "أبقار الحلوب"
       },
       "literspercow": {
         "label": "إنتاجية/بقرة",
@@ -6721,7 +6726,7 @@
       "investmentreturnrate": {
         "label": "عائد الاستثمار",
         "placeholder": "أدخل عائد الاستثمار",
-        "helper": "Annual return if renting and investing cash"
+        "helper": "العائد السنوي في حالة الإيجار واستثمار النقد"
       },
       "ownershipcostpercent": {
         "label": "Ownership التكلفة",
@@ -6731,12 +6736,12 @@
       "purchasecostpercent": {
         "label": "Purchase التكلفةs",
         "placeholder": "أدخل Purchase التكلفةs",
-        "helper": "Closing and purchase transaction costs"
+        "helper": "تكاليف الإغلاق والشراء"
       },
       "sellingcostpercent": {
         "label": "Selling التكلفةs",
         "placeholder": "أدخل Selling التكلفةs",
-        "helper": "Estimated selling transaction costs"
+        "helper": "تكاليف البيع التقديرية"
       },
       "downpayment": {
         "label": "الدفعة الأولى",
@@ -6785,7 +6790,7 @@
       "starthour": {
         "label": "ساعة البداية",
         "placeholder": "أدخل ساعة البداية",
-        "helper": "Start hour (0–23)"
+        "helper": "ساعة البداية (0–23)"
       },
       "startminute": {
         "label": "دقيقة البداية",
@@ -6807,12 +6812,12 @@
       "birthyear": {
         "label": "سنة الميلاد",
         "placeholder": "أدخل سنة الميلاد",
-        "helper": "Year born"
+        "helper": "سنة الميلاد"
       },
       "currentyear": {
         "label": "التيار year",
         "placeholder": "أدخل التيار year",
-        "helper": "Reference year"
+        "helper": "السنة المرجعية"
       },
       "primary_value": {
         "label": "القيمة الأساسية",
@@ -6834,12 +6839,12 @@
       "startdaynumber": {
         "label": "يوم البداية #",
         "placeholder": "أدخل يوم البداية #",
-        "helper": "Start day index"
+        "helper": "مؤشر يوم البداية"
       },
       "enddaynumber": {
         "label": "يوم النهاية #",
         "placeholder": "أدخل يوم النهاية #",
-        "helper": "End day index"
+        "helper": "مؤشر يوم النهاية"
       },
       "primary_value": {
         "label": "القيمة الأساسية",
@@ -6893,7 +6898,7 @@
       "consumptionper100km": {
         "label": "الاستهلاك",
         "placeholder": "أدخل الاستهلاك",
-        "helper": "Vehicle economy"
+        "helper": "اقتصاد المركبة"
       },
       "fuelprice": {
         "label": "الوقود السعر",
@@ -6905,12 +6910,12 @@
       "totalprice": {
         "label": "Total السعر",
         "placeholder": "أدخل Total السعر",
-        "helper": "Shelf total"
+        "helper": "إجمالي الرف"
       },
       "quantity": {
         "label": "الكمية",
         "placeholder": "أدخل الكمية",
-        "helper": "Pack count"
+        "helper": "عدد العبوات"
       },
       "primary_value": {
         "label": "القيمة الأساسية",
@@ -7126,17 +7131,17 @@
       "a": {
         "label": "A",
         "placeholder": "أدخل A",
-        "helper": "First numerator"
+        "helper": "البسط الأول"
       },
       "b": {
         "label": "B",
         "placeholder": "أدخل B",
-        "helper": "First denominator"
+        "helper": "المقام الأول"
       },
       "c": {
         "label": "C",
         "placeholder": "أدخل C",
-        "helper": "Second numerator"
+        "helper": "البسط الثاني"
       },
       "primary_value": {
         "label": "القيمة الأساسية",
@@ -7394,7 +7399,7 @@
       "value": {
         "label": "القيمة",
         "placeholder": "أدخل القيمة",
-        "helper": "Temperature to convert"
+        "helper": "درجة الحرارة المراد تحويلها"
       },
       "fromunit": {
         "label": "من الوحدة",
@@ -10005,7 +10010,7 @@
         "helper": "القيمة المستخدمة لـ مدة القرض (بالأشهر) في الحساب."
       },
       "balloon_payment": {
-        "label": "Balloon Payment",
+        "label": "دفعة بالون",
         "placeholder": "أدخل Balloon Payment",
         "helper": "القيمة المستخدمة لـ Balloon Payment في الحساب."
       }
@@ -18059,7 +18064,7 @@
         "helper": "قيمة تعديل اختيارية للحساب."
       },
       "payment_amount": {
-        "label": "Payment Amount",
+        "label": "مبلغ الدفعة",
         "placeholder": "أدخل Payment Amount",
         "helper": "القيمة المستخدمة لـ Payment Amount في الحساب."
       },
@@ -18069,7 +18074,7 @@
         "helper": "القيمة المستخدمة لـ Interest المعدل (لكل period) في الحساب."
       },
       "number_of_periods": {
-        "label": "Number of Payment Periods",
+        "label": "عدد فترات الدفع",
         "placeholder": "أدخل Number of Payment Periods",
         "helper": "القيمة المستخدمة لـ Number of Payment Periods في الحساب."
       },
@@ -20690,7 +20695,7 @@
         "helper": "القيمة المستخدمة لـ Gross Estate القيمة في الحساب."
       },
       "debts_and_expenses": {
-        "label": "Debts and Expenses",
+        "label": "الديون والمصروفات",
         "placeholder": "أدخل Debts and Expenses",
         "helper": "القيمة المستخدمة لـ Debts and Expenses في الحساب."
       },
@@ -20705,12 +20710,12 @@
         "helper": "القيمة المستخدمة لـ خصم خيري في الحساب."
       },
       "state_death_tax_credit": {
-        "label": "State Death Tax Credit",
+        "label": "ائتمان ضريبة الوفاة للولاية",
         "placeholder": "أدخل State Death Tax Credit",
         "helper": "القيمة المستخدمة لـ State Death Tax Credit في الحساب."
       },
       "applicable_exclusion_amount": {
-        "label": "Applicable Exclusion Amount",
+        "label": "مبلغ الإعفاء المطبق",
         "placeholder": "أدخل Applicable Exclusion Amount",
         "helper": "القيمة المستخدمة لـ Applicable Exclusion Amount في الحساب."
       },
@@ -26228,7 +26233,7 @@
         "helper": "قيمة تعديل اختيارية للحساب."
       },
       "payment_amount": {
-        "label": "Payment Amount",
+        "label": "مبلغ الدفعة",
         "placeholder": "أدخل Payment Amount",
         "helper": "القيمة المستخدمة لـ Payment Amount في الحساب."
       },
@@ -27080,7 +27085,7 @@
         "helper": "قيمة تعديل اختيارية للحساب."
       },
       "sale_amount": {
-        "label": "Sale Amount (EUR)",
+        "label": "مبلغ البيع (يورو)",
         "placeholder": "أدخل Sale Amount (EUR)",
         "helper": "القيمة المستخدمة لـ Sale Amount (EUR) في الحساب."
       },
@@ -29560,7 +29565,7 @@
         "helper": "القيمة المستخدمة لـ معدل الضريبة في الحساب."
       },
       "threshold": {
-        "label": "Threshold",
+        "label": "الحد الأدنى",
         "placeholder": "أدخل Threshold",
         "helper": "القيمة المستخدمة لـ Threshold في الحساب."
       }
@@ -30540,22 +30545,22 @@
         "helper": "قيمة تعديل اختيارية للحساب."
       },
       "monthly_income": {
-        "label": "Monthly Income",
+        "label": "الدخل الشهري",
         "placeholder": "أدخل Monthly Income",
         "helper": "القيمة المستخدمة لـ Monthly Income في الحساب."
       },
       "income_disregard": {
-        "label": "Income Disregard",
+        "label": "تجاهل الدخل",
         "placeholder": "أدخل Income Disregard",
         "helper": "القيمة المستخدمة لـ Income Disregard في الحساب."
       },
       "medicaid_income_limit": {
-        "label": "Medicaid Income Limit",
+        "label": "حد دخل ميديكيد",
         "placeholder": "أدخل Medicaid Income Limit",
         "helper": "القيمة المستخدمة لـ Medicaid Income Limit في الحساب."
       },
       "spousal_income": {
-        "label": "Spousal Income",
+        "label": "دخل الزوج",
         "placeholder": "أدخل Spousal Income",
         "helper": "القيمة المستخدمة لـ Spousal Income في الحساب."
       },
@@ -30646,7 +30651,7 @@
         "helper": "القيمة المستخدمة لـ حالة التقديم في الحساب."
       },
       "base_premium": {
-        "label": "Base Premium (Standard Part B Premium)",
+        "label": "القسط الأساسي (القسط الأساسي للجزء ب)",
         "placeholder": "أدخل Base Premium (Standard Part B Premium)",
         "helper": "القيمة المستخدمة لـ Base Premium (Standard Part B Premium) في الحساب."
       }
@@ -30678,12 +30683,12 @@
         "helper": "القيمة المستخدمة لـ قابل للخصم ($) في الحساب."
       },
       "initial_coverage_limit": {
-        "label": "Initial Coverage Limit ($)",
+        "label": "حد التغطية الأولي ($)",
         "placeholder": "أدخل Initial Coverage Limit ($)",
         "helper": "القيمة المستخدمة لـ Initial Coverage Limit ($) في الحساب."
       },
       "catastrophic_threshold": {
-        "label": "Catastrophic Threshold ($)",
+        "label": "الحد الكارثي ($)",
         "placeholder": "أدخل Catastrophic Threshold ($)",
         "helper": "القيمة المستخدمة لـ Catastrophic Threshold ($) في الحساب."
       },
@@ -30693,7 +30698,7 @@
         "helper": "القيمة المستخدمة لـ التأمين المشترك الأولي (%) في الحساب."
       },
       "coinsurance_gap": {
-        "label": "Gap Coinsurance (%)",
+        "label": "نسبة التأمين المشترك للفجوة (%)",
         "placeholder": "أدخل Gap Coinsurance (%)",
         "helper": "القيمة المستخدمة لـ Gap Coinsurance (%) في الحساب."
       },
@@ -33599,7 +33604,7 @@
         "helper": "القيمة المستخدمة لـ مبلغ ضريبة القيمة المضافة في الحساب."
       },
       "gross_amount": {
-        "label": "Gross Amount",
+        "label": "المبلغ الإجمالي",
         "placeholder": "أدخل Gross Amount",
         "helper": "القيمة المستخدمة لـ Gross Amount في الحساب."
       }
@@ -38945,7 +38950,7 @@
         "helper": "القيمة المستخدمة لـ معدل التضخم في الحساب."
       },
       "desired_annual_income": {
-        "label": "Desired Annual Income in Retirement",
+        "label": "الدخل السنوي المطلوب في التقاعد",
         "placeholder": "أدخل Desired Annual Income in Retirement",
         "helper": "القيمة المستخدمة لـ Desired Annual Income in Retirement في الحساب."
       }
@@ -41759,7 +41764,7 @@
         "helper": "القيمة المستخدمة لـ معدل الضريبة (%) في الحساب."
       },
       "additional_fixed_tax": {
-        "label": "Additional Fixed Tax",
+        "label": "ضريبة ثابتة إضافية",
         "placeholder": "أدخل Additional Fixed Tax",
         "helper": "القيمة المستخدمة لـ Additional Fixed Tax في الحساب."
       }
@@ -42528,7 +42533,7 @@
         "helper": "قيمة تعديل اختيارية للحساب."
       },
       "annual_wages": {
-        "label": "Annual Wages",
+        "label": "الأجور السنوية",
         "placeholder": "أدخل Annual Wages",
         "helper": "القيمة المستخدمة لـ Annual Wages في الحساب."
       },
@@ -42543,7 +42548,7 @@
         "helper": "القيمة المستخدمة لـ Employer Tax المعدل في الحساب."
       },
       "wage_base_limit": {
-        "label": "Wage Base Limit",
+        "label": "حد قاعدة الأجور",
         "placeholder": "أدخل Wage Base Limit",
         "helper": "القيمة المستخدمة لـ Wage Base Limit في الحساب."
       }
@@ -44099,7 +44104,7 @@
         "helper": "القيمة المستخدمة لـ Life Expectancy (السنوات) في الحساب."
       },
       "annual_withdrawal": {
-        "label": "Annual Withdrawal ($)",
+        "label": "السحب السنوي ($)",
         "placeholder": "أدخل Annual Withdrawal ($)",
         "helper": "القيمة المستخدمة لـ Annual Withdrawal ($) في الحساب."
       }
@@ -47438,7 +47443,7 @@
         "helper": "القيمة المستخدمة لـ VAT المعدل (%) في الحساب."
       },
       "vat_moss_threshold": {
-        "label": "VAT MOSS Threshold (EUR)",
+        "label": "حد ضريبة القيمة المضافة MOSS (يورو)",
         "placeholder": "أدخل VAT MOSS Threshold (EUR)",
         "helper": "القيمة المستخدمة لـ VAT MOSS Threshold (EUR) في الحساب."
       }
@@ -53452,7 +53457,7 @@
         "helper": "القيمة المستخدمة لـ نسبة الحد الأدنى للدفع في الحساب."
       },
       "fixed_minimum_amount": {
-        "label": "Fixed Minimum Amount",
+        "label": "الحد الأدنى الثابت للمبلغ",
         "placeholder": "أدخل Fixed Minimum Amount",
         "helper": "القيمة المستخدمة لـ Fixed Minimum Amount في الحساب."
       }
@@ -53469,7 +53474,7 @@
         "helper": "القيمة المستخدمة لـ معدل الفائدة السنوي (APR) في الحساب."
       },
       "monthly_payment": {
-        "label": "Fixed Monthly Payment",
+        "label": "الدفعة الشهرية الثابتة",
         "placeholder": "أدخل Fixed Monthly Payment",
         "helper": "القيمة المستخدمة لـ Fixed Monthly Payment في الحساب."
       },
@@ -53479,7 +53484,7 @@
         "helper": "القيمة المستخدمة لـ Outstanding Balance في الحساب."
       },
       "extra_monthly_payment": {
-        "label": "Extra Monthly Payment",
+        "label": "الدفعة الشهرية الإضافية",
         "placeholder": "أدخل Extra Monthly Payment",
         "helper": "القيمة المستخدمة لـ Extra Monthly Payment في الحساب."
       }
@@ -63321,7 +63326,7 @@
         "helper": "القيمة المستخدمة لـ سن التقاعد الكامل في الحساب."
       },
       "primary_insurance_amount": {
-        "label": "Primary Insurance Amount (PIA)",
+        "label": "مبلغ التأمين الأساسي (PIA)",
         "placeholder": "أدخل Primary Insurance Amount (PIA)",
         "helper": "القيمة المستخدمة لـ Primary Insurance Amount (PIA) في الحساب."
       },
@@ -63363,7 +63368,7 @@
         "helper": "القيمة المستخدمة لـ التيار Age (السنوات) في الحساب."
       },
       "primary_insurance_amount": {
-        "label": "Primary Insurance Amount (PIA) ($)",
+        "label": "مبلغ التأمين الأساسي (PIA) ($)",
         "placeholder": "أدخل Primary Insurance Amount (PIA) ($)",
         "helper": "القيمة المستخدمة لـ Primary Insurance Amount (PIA) ($) في الحساب."
       },
@@ -63400,7 +63405,7 @@
         "helper": "القيمة المستخدمة لـ Early Retirement Age (السنوات) في الحساب."
       },
       "primary_insurance_amount": {
-        "label": "Primary Insurance Amount (PIA) ($)",
+        "label": "مبلغ التأمين الأساسي (PIA) ($)",
         "placeholder": "أدخل Primary Insurance Amount (PIA) ($)",
         "helper": "القيمة المستخدمة لـ Primary Insurance Amount (PIA) ($) في الحساب."
       }
@@ -63422,7 +63427,7 @@
         "helper": "القيمة المستخدمة لـ القيمة الثالثية في الحساب."
       },
       "worker_primary_insurance_amount": {
-        "label": "Worker's Primary Insurance Amount (PIA)",
+        "label": "مبلغ التأمين الأساسي للعامل (PIA)",
         "placeholder": "أدخل Worker's Primary Insurance Amount (PIA)",
         "helper": "القيمة المستخدمة لـ Worker's Primary Insurance Amount (PIA) في الحساب."
       },
@@ -63464,12 +63469,12 @@
         "helper": "القيمة المستخدمة لـ Survivor's Age (السنوات) في الحساب."
       },
       "num_children": {
-        "label": "Number of Eligible Children",
+        "label": "عدد الأطفال المؤهلين",
         "placeholder": "أدخل Number of Eligible Children",
         "helper": "القيمة المستخدمة لـ Number of Eligible Children في الحساب."
       },
       "family_maximum": {
-        "label": "Family Maximum Benefit",
+        "label": "الحد الأقصى لاستحقاق الأسرة",
         "placeholder": "أدخل Family Maximum Benefit",
         "helper": "القيمة المستخدمة لـ Family Maximum Benefit في الحساب."
       }
@@ -63931,12 +63936,12 @@
         "helper": "القيمة المستخدمة لـ New Loan المدة في الحساب."
       },
       "origination_fee": {
-        "label": "Origination Fee",
+        "label": "رسوم الإنشاء",
         "placeholder": "أدخل Origination Fee",
         "helper": "القيمة المستخدمة لـ Origination Fee في الحساب."
       },
       "upfront_costs": {
-        "label": "Upfront Costs",
+        "label": "التكاليف المقدمة",
         "placeholder": "أدخل Upfront Costs",
         "helper": "القيمة المستخدمة لـ Upfront Costs في الحساب."
       }
@@ -66279,16 +66284,16 @@
     "modalTitle": "ملاحظات الحساب",
     "close": "إغلاق",
     "issueTypeLabel": "نوع المشكلة",
-    "messageLabel": "Description",
+    "messageLabel": "الوصف",
     "emailLabel": "البريد الإلكتروني (اختياري)",
     "submit": "إرسال ملاحظات",
     "submitting": "جارٍ الإرسال…",
     "success": "Thank you — your note was queued for review.",
     "issueTypes": {
       "wrong-result": "Incorrect result",
-      "formula-suggestion": "Formula suggestion",
-      "unit-error": "Unit error",
-      "translation-error": "Translation error",
+      "formula-suggestion": "اقتراح صيغة",
+      "unit-error": "خطأ في الوحدة",
+      "translation-error": "خطأ في الترجمة",
       "other": "Other",
       "wrong_result": "نتيجة خاطئة",
       "missing_input": "مدخلات ناقصة",
@@ -66479,10 +66484,10 @@
     }
   },
   "credits": {
-    "eyebrow": "Credits",
+    "eyebrow": "الاعتمادات",
     "title": "أرصدة SectorCalc",
     "subtitle": "اشترِ أرصدة للمساعدة المميزة بالذكاء الاصطناعي واستخدام المحلل.",
-    "balanceLabel": "Credits",
+    "balanceLabel": "الاعتمادات",
     "loading": "جارٍ التحميل…",
     "packageLabel": "{credits} رصيد — ${price}",
     "packageCredits": "{credits} رصيد",
@@ -68192,158 +68197,158 @@
   },
   "manifestoComponent": {
     "eyebrow": "SectorCalc",
-    "ourMission": "Our mission",
-    "ourMissionBody": "Make sector-specific calculations accessible to every operator — without ERP complexity or consultant retainers.",
-    "ourVision": "Our vision",
-    "ourVisionBody": "Become the most trusted sector calculation platform for teams that need governed formulas and decision-ready outputs.",
-    "ourTeam": "Our team",
-    "ourTeamBody": "Engineers, designers, and sector specialists building calculators operators can trust on the shop floor.",
-    "sectionWhoTitle": "Who we are",
-    "sectionWhoBody": "SectorCalc is an Industrial Micro-SaaS App Store for operators who need measurement, loss detection, and decision-ready reports without ERP complexity or consultant retainers.",
-    "sectionWhoBullet1": "Built for shop floors, field crews, and owner-operators",
-    "sectionWhoBullet2": "Sector-specific calculators with governed formula contracts",
-    "sectionWhoBullet3": "Browser-first tools with optional saved reports for subscribers",
-    "sectionWhatTitle": "What we do",
-    "sectionWhatBody": "We turn sector pain into structured calculation workflows: measure inputs, surface hidden loss, suggest action, and attach a calculation summary to results.",
-    "sectionWhatBullet1": "Free checks for quick exposure signals",
-    "sectionWhatBullet2": "Premium analyzers for verdict-grade outputs",
-    "sectionWhatBullet3": "Export-ready decision reports with validation metadata",
-    "sectionForWhomTitle": "Who it is for",
-    "sectionForWhomBody": "Welding shops, CNC job shops, HVAC contractors, cleaning operators, restaurants, e-commerce sellers, and other sector operators who quote, bid, or plan with tight margins.",
-    "sectionForWhomBullet1": "Teams without dedicated pricing engineers",
-    "sectionForWhomBullet2": "Owners comparing quotes before signing",
-    "sectionForWhomBullet3": "Consultants needing repeatable sector templates",
-    "sectionReplacesTitle": "What we replace (and what we do not)",
-    "sectionReplacesBody": "SectorCalc replaces spreadsheet guesswork, notebook shortcuts, and random Google calculators — not SAP, Siemens, Oracle, or licensed engineering sign-off.",
-    "sectionReplacesBullet1": "Not a quote-only Word template generator",
-    "sectionReplacesBullet2": "Not an ERP or MES replacement",
-    "sectionReplacesBullet3": "Not a certified compliance authority",
-    "sectionReplacesBullet4": "Does replace ad-hoc Excel and opaque margin leaks",
-    "sectionLossesTitle": "Losses we make visible",
-    "sectionLossesBody": "Each sector pack targets measurable loss families: scrap, setup time, callback risk, route deadhead, food waste, return erosion, energy demand charges, and similar operating leaks.",
-    "sectionLossesBullet1": "Material and labor exposure",
-    "sectionLossesBullet2": "Schedule and rework buffers",
-    "sectionLossesBullet3": "Margin leak drivers with suggested actions",
-    "sectionLossesBullet4": "Representative scenarios — not guaranteed savings",
-    "sectionDualTitle": "Dual-Intelligence methodology",
-    "sectionDualBody": "Mind 2 (Requirement Engine) resolves which inputs are missing, derivable, or blocked before calculation. Mind 1 (Validation Engine) checks dimensions, invariants, and oracle/scenario coverage after calculation. The LLM layer is interface-only — never the calculation authority.",
-    "sectionDualBullet1": "Contract-driven input requirements",
-    "sectionDualBullet2": "Deterministic formula paths in production",
-    "sectionDualBullet3": "Oracle and scenario audits in governance pipeline",
-    "sectionDualBullet4": "Blocked results when validation fails",
-    "sectionTrustTitle": "Calculation Summary",
-    "sectionTrustBody": "Calculation Summary shows canonical inputs, assumptions, formula contract reference, validation status, and coverage notes alongside results — so operators can see why a number appeared, not just the headline.",
-    "sectionTrustBullet1": "Canonical input list with rejected keys",
-    "sectionTrustBullet2": "Mind 2 pre-calc and Mind 1 post-calc summaries",
-    "sectionTrustBullet3": "Export payload for PDF decision summaries (data layer)",
-    "sectionTrustBullet4": "Governance metadata for saved premium results",
-    "sectionResponsibilityTitle": "Responsibility boundary",
-    "sectionResponsibilityBody": "SectorCalc outputs are technical decision-support simulations based on user-provided inputs and documented assumptions. They are not legal, financial, tax, or engineering advice. Verify all outputs before bids, contracts, or operational commitments.",
-    "sectionResponsibilityBullet1": "User-provided inputs drive every result",
-    "sectionResponsibilityBullet2": "No guaranteed margin, savings, or approval",
-    "sectionResponsibilityBullet3": "Professional review may be required for regulated work",
-    "sectionResponsibilityBullet4": "Privacy: free-tier inputs processed in browser unless saved",
+    "ourMission": "مهمتنا",
+    "ourMissionBody": "جعل الحسابات الخاصة بالقطاع متاحة لكل مشغل — دون تعقيد أنظمة ERP أو رسوم استشاريين.",
+    "ourVision": "رؤيتنا",
+    "ourVisionBody": "أن نصبح منصة الحسابات القطاعية الأكثر ثقة للفرق التي تحتاج إلى صيغ محكومة ومخرجات جاهزة لاتخاذ القرار.",
+    "ourTeam": "فريقنا",
+    "ourTeamBody": "مهندسون ومصممون ومتخصصون في القطاع يبنون حاسبات يمكن للمشغلين الوثوق بها في ورش العمل.",
+    "sectionWhoTitle": "من نحن",
+    "sectionWhoBody": "SectorCalc هو متجر تطبيقات صناعية صغيرة (Micro-SaaS) للمشغلين الذين يحتاجون إلى قياس وكشف الخسائر وتقارير جاهزة لاتخاذ القرار دون تعقيد أنظمة ERP أو رسوم استشاريين.",
+    "sectionWhoBullet1": "صُمم لورش العمل وفرق الميدان والمشغلين المالكين",
+    "sectionWhoBullet2": "حاسبات خاصة بالقطاع مع عقود صيغ محكومة",
+    "sectionWhoBullet3": "أدوات تعمل على المتصفح مع تقارير محفوظة اختيارية للمشتركين",
+    "sectionWhatTitle": "ماذا نفعل",
+    "sectionWhatBody": "نحول آلام القطاع إلى سير عمل حسابية منظمة: قياس المدخلات، كشف الخسائر المخفية، اقتراح إجراء، وإرفاق ملخص حسابي بالنتائج.",
+    "sectionWhatBullet1": "فحوصات مجانية لإشارات كشف سريعة",
+    "sectionWhatBullet2": "محللات مميزة لمخرجات من درجة الحكم",
+    "sectionWhatBullet3": "تقارير قرار جاهزة للتصدير مع بيانات وصفية للتحقق",
+    "sectionForWhomTitle": "لمن هذا",
+    "sectionForWhomBody": "ورش اللحام، ورش CNC، مقاولو التكييف، مشغلو التنظيف، المطاعم، بائعو التجارة الإلكترونية، وغيرهم من مشغلي القطاع الذين يقدمون عروض أسعار أو يخططون بهوامش ضيقة.",
+    "sectionForWhomBullet1": "فرق بدون مهندسي تسعير مخصصين",
+    "sectionForWhomBullet2": "ملاك يقارنون العروض قبل التوقيع",
+    "sectionForWhomBullet3": "استشاريون يحتاجون قوالب قطاعية قابلة للتكرار",
+    "sectionReplacesTitle": "ما نستبدله (وما لا نستبدله)",
+    "sectionReplacesBody": "SectorCalc يستبدل التخمين في جداول البيانات واختصارات الدفاتر والحاسبات العشوائية على Google — وليس SAP أو Siemens أو Oracle أو اعتماد الهندسة المرخص.",
+    "sectionReplacesBullet1": "ليس مولد قوالب Word للعروض فقط",
+    "sectionReplacesBullet2": "ليس بديلاً عن ERP أو MES",
+    "sectionReplacesBullet3": "ليس سلطة امتثال معتمدة",
+    "sectionReplacesBullet4": "يستبدل Excel العشوائي وتسريبات الهامش غير الواضحة",
+    "sectionLossesTitle": "الخسائر التي نجعلها مرئية",
+    "sectionLossesBody": "كل حزمة قطاعية تستهدف عائلات خسائر قابلة للقياس: الخردة، وقت الإعداد، مخاطر الاستدعاء، المسافات الفارغة للطرق، هدر الطعام، تآكل العوائد، رسوم الطلب على الطاقة، وتسريبات تشغيلية مماثلة.",
+    "sectionLossesBullet1": "التعرض للمواد والعمالة",
+    "sectionLossesBullet2": "مخازن الجدولة وإعادة العمل",
+    "sectionLossesBullet3": "محركات تسريب الهامش مع إجراءات مقترحة",
+    "sectionLossesBullet4": "سيناريوهات تمثيلية — وليس توفيراً مضموناً",
+    "sectionDualTitle": "منهجية الذكاء المزدوج",
+    "sectionDualBody": "العقل 2 (محرك المتطلبات) يحدد المدخلات المفقودة أو القابلة للاشتقاق أو المحظورة قبل الحساب. العقل 1 (محرك التحقق) يتحقق من الأبعاد والثوابت وتغطية السيناريو/المرجع بعد الحساب. طبقة LLM هي واجهة فقط — وليست سلطة الحساب أبداً.",
+    "sectionDualBullet1": "متطلبات مدخلات مدفوعة بالعقود",
+    "sectionDualBullet2": "مسارات صيغ حتمية في الإنتاج",
+    "sectionDualBullet3": "تدقيقات السيناريو والمرجع في خط أنابيب الحوكمة",
+    "sectionDualBullet4": "نتائج محظورة عند فشل التحقق",
+    "sectionTrustTitle": "ملخص الحساب",
+    "sectionTrustBody": "يُظهر ملخص الحساب المدخلات الأساسية والافتراضات ومرجع عقد الصيغة وحالة التحقق وملاحظات التغطية جنباً إلى جنب مع النتائج — حتى يتمكن المشغلون من رؤية سبب ظهور الرقم، وليس فقط العنوان الرئيسي.",
+    "sectionTrustBullet1": "قائمة المدخلات الأساسية مع المفاتيح المرفوضة",
+    "sectionTrustBullet2": "ملخصات ما قبل الحساب من العقل 2 وما بعد الحساب من العقل 1",
+    "sectionTrustBullet3": "حمولة تصدير لملخصات قرارات PDF (طبقة البيانات)",
+    "sectionTrustBullet4": "بيانات وصفية للحوكمة للنتائج المميزة المحفوظة",
+    "sectionResponsibilityTitle": "حدود المسؤولية",
+    "sectionResponsibilityBody": "مخرجات SectorCalc هي محاكاة دعم قرارات فنية تستند إلى مدخلات المستخدم وافتراضات موثقة. وهي ليست استشارات قانونية أو مالية أو ضريبية أو هندسية. تحقق من جميع المخرجات قبل تقديم العروض أو العقود أو الالتزامات التشغيلية.",
+    "sectionResponsibilityBullet1": "كل نتيجة تعتمد على المدخلات التي يقدمها المستخدم",
+    "sectionResponsibilityBullet2": "لا يوجد هامش ربح أو توفير أو موافقة مضمونة",
+    "sectionResponsibilityBullet3": "قد تكون المراجعة المهنية مطلوبة للأعمال الخاضعة للتنظيم",
+    "sectionResponsibilityBullet4": "الخصوصية: تتم معالجة مدخلات الطبقة المجانية في المتصفح ما لم يتم حفظها",
     "aboutCards": [
       {
-        "id": "mission",
-        "titleKey": "ourMission",
-        "bodyKey": "ourMissionBody"
+        "id": "المهمة",
+        "titleKey": "مهمتنا",
+        "bodyKey": "نص مهمتنا"
       },
       {
-        "id": "vision",
-        "titleKey": "ourVision",
-        "bodyKey": "ourVisionBody"
+        "id": "الرؤية",
+        "titleKey": "رؤيتنا",
+        "bodyKey": "نص رؤيتنا"
       },
       {
         "id": "team",
-        "titleKey": "ourTeam",
-        "bodyKey": "ourTeamBody"
+        "titleKey": "فريقنا",
+        "bodyKey": "نص فريقنا"
       }
     ],
     "allSections": [
       {
         "id": "who",
-        "titleKey": "sectionWhoTitle",
-        "bodyKey": "sectionWhoBody",
+        "titleKey": "عنوان قسم \"من نحن\"",
+        "bodyKey": "نص قسم \"من نحن\"",
         "bulletKeys": [
-          "sectionWhoBullet1",
-          "sectionWhoBullet2",
-          "sectionWhoBullet3"
+          "النقطة الأولى في قسم \"من نحن\"",
+          "النقطة الثانية في قسم \"من نحن\"",
+          "النقطة الثالثة في قسم \"من نحن\""
         ]
       },
       {
         "id": "what",
-        "titleKey": "sectionWhatTitle",
-        "bodyKey": "sectionWhatBody",
+        "titleKey": "عنوان قسم \"ماذا نفعل\"",
+        "bodyKey": "نص قسم \"ماذا نفعل\"",
         "bulletKeys": [
-          "sectionWhatBullet1",
-          "sectionWhatBullet2",
-          "sectionWhatBullet3"
+          "النقطة الأولى في قسم \"ماذا نفعل\"",
+          "النقطة الثانية في قسم \"ماذا نفعل\"",
+          "النقطة الثالثة في قسم \"ماذا نفعل\""
         ]
       },
       {
-        "id": "for-whom",
-        "titleKey": "sectionForWhomTitle",
-        "bodyKey": "sectionForWhomBody",
+        "id": "لمن هذا",
+        "titleKey": "عنوان قسم \"لمن هذا\"",
+        "bodyKey": "نص قسم \"لمن هذا\"",
         "bulletKeys": [
-          "sectionForWhomBullet1",
-          "sectionForWhomBullet2",
-          "sectionForWhomBullet3"
+          "النقطة الأولى في قسم \"لمن هذا\"",
+          "النقطة الثانية في قسم \"لمن هذا\"",
+          "النقطة الثالثة في قسم \"لمن هذا\""
         ]
       },
       {
-        "id": "replaces",
-        "titleKey": "sectionReplacesTitle",
-        "bodyKey": "sectionReplacesBody",
+        "id": "يستبدل",
+        "titleKey": "عنوان قسم \"يستبدل\"",
+        "bodyKey": "نص قسم \"يستبدل\"",
         "bulletKeys": [
-          "sectionReplacesBullet1",
-          "sectionReplacesBullet2",
-          "sectionReplacesBullet3",
-          "sectionReplacesBullet4"
+          "النقطة الأولى في قسم \"يستبدل\"",
+          "النقطة الثانية في قسم \"يستبدل\"",
+          "النقطة الثالثة في قسم \"يستبدل\"",
+          "النقطة الرابعة في قسم \"يستبدل\""
         ]
       },
       {
-        "id": "losses",
-        "titleKey": "sectionLossesTitle",
-        "bodyKey": "sectionLossesBody",
+        "id": "الخسائر",
+        "titleKey": "عنوان قسم \"الخسائر\"",
+        "bodyKey": "نص قسم \"الخسائر\"",
         "bulletKeys": [
-          "sectionLossesBullet1",
-          "sectionLossesBullet2",
-          "sectionLossesBullet3",
-          "sectionLossesBullet4"
+          "النقطة الأولى في قسم \"الخسائر\"",
+          "النقطة الثانية في قسم \"الخسائر\"",
+          "النقطة الثالثة في قسم \"الخسائر\"",
+          "النقطة الرابعة في قسم \"الخسائر\""
         ]
       },
       {
-        "id": "dual-intelligence",
-        "titleKey": "sectionDualTitle",
-        "bodyKey": "sectionDualBody",
+        "id": "الذكاء المزدوج",
+        "titleKey": "عنوان قسم \"الذكاء المزدوج\"",
+        "bodyKey": "نص قسم \"الذكاء المزدوج\"",
         "bulletKeys": [
-          "sectionDualBullet1",
-          "sectionDualBullet2",
-          "sectionDualBullet3",
-          "sectionDualBullet4"
+          "النقطة الأولى في قسم \"الذكاء المزدوج\"",
+          "النقطة الثانية في قسم \"الذكاء المزدوج\"",
+          "النقطة الثالثة في قسم \"الذكاء المزدوج\"",
+          "النقطة الرابعة في قسم \"الذكاء المزدوج\""
         ]
       },
       {
-        "id": "trust-trace",
-        "titleKey": "sectionTrustTitle",
-        "bodyKey": "sectionTrustBody",
+        "id": "ثقة-تتبع",
+        "titleKey": "عنوان قسم الثقة",
+        "bodyKey": "نص قسم الثقة",
         "bulletKeys": [
-          "sectionTrustBullet1",
-          "sectionTrustBullet2",
-          "sectionTrustBullet3",
-          "sectionTrustBullet4"
+          "النقطة الأولى في قسم الثقة",
+          "النقطة الثانية في قسم الثقة",
+          "النقطة الثالثة في قسم الثقة",
+          "النقطة الرابعة في قسم الثقة"
         ]
       },
       {
-        "id": "responsibility",
-        "titleKey": "sectionResponsibilityTitle",
-        "bodyKey": "sectionResponsibilityBody",
+        "id": "المسؤولية",
+        "titleKey": "عنوان قسم المسؤولية",
+        "bodyKey": "نص قسم المسؤولية",
         "bulletKeys": [
-          "sectionResponsibilityBullet1",
-          "sectionResponsibilityBullet2",
-          "sectionResponsibilityBullet3",
-          "sectionResponsibilityBullet4"
+          "النقطة الأولى في قسم المسؤولية",
+          "النقطة الثانية في قسم المسؤولية",
+          "النقطة الثالثة في قسم المسؤولية",
+          "النقطة الرابعة في قسم المسؤولية"
         ]
       }
     ]
@@ -68404,362 +68409,362 @@
   },
   "benchmarksPage": {
     "meta": {
-      "title": "Industry Benchmarks — Compare Your Metrics",
-      "description": "View sector-specific benchmark data and compare your operational metrics against industry standards."
+      "title": "معايير الصناعة — قارن مقاييسك",
+      "description": "عرض بيانات المعايير الخاصة بكل قطاع ومقارنة مقاييسك التشغيلية بمعايير الصناعة."
     },
-    "semanticTitle": "Industry Benchmark Data",
-    "semanticAnswer": "Reference benchmarks for each sector",
-    "semanticBullet1": "Compare results against sector baselines",
-    "semanticBullet2": "Identify performance gaps and improvement areas",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticTitle": "بيانات معايير الصناعة",
+    "semanticAnswer": "معايير مرجعية لكل قطاع",
+    "semanticBullet1": "مقارنة النتائج بخطوط الأساس القطاعية",
+    "semanticBullet2": "تحديد فجوات الأداء ومجالات التحسين",
+    "semanticBullet3": "تتبع التقدم باستخدام مقارنات مقاييس منظمة",
     "eyebrow": "SectorCalc",
-    "headline": "Industry Benchmarks",
-    "sectorsTitle": "Available sectors",
-    "openLabel": "View benchmarks",
-    "backLink": "← Back to audit hub"
+    "headline": "معايير الصناعة",
+    "sectorsTitle": "القطاعات المتاحة",
+    "openLabel": "عرض المعايير",
+    "backLink": "← العودة إلى مركز التدقيق"
   },
   "sustainabilityPage": {
     "meta": {
-      "title": "Sustainability — Sector Benchmarks",
-      "description": "View sustainability metrics and sector benchmarks for carbon, energy, and waste reduction."
+      "title": "الاستدامة — معايير القطاعات",
+      "description": "عرض مقاييس الاستدامة ومعايير القطاعات للكربون والطاقة وتقليل النفايات."
     },
-    "semanticTitle": "Sustainability Benchmarks",
-    "semanticAnswer": "Reference benchmarks for each sector",
-    "semanticBullet1": "Compare sustainability metrics against sector baselines",
-    "semanticBullet2": "Identify carbon, energy, and waste reduction opportunities",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticTitle": "معايير الاستدامة",
+    "semanticAnswer": "معايير مرجعية لكل قطاع",
+    "semanticBullet1": "مقارنة مقاييس الاستدامة بخطوط الأساس القطاعية",
+    "semanticBullet2": "تحديد فرص تقليل الكربون والطاقة والنفايات",
+    "semanticBullet3": "تتبع التقدم باستخدام مقارنات مقاييس منظمة",
     "eyebrow": "SectorCalc",
-    "headline": "Sustainability Benchmarks",
-    "lead": "Compare your operational sustainability metrics against sector standards and identify reduction opportunities.",
-    "sectorsTitle": "Available sectors",
-    "auditLabel": "View audit",
-    "auditHub": "Audit hub",
-    "benchmarks": "Benchmarks"
+    "headline": "معايير الاستدامة",
+    "lead": "قارن مقاييس الاستدامة التشغيلية الخاصة بك بمعايير القطاعات وحدد فرص التحسين.",
+    "sectorsTitle": "القطاعات المتاحة",
+    "auditLabel": "عرض التدقيق",
+    "auditHub": "مركز التدقيق",
+    "benchmarks": "المعايير"
   },
   "sampleReportPage": {
     "meta": {
-      "title": "Sample Decision Report",
-      "description": "Preview a sample decision report generated by SectorCalc's sector-specific calculation tools."
+      "title": "نموذج تقرير القرار",
+      "description": "معاينة نموذج تقرير قرار تم إنشاؤه بواسطة أدوات الحساب الخاصة بكل قطاع في SectorCalc."
     },
     "eyebrow": "SectorCalc",
-    "title": "Sample Decision Report",
-    "description": "This is a representative preview of a SectorCalc decision report generated from user-provided inputs and governed formula contracts.",
-    "sampleReportIncludes": "This sample report includes: calculation summary, risk drivers, suggested actions, assumptions, and Trust Trace metadata. Actual reports vary by sector and subscription tier.",
-    "startFree": "Start with a free tool →",
-    "ctaEyebrow": "Try it yourself",
-    "ctaTitle": "Run a free calculation",
-    "ctaSubtitle": "Explore sector-specific tools and see your own results in seconds.",
-    "ctaPrimary": "Browse free tools",
-    "ctaSecondary": "View pricing"
+    "title": "نموذج تقرير القرار",
+    "description": "هذه معاينة تمثيلية لتقرير قرار من SectorCalc تم إنشاؤه من مدخلات المستخدم وعقود الصيغ المحكومة.",
+    "sampleReportIncludes": "يتضمن هذا التقرير النموذجي: ملخص الحساب، محركات المخاطر، الإجراءات المقترحة، الافتراضات، وبيانات وصفية من Trust Trace. تختلف التقارير الفعلية حسب القطاع ومستوى الاشتراك.",
+    "startFree": "ابدأ بأداة مجانية ←",
+    "ctaEyebrow": "جربها بنفسك",
+    "ctaTitle": "قم بإجراء حساب مجاني",
+    "ctaSubtitle": "استكشف الأدوات الخاصة بكل قطاع وشاهد نتائجك الخاصة في ثوانٍ.",
+    "ctaPrimary": "تصفح الأدوات المجانية",
+    "ctaSecondary": "عرض الأسعار"
   },
   "trustPage": {
     "meta": {
-      "title": "Trust — Calculation Governance",
-      "description": "How SectorCalc ensures calculation integrity through governed formulas, validation, and Trust Trace."
+      "title": "الثقة — حوكمة الحسابات",
+      "description": "كيف تضمن SectorCalc سلامة الحسابات من خلال الصيغ الخاضعة للرقابة والتحقق وTrust Trace."
     },
-    "headline": "Trust & Governance",
-    "lead": "SectorCalc combines deterministic formula contracts, dual-intelligence validation, and Trust Trace metadata to ensure every calculation is transparent and auditable."
+    "headline": "الثقة والحوكمة",
+    "lead": "تجمع SectorCalc بين عقود الصيغ الحتمية والتحقق ثنائي الذكاء وبيانات Trust Trace الوصفية لضمان شفافية كل عملية حسابية وقابليتها للتدقيق."
   },
   "manifestoPage": {
     "meta": {
-      "title": "Manifesto — SectorCalc Vision",
-      "description": "The SectorCalc manifesto: making sector-specific calculations accessible to every operator."
+      "title": "البيان — رؤية SectorCalc",
+      "description": "بيان SectorCalc: جعل الحسابات القطاعية المتخصصة في متناول كل مشغل."
     },
-    "headline": "Manifesto",
-    "lead": "SectorCalc is an Industrial Micro-SaaS App Store for operators who need measurement, loss detection, and decision-ready reports."
+    "headline": "البيان",
+    "lead": "SectorCalc هي متجر تطبيقات صناعية صغيرة كخدمة للمشغلين الذين يحتاجون إلى القياس واكتشاف الخسائر وتقارير جاهزة لاتخاذ القرارات."
   },
   "methodologyPage": {
     "meta": {
-      "title": "Methodology — Dual-Intelligence",
-      "description": "SectorCalc's Dual-Intelligence methodology: Mind 2 requirement engine and Mind 1 validation engine."
+      "title": "المنهجية — الذكاء المزدوج",
+      "description": "منهجية الذكاء المزدوج من SectorCalc: محرك المتطلبات Mind 2 ومحرك التحقق Mind 1."
     },
-    "headline": "Methodology",
-    "lead": "SectorCalc uses a Dual-Intelligence approach: Mind 2 resolves required inputs before calculation, and Mind 1 validates results after calculation."
+    "headline": "المنهجية",
+    "lead": "تستخدم SectorCalc نهج الذكاء المزدوج: Mind 2 يحل المدخلات المطلوبة قبل الحساب، وMind 1 يتحقق من النتائج بعد الحساب."
   },
   "categoriesPage": {
     "meta": {
-      "title": "Tool Categories",
-      "description": "Browse all SectorCalc tool categories organized by sector, profession, and calculation type."
+      "title": "فئات الأدوات",
+      "description": "تصفح جميع فئات أدوات SectorCalc المنظمة حسب القطاع والمهنة ونوع الحساب."
     },
     "categories": {
       "eyebrow": "SectorCalc",
-      "title": "Tool Categories",
-      "subtitle": "Browse tools by sector, profession, or calculation type."
+      "title": "فئات الأدوات",
+      "subtitle": "تصفح الأدوات حسب القطاع أو المهنة أو نوع الحساب."
     },
     "breadcrumbHome": "Home",
-    "breadcrumbCategories": "Categories",
-    "itemListName": "Calculation Categories"
+    "breadcrumbCategories": "الفئات",
+    "itemListName": "فئات الحسابات"
   },
   "auditPage": {
     "meta": {
-      "title": "Audit Hub — Sector Benchmarks",
-      "description": "Audit your operational metrics against sector benchmarks and identify improvement areas."
+      "title": "مركز التدقيق — معايير القطاع",
+      "description": "دقق مقاييسك التشغيلية مقابل معايير القطاع وحدد مجالات التحسين."
     },
-    "semanticTitle": "Audit Hub",
-    "semanticAnswer": "Compare your metrics against sector standards",
-    "semanticBullet1": "Select a sector to view benchmark data",
-    "semanticBullet2": "Compare your operational metrics against standards",
-    "semanticBullet3": "Identify gaps and prioritize improvements",
-    "benchmarksLink": "Benchmarks",
-    "cbamLink": "CBAM Compliance"
+    "semanticTitle": "مركز التدقيق",
+    "semanticAnswer": "قارن مقاييسك بمعايير القطاع",
+    "semanticBullet1": "اختر قطاعًا لعرض بيانات المعايير",
+    "semanticBullet2": "قارن مقاييسك التشغيلية بالمعايير",
+    "semanticBullet3": "حدد الفجوات وأولويات التحسين",
+    "benchmarksLink": "المعايير",
+    "cbamLink": "الامتثال لـ CBAM"
   },
   "seoPage": {
-    "guidesEyebrow": "SectorCalc guides",
-    "authorityGuideEyebrow": "SectorCalc authority guide",
-    "whatYouCalculate": "What this page helps you calculate",
+    "guidesEyebrow": "أدلة SectorCalc",
+    "authorityGuideEyebrow": "دليل سلطة SectorCalc",
+    "whatYouCalculate": "ما تساعدك هذه الصفحة في حسابه",
     "faq": "FAQ",
-    "relatedGuides": "Related guides",
-    "seoHubIndex": "SEO hub index",
-    "relatedFreeCalculators": "Related free calculators",
-    "relatedPremiumCalculators": "Related premium calculators",
-    "exploreFurther": "Explore further",
+    "relatedGuides": "الأدلة ذات الصلة",
+    "seoHubIndex": "فهرس مركز تحسين محركات البحث (SEO)",
+    "relatedFreeCalculators": "الحاسبات المجانية ذات الصلة",
+    "relatedPremiumCalculators": "الحاسبات المميزة ذات الصلة",
+    "exploreFurther": "استكشف المزيد",
     "breadcrumbHome": "Home",
-    "breadcrumbGuides": "Guides",
-    "seoHub": "SEO hub",
-    "categories": "Categories",
-    "industryPage": "Industry page",
-    "allIndustries": "All industries",
-    "pricing": "Pricing",
-    "startFree": "Start with free calculators",
-    "viewPremium": "View premium calculators",
-    "legalFooter": "SectorCalc guides are technical decision-support resources based on standard formulas and transparent assumptions. They are not financial, legal, medical or engineering advice."
+    "breadcrumbGuides": "أدلة",
+    "seoHub": "مركز تحسين محركات البحث (SEO)",
+    "categories": "الفئات",
+    "industryPage": "صفحة الصناعة",
+    "allIndustries": "جميع الصناعات",
+    "pricing": "التسعير",
+    "startFree": "ابدأ بالحاسبات المجانية",
+    "viewPremium": "عرض الحاسبات المميزة",
+    "legalFooter": "أدلة SectorCalc هي موارد دعم قرارات تقنية تستند إلى صيغ قياسية وافتراضات شفافة. إنها ليست استشارات مالية أو قانونية أو طبية أو هندسية."
   },
   "howItWorks": {
     "meta": {
-      "title": "How It Works — Methodology & Limitations",
-      "description": "How SectorCalc free margin checks and premium verdict reports work: inputs, risk signals, safe price logic, limitations, privacy and disclaimers."
+      "title": "كيف يعمل — المنهجية والقيود",
+      "description": "كيفية عمل فحوصات الهامش المجانية من SectorCalc وتقارير الأحكام المميزة: المدخلات، إشارات المخاطر، منطق السعر الآمن، القيود، الخصوصية وإخلاء المسؤولية."
     },
-    "eyebrow": "How it works",
-    "title": "Methodology, outputs and limitations",
-    "lead": "SectorCalc is a sector-specific measurement and decision platform. Free checks build trust; premium verdicts deliver the decision layer operators need before quoting.",
-    "privacyNote": "Free checks run without ERP setup. Business data is not sold.",
+    "eyebrow": "كيف يعمل",
+    "title": "المنهجية والمخرجات والقيود",
+    "lead": "SectorCalc هي منصة قياس واتخاذ قرارات خاصة بكل قطاع. الفحوصات المجانية تبني الثقة؛ الأحكام المميزة توفر طبقة القرار التي يحتاجها المشغلون قبل تقديم العروض.",
+    "privacyNote": "الفحوصات المجانية تعمل دون إعداد نظام تخطيط موارد المؤسسات (ERP). لا يتم بيع بيانات الأعمال.",
     "sections": [
       {
-        "id": "free-check",
-        "title": "What the free check shows",
-        "body": "Free sector checks use 3–5 structured inputs per industry. Outputs include a visible risk level (LOW / MEDIUM / HIGH), a plain-language headline and summary of cost exposure. Free checks run in your browser without an account. They do not show minimum safe price, accept/reject verdict strings or PDF export.",
+        "id": "فحص مجاني",
+        "title": "ما يظهره الفحص المجاني",
+        "body": "فحوصات القطاع المجانية تستخدم 3–5 مدخلات منظمة لكل صناعة. تشمل المخرجات مستوى مخاطر مرئي (منخفض / متوسط / مرتفع)، عنوانًا بلغة واضحة وملخصًا لتعرض التكاليف. تعمل الفحوصات المجانية في متصفحك دون حساب. لا تظهر الحد الأدنى للسعر الآمن، أو سلاسل أحكام القبول/الرفض، أو تصدير PDF.",
         "bullets": [
-          "Visible risk signal only",
-          "Directional cost exposure summary",
-          "No minimum safe price floor",
-          "No final verdict or saved report"
+          "إشارة مخاطر مرئية فقط",
+          "ملخص اتجاهي لتعرض التكاليف",
+          "لا يوجد حد أدنى للسعر الآمن",
+          "لا يوجد حكم نهائي أو تقرير محفوظ"
         ]
       },
       {
-        "id": "premium-verdict",
-        "title": "What the premium verdict adds",
-        "body": "Premium analyzers use expanded input sets (typically 5–9 fields) to produce a decision verdict: minimum safe price where applicable, margin leak drivers, scenario comparison and a suggested action (accept, reprice, renegotiate or do not accept). Subscribers can save reports and export PDF copies.",
+        "id": "حكم مميز",
+        "title": "ما يضيفه الحكم المميز",
+        "body": "المحللات المميزة تستخدم مجموعات مدخلات موسعة (عادة 5–9 حقول) لإنتاج حكم قرار: الحد الأدنى للسعر الآمن عند الاقتضاء، محركات تسرب الهامش، مقارنة السيناريوهات وإجراء مقترح (قبول، إعادة تسعير، إعادة تفاوض أو عدم القبول). يمكن للمشتركين حفظ التقارير وتصدير نسخ PDF.",
         "bullets": [
-          "Minimum safe price or bid floor",
-          "Margin leak breakdown",
-          "Accept / reprice / reject verdict",
-          "PDF-ready report and saved history (Pro)"
+          "الحد الأدنى للسعر الآمن أو أرضية العرض",
+          "تحليل تسرب الهامش",
+          "حكم القبول / إعادة التسعير / الرفض",
+          "تقرير جاهز للـ PDF وسجل محفوظ (Pro)"
         ]
       },
       {
-        "id": "inputs",
-        "title": "Inputs used",
-        "body": "Each sector pack defines validated input fields — machine time, labor, material, margin targets, delay days and similar operating variables. Labels and helper text explain what belongs in each field. Premium analyzers may require additional fields not shown on the free tier.",
+        "id": "المدخلات",
+        "title": "المدخلات المستخدمة",
+        "body": "كل حزمة قطاع تحدد حقول مدخلات مُتحقق منها — وقت الآلة، العمالة، المواد، أهداف الهامش، أيام التأخير ومتغيرات تشغيلية مماثلة. التسميات والنص المساعد يشرح ما ينتمي لكل حقل. قد تتطلب المحللات المميزة حقولًا إضافية غير معروضة في الطبقة المجانية.",
         "bullets": [
-          "Sector-specific field sets per tool",
-          "Visible labels and helper text",
-          "No raw formula sheets exposed to users",
-          "Inputs are illustrative simulations — verify before quoting"
+          "مجموعات حقول خاصة بكل قطاع لكل أداة",
+          "تسميات مرئية ونص مساعد",
+          "لا يتم عرض أوراق الصيغ الخام للمستخدمين",
+          "المدخلات هي محاكاة توضيحية — تحقق قبل تقديم العروض"
         ]
       },
       {
-        "id": "risk-signals",
-        "title": "Risk signals",
-        "body": "Risk levels combine input ratios, sector thresholds and margin targets configured per industry pack. HIGH risk means the quote or change may erode margin under stated assumptions — not a guarantee of loss, but a signal to reprice or reduce scope before committing.",
+        "id": "إشارات المخاطر",
+        "title": "إشارات المخاطر",
+        "body": "مستويات المخاطر تجمع بين نسب المدخلات، عتبات القطاع وأهداف الهامش المكونة لكل حزمة صناعة. المخاطر العالية تعني أن العرض أو التغيير قد يؤدي إلى تآكل الهامش في ظل الافتراضات المذكورة — ليس ضمانًا للخسارة، بل إشارة لإعادة التسعير أو تقليل النطاق قبل الالتزام.",
         "bullets": [
-          "LOW / MEDIUM / HIGH visible on free tier",
-          "Premium adds verdict labels and leak drivers",
-          "Risk is text + level — not color alone",
-          "Signals are decision-support, not certified audit"
+          "منخفض / متوسط / مرتفع مرئي في الطبقة المجانية",
+          "المميز يضيف تسميات الأحكام ومحركات التسرب",
+          "المخاطر هي نص + مستوى — وليس لونًا فقط",
+          "الإشارات هي دعم قرار، وليست تدقيقًا معتمدًا"
         ]
       },
       {
-        "id": "safe-price",
-        "title": "Safe price logic",
-        "body": "Where applicable, premium calculators compute a minimum safe price or bid floor from direct cost, target margin and sector-specific buffers (setup, scrap, tooling, delay). The exact model varies by sector — CNC machine shops, construction change orders and cleaning contracts use different drivers.",
+        "id": "السعر الآمن",
+        "title": "منطق السعر الآمن",
+        "body": "عند الاقتضاء، تحسب حاسبات الأقساط سعرًا آمنًا أدنى أو حدًا أدنى للعطاء من التكلفة المباشرة والهامش المستهدف والاحتياطيات الخاصة بالقطاع (الإعداد، الخردة، الأدوات، التأخير). يختلف النموذج الدقيق حسب القطاع — تستخدم ورش الآلات CNC، أوامر التغيير في البناء وعقود التنظيف محركات مختلفة.",
         "bullets": [
-          "Target margin applied to loaded direct cost",
-          "Sector buffers for setup, scrap or delay",
-          "Scenario rows at multiple margin targets",
-          "Safe price withheld on free tier intentionally"
+          "الهامش المستهدف المطبق على التكلفة المباشرة المحملة",
+          "احتياطيات القطاع للإعداد أو الخردة أو التأخير",
+          "صفوف السيناريو عند أهداف هامش متعددة",
+          "السعر الآمن محجوب عمدًا في الطبقة المجانية"
         ]
       },
       {
-        "id": "limitations",
-        "title": "Report limitations",
-        "body": "All outputs are technical simulations and decision-support estimates. They are not financial, legal, engineering or tax advice. SectorCalc does not replace professional estimating, cost accounting or contractual review.",
+        "id": "القيود",
+        "title": "قيود التقرير",
+        "body": "جميع المخرجات هي محاكاة فنية وتقديرات دعم القرار. ليست نصيحة مالية أو قانونية أو هندسية أو ضريبية. لا يحل SectorCalc محل التقدير المهني أو محاسبة التكاليف أو المراجعة التعاقدية.",
         "bullets": [
-          "Not certified financial or engineering advice",
-          "Verify all numbers before commercial commitments",
-          "Models simplify real-world variability",
-          "Subscription does not guarantee business outcomes"
+          "ليست نصيحة مالية أو هندسية معتمدة",
+          "تحقق من جميع الأرقام قبل الالتزامات التجارية",
+          "النماذج تبسط التباين الواقعي",
+          "الاشتراك لا يضمن نتائج الأعمال"
         ]
       },
       {
-        "id": "privacy",
-        "title": "Data privacy",
-        "body": "Free checks run without ERP setup and without requiring an enterprise rollout. Business data is not sold. Saved reports and account data are linked to your SectorCalc login when you choose to save or subscribe.",
+        "id": "الخصوصية",
+        "title": "خصوصية البيانات",
+        "body": "تعمل الفحوصات المجانية دون إعداد ERP ودون الحاجة إلى طرح مؤسسي. لا تُباع بيانات الأعمال. ترتبط التقارير المحفوظة وبيانات الحساب بتسجيل الدخول إلى SectorCalc عندما تختار الحفظ أو الاشتراك.",
         "bullets": [
-          "Free checks run without ERP setup",
-          "Business data is not sold",
-          "Stripe handles subscription billing securely",
-          "See Privacy Policy for retention details"
+          "تعمل الفحوصات المجانية دون إعداد ERP",
+          "لا تُباع بيانات الأعمال",
+          "يتولى Stripe معالجة فواتير الاشتراك بشكل آمن",
+          "راجع سياسة الخصوصية لتفاصيل الاحتفاظ"
         ]
       },
       {
-        "id": "disclaimer",
-        "title": "Disclaimer",
-        "body": "DISCLAIMER_TEXT",
+        "id": "إخلاء المسؤولية",
+        "title": "إخلاء المسؤولية",
+        "body": "نص إخلاء المسؤولية",
         "bullets": []
       }
     ],
-    "compareTitle": "Free vs premium at a glance",
-    "freeTitle": "Free check",
+    "compareTitle": "نظرة سريعة على المجاني مقابل المميز",
+    "freeTitle": "فحص مجاني",
     "freeItems": [
-      "Visible risk level and summary",
-      "Browser-side processing",
-      "No PDF export",
-      "No minimum safe price"
+      "مستوى المخاطر المرئي والملخص",
+      "معالجة من جانب المتصفح",
+      "لا تصدير PDF",
+      "لا يوجد سعر آمن أدنى"
     ],
-    "premiumTitle": "Premium verdict",
+    "premiumTitle": "الحكم المميز",
     "premiumItems": [
-      "Full calculator inputs",
-      "Verdict label and suggested action",
-      "PDF export for saved reports",
-      "Single Verdict ($9) or Pro ($19/month)"
+      "مدخلات الحاسبة الكاملة",
+      "تسمية الحكم والإجراء المقترح",
+      "تصدير PDF للتقارير المحفوظة",
+      "حكم واحد (9 دولارات) أو Pro (19 دولارًا/شهرًا)"
     ],
-    "linksFree": "Run a free check →",
-    "linksSample": "View sample verdict report →",
-    "linksPremium": "Browse premium calculators →",
-    "linksPricing": "View pricing →"
+    "linksFree": "تشغيل فحص مجاني ←",
+    "linksSample": "عرض تقرير حكم نموذجي ←",
+    "linksPremium": "تصفح حاسبات الأقساط ←",
+    "linksPricing": "عرض الأسعار ←"
   },
   "loginPage": {
     "meta": {
-      "title": "Sign in",
-      "description": "Sign in to SectorCalc — admin panel or SectorCalc Pro access."
+      "title": "تسجيل الدخول",
+      "description": "تسجيل الدخول إلى SectorCalc — لوحة الإدارة أو الوصول إلى SectorCalc Pro."
     },
-    "title": "Sign in",
-    "subtitle": "Admin sign-in for the lead panel, or Google sign-in below when returning from premium tools or pricing."
+    "title": "تسجيل الدخول",
+    "subtitle": "تسجيل دخول المشرف للوحة العملاء المحتملين، أو تسجيل الدخول عبر Google أدناه عند العودة من الأدوات المميزة أو الأسعار."
   },
   "accountPage": {
     "meta": {
-      "title": "Account",
-      "description": "Manage your SectorCalc Pro access, premium decision tools and saved verdict reports."
+      "title": "الحساب",
+      "description": "إدارة وصولك إلى SectorCalc Pro وأدوات القرار المميزة وتقارير الحكم المحفوظة."
     }
   },
   "accountCreditsPage": {
     "meta": {
-      "title": "Credits",
-      "description": "Buy SectorCalc credits for premium AI assistance and analyzer usage."
+      "title": "الرصيد",
+      "description": "شراء رصيد SectorCalc للمساعدة المميزة بالذكاء الاصطناعي واستخدام المحلل."
     }
   },
   "accountFeedbackPage": {
     "meta": {
-      "title": "Feedback Queue",
-      "description": "Review tool feedback, formula objections, and improvement requests."
+      "title": "قائمة الملاحظات",
+      "description": "مراجعة ملاحظات الأداة واعتراضات الصيغ وطلبات التحسين."
     }
   },
   "constructionBidMarginPage": {
     "meta": {
-      "title": "Construction Bid Margin — Change Order Risk",
-      "description": "Protect construction project margin before you sign change orders. Free bid check and premium change-order verdict reports."
+      "title": "هامش عطاء البناء — مخاطر أمر التغيير",
+      "description": "احمِ هامش مشروع البناء قبل توقيع أوامر التغيير. فحص عطاء مجاني وتقارير حكم مميزة لأمر التغيير."
     }
   },
   "cleaningContractMarginPage": {
     "meta": {
-      "title": "Cleaning Contract Margin — Bid Optimizer",
-      "description": "Stop cleaning contracts that lose money every month. Free cost check and premium bid verdict reports for office cleaning."
+      "title": "هامش عقد التنظيف — محسّن العروض",
+      "description": "أوقف عقود التنظيف التي تخسر أموالاً كل شهر. فحص تكلفة مجاني وتقارير حكم العروض المميزة لتنظيف المكاتب."
     }
   },
   "cncQuoteRiskPage": {
     "meta": {
-      "title": "CNC Quote Risk Calculator",
-      "description": "Spot underpriced CNC jobs before they kill your margin. Run a free machine time check, then unlock safe price verdicts with SectorCalc Pro."
+      "title": "حاسبة مخاطر عروض CNC",
+      "description": "اكتشف وظائف CNC المقومة بأقل من قيمتها قبل أن تقتل هامش ربحك. قم بإجراء فحص وقت آلة مجاني، ثم افتح أحكام الأسعار الآمنة باستخدام SectorCalc Pro."
     }
   },
   "disclaimerPage": {
     "meta": {
-      "title": "Disclaimer",
-      "description": "SectorCalc calculators are indicative decision-support tools — not professional cost, tax, legal, or engineering advice."
+      "title": "إخلاء مسؤولية",
+      "description": "حاسبات SectorCalc هي أدوات دعم قرار إرشادية — وليست بديلاً عن الاستشارات المهنية في التكاليف أو الضرائب أو القانون أو الهندسة."
     },
-    "eyebrow": "Legal",
-    "title": "Disclaimer",
-    "description": "Please read this before relying on calculator or report outputs for business decisions.",
-    "intro": "SectorCalc helps operators and advisors explore scenarios faster. It does not replace licensed or certified professional review.",
+    "eyebrow": "قانوني",
+    "title": "إخلاء مسؤولية",
+    "description": "يُرجى قراءة هذا قبل الاعتماد على مخرجات الحاسبة أو التقرير في قرارات العمل.",
+    "intro": "يساعد SectorCalc المشغلين والمستشارين على استكشاف السيناريوهات بشكل أسرع. وهو لا يحل محل المراجعة المهنية المرخصة أو المعتمدة.",
     "sections": [
       {
-        "title": "Indicative decision support",
+        "title": "دعم قرار إرشادي",
         "paragraphs": [
-          "Calculators and premium report previews on SectorCalc are indicative decision-support tools.",
-          "They are designed to structure thinking — not to certify bids, margins, safety, compliance, or financial statements."
+          "الحاسبات ومعاينات التقارير المميزة على SectorCalc هي أدوات دعم قرار إرشادية.",
+          "صُممت لتنظيم التفكير — وليس لاعتماد العطاءات أو الهوامش أو السلامة أو الامتثال أو البيانات المالية."
         ]
       },
       {
-        "title": "Your inputs drive results",
+        "title": "مدخلاتك تحدد النتائج",
         "paragraphs": [
-          "Outputs depend on the numbers and assumptions you enter.",
-          "Small input changes can materially change recommendations, risk labels, and scenario tables."
+          "تعتمد المخرجات على الأرقام والافتراضات التي تدخلها.",
+          "يمكن للتغييرات الطفيفة في المدخلات أن تغير بشكل جوهري التوصيات وتصنيفات المخاطر وجداول السيناريوهات."
         ]
       },
       {
-        "title": "Not professional advice",
+        "title": "ليست استشارة مهنية",
         "paragraphs": [
-          "SectorCalc is not a substitute for professional cost accounting, engineering review, tax advice, legal counsel, or industry-specific compliance review.",
-          "Engage qualified professionals before committing to contracts, pricing, or capital decisions."
+          "SectorCalc ليس بديلاً عن محاسبة التكاليف المهنية أو المراجعة الهندسية أو الاستشارات الضريبية أو الاستشارات القانونية أو مراجعة الامتثال الخاصة بالصناعة.",
+          "استشر مؤهلين مهنيين قبل الالتزام بالعقود أو التسعير أو قرارات رأس المال."
         ]
       },
       {
-        "title": "Benchmarks and claims",
+        "title": "المعايير والادعاءات",
         "paragraphs": [
-          "Unless explicitly stated on a specific page or tool, SectorCalc does not claim independent industry benchmarks or third-party verified market data in the MVP.",
-          "Do not treat example or sample reports as results for your business."
+          "ما لم يُذكر صراحةً في صفحة أو أداة معينة، لا يدعي SectorCalc وجود معايير صناعية مستقلة أو بيانات سوقية موثقة من طرف ثالث في الإصدار الأولي (MVP).",
+          "لا تتعامل مع التقارير النموذجية أو العينية على أنها نتائج خاصة بعملك."
         ]
       },
       {
-        "title": "No outcome guarantee",
+        "title": "لا ضمان للنتائج",
         "paragraphs": [
-          "SectorCalc does not guarantee revenue, margin, win rates, safety outcomes, or client results."
+          "لا يضمن SectorCalc الإيرادات أو الهوامش أو معدلات الفوز أو نتائج السلامة أو نتائج العملاء."
         ]
       },
       {
-        "title": "Contact",
+        "title": "اتصل بنا",
         "paragraphs": [
-          "Questions: {email}"
+          "الأسئلة: {email}"
         ]
       }
     ],
-    "footerTerms": "Terms of Use",
-    "footerPrivacy": "Privacy Policy",
+    "footerTerms": "شروط الاستخدام",
+    "footerPrivacy": "سياسة الخصوصية",
     "footerSeparator": "and"
   },
   "industriesSlugPage": {
     "metaTitleFallback": "{name} Cost & Margin Tools",
-    "metaDescriptionFallback": "Use SectorCalc tools to check {name} cost risk, bid margin and hidden profit leaks before accepting work."
+    "metaDescriptionFallback": "استخدم أدوات SectorCalc للتحقق من مخاطر التكلفة لـ {name} وهامش العطاء وتسريبات الربح الخفية قبل قبول العمل."
   },
   "accountReportsPage": {
     "meta": {
-      "title": "Saved Reports",
-      "description": "View saved SectorCalc Pro verdict reports linked to your account."
+      "title": "التقارير المحفوظة",
+      "description": "عرض تقارير حكم SectorCalc Pro المحفوظة المرتبطة بحسابك."
     }
   },
   "accountReportDetailPage": {
     "meta": {
-      "title": "Saved Report",
-      "description": "View a saved SectorCalc Pro verdict report."
+      "title": "تقرير محفوظ",
+      "description": "عرض تقرير حكم SectorCalc Pro محفوظ."
     }
   },
   "premiumToolPage": {
-    "metaTitleSuffix": " | SectorCalc Pro"
+    "metaTitleSuffix": "| SectorCalc Pro"
   },
   "premiumSchemaPrintPage": {
     "meta": {
       "title": "{name} — Print Report | SectorCalc",
-      "description": "Print-ready premium decision report for {name}."
+      "description": "تقرير قرار مميز جاهز للطباعة لـ {name}."
     }
   },
   "industrialFieldPanel": {
