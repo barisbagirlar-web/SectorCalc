@@ -1,7 +1,8 @@
 "use client";
 
-import type { GeneratedCalculatorModule } from "./types";
+import type { GeneratedCalculatorModule, GeneratedToolResult } from "./types";
 import { applyStandardCalculatorOverride } from "./standard-calculator-overrides";
+import { wrapWithTrustTrace } from "./trust-trace-wrapper";
 
 type RawGeneratedModule = Record<string, unknown>;
 
@@ -31,6 +32,9 @@ function resolveSchemaExport(slug: string): string {
  *
  * On‑demand import produces a single small chunk per tool (~4–8 KB) that
  * is cached after the first page visit.
+ *
+ * Every calculation result is automatically wrapped with a Trust Trace
+ * verification hash for public result integrity verification.
  */
 export async function loadClientCalculator(
   slug: string,
@@ -52,9 +56,17 @@ export async function loadClientCalculator(
       return null;
     }
 
+    // Wrap calculate with Trust Trace
+    const wrappedCalculate = async (
+      input: Record<string, unknown>,
+    ): Promise<GeneratedToolResult> => {
+      const rawResult = (calculate as (input: Record<string, unknown>) => GeneratedToolResult)(input);
+      return await wrapWithTrustTrace(rawResult);
+    };
+
     return {
       inputSchema: inputSchema as GeneratedCalculatorModule["inputSchema"],
-      calculate: calculate as GeneratedCalculatorModule["calculate"],
+      calculate: wrappedCalculate as unknown as GeneratedCalculatorModule["calculate"],
     };
   } catch {
     return null;

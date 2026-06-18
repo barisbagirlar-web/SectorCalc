@@ -3528,6 +3528,7 @@
     "loading": "جارٍ تحميل الحاسبة…",
     "loadError": "تعذّر تحميل وحدة الحاسبة.",
     "quarantineWarning": "تستخدم هذه الحاسبة صيغًا تقديرية — تحقق من النتائج وفقًا لمعاييرك.",
+    "trustTraceVerified": "✓ Trust Trace — تم التحقق من سلامة النتيجة",
     "premiumUpsell": {
       "ariaLabel": "الترقية إلى التحليل المميز",
       "message": "هل تريد تحليلاً أكثر تفصيلاً لهذا الحساب؟",
@@ -68243,105 +68244,105 @@
     "sectionResponsibilityBullet4": "الخصوصية: تتم معالجة مدخلات الطبقة المجانية في المتصفح ما لم يتم حفظها",
     "aboutCards": [
       {
-        "id": "المهمة",
-        "titleKey": "مهمتنا",
-        "bodyKey": "نص مهمتنا"
+        "id": "mission",
+        "titleKey": "ourMission",
+        "bodyKey": "ourMissionBody"
       },
       {
-        "id": "الرؤية",
-        "titleKey": "رؤيتنا",
-        "bodyKey": "نص رؤيتنا"
+        "id": "vision",
+        "titleKey": "ourVision",
+        "bodyKey": "ourVisionBody"
       },
       {
-        "id": "الفريق",
-        "titleKey": "فريقنا",
-        "bodyKey": "نص فريقنا"
+        "id": "team",
+        "titleKey": "ourTeam",
+        "bodyKey": "ourTeamBody"
       }
     ],
     "allSections": [
       {
-        "id": "من نحن",
-        "titleKey": "عنوان قسم \"من نحن\"",
-        "bodyKey": "نص قسم \"من نحن\"",
+        "id": "who",
+        "titleKey": "sectionWhoTitle",
+        "bodyKey": "sectionWhoBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"من نحن\"",
-          "النقطة الثانية في قسم \"من نحن\"",
-          "النقطة الثالثة في قسم \"من نحن\""
+          "sectionWhoBullet1",
+          "sectionWhoBullet2",
+          "sectionWhoBullet3"
         ]
       },
       {
-        "id": "ماذا نفعل",
-        "titleKey": "عنوان قسم \"ماذا نفعل\"",
-        "bodyKey": "نص قسم \"ماذا نفعل\"",
+        "id": "what",
+        "titleKey": "sectionWhatTitle",
+        "bodyKey": "sectionWhatBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"ماذا نفعل\"",
-          "النقطة الثانية في قسم \"ماذا نفعل\"",
-          "النقطة الثالثة في قسم \"ماذا نفعل\""
+          "sectionWhatBullet1",
+          "sectionWhatBullet2",
+          "sectionWhatBullet3"
         ]
       },
       {
-        "id": "لمن هذا",
-        "titleKey": "عنوان قسم \"لمن هذا\"",
-        "bodyKey": "نص قسم \"لمن هذا\"",
+        "id": "for-whom",
+        "titleKey": "sectionForWhomTitle",
+        "bodyKey": "sectionForWhomBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"لمن هذا\"",
-          "النقطة الثانية في قسم \"لمن هذا\"",
-          "النقطة الثالثة في قسم \"لمن هذا\""
+          "sectionForWhomBullet1",
+          "sectionForWhomBullet2",
+          "sectionForWhomBullet3"
         ]
       },
       {
-        "id": "يستبدل",
-        "titleKey": "عنوان قسم \"يستبدل\"",
-        "bodyKey": "نص قسم \"يستبدل\"",
+        "id": "replaces",
+        "titleKey": "sectionReplacesTitle",
+        "bodyKey": "sectionReplacesBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"يستبدل\"",
-          "النقطة الثانية في قسم \"يستبدل\"",
-          "النقطة الثالثة في قسم \"يستبدل\"",
-          "النقطة الرابعة في قسم \"يستبدل\""
+          "sectionReplacesBullet1",
+          "sectionReplacesBullet2",
+          "sectionReplacesBullet3",
+          "sectionReplacesBullet4"
         ]
       },
       {
-        "id": "الخسائر",
-        "titleKey": "عنوان قسم \"الخسائر\"",
-        "bodyKey": "نص قسم \"الخسائر\"",
+        "id": "losses",
+        "titleKey": "sectionLossesTitle",
+        "bodyKey": "sectionLossesBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"الخسائر\"",
-          "النقطة الثانية في قسم \"الخسائر\"",
-          "النقطة الثالثة في قسم \"الخسائر\"",
-          "النقطة الرابعة في قسم \"الخسائر\""
+          "sectionLossesBullet1",
+          "sectionLossesBullet2",
+          "sectionLossesBullet3",
+          "sectionLossesBullet4"
         ]
       },
       {
-        "id": "الذكاء المزدوج",
-        "titleKey": "عنوان قسم \"الذكاء المزدوج\"",
-        "bodyKey": "نص قسم \"الذكاء المزدوج\"",
+        "id": "dual-intelligence",
+        "titleKey": "sectionDualTitle",
+        "bodyKey": "sectionDualBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم \"الذكاء المزدوج\"",
-          "النقطة الثانية في قسم \"الذكاء المزدوج\"",
-          "النقطة الثالثة في قسم \"الذكاء المزدوج\"",
-          "النقطة الرابعة في قسم \"الذكاء المزدوج\""
+          "sectionDualBullet1",
+          "sectionDualBullet2",
+          "sectionDualBullet3",
+          "sectionDualBullet4"
         ]
       },
       {
-        "id": "ثقة-تتبع",
-        "titleKey": "عنوان قسم الثقة",
-        "bodyKey": "نص قسم الثقة",
+        "id": "trust-trace",
+        "titleKey": "sectionTrustTitle",
+        "bodyKey": "sectionTrustBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم الثقة",
-          "النقطة الثانية في قسم الثقة",
-          "النقطة الثالثة في قسم الثقة",
-          "النقطة الرابعة في قسم الثقة"
+          "sectionTrustBullet1",
+          "sectionTrustBullet2",
+          "sectionTrustBullet3",
+          "sectionTrustBullet4"
         ]
       },
       {
-        "id": "المسؤولية",
-        "titleKey": "عنوان قسم المسؤولية",
-        "bodyKey": "نص قسم المسؤولية",
+        "id": "responsibility",
+        "titleKey": "sectionResponsibilityTitle",
+        "bodyKey": "sectionResponsibilityBody",
         "bulletKeys": [
-          "النقطة الأولى في قسم المسؤولية",
-          "النقطة الثانية في قسم المسؤولية",
-          "النقطة الثالثة في قسم المسؤولية",
-          "النقطة الرابعة في قسم المسؤولية"
+          "sectionResponsibilityBullet1",
+          "sectionResponsibilityBullet2",
+          "sectionResponsibilityBullet3",
+          "sectionResponsibilityBullet4"
         ]
       }
     ]

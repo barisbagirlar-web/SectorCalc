@@ -23,9 +23,54 @@ async function fixSchemaWithAi(
   errors: readonly string[],
 ): Promise<Record<string, unknown>> {
   const prompt = `Fix this calculator schema JSON. Output only valid JSON.\n\nSchema:\n${JSON.stringify(schema, null, 2)}\n\nErrors:\n${errors.join("\n")}\n\nRules:\n- toolName stays "${slug}"\n- inputs: 3-8 with id, label, type, unit, default, businessContext\n- formulas compile with input ids\n- outputs.primary references formulas key\n- include validation, premiumFeatures, premiumRequired`;
-  const merged = mergeAiSchemaRepair(schema, parseAiSchemaJson(await deepseekClient(prompt)));
+  const parsed = parseAiSchemaJson(await deepseekClient(prompt));
+  const merged = mergeAiSchemaRepair(schema, parsed);
+
+  // Save AI-generated formulas before normalization (which may delete them)
+  const aiFormulas =
+    parsed.formulas && typeof parsed.formulas === "object" && !Array.isArray(parsed.formulas)
+      ? (parsed.formulas as Record<string, string>)
+      : null;
+
   normalizeSchemaMechanically(merged);
   applyRuleBasedSchemaFix(merged, slug);
+
+  // Restore AI-generated formulas that normalization may have deleted
+  if (aiFormulas) {
+    const currentFormulas =
+      merged.formulas && typeof merged.formulas === "object" && !Array.isArray(merged.formulas)
+        ? (merged.formulas as Record<string, unknown>)
+        : {};
+    for (const [key, value] of Object.entries(aiFormulas)) {
+      if (!(key in currentFormulas) || currentFormulas[key] === undefined) {
+        (currentFormulas as Record<string, string>)[key] = value;
+      }
+    }
+    merged.formulas = currentFormulas;
+
+    // Ensure outputs.primary still references a valid formula key
+    const formulaKeys = Object.keys(currentFormulas).filter(
+      (k) => typeof currentFormulas[k] === "string",
+    );
+    const outputs =
+      merged.outputs && typeof merged.outputs === "object"
+        ? (merged.outputs as Record<string, unknown>)
+        : {};
+    if (
+      typeof outputs.primary !== "string" ||
+      !formulaKeys.includes(outputs.primary)
+    ) {
+      outputs.primary = formulaKeys[formulaKeys.length - 1] ?? "result";
+    }
+    if (
+      typeof outputs.dataConfidenceAdjusted !== "string" ||
+      !formulaKeys.includes(outputs.dataConfidenceAdjusted)
+    ) {
+      outputs.dataConfidenceAdjusted = formulaKeys[formulaKeys.length - 1] ?? "result";
+    }
+    merged.outputs = outputs;
+  }
+
   return merged;
 }
 

@@ -100,6 +100,10 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
     errors.push(`formulas count ${formulaKeys.length} < 2`);
   }
 
+  let hasNonStubFormula = false;
+  const stubFormulas: string[] = [];
+  const formulaCompileErrors: string[] = [];
+
   for (const [key, expression] of Object.entries(formulas)) {
     if (typeof expression !== "string" || !expression.trim()) {
       errors.push(`formula ${key}: empty expression`);
@@ -117,11 +121,26 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
       selfKey: key,
     });
     if (!compiled) {
-      errors.push(`formula ${key}: does not compile`);
+      formulaCompileErrors.push(key);
     } else if (compiled.includes("Math.Math")) {
       errors.push(`formula ${key}: double Math prefix`);
     } else if (isStubSumFormula(expression, inputIds)) {
-      errors.push(`formula ${key}: stub sum placeholder (inputs added, not domain logic)`);
+      stubFormulas.push(key);
+    } else {
+      hasNonStubFormula = true;
+    }
+  }
+
+  // Report compile errors after loop
+  for (const key of formulaCompileErrors) {
+    errors.push(`formula ${key}: does not compile`);
+  }
+
+  // Only flag formulas as stub-sums when ALL formulas are stub sums
+  // (intermediate aggregation like totalCost = a + b + c is legitimate)
+  if (!hasNonStubFormula && stubFormulas.length > 0) {
+    for (const key of stubFormulas) {
+      errors.push(`formula ${key}: stub sum placeholder (all formulas are input sums)`);
     }
   }
 
@@ -139,8 +158,8 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
         `formulas use ${usedInputs}/${inputIds.length} inputs — incomplete domain model`,
       );
     }
-    if (isStubSumFormula(primaryExpr, inputIds)) {
-      errors.push(`primary formula ${primary}: stub sum placeholder`);
+    if (!hasNonStubFormula && isStubSumFormula(primaryExpr, inputIds)) {
+      errors.push(`primary formula ${primary}: stub sum placeholder (all formulas are input sums)`);
     }
   }
 

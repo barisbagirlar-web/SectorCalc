@@ -291,6 +291,7 @@
     "steelcore:fix": "npx tsx scripts/steelcore/auto-fix-schemas.ts",
     "steelcore:fix:ai": "npx tsx scripts/steelcore/auto-fix-schemas.ts --ai",
     "steelcore:self-heal": "npx tsx scripts/steelcore/self-heal.ts",
+    "steelcore:ci-gate": "npx tsx scripts/steelcore/ci-gate.ts",
     "steelcore:pipeline": "npx tsx scripts/steelcore/run-pipeline.ts --with-generate",
     "build:steelcore": "npx tsx scripts/steelcore/run-pipeline.ts --with-generate --with-build --strict",
     "audit:production-readiness": "npx tsx scripts/audit-production-readiness.ts",

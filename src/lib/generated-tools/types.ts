@@ -118,6 +118,12 @@ export type GeneratedToolResult = {
   readonly dataConfidenceAdjusted: number;
   readonly premiumRequired: boolean;
   readonly premiumFeatures: readonly string[];
+  /** Trust Trace verification hash — enables public result verification */
+  readonly trustTrace?: {
+    readonly hash: string;
+    readonly verificationUrl: string;
+    readonly timestamp: string;
+  };
   readonly [key: string]: unknown;
 };
 
@@ -125,7 +131,7 @@ export type TrustGateStatus = "PASS" | "WARN" | "FAIL" | "RUNTIME_FAIL" | "QUARA
 
 export type GeneratedCalculatorModule = {
   readonly inputSchema: import("zod").ZodTypeAny;
-  readonly calculate: (input: Record<string, unknown>) => GeneratedToolResult;
+  readonly calculate: (input: Record<string, unknown>) => GeneratedToolResult | Promise<GeneratedToolResult>;
   readonly trustStatus?: TrustGateStatus;
 };
 

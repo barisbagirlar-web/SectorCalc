@@ -3501,6 +3501,7 @@
     "loading": "Cargando calculadora…",
     "loadError": "No se pudo cargar el módulo de la calculadora.",
     "quarantineWarning": "Esta calculadora usa fórmulas estimadas — verifique los resultados con sus estándares.",
+    "trustTraceVerified": "✓ Trust Trace — integridad del resultado verificada",
     "premiumUpsell": {
       "ariaLabel": "Actualizar a análisis Premium",
       "message": "¿Quieres un análisis más detallado de este cálculo?",
@@ -68243,61 +68244,61 @@
     "sectionResponsibilityBullet4": "Privacidad: las entradas del nivel gratuito se procesan en el navegador a menos que se guarden",
     "aboutCards": [
       {
-        "id": "misión",
-        "titleKey": "nuestraMisión",
-        "bodyKey": "cuerpoNuestraMisión"
+        "id": "mission",
+        "titleKey": "ourMission",
+        "bodyKey": "ourMissionBody"
       },
       {
-        "id": "visión",
-        "titleKey": "nuestraVisión",
-        "bodyKey": "cuerpoNuestraVisión"
+        "id": "vision",
+        "titleKey": "ourVision",
+        "bodyKey": "ourVisionBody"
       },
       {
-        "id": "equipo",
-        "titleKey": "nuestroEquipo",
-        "bodyKey": "cuerpoNuestroEquipo"
+        "id": "team",
+        "titleKey": "ourTeam",
+        "bodyKey": "ourTeamBody"
       }
     ],
     "allSections": [
       {
-        "id": "quiénes",
-        "titleKey": "títuloSecciónQuiénes",
-        "bodyKey": "cuerpoSecciónQuiénes",
+        "id": "who",
+        "titleKey": "sectionWhoTitle",
+        "bodyKey": "sectionWhoBody",
         "bulletKeys": [
-          "viñeta1SecciónQuiénes",
-          "viñeta2SecciónQuiénes",
-          "viñeta3SecciónQuiénes"
+          "sectionWhoBullet1",
+          "sectionWhoBullet2",
+          "sectionWhoBullet3"
         ]
       },
       {
-        "id": "qué",
-        "titleKey": "títuloSecciónQué",
-        "bodyKey": "cuerpoSecciónQué",
+        "id": "what",
+        "titleKey": "sectionWhatTitle",
+        "bodyKey": "sectionWhatBody",
         "bulletKeys": [
-          "viñeta1SecciónQué",
-          "viñeta2SecciónQué",
-          "viñeta3SecciónQué"
+          "sectionWhatBullet1",
+          "sectionWhatBullet2",
+          "sectionWhatBullet3"
         ]
       },
       {
-        "id": "para-quién",
-        "titleKey": "títuloSecciónParaQuién",
-        "bodyKey": "cuerpoSecciónParaQuién",
+        "id": "for-whom",
+        "titleKey": "sectionForWhomTitle",
+        "bodyKey": "sectionForWhomBody",
         "bulletKeys": [
-          "viñeta1SecciónParaQuién",
-          "viñeta2SecciónParaQuién",
-          "viñeta3SecciónParaQuién"
+          "sectionForWhomBullet1",
+          "sectionForWhomBullet2",
+          "sectionForWhomBullet3"
         ]
       },
       {
-        "id": "reemplaza",
-        "titleKey": "títuloSecciónReemplaza",
-        "bodyKey": "cuerpoSecciónReemplaza",
+        "id": "replaces",
+        "titleKey": "sectionReplacesTitle",
+        "bodyKey": "sectionReplacesBody",
         "bulletKeys": [
-          "viñeta1SecciónReemplaza",
-          "viñeta2SecciónReemplaza",
-          "viñeta3SecciónReemplaza",
-          "viñeta4SecciónReemplaza"
+          "sectionReplacesBullet1",
+          "sectionReplacesBullet2",
+          "sectionReplacesBullet3",
+          "sectionReplacesBullet4"
         ]
       },
       {

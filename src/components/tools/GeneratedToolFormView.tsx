@@ -79,9 +79,10 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   const isQuarantine = trustStatus === "QUARANTINE";
 
-  const handleCalculate = (values: Record<string, unknown>) => {
+  const handleCalculate = async (values: Record<string, unknown>) => {
     setLastInputs(values);
-    setResult(runGeneratedToolCalculation(calculator, values));
+    const calcResult = await runGeneratedToolCalculation(calculator, values);
+    setResult(calcResult);
   };
 
   const primaryRaw = result?.[primaryOutputKey];
@@ -145,15 +146,28 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
       )}
 
       {!isPremium && result && formattedPrimary && pdfInputRows.length > 0 ? (
-        <ExportPDFButton
-          toolName={title}
-          toolSlug={slug}
-          locale={locale}
-          pagePath={pathname}
-          primaryResult={formattedPrimary}
-          inputRows={pdfInputRows}
-          breakdownRows={pdfBreakdownRows}
-        />
+        <div className="mt-4">
+          <ExportPDFButton
+            toolName={title}
+            toolSlug={slug}
+            locale={locale}
+            pagePath={pathname}
+            primaryResult={formattedPrimary}
+            inputRows={pdfInputRows}
+            breakdownRows={pdfBreakdownRows}
+          />
+          {result.trustTrace ? (
+            <div className="mt-2 flex items-center gap-1 text-xs text-green-700">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+              <span>
+                {t("trustTraceVerified")}
+              </span>
+            </div>
+          ) : null}
+        </div>
       ) : null}
 
       {isPremium && result ? (
