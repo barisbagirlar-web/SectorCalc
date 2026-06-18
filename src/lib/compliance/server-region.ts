@@ -21,8 +21,16 @@ function localeFallbackRegion(locale: string): ServerRegionResult {
   };
 }
 
+function isStaticProductionBuild(): boolean {
+  return process.env.NEXT_PHASE === "phase-production-build";
+}
+
 /** Server Components / Server Actions — locale-aware region with source. */
 export async function getServerRegion(locale: string): Promise<ServerRegionResult> {
+  if (isStaticProductionBuild()) {
+    return localeFallbackRegion(locale);
+  }
+
   let headerStore: Awaited<ReturnType<typeof headers>>;
   let cookieStore: Awaited<ReturnType<typeof cookies>>;
 
