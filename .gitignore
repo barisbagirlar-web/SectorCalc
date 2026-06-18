@@ -15,6 +15,13 @@ functions/lib/
 scripts/.cache/
 styles_backup/
 
+# Lokalise pull duplicates (ISO locale dirs in project root)
+/ar/
+/de/
+/en/
+/es/
+/fr_FR/
+
 # IndexNow verification keys (real keys must not be committed)
 public/[0-9a-f][0-9a-f-]*.txt
 !public/indexnow-key-example.txt
@@ -54,6 +61,11 @@ functions-debug.log
 
 # DeepSeek scan output — committed for Vercel (schemas + generated/*.ts)
 # generated/
+
+# Generate report artifacts (regenerated every run — timestamp noise)
+generated/generate-report.json
+generated/golden-test-report.json
+generated/tsc-check-report.json
 
 # TypeScript cache
 *.tsbuildinfo

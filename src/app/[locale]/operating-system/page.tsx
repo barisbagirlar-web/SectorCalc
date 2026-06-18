@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OperatingSystemPageContent } from "@/components/operating-system/OperatingSystemPageContent";
 import { createPageMetadata } from "@/lib/metadata";
@@ -9,10 +9,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "operatingSystemPage" });
   return createPageMetadata({
-    title: "Operating System — Tool Factory Pipeline | SectorCalc",
-    description:
-      "How SectorCalc builds sector tools: ontology, formula contracts, validation gates, Smart Form, calculation summary mapping, human approval, and controlled deploy.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/operating-system",
     locale: locale as AppLocale,
   });

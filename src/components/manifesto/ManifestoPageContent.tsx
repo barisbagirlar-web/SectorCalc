@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { AcademicAdvisoryBoardSection } from "@/components/about/AcademicAdvisoryBoardSection";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
@@ -13,125 +14,8 @@ type Section = {
   readonly bullets?: readonly string[];
 };
 
-const ABOUT_CARDS = [
-  {
-    id: "mission",
-    title: "Our mission",
-    body: "Make sector-specific calculations accessible to every operator — without ERP complexity or consultant retainers.",
-    icon: Target,
-  },
-  {
-    id: "vision",
-    title: "Our vision",
-    body: "Become the most trusted sector calculation platform for teams that need governed formulas and decision-ready outputs.",
-    icon: Eye,
-  },
-  {
-    id: "team",
-    title: "Our team",
-    body: "Engineers, designers, and sector specialists building calculators operators can trust on the shop floor.",
-    icon: Users,
-  },
-] as const;
-
-const ALL_SECTIONS: readonly Section[] = [
-  {
-    id: "who",
-    title: "Who we are",
-    body:
-      "SectorCalc is an Industrial Micro-SaaS App Store for operators who need measurement, loss detection, and decision-ready reports without ERP complexity or consultant retainers.",
-    bullets: [
-      "Built for shop floors, field crews, and owner-operators",
-      "Sector-specific calculators with governed formula contracts",
-      "Browser-first tools with optional saved reports for subscribers",
-    ],
-  },
-  {
-    id: "what",
-    title: "What we do",
-    body:
-      "We turn sector pain into structured calculation workflows: measure inputs, surface hidden loss, suggest action, and attach a calculation summary to results.",
-    bullets: [
-      "Free checks for quick exposure signals",
-      "Premium analyzers for verdict-grade outputs",
-      "Export-ready decision reports with validation metadata",
-    ],
-  },
-  {
-    id: "for-whom",
-    title: "Who it is for",
-    body:
-      "Welding shops, CNC job shops, HVAC contractors, cleaning operators, restaurants, e-commerce sellers, and other sector operators who quote, bid, or plan with tight margins.",
-    bullets: [
-      "Teams without dedicated pricing engineers",
-      "Owners comparing quotes before signing",
-      "Consultants needing repeatable sector templates",
-    ],
-  },
-  {
-    id: "replaces",
-    title: "What we replace (and what we do not)",
-    body:
-      "SectorCalc replaces spreadsheet guesswork, notebook shortcuts, and random Google calculators — not SAP, Siemens, Oracle, or licensed engineering sign-off.",
-    bullets: [
-      "Not a quote-only Word template generator",
-      "Not an ERP or MES replacement",
-      "Not a certified compliance authority",
-      "Does replace ad-hoc Excel and opaque margin leaks",
-    ],
-  },
-  {
-    id: "losses",
-    title: "Losses we make visible",
-    body:
-      "Each sector pack targets measurable loss families: scrap, setup time, callback risk, route deadhead, food waste, return erosion, energy demand charges, and similar operating leaks.",
-    bullets: [
-      "Material and labor exposure",
-      "Schedule and rework buffers",
-      "Margin leak drivers with suggested actions",
-      "Representative scenarios — not guaranteed savings",
-    ],
-  },
-  {
-    id: "dual-intelligence",
-    title: "Dual-Intelligence methodology",
-    body:
-      "Mind 2 (Requirement Engine) resolves which inputs are missing, derivable, or blocked before calculation. Mind 1 (Validation Engine) checks dimensions, invariants, and oracle/scenario coverage after calculation. The LLM layer is interface-only — never the calculation authority.",
-    bullets: [
-      "Contract-driven input requirements",
-      "Deterministic formula paths in production",
-      "Oracle and scenario audits in governance pipeline",
-      "Blocked results when validation fails",
-    ],
-  },
-  {
-    id: "trust-trace",
-    title: "Calculation Summary",
-    body:
-      "Calculation Summary shows canonical inputs, assumptions, formula contract reference, validation status, and coverage notes alongside results — so operators can see why a number appeared, not just the headline.",
-    bullets: [
-      "Canonical input list with rejected keys",
-      "Mind 2 pre-calc and Mind 1 post-calc summaries",
-      "Export payload for PDF decision summaries (data layer)",
-      "Governance metadata for saved premium results",
-    ],
-  },
-  {
-    id: "responsibility",
-    title: "Responsibility boundary",
-    body:
-      "SectorCalc outputs are technical decision-support simulations based on user-provided inputs and documented assumptions. They are not legal, financial, tax, or engineering advice. Verify all outputs before bids, contracts, or operational commitments.",
-    bullets: [
-      "User-provided inputs drive every result",
-      "No guaranteed margin, savings, or approval",
-      "Professional review may be required for regulated work",
-      "Privacy: free-tier inputs processed in browser unless saved",
-    ],
-  },
-];
-
 const VARIANT_SECTION_IDS: Record<ManifestoPageVariant, readonly string[]> = {
-  manifesto: ALL_SECTIONS.map((s) => s.id),
+  manifesto: ["who", "what", "for-whom", "replaces", "losses", "dual-intelligence", "trust-trace", "responsibility"],
   about: ["who", "what", "for-whom", "replaces"],
   methodology: ["dual-intelligence", "trust-trace", "losses", "responsibility"],
   trust: ["trust-trace", "dual-intelligence", "responsibility"],
@@ -141,9 +25,38 @@ type ManifestoPageContentProps = {
   readonly variant: ManifestoPageVariant;
   readonly headline: string;
   readonly lead: string;
+  readonly locale: string;
 };
 
-export async function ManifestoPageContent({ variant, headline, lead }: ManifestoPageContentProps) {
+export async function ManifestoPageContent({ variant, headline, lead, locale }: ManifestoPageContentProps) {
+  const t = await getTranslations({ locale, namespace: "manifestoComponent" });
+
+  const sectionData = t.raw("allSections") as Array<{
+    id: string;
+    titleKey: string;
+    bodyKey: string;
+    bulletKeys: string[];
+  }>;
+  const cardsData = t.raw("aboutCards") as Array<{
+    id: string;
+    titleKey: string;
+    bodyKey: string;
+  }>;
+
+  const ABOUT_CARDS = cardsData.map((card) => ({
+    id: card.id,
+    title: t(card.titleKey),
+    body: t(card.bodyKey),
+    icon: card.id === "mission" ? Target : card.id === "vision" ? Eye : Users,
+  }));
+
+  const ALL_SECTIONS: Section[] = sectionData.map((section) => ({
+    id: section.id,
+    title: t(section.titleKey),
+    body: t(section.bodyKey),
+    bullets: section.bulletKeys.map((key: string) => t(key)),
+  }));
+
   const sectionIds = new Set(VARIANT_SECTION_IDS[variant]);
   const sections = ALL_SECTIONS.filter((section) => sectionIds.has(section.id));
 
@@ -151,7 +64,7 @@ export async function ManifestoPageContent({ variant, headline, lead }: Manifest
     <PageLayout>
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <p className="sc-craft-eyebrow">SectorCalc</p>
+          <p className="sc-craft-eyebrow">{t("eyebrow")}</p>
           <h1 className="sc-craft-headline">{headline}</h1>
           <p className="sc-craft-lead max-w-3xl">{lead}</p>
         </Container>

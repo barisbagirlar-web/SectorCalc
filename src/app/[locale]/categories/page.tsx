@@ -8,19 +8,22 @@ import { getCachedCategoryPageCatalogGroups } from "@/lib/catalog/cached-catalog
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return createPageMetadata({
-    title: "Calculator Categories",
-    description:
-      "Browse SectorCalc tools by function: OEE, scrap, routing, calibration, energy, margin and more.",
-    path: "/categories",
-  });
-}
+import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "categoriesPage" });
+  return createPageMetadata({
+    title: t("meta.title"),
+    description: t("meta.description"),
+    path: "/categories",
+    locale: locale as AppLocale,
+  });
+}
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -29,12 +32,13 @@ export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
+  const tPage = await getTranslations("categoriesPage");
   const groups = getCachedCategoryPageCatalogGroups(locale);
   const jsonLd = [
     buildBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Categories", path: "/categories" },
+        { name: tPage("breadcrumbHome"), path: "/" },
+        { name: tPage("breadcrumbCategories"), path: "/categories" },
       ],
       locale
     ),
@@ -42,7 +46,7 @@ export default async function CategoriesPage({ params }: PageProps) {
       groups.flatMap((group) =>
         group.items.map((item) => ({ name: item.title, path: item.href }))
       ),
-      "Calculator categories",
+      tPage("itemListName"),
       locale
     ),
   ];

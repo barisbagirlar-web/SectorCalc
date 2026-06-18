@@ -19,10 +19,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "benchmarksPage" });
   return createPageMetadata({
-    title: "Industry Benchmark Intelligence",
-    description:
-      "Compare your operational efficiency score against anonymized sector benchmark pools. Industry average baseline and top-performer signals.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/benchmarks",
     locale: locale as AppLocale,
   });
@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BenchmarksHubPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("benchmarksPage");
   const appLocale = await getLocale();
   const tSector = await getTranslations(MANUFACTURING_OS_I18N_NS);
   const keys = listSectorRegistryKeys();
@@ -41,23 +42,23 @@ export default async function BenchmarksHubPage({ params }: PageProps) {
         <div className="ind-os-container">
           <section className="ind-os-section ind-os-section--hero" aria-labelledby="benchmarks-heading">
             <SemanticSummary
-              title="What are SectorCalc industry benchmarks?"
-              answer={`SectorCalc merges anonymized audit scores into per-sector pools. When your pool is empty, comparisons use a statistical default baseline (${DEFAULT_INDUSTRY_BENCHMARK}/100). No raw operational data leaves your session.`}
+              title={t("semanticTitle")}
+              answer={`${t("semanticAnswer")} (${DEFAULT_INDUSTRY_BENCHMARK}/100).`}
               bullets={[
-                "Efficiency score 0–100 from U-Engine",
-                "Sector-specific Smart Module context",
-                "Run any audit to contribute & compare",
+                t("semanticBullet1"),
+                t("semanticBullet2"),
+                t("semanticBullet3"),
               ]}
             />
-            <p className="ind-os-eyebrow">Intelligence Layer</p>
+            <p className="ind-os-eyebrow">{t("eyebrow")}</p>
             <h1 id="benchmarks-heading" className="ind-os-headline">
-              Industry Benchmarks
+              {t("headline")}
             </h1>
           </section>
 
           <section className="ind-os-section" aria-labelledby="benchmark-sectors-heading">
             <h2 id="benchmark-sectors-heading" className="ind-os-section-title">
-              Sector pools
+              {t("sectorsTitle")}
             </h2>
             <div className="ind-os-list">
               <ul>
@@ -70,7 +71,7 @@ export default async function BenchmarksHubPage({ params }: PageProps) {
                       <HubLink href={`/audit/${key}`} className="ind-os-list-row">
                         <span className="ind-os-list-row__title">{title}</span>
                         <span className="ind-os-list-row__action">
-                          Open
+                          {t("openLabel")}
                           <ChevronRight className="h-3 w-3" aria-hidden />
                         </span>
                       </HubLink>
@@ -86,7 +87,7 @@ export default async function BenchmarksHubPage({ params }: PageProps) {
               href="/audit"
               className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
             >
-              ← Master Audit Hub
+              {t("backLink")}
             </HubLink>
           </nav>
         </div>

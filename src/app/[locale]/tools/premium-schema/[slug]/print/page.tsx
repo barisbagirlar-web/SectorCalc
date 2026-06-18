@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PremiumPrintReportShell } from "@/components/reports/PremiumPrintReportShell";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -29,10 +29,12 @@ export async function generateMetadata({
     return {};
   }
 
+  const t = await getTranslations({ locale, namespace: "premiumSchemaPrintPage" });
+
   return {
     ...createPageMetadata({
-      title: `${schema.name} — Print Report | SectorCalc`,
-      description: `Print-ready premium decision report for ${schema.name}.`,
+      title: t("meta.title", { name: schema.name }),
+      description: t("meta.description", { name: schema.name }),
       path: `/tools/premium-schema/${schema.id}/print`,
       locale: locale as AppLocale,
     }),

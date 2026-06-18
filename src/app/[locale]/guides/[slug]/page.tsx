@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { GuideAuthorByline } from "@/components/guides/GuideAuthorByline";
@@ -72,7 +72,7 @@ export async function generateMetadata({
   });
 }
 
-function buildGuideJsonLd(guide: AuthorityGuide, locale: string): JsonLdRecord[] {
+function buildGuideJsonLd(guide: AuthorityGuide, locale: string, homeLabel: string, guidesLabel: string): JsonLdRecord[] {
   const freeItems = guide.relatedFreeToolSlugs
     .map((slug) => {
       const tool = getFreeTrafficToolBySlug(slug);
@@ -96,8 +96,8 @@ function buildGuideJsonLd(guide: AuthorityGuide, locale: string): JsonLdRecord[]
   const graphs: JsonLdRecord[] = [
     buildBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Guides", path: "/guides" },
+        { name: homeLabel, path: "/" },
+        { name: guidesLabel, path: "/guides" },
         { name: guide.title, path: getAuthorityGuideRoutePath(guide.slug) },
       ],
       locale,
@@ -141,12 +141,14 @@ export default async function AuthorityGuidePage({
   const { slug, locale } = await params;
   setRequestLocale(locale);
 
+  const tGuides = await getTranslations({ locale, namespace: "seoPage" });
+
   const guide = getAuthorityGuideBySlug(slug);
   if (!guide) {
     notFound();
   }
 
-  const jsonLd = buildGuideJsonLd(guide, locale);
+  const jsonLd = buildGuideJsonLd(guide, locale, tGuides("breadcrumbHome"), tGuides("breadcrumbGuides"));
   const seoHubSlug = getSeoHubSlugForGuide(guide);
   const industryPath = getIndustryPathForGuide(guide);
 
@@ -159,20 +161,20 @@ export default async function AuthorityGuidePage({
             <ol className="flex flex-wrap items-center gap-1">
               <li>
                 <Link href="/" className="underline underline-offset-2 hover:text-premium-velvet">
-                  Home
+                  {tGuides("breadcrumbHome")}
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
                 <Link href={`/seo/${seoHubSlug}`} className="underline underline-offset-2 hover:text-premium-velvet">
-                  Guides
+                  {tGuides("breadcrumbGuides")}
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li className="text-premium-velvet">{guide.title}</li>
             </ol>
           </nav>
-          <p className="sc-pro-eyebrow">SectorCalc authority guide</p>
+          <p className="sc-pro-eyebrow">{tGuides("authorityGuideEyebrow")}</p>
           <h1 className="sc-pro-title">{guide.h1}</h1>
           <GuideAuthorByline locale={locale as AppLocale} />
         </Container>
@@ -202,7 +204,7 @@ export default async function AuthorityGuidePage({
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">Related free calculators</h2>
+          <h2 className="sc-pro-headline text-lg">{tGuides("relatedFreeCalculators")}</h2>
           <ul className="mt-3 flex flex-wrap gap-3">
             {guide.relatedFreeToolSlugs.map((toolSlug) => {
               const tool = getFreeTrafficToolBySlug(toolSlug);
@@ -226,7 +228,7 @@ export default async function AuthorityGuidePage({
 
       <section className="sc-pro-section">
         <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">Related premium calculators</h2>
+          <h2 className="sc-pro-headline text-lg">{tGuides("relatedPremiumCalculators")}</h2>
           <ul className="mt-3 flex flex-wrap gap-3">
             {guide.relatedPremiumSchemaSlugs.map((premiumSlug) => {
               const schema = getPremiumSchemaBySlug(premiumSlug);
@@ -250,31 +252,31 @@ export default async function AuthorityGuidePage({
 
       <section className="sc-pro-section sc-pro-section--alt">
         <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">Explore further</h2>
+          <h2 className="sc-pro-headline text-lg">{tGuides("exploreFurther")}</h2>
           <ul className="mt-3 flex flex-wrap gap-3 text-sm">
             <li>
               <Link href={`/seo/${seoHubSlug}`} className="sc-crawl-index__link">
-                SEO hub
+                {tGuides("seoHub")}
               </Link>
             </li>
             <li>
               <Link href="/categories" className="sc-crawl-index__link">
-                Categories
+                {tGuides("categories")}
               </Link>
             </li>
             <li>
               <Link href={industryPath} className="sc-crawl-index__link">
-                Industry page
+                {tGuides("industryPage")}
               </Link>
             </li>
             <li>
               <Link href="/industries" className="sc-crawl-index__link">
-                All industries
+                {tGuides("allIndustries")}
               </Link>
             </li>
             <li>
               <Link href="/pricing" className="sc-crawl-index__link">
-                Pricing
+                {tGuides("pricing")}
               </Link>
             </li>
           </ul>
@@ -284,7 +286,7 @@ export default async function AuthorityGuidePage({
       {guide.faq.length > 0 ? (
         <section className="sc-pro-section sc-pro-section--border">
           <Container className="sc-pro-container min-w-0">
-            <h2 className="sc-pro-headline text-lg">FAQ</h2>
+            <h2 className="sc-pro-headline text-lg">{tGuides("faq")}</h2>
             <dl className="mt-4 space-y-4">
               {guide.faq.map((item) => (
                 <div key={item.question}>
@@ -301,18 +303,17 @@ export default async function AuthorityGuidePage({
         <Container className="sc-pro-container min-w-0">
           <div className="flex flex-wrap gap-3">
             <Link href="/free-tools" className="sc-cta-primary min-h-[44px] inline-flex items-center px-4">
-              Start with free calculators
+              {tGuides("startFree")}
             </Link>
             <Link
               href="/premium-tools"
               className="sc-craft-card__cta min-h-[44px] inline-flex items-center px-4"
             >
-              View premium calculators
+              {tGuides("viewPremium")}
             </Link>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-body-charcoal">
-            SectorCalc guides are technical decision-support resources based on standard formulas and
-            transparent assumptions. They are not financial, legal, medical or engineering advice.
+            {tGuides("legalFooter")}
           </p>
         </Container>
       </section>

@@ -20,10 +20,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "sustainabilityPage" });
   return createPageMetadata({
-    title: "Sustainability & CBAM Compliance Suite",
-    description:
-      "Carbon footprint tracking, CBAM import cost proxies, and EU compliance intelligence for metalworking, textile, energy, and industrial sectors.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/sustainability",
     locale: locale as AppLocale,
   });
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function SustainabilityHubPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("sustainabilityPage");
   const appLocale = await getLocale();
   const tSector = await getTranslations(MANUFACTURING_OS_I18N_NS);
   const carbonSectors = listSectorRegistryKeys().filter((key) =>
@@ -44,24 +45,24 @@ export default async function SustainabilityHubPage({ params }: PageProps) {
         <div className="ind-os-container">
           <section className="ind-os-section ind-os-section--hero" aria-labelledby="sustainability-heading">
             <SemanticSummary
-              title="What is SectorCalc CBAM & Carbon tracking?"
-              answer="SectorCalc Intelligence Layer applies sector emission factors to operational usage metrics, producing kg CO₂e proxies and CBAM-ready audit trails. Link industrial efficiency to sustainability compliance without separate ERP modules."
+              title={t("semanticTitle")}
+              answer={t("semanticAnswer")}
               bullets={[
-                "CBAM & Carbon Tracker Smart Module",
-                "Integrated with MasterOS audit pipeline",
-                "Cite Hidden Loss + carbon for full margin picture",
+                t("semanticBullet1"),
+                t("semanticBullet2"),
+                t("semanticBullet3"),
               ]}
             />
-            <p className="ind-os-eyebrow">Compliance</p>
+            <p className="ind-os-eyebrow">{t("eyebrow")}</p>
             <h1 id="sustainability-heading" className="ind-os-headline">
-              Sustainability / CBAM Suite
+              {t("headline")}
             </h1>
-            <p className="ind-os-lead">Sectors with carbon_cbam Smart Module</p>
+            <p className="ind-os-lead">{t("lead")}</p>
           </section>
 
           <section className="ind-os-section" aria-labelledby="carbon-sectors-heading">
             <h2 id="carbon-sectors-heading" className="ind-os-section-title">
-              CBAM-enabled sectors
+              {t("sectorsTitle")}
             </h2>
             <div className="ind-os-list">
               <ul>
@@ -74,7 +75,7 @@ export default async function SustainabilityHubPage({ params }: PageProps) {
                       <HubLink href={`/audit/${key}`} className="ind-os-list-row">
                         <span className="ind-os-list-row__title">{title}</span>
                         <span className="ind-os-list-row__action">
-                          Audit
+                          {t("auditLabel")}
                           <ChevronRight className="h-3 w-3" aria-hidden />
                         </span>
                       </HubLink>
@@ -93,13 +94,13 @@ export default async function SustainabilityHubPage({ params }: PageProps) {
               href="/audit"
               className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
             >
-              Audit Hub →
+              {t("auditHub")}
             </HubLink>
             <HubLink
               href="/benchmarks"
               className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
             >
-              Benchmarks →
+              {t("benchmarks")}
             </HubLink>
           </nav>
         </div>

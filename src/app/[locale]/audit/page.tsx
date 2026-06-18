@@ -20,10 +20,10 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "auditPage" });
   return createPageMetadata({
-    title: "Master Audit Engine — 27 Industrial Sectors",
-    description:
-      "Run operational audits across CNC, logistics, construction, agriculture, and 23 more sectors. U-Engine diagnostics, hidden loss detection, industry benchmarks.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/audit",
     locale: locale as AppLocale,
   });
@@ -32,7 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function AuditHubPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("auditHub");
+  const t = await getTranslations("auditPage");
+  const tHub = await getTranslations("auditHub");
   const tHome = await getTranslations("industrialHome");
   const tSector = await getTranslations(MANUFACTURING_OS_I18N_NS);
   const appLocale = await getLocale();
@@ -44,19 +45,19 @@ export default async function AuditHubPage({ params }: PageProps) {
         <div className="ind-os-container">
           <section className="ind-os-section ind-os-section--hero" aria-labelledby="audit-hub-heading">
             <SemanticSummary
-              title="What is the SectorCalc Master Audit Engine?"
-              answer="SectorCalc Master Audit Engine is a registry-driven industrial intelligence pipeline: JSON-configured sectors, U-Engine formula execution, anonymized benchmarking, and AI-ready prescriptions for hidden loss and carbon compliance."
+              title={t("semanticTitle")}
+              answer={t("semanticAnswer")}
               bullets={[
-                "27 sectors · Smart Modules per industry",
-                "3-step model: diagnose → quantify hidden loss → benchmark",
-                "No ERP required · Industrial-grade UX",
+                t("semanticBullet1"),
+                t("semanticBullet2"),
+                t("semanticBullet3"),
               ]}
             />
-            <p className="ind-os-eyebrow">{t("eyebrow")}</p>
+            <p className="ind-os-eyebrow">{tHub("eyebrow")}</p>
             <h1 id="audit-hub-heading" className="ind-os-headline">
-              {t("title")}
+              {tHub("title")}
             </h1>
-            <p className="ind-os-lead">{t("subtitle")}</p>
+            <p className="ind-os-lead">{tHub("subtitle")}</p>
           </section>
 
           <section className="ind-os-section" aria-labelledby="audit-sectors-heading">
@@ -89,13 +90,13 @@ export default async function AuditHubPage({ params }: PageProps) {
               href="/benchmarks"
               className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
             >
-              Benchmarks →
+              {t("benchmarksLink")}
             </HubLink>
             <HubLink
               href="/sustainability"
               className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
             >
-              CBAM Suite →
+              {t("cbamLink")}
             </HubLink>
           </nav>
         </div>

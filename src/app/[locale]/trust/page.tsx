@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ManifestoPageContent } from "@/components/manifesto/ManifestoPageContent";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
@@ -8,10 +8,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "trustPage" });
   return createPageMetadata({
-    title: "Calculation Governance — SectorCalc",
-    description:
-      "Calculation summary metadata, validation coverage, and governed export foundations. SectorCalc documents how results were derived — not a substitute for official documents.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/trust",
     locale: locale as AppLocale,
   });
@@ -20,12 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function TrustPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("trustPage");
 
   return (
     <ManifestoPageContent
       variant="trust"
-      headline="Calculation Governance"
-      lead="Every governed result can carry a calculation summary: canonical inputs, formula contract reference, validation status, and export-ready decision context."
+      headline={t("headline")}
+      lead={t("lead")}
+      locale={locale}
     />
   );
 }

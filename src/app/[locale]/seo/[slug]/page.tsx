@@ -100,6 +100,8 @@ export default async function ProgrammaticSeoPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "seoPage" });
+
   const premiumLanding = getPremiumToolSeoLandingBySlug(slug, locale);
   if (premiumLanding) {
     return <PremiumToolSeoLandingView landing={premiumLanding} locale={locale} />;
@@ -117,7 +119,7 @@ export default async function ProgrammaticSeoPage({
   const jsonLd = [
     buildBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
+        { name: t("breadcrumbHome"), path: "/" },
         { name: page.title, path: `/seo/${page.slug}` },
       ],
       locale
@@ -130,7 +132,7 @@ export default async function ProgrammaticSeoPage({
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
         <Container className="sc-pro-container">
-          <p className="sc-pro-eyebrow">SectorCalc guides</p>
+          <p className="sc-pro-eyebrow">{t("guidesEyebrow")}</p>
           <h1 className="sc-pro-title">{page.title}</h1>
           <p className="sc-pro-lead">{page.intro}</p>
         </Container>
@@ -138,7 +140,7 @@ export default async function ProgrammaticSeoPage({
 
       <section className="sc-pro-section sc-pro-section--alt">
         <Container className="sc-pro-container">
-          <h2 className="sc-pro-headline text-lg">What this page helps you calculate</h2>
+          <h2 className="sc-pro-headline text-lg">{t("whatYouCalculate")}</h2>
           <p className="mt-3 text-sm leading-relaxed text-body-charcoal">{page.helpsYouCalculate}</p>
         </Container>
       </section>
@@ -166,7 +168,7 @@ export default async function ProgrammaticSeoPage({
       {page.faq.length > 0 ? (
         <section className="sc-pro-section">
           <Container className="sc-pro-container">
-            <h2 className="sc-pro-headline text-lg">FAQ</h2>
+            <h2 className="sc-pro-headline text-lg">{t("faq")}</h2>
             <dl className="mt-4 space-y-4">
               {page.faq.map((item) => (
                 <div key={item.question}>
@@ -182,7 +184,7 @@ export default async function ProgrammaticSeoPage({
       {relatedPages.length > 0 ? (
         <section className="sc-pro-section sc-pro-section--alt">
           <Container className="sc-pro-container">
-            <h2 className="sc-pro-headline text-lg">Related guides</h2>
+            <h2 className="sc-pro-headline text-lg">{t("relatedGuides")}</h2>
             <ul className="mt-3 flex flex-wrap gap-3">
               {relatedPages.map((related) => (
                 <li key={related.slug}>
@@ -198,7 +200,7 @@ export default async function ProgrammaticSeoPage({
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container className="sc-pro-container">
-          <CrawlIndexLinkList title="SEO hub index" groups={buildSeoHubCrawlGroups()} />
+          <CrawlIndexLinkList title={t("seoHubIndex")} groups={buildSeoHubCrawlGroups()} />
         </Container>
       </section>
     </PageLayout>

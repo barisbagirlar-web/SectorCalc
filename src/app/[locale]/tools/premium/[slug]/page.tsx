@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -64,9 +64,10 @@ export async function generateMetadata({
 
   const displayName = resolveGeneratedToolTitle(resolvedSlug, schema, locale);
   const displayDescription = resolveGeneratedToolDescription(resolvedSlug, schema, locale);
+  const t = await getTranslations({ locale, namespace: "premiumToolPage" });
 
   return createPageMetadata({
-    title: `${displayName} | SectorCalc Pro`,
+    title: `${displayName}${t("metaTitleSuffix")}`,
     description: displayDescription,
     path: `/tools/premium/${slug}`,
     locale: locale as AppLocale,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustryPageContent } from "@/components/pages/IndustryPageContent";
 import { getIndustryBySlug } from "@/data/industries";
@@ -37,11 +37,12 @@ export async function generateMetadata({
  return {};
  }
 
+ const t = await getTranslations({ locale, namespace: "industriesSlugPage" });
  const localizedHub = getLocalizedIndustryHub(slug, locale);
- const title = localizedHub?.hubTitle ?? `${industry.name} Cost & Margin Tools`;
+ const title = localizedHub?.hubTitle ?? t("metaTitleFallback", { name: industry.name });
  const description =
  localizedHub?.painStatement ??
- `Use SectorCalc tools to check ${industry.name} cost risk, bid margin and hidden profit leaks before accepting work.`;
+ t("metaDescriptionFallback", { name: industry.name });
 
  return createPageMetadata({
  title,

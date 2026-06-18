@@ -1,33 +1,39 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SavedReportDetailContent } from "@/components/reports/SavedReportDetailContent";
 import { createPageMetadata } from "@/lib/metadata";
+import type { AppLocale } from "@/i18n/routing";
 
 interface SavedReportPageParams {
- reportId: string;
+  reportId: string;
+  locale: string;
 }
 
 export async function generateMetadata({
- params,
+  params,
 }: {
- params: Promise<SavedReportPageParams>;
+  params: Promise<SavedReportPageParams>;
 }): Promise<Metadata> {
- const { reportId } = await params;
+  const { reportId, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "accountReportDetailPage" });
 
- return {
- ...createPageMetadata({
- title: "Saved Report",
- description: "View a saved SectorCalc Pro verdict report.",
- path: `/account/reports/${reportId}`,
- }),
- robots: { index: false, follow: false },
- };
+  return {
+    ...createPageMetadata({
+      title: t("meta.title"),
+      description: t("meta.description"),
+      path: `/account/reports/${reportId}`,
+      locale: locale as AppLocale,
+    }),
+    robots: { index: false, follow: false } as const,
+  };
 }
 
 export default async function SavedReportPage({
- params,
+  params,
 }: {
- params: Promise<SavedReportPageParams>;
+  params: Promise<SavedReportPageParams>;
 }) {
- const { reportId } = await params;
- return <SavedReportDetailContent reportId={reportId} />;
+  const { reportId, locale } = await params;
+  setRequestLocale(locale);
+  return <SavedReportDetailContent reportId={reportId} />;
 }

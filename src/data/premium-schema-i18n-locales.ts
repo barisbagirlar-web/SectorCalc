@@ -277,6 +277,16 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "Ohne Mengen-Schwellenwert wird die falsche Fertigungsmethode gewählt.",
   },
+  "cbam-exposure-quick-check": {
+    title: "CBAM-Expositions-Schnellprüfung",
+    painStatement:
+      "Eingebettete Emissionen, Zertifikatspreis und Wechselkurs – ohne kombinierte Betrachtung bleibt die CBAM-Kostenprognose unvollständig.",
+  },
+  "cbam-compliance-verdict": {
+    title: "CBAM-Konformitäts-Vorbereitungsbewertung",
+    painStatement:
+      "Ohne gemeinsame Messung von erklärten Emissionen, Zertifikatsabdeckung und Datenvollständigkeit wird das CBAM-Vorbereitungsrisiko zu spät erkannt.",
+  },
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
     painStatement:
@@ -553,6 +563,16 @@ export const FR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "Calculateur seuil de rentabilité 3D vs usinage",
     painStatement:
       "Sans quantité seuil, la mauvaise méthode de fabrication est choisie.",
+  },
+  "cbam-exposure-quick-check": {
+    title: "Vérification rapide d'exposition CBAM",
+    painStatement:
+      "Émissions incorporées, prix du certificat et taux de change – sans combinaison, le coût CBAM reste sous-estimé.",
+  },
+  "cbam-compliance-verdict": {
+    title: "Évaluation de préparation à la conformité CBAM",
+    painStatement:
+      "Sans mesure conjointe des émissions déclarées, couverture des certificats et complétude des données, le risque de préparation CBAM est détecté trop tard.",
   },
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "Calculateur d'impact monétaire des 7 gaspillages (Muda)",
@@ -831,6 +851,16 @@ export const ES_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "Sin cantidad umbral se elige el método de fabricación incorrecto.",
   },
+  "cbam-exposure-quick-check": {
+    title: "Verificación rápida de exposición CBAM",
+    painStatement:
+      "Emisiones incorporadas, precio del certificado y tipo de cambio – sin combinarlos, el costo CBAM queda incompleto.",
+  },
+  "cbam-compliance-verdict": {
+    title: "Evaluación de preparación para cumplimiento CBAM",
+    painStatement:
+      "Sin medir conjuntamente emisiones declaradas, cobertura de certificados e integridad de datos, el riesgo de preparación CBAM se detecta tarde.",
+  },
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "Calculadora de impacto monetario de los 7 desperdicios (Muda)",
     painStatement:
@@ -1107,6 +1137,16 @@ export const AR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "حاسبة نقطة التعادل بين الطباعة ثلاثية الأبعاد والتشغيل الآلي",
     painStatement:
       "بدون كمية عتبة يُختار أسلوب التصنيع الخاطئ.",
+  },
+  "cbam-exposure-quick-check": {
+    title: "فحص سريع للتعرض لآلية تعديل الحدود الكربونية",
+    painStatement:
+      "الانبعاثات المضمنة وسعر الشهادة وسعر الصرف – بدون دمجها تبقى تكلفة آلية تعديل الحدود الكربونية غير مكتملة.",
+  },
+  "cbam-compliance-verdict": {
+    title: "تقييم جاهزية الامتثال لآلية تعديل الحدود الكربونية",
+    painStatement:
+      "بدون قياس مشترك للانبعاثات المصرح بها وتغطية الشهادات واكتمال البيانات، يُكتشف خطر جاهزية آلية تعديل الحدود الكربونية بعد فوات الأوان.",
   },
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "حاسبة الأثر المالي لسبعة أنواع الهدر (مودا)",

@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { CncQuoteRiskLanding } from "@/components/launch/CncQuoteRiskLanding";
 import { createPageMetadata } from "@/lib/metadata";
+import type { AppLocale } from "@/i18n/routing";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = createPageMetadata({
- title: "CNC Quote Risk Calculator",
- description:
- "Spot underpriced CNC jobs before they kill your margin. Run a free machine time check, then unlock safe price verdicts with SectorCalc Pro.",
- path: "/cnc-quote-risk",
-});
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-export default function CncQuoteRiskPage() {
- return <CncQuoteRiskLanding />;
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "cncQuoteRiskPage" });
+  return createPageMetadata({
+    title: t("meta.title"),
+    description: t("meta.description"),
+    path: "/cnc-quote-risk",
+    locale: locale as AppLocale,
+  });
+}
+
+export default async function CncQuoteRiskPage({ params }: PageProps) {
+  const { locale } = await params;
+  return <CncQuoteRiskLanding />;
 }

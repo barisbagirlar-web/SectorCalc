@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ManifestoPageContent } from "@/components/manifesto/ManifestoPageContent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
@@ -10,10 +10,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "aboutPage" });
   return createPageMetadata({
-    title: "About SectorCalc",
-    description:
-      "Who SectorCalc serves, what we build, and what we replace — spreadsheet guesswork and ad-hoc calculators, not enterprise ERP platforms.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     path: "/about",
     locale: locale as AppLocale,
   });
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-
+  const t = await getTranslations("aboutPage");
   const authorityJsonLd = buildAboutPageAuthorityJsonLd(locale as AppLocale);
 
   return (
@@ -30,8 +30,9 @@ export default async function AboutPage({ params }: PageProps) {
       <JsonLd data={authorityJsonLd} />
       <ManifestoPageContent
         variant="about"
-        headline="About SectorCalc"
-        lead="Decision tools for sector operators who need visible loss, structured inputs, and export-ready reports without hiring a full pricing desk."
+        headline={t("hero.title")}
+        lead={t("hero.lead")}
+        locale={locale}
       />
     </>
   );
