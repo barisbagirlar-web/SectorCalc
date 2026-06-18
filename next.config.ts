@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
     staticGenerationRetryCount: 5,
     // Avoid SSG worker batching races (missing page.js) on large locale trees.
     workerThreads: false,
-    cpus: 2,
+    cpus: 1,
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 50,
   },
