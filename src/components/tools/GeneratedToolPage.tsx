@@ -145,13 +145,12 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
     [schema, slug],
   );
 
-  const handleCalculate = async (values: Record<string, unknown>) => {
+  const handleCalculate = (values: Record<string, unknown>) => {
     if (!calculator) {
       return;
     }
     setLastInputs(values);
-    const calcResult = await runGeneratedToolCalculation(calculator, values);
-    setResult(calcResult);
+    setResult(runGeneratedToolCalculation(calculator, values));
   };
 
   if (loading) {
@@ -238,11 +237,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
           breakdownInputs={lastInputs}
           breakdownLabelMap={schema.outputs.breakdown}
           scenarioComparison={{
-            calculateFn: async (values) => {
-              const c = calculator;
-              if (!c) return null as unknown as GeneratedToolResult;
-              return await runGeneratedToolCalculation(c, values);
-            },
+            calculateFn: (values) => runGeneratedToolCalculation(calculator, values),
             primaryOutputKey: primaryKey,
             enabled: schema.premiumFeatures.some((feature) =>
               /scenario|what-if/i.test(feature),

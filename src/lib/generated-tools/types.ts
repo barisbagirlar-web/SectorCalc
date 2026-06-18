@@ -131,7 +131,7 @@ export type TrustGateStatus = "PASS" | "WARN" | "FAIL" | "RUNTIME_FAIL" | "QUARA
 
 export type GeneratedCalculatorModule = {
   readonly inputSchema: import("zod").ZodTypeAny;
-  readonly calculate: (input: Record<string, unknown>) => GeneratedToolResult | Promise<GeneratedToolResult>;
+  readonly calculate: (input: Record<string, unknown>) => GeneratedToolResult;
   readonly trustStatus?: TrustGateStatus;
 };
 

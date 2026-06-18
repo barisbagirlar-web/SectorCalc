@@ -61,10 +61,9 @@ export function useToolSchema(slug: string, _schema: GeneratedToolSchema): UseTo
   };
 }
 
-export async function runGeneratedToolCalculation(
+export function runGeneratedToolCalculation(
   calculator: GeneratedCalculatorModule,
   input: Record<string, unknown>,
-): Promise<GeneratedToolResult> {
-  const result = calculator.calculate(input);
-  return result instanceof Promise ? await result : result;
+): GeneratedToolResult {
+  return calculator.calculate(input);
 }

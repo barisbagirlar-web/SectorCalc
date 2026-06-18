@@ -79,10 +79,9 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   const isQuarantine = trustStatus === "QUARANTINE";
 
-  const handleCalculate = async (values: Record<string, unknown>) => {
+  const handleCalculate = (values: Record<string, unknown>) => {
     setLastInputs(values);
-    const calcResult = await runGeneratedToolCalculation(calculator, values);
-    setResult(calcResult);
+    setResult(runGeneratedToolCalculation(calculator, values));
   };
 
   const primaryRaw = result?.[primaryOutputKey];

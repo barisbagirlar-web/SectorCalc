@@ -56,12 +56,12 @@ export async function loadClientCalculator(
       return null;
     }
 
-    // Wrap calculate with Trust Trace
-    const wrappedCalculate = async (
+    // Wrap calculate with Trust Trace (synchronous hash)
+    const wrappedCalculate = (
       input: Record<string, unknown>,
-    ): Promise<GeneratedToolResult> => {
+    ): GeneratedToolResult => {
       const rawResult = (calculate as (input: Record<string, unknown>) => GeneratedToolResult)(input);
-      return await wrapWithTrustTrace(rawResult);
+      return wrapWithTrustTrace(rawResult);
     };
 
     return {
