@@ -1,6 +1,6 @@
 import { compileFormulaScriptFallback } from "@/lib/generated-tools/compile-formula-script";
 import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
-import { FormulaFailureAccumulator } from "@/lib/generated-tools/formula-failure-catalog";
+import { FormulaFailureAccumulator, type FormulaFailureCategory } from "@/lib/generated-tools/formula-failure-catalog";
 import {
   categorizeCompileFailure,
   validateFormulaAst,
@@ -609,7 +609,7 @@ export function compileFormulaExpression(
  * Internal helper to log compilation failures to the accumulator when available.
  */
 function logCompileFailure(
-  category: string,
+  category: FormulaFailureCategory | "UNKNOWN",
   rawExpression: string,
   detail: string,
   options: {
@@ -622,7 +622,7 @@ function logCompileFailure(
     options.failureAccumulator.add(
       options.schemaSlugForLog ?? "unknown",
       options.selfKey ?? "unknown",
-      category as never,
+      category,
       rawExpression,
       detail,
     );

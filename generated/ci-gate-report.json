@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "steelcore": {
+    "valid": 3088,
+    "total": 3272,
+    "passRate": 0.9437652811735942,
+    "threshold": 0.9,
+    "ok": true
+  },
+  "golden": {
+    "passed": 3272,
+    "total": 3272,
+    "failed": 0,
+    "totalIssues": 618,
+    "errorSlugs": [],
+    "ok": true
+  },
+  "message": "CI GATE PASSED — All quality checks passed"
+}

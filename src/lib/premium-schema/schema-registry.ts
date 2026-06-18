@@ -31,17 +31,17 @@ export function listPremiumSchemaIds(): readonly string[] {
   return PREMIUM_CALCULATOR_SCHEMAS.map((schema) => schema.id);
 }
 
-export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchema | undefined {
+export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchema | null {
   const normalized = slug.trim();
   return PREMIUM_CALCULATOR_SCHEMAS.find(
     (schema) => schema.id === normalized || schema.legacyPaidSlug === normalized,
-  );
+  ) ?? null;
 }
 
-export function getPremiumSchemaForPaidSlug(paidSlug: string): PremiumCalculatorSchema | undefined {
+export function getPremiumSchemaForPaidSlug(paidSlug: string): PremiumCalculatorSchema | null {
   const schemaId = PREMIUM_SCHEMA_SLUG_MAP[paidSlug.trim()];
   if (!schemaId) {
-    return undefined;
+    return null;
   }
   return getPremiumCalculatorSchema(schemaId);
 }

@@ -66,9 +66,12 @@ export async function loadClientCalculator(
 
     return {
       inputSchema: inputSchema as GeneratedCalculatorModule["inputSchema"],
-      calculate: wrappedCalculate as unknown as GeneratedCalculatorModule["calculate"],
+      calculate: wrappedCalculate as GeneratedCalculatorModule["calculate"],
     };
-  } catch {
+  } catch (e) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(`[CalculatorLoader] Dynamic import failed:`, e);
+    }
     return null;
   }
 }

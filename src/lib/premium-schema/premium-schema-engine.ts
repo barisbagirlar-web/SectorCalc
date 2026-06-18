@@ -271,6 +271,9 @@ function runPremiumSchemaEngineCore(
       const mapped = buildFormulaInputs(step.inputMap, userInputs, computed);
       computed[step.outputId] = formulaFn(mapped);
     } catch {
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(`[SchemaEngine] Formula "${step.formulaId}" failed for schema "${schema.id}"`);
+      }
       computed[step.outputId] = 0;
     }
   }
