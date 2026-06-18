@@ -13,8 +13,8 @@ const SECTION_IDS = [
   "building",
 ] as const;
 
-export async function AboutDetailContent() {
-  const t = await getTranslations("aboutPage");
+export async function AboutDetailContent({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "aboutPage" });
 
   return (
     <PageLayout>
