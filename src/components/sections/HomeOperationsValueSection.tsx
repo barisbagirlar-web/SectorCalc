@@ -1,33 +1,26 @@
-const VALUE_CARDS = [
- {
- title: "Built for real operations",
- description:
- "Manufacturing, service and field teams — not generic spreadsheet users.",
- },
- {
- title: "Includes hidden cost drivers",
- description: "Setup time, waste, labor, capacity and margin risk.",
- },
- {
- title: "Fast reports, lower overhead",
- description: "Get practical decision support without heavy software.",
- },
-] as const;
+import { getTranslations } from "next-intl/server";
 
-export function HomeOperationsValueSection() {
- return (
- <section className="mc-home-operations" aria-labelledby="home-operations-heading">
- <div className="container">
- <h2 id="home-operations-heading">Built for real operations</h2>
- <div className="mc-home-operations-grid">
- {VALUE_CARDS.map((card) => (
- <article key={card.title} className="mc-home-operations-card">
- <h3>{card.title}</h3>
- <p>{card.description}</p>
- </article>
- ))}
- </div>
- </div>
- </section>
- );
+interface HomeOperationsValueSectionProps {
+  locale: string;
+}
+
+export async function HomeOperationsValueSection({ locale }: HomeOperationsValueSectionProps) {
+  const t = await getTranslations({ locale, namespace: "homeOperationsValueSection" });
+  const cardCount = 3;
+
+  return (
+    <section className="mc-home-operations" aria-labelledby="home-operations-heading">
+      <div className="container">
+        <h2 id="home-operations-heading">{t("heading")}</h2>
+        <div className="mc-home-operations-grid">
+          {Array.from({ length: cardCount }, (_, i) => (
+            <article key={i} className="mc-home-operations-card">
+              <h3>{t(`card${i}.title`)}</h3>
+              <p>{t(`card${i}.description`)}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

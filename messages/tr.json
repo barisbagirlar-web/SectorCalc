@@ -1603,7 +1603,7 @@
     },
     "tagline": "Sektöre özel hesaplama ve ölçüm platformu",
     "headline": "Sektörünüz için hesaplayın, ölçün, optimize edin",
-    "headlineAccent": "",
+    "headlineAccent": "Sektör Karar Platformu",
     "lead": "Üretim, lojistik, inşaat, enerji ve günlük hayat — uzman formüller, net sonuçlar, ERP karmaşası yok.",
     "activeModule": "Sektör hesaplayıcısı"
   },
@@ -66770,8 +66770,8 @@
           "summary": "Onarım Süresi Fiyat Kontrolü için girdi rehberi."
         },
         "returnRateProfitErosionTool": {
-          "title": "Return Rate Profit Erosion Tool girdi rehberi",
-          "summary": "Return Rate Profit Erosion Tool için girdi rehberi."
+          "title": "İade Oranı Kâr Aşınma Aracı girdi rehberi",
+          "summary": "İade Oranı Kâr Aşınma Aracı için girdi rehberi."
         },
         "roofingAreaCalculator": {
           "title": "Çatı Alanı Hesaplayıcı",
@@ -67326,7 +67326,7 @@
           "title": "Temizlik ve Hijyen Kimyasal Tüketim Optimizasyon Hesaplayıcı"
         },
         "tileCalculator": {
-          "title": "Fayans Calculator"
+          "title": "Fayans Hesaplayıcı"
         },
         "tirKamyonYukKapasitesiHesaplama": {
           "title": "Tır Kamyon Yük Kapasitesi Hesaplama"
@@ -67593,13 +67593,10 @@
     "submitting": "Gönderiliyor…",
     "success": "Teşekkürler. Geri bildiriminiz incelenmek üzere iletildi.",
     "issueTypes": {
-      "wrong_result": "Sonuç hatalı",
-      "missing_input": "Eksik input",
-      "unit_issue": "Birim sorunu",
-      "unclear_explanation": "Açıklama net değil",
-      "sector_assumption_issue": "Sektör varsayımı sorunu",
-      "improvement_request": "Geliştirme önerisi",
-      "other": "Diğer"
+      "formula-suggestion": "Formül önerisi",
+      "translation-error": "Çeviri hatası",
+      "unit-error": "Birim hatası",
+      "wrong-result": "Yanlış sonuç"
     },
     "error": {
       "submitFailed": "Geri bildirim şu anda gönderilemedi. Lütfen daha sonra tekrar deneyin.",
@@ -68664,13 +68661,13 @@
   },
   "cleaningContractMarginPage": {
     "meta": {
-      "title": "Cleaning Contract Margin — Bid Optimizer",
+      "title": "Temizlik Sözleşme Marjı — Teklif Optimizasyonu",
       "description": "Stop cleaning contracts that lose money every month. Free cost check and premium bid verdict reports for office cleaning."
     }
   },
   "cncQuoteRiskPage": {
     "meta": {
-      "title": "CNC Quote Risk Calculator",
+      "title": "CNC Teklif Risk Hesaplayıcı",
       "description": "Spot underpriced CNC jobs before they kill your margin. Run a free machine time check, then unlock safe price verdicts with SectorCalc Pro."
     }
   },
@@ -68802,5 +68799,14 @@
   },
   "freeToolPrivacyNote": {
     "privacy": "Gizlilik:"
+  },
+  "homeOperationsValueSection": {
+    "heading": "Gerçek operasyonlar için üretildi",
+    "card0.title": "Gerçek operasyonlar için",
+    "card0.description": "Üretim, hizmet ve saha ekipleri — genel elektronik tablo kullanıcıları değil.",
+    "card1.title": "Gizli maliyet sürücülerini içerir",
+    "card1.description": "Kurulum süresi, fire, işçilik, kapasite ve marj riski.",
+    "card2.title": "Hızlı raporlar, düşük genel gider",
+    "card2.description": "Ağır yazılımlar olmadan pratik karar desteği alın."
   }
 }

@@ -4,6 +4,52 @@
 import type { ApprovedReportPayload } from "./types";
 import { buildQrCodeImageUrl } from "./verification";
 
+export interface TrustTraceLabels {
+  readonly htmlLang: string;
+  readonly reportTitle: string;
+  readonly trustTrace: string;
+  readonly scanToVerify: string;
+  readonly validation: string;
+  readonly field: string;
+  readonly value: string;
+  readonly validationStamp: string;
+  readonly calculationHash: string;
+  readonly formulaVersion: string;
+  readonly verifyUrl: string;
+  readonly inputSnapshot: string;
+  readonly resultSnapshot: string;
+  readonly input: string;
+  readonly output: string;
+  readonly reportId: string;
+  readonly issued: string;
+  readonly tool: string;
+  readonly disclaimer: string;
+  readonly issuedStatus: string;
+}
+
+const EN_LABELS: TrustTraceLabels = {
+  htmlLang: "en",
+  reportTitle: "SectorCalc Approved Calculation Report",
+  trustTrace: "Trust Trace",
+  scanToVerify: "Scan to verify this report on SectorCalc.com",
+  validation: "Validation",
+  field: "Field",
+  value: "Value",
+  validationStamp: "Validation Stamp",
+  calculationHash: "Calculation Hash",
+  formulaVersion: "Formula Version",
+  verifyUrl: "Verify URL",
+  inputSnapshot: "Input Snapshot",
+  resultSnapshot: "Result Snapshot",
+  input: "Input",
+  output: "Output",
+  reportId: "Report ID",
+  issued: "Issued",
+  tool: "Tool",
+  disclaimer: "Technical simulation only. Not financial, legal, or engineering advice.",
+  issuedStatus: "ISSUED",
+};
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -25,11 +71,14 @@ function snapshotRows(snapshot: Record<string, unknown>): string {
 /**
  * Build a print-ready HTML representation of an approved report.
  */
-export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
+export function buildApprovedReportHtml(
+  report: ApprovedReportPayload,
+  labels: TrustTraceLabels = EN_LABELS,
+): string {
   const qrImageUrl = buildQrCodeImageUrl(report.qrTargetUrl, 140);
   return (
     "<!DOCTYPE html>\n" +
-    '<html lang="en">\n' +
+    `<html lang="${escapeHtml(labels.htmlLang)}">\n` +
     "<head>\n" +
     '<meta charset="UTF-8" />\n' +
     '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n' +
@@ -51,56 +100,57 @@ export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
     "</style>\n" +
     "</head>\n" +
     "<body>\n" +
-    "<h1>SectorCalc Approved Calculation Report</h1>\n" +
+    `<h1>${escapeHtml(labels.reportTitle)}</h1>\n` +
     '<p class="meta">\n' +
-    '<span class="stamp">ISSUED</span>&nbsp;\n' +
-    "Report ID: <strong>" +
+    `<span class="stamp">${escapeHtml(labels.issuedStatus)}</span>&nbsp;\n` +
+    `${escapeHtml(labels.reportId)}: <strong>` +
     escapeHtml(report.reportId) +
-    "</strong> &nbsp;|&nbsp;\n" +
-    "Issued: " +
+    `</strong> &nbsp;|&nbsp;\n` +
+    `${escapeHtml(labels.issued)}: ` +
     escapeHtml(report.issuedAt) +
-    " &nbsp;|&nbsp;\n" +
-    "Tool: " +
+    ` &nbsp;|&nbsp;\n` +
+    `${escapeHtml(labels.tool)}: ` +
     escapeHtml(report.toolSlug) +
+    "\n</p>\n" +
     "\n</p>\n" +
     '<div class="trust-trace">\n' +
     '<img src="' +
     escapeHtml(qrImageUrl) +
     '" alt="Trust Trace QR" width="140" height="140" />\n' +
     "<div>\n" +
-    '<div class="section-title">Trust Trace</div>\n' +
-    "<p>Scan to verify this report on SectorCalc.com</p>\n" +
+    `<div class="section-title">${escapeHtml(labels.trustTrace)}</div>\n` +
+    `<p>${escapeHtml(labels.scanToVerify)}</p>\n` +
     "</div>\n" +
     "</div>\n" +
-    '<div class="section-title">Validation</div>\n' +
+    `<div class="section-title">${escapeHtml(labels.validation)}</div>\n` +
     "<table>\n" +
-    "<tr><th>Field</th><th>Value</th></tr>\n" +
-    '<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">Validation Stamp</td><td style="padding:4px 8px;border:1px solid #e5e7eb">' +
+    `<tr><th>${escapeHtml(labels.field)}</th><th>${escapeHtml(labels.value)}</th></tr>\n` +
+    `<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">${escapeHtml(labels.validationStamp)}</td><td style="padding:4px 8px;border:1px solid #e5e7eb">` +
     escapeHtml(report.validationStampId) +
     "</td></tr>\n" +
-    '<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">Calculation Hash</td><td style="padding:4px 8px;border:1px solid #e5e7eb;font-family:monospace;font-size:0.7rem">' +
+    `<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">${escapeHtml(labels.calculationHash)}</td><td style="padding:4px 8px;border:1px solid #e5e7eb;font-family:monospace;font-size:0.7rem">` +
     escapeHtml(report.calculationHash) +
     "</td></tr>\n" +
-    '<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">Formula Version</td><td style="padding:4px 8px;border:1px solid #e5e7eb">' +
+    `<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">${escapeHtml(labels.formulaVersion)}</td><td style="padding:4px 8px;border:1px solid #e5e7eb">` +
     escapeHtml(report.formulaVersion) +
     "</td></tr>\n" +
-    '<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">Verify URL</td><td style="padding:4px 8px;border:1px solid #e5e7eb"><a href="' +
+    `<tr><td style="padding:4px 8px;border:1px solid #e5e7eb">${escapeHtml(labels.verifyUrl)}</td><td style="padding:4px 8px;border:1px solid #e5e7eb"><a href="` +
     escapeHtml(report.qrTargetUrl) +
     '">' +
     escapeHtml(report.qrTargetUrl) +
     "</a></td></tr>\n" +
     "</table>\n" +
-    '<div class="section-title">Input Snapshot</div>\n' +
-    "<table><tr><th>Input</th><th>Value</th></tr>\n" +
+    `<div class="section-title">${escapeHtml(labels.inputSnapshot)}</div>\n` +
+    `<table><tr><th>${escapeHtml(labels.input)}</th><th>${escapeHtml(labels.value)}</th></tr>\n` +
     snapshotRows(report.inputSnapshot) +
     "\n</table>\n" +
-    '<div class="section-title">Result Snapshot</div>\n' +
-    "<table><tr><th>Output</th><th>Value</th></tr>\n" +
+    `<div class="section-title">${escapeHtml(labels.resultSnapshot)}</div>\n` +
+    `<table><tr><th>${escapeHtml(labels.output)}</th><th>${escapeHtml(labels.value)}</th></tr>\n` +
     snapshotRows(report.resultSnapshot) +
     "\n</table>\n" +
     '<div class="disclaimer">\n' +
-    "Technical simulation only. Not financial, legal, or engineering advice. " +
-    "Report ID: " +
+    `${escapeHtml(labels.disclaimer)} ` +
+    `${escapeHtml(labels.reportId)}: ` +
     escapeHtml(report.reportId) +
     ". Disclaimer v" +
     escapeHtml(report.disclaimerVersion) +
@@ -112,24 +162,26 @@ export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
 /**
  * Build a CSV export of an approved report.
  */
-export function buildApprovedReportCsv(report: ApprovedReportPayload): string {
-  const header = "Section,Key,Value";
+export function buildApprovedReportCsv(
+  report: ApprovedReportPayload,
+  labels: TrustTraceLabels = EN_LABELS,
+): string {
+  const header = `${labels.field},${labels.value}`;
 
   const metaRows = [
-    '"meta","reportId","' + report.reportId.replace(/"/g, '""') + '"',
-    '"meta","toolSlug","' + report.toolSlug.replace(/"/g, '""') + '"',
-    '"meta","formulaVersion","' + report.formulaVersion.replace(/"/g, '""') + '"',
-    '"meta","validationStampId","' + report.validationStampId.replace(/"/g, '""') + '"',
-    '"meta","calculationHash","' + report.calculationHash.replace(/"/g, '""') + '"',
-    '"meta","issuedAt","' + report.issuedAt.replace(/"/g, '""') + '"',
-    '"meta","status","' + report.status + '"',
-    '"meta","verifyUrl","' + report.qrTargetUrl.replace(/"/g, '""') + '"',
+    `"${labels.reportId}","${report.reportId.replace(/"/g, '""')}"`,
+    `"${labels.tool}","${report.toolSlug.replace(/"/g, '""')}"`,
+    `"${labels.formulaVersion}","${report.formulaVersion.replace(/"/g, '""')}"`,
+    `"${labels.validationStamp}","${report.validationStampId.replace(/"/g, '""')}"`,
+    `"${labels.calculationHash}","${report.calculationHash.replace(/"/g, '""')}"`,
+    `"${labels.issued}","${report.issuedAt.replace(/"/g, '""')}"`,
+    `"${labels.verifyUrl}","${report.qrTargetUrl.replace(/"/g, '""')}"`,
   ].join("\n");
 
   const inputRows = Object.entries(report.inputSnapshot)
     .map(
       ([k, v]) =>
-        '"input","' +
+        `"${labels.input}","` +
         k.replace(/"/g, '""') +
         '","' +
         String(v ?? "").replace(/"/g, '""') +
@@ -140,7 +192,7 @@ export function buildApprovedReportCsv(report: ApprovedReportPayload): string {
   const resultRows = Object.entries(report.resultSnapshot)
     .map(
       ([k, v]) =>
-        '"result","' +
+        `"${labels.output}","` +
         k.replace(/"/g, '""') +
         '","' +
         String(v ?? "").replace(/"/g, '""') +
@@ -155,7 +207,8 @@ export function buildApprovedReportCsv(report: ApprovedReportPayload): string {
  * Build a Word-compatible HTML export of an approved report.
  */
 export function buildApprovedReportWordHtml(
-  report: ApprovedReportPayload
+  report: ApprovedReportPayload,
+  labels: TrustTraceLabels = EN_LABELS,
 ): string {
   return (
     '<html xmlns:o="urn:schemas-microsoft-com:office:office"\n' +
@@ -175,28 +228,28 @@ export function buildApprovedReportWordHtml(
     "</style>\n" +
     "</head>\n" +
     "<body>\n" +
-    "<h1>SectorCalc Approved Calculation Report</h1>\n" +
-    "<p>Report ID: <strong>" +
+    `<h1>${escapeHtml(labels.reportTitle)}</h1>\n` +
+    `<p>${escapeHtml(labels.reportId)}: <strong>` +
     escapeHtml(report.reportId) +
-    "</strong></p>\n" +
-    "<p>Tool: " +
+    `</strong></p>\n` +
+    `<p>${escapeHtml(labels.tool)}: ` +
     escapeHtml(report.toolSlug) +
-    " | Issued: " +
+    ` | ${escapeHtml(labels.issued)}: ` +
     escapeHtml(report.issuedAt) +
-    "</p>\n" +
-    "<p>Validation Stamp: " +
+    `</p>\n` +
+    `<p>${escapeHtml(labels.validationStamp)}: ` +
     escapeHtml(report.validationStampId) +
-    "</p>\n" +
-    "<h2>Inputs</h2>\n" +
-    "<table><tr><th>Input</th><th>Value</th></tr>" +
+    `</p>\n` +
+    `<h2>${escapeHtml(labels.inputSnapshot)}</h2>\n` +
+    `<table><tr><th>${escapeHtml(labels.input)}</th><th>${escapeHtml(labels.value)}</th></tr>` +
     snapshotRows(report.inputSnapshot) +
     "</table>\n" +
-    "<h2>Results</h2>\n" +
-    "<table><tr><th>Output</th><th>Value</th></tr>" +
+    `<h2>${escapeHtml(labels.resultSnapshot)}</h2>\n` +
+    `<table><tr><th>${escapeHtml(labels.output)}</th><th>${escapeHtml(labels.value)}</th></tr>` +
     snapshotRows(report.resultSnapshot) +
     "</table>\n" +
     '<p style="font-size:8pt;color:#9ca3af">\n' +
-    "Technical simulation only. Not financial, legal, or engineering advice.\n" +
+    `${escapeHtml(labels.disclaimer)}\n` +
     "SectorCalc.com | Disclaimer v" +
     escapeHtml(report.disclaimerVersion) +
     "\n</p>\n" +

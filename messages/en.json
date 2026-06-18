@@ -282,7 +282,9 @@
       "setupTime": "Setup time (min)",
       "cycleTime": "Cycle time (min)",
       "quantity": "Quantity (units)",
-      "submit": "Run"
+      "submit": "Run",
+      "subtitle": "CNC margin risk — quick check",
+      "rateNote": "Fire rate reflects material waste. Adjust based on your shop floor data."
     },
     "result": {
       "title": "Output",
@@ -303,7 +305,10 @@
       "naiveLabel": "Deterministic",
       "bufferLabel": "P90 buffer",
       "p90Label": "P90 safe",
-      "fullAnalyzerLink": "Open CNC Audit Engine →"
+      "fullAnalyzerLink": "Open CNC Audit Engine →",
+      "eyebrow": "Premium CNC risk report",
+      "body": "Full margin risk analysis with tolerance check, sensitivity scenarios, and action plan. Includes hidden loss drivers and suggested pricing adjustments.",
+      "disclaimer": "Technical simulation only. Verify with your actual cost data before making business decisions."
     },
     "phase2": {
       "label": "MarginCore · Phase 2",
@@ -67263,13 +67268,10 @@
     "submitting": "Sending…",
     "success": "Thank you. Your feedback has been sent for review.",
     "issueTypes": {
-      "wrong_result": "Wrong result",
-      "missing_input": "Missing input",
-      "unit_issue": "Unit issue",
-      "unclear_explanation": "Unclear explanation",
-      "sector_assumption_issue": "Sector assumption issue",
-      "improvement_request": "Improvement request",
-      "other": "Other"
+      "formula-suggestion": "Formula suggestion",
+      "translation-error": "Translation error",
+      "unit-error": "Unit error",
+      "wrong-result": "Wrong result"
     },
     "error": {
       "submitFailed": "Feedback could not be sent right now. Please try again later.",
@@ -68392,5 +68394,14 @@
   },
   "freeToolPrivacyNote": {
     "privacy": "Privacy:"
+  },
+  "homeOperationsValueSection": {
+    "heading": "Built for real operations",
+    "card0.title": "Built for real operations",
+    "card0.description": "Manufacturing, service and field teams — not generic spreadsheet users.",
+    "card1.title": "Includes hidden cost drivers",
+    "card1.description": "Setup time, waste, labor, capacity and margin risk.",
+    "card2.title": "Fast reports, lower overhead",
+    "card2.description": "Get practical decision support without heavy software."
   }
 }

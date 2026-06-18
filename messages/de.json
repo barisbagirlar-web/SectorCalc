@@ -30656,55 +30656,8 @@
       }
     },
     "medicare-part-d-calculator": {
-      "primary_value": {
-        "label": "Primärwert",
-        "placeholder": "Primärwert eingeben",
-        "helper": "Primärer Eingabewert für die Berechnung."
-      },
-      "secondary_value": {
-        "label": "Sekundärwert",
-        "placeholder": "Sekundärwert eingeben",
-        "helper": "Sekundärer Eingabewert für die Berechnung."
-      },
-      "tertiary_value": {
-        "label": "Tertiärwert",
-        "placeholder": "Tertiärwert eingeben",
-        "helper": "Optionaler Modifikator für die Berechnung."
-      },
-      "total_retail_drug_cost": {
-        "label": "Total Retail Drug Kosten ($)",
-        "placeholder": "Total Retail Drug Kosten ($) eingeben",
-        "helper": "Eingabewert für Total Retail Drug Kosten ($) in der Berechnung."
-      },
-      "deductible": {
-        "label": "Selbstbehalt ($)",
-        "placeholder": "Abzugsfähig ($) eingeben",
-        "helper": "Eingabewert für Abzugsfähig ($) in der Berechnung."
-      },
-      "initial_coverage_limit": {
-        "label": "Initial Deckkraft Limit ($)",
-        "placeholder": "Initial Deckkraft Limit ($) eingeben",
-        "helper": "Eingabewert für Initial Deckkraft Limit ($) in der Berechnung."
-      },
-      "catastrophic_threshold": {
-        "label": "Catastrophic Threshold ($)",
-        "placeholder": "Catastrophic Threshold ($) eingeben",
-        "helper": "Eingabewert für Catastrophic Threshold ($) in der Berechnung."
-      },
-      "coinsurance_initial": {
-        "label": "Anfängliche Kostenbeteiligung (%)",
-        "placeholder": "Anfängliche Kostenbeteiligung (%) eingeben",
-        "helper": "Eingabewert für Anfängliche Kostenbeteiligung (%) in der Berechnung."
-      },
-      "coinsurance_gap": {
-        "label": "Gap Coinsurance (%)",
-        "placeholder": "Gap Coinsurance (%) eingeben",
-        "helper": "Eingabewert für Gap Coinsurance (%) in der Berechnung."
-      },
       "copay_catastrophic": {
-        "label": "Katastrophale Zuzahlung ($)",
-        "placeholder": "Katastrophale Zuzahlung ($) eingeben",
-        "helper": "Eingabewert für Katastrophale Zuzahlung ($) in der Berechnung."
+        "label": "Katastrophale Zuzahlung ($)"
       }
     },
     "medicare-premium-calculator": {
@@ -66933,8 +66886,8 @@
           "summary": "Eingabeanleitung für Kure Hacmi Hesaplama."
         },
         "kwhConsumptionCheck": {
-          "title": "Eingabeanleitung Kwh Consumption Check",
-          "summary": "Eingabeanleitung für Kwh Consumption Check."
+          "title": "Eingabeanleitung kWh-Verbrauchsprüfung",
+          "summary": "Eingabeanleitung für kWh-Verbrauchsprüfung."
         },
         "lastikOmruDegisimKmHesaplama": {
           "title": "Eingabeanleitung Lastik Omru Degisim Km Hesaplama",
@@ -66949,16 +66902,16 @@
           "summary": "Eingabeanleitung für Lpg Benzin Tasarruf Karsilastirma."
         },
         "machineHourEstimator": {
-          "title": "Eingabeanleitung Machine Hour Estimator",
-          "summary": "Eingabeanleitung für Machine Hour Estimator."
+          "title": "Eingabeanleitung Maschinenstundenschätzer",
+          "summary": "Eingabeanleitung für Maschinenstundenschätzer."
         },
         "matkapKilavuzDelikCapiTablosu": {
           "title": "Eingabeanleitung Matkap Kilavuz Delik Capi Tablosu",
           "summary": "Eingabeanleitung für Matkap Kilavuz Delik Capi Tablosu."
         },
         "medianCalculator": {
-          "title": "Eingabeanleitung Median Calculator",
-          "summary": "Eingabeanleitung für Median Calculator."
+          "title": "Eingabeanleitung Median-Rechner",
+          "summary": "Eingabeanleitung für Median-Rechner."
         },
         "merdivenPlatformYukseklikErisimHesabi": {
           "title": "Eingabeanleitung Merdiven Platform Yukseklik Erisim Hesabi",
@@ -66977,8 +66930,8 @@
           "summary": "Eingabeanleitung für Ofis Kirtasiye Sarfiyat Hesabi."
         },
         "paintCoverageCostCheck": {
-          "title": "Eingabeanleitung Paint Coverage Cost Check",
-          "summary": "Eingabeanleitung für Paint Coverage Cost Check."
+          "title": "Eingabeanleitung Farbdeckungskostenprüfung",
+          "summary": "Eingabeanleitung für Farbdeckungskostenprüfung."
         },
         "paletAmbalajKeresteHesabi": {
           "title": "Eingabeanleitung Palettenverpackung Holzberechnung",
@@ -67749,7 +67702,7 @@
           "title": "Schwingungsfrequenz & Periodendauer Rechner"
         },
         "toplamSahipOlmaMaliyetiTcoEkipmanKarsilastirmaCalculator": {
-          "title": "Total Cost of Ownership (TCO) Equipment Comparison Calculator"
+          "title": "TCO-Gerätevergleichsrechner"
         },
         "vehicleDepreciationCalculator": {
           "title": "Fahrzeugabschreibungsrechner"
@@ -67758,13 +67711,13 @@
           "title": "Schweißkostenschätzer"
         },
         "yamazumiIsYukuDengelemeKayipCalculator": {
-          "title": "Yamazumi Workload Balancing Loss Calculator"
+          "title": "Yamazumi-Arbeitslastausgleich-Verlustrechner"
         },
         "yatakRulmanOmurHesabiL10": {
           "title": "Bearing Life Calculation L10"
         },
         "tesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator": {
-          "title": "Facility Layout & Material Flow Distance Optimization Calculator"
+          "title": "Anlagenlayout-Materialflussdistanz-Optimierungsrechner"
         }
       }
     }
@@ -68032,20 +67985,6 @@
       "tool": "Werkzeug",
       "disclaimer": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
       "issuedStatus": "AUSGESTELLT"
-    }
-  },
-  "freeTlInputs": {
-    "medicare-part-d-calculator": {
-      "coinsurance_initial": {
-        "label": "Anfängliche Zuzahlung (%)"
-      }
-    }
-  },
-  "freeToolInpts": {
-    "medicare-part-d-calculator": {
-      "copay_catastrophic": {
-        "label": "Katastrophale Zuzahlung ($)"
-      }
     }
   },
   "sector": {
@@ -68820,5 +68759,14 @@
   },
   "freeToolPrivacyNote": {
     "privacy": "Datenschutz:"
+  },
+  "homeOperationsValueSection": {
+    "heading": "Für echte Betriebsabläufe entwickelt",
+    "card0.title": "Für echte Betriebsabläufe",
+    "card0.description": "Produktions-, Service- und Außendienstteams — nicht allgemeine Tabellenkalkulationsnutzer.",
+    "card1.title": "Enthält versteckte Kostentreiber",
+    "card1.description": "Rüstzeit, Ausschuss, Arbeit, Kapazität und Margenrisiko.",
+    "card2.title": "Schnelle Berichte, geringere Gemeinkosten",
+    "card2.description": "Erhalten Sie praktische Entscheidungsunterstützung ohne schwere Software."
   }
 }

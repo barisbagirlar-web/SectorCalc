@@ -25,7 +25,31 @@ function downloadBlob(content: string, filename: string, mimeType: string) {
 
 export function ApprovedReportActions({ report }: Props) {
   const t = useTranslations("verify");
+  const tt = useTranslations("verify.ttLabels");
   const [copied, setCopied] = useState(false);
+
+  const ttLabels = {
+    htmlLang: tt("htmlLang"),
+    reportTitle: tt("reportTitle"),
+    trustTrace: tt("trustTrace"),
+    scanToVerify: tt("scanToVerify"),
+    validation: tt("validation"),
+    field: tt("field"),
+    value: tt("value"),
+    validationStamp: tt("validationStamp"),
+    calculationHash: tt("calculationHash"),
+    formulaVersion: tt("formulaVersion"),
+    verifyUrl: tt("verifyUrl"),
+    inputSnapshot: tt("inputSnapshot"),
+    resultSnapshot: tt("resultSnapshot"),
+    input: tt("input"),
+    output: tt("output"),
+    reportId: tt("reportId"),
+    issued: tt("issued"),
+    tool: tt("tool"),
+    disclaimer: tt("disclaimer"),
+    issuedStatus: tt("issuedStatus"),
+  };
 
   function handleCopyReportId() {
     navigator.clipboard.writeText(report.reportId).then(() => {
@@ -35,17 +59,17 @@ export function ApprovedReportActions({ report }: Props) {
   }
 
   function handleDownloadHtml() {
-    const html = buildApprovedReportHtml(report);
+    const html = buildApprovedReportHtml(report, ttLabels);
     downloadBlob(html, `${report.reportId}.html`, "text/html;charset=utf-8");
   }
 
   function handleDownloadCsv() {
-    const csv = buildApprovedReportCsv(report);
+    const csv = buildApprovedReportCsv(report, ttLabels);
     downloadBlob(csv, `${report.reportId}.csv`, "text/csv;charset=utf-8");
   }
 
   function handleDownloadWord() {
-    const word = buildApprovedReportWordHtml(report);
+    const word = buildApprovedReportWordHtml(report, ttLabels);
     downloadBlob(
       word,
       `${report.reportId}.doc`,
@@ -54,7 +78,7 @@ export function ApprovedReportActions({ report }: Props) {
   }
 
   function handlePrint() {
-    const html = buildApprovedReportHtml(report);
+    const html = buildApprovedReportHtml(report, ttLabels);
     const win = window.open("", "_blank");
     if (win) {
       win.document.write(html);

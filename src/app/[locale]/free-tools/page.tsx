@@ -6,7 +6,6 @@ import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxono
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
-import { FreeToolsCategoryGroupedContent } from "@/components/free-tools/FreeToolsCategoryGroupedContent";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";

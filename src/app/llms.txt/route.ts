@@ -13,6 +13,7 @@ export async function GET(): Promise<Response> {
     headers: {
       "content-type": "text/plain; charset=utf-8",
       "cache-control": "no-cache, no-store, must-revalidate",
+      "Vercel-CDN-Cache-Control": "no-cache",
       "x-generated-at": index.generatedAt,
     },
   });
