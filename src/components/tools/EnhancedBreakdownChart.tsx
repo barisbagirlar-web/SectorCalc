@@ -36,7 +36,7 @@ export function EnhancedBreakdownChart({
   labelMap,
   unitHints,
   locale: localeProp,
-  currency = "TRY",
+  currency = "USD",
   isPro = false,
   onItemClick,
   onActionClick,

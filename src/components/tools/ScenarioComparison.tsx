@@ -88,14 +88,16 @@ export function ScenarioComparison({
   );
   const [showTornado, setShowTornado] = useState(false);
 
+  const currency = locale === "tr" ? "TRY" : locale === "de" ? "EUR" : "USD";
+
   const formatValue = useCallback(
     (value: number) =>
       new Intl.NumberFormat(locale, {
         style: "currency",
-        currency: "TRY",
+        currency,
         maximumFractionDigits: 0,
       }).format(value),
-    [locale],
+    [locale, currency],
   );
 
   const updateScenarioInput = (index: number, inputId: string, value: number) => {

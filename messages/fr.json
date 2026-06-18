@@ -3678,7 +3678,17 @@
       "downloadPdf": "Télécharger le PDF devis",
       "pdfPreparing": "Préparation du PDF…",
       "downloadCsv": "Exporter CSV devis",
-      "disclaimer": "Simulation technique SectorCalc. Chiffres non contractuels."
+      "disclaimer": "Simulation technique SectorCalc. Chiffres non contractuels.",
+      "pdfQuoteNo": "Devis N°",
+      "pdfDate": "Date",
+      "pdfQuoteReport": "Rapport de devis",
+      "pdfInputValues": "Valeurs saisies",
+      "pdfCalcSummary": "Résumé du calcul",
+      "pdfBaseTotal": "Total de base",
+      "pdfTotalWithFireRate": "Total avec taux de rebut",
+      "pdfBreakdown": "Répartition",
+      "pdfHiddenLossDrivers": "Facteurs de perte cachés",
+      "pdfSuggestedActions": "Actions suggérées"
     },
     "eoqOptimizer": {
       "summary": "Optimisation stock & commandes (EOQ + stock de sécurité)",
@@ -68710,5 +68720,25 @@
       "title": "{name} — Print Report | SectorCalc",
       "description": "Print-ready premium decision report for {name}."
     }
+  },
+  "industrialFieldPanel": {
+    "sectionMeasured": "Mesuré",
+    "sectionLossHotspot": "Point chaud de perte",
+    "sectionTolerance": "Tolérance",
+    "sectionImpact": "Impact",
+    "sectionDoNow": "Agir maintenant"
+  },
+  "riskSensitivityTable": {
+    "emptyMessage": "Les scénarios de sensibilité apparaîtront après le calcul du risque de marge.",
+    "srCaption": "Matrice de sensibilité au risque de marge",
+    "scenario": "Scénario",
+    "costShift": "Variation de coût",
+    "deltaAmount": "Montant delta",
+    "p90Adjusted": "Ajusté P90"
+  },
+  "saveVerdictReportButton": {
+    "saving": "Enregistrement…",
+    "saved": "Enregistré dans vos rapports",
+    "saveToReports": "Enregistrer dans Mes Rapports"
   }
 }

@@ -111,6 +111,7 @@ export type QuotePdfDocumentProps = {
   readonly toolName: string;
   readonly quoteDate: string;
   readonly currency: string;
+  readonly locale: string;
   readonly inputRows: ReadonlyArray<{ readonly label: string; readonly value: string }>;
   readonly result: GeneratedToolResult;
   readonly baseTotal: number;
@@ -119,6 +120,18 @@ export type QuotePdfDocumentProps = {
   readonly fireRatePercent: number;
   readonly logoSrc?: string;
   readonly disclaimer: string;
+  readonly labels: {
+    readonly quoteNo: string;
+    readonly date: string;
+    readonly quoteReport: string;
+    readonly inputValues: string;
+    readonly calcSummary: string;
+    readonly baseTotal: string;
+    readonly totalWithFireRate: string;
+    readonly breakdown: string;
+    readonly hiddenLossDrivers: string;
+    readonly suggestedActions: string;
+  };
 };
 
 function formatMoney(value: number, currency: string, locale: string): string {
@@ -139,6 +152,7 @@ export function QuotePdfDocument({
   toolName,
   quoteDate,
   currency,
+  locale,
   inputRows,
   result,
   baseTotal,
@@ -147,8 +161,8 @@ export function QuotePdfDocument({
   fireRatePercent,
   logoSrc,
   disclaimer,
+  labels,
 }: QuotePdfDocumentProps) {
-  const locale = "en-US";
   const hiddenDrivers = result.hiddenLossDrivers.filter(Boolean);
   const suggestedActions = result.suggestedActions.filter(Boolean);
   const breakdownEntries = Object.entries(result.breakdown).filter(
@@ -169,14 +183,14 @@ export function QuotePdfDocument({
             {logoSrc ? <Text style={{ marginTop: 4, fontSize: 10 }}>{companyName}</Text> : null}
           </View>
           <View>
-            <Text style={styles.meta}>Quote No: {quoteNumber}</Text>
-            <Text style={styles.meta}>Date: {quoteDate}</Text>
+            <Text style={styles.meta}>{labels.quoteNo}: {quoteNumber}</Text>
+            <Text style={styles.meta}>{labels.date}: {quoteDate}</Text>
           </View>
         </View>
 
-        <Text style={styles.title}>{toolName} — Quote Report</Text>
+        <Text style={styles.title}>{toolName} — {labels.quoteReport}</Text>
 
-        <Text style={styles.sectionTitle}>Input values</Text>
+        <Text style={styles.sectionTitle}>{labels.inputValues}</Text>
         {inputRows.map((entry) => (
           <View key={entry.label} style={styles.row}>
             <Text style={styles.label}>{entry.label}</Text>
@@ -184,21 +198,21 @@ export function QuotePdfDocument({
           </View>
         ))}
 
-        <Text style={styles.sectionTitle}>Calculation summary</Text>
+        <Text style={styles.sectionTitle}>{labels.calcSummary}</Text>
         <View style={styles.totalBox}>
-          <Text style={styles.totalLabel}>Base total</Text>
+          <Text style={styles.totalLabel}>{labels.baseTotal}</Text>
           <Text style={styles.totalValue}>{formatMoney(baseTotal, currency, locale)}</Text>
         </View>
         {includeFireRate ? (
           <View style={styles.totalBox}>
-            <Text style={styles.totalLabel}>Total with fire rate ({fireRatePercent}%)</Text>
+            <Text style={styles.totalLabel}>{labels.totalWithFireRate} ({fireRatePercent}%)</Text>
             <Text style={styles.totalValue}>{formatMoney(adjustedTotal, currency, locale)}</Text>
           </View>
         ) : null}
 
         {breakdownEntries.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Breakdown</Text>
+            <Text style={styles.sectionTitle}>{labels.breakdown}</Text>
             {breakdownEntries.map(([key, value]) => (
               <View key={key} style={styles.breakdownRow}>
                 <Text>{humanizeKey(key)}</Text>
@@ -210,7 +224,7 @@ export function QuotePdfDocument({
 
         {hiddenDrivers.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Hidden loss drivers</Text>
+            <Text style={styles.sectionTitle}>{labels.hiddenLossDrivers}</Text>
             {hiddenDrivers.map((driver) => (
               <Text key={driver} style={styles.bullet}>
                 - {driver}
@@ -221,7 +235,7 @@ export function QuotePdfDocument({
 
         {suggestedActions.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Suggested actions</Text>
+            <Text style={styles.sectionTitle}>{labels.suggestedActions}</Text>
             {suggestedActions.map((action) => (
               <Text key={action} style={styles.bullet}>
                 - {action}

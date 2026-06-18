@@ -3781,7 +3781,17 @@
       "downloadPdf": "Teklif PDF indir",
       "pdfPreparing": "PDF hazırlanıyor…",
       "downloadCsv": "Teklif CSV dışa aktar",
-      "disclaimer": "SectorCalc tarafından oluşturulan teknik simülasyon. Rakamlar bağlayıcı teklif veya mühendislik/finans tavsiyesi değildir."
+      "disclaimer": "SectorCalc tarafından oluşturulan teknik simülasyon. Rakamlar bağlayıcı teklif veya mühendislik/finans tavsiyesi değildir.",
+      "pdfQuoteNo": "Teklif No",
+      "pdfDate": "Tarih",
+      "pdfQuoteReport": "Teklif Raporu",
+      "pdfInputValues": "Giriş değerleri",
+      "pdfCalcSummary": "Hesaplama özeti",
+      "pdfBaseTotal": "Temel toplam",
+      "pdfTotalWithFireRate": "Fire oranı ile toplam",
+      "pdfBreakdown": "Kırılım",
+      "pdfHiddenLossDrivers": "Gizli kayıp sürücüleri",
+      "pdfSuggestedActions": "Önerilen aksiyonlar"
     },
     "eoqOptimizer": {
       "summary": "Stok ve sipariş optimizasyonu (EOQ + emniyet stoğu)",
@@ -68709,5 +68719,25 @@
       "title": "{name} — Print Report | SectorCalc",
       "description": "Print-ready premium decision report for {name}."
     }
+  },
+  "industrialFieldPanel": {
+    "sectionMeasured": "Ölçülen",
+    "sectionLossHotspot": "Kayıp odağı",
+    "sectionTolerance": "Tolerans",
+    "sectionImpact": "Etki",
+    "sectionDoNow": "Şimdi yap"
+  },
+  "riskSensitivityTable": {
+    "emptyMessage": "Duyarlılık senaryoları, marj risk hesaplaması tamamlandıktan sonra görünecektir.",
+    "srCaption": "Marj risk duyarlılık matrisi",
+    "scenario": "Senaryo",
+    "costShift": "Maliyet değişimi",
+    "deltaAmount": "Delta tutarı",
+    "p90Adjusted": "P90 ayarlı"
+  },
+  "saveVerdictReportButton": {
+    "saving": "Kaydediliyor…",
+    "saved": "Raporlarınıza kaydedildi",
+    "saveToReports": "Raporlarıma Kaydet"
   }
 }

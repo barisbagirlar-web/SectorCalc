@@ -3678,7 +3678,17 @@
       "downloadPdf": "Angebots-PDF herunterladen",
       "pdfPreparing": "PDF wird vorbereitet…",
       "downloadCsv": "Angebots-CSV exportieren",
-      "disclaimer": "Technische Simulation von SectorCalc. Keine verbindliche Offerte oder Beratung."
+      "disclaimer": "Technische Simulation von SectorCalc. Keine verbindliche Offerte oder Beratung.",
+      "pdfQuoteNo": "Angebot Nr.",
+      "pdfDate": "Datum",
+      "pdfQuoteReport": "Angebotsbericht",
+      "pdfInputValues": "Eingabewerte",
+      "pdfCalcSummary": "Berechnungsübersicht",
+      "pdfBaseTotal": "Basisgesamt",
+      "pdfTotalWithFireRate": "Gesamt mit Verschrottungsrate",
+      "pdfBreakdown": "Aufschlüsselung",
+      "pdfHiddenLossDrivers": "Versteckte Verlusttreiber",
+      "pdfSuggestedActions": "Empfohlene Maßnahmen"
     },
     "eoqOptimizer": {
       "summary": "Lager- & Bestelloptimierung (EOQ + Sicherheitsbestand)",
@@ -68727,5 +68737,25 @@
       "title": "{name} — Print Report | SectorCalc",
       "description": "Print-ready premium decision report for {name}."
     }
+  },
+  "industrialFieldPanel": {
+    "sectionMeasured": "Gemessen",
+    "sectionLossHotspot": "Verlust-Hotspot",
+    "sectionTolerance": "Toleranz",
+    "sectionImpact": "Auswirkung",
+    "sectionDoNow": "Jetzt handeln"
+  },
+  "riskSensitivityTable": {
+    "emptyMessage": "Sensitivitätsszenarien werden angezeigt, nachdem die Margenrisikoberechnung abgeschlossen ist.",
+    "srCaption": "Margenrisiko-Sensitivitätsmatrix",
+    "scenario": "Szenario",
+    "costShift": "Kostenverschiebung",
+    "deltaAmount": "Delta-Betrag",
+    "p90Adjusted": "P90 angepasst"
+  },
+  "saveVerdictReportButton": {
+    "saving": "Speichern…",
+    "saved": "In Ihren Berichten gespeichert",
+    "saveToReports": "In Meine Berichte speichern"
   }
 }

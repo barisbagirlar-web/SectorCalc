@@ -32,6 +32,7 @@ export interface IndustrialFieldPanelProps {
  */
 export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialFieldPanelProps) {
   const a11y = useTranslations("a11y");
+  const t = useTranslations("industrialFieldPanel");
   return (
     <section className="sc-ledger-report sc-premium-report sc-ledger-letterpress" aria-label={a11y("industrialPanel")}>
       <div className="sc-premium-report-section flex flex-wrap items-center justify-between gap-2">
@@ -63,27 +64,27 @@ export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialField
 
       <dl className="sc-premium-report-section space-y-3 text-sm">
         <div>
-          <dt className="sc-premium-report-section__title">Measured</dt>
+          <dt className="sc-premium-report-section__title">{t("sectionMeasured")}</dt>
           <dd className="mt-1 leading-snug text-premium-velvet">{panel.measuredLine}</dd>
         </div>
         <div>
-          <dt className="sc-premium-report-section__title">Loss hotspot</dt>
+          <dt className="sc-premium-report-section__title">{t("sectionLossHotspot")}</dt>
           <dd className="mt-1 leading-snug text-premium-velvet">{panel.lossHotspotLine}</dd>
         </div>
         <div>
-          <dt className="sc-premium-report-section__title">Tolerance</dt>
+          <dt className="sc-premium-report-section__title">{t("sectionTolerance")}</dt>
           <dd className={`mt-1 leading-snug ${toleranceBadge[panel.toleranceStatus]}`}>
             {panel.toleranceLine}
           </dd>
         </div>
         <div>
-          <dt className="sc-premium-report-section__title">Impact</dt>
+          <dt className="sc-premium-report-section__title">{t("sectionImpact")}</dt>
           <dd className="mt-1 leading-snug text-body-charcoal">{panel.impactLine}</dd>
         </div>
       </dl>
 
       <div className="sc-decision-block m-4 mt-0">
-        <p className="sc-decision-block__title">Do now</p>
+        <p className="sc-decision-block__title">{t("sectionDoNow")}</p>
         <p className="sc-decision-block__body">{panel.actionLine}</p>
       </div>
     </section>

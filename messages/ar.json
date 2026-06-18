@@ -3700,7 +3700,17 @@
       "downloadPdf": "تنزيل PDF العرض",
       "pdfPreparing": "جارٍ تحضير PDF…",
       "downloadCsv": "تصدير CSV العرض",
-      "disclaimer": "محاكاة تقنية من SectorCalc. الأرقام غير ملزمة."
+      "disclaimer": "محاكاة تقنية من SectorCalc. الأرقام غير ملزمة.",
+      "pdfQuoteNo": "رقم العرض",
+      "pdfDate": "التاريخ",
+      "pdfQuoteReport": "تقرير العرض",
+      "pdfInputValues": "قيم الإدخال",
+      "pdfCalcSummary": "ملخص الحساب",
+      "pdfBaseTotal": "الإجمالي الأساسي",
+      "pdfTotalWithFireRate": "الإجمالي مع نسبة الهدر",
+      "pdfBreakdown": "تفصيل",
+      "pdfHiddenLossDrivers": "محركات الخسارة المخفية",
+      "pdfSuggestedActions": "الإجراءات المقترحة"
     },
     "eoqOptimizer": {
       "summary": "تحسين المخزون والطلب (EOQ + مخزون أمان)",
@@ -68705,5 +68715,25 @@
       "title": "{name} — Print Report | SectorCalc",
       "description": "Print-ready premium decision report for {name}."
     }
+  },
+  "industrialFieldPanel": {
+    "sectionMeasured": "تم القياس",
+    "sectionLossHotspot": "بقعة الخسارة",
+    "sectionTolerance": "التسامح",
+    "sectionImpact": "التأثير",
+    "sectionDoNow": "افعل الآن"
+  },
+  "riskSensitivityTable": {
+    "emptyMessage": "ستظهر سيناريوهات الحساسية بعد اكتمال حساب مخاطر الهامش.",
+    "srCaption": "مصفوفة حساسية مخاطر الهامش",
+    "scenario": "السيناريو",
+    "costShift": "تحول التكلفة",
+    "deltaAmount": "مبلغ دلتا",
+    "p90Adjusted": "معدل P90"
+  },
+  "saveVerdictReportButton": {
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم الحفظ في تقاريرك",
+    "saveToReports": "حفظ في تقاريري"
   }
 }

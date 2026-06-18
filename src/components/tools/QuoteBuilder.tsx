@@ -23,15 +23,25 @@ export type QuoteBuilderProps = {
   readonly onClose?: () => void;
 };
 
+const BOOLEAN_LABELS: Record<string, [string, string]> = {
+  en: ["Yes", "No"],
+  tr: ["Evet", "Hayır"],
+  de: ["Ja", "Nein"],
+  fr: ["Oui", "Non"],
+  es: ["Sí", "No"],
+  ar: ["نعم", "لا"],
+};
+
 function formatInputValue(value: unknown, locale: string): string {
   if (typeof value === "number" && Number.isFinite(value)) {
     return new Intl.NumberFormat(locale).format(value);
   }
   if (typeof value === "boolean") {
-    return value ? "Yes" : "No";
+    const labels = BOOLEAN_LABELS[locale] ?? BOOLEAN_LABELS.en;
+    return value ? labels[0] : labels[1];
   }
   if (value === null || value === undefined) {
-    return "—";
+    return "\u2014";
   }
   return String(value);
 }
@@ -57,6 +67,19 @@ export function QuoteBuilder({
   const baseTotal = resolveQuoteBaseTotal(result, primaryOutputKey);
   const adjustedTotal = applyFireRateToQuoteTotal(baseTotal, fireRate);
   const quoteDate = new Date().toLocaleDateString(locale);
+
+  const pdfLabels = {
+    quoteNo: t("pdfQuoteNo"),
+    date: t("pdfDate"),
+    quoteReport: t("pdfQuoteReport"),
+    inputValues: t("pdfInputValues"),
+    calcSummary: t("pdfCalcSummary"),
+    baseTotal: t("pdfBaseTotal"),
+    totalWithFireRate: t("pdfTotalWithFireRate"),
+    breakdown: t("pdfBreakdown"),
+    hiddenLossDrivers: t("pdfHiddenLossDrivers"),
+    suggestedActions: t("pdfSuggestedActions"),
+  };
 
   const inputRows = useMemo(
     () =>
@@ -196,6 +219,7 @@ export function QuoteBuilder({
               toolName={toolName}
               quoteDate={quoteDate}
               currency={currency}
+              locale={locale}
               inputRows={inputRows}
               result={result}
               baseTotal={baseTotal}
@@ -204,6 +228,7 @@ export function QuoteBuilder({
               fireRatePercent={fireRate}
               logoSrc={logoSrc}
               disclaimer={t("disclaimer")}
+              labels={pdfLabels}
             />
           }
           fileName={`${slug}-quote.pdf`}

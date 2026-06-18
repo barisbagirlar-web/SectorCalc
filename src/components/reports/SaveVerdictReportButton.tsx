@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
@@ -23,12 +24,13 @@ interface SaveVerdictReportButtonProps {
 }
 
 export function SaveVerdictReportButton({
- uid,
- tool,
- values,
- result,
+  uid,
+  tool,
+  values,
+  result,
 }: SaveVerdictReportButtonProps) {
- const [pending, setPending] = useState(false);
+  const t = useTranslations("saveVerdictReportButton");
+  const [pending, setPending] = useState(false);
  const [success, setSuccess] = useState(false);
  const [error, setError] = useState<string | null>(null);
 
@@ -63,7 +65,7 @@ export function SaveVerdictReportButton({
  disabled={pending || success}
  className={buttonClass}
  >
- {pending ? "Saving…" : success ? "Saved to your reports" : "Save to My Reports"}
+        {pending ? t("saving") : success ? t("saved") : t("saveToReports")}
  </button>
  {error ? (
  <p className="text-sm text-amber" role="alert">
