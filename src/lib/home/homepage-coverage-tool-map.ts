@@ -14,6 +14,7 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
     "metal-plastics-forming",
     "quality-six-sigma",
     "textile-print-lab",
+    "digital-factory-automation",
   ],
   industrial: [
     "atolye-tamir",
@@ -49,6 +50,7 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
     "maliyet-marj",
     "finance-sales-working-capital",
     "workforce-hr",
+    "global-compliance-trade",
   ],
   foodRetail: [
     "perakende-gida",
@@ -56,6 +58,7 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
     "food-cold-chain-hygiene",
     "ecommerce",
     "retail",
+    "packaging-local-business",
   ],
 };
 
