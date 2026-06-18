@@ -239,7 +239,7 @@
       "action": "Acción",
       "colFree": "Gratis",
       "colPro": "Pro",
-      "colEnterprise": "Enterprise",
+      "colEnterprise": "Empresarial",
       "sectorCalculators": "Módulos utilitarios sectoriales",
       "riskSignals": "Salida señal de riesgo",
       "premiumAnalyzers": "Calculadoras premium",
@@ -531,13 +531,13 @@
     "hubCategoriesTitle": "Categorías de calculadoras",
     "viewCalculators": "Ver calculadoras",
     "viewCalculatorsOpen": "Calculadoras mostradas",
-    "totalCount": "{traffic} free calculators · {sectors} sector tools · {categories} categories",
+    "totalCount": "{traffic} calculadoras gratuitas · {sectors} herramientas sectoriales · {categories} categorías",
     "categoryNavLabel": "Ir a categoría",
     "featuredTitle": "Calculadoras destacadas",
     "featuredLead": "Herramientas gratuitas más buscadas en finanzas, salud, construcción e industria.",
     "openCalculator": "Abrir calculadora",
     "decisionAnalyzerNote": "Calculadora de decisión available",
-    "categoryCount": "{count} calculators",
+    "categoryCount": "{count} calculadoras",
     "includesTitle": "Qué incluyen las herramientas gratuitas",
     "includes1": "2–5 entradas con unidades en cada campo",
     "includes2": "Resultado instantáneo en el navegador",
@@ -550,7 +550,7 @@
     "excludes4": "Almacenamiento en cuenta de entradas del nivel gratuito",
     "sectorToolsTitle": "Herramientas de decisión sectoriales",
     "sectorToolsLead": "Comprobaciones gratuitas por sector vinculadas a calculadoras premium en 27 sectores.",
-    "sectorToolsCount": "{count} sector free tools across {industries} industries",
+    "sectorToolsCount": "{count} herramientas gratuitas del sector en {industries} industrias",
     "premiumUpsellTitle": "¿Necesitas un veredicto, no solo un número?",
     "premiumUpsellBody": "Las calculadoras premium añaden precio mínimo seguro, detección de fuga de margen y veredictos aceptar / revisar precio — incluido con SectorCalc Pro.",
     "premiumUpsellCta": "Explore calculadora premiums",
@@ -636,7 +636,7 @@
       "includes3": "Explicación clara de lo que representan los números",
       "estimateMissesTitle": "Qué no incluye esta estimación",
       "estimateMissesBody": "Este resultado gratuito solo muestra el primer número. No incluye umbrales, comparación de referencia, sensibilidad, informe exportable ni planes de acción sugeridos.",
-      "faqTitle": "FAQ",
+      "faqTitle": "Preguntas frecuentes",
       "faqUseTitle": "¿Para qué se usa esta calculadora?",
       "faqFreeTitle": "¿Es gratuita esta calculadora?",
       "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
@@ -659,7 +659,7 @@
       "previewExcludesTitle": "Qué no incluye la vista previa",
       "previewExcludesBody": "La vista previa gratuita muestra solo la estructura de ejemplo. Las comprobaciones de umbral completas, drivers ocultos, acciones sugeridas y PDF o CSV exportables requieren acceso de pago.",
       "assumptionsTitle": "Supuestos utilizados",
-      "faqTitle": "FAQ",
+      "faqTitle": "Preguntas frecuentes",
       "faqMeasureTitle": "¿Qué mide esta calculadora?",
       "faqReportTitle": "¿Qué incluye el informe de decisión premium?",
       "faqErpTitle": "¿Sustituye al ERP o al asesoramiento profesional?",
@@ -762,7 +762,7 @@
     "badge": {
       "free": "Gratis",
       "premium": "Premium",
-      "new": "New"
+      "new": "Nuevo"
     }
   },
   "theme": {
@@ -1283,7 +1283,7 @@
           "shortTitle": "Minorista",
           "tags": [
             "Merma",
-            "Stock",
+            "Inventario",
             "Margen"
           ]
         }
@@ -3542,7 +3542,7 @@
       "calculationStandardLabel": "Estándar de cálculo",
       "voteCorrectMessage": "Voto rápido del operador: el resultado del cálculo parece correcto.",
       "voteIncorrectMessage": "Voto rápido del operador: el resultado del cálculo parece incorrecto.",
-      "unitSuffix": "{label} unit"
+      "unitSuffix": "{label} unidad"
     },
     "freeForm": {
       "defaultDescription": "Cálculo sectorial rápido — ingrese datos para ver el resultado.",
@@ -3821,7 +3821,6 @@
       "hiddenLoss": "Pérdida Oculta",
       "suggestedAction": "Acción Sugerida",
       "fullReportCta": "Ver Informe Completo",
-      "detailedTooltip": "Análisis detallado, fórmulas, referencias ISO y plan de acción paso a paso",
       "confidenceLevel": "Nivel de Confianza",
       "standardDeviation": "Desviación estándar",
       "lowConfidence": "Requiere verificación",
@@ -3840,13 +3839,7 @@
       "sectionActions": "Acciones Recomendadas",
       "sectionTrust": "Trust Trace — Garantía de Cálculo",
       "methodologyFormula": "Modelo de Cálculo — Motor SectorCalc",
-      "methodologyNote": "El cálculo sigue los estándares ISO 8688-1 para velocidad superficial y avance. El coeficiente empírico de intensidad de chatter (CCI) estima la tasa de desperdicio. El modelo asume desgaste de herramienta constante y conexión rígida.",
-      "findingSurface": "Exceso de Rugosidad Superficial",
-      "findingSurfaceText": "Con los parámetros actuales, el valor Ra se estima por encima del límite de especificación. La reducción de avance o herramientas amortiguadas pueden controlarlo.",
-      "findingDataMissing": "Crítico: Faltan Datos de Desgaste de Herramienta",
-      "findingDataMissingText": "VBmax no proporcionado. La tasa de desperdicio puede variar ±40%. Mida y actualice el informe.",
-      "findingSpeedOK": "Velocidad del Husillo Dentro del Rango",
-      "findingSpeedOKText": "La velocidad actual está dentro del rango recomendado por ISO 8688-1 para la combinación herramienta/material seleccionada.",
+      "methodologyNote": "El cálculo utiliza fórmulas estándar del sector con coeficientes empíricos. Los resultados son estimaciones basadas en los parámetros ingresados. Verifique con datos reales antes de decisiones críticas.",
       "trustReproducible": "Reproducible",
       "trustReproducibleDesc": "Las mismas entradas siempre producen el mismo resultado. El registro de cálculo está grabado.",
       "trustStandard": "Conforme a Estándares",
@@ -68260,14 +68253,14 @@
         "bodyKey": "cuerpoNuestraVisión"
       },
       {
-        "id": "team",
+        "id": "equipo",
         "titleKey": "nuestroEquipo",
         "bodyKey": "cuerpoNuestroEquipo"
       }
     ],
     "allSections": [
       {
-        "id": "who",
+        "id": "quiénes",
         "titleKey": "títuloSecciónQuiénes",
         "bodyKey": "cuerpoSecciónQuiénes",
         "bulletKeys": [
@@ -68277,7 +68270,7 @@
         ]
       },
       {
-        "id": "what",
+        "id": "qué",
         "titleKey": "títuloSecciónQué",
         "bodyKey": "cuerpoSecciónQué",
         "bulletKeys": [
@@ -68491,7 +68484,7 @@
       "title": "Categorías de herramientas",
       "subtitle": "Explore herramientas por sector, profesión o tipo de cálculo."
     },
-    "breadcrumbHome": "Home",
+    "breadcrumbHome": "Inicio",
     "breadcrumbCategories": "Categorías",
     "itemListName": "Categorías de cálculo"
   },
@@ -68512,13 +68505,13 @@
     "guidesEyebrow": "Guías de SectorCalc",
     "authorityGuideEyebrow": "Guía de autoridad de SectorCalc",
     "whatYouCalculate": "Lo que esta página te ayuda a calcular",
-    "faq": "FAQ",
+    "faq": "Preguntas frecuentes",
     "relatedGuides": "Guías relacionadas",
     "seoHubIndex": "Índice del hub SEO",
     "relatedFreeCalculators": "Calculadoras gratuitas relacionadas",
     "relatedPremiumCalculators": "Calculadoras premium relacionadas",
     "exploreFurther": "Explorar más",
-    "breadcrumbHome": "Home",
+    "breadcrumbHome": "Inicio",
     "breadcrumbGuides": "Guías",
     "seoHub": "Hub SEO",
     "categories": "Categorías",
@@ -68740,10 +68733,10 @@
     ],
     "footerTerms": "Términos de Uso",
     "footerPrivacy": "Política de Privacidad",
-    "footerSeparator": "and"
+    "footerSeparator": "y"
   },
   "industriesSlugPage": {
-    "metaTitleFallback": "{name} Cost & Margin Tools",
+    "metaTitleFallback": "{name} Herramientas de costos y márgenes",
     "metaDescriptionFallback": "Use las herramientas de SectorCalc para verificar el riesgo de costo de {name}, el margen de oferta y las fugas de ganancias ocultas antes de aceptar el trabajo."
   },
   "accountReportsPage": {
@@ -68763,7 +68756,7 @@
   },
   "premiumSchemaPrintPage": {
     "meta": {
-      "title": "{name} — Print Report | SectorCalc",
+      "title": "{name} — Imprimir informe | SectorCalc",
       "description": "Informe premium de decisión listo para imprimir para {name}."
     }
   },

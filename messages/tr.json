@@ -3626,7 +3626,7 @@
       "calculationStandardLabel": "Hesaplama standardı",
       "voteCorrectMessage": "Hızlı operatör oyu: hesaplama sonucu doğru görünüyor.",
       "voteIncorrectMessage": "Hızlı operatör oyu: hesaplama sonucu yanlış görünüyor.",
-      "unitSuffix": "{label} unit"
+      "unitSuffix": "{label} birim"
     },
     "freeForm": {
       "defaultDescription": "Hızlı sektör hesabı — sonuç için girdileri girin.",
@@ -3902,7 +3902,6 @@
       "hiddenLoss": "Görünmeyen Kayıp",
       "suggestedAction": "Önerilen Aksiyon",
       "fullReportCta": "Tam Raporu Görüntüle",
-      "detailedTooltip": "Detaylı analiz, formüller, ISO referansları ve adım adım aksiyon planı",
       "confidenceLevel": "Güven Düzeyi",
       "standardDeviation": "Standart sapma",
       "lowConfidence": "Doğrulama gerekli",
@@ -3922,12 +3921,6 @@
       "sectionTrust": "Trust Trace — Hesaplama Güvencesi",
       "methodologyFormula": "Hesaplama Modeli — SectorCalc Motoru",
       "methodologyNote": "Hesaplama, sektör standart formüller ve ampirik katsayılar kullanır. Sonuçlar, girdi parametrelerine ve belirtilen varsayımlara dayalı tahminlerdir. Kritik kararlar öncesinde gerçek verilerle doğrulayın.",
-      "findingSurface": "Yüzey Pürüzlülüğü Aşımı",
-      "findingSurfaceText": "Mevcut parametrelerle Ra değeri şartname sınırının üzerinde tahmin edilmektedir. İlerleme azaltımı veya damper takımı ile kontrol altına alınabilir.",
-      "findingDataMissing": "Kritik: Takım Aşınma Verisi Eksik",
-      "findingDataMissingText": "VBmax girilmedi. Iskarta oranı ±%40 değişebilir. Ölçüm yaparak raporu güncelleyin.",
-      "findingSpeedOK": "Devir Hızı Uyumlu",
-      "findingSpeedOKText": "Mevcut devir hızı, seçilen takım/malzeme kombinasyonu için ISO 8688-1 önerilen aralık içindedir.",
       "trustReproducible": "Tekrar Üretilebilir",
       "trustReproducibleDesc": "Aynı girişlerle sonuç değişmez. Hesaplama logu kayıtlıdır.",
       "trustStandard": "Standart Uyumlu",
@@ -68690,58 +68683,58 @@
   },
   "disclaimerPage": {
     "meta": {
-      "title": "Disclaimer",
-      "description": "SectorCalc calculators are indicative decision-support tools — not professional cost, tax, legal, or engineering advice."
+      "title": "Feragatname",
+      "description": "SectorCalc hesaplayıcıları gösterge niteliğinde karar destek araçlarıdır — profesyonel maliyet, vergi, hukuk veya mühendislik tavsiyesi değildir."
     },
-    "eyebrow": "Legal",
-    "title": "Disclaimer",
-    "description": "Please read this before relying on calculator or report outputs for business decisions.",
-    "intro": "SectorCalc helps operators and advisors explore scenarios faster. It does not replace licensed or certified professional review.",
+    "eyebrow": "Yasal",
+    "title": "Feragatname",
+    "description": "Hesaplayıcı veya rapor çıktılarına iş kararlarınızda güvenmeden önce lütfen bunu okuyun.",
+    "intro": "SectorCalc, operatörlerin ve danışmanların senaryoları daha hızlı keşfetmesine yardımcı olur. Lisanslı veya sertifikalı profesyonel incelemenin yerini almaz.",
     "sections": [
       {
-        "title": "Indicative decision support",
+        "title": "Gösterge niteliğinde karar desteği",
         "paragraphs": [
-          "Calculators and premium report previews on SectorCalc are indicative decision-support tools.",
-          "They are designed to structure thinking — not to certify bids, margins, safety, compliance, or financial statements."
+          "SectorCalc üzerindeki hesaplayıcılar ve premium rapor önizlemeleri gösterge niteliğinde karar destek araçlarıdır.",
+          "Teklifleri, marjları, güvenliği, uyumluluğu veya finansal tabloları onaylamak için değil, düşünmeyi yapılandırmak için tasarlanmıştır."
         ]
       },
       {
-        "title": "Your inputs drive results",
+        "title": "Girdileriniz sonuçları belirler",
         "paragraphs": [
-          "Outputs depend on the numbers and assumptions you enter.",
-          "Small input changes can materially change recommendations, risk labels, and scenario tables."
+          "Çıktılar, girdiğiniz sayılara ve varsayımlara bağlıdır.",
+          "Küçük girdi değişiklikleri, önerileri, risk etiketlerini ve senaryo tablolarını önemli ölçüde değiştirebilir."
         ]
       },
       {
-        "title": "Not professional advice",
+        "title": "Profesyonel tavsiye değildir",
         "paragraphs": [
-          "SectorCalc is not a substitute for professional cost accounting, engineering review, tax advice, legal counsel, or industry-specific compliance review.",
-          "Engage qualified professionals before committing to contracts, pricing, or capital decisions."
+          "SectorCalc, profesyonel maliyet muhasebesi, mühendislik incelemesi, vergi tavsiyesi, hukuki danışmanlık veya sektöre özel uyumluluk incelemesinin yerine geçmez.",
+          "Sözleşmelere, fiyatlandırmaya veya sermaye kararlarına taahhüt etmeden önce nitelikli profesyonellere danışın."
         ]
       },
       {
-        "title": "Benchmarks and claims",
+        "title": "Karşılaştırmalar ve iddialar",
         "paragraphs": [
-          "Unless explicitly stated on a specific page or tool, SectorCalc does not claim independent industry benchmarks or third-party verified market data in the MVP.",
-          "Do not treat example or sample reports as results for your business."
+          "Belirli bir sayfada veya araçta açıkça belirtilmediği sürece, SectorCalc MVP'de bağımsız sektör karşılaştırmaları veya üçüncü taraf doğrulamalı pazar verisi iddia etmez.",
+          "Örnek veya örnek raporları işiniz için sonuç olarak değerlendirmeyin."
         ]
       },
       {
-        "title": "No outcome guarantee",
+        "title": "Sonuç garantisi yoktur",
         "paragraphs": [
-          "SectorCalc does not guarantee revenue, margin, win rates, safety outcomes, or client results."
+          "SectorCalc, gelir, marj, kazanma oranları, güvenlik sonuçları veya müşteri sonuçlarını garanti etmez."
         ]
       },
       {
-        "title": "Contact",
+        "title": "İletişim",
         "paragraphs": [
-          "Questions: {email}"
+          "Sorularınız: {email}"
         ]
       }
     ],
-    "footerTerms": "Terms of Use",
-    "footerPrivacy": "Privacy Policy",
-    "footerSeparator": "and"
+    "footerTerms": "Kullanım Şartları",
+    "footerPrivacy": "Gizlilik Politikası",
+    "footerSeparator": "ve"
   },
   "industriesSlugPage": {
     "metaTitleFallback": "{name} Cost & Margin Tools",
