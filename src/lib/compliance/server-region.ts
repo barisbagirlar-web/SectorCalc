@@ -14,24 +14,39 @@ export interface ServerRegionResult {
   source: RegionSource;
 }
 
+function localeFallbackRegion(locale: string): ServerRegionResult {
+  return {
+    region: resolveActiveRegion(undefined, locale),
+    source: "locale-fallback",
+  };
+}
+
 /** Server Components / Server Actions — locale-aware region with source. */
 export async function getServerRegion(locale: string): Promise<ServerRegionResult> {
-  const headerStore = await headers();
+  let headerStore: Awaited<ReturnType<typeof headers>>;
+  let cookieStore: Awaited<ReturnType<typeof cookies>>;
+
+  try {
+    headerStore = await headers();
+    cookieStore = await cookies();
+  } catch {
+    // force-static prerender has no request scope — locale-derived region only.
+    return localeFallbackRegion(locale);
+  }
+
   const fromHeader = headerStore.get(REGION_HEADER);
   const sourceHeader = headerStore.get(REGION_SOURCE_HEADER);
 
-  let region: RegionCode;
-  let source: RegionSource;
-
   if (fromHeader && isRegionCode(fromHeader)) {
-    region = fromHeader;
-    source = (sourceHeader as RegionSource) ?? "locale-fallback";
-  } else {
-    const cookieStore = await cookies();
-    const manual = cookieStore.get(REGION_MANUAL_COOKIE)?.value;
-    region = resolveActiveRegion(manual, locale);
-    source = manual && isRegionCode(manual) ? "manual-cookie" : "locale-fallback";
+    return {
+      region: fromHeader,
+      source: (sourceHeader as RegionSource) ?? "locale-fallback",
+    };
   }
 
-  return { region, source };
+  const manual = cookieStore.get(REGION_MANUAL_COOKIE)?.value;
+  return {
+    region: resolveActiveRegion(manual, locale),
+    source: manual && isRegionCode(manual) ? "manual-cookie" : "locale-fallback",
+  };
 }
