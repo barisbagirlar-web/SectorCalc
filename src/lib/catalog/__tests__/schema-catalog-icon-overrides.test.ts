@@ -8,11 +8,11 @@ import {
   DollarSign,
   Factory,
   Goal,
-  LifeBuoy,
   Package,
   ScanLine,
   Settings,
   Shapes,
+  ShieldAlert,
   ShieldCheck,
   ShoppingBag,
   SlidersHorizontal,
@@ -20,6 +20,7 @@ import {
   TreePine,
   Van,
 } from "lucide-react";
+import { isTaxonomySectorIconSlug } from "@/lib/catalog/taxonomy-sector-icon-map";
 import { resolveCatalogCategoryIcon } from "@/lib/catalog/resolve-catalog-category-icon";
 import { listTaxonomyCategorySlugs } from "@/lib/tools/category-taxonomy";
 import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon-overrides";
@@ -35,13 +36,16 @@ describe("schema catalog icon overrides", () => {
     expect(resolveCatalogCategoryIcon("perakende-gida")).toBe(ShoppingBag);
     expect(resolveCatalogCategoryIcon("enerji-karbon")).toBe(BatteryCharging);
     expect(resolveCatalogCategoryIcon("uretim-imalat")).toBe(Settings);
-    expect(resolveCatalogCategoryIcon("isg-risk")).toBe(LifeBuoy);
+    // isg-risk is also a taxonomy sector slug — resolver returns sector icon first
+    expect(resolveCatalogCategoryIcon("isg-risk")).toBe(ShieldAlert);
     expect(resolveCatalogCategoryIcon("surdurulebilirlik")).toBe(Sprout);
     expect(resolveCatalogCategoryIcon("kalite-spc-alti-sigma")).toBe(Goal);
   });
 
   it("covers every explicit schema override entry", () => {
     for (const slug of Object.keys(SCHEMA_CATALOG_ICON_OVERRIDES)) {
+      // Skip slugs that are also taxonomy sector icons — those resolve via sector path
+      if (isTaxonomySectorIconSlug(slug)) continue;
       expect(resolveCatalogCategoryIcon(slug)).toBe(SCHEMA_CATALOG_ICON_OVERRIDES[slug]);
     }
   });
