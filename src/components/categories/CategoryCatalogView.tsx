@@ -21,15 +21,12 @@ import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsCl
 import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
 import type { FreeToolCategoryEntry } from "@/lib/free-tools/free-tool-categories";
 import type { ToolData } from "@/lib/tools/all-tools-data";
-import type { CatalogGridVariant } from "@/lib/catalog/catalog-grid-variant-styles";
-
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 export type CategoryCatalogViewProps = {
   readonly basePath: "/free-tools" | "/premium-tools" | "/industries";
   readonly categories: readonly CategoryCard[];
   readonly tools: readonly ToolData[];
-  readonly variant: CatalogGridVariant;
   readonly locale: string;
   readonly pageVariant: "free-tools" | "premium-tools" | "industries";
 };
@@ -201,7 +198,6 @@ export function CategoryCatalogView({
   basePath,
   categories,
   tools,
-  variant: _variant,
   locale,
   pageVariant,
 }: CategoryCatalogViewProps) {

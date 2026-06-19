@@ -107,7 +107,6 @@ export default async function IndustriesPage({ params }: PageProps) {
                 basePath="/industries"
                 categories={categoryCards}
                 tools={tools}
-                variant="industry"
                 locale={locale}
                 pageVariant="industries"
               />

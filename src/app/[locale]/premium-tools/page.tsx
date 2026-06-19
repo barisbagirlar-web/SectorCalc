@@ -94,7 +94,6 @@ export default async function PremiumToolsPage({ params }: PageProps) {
                 basePath="/premium-tools"
                 categories={categoryCards}
                 tools={tools}
-                variant="premium"
                 locale={locale}
                 pageVariant="premium-tools"
               />

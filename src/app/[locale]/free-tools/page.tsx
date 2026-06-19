@@ -97,7 +97,6 @@ export default async function FreeToolsPage({ params }: PageProps) {
                 basePath="/free-tools"
                 categories={categoryCards}
                 tools={tools}
-                variant="free"
                 locale={locale}
                 pageVariant="free-tools"
               />
