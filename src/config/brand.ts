@@ -23,14 +23,14 @@ export const BRAND_ASSETS = {
  /** SVG symbol display size — rendered via native <img>. */
  symbolWidth: 512,
  symbolHeight: 512,
- displaySymbolWidth: 128,
- displaySymbolHeight: 128,
+ displaySymbolWidth: 80,
+ displaySymbolHeight: 80,
  },
  favicon: {
  master: "/img/brand/sectorcalc-favicon.png",
  size32: "/img/brand/sectorcalc-favicon-32.png",
  appleTouch: "/img/brand/sectorcalc-favicon-180.png",
- svg: "/img/brand/sectorcalc-logo.svg",
+ svg: "/img/brand/sectorcalc-favicon.svg",
  width: 512,
  height: 512,
  },

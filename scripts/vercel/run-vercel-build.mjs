@@ -177,6 +177,10 @@ function main() {
       console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
     }
 
+    runStep("node", ["scripts/i18n-guard-build.mjs"], {
+      label: "i18n guard — zero tolerance on English leaks",
+    });
+
     runStep("node", ["scripts/next-build-with-500-fallback.mjs"], {
       label: "next build (with 500 fallback)",
       dumpNextBuildLog: true,

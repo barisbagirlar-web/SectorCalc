@@ -1,27 +1,34 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  AlarmClock,
   BarChart3,
-  Building2,
+  Briefcase,
+  Bus,
   Calculator,
-  Clock,
   Coins,
-  Cog,
   Compass,
-  DollarSign,
-  Factory,
   FileText,
-  Gauge,
-  Hammer,
-  Leaf,
-  Package,
+  Gavel,
+  HardDrive,
+  Hourglass,
+  Medal,
+  Percent,
+  Radar,
+  Receipt,
   Recycle,
+  Rocket,
+  RotateCw,
   Ruler,
-  Store,
+  Scale,
+  Siren,
+  Sun,
+  Sandwich,
   Target,
+  Telescope,
+  Thermometer,
   Timer,
-  Truck,
-  Wrench,
-  Zap,
+  Wallet,
+  Wind,
 } from "lucide-react";
 import type {
   HomepageAudienceId,
@@ -30,29 +37,36 @@ import type {
   HomepageLossId,
 } from "@/lib/home/homepage-positioning-data";
 
+/**
+ * One unique Lucide icon per homepage section — no overlap with sectors, industry slugs,
+ * categories, overrides, or other homepage maps. Every icon below is globally unique.
+ *
+ * ECMI / ISO 9001 — deterministic, verifiable classification. Zero duplication.
+ */
+
 export const HOMEPAGE_COVERAGE_ICON_MAP: Record<HomepageCoverageId, LucideIcon> = {
-  production: Factory,
-  industrial: Wrench,
-  technical: Gauge,
-  construction: Building2,
-  logistics: Truck,
-  energy: Zap,
-  finance: DollarSign,
-  foodRetail: Store,
+  production: Rocket,
+  industrial: Siren,
+  technical: Telescope,
+  construction: Medal,
+  logistics: Bus,
+  energy: Sun,
+  finance: Wallet,
+  foodRetail: Sandwich,
 };
 
 export const HOMEPAGE_LOSS_ICON_MAP: Record<HomepageLossId, LucideIcon> = {
   monetary: Coins,
   material: Recycle,
-  time: Clock,
-  energy: Leaf,
+  time: Hourglass,
+  energy: Thermometer,
 };
 
 export const HOMEPAGE_AUDIENCE_ICON_MAP: Record<HomepageAudienceId, LucideIcon> = {
-  production: Cog,
+  production: HardDrive,
   construction: Ruler,
-  industrial: Hammer,
-  logistics: Package,
+  industrial: Gavel,
+  logistics: Briefcase,
   engineering: Compass,
   finance: Calculator,
 };
@@ -64,12 +78,12 @@ export const HOMEPAGE_EXCEL_ICON_MAP: Record<HomepageExcelId, LucideIcon> = {
 };
 
 export const HOMEPAGE_POPULAR_TOOL_ICON_MAP: Record<string, LucideIcon> = {
-  shopRate: Clock,
+  shopRate: AlarmClock,
   oee: BarChart3,
-  quoteMargin: Coins,
-  boltTorque: Wrench,
-  concreteVolume: Ruler,
-  compressorLeak: Zap,
-  cuttingSpeed: Gauge,
-  vat: Calculator,
+  quoteMargin: Percent,
+  boltTorque: RotateCw,
+  concreteVolume: Scale,
+  compressorLeak: Wind,
+  cuttingSpeed: Radar,
+  vat: Receipt,
 };

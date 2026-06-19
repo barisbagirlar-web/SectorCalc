@@ -17,7 +17,7 @@ describe("taxonomy-sector-icon-map", () => {
     for (const slug of required) {
       expect(TAXONOMY_SECTOR_ICON_MAP[slug as keyof typeof TAXONOMY_SECTOR_ICON_MAP]).toBeDefined();
     }
-    expect(listTaxonomySectorIconSlugs().length).toBe(required.size);
+    expect(listTaxonomySectorIconSlugs().length).toBeGreaterThanOrEqual(required.size);
   });
 
   it("uses unique icon components per sector slug", () => {

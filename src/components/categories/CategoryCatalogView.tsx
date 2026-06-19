@@ -1,16 +1,17 @@
 /**
- * CategoryCatalogView — Premium Omni Calculator–style category grid.
+ * CategoryCatalogView — Compact category cards + scroll-to filtered tools.
  *
- * Sticky header · Tab filter (All / Free / Premium / Sector) · Search bar
- * Compact icon cards with PRO/NEW/FREE badges · Hover effects · Detail panel
+ * No tab bar, no inline search (hero search covers that).
+ * Click a category → sets ?category=slug in URL and scrolls to the
+ * CatalogHubToolsClientPanel which filters tools by that categoryKey.
  *
  * ECMI / ISO 9001 — TÜV-certifiable industrial UX.
- * Reference: Omni Calculator category grid pattern.
  */
 
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useCallback, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";
@@ -18,6 +19,7 @@ import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
 import type { FreeToolCategoryEntry } from "@/lib/free-tools/free-tool-categories";
 import type { ToolData } from "@/lib/tools/all-tools-data";
 import type { CatalogGridVariant } from "@/lib/catalog/catalog-grid-variant-styles";
+import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -29,8 +31,6 @@ export type CategoryCatalogViewProps = {
   readonly locale: string;
   readonly pageVariant: "free-tools" | "premium-tools" | "industries";
 };
-
-type TabId = "all" | "free" | "premium" | "sector";
 
 // ─── Per-category colour palette ────────────────────────────────────────────
 
@@ -109,22 +109,6 @@ function resolveBadge(cat: CategoryCard, pageVariant: string): BadgeType | null 
   if (cat.premiumCount > 0) return "PRO";
   if (cat.freeCount > 0 && cat.premiumCount === 0) return "FREE";
   return null;
-}
-
-// ─── Tab config ─────────────────────────────────────────────────────────────
-
-function buildTabsData(categories: readonly CategoryCard[]): Array<{ id: TabId; count: number }> {
-  const total = categories.length;
-  const freeCount = categories.filter((c) => c.freeCount > 0).length;
-  const premiumCount = categories.filter((c) => c.premiumCount > 0).length;
-  const sectorCount = categories.length;
-
-  return [
-    { id: "all" as TabId,     count: total },
-    { id: "free" as TabId,    count: freeCount },
-    { id: "premium" as TabId, count: premiumCount },
-    { id: "sector" as TabId,  count: sectorCount },
-  ];
 }
 
 // ─── Category card ──────────────────────────────────────────────────────────
@@ -212,267 +196,87 @@ function CategoryCard({
 // ─── Main component ─────────────────────────────────────────────────────────
 
 export function CategoryCatalogView({
-  basePath: _basePath,
+  basePath,
   categories,
-  tools: _tools,
+  tools,
   variant: _variant,
   locale,
   pageVariant,
 }: CategoryCatalogViewProps) {
   const t = useTranslations("catalogExplorer");
+  const searchParams = useSearchParams();
+  const toolsRef = useRef<HTMLDivElement>(null);
 
-  const [activeTab, setActiveTab] = useState<TabId>("all");
-  const [activeCategorySlug, setActiveCategorySlug] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const activeCategorySlug = searchParams?.get("category") ?? null;
 
-  // ── Filter categories ──
-  const filteredCategories = useMemo(() => {
-    let list = [...categories];
+  // ── Scroll to tools list when category is active ──
+  const handleCategoryClick = useCallback(
+    (slug: string) => {
+      const params = new URLSearchParams(searchParams?.toString() ?? "");
+      if (params.get("category") === slug) {
+        // Toggle off
+        params.delete("category");
+      } else {
+        params.set("category", slug);
+      }
+      const qs = params.toString();
+      const url = qs ? `${basePath}?${qs}` : basePath;
+      window.history.pushState(null, "", url);
 
-    if (activeTab === "free") {
-      list = list.filter((c) => c.freeCount > 0);
-    } else if (activeTab === "premium") {
-      list = list.filter((c) => c.premiumCount > 0);
-    }
-
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      list = list.filter((cat) => {
-        const titles = Object.values(cat.category.title) as string[];
-        if (titles.some((t) => t.toLowerCase().includes(q))) return true;
-        const tagline = cat.category.tagline?.[locale as keyof typeof cat.category.tagline];
-        if (tagline?.toLowerCase().includes(q)) return true;
-        return false;
+      // Scroll to tools list on next frame
+      requestAnimationFrame(() => {
+        const el = document.getElementById("tools-list");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
-    }
-
-    return list;
-  }, [categories, activeTab, searchQuery, locale]);
-
-  // ── Tabs ──
-  const tabs = useMemo(() => buildTabsData(categories), [categories]);
-
-  const tabLabels: Record<TabId, string> = useMemo(() => ({
-    all:     t("compactGrid.tabAll"),
-    free:    t("compactGrid.tabFree"),
-    premium: t("compactGrid.tabPremium"),
-    sector:  t("compactGrid.tabSector"),
-  }), [t]);
-
-  // ── Selected category ──
-  const selectedCategory = useMemo(() => {
-    if (!activeCategorySlug) return null;
-    return categories.find((c) => c.category.slug === activeCategorySlug) ?? null;
-  }, [categories, activeCategorySlug]);
-
-  // ── Handlers ──
-  const handleCategoryClick = useCallback((slug: string) => {
-    setActiveCategorySlug((prev) => (prev === slug ? null : slug));
-  }, []);
-
-  const handleTabChange = useCallback((tabId: TabId) => {
-    setActiveTab(tabId);
-    setActiveCategorySlug(null);
-  }, []);
+    },
+    [basePath, searchParams],
+  );
 
   // ── i18n helpers ──
   const localizationKey = locale as keyof FreeToolCategoryEntry["title"];
 
   return (
     <div className="min-w-0 flex-1">
-      {/* ── Tab bar ── */}
-      <div className="mb-6 border-b border-slate-200">
-        <nav className="flex gap-0 overflow-x-auto" aria-label={t("compactGrid.categories")}>
-          {tabs.map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => handleTabChange(tab.id)}
-                className={cn(
-                  "flex items-center gap-1.5 whitespace-nowrap px-4 py-2.5 text-sm font-semibold transition-all duration-150",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-400",
-                  isActive ? "text-blue-600" : "text-slate-400 hover:text-slate-600",
-                )}
-                style={{
-                  borderBottom: isActive ? "2.5px solid #3B6EE8" : "2.5px solid transparent",
-                }}
-              >
-                {tabLabels[tab.id]}
-                <span
-                  className={cn(
-                    "inline-flex items-center rounded-full px-[7px] py-px text-[11px] font-bold transition-all duration-150",
-                    isActive
-                      ? "bg-blue-50 text-blue-600"
-                      : "bg-gray-100 text-gray-400",
-                  )}
-                >
-                  {tab.count}
-                </span>
-              </button>
-            );
-          })}
-        </nav>
-      </div>
-
-      {/* ── Search bar ── */}
-      <div className="mb-6">
-        <div className="relative">
-          <svg
-            className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-            viewBox="0 0 15 15"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setActiveCategorySlug(null);
-            }}
-            placeholder={t("compactGrid.searchPlaceholder")}
-            className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-10 text-sm text-gray-900 placeholder:text-slate-400 transition-colors focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-100"
-            aria-label={t("compactGrid.searchPlaceholder")}
-            data-1p-ignore
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              aria-label={t("search.clearSearch")}
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
-
       {/* ── Section label ── */}
       <div className="mb-5 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">
-            {t("compactGrid.categories")}
-          </h2>
-          {searchQuery && (
-            <span className="text-xs text-gray-400">
-              &mdash; {filteredCategories.length} {t("searchResult", { count: filteredCategories.length })}
-            </span>
-          )}
-        </div>
-        {activeCategorySlug && (
-          <button
-            type="button"
-            onClick={() => setActiveCategorySlug(null)}
-            className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600"
-          >
-            {t("clearSelection")}
-            <span aria-hidden="true">✕</span>
-          </button>
-        )}
+        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">
+          {t("compactGrid.categories")}
+        </h2>
       </div>
 
-      {/* ── Grid ── */}
-      {filteredCategories.length > 0 ? (
+      {/* ── Category grid ── */}
+      {categories.length > 0 ? (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {filteredCategories.map((cat) => (
-            <CategoryCard
-              key={cat.category.slug}
-              cat={cat}
-              isActive={activeCategorySlug === cat.category.slug}
-              onClick={() => handleCategoryClick(cat.category.slug)}
-              badge={resolveBadge(cat, pageVariant)}
-              locale={locale}
-            />
-          ))}
+          {categories.map((cat) => {
+            const isActive = activeCategorySlug === cat.category.slug;
+            return (
+              <CategoryCard
+                key={cat.category.slug}
+                cat={cat}
+                isActive={isActive}
+                onClick={() => handleCategoryClick(cat.category.slug)}
+                badge={resolveBadge(cat, pageVariant)}
+                locale={locale}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className="py-16 text-center">
-          <div className="mb-3 text-3xl" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="14" stroke="#D1D5DB" strokeWidth="2" />
-              <path d="M12 12l8 8M20 12l-8 8" stroke="#D1D5DB" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </div>
-          <p className="mb-1 text-sm font-semibold text-gray-700">{t("search.noResults")}</p>
-          <p className="mb-3 text-xs text-gray-400">
-            {t("noResultsHint", { query: searchQuery })}
-          </p>
-          <button
-            type="button"
-            onClick={() => setSearchQuery("")}
-            className="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
-          >
-            {t("search.clearSearch")}
-          </button>
+          <p className="text-sm text-slate-500">{t("search.noResults")}</p>
         </div>
       )}
 
-      {/* ── Selected category detail panel ── */}
-      {selectedCategory && (() => {
-        const cat = selectedCategory;
-        const colors = getCategoryColor(cat.category.slug);
-        const svgHtml = cat.category.symbolSvg || resolveCategorySvgSymbol(cat.category.slug);
-        const badge = resolveBadge(cat, pageVariant);
-        const title = cat.category.title[localizationKey] ?? cat.category.title.en;
-        const tagline = cat.category.tagline?.[localizationKey] ?? cat.category.tagline?.en;
-        const field = (cat.category as Record<string, unknown>).field as Record<string, string> | undefined;
-        const fieldLabel = field?.[localizationKey] ?? field?.en;
-
-        return (
-          <div
-            className="mt-7 animate-[fadeIn_0.2s_ease] rounded-xl p-5"
-            style={{
-              background: colors.bg,
-              border: `1.5px solid ${colors.color}33`,
-              borderLeft: `4px solid ${colors.color}`,
-            }}
-          >
-            <div className="mb-2.5 flex items-start gap-3">
-              <div
-                className="h-12 w-12 shrink-0"
-                aria-hidden="true"
-                dangerouslySetInnerHTML={{
-                  __html: svgHtml.replace(
-                    'stroke="currentColor"',
-                    `stroke="${colors.color}"`,
-                  ),
-                }}
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-base font-extrabold text-gray-900">{title}</h3>
-                  {badge && <Badge label={badge} />}
-                </div>
-                <p className="mt-0.5 text-xs text-gray-500">
-                  {cat.count} tool{cat.count !== 1 ? "s" : ""}
-                  {fieldLabel ? ` · ${fieldLabel}` : ""}
-                  {tagline ? ` · ${tagline}` : ""}
-                </p>
-              </div>
-            </div>
-            <div className="mt-3.5 flex flex-wrap gap-2">
-              {Array.from({ length: Math.min(cat.count, 5) }, (_, i) => (
-                <a
-                  key={i}
-                  href={`#`}
-                  className="rounded-lg border bg-white px-3.5 py-2 text-xs font-medium text-gray-700 transition-all duration-150 hover:shadow-sm"
-                  style={{ borderColor: `${colors.color}33` }}
-                >
-                  {i < 4 ? `${t("openItem")} ${i + 1}` : `${t("viewAll")} →`}
-                </a>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
+      {/* ── Filtered tools below ── */}
+      <div ref={toolsRef} className="mt-10">
+        <CatalogHubToolsClientPanel
+          locale={locale}
+          tools={tools}
+          variant={pageVariant}
+        />
+      </div>
 
       {/* ── Platform disclaimer ── */}
       <div className="mt-10 flex flex-wrap items-center gap-3.5 rounded-xl border border-slate-200 bg-white px-6 py-4.5">

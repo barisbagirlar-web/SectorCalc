@@ -1,19 +1,23 @@
 import { describe, expect, it } from "vitest";
 import {
-  Building2,
+  BadgeDollarSign,
+  BatteryCharging,
+  Boxes,
+  Building,
+  Crosshair,
   DollarSign,
   Factory,
-  Gauge,
-  Hammer,
-  HardHat,
-  Leaf,
+  Goal,
   Package,
-  Printer,
-  Ruler,
-  Store,
-  Target,
-  Truck,
-  Zap,
+  ScanLine,
+  Settings,
+  Shapes,
+  ShieldCheck,
+  ShoppingBag,
+  SlidersHorizontal,
+  Sprout,
+  TreePine,
+  Van,
 } from "lucide-react";
 import { resolveCatalogCategoryIcon } from "@/lib/catalog/resolve-catalog-category-icon";
 import { listTaxonomyCategorySlugs } from "@/lib/tools/category-taxonomy";
@@ -21,18 +25,17 @@ import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon
 
 describe("schema catalog icon overrides", () => {
   it("maps legacy sidebar keys to the intended sector symbols", () => {
-    expect(resolveCatalogCategoryIcon("insaat-saha")).toBe(Building2);
-    expect(resolveCatalogCategoryIcon("malzeme-fire-oee")).toBe(Target);
-    expect(resolveCatalogCategoryIcon("olcum-donusum")).toBe(Ruler);
-    expect(resolveCatalogCategoryIcon("rota-lojistik")).toBe(Truck);
-    expect(resolveCatalogCategoryIcon("teknik-muhendislik")).toBe(Gauge);
-    expect(resolveCatalogCategoryIcon("finans-ik")).toBe(DollarSign);
-    expect(resolveCatalogCategoryIcon("perakende-gida")).toBe(Store);
-    expect(resolveCatalogCategoryIcon("enerji-karbon")).toBe(Zap);
-    expect(resolveCatalogCategoryIcon("uretim-imalat")).toBe(Factory);
-    expect(resolveCatalogCategoryIcon("isg-risk")).toBe(HardHat);
-    expect(resolveCatalogCategoryIcon("surdurulebilirlik")).toBe(Leaf);
-    expect(resolveCatalogCategoryIcon("kalite-spc-alti-sigma")).toBe(Target);
+    expect(resolveCatalogCategoryIcon("insaat-saha")).toBe(Building);
+    expect(resolveCatalogCategoryIcon("malzeme-fire-oee")).toBe(Crosshair);
+    expect(resolveCatalogCategoryIcon("olcum-donusum")).toBe(ScanLine);
+    expect(resolveCatalogCategoryIcon("rota-lojistik")).toBe(Van);
+    expect(resolveCatalogCategoryIcon("teknik-muhendislik")).toBe(SlidersHorizontal);
+    expect(resolveCatalogCategoryIcon("finans-ik")).toBe(BadgeDollarSign);
+    expect(resolveCatalogCategoryIcon("perakende-gida")).toBe(ShoppingBag);
+    expect(resolveCatalogCategoryIcon("enerji-karbon")).toBe(BatteryCharging);
+    expect(resolveCatalogCategoryIcon("uretim-imalat")).toBe(Settings);
+    expect(resolveCatalogCategoryIcon("surdurulebilirlik")).toBe(Sprout);
+    expect(resolveCatalogCategoryIcon("kalite-spc-alti-sigma")).toBe(Goal);
   });
 
   it("covers every explicit schema override entry", () => {
@@ -43,12 +46,12 @@ describe("schema catalog icon overrides", () => {
 
   it("resolves taxonomy category slugs through global category icons", () => {
     expect(resolveCatalogCategoryIcon("yalin-uretim")).toBe(Factory);
-    expect(resolveCatalogCategoryIcon("kalite-surec-kontrol")).toBe(Target);
-    expect(resolveCatalogCategoryIcon("imalat-uretim")).toBe(Printer);
-    expect(resolveCatalogCategoryIcon("malzeme-metalurji")).toBe(Hammer);
-    expect(resolveCatalogCategoryIcon("lojistik-tedarik-zinciri")).toBe(Package);
+    expect(resolveCatalogCategoryIcon("kalite-surec-kontrol")).toBe(ShieldCheck);
+    expect(resolveCatalogCategoryIcon("imalat-uretim")).toBe(Package);
+    expect(resolveCatalogCategoryIcon("malzeme-metalurji")).toBe(Shapes);
+    expect(resolveCatalogCategoryIcon("lojistik-tedarik-zinciri")).toBe(Boxes);
     expect(resolveCatalogCategoryIcon("maliyet-butceleme")).toBe(DollarSign);
-    expect(resolveCatalogCategoryIcon("cevre-emisyon")).toBe(Leaf);
+    expect(resolveCatalogCategoryIcon("cevre-emisyon")).toBe(TreePine);
 
     for (const slug of listTaxonomyCategorySlugs()) {
       expect(resolveCatalogCategoryIcon(slug)).toBeDefined();

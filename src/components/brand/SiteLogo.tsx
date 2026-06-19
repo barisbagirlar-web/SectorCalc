@@ -56,7 +56,7 @@ export function SiteLogo({
         width={BRAND_ASSETS.logo.displaySymbolWidth}
         height={BRAND_ASSETS.logo.displaySymbolHeight}
         className="site-logo__img sc-site-logo__symbol"
-        sizes="(max-width: 767px) 96px, 128px"
+        sizes="(max-width: 767px) 60px, 80px"
         loading="eager"
         decoding="async"
         fetchPriority={priority ? "high" : undefined}

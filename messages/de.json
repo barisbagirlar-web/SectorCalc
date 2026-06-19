@@ -477,19 +477,10 @@
     "compactGrid": {
       "categories": "Kategorien",
       "allTools": "Alle Tools",
-      "searchPlaceholder": "Kategorien durchsuchen...",
-      "tabAll": "Alle",
-      "tabFree": "Kostenlos",
-      "tabPremium": "Premium",
-      "tabSector": "Nach Branche"
+      "searchPlaceholder": "Kategorien durchsuchen..."
     },
-    "clearSelection": "Auswahl löschen",
-    "noResultsHint": "Keine Kategorien gefunden für \"{query}\". Versuchen Sie einen anderen Begriff.",
-    "searchResult": "{count, plural, one {Ergebnis} other {Ergebnisse}}",
     "platformNote": "Plattformhinweis",
     "platformNoteText": "Die Rechner dienen der Vorab-Bewertung und Entscheidungsunterstützung. Überprüfen Sie kritische Geschäftsentscheidungen mit Ihren eigenen Daten.",
-    "openItem": "Tool öffnen",
-    "viewAll": "Alle anzeigen",
     "functionCategories": {
       "oee-productivity": {
         "label": "OEE & Produktivität",
@@ -3416,7 +3407,7 @@
     "calculating": "Wird berechnet…",
     "whatIs": "Was ist {title}?",
     "decisionOutput": "Entscheidungsergebnis",
-    "exportLabel": "Export:",
+    "exportLabel": "Exportieren:",
     "exportNote": "Der PDF-Export nutzt Ihr bestehendes Abo und den Berichts-Workflow.",
     "analysisBlockedTitle": "Berechnung blockiert",
     "pilotAwaiting": "Geben Sie die zugeordneten Pilot-Eingaben ein und starten Sie die Berechnung.",
@@ -50365,7 +50356,7 @@
         "helper": "Gesamtzahl der Artikel im Prüflos gemäß ISO 2859-1."
       },
       "aql_percent": {
-        "label": "AQL (%)",
+        "label": "AQL-Grenze (%)",
         "placeholder": "AQL (%) eingeben",
         "helper": "Akzeptable Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessmittelwert akzeptabel ist."
       },
@@ -68236,7 +68227,7 @@
       "Finanzberater",
       "Operationsberater",
       "Agenturen",
-      "Fractional CFOs",
+      "Teilzeit-Finanzvorstände",
       "Branchenspezialisten"
     ],
     "benefits": [
@@ -68467,7 +68458,7 @@
     "sectorsTitle": "Verfügbare Branchen",
     "auditLabel": "Audit anzeigen",
     "auditHub": "Audit-Hub",
-    "benchmarks": "Benchmarks"
+    "benchmarks": "Vergleichswerte"
   },
   "sampleReportPage": {
     "meta": {
@@ -68533,7 +68524,7 @@
     "semanticBullet1": "Wählen Sie eine Branche aus, um Benchmark-Daten anzuzeigen",
     "semanticBullet2": "Vergleichen Sie Ihre Betriebskennzahlen mit Standards",
     "semanticBullet3": "Identifizieren Sie Lücken und priorisieren Sie Verbesserungen",
-    "benchmarksLink": "Benchmarks",
+    "benchmarksLink": "Vergleichswerte",
     "cbamLink": "CBAM-Compliance"
   },
   "seoPage": {
@@ -68548,7 +68539,7 @@
     "exploreFurther": "Weiterführende Informationen",
     "breadcrumbHome": "Home",
     "breadcrumbGuides": "Guides",
-    "seoHub": "SEO hub",
+    "seoHub": "SEO-Hub",
     "categories": "Kategorien",
     "industryPage": "Branchenseite",
     "allIndustries": "Alle Branchen",
@@ -68673,10 +68664,10 @@
   },
   "loginPage": {
     "meta": {
-      "title": "Sign in",
+      "title": "Anmelden",
       "description": "Bei SectorCalc anmelden – Admin-Panel oder SectorCalc Pro-Zugang."
     },
-    "title": "Sign in",
+    "title": "Anmelden",
     "subtitle": "Admin-Anmeldung für das Lead-Panel oder Google-Anmeldung unten, wenn Sie von Premium-Tools oder Preisen zurückkehren."
   },
   "accountPage": {

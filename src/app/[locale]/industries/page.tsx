@@ -50,6 +50,11 @@ export default async function IndustriesPage({ params }: PageProps) {
     (count) => tCatalog("labels.industries.countLabel", { count }),
   );
 
+  // Filter out fringe sectors with < 2 tools — they belong in the category grid below
+  const filteredSectorCards = taxonomySectorCards.filter(
+    (card) => card.sector.id === "all" || card.count >= 2,
+  );
+
   // Build category cards with premium metadata (field, domain, social purpose)
   const categoryCards = buildTaxonomyCategoryCards(locale, "all", toolSlugs);
 
