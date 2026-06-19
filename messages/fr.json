@@ -9,7 +9,9 @@
     "closeDialog": "Fermer la boîte de dialogue",
     "regionLanguage": "Région et langue",
     "trustCompliance": "Signaux de confiance et de conformité",
-    "industrialPanel": "Panneau de décision industriel"
+    "industrialPanel": "Panneau de décision industriel",
+    "logoAlt": "SectorCalc (FR)",
+    "mobileNavigation": "Mobile (FR)"
   },
   "leadCapture": {
     "eyebrow": "Capture de leads",
@@ -83,7 +85,9 @@
     "freeTools": "Outils gratuits",
     "premiumTools": "Calculs premium",
     "unlockPro": "Débloquer Pro",
-    "runFreeCheck": "Check gratuit"
+    "runFreeCheck": "Check gratuit",
+    "audit": "Audit (FR)",
+    "premiumNav": "Premium (FR)"
   },
   "trace": {
     "launcher": "Parler à Trace",
@@ -103,7 +107,8 @@
       "description": "Je vous oriente vers le bon calculateur parmi des milliers d'outils sectoriels, j'explique les entrées clairement et garde le conseil traçable.\n\nQue calculons-nous aujourd'hui ?",
       "feature1": "{count} calculateurs gratuits — toujours gratuit",
       "feature2": "{count} calculateurs premium — recommandations intelligentes",
-      "cta": "Commencer la conversation"
+      "cta": "Commencer la conversation",
+      "badge": "Trace AI (FR)"
     },
     "proBadge": "Preuve de décision premium",
     "placeholder": "Décrivez votre besoin de calcul…",
@@ -183,7 +188,8 @@
     "browseByCategory": "Par catégorie",
     "startFree": "Check gratuit",
     "viewPremium": "Calcul premium",
-    "free": "Gratis"
+    "free": "Gratis",
+    "premium": "Premium (FR)"
   },
   "pricing": {
     "eyebrow": "Tarifs",
@@ -237,8 +243,12 @@
       "savedReports": "Archives de verdicts enregistrés",
       "pdfExport": "Export PDF",
       "teamSeats": "Accès multi-sièges",
-      "adminControls": "Contrôle des sièges admin"
-    }
+      "adminControls": "Contrôle des sièges admin",
+      "action": "Action (FR)",
+      "colPro": "Pro (FR)"
+    },
+    "freePrice": "$0 (FR)",
+    "singlePrice": "$9 (FR)"
   },
   "checkout": {
     "redirecting": "Weiterleitung zur Kasse…",
@@ -298,11 +308,13 @@
       "fullAnalyzerLink": "Ouvrir le calculateur de risque devis CNC →",
       "eyebrow": "MarginCore Pro",
       "body": "Server-side calcul MarginCore — requires SectorCalc Pro.",
-      "disclaimer": "Premium defaults tooling and material to zero."
+      "disclaimer": "Premium defaults tooling and material to zero.",
+      "verdictLabel": "Verdict (FR)"
     },
     "phase2": {
       "reservedLabel": "Emplacement moteur stochastique",
-      "reservedBody": "Matrice de sensibilité P90 complète et export PDF ici après déblocage Premium."
+      "reservedBody": "Matrice de sensibilité P90 complète et export PDF ici après déblocage Premium.",
+      "label": "MarginCore · Phase 2 (FR)"
     }
   },
   "freeTool": {
@@ -325,7 +337,9 @@
       "Action recommandée",
       "Matrice de sensibilité"
     ],
-    "withheldFromFree": "Masqué dans la version gratuite"
+    "withheldFromFree": "Masqué dans la version gratuite",
+    "premiumBadge": "Premium (FR)",
+    "proBadge": "Pro (FR)"
   },
   "catalogExplorer": {
     "categories": {
@@ -426,7 +440,8 @@
       "showingLimited": "Affichage de {shown} sur {total} calculateurs. Utilisez les filtres de secteur ou la recherche pour affiner la liste.",
       "moreResults": "+ {count} autres résultats",
       "badgeFree": "Gratuit",
-      "clearSearch": "Effacer"
+      "clearSearch": "Effacer",
+      "badgePremium": "Premium (FR)"
     },
     "discoveryTabs": {
       "all": "Tout",
@@ -633,7 +648,8 @@
       "relatedGuideTitle": "So funktioniert diese Berechnung",
       "relatedHubTitle": "Rechner in dieser Kategorie vergleichen",
       "relatedPremiumTitle": "Calculateur premium associé",
-      "relatedPremiumCta": "Voir le calculateur premium associé"
+      "relatedPremiumCta": "Voir le calculateur premium associé",
+      "faqTitle": "FAQ (FR)"
     },
     "premium": {
       "whenToUseTitle": "Quand utiliser ce calculateur",
@@ -667,7 +683,8 @@
       "reportBullet3": "Actions suggérées et notes d'hypothèses",
       "reportBullet4": "PDF et CSV exportables avec accès payant",
       "faqIsFreeTitle": "Cette calculatrice est-elle gratuite ?",
-      "faqIsFreeAnswer": "Cet outil fait partie du périmètre d'analyse premium. Les résultats complets et les résumés de décision nécessitent des crédits ou un abonnement Pro actif."
+      "faqIsFreeAnswer": "Cet outil fait partie du périmètre d'analyse premium. Les résultats complets et les résumés de décision nécessitent des crédits ou un abonnement Pro actif.",
+      "faqTitle": "FAQ (FR)"
     }
   },
   "trust": {
@@ -716,7 +733,8 @@
       "energyCarbon": "Énergie & Carbone",
       "routingLogistics": "Route & Logistique",
       "constructionField": "Construction & Terrain"
-    }
+    },
+    "brand": "SectorCalc (FR)"
   },
   "region": {
     "label": "Région",
@@ -725,11 +743,18 @@
     "germany": "Allemagne · EUR",
     "indicatorHint": "La devise suit la langue ou le choix de région manuel",
     "manualActive": "Région manuelle : {region}",
-    "followsLanguage": "Suit la langue → {region}"
+    "followsLanguage": "Suit la langue → {region}",
+    "global": "Global · USD (FR)",
+    "indicator": "{region} · {currency} (FR)"
   },
   "locale": {
     "label": "Langue",
-    "en": "Anglais"
+    "en": "Anglais",
+    "tr": "Türkçe (FR)",
+    "es": "Español (FR)",
+    "de": "Deutsch (FR)",
+    "ar": "العربية (FR)",
+    "fr": "Français (FR)"
   },
   "common": {
     "learnMore": "En savoir plus",
@@ -739,7 +764,8 @@
     "calculate": "Calculer",
     "badge": {
       "free": "Gratuit",
-      "new": "Nouveau"
+      "new": "Nouveau",
+      "premium": "Premium (FR)"
     }
   },
   "theme": {
@@ -805,7 +831,8 @@
       "actionLabel": "Action suggérée",
       "actionValue": "RePrix or reduce scope before sending the quote.",
       "primaryCta": "Voir un rapport de verdict exemple",
-      "secondaryCta": "Ouvrir le calculateur de risque devis CNC"
+      "secondaryCta": "Ouvrir le calculateur de risque devis CNC",
+      "verdictLabel": "Verdict (FR)"
     },
     "compare": {
       "eyebrow": "Gratuit vs Pro",
@@ -882,7 +909,8 @@
           "value": "27 EN DIRECT"
         },
         "engine": {
-          "label": "Moteur"
+          "label": "Moteur",
+          "value": "P90 MC (FR)"
         },
         "confidence": {
           "label": "Confiance",
@@ -899,11 +927,13 @@
       "title": "Synthèses exécutives par vertical",
       "subtitle": "Modules de risque groupés — pré-contrôles gratuits et calculateurs premium.",
       "sectorCount": "{count} modules métier",
-      "freeLabel": "Pré-contrôle"
+      "freeLabel": "Pré-contrôle",
+      "proLabel": "Verdict (FR)"
     },
     "groups": {
       "industry": "Industrie",
-      "logistics": "Logistique"
+      "logistics": "Logistique",
+      "construction": "Construction (FR)"
     },
     "activity": {
       "eyebrow": "Fil d'activité",
@@ -915,7 +945,8 @@
         "id": "ID du rapport",
         "sector": "Secteur",
         "updated": "Mis à jour",
-        "status": "Statut"
+        "status": "Statut",
+        "verdict": "Verdict (FR)"
       },
       "status": {
         "complete": "Terminé",
@@ -1183,8 +1214,11 @@
           "title": "Production & fabrication",
           "description": "Taux horaire machine, TRS, vitesse de coupe, risque rebut et efficacité atelier.",
           "tags": [
-            "Rebut"
-          ]
+            "Rebut",
+            "OEE (FR)",
+            "Scrap (FR)"
+          ],
+          "shortTitle": "Production (FR)"
         },
         "industrial": {
           "title": "Ateliers industriels",
@@ -1232,7 +1266,8 @@
           "shortTitle": "Énergie",
           "tags": [
             "Fuite",
-            "Carbone"
+            "Carbone",
+            "Carbon (FR)"
           ]
         },
         "finance": {
@@ -1242,7 +1277,8 @@
             "TVA",
             "Personnel",
             "Amortissement"
-          ]
+          ],
+          "shortTitle": "Finance (FR)"
         },
         "foodRetail": {
           "title": "Alimentation & retail",
@@ -1250,7 +1286,8 @@
           "shortTitle": "Vente au détail",
           "tags": [
             "Perte",
-            "Marge"
+            "Marge",
+            "Margin (FR)"
           ]
         }
       }
@@ -1442,7 +1479,9 @@
         "workshop": "Atelier",
         "engineering": "Ingénierie",
         "construction": "BTP",
-        "energy": "Énergie"
+        "energy": "Énergie",
+        "production": "Production (FR)",
+        "finance": "Finance (FR)"
       }
     },
     "audiences": {
@@ -1552,7 +1591,8 @@
     "headline": "Calculer, mesurer et optimiser",
     "headlineAccent": "pour votre secteur.",
     "lead": "Production, logistics, construction, Énergie and daily life — expart formulas, clear results, no ERP complexity.",
-    "activeModule": "Calculateur sectoriel"
+    "activeModule": "Calculateur sectoriel",
+    "brand": "SectorCalc (FR)"
   },
   "auditHub": {
     "eyebrow": "Hub d'audit SectorCalc",
@@ -1688,7 +1728,8 @@
     "bufferedExposure": "Exposition tamponnée",
     "status": {
       "Critical": "Critique",
-      "Warning": "Alerte"
+      "Warning": "Alerte",
+      "Acceptable": "Acceptable (FR)"
     },
     "export": {
       "title": "Sortie du rapport premium",
@@ -1796,7 +1837,8 @@
     "subtitle": "Découvrez les calculateurs pour votre secteur d'activité.",
     "searchPlaceholder": "Rechercher un secteur, un métier ou un outil...",
     "categoryTitle": "PARCOURIR PAR SECTEUR",
-    "functionTitle": "PARCOURIR PAR FONCTION"
+    "functionTitle": "PARCOURIR PAR FONCTION",
+    "metaTitle": "Industries - SectorCalc (FR)"
   },
   "calculator": {
     "calculate": "Calculer",
@@ -1806,7 +1848,8 @@
     "premiumEyebrow": "Calculateur premium",
     "mode": {
       "label": "Mode de calcul",
-      "quick": "Simple"
+      "quick": "Simple",
+      "expert": "Expert (FR)"
     },
     "sections": {
       "inputs": "Champs de saisie",
@@ -1925,7 +1968,8 @@
   },
   "smartForm": {
     "mode": {
-      "advanced": "Avancé"
+      "advanced": "Avancé",
+      "simple": "Simple (FR)"
     },
     "actions": {
       "calculate": "Lancer le calcul",
@@ -2688,6 +2732,10 @@
           "targetMargin": {
             "label": "Marge cible",
             "help": "Marge cible"
+          },
+          "distanceKm": {
+            "label": "Distance (FR)",
+            "help": "Distance (FR)"
           }
         }
       },
@@ -3004,6 +3052,10 @@
           "bufferPercent": {
             "label": "Marge budgétaire",
             "help": "Marge budgétaire"
+          },
+          "distanceKm": {
+            "label": "Distance (FR)",
+            "help": "Distance (FR)"
           }
         }
       },
@@ -3085,7 +3137,8 @@
       "other": "Autre retour"
     },
     "message": {
-      "placeholder": "Décrivez ce qui ne correspond pas à votre exploitation ou pratique sectorielle."
+      "placeholder": "Décrivez ce qui ne correspond pas à votre exploitation ou pratique sectorielle.",
+      "label": "Message (FR)"
     },
     "expectedBehavior": {
       "label": "Comportement attendu"
@@ -3174,7 +3227,10 @@
       "us": "États-Unis",
       "uk": "Royaume-Uni",
       "tr": "Turquie",
-      "latam": "Amérique latine"
+      "latam": "Amérique latine",
+      "global": "Global (FR)",
+      "eu": "Europe (FR)",
+      "mena": "MENA (FR)"
     },
     "system": {
       "label": "Système de mesure",
@@ -3191,7 +3247,8 @@
       "speed": "Vitesse",
       "energy": "Énergie",
       "power": "Puissance",
-      "time": "Temps"
+      "time": "Temps",
+      "volume": "Volume (FR)"
     }
   },
   "regionalBenchmarks": {
@@ -3209,7 +3266,8 @@
     },
     "severity": {
       "watch": "À surveiller",
-      "risk": "Risque"
+      "risk": "Risque",
+      "good": "Favorable (FR)"
     },
     "confidence": {
       "low": "Faible confiance",
@@ -3218,7 +3276,10 @@
     },
     "unit": {
       "days": "jours",
-      "months": "mois"
+      "months": "mois",
+      "percent": "% (FR)",
+      "ratio": "ratio (FR)",
+      "score": "score (FR)"
     },
     "metric": {
       "gross_margin": "Marge brute",
@@ -3230,7 +3291,8 @@
       "capacity_utilization": "Utilisation des capacités",
       "quote_risk": "Risque de devis",
       "payback_period": "Période de retour"
-    }
+    },
+    "sourceNote": "Source (FR)"
   },
   "caseStudies": {
     "eyebrow": "Couche de preuve",
@@ -3311,8 +3373,13 @@
       "resultsMetric": "Indicateur",
       "sectionStatement": "Déclaration",
       "backToIndex": "← Retour à l'index",
-      "representativeLabel": "Scénario représentatif (résultat client non vérifié)"
-    }
+      "representativeLabel": "Scénario représentatif (résultat client non vérifié)",
+      "colIndex": "# (FR)",
+      "colPdf": "PDF (FR)",
+      "emDash": "— (FR)",
+      "detailLink": "[HTML] (FR)"
+    },
+    "solutionHeading": "Solution (FR)"
   },
   "fieldMode": {
     "eyebrow": "Mode terrain",
@@ -3365,7 +3432,9 @@
       "min": "{label} doit être au moins {min}.",
       "max": "{label} doit être au plus {max}.",
       "contractNotFound": "Contrat de formulaire intelligent introuvable pour cet outil."
-    }
+    },
+    "simple": "Simple (FR)",
+    "expert": "Expert (FR)"
   },
   "generatedTool": {
     "calculate": "Calculer",
@@ -3394,7 +3463,12 @@
         "time": "Ventilation temporelle",
         "factor": "Ventilation facteurs / coefficients",
         "count": "Ventilation des quantités",
-        "generic": "Ventilation des valeurs"
+        "generic": "Ventilation des valeurs",
+        "timeUnit": {
+          "minute": "min (FR)",
+          "hour": "h (FR)",
+          "second": "s (FR)"
+        }
       },
       "noRelatedInputs": "Aucune entrée directement liée trouvée.",
       "descriptions": {
@@ -3470,7 +3544,9 @@
       "calculationStandardLabel": "Norme de calcul",
       "voteCorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble correct.",
       "voteIncorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble incorrect.",
-      "unitSuffix": "unité {label}"
+      "unitSuffix": "unité {label}",
+      "voteCorrect": "Correct (FR)",
+      "voteIncorrect": "Incorrect (FR)"
     },
     "freeForm": {
       "defaultDescription": "Calcul sectoriel rapide — saisissez les entrées pour voir le résultat.",
@@ -3519,7 +3595,10 @@
       "institutionalProfileLink": "Profil institutionnel",
       "academicBadge": "Vérifié académiquement — IIT Bombay",
       "academicBadgeAria": "Badge de vérification académique et référence auteur MathSciNet",
-      "helpfulLabel": "personnes trouvent ce calculateur utile"
+      "helpfulLabel": "personnes trouvent ce calculateur utile",
+      "creatorName": "Prof. Dr. Neela Nataraj (FR)",
+      "mathSciNetLinkLabel": "MathSciNet (FR)",
+      "mrIdBadge": "MR {mrId} (FR)"
     },
     "interactionActionBar": {
       "reactionGroupLabel": "Retour d'utilité",
@@ -3613,7 +3692,8 @@
       "pdfTotalWithFireRate": "Total avec taux de rebut",
       "pdfBreakdown": "Répartition",
       "pdfHiddenLossDrivers": "Facteurs de perte cachés",
-      "pdfSuggestedActions": "Actions suggérées"
+      "pdfSuggestedActions": "Actions suggérées",
+      "pdfDate": "Date (FR)"
     },
     "eoqOptimizer": {
       "summary": "Optimisation stock & commandes (EOQ + stock de sécurité)",
@@ -3689,7 +3769,10 @@
       "supplierMissingFields": "Saisissez l'ID fournisseur et le code produit.",
       "supplierFetchFailed": "Impossible de récupérer les données fournisseur.",
       "supplierFetchSuccess": "{value} kg CO2e ({unit}, {source}) ajoutés aux biens achetés.",
-      "supplierLastFetch": "Dernière récupération : {product} à {factor} kg CO2e/{unit}."
+      "supplierLastFetch": "Dernière récupération : {product} à {factor} kg CO2e/{unit}.",
+      "scope1": "Scope 1 (FR)",
+      "scope2": "Scope 2 (FR)",
+      "scope3": "Scope 3 (FR)"
     },
     "insufficientCredits": "Vous avez besoin d'au moins 1 crédit pour cette analyse premium.",
     "buyCreditsCta": "Acheter des crédits",
@@ -3777,7 +3860,8 @@
       "colValue": "Valeur",
       "colUnit": "Unité",
       "colSource": "Source / Référence",
-      "badgeDefault": "Analyse d'Ingénierie"
+      "badgeDefault": "Analyse d'Ingénierie",
+      "metaDate": "Date (FR)"
     },
     "downloadPdfReport": "⬇ Télécharger le rapport PDF Premium",
     "csvHeaders": {
@@ -3810,7 +3894,9 @@
     "inventory": "Stock",
     "motion": "Mouvement",
     "defects": "Défauts / rebuts",
-    "overprocessing": "Surtraitement"
+    "overprocessing": "Surtraitement",
+    "transport": "Transport (FR)",
+    "transportation": "Transport (FR)"
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -4353,7 +4439,8 @@
     "concrete-bag-calculator": {
       "volumem3": {
         "placeholder": "Saisir volume",
-        "helper": "Volume total de coulée"
+        "helper": "Volume total de coulée",
+        "label": "Volume"
       },
       "bagyieldm3": {
         "label": "Rendement par sac",
@@ -5512,7 +5599,8 @@
       },
       "performancepercent": {
         "placeholder": "Saisir performance",
-        "helper": "Speed parcent"
+        "helper": "Speed parcent",
+        "label": "Performance"
       },
       "qualitypercent": {
         "label": "Qualité",
@@ -5557,13 +5645,15 @@
       },
       "rpm": {
         "placeholder": "Saisir rpm",
-        "helper": "Vitesse de broche"
+        "helper": "Vitesse de broche",
+        "label": "RPM"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "placeholder": "Saisir rpm",
-        "helper": "Vitesse de broche"
+        "helper": "Vitesse de broche",
+        "label": "RPM"
       },
       "teeth": {
         "label": "Dents",
@@ -5820,7 +5910,8 @@
       },
       "tempdifferencec": {
         "placeholder": "Saisir δt",
-        "helper": "Intérieur moins extérieur"
+        "helper": "Intérieur moins extérieur",
+        "label": "ΔT"
       },
       "primary_value": {
         "label": "Valeur primaire",
@@ -5922,7 +6013,8 @@
     "fuel-consumption-calculator": {
       "distancekm": {
         "placeholder": "Saisir distance",
-        "helper": "Trip Distance"
+        "helper": "Trip Distance",
+        "label": "Distance"
       },
       "consumptionper100km": {
         "label": "Consommation",
@@ -5938,7 +6030,8 @@
     "fuel-cost-calculator": {
       "distancekm": {
         "placeholder": "Saisir distance",
-        "helper": "Trip Distance"
+        "helper": "Trip Distance",
+        "label": "Distance"
       },
       "consumptionper100km": {
         "label": "Consommation",
@@ -6085,7 +6178,8 @@
     "delivery-cost-calculator": {
       "distance_km": {
         "placeholder": "Saisir distance (km)",
-        "helper": "Distance totale de l'itinéraire de l'origine à la destination, utilisée pour les calculs de coût de carburant et de temps."
+        "helper": "Distance totale de l'itinéraire de l'origine à la destination, utilisée pour les calculs de coût de carburant et de temps.",
+        "label": "Distance (km)"
       },
       "fuel_cost_per_liter": {
         "label": "Coût du carburant par litre",
@@ -6161,7 +6255,8 @@
       },
       "distance_km": {
         "placeholder": "Saisir distance (km)",
-        "helper": "Distance totale de transport de l'origine à la destination. Influence la surcharge carburant et les coûts basés sur le temps."
+        "helper": "Distance totale de transport de l'origine à la destination. Influence la surcharge carburant et les coûts basés sur le temps.",
+        "label": "Distance (km)"
       },
       "transport_mode": {
         "label": "Mode de transport",
@@ -6679,7 +6774,8 @@
       },
       "transport": {
         "placeholder": "Saisir transport",
-        "helper": "Trajet domicile-travail"
+        "helper": "Trajet domicile-travail",
+        "label": "Transport"
       },
       "utilities": {
         "label": "Services publics",
@@ -6793,7 +6889,8 @@
     "fuel-travel-calculator": {
       "distancekm": {
         "placeholder": "Saisir distance",
-        "helper": "Trip Distance"
+        "helper": "Trip Distance",
+        "label": "Distance"
       },
       "consumptionper100km": {
         "label": "Consommation",
@@ -7030,15 +7127,18 @@
     "proportion-calculator": {
       "a": {
         "placeholder": "Saisir a",
-        "helper": "Premier numérateur"
+        "helper": "Premier numérateur",
+        "label": "A"
       },
       "b": {
         "placeholder": "Saisir b",
-        "helper": "Premier dénominateur"
+        "helper": "Premier dénominateur",
+        "label": "B"
       },
       "c": {
         "placeholder": "Saisir c",
-        "helper": "Deuxième numérateur"
+        "helper": "Deuxième numérateur",
+        "label": "C"
       },
       "primary_value": {
         "label": "Valeur primaire",
@@ -7165,27 +7265,33 @@
     "linear-regression-calculator": {
       "x1": {
         "placeholder": "Saisir x₁",
-        "helper": "Premier x"
+        "helper": "Premier x",
+        "label": "X₁"
       },
       "y1": {
         "placeholder": "Saisir y₁",
-        "helper": "Premier y"
+        "helper": "Premier y",
+        "label": "Y₁"
       },
       "x2": {
         "placeholder": "Saisir x₂",
-        "helper": "Deuxième x"
+        "helper": "Deuxième x",
+        "label": "X₂"
       },
       "y2": {
         "placeholder": "Saisir y₂",
-        "helper": "Deuxième y"
+        "helper": "Deuxième y",
+        "label": "Y₂"
       },
       "x3": {
         "placeholder": "Saisir x₃",
-        "helper": "Troisième x"
+        "helper": "Troisième x",
+        "label": "X₃"
       },
       "y3": {
         "placeholder": "Saisir y₃",
-        "helper": "Troisième y"
+        "helper": "Troisième y",
+        "label": "Y₃"
       }
     },
     "length-converter": {
@@ -21361,7 +21467,8 @@
     "fcff-calculator": {
       "ebit": {
         "placeholder": "Saisir ebit",
-        "helper": "Valeur utilisée pour EBIT dans le calcul."
+        "helper": "Valeur utilisée pour EBIT dans le calcul.",
+        "label": "EBIT"
       },
       "tax_rate": {
         "label": "Taux d'imposition",
@@ -22466,7 +22573,8 @@
       },
       "stop_loss_pips": {
         "placeholder": "Saisir stop loss (pips)",
-        "helper": "Valeur utilisée pour Stop Loss (pips) dans le calcul."
+        "helper": "Valeur utilisée pour Stop Loss (pips) dans le calcul.",
+        "label": "Stop Loss (pips)"
       },
       "pip_value": {
         "label": "Valeur du pip (USD par pip)",
@@ -61273,7 +61381,8 @@
       },
       "altitude_meters": {
         "placeholder": "Saisir altitude (m)",
-        "helper": "Altitude au-dessus du niveau de la mer pour la correction barométrique. Pertinent pour les installations en haute altitude."
+        "helper": "Altitude au-dessus du niveau de la mer pour la correction barométrique. Pertinent pour les installations en haute altitude.",
+        "label": "Altitude (m)"
       },
       "fluid_type": {
         "label": "Type de fluide",
@@ -66041,7 +66150,11 @@
     "linkedinAria": "SectorCalc sur LinkedIn",
     "twitterAria": "SectorCalc sur X",
     "llmIndexLabel": "Index LLM",
-    "sitemapLabel": "Plan du site"
+    "sitemapLabel": "Plan du site",
+    "logoText": "SectorCalc (FR)",
+    "metaCopyright": "© 2026 SectorCalc (FR)",
+    "linkedinLabel": "LinkedIn (FR)",
+    "twitterLabel": "X (FR)"
   },
   "calculatorLibrary": {
     "metaTitle": "Bibliothèque de calculateurs — SectorCalc",
@@ -66053,7 +66166,11 @@
     "freeToolsLabel": "Calculateurs gratuits",
     "premiumToolsLabel": "Calculateurs premium",
     "industriesLabel": "Hubs sectoriels",
-    "generatedToolsLabel": "Calculateurs générés"
+    "generatedToolsLabel": "Calculateurs générés",
+    "llmsLabel": "llms.txt (FR)",
+    "indexLabel": "sectorcalc-index.txt (FR)",
+    "faqLabel": "faq-knowledge.txt (FR)",
+    "servicesLabel": "services-products.txt (FR)"
   },
   "guidance": {
     "inputGuide": {
@@ -66107,7 +66224,11 @@
       "input": "Entrée",
       "process": "Calcul",
       "quantity": "Quantité",
-      "stops": "Arrêts"
+      "stops": "Arrêts",
+      "angle": "Angle (FR)",
+      "volume": "Volume (FR)",
+      "distance": "Distance (FR)",
+      "performance": "Performance (FR)"
     }
   },
   "calculatorCards": {
@@ -66139,7 +66260,19 @@
     "selectorNote": "Default follows Région; you may switch reference systems for comparison.",
     "engineeringWarning": "This tool provides standard-referenced pre-calculation only. Final design, safety, and conformity Décisions require authorized Moteurering review.",
     "systems": {
-      "ISO_METRIC": "ISO Métrique"
+      "ISO_METRIC": "ISO Métrique",
+      "AWS": "AWS (FR)",
+      "ISO_EN": "ISO / EN (FR)",
+      "JIS": "JIS (FR)",
+      "UNC_UNF": "UNC / UNF (FR)",
+      "ASME_BPVC": "ASME BPVC (FR)",
+      "PED_EN_13445": "PED / EN 13445 (FR)",
+      "ASTM_AISI": "ASTM / AISI (FR)",
+      "EN_DIN": "EN / DIN (FR)",
+      "ASME_Y14_5": "ASME Y14.5 (FR)",
+      "ISO_GPS": "ISO GPS (FR)",
+      "AISC": "AISC (FR)",
+      "EUROCODE": "Eurocode (FR)"
     }
   },
   "calculationFeedback": {
@@ -66168,7 +66301,8 @@
     "error": {
       "submitFailed": "Could not send feedback. Try again shortly.",
       "messageTooShort": "Veuillez ajouter au moins 10 caractères."
-    }
+    },
+    "messageLabel": "Description (FR)"
   },
   "resultLayers": {
     "quickTab": "Résultat rapide",
@@ -67878,7 +68012,9 @@
       "technicalSimulationOnly": "Simulation technique uniquement. Pas un conseil financier, juridique ou d'ingénierie.",
       "sectorSpecificCalculator": "Calculateur sectoriel — saisissez les données pour voir les résultats.",
       "calculatorModuleNotFound": "Module de calcul introuvable.",
-      "failedToLoadCalculator": "Échec du chargement du calculateur."
+      "failedToLoadCalculator": "Échec du chargement du calculateur.",
+      "trustTrace": "Trust Trace (FR)",
+      "cbam": "CBAM (FR)"
     },
     "ttLabels": {
       "htmlLang": "fr",
@@ -67899,8 +68035,10 @@
       "issued": "Émis le",
       "tool": "Outil",
       "disclaimer": "Simulation technique uniquement. Pas un conseil financier, juridique ou d'ingénierie.",
-      "issuedStatus": "ÉMIS"
-    }
+      "issuedStatus": "ÉMIS",
+      "validation": "Validation (FR)"
+    },
+    "eyebrow": "Trust Trace (FR)"
   },
   "sector": {
     "title": "Calculateurs Sectoriels",
@@ -67931,7 +68069,8 @@
     "tier": "Niveau",
     "expertLogicBreakdown": "Analyse experte de la logique",
     "hiddenVariables": "Variables cachées",
-    "emptyState": "Entrez les paramètres et lancez le calcul."
+    "emptyState": "Entrez les paramètres et lancez le calcul.",
+    "impact": "Impact (FR)"
   },
   "platformCapabilities": {
     "title": "Ensemble complet de fonctionnalités",
@@ -68215,7 +68354,8 @@
     "sectionHowBody": "Choisissez votre secteur → l'outil → saisissez vos données. Les vérifications gratuites sont instantanées. Les rapports premium sont disponibles après paiement.",
     "ctaTitle": "Prêt à mesurer ?",
     "ctaBody": "Pas de carte de crédit requise. Pas de démo à réserver. Choisissez simplement un outil et commencez.",
-    "ctaButton": "Parcourir les outils"
+    "ctaButton": "Parcourir les outils",
+    "eyebrow": "SectorCalc (FR)"
   },
   "operatingSystemPage": {
     "meta": {
@@ -68284,7 +68424,8 @@
     "headline": "Références sectorielles",
     "sectorsTitle": "Secteurs disponibles",
     "openLabel": "Voir les références",
-    "backLink": "← Retour au hub d'audit"
+    "backLink": "← Retour au hub d'audit",
+    "eyebrow": "SectorCalc (FR)"
   },
   "sustainabilityPage": {
     "meta": {
@@ -68301,7 +68442,8 @@
     "sectorsTitle": "Secteurs disponibles",
     "auditLabel": "Voir l'audit",
     "auditHub": "Hub d'audit",
-    "benchmarks": "Références"
+    "benchmarks": "Références",
+    "eyebrow": "SectorCalc (FR)"
   },
   "sampleReportPage": {
     "meta": {
@@ -68316,7 +68458,8 @@
     "ctaTitle": "Effectuez un calcul gratuit",
     "ctaSubtitle": "Explorez les outils spécifiques à chaque secteur et voyez vos propres résultats en quelques secondes.",
     "ctaPrimary": "Parcourir les outils gratuits",
-    "ctaSecondary": "Voir les tarifs"
+    "ctaSecondary": "Voir les tarifs",
+    "eyebrow": "SectorCalc (FR)"
   },
   "trustPage": {
     "meta": {
@@ -68349,10 +68492,12 @@
     },
     "categories": {
       "title": "Catégories d'outils",
-      "subtitle": "Parcourez les outils par secteur, profession ou type de calcul."
+      "subtitle": "Parcourez les outils par secteur, profession ou type de calcul.",
+      "eyebrow": "SectorCalc (FR)"
     },
     "breadcrumbCategories": "Catégories",
-    "itemListName": "Catégories de calcul"
+    "itemListName": "Catégories de calcul",
+    "breadcrumbHome": "Home (FR)"
   },
   "auditPage": {
     "meta": {
@@ -68382,7 +68527,11 @@
     "allIndustries": "Tous les secteurs",
     "startFree": "Commencez par les calculateurs gratuits",
     "viewPremium": "Consultez les calculateurs premium",
-    "legalFooter": "Les guides SectorCalc sont des ressources techniques d'aide à la décision basées sur des formules standard et des hypothèses transparentes. Ils ne constituent pas des conseils financiers, juridiques, médicaux ou techniques."
+    "legalFooter": "Les guides SectorCalc sont des ressources techniques d'aide à la décision basées sur des formules standard et des hypothèses transparentes. Ils ne constituent pas des conseils financiers, juridiques, médicaux ou techniques.",
+    "faq": "FAQ (FR)",
+    "breadcrumbHome": "Home (FR)",
+    "breadcrumbGuides": "Guides (FR)",
+    "pricing": "Pricing (FR)"
   },
   "howItWorks": {
     "meta": {
@@ -68508,12 +68657,14 @@
   },
   "accountPage": {
     "meta": {
-      "description": "Gérez votre accès SectorCalc Pro, vos outils de décision premium et vos rapports de verdict sauvegardés."
+      "description": "Gérez votre accès SectorCalc Pro, vos outils de décision premium et vos rapports de verdict sauvegardés.",
+      "title": "Account (FR)"
     }
   },
   "accountCreditsPage": {
     "meta": {
-      "description": "Achetez des crédits SectorCalc pour l'assistance IA premium et l'utilisation de l'analyseur."
+      "description": "Achetez des crédits SectorCalc pour l'assistance IA premium et l'utilisation de l'analyseur.",
+      "title": "Credits (FR)"
     }
   },
   "accountFeedbackPage": {
@@ -68596,7 +68747,8 @@
     "footerSeparator": "et"
   },
   "industriesSlugPage": {
-    "metaDescriptionFallback": "Utilisez les outils SectorCalc pour vérifier le risque de coût, la marge d'offre et les fuites de profit cachées de {name} avant d'accepter un travail."
+    "metaDescriptionFallback": "Utilisez les outils SectorCalc pour vérifier le risque de coût, la marge d'offre et les fuites de profit cachées de {name} avant d'accepter un travail.",
+    "metaTitleFallback": "{name} Cost & Margin Tools (FR)"
   },
   "accountReportsPage": {
     "meta": {
@@ -68623,7 +68775,8 @@
     "sectionMeasured": "Mesuré",
     "sectionLossHotspot": "Point chaud de perte",
     "sectionTolerance": "Tolérance",
-    "sectionDoNow": "Agir maintenant"
+    "sectionDoNow": "Agir maintenant",
+    "sectionImpact": "Impact (FR)"
   },
   "riskSensitivityTable": {
     "emptyMessage": "Les scénarios de sensibilité apparaîtront après le calcul du risque de marge.",

@@ -5230,13 +5230,15 @@
       },
       "rpm": {
         "placeholder": "RPM girin",
-        "helper": "İş Mili Hızı"
+        "helper": "İş Mili Hızı",
+        "label": "RPM"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "placeholder": "RPM girin",
-        "helper": "İş Mili Hızı"
+        "helper": "İş Mili Hızı",
+        "label": "RPM"
       },
       "teeth": {
         "label": "Diş",
@@ -5493,7 +5495,8 @@
       },
       "tempdifferencec": {
         "placeholder": "ΔT girin",
-        "helper": "İç eksi dış"
+        "helper": "İç eksi dış",
+        "label": "ΔT"
       },
       "primary_value": {
         "label": "Birincil değer",
@@ -6709,15 +6712,18 @@
     "proportion-calculator": {
       "a": {
         "placeholder": "A girin",
-        "helper": "First Pay"
+        "helper": "First Pay",
+        "label": "A"
       },
       "b": {
         "placeholder": "B girin",
-        "helper": "First Payda"
+        "helper": "First Payda",
+        "label": "B"
       },
       "c": {
         "placeholder": "C girin",
-        "helper": "Second Pay"
+        "helper": "Second Pay",
+        "label": "C"
       },
       "primary_value": {
         "label": "Birincil değer",
@@ -6844,27 +6850,33 @@
     "linear-regression-calculator": {
       "x1": {
         "placeholder": "X₁ girin",
-        "helper": "Birinci x"
+        "helper": "Birinci x",
+        "label": "X₁"
       },
       "y1": {
         "placeholder": "Y₁ girin",
-        "helper": "Birinci y"
+        "helper": "Birinci y",
+        "label": "Y₁"
       },
       "x2": {
         "placeholder": "X₂ girin",
-        "helper": "İkinci x"
+        "helper": "İkinci x",
+        "label": "X₂"
       },
       "y2": {
         "placeholder": "Y₂ girin",
-        "helper": "İkinci y"
+        "helper": "İkinci y",
+        "label": "Y₂"
       },
       "x3": {
         "placeholder": "X₃ girin",
-        "helper": "Üçüncü x"
+        "helper": "Üçüncü x",
+        "label": "X₃"
       },
       "y3": {
         "placeholder": "Y₃ girin",
-        "helper": "Üçüncü y"
+        "helper": "Üçüncü y",
+        "label": "Y₃"
       }
     },
     "length-converter": {

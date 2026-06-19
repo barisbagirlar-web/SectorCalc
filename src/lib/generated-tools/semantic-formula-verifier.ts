@@ -20,11 +20,11 @@ type DomainTag = "labor" | "material" | "energy" | "quality" | "downtime"
   | "overhead" | "discount" | "tax" | "interest" | "depreciation"
   | "maintenance" | "setup" | "changeover" | "inventory" | "logistics"
   | "safety" | "environment" | "carbon" | "energy" | "water"
-  | "risk" | "score" | "index" | "rate" | "count" | "ratio";
+  | "risk" | "score" | "index" | "rate" | "count" | "ratio"
+  | "distance";
 
 const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   // Labor / personnel
-  labor_cost: ["labor", "cost"],
   direct_labor_cost: ["labor", "cost"],
   indirect_labor_cost: ["labor", "cost"],
   labor_hours: ["labor", "time"],
@@ -146,12 +146,8 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   // Waste / Material
   total_waste_material: ["material", "waste"],
   scrap_cost: ["material", "cost", "waste"],
-  scrap_rate: ["material", "quality", "waste"],
-  rework_cost: ["material", "cost", "quality"],
-  rework_rate: ["material", "quality"],
   rework_labor_cost: ["labor", "cost", "material"],
   scrap_revenue: ["material", "revenue"],
-  material_cost: ["material", "cost", "revenue"],
   total_material_weight: ["material", "count", "waste"],
 
   // Financial
@@ -160,9 +156,7 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   purchasing_power_loss: ["revenue", "profit", "time"],
 
   // Quality / Efficiency
-  performance: ["efficiency", "time"],
   quality: ["quality", "efficiency"],
-  defect_rate: ["quality", "waste"],
   quality_yield: ["quality", "efficiency"],
   rework_rate: ["quality", "waste"],
 
@@ -173,12 +167,9 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   // Time / Delay
   total_delay: ["time", "efficiency"],
 
-  // Direct labor cost — when formula uses labor inputs, this is valid
-  direct_labor_cost: ["labor", "cost"],
+  // Exposure hours — when formula uses time inputs, this is valid
   labor_cost: ["labor", "cost"],
   labor_cost_total: ["labor", "cost"],
-
-  // Exposure hours — when formula uses time inputs, this is valid
   annual_exposure_hours: ["time", "risk"],
 };
 

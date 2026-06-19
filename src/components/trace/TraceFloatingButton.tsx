@@ -1,13 +1,40 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { FreeTraceChat } from "@/components/trace/FreeTraceChat";
 import { ProTraceChat } from "@/components/trace/ProTraceChat";
 
-const BUBBLE_AUTO_HIDE_MS = 10_000;
+const BUBBLE_AUTO_HIDE_MS = 16_000;
+
+function TraceMiniOrb() {
+  const id = useId().replace(/:/g, "");
+  const gradId = `traceMiniGrad-${id}`;
+  const glowId = `traceMiniGlow-${id}`;
+
+  return (
+    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true" className="sc-trace__mini-orb">
+      <defs>
+        <radialGradient id={gradId} cx="62%" cy="28%" r="68%">
+          <stop offset="0%" stopColor="#7DF0FF" />
+          <stop offset="28%" stopColor="#1A78FF" />
+          <stop offset="58%" stopColor="#004DFF" />
+          <stop offset="82%" stopColor="#05245E" />
+          <stop offset="100%" stopColor="#031331" />
+        </radialGradient>
+        <filter id={glowId}>
+          <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#1A78FF" floodOpacity="0.35" />
+        </filter>
+      </defs>
+      <circle cx="14" cy="14" r="13" fill={`url(#${gradId})`} filter={`url(#${glowId})`} />
+      <ellipse cx="19" cy="7.5" rx="5" ry="3.2" fill="rgba(255,255,255,0.55)" />
+      <circle cx="10" cy="20.5" r="5.5" fill="rgba(0,8,28,0.2)" />
+      <circle cx="15" cy="8.5" r="1.6" fill="rgba(255,255,255,0.6)" />
+    </svg>
+  );
+}
 
 function TraceFabBubble({
   text,
@@ -41,20 +68,9 @@ function TraceFabBubble({
 
   return (
     <div className="sc-trace__bubble-greeting" role="status" aria-live="polite">
-      <div className="sc-trace__bubble-greeting-inner">
+      <div className="sc-trace__bubble-greeting-card">
         <div className="sc-trace__bubble-greeting-avatar" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" className="sc-trace__bubble-greeting-avatar-svg">
-            <circle cx="12" cy="12" r="10" fill="url(#bubbleGrad)" />
-            <path
-              d="M8 14c1.5-1.5 3.5-2 7-.5s4 2.5 1 5"
-              stroke="white"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <circle cx="9.5" cy="10.5" r="0.9" fill="white" />
-            <circle cx="14.5" cy="10.5" r="0.9" fill="white" />
-          </svg>
+          <TraceMiniOrb />
         </div>
         <button
           type="button"

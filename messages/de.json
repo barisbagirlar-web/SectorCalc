@@ -5854,7 +5854,8 @@
       },
       "tempdifferencec": {
         "placeholder": "ΔT eingeben",
-        "helper": "Innen minus außen"
+        "helper": "Innen minus außen",
+        "label": "ΔT"
       },
       "primary_value": {
         "label": "Primärwert",
@@ -6020,7 +6021,8 @@
       },
       "divisor": {
         "placeholder": "Divisor eingeben",
-        "helper": "Carrier Divisor"
+        "helper": "Carrier Divisor",
+        "label": "Divisor"
       }
     },
     "volumetric-weight-calculator": {
@@ -7068,15 +7070,18 @@
     "proportion-calculator": {
       "a": {
         "placeholder": "A eingeben",
-        "helper": "Erster Zähler"
+        "helper": "Erster Zähler",
+        "label": "A"
       },
       "b": {
         "placeholder": "B eingeben",
-        "helper": "Erster Nenner"
+        "helper": "Erster Nenner",
+        "label": "B"
       },
       "c": {
         "placeholder": "C eingeben",
-        "helper": "Zweiter Zähler"
+        "helper": "Zweiter Zähler",
+        "label": "C"
       },
       "primary_value": {
         "label": "Primärwert",
@@ -7203,27 +7208,33 @@
     "linear-regression-calculator": {
       "x1": {
         "placeholder": "X₁ eingeben",
-        "helper": "Erste X"
+        "helper": "Erste X",
+        "label": "X₁"
       },
       "y1": {
         "placeholder": "Y₁ eingeben",
-        "helper": "Erste Y"
+        "helper": "Erste Y",
+        "label": "Y₁"
       },
       "x2": {
         "placeholder": "X₂ eingeben",
-        "helper": "Zweite X"
+        "helper": "Zweite X",
+        "label": "X₂"
       },
       "y2": {
         "placeholder": "Y₂ eingeben",
-        "helper": "Zweite Y"
+        "helper": "Zweite Y",
+        "label": "Y₂"
       },
       "x3": {
         "placeholder": "X₃ eingeben",
-        "helper": "Drittes x"
+        "helper": "Drittes x",
+        "label": "X₃"
       },
       "y3": {
         "placeholder": "Y₃ eingeben",
-        "helper": "Drittes y"
+        "helper": "Drittes y",
+        "label": "Y₃"
       }
     },
     "length-converter": {
@@ -21399,7 +21410,8 @@
     "fcff-calculator": {
       "ebit": {
         "placeholder": "EBIT eingeben",
-        "helper": "Eingabewert für EBIT in der Berechnung."
+        "helper": "Eingabewert für EBIT in der Berechnung.",
+        "label": "EBIT"
       },
       "tax_rate": {
         "label": "Steuersatz",
@@ -62655,7 +62667,8 @@
       },
       "region": {
         "placeholder": "Region eingeben",
-        "helper": "Geografische Region, die Lohnsätze und Standards beeinflusst."
+        "helper": "Geografische Region, die Lohnsätze und Standards beeinflusst.",
+        "label": "Region"
       },
       "include_insurance": {
         "label": "Versicherungskosten einbeziehen",

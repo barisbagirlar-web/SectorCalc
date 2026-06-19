@@ -24,7 +24,7 @@ const DEFAULT_EN: PdfEngineeringExplanation = {
     "This analysis follows the general engineering decision-support paradigm used across manufacturing, construction, energy, and process industries. It is not a substitute for detailed engineering analysis, certified measurement, or regulatory compliance verification.",
 };
 
-const EXPLANATIONS: Record<string, Record<SupportedLocale, PdfEngineeringExplanation>> = {
+const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineeringExplanation>>> = {
   cost: {
     en: {
       methodology:
