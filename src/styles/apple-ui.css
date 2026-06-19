@@ -665,6 +665,14 @@
   object-fit: contain;
   object-position: left center;
 }
+.sc-site-logo__symbol {
+  display: block;
+  height: 128px;
+  width: auto;
+  max-width: 11.25rem;
+  object-fit: contain;
+  object-position: left center;
+}
 
 .site-logo--on-dark .sc-site-logo__wordmark {
   filter: brightness(0) invert(1);
@@ -696,6 +704,10 @@
 
   .sc-site-logo__wordmark {
     height: 2.125rem;
+    max-width: 9rem;
+  }
+  .sc-site-logo__symbol {
+    height: 96px;
     max-width: 9rem;
   }
 

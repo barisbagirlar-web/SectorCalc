@@ -11,6 +11,7 @@ import {
 
 const SITE_ICONS: Metadata["icons"] = {
   icon: [
+    { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
     { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
     { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
   ],
@@ -21,7 +22,7 @@ const SITE_ICONS: Metadata["icons"] = {
       type: "image/png",
     },
   ],
-  shortcut: BRAND_ASSETS.favicon.master,
+  shortcut: BRAND_ASSETS.favicon.svg,
 };
 
 export interface PageMetadataOptions {

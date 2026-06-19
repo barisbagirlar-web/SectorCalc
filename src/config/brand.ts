@@ -23,13 +23,14 @@ export const BRAND_ASSETS = {
  /** SVG symbol display size — rendered via native <img>. */
  symbolWidth: 512,
  symbolHeight: 512,
- displaySymbolWidth: 64,
- displaySymbolHeight: 64,
+ displaySymbolWidth: 128,
+ displaySymbolHeight: 128,
  },
  favicon: {
  master: "/img/brand/sectorcalc-favicon.png",
  size32: "/img/brand/sectorcalc-favicon-32.png",
  appleTouch: "/img/brand/sectorcalc-favicon-180.png",
+ svg: "/img/brand/sectorcalc-logo.svg",
  width: 512,
  height: 512,
  },
@@ -47,6 +48,7 @@ export const BRAND_ASSETS = {
 
 export const BRAND_METADATA_ICONS = {
  icon: [
+ { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
  { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
  { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
  ],
@@ -57,5 +59,5 @@ export const BRAND_METADATA_ICONS = {
  type: "image/png",
  },
  ],
- shortcut: BRAND_ASSETS.favicon.master,
+ shortcut: BRAND_ASSETS.favicon.svg,
 } as const;
