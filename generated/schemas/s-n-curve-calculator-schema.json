@@ -27,14 +27,14 @@
     },
     {
       "id": "mean_stress",
-      "label": "Ortalama Gerilim (σ_m)",
+      "label": "Mean Stress (σ_m)",
       "type": "number",
       "unit": "MPa",
       "default": 0,
       "businessContext": "Mean static stress in the cycle",
       "label_i18n": {
-        "en": "Ortalama Gerilim (σ_m)",
-        "tr": "Mean Stress (σ_m)",
+        "en": "Mean Stress (σ_m)",
+        "tr": "Ortalama Gerilim (σ_m)",
         "de": "Mittelspannung (σ_m)",
         "fr": "Contrainte moyenne (σ_m)",
         "es": "Tensión media (σ_m)",

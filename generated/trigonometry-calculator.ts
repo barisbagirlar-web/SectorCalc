@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTrigonometry_calculator(input: Trigonometry_calculatorInput): Trigonometry_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["x_rad"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["x_rad"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTrigonometry_calculator(input: Trigonometry_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

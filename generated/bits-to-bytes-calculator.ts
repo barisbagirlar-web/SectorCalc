@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBits_to_bytes_calculator(input: Bits_to_bytes_calculatorInput): Bits_to_bytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["bytes"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bytes"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateBits_to_bytes_calculator(input: Bits_to_bytes_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

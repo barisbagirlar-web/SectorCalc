@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLbs_to_kg_converter_calculator(input: Lbs_to_kg_converter_calculatorInput): Lbs_to_kg_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["uncertainty_kg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uncertainty_kg"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateLbs_to_kg_converter_calculator(input: Lbs_to_kg_convert
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

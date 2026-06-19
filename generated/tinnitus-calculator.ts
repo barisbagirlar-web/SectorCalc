@@ -25,7 +25,9 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Tinnitus_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.noiseLevel_dBA - (input.hearingProtection_dB > 0 ? (input.hearingProtection_dB - 7) / 2 : 0); results["adjustedNoiseLevel"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedNoiseLevel"] = 0; }
-  try { const v = input.noiseLevel_dBA - (input.hearingProtection_dB > 0 ? (input.hearingProtection_dB - 7) / 2 : 0); results["adjustedNoiseLevel_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedNoiseLevel_aux"] = 0; }
+  try { const v = 480 / (2 ^ (((asFormulaNumber(results["adjustedNoiseLevel"])) - 85) / 3)); results["permissibleTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["permissibleTime"] = 0; }
+  try { const v = (input.exposureDuration_h * 60) / (asFormulaNumber(results["permissibleTime"])) * 100; results["dailyDosePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyDosePercent"] = 0; }
+  try { const v = (((asFormulaNumber(results["adjustedNoiseLevel"])) - 80) * input.exposureYears * (input.age_years / 40)) / 100; results["tinnitusRiskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tinnitusRiskScore"] = 0; }
   return results;
 }
 
@@ -36,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTinnitus_calculator(input: Tinnitus_calculatorInput): Tinnitus_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjustedNoiseLevel_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tinnitusRiskScore"]));
   const breakdown = {
     
   };
@@ -44,7 +46,7 @@ export function calculateTinnitus_calculator(input: Tinnitus_calculatorInput): T
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

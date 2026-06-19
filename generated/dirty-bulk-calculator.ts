@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput): Dirty_bulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

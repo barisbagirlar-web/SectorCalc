@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAngstroms_to_nm(input: Angstroms_to_nmInput): Angstroms_to_nmOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["nanometers"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["nanometers"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateAngstroms_to_nm(input: Angstroms_to_nmInput): Angstroms
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLvl_beam_calculator(input: Lvl_beam_calculatorInput): Lvl_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["maxBendingStress"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxBendingStress"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateLvl_beam_calculator(input: Lvl_beam_calculatorInput): L
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRectangular_tank_volume_calculator(input: Rectangular_tank_volume_calculatorInput): Rectangular_tank_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["materialVolume"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["materialVolume"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateRectangular_tank_volume_calculator(input: Rectangular_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

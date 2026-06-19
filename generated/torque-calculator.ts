@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTorque_calculator(input: Torque_calculatorInput): Torque_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["torque_nm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["torque_nm"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateTorque_calculator(input: Torque_calculatorInput): Torqu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

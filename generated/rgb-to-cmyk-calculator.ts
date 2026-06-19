@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRgb_to_cmyk_calculator(input: Rgb_to_cmyk_calculatorInput): Rgb_to_cmyk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateRgb_to_cmyk_calculator(input: Rgb_to_cmyk_calculatorInp
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

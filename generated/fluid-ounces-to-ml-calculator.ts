@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFluid_ounces_to_ml_calculator(input: Fluid_ounces_to_ml_calculatorInput): Fluid_ounces_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalMl"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMl"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateFluid_ounces_to_ml_calculator(input: Fluid_ounces_to_ml
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

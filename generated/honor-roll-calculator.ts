@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHonor_roll_calculator(input: Honor_roll_calculatorInput): Honor_roll_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["honorScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["honorScore"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateHonor_roll_calculator(input: Honor_roll_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

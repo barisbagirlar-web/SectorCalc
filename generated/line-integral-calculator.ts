@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLine_integral_calculator(input: Line_integral_calculatorInput): Line_integral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ortalama_f"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ortalama_f"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateLine_integral_calculator(input: Line_integral_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

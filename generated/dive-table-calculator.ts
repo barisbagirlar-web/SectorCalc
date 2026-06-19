@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDive_table_calculator(input: Dive_table_calculatorInput): Dive_table_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mod"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mod"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateDive_table_calculator(input: Dive_table_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

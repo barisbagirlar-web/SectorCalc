@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSloan_ratio_calculator(input: Sloan_ratio_calculatorInput): Sloan_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sloanRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sloanRatio"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateSloan_ratio_calculator(input: Sloan_ratio_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

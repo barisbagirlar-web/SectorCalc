@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBreak_even_analysis(input: Break_even_analysisInput): Break_even_analysisOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakEvenUnits"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakEvenUnits"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateBreak_even_analysis(input: Break_even_analysisInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

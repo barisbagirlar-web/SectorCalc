@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRelative_risk_calculator(input: Relative_risk_calculatorInput): Relative_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["relative_risk"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["relative_risk"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateRelative_risk_calculator(input: Relative_risk_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

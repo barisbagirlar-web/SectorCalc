@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTraining_max_calculator(input: Training_max_calculatorInput): Training_max_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["trainingMax"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["trainingMax"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTraining_max_calculator(input: Training_max_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

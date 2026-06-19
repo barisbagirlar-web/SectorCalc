@@ -45,7 +45,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibrillation_risk_calculatorInput): Atrial_fibrillation_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["riskScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["riskScore"]));
   const breakdown = {
     
   };
@@ -53,7 +53,7 @@ export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibri
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

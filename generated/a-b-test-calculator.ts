@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateA_b_test_calculator(input: A_b_test_calculatorInput): A_b_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["conversionRateB"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionRateB"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateA_b_test_calculator(input: A_b_test_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBridge_load_calculator(input: Bridge_load_calculatorInput): Bridge_load_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateBridge_load_calculator(input: Bridge_load_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

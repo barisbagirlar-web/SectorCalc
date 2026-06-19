@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRocket_propulsion_calculator(input: Rocket_propulsion_calculatorInput): Rocket_propulsion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["burnTime"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["burnTime"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateRocket_propulsion_calculator(input: Rocket_propulsion_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

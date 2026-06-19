@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAp_score_calculator(input: Ap_score_calculatorInput): Ap_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["apScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["apScore"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateAp_score_calculator(input: Ap_score_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGenerating_function_calculator(input: Generating_function_calculatorInput): Generating_function_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["GF"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["GF"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateGenerating_function_calculator(input: Generating_functi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

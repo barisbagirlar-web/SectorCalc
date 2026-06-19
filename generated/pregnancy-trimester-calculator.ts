@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePregnancy_trimester_calculator(input: Pregnancy_trimester_calculatorInput): Pregnancy_trimester_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dueTotalDays"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dueTotalDays"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculatePregnancy_trimester_calculator(input: Pregnancy_trimest
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

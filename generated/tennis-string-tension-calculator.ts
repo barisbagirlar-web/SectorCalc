@@ -23,7 +23,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Tennis_string_tension_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.tension * 4.44822; results["tensionNewtons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tensionNewtons"] = 0; }
-  try { const v = input.tension * 4.44822; results["tensionNewtons_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tensionNewtons_aux"] = 0; }
+  try { const v = input.stringMaterialDensity * (3.14159 * (input.stringGauge / 2000)**2); results["linearDensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["linearDensity"] = 0; }
   return results;
 }
 
@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTennis_string_tension_calculator(input: Tennis_string_tension_calculatorInput): Tennis_string_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["tensionNewtons_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["linearDensity"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateTennis_string_tension_calculator(input: Tennis_string_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

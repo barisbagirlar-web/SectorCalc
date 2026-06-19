@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHangover_calculator(input: Hangover_calculatorInput): Hangover_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["food_impact"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["food_impact"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateHangover_calculator(input: Hangover_calculatorInput): H
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

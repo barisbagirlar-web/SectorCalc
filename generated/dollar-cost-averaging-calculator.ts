@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDollar_cost_averaging_calculator(input: Dollar_cost_averaging_calculatorInput): Dollar_cost_averaging_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalInvested"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInvested"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDollar_cost_averaging_calculator(input: Dollar_cost_ave
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

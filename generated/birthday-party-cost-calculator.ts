@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBirthday_party_cost_calculator(input: Birthday_party_cost_calculatorInput): Birthday_party_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["costPerGuest"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["costPerGuest"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateBirthday_party_cost_calculator(input: Birthday_party_co
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

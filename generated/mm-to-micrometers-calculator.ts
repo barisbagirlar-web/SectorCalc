@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMm_to_micrometers_calculator(input: Mm_to_micrometers_calculatorInput): Mm_to_micrometers_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["micrometer"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["micrometer"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMm_to_micrometers_calculator(input: Mm_to_micrometers_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

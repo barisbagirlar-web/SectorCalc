@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFraction_calculator(input: Fraction_calculatorInput): Fraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["decimal"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["decimal"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateFraction_calculator(input: Fraction_calculatorInput): F
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

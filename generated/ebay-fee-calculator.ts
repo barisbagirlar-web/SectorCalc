@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEbay_fee_calculator(input: Ebay_fee_calculatorInput): Ebay_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netPayout"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPayout"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateEbay_fee_calculator(input: Ebay_fee_calculatorInput): E
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

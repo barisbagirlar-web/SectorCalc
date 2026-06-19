@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateData_cap_calculator(input: Data_cap_calculatorInput): Data_cap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dailyAverageUsage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyAverageUsage"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateData_cap_calculator(input: Data_cap_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

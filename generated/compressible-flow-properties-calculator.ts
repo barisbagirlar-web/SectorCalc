@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCompressible_flow_properties_calculator(input: Compressible_flow_properties_calculatorInput): Compressible_flow_properties_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["stagnationPressure"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["stagnationPressure"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateCompressible_flow_properties_calculator(input: Compress
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

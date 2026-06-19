@@ -123,25 +123,28 @@
     }
   ],
   "formulas": {
-    "result": "screenDiagonal + aspectWidth + aspectHeight",
-    "result_aux": "screenDiagonal + aspectWidth + aspectHeight"
+    "base_cost": "screenDiagonal * costPerScreen",
+    "adjusted_cost": "screenDiagonal * costPerScreen * 1",
+    "result": "screenDiagonal * costPerScreen * 1 * (aspectWidth)",
+    "factor_aspectWidth": "aspectWidth"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "screenWidth",
-      "screenHeight",
-      "screenArea",
-      "totalArea",
-      "totalWidth",
-      "totalHeight"
+      "base_cost",
+      "adjusted_cost",
+      "factor_aspectWidth"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "inch"
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",

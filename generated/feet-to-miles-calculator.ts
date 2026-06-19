@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFeet_to_miles_calculator(input: Feet_to_miles_calculatorInput): Feet_to_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["reverseFeet"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["reverseFeet"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateFeet_to_miles_calculator(input: Feet_to_miles_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

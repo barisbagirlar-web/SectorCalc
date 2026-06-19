@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_overrun_cost_calculatorInput): Cloud_api_overrun_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_over
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

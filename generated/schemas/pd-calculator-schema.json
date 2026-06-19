@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "kg/m3",
       "default": 998.2,
-      "businessContext": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
+      "businessContext": "Mass density of fluid (kg/m³) [For water ~998]",
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001002,
-      "businessContext": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
+      "businessContext": "Dynamic viscosity of fluid (Pa·s) [For water ~0.001]",
       "label_i18n": {
         "en": "Dynamic Viscosity",
         "tr": "Dinamik Viskozite",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "m",
       "default": 0.000046,
-      "businessContext": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
+      "businessContext": "Absolute roughness of pipe inner surface (m) [For steel ~4.6e-5]",
       "label_i18n": {
         "en": "Surface roughness",
         "tr": "Yüzey Pürüzlülüğü",

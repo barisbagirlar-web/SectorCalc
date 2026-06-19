@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWood_siding_calculator(input: Wood_siding_calculatorInput): Wood_siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["wallArea_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["wallArea_aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateWood_siding_calculator(input: Wood_siding_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

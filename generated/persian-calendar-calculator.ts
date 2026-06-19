@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePersian_calendar_calculator(input: Persian_calendar_calculatorInput): Persian_calendar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["julianDay"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["julianDay"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculatePersian_calendar_calculator(input: Persian_calendar_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

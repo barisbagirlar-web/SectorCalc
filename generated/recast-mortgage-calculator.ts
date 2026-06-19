@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRecast_mortgage_calculator(input: Recast_mortgage_calculatorInput): Recast_mortgage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["newBalance"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newBalance"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateRecast_mortgage_calculator(input: Recast_mortgage_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

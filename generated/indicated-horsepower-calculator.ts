@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateIndicated_horsepower_calculator(input: Indicated_horsepower_calculatorInput): Indicated_horsepower_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["indicatedHorsepower"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["indicatedHorsepower"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateIndicated_horsepower_calculator(input: Indicated_horsep
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

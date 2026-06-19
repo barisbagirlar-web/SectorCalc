@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDuolingo_english_test_calculator(input: Duolingo_english_test_calculatorInput): Duolingo_english_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["overall"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overall"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDuolingo_english_test_calculator(input: Duolingo_englis
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

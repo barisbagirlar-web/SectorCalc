@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDegree_of_operating_leverage_calculator(input: Degree_of_operating_leverage_calculatorInput): Degree_of_operating_leverage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["degreeOfOperatingLeverage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["degreeOfOperatingLeverage"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateDegree_of_operating_leverage_calculator(input: Degree_o
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

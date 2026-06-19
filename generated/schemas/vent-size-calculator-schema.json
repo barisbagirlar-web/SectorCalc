@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "volume",
-      "label": "Oda Hacmi",
+      "label": "Room Volume",
       "type": "number",
       "unit": "m³",
       "default": 100,
       "businessContext": "Total internal volume of the room to be ventilated",
       "label_i18n": {
-        "en": "Oda Hacmi",
-        "tr": "Room Volume",
+        "en": "Room Volume",
+        "tr": "Oda Hacmi",
         "de": "Raumvolumen",
         "fr": "Volume de la pièce",
         "es": "Volumen de la habitación",

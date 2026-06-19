@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDate_difference_calculator(input: Date_difference_calculatorInput): Date_difference_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["diffDays"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["diffDays"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateDate_difference_calculator(input: Date_difference_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

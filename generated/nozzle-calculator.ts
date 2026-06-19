@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNozzle_calculator(input: Nozzle_calculatorInput): Nozzle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deltaP_Pa"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deltaP_Pa"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateNozzle_calculator(input: Nozzle_calculatorInput): Nozzl
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "seçim",
       "default": 1,
-      "businessContext": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
+      "businessContext": "1: UTF-8 (avg 2 bytes), 2: UTF-16 (2 bytes), 3: UTF-32 (4 bytes)",
       "label_i18n": {
         "en": "Encoding Selection",
         "tr": "Kodlama Seçimi",
@@ -41,8 +41,8 @@
         "ar": "اختيار الترميز"
       },
       "businessContext_i18n": {
-        "en": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
-        "tr": "1: UTF-8 (avg 2 bytes), 2: UTF-16 (2 bytes), 3: UTF-32 (4 bytes)",
+        "en": "1: UTF-8 (avg 2 bytes), 2: UTF-16 (2 bytes), 3: UTF-32 (4 bytes)",
+        "tr": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
         "de": "1: UTF-8 (durchschnittlich 2 Byte), 2: UTF-16 (2 Byte), 3: UTF-32 (4 Byte)",
         "fr": "1: UTF-8 (2 octets en moyenne), 2: UTF-16 (2 octets), 3: UTF-32 (4 octets)",
         "es": "1: UTF-8 (promedio 2 bytes), 2: UTF-16 (2 bytes), 3: UTF-32 (4 bytes)",
@@ -99,22 +99,22 @@
     },
     {
       "id": "costPerMB",
-      "label": "MB Maliyeti",
+      "label": "MB Cost",
       "type": "number",
       "unit": "TL/MB",
       "default": 0.05,
-      "businessContext": "1 MB veri depolama veya iletim maliyeti",
+      "businessContext": "Cost to store or transmit 1 MB of data",
       "label_i18n": {
-        "en": "MB Maliyeti",
-        "tr": "MB Cost",
+        "en": "MB Cost",
+        "tr": "MB Maliyeti",
         "de": "MB-Kosten",
         "fr": "Coût par Mo",
         "es": "Costo por MB",
         "ar": "تكلفة الميغابايت"
       },
       "businessContext_i18n": {
-        "en": "1 MB veri depolama veya iletim maliyeti",
-        "tr": "Cost to store or transmit 1 MB of data",
+        "en": "Cost to store or transmit 1 MB of data",
+        "tr": "1 MB veri depolama veya iletim maliyeti",
         "de": "Kosten für Speicherung oder Übertragung von 1 MB Daten",
         "fr": "Coût de stockage ou de transmission pour 1 Mo de données",
         "es": "Costo de almacenar o transmitir 1 MB de datos",

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMid_parental_height_calculator(input: Mid_parental_height_calculatorInput): Mid_parental_height_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["midHeightCm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["midHeightCm"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMid_parental_height_calculator(input: Mid_parental_heig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

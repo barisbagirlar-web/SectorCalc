@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEigenvector_calculator(input: Eigenvector_calculatorInput): Eigenvector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["disc"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["disc"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateEigenvector_calculator(input: Eigenvector_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

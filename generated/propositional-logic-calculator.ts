@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePropositional_logic_calculator(input: Propositional_logic_calculatorInput): Propositional_logic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["compoundProbability"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["compoundProbability"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculatePropositional_logic_calculator(input: Propositional_log
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

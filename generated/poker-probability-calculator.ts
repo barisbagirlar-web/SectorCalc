@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePoker_probability_calculator(input: Poker_probability_calculatorInput): Poker_probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["winProbability"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["winProbability"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePoker_probability_calculator(input: Poker_probability_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

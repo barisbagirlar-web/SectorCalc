@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBreast_milk_calculator(input: Breast_milk_calculatorInput): Breast_milk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deficit"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deficit"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateBreast_milk_calculator(input: Breast_milk_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

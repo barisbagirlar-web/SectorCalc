@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEquity_dilution_calculator(input: Equity_dilution_calculatorInput): Equity_dilution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dilutionPercent"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dilutionPercent"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateEquity_dilution_calculator(input: Equity_dilution_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

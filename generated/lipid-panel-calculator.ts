@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLipid_panel_calculator(input: Lipid_panel_calculatorInput): Lipid_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["LDL"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["LDL"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateLipid_panel_calculator(input: Lipid_panel_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

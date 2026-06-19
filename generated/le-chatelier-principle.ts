@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLe_chatelier_principle(input: Le_chatelier_principleInput): Le_chatelier_principleOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netShift"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netShift"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateLe_chatelier_principle(input: Le_chatelier_principleInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEngineering_notation_calculator(input: Engineering_notation_calculatorInput): Engineering_notation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown_aux"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateEngineering_notation_calculator(input: Engineering_nota
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

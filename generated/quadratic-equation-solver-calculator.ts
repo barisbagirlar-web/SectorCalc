@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateQuadratic_equation_solver_calculator(input: Quadratic_equation_solver_calculatorInput): Quadratic_equation_solver_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["evalAtX"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["evalAtX"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateQuadratic_equation_solver_calculator(input: Quadratic_e
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

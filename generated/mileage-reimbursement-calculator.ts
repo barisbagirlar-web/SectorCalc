@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMileage_reimbursement_calculator(input: Mileage_reimbursement_calculatorInput): Mileage_reimbursement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalReimbursement"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalReimbursement"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateMileage_reimbursement_calculator(input: Mileage_reimbur
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

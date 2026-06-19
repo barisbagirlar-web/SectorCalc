@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateProcess_economics_calculator(input: Process_economics_calculatorInput): Process_economics_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["effective_profit"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effective_profit"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateProcess_economics_calculator(input: Process_economics_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

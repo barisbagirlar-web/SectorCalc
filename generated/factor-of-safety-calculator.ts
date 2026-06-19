@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFactor_of_safety_calculator(input: Factor_of_safety_calculatorInput): Factor_of_safety_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["marginYield"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["marginYield"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateFactor_of_safety_calculator(input: Factor_of_safety_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "₺/L",
       "default": 5,
-      "businessContext": "Maliyet",
+      "businessContext": "Cost",
       "label_i18n": {
         "en": "Milk cost (per liter)",
         "tr": "Süt Maliyeti (Litre)",
@@ -17,8 +17,8 @@
         "ar": "تكلفة الحليب (لتر)"
       },
       "businessContext_i18n": {
-        "en": "Maliyet",
-        "tr": "Cost",
+        "en": "Cost",
+        "tr": "Maliyet",
         "de": "Kosten",
         "fr": "Coût",
         "es": "Costo",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "kg/L",
       "default": 0.95,
-      "businessContext": "Verim",
+      "businessContext": "Efficiency",
       "label_i18n": {
         "en": "Milk Yield (kg/L)",
         "tr": "Süt Verimi (kg/L)",
@@ -41,8 +41,8 @@
         "ar": "إنتاجية الحليب (كجم/لتر)"
       },
       "businessContext_i18n": {
-        "en": "Verim",
-        "tr": "Efficiency",
+        "en": "Efficiency",
+        "tr": "Verim",
         "de": "Ausbeute",
         "fr": "Rendement",
         "es": "Rendimiento",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "₺",
       "default": 50,
-      "businessContext": "Genel Giderler",
+      "businessContext": "Overhead",
       "label_i18n": {
         "en": "Overhead Costs (per Batch)",
         "tr": "Genel Giderler (Parti Başına)",
@@ -137,8 +137,8 @@
         "ar": "النفقات العامة (لكل دفعة)"
       },
       "businessContext_i18n": {
-        "en": "Genel Giderler",
-        "tr": "Overhead",
+        "en": "Overhead",
+        "tr": "Genel Giderler",
         "de": "Gemeinkosten",
         "fr": "Frais généraux",
         "es": "Gastos generales",

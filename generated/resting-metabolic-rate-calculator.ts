@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateResting_metabolic_rate_calculator(input: Resting_metabolic_rate_calculatorInput): Resting_metabolic_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["restingMetabolicRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["restingMetabolicRate"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateResting_metabolic_rate_calculator(input: Resting_metabo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStandby_power_calculator(input: Standby_power_calculatorInput): Standby_power_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["monthlyEnergyKwh"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyEnergyKwh"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateStandby_power_calculator(input: Standby_power_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

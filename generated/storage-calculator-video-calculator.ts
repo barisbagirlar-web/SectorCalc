@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStorage_calculator_video_calculator(input: Storage_calculator_video_calculatorInput): Storage_calculator_video_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalTB"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTB"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateStorage_calculator_video_calculator(input: Storage_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

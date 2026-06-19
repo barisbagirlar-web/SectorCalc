@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMl_to_oz_calculator(input: Ml_to_oz_calculatorInput): Ml_to_oz_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["uk_oz"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uk_oz"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateMl_to_oz_calculator(input: Ml_to_oz_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

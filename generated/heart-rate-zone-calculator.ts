@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHeart_rate_zone_calculator(input: Heart_rate_zone_calculatorInput): Heart_rate_zone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["midTarget"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["midTarget"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHeart_rate_zone_calculator(input: Heart_rate_zone_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

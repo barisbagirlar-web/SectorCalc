@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSupplement_calculator(input: Supplement_calculatorInput): Supplement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["supplementWeight"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["supplementWeight"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateSupplement_calculator(input: Supplement_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

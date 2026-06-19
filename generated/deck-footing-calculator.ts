@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDeck_footing_calculator(input: Deck_footing_calculatorInput): Deck_footing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volume"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateDeck_footing_calculator(input: Deck_footing_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

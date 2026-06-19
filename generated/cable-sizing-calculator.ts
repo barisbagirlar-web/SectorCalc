@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCable_sizing_calculator(input: Cable_sizing_calculatorInput): Cable_sizing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["minCableArea"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["minCableArea"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateCable_sizing_calculator(input: Cable_sizing_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

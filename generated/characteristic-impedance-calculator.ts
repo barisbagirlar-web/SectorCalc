@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCharacteristic_impedance_calculator(input: Characteristic_impedance_calculatorInput): Characteristic_impedance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mu"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mu"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateCharacteristic_impedance_calculator(input: Characterist
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

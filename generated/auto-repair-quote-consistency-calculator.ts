@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAuto_repair_quote_consistency_calculator(input: Auto_repair_quote_consistency_calculatorInput): Auto_repair_quote_consistency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateAuto_repair_quote_consistency_calculator(input: Auto_re
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

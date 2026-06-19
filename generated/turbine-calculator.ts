@@ -23,7 +23,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Turbine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.PI * (input.rotorDiameter / 2) ** 2; results["sweptArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sweptArea"] = 0; }
-  try { const v = Math.PI * (input.rotorDiameter / 2) ** 2; results["sweptArea_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sweptArea_aux"] = 0; }
+  try { const v = 0.5 * input.airDensity * (asFormulaNumber(results["sweptArea"])) * input.windSpeed ** 3; results["rawPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPower"] = 0; }
+  try { const v = (asFormulaNumber(results["rawPower"])) * (input.efficiency / 100); results["power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power"] = 0; }
   return results;
 }
 
@@ -34,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTurbine_calculator(input: Turbine_calculatorInput): Turbine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sweptArea"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["power"]));
   const breakdown = {
     
   };
@@ -42,7 +43,7 @@ export function calculateTurbine_calculator(input: Turbine_calculatorInput): Tur
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

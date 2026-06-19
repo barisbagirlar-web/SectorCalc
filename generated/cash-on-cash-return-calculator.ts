@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCash_on_cash_return_calculator(input: Cash_on_cash_return_calculatorInput): Cash_on_cash_return_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["cashOnCashReturn"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cashOnCashReturn"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateCash_on_cash_return_calculator(input: Cash_on_cash_retu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

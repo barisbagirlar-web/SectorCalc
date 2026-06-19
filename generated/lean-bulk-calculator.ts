@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLean_bulk_calculator(input: Lean_bulk_calculatorInput): Lean_bulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalDailyMaterial"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDailyMaterial"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateLean_bulk_calculator(input: Lean_bulk_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

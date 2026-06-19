@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStrength_standard_calculator(input: Strength_standard_calculatorInput): Strength_standard_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["estimatedOneRM"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["estimatedOneRM"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateStrength_standard_calculator(input: Strength_standard_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

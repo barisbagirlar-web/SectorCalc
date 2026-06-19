@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEcog_performance_status_calculator(input: Ecog_performance_status_calculatorInput): Ecog_performance_status_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ecogGrade"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ecogGrade"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateEcog_performance_status_calculator(input: Ecog_performa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

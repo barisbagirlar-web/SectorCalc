@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePascal_to_psi_calculator(input: Pascal_to_psi_calculatorInput): Pascal_to_psi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["relativeUncertaintyPercent"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["relativeUncertaintyPercent"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePascal_to_psi_calculator(input: Pascal_to_psi_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

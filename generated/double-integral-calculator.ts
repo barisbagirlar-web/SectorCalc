@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDouble_integral_calculator(input: Double_integral_calculatorInput): Double_integral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["constTerm_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["constTerm_aux"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateDouble_integral_calculator(input: Double_integral_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

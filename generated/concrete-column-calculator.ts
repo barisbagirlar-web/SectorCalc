@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateConcrete_column_calculator(input: Concrete_column_calculatorInput): Concrete_column_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["phiPn_kN"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["phiPn_kN"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateConcrete_column_calculator(input: Concrete_column_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

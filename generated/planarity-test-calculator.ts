@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePlanarity_test_calculator(input: Planarity_test_calculatorInput): Planarity_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["planarityScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["planarityScore"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculatePlanarity_test_calculator(input: Planarity_test_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

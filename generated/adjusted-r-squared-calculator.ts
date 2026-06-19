@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAdjusted_r_squared_calculator(input: Adjusted_r_squared_calculatorInput): Adjusted_r_squared_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["predictors"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["predictors"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateAdjusted_r_squared_calculator(input: Adjusted_r_squared
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLhopitals_rule_calculator(input: Lhopitals_rule_calculatorInput): Lhopitals_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["limit_value"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["limit_value"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateLhopitals_rule_calculator(input: Lhopitals_rule_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

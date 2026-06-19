@@ -47,7 +47,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLcoe_calculator(input: Lcoe_calculatorInput): Lcoe_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["annualFuelCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualFuelCost"]));
   const breakdown = {
     
   };
@@ -55,7 +55,7 @@ export function calculateLcoe_calculator(input: Lcoe_calculatorInput): Lcoe_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

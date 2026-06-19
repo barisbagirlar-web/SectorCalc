@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateImplicit_differentiation_calculator(input: Implicit_differentiation_calculatorInput): Implicit_differentiation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["derivative"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["derivative"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateImplicit_differentiation_calculator(input: Implicit_dif
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

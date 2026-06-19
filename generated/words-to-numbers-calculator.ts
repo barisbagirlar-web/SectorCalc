@@ -46,7 +46,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWords_to_numbers_calculator(input: Words_to_numbers_calculatorInput): Words_to_numbers_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalNumber"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalNumber"]));
   const breakdown = {
     
   };
@@ -54,7 +54,7 @@ export function calculateWords_to_numbers_calculator(input: Words_to_numbers_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

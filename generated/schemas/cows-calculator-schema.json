@@ -51,14 +51,14 @@
     },
     {
       "id": "hourlyCostPerMachine",
-      "label": "Makine Saatlik Maliyet",
+      "label": "Machine Hourly Cost",
       "type": "number",
       "unit": "TL/saat",
       "default": 100,
       "businessContext": "Hourly cost per machine (labor + depreciation)",
       "label_i18n": {
-        "en": "Makine Saatlik Maliyet",
-        "tr": "Machine Hourly Cost",
+        "en": "Machine Hourly Cost",
+        "tr": "Makine Saatlik Maliyet",
         "de": "Maschinenstundensatz",
         "fr": "Coût horaire machine",
         "es": "Costo horario por máquina",

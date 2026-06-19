@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVbac_success_calculator(input: Vbac_success_calculatorInput): Vbac_success_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["_3_5___0_05___maternalAge___0_1___bmi____aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["_3_5___0_05___maternalAge___0_1___bmi____aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateVbac_success_calculator(input: Vbac_success_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDensity_altitude_calculator(input: Density_altitude_calculatorInput): Density_altitude_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["isaTemperature"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isaTemperature"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDensity_altitude_calculator(input: Density_altitude_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

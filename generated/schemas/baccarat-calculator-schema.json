@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "rawMaterialCost",
-      "label": "Hammadde Maliyeti",
+      "label": "Raw Material Cost",
       "type": "number",
       "unit": "TRY/birim",
       "default": 10,
       "businessContext": "Raw material cost per unit product.",
       "label_i18n": {
-        "en": "Hammadde Maliyeti",
-        "tr": "Raw Material Cost",
+        "en": "Raw Material Cost",
+        "tr": "Hammadde Maliyeti",
         "de": "Rohstoffkosten",
         "fr": "Coût des matières premières",
         "es": "Coste de materia prima",
@@ -99,14 +99,14 @@
     },
     {
       "id": "additionalCost",
-      "label": "Ek Maliyetler",
+      "label": "Additional Costs",
       "type": "number",
       "unit": "TRY",
       "default": 5,
       "businessContext": "Additional expenses per unit such as packaging, shipping.",
       "label_i18n": {
-        "en": "Ek Maliyetler",
-        "tr": "Additional Costs",
+        "en": "Additional Costs",
+        "tr": "Ek Maliyetler",
         "de": "Zusätzliche Kosten",
         "fr": "Coûts supplémentaires",
         "es": "Costes adicionales",

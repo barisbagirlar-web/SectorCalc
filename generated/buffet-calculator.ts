@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBuffet_calculator(input: Buffet_calculatorInput): Buffet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalRevenue"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRevenue"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateBuffet_calculator(input: Buffet_calculatorInput): Buffe
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePupillary_distance_calculator(input: Pupillary_distance_calculatorInput): Pupillary_distance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalNearPd"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalNearPd"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculatePupillary_distance_calculator(input: Pupillary_distance
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

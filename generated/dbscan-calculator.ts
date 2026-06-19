@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDbscan_calculator(input: Dbscan_calculatorInput): Dbscan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["density"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["density"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculateDbscan_calculator(input: Dbscan_calculatorInput): Dbsca
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

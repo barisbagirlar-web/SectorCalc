@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTownships_to_sq_miles_calculator(input: Townships_to_sq_miles_calculatorInput): Townships_to_sq_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["total_sq_miles"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_sq_miles"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTownships_to_sq_miles_calculator(input: Townships_to_sq
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

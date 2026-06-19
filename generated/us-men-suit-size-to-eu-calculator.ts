@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateUs_men_suit_size_to_eu_calculator(input: Us_men_suit_size_to_eu_calculatorInput): Us_men_suit_size_to_eu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["EUJacket"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["EUJacket"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateUs_men_suit_size_to_eu_calculator(input: Us_men_suit_si
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

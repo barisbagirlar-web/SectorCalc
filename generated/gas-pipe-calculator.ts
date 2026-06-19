@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGas_pipe_calculator(input: Gas_pipe_calculatorInput): Gas_pipe_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pressure_drop_bar"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressure_drop_bar"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateGas_pipe_calculator(input: Gas_pipe_calculatorInput): G
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

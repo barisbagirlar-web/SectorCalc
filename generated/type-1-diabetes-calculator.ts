@@ -26,8 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Type_1_diabetes_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = (input.bloodGlucose - input.targetGlucose) / input.insulinSensitivity; results["correctionBolus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctionBolus"] = 0; }
   try { const v = input.carbIntake / input.insulinCarbRatio; results["carbBolus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbBolus"] = 0; }
-  try { const v = input.carbIntake / input.insulinCarbRatio; results["carbBolus_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbBolus_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["correctionBolus"])) + (asFormulaNumber(results["carbBolus"])) - input.activeInsulin; results["totalBolus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBolus"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateType_1_diabetes_calculator(input: Type_1_diabetes_calculatorInput): Type_1_diabetes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["carbBolus_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBolus"]));
   const breakdown = {
     
   };
@@ -46,7 +47,7 @@ export function calculateType_1_diabetes_calculator(input: Type_1_diabetes_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

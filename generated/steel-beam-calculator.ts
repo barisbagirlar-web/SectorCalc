@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSteel_beam_calculator(input: Steel_beam_calculatorInput): Steel_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["maxDeflection"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxDeflection"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateSteel_beam_calculator(input: Steel_beam_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReading_time_calculator(input: Reading_time_calculatorInput): Reading_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalReadingTimeMinutes"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalReadingTimeMinutes"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateReading_time_calculator(input: Reading_time_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

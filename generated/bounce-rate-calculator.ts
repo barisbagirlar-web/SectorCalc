@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBounce_rate_calculator(input: Bounce_rate_calculatorInput): Bounce_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["bounceRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bounceRate"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateBounce_rate_calculator(input: Bounce_rate_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

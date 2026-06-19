@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGym_calorie_calculator(input: Gym_calorie_calculatorInput): Gym_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateGym_calorie_calculator(input: Gym_calorie_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

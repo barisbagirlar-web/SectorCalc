@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCarbon_footprint_calculator(input: Carbon_footprint_calculatorInput): Carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["waterCO2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["waterCO2"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateCarbon_footprint_calculator(input: Carbon_footprint_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

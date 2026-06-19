@@ -216,7 +216,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = ${resolvedPrimaryExpr};
+  const totalWasteCost = Math.max(0, ${resolvedPrimaryExpr});
   const breakdown = {
     ${breakdownKeys
       .map((key) => {
@@ -231,7 +231,7 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

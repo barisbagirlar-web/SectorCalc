@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateActive_metabolic_rate_calculator(input: Active_metabolic_rate_calculatorInput): Active_metabolic_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["amr"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["amr"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateActive_metabolic_rate_calculator(input: Active_metaboli
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

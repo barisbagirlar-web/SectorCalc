@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMuscle_recovery_calculator(input: Muscle_recovery_calculatorInput): Muscle_recovery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["recoveryScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recoveryScore"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateMuscle_recovery_calculator(input: Muscle_recovery_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

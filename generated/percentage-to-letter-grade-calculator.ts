@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePercentage_to_letter_grade_calculator(input: Percentage_to_letter_grade_calculatorInput): Percentage_to_letter_grade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["scaleF"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaleF"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculatePercentage_to_letter_grade_calculator(input: Percentage
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

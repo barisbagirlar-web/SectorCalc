@@ -99,23 +99,21 @@
     }
   ],
   "formulas": {
-    "breakdown": "legA",
-    "breakdown_aux": "legA",
-    "legA____legB_": "Math.pow(legA, 2) + Math.pow(legB, 2)"
+    "hypotenuse": "legA * legA + legB * legB"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "hypotenuse",
     "breakdown": [
-      "Square of Leg A: legA²",
-      "Square of Leg B: legB²",
-      "Sum of squares: legA² + legB²",
-      "Hypotenuse length: √(legA² + legB²)"
+      "Square of Leg A: legA * legA",
+      "Square of Leg B: legB * legB",
+      "Sum of squares: legA * legA + legB * legB",
+      "Hypotenuse length: SQRT(legA * legA + legB * legB)"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "hypotenuse",
     "unit": "m"
   },
   "category": "Matematik & Analiz",

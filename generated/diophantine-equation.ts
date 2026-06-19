@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDiophantine_equation(input: Diophantine_equationInput): Diophantine_equationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["solutionSum"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solutionSum"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateDiophantine_equation(input: Diophantine_equationInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

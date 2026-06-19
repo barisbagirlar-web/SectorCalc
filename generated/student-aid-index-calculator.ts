@@ -26,8 +26,11 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Student_aid_index_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = input.parentAGI * 0.47; results["parentIncomeContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["parentIncomeContrib"] = 0; }
+  try { const v = input.parentAssets * 0.12; results["parentAssetContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["parentAssetContrib"] = 0; }
+  try { const v = input.studentIncome * 0.50; results["studentIncomeContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["studentIncomeContrib"] = 0; }
   try { const v = input.studentAssets * 0.20; results["studentAssetContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["studentAssetContrib"] = 0; }
-  try { const v = input.studentAssets * 0.20; results["studentAssetContrib_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["studentAssetContrib_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["parentIncomeContrib"])) + (asFormulaNumber(results["parentAssetContrib"])) + (asFormulaNumber(results["studentIncomeContrib"])) + (asFormulaNumber(results["studentAssetContrib"])); results["sai"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sai"] = 0; }
   return results;
 }
 
@@ -38,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStudent_aid_index_calculator(input: Student_aid_index_calculatorInput): Student_aid_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["studentAssetContrib_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sai"]));
   const breakdown = {
     
   };
@@ -46,7 +49,7 @@ export function calculateStudent_aid_index_calculator(input: Student_aid_index_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

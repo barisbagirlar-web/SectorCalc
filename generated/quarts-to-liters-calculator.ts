@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateQuarts_to_liters_calculator(input: Quarts_to_liters_calculatorInput): Quarts_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalLiters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLiters"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateQuarts_to_liters_calculator(input: Quarts_to_liters_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

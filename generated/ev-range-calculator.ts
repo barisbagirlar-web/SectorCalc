@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEv_range_calculator(input: Ev_range_calculatorInput): Ev_range_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["effective_consumption"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effective_consumption"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateEv_range_calculator(input: Ev_range_calculatorInput): E
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHeisenberg_uncertainty_calculator(input: Heisenberg_uncertainty_calculatorInput): Heisenberg_uncertainty_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["certaintyRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["certaintyRatio"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateHeisenberg_uncertainty_calculator(input: Heisenberg_unc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

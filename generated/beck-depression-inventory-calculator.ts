@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBeck_depression_inventory_calculator(input: Beck_depression_inventory_calculatorInput): Beck_depression_inventory_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBeck_depression_inventory_calculator(input: Beck_depres
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

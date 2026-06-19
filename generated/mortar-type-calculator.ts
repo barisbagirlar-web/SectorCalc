@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMortar_type_calculator(input: Mortar_type_calculatorInput): Mortar_type_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["required_strength_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["required_strength_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateMortar_type_calculator(input: Mortar_type_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

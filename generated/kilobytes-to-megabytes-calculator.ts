@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKilobytes_to_megabytes_calculator(input: Kilobytes_to_megabytes_calculatorInput): Kilobytes_to_megabytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawWithOffset"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawWithOffset"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateKilobytes_to_megabytes_calculator(input: Kilobytes_to_m
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

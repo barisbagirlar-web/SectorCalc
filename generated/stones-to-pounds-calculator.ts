@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStones_to_pounds_calculator(input: Stones_to_pounds_calculatorInput): Stones_to_pounds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["stonesToPounds"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["stonesToPounds"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateStones_to_pounds_calculator(input: Stones_to_pounds_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

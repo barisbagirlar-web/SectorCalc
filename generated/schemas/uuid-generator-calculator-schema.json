@@ -123,24 +123,26 @@
     }
   ],
   "formulas": {
-    "breakdown": "timeLow + timeMid + timeHiAndVersion + clockSeqAndVariant + node",
-    "breakdown_aux": "timeLow + timeMid + timeHiAndVersion + clockSeqAndVariant + node"
+    "normalized_product": "timeLow * timeMid * timeHiAndVersion * clockSeqAndVariant",
+    "result": "timeLow * timeMid * timeHiAndVersion * clockSeqAndVariant * (node)",
+    "adjustment_factor": "node"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "result",
     "breakdown": [
-      "timeLow hex",
-      "timeMid hex",
-      "timeHigh and version hex",
-      "clockSeq and variant hex",
-      "node hex"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "bits"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",

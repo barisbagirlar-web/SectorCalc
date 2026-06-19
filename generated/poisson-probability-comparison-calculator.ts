@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePoisson_probability_comparison_calculator(input: Poisson_probability_comparison_calculatorInput): Poisson_probability_comparison_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["varB"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["varB"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculatePoisson_probability_comparison_calculator(input: Poisso
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

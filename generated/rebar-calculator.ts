@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRebar_calculator(input: Rebar_calculatorInput): Rebar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalWeightKg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWeightKg"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateRebar_calculator(input: Rebar_calculatorInput): Rebar_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

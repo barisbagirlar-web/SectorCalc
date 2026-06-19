@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePixel_density_calculator(input: Pixel_density_calculatorInput): Pixel_density_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["aspectRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["aspectRatio"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculatePixel_density_calculator(input: Pixel_density_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

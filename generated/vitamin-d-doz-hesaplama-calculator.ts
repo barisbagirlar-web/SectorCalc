@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVitamin_d_doz_hesaplama_calculator(input: Vitamin_d_doz_hesaplama_calculatorInput): Vitamin_d_doz_hesaplama_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalLoadingIU"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLoadingIU"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateVitamin_d_doz_hesaplama_calculator(input: Vitamin_d_doz
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

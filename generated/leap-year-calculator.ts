@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLeap_year_calculator(input: Leap_year_calculatorInput): Leap_year_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["isLeapYear"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isLeapYear"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateLeap_year_calculator(input: Leap_year_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

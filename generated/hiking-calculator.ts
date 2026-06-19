@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHiking_calculator(input: Hiking_calculatorInput): Hiking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjustedSpeed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedSpeed"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateHiking_calculator(input: Hiking_calculatorInput): Hikin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMetric_tons_to_pounds_calculator(input: Metric_tons_to_pounds_calculatorInput): Metric_tons_to_pounds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["kilograms"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["kilograms"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMetric_tons_to_pounds_calculator(input: Metric_tons_to_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

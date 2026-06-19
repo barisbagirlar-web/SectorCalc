@@ -45,7 +45,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateExpected_family_contribution_calculator(input: Expected_family_contribution_calculatorInput): Expected_family_contribution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["student_asset_contribution"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["student_asset_contribution"]));
   const breakdown = {
     
   };
@@ -53,7 +53,7 @@ export function calculateExpected_family_contribution_calculator(input: Expected
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

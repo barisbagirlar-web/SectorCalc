@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAdhesive_calculator(input: Adhesive_calculatorInput): Adhesive_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["total"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateAdhesive_calculator(input: Adhesive_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

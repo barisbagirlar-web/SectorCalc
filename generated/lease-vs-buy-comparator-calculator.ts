@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLease_vs_buy_comparator_calculator(input: Lease_vs_buy_comparator_calculatorInput): Lease_vs_buy_comparator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateLease_vs_buy_comparator_calculator(input: Lease_vs_buy_
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

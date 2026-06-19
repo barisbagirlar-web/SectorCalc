@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCaulk_calculator(input: Caulk_calculatorInput): Caulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volumeWithWaste"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeWithWaste"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCaulk_calculator(input: Caulk_calculatorInput): Caulk_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePounds_to_ounces(input: Pounds_to_ouncesInput): Pounds_to_ouncesOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ounces___pounds___16"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ounces___pounds___16"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculatePounds_to_ounces(input: Pounds_to_ouncesInput): Pounds_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

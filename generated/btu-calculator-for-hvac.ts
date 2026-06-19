@@ -45,7 +45,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBtu_calculator_for_hvac(input: Btu_calculator_for_hvacInput): Btu_calculator_for_hvacOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["total_btu"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_btu"]));
   const breakdown = {
     
   };
@@ -53,7 +53,7 @@ export function calculateBtu_calculator_for_hvac(input: Btu_calculator_for_hvacI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCavity_risk_calculator(input: Cavity_risk_calculatorInput): Cavity_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["cavityRiskIndex"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cavityRiskIndex"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateCavity_risk_calculator(input: Cavity_risk_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

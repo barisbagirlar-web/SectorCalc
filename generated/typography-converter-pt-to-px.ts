@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTypography_converter_pt_to_px(input: Typography_converter_pt_to_pxInput): Typography_converter_pt_to_pxOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["scaledPx"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaledPx"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateTypography_converter_pt_to_px(input: Typography_convert
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

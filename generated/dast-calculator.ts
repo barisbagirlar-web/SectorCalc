@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDast_calculator(input: Dast_calculatorInput): Dast_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["humidityFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["humidityFactor"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDast_calculator(input: Dast_calculatorInput): Dast_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

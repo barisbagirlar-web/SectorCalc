@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSales_commission_calculator(input: Sales_commission_calculatorInput): Sales_commission_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCompensation"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCompensation"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSales_commission_calculator(input: Sales_commission_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

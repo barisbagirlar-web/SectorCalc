@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLikelihood_ratio_calculator(input: Likelihood_ratio_calculatorInput): Likelihood_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["lrPositive"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lrPositive"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateLikelihood_ratio_calculator(input: Likelihood_ratio_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

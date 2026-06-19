@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMandolin_string_tension_calculator(input: Mandolin_string_tension_calculatorInput): Mandolin_string_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["2____scaleLength___1000____noteFrequency_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["2____scaleLength___1000____noteFrequency_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateMandolin_string_tension_calculator(input: Mandolin_stri
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

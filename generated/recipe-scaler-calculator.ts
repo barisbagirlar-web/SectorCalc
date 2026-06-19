@@ -47,7 +47,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRecipe_scaler_calculator(input: Recipe_scaler_calculatorInput): Recipe_scaler_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["scaleFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaleFactor"]));
   const breakdown = {
     
   };
@@ -55,7 +55,7 @@ export function calculateRecipe_scaler_calculator(input: Recipe_scaler_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

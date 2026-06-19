@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMla_citation_generator_calculator(input: Mla_citation_generator_calculatorInput): Mla_citation_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalInText"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInText"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateMla_citation_generator_calculator(input: Mla_citation_g
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

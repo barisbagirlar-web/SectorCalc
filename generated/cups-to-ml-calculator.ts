@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCups_to_ml_calculator(input: Cups_to_ml_calculatorInput): Cups_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["millilitersUnrounded"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["millilitersUnrounded"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCups_to_ml_calculator(input: Cups_to_ml_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

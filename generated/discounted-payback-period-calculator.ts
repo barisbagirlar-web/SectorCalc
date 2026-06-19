@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDiscounted_payback_period_calculator(input: Discounted_payback_period_calculatorInput): Discounted_payback_period_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["paybackFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paybackFactor"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDiscounted_payback_period_calculator(input: Discounted_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

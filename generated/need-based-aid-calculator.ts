@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNeed_based_aid_calculator(input: Need_based_aid_calculatorInput): Need_based_aid_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["need"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["need"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateNeed_based_aid_calculator(input: Need_based_aid_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

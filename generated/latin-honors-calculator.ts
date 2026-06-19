@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLatin_honors_calculator(input: Latin_honors_calculatorInput): Latin_honors_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["thresholdsInfo_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["thresholdsInfo_aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateLatin_honors_calculator(input: Latin_honors_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

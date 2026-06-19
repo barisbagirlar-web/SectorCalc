@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSteps_to_kilometers_calculator(input: Steps_to_kilometers_calculatorInput): Steps_to_kilometers_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["distanceKm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["distanceKm"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateSteps_to_kilometers_calculator(input: Steps_to_kilomete
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

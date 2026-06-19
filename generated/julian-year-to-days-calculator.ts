@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateJulian_year_to_days_calculator(input: Julian_year_to_days_calculatorInput): Julian_year_to_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["daysPerYearUsed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["daysPerYearUsed"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateJulian_year_to_days_calculator(input: Julian_year_to_da
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

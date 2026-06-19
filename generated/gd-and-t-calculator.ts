@@ -47,7 +47,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGd_and_t_calculator(input: Gd_and_t_calculatorInput): Gd_and_t_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalTolMsg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTolMsg"]));
   const breakdown = {
     
   };
@@ -55,7 +55,7 @@ export function calculateGd_and_t_calculator(input: Gd_and_t_calculatorInput): G
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

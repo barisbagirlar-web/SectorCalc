@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAquarium_volume_calculator(input: Aquarium_volume_calculatorInput): Aquarium_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["waterVolume_gal"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["waterVolume_gal"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateAquarium_volume_calculator(input: Aquarium_volume_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

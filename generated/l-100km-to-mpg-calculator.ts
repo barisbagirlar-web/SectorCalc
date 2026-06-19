@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateL_100km_to_mpg_calculator(input: L_100km_to_mpg_calculatorInput): L_100km_to_mpg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["base_mpg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["base_mpg"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateL_100km_to_mpg_calculator(input: L_100km_to_mpg_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

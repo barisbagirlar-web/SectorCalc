@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHelmholtz_free_energy_calculator(input: Helmholtz_free_energy_calculatorInput): Helmholtz_free_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["helmholtzFreeEnergy"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["helmholtzFreeEnergy"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateHelmholtz_free_energy_calculator(input: Helmholtz_free_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

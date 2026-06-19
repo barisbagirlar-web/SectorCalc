@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAcid_base_titration_calculator(input: Acid_base_titration_calculatorInput): Acid_base_titration_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["analyteConcentration"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["analyteConcentration"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateAcid_base_titration_calculator(input: Acid_base_titrati
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

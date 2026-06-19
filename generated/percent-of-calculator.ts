@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePercent_of_calculator(input: Percent_of_calculatorInput): Percent_of_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalBeforeRounding"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBeforeRounding"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculatePercent_of_calculator(input: Percent_of_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

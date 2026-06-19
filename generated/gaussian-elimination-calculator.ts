@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGaussian_elimination_calculator(input: Gaussian_elimination_calculatorInput): Gaussian_elimination_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["det"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["det"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateGaussian_elimination_calculator(input: Gaussian_elimina
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

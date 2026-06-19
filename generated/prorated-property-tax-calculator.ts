@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateProrated_property_tax_calculator(input: Prorated_property_tax_calculatorInput): Prorated_property_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["proratedTax"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["proratedTax"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateProrated_property_tax_calculator(input: Prorated_proper
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

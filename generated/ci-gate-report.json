@@ -1,25 +1,25 @@
 {
   "passed": true,
   "steelcore": {
-    "valid": 3087,
+    "valid": 3162,
     "total": 3272,
-    "passRate": 0.9434596577017115,
+    "passRate": 0.9663814180929096,
     "threshold": 0.9,
     "ok": true
   },
   "semantic": {
     "schemasScanned": 3272,
-    "schemasWithIssues": 613,
-    "totalIssues": 1442,
-    "crossDomainContaminations": 162,
-    "starOneIssues": 382,
+    "schemasWithIssues": 609,
+    "totalIssues": 1430,
+    "crossDomainContaminations": 163,
+    "starOneIssues": 392,
     "ok": true
   },
   "golden": {
     "passed": 3272,
     "total": 3272,
     "failed": 0,
-    "totalIssues": 618,
+    "totalIssues": 0,
     "errorSlugs": [],
     "ok": true
   },
@@ -28,7 +28,7 @@
     "schemasScanned": 3272,
     "blockedSchemas": 0,
     "totalErrors": 0,
-    "totalCrossDomainIssues": 162
+    "totalCrossDomainIssues": 163
   },
   "message": "CI GATE PASSED — All quality checks passed"
 }

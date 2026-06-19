@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNear_point_calculator(input: Near_point_calculatorInput): Near_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["nearPointDistanceCm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["nearPointDistanceCm"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateNear_point_calculator(input: Near_point_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

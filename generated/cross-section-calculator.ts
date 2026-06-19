@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCross_section_calculator(input: Cross_section_calculatorInput): Cross_section_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["area"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["area"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateCross_section_calculator(input: Cross_section_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

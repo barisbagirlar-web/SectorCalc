@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHands_to_feet_horse_height(input: Hands_to_feet_horse_heightInput): Hands_to_feet_horse_heightOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalInches_____inches_total_"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInches_____inches_total_"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateHands_to_feet_horse_height(input: Hands_to_feet_horse_h
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

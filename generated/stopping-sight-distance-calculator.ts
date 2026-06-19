@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStopping_sight_distance_calculator(input: Stopping_sight_distance_calculatorInput): Stopping_sight_distance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["reactionDist"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["reactionDist"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateStopping_sight_distance_calculator(input: Stopping_sigh
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

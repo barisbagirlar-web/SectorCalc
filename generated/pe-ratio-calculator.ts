@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePe_ratio_calculator(input: Pe_ratio_calculatorInput): Pe_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["peRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["peRatio"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculatePe_ratio_calculator(input: Pe_ratio_calculatorInput): P
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

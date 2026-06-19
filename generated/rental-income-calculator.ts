@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRental_income_calculator(input: Rental_income_calculatorInput): Rental_income_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netAnnualIncome"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netAnnualIncome"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateRental_income_calculator(input: Rental_income_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

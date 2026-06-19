@@ -147,21 +147,26 @@
     }
   ],
   "formulas": {
-    "result": "wine_acidity + wine_sweetness + wine_body",
-    "result_aux": "wine_acidity + wine_sweetness + wine_body"
+    "normalized_product": "wine_acidity * wine_sweetness * wine_body * food_acidity",
+    "result": "wine_acidity * wine_sweetness * wine_body * food_acidity * (food_sweetness * food_richness)",
+    "adjustment_factor": "food_sweetness * food_richness"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "Flavor Balance (%)",
-      "Weight Compatibility (%)"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "score (0-10)"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

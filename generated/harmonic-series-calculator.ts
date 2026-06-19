@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHarmonic_series_calculator(input: Harmonic_series_calculatorInput): Harmonic_series_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateHarmonic_series_calculator(input: Harmonic_series_calcu
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

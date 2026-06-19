@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLogic_gate_calculator(input: Logic_gate_calculatorInput): Logic_gate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["norResult"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["norResult"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateLogic_gate_calculator(input: Logic_gate_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

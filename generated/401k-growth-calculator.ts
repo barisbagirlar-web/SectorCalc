@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculate_401k_growth_calculator(input: _401k_growth_calculatorInput): _401k_growth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalEmployerMatch"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmployerMatch"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculate_401k_growth_calculator(input: _401k_growth_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRng_hesaplayici_calculator(input: Rng_hesaplayici_calculatorInput): Rng_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["scaledValue"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaledValue"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateRng_hesaplayici_calculator(input: Rng_hesaplayici_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

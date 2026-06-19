@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBatch_reactor_calculator(input: Batch_reactor_calculatorInput): Batch_reactor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["product_moles"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["product_moles"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBatch_reactor_calculator(input: Batch_reactor_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

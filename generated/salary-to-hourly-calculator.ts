@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSalary_to_hourly_calculator(input: Salary_to_hourly_calculatorInput): Salary_to_hourly_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateSalary_to_hourly_calculator(input: Salary_to_hourly_cal
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

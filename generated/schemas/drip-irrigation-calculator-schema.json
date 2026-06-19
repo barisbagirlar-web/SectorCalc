@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Sulanacak toplam alan",
+      "businessContext": "Total Irrigation Area",
       "label_i18n": {
         "en": "Land Area",
         "tr": "Arazi Alanı",
@@ -17,8 +17,8 @@
         "ar": "مساحة الأرض"
       },
       "businessContext_i18n": {
-        "en": "Sulanacak toplam alan",
-        "tr": "Total Irrigation Area",
+        "en": "Total Irrigation Area",
+        "tr": "Sulanacak toplam alan",
         "de": "Zu bewässernde Gesamtfläche",
         "fr": "Surface totale à irriguer",
         "es": "Área total a regar",
@@ -123,14 +123,14 @@
     },
     {
       "id": "systemEfficiency",
-      "label": "Sistem Verimi",
+      "label": "System Efficiency",
       "type": "number",
       "unit": "%",
       "default": 90,
       "businessContext": "Water conveyance and distribution efficiency of the irrigation system (0-100)",
       "label_i18n": {
-        "en": "Sistem Verimi",
-        "tr": "System Efficiency",
+        "en": "System Efficiency",
+        "tr": "Sistem Verimi",
         "de": "Systemwirkungsgrad",
         "fr": "Efficacité du système",
         "es": "Eficiencia del sistema",

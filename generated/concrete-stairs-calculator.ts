@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateConcrete_stairs_calculator(input: Concrete_stairs_calculatorInput): Concrete_stairs_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volumeLanding_m3"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeLanding_m3"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateConcrete_stairs_calculator(input: Concrete_stairs_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

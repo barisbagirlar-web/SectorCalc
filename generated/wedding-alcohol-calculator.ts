@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calculatorInput): Wedding_alcohol_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["spiritsDrinks"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["spiritsDrinks"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

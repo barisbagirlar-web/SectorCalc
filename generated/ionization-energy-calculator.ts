@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateIonization_energy_calculator(input: Ionization_energy_calculatorInput): Ionization_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ionizationEnergy_eV"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ionizationEnergy_eV"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateIonization_energy_calculator(input: Ionization_energy_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

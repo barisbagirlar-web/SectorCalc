@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBoxing_punch_speed_calculator(input: Boxing_punch_speed_calculatorInput): Boxing_punch_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["Punch"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Punch"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateBoxing_punch_speed_calculator(input: Boxing_punch_speed
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

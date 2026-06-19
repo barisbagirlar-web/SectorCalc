@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTruth_table_generator_calculator(input: Truth_table_generator_calculatorInput): Truth_table_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["finalResult"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalResult"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTruth_table_generator_calculator(input: Truth_table_gen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

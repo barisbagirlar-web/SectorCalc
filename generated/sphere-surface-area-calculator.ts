@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSphere_surface_area_calculator(input: Sphere_surface_area_calculatorInput): Sphere_surface_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["conversionFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionFactor"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSphere_surface_area_calculator(input: Sphere_surface_ar
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

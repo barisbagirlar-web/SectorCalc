@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePixels_to_inches_calculator(input: Pixels_to_inches_calculatorInput): Pixels_to_inches_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["heightInches"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["heightInches"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculatePixels_to_inches_calculator(input: Pixels_to_inches_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

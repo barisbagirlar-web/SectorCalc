@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGross_to_net_calculator(input: Gross_to_net_calculatorInput): Gross_to_net_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netSalary"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netSalary"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateGross_to_net_calculator(input: Gross_to_net_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

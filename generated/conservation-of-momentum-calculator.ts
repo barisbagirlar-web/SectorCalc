@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateConservation_of_momentum_calculator(input: Conservation_of_momentum_calculatorInput): Conservation_of_momentum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalMomentum"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMomentum"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateConservation_of_momentum_calculator(input: Conservation
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

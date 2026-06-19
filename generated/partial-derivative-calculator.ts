@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePartial_derivative_calculator(input: Partial_derivative_calculatorInput): Partial_derivative_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown3"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown3"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePartial_derivative_calculator(input: Partial_derivative
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

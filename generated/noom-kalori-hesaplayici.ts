@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNoom_kalori_hesaplayici(input: Noom_kalori_hesaplayiciInput): Noom_kalori_hesaplayiciOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["BMR"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["BMR"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateNoom_kalori_hesaplayici(input: Noom_kalori_hesaplayiciI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKm_to_m_calculator(input: Km_to_m_calculatorInput): Km_to_m_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawMeters_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawMeters_aux"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateKm_to_m_calculator(input: Km_to_m_calculatorInput): Km_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateOvertraining_calculator(input: Overtraining_calculatorInput): Overtraining_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["overtrainingScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overtrainingScore"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateOvertraining_calculator(input: Overtraining_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

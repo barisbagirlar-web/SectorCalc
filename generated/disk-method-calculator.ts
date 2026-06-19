@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDisk_method_calculator(input: Disk_method_calculatorInput): Disk_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volume"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDisk_method_calculator(input: Disk_method_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

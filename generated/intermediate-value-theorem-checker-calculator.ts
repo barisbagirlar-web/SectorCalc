@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateIntermediate_value_theorem_checker_calculator(input: Intermediate_value_theorem_checker_calculatorInput): Intermediate_value_theorem_checker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateIntermediate_value_theorem_checker_calculator(input: In
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

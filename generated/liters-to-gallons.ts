@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLiters_to_gallons(input: Liters_to_gallonsInput): Liters_to_gallonsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["gallons_selected"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gallons_selected"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculateLiters_to_gallons(input: Liters_to_gallonsInput): Liter
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

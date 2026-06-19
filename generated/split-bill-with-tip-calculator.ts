@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSplit_bill_with_tip_calculator(input: Split_bill_with_tip_calculatorInput): Split_bill_with_tip_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalPerPerson"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPerPerson"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSplit_bill_with_tip_calculator(input: Split_bill_with_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

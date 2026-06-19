@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHebrew_calendar(input: Hebrew_calendarInput): Hebrew_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["isLeapYear"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isLeapYear"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateHebrew_calendar(input: Hebrew_calendarInput): Hebrew_ca
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

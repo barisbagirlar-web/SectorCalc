@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exchanger_fouling_loss_calculatorInput): Heat_exchanger_fouling_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

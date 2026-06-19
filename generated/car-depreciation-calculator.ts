@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCar_depreciation_calculator(input: Car_depreciation_calculatorInput): Car_depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["annualDepreciation_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualDepreciation_aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCar_depreciation_calculator(input: Car_depreciation_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

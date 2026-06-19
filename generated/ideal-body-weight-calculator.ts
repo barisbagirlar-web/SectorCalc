@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateIdeal_body_weight_calculator(input: Ideal_body_weight_calculatorInput): Ideal_body_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ibwKgAdjusted"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ibwKgAdjusted"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateIdeal_body_weight_calculator(input: Ideal_body_weight_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

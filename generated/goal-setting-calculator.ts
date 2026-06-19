@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGoal_setting_calculator(input: Goal_setting_calculatorInput): Goal_setting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["monthlyOEEincrease"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyOEEincrease"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateGoal_setting_calculator(input: Goal_setting_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

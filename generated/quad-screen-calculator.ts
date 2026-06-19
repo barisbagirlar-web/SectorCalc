@@ -24,8 +24,10 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Quad_screen_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.costPerScreen * input.numberOfScreens; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.costPerScreen * input.numberOfScreens; results["totalCost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost_aux"] = 0; }
+  try { const v = input.screenDiagonal * input.costPerScreen; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.screenDiagonal * input.costPerScreen; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.screenDiagonal * input.costPerScreen * 1 * (input.aspectWidth); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.aspectWidth; results["factor_aspectWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_aspectWidth"] = 0; }
   return results;
 }
 
@@ -36,15 +38,15 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateQuad_screen_calculator(input: Quad_screen_calculatorInput): Quad_screen_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

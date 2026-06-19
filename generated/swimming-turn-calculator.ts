@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSwimming_turn_calculator(input: Swimming_turn_calculatorInput): Swimming_turn_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalTurnTime"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTurnTime"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSwimming_turn_calculator(input: Swimming_turn_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

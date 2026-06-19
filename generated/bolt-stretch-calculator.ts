@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBolt_stretch_calculator(input: Bolt_stretch_calculatorInput): Bolt_stretch_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["stretch"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["stretch"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateBolt_stretch_calculator(input: Bolt_stretch_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

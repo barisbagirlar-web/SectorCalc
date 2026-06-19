@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFaradays_law_electrolysis_calculator(input: Faradays_law_electrolysis_calculatorInput): Faradays_law_electrolysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mass"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mass"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateFaradays_law_electrolysis_calculator(input: Faradays_la
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

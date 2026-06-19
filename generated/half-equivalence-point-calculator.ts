@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHalf_equivalence_point_calculator(input: Half_equivalence_point_calculatorInput): Half_equivalence_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["Equivalence"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Equivalence"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateHalf_equivalence_point_calculator(input: Half_equivalen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "grams",
-      "label": "Ağırlık (g)",
+      "label": "Weight (g)",
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Malzemenin gram cinsinden ağırlığı.",
+      "businessContext": "Weight of the material in grams.",
       "label_i18n": {
         "en": "Weight (g)",
         "tr": "Ağırlık (g)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "g/mL",
       "default": 0.59,
-      "businessContext": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
+      "businessContext": "Density of the material (grams/milliliter). Approximately 0.59 for flour, 0.85 for sugar, 1.0 for water.",
       "label_i18n": {
         "en": "Density (g/mL)",
         "tr": "Yoğunluk (g/mL)",

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSeconds_to_milliseconds_calculator(input: Seconds_to_milliseconds_calculatorInput): Seconds_to_milliseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["milliseconds"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["milliseconds"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSeconds_to_milliseconds_calculator(input: Seconds_to_mi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFloor_joist_calculator(input: Floor_joist_calculatorInput): Floor_joist_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["allowable_deflection_in"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["allowable_deflection_in"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateFloor_joist_calculator(input: Floor_joist_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

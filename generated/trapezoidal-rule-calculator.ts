@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTrapezoidal_rule_calculator(input: Trapezoidal_rule_calculatorInput): Trapezoidal_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["integralValue"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["integralValue"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateTrapezoidal_rule_calculator(input: Trapezoidal_rule_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

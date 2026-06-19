@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSurvival_analysis_calculator(input: Survival_analysis_calculatorInput): Survival_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["meanTimeToFailure"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meanTimeToFailure"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateSurvival_analysis_calculator(input: Survival_analysis_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

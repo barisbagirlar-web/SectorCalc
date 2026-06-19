@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStandard_error_calculator(input: Standard_error_calculatorInput): Standard_error_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["combinedVariance"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["combinedVariance"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateStandard_error_calculator(input: Standard_error_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

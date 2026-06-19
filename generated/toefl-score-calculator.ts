@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateToefl_score_calculator(input: Toefl_score_calculatorInput): Toefl_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateToefl_score_calculator(input: Toefl_score_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

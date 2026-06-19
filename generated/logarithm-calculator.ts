@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLogarithm_calculator(input: Logarithm_calculatorInput): Logarithm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ratio_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ratio_aux"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateLogarithm_calculator(input: Logarithm_calculatorInput):
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCables_to_nautical_miles_calculator(input: Cables_to_nautical_miles_calculatorInput): Cables_to_nautical_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["uncertaintyNM"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uncertaintyNM"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateCables_to_nautical_miles_calculator(input: Cables_to_na
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

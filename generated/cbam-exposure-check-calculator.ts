@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCbam_exposure_check_calculator(input: Cbam_exposure_check_calculatorInput): Cbam_exposure_check_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateCbam_exposure_check_calculator(input: Cbam_exposure_che
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

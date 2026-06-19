@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEuler_path_calculator(input: Euler_path_calculatorInput): Euler_path_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["eulerResult"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eulerResult"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateEuler_path_calculator(input: Euler_path_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

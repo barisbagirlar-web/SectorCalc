@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHealthy_life_years_calculator(input: Healthy_life_years_calculatorInput): Healthy_life_years_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["healthy_life_years"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["healthy_life_years"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHealthy_life_years_calculator(input: Healthy_life_years
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

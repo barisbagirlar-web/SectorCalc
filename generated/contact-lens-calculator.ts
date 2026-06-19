@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateContact_lens_calculator(input: Contact_lens_calculatorInput): Contact_lens_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["contactSphere"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["contactSphere"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateContact_lens_calculator(input: Contact_lens_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

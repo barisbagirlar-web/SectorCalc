@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKwh_to_joules_calculator(input: Kwh_to_joules_calculatorInput): Kwh_to_joules_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["conversion_factor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversion_factor"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateKwh_to_joules_calculator(input: Kwh_to_joules_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

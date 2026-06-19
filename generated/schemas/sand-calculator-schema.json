@@ -51,14 +51,14 @@
     },
     {
       "id": "depth",
-      "label": "Derinlik",
+      "label": "Depth",
       "type": "number",
       "unit": "cm",
       "default": 5,
       "businessContext": "Kum yüksekliği (santimetre)",
       "label_i18n": {
-        "en": "Derinlik",
-        "tr": "Depth",
+        "en": "Depth",
+        "tr": "Derinlik",
         "de": "Tiefe",
         "fr": "Profondeur",
         "es": "Profundidad",
@@ -79,7 +79,7 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Sıkışma ve fire için ek yüzde",
+      "businessContext": "Additional percentage for compaction and waste",
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",

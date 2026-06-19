@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateUs_shoe_size_to_eu_calculator(input: Us_shoe_size_to_eu_calculatorInput): Us_shoe_size_to_eu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["eurSize"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eurSize"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateUs_shoe_size_to_eu_calculator(input: Us_shoe_size_to_eu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

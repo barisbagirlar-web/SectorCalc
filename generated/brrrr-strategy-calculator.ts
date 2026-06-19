@@ -50,7 +50,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBrrrr_strategy_calculator(input: Brrrr_strategy_calculatorInput): Brrrr_strategy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["equityGained"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["equityGained"]));
   const breakdown = {
     
   };
@@ -58,7 +58,7 @@ export function calculateBrrrr_strategy_calculator(input: Brrrr_strategy_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

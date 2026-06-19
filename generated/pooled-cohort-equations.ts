@@ -30,7 +30,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Pooled_cohort_equationsInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.treatedHypertension; results["treated"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treated"] = 0; }
+  try { const v = input.age * 0.1 + input.totalCholesterol * 0.05 - input.hdlCholesterol * 0.1 + input.systolicBP * 0.02 + input.treatedHypertension * 0.5 + input.diabetes * 0.8 + input.smoker * 0.6; results["sumFemale"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumFemale"] = 0; }
+  try { const v = input.age * 0.12 + input.totalCholesterol * 0.06 - input.hdlCholesterol * 0.08 + input.systolicBP * 0.03 + input.treatedHypertension * 0.4 + input.diabetes * 0.7 + input.smoker * 0.5; results["sumMale"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumMale"] = 0; }
   try { const v = -29.1817; results["meanSumFemale"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanSumFemale"] = 0; }
   return results;
 }
@@ -42,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePooled_cohort_equations(input: Pooled_cohort_equationsInput): Pooled_cohort_equationsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["meanSumFemale"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meanSumFemale"]));
   const breakdown = {
     
   };
@@ -50,7 +51,7 @@ export function calculatePooled_cohort_equations(input: Pooled_cohort_equationsI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

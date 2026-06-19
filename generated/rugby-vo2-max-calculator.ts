@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRugby_vo2_max_calculator(input: Rugby_vo2_max_calculatorInput): Rugby_vo2_max_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["vo2max_relative"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vo2max_relative"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateRugby_vo2_max_calculator(input: Rugby_vo2_max_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

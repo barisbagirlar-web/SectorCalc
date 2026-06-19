@@ -29,7 +29,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Protective_relay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.fault_current_primary / input.ct_ratio; results["secondary_fault_current"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["secondary_fault_current"] = 0; }
-  try { const v = (input.fault_current_primary / input.ct_ratio) / input.relay_pickup; results["plug_setting_multiple"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["plug_setting_multiple"] = 0; }
+  try { const v = (asFormulaNumber(results["secondary_fault_current"])) / input.relay_pickup; results["plug_setting_multiple"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["plug_setting_multiple"] = 0; }
+  try { const v = input.tms * (input.curve_constant_k / ((asFormulaNumber(results["plug_setting_multiple"])) ^ input.curve_constant_alpha - 1) + input.curve_constant_c); results["trip_time"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trip_time"] = 0; }
   return results;
 }
 
@@ -40,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateProtective_relay_calculator(input: Protective_relay_calculatorInput): Protective_relay_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["plug_setting_multiple"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["trip_time"]));
   const breakdown = {
     
   };
@@ -48,7 +49,7 @@ export function calculateProtective_relay_calculator(input: Protective_relay_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHandshaking_lemma_calculator(input: Handshaking_lemma_calculatorInput): Handshaking_lemma_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["edges"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["edges"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateHandshaking_lemma_calculator(input: Handshaking_lemma_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

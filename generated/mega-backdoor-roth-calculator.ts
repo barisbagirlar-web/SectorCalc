@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMega_backdoor_roth_calculator(input: Mega_backdoor_roth_calculatorInput): Mega_backdoor_roth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["afterTaxSpace"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["afterTaxSpace"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateMega_backdoor_roth_calculator(input: Mega_backdoor_roth
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

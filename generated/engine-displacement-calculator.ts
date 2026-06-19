@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEngine_displacement_calculator(input: Engine_displacement_calculatorInput): Engine_displacement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primaryDisplacement"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primaryDisplacement"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateEngine_displacement_calculator(input: Engine_displaceme
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

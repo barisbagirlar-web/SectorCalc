@@ -123,21 +123,26 @@
     }
   ],
   "formulas": {
-    "result": "flowRate + pressureDrop + diameter",
-    "result_aux": "flowRate + pressureDrop + diameter"
+    "normalized_product": "flowRate * pressureDrop * diameter * length",
+    "result": "flowRate * pressureDrop * diameter * length * (density)",
+    "adjustment_factor": "density"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "kinematicViscosity",
-      "reynoldsNumber"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "Pa·s"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

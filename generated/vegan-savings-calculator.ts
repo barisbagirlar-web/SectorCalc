@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVegan_savings_calculator(input: Vegan_savings_calculatorInput): Vegan_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalMeals"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMeals"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateVegan_savings_calculator(input: Vegan_savings_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

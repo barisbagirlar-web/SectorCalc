@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMedicare_part_b_calculator(input: Medicare_part_b_calculatorInput): Medicare_part_b_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["basePremium"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["basePremium"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateMedicare_part_b_calculator(input: Medicare_part_b_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

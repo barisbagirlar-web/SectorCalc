@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAirspeed_calculator(input: Airspeed_calculatorInput): Airspeed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["densityAltitude"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["densityAltitude"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateAirspeed_calculator(input: Airspeed_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

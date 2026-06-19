@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKgf_per_cm2_to_psi(input: Kgf_per_cm2_to_psiInput): Kgf_per_cm2_to_psiOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateKgf_per_cm2_to_psi(input: Kgf_per_cm2_to_psiInput): Kgf
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

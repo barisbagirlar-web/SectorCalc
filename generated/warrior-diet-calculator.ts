@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWarrior_diet_calculator(input: Warrior_diet_calculatorInput): Warrior_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["feastCalories"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["feastCalories"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateWarrior_diet_calculator(input: Warrior_diet_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

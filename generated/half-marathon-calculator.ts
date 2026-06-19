@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHalf_marathon_calculator(input: Half_marathon_calculatorInput): Half_marathon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pacePerKm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pacePerKm"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateHalf_marathon_calculator(input: Half_marathon_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

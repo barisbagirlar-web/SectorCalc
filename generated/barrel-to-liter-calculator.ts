@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBarrel_to_liter_calculator(input: Barrel_to_liter_calculatorInput): Barrel_to_liter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalLiters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLiters"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateBarrel_to_liter_calculator(input: Barrel_to_liter_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

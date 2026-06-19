@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Percentile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.percentile / 100) * 6; results["rankValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue"] = 0; }
-  try { const v = (input.percentile / 100) * 6; results["rankValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue_aux"] = 0; }
+  try { const v = (input.percentile / 100) * 5; results["rankValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue"] = 0; }
+  try { const v = (input.percentile / 100) * 5; results["rankValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue_aux"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePercentile_calculator(input: Percentile_calculatorInput): Percentile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rankValue_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rankValue_aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculatePercentile_calculator(input: Percentile_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRealtor_fee_calculator(input: Realtor_fee_calculatorInput): Realtor_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalFee"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFee"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateRealtor_fee_calculator(input: Realtor_fee_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

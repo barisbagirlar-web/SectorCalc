@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBusiness_days_calculator(input: Business_days_calculatorInput): Business_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["businessDays"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["businessDays"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBusiness_days_calculator(input: Business_days_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

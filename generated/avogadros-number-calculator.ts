@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAvogadros_number_calculator(input: Avogadros_number_calculatorInput): Avogadros_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["numberOfMolecules"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["numberOfMolecules"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateAvogadros_number_calculator(input: Avogadros_number_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

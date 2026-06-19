@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBasketball_shooting_percentage_calculator(input: Basketball_shooting_percentage_calculatorInput): Basketball_shooting_percentage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["shootingPercentage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["shootingPercentage"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateBasketball_shooting_percentage_calculator(input: Basket
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

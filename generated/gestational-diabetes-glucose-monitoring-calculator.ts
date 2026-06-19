@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGestational_diabetes_glucose_monitoring_calculator(input: Gestational_diabetes_glucose_monitoring_calculatorInput): Gestational_diabetes_glucose_monitoring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["glucoseScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["glucoseScore"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateGestational_diabetes_glucose_monitoring_calculator(inpu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

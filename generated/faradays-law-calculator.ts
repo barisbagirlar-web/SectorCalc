@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFaradays_law_calculator(input: Faradays_law_calculatorInput): Faradays_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["induced_emf"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["induced_emf"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateFaradays_law_calculator(input: Faradays_law_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

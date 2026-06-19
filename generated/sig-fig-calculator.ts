@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSig_fig_calculator(input: Sig_fig_calculatorInput): Sig_fig_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawResult_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawResult_aux"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateSig_fig_calculator(input: Sig_fig_calculatorInput): Sig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

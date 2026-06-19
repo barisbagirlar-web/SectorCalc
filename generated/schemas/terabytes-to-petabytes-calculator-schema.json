@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "totalRawTerabytes",
-      "label": "Toplam Ham Kapasite (TB)",
+      "label": "Total raw capacity (TB)",
       "type": "number",
       "unit": "TB",
       "default": 1,
       "businessContext": "Total raw storage capacity of all disks.",
       "label_i18n": {
-        "en": "Toplam Ham Kapasite (TB)",
-        "tr": "Total raw capacity (TB)",
+        "en": "Total raw capacity (TB)",
+        "tr": "Toplam Ham Kapasite (TB)",
         "de": "Gesamte Bruttokapazität (TB)",
         "fr": "Capacité brute totale (TB)",
         "es": "Capacidad bruta total (TB)",

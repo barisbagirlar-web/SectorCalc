@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNanoseconds_to_picoseconds_calculator(input: Nanoseconds_to_picoseconds_calculatorInput): Nanoseconds_to_picoseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["finalPicoseconds"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalPicoseconds"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateNanoseconds_to_picoseconds_calculator(input: Nanosecond
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

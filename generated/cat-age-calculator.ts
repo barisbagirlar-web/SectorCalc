@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCat_age_calculator(input: Cat_age_calculatorInput): Cat_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjusted_human_age"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjusted_human_age"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateCat_age_calculator(input: Cat_age_calculatorInput): Cat
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

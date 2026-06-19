@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Sqft_to_sqm_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area_sqft; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.area_sqft; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.area_sqft * 0.092903; results["area_sqm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_sqm"] = 0; }
+  try { const v = input.area_sqft * 0.092903; results["area_sqm_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_sqm_aux"] = 0; }
   return results;
 }
 
@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSqft_to_sqm_converter_calculator(input: Sqft_to_sqm_converter_calculatorInput): Sqft_to_sqm_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["area_sqm_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateSqft_to_sqm_converter_calculator(input: Sqft_to_sqm_con
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

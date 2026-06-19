@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateJapanese_calendar_calculator(input: Japanese_calendar_calculatorInput): Japanese_calendar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["eraStart"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eraStart"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateJapanese_calendar_calculator(input: Japanese_calendar_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

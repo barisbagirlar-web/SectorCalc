@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "materialUnitCost",
-      "label": "Birim Malzeme Maliyeti",
+      "label": "Unit Material Cost",
       "type": "number",
       "unit": "TL",
       "default": 10,
       "businessContext": "Raw material cost per product",
       "label_i18n": {
-        "en": "Birim Malzeme Maliyeti",
-        "tr": "Unit Material Cost",
+        "en": "Unit Material Cost",
+        "tr": "Birim Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
         "fr": "Coût matière par unité",
         "es": "Unit Material Cost",
@@ -51,14 +51,14 @@
     },
     {
       "id": "overheadUnitCost",
-      "label": "Birim Genel Gider",
+      "label": "Unit Overhead",
       "type": "number",
       "unit": "TL",
       "default": 3,
       "businessContext": "General production expense per product (depreciation, energy, etc.)",
       "label_i18n": {
-        "en": "Birim Genel Gider",
-        "tr": "Unit Overhead",
+        "en": "Unit Overhead",
+        "tr": "Birim Genel Gider",
         "de": "Gemeinkosten pro Einheit",
         "fr": "Frais généraux unitaires",
         "es": "Gastos generales unitarios",

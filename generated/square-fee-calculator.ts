@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSquare_fee_calculator(input: Square_fee_calculatorInput): Square_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalFee"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFee"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateSquare_fee_calculator(input: Square_fee_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

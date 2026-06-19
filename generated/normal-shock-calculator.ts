@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateNormal_shock_calculator(input: Normal_shock_calculatorInput): Normal_shock_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["downstreamTemperature"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["downstreamTemperature"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateNormal_shock_calculator(input: Normal_shock_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

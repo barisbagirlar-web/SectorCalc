@@ -46,7 +46,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGate_score_calculator(input: Gate_score_calculatorInput): Gate_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["overallScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallScore"]));
   const breakdown = {
     
   };
@@ -54,7 +54,7 @@ export function calculateGate_score_calculator(input: Gate_score_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

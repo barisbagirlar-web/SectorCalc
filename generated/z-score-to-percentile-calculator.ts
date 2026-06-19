@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateZ_score_to_percentile_calculator(input: Z_score_to_percentile_calculatorInput): Z_score_to_percentile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["zComputed_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["zComputed_aux"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateZ_score_to_percentile_calculator(input: Z_score_to_perc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

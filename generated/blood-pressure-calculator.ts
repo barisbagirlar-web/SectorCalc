@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBlood_pressure_calculator(input: Blood_pressure_calculatorInput): Blood_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pulsePressure"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pulsePressure"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBlood_pressure_calculator(input: Blood_pressure_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

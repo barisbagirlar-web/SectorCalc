@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_calculatorInput): Cubits_to_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawMeters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawMeters"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

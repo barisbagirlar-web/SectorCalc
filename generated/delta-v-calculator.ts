@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDelta_v_calculator(input: Delta_v_calculatorInput): Delta_v_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["exhaustVelocity"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exhaustVelocity"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDelta_v_calculator(input: Delta_v_calculatorInput): Del
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

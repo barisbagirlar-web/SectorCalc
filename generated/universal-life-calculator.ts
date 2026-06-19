@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateUniversal_life_calculator(input: Universal_life_calculatorInput): Universal_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalPremiumsPaid"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPremiumsPaid"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateUniversal_life_calculator(input: Universal_life_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

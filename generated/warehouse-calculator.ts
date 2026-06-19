@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWarehouse_calculator(input: Warehouse_calculatorInput): Warehouse_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["capacityUtilization"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capacityUtilization"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateWarehouse_calculator(input: Warehouse_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

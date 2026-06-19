@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReverse_mortgage_calculator(input: Reverse_mortgage_calculatorInput): Reverse_mortgage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateReverse_mortgage_calculator(input: Reverse_mortgage_cal
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

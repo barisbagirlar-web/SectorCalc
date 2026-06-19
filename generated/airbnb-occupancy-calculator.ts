@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAirbnb_occupancy_calculator(input: Airbnb_occupancy_calculatorInput): Airbnb_occupancy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["occupancyRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["occupancyRate"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateAirbnb_occupancy_calculator(input: Airbnb_occupancy_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

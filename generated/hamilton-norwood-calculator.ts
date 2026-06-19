@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHamilton_norwood_calculator(input: Hamilton_norwood_calculatorInput): Hamilton_norwood_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["recessionScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recessionScore"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHamilton_norwood_calculator(input: Hamilton_norwood_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

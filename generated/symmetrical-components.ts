@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSymmetrical_components(input: Symmetrical_componentsInput): Symmetrical_componentsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["c_rad"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["c_rad"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateSymmetrical_components(input: Symmetrical_componentsInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDiet_break_calculator(input: Diet_break_calculatorInput): Diet_break_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalWeeklyCalories"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWeeklyCalories"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateDiet_break_calculator(input: Diet_break_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateIoss_vat_calculator(input: Ioss_vat_calculatorInput): Ioss_vat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalIncl"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalIncl"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculateIoss_vat_calculator(input: Ioss_vat_calculatorInput): I
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -99,21 +99,24 @@
     }
   ],
   "formulas": {
-    "result": "baseArea + sides + sideLength",
-    "result_aux": "baseArea + sides + sideLength"
+    "normalized_product": "baseArea * sides * sideLength * height",
+    "result": "baseArea * sides * sideLength * height"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "finalBaseArea",
-      "height"
+      "normalized_product"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "m³"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePsi_to_pascal_calculator(input: Psi_to_pascal_calculatorInput): Psi_to_pascal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pascal_with_offset"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pascal_with_offset"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculatePsi_to_pascal_calculator(input: Psi_to_pascal_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

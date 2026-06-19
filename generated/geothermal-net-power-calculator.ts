@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGeothermal_net_power_calculator(input: Geothermal_net_power_calculatorInput): Geothermal_net_power_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netPower"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPower"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateGeothermal_net_power_calculator(input: Geothermal_net_p
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

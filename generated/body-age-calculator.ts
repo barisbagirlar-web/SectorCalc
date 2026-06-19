@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBody_age_calculator(input: Body_age_calculatorInput): Body_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["biologicalAge"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["biologicalAge"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateBody_age_calculator(input: Body_age_calculatorInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

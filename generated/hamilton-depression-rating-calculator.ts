@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHamilton_depression_rating_calculator(input: Hamilton_depression_rating_calculatorInput): Hamilton_depression_rating_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["countMultiplier"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["countMultiplier"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHamilton_depression_rating_calculator(input: Hamilton_d
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

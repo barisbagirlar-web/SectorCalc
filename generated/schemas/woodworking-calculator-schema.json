@@ -147,14 +147,14 @@
     },
     {
       "id": "costPerM3",
-      "label": "Birim Maliyet (TL/m³)",
+      "label": "Unit Cost (TL/m³)",
       "type": "number",
       "unit": "TL/m³",
       "default": 12000,
       "businessContext": "Cost per cubic meter of wood material",
       "label_i18n": {
-        "en": "Birim Maliyet (TL/m³)",
-        "tr": "Unit Cost (TL/m³)",
+        "en": "Unit Cost (TL/m³)",
+        "tr": "Birim Maliyet (TL/m³)",
         "de": "Stückkosten (TL/m³)",
         "fr": "Coût unitaire (TL/m³)",
         "es": "Costo unitario (TL/m³)",

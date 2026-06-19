@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePsi_to_bar(input: Psi_to_barInput): Psi_to_barOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["bar"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bar"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculatePsi_to_bar(input: Psi_to_barInput): Psi_to_barOutput {
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

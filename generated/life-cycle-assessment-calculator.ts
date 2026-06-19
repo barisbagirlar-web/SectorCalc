@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLife_cycle_assessment_calculator(input: Life_cycle_assessment_calculatorInput): Life_cycle_assessment_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCO2Eq"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCO2Eq"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateLife_cycle_assessment_calculator(input: Life_cycle_asse
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHijri_to_julian_day_calculator(input: Hijri_to_julian_day_calculatorInput): Hijri_to_julian_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["julian_day"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["julian_day"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateHijri_to_julian_day_calculator(input: Hijri_to_julian_d
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

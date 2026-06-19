@@ -25,7 +25,9 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Pfr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.Ca0 * (1 - input.conversion); results["outletConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outletConcentration"] = 0; }
-  try { const v = input.Ca0 * (1 - input.conversion); results["outletConcentration_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outletConcentration_aux"] = 0; }
+  try { const v = input.v0 * input.conversion / (input.k * input.Ca0 * (1 - input.conversion)); results["theoreticalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theoreticalVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["theoreticalVolume"])) / input.v0; results["spaceTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spaceTime"] = 0; }
+  try { const v = (asFormulaNumber(results["theoreticalVolume"])) * input.safetyFactor; results["designVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["designVolume"] = 0; }
   return results;
 }
 
@@ -36,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePfr_calculator(input: Pfr_calculatorInput): Pfr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["outletConcentration_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["designVolume"]));
   const breakdown = {
     
   };
@@ -44,7 +46,7 @@ export function calculatePfr_calculator(input: Pfr_calculatorInput): Pfr_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

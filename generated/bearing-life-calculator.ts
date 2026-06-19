@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBearing_life_calculator(input: Bearing_life_calculatorInput): Bearing_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjustedL10h"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedL10h"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateBearing_life_calculator(input: Bearing_life_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

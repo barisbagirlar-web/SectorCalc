@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCalorie_burn_calculator(input: Calorie_burn_calculatorInput): Calorie_burn_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculateCalorie_burn_calculator(input: Calorie_burn_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

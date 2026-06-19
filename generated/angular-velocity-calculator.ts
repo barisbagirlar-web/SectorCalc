@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAngular_velocity_calculator(input: Angular_velocity_calculatorInput): Angular_velocity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["angularVelocity"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["angularVelocity"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateAngular_velocity_calculator(input: Angular_velocity_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

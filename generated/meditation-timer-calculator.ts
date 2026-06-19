@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMeditation_timer_calculator(input: Meditation_timer_calculatorInput): Meditation_timer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalSessionDuration"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalSessionDuration"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateMeditation_timer_calculator(input: Meditation_timer_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

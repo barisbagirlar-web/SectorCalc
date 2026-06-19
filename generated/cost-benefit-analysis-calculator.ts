@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCost_benefit_analysis_calculator(input: Cost_benefit_analysis_calculatorInput): Cost_benefit_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netAnnualCash"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netAnnualCash"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCost_benefit_analysis_calculator(input: Cost_benefit_an
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

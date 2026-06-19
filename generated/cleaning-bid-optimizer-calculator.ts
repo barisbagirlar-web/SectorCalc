@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_optimizer_calculatorInput): Cleaning_bid_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

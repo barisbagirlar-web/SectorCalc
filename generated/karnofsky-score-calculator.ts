@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKarnofsky_score_calculator(input: Karnofsky_score_calculatorInput): Karnofsky_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjustedScore"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedScore"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateKarnofsky_score_calculator(input: Karnofsky_score_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

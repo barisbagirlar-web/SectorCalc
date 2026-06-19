@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCentiliters_to_oz_calculator(input: Centiliters_to_oz_calculatorInput): Centiliters_to_oz_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["roundingFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["roundingFactor"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateCentiliters_to_oz_calculator(input: Centiliters_to_oz_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

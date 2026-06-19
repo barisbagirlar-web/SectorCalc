@@ -211,7 +211,7 @@
     "electricEmission": "Cross-domain contamination: Formula \"electricEmission\" (expected [carbon]) uses inputs from unexpected domain(s) [energy]. Inputs: [electricity]"
   },
   "k-d-ratio-calculator": {
-    "defect_rate": "Cross-domain contamination: Formula \"defect_rate\" (expected [quality, waste]) uses inputs from unexpected domain(s) [material]. Inputs: [defective_parts, total_inspected]",
+    "defect_rate": "Cross-domain contamination: Formula \"defect_rate\" (expected [quality, defect]) uses inputs from unexpected domain(s) [material]. Inputs: [defective_parts, total_inspected]",
     "quality_yield": "Cross-domain contamination: Formula \"quality_yield\" (expected [quality]) uses inputs from unexpected domain(s) [material]. Inputs: [accepted_parts, total_inspected]",
     "rework_rate": "Cross-domain contamination: Formula \"rework_rate\" (expected [quality, waste]) uses inputs from unexpected domain(s) [material]. Inputs: [reworked_parts, total_inspected]"
   },
@@ -264,19 +264,20 @@
     "direct_labor_cost": "Cross-domain contamination: Formula \"direct_labor_cost\" (expected [labor]) uses inputs from unexpected domain(s) [risk]. Inputs: [num_workers_exposed, avg_daily_exposure_hours, avg_worker_annual_salary]"
   },
   "omad-calculator": {
+    "performance": "Cross-domain contamination: Formula \"performance\" (expected [productivity]) uses inputs from unexpected domain(s) [downtime]. Inputs: [plannedTime, unplannedDowntime, idealCycleTime, totalUnits]",
     "oee": "Cross-domain contamination: Formula \"oee\" (expected [productivity]) uses inputs from unexpected domain(s) [downtime, quality]. Inputs: [plannedTime, unplannedDowntime, idealCycleTime, totalUnits, defectiveUnits]"
   },
   "operating-cash-flow-calculator": {
     "operatingCashFlow": "Cross-domain contamination: Formula \"operatingCashFlow\" (expected [water]) uses inputs from unexpected domain(s) [revenue]. Inputs: [revenue, operatingExpenses, taxRate, depreciation]"
   },
-  "pace-calculator": {
-    "breakdown": "Cross-domain contamination: Formula \"breakdown\" (expected [downtime]) uses inputs from unexpected domain(s) [distance]. Inputs: [distanceKm]",
-    "breakdown_aux": "Cross-domain contamination: Formula \"breakdown_aux\" (expected [downtime]) uses inputs from unexpected domain(s) [distance]. Inputs: [distanceKm]"
-  },
   "pathfinder-calculator": {
     "fuelLitres": "Cross-domain contamination: Formula \"fuelLitres\" (expected [energy, energy]) uses inputs from unexpected domain(s) [distance]. Inputs: [distance, fuelConsumption]"
   },
+  "pecks-to-liters-calculator": {
+    "uncertaintyAmount": "Cross-domain contamination: Formula \"uncertaintyAmount\" (expected [risk]) uses inputs from unexpected domain(s) [profit]. Inputs: [uncertaintyMargin]"
+  },
   "perc-calculator": {
+    "performance": "Cross-domain contamination: Formula \"performance\" (expected [productivity]) uses inputs from unexpected domain(s) [material]. Inputs: [totalParts, idealCycleTime, plannedProductionTime]",
     "quality": "Cross-domain contamination: Formula \"quality\" (expected [quality]) uses inputs from unexpected domain(s) [material]. Inputs: [goodParts, totalParts]"
   },
   "product-carbon-footprint-calculator": {

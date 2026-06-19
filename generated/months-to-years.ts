@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMonths_to_years(input: Months_to_yearsInput): Months_to_yearsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["decimalYears_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["decimalYears_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateMonths_to_years(input: Months_to_yearsInput): Months_to
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

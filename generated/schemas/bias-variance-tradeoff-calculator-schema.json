@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "averagePrediction",
-      "label": "Ortalama Tahmin",
+      "label": "Mean Estimate",
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
       "businessContext": "Average of the model's predictions on different training sets",
       "label_i18n": {
-        "en": "Ortalama Tahmin",
-        "tr": "Mean Estimate",
+        "en": "Mean Estimate",
+        "tr": "Ortalama Tahmin",
         "de": "Mittlere Schätzung",
         "fr": "Estimation moyenne",
         "es": "Estimación media",
@@ -51,14 +51,14 @@
     },
     {
       "id": "variance",
-      "label": "Varyans",
+      "label": "Variance",
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
       "businessContext": "The variance of predictions indicates the model's sensitivity to data",
       "label_i18n": {
-        "en": "Varyans",
-        "tr": "Variance",
+        "en": "Variance",
+        "tr": "Varyans",
         "de": "Varianz",
         "fr": "Variance",
         "es": "Varianza",

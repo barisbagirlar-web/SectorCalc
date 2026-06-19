@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePond_calculator(input: Pond_calculatorInput): Pond_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volumeLiters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeLiters"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePond_calculator(input: Pond_calculatorInput): Pond_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

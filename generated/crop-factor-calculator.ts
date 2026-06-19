@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCrop_factor_calculator(input: Crop_factor_calculatorInput): Crop_factor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["areaRatio_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["areaRatio_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateCrop_factor_calculator(input: Crop_factor_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

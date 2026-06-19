@@ -51,11 +51,11 @@
     },
     {
       "id": "y0",
-      "label": "y₀ (a noktasındaki değer)",
+      "label": "y₀ (value at point a)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a) fonksiyon değeri",
+      "businessContext": "f(a) function value",
       "label_i18n": {
         "en": "y₀ (value at point a)",
         "tr": "y₀ (a noktasındaki değer)",
@@ -75,11 +75,11 @@
     },
     {
       "id": "y1",
-      "label": "y₁ (a+h noktasındaki değer)",
+      "label": "y₁ (value at point a+h)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+h) fonksiyon değeri",
+      "businessContext": "f(a+h) function value",
       "label_i18n": {
         "en": "y₁ (value at point a+h)",
         "tr": "y₁ (a+h noktasındaki değer)",
@@ -99,11 +99,11 @@
     },
     {
       "id": "y2",
-      "label": "y₂ (a+2h noktasındaki değer)",
+      "label": "y₂ (value at point a+2h)",
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+2h) fonksiyon değeri",
+      "businessContext": "f(a+2h) function value",
       "label_i18n": {
         "en": "y₂ (value at point a+2h)",
         "tr": "y₂ (a+2h noktasındaki değer)",
@@ -123,7 +123,7 @@
     },
     {
       "id": "y3",
-      "label": "y₃ (a+3h noktasındaki değer)",
+      "label": "y₃ (value at point a+3h)",
       "type": "number",
       "unit": "birim",
       "default": 0,

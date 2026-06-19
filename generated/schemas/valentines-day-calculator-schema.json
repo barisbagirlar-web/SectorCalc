@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Toplam harcama limiti",
+      "businessContext": "Total spending limit",
       "label_i18n": {
         "en": "Budget (TL)",
         "tr": "Bütçe (TL)",
@@ -17,8 +17,8 @@
         "ar": "الميزانية (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "Toplam harcama limiti",
-        "tr": "Total spending limit",
+        "en": "Total spending limit",
+        "tr": "Toplam harcama limiti",
         "de": "Gesamtausgabenlimit",
         "fr": "Limite de dépenses totale",
         "es": "Límite de gasto total",
@@ -51,14 +51,14 @@
     },
     {
       "id": "giftCost",
-      "label": "Hediye Maliyeti (TL)",
+      "label": "Gift Cost (TL)",
       "type": "number",
       "unit": "TL",
       "default": 200,
       "businessContext": "Amount spent on the main gift",
       "label_i18n": {
-        "en": "Hediye Maliyeti (TL)",
-        "tr": "Gift Cost (TL)",
+        "en": "Gift Cost (TL)",
+        "tr": "Hediye Maliyeti (TL)",
         "de": "Geschenkkosten (EUR)",
         "fr": "Coût du cadeau (TL)",
         "es": "Costo del regalo (TL)",
@@ -75,14 +75,14 @@
     },
     {
       "id": "dinnerCost",
-      "label": "Yemek Maliyeti (TL)",
+      "label": "Meal Cost (TL)",
       "type": "number",
       "unit": "TL",
       "default": 150,
       "businessContext": "Dinner expense",
       "label_i18n": {
-        "en": "Yemek Maliyeti (TL)",
-        "tr": "Meal Cost (TL)",
+        "en": "Meal Cost (TL)",
+        "tr": "Yemek Maliyeti (TL)",
         "de": "Essenskosten (EUR)",
         "fr": "Coût du repas (TL)",
         "es": "Costo de la comida (TL)",

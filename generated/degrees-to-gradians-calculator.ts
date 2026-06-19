@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDegrees_to_gradians_calculator(input: Degrees_to_gradians_calculatorInput): Degrees_to_gradians_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["gradians"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gradians"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateDegrees_to_gradians_calculator(input: Degrees_to_gradia
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

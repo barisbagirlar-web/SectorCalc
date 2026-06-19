@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTurkey_cooking_time_calculator(input: Turkey_cooking_time_calculatorInput): Turkey_cooking_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["finalTimeMinutes"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalTimeMinutes"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateTurkey_cooking_time_calculator(input: Turkey_cooking_ti
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

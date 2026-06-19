@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePoisson_process_calculator(input: Poisson_process_calculatorInput): Poisson_process_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mu1"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mu1"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePoisson_process_calculator(input: Poisson_process_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

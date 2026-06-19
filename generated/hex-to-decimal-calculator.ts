@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHex_to_decimal_calculator(input: Hex_to_decimal_calculatorInput): Hex_to_decimal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["hexDigit3___4096"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hexDigit3___4096"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateHex_to_decimal_calculator(input: Hex_to_decimal_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateConfusion_matrix_calculator(input: Confusion_matrix_calculatorInput): Confusion_matrix_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["f1_score"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["f1_score"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateConfusion_matrix_calculator(input: Confusion_matrix_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

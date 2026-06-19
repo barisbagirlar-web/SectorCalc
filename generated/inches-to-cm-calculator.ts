@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInches_to_cm_calculator(input: Inches_to_cm_calculatorInput): Inches_to_cm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["convertedLengthCm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["convertedLengthCm"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateInches_to_cm_calculator(input: Inches_to_cm_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

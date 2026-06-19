@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMenu_pricing_calculator(input: Menu_pricing_calculatorInput): Menu_pricing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["recommendedMenuPrice"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recommendedMenuPrice"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateMenu_pricing_calculator(input: Menu_pricing_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

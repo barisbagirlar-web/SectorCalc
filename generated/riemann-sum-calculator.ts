@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRiemann_sum_calculator(input: Riemann_sum_calculatorInput): Riemann_sum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["numIntervalsOut"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["numIntervalsOut"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateRiemann_sum_calculator(input: Riemann_sum_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

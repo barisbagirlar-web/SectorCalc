@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBrake_thermal_efficiency_calculator(input: Brake_thermal_efficiency_calculatorInput): Brake_thermal_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["efficiency"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["efficiency"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateBrake_thermal_efficiency_calculator(input: Brake_therma
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

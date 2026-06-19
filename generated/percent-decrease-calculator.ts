@@ -25,7 +25,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Percent_decrease_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.initialValue - input.finalValue; results["absoluteDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDecrease"] = 0; }
-  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDecrease_aux"] = 0; }
+  try { const v = ((input.initialValue * input.adjustmentFactor - input.finalValue) / (input.initialValue * input.adjustmentFactor)) * 100; results["adjustedPercentDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedPercentDecrease"] = 0; }
+  try { const v = (asFormulaNumber(results["adjustedPercentDecrease"])) - input.targetDecreasePercent; results["targetVariance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetVariance"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePercent_decrease_calculator(input: Percent_decrease_calculatorInput): Percent_decrease_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["absoluteDecrease_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["targetVariance"]));
   const breakdown = {
     
   };
@@ -44,7 +45,7 @@ export function calculatePercent_decrease_calculator(input: Percent_decrease_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

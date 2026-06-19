@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateUltrasound_due_date_calculator(input: Ultrasound_due_date_calculatorInput): Ultrasound_due_date_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["effectiveCorrosionRate_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveCorrosionRate_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateUltrasound_due_date_calculator(input: Ultrasound_due_da
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

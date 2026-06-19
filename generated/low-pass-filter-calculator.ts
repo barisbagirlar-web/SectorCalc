@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLow_pass_filter_calculator(input: Low_pass_filter_calculatorInput): Low_pass_filter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["fc"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fc"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateLow_pass_filter_calculator(input: Low_pass_filter_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

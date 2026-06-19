@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Shell_method_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * Math.PI; results["shellFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shellFactor"] = 0; }
-  try { const v = 2 * Math.PI; results["shellFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shellFactor_aux"] = 0; }
+  try { const v = (input.a/4)*(input.upper**4 - input.lower**4) + (input.b/3)*(input.upper**3 - input.lower**3) + (input.c/2)*(input.upper**2 - input.lower**2); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["integral"] = 0; }
+  try { const v = 2 * Math.PI * (asFormulaNumber(results["integral"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateShell_method_calculator(input: Shell_method_calculatorInput): Shell_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["shellFactor_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateShell_method_calculator(input: Shell_method_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

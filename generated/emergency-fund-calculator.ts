@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEmergency_fund_calculator(input: Emergency_fund_calculatorInput): Emergency_fund_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["monthsCoveredByCurrent"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthsCoveredByCurrent"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateEmergency_fund_calculator(input: Emergency_fund_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSlope_stability_calculator(input: Slope_stability_calculatorInput): Slope_stability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["frictionRad"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["frictionRad"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSlope_stability_calculator(input: Slope_stability_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

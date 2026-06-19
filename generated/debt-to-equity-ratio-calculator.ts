@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDebt_to_equity_ratio_calculator(input: Debt_to_equity_ratio_calculatorInput): Debt_to_equity_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["debtToEquity"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["debtToEquity"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateDebt_to_equity_ratio_calculator(input: Debt_to_equity_r
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

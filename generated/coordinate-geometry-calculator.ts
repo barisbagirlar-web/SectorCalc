@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCoordinate_geometry_calculator(input: Coordinate_geometry_calculatorInput): Coordinate_geometry_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["lineC"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lineC"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCoordinate_geometry_calculator(input: Coordinate_geomet
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRainwater_harvesting_calculator(input: Rainwater_harvesting_calculatorInput): Rainwater_harvesting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["annualHarvest"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualHarvest"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateRainwater_harvesting_calculator(input: Rainwater_harves
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

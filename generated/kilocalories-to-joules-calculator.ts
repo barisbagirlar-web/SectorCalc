@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKilocalories_to_joules_calculator(input: Kilocalories_to_joules_calculatorInput): Kilocalories_to_joules_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["conversionFactorUsed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionFactorUsed"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateKilocalories_to_joules_calculator(input: Kilocalories_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

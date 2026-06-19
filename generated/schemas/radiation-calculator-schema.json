@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
+      "businessContext": "Thickness of the armor material (e.g., lead).",
       "label_i18n": {
         "en": "Armor Thickness (cm)",
         "tr": "Zırhlama Kalınlığı (cm)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "R·m²/(Ci·saat)",
       "default": 1.32,
-      "businessContext": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
+      "businessContext": "Gamma ray constant of the source (e.g., 1.32 for Co-60).",
       "label_i18n": {
         "en": "Gamma constant (R·m²/(Ci·hr))",
         "tr": "Gama Sabiti (R·m²/(Ci·saat))",

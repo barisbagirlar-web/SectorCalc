@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSleep_efficiency_calculator(input: Sleep_efficiency_calculatorInput): Sleep_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sleepEfficiency"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sleepEfficiency"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateSleep_efficiency_calculator(input: Sleep_efficiency_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

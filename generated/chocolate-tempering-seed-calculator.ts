@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateChocolate_tempering_seed_calculator(input: Chocolate_tempering_seed_calculatorInput): Chocolate_tempering_seed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["requiredSeedMass"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredSeedMass"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateChocolate_tempering_seed_calculator(input: Chocolate_te
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

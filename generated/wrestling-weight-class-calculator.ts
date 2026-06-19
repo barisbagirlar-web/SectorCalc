@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWrestling_weight_class_calculator(input: Wrestling_weight_class_calculatorInput): Wrestling_weight_class_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["leanBodyMass"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["leanBodyMass"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateWrestling_weight_class_calculator(input: Wrestling_weig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

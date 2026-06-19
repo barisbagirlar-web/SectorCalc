@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBaby_teeth_calculator(input: Baby_teeth_calculatorInput): Baby_teeth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["calciumModifier"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["calciumModifier"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBaby_teeth_calculator(input: Baby_teeth_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

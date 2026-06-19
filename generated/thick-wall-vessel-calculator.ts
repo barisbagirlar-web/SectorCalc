@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateThick_wall_vessel_calculator(input: Thick_wall_vessel_calculatorInput): Thick_wall_vessel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["hoopStressInner"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hoopStressInner"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateThick_wall_vessel_calculator(input: Thick_wall_vessel_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

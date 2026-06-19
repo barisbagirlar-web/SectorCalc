@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRecipe_cost_calculator(input: Recipe_cost_calculatorInput): Recipe_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalRecipeCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRecipeCost"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateRecipe_cost_calculator(input: Recipe_cost_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

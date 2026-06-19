@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePrism_surface_area_calculator(input: Prism_surface_area_calculatorInput): Prism_surface_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalSurfaceAreaAll"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalSurfaceAreaAll"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculatePrism_surface_area_calculator(input: Prism_surface_area
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

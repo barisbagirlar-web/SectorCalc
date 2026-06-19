@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCinder_block_calculator(input: Cinder_block_calculatorInput): Cinder_block_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalBlocksExact"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBlocksExact"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateCinder_block_calculator(input: Cinder_block_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

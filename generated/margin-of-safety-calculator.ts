@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMargin_of_safety_calculator(input: Margin_of_safety_calculatorInput): Margin_of_safety_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["marginOfSafety"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["marginOfSafety"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMargin_of_safety_calculator(input: Margin_of_safety_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRobinson_formula_calculator(input: Robinson_formula_calculatorInput): Robinson_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["yieldRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["yieldRate"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateRobinson_formula_calculator(input: Robinson_formula_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

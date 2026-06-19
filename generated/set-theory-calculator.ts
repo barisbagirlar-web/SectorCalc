@@ -46,7 +46,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSet_theory_calculator(input: Set_theory_calculatorInput): Set_theory_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["unionABC"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["unionABC"]));
   const breakdown = {
     
   };
@@ -54,7 +54,7 @@ export function calculateSet_theory_calculator(input: Set_theory_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

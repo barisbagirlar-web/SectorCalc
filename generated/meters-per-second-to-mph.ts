@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMeters_per_second_to_mph(input: Meters_per_second_to_mphInput): Meters_per_second_to_mphOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["speed_mph"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["speed_mph"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateMeters_per_second_to_mph(input: Meters_per_second_to_mp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

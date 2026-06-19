@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEvent_carbon_footprint_calculator(input: Event_carbon_footprint_calculatorInput): Event_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCO2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCO2"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateEvent_carbon_footprint_calculator(input: Event_carbon_f
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStrain_calculator(input: Strain_calculatorInput): Strain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalStrainPct"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalStrainPct"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateStrain_calculator(input: Strain_calculatorInput): Strai
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

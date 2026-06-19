@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePre_workout_calculator(input: Pre_workout_calculatorInput): Pre_workout_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["caffeineDose"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caffeineDose"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculatePre_workout_calculator(input: Pre_workout_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_degeri_hesaplayiciInput): Insan_hayati_degeri_hesaplayiciOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["discountFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["discountFactor"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_deg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

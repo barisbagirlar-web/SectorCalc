@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCosmic_microwave_background_calculator(input: Cosmic_microwave_background_calculatorInput): Cosmic_microwave_background_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["peak_wavelength"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["peak_wavelength"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateCosmic_microwave_background_calculator(input: Cosmic_mi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

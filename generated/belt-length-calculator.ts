@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBelt_length_calculator(input: Belt_length_calculatorInput): Belt_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["belt_length"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["belt_length"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateBelt_length_calculator(input: Belt_length_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

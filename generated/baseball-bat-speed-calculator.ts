@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBaseball_bat_speed_calculator(input: Baseball_bat_speed_calculatorInput): Baseball_bat_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["batSpeed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["batSpeed"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateBaseball_bat_speed_calculator(input: Baseball_bat_speed
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

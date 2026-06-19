@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePipe_thickness_calculator(input: Pipe_thickness_calculatorInput): Pipe_thickness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["requiredThickness"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredThickness"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculatePipe_thickness_calculator(input: Pipe_thickness_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

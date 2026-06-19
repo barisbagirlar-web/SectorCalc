@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReal_estate_commission_calculator(input: Real_estate_commission_calculatorInput): Real_estate_commission_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netProceeds"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProceeds"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateReal_estate_commission_calculator(input: Real_estate_co
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

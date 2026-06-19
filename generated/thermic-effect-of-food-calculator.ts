@@ -45,7 +45,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateThermic_effect_of_food_calculator(input: Thermic_effect_of_food_calculatorInput): Thermic_effect_of_food_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalTEF"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTEF"]));
   const breakdown = {
     
   };
@@ -53,7 +53,7 @@ export function calculateThermic_effect_of_food_calculator(input: Thermic_effect
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

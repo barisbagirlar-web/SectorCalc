@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSecond_order_reaction_calculator(input: Second_order_reaction_calculatorInput): Second_order_reaction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["halfLife"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["halfLife"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateSecond_order_reaction_calculator(input: Second_order_re
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFocal_length_calculator(input: Focal_length_calculatorInput): Focal_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["focalLength"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["focalLength"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateFocal_length_calculator(input: Focal_length_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

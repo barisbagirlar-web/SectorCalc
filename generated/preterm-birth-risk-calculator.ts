@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePreterm_birth_risk_calculator(input: Preterm_birth_risk_calculatorInput): Preterm_birth_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["linearCombo_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["linearCombo_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculatePreterm_birth_risk_calculator(input: Preterm_birth_risk
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

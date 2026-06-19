@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKayaking_calculator(input: Kayaking_calculatorInput): Kayaking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["powerRequired"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["powerRequired"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateKayaking_calculator(input: Kayaking_calculatorInput): K
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

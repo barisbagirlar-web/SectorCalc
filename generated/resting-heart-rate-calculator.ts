@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateResting_heart_rate_calculator(input: Resting_heart_rate_calculatorInput): Resting_heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown2Text"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown2Text"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateResting_heart_rate_calculator(input: Resting_heart_rate
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

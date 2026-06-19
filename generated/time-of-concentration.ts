@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTime_of_concentration(input: Time_of_concentrationInput): Time_of_concentrationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["adjustedTc"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedTc"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateTime_of_concentration(input: Time_of_concentrationInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

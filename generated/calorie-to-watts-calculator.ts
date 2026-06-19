@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCalorie_to_watts_calculator(input: Calorie_to_watts_calculatorInput): Calorie_to_watts_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["power_W"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["power_W"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCalorie_to_watts_calculator(input: Calorie_to_watts_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

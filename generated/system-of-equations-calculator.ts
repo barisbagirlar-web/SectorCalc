@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSystem_of_equations_calculator(input: System_of_equations_calculatorInput): System_of_equations_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["product1Quantity"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["product1Quantity"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateSystem_of_equations_calculator(input: System_of_equatio
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLife_insurance_calculator(input: Life_insurance_calculatorInput): Life_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["healthLoading"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["healthLoading"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateLife_insurance_calculator(input: Life_insurance_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

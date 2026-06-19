@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateUberman_sleep_calculator(input: Uberman_sleep_calculatorInput): Uberman_sleep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalSleep"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalSleep"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateUberman_sleep_calculator(input: Uberman_sleep_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

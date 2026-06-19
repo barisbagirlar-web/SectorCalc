@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCircle_equation_calculator(input: Circle_equation_calculatorInput): Circle_equation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["centerText"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["centerText"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateCircle_equation_calculator(input: Circle_equation_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

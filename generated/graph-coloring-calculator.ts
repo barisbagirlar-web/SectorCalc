@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGraph_coloring_calculator(input: Graph_coloring_calculatorInput): Graph_coloring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["colorCode"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["colorCode"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateGraph_coloring_calculator(input: Graph_coloring_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

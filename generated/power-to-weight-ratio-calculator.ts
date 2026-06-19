@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePower_to_weight_ratio_calculator(input: Power_to_weight_ratio_calculatorInput): Power_to_weight_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["powerToWeightRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["powerToWeightRatio"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculatePower_to_weight_ratio_calculator(input: Power_to_weight
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

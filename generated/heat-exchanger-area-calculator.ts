@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHeat_exchanger_area_calculator(input: Heat_exchanger_area_calculatorInput): Heat_exchanger_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deltaT2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deltaT2"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateHeat_exchanger_area_calculator(input: Heat_exchanger_ar
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

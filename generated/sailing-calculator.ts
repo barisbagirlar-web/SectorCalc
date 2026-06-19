@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSailing_calculator(input: Sailing_calculatorInput): Sailing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["heelingMomentNm"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["heelingMomentNm"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateSailing_calculator(input: Sailing_calculatorInput): Sai
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

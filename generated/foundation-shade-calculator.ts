@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFoundation_shade_calculator(input: Foundation_shade_calculatorInput): Foundation_shade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["lightingAdjustment"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lightingAdjustment"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateFoundation_shade_calculator(input: Foundation_shade_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

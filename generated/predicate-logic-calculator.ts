@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePredicate_logic_calculator(input: Predicate_logic_calculatorInput): Predicate_logic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculatePredicate_logic_calculator(input: Predicate_logic_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

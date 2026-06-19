@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePr_auc_calculator(input: Pr_auc_calculatorInput): Pr_auc_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["prAuc"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["prAuc"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculatePr_auc_calculator(input: Pr_auc_calculatorInput): Pr_au
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

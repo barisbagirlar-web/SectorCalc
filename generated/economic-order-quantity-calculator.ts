@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEconomic_order_quantity_calculator(input: Economic_order_quantity_calculatorInput): Economic_order_quantity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalAnnualPurchaseCost_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalAnnualPurchaseCost_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateEconomic_order_quantity_calculator(input: Economic_orde
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

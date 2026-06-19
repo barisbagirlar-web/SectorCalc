@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAngle_between_lines_calculator(input: Angle_between_lines_calculatorInput): Angle_between_lines_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dy2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dy2"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateAngle_between_lines_calculator(input: Angle_between_lin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDecay_constant_calculator(input: Decay_constant_calculatorInput): Decay_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["meanLifetimeBased"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meanLifetimeBased"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateDecay_constant_calculator(input: Decay_constant_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

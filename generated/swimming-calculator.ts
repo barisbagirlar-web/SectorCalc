@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSwimming_calculator(input: Swimming_calculatorInput): Swimming_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["averagePacePer100m"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["averagePacePer100m"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateSwimming_calculator(input: Swimming_calculatorInput): S
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

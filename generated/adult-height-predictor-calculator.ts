@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAdult_height_predictor_calculator(input: Adult_height_predictor_calculatorInput): Adult_height_predictor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["predictedHeight"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["predictedHeight"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateAdult_height_predictor_calculator(input: Adult_height_p
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

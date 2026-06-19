@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDays_sales_outstanding_calculator(input: Days_sales_outstanding_calculatorInput): Days_sales_outstanding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dso"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dso"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDays_sales_outstanding_calculator(input: Days_sales_out
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

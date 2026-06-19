@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAngle_calculator(input: Angle_calculatorInput): Angle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown1"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown1"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateAngle_calculator(input: Angle_calculatorInput): Angle_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -75,14 +75,14 @@
     },
     {
       "id": "offset",
-      "label": "Kalibrasyon Ofseti (psi)",
+      "label": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
       "type": "number",
       "unit": "psi",
       "default": 0,
       "businessContext": "Offset added for zero adjustment or shift correction.",
       "label_i18n": {
-        "en": "Kalibrasyon Ofseti (psi)",
-        "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+        "en": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+        "tr": "Kalibrasyon Ofseti (psi)",
         "de": "Kalibrierungs-Offset (psi)",
         "fr": "Offset d'étalonnage (psi)",
         "es": "Desplazamiento de calibración (psi)",

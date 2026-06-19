@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSolar_masses_to_kg_calculator(input: Solar_masses_to_kg_calculatorInput): Solar_masses_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateSolar_masses_to_kg_calculator(input: Solar_masses_to_kg
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

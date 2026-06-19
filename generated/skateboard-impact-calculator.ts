@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSkateboard_impact_calculator(input: Skateboard_impact_calculatorInput): Skateboard_impact_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["impactForce"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["impactForce"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateSkateboard_impact_calculator(input: Skateboard_impact_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

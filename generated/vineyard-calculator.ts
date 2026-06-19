@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVineyard_calculator(input: Vineyard_calculatorInput): Vineyard_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateVineyard_calculator(input: Vineyard_calculatorInput): V
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

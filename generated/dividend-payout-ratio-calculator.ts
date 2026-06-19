@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDividend_payout_ratio_calculator(input: Dividend_payout_ratio_calculatorInput): Dividend_payout_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["dividendPayoutRatioPercent"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dividendPayoutRatioPercent"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateDividend_payout_ratio_calculator(input: Dividend_payout
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

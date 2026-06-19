@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWord_form_calculator(input: Word_form_calculatorInput): Word_form_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["fleschReadingEase"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fleschReadingEase"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateWord_form_calculator(input: Word_form_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

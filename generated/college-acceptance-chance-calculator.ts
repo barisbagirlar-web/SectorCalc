@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCollege_acceptance_chance_calculator(input: College_acceptance_chance_calculatorInput): College_acceptance_chance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["interviewContribution"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["interviewContribution"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCollege_acceptance_chance_calculator(input: College_acc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSkin_type_calculator(input: Skin_type_calculatorInput): Skin_type_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["agingIndex"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["agingIndex"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateSkin_type_calculator(input: Skin_type_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

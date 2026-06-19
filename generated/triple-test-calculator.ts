@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTriple_test_calculator(input: Triple_test_calculatorInput): Triple_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mean_ok"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mean_ok"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateTriple_test_calculator(input: Triple_test_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

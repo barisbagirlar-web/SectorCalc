@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSum_of_years_digits_calculator(input: Sum_of_years_digits_calculatorInput): Sum_of_years_digits_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["depreciation_expense"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["depreciation_expense"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateSum_of_years_digits_calculator(input: Sum_of_years_digi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

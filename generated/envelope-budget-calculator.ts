@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEnvelope_budget_calculator(input: Envelope_budget_calculatorInput): Envelope_budget_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalAllocated"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalAllocated"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateEnvelope_budget_calculator(input: Envelope_budget_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

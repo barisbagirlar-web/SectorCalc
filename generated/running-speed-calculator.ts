@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRunning_speed_calculator(input: Running_speed_calculatorInput): Running_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["speed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["speed"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateRunning_speed_calculator(input: Running_speed_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

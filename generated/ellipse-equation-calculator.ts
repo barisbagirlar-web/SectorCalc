@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEllipse_equation_calculator(input: Ellipse_equation_calculatorInput): Ellipse_equation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["area"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["area"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateEllipse_equation_calculator(input: Ellipse_equation_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

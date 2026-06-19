@@ -26,6 +26,8 @@ function evaluateAllFormulas(input: Paneling_calculatorInput): Record<string, nu
   const results: Record<string, number> = {};
   try { const v = input.panelWidth / 100; results["panelWidthM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelWidthM"] = 0; }
   try { const v = input.panelHeight / 100; results["panelHeightM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelHeightM"] = 0; }
+  try { const v = input.roomWidth * input.roomHeight; results["roomArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roomArea"] = 0; }
+  try { const v = (asFormulaNumber(results["panelWidthM"])) * (asFormulaNumber(results["panelHeightM"])); results["panelArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelArea"] = 0; }
   return results;
 }
 
@@ -36,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePaneling_calculator(input: Paneling_calculatorInput): Paneling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["panelHeightM"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["panelArea"]));
   const breakdown = {
     
   };
@@ -44,7 +46,7 @@ export function calculatePaneling_calculator(input: Paneling_calculatorInput): P
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

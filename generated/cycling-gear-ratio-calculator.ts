@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCycling_gear_ratio_calculator(input: Cycling_gear_ratio_calculatorInput): Cycling_gear_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["speedMph"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["speedMph"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateCycling_gear_ratio_calculator(input: Cycling_gear_ratio
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

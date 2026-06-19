@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBody_water_percentage_calculator(input: Body_water_percentage_calculatorInput): Body_water_percentage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["bodyWaterPercentage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bodyWaterPercentage"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBody_water_percentage_calculator(input: Body_water_perc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

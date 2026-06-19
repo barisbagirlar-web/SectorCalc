@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Partition_number_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.n; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.n; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.divisor * input.n * input.sqrt3; results["denominatorValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominatorValue"] = 0; }
+  try { const v = input.divisor * input.n * input.sqrt3; results["denominatorValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominatorValue_aux"] = 0; }
   return results;
 }
 
@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePartition_number_calculator(input: Partition_number_calculatorInput): Partition_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["denominatorValue"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculatePartition_number_calculator(input: Partition_number_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

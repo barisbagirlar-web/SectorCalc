@@ -22,11 +22,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Social_security_early_retirement_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.birthYear; results["fullRetirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fullRetirementAge"] = 0; }
-  try { const v = input.birthYear; results["monthsEarly"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsEarly"] = 0; }
-  try { const v = input.birthYear; results["reductionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reductionFactor"] = 0; }
-  try { const v = input.birthYear; results["reducedMonthlyBenefit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reducedMonthlyBenefit"] = 0; }
-  try { const v = input.birthYear; results["reductionPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reductionPercentage"] = 0; }
+  try { const v = input.birthYear * input.monthlyBenefitAtFRA; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.birthYear * input.monthlyBenefitAtFRA; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.birthYear * input.monthlyBenefitAtFRA; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -37,15 +35,15 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSocial_security_early_retirement_calculator(input: Social_security_early_retirement_calculatorInput): Social_security_early_retirement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["reducedMonthlyBenefit"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
+  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

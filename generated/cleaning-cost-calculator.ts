@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCleaning_cost_calculator(input: Cleaning_cost_calculatorInput): Cleaning_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalMonthlyCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMonthlyCost"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateCleaning_cost_calculator(input: Cleaning_cost_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

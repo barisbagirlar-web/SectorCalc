@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRectangular_prism_volume_calculator(input: Rectangular_prism_volume_calculatorInput): Rectangular_prism_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volume_m3"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume_m3"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateRectangular_prism_volume_calculator(input: Rectangular_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

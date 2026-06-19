@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBroca_index_calculator(input: Broca_index_calculatorInput): Broca_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["idealWeight"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["idealWeight"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateBroca_index_calculator(input: Broca_index_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

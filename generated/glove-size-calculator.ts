@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGlove_size_calculator(input: Glove_size_calculatorInput): Glove_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["circumferenceInch"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["circumferenceInch"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculateGlove_size_calculator(input: Glove_size_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

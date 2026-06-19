@@ -26,6 +26,7 @@ function evaluateAllFormulas(input: Romer_to_celsius_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = input.temperatureRomer + input.calibrationFactor; results["calibratedRomer"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calibratedRomer"] = 0; }
   try { const v = ((asFormulaNumber(results["calibratedRomer"])) - 7.5) * (40/21); results["celsiusExact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsiusExact"] = 0; }
+  try { const v = input.measurementUncertainty * (input.confidenceLevel / 50); results["expandedUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expandedUncertainty"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRomer_to_celsius_calculator(input: Romer_to_celsius_calculatorInput): Romer_to_celsius_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["celsiusExact"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expandedUncertainty"]));
   const breakdown = {
     
   };
@@ -44,7 +45,7 @@ export function calculateRomer_to_celsius_calculator(input: Romer_to_celsius_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

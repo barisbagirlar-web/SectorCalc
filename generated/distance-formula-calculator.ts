@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDistance_formula_calculator(input: Distance_formula_calculatorInput): Distance_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deltaY"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deltaY"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDistance_formula_calculator(input: Distance_formula_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

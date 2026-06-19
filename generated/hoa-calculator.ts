@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHoa_calculator(input: Hoa_calculatorInput): Hoa_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["actualHeat"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["actualHeat"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHoa_calculator(input: Hoa_calculatorInput): Hoa_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

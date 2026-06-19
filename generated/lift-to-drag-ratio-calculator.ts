@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLift_to_drag_ratio_calculator(input: Lift_to_drag_ratio_calculatorInput): Lift_to_drag_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["liftToDragRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["liftToDragRatio"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateLift_to_drag_ratio_calculator(input: Lift_to_drag_ratio
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

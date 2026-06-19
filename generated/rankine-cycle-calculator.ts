@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRankine_cycle_calculator(input: Rankine_cycle_calculatorInput): Rankine_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["thermalEfficiency"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["thermalEfficiency"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateRankine_cycle_calculator(input: Rankine_cycle_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

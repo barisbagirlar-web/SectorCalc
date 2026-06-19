@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateQuadratic_formula_calculator(input: Quadratic_formula_calculatorInput): Quadratic_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateQuadratic_formula_calculator(input: Quadratic_formula_c
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

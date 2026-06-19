@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAccuracy_calculator(input: Accuracy_calculatorInput): Accuracy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["absolute_error"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["absolute_error"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateAccuracy_calculator(input: Accuracy_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

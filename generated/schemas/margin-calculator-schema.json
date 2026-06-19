@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "cost",
-      "label": "Birim Maliyet",
+      "label": "Unit Cost",
       "type": "number",
       "unit": "TRY",
       "default": 0,
       "businessContext": "Cost per product or service",
       "label_i18n": {
-        "en": "Birim Maliyet",
-        "tr": "Unit Cost",
+        "en": "Unit Cost",
+        "tr": "Birim Maliyet",
         "de": "Stückkosten",
         "fr": "Coût unitaire",
         "es": "Costo unitario",
@@ -51,14 +51,14 @@
     },
     {
       "id": "quantity",
-      "label": "Miktar",
+      "label": "Quantity",
       "type": "number",
       "unit": "Adet",
       "default": 1,
       "businessContext": "Number of products sold",
       "label_i18n": {
-        "en": "Miktar",
-        "tr": "Quantity",
+        "en": "Quantity",
+        "tr": "Miktar",
         "de": "Menge",
         "fr": "Quantité",
         "es": "Cantidad",

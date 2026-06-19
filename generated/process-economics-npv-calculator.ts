@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateProcess_economics_npv_calculator(input: Process_economics_npv_calculatorInput): Process_economics_npv_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netPresentValue"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPresentValue"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateProcess_economics_npv_calculator(input: Process_economi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

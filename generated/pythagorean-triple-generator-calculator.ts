@@ -33,7 +33,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePythagorean_triple_generator_calculator(input: Pythagorean_triple_generator_calculatorInput): Pythagorean_triple_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["c"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["c"]));
   const breakdown = {
     
   };
@@ -41,7 +41,7 @@ export function calculatePythagorean_triple_generator_calculator(input: Pythagor
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTennis_serve_speed_calculator(input: Tennis_serve_speed_calculatorInput): Tennis_serve_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["vy"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vy"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTennis_serve_speed_calculator(input: Tennis_serve_speed
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

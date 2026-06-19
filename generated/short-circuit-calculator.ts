@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateShort_circuit_calculator(input: Short_circuit_calculatorInput): Short_circuit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalImpedance"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalImpedance"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateShort_circuit_calculator(input: Short_circuit_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

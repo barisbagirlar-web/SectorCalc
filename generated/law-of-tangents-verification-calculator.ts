@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLaw_of_tangents_verification_calculator(input: Law_of_tangents_verification_calculatorInput): Law_of_tangents_verification_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sideRatio_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sideRatio_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateLaw_of_tangents_verification_calculator(input: Law_of_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

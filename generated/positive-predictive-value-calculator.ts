@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePositive_predictive_value_calculator(input: Positive_predictive_value_calculatorInput): Positive_predictive_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["positive_predictive_value"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["positive_predictive_value"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculatePositive_predictive_value_calculator(input: Positive_pr
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRest_day_calculator(input: Rest_day_calculatorInput): Rest_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateRest_day_calculator(input: Rest_day_calculatorInput): R
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

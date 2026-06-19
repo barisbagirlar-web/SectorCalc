@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGuitar_string_gauge_calculator(input: Guitar_string_gauge_calculatorInput): Guitar_string_gauge_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["tension"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tension"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateGuitar_string_gauge_calculator(input: Guitar_string_gau
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

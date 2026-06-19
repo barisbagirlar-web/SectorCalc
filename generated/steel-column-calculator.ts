@@ -29,6 +29,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Steel_column_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.width * input.thickness; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
+  try { const v = (input.width * input.thickness**3) / 12; results["I"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I"] = 0; }
   try { const v = input.yieldStrength * (asFormulaNumber(results["A"])); results["P_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["P_yield"] = 0; }
   try { const v = input.yieldStrength; results["yieldStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldStress"] = 0; }
   return results;
@@ -41,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSteel_column_calculator(input: Steel_column_calculatorInput): Steel_column_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["yieldStress"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["yieldStress"]));
   const breakdown = {
     
   };
@@ -49,7 +50,7 @@ export function calculateSteel_column_calculator(input: Steel_column_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

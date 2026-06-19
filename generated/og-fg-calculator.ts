@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateOg_fg_calculator(input: Og_fg_calculatorInput): Og_fg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["correctedOg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["correctedOg"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateOg_fg_calculator(input: Og_fg_calculatorInput): Og_fg_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

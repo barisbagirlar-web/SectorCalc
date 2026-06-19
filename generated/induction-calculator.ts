@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInduction_calculator(input: Induction_calculatorInput): Induction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["torque"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["torque"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateInduction_calculator(input: Induction_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateC1v1_c2v2_calculator(input: C1v1_c2v2_calculatorInput): C1v1_c2v2_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["c1v1"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["c1v1"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateC1v1_c2v2_calculator(input: C1v1_c2v2_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVat_moss_calculator(input: Vat_moss_calculatorInput): Vat_moss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["vatAmount"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vatAmount"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateVat_moss_calculator(input: Vat_moss_calculatorInput): V
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

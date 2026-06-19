@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInherited_ira_calculator(input: Inherited_ira_calculatorInput): Inherited_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rmdAmount"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rmdAmount"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateInherited_ira_calculator(input: Inherited_ira_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

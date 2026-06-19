@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "serumD",
-      "label": "Mevcut D vitamini (ng/mL)",
+      "label": "Current Vitamin D (ng/mL)",
       "type": "number",
       "unit": "ng/mL",
       "default": 20,
       "businessContext": "The patient's most recently measured 25(OH)D level",
       "label_i18n": {
-        "en": "Mevcut D vitamini (ng/mL)",
-        "tr": "Current Vitamin D (ng/mL)",
+        "en": "Current Vitamin D (ng/mL)",
+        "tr": "Mevcut D vitamini (ng/mL)",
         "de": "Aktuelles Vitamin D (ng/mL)",
         "fr": "Vitamine D actuelle (ng/mL)",
         "es": "Vitamina D actual (ng/mL)",
@@ -27,14 +27,14 @@
     },
     {
       "id": "targetD",
-      "label": "Hedef D vitamini (ng/mL)",
+      "label": "Target Vitamin D (ng/mL)",
       "type": "number",
       "unit": "ng/mL",
       "default": 50,
       "businessContext": "The target level to be achieved",
       "label_i18n": {
-        "en": "Hedef D vitamini (ng/mL)",
-        "tr": "Target Vitamin D (ng/mL)",
+        "en": "Target Vitamin D (ng/mL)",
+        "tr": "Hedef D vitamini (ng/mL)",
         "de": "Ziel-Vitamin D (ng/mL)",
         "fr": "Vitamine D cible (ng/mL)",
         "es": "Vitamina D objetivo (ng/mL)",

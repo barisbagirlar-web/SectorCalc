@@ -46,7 +46,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv_cac_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     annual_revenue: toNumericFormulaValue(values["annual_revenue"]),
     annual_gross_profit: toNumericFormulaValue(values["annual_gross_profit"]),
@@ -59,7 +59,7 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
   const suggestedActions: string[] = ["Increase retention rate by 5% to improve CLV by 15-20%","Reduce CAC through referral program or channel optimization","Segment customers by profitability — focus on top 20%"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

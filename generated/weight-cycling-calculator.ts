@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWeight_cycling_calculator(input: Weight_cycling_calculatorInput): Weight_cycling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateWeight_cycling_calculator(input: Weight_cycling_calcula
   const suggestedActions: string[] = ["Review cycle count and operating days for accuracy.","Check system efficiency - lower efficiency increases energy waste.","Consider motor upgrades or maintenance to improve efficiency."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

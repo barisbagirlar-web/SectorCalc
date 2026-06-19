@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCraps_probability(input: Craps_probabilityInput): Craps_probabilityOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["expectedValue"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedValue"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateCraps_probability(input: Craps_probabilityInput): Craps
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCorrection_factor_calculator(input: Correction_factor_calculatorInput): Correction_factor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["correctionFactor"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["correctionFactor"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateCorrection_factor_calculator(input: Correction_factor_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

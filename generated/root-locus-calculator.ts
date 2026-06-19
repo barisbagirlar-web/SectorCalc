@@ -30,8 +30,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Root_locus_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.zeroReal; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.zeroReal; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.zeroReal * input.zeroImag * input.pole1Real * input.pole1Imag; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.zeroReal * input.zeroImag * input.pole1Real * input.pole1Imag * (input.pole2Real * input.pole2Imag * input.pole3Real * input.pole3Imag); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.pole2Real * input.pole2Imag * input.pole3Real * input.pole3Imag; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -42,15 +43,15 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRoot_locus_calculator(input: Root_locus_calculatorInput): Root_locus_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTarget_heart_rate_calculator(input: Target_heart_rate_calculatorInput): Target_heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["maxHeartRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxHeartRate"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateTarget_heart_rate_calculator(input: Target_heart_rate_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

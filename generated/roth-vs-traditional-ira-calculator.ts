@@ -26,8 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Roth_vs_traditional_ira_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.yearsUntilRetirement; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
-  try { const v = input.yearsUntilRetirement; results["n_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n_aux"] = 0; }
+  try { const v = input.annualContribution * ((1 + input.expectedAnnualReturn/100) ^ input.yearsUntilRetirement); results["rothValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rothValue"] = 0; }
+  try { const v = input.annualContribution * (1 - input.currentTaxRate/100) * ((1 + input.expectedAnnualReturn/100) ^ input.yearsUntilRetirement) / (1 - input.expectedRetirementTaxRate/100); results["tradValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tradValue"] = 0; }
+  try { const v = (asFormulaNumber(results["rothValue"])) - (asFormulaNumber(results["tradValue"])); results["rothMinusTrad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rothMinusTrad"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRoth_vs_traditional_ira_calculator(input: Roth_vs_traditional_ira_calculatorInput): Roth_vs_traditional_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["n_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rothMinusTrad"]));
   const breakdown = {
     
   };
@@ -46,7 +47,7 @@ export function calculateRoth_vs_traditional_ira_calculator(input: Roth_vs_tradi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRule_of_72_calculator(input: Rule_of_72_calculatorInput): Rule_of_72_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["approxYears"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["approxYears"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateRule_of_72_calculator(input: Rule_of_72_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

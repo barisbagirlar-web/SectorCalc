@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCrawl_space_calculator(input: Crawl_space_calculatorInput): Crawl_space_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["requiredVentArea"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredVentArea"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateCrawl_space_calculator(input: Crawl_space_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

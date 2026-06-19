@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVat_calculator_eu(input: Vat_calculator_euInput): Vat_calculator_euOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalGross"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalGross"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateVat_calculator_eu(input: Vat_calculator_euInput): Vat_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

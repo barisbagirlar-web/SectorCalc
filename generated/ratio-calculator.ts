@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRatio_calculator(input: Ratio_calculatorInput): Ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["multipliedRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["multipliedRatio"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateRatio_calculator(input: Ratio_calculatorInput): Ratio_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

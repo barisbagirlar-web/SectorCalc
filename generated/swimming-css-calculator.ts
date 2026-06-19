@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSwimming_css_calculator(input: Swimming_css_calculatorInput): Swimming_css_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["css_pace_per_100m"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["css_pace_per_100m"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateSwimming_css_calculator(input: Swimming_css_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

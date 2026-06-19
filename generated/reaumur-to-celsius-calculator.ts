@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReaumur_to_celsius_calculator(input: Reaumur_to_celsius_calculatorInput): Reaumur_to_celsius_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["uncertaintyCelsius"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uncertaintyCelsius"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateReaumur_to_celsius_calculator(input: Reaumur_to_celsius
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

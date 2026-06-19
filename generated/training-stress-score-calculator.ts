@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTraining_stress_score_calculator(input: Training_stress_score_calculatorInput): Training_stress_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["tss"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tss"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateTraining_stress_score_calculator(input: Training_stress
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

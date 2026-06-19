@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateChinese_calendar(input: Chinese_calendarInput): Chinese_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["chineseYear"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["chineseYear"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateChinese_calendar(input: Chinese_calendarInput): Chinese
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

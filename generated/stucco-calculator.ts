@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStucco_calculator(input: Stucco_calculatorInput): Stucco_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalDryMix"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDryMix"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateStucco_calculator(input: Stucco_calculatorInput): Stucc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

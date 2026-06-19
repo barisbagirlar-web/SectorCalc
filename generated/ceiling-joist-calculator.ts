@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCeiling_joist_calculator(input: Ceiling_joist_calculatorInput): Ceiling_joist_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["allowableDeflection"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["allowableDeflection"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateCeiling_joist_calculator(input: Ceiling_joist_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

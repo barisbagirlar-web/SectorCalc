@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMass_flow_rate(input: Mass_flow_rateInput): Mass_flow_rateOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["massFlowRate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["massFlowRate"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateMass_flow_rate(input: Mass_flow_rateInput): Mass_flow_r
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

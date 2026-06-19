@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFoot_pounds_to_joules_calculator(input: Foot_pounds_to_joules_calculatorInput): Foot_pounds_to_joules_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["uncertainty"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uncertainty"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateFoot_pounds_to_joules_calculator(input: Foot_pounds_to_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -46,7 +46,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHyperemesis_calculator(input: Hyperemesis_calculatorInput): Hyperemesis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalEmission"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmission"]));
   const breakdown = {
     
   };
@@ -54,7 +54,7 @@ export function calculateHyperemesis_calculator(input: Hyperemesis_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

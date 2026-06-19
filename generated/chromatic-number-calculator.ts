@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateChromatic_number_calculator(input: Chromatic_number_calculatorInput): Chromatic_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["abbeNumber"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["abbeNumber"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateChromatic_number_calculator(input: Chromatic_number_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

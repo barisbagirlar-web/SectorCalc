@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculate_5x5_calculator(input: _5x5_calculatorInput): _5x5_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["percentage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["percentage"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculate_5x5_calculator(input: _5x5_calculatorInput): _5x5_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

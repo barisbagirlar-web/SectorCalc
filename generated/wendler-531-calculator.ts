@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWendler_531_calculator(input: Wendler_531_calculatorInput): Wendler_531_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["set3Weight"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["set3Weight"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateWendler_531_calculator(input: Wendler_531_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

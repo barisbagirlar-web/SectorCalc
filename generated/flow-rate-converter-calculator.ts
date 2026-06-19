@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFlow_rate_converter_calculator(input: Flow_rate_converter_calculatorInput): Flow_rate_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["volumetricFlow"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumetricFlow"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateFlow_rate_converter_calculator(input: Flow_rate_convert
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

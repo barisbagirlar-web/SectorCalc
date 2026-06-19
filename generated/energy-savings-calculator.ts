@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEnergy_savings_calculator(input: Energy_savings_calculatorInput): Energy_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["costSavings"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["costSavings"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateEnergy_savings_calculator(input: Energy_savings_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

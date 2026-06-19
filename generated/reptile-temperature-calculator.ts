@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReptile_temperature_calculator(input: Reptile_temperature_calculatorInput): Reptile_temperature_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["requiredWattage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredWattage"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateReptile_temperature_calculator(input: Reptile_temperatu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

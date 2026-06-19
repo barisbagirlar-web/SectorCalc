@@ -3,11 +3,11 @@
   "inputs": [
     {
       "id": "sampleSizeA",
-      "label": "Örneklem Boyutu A",
+      "label": "Sample Size A",
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "A varyantı için testteki toplam örnek sayısı",
+      "businessContext": "Total number of samples in test for variant A",
       "label_i18n": {
         "en": "Sample Size A",
         "tr": "Örneklem Boyutu A",
@@ -27,11 +27,11 @@
     },
     {
       "id": "conversionsA",
-      "label": "Dönüşüm A",
+      "label": "Conversion A",
       "type": "number",
       "unit": "adet",
       "default": 120,
-      "businessContext": "A varyantı için başarılı dönüşüm sayısı (örneğin tıklama, satın alma)",
+      "businessContext": "Number of successful conversions for variant A (e.g., clicks, purchases)",
       "label_i18n": {
         "en": "Conversion A",
         "tr": "Dönüşüm A",

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSimple_ira_calculator(input: Simple_ira_calculatorInput): Simple_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateSimple_ira_calculator(input: Simple_ira_calculatorInput
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

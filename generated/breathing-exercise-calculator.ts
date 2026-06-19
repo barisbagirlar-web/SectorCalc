@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBreathing_exercise_calculator(input: Breathing_exercise_calculatorInput): Breathing_exercise_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["estimatedTimeMin"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["estimatedTimeMin"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateBreathing_exercise_calculator(input: Breathing_exercise
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

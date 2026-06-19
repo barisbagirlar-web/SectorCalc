@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCrossfit_calorie_calculator(input: Crossfit_calorie_calculatorInput): Crossfit_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalCalories"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCalories"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateCrossfit_calorie_calculator(input: Crossfit_calorie_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

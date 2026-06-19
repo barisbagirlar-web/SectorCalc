@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRanson_criteria_calculator(input: Ranson_criteria_calculatorInput): Ranson_criteria_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["score"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["score"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateRanson_criteria_calculator(input: Ranson_criteria_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

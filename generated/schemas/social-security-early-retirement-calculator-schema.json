@@ -99,20 +99,25 @@
     }
   ],
   "formulas": {
-    "result": "birthYear + earlyRetirementAge + monthlyBenefitAtFRA",
-    "result_aux": "birthYear + earlyRetirementAge + monthlyBenefitAtFRA"
+    "base_cost": "birthYear * monthlyBenefitAtFRA",
+    "adjusted_cost": "birthYear * monthlyBenefitAtFRA * 1",
+    "result": "birthYear * monthlyBenefitAtFRA * 1"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "reductionPercentage",
-      "monthsEarly"
+      "base_cost",
+      "adjusted_cost"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
     ],
-    "dataConfidenceAdjusted": "result_aux",
+    "dataConfidenceAdjusted": "result",
     "unit": "USD",
     "breakdownUnits": {
       "reductionPercentage": "%",

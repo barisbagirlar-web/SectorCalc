@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCut_and_fill_calculator(input: Cut_and_fill_calculatorInput): Cut_and_fill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["netVolume"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netVolume"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateCut_and_fill_calculator(input: Cut_and_fill_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

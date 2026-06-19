@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCircular_mils_to_sqmm_calculator(input: Circular_mils_to_sqmm_calculatorInput): Circular_mils_to_sqmm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sqmmExact"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sqmmExact"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateCircular_mils_to_sqmm_calculator(input: Circular_mils_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMohrs_circle_calculator(input: Mohrs_circle_calculatorInput): Mohrs_circle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sigma_avg"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sigma_avg"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateMohrs_circle_calculator(input: Mohrs_circle_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

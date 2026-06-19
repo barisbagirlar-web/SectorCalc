@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTebibytes_to_terabytes_calculator(input: Tebibytes_to_terabytes_calculatorInput): Tebibytes_to_terabytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawValueWithoutMultiplier"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawValueWithoutMultiplier"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateTebibytes_to_terabytes_calculator(input: Tebibytes_to_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

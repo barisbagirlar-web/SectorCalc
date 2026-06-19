@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRandom_number_generator_calculator(input: Random_number_generator_calculatorInput): Random_number_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["seed"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["seed"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateRandom_number_generator_calculator(input: Random_number
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

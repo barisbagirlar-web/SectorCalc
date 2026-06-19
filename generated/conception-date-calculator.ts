@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateConception_date_calculator(input: Conception_date_calculatorInput): Conception_date_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["conceptionDate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conceptionDate"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateConception_date_calculator(input: Conception_date_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateChi_square_test_independence_calculator(input: Chi_square_test_independence_calculatorInput): Chi_square_test_independence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["chi2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["chi2"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateChi_square_test_independence_calculator(input: Chi_squa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDipole_antenna_length_calculator(input: Dipole_antenna_length_calculatorInput): Dipole_antenna_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["lengthInSelectedUnit"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lengthInSelectedUnit"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDipole_antenna_length_calculator(input: Dipole_antenna_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

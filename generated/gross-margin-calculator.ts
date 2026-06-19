@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGross_margin_calculator(input: Gross_margin_calculatorInput): Gross_margin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["grossMarginPercentage"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grossMarginPercentage"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateGross_margin_calculator(input: Gross_margin_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

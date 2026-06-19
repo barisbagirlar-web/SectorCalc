@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAdd_fractions_calculator(input: Add_fractions_calculatorInput): Add_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateAdd_fractions_calculator(input: Add_fractions_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

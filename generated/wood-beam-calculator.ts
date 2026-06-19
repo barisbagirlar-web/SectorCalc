@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWood_beam_calculator(input: Wood_beam_calculatorInput): Wood_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deflectionRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deflectionRatio"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateWood_beam_calculator(input: Wood_beam_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

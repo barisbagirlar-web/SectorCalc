@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMbps_to_gbps_calculator(input: Mbps_to_gbps_calculatorInput): Mbps_to_gbps_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["rawGbps"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawGbps"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMbps_to_gbps_calculator(input: Mbps_to_gbps_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

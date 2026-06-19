@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBreeam_embodied_carbon_calculator(input: Breeam_embodied_carbon_calculatorInput): Breeam_embodied_carbon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["carbonPerArea"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["carbonPerArea"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateBreeam_embodied_carbon_calculator(input: Breeam_embodie
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

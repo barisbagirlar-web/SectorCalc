@@ -147,21 +147,26 @@
     }
   ],
   "formulas": {
-    "result": "springConstant + displacement + wireDiameter",
-    "result_aux": "springConstant + displacement + wireDiameter"
+    "normalized_product": "springConstant * displacement * wireDiameter * coilDiameter",
+    "result": "springConstant * displacement * wireDiameter * coilDiameter * (activeCoils * shearModulus)",
+    "adjustment_factor": "activeCoils * shearModulus"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "effectiveSpringConstant",
-      "displacement"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "N"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

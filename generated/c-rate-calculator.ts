@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateC_rate_calculator(input: C_rate_calculatorInput): C_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["C"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["C"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateC_rate_calculator(input: C_rate_calculatorInput): C_rat
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

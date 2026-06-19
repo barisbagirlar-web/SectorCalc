@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePints_to_liters(input: Pints_to_litersInput): Pints_to_litersOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["liters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["liters"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculatePints_to_liters(input: Pints_to_litersInput): Pints_to_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

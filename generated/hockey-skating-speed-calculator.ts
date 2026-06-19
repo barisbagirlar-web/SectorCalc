@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHockey_skating_speed_calculator(input: Hockey_skating_speed_calculatorInput): Hockey_skating_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["speedMS"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["speedMS"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateHockey_skating_speed_calculator(input: Hockey_skating_s
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

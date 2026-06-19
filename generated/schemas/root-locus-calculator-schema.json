@@ -195,22 +195,26 @@
     }
   ],
   "formulas": {
-    "result": "zeroReal + zeroImag + pole1Real",
-    "result_aux": "zeroReal + zeroImag + pole1Real"
+    "normalized_product": "zeroReal * zeroImag * pole1Real * pole1Imag",
+    "result": "zeroReal * zeroImag * pole1Real * pole1Imag * (pole2Real * pole2Imag * pole3Real * pole3Imag)",
+    "adjustment_factor": "pole2Real * pole2Imag * pole3Real * pole3Imag"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "asymptoteAngle",
-      "asymptoteCentroid",
-      "breakawayPoints"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result_aux",
-    "unit": "—"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",

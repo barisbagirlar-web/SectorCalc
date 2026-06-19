@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateSoffit_calculator(input: Soffit_calculatorInput): Soffit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["panels_exact"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["panels_exact"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateSoffit_calculator(input: Soffit_calculatorInput): Soffi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

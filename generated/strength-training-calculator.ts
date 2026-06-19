@@ -27,7 +27,9 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Strength_training_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.weightLifted * (1 + input.repetitions / 30); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.weightLifted; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.weightLifted / input.bodyWeight; results["relativeStrength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relativeStrength"] = 0; }
+  try { const v = input.weightLifted * input.repetitions * input.sets; results["volumeLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeLoad"] = 0; }
+  try { const v = input.weightLifted * (1 + input.repetitions / 30) * (1 - input.fatigueFactor / 100); results["effectiveTrainingLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveTrainingLoad"] = 0; }
   return results;
 }
 
@@ -38,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateStrength_training_calculator(input: Strength_training_calculatorInput): Strength_training_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
   const breakdown = {
     
   };
@@ -46,7 +48,7 @@ export function calculateStrength_training_calculator(input: Strength_training_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

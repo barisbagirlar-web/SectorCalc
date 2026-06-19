@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateShift_work_calculator(input: Shift_work_calculatorInput): Shift_work_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalPay"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPay"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateShift_work_calculator(input: Shift_work_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMma_weight_cut_calculator(input: Mma_weight_cut_calculatorInput): Mma_weight_cut_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deficit_ratio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deficit_ratio"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateMma_weight_cut_calculator(input: Mma_weight_cut_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

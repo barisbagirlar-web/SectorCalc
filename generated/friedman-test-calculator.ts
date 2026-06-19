@@ -44,7 +44,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFriedman_test_calculator(input: Friedman_test_calculatorInput): Friedman_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["friedmanStatistic"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["friedmanStatistic"]));
   const breakdown = {
     
   };
@@ -52,7 +52,7 @@ export function calculateFriedman_test_calculator(input: Friedman_test_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

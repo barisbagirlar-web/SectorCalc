@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDegrees_to_arcseconds_calculator(input: Degrees_to_arcseconds_calculatorInput): Degrees_to_arcseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalArcseconds_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalArcseconds_aux"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateDegrees_to_arcseconds_calculator(input: Degrees_to_arcs
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

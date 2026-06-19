@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDecibel_calculator(input: Decibel_calculatorInput): Decibel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["powerRatio_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["powerRatio_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateDecibel_calculator(input: Decibel_calculatorInput): Dec
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

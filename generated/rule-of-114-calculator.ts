@@ -23,7 +23,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Rule_of_114_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 114 / input.annualInterestRate; results["approximateYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["approximateYears"] = 0; }
-  try { const v = 114 / input.annualInterestRate; results["approximateYears_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["approximateYears_aux"] = 0; }
+  try { const v = input.initialInvestment * input.targetMultiplier; results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["futureValue"] = 0; }
   return results;
 }
 
@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRule_of_114_calculator(input: Rule_of_114_calculatorInput): Rule_of_114_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["approximateYears"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["approximateYears"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateRule_of_114_calculator(input: Rule_of_114_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

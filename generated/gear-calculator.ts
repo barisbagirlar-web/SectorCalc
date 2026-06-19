@@ -42,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateGear_calculator(input: Gear_calculatorInput): Gear_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["gearRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gearRatio"]));
   const breakdown = {
     
   };
@@ -50,7 +50,7 @@ export function calculateGear_calculator(input: Gear_calculatorInput): Gear_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

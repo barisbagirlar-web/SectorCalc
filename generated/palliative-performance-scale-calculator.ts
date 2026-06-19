@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePalliative_performance_scale_calculator(input: Palliative_performance_scale_calculatorInput): Palliative_performance_scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pps"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pps"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculatePalliative_performance_scale_calculator(input: Palliati
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

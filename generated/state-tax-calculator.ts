@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateState_tax_calculator(input: State_tax_calculatorInput): State_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["taxBeforeCredits"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["taxBeforeCredits"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateState_tax_calculator(input: State_tax_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEquivalent_fractions_checker_calculator(input: Equivalent_fractions_checker_calculatorInput): Equivalent_fractions_checker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["cross2"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cross2"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateEquivalent_fractions_checker_calculator(input: Equivale
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

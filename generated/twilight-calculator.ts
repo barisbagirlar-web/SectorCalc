@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTwilight_calculator(input: Twilight_calculatorInput): Twilight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["daily_cost_savings"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["daily_cost_savings"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateTwilight_calculator(input: Twilight_calculatorInput): T
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

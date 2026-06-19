@@ -25,7 +25,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Running_equivalent_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.knownTimeMinutes + input.knownTimeSeconds / 60; results["totalKnownTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalKnownTime"] = 0; }
-  try { const v = input.knownTimeMinutes + input.knownTimeSeconds / 60; results["totalKnownTime_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalKnownTime_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["totalKnownTime"])) * (input.targetDistance / input.knownDistance) ^ input.exponent; results["predictedTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["predictedTimeMinutes"] = 0; }
+  try { const v = (asFormulaNumber(results["predictedTimeMinutes"])) / input.targetDistance; results["predictedPacePerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["predictedPacePerKm"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRunning_equivalent_calculator(input: Running_equivalent_calculatorInput): Running_equivalent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalKnownTime_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["predictedTimeMinutes"]));
   const breakdown = {
     
   };
@@ -44,7 +45,7 @@ export function calculateRunning_equivalent_calculator(input: Running_equivalent
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

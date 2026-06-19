@@ -41,7 +41,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDijkstra_calculator(input: Dijkstra_calculatorInput): Dijkstra_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["path_ACBD"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["path_ACBD"]));
   const breakdown = {
     
   };
@@ -49,7 +49,7 @@ export function calculateDijkstra_calculator(input: Dijkstra_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

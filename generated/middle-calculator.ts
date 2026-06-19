@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMiddle_calculator(input: Middle_calculatorInput): Middle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["average"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["average"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMiddle_calculator(input: Middle_calculatorInput): Middl
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

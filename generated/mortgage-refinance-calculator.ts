@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMortgage_refinance_calculator(input: Mortgage_refinance_calculatorInput): Mortgage_refinance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateMortgage_refinance_calculator(input: Mortgage_refinance
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

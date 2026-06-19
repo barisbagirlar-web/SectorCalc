@@ -30,6 +30,7 @@ function evaluateAllFormulas(input: Pet_life_expectancy_calculatorInput): Record
   const results: Record<string, number> = {};
   try { const v = 0.8 + (input.activityLevel / 10) * 0.2; results["activityMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["activityMultiplier"] = 0; }
   try { const v = 0.7 + (input.dietQuality / 10) * 0.3; results["dietMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dietMultiplier"] = 0; }
+  try { const v = 1 + 0.05 * input.vetVisits; results["vetMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vetMultiplier"] = 0; }
   try { const v = 1 + 0.1 * input.sterilized; results["sterilizationMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sterilizationMultiplier"] = 0; }
   return results;
 }
@@ -41,7 +42,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculatePet_life_expectancy_calculator(input: Pet_life_expectancy_calculatorInput): Pet_life_expectancy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sterilizationMultiplier"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sterilizationMultiplier"]));
   const breakdown = {
     
   };
@@ -49,7 +50,7 @@ export function calculatePet_life_expectancy_calculator(input: Pet_life_expectan
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

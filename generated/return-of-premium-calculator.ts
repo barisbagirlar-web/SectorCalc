@@ -27,7 +27,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Return_of_premium_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.monthlyPremium * 12 * input.policyTermYears; results["totalPremiumsPaid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPremiumsPaid"] = 0; }
-  try { const v = input.monthlyPremium * 12 * input.policyTermYears; results["totalPremiumsPaid_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPremiumsPaid_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPremiumsPaid"])) * (1 + input.interestRate/100) ^ input.policyTermYears; results["grossReturn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossReturn"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateReturn_of_premium_calculator(input: Return_of_premium_calculatorInput): Return_of_premium_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalPremiumsPaid_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grossReturn"]));
   const breakdown = {
     
   };
@@ -46,7 +46,7 @@ export function calculateReturn_of_premium_calculator(input: Return_of_premium_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateAcute_chronic_workload_ratio_calculator(input: Acute_chronic_workload_ratio_calculatorInput): Acute_chronic_workload_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["acuteDailyLoad"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["acuteDailyLoad"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateAcute_chronic_workload_ratio_calculator(input: Acute_ch
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

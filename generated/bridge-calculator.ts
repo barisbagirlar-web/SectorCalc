@@ -40,7 +40,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBridge_calculator(input: Bridge_calculatorInput): Bridge_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["beam_width_estimate"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["beam_width_estimate"]));
   const breakdown = {
     
   };
@@ -48,7 +48,7 @@ export function calculateBridge_calculator(input: Bridge_calculatorInput): Bridg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

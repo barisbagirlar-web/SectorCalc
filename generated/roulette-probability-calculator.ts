@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRoulette_probability_calculator(input: Roulette_probability_calculatorInput): Roulette_probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["expectedNetReturn"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedNetReturn"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateRoulette_probability_calculator(input: Roulette_probabi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

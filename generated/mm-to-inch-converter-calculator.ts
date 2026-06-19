@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMm_to_inch_converter_calculator(input: Mm_to_inch_converter_calculatorInput): Mm_to_inch_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["six_sigma_shift_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["six_sigma_shift_aux"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateMm_to_inch_converter_calculator(input: Mm_to_inch_conve
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateVo2_max_by_age_calculator(input: Vo2_max_by_age_calculatorInput): Vo2_max_by_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["132_853___0_0769___weight___0_3877___age"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["132_853___0_0769___weight___0_3877___age"]));
   const breakdown = {
     
   };
@@ -44,7 +44,7 @@ export function calculateVo2_max_by_age_calculator(input: Vo2_max_by_age_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

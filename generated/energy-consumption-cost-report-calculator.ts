@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateEnergy_consumption_cost_report_calculator(input: Energy_consumption_cost_report_calculatorInput): Energy_consumption_cost_report_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
   const breakdown = {
     
   };
@@ -51,7 +51,7 @@ export function calculateEnergy_consumption_cost_report_calculator(input: Energy
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

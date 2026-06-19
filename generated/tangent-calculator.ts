@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTangent_calculator(input: Tangent_calculatorInput): Tangent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["effectiveAngle"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveAngle"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateTangent_calculator(input: Tangent_calculatorInput): Tan
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

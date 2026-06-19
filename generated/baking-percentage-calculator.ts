@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateBaking_percentage_calculator(input: Baking_percentage_calculatorInput): Baking_percentage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalDoughWeight"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDoughWeight"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateBaking_percentage_calculator(input: Baking_percentage_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

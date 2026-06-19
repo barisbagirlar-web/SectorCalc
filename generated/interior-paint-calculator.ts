@@ -48,7 +48,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInterior_paint_calculator(input: Interior_paint_calculatorInput): Interior_paint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["paintLiters"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paintLiters"]));
   const breakdown = {
     
   };
@@ -56,7 +56,7 @@ export function calculateInterior_paint_calculator(input: Interior_paint_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

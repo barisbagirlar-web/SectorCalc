@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRl_time_constant_calculator(input: Rl_time_constant_calculatorInput): Rl_time_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["tauMin"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tauMin"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateRl_time_constant_calculator(input: Rl_time_constant_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

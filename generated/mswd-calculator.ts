@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMswd_calculator(input: Mswd_calculatorInput): Mswd_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mswd"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mswd"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateMswd_calculator(input: Mswd_calculatorInput): Mswd_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -39,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateProtein_calculator(input: Protein_calculatorInput): Protein_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["proteinRequirement"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["proteinRequirement"]));
   const breakdown = {
     
   };
@@ -47,7 +47,7 @@ export function calculateProtein_calculator(input: Protein_calculatorInput): Pro
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

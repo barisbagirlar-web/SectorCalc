@@ -32,7 +32,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg_to_l_per_100kmOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["litersPer100km"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["litersPer100km"]));
   const breakdown = {
     
   };
@@ -40,7 +40,7 @@ export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

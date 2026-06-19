@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWatt_hour_calculator(input: Watt_hour_calculatorInput): Watt_hour_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["energyWh"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["energyWh"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateWatt_hour_calculator(input: Watt_hour_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -3,14 +3,14 @@
   "inputs": [
     {
       "id": "batchVolumeL",
-      "label": "Parti Hacmi (L)",
+      "label": "Batch Volume (L)",
       "type": "number",
       "unit": "litre",
       "default": 20,
       "businessContext": "Total must volume to be produced",
       "label_i18n": {
-        "en": "Parti Hacmi (L)",
-        "tr": "Batch Volume (L)",
+        "en": "Batch Volume (L)",
+        "tr": "Parti Hacmi (L)",
         "de": "Parti Hacmi (L)",
         "fr": "Volume de moût (L)",
         "es": "Volumen del lote (L)",
@@ -75,14 +75,14 @@
     },
     {
       "id": "yieldFactor",
-      "label": "Fermantasyon Verimi (%)",
+      "label": "Fermentation Yield (%)",
       "type": "number",
       "unit": "%",
       "default": 100,
       "businessContext": "Yeast's efficiency in converting sugar to alcohol, 100% theoretical complete conversion",
       "label_i18n": {
-        "en": "Fermantasyon Verimi (%)",
-        "tr": "Fermentation Yield (%)",
+        "en": "Fermentation Yield (%)",
+        "tr": "Fermantasyon Verimi (%)",
         "de": "Fermentationsausbeute (%)",
         "fr": "Rendement de fermentation (%)",
         "es": "Rendimiento de fermentación (%)",

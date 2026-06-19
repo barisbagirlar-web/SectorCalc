@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateRationalize_denominator_calculator(input: Rationalize_denominator_calculatorInput): Rationalize_denominator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["newDenominator_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newDenominator_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateRationalize_denominator_calculator(input: Rationalize_d
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

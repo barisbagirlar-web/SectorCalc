@@ -27,14 +27,14 @@
     },
     {
       "id": "voltage",
-      "label": "Gerilim (V)",
+      "label": "Voltage (V)",
       "type": "number",
       "unit": "V",
       "default": 12,
       "businessContext": "Voltage applied to capacitor (Volt)",
       "label_i18n": {
-        "en": "Gerilim (V)",
-        "tr": "Voltage (V)",
+        "en": "Voltage (V)",
+        "tr": "Gerilim (V)",
         "de": "Spannung (V)",
         "fr": "Tension (V)",
         "es": "Voltaje (V)",
@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Seri devre direnci (Ohm)",
+      "businessContext": "Series resistance (Ohm)",
       "label_i18n": {
         "en": "Resistance (R)",
         "tr": "Direnç (R)",
@@ -65,8 +65,8 @@
         "ar": "المقاومة (R)"
       },
       "businessContext_i18n": {
-        "en": "Seri devre direnci (Ohm)",
-        "tr": "Series resistance (Ohm)",
+        "en": "Series resistance (Ohm)",
+        "tr": "Seri devre direnci (Ohm)",
         "de": "Seri devre direnci (Ohm)",
         "fr": "Résistance du circuit série (Ohm)",
         "es": "Resistencia del circuito serie (Ohm)",

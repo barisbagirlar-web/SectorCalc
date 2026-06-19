@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateTerabytes_to_petabytes_calculator(input: Terabytes_to_petabytes_calculatorInput): Terabytes_to_petabytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["petabytes"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["petabytes"]));
   const breakdown = {
     
   };
@@ -43,7 +43,7 @@ export function calculateTerabytes_to_petabytes_calculator(input: Terabytes_to_p
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

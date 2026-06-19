@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput): _5_2_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["estimatedTotalWeightLoss"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["estimatedTotalWeightLoss"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

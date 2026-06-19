@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateInterest_coverage_ratio_calculator(input: Interest_coverage_ratio_calculatorInput): Interest_coverage_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["interestCoverageRatio"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["interestCoverageRatio"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateInterest_coverage_ratio_calculator(input: Interest_cove
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

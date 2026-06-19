@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateDice_roller_calculator(input: Dice_roller_calculatorInput): Dice_roller_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["expectedSum"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedSum"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateDice_roller_calculator(input: Dice_roller_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

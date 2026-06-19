@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateWing_loading_calculator(input: Wing_loading_calculatorInput): Wing_loading_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["wingLoadingMetric"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["wingLoadingMetric"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateWing_loading_calculator(input: Wing_loading_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

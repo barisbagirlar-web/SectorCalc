@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateShakes_to_nanoseconds_calculator(input: Shakes_to_nanoseconds_calculatorInput): Shakes_to_nanoseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["exactNanoseconds_aux"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exactNanoseconds_aux"]));
   const breakdown = {
     
   };
@@ -42,7 +42,7 @@ export function calculateShakes_to_nanoseconds_calculator(input: Shakes_to_nanos
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,

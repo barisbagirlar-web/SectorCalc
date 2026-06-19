@@ -37,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateCompression_spring_calculator(input: Compression_spring_calculatorInput): Compression_spring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["solid_height"]);
+  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solid_height"]));
   const breakdown = {
     
   };
@@ -45,7 +45,7 @@ export function calculateCompression_spring_calculator(input: Compression_spring
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
+      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
       : totalWasteCost;
   return {
     totalWasteCost,
