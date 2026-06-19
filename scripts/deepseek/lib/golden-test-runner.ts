@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { generatedCalculateExport } from "@/lib/generated-tools/export-names";
 
 /* ── Types ────────────────────────────────────── */
 
@@ -113,12 +114,8 @@ async function importGeneratedModule(generatedPath: string): Promise<Record<stri
 }
 
 function findCalculateFunction(mod: Record<string, unknown>, slug: string): ((input: Record<string, unknown>) => Record<string, unknown>) | null {
-  // Try calculate<Name> pattern
-  const exportBase = slug
-    .replace(/-/g, '_')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-
-  const directKey = `calculate${exportBase}`;
+  // Use the same naming convention as the code generator
+  const directKey = generatedCalculateExport(slug);
   const fn = mod[directKey];
   if (typeof fn === 'function') {
     return fn as (input: Record<string, unknown>) => Record<string, unknown>;

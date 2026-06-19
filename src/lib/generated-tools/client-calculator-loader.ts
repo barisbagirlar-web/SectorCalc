@@ -3,25 +3,12 @@
 import type { GeneratedCalculatorModule, GeneratedToolResult } from "./types";
 import { applyStandardCalculatorOverride } from "./standard-calculator-overrides";
 import { wrapWithTrustTrace } from "./trust-trace-wrapper";
+import {
+  generatedCalculateExport,
+  generatedInputSchemaExport,
+} from "./export-names";
 
 type RawGeneratedModule = Record<string, unknown>;
-
-/**
- * Resolve the expected calculate export name for a given slug.
- */
-function resolveCalculateExport(slug: string): string {
-  return `calculate_${slug.replace(/-/g, "_")}`;
-}
-
-/**
- * Resolve the expected input-schema export name for a given slug.
- */
-function resolveSchemaExport(slug: string): string {
-  const camel = slug
-    .replace(/-/g, "_")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-  return `${camel}InputSchema`;
-}
 
 /**
  * Client-only generated calculator loader.
@@ -35,6 +22,10 @@ function resolveSchemaExport(slug: string): string {
  *
  * Every calculation result is automatically wrapped with a Trust Trace
  * verification hash for public result integrity verification.
+ *
+ * Export name resolution MUST use generatedCalculateExport / generatedInputSchemaExport
+ * from export-names.ts — the same functions the code generator uses.
+ * Do NOT reimplement slug-to-export-name logic here.
  */
 export async function loadClientCalculator(
   slug: string,
@@ -46,8 +37,8 @@ export async function loadClientCalculator(
       `@generated/${slug}`
     )) as RawGeneratedModule;
 
-    const inputSchemaKey = resolveSchemaExport(slug);
-    const calculateKey = resolveCalculateExport(slug);
+    const inputSchemaKey = generatedInputSchemaExport(slug);
+    const calculateKey = generatedCalculateExport(slug);
 
     const inputSchema = mod[inputSchemaKey];
     const calculate = mod[calculateKey];
