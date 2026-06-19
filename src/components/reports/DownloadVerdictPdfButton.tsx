@@ -10,6 +10,7 @@ import {
   trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
 import type { VerdictReportData } from "@/lib/reports/verdict-report";
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import type { PremiumSeverity } from "@/lib/tools/premium-tool-results";
 
 function verdictReportToIndustrialPdfData(
@@ -24,7 +25,7 @@ function verdictReportToIndustrialPdfData(
     safe: "acceptable",
   };
   return {
-    locale: locale as any,
+    locale: locale as SupportedLocale,
     reportId: `${slug}-${Date.parse(data.generatedAt)}`,
     generatedAt: data.generatedAt,
     schemaSlug: slug,
