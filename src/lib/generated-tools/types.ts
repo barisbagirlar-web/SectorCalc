@@ -94,6 +94,12 @@ export type GeneratedToolSchema = {
     /** Display unit for the primary result (e.g. MB, kg, %). */
     readonly unit?: string;
     readonly breakdown: Readonly<Record<string, string>>;
+    /**
+     * Locale-aware breakdown labels keyed by breakdown id.
+     * Falls back to `breakdown` key for missing locales.
+     * Example: { en: { materialCost: "Material Cost" }, tr: { materialCost: "Malzeme Maliyeti" } }
+     */
+    readonly breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>>;
     /** Formula/output units keyed by breakdown id (e.g. minutes, %, dimensionless). */
     readonly breakdownUnits?: Readonly<Record<string, string>>;
     readonly hiddenLossDrivers: readonly string[];

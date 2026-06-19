@@ -1,10 +1,9 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { Lock } from "lucide-react";
 import Link from "@/lib/navigation/next-link";
 import { Link as I18nLink } from "@/i18n/routing";
-import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
 import type { CatalogGroup } from "@/lib/catalog/catalog-types";
 import {
   DEFAULT_PREMIUM_REPORT_FAMILY,
@@ -20,23 +19,34 @@ export type PremiumToolsOmniHubProps = {
 
 function AnalyzerListRows({ items }: { items: readonly CatalogGroup["items"][number][] }) {
   return (
-    <ul className="sc-omni-hub__tool-list sc-omni-hub__tool-list--premium">
+    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {items.map((item) => (
-        <li key={item.href}>
-          <I18nLink href={item.href} className="sc-omni-hub__tool-row sc-omni-hub__tool-row--premium group">
-            <span className="sc-omni-hub__tool-copy min-w-0 flex-1">
-              <span className="sc-omni-hub__tool-title-row">
-                <span className="sc-omni-hub__tool-title">{item.title}</span>
-                <span className="sc-omni-hub__pro-badge">Pro</span>
+        <li key={item.href} className="min-w-0">
+          <I18nLink
+            href={item.href}
+            className="group block text-premium-velvet hover:text-deep-navy"
+          >
+            <span className="flex items-start gap-2">
+              <span className="flex-1 min-w-0">
+                <span className="flex items-center gap-1.5">
+                  <span className="text-sm font-semibold leading-tight transition-colors group-hover:underline">
+                    {item.title}
+                  </span>
+                  <span className="inline-flex shrink-0 items-center gap-1 font-sans text-[9px] font-semibold uppercase tracking-wider text-sc-copper">
+                    <Lock className="h-2.5 w-2.5" aria-hidden />
+                    PRO
+                  </span>
+                </span>
+                <span className="mt-0.5 block text-xs leading-relaxed text-body-charcoal">
+                  {item.description}
+                </span>
+                {item.meta ? (
+                  <span className="mt-0.5 block text-[10px] font-medium uppercase tracking-wider text-sc-copper">
+                    {item.meta}
+                  </span>
+                ) : null}
               </span>
-              <span className="sc-omni-hub__tool-desc">{item.description}</span>
-              {item.meta ? <span className="sc-omni-hub__tool-meta">{item.meta}</span> : null}
             </span>
-            <ScIcon
-              icon={UI_ICON.chevronRight}
-              size="compact"
-              className="sc-omni-hub__tool-chevron shrink-0 text-body-charcoal transition group-hover:translate-x-0.5 group-hover:text-sc-copper"
-            />
           </I18nLink>
         </li>
       ))}

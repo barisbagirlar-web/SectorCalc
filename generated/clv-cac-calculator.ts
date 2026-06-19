@@ -48,12 +48,7 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    annual_revenue: toNumericFormulaValue(values["annual_revenue"]),
-    annual_gross_profit: toNumericFormulaValue(values["annual_gross_profit"]),
-    result: toNumericFormulaValue(values["result"]),
-    clv_cac_ratio: toNumericFormulaValue(values["clv_cac_ratio"]),
-    payback_months: toNumericFormulaValue(values["payback_months"]),
-    churn_rate: toNumericFormulaValue(values["churn_rate"]),
+    
   };
   const hiddenLossDrivers: string[] = ["Customer churn beyond modeled retention rate","Unpaid referrals and word-of-mouth value not captured","Cross-sell and upsell revenue not included"];
   const suggestedActions: string[] = ["Increase retention rate by 5% to improve CLV by 15-20%","Reduce CAC through referral program or channel optimization","Segment customers by profitability — focus on top 20%"];

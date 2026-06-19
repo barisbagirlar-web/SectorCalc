@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   calculateCBAM,
   resolveCarbonEmissionsKg,
@@ -16,20 +16,6 @@ import {
 } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
-import { buildQrCodeImageUrl } from "@/lib/trust-trace/verification";
-
-type ApprovedReportApiResponse =
-  | {
-      readonly ok: true;
-      readonly reportId: string;
-      readonly calculationHash: string;
-      readonly verifyUrl: string;
-      readonly validationStampId: string;
-    }
-  | {
-      readonly ok: false;
-      readonly error?: string;
-    };
 
 export type ResultPanelProps = {
   readonly result: GeneratedToolResult | null;
@@ -46,6 +32,7 @@ export type ResultPanelProps = {
   readonly routePath?: string;
   readonly toolType?: "free" | "premium";
   readonly inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
+  readonly onPrintReport?: () => void;
 };
 
 function resolvePrimaryNumericValue(
@@ -99,75 +86,6 @@ function formatPrimaryDisplayValue(
   }).format(value);
 }
 
-function downloadBlob(content: string, filename: string, mimeType: string) {
-  const blob = new Blob([content], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  anchor.click();
-  URL.revokeObjectURL(url);
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function toSerializableSnapshot(
-  snapshot: Readonly<Record<string, FeedbackSnapshotValue>> | undefined,
-): Record<string, string | number | boolean> {
-  const out: Record<string, string | number | boolean> = {};
-  if (!snapshot) {
-    return out;
-  }
-  for (const [key, value] of Object.entries(snapshot)) {
-    if (typeof value === "number" || typeof value === "boolean" || typeof value === "string") {
-      out[key] = value;
-    }
-  }
-  return out;
-}
-
-async function registerApprovedReport(input: {
-  toolSlug: string;
-  locale: string;
-  routePath: string;
-  toolType: "free" | "premium";
-  userId?: string | null;
-  inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
-  result: GeneratedToolResult;
-}): Promise<ApprovedReportApiResponse> {
-  const response = await fetch("/api/reports/approved", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      toolSlug: input.toolSlug,
-      locale: input.locale,
-      routePath: input.routePath,
-      toolType: input.toolType,
-      userId: input.userId ?? null,
-      inputSnapshot: toSerializableSnapshot(input.inputSnapshot),
-      resultSnapshot: toSerializableSnapshot(
-        Object.fromEntries(
-          Object.entries(input.result).filter(
-            ([, value]) =>
-              typeof value === "number" || typeof value === "boolean" || typeof value === "string",
-          ),
-        ) as Record<string, FeedbackSnapshotValue>,
-      ),
-    }),
-  });
-
-  const body = (await response.json()) as ApprovedReportApiResponse;
-  if (!response.ok || !body.ok) {
-    return { ok: false, error: "create_failed" };
-  }
-  return body;
-}
 
 export function ResultPanel({
   result,
@@ -184,9 +102,8 @@ export function ResultPanel({
   routePath,
   toolType = "premium",
   inputSnapshot,
+  onPrintReport,
 }: ResultPanelProps) {
-  const [exportBusy, setExportBusy] = useState(false);
-  const [erpBusy, setErpBusy] = useState(false);
 
   const showEnterpriseActions =
     enableEnterpriseActions ?? schema.premiumRequired === true;
@@ -208,125 +125,6 @@ export function ResultPanel({
     return calculateCBAM(carbonEmissionsKg, "DE");
   }, [carbonEmissionsKg, schema]);
 
-  async function handleExportPDF() {
-    if (!result) {
-      return;
-    }
-
-    setExportBusy(true);
-    try {
-      const slug = toolSlug ?? schema.toolName;
-      let hash = "";
-      let verifyUrl = "";
-      let reportId: string | null = null;
-      let validationStampId: string | null = null;
-
-      if (routePath) {
-        const registered = await registerApprovedReport({
-          toolSlug: slug,
-          locale,
-          routePath,
-          toolType,
-          userId,
-          inputSnapshot,
-          result,
-        });
-        if (registered.ok) {
-          hash = registered.calculationHash;
-          verifyUrl = registered.verifyUrl;
-          reportId = registered.reportId;
-          validationStampId = registered.validationStampId;
-        }
-      }
-
-      const qrImageUrl = hash ? buildQrCodeImageUrl(verifyUrl, 140) : "";
-      const primaryValue = resolvePrimaryNumericValue(result, primaryOutputKey);
-      const unit = resolvePrimaryOutputUnit(schema);
-      const primaryDisplay =
-        primaryValue !== null
-          ? formatPrimaryDisplayValue(primaryValue, primaryOutputKey, unit, locale)
-          : "—";
-
-      const html =
-        "<!DOCTYPE html><html><head><meta charset='UTF-8' />" +
-        `<title>${translateCalculatorPhrase("SectorCalc Calculation Report", locale)}</title>` +
-        "<style>body{font-family:system-ui,sans-serif;padding:24px;color:#111}" +
-        ".stamp{display:inline-block;background:#f0fdf4;color:#15803d;border:1px solid #86efac;border-radius:4px;padding:2px 10px;font-size:12px;font-weight:600}" +
-        ".trust{display:flex;gap:16px;align-items:flex-start;margin:16px 0;padding:12px;border:1px solid #e5e7eb;border-radius:8px}" +
-        "table{border-collapse:collapse;width:100%;margin-top:12px}td,th{border:1px solid #e5e7eb;padding:6px 8px;text-align:left;font-size:13px}" +
-        "th{background:#f9fafb}.mono{font-family:monospace;font-size:11px;word-break:break-all}</style></head><body>" +
-        `<h1>${translateCalculatorPhrase("SectorCalc Calculation Report", locale)}</h1>` +
-        `<p><span class='stamp'>${translateCalculatorPhrase("Trust Trace", locale)}</span></p>` +
-        `<p><strong>${translateCalculatorPhrase("Tool:", locale)}</strong> ${escapeHtml(slug)}</p>` +
-        (reportId
-          ? `<p><strong>${translateCalculatorPhrase("Report ID:", locale)}</strong> <span class='mono'>${escapeHtml(reportId)}</span></p>`
-          : "") +
-        (validationStampId
-          ? `<p><strong>${translateCalculatorPhrase("Validation Stamp:", locale)}</strong> <span class='mono'>${escapeHtml(validationStampId)}</span></p>`
-          : "") +
-        `<p><strong>${translateCalculatorPhrase("Primary Result:", locale)}</strong> ${escapeHtml(primaryDisplay)}</p>` +
-        (hash
-          ? `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='${translateCalculatorPhrase("Verify QR Code", locale)}' width='140' height='140' />` +
-            `<div><p><strong>${translateCalculatorPhrase("Verification Hash", locale)}</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
-            `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p>` +
-            (reportId
-              ? `<p style='font-size:12px;margin-top:8px'>${translateCalculatorPhrase("Verify with Report ID at", locale)} ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
-              : "") +
-            `</div></div>`
-          : "") +
-        (cbamReport
-          ? `<h2>${translateCalculatorPhrase("CBAM", locale)}</h2><table><tr><th>${translateCalculatorPhrase("Metric", locale)}</th><th>${translateCalculatorPhrase("Value", locale)}</th></tr>` +
-            `<tr><td>${translateCalculatorPhrase("Product Carbon Footprint", locale)}</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +
-            `<tr><td>${translateCalculatorPhrase("CBAM Adjustment", locale)}</td><td>€${cbamReport.cbamAdjustment.toFixed(2)}</td></tr>` +
-            `<tr><td>${translateCalculatorPhrase("Status", locale)}</td><td>${escapeHtml(translateCalculatorPhrase(cbamReport.complianceStatus, locale))}</td></tr></table>`
-          : "") +
-        `<p style='font-size:11px;color:#6b7280;margin-top:24px'>${translateCalculatorPhrase("Technical simulation only. Not financial, legal, or engineering advice.", locale)}</p>` +
-        "</body></html>";
-
-      downloadBlob(
-        html,
-        `sectorcalc-${toolSlug ?? schema.toolName}-report.html`,
-        "text/html;charset=utf-8",
-      );
-    } finally {
-      setExportBusy(false);
-    }
-  }
-
-  async function handleSendToERP() {
-    if (!result) {
-      return;
-    }
-
-    const webhookUrl = window.prompt(translateCalculatorPhrase("Enter ERP Webhook URL", locale));
-    if (!webhookUrl) {
-      return;
-    }
-
-    setErpBusy(true);
-    try {
-      const response = await fetch("/api/external/webhook", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: userId ?? null,
-          toolSlug: toolSlug ?? schema.toolName,
-          result,
-          webhookUrl,
-        }),
-      });
-
-      window.alert(
-        response.ok
-          ? translateCalculatorPhrase("Sent to ERP", locale)
-          : translateCalculatorPhrase("Send failed", locale),
-      );
-    } catch {
-      window.alert(translateCalculatorPhrase("Send failed", locale));
-    } finally {
-      setErpBusy(false);
-    }
-  }
 
   if (loading) {
     return (
@@ -434,27 +232,14 @@ export function ResultPanel({
             ) : null}
           </div>
         ) : null}
-        {showEnterpriseActions ? (
+        {showEnterpriseActions && onPrintReport ? (
           <div className="mt-4 flex flex-wrap gap-2">
             <button
               type="button"
-              onClick={() => void handleExportPDF()}
-              disabled={exportBusy}
-              className="rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60"
+              onClick={onPrintReport}
+              className="sc-ledger-cta-primary min-h-[44px] px-4 text-xs font-bold inline-flex items-center gap-1.5"
             >
-              {exportBusy
-                ? translateCalculatorPhrase("Preparing PDF…", locale)
-                : translateCalculatorPhrase("Download PDF", locale)}
-            </button>
-            <button
-              type="button"
-              onClick={() => void handleSendToERP()}
-              disabled={erpBusy}
-              className="rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60"
-            >
-              {erpBusy
-                ? translateCalculatorPhrase("Sending…", locale)
-                : translateCalculatorPhrase("Send to ERP", locale)}
+              <span>⬇</span> {translateCalculatorPhrase("Print Full Report", locale)}
             </button>
           </div>
         ) : null}

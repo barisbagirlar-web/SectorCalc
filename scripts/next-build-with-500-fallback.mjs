@@ -162,7 +162,13 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      // DNS resolution order: force IPv4 first to avoid intermittent
+      // "getaddrinfo ENOTFOUND" failures on Vercel builders (Node.js 17+
+      // defaults to verbatim/ipv6first, which can fail for Google Fonts
+      // and other CDNs).
+      NODE_OPTIONS:
+        process.env.NODE_OPTIONS ??
+        "--max-old-space-size=8192 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],

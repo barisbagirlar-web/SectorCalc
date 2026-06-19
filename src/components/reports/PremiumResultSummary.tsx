@@ -10,6 +10,7 @@ import {
 import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { normalizeLocale } from "@/lib/format/localization";
+import { resolvePrimaryPrintValue, resolveBreakdownLabel } from "@/lib/reports/resolve-print-values";
 
 /* ─── Badge ───────────────────────────────────────────────────────── */
 function Badge({ label, variant }: { label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }) {
@@ -92,11 +93,11 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
   const primaryOutputKey = resolvePrimaryOutputKey(schema);
   const primaryUnit = resolvePrimaryOutputUnit(schema);
 
-  const primaryRaw = result[primaryOutputKey];
-  const primaryIsNumber = typeof primaryRaw === "number" && Number.isFinite(primaryRaw);
+  const primaryRaw = resolvePrimaryPrintValue(result, primaryOutputKey);
+  const primaryIsNumber = primaryRaw !== null;
   const formattedPrimary = primaryIsNumber
-    ? formatGeneratedNumericValue(primaryRaw as number, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
-    : String(primaryRaw ?? "—");
+    ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
+    : "—";
 
   const breakdownEntries = useMemo(
     () => {
@@ -130,7 +131,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
     cards.push({ label: t("primaryResult"), value: formattedPrimary, sub: t("simulationNotice"), highlight: true });
     for (let i = 0; i < Math.min(breakdownEntries.length, 3); i++) {
       const [key, val] = breakdownEntries[i];
-      const label = (schema.outputs.breakdown as Record<string, string> | undefined)?.[key] ?? key;
+      const label = resolveBreakdownLabel(key, schema.outputs.breakdown, schema.outputs.breakdown_i18n, locale);
       cards.push({ label, value: formatGeneratedNumericValue(val, key, locale), sub: t("breakdownItem"), highlight: false });
     }
     while (cards.length < 4) {
@@ -147,7 +148,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
       }
     }
     return cards.slice(0, 4);
-  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown]);
+  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown, schema.outputs.breakdown_i18n]);
 
   const insights = useMemo(() => {
     const items: Array<{ type: string; icon: string; title: string; text: string }> = [];
@@ -177,7 +178,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
 
   const now = new Date();
   const localeTag = normalizeLocale(locale);
-  const localeMap: Record<string, string> = { tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar" };
+  const localeMap: Record<string, string> = { tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar-SA" };
   const dateStr = now.toLocaleDateString(localeMap[localeTag] || "en-US", { year: "numeric", month: "long", day: "numeric" });
 
   return (

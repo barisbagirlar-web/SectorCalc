@@ -3,8 +3,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   FREE_TRAFFIC_CATEGORY_META,
@@ -45,22 +43,28 @@ function ToolListRows({
   premiumNote: string;
 }) {
   return (
-    <ul className="sc-omni-hub__tool-list">
+    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {categoryTools.map((tool) => (
-        <li key={tool.slug}>
-          <Link href={getToolHref("free", tool.slug)} className="sc-omni-hub__tool-row group">
-            <span className="sc-omni-hub__tool-copy min-w-0 flex-1">
-              <span className="sc-omni-hub__tool-title">{tool.title}</span>
-              <span className="sc-omni-hub__tool-desc">{tool.description}</span>
-              {tool.relatedPremiumSlug ? (
-                <span className="sc-omni-hub__tool-meta">{premiumNote}</span>
-              ) : null}
+        <li key={tool.slug} className="min-w-0">
+          <Link
+            href={getToolHref("free", tool.slug)}
+            className="group block text-premium-velvet hover:text-deep-navy"
+          >
+            <span className="flex items-start gap-2">
+              <span className="flex-1 min-w-0">
+                <span className="text-sm font-semibold leading-tight transition-colors group-hover:underline">
+                  {tool.title}
+                </span>
+                <span className="mt-0.5 block text-xs leading-relaxed text-body-charcoal">
+                  {tool.description}
+                </span>
+                {tool.relatedPremiumSlug ? (
+                  <span className="mt-0.5 block text-[10px] font-medium uppercase tracking-wider text-sc-copper">
+                    {premiumNote}
+                  </span>
+                ) : null}
+              </span>
             </span>
-            <ScIcon
-              icon={UI_ICON.chevronRight}
-              size="compact"
-              className="sc-omni-hub__tool-chevron shrink-0 text-body-charcoal transition group-hover:translate-x-0.5 group-hover:text-sc-copper"
-            />
           </Link>
         </li>
       ))}

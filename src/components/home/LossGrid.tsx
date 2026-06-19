@@ -25,7 +25,13 @@ export async function LossGrid() {
             return (
               <li key={id}>
                 <article className="sc-home-omni__loss-card">
-                  <HomepageStrokeIcon icon={Icon} className="sc-home-omni__loss-icon" />
+                  <div className="sc-home-omni__loss-icon-wrap">
+                    <HomepageStrokeIcon
+                      icon={Icon}
+                      className="sc-home-omni__loss-icon"
+                      size={48}
+                    />
+                  </div>
                   <h3 className="sc-home-omni__loss-title">{t(`losses.items.${id}.title`)}</h3>
                   <p className="sc-home-omni__loss-text">
                     {resolveHomepageMessage(t, `losses.items.${id}.examples`, `losses.items.${id}.text`)}

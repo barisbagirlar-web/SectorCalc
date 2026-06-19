@@ -54,7 +54,9 @@ function runStep(command, args, options = {}) {
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS:
+        process.env.NODE_OPTIONS ??
+        "--max-old-space-size=8192 --dns-result-order=ipv4first",
     },
   });
 

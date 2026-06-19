@@ -18,9 +18,8 @@ import {
   resolvePrimaryPrintValue,
   buildMethodologyDescription,
   findReferenceStandards,
-  resolveBreakdownLabel,
 } from "@/lib/reports/resolve-print-values";
-import { getToolMethodology } from "@/lib/reports/tool-methodology";
+import { getToolMethodology, type ToolMethodology } from "@/lib/reports/tool-methodology";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const locale = useLocale();
@@ -38,16 +37,6 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
       }
       if (parsed.slug !== slug) {
         setError("printErrorMismatch");
-        return;
-      }
-      // Validate required schema fields exist
-      if (!parsed.schema || typeof parsed.schema !== "object" || !parsed.result || typeof parsed.result !== "object") {
-        setError("printErrorParse");
-        return;
-      }
-      const s = parsed.schema as Record<string, unknown>;
-      if (!Array.isArray(s.inputs) || typeof s.formulas !== "object" || typeof s.validation !== "object") {
-        setError("printErrorParse");
         return;
       }
       setData(parsed);
@@ -68,7 +57,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
 
   const localeTag = normalizeLocale(locale);
   const localeMap: Record<string, string> = {
-    tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar-SA",
+    tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar",
   };
   const dateFmtLocale = localeMap[localeTag] || "en-US";
 
@@ -332,7 +321,8 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               </div>
               {Object.entries(breakdown).slice(0, 3).map(([key, value]) => {
                 if (typeof value !== "number" || !Number.isFinite(value)) return null;
-                const label = resolveBreakdownLabel(key, schema.outputs.breakdown, schema.outputs.breakdown_i18n, locale);
+                const breakdownMap = schema.outputs?.breakdown as Record<string, string> | undefined;
+                const label = breakdownMap?.[key] ?? key;
                 const formatted = formatGeneratedNumericValue(value, key, locale);
                 return (
                   <div className="result-card" key={key}>

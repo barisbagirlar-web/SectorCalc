@@ -23,17 +23,16 @@ export const BRAND_ASSETS = {
  /** SVG symbol display size — rendered via native <img>. */
  symbolWidth: 512,
  symbolHeight: 512,
- displaySymbolWidth: 80,
- displaySymbolHeight: 80,
+ displaySymbolWidth: 88,
+ displaySymbolHeight: 88,
  },
- favicon: {
- master: "/img/brand/sectorcalc-favicon.png",
- size32: "/img/brand/sectorcalc-favicon-32.png",
- appleTouch: "/img/brand/sectorcalc-favicon-180.png",
- svg: "/img/brand/sectorcalc-favicon.svg",
- width: 512,
- height: 512,
- },
+favicon: {
+    /** Only SVG used — PNG variants removed for cross-locale consistency. */
+    svg: "/img/brand/sectorcalc-favicon.svg",
+    appleTouch: "/img/brand/sectorcalc-favicon.svg",
+    width: 512,
+    height: 512,
+  },
  heroDevices: {
  src: "/images/sectorcalc-devices-hero.png",
  width: 1024,
@@ -47,17 +46,15 @@ export const BRAND_ASSETS = {
 } as const;
 
 export const BRAND_METADATA_ICONS = {
- icon: [
- { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
- { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
- { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
- ],
- apple: [
- {
- url: BRAND_ASSETS.favicon.appleTouch,
- sizes: "180x180",
- type: "image/png",
- },
- ],
- shortcut: BRAND_ASSETS.favicon.svg,
+  icon: [
+    { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
+  ],
+  apple: [
+    {
+      url: BRAND_ASSETS.favicon.appleTouch,
+      sizes: "any",
+      type: "image/svg+xml",
+    },
+  ],
+  shortcut: BRAND_ASSETS.favicon.svg,
 } as const;

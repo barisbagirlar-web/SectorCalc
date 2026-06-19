@@ -31,8 +31,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Shift_cost_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.shift_duration_hours; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit * input.total_units_produced; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.labor_cost_per_hour; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.labor_cost_per_hour * input.total_units_produced; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 

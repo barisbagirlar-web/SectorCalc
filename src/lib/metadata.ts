@@ -12,14 +12,12 @@ import {
 const SITE_ICONS: Metadata["icons"] = {
   icon: [
     { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
-    { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
-    { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
   ],
   apple: [
     {
       url: BRAND_ASSETS.favicon.appleTouch,
-      sizes: "180x180",
-      type: "image/png",
+      sizes: "any",
+      type: "image/svg+xml",
     },
   ],
   shortcut: BRAND_ASSETS.favicon.svg,

@@ -7,6 +7,14 @@
     "threshold": 0.9,
     "ok": true
   },
+  "semantic": {
+    "schemasScanned": 3272,
+    "schemasWithIssues": 540,
+    "totalIssues": 1180,
+    "crossDomainContaminations": 101,
+    "starOneIssues": 363,
+    "ok": true
+  },
   "golden": {
     "passed": 3272,
     "total": 3272,

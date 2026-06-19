@@ -17,7 +17,7 @@ export type ToolMethodology = {
 };
 
 function isClvCacSlug(slug: string): boolean {
-  return /^(clv-cac-calculator|clv-cac|cac-clv|customer-lifetime|cac-ratio|ltv-cac|clv-calculator)$/.test(slug);
+  return /^(clv-cac|cac-clv|customer-lifetime|cac-ratio|ltv-cac|clv-calculator)$/.test(slug);
 }
 
 const clvCacI18n: Record<string, ToolMethodology> = {

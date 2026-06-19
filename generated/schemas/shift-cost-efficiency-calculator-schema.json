@@ -261,8 +261,8 @@
   },
   "formulas": {
     "annual_exposure_hours": "shift_duration_hours",
-    "direct_labor_cost": "number_of_operators * 1 * shift_duration_hours * material_cost_per_unit",
-    "result": "number_of_operators * 1 * shift_duration_hours * material_cost_per_unit * total_units_produced"
+    "direct_labor_cost": "number_of_operators * 1 * shift_duration_hours * labor_cost_per_hour",
+    "result": "number_of_operators * 1 * shift_duration_hours * labor_cost_per_hour * total_units_produced"
   },
   "outputs": {
     "primary": "result",

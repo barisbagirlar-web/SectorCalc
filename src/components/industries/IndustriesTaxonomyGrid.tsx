@@ -83,8 +83,12 @@ export function IndustriesTaxonomyGrid({
   const rawSelected = searchParams?.get("sector") ?? "";
   const selectedSectorId = rawSelected === "all" ? "" : rawSelected;
   const isAllSelected = selectedSectorId === "";
+  /** Minimum tool count for a sector tile to be visible in the grid.
+   *  Single-tool sectors add noise, not navigation value. */
+  const MIN_VISIBLE_SECTOR_COUNT = 2;
   const visibleSectors = sectors.filter(
-    (entry) => entry.sector.id === "all" || entry.count > 0,
+    (entry) =>
+      entry.sector.id === "all" || entry.count >= MIN_VISIBLE_SECTOR_COUNT,
   );
   const tone = CATALOG_GRID_VARIANT_STYLES[variant];
 

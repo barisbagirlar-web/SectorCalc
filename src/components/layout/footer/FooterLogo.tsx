@@ -13,7 +13,7 @@ export function FooterLogo({ tagline }: FooterLogoProps) {
     <div className="footer-brand">
       <Link href="/" prefetch={false} className="footer-logo" aria-label={a11y("logoHome")}>
         <Image
-          src={BRAND_ASSETS.favicon.master}
+          src={BRAND_ASSETS.favicon.svg}
           alt=""
           width={32}
           height={32}

@@ -1,22 +1,100 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { FreeTraceChat } from "@/components/trace/FreeTraceChat";
 import { ProTraceChat } from "@/components/trace/ProTraceChat";
 
+const BUBBLE_AUTO_HIDE_MS = 10_000;
+
+function TraceFabBubble({
+  text,
+  onOpen,
+  visible,
+}: {
+  text: string;
+  onOpen: () => void;
+  visible: boolean;
+}) {
+  const [dismissed, setDismissed] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!visible) {
+      setDismissed(false);
+      return;
+    }
+    timerRef.current = setTimeout(() => setDismissed(true), BUBBLE_AUTO_HIDE_MS);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [visible]);
+
+  const handleClick = useCallback(() => {
+    setDismissed(true);
+    onOpen();
+  }, [onOpen]);
+
+  if (!visible || dismissed) return null;
+
+  return (
+    <div className="sc-trace__bubble-greeting" role="status" aria-live="polite">
+      <div className="sc-trace__bubble-greeting-inner">
+        <div className="sc-trace__bubble-greeting-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" className="sc-trace__bubble-greeting-avatar-svg">
+            <circle cx="12" cy="12" r="10" fill="url(#bubbleGrad)" />
+            <path
+              d="M8 14c1.5-1.5 3.5-2 7-.5s4 2.5 1 5"
+              stroke="white"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <circle cx="9.5" cy="10.5" r="0.9" fill="white" />
+            <circle cx="14.5" cy="10.5" r="0.9" fill="white" />
+          </svg>
+        </div>
+        <button
+          type="button"
+          className="sc-trace__bubble-greeting-text"
+          onClick={handleClick}
+          aria-label={text}
+        >
+          {text}
+        </button>
+      </div>
+      <div className="sc-trace__bubble-greeting-tail" aria-hidden="true" />
+    </div>
+  );
+}
+
 export function TraceFloatingButton() {
   const t = useTranslations("trace");
   const { user, userRole, loading } = useUser();
   const isPro = userRole === "premium" && Boolean(user);
   const [open, setOpen] = useState(false);
+  const [bubbleVisible, setBubbleVisible] = useState(true);
+  const bubbleText = t("fabBubble");
 
   useEffect(() => {
     const openHandler = () => setOpen(true);
     window.addEventListener("trace:open", openHandler);
     return () => window.removeEventListener("trace:open", openHandler);
+  }, []);
+
+  useEffect(() => {
+    if (open) setBubbleVisible(false);
+  }, [open]);
+
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleFabClick = useCallback(() => {
+    setBubbleVisible(false);
+    setOpen((value) => !value);
   }, []);
 
   return (
@@ -31,13 +109,19 @@ export function TraceFloatingButton() {
         </div>
       ) : null}
 
+      <TraceFabBubble
+        text={bubbleText}
+        onOpen={handleOpen}
+        visible={bubbleVisible}
+      />
+
       <button
         id="trace-fab"
         type="button"
         className={open ? "sc-trace__fab sc-trace__fab--open" : "sc-trace__fab"}
         aria-expanded={open}
         aria-label={t("launcher")}
-        onClick={() => setOpen((value) => !value)}
+        onClick={handleFabClick}
         disabled={loading}
       >
         <svg

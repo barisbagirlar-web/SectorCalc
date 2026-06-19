@@ -667,12 +667,83 @@
 }
 .sc-site-logo__symbol {
   display: block;
-  height: 80px;
+  height: 88px;
   width: auto;
   max-width: 11.25rem;
   object-fit: contain;
   object-position: left center;
 }
+
+/* ── Premium animated logo — 360° rotation + Firebase-style dynamic color cycling ── */
+
+.sc-logo-rotator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: sc-logo-rotate 20s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.sc-logo-animated-svg {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+.sc-logo-stop-1 {
+  animation: sc-logo-color-a 12s ease-in-out infinite;
+}
+
+.sc-logo-stop-2 {
+  animation: sc-logo-color-b 12s ease-in-out infinite;
+}
+
+.sc-logo-stop-3 {
+  animation: sc-logo-color-c 12s ease-in-out infinite;
+}
+
+.sc-logo-stop-4 {
+  animation: sc-logo-color-d 12s ease-in-out infinite;
+}
+
+@keyframes sc-logo-color-a {
+  0%, 100% { stop-color: #8b2635; }
+  20%      { stop-color: #c2410c; }
+  40%      { stop-color: #7c3aed; }
+  60%      { stop-color: #1e40af; }
+  80%      { stop-color: #0d9488; }
+}
+
+@keyframes sc-logo-color-b {
+  0%, 100% { stop-color: #c2410c; }
+  20%      { stop-color: #7c3aed; }
+  40%      { stop-color: #1e40af; }
+  60%      { stop-color: #0d9488; }
+  80%      { stop-color: #b8860b; }
+}
+
+@keyframes sc-logo-color-c {
+  0%, 100% { stop-color: #7c3aed; }
+  20%      { stop-color: #1e40af; }
+  40%      { stop-color: #0d9488; }
+  60%      { stop-color: #b8860b; }
+  80%      { stop-color: #8b2635; }
+}
+
+@keyframes sc-logo-color-d {
+  0%, 100% { stop-color: #1e40af; }
+  20%      { stop-color: #0d9488; }
+  40%      { stop-color: #b8860b; }
+  60%      { stop-color: #8b2635; }
+  80%      { stop-color: #c2410c; }
+}
+
+@keyframes sc-logo-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* — End premium logo animation — */
 
 .site-logo--on-dark .sc-site-logo__wordmark {
   filter: brightness(0) invert(1);
@@ -707,8 +778,12 @@
     max-width: 9rem;
   }
   .sc-site-logo__symbol {
-    height: 60px;
+    height: 66px;
     max-width: 9rem;
+  }
+  .sc-logo-animated-svg {
+    width: 44px;
+    height: 44px;
   }
 
   .apple-nav__menu-btn {

@@ -4,7 +4,6 @@ import { useCallback, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
-import { ExportPDFButton } from "@/components/tools/ExportPDFButton";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
@@ -20,14 +19,10 @@ import {
   useToolSchema,
 } from "@/lib/generated-tools/use-tool-schema";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import {
-  buildPdfExportBreakdownRows,
-  buildPdfExportInputRows,
-} from "@/lib/pdf/build-pdf-export-rows";
 import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
-import { usePathname } from "@/i18n/routing";
 import { savePrintData } from "@/lib/reports/generated-tool-print-data";
 import { PremiumResultSummary } from "@/components/reports/PremiumResultSummary";
+import { resolvePrimaryPrintValue } from "@/lib/reports/resolve-print-values";
 
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
@@ -36,7 +31,6 @@ export type GeneratedToolFormViewProps = {
 
 export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewProps) {
   const locale = useLocale();
-  const pathname = usePathname();
   const t = useTranslations("generatedTool");
   const { loading, error, calculator, zodSchema, trustStatus } = useToolSchema(slug, schema);
   const [result, setResult] = useState<GeneratedToolResult | null>(null);
@@ -84,10 +78,10 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     setResult(runGeneratedToolCalculation(calculator, values));
   };
 
-  const primaryRaw = result?.[primaryOutputKey];
+  const primaryRaw = result ? resolvePrimaryPrintValue(result, primaryOutputKey) : null;
   const primaryUnit = resolvePrimaryOutputUnit(schema);
   const formattedPrimary =
-    typeof primaryRaw === "number" && Number.isFinite(primaryRaw)
+    primaryRaw !== null
       ? formatGeneratedNumericValue(
           primaryRaw,
           primaryOutputKey,
@@ -95,17 +89,6 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           primaryUnit !== "—" ? primaryUnit : undefined,
         )
       : null;
-
-  const pdfInputRows = buildPdfExportInputRows({
-    schema,
-    values: lastInputs,
-    locale,
-  });
-  const pdfBreakdownRows = buildPdfExportBreakdownRows({
-    schema,
-    breakdown: result?.breakdown,
-    locale,
-  });
 
   return (
     <div className="container mx-auto max-w-6xl px-4 py-6">
@@ -131,6 +114,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           breakdown={result?.breakdown ?? null}
           breakdownInputs={lastInputs}
           breakdownLabelMap={schema.outputs.breakdown}
+          onPrintReport={handlePrintPremiumReport}
         />
       ) : (
         <FreeToolForm
@@ -143,31 +127,6 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           onSubmit={handleCalculate}
         />
       )}
-
-      {!isPremium && result && formattedPrimary && pdfInputRows.length > 0 ? (
-        <div className="mt-4">
-          <ExportPDFButton
-            toolName={title}
-            toolSlug={slug}
-            locale={locale}
-            pagePath={pathname}
-            primaryResult={formattedPrimary}
-            inputRows={pdfInputRows}
-            breakdownRows={pdfBreakdownRows}
-          />
-          {result.trustTrace ? (
-            <div className="mt-2 flex items-center gap-1 text-xs text-green-700">
-              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="M9 12l2 2 4-4"/>
-              </svg>
-              <span>
-                {t("trustTraceVerified")}
-              </span>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
 
       {isPremium && result ? (
         <PremiumResultSummary

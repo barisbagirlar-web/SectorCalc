@@ -8,6 +8,7 @@ import {
   DollarSign,
   Factory,
   Goal,
+  LifeBuoy,
   Package,
   ScanLine,
   Settings,
@@ -34,6 +35,7 @@ describe("schema catalog icon overrides", () => {
     expect(resolveCatalogCategoryIcon("perakende-gida")).toBe(ShoppingBag);
     expect(resolveCatalogCategoryIcon("enerji-karbon")).toBe(BatteryCharging);
     expect(resolveCatalogCategoryIcon("uretim-imalat")).toBe(Settings);
+    expect(resolveCatalogCategoryIcon("isg-risk")).toBe(LifeBuoy);
     expect(resolveCatalogCategoryIcon("surdurulebilirlik")).toBe(Sprout);
     expect(resolveCatalogCategoryIcon("kalite-spc-alti-sigma")).toBe(Goal);
   });
