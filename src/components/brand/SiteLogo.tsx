@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { BRAND_ASSETS } from "@/config/brand";
@@ -29,15 +28,15 @@ export function SiteLogo({
         className={`site-logo sc-site-logo site-logo--on-dark sc-logo ${className}`.trim()}
         aria-label={t("logoHome")}
       >
-        <Image
+        <img
           src={wordmark}
           alt={t("logoAlt")}
           width={BRAND_ASSETS.logo.displayWidth}
           height={BRAND_ASSETS.logo.displayHeight}
-          sizes="(max-width: 767px) 144px, 260px"
-          quality={85}
-          priority={priority}
           className="site-logo__img sc-site-logo__wordmark"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : undefined}
         />
       </Link>
     );
@@ -56,8 +55,9 @@ export function SiteLogo({
         width={BRAND_ASSETS.logo.displaySymbolWidth}
         height={BRAND_ASSETS.logo.displaySymbolHeight}
         className="sc-site-logo__symbol"
-        loading="eager"
+        loading={priority ? "eager" : "lazy"}
         decoding="async"
+        fetchPriority={priority ? "high" : undefined}
       />
     </Link>
   );

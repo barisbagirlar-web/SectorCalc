@@ -674,130 +674,12 @@
   object-position: left center;
 }
 
-/* ── GOD TIER animated logo — 360° rotation + Firebase-style dynamic color cycling ── */
-/* ECMI/ISO 9001 / TÜV-certifiable animation engineering — premium multi-axis motion */
-/* Level 10 engineering: dual-axis rotation + glow halo + wave color cycling + pulse */
-
-.sc-logo-rotator {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  animation: sc-logo-spin 6s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* Glow ring halo — Firebase-style conic gradient that rotates counter-direction */
-.sc-logo-rotator::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #dc2626, #f97316, #a855f7, #3b82f6, #14b8a6, #eab308, #dc2626
-  );
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px), #000 100%);
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px), #000 100%);
-  animation: sc-logo-glow-spin 4s linear infinite reverse;
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: -1;
-  filter: blur(0.5px);
-}
-
-/* Outer soft glow */
-.sc-logo-rotator::after {
-  content: '';
-  position: absolute;
-  inset: -16px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #dc2626, #a855f7, #3b82f6, #14b8a6, #eab308, #dc2626
-  );
-  animation: sc-logo-glow-spin 8s linear infinite;
-  opacity: 0.08;
-  filter: blur(12px);
-  pointer-events: none;
-  z-index: -2;
-}
-
-@keyframes sc-logo-glow-spin {
-  to { transform: rotate(360deg); }
-}
-
-.sc-logo-animated-svg {
+/* ── Static SVG logo (black monochrome) ── */
+.sc-site-logo__symbol {
   display: block;
-  width: 80px;
-  height: 80px;
-  animation: sc-logo-pulse 3s ease-in-out infinite;
-  will-change: transform;
-  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.2)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.1));
+  width: auto;
+  height: 70px;
 }
-
-/* ── Gradient stop color cycling — staggered Δ for flowing wave ── */
-.sc-logo-stop-1 {
-  animation: sc-logo-color-a 5s ease-in-out infinite;
-}
-
-.sc-logo-stop-2 {
-  animation: sc-logo-color-b 5s ease-in-out infinite;
-}
-
-.sc-logo-stop-3 {
-  animation: sc-logo-color-c 5s ease-in-out infinite;
-}
-
-.sc-logo-stop-4 {
-  animation: sc-logo-color-d 5s ease-in-out infinite;
-}
-
-/* ── Ultra-vibrant Firebase-style palette (max saturation) ── */
-@keyframes sc-logo-color-a {
-  0%, 100% { stop-color: #dc2626; }  /* vivid red */
-  20%      { stop-color: #f97316; }  /* bright orange */
-  40%      { stop-color: #a855f7; }  /* electric purple */
-  60%      { stop-color: #3b82f6; }  /* royal blue */
-  80%      { stop-color: #14b8a6; }  /* teal */
-}
-
-@keyframes sc-logo-color-b {
-  0%, 100% { stop-color: #f97316; }  /* bright orange */
-  20%      { stop-color: #a855f7; }  /* electric purple */
-  40%      { stop-color: #3b82f6; }  /* royal blue */
-  60%      { stop-color: #14b8a6; }  /* teal */
-  80%      { stop-color: #eab308; }  /* gold */
-}
-
-@keyframes sc-logo-color-c {
-  0%, 100% { stop-color: #a855f7; }  /* electric purple */
-  20%      { stop-color: #3b82f6; }  /* royal blue */
-  40%      { stop-color: #14b8a6; }  /* teal */
-  60%      { stop-color: #eab308; }  /* gold */
-  80%      { stop-color: #dc2626; }  /* vivid red */
-}
-
-@keyframes sc-logo-color-d {
-  0%, 100% { stop-color: #3b82f6; }  /* royal blue */
-  20%      { stop-color: #14b8a6; }  /* teal */
-  40%      { stop-color: #eab308; }  /* gold */
-  60%      { stop-color: #dc2626; }  /* vivid red */
-  80%      { stop-color: #f97316; }  /* bright orange */
-}
-
-/* ── Multi-axis motion ── */
-@keyframes sc-logo-spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes sc-logo-pulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
-}
-
-/* — End premium logo animation — */
 
 .site-logo--on-dark .sc-site-logo__wordmark {
   filter: brightness(0) invert(1);
@@ -832,12 +714,8 @@
     max-width: 9rem;
   }
   .sc-site-logo__symbol {
-    height: 66px;
+    height: 52px;
     max-width: 9rem;
-  }
-  .sc-logo-animated-svg {
-    width: 44px;
-    height: 44px;
   }
 
   .apple-nav__menu-btn {

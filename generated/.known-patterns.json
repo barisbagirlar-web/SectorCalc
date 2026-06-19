@@ -351,8 +351,8 @@
     "wavePowerPerMeter": "Cross-domain contamination: Formula \"wavePowerPerMeter\" (expected [energy]) uses inputs from unexpected domain(s) [water]. Inputs: [waveHeight, wavePeriod, waterDensity, gravity]"
   },
   "survival-analysis-calculator": {
-    "hazardRate": "Cross-domain contamination: Formula \"hazardRate\" (expected [risk]) uses inputs from unexpected domain(s) [quality]. Inputs: [failureRate]",
-    "cumulativeHazard": "Cross-domain contamination: Formula \"cumulativeHazard\" (expected [risk]) uses inputs from unexpected domain(s) [quality]. Inputs: [failureRate, time]"
+    "hazardRate": "Cross-domain contamination: Formula \"hazardRate\" (expected [risk]) uses inputs from unexpected domain(s) [quality]. Inputs: [failureRate, time, targetSurvivalProb, observedFailures, totalTestTime]",
+    "cumulativeHazard": "Cross-domain contamination: Formula \"cumulativeHazard\" (expected [risk]) uses inputs from unexpected domain(s) [quality]. Inputs: [failureRate, time, targetSurvivalProb]"
   },
   "sustainability-calculator": {
     "totalCO2": "Cross-domain contamination: Formula \"totalCO2\" (expected [carbon]) uses inputs from unexpected domain(s) [energy]. Inputs: [electricity, gas, fuel, waste]"

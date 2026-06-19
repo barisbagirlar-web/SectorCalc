@@ -274,7 +274,7 @@ function StochasticMarginReportPanel({
       toolTitle,
       toolSlug: toolSlug ?? "premium-verdict",
       sector,
-      locale: locale as SupportedLocale,
+      locale,
       snapshot: {
  naivePrice: parsed.naivePrice,
  riskBuffer: parsed.riskBuffer,

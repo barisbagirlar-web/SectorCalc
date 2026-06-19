@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
+import { BRAND_ASSETS } from "@/config/brand";
 import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
 import { FOOTER_PLATFORM_NAV, SITE_SOCIAL } from "@/config/site";
 import {
@@ -194,13 +195,14 @@ export function EnterpriseFooter() {
           <div className="sch-hud-left">
             <div className="sch-footer-brand">
               <Link href="/" prefetch={false} className="sch-logo" aria-label={t("homeAria")}>
-                <div className="sch-logo-icon" aria-hidden="true">
-                  <span className="sch-sq sch-sq-1" />
-                  <span className="sch-sq sch-sq-2" />
-                  <span className="sch-sq sch-sq-3" />
-                  <span className="sch-sq sch-sq-4" />
-                </div>
-                <span className="sch-logo-text">{t("logoText")}</span>
+                <img
+                  src={BRAND_ASSETS.logo.symbolSvg}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="sch-logo-svg"
+                  aria-hidden
+                />
               </Link>
               <p className="sch-footer-tagline">{t("tagline")}</p>
             </div>
