@@ -101,7 +101,7 @@
   "formulas": {
     "breakdown": "legA",
     "breakdown_aux": "legA",
-    "legA____legB_": "legA² + legB²"
+    "legA____legB_": "Math.pow(legA, 2) + Math.pow(legB, 2)"
   },
   "outputs": {
     "primary": "breakdown_aux",

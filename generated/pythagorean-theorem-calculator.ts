@@ -24,7 +24,7 @@ function evaluateAllFormulas(input: Pythagorean_theorem_calculatorInput): Record
   const results: Record<string, number> = {};
   try { const v = input.legA; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
   try { const v = input.legA; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
-  try { const v = input.legA² + input.legB²; results["legA____legB_"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["legA____legB_"] = 0; }
+  try { const v = Math.pow(input.legA, 2) + Math.pow(input.legB, 2); results["legA____legB_"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["legA____legB_"] = 0; }
   return results;
 }
 
