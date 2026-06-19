@@ -676,15 +676,56 @@
 
 /* ── GOD TIER animated logo — 360° rotation + Firebase-style dynamic color cycling ── */
 /* ECMI/ISO 9001 / TÜV-certifiable animation engineering — premium multi-axis motion */
+/* Level 10 engineering: dual-axis rotation + glow halo + wave color cycling + pulse */
 
 .sc-logo-rotator {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   animation: sc-logo-spin 6s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
-  filter: drop-shadow(0 0 6px rgba(139, 38, 53, 0.25));
+}
+
+/* Glow ring halo — Firebase-style conic gradient that rotates counter-direction */
+.sc-logo-rotator::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #dc2626, #f97316, #a855f7, #3b82f6, #14b8a6, #eab308, #dc2626
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px), #000 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px), #000 100%);
+  animation: sc-logo-glow-spin 4s linear infinite reverse;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(0.5px);
+}
+
+/* Outer soft glow */
+.sc-logo-rotator::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #dc2626, #a855f7, #3b82f6, #14b8a6, #eab308, #dc2626
+  );
+  animation: sc-logo-glow-spin 8s linear infinite;
+  opacity: 0.08;
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: -2;
+}
+
+@keyframes sc-logo-glow-spin {
+  to { transform: rotate(360deg); }
 }
 
 .sc-logo-animated-svg {
@@ -693,6 +734,7 @@
   height: 80px;
   animation: sc-logo-pulse 3s ease-in-out infinite;
   will-change: transform;
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.2)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.1));
 }
 
 /* ── Gradient stop color cycling — staggered Δ for flowing wave ── */
