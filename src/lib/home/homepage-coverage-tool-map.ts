@@ -80,6 +80,6 @@ export function countToolsForHomepageCoverage(
   coverageId: HomepageCoverageId,
   tools: readonly ToolData[],
 ): number {
-  const keys = new Set(HOMEPAGE_COVERAGE_TOOL_MATCHERS[coverageId]);
+  const keys: ReadonlySet<string> = new Set(HOMEPAGE_COVERAGE_TOOL_MATCHERS[coverageId]);
   return tools.filter((tool) => keys.has(tool.categoryKey)).length;
 }
