@@ -17,8 +17,28 @@ import {
 } from "./lib/global-build-lock.mjs";
 import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
 
+/**
+ * Pre-flight: run TypeScript syntax validation on all generated tool files.
+ * Catches syntax errors in generated/*.ts before webpack tries to compile them,
+ * which produces opaque "Syntax Error" messages without line numbers.
+ */
+function prebuildValidateGeneratedSyntax() {
+  const result = spawnSync(
+    "npx",
+    ["tsx", "scripts/prebuild-validate-generated-syntax.ts"],
+    { cwd: ROOT, stdio: "inherit" },
+  );
+  if (result.status !== 0) {
+    console.error(
+      "next-build-with-500-fallback: generated file syntax validation FAILED — aborting build.",
+    );
+    process.exit(1);
+  }
+}
+
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
+const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
 const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
 const PERSISTENT_BUILD_LOG = join(ROOT, ".vercel-last-build.log");
@@ -33,10 +53,11 @@ type RedirectRoutes = never;
 type RewriteRoutes = never;
 type AppRouteHandlerRoutes = never;
 type PageData = Record<string, unknown>;
+export {};
 `;
 
 function acquireBuildLock() {
-  if (useGlobalLock) {
+  if (useGlobalLock && process.env.SECTORCALC_BUILD_LOCK_SKIP !== "1") {
     acquireGlobalBuildLock("npm run build");
   }
 
@@ -54,7 +75,7 @@ function acquireBuildLock() {
 
 function releaseBuildLock() {
   rmSync(BUILD_LOCK, { force: true });
-  if (useGlobalLock) {
+  if (useGlobalLock && process.env.SECTORCALC_BUILD_LOCK_SKIP !== "1") {
     releaseGlobalBuildLock();
   }
 }
@@ -75,22 +96,14 @@ function ensureNextTypeAndBuildManifestStubs() {
 
   const serverDir = join(NEXT_DIR, "server");
   mkdirSync(serverDir, { recursive: true });
+  const pagesManifestPath = join(serverDir, "pages-manifest.json");
+  if (!existsSync(pagesManifestPath)) {
+    writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+  }
 
-  // Firebase framework integration requires these manifests post-build.
-  // Pre-stub them so Next.js can overwrite with real content on success,
-  // while Firebase never sees a missing-file error.
-  const manifestStubs = [
-    ["pages-manifest.json", JSON.stringify({})],
-    ["middleware-manifest.json", JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 })],
-    ["app-paths-manifest.json", JSON.stringify({})],
-    ["next-font-manifest.json", JSON.stringify({ pages: {}, app: {}, appUsingSizeAdjust: false, pagesUsingSizeAdjust: false })],
-  ];
-
-  for (const [name, content] of manifestStubs) {
-    const p = join(serverDir, name);
-    if (!existsSync(p)) {
-      writeFileSync(p, content, "utf8");
-    }
+  const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
+  if (!existsSync(middlewareManifestPath)) {
+    writeFileSync(middlewareManifestPath, JSON.stringify({}));
   }
 }
 
@@ -122,7 +135,7 @@ function recoverableManifestFailure(log) {
 function ssgPageModuleRaceFailure(log) {
   return (
     (log.includes("Cannot find module") &&
-      (log.includes("/.next/server/app/") || log.includes("/.next/server/pages/"))) ||
+      (log.includes("/.next/server/") || log.includes("/.next/server/pages/"))) ||
     log.includes("Unexpected end of JSON input") ||
     log.includes("Cannot find module for page: /_document") ||
     log.includes("PageNotFoundError")
@@ -130,7 +143,7 @@ function ssgPageModuleRaceFailure(log) {
 }
 
 function interruptedBuild(log, status) {
-  return status === 143 || status === 130 || /SIGTERM|SIGINT|ENOMEM|JavaScript heap out of memory/i.test(log);
+  return status === 143 || status === 130 || status === 137 || /SIGTERM|SIGINT|SIGKILL|ENOMEM|JavaScript heap out of memory/i.test(log);
 }
 
 function preserveBuildLogForDiagnostics() {
@@ -168,11 +181,14 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
+      // DNS resolution order: force IPv4 first to avoid intermittent
+      // "getaddrinfo ENOTFOUND" failures on Vercel builders (Node.js 17+
+      // defaults to verbatim/ipv6first, which can fail for Google Fonts
+      // and other CDNs).
+      NODE_OPTIONS:
+        process.env.NODE_OPTIONS ??
+        "--max-old-space-size=8192 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
-      LOCALE_CENTER_STRICT: "1",
-      SECTORCALC_SHIM_REAL_NEXT: "1",
-      SECTORCALC_FAST_PREVIEW_STATIC: "1",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });
@@ -276,7 +292,7 @@ function shouldRetryWithFullClean(result) {
   return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
 }
 
-const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 2;
+const MAX_ATTEMPTS = 5;
 let lastOutput = "";
 
 try {
@@ -294,6 +310,10 @@ try {
   if (i18nAudit.status !== 0) {
     process.exit(1);
   }
+
+  // Generated-file syntax gate — catch TS syntax errors in generated/*.ts
+  // before webpack/SWC encounters them and produces opaque error messages.
+  prebuildValidateGeneratedSyntax();
 
   ensureNextTypeAndBuildManifestStubs();
 
@@ -350,15 +370,25 @@ try {
       console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
+      // Remove webpack filesystem cache — corrupted JSON causes SSG parse failures.
+      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
       continue;
     }
 
     if (attempt < MAX_ATTEMPTS) {
+      // Check if the build log exists — it may have the actual error even if result.output is empty.
+      const fullLog = existsSync(BUILD_LOG) ? readBuildLogTail(4000) : "";
+      if (recoverableManifestFailure(fullLog) || result.status === 1) {
+        console.warn("next-build-with-500-fallback: manifest race — stubbing and retrying without full clean…");
+        ensureNextTypeAndBuildManifestStubs();
+        continue;
+      }
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
+      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
     }

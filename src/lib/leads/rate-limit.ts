@@ -49,7 +49,9 @@ export interface LeadRateLimitCheck {
 /**
  * Client-side spam guard only — not a security control.
  *
- * TODO: Replace with server-side rate limiting before production paid traffic.
+ * Server-side rate limiting (Cloud Functions + Firestore write guard)
+ * must be added before production paid traffic scales.
+ * See: docs/lead-rate-limit-server-plan.md
  */
 export function checkLeadRateLimit(now = Date.now()): LeadRateLimitCheck {
  if (!isBrowser()) {

@@ -12,6 +12,7 @@
  *   - Generated JSON report (for admin dashboard consumption)
  *   - HTTP webhook (future: Slack, email, SMS)
  */
+import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { validateSchemaConstraints } from "@/lib/generated-tools/formula-constraint-engine";
@@ -54,7 +55,6 @@ export type FormulaHealthReport = {
 
 function liveSteelCoreQuarantineCount(): number {
   try {
-    const { execSync } = require("child_process");
     const out = execSync(
       'npx tsx -e "const {validateAllSchemas}=require(process.cwd()+\'/src/lib/steelcore\');const r=validateAllSchemas();console.log(JSON.stringify(r.byStatus))"',
       { cwd: process.cwd(), timeout: 30000, encoding: "utf-8" }
@@ -255,7 +255,7 @@ export function generateHealthReport(): FormulaHealthReport {
 
 /* ── CLI entry ─────────────────────────────────── */
 
-if (require.main === module) {
+if (process.argv[1] && import.meta.url.endsWith(process.argv[1])) {
   const report = generateHealthReport();
   const sevColor: Record<string, string> = {
     CRITICAL: "\x1b[31mCRITICAL\x1b[0m",

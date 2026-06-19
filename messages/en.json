@@ -91,7 +91,8 @@
   },
   "trace": {
     "launcher": "Talk to Trace",
-    "fabBubble": "Hello, I'm Trace. How can I help you?",
+    "fabBubble": "Hello 🐍 Which sector are you calculating for?<br/><b>4,090+</b> tools — I'll find the best one for you.",
+    "bubbleOnline": "Online",
     "close": "Close",
     "title": "I'm Trace.",
     "titlePro": "I'm Trace.",
@@ -49988,7 +49989,7 @@
       },
       "aql_percent": {
         "label": "AQL (%)",
-        "placeholder": "Enter AQL (%)",
+        "placeholder": "Enter aql (%)",
         "helper": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average."
       },
       "inspection_level": {
@@ -67266,10 +67267,13 @@
     "submitting": "Sending…",
     "success": "Thank you. Your feedback has been sent for review.",
     "issueTypes": {
-      "formula-suggestion": "Formula suggestion",
-      "translation-error": "Translation error",
-      "unit-error": "Unit error",
-      "wrong-result": "Wrong result"
+      "wrong_result": "Wrong result",
+      "missing_input": "Missing or unclear input",
+      "unit_issue": "Unit or conversion issue",
+      "unclear_explanation": "Unclear explanation",
+      "sector_assumption_issue": "Sector assumption issue",
+      "improvement_request": "Improvement request",
+      "other": "Other"
     },
     "error": {
       "submitFailed": "Feedback could not be sent right now. Please try again later.",

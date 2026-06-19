@@ -6646,63 +6646,50 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   position: relative;
   display: grid;
   place-items: center;
-  width: 84px;
-  height: 84px;
+  width: 56px;
+  height: 56px;
   min-width: 44px;
   min-height: 44px;
   padding: 0;
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border: 1.5px solid rgba(96, 165, 250, 0.35);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.5);
   color: #ffffff;
   cursor: pointer;
   isolation: isolate;
   overflow: visible;
   transform: translateZ(0);
   transition:
-    transform 220ms ease,
-    filter 220ms ease;
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 .sc-trace__fab:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.045);
-  filter: drop-shadow(0 18px 34px rgba(0, 65, 180, 0.28));
+  transform: scale(1.06);
+  box-shadow: 0 12px 32px rgba(29, 78, 216, 0.6);
 }
 .sc-trace__fab:active:not(:disabled) {
-  transform: translateY(0) scale(0.96);
+  transform: scale(0.96);
 }
 .sc-trace__fab:focus-visible {
-  outline: 3px solid rgba(34, 230, 255, 0.75);
-  outline-offset: 7px;
-  border-radius: 999px;
+  outline: 3px solid rgba(96, 165, 250, 0.75);
+  outline-offset: 6px;
 }
 .sc-trace__fab:disabled {
   opacity: 0.7;
   cursor: wait;
 }
-.sc-trace__fab-avatar {
+.sc-trace__fab-online-badge {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.sc-trace__fab-svg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  animation: fabPulse 4.4s ease-in-out infinite, fabWobble 4.4s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(255,68,56,0.5)) drop-shadow(0 0 20px rgba(255,145,0,0.3));
-}
-@keyframes fabWobble {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  20% { transform: rotate(5deg) scale(1.04); }
-  40% { transform: rotate(-3deg) scale(1.02); }
-  60% { transform: rotate(4deg) scale(1.06); }
-  80% { transform: rotate(-2deg) scale(1.03); }
-}
-.sc-trace__fab--open .sc-trace__fab-svg {
-  opacity: 0;
-  transform: scale(0.82);
-  transition: opacity 180ms ease, transform 180ms ease;
+  top: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2px solid #0f172a;
+  z-index: 2;
 }
 .sc-trace__fab--open .sc-trace-living__glyph {
   opacity: 0;
@@ -6712,138 +6699,197 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace__fab-close-icon {
   position: relative;
   z-index: 2;
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
-/* Trace FAB greeting bubble — Apple/Google-level glass-morphism design */
+/* Trace FAB greeting bubble — dark welcome card with gradient top border */
 .sc-trace__bubble-greeting {
   position: absolute;
-  bottom: calc(100% + 1rem);
+  bottom: calc(100% + 0.75rem);
   right: 0;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  max-width: min(300px, calc(100vw - 3rem));
+  max-width: min(280px, calc(100vw - 3rem));
   pointer-events: auto;
-  animation:
-    sc-bubble-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-    sc-bubble-float 4s ease-in-out 0.5s infinite;
+  animation: sc-bubble-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   transform-origin: bottom right;
 }
-@keyframes sc-bubble-in {
-  0% { opacity: 0; transform: scale(0.82) translateY(16px); }
+@keyframes sc-bubble-pop {
+  0% { opacity: 0; transform: scale(0.7) translateY(12px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* Gentle float after entry — like a living breath (delayed until entrance completes) */
-@keyframes sc-bubble-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
 .sc-trace__bubble-greeting-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem 0.75rem 0.75rem;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 0 0 0.5px rgba(0, 0, 0, 0.03),
-    0 2px 4px rgba(0, 0, 0, 0.03),
-    0 8px 24px rgba(0, 0, 0, 0.05),
-    0 24px 56px rgba(0, 0, 0, 0.06);
   position: relative;
   width: 100%;
+  background: #111c30;
+  border: 1px solid #1e3a5a;
+  border-radius: 16px 16px 4px 16px;
+  padding: 16px 18px 14px 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
-.sc-trace__bubble-greeting-avatar {
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
-  margin-top: 0.1rem;
+
+/* Gradient top border line */
+.sc-trace__bubble-greeting-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #3b82f6 40%, #60a5fa 60%, transparent);
+  border-radius: 0 0 3px 3px;
+  pointer-events: none;
+}
+
+/* Tail pointing to FAB */
+.sc-trace__bubble-greeting-tail {
+  width: 14px;
+  height: 8px;
+  margin-right: 22px;
+  margin-top: -1px;
+  background: #111c30;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  border-right: 1px solid #1e3a5a;
+  border-bottom: 1px solid #1e3a5a;
+  position: relative;
+  z-index: -1;
+}
+
+/* Close button */
+.sc-trace__bubble-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #475569;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+  padding: 2px;
+  z-index: 2;
+}
+.sc-trace__bubble-close:hover {
+  color: #94a3b8;
+}
+
+/* Bubble head — avatar + name + status */
+.sc-trace__bubble-head {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-.sc-trace__mini-orb {
+.sc-trace__bubble-head-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+.sc-trace__bubble-avatar-svg {
   display: block;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 6px rgba(26, 120, 255, 0.2));
 }
-.sc-trace__bubble-greeting-text {
-  flex: 1;
-  min-width: 0;
+.sc-trace__bubble-head-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+.sc-trace__bubble-head-status {
+  font-size: 10px;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 1px;
+}
+.sc-trace__bubble-green-dot {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: sc-bubble-blink 2.2s ease-in-out infinite;
+}
+@keyframes sc-bubble-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Message text */
+.sc-trace__bubble-text {
+  display: block;
+  width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
-  color: #0f172a;
+  color: #cbd5e1;
   font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 480;
-  line-height: 1.5;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
   text-align: left;
   cursor: pointer;
   transition: color 0.15s ease;
-  letter-spacing: -0.008em;
   word-break: break-word;
   overflow-wrap: break-word;
+  animation: sc-bubble-text-slide 0.4s ease 0.6s both;
 }
-.sc-trace__bubble-greeting-text:hover {
-  color: #1e40af;
+.sc-trace__bubble-text strong {
+  color: #f1f5f9;
+  font-weight: 600;
 }
-.sc-trace__bubble-greeting-text:focus-visible {
-  outline: 2px solid rgba(26, 120, 255, 0.5);
+.sc-trace__bubble-text:hover {
+  color: #e2e8f0;
+}
+.sc-trace__bubble-text:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.5);
   outline-offset: 2px;
   border-radius: 6px;
 }
-.sc-trace__bubble-greeting-tail {
-  width: 12px;
-  height: 12px;
-  margin-right: 2.25rem;
-  margin-top: -6px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-top: none;
-  border-left: none;
-  transform: rotate(45deg);
-  border-radius: 0 0 3px 0;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.03);
-  position: relative;
-  z-index: -1;
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
+@keyframes sc-bubble-text-slide {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
+
+/* Fab icon sizing */
+.sc-trace__fab-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 640px) {
   .sc-trace__bubble-greeting {
     max-width: min(260px, calc(100vw - 2.5rem));
-    bottom: calc(100% + 0.75rem);
-  }
-  .sc-trace__bubble-greeting-text {
-    font-size: 0.8rem;
+    bottom: calc(100% + 0.6rem);
   }
   .sc-trace__bubble-greeting-card {
-    padding: 0.6rem 0.85rem 0.6rem 0.6rem;
-    gap: 0.6rem;
-    border-radius: 18px;
+    padding: 14px 14px 12px 14px;
+    border-radius: 14px 14px 4px 14px;
   }
-  .sc-trace__bubble-greeting-avatar {
-    width: 1.65rem;
-    height: 1.65rem;
-    margin-top: 0.05rem;
+  .sc-trace__bubble-greeting-card::before {
+    left: 14px;
+    right: 14px;
+  }
+  .sc-trace__bubble-text {
+    font-size: 12px;
+  }
+  .sc-trace__bubble-head-name {
+    font-size: 13px;
   }
   .sc-trace__bubble-greeting-tail {
-    width: 10px;
-    height: 10px;
-    margin-right: 1.75rem;
-    margin-top: -5px;
+    margin-right: 18px;
+  }
+  .sc-trace__fab {
+    width: 50px;
+    height: 50px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -6851,6 +6897,9 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+  .sc-trace__bubble-text {
+    animation: none;
   }
 }
 .sc-trace__fab-icon {

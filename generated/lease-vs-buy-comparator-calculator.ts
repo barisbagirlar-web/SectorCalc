@@ -30,9 +30,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Lease_vs_buy_comparator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.leaseMaintenanceIncluded * input.equipmentCost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.leaseMaintenanceIncluded * input.equipmentCost * (1 + (input.discountRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.leaseMaintenanceIncluded * input.equipmentCost * (1 + (input.discountRate / 100)) * (input.leaseTermMonths); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = Number(input.leaseMaintenanceIncluded) * input.equipmentCost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = Number(input.leaseMaintenanceIncluded) * input.equipmentCost * (1 + (input.discountRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = Number(input.leaseMaintenanceIncluded) * input.equipmentCost * (1 + (input.discountRate / 100)) * (input.leaseTermMonths); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.leaseTermMonths; results["factor_leaseTermMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_leaseTermMonths"] = 0; }
   return results;
 }

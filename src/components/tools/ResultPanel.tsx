@@ -15,6 +15,9 @@ import {
   resolvePrimaryOutputUnit,
 } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+import { useRouter } from "@/i18n/routing";
+import { savePrintData } from "@/lib/reports/generated-tool-print-data";
 
 export type ResultPanelProps = {
   readonly result: GeneratedToolResult | null;
@@ -25,8 +28,12 @@ export type ResultPanelProps = {
   readonly emptyLabel: string;
   readonly loading?: boolean;
   readonly statusLabel?: string;
+  readonly toolSlug?: string;
+  readonly userId?: string | null;
   readonly enableEnterpriseActions?: boolean;
-  readonly onPrintReport?: () => void;
+  readonly routePath?: string;
+  readonly toolType?: "free" | "premium";
+  readonly inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
 };
 
 function resolvePrimaryNumericValue(
@@ -80,7 +87,6 @@ function formatPrimaryDisplayValue(
   }).format(value);
 }
 
-
 export function ResultPanel({
   result,
   schema,
@@ -90,9 +96,11 @@ export function ResultPanel({
   emptyLabel,
   loading = false,
   statusLabel,
+  toolSlug,
   enableEnterpriseActions,
-  onPrintReport,
+  inputSnapshot,
 }: ResultPanelProps) {
+  const router = useRouter();
 
   const showEnterpriseActions =
     enableEnterpriseActions ?? schema.premiumRequired === true;
@@ -114,6 +122,20 @@ export function ResultPanel({
     return calculateCBAM(carbonEmissionsKg, "DE");
   }, [carbonEmissionsKg, schema]);
 
+  function navigateToPrintPage() {
+    if (!result) return;
+
+    const slug = toolSlug ?? schema.toolName;
+
+    savePrintData({
+      slug,
+      inputs: (inputSnapshot ?? {}) as unknown as Record<string, unknown>,
+      result: result as unknown as Record<string, unknown>,
+      schema: schema as unknown as Record<string, unknown>,
+    });
+
+    router.push(`/tools/generated/${slug}/print`);
+  }
 
   if (loading) {
     return (
@@ -221,14 +243,21 @@ export function ResultPanel({
             ) : null}
           </div>
         ) : null}
-        {showEnterpriseActions && onPrintReport ? (
+        {showEnterpriseActions ? (
           <div className="mt-4 flex flex-wrap gap-2">
             <button
               type="button"
-              onClick={onPrintReport}
-              className="sc-ledger-cta-primary min-h-[44px] px-4 text-xs font-bold inline-flex items-center gap-1.5"
+              onClick={() => void navigateToPrintPage()}
+              className="sc-ledger-cta-primary min-h-[44px] rounded-md px-3 py-2 text-xs font-medium"
             >
-              <span>⬇</span> {translateCalculatorPhrase("Print Full Report", locale)}
+              {translateCalculatorPhrase("Download PDF", locale)}
+            </button>
+            <button
+              type="button"
+              onClick={() => void navigateToPrintPage()}
+              className="sc-ledger-cta-secondary min-h-[44px] rounded-md px-3 py-2 text-xs font-medium"
+            >
+              {translateCalculatorPhrase("Send to ERP", locale)}
             </button>
           </div>
         ) : null}

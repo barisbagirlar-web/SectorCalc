@@ -30,9 +30,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Supplier_currency_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.use_iso_31000 * input.contract_value; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.use_iso_31000 * input.contract_value * (1 + (input.foreign_exposure_pct / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.use_iso_31000 * input.contract_value * (1 + (input.foreign_exposure_pct / 100)) * ((input.volatility_annual / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.use_iso_31000 ? 1 : 0) * input.contract_value; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = (input.use_iso_31000 ? 1 : 0) * input.contract_value * (1 + (input.foreign_exposure_pct / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = (input.use_iso_31000 ? 1 : 0) * input.contract_value * (1 + (input.foreign_exposure_pct / 100)) * ((input.volatility_annual / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = (input.volatility_annual / 100); results["factor_volatility_annual"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_volatility_annual"] = 0; }
   return results;
 }

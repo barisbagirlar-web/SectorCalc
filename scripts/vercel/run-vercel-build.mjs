@@ -183,6 +183,8 @@ function main() {
       label: "i18n guard — zero tolerance on English leaks",
     });
 
+    // Global lock already held by this process — signal child to skip re-acquisition.
+    process.env.SECTORCALC_BUILD_LOCK_SKIP = "1";
     runStep("node", ["scripts/next-build-with-500-fallback.mjs"], {
       label: "next build (with 500 fallback)",
       dumpNextBuildLog: true,

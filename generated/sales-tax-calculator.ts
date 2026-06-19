@@ -28,9 +28,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Sales_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.include_shipping * input.net_sales; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.include_shipping * input.net_sales * (1 + (input.tax_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.include_shipping * input.net_sales * (1 + (input.tax_rate / 100)) * ((input.exempt_ratio / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = Number(input.include_shipping) * input.net_sales; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = Number(input.include_shipping) * input.net_sales * (1 + (input.tax_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = Number(input.include_shipping) * input.net_sales * (1 + (input.tax_rate / 100)) * ((input.exempt_ratio / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = (input.exempt_ratio / 100); results["factor_exempt_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_exempt_ratio"] = 0; }
   return results;
 }

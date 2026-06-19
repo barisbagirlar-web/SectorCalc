@@ -114,7 +114,6 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           breakdown={result?.breakdown ?? null}
           breakdownInputs={lastInputs}
           breakdownLabelMap={schema.outputs.breakdown}
-          onPrintReport={handlePrintPremiumReport}
         />
       ) : (
         <FreeToolForm

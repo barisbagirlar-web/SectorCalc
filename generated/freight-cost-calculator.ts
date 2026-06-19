@@ -30,9 +30,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Freight_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.is_hazardous * input.accessorial_charges_usd; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.is_hazardous * input.accessorial_charges_usd * (1 + (input.fuel_surcharge_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.is_hazardous * input.accessorial_charges_usd * (1 + (input.fuel_surcharge_percent / 100)) * (input.shipment_weight_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.is_hazardous ? 1 : 0) * input.accessorial_charges_usd; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = (input.is_hazardous ? 1 : 0) * input.accessorial_charges_usd * (1 + (input.fuel_surcharge_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = (input.is_hazardous ? 1 : 0) * input.accessorial_charges_usd * (1 + (input.fuel_surcharge_percent / 100)) * (input.shipment_weight_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.shipment_weight_kg; results["factor_shipment_weight_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_shipment_weight_kg"] = 0; }
   return results;
 }

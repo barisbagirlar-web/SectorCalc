@@ -20,8 +20,7 @@ import {
   findReferenceStandards,
   resolveBreakdownLabel,
 } from "@/lib/reports/resolve-print-values";
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
-import { getToolMethodology, type ToolMethodology } from "@/lib/reports/tool-methodology";
+import { getToolMethodology } from "@/lib/reports/tool-methodology";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const locale = useLocale();
@@ -39,6 +38,16 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
       }
       if (parsed.slug !== slug) {
         setError("printErrorMismatch");
+        return;
+      }
+      // Validate required schema fields exist before type-asserting
+      if (!parsed.schema || typeof parsed.schema !== "object" || !parsed.result || typeof parsed.result !== "object") {
+        setError("printErrorParse");
+        return;
+      }
+      const s = parsed.schema as Record<string, unknown>;
+      if (!Array.isArray(s.inputs) || typeof s.formulas !== "object" || typeof s.validation !== "object") {
+        setError("printErrorParse");
         return;
       }
       setData(parsed);
@@ -59,7 +68,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
 
   const localeTag = normalizeLocale(locale);
   const localeMap: Record<string, string> = {
-    tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar",
+    tr: "tr-TR", en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", ar: "ar-SA",
   };
   const dateFmtLocale = localeMap[localeTag] || "en-US";
 
@@ -326,7 +335,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                 const breakdownLabel = resolveBreakdownLabel(
                   key,
                   schema.outputs.breakdown,
-                  (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n,
+                  schema.outputs.breakdown_i18n,
                   locale,
                 );
                 const formatted = formatGeneratedNumericValue(value, key, locale);

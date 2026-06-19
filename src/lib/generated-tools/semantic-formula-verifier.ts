@@ -25,6 +25,7 @@ type DomainTag = "labor" | "material" | "energy" | "quality" | "downtime"
 
 const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   // Labor / personnel
+  labor_cost: ["labor", "cost"],
   direct_labor_cost: ["labor", "cost"],
   indirect_labor_cost: ["labor", "cost"],
   labor_hours: ["labor", "time"],
@@ -99,28 +100,28 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   carbon_cost: ["carbon", "cost"],
   energy_carbon: ["energy", "carbon"],
   water_usage: ["water", "volume"],
-  total_co2: ["carbon", "energy", "material", "distance"],
+  total_co2: ["carbon", "energy", "material", "distance" as const],
   total_co2_eq: ["carbon", "energy", "material"],
   co2_emissions: ["carbon", "energy"],
-  base_kg_co2: ["carbon", "energy", "distance"],
-  total_kg_co2e: ["carbon", "energy", "distance"],
+  base_kg_co2: ["carbon", "energy", "distance" as const],
+  total_kg_co2e: ["carbon", "energy", "distance" as const],
   monthly_co2: ["carbon", "energy", "time"],
-  per_trip_co2: ["carbon", "energy", "distance"],
+  per_trip_co2: ["carbon", "energy", "distance" as const],
   venue_co2: ["carbon", "energy", "time"],
   electric_emission: ["carbon", "energy"],
-  commuting_emissions: ["carbon", "energy", "distance"],
+  commuting_emissions: ["carbon", "energy", "distance" as const],
   scope1_emissions: ["carbon", "energy", "material"],
   scope2_emissions: ["carbon", "energy"],
-  scope3_emissions: ["carbon", "energy", "distance"],
-  total_carbon_footprint: ["carbon", "energy", "material", "distance"],
+  scope3_emissions: ["carbon", "energy", "distance" as const],
+  total_carbon_footprint: ["carbon", "energy", "material", "distance" as const],
   net_carbon: ["carbon", "energy", "material"],
 
   // Fuel cost (naturally crosses distance + energy + cost)
-  fuel_cost: ["cost", "energy", "distance"],
-  fuel_cost_total: ["cost", "energy", "distance"],
+  fuel_cost: ["cost", "energy", "distance" as const],
+  fuel_cost_total: ["cost", "energy", "distance" as const],
   fuel_cost_per_km: ["cost", "energy", "rate"],
   fuel_cost_per_mile: ["cost", "energy", "rate"],
-  total_fuel_cost: ["cost", "energy", "distance"],
+  total_fuel_cost: ["cost", "energy", "distance" as const],
 
   // Energy
   annual_energy_consumption: ["energy", "time"],
@@ -158,7 +159,6 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   // Quality / Efficiency
   quality: ["quality", "efficiency"],
   quality_yield: ["quality", "efficiency"],
-  rework_rate: ["quality", "waste"],
 
   // Risk
   hazard_rate: ["risk", "time"],
@@ -166,10 +166,9 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
 
   // Time / Delay
   total_delay: ["time", "efficiency"],
+  labor_cost_total: ["labor", "cost"],
 
   // Exposure hours — when formula uses time inputs, this is valid
-  labor_cost: ["labor", "cost"],
-  labor_cost_total: ["labor", "cost"],
   annual_exposure_hours: ["time", "risk"],
 };
 

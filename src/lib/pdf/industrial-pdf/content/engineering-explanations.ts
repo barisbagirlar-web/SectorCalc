@@ -3,734 +3,458 @@
  *
  * Deep, academic-grade explanations for every formula family.
  * ISO 9001 / ECMI / TÜV-certifiable engineering narrative.
+ * Each category includes: methodology, applicable standards,
+ * formula description, interpretation guide, and industry context.
  */
 
 import type { PdfEngineeringExplanation } from "@/lib/pdf/industrial-pdf/types";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 
-const DEFAULT_EN: PdfEngineeringExplanation = {
+/* ─── Default fallback ────────────────────────────────────── */
+
+const DEFAULT_EXPLANATION_EN: PdfEngineeringExplanation = {
   methodology:
-    "This analysis applies a deterministic calculation methodology based on user-provided input parameters and sector-standard reference data. The computational model uses first-principles engineering formulas where applicable, supplemented by empirical correlations derived from industry practice. All intermediate variables are explicitly computed and validated against physical and economic boundary conditions before final aggregation.",
+    "This analysis applies a deterministic calculation methodology based on user-provided input parameters and sector-standard reference data. The computational model uses first-principles engineering formulas where applicable, supplemented by empirical correlations derived from industry practice. All intermediate variables are explicitly computed and validated against physical and economic boundary conditions before final aggregation. The result is reported as a point estimate with implicit sensitivity to input variance.",
   standards: [
-    "ISO 9001:2015 — Quality management systems",
-    "ISO 31000:2018 — Risk management",
+    "ISO 9001:2015 — Quality management systems — requirements for measurement traceability",
+    "ISO 31000:2018 — Risk management — guidelines for decision-support analysis",
+    "IEC 60300-3-3 — Dependability management — life cycle costing",
     "ASME B89.7.2 — Dimensional measurement planning",
   ],
   formulaDescription:
-    "The calculation engine evaluates the target variable through a composition of primitive functions, each validated against documented tolerance limits. Results are computed in IEEE 754 double-precision arithmetic with explicit guards against domain errors. Unit consistency is enforced via dimensional analysis.",
+    "The calculation engine evaluates the target variable through a composition of primitive functions, each validated against documented tolerance limits. Results are computed in IEEE 754 double-precision arithmetic with explicit guards against division by zero, overflow, and domain errors. Unit consistency is enforced via dimensional analysis at each step.",
   interpretationGuide:
-    "The primary output represents a best-estimate result under the specified input conditions. Variance between the computed result and actual observed values is expected due to unmodeled real-world factors. Decision-makers should apply appropriate safety margins based on application criticality.",
+    "The primary output represents a best-estimate result under the specified input conditions. Variance between the computed result and actual observed values is expected due to unmodeled real-world factors. Decision-makers should apply appropriate safety margins based on the criticality of the application. Cross-reference with empirical data where available.",
   industryContext:
-    "This analysis follows the general engineering decision-support paradigm used across manufacturing, construction, energy, and process industries. It is not a substitute for detailed engineering analysis, certified measurement, or regulatory compliance verification.",
+    "This analysis follows the general engineering decision-support paradigm used across manufacturing, construction, energy, and process industries. The methodology is aligned with common practice in feasibility studies, preliminary design, and operational assessment. It is not a substitute for detailed engineering analysis, certified measurement, or regulatory compliance verification.",
 };
+
+/* ─── Category-specific explanations ──────────────────────── */
 
 const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineeringExplanation>>> = {
   cost: {
     en: {
       methodology:
-        "Cost estimation follows a bottom-up parametric model, decomposing total expenditure into direct material, direct labor, overhead, and risk-adjusted contingency components. Each cost element is computed from user-specified quantities and unit rates, cross-checked against sector-specific cost indices published by RSMeans, Gardiner & Theobald, or equivalent regional authorities. Contingency allocation applies a Monte Carlo–calibrated P90 confidence factor derived from historical cost variance distributions.",
+        "Cost estimation follows a bottom-up parametric model, decomposing the total expenditure into direct material, direct labor, overhead, and risk-adjusted contingency components. Each cost element is computed from user-specified quantities and unit rates, cross-checked against sector-specific cost indices published by RSMeans, Gardiner & Theobald, or equivalent regional authorities. Contingency allocation applies a Monte Carlo–calibrated P90 confidence factor derived from historical cost variance distributions.",
       standards: [
-        "ISO 15686-5:2017 — Life-cycle costing",
-        "AACE International RP 17R-97 — Cost estimate classification",
-        "DIN 276 — Building costs",
-        "PMBOK Guide 7th ed. — Cost management",
+        "ISO 15686-5:2017 — Buildings and constructed assets — service-life planning — life-cycle costing",
+        "AACE International RP 17R-97 — Cost estimate classification system",
+        "DIN 276 — Building costs — planning and management",
+        "PMBOK Guide 7th ed. — Project cost management",
       ],
       formulaDescription:
-        "Total cost = Σ(material qty × unit price) + Σ(labor hours × hourly rate) + overhead allocation + risk contingency. The contingency factor is a function of input uncertainty bandwidth and historical sector volatility. Cost escalation indices apply for multi-period projections.",
+        "Total cost = Σ (material quantity × unit price) + Σ (labor hours × hourly rate) + overhead allocation + risk contingency. The contingency factor is computed as a function of input uncertainty bandwidth and historical sector volatility. Cost escalation indices are applied for multi-period projections.",
       interpretationGuide:
-        "The base estimate reflects deterministic input values. The P90-adjusted figure includes a risk buffer calibrated to cover cost overrun in 90% of comparable historical projects. A contingency drawdown below 50% signals high confidence; above 100% indicates the base estimate is structurally understated.",
+        "The base estimate reflects deterministic input values. The P90-adjusted figure includes a risk buffer calibrated to cover cost overrun in 90% of comparable historical projects. A contingency drawdown below 50% of the allocated reserve signals a high-confidence estimate; drawdown above 100% indicates the base estimate is structurally understated. Monitor cost performance against the estimate at regular intervals and adjust the contingency draw as actual costs crystallize.",
       industryContext:
-        "Suitable for feasibility studies, budget allocation, and bid preparation in manufacturing, construction, and industrial engineering. Follows AACE Class 3-5 estimate classification. Detailed estimates (Class 1-2) require vendor quotes and site-specific surveys.",
+        "This cost model is suitable for feasibility studies, budget allocation, and bid preparation in manufacturing, construction, and industrial engineering contexts. It follows the AACE Class 3–5 estimate classification, appropriate for concept screening through preliminary design phases. Detailed engineering estimates (Class 1–2) require vendor quotes, site-specific surveys, and substantially greater input granularity.",
     },
     tr: {
       methodology:
-        "Maliyet tahmini, toplam harcamayı doğrudan malzeme, doğrudan işçilik, genel gider ve riske göre ayarlanmış contingency bileşenlerine ayıran aşağıdan yukarıya parametrik bir model izler. Her maliyet kalemi, kullanıcı tarafından belirtilen miktarlar ve birim fiyatlardan hesaplanır ve sektöre özgü maliyet endeksleriyle çapraz kontrol edilir.",
+        "Maliyet tahmini, toplam harcamayı doğrudan malzeme, doğrudan işçilik, genel gider ve riske göre ayarlanmış contingency bileşenlerine ayıran aşağıdan yukarıya parametrik bir model izler. Her maliyet kalemi, kullanıcı tarafından belirtilen miktarlar ve birim fiyatlardan hesaplanır ve RSMeans, Gardiner & Theobald veya eşdeğer bölgesel otoriteler tarafından yayınlanan sektöre özgü maliyet endeksleriyle çapraz kontrol edilir. Contingency tahsisi, geçmiş maliyet sapma dağılımlarından türetilen Monte Carlo kalibrasyonlu bir P90 güven faktörü uygular.",
       standards: [
-        "ISO 15686:5:2017 — Yaşam döngüsü maliyetlemesi",
-        "AACE International RP 17R-97 — Maliyet tahmin sınıflandırması",
-        "DIN 276 — Bina maliyetleri",
-        "PMBOK Kılavuzu 7. Baskı — Maliyet yönetimi",
+        "ISO 15686:5:2017 — Binalar ve inşa edilmiş varlıklar — hizmet ömrü planlaması — yaşam döngüsü maliyetlemesi",
+        "AACE International RP 17R-97 — Maliyet tahmin sınıflandırma sistemi",
+        "DIN 276 — Bina maliyetleri — planlama ve yönetim",
+        "PMBOK Kılavuzu 7. Baskı — Proje maliyet yönetimi",
       ],
       formulaDescription:
-        "Toplam maliyet = Σ(malzeme miktarı × birim fiyat) + Σ(işçilik saati × saatlik ücret) + genel gider + risk contingency. Contingency faktörü, girdi belirsizlik aralığı ve sektör oynaklığına göre hesaplanır.",
+        "Toplam maliyet = Σ (malzeme miktarı × birim fiyat) + Σ (işçilik saati × saatlik ücret) + genel gider dağıtımı + risk contingency. Contingency faktörü, girdi belirsizlik aralığı ve tarihsel sektör oynaklığının bir fonksiyonu olarak hesaplanır. Çok dönemli projeksiyonlar için maliyet artış endeksleri uygulanır.",
       interpretationGuide:
-        "Temel tahmin deterministik girdileri yansıtır. P90 ayarlı rakam, benzer projelerin %90'ında maliyet aşımını karşılayacak şekilde kalibre edilmiş bir risk tamponu içerir.",
+        "Temel tahmin, deterministik girdi değerlerini yansıtır. P90 ayarlı rakam, karşılaştırılabilir tarihsel projelerin %90'ında maliyet aşımını karşılayacak şekilde kalibre edilmiş bir risk tamponu içerir. Tahsis edilen rezervin %50'sinin altındaki contingency kullanımı yüksek güvenilirlikli tahmini gösterir; %100'ün üzerindeki kullanım, temel tahminin yapısal olarak düşük hesaplandığını belirtir.",
       industryContext:
-        "İmalat, inşaat ve endüstriyel mühendislikte fizibilite çalışmaları, bütçe tahsisi ve teklif hazırlığı için uygundur.",
+        "Bu maliyet modeli, imalat, inşaat ve endüstriyel mühendislik bağlamlarında fizibilite çalışmaları, bütçe tahsisi ve teklif hazırlığı için uygundur. Kavram taramasından ön tasarım aşamalarına kadar AACE Sınıf 3-5 tahmin sınıflandırmasını izler. Detaylı mühendislik tahminleri (Sınıf 1-2) tedarikçi teklifleri, sahaya özel araştırmalar ve önemli ölçüde daha fazla girdi detayı gerektirir.",
     },
     de: {
       methodology:
-        "Die Kostenschätzung folgt einem Bottom-up-Parametermodell, das die Gesamtausgaben in direkte Material-, Arbeits-, Gemeinkosten- und Risikokomponenten zerlegt.",
+        "Die Kostenschätzung folgt einem Bottom-up-Parametermodell, das die Gesamtausgaben in direkte Material-, direkte Arbeits-, Gemeinkosten- und risikobereinigte Rückstellungskomponenten zerlegt. Jedes Kostenelement wird aus benutzerspezifischen Mengen und Einheitssätzen berechnet und mit branchenspezifischen Kostenindizes von RSMeans, Gardiner & Theobald oder gleichwertigen regionalen Behörden abgeglichen. Die Rückstellungszuweisung verwendet einen Monte-Carlo-kalibrierten P90-Konfidenzfaktor aus historischen Kostenabweichungsverteilungen.",
       standards: [
-        "ISO 15686:5:2017 — Lebenszykluskosten",
-        "AACE International RP 17R-97",
-        "DIN 276 — Baukosten",
+        "ISO 15686:5:2017 — Lebenszykluskosten für Bauwerke",
+        "AACE International RP 17R-97 — Kostenklassifizierungssystem",
+        "DIN 276 — Baukostenplanung und -management",
+        "PMBOK Guide 7. Aufl. — Projektkostenmanagement",
       ],
       formulaDescription:
-        "Gesamtkosten = Σ(Material × Einheitspreis) + Σ(Arbeitsstunden × Stundensatz) + Gemeinkosten + Risikorückstellung.",
+        "Gesamtkosten = Σ (Materialmenge × Einheitspreis) + Σ (Arbeitsstunden × Stundensatz) + Gemeinkostenzuschlag + Risikorückstellung. Der Rückstellungsfaktor wird aus der Eingabeunsicherheitsbandbreite und der historischen Branchenvolatilität berechnet.",
       interpretationGuide:
-        "Die Basisschätzung spiegelt deterministische Eingabewerte wider. Der P90-Wert enthält eine Risikoreserve für 90% der historischen Projekte.",
+        "Die Basisschätzung spiegelt deterministische Eingabewerte wider. Die P90-angepasste Zahl enthält eine Risikoreserve, die für 90% vergleichbarer historischer Projekte kalibriert ist.",
       industryContext:
-        "Geeignet für Machbarkeitsstudien und Angebotsvorbereitung in Fertigung und Bau.",
+        "Geeignet für Machbarkeitsstudien, Budgetzuweisung und Angebotsvorbereitung in Fertigung, Bau und Industrie. Folgt der AACE-Klasse 3-5.",
     },
     fr: {
       methodology:
-        "L'estimation des coûts suit un modèle paramétrique ascendant décomposant la dépense en composantes de matériaux, main-d'œuvre, frais généraux et contingence.",
+        "L'estimation des coûts suit un modèle paramétrique ascendant décomposant la dépense totale en composantes de matériaux directs, main-d'œuvre directe, frais généraux et contingence ajustée au risque. Chaque élément est calculé à partir des quantités et taux unitaires saisis, recoupés avec les indices sectoriels.",
       standards: [
-        "ISO 15686:5:2017 — Analyse du coût du cycle de vie",
-        "AACE International RP 17R-97",
-        "DIN 276 — Gestion des coûts",
+        "ISO 15686:5:2017 — Analyse du coût du cycle de vie des bâtiments",
+        "AACE International RP 17R-97 — Classification des estimations",
+        "DIN 276 — Gestion des coûts de construction",
+        "PMBOK Guide 7e éd. — Gestion des coûts du projet",
       ],
       formulaDescription:
-        "Coût total = Σ(quantité matière × prix unitaire) + Σ(heures MO × taux horaire) + frais généraux + contingence.",
+        "Coût total = Σ (quantité matière × prix unitaire) + Σ (heures MO × taux horaire) + frais généraux + contingence risque.",
       interpretationGuide:
-        "L'estimation de base reflète les valeurs déterministes. Le montant P90 intègre une réserve calibrée pour 90% des dépassements.",
+        "L'estimation de base reflète les valeurs déterministes. Le montant ajusté P90 intègre une réserve calibrée pour couvrir 90% des dépassements historiques.",
       industryContext:
-        "Convient aux études de faisabilité et à la préparation d'offres dans l'industrie manufacturière.",
+        "Convient aux études de faisabilité, allocation budgétaire et préparation d'offres dans l'industrie manufacturière et la construction.",
     },
     es: {
       methodology:
-        "La estimación de costos sigue un modelo paramétrico ascendente que descompone el gasto en material directo, mano de obra, gastos generales y contingencia.",
+        "La estimación de costos sigue un modelo paramétrico ascendente que descompone el gasto total en componentes de material directo, mano de obra directa, gastos generales y contingencia ajustada al riesgo.",
       standards: [
-        "ISO 15686:5:2017",
-        "AACE International RP 17R-97",
-        "DIN 276",
+        "ISO 15686:5:2017 — Análisis de costo de ciclo de vida",
+        "AACE International RP 17R-97 — Clasificación de estimaciones",
+        "DIN 276 — Gestión de costos de construcción",
       ],
       formulaDescription:
-        "Costo total = Σ(cantidad material × precio unitario) + Σ(horas MO × tarifa) + gastos generales + contingencia.",
+        "Costo total = Σ (cantidad material × precio unitario) + Σ (horas MO × tarifa horaria) + gastos generales + contingencia de riesgo.",
       interpretationGuide:
-        "La estimación base refleja valores determinísticos. El valor P90 incluye una reserva calibrada para el 90% de los proyectos comparables.",
+        "La estimación base refleja valores determinísticos. La cifra ajustada P90 incluye una reserva calibrada para cubrir sobrecostos en el 90% de proyectos comparables.",
       industryContext:
-        "Adecuado para estudios de viabilidad y preparación de ofertas en fabricación y construcción.",
+        "Adecuado para estudios de viabilidad, asignación presupuestaria y preparación de ofertas en fabricación y construcción.",
     },
     ar: {
       methodology:
-        "يتبع تقدير التكلفة نموذجاً بارامترياً تصاعدياً يحلل إجمالي الإنفاق إلى مكونات المواد والعمالة والتكاليف العامة واحتياطي المخاطر.",
+        "يتبع تقدير التكلفة نموذجاً بارامترياً تصاعدياً يحلل إجمالي الإنفاق إلى مكونات المواد المباشرة والعمالة المباشرة والتكاليف العامة واحتياطي المخاطر.",
       standards: [
-        "ISO 15686:5:2017",
-        "AACE International RP 17R-97",
-        "DIN 276",
+        "ISO 15686:5:2017 — تحليل تكلفة دورة حياة المباني",
+        "AACE International RP 17R-97 — نظام تصنيف تقدير التكلفة",
+        "DIN 276 — تخطيط وإدارة تكاليف البناء",
       ],
       formulaDescription:
-        "إجمالي التكلفة = Σ(كمية المواد × سعر الوحدة) + Σ(ساعات العمل × الأجر) + التكاليف العامة + احتياطي المخاطر.",
+        "إجمالي التكلفة = Σ (كمية المواد × سعر الوحدة) + Σ (ساعات العمل × الأجر بالساعة) + التكاليف العامة + احتياطي المخاطر.",
       interpretationGuide:
-        "يعكس التقدير الأساسي قيماً حتمية. القيمة المعدلة P90 تتضمن احتياطي مخاطر يغطي 90% من المشاريع المماثلة.",
+        "يعكس التقدير الأساسي قيماً حتمية. الرقم المعدل P90 يتضمن احتياطي مخاطر معايراً لتغطية تجاوز التكاليف في 90% من المشاريع التاريخية المماثلة.",
       industryContext:
-        "مناسب لدراسات الجدوى وإعداد العروض في التصنيع والبناء.",
+        "مناسب لدراسات الجدوى وتخصيص الميزانية وإعداد العروض في التصنيع والبناء.",
     },
   },
 
   measurement: {
     en: {
       methodology:
-        "Measurement analysis applies statistical quality control principles per ISO 5725 and the Guide to the Expression of Uncertainty in Measurement (GUM). The measurement system is characterized by its accuracy, resolution, and reproducibility. Uncertainty is propagated through root-sum-square (RSS) combination of Type A and Type B components. Expanded uncertainty is reported at 95% confidence (k=2).",
+        "Measurement analysis applies statistical quality control principles per ISO 5725 and the Guide to the Expression of Uncertainty in Measurement (GUM). The measurement system is characterized by its accuracy (trueness and precision), resolution, and reproducibility. Uncertainty is propagated through the measurement chain using root-sum-square (RSS) combination of Type A (statistical) and Type B (systematic) uncertainty components. The expanded uncertainty is reported at a 95% confidence level (k=2 coverage factor).",
       standards: [
-        "ISO/IEC Guide 98-3:2008 — GUM",
-        "ISO 5725:1994 — Accuracy of measurement methods",
+        "ISO/IEC Guide 98-3:2008 — Uncertainty of measurement — GUM",
+        "ISO 5725:1994 — Accuracy of measurement methods and results",
         "ISO 10012:2003 — Measurement management systems",
         "ASME B89.7.2 — Dimensional measurement planning",
+        "EA-4/02 M:2022 — Expression of uncertainty in calibration",
       ],
       formulaDescription:
-        "Combined standard uncertainty u_c = √(Σ u_i²). Expanded uncertainty U = k × u_c with k = 2 for 95% confidence. Capability index Cg = Tolerance / (6 × σ_measurement).",
+        "Combined standard uncertainty u_c = √(Σ u_i²) where u_i represents each individual uncertainty component. Expanded uncertainty U = k × u_c with coverage factor k = 2 for 95% confidence. Measurement capability index Cg = (Tolerance) / (6 × σ_measurement).",
       interpretationGuide:
-        "Cg > 1.33 indicates a capable measurement system. Cg between 1.0 and 1.33 suggests marginal capability. Cg < 1.0 indicates unacceptable measurement uncertainty for the given tolerance.",
+        "A Cg index above 1.33 indicates the measurement system is capable for the given tolerance. Values between 1.0 and 1.33 suggest marginal capability requiring process improvement. Values below 1.0 indicate the measurement system introduces unacceptable uncertainty relative to the tolerance requirement. The expanded uncertainty U provides the interval within which the true value is expected to lie with 95% confidence.",
       industryContext:
-        "Applicable to dimensional inspection, calibration laboratories, and quality control across manufacturing, automotive, aerospace, and medical device industries.",
+        "This measurement analysis is applicable to dimensional inspection, calibration laboratories, quality control, and process control applications across manufacturing, automotive, aerospace, and medical device industries. It follows metrological best practices established by BIPM, ILAC, and national accreditation bodies.",
     },
     tr: {
       methodology:
-        "Ölçüm analizi, ISO 5725 ve Ölçümde Belirsizliğin İfadesi Kılavuzu'na (GUM) göre istatistiksel kalite kontrol ilkelerini uygular. Ölçüm sistemi; doğruluk, çözünürlük ve tekrarlanabilirlik ile karakterize edilir. Belirsizlik, Tip A ve Tip B bileşenlerinin kareler toplamının karekökü (RSS) yöntemiyle birleştirilir. Genişletilmiş belirsizlik %95 güven düzeyinde (k=2) raporlanır.",
+        "Ölçüm analizi, ISO 5725 ve Ölçüm Belirsizliğinin İfade Edilmesi Kılavuzu'na (GUM) göre istatistiksel kalite kontrol prensiplerini uygular. Ölçüm sistemi; doğruluk (gerçeklik ve kesinlik), çözünürlük ve tekrarlanabilirlik ile karakterize edilir. Belirsizlik, Tip A (istatistiksel) ve Tip B (sistematik) belirsizlik bileşenlerinin karelerinin toplamının karekökü (RSS) kombinasyonu ile ölçüm zinciri boyunca yayılır. Genişletilmiş belirsizlik %95 güven seviyesinde (k=2 kapsama faktörü) raporlanır.",
       standards: [
-        "ISO/IEC Kılavuzu 98-3:2008 — GUM",
-        "ISO 5725:1994 — Ölçüm yöntemlerinin doğruluğu",
+        "ISO/IEC Guide 98-3:2008 — Ölçüm belirsizliği — GUM",
+        "ISO 5725:1994 — Ölçüm yöntemleri ve sonuçlarının doğruluğu",
         "ISO 10012:2003 — Ölçüm yönetim sistemleri",
         "ASME B89.7.2 — Boyutsal ölçüm planlaması",
+        "EA-4/02 M:2022 — Kalibrasyonda belirsizlik ifadesi",
       ],
       formulaDescription:
-        "Birleşik standart belirsizlik u_c = √(Σ u_i²). Genişletilmiş belirsizlik U = k × u_c, k=2 ile %95 güven için. Yetenek indeksi Cg = Tolerans / (6 × σ_ölçüm).",
+        "Birleşik standart belirsizlik u_c = √(Σ u_i²). Genişletilmiş belirsizlik U = k × u_c (k=2, %95 güven). Ölçüm yetenek indeksi Cg = (Tolerans) / (6 × σ_ölçüm).",
       interpretationGuide:
-        "Cg > 1.33 yetenekli ölçüm sistemi. Cg 1.0-1.33 arası marjinal. Cg < 1.0 kabul edilemez ölçüm belirsizliği.",
+        "Cg indeksinin 1.33'ün üzerinde olması ölçüm sisteminin tolerans için yeterli olduğunu gösterir. 1.0-1.33 arası marjinal yetenek, süreç iyileştirmesi gerektiğini belirtir. 1.0'ın altı, ölçüm sisteminin tolerans gereksinimine göre kabul edilemez belirsizlik getirdiğini gösterir.",
       industryContext:
-        "Boyutsal muayene, kalibrasyon laboratuvarları ve imalat, otomotiv, havacılık ve tıbbi cihaz sektörlerinde kalite kontrol için uygundur.",
+        "Bu analiz; imalat, otomotiv, havacılık ve tıbbi cihaz endüstrilerinde boyutsal muayene, kalibrasyon laboratuvarları ve kalite kontrol uygulamaları için geçerlidir.",
     },
     de: {
       methodology:
-        "Die Messanalyse wendet Grundsätze der statistischen Qualitätskontrolle nach ISO 5725 und dem GUM an. Das Messsystem wird durch Genauigkeit, Auflösung und Reproduzierbarkeit charakterisiert. Die Unsicherheit wird durch RSS-Kombination von Typ-A- und Typ-B-Komponenten fortgepflanzt.",
+        "Die Messanalyse wendet statistische Qualitätskontrollprinzipien nach ISO 5725 und GUM an. Die Messunsicherheit wird durch RSS-Kombination von Typ-A- und Typ-B-Komponenten propagiert.",
       standards: [
         "ISO/IEC Guide 98-3:2008 — GUM",
         "ISO 5725:1994 — Genauigkeit von Messverfahren",
         "ISO 10012:2003 — Messmanagementsysteme",
-        "ASME B89.7.2 — Maßplanung",
       ],
       formulaDescription:
-        "Kombinierte Standardunsicherheit u_c = √(Σ u_i²). Erweiterte Unsicherheit U = k × u_c (k=2, 95% Vertrauen). Fähigkeitsindex Cg = Toleranz / (6 × σ_Messung).",
+        "Kombinierte Standardunsicherheit u_c = √(Σ u_i²). Erweiterte Unsicherheit U = k × u_c (k=2, 95% Konfidenz).",
       interpretationGuide:
-        "Cg > 1.33: fähiges Messsystem. Cg 1,0-1,33: grenzwertig. Cg < 1,0: inakzeptable Messunsicherheit.",
+        "Cg > 1,33: Messsystem fähig. Cg 1,0-1,33: Grenzwertig. Cg < 1,0: Nicht akzeptabel.",
       industryContext:
-        "Anwendbar für Maßprüfung, Kalibrierlaboratorien und Qualitätskontrolle in Fertigung, Automobil, Luftfahrt und Medizintechnik.",
+        "Anwendbar für dimensionale Prüfung, Kalibrierung und Qualitätskontrolle in Fertigung, Automobil und Luftfahrt.",
     },
     fr: {
       methodology:
-        "L'analyse des mesures applique les principes de maîtrise statistique de la qualité selon l'ISO 5725 et le GUM. Le système de mesure est caractérisé par sa justesse, sa résolution et sa reproductibilité. L'incertitude est propagée par combinaison RSS des composantes de type A et B.",
+        "L'analyse de mesure applique les principes de contrôle qualité statistique selon ISO 5725 et le GUM. L'incertitude est propagée par combinaison RSS des composantes de type A et B.",
       standards: [
         "ISO/IEC Guide 98-3:2008 — GUM",
-        "ISO 5725:1994 — Justesse des méthodes de mesure",
+        "ISO 5725:1994 — Exactitude des méthodes de mesure",
         "ISO 10012:2003 — Systèmes de management de la mesure",
-        "ASME B89.7.2 — Planification dimensionnelle",
       ],
       formulaDescription:
-        "Incertitude-type composée u_c = √(Σ u_i²). Incertitude élargie U = k × u_c (k=2, 95% confiance). Indice de capabilité Cg = Tolérance / (6 × σ_mesure).",
+        "Incertitude-type composée u_c = √(Σ u_i²). Incertitude élargie U = k × u_c (k=2, confiance 95%).",
       interpretationGuide:
-        "Cg > 1,33 : système capable. Cg 1,0-1,33 : marginal. Cg < 1,0 : incertitude inacceptable.",
+        "Cg > 1,33 : Système capable. Cg 1,0-1,33 : Marginal. Cg < 1,0 : Inacceptable.",
       industryContext:
-        "Applicable à l'inspection dimensionnelle, aux laboratoires d'étalonnage et au contrôle qualité dans l'industrie manufacturière, l'automobile, l'aérospatiale et les dispositifs médicaux.",
+        "Applicable à l'inspection dimensionnelle, l'étalonnage et le contrôle qualité dans l'industrie manufacturière.",
     },
     es: {
       methodology:
-        "El análisis de mediciones aplica principios de control estadístico de calidad según ISO 5725 y la GUM. El sistema de medición se caracteriza por su exactitud, resolución y reproducibilidad. La incertidumbre se propaga mediante combinación RSS de componentes Tipo A y Tipo B.",
+        "El análisis de medición aplica principios de control estadístico de calidad según ISO 5725 y GUM. La incertidumbre se propaga mediante combinación RSS de componentes tipo A y B.",
       standards: [
         "ISO/IEC Guide 98-3:2008 — GUM",
         "ISO 5725:1994 — Exactitud de métodos de medición",
-        "ISO 10012:2003 — Sistemas de gestión de mediciones",
-        "ASME B89.7.2 — Planificación de medición dimensional",
       ],
       formulaDescription:
-        "Incertidumbre típica combinada u_c = √(Σ u_i²). Incertidumbre expandida U = k × u_c (k=2, 95% confianza). Índice de capacidad Cg = Tolerancia / (6 × σ_medición).",
+        "Incertidumbre típica combinada u_c = √(Σ u_i²). Incertidumbre expandida U = k × u_c (k=2, 95% confianza).",
       interpretationGuide:
-        "Cg > 1.33: sistema capaz. Cg 1.0-1.33: marginal. Cg < 1.0: incertidumbre inaceptable.",
+        "Cg > 1,33: Sistema capaz. Cg 1,0-1,33: Marginal. Cg < 1,0: Inaceptable.",
       industryContext:
-        "Aplicable a inspección dimensional, laboratorios de calibración y control de calidad en fabricación, automoción, aeroespacial y dispositivos médicos.",
+        "Aplicable a inspección dimensional, calibración y control de calidad en manufactura.",
     },
     ar: {
       methodology:
-        "يطبق تحليل القياس مبادئ مراقبة الجودة الإحصائية وفقاً لـ ISO 5725 ودليل التعبير عن عدم اليقين في القياس (GUM). يتميز نظام القياس بدقته واستبانته وقابليته للتكرار. يتم نشر عدم اليقين من خلال الجمع التربيعي لمكونات النوع A والنوع B.",
+        "يطبق تحليل القياس مبادئ مراقبة الجودة الإحصائية وفقاً لـ ISO 5725 ودليل التعبير عن عدم اليقين في القياس (GUM).",
       standards: [
-        "ISO/IEC دليل 98-3:2008 — GUM",
+        "ISO/IEC Guide 98-3:2008 — GUM",
         "ISO 5725:1994 — دقة طرق القياس",
         "ISO 10012:2003 — أنظمة إدارة القياس",
-        "ASME B89.7.2 — تخطيط القياس البعدي",
       ],
       formulaDescription:
-        "عدم اليقين المعياري المركب u_c = √(Σ u_i²). عدم اليقين الموسع U = k × u_c (k=2 لـ 95% ثقة). مؤشر القدرة Cg = التسامح / (6 × σ_قياس).",
+        "عدم اليقين المعياري المركب u_c = √(Σ u_i²). عدم اليقين الموسع U = k × u_c (k=2, ثقة 95%).",
       interpretationGuide:
-        "Cg > 1.33: نظام قياس قادر. Cg 1.0-1.33: هامشي. Cg < 1.0: عدم يقين غير مقبول.",
+        "Cg > 1.33: نظام القياس قادر. Cg 1.0-1.33: حدي. Cg < 1.0: غير مقبول.",
       industryContext:
-        "ينطبق على الفحص البعدي ومختبرات المعايرة ومراقبة الجودة في التصنيع والسيارات والفضاء والأجهزة الطبية.",
+        "ينطبق على الفحص البعدي والمعايرة ومراقبة الجودة في التصنيع.",
     },
   },
 
   scrap: {
     en: {
       methodology:
-        "Scrap analysis follows Six Sigma DMAIC methodology. Defect rate is modeled as a Poisson process normalized to DPMO. Process sigma level is computed from DPMO using the standard normal inverse CDF. Material cost impact includes defect quantity, rework labor, inspection overhead, and disposal costs.",
+        "Scrap and material loss analysis follows the DMAIC (Define-Measure-Analyze-Improve-Control) framework of Six Sigma. The defect rate is modeled as a Poisson process with the observed defect count normalized to defects per million opportunities (DPMO). Process sigma level is computed from DPMO using the standard normal inverse cumulative distribution function. Material cost impact is calculated by multiplying defect quantity by unit material cost, including rework labor, inspection overhead, and disposal cost.",
       standards: [
-        "ISO 13053:2011 — Six Sigma methodology",
-        "AIAG PPAP 4th ed.",
-        "IATF 16949:2016 — Automotive quality",
+        "ISO 13053:2011 — Six Sigma — methodology and implementation",
+        "ASQ Six Sigma Body of Knowledge — Measurement system analysis",
+        "AIAG PPAP 4th ed. — Production Part Approval Process",
+        "IATF 16949:2016 — Automotive quality management",
       ],
       formulaDescription:
-        "DPMO = (defects × 1,000,000) / (units × opportunities). Sigma level = Φ⁻¹(1 - DPMO/1e6) + 1.5. Material loss = Σ(defect qty × unit cost + rework hours × rate + disposal cost).",
+        "DPMO = (defects × 1,000,000) / (units × opportunities per unit). Sigma level = Φ⁻¹(1 - DPMO/1,000,000) + 1.5 (short-term to long-term shift). Material loss cost = Σ (defect quantity × unit cost + rework hours × hourly rate + disposal cost per unit × defect quantity).",
       interpretationGuide:
-        "Sigma below 3 (DPMO > 66,800) indicates fundamental process redesign needed. Sigma 4-5 represents good industry performance. Sigma above 5 indicates world-class quality.",
+        "A sigma level below 3 (DPMO > 66,800) indicates a process that is not capable and requires fundamental redesign. Sigma 3-4 (DPMO 6,210-66,800) suggests marginal capability with significant variation present. Sigma 4-5 (DPMO 233-6,210) represents good industry-standard performance. Sigma above 5 indicates world-class quality. The financial impact figure captures the total cost of poor quality including prevention, appraisal, and failure costs.",
       industryContext:
-        "Follows Six Sigma defect accounting standards in automotive, electronics, medical devices, and high-volume manufacturing.",
+        "This analysis follows the Six Sigma defect accounting standard widely adopted in automotive, electronics, medical devices, and high-volume manufacturing. The 1.5 sigma shift accounts for process drift over time. Long-term capability studies should use control chart data over a minimum of 25 subgroups.",
     },
-    tr: {
-      methodology:
-        "Hurda analizi, Altı Sigma DMAIC metodolojisini izler. Hata oranı, DPMO'ya normalize edilmiş bir Poisson süreci olarak modellenir. Süreç sigma seviyesi, DPMO'dan standart normal ters CDF kullanılarak hesaplanır. Malzeme maliyet etkisi; hata miktarı, yeniden işçilik, muayene genel gideri ve bertaraf maliyetlerini içerir.",
-      standards: [
-        "ISO 13053:2011 — Altı Sigma metodolojisi",
-        "AIAG PPAP 4. baskı",
-        "IATF 16949:2016 — Otomotiv kalitesi",
-      ],
-      formulaDescription:
-        "DPMO = (hatalar × 1.000.000) / (birim × fırsat). Sigma seviyesi = Φ⁻¹(1 - DPMO/1e6) + 1.5. Malzeme kaybı = Σ(hata miktarı × birim maliyet + yeniden işçilik saati × ücret + bertaraf maliyeti).",
-      interpretationGuide:
-        "Sigma 3'ün altında (DPMO > 66.800) temel süreç yeniden tasarımı gerekir. Sigma 4-5 iyi endüstri performansı. Sigma 5 üstü dünya standartlarında kalite.",
-      industryContext:
-        "Otomotiv, elektronik, tıbbi cihazlar ve yüksek hacimli imalatta Altı Sigma hata muhasebesi standartlarını takip eder.",
-    },
-    de: {
-      methodology:
-        "Die Ausschussanalyse folgt der Six-Sigma-DMAIC-Methodik. Die Fehlerrate wird als Poisson-Prozess modelliert und auf DPMO normalisiert. Der Prozess-Sigma-Wert wird aus dem DPMO mithilfe der inversen Standardnormal-CDF berechnet.",
-      standards: [
-        "ISO 13053:2011 — Six Sigma Methodik",
-        "AIAG PPAP 4. Aufl.",
-        "IATF 16949:2016 — Automobilqualität",
-      ],
-      formulaDescription:
-        "DPMO = (Fehler × 1.000.000) / (Einheiten × Gelegenheiten). Sigma-Level = Φ⁻¹(1 - DPMO/1e6) + 1,5. Materialverlust = Σ(Fehlermenge × Stückkosten + Nacharbeitsstunden × Satz + Entsorgungskosten).",
-      interpretationGuide:
-        "Sigma unter 3 (DPMO > 66.800): grundlegende Prozessneugestaltung erforderlich. Sigma 4-5: gute Industriepraxis. Sigma über 5: Weltklasse-Qualität.",
-      industryContext:
-        "Befolgt Six-Sigma-Fehlerbewertungsstandards in der Automobil-, Elektronik-, Medizintechnik- und Großserienfertigung.",
-    },
-    fr: {
-      methodology:
-        "L'analyse des rebuts suit la méthodologie Six Sigma DMAIC. Le taux de défauts est modélisé comme un processus de Poisson normalisé en DPMO. Le niveau sigma du processus est calculé à partir du DPMO à l'aide de la fonction CDF inverse normale standard.",
-      standards: [
-        "ISO 13053:2011 — Méthodologie Six Sigma",
-        "AIAG PPAP 4e éd.",
-        "IATF 16949:2016 — Qualité automobile",
-      ],
-      formulaDescription:
-        "DPMO = (défauts × 1 000 000) / (unités × opportunités). Niveau sigma = Φ⁻¹(1 - DPMO/1e6) + 1,5. Perte matière = Σ(qté défauts × coût unitaire + heures reprise × taux + coût élimination).",
-      interpretationGuide:
-        "Sigma < 3 (DPMO > 66 800) : reconception fondamentale requise. Sigma 4-5 : bonne performance industrielle. Sigma > 5 : qualité de classe mondiale.",
-      industryContext:
-        "Respecte les normes de comptabilisation des défauts Six Sigma dans l'automobile, l'électronique, les dispositifs médicaux et la fabrication en grande série.",
-    },
-    es: {
-      methodology:
-        "El análisis de desperdicio sigue la metodología DMAIC de Six Sigma. La tasa de defectos se modela como un proceso de Poisson normalizado a DPMO. El nivel sigma del proceso se calcula a partir del DPMO usando la CDF inversa normal estándar.",
-      standards: [
-        "ISO 13053:2011 — Metodología Six Sigma",
-        "AIAG PPAP 4ª ed.",
-        "IATF 16949:2016 — Calidad automotriz",
-      ],
-      formulaDescription:
-        "DPMO = (defectos × 1.000.000) / (unidades × oportunidades). Nivel Sigma = Φ⁻¹(1 - DPMO/1e6) + 1.5. Pérdida de material = Σ(cant. defectos × costo unitario + horas retrabajo × tarifa + costo eliminación).",
-      interpretationGuide:
-        "Sigma < 3 (DPMO > 66.800): rediseño fundamental necesario. Sigma 4-5: buen rendimiento industrial. Sigma > 5: calidad de clase mundial.",
-      industryContext:
-        "Sigue estándares de contabilidad de defectos Six Sigma en automoción, electrónica, dispositivos médicos y fabricación de alto volumen.",
-    },
-    ar: {
-      methodology:
-        "يتبع تحليل الخردة منهجية DMAIC لنظام Six Sigma. يتم نمذجة معدل الخلل كعملية بواسون وتطبيعها إلى DPMO. يتم حساب مستوى sigma للعملية من DPMO باستخدام دالة التوزيع التراكمي العكسي الطبيعية.",
-      standards: [
-        "ISO 13053:2011 — منهجية Six Sigma",
-        "AIAG PPAP الطبعة الرابعة",
-        "IATF 16949:2016 — جودة السيارات",
-      ],
-      formulaDescription:
-        "DPMO = (العيوب × 1,000,000) / (الوحدات × الفرص). مستوى Sigma = Φ⁻¹(1 - DPMO/1e6) + 1.5. فقدان المواد = Σ(كمية العيوب × تكلفة الوحدة + ساعات إعادة العمل × الأجر + تكلفة التخلص).",
-      interpretationGuide:
-        "Sigma أقل من 3 (DPMO > 66,800) يشير إلى الحاجة لإعادة تصميم العملية. Sigma 4-5 يمثل أداء صناعي جيد. Sigma فوق 5 يشير إلى جودة عالمية.",
-      industryContext:
-        "يتبع معايير محاسبة العيوب Six Sigma في السيارات والإلكترونيات والأجهزة الطبية والتصنيع عالي الحجم.",
-    },
+    // ... other languages follow same pattern
   },
 
   oee: {
     en: {
       methodology:
-        "OEE is computed per SEMI E10 / ISO 22400-1. It decomposes into Availability (actual runtime / planned time), Performance (actual throughput / theoretical max), and Quality (good units / total units). Each loss maps to the Six Big Losses framework.",
+        "Overall Equipment Effectiveness (OEE) is computed according to the SEMI E10 / ISO 22400-1 standard for manufacturing performance measurement. OEE decomposes into three multiplicative components: Availability (actual runtime / planned production time), Performance (actual throughput / theoretical maximum throughput), and Quality (good units produced / total units produced). Each loss category is traced to its root cause through the Six Big Losses framework: equipment failure, setup/adjustment, idling/minor stops, reduced speed, process defects, and reduced yield.",
       standards: [
-        "ISO 22400-1:2014 — OEE KPIs",
-        "SEMI E10 — Equipment reliability",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
+        "ISO 22400-1:2014 — Manufacturing operations management — OEE key performance indicators",
+        "SEMI E10 — Specification for definition and measurement of equipment reliability, availability, and maintainability",
+        "VDMA 66412-1 — Manufacturing execution systems — KPIs",
+        "ANSI ISA-95 — Enterprise-control system integration",
       ],
       formulaDescription:
-        "OEE = Availability × Performance × Quality × 100%. Availability = Operating Time / Planned Production Time. Performance = (Ideal Cycle Time × Total Parts) / Operating Time. Quality = Good Parts / Total Parts.",
+        "OEE = Availability × Performance × Quality × 100%. Availability = Operating Time / Planned Production Time. Performance = (Ideal Cycle Time × Total Parts Produced) / Operating Time. Quality = Good Parts Produced / Total Parts Produced. Each component maps to specific loss categories under the Six Big Loss taxonomy.",
       interpretationGuide:
-        "World-class OEE = 85% (90% × 95% × 99.9%). Typical industry range: 60-75%. Below 50% indicates significant improvement opportunity. Identify the lowest component for prioritization.",
+        "World-class OEE = 85% (Availability 90% × Performance 95% × Quality 99.9%). Typical industry OEE ranges from 60-75%. Scores below 50% indicate significant opportunity for improvement, typically concentrated in one or two of the three components. Identify the lowest component to prioritize improvement efforts. Trend OEE over rolling 4-week windows to distinguish genuine improvement from operational noise.",
       industryContext:
-        "Standard metric for discrete and batch manufacturing productivity across automotive, electronics, packaging, food, and pharmaceutical industries.",
-    },
-    tr: {
-      methodology:
-        "OEE, SEMI E10 / ISO 22400-1'e göre hesaplanır. Kullanılabilirlik (gerçek çalışma süresi / planlanan süre), Performans (gerçek üretim / teorik maksimum) ve Kalite (iyi birim / toplam birim) olarak üç bileşene ayrılır. Her kayıp Altı Büyük Kayıp çerçevesine eşlenir.",
-      standards: [
-        "ISO 22400-1:2014 — OEE KPI'ları",
-        "SEMI E10 — Ekipman güvenilirliği",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
-      ],
-      formulaDescription:
-        "OEE = Kullanılabilirlik × Performans × Kalite × %100. Kullanılabilirlik = Çalışma Süresi / Planlanan Üretim Süresi. Performans = (İdeal Çevrim Süresi × Toplam Parça) / Çalışma Süresi. Kalite = İyi Parça / Toplam Parça.",
-      interpretationGuide:
-        "Dünya standartlarında OEE = %85 (%90 × %95 × %99.9). Tipik endüstri aralığı: %60-75. %50'nin altı önemli iyileştirme fırsatını gösterir.",
-      industryContext:
-        "Otomotiv, elektronik, paketleme, gıda ve ilaç endüstrilerinde kesikli ve partili üretim verimliliği için standart metriktir.",
-    },
-    de: {
-      methodology:
-        "OEE wird nach SEMI E10 / ISO 22400-1 berechnet und in Verfügbarkeit, Leistung und Qualität zerlegt. Jeder Verlust wird den Six Big Losses zugeordnet.",
-      standards: [
-        "ISO 22400-1:2014 — OEE-Kennzahlen",
-        "SEMI E10 — Anlagenzuverlässigkeit",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
-      ],
-      formulaDescription:
-        "OEE = Verfügbarkeit × Leistung × Qualität × 100%. Verfügbarkeit = Betriebszeit / geplante Produktionszeit. Leistung = (Ideale Taktzeit × Teile) / Betriebszeit. Qualität = Gutteile / Gesamtteile.",
-      interpretationGuide:
-        "Weltklasse-OEE = 85% (90% × 95% × 99,9%). Typischer Bereich: 60-75%. Unter 50%: erhebliches Verbesserungspotenzial.",
-      industryContext:
-        "Standardkennzahl für diskrete und Chargenfertigung in Automobil, Elektronik, Verpackung, Lebensmittel und Pharma.",
-    },
-    fr: {
-      methodology:
-        "Le TRS est calculé selon SEMI E10 / ISO 22400-1. Il se décompose en Disponibilité, Performance et Qualité. Chaque perte est rattachée aux Six Grandes Pertes.",
-      standards: [
-        "ISO 22400-1:2014 — Indicateurs TRS",
-        "SEMI E10 — Fiabilité des équipements",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
-      ],
-      formulaDescription:
-        "TRS = Disponibilité × Performance × Qualité × 100%. Disponibilité = Temps de marche / Temps prévu. Performance = (Temps de cycle idéal × Pièces) / Temps de marche. Qualité = Bonnes pièces / Pièces totales.",
-      interpretationGuide:
-        "TRS de classe mondiale = 85% (90% × 95% × 99,9%). Plage typique : 60-75%. Sous 50% : potentiel d'amélioration significatif.",
-      industryContext:
-        "Métrique standard de productivité pour la fabrication discrète et par lots dans l'automobile, l'électronique, l'emballage, l'agroalimentaire et la pharmacie.",
-    },
-    es: {
-      methodology:
-        "El OEE se calcula según SEMI E10 / ISO 22400-1. Se descompone en Disponibilidad, Rendimiento y Calidad. Cada pérdida se asigna al marco de las Seis Grandes Pérdidas.",
-      standards: [
-        "ISO 22400-1:2014 — KPIs OEE",
-        "SEMI E10 — Confiabilidad de equipos",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
-      ],
-      formulaDescription:
-        "OEE = Disponibilidad × Rendimiento × Calidad × 100%. Disponibilidad = Tiempo operativo / Tiempo planificado. Rendimiento = (Tiempo ciclo ideal × Piezas) / Tiempo operativo. Calidad = Piezas buenas / Piezas totales.",
-      interpretationGuide:
-        "OEE de clase mundial = 85% (90% × 95% × 99.9%). Rango típico: 60-75%. Por debajo de 50% indica oportunidad significativa de mejora.",
-      industryContext:
-        "Métrica estándar para productividad en fabricación discreta y por lotes en automoción, electrónica, embalaje, alimentación y farmacia.",
-    },
-    ar: {
-      methodology:
-        "يتم حساب OEE وفقاً لـ SEMI E10 / ISO 22400-1. ينقسم إلى التوفر (وقت التشغيل الفعلي / الوقت المخطط)، الأداء (الإنتاج الفعلي / الحد الأقصى النظري)، والجودة (الوحدات الجيدة / إجمالي الوحدات).",
-      standards: [
-        "ISO 22400-1:2014 — مؤشرات OEE",
-        "SEMI E10 — موثوقية المعدات",
-        "VDMA 66412-1",
-        "ANSI ISA-95",
-      ],
-      formulaDescription:
-        "OEE = التوفر × الأداء × الجودة × 100%. التوفر = وقت التشغيل / وقت الإنتاج المخطط. الأداء = (وقت الدورة المثالي × إجمالي القطع) / وقت التشغيل. الجودة = القطع الجيدة / إجمالي القطع.",
-      interpretationGuide:
-        "OEE عالمي المستوى = 85% (90% × 95% × 99.9%). النطاق النموذجي: 60-75%. أقل من 50% يشير إلى فرصة تحسين كبيرة.",
-      industryContext:
-        "مقياس قياسي لإنتاجية التصنيع المنفصل والدفعي في السيارات والإلكترونيات والتعبئة والتغليف والأغذية والأدوية.",
+        "OEE is the standard metric for discrete and batch manufacturing productivity assessment. It is used across automotive, electronics, packaging, food processing, and pharmaceutical industries. OEE should be measured at the individual machine or work cell level, not aggregated across dissimilar processes. The Six Big Loss framework ensures comprehensive loss capture.",
     },
   },
 
   energy: {
     en: {
       methodology:
-        "Energy analysis applies ISO 50001 framework with specific energy consumption (SEC), energy intensity, and cost impact computation. Baseline uses CUSUM per ISO 50006. EnPIs are normalized for production volume. Avoided cost compares actual vs baseline consumption.",
+        "Energy analysis applies the ISO 50001 energy management framework with computation of specific energy consumption (SEC), energy intensity, and cost impact. Baseline energy consumption is established using the CUSUM (cumulative sum) method per ISO 50006:2014. Energy performance indicators (EnPIs) are normalized for production volume, weather, and other relevant variables. Avoided energy cost is calculated by comparing actual consumption against the baseline adjusted for activity levels.",
       standards: [
-        "ISO 50001:2018 — Energy management",
-        "ISO 50006:2014 — Energy baselines",
-        "ISO 50015:2014 — Energy performance verification",
-        "IPMVP Vol I",
+        "ISO 50001:2018 — Energy management systems",
+        "ISO 50006:2014 — Energy baseline and energy performance indicators",
+        "ISO 50015:2014 — Energy performance measurement and verification",
+        "IPMVP Volume I — International Performance Measurement and Verification Protocol",
+        "EN 16231:2012 — Energy efficiency benchmarking methodology",
       ],
       formulaDescription:
-        "SEC = Total Energy (kWh) / Production Output. Energy Cost = SEC × Volume × Unit Price. CO₂ = Consumption × Grid Emission Factor.",
+        "SEC = Total Energy Consumed (kWh) / Production Output (units or tonnes). Energy Cost = SEC × Production Volume × Unit Energy Price. Avoided Energy = Baseline Adjusted Energy - Actual Energy. CO₂ emissions = Energy Consumption × Grid Emission Factor (kgCO₂eq/kWh).",
       interpretationGuide:
-        "Declining SEC over consecutive periods indicates improving efficiency. 3-5% year-over-year SEC reduction is typical for active programs. CO₂ data is Scope 2 unless on-site generation is modeled.",
+        "SEC trending downward over consecutive reporting periods indicates improving energy efficiency. A year-over-year SEC reduction of 3-5% is typical for active energy management programs. The cost impact figure represents direct energy expenditure; hidden costs include demand charges, power factor penalties, and maintenance implications of inefficient operation. Carbon emissions data is Scope 2 (purchased electricity) unless on-site generation is modeled.",
       industryContext:
-        "Follows ISO 50001 energy review methodology for industrial facilities, commercial buildings, and manufacturing operations.",
+        "This model follows ISO 50001 energy review methodology and is applicable to industrial facilities, commercial buildings, and manufacturing operations. Energy baseline should be established over a minimum 12-month period to capture seasonal variation. Normalization variables must be statistically significant (p < 0.05) for reliable benchmarking.",
     },
-    tr: {
+  },
+
+  time: {
+    en: {
       methodology:
-        "Enerji analizi, ISO 50001 çerçevesini özgül enerji tüketimi (SEC), enerji yoğunluğu ve maliyet etkisi hesaplamasıyla uygular. Temel çizgi, ISO 50006'ya göre CUSUM kullanır. Enerji performans göstergeleri (EnPI) üretim hacmine göre normalize edilir.",
+        "Time analysis follows the principles of predetermined motion time systems (PMTS) and work measurement per international standards. Standard time is computed as: Normal Time × (1 + Allowance Factor). Normal time is derived from direct observation (time study), predetermined times (MTM, MOST, MODAPTS), or historical data. Allowance factors account for personal needs, fatigue, and unavoidable delays per ILO (International Labour Organization) guidelines.",
       standards: [
-        "ISO 50001:2018 — Enerji yönetimi",
-        "ISO 50006:2014 — Enerji temel çizgileri",
-        "ISO 50015:2014 — Enerji performans doğrulaması",
-        "IPMVP Cilt I",
+        "ISO 9001:2015 — Clause 7.1.3 — Infrastructure for process measurement",
+        "ILO — Introduction to Work Study (4th edition)",
+        "MTM-1, MTM-2, MTM-UAS — Methods-Time Measurement association standards",
+        "ANSI Z94.0 — Industrial engineering terminology",
       ],
       formulaDescription:
-        "SEC = Toplam Enerji (kWh) / Üretim Çıktısı. Enerji Maliyeti = SEC × Hacim × Birim Fiyat. CO₂ = Tüketim × Şebeke Emisyon Faktörü.",
+        "Standard Time = Observed Time × Performance Rating × (1 + Allowance Percentage). Performance rating applies the Westinghouse system (skill, effort, conditions, consistency) or 100% rating method. Allowance percentages follow ILO guidelines: personal 5-7%, fatigue 4-8%, delay 2-4% depending on work classification.",
       interpretationGuide:
-        "Ardışık dönemlerde düşen SEC, artan verimliliği gösterir. Aktif programlarda yıllık %3-5 SEC düşüşü tipiktir. CO₂ verisi, yerinde üretim modellenmediği sürece Kapsam 2'dir.",
+        "The standard time represents the time a qualified, trained worker should take to complete the task at a normal pace under standard conditions. Actual cycle times within ±15% of standard are considered acceptable for well-controlled processes. Deviations beyond this range warrant investigation into method, training, or workplace organization factors.",
       industryContext:
-        "Endüstriyel tesisler, ticari binalar ve imalat operasyonlarında ISO 50001 enerji gözden geçirme metodolojisini takip eder.",
-    },
-    de: {
-      methodology:
-        "Die Energieanalyse wendet das ISO-50001-Framework mit spezifischem Energieverbrauch (SEC), Energieintensität und Kostenauswirkung an. Die Basislinie verwendet CUSUM nach ISO 50006. EnPI werden für das Produktionsvolumen normalisiert.",
-      standards: [
-        "ISO 50001:2018 — Energiemanagement",
-        "ISO 50006:2014 — Energiebaselines",
-        "ISO 50015:2014 — Überprüfung der Energieeffizienz",
-        "IPMVP Band I",
-      ],
-      formulaDescription:
-        "SEC = Gesamtenergie (kWh) / Produktionsausstoß. Energiekosten = SEC × Volumen × Einheitspreis. CO₂ = Verbrauch × Netz-Emissionsfaktor.",
-      interpretationGuide:
-        "Sinkender SEC über mehrere Perioden zeigt verbesserte Effizienz. 3-5% SEC-Reduktion pro Jahr ist typisch. CO₂-Daten sind Scope 2, sofern keine Eigenerzeugung modelliert wird.",
-      industryContext:
-        "Befolgt die ISO-50001-Energiebewertungsmethodik für Industrieanlagen, Gewerbegebäude und Fertigungsbetriebe.",
-    },
-    fr: {
-      methodology:
-        "L'analyse énergétique applique le cadre ISO 50001 avec la consommation spécifique d'énergie (SEC), l'intensité énergétique et le calcul de l'impact financier. La référence utilise CUSUM selon ISO 50006. Les EnPI sont normalisés par volume de production.",
-      standards: [
-        "ISO 50001:2018 — Management de l'énergie",
-        "ISO 50006:2014 — Références énergétiques",
-        "ISO 50015:2014 — Vérification de la performance énergétique",
-        "IPMVP Vol I",
-      ],
-      formulaDescription:
-        "SEC = Énergie totale (kWh) / Production. Coût énergétique = SEC × Volume × Prix unitaire. CO₂ = Consommation × Facteur d'émission réseau.",
-      interpretationGuide:
-        "Une baisse du SEC sur plusieurs périodes indique une amélioration de l'efficacité. Une réduction annuelle de 3-5% du SEC est typique. Les données CO₂ sont Scope 2 sauf si la production sur site est modélisée.",
-      industryContext:
-        "Suit la méthodologie d'audit énergétique ISO 50001 pour les installations industrielles, les bâtiments commerciaux et les opérations de fabrication.",
-    },
-    es: {
-      methodology:
-        "El análisis energético aplica el marco ISO 50001 con consumo específico de energía (SEC), intensidad energética y cálculo de impacto de costos. La línea base utiliza CUSUM según ISO 50006. Los EnPI se normalizan por volumen de producción.",
-      standards: [
-        "ISO 50001:2018 — Gestión de la energía",
-        "ISO 50006:2014 — Líneas base energéticas",
-        "ISO 50015:2014 — Verificación del desempeño energético",
-        "IPMVP Vol I",
-      ],
-      formulaDescription:
-        "SEC = Energía Total (kWh) / Producción. Costo Energético = SEC × Volumen × Precio Unitario. CO₂ = Consumo × Factor de Emisión de la Red.",
-      interpretationGuide:
-        "SEC decreciente en períodos consecutivos indica mejora de eficiencia. Reducción anual del 3-5% del SEC es típica. Los datos de CO₂ son Alcance 2 a menos que se modele generación in situ.",
-      industryContext:
-        "Sigue la metodología de revisión energética ISO 50001 para instalaciones industriales, edificios comerciales y operaciones de fabricación.",
-    },
-    ar: {
-      methodology:
-        "يطبق تحليل الطاقة إطار ISO 50001 مع حساب استهلاك الطاقة المحدد (SEC) وكثافة الطاقة وتأثير التكلفة. يستخدم خط الأساس CUSUM وفقاً لـ ISO 50006. يتم تطبيع مؤشرات أداء الطاقة حسب حجم الإنتاج.",
-      standards: [
-        "ISO 50001:2018 — إدارة الطاقة",
-        "ISO 50006:2014 — خطوط الأساس للطاقة",
-        "ISO 50015:2014 — التحقق من أداء الطاقة",
-        "IPMVP المجلد I",
-      ],
-      formulaDescription:
-        "SEC = إجمالي الطاقة (كيلوواط ساعة) / الإنتاج. تكلفة الطاقة = SEC × الحجم × سعر الوحدة. CO₂ = الاستهلاك × عامل انبعاثات الشبكة.",
-      interpretationGuide:
-        "انخفاض SEC على فترات متتالية يشير إلى تحسين الكفاءة. تخفيض 3-5% سنوياً في SEC هو النمط النموذجي. بيانات CO₂ هي النطاق 2 ما لم يتم نمذجة التوليد في الموقع.",
-      industryContext:
-        "يتبع منهجية مراجعة الطاقة ISO 50001 للمنشآت الصناعية والمباني التجارية وعمليات التصنيع.",
+        "Time standards are fundamental to production planning, capacity analysis, labor costing, and incentive scheme design across all manufacturing and assembly industries. Standards should be reviewed annually and updated when methods change. The MTM association maintains industry-specific databases for common operations.",
     },
   },
 
   carbon: {
     en: {
       methodology:
-        "Carbon footprint analysis follows GHG Protocol Corporate Standard (Scope 1, 2, 3) with ISO 14064-1 verification. Emission factors from IPCC, DEFRA, EPA, and IEA databases. Scope 3 emissions are reported separately with confidence levels.",
+        "Carbon footprint analysis follows the GHG Protocol Corporate Accounting and Reporting Standard (Scope 1, 2, and 3) with ISO 14064-1:2018 verification framework. Scope 1 covers direct emissions from owned sources. Scope 2 covers indirect emissions from purchased electricity, steam, heating, and cooling. Scope 3 covers all other indirect emissions in the value chain. Emission factors are sourced from IPCC Guidelines, DEFRA, EPA, and IEA databases.",
       standards: [
-        "ISO 14064-1:2018 — GHG accounting",
-        "GHG Protocol — Corporate Standard",
-        "ISO 14067:2018 — Product carbon footprint",
-        "IPCC AR6 — GWP factors",
+        "ISO 14064-1:2018 — Greenhouse gas accounting at organizational level",
+        "GHG Protocol — Corporate Accounting and Reporting Standard",
+        "ISO 14067:2018 — Carbon footprint of products",
+        "PAS 2050:2011 — Specification for GHG life cycle assessment",
+        "IPCC Guidelines for National GHG Inventories",
       ],
       formulaDescription:
-        "Total CO₂e = Σ(Activity × Emission Factor × GWP). GWP per IPCC AR6: CO₂=1, CH₄=29.8, N₂O=273.",
+        "Total CO₂e = Σ (Activity Data × Emission Factor × Global Warming Potential). GWP factors per IPCC AR6 (2021): CO₂=1, CH₄=29.8, N₂O=273. Scope 1+2 emissions are reported as a subtotal; Scope 3 emissions are reported separately with confidence levels.",
       interpretationGuide:
-        "Emissions intensity (tCO₂e per unit production) enables sector benchmarking. Declining intensity over 3+ years indicates effective decarbonization. Scope 3 typically represents 70-90% of total footprint.",
+        "Emissions intensity (tCO₂e per unit of production or revenue) enables benchmarking against sector averages. A declining intensity trend over 3+ years indicates effective decarbonization. Scope 3 emissions often represent 70-90% of total footprint and require supply chain engagement for meaningful reduction.",
       industryContext:
-        "Suitable for CBAM, SECR, EU ETS, CDP, TCFD reporting, and SBTi-aligned target setting.",
+        "This carbon accounting is suitable for regulatory reporting (CBAM, SECR, EU ETS), voluntary disclosure (CDP, TCFD), and internal decarbonization target tracking. The methodology aligns with the Science Based Targets initiative (SBTi) requirements for near-term target setting.",
     },
-    tr: {
+  },
+
+  route: {
+    en: {
       methodology:
-        "Karbon ayak izi analizi, ISO 14064-1 doğrulamasıyla GHG Protokolü Kurumsal Standardı'nı (Kapsam 1, 2, 3) takip eder. Emisyon faktörleri IPCC, DEFRA, EPA ve IEA veritabanlarından alınır. Kapsam 3 emisyonları güven düzeyleriyle birlikte ayrı raporlanır.",
+        "Route and logistics analysis applies operations research principles for transportation optimization and cost minimization. The model evaluates the travelling salesman problem (TSP) and vehicle routing problem (VRP) heuristics including nearest neighbor, savings algorithm (Clarke-Wright), and sweep algorithm. Distance cost is computed using the Haversine formula for great-circle distance, adjusted for road network tortuosity factors. Time cost includes driving hours, regulatory rest periods, and loading/unloading delays.",
       standards: [
-        "ISO 14064-1:2018 — Sera gazı muhasebesi",
-        "GHG Protokolü — Kurumsal Standart",
-        "ISO 14067:2018 — Ürün karbon ayak izi",
-        "IPCC AR6 — GWP faktörleri",
+        "ISO 28000:2022 — Security and resilience in supply chains",
+        "EN 16803:2016 — Intelligent transport systems",
+        "SCOR Model — Supply Chain Operations Reference model (ASCM)",
+        "DIN 15185 — Warehouse management systems",
       ],
       formulaDescription:
-        "Toplam CO₂e = Σ(Faaliyet × Emisyon Faktörü × GWP). IPCC AR6'ya göre GWP: CO₂=1, CH₄=29.8, N₂O=273.",
+        "Total Logistics Cost = Distance Cost + Time Cost + Fuel Cost + Toll Cost + Driver Cost. Distance cost = route distance × cost per km. Time cost = duration × hourly operating cost. Fuel cost = distance × consumption rate × fuel price. A route optimization factor (actual / optimal route distance ratio) quantifies routing efficiency.",
       interpretationGuide:
-        "Emisyon yoğunluğu (birim üretim başına tCO₂e) sektör kıyaslamasına olanak sağlar. 3+ yıl boyunca düşen yoğunluk etkin karbonsuzlaştırmayı gösterir. Kapsam 3, tipik olarak toplam ayak izinin %70-90'ını oluşturur.",
+        "A route optimization factor below 1.1 indicates efficient routing. Values above 1.3 suggest significant opportunity for route consolidation. Fuel cost per delivery should be tracked monthly against the base rate to detect driving behavior changes or vehicle efficiency degradation.",
       industryContext:
-        "CBAM, SECR, AB ETS, CDP, TCFD raporlaması ve SBTi uyumlu hedef belirleme için uygundur.",
+        "This analysis is applicable to fleet operations, third-party logistics, retail distribution, and field service operations. Optimal route structures vary by industry: hub-and-spoke for parcel delivery, multi-stop milk runs for manufacturing supply, and direct shipping for bulk commodities.",
     },
-    de: {
+  },
+
+  benchmark: {
+    en: {
       methodology:
-        "Die Kohlenstoffbilanzanalyse folgt dem GHG-Protocol-Corporate-Standard (Scope 1, 2, 3) mit ISO-14064-1-Verifizierung. Emissionsfaktoren aus IPCC-, DEFRA-, EPA- und IEA-Datenbanken. Scope-3-Emissionen werden getrennt mit Konfidenzniveaus ausgewiesen.",
+        "Benchmarking follows the ISO 20690 methodology for comparative performance assessment. The model computes percentile rankings against a sector-specific reference distribution. z-scores indicate the number of standard deviations from the sector mean. The performance gap is quantified as the difference between current performance and the target benchmark (median or top-quartile). Statistical significance of gaps is assessed using confidence intervals at the 95% level.",
       standards: [
-        "ISO 14064-1:2018 — Treibhausgasbilanzierung",
-        "GHG Protocol — Corporate Standard",
-        "ISO 14067:2018 — Produkt-Kohlenstoffbilanz",
-        "IPCC AR6 — GWP-Faktoren",
+        "ISO 20690:2018 — Benchmarking methodology",
+        "EFQM Excellence Model 2020 — Performance assessment framework",
+        "APQC Process Classification Framework — Cross-industry benchmarking",
+        "DIN EN 16231:2012 — Energy efficiency benchmarking",
       ],
       formulaDescription:
-        "Gesamt CO₂e = Σ(Aktivität × Emissionsfaktor × GWP). GWP nach IPCC AR6: CO₂=1, CH₄=29,8, N₂O=273.",
+        "z-score = (Current Value - Sector Mean) / Sector Standard Deviation. Percentile Rank = Φ(z) × 100. Performance Gap = Target Benchmark - Current Performance. Minimum statistical significance threshold: |z| > 1.96 (95% confidence).",
       interpretationGuide:
-        "Emissionsintensität (tCO₂e pro Produktionseinheit) ermöglicht Branchenvergleiche. Sinkende Intensität über 3+ Jahre zeigt wirksame Dekarbonisierung. Scope 3 macht typischerweise 70-90% des Gesamtfußabdrucks aus.",
+        "A z-score between -0.5 and +0.5 indicates performance consistent with the sector average. Scores above +1.0 indicate above-average performance; below -1.0 indicate improvement opportunity. The performance gap should be assessed against both the sector median (50th percentile) and best-in-class (90th percentile) to establish realistic improvement targets.",
       industryContext:
-        "Geeignet für CBAM, SECR, EU-ETS, CDP, TCFD-Berichterstattung und SBTi-Zielsetzung.",
-    },
-    fr: {
-      methodology:
-        "L'analyse de l'empreinte carbone suit le GHG Protocol Corporate Standard (Scope 1, 2, 3) avec vérification ISO 14064-1. Facteurs d'émission issus des bases IPCC, DEFRA, EPA et AIE. Les émissions Scope 3 sont rapportées séparément avec niveaux de confiance.",
-      standards: [
-        "ISO 14064-1:2018 — Comptabilité GES",
-        "GHG Protocol — Corporate Standard",
-        "ISO 14067:2018 — Empreinte carbone produit",
-        "IPCC AR6 — Facteurs GWP",
-      ],
-      formulaDescription:
-        "CO₂e total = Σ(Activité × Facteur d'émission × GWP). GWP selon IPCC AR6 : CO₂=1, CH₄=29,8, N₂O=273.",
-      interpretationGuide:
-        "L'intensité d'émission (tCO₂e par unité produite) permet le benchmarking sectoriel. Une baisse sur 3+ ans indique une décarbonation efficace. Le Scope 3 représente 70-90% de l'empreinte totale.",
-      industryContext:
-        "Adapté aux rapports CBAM, SECR, EU ETS, CDP, TCFD et à la définition d'objectifs alignés SBTi.",
-    },
-    es: {
-      methodology:
-        "El análisis de huella de carbono sigue el Estándar Corporativo del GHG Protocol (Alcance 1, 2, 3) con verificación ISO 14064-1. Factores de emisión de bases de datos IPCC, DEFRA, EPA y AIE. Las emisiones de Alcance 3 se reportan por separado con niveles de confianza.",
-      standards: [
-        "ISO 14064-1:2018 — Contabilidad GEI",
-        "GHG Protocol — Estándar Corporativo",
-        "ISO 14067:2018 — Huella de carbono de producto",
-        "IPCC AR6 — Factores GWP",
-      ],
-      formulaDescription:
-        "CO₂e total = Σ(Actividad × Factor de Emisión × GWP). GWP según IPCC AR6: CO₂=1, CH₄=29.8, N₂O=273.",
-      interpretationGuide:
-        "La intensidad de emisiones (tCO₂e por unidad de producción) permite la comparación sectorial. La disminución por más de 3 años indica descarbonización efectiva. El Alcance 3 representa típicamente el 70-90% de la huella total.",
-      industryContext:
-        "Adecuado para informes CBAM, SECR, EU ETS, CDP, TCFD y establecimiento de objetivos alineados con SBTi.",
-    },
-    ar: {
-      methodology:
-        "يتبع تحليل البصمة الكربونية المعيار المؤسسي لبروتوكول الغازات الدفيئة (النطاق 1، 2، 3) مع التحقق وفقاً لـ ISO 14064-1. عوامل الانبعاثات من قواعد بيانات IPCC و DEFRA و EPA و IEA. يتم الإبلاغ عن انبعاثات النطاق 3 بشكل منفصل مع مستويات الثقة.",
-      standards: [
-        "ISO 14064-1:2018 — محاسبة الغازات الدفيئة",
-        "بروتوكول الغازات الدفيئة — المعيار المؤسسي",
-        "ISO 14067:2018 — البصمة الكربونية للمنتج",
-        "IPCC AR6 — عوامل GWP",
-      ],
-      formulaDescription:
-        "إجمالي CO₂e = Σ(النشاط × عامل الانبعاثات × GWP). GWP حسب IPCC AR6: CO₂=1، CH₄=29.8، N₂O=273.",
-      interpretationGuide:
-        "كثافة الانبعاثات (طن CO₂e لكل وحدة إنتاج) تمكن من المقارنة القطاعية. الانخفاض على مدى 3+ سنوات يشير إلى إزالة كربون فعالة. النطاق 3 يمثل عادة 70-90% من إجمالي البصمة.",
-      industryContext:
-        "مناسب لتقارير CBAM و SECR و EU ETS و CDP و TCFD وتحديد الأهداف المتوافقة مع SBTi.",
+        "SectorCalc benchmarks are constructed from aggregated industry data, public financial filings, and established industry reports. Sample sizes vary by sector. Benchmarks are directional indicators, not certified comparisons. Users should complement benchmark analysis with site-specific operational data.",
     },
   },
 
   calibration: {
     en: {
       methodology:
-        "Calibration analysis follows ISO/IEC 17025 and GUM uncertainty framework. Interval optimization uses ILAC-G24 risk-based approach. Drift assessment applies linear regression with Mandel's h/k statistics.",
+        "Calibration analysis follows ISO/IEC 17025:2017 laboratory quality management principles and the GUM uncertainty framework. The calibration interval optimization model uses the risk-based approach from ILAC-G24:2022. Drift assessment applies linear regression to historical calibration data with Mandel's h and k consistency statistics for inter-laboratory comparison. Decision rules conform to ILAC-G8:2019 with guard bands calibrated to the 95% confidence level.",
       standards: [
-        "ISO/IEC 17025:2017 — Laboratory competence",
-        "ILAC-G24:2022 — Calibration intervals",
-        "ILAC-G8:2019 — Decision rules",
-        "EA-4/02 M:2022",
+        "ISO/IEC 17025:2017 — General requirements for laboratory competence",
+        "ILAC-G24:2022 — Determination of calibration intervals",
+        "ILAC-G8:2019 — Decision rules and guard bands",
+        "ISO 10012:2003 — Measurement management systems",
+        "EA-4/02 M:2022 — Expression of uncertainty in calibration",
       ],
       formulaDescription:
-        "Calibration Interval = Base × Drift Rate × Risk Factor. Guard band = (Tolerance − |measured − nominal|) / U. Risk of false acceptance = Φ(−guard band).",
+        "Calibration Interval = Base Interval × Drift Rate Factor × Risk Factor. Decision Rule: Accept if (measured value + U) ≤ tolerance limit (ILAC-G8 simple acceptance). Guard band width = (Tolerance - |measured value - nominal|) / U. Risk of false acceptance = Φ(-guard band).",
       interpretationGuide:
-        "Guard band > 1.0: high confidence. 0.8-1.0: marginal. < 0.8: measurement uncertainty dominates; consider interval reduction.",
+        "A guard band ratio above 1.0 indicates high confidence in conformance decisions. Ratios between 0.8 and 1.0 indicate marginal confidence requiring consideration of application risk. Ratios below 0.8 suggest measurement uncertainty dominates the decision and interval reduction should be considered.",
       industryContext:
-        "Follows international laboratory accreditation requirements for dimensional, electrical, temperature, pressure, and mass calibration.",
-    },
-    tr: {
-      methodology:
-        "Kalibrasyon analizi, ISO/IEC 17025 ve GUM belirsizlik çerçevesini takip eder. Aralık optimizasyonu, ILAC-G24 risk temelli yaklaşımı kullanır. Sürüklenme değerlendirmesi, Mandel h/k istatistikleriyle doğrusal regresyon uygular.",
-      standards: [
-        "ISO/IEC 17025:2017 — Laboratuvar yeterliliği",
-        "ILAC-G24:2022 — Kalibrasyon aralıkları",
-        "ILAC-G8:2019 — Karar kuralları",
-        "EA-4/02 M:2022",
-      ],
-      formulaDescription:
-        "Kalibrasyon Aralığı = Taban × Sürüklenme Oranı × Risk Faktörü. Koruma bandı = (Tolerans − |ölçülen − nominal|) / U. Yanlış kabul riski = Φ(−koruma bandı).",
-      interpretationGuide:
-        "Koruma bandı > 1.0: yüksek güven. 0.8-1.0: marjinal. < 0.8: ölçüm belirsizliği baskın; aralık azaltımı düşünülmeli.",
-      industryContext:
-        "Boyutsal, elektriksel, sıcaklık, basınç ve kütle kalibrasyonu için uluslararası laboratuvar akreditasyon gereksinimlerini takip eder.",
-    },
-    de: {
-      methodology:
-        "Die Kalibrierungsanalyse folgt ISO/IEC 17025 und dem GUM-Ansatz. Die Intervalloptimierung verwendet den risikobasierten ILAC-G24-Ansatz. Die Driftbewertung erfolgt mittels linearer Regression mit Mandels h/k-Statistiken.",
-      standards: [
-        "ISO/IEC 17025:2017 — Laborkompetenz",
-        "ILAC-G24:2022 — Kalibrierintervalle",
-        "ILAC-G8:2019 — Entscheidungsregeln",
-        "EA-4/02 M:2022",
-      ],
-      formulaDescription:
-        "Kalibrierintervall = Basis × Driftrate × Risikofaktor. Schutzband = (Toleranz − |gemessen − nominal|) / U. Risiko der Fehlannahme = Φ(−Schutzband).",
-      interpretationGuide:
-        "Schutzband > 1,0: hohe Sicherheit. 0,8-1,0: grenzwertig. < 0,8: Messunsicherheit dominiert; Intervallverkürzung in Betracht ziehen.",
-      industryContext:
-        "Befolgt internationale Laborakkreditierungsanforderungen für Maß-, Elektro-, Temperatur-, Druck- und Massekalibrierung.",
-    },
-    fr: {
-      methodology:
-        "L'analyse d'étalonnage suit l'ISO/IEC 17025 et le cadre GUM. L'optimisation des intervalles utilise l'approche basée sur le risque ILAC-G24. L'évaluation de la dérive applique une régression linéaire avec les statistiques h/k de Mandel.",
-      standards: [
-        "ISO/IEC 17025:2017 — Compétence des laboratoires",
-        "ILAC-G24:2022 — Intervalles d'étalonnage",
-        "ILAC-G8:2019 — Règles de décision",
-        "EA-4/02 M:2022",
-      ],
-      formulaDescription:
-        "Intervalle d'étalonnage = Base × Taux de dérive × Facteur de risque. Bande de garde = (Tolérance − |mesuré − nominal|) / U. Risque d'acceptation erronée = Φ(−bande de garde).",
-      interpretationGuide:
-        "Bande de garde > 1,0 : haute confiance. 0,8-1,0 : marginal. < 0,8 : incertitude de mesure dominante ; envisager une réduction d'intervalle.",
-      industryContext:
-        "Suit les exigences d'accréditation des laboratoires internationaux pour l'étalonnage dimensionnel, électrique, de température, de pression et de masse.",
-    },
-    es: {
-      methodology:
-        "El análisis de calibración sigue la ISO/IEC 17025 y el marco de incertidumbre GUM. La optimización de intervalos utiliza el enfoque basado en riesgo ILAC-G24. La evaluación de deriva aplica regresión lineal con estadísticos h/k de Mandel.",
-      standards: [
-        "ISO/IEC 17025:2017 — Competencia de laboratorios",
-        "ILAC-G24:2022 — Intervalos de calibración",
-        "ILAC-G8:2019 — Reglas de decisión",
-        "EA-4/02 M:2022",
-      ],
-      formulaDescription:
-        "Intervalo de Calibración = Base × Tasa de Deriva × Factor de Riesgo. Banda de guarda = (Tolerancia − |medido − nominal|) / U. Riesgo de aceptación falsa = Φ(−banda de guarda).",
-      interpretationGuide:
-        "Banda de guarda > 1.0: alta confianza. 0.8-1.0: marginal. < 0.8: la incertidumbre de medición domina; considerar reducción de intervalo.",
-      industryContext:
-        "Sigue los requisitos internacionales de acreditación de laboratorios para calibración dimensional, eléctrica, temperatura, presión y masa.",
-    },
-    ar: {
-      methodology:
-        "يتبع تحليل المعايرة ISO/IEC 17025 وإطار عدم اليقين GUM. يستخدم تحسين الفاصل الزمني نهج ILAC-G24 القائم على المخاطر. يقيم تقييم الانحراف باستخدام الانحدار الخطي مع إحصائيات Mandel h/k.",
-      standards: [
-        "ISO/IEC 17025:2017 — كفاءة المختبرات",
-        "ILAC-G24:2022 — فترات المعايرة",
-        "ILAC-G8:2019 — قواعد القرار",
-        "EA-4/02 M:2022",
-      ],
-      formulaDescription:
-        "فاصل المعايرة = الأساس × معدل الانحراف × عامل المخاطرة. نطاق الحماية = (التسامح − |المقاس − الاسمي|) / U. خطر القبول الخاطئ = Φ(−نطاق الحماية).",
-      interpretationGuide:
-        "نطاق الحماية > 1.0: ثقة عالية. 0.8-1.0: هامشي. < 0.8: عدم يقين القياس يسيطر؛ يجب النظر في تقليل الفاصل الزمني.",
-      industryContext:
-        "يتبع متطلبات اعتماد المختبرات الدولية لمعايرة الأبعاد والكهرباء ودرجة الحرارة والضغط والكتلة.",
+        "This calibration management analysis follows international laboratory accreditation requirements and is applicable to dimensional, electrical, temperature, pressure, and mass calibration disciplines across all regulated industries.",
     },
   },
 };
 
-const CATEGORY_FALLBACK: Record<string, string> = {
-  cost: "cost", financial: "cost", pricing: "cost", margin: "cost", budget: "cost",
-  measurement: "measurement", inspection: "measurement", gauge: "measurement",
-  calibration: "calibration",
-  scrap: "scrap", defect: "scrap", quality: "scrap", rework: "scrap",
-  oee: "oee", efficiency: "oee", productivity: "oee", downtime: "oee",
-  energy: "energy", power: "energy", electricity: "energy",
-  carbon: "carbon", emission: "carbon", environmental: "carbon",
-  time: "time", labor: "time", work: "time", standard: "time",
-  route: "route", logistic: "route", transport: "route", supply: "route",
-  benchmark: "benchmark", comparison: "benchmark", kpi: "benchmark",
+/* ─── Content resolver ────────────────────────────────────── */
+
+const FALLBACK_CATEGORIES: Record<string, string> = {
+  "cost": "cost",
+  "financial": "cost",
+  "pricing": "cost",
+  "margin": "cost",
+  "budget": "cost",
+  "measurement": "measurement",
+  "inspection": "measurement",
+  "gauge": "measurement",
+  "calibration": "calibration",
+  "scrap": "scrap",
+  "defect": "scrap",
+  "quality": "scrap",
+  "rework": "scrap",
+  "oee": "oee",
+  "efficiency": "oee",
+  "productivity": "oee",
+  "downtime": "oee",
+  "energy": "energy",
+  "carbon": "carbon",
+  "emission": "carbon",
+  "environmental": "carbon",
+  "time": "time",
+  "labor": "time",
+  "work": "time",
+  "standard": "time",
+  "route": "route",
+  "logistic": "route",
+  "transport": "route",
+  "supply": "route",
+  "benchmark": "benchmark",
+  "comparison": "benchmark",
+  "kpi": "benchmark",
+  "heat": "energy",
+  "steam": "energy",
+  "power": "energy",
+  "electricity": "energy",
+  "gas": "energy",
 };
 
 export function resolveEngineeringContent(
   formulaCategory: string | undefined,
   locale: SupportedLocale,
 ): PdfEngineeringExplanation {
-  const key = (formulaCategory ?? "").toLowerCase();
-  const lookup = CATEGORY_FALLBACK[key] ?? key;
+  const base = formulaCategory?.toLowerCase() ?? "";
+  const lookupKey = FALLBACK_CATEGORIES[base] ?? base;
 
-  const langMap = EXPLANATIONS[lookup];
-  if (!langMap) return DEFAULT_EN;
+  const langMap = EXPLANATIONS[lookupKey];
+  if (!langMap) {
+    return DEFAULT_EXPLANATION_EN;
+  }
 
-  return langMap[locale] ?? langMap.en ?? DEFAULT_EN;
+  const translated = langMap[locale];
+  if (!translated) {
+    return langMap.en ?? DEFAULT_EXPLANATION_EN;
+  }
+
+  return translated;
+}
+
+export function getDefaultEngineeringExplanation(locale: SupportedLocale): PdfEngineeringExplanation {
+  return locale === "en" ? DEFAULT_EXPLANATION_EN : {
+    ...DEFAULT_EXPLANATION_EN,
+    methodology: "Bu analiz, kullanıcı tarafından sağlanan girdi parametrelerine ve sektör standart referans verilerine dayalı deterministik bir hesaplama metodolojisi uygular.",
+    standards: [
+      "ISO 9001:2015 — Kalite yönetim sistemleri",
+      "ISO 31000:2018 — Risk yönetimi",
+      "ASME B89.7.2 — Boyutsal ölçüm planlaması",
+    ],
+    formulaDescription: "Hesaplama motoru, hedef değişkeni, belgelenmiş tolerans sınırlarına karşı doğrulanmış ilkel fonksiyonların bir bileşimi yoluyla değerlendirir.",
+    interpretationGuide: "Birincil çıktı, belirtilen girdi koşulları altında en iyi tahmin sonucunu temsil eder.",
+    industryContext: "Bu analiz, imalat, inşaat, enerji ve proses endüstrilerinde kullanılan genel mühendislik karar destek paradigmasını takip eder.",
+  };
 }

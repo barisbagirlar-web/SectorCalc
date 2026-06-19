@@ -26,8 +26,8 @@ function evaluateAllFormulas(input: Sales_commission_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = input.baseSalary; results["baseSalaryOutput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseSalaryOutput"] = 0; }
   try { const v = input.totalSales * (input.commissionRate / 100); results["commission"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["commission"] = 0; }
-  try { const v = (input.totalSales > input.targetSales) * (input.totalSales - input.targetSales) * (input.bonusRate / 100); results["bonus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bonus"] = 0; }
-  try { const v = input.baseSalary + input.totalSales * (input.commissionRate / 100) + (input.totalSales > input.targetSales) * (input.totalSales - input.targetSales) * (input.bonusRate / 100); results["totalCompensation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCompensation"] = 0; }
+  try { const v = Number(input.totalSales > input.targetSales) * (input.totalSales - input.targetSales) * (input.bonusRate / 100); results["bonus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bonus"] = 0; }
+  try { const v = input.baseSalary + input.totalSales * (input.commissionRate / 100) + Number(input.totalSales > input.targetSales) * (input.totalSales - input.targetSales) * (input.bonusRate / 100); results["totalCompensation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCompensation"] = 0; }
   return results;
 }
 

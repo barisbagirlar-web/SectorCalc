@@ -11,7 +11,6 @@ import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-u
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { normalizeLocale } from "@/lib/format/localization";
 import { resolvePrimaryPrintValue, resolveBreakdownLabel } from "@/lib/reports/resolve-print-values";
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
 
 /* ─── Badge ───────────────────────────────────────────────────────── */
 function Badge({ label, variant }: { label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }) {
@@ -109,8 +108,8 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
   );
 
   const riskScore =
-    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0
-      ? Math.min(Math.max(Math.round((1 - result.dataConfidenceAdjusted / ((primaryRaw as number) * 2)) * 100), 0), 100)
+    primaryRaw !== null && typeof result.dataConfidenceAdjusted === "number" && primaryRaw !== 0
+      ? Math.min(Math.max(Math.round((1 - result.dataConfidenceAdjusted / (primaryRaw * 2)) * 100), 0), 100)
       : 45;
 
   const riskColor = riskScore <= 30 ? "#22C55E" : riskScore <= 60 ? "#F59E0B" : "#EF4444";
@@ -133,11 +132,11 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
     for (let i = 0; i < Math.min(breakdownEntries.length, 3); i++) {
       const [key, val] = breakdownEntries[i];
       const label = resolveBreakdownLabel(
-              key,
-              schema.outputs.breakdown,
-              (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n,
-              locale,
-            );
+        key,
+        schema.outputs.breakdown,
+        schema.outputs.breakdown_i18n,
+        locale,
+      );
       cards.push({ label, value: formatGeneratedNumericValue(val, key, locale), sub: t("breakdownItem"), highlight: false });
     }
     while (cards.length < 4) {
@@ -154,7 +153,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
       }
     }
     return cards.slice(0, 4);
-  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown, (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n]);
+  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown, schema.outputs.breakdown_i18n]);
 
   const insights = useMemo(() => {
     const items: Array<{ type: string; icon: string; title: string; text: string }> = [];
@@ -168,11 +167,11 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
       items.push({ type: "success", icon: "✓", title: t("calculationComplete"), text: t("confidenceNote") });
       items.push({
         type: "info", icon: "↗", title: t("dataConfidencePrefix"),
-        text: `${typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0 ? Math.round((result.dataConfidenceAdjusted / (primaryRaw as number)) * 100) + "%" : t("standardDeviation")}. ${t("lowConfidence")}.`,
+        text: `${primaryRaw !== null && typeof result.dataConfidenceAdjusted === "number" && primaryRaw !== 0 ? Math.round((result.dataConfidenceAdjusted / primaryRaw) * 100) + "%" : t("standardDeviation")}. ${t("lowConfidence")}.`,
       });
     }
     return items;
-  }, [hiddenDrivers, suggestedActions, t, result.dataConfidenceAdjusted, primaryRaw, primaryIsNumber]);
+  }, [hiddenDrivers, suggestedActions, t, result.dataConfidenceAdjusted, primaryRaw]);
 
   const confidenceBadges = useMemo(() => {
     const badges: Array<{ label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }> = [{ label: t("confidenceExact"), variant: "gold" }];

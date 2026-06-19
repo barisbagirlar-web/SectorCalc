@@ -15,7 +15,7 @@
     "build:next": "NODE_OPTIONS='--max-old-space-size=8192 --dns-result-order=ipv4first' node scripts/next-build-with-500-fallback.mjs",
     "clean:next": "node scripts/clean-next-artifacts.mjs",
     "stop:builds": "node scripts/stop-local-builds.mjs",
-    "validate:next-build": "node scripts/validate-next-build.mjs",
+    "validate:generated-syntax": "npx tsx scripts/prebuild-validate-generated-syntax.ts",
     "deploy:hosting": "node scripts/deploy-production.mjs",
     "deploy:vercel": "vercel --prod --yes",
     "deploy:vercel:safe": "node scripts/deploy-vercel-production.mjs",

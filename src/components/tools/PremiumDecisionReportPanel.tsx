@@ -193,7 +193,7 @@ function StochasticMarginReportPanel({
   const [parsed, setParsed] = useState<ParsedPremiumVerdict | null>(null);
   const [pdfLoading, setPdfLoading] = useState(false);
   const [exportMessage, setExportMessage] = useState<string | null>(null);
-  const locale = useLocale();
+  const locale = useLocale() as SupportedLocale;
   const t = useTranslations("premiumDecisionReport.export");
 
  useEffect(() => {

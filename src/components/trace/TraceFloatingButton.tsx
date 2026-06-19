@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
@@ -9,33 +9,26 @@ import { ProTraceChat } from "@/components/trace/ProTraceChat";
 
 const BUBBLE_AUTO_HIDE_MS = 16_000;
 
-function TraceMiniOrb() {
-  const id = useId().replace(/:/g, "");
-  const gradId = `traceMiniGrad-${id}`;
-  const glowId = `traceMiniGlow-${id}`;
-
+/** Simple orb avatar — matches the dark bubble head. */
+function TraceBubbleAvatar() {
+  const id = useRef(`traceAvatarGrad-${Math.random().toString(36).slice(2, 8)}`).current;
   return (
-    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true" className="sc-trace__mini-orb">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className="sc-trace__bubble-avatar-svg">
       <defs>
-        <radialGradient id={gradId} cx="62%" cy="28%" r="68%">
-          <stop offset="0%" stopColor="#7DF0FF" />
-          <stop offset="28%" stopColor="#1A78FF" />
-          <stop offset="58%" stopColor="#004DFF" />
-          <stop offset="82%" stopColor="#05245E" />
-          <stop offset="100%" stopColor="#031331" />
+        <radialGradient id={id} cx="62%" cy="28%" r="68%">
+          <stop offset="0%" stopColor="#60a5fa" />
+          <stop offset="100%" stopColor="#1e3a8a" />
         </radialGradient>
-        <filter id={glowId}>
-          <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#1A78FF" floodOpacity="0.35" />
-        </filter>
       </defs>
-      <circle cx="14" cy="14" r="13" fill={`url(#${gradId})`} filter={`url(#${glowId})`} />
-      <ellipse cx="19" cy="7.5" rx="5" ry="3.2" fill="rgba(255,255,255,0.55)" />
-      <circle cx="10" cy="20.5" r="5.5" fill="rgba(0,8,28,0.2)" />
-      <circle cx="15" cy="8.5" r="1.6" fill="rgba(255,255,255,0.6)" />
+      <circle cx="16" cy="16" r="15.5" fill={`url(#${id})`} stroke="rgba(96,165,250,0.3)" strokeWidth="1.5" />
+      <rect x="9" y="12" width="14" height="2" rx="1" fill="#93c5fd" />
+      <rect x="11.5" y="14.5" width="2.5" height="7" rx="1.25" fill="#93c5fd" />
+      <circle cx="16" cy="24" r="1.5" fill="#bfdbfe" />
     </svg>
   );
 }
 
+/** Welcome bubble — dark card with close, avatar head, and rich greeting text. */
 function TraceFabBubble({
   text,
   onOpen,
@@ -45,8 +38,11 @@ function TraceFabBubble({
   onOpen: () => void;
   visible: boolean;
 }) {
+  const t = useTranslations("trace");
   const [dismissed, setDismissed] = useState(false);
+  const bubbleRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const animKeyRef = useRef(0);
 
   useEffect(() => {
     if (!visible) {
@@ -59,27 +55,71 @@ function TraceFabBubble({
     };
   }, [visible]);
 
-  const handleClick = useCallback(() => {
+  const handleClose = useCallback(() => {
+    setDismissed(true);
+  }, []);
+
+  const handleBubbleClick = useCallback(() => {
     setDismissed(true);
     onOpen();
   }, [onOpen]);
 
-  if (!visible || dismissed) return null;
+  const isHidden = !visible || dismissed;
+
+  // Re-trigger pop-in animation when bubble becomes visible again
+  useEffect(() => {
+    if (!isHidden && bubbleRef.current) {
+      animKeyRef.current += 1;
+      const el = bubbleRef.current;
+      el.style.animation = "none";
+      // Force reflow
+      void el.offsetHeight;
+      el.style.animation = "";
+    }
+  }, [isHidden]);
+
+  if (isHidden) return null;
 
   return (
-    <div className="sc-trace__bubble-greeting" role="status" aria-live="polite">
-      <div className="sc-trace__bubble-greeting-card">
-        <div className="sc-trace__bubble-greeting-avatar" aria-hidden="true">
-          <TraceMiniOrb />
-        </div>
+    <div
+      className="sc-trace__bubble-greeting"
+      role="status"
+      aria-live="polite"
+      key={animKeyRef.current}
+    >
+      <div className="sc-trace__bubble-greeting-card" ref={bubbleRef}>
+        {/* Close button */}
         <button
           type="button"
-          className="sc-trace__bubble-greeting-text"
-          onClick={handleClick}
-          aria-label={text}
+          className="sc-trace__bubble-close"
+          onClick={handleClose}
+          aria-label={t("close")}
         >
-          {text}
+          ✕
         </button>
+
+        {/* Head: avatar + name + online status */}
+        <div className="sc-trace__bubble-head">
+          <div className="sc-trace__bubble-head-avatar">
+            <TraceBubbleAvatar />
+          </div>
+          <div>
+            <div className="sc-trace__bubble-head-name">Trace AI</div>
+            <div className="sc-trace__bubble-head-status">
+              <span className="sc-trace__bubble-green-dot" />
+              {t("bubbleOnline")}
+            </div>
+          </div>
+        </div>
+
+        {/* Message body */}
+        <button
+          type="button"
+          className="sc-trace__bubble-text"
+          onClick={handleBubbleClick}
+          aria-label={text.replace(/<[^>]*>/g, "")}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </div>
       <div className="sc-trace__bubble-greeting-tail" aria-hidden="true" />
     </div>
@@ -92,7 +132,7 @@ export function TraceFloatingButton() {
   const isPro = userRole === "premium" && Boolean(user);
   const [open, setOpen] = useState(false);
   const [bubbleVisible, setBubbleVisible] = useState(true);
-  const bubbleText = t("fabBubble");
+  const bubbleText = t.raw("fabBubble");
 
   useEffect(() => {
     const openHandler = () => setOpen(true);
@@ -109,9 +149,20 @@ export function TraceFloatingButton() {
   }, []);
 
   const handleFabClick = useCallback(() => {
-    setBubbleVisible(false);
-    setOpen((value) => !value);
-  }, []);
+    if (bubbleVisible) {
+      // Bubble is showing → close it and open chat
+      setBubbleVisible(false);
+      setOpen(true);
+    } else if (open) {
+      // Chat is open → close it, mark bubble as visible again
+      setOpen(false);
+      // Show bubble after a short delay
+      setTimeout(() => setBubbleVisible(true), 300);
+    } else {
+      // Neither bubble nor chat → show bubble
+      setBubbleVisible(true);
+    }
+  }, [bubbleVisible, open]);
 
   return (
     <div data-trace-assistant="true" className="sc-trace">
@@ -140,66 +191,19 @@ export function TraceFloatingButton() {
         onClick={handleFabClick}
         disabled={loading}
       >
+        {/* Online badge */}
+        <span className="sc-trace__fab-online-badge" aria-hidden="true" />
+
+        {/* Simple white icon */}
         <svg
-          viewBox="0 0 512 512"
-          role="img"
+          viewBox="0 0 24 24"
+          fill="none"
           aria-hidden="true"
-          className="sc-trace__fab-svg"
+          className="sc-trace__fab-icon"
         >
-          <style>{`
-            @keyframes fabHue1 {
-              0%, 100% { fill: #FF4438; }
-              14% { fill: #FF6D00; }
-              28% { fill: #FF9100; }
-              42% { fill: #FFC107; }
-              57% { fill: #FF6D00; }
-              71% { fill: #FF4438; }
-              85% { fill: #D50000; }
-            }
-            @keyframes fabHue2 {
-              0%, 100% { fill: #FF9100; }
-              14% { fill: #FFC107; }
-              28% { fill: #FF6D00; }
-              42% { fill: #FF4438; }
-              57% { fill: #D50000; }
-              71% { fill: #FF9100; }
-              85% { fill: #FFC107; }
-            }
-            @keyframes fabHue3 {
-              0%, 100% { fill: #D50000; }
-              14% { fill: #FF4438; }
-              28% { fill: #FFC107; }
-              42% { fill: #FF9100; }
-              57% { fill: #FFC107; }
-              71% { fill: #D50000; }
-              85% { fill: #FF4438; }
-            }
-            @keyframes fabHue4 {
-              0%, 100% { fill: #FFC107; }
-              14% { fill: #D50000; }
-              28% { fill: #FF4438; }
-              42% { fill: #FF6D00; }
-              57% { fill: #FF9100; }
-              71% { fill: #FFC107; }
-              85% { fill: #FF4438; }
-            }
-            @keyframes fabPulse {
-              0%, 100% { filter: drop-shadow(0 0 8px rgba(255,68,56,0.5)) drop-shadow(0 0 20px rgba(255,145,0,0.3)); }
-              25% { filter: drop-shadow(0 0 14px rgba(255,193,7,0.6)) drop-shadow(0 0 30px rgba(255,68,56,0.35)); }
-              50% { filter: drop-shadow(0 0 10px rgba(255,109,0,0.5)) drop-shadow(0 0 25px rgba(255,193,7,0.3)); }
-              75% { filter: drop-shadow(0 0 16px rgba(213,0,0,0.5)) drop-shadow(0 0 35px rgba(255,109,0,0.35)); }
-            }
-            .fab-shape-1 { animation: fabHue1 3.2s ease-in-out infinite; }
-            .fab-shape-2 { animation: fabHue2 3.2s ease-in-out infinite; }
-            .fab-shape-3 { animation: fabHue3 3.2s ease-in-out infinite; }
-            .fab-shape-4 { animation: fabHue4 3.2s ease-in-out infinite; }
-          `}</style>
-          <g className="sc-trace__fab-svg-group">
-            <rect className="fab-shape-1" x="101" y="209" width="58" height="20" rx="4" />
-            <rect className="fab-shape-2" x="355" y="209" width="58" height="20" rx="4" />
-            <path className="fab-shape-3" d="M254 111H197V91H276V340H254V111Z" />
-            <rect className="fab-shape-4" x="196" y="374" width="119" height="20" rx="4" />
-          </g>
+          <rect x="7" y="8" width="10" height="1.5" rx="0.75" fill="white" />
+          <rect x="10.25" y="9.5" width="2" height="6" rx="1" fill="white" />
+          <circle cx="12" cy="17.5" r="1.2" fill="rgba(255,255,255,0.7)" />
         </svg>
 
         {open ? <X className="sc-trace__fab-close-icon" aria-hidden="true" /> : null}

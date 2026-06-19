@@ -48,7 +48,6 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly selectedStandard?: string;
   readonly onStandardChange?: (standardId: string) => void;
   readonly showValidResultBadge?: boolean;
-  readonly onPrintReport?: () => void;
 };
 
 function buildFeedbackSnapshot(
@@ -109,7 +108,6 @@ export function PremiumDynamicToolFormLayout({
   selectedStandard,
   onStandardChange,
   showValidResultBadge = false,
-  onPrintReport,
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
@@ -196,7 +194,11 @@ export function PremiumDynamicToolFormLayout({
               emptyLabel={t("clickToCompute")}
               statusLabel={result && showValidResultBadge ? tPremium("validStatus") : undefined}
               loading={loading}
-              onPrintReport={onPrintReport}
+              toolSlug={slug}
+              userId={userId}
+              routePath={routePath}
+              toolType="premium"
+              inputSnapshot={inputSnapshot}
             />
           </div>
         </div>

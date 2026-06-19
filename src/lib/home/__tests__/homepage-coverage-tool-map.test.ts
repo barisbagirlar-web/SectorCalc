@@ -14,11 +14,11 @@ function makeTool(partial: Partial<ToolData> & Pick<ToolData, "categoryKey" | "s
   return {
     slug: partial.slug ?? "sample-tool",
     name: partial.name ?? "Sample Tool",
+    description: partial.description ?? "Sample tool description",
     category: partial.category ?? "Category",
     categoryKey: partial.categoryKey,
     sector: partial.sector ?? "Sector",
     sectorKey: partial.sectorKey,
-    description: partial.description ?? "A sample tool for testing",
     premiumRequired: partial.premiumRequired ?? false,
     href: partial.href ?? "/tools/sample-tool",
   };

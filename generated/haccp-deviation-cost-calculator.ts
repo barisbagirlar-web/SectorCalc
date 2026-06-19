@@ -30,9 +30,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Haccp_deviation_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.regulatory_penalty_flag * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)) * (input.affected_batch_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = Number(input.regulatory_penalty_flag) * input.unit_cost_per_kg; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = Number(input.regulatory_penalty_flag) * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = Number(input.regulatory_penalty_flag) * input.unit_cost_per_kg * (1 + (input.rework_percentage / 100)) * (input.affected_batch_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.affected_batch_kg; results["factor_affected_batch_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_affected_batch_kg"] = 0; }
   return results;
 }
