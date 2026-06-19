@@ -12,12 +12,12 @@ export interface Weight_cycling_calculatorInput {
 }
 
 export const Weight_cycling_calculatorInputSchema = z.object({
-  mass: z.number().default(100),
-  height: z.number().default(5),
-  cyclesPerDay: z.number().default(100),
-  operatingDays: z.number().default(250),
-  efficiency: z.number().default(90),
-  energyCost: z.number().default(0.15),
+  mass: z.number().min(0.1).max(1000000).default(100),
+  height: z.number().min(0.01).max(200).default(5),
+  cyclesPerDay: z.number().min(1).max(100000).default(100),
+  operatingDays: z.number().min(1).max(366).default(250),
+  efficiency: z.number().min(1).max(100).default(90),
+  energyCost: z.number().min(0.001).max(1000).default(0.15),
 });
 
 function asFormulaNumber(value: number): number {
@@ -42,10 +42,12 @@ export function calculateWeight_cycling_calculator(input: Weight_cycling_calcula
   const values = evaluateAllFormulas(input);
   const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
   const breakdown = {
-    
+    energyPerCycle: toNumericFormulaValue(values["energyPerCycle"]),
+    totalEnergy: toNumericFormulaValue(values["totalEnergy"]),
+    totalCycles: toNumericFormulaValue(values["totalCycles"])
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review cycle count and operating days for accuracy.","Check system efficiency - lower efficiency increases energy waste.","Consider motor upgrades or maintenance to improve efficiency."];
+  const hiddenLossDrivers: string[] = ["Low system efficiency increases energy waste - consider motor/transmission upgrades.","High total cycle count - consider mechanical fatigue and maintenance costs."];
+  const suggestedActions: string[] = ["Improve system efficiency with regular lubrication and motor maintenance.","Optimize lifting height where possible to reduce energy consumption per cycle.","Schedule heavy cycling during off-peak energy hours to reduce electricity costs."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
@@ -64,7 +66,7 @@ export function calculateWeight_cycling_calculator(input: Weight_cycling_calcula
 
 export interface Weight_cycling_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  breakdown: { energyPerCycle: number; totalEnergy: number; totalCycles: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

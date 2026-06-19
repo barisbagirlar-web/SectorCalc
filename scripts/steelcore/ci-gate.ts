@@ -22,7 +22,8 @@ import {
   writeValidationReport,
 } from "@/lib/steelcore";
 import { runGoldenTestSuite } from "../deepseek/lib/golden-test-runner";
-import { verifySchemaSemantics } from "@/lib/generated-tools/semantic-formula-verifier";
+import { validateSchemaConstraints, categorizeIssues } from "@/lib/generated-tools/formula-constraint-engine";
+import type { FormulaHealthReport } from "@/lib/generated-tools/formula-health-monitor";
 
 const STEELCORE_PASS_THRESHOLD = 0.9; // >= 90%
 const SCHEMAS_DIR = path.join(process.cwd(), "generated/schemas");
@@ -122,7 +123,7 @@ async function main(): Promise<CiGateResult> {
       ) as Record<string, unknown>;
       const formulas = (raw.formulas ?? {}) as Record<string, string>;
       const inputs = ((raw.inputs ?? []) as Array<Record<string, unknown>>).map((i) => String(i.id));
-      const issues = verifySchemaSemantics(formulas, inputs);
+      const issues = validateSchemaConstraints(formulas, inputs);
       if (issues.length > 0) {
         schemasWithIssues++;
         totalSemanticIssues += issues.length;
@@ -313,6 +314,31 @@ async function main(): Promise<CiGateResult> {
       },
       message: `CI GATE FAILED: Pre-commit formula guard blocked ${guardBlockedSchemas} schema(s) with cross-domain contamination`,
     };
+  }
+
+  // ── Phase 5: Formula Health Report ────────────────────────
+  console.log("\n" + "=".repeat(60));
+  console.log("CI GATE — Phase 5: Formula Health Report");
+  console.log("=".repeat(60));
+
+  let healthReport: FormulaHealthReport | null = null;
+  try {
+    const { generateHealthReport } = await import("@/lib/generated-tools/formula-health-monitor");
+    healthReport = generateHealthReport();
+    console.log(`  Overall health: ${healthReport.overall}`);
+    console.log(`  Constraint errors: ${healthReport.constraintErrors.length}`);
+    console.log(`  QUARANTINE schemas: ${healthReport.quarantineCount}`);
+    if (healthReport.constraintErrors.length > 0) {
+      console.log(`  ⚠️  CRITICAL ALERT: ${healthReport.constraintErrors.length} formula constraint error(s) found!`);
+      for (const e of healthReport.constraintErrors) {
+        console.log(`    ❌ ${e.slug}.${e.formulaKey}: ${e.message}`);
+      }
+    } else {
+      console.log(`  ✅ All formulas pass constraint engine validation`);
+    }
+    console.log(`  Report: generated/formula-health-report.json`);
+  } catch (err: unknown) {
+    console.log(`  ⚠️  Health report generation failed: ${err instanceof Error ? err.message : String(err)}`);
   }
 
   return {

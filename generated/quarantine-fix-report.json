@@ -1,0 +1,1424 @@
+{
+  "total": 109,
+  "passed": 0,
+  "stillQuarantine": 109,
+  "details": [
+    {
+      "slug": "activation-energy-calculator",
+      "file": "activation-energy-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "alpha-beta-calculator",
+      "file": "alpha-beta-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "anti-aging-calculator",
+      "file": "anti-aging-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "atm-to-bar-calculator",
+      "file": "atm-to-bar-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "ballistic-pendulum-calculator",
+      "file": "ballistic-pendulum-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "billionaire-calculator",
+      "file": "billionaire-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "black-hole-calculator",
+      "file": "black-hole-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "body-composition-calculator",
+      "file": "body-composition-calculator-schema.json",
+      "issues": [
+        "formulas use 2/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "candy-temperature-calculator",
+      "file": "candy-temperature-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "cell-potential-calculator",
+      "file": "cell-potential-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "chinese-zodiac-calculator",
+      "file": "chinese-zodiac-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "circadian-rhythm-calculator",
+      "file": "circadian-rhythm-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "clustering-calculator",
+      "file": "clustering-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "college-roi-calculator",
+      "file": "college-roi-calculator-schema.json",
+      "issues": [
+        "formulas use 3/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "compressible-flow-calculator",
+      "file": "compressible-flow-calculator-schema.json",
+      "issues": [
+        "formulas use 3/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "corrugated-roofing-calculator",
+      "file": "corrugated-roofing-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "credit-card-minimum-payment-calculator",
+      "file": "credit-card-minimum-payment-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "critical-speed-calculator",
+      "file": "critical-speed-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → material"
+      ]
+    },
+    {
+      "slug": "culvert-calculator",
+      "file": "culvert-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "cycling-ctl-calculator",
+      "file": "cycling-ctl-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "cylindrical-coordinate-calculator",
+      "file": "cylindrical-coordinate-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "decades-to-centuries-calculator",
+      "file": "decades-to-centuries-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "decay-constant-calculator",
+      "file": "decay-constant-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "decimal-to-fraction-calculator",
+      "file": "decimal-to-fraction-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "deck-calculator",
+      "file": "deck-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "electric-field-calculator",
+      "file": "electric-field-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "ellipse-equation-calculator",
+      "file": "ellipse-equation-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "engineering-notation-calculator",
+      "file": "engineering-notation-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "euler-path-calculator",
+      "file": "euler-path-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "extreme-value-theorem-calculator",
+      "file": "extreme-value-theorem-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "fahrenheit-to-celsius-calculator",
+      "file": "fahrenheit-to-celsius-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "fascia-calculator",
+      "file": "fascia-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "fence-post-calculator",
+      "file": "fence-post-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "fermentation-calculator",
+      "file": "fermentation-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "fire-number-calculator",
+      "file": "fire-number-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "fourier-series-calculator",
+      "file": "fourier-series-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "gable-roof-calculator",
+      "file": "gable-roof-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "golden-hour-calculator",
+      "file": "golden-hour-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "gradient-calculator",
+      "file": "gradient-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "guitar-scale-length-calculator",
+      "file": "guitar-scale-length-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "hamilton-norwood-scale",
+      "file": "hamilton-norwood-scale-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "hangover-calculator",
+      "file": "hangover-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "hebrew-calendar",
+      "file": "hebrew-calendar-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "helical-gear-calculator",
+      "file": "helical-gear-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "hessian-calculator",
+      "file": "hessian-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "hip-roof-calculator",
+      "file": "hip-roof-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "home-equity-loan-calculator",
+      "file": "home-equity-loan-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "hp-to-kw",
+      "file": "hp-to-kw-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "inhg-to-psi-calculator",
+      "file": "inhg-to-psi-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "internet-cost-calculator",
+      "file": "internet-cost-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "inventory-calculator",
+      "file": "inventory-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "inverse-trig-calculator",
+      "file": "inverse-trig-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "iqr-calculator",
+      "file": "iqr-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "ivf-due-date-calculator",
+      "file": "ivf-due-date-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "kendall-tau-calculator",
+      "file": "kendall-tau-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "km-to-m-calculator",
+      "file": "km-to-m-calculator-schema.json",
+      "issues": [
+        "formulas use 3/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "l-100km-to-mpg-calculator",
+      "file": "l-100km-to-mpg-calculator-schema.json",
+      "issues": [
+        "formulas use 2/8 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "lbs-to-kg-converter",
+      "file": "lbs-to-kg-converter-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → material"
+      ]
+    },
+    {
+      "slug": "light-years-to-km-calculator",
+      "file": "light-years-to-km-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "log-base-2-calculator",
+      "file": "log-base-2-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "logarithm-calculator",
+      "file": "logarithm-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "mansard-roof-calculator",
+      "file": "mansard-roof-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "minutes-to-hours-calculator",
+      "file": "minutes-to-hours-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "mm-to-inch-converter",
+      "file": "mm-to-inch-converter-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "moist-adiabatic-lapse-rate-calculator",
+      "file": "moist-adiabatic-lapse-rate-calculator-schema.json",
+      "issues": [
+        "formulas use 2/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → energy"
+      ]
+    },
+    {
+      "slug": "monte-carlo-profit-estimator-calculator",
+      "file": "monte-carlo-profit-estimator-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "motor-efficiency-calculator",
+      "file": "motor-efficiency-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → material"
+      ]
+    },
+    {
+      "slug": "mph-to-knots-calculator",
+      "file": "mph-to-knots-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "ms-to-kmh-calculator",
+      "file": "ms-to-kmh-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "nozzle-calculator",
+      "file": "nozzle-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "nth-root-calculator",
+      "file": "nth-root-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "options-calculator",
+      "file": "options-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "percentile-calculator",
+      "file": "percentile-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "poh-calculator",
+      "file": "poh-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "pole-zero-calculator",
+      "file": "pole-zero-calculator-schema.json",
+      "issues": [
+        "formulas use 1/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → material"
+      ]
+    },
+    {
+      "slug": "pomodoro-calculator",
+      "file": "pomodoro-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "q-value-calculator",
+      "file": "q-value-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "qualified-charitable-distribution-calculator",
+      "file": "qualified-charitable-distribution-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "recurrence-relation-calculator",
+      "file": "recurrence-relation-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "reflection-calculator",
+      "file": "reflection-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "resistor-color-code-calculator",
+      "file": "resistor-color-code-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "resonance-calculator",
+      "file": "resonance-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "rlc-circuit-calculator",
+      "file": "rlc-circuit-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "roof-truss-calculator",
+      "file": "roof-truss-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "rule-of-144-calculator",
+      "file": "rule-of-144-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "screen-resolution-calculator",
+      "file": "screen-resolution-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "seconds-to-milliseconds-calculator",
+      "file": "seconds-to-milliseconds-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "shooting-calculator",
+      "file": "shooting-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "sign-test-calculator",
+      "file": "sign-test-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "slope-stability-calculator",
+      "file": "slope-stability-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "snr-calculator",
+      "file": "snr-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "social-security-tax-calculator",
+      "file": "social-security-tax-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "soil-bearing-capacity-calculator",
+      "file": "soil-bearing-capacity-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "sqft-to-sqm-converter",
+      "file": "sqft-to-sqm-converter-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "sqm-to-sqft-calculator",
+      "file": "sqm-to-sqft-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "standard-reduction-potential-calculator",
+      "file": "standard-reduction-potential-calculator-schema.json",
+      "issues": [
+        "formulas use 2/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "steel-column-calculator",
+      "file": "steel-column-calculator-schema.json",
+      "issues": [
+        "formulas use 3/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → material"
+      ]
+    },
+    {
+      "slug": "sunny-16-rule",
+      "file": "sunny-16-rule-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "survival-analysis-calculator",
+      "file": "survival-analysis-calculator-schema.json",
+      "issues": [
+        "formulas use 2/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "t-score-calculator",
+      "file": "t-score-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "time-dilation-calculator",
+      "file": "time-dilation-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "traveling-salesman",
+      "file": "traveling-salesman-schema.json",
+      "issues": [
+        "formulas use 2/7 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "trigonometry-calculator",
+      "file": "trigonometry-calculator-schema.json",
+      "issues": [
+        "formulas use 1/5 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "turns-to-degrees-calculator",
+      "file": "turns-to-degrees-calculator-schema.json",
+      "issues": [
+        "formulas use 1/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → labor"
+      ]
+    },
+    {
+      "slug": "visual-acuity-calculator",
+      "file": "visual-acuity-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    },
+    {
+      "slug": "weight-loss-timeline-calculator",
+      "file": "weight-loss-timeline-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → time"
+      ]
+    },
+    {
+      "slug": "wilcoxon-signed-rank-z-calculator",
+      "file": "wilcoxon-signed-rank-z-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → general"
+      ]
+    },
+    {
+      "slug": "wood-siding-calculator",
+      "file": "wood-siding-calculator-schema.json",
+      "issues": [
+        "formulas use 2/6 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → cost"
+      ]
+    },
+    {
+      "slug": "work-calculator",
+      "file": "work-calculator-schema.json",
+      "issues": [
+        "formulas use 1/4 inputs — incomplete domain model"
+      ],
+      "fixable": true,
+      "beforeStatus": "QUARANTINE",
+      "afterStatus": "QUARANTINE",
+      "fixApplied": [
+        "domainModel → physical"
+      ]
+    }
+  ]
+}

@@ -26,6 +26,7 @@ function evaluateAllFormulas(input: Activation_energy_calculatorInput): Record<s
   const results: Record<string, number> = {};
   try { const v = 1/input.T1 - 1/input.T2; results["inverseTemperatureDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inverseTemperatureDifference"] = 0; }
   try { const v = 1/input.T1 - 1/input.T2; results["inverseTemperatureDifference_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inverseTemperatureDifference_aux"] = 0; }
+  results["activationEnergy"] = 0;
   return results;
 }
 

@@ -7,6 +7,8 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
+      "min": 0.1,
+      "max": 1000000,
       "businessContext": "The mass of the load being cycled (lifted and lowered).",
       "label_i18n": {
         "en": "Mass of Load",
@@ -31,6 +33,8 @@
       "type": "number",
       "unit": "m",
       "default": 5,
+      "min": 0.01,
+      "max": 200,
       "businessContext": "Vertical distance the load is lifted each cycle.",
       "label_i18n": {
         "en": "Lifting Height",
@@ -55,6 +59,8 @@
       "type": "number",
       "unit": "cycles/day",
       "default": 100,
+      "min": 1,
+      "max": 100000,
       "businessContext": "Number of lift cycles per operating day.",
       "label_i18n": {
         "en": "Cycles per Day",
@@ -79,6 +85,8 @@
       "type": "number",
       "unit": "days",
       "default": 250,
+      "min": 1,
+      "max": 366,
       "businessContext": "Total number of operating days per year or period.",
       "label_i18n": {
         "en": "Operating Days",
@@ -103,6 +111,8 @@
       "type": "number",
       "unit": "%",
       "default": 90,
+      "min": 1,
+      "max": 100,
       "businessContext": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100).",
       "label_i18n": {
         "en": "System Efficiency",
@@ -127,6 +137,8 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
+      "min": 0.001,
+      "max": 1000,
       "businessContext": "Cost of electricity per kilowatt-hour in your currency.",
       "label_i18n": {
         "en": "Energy Cost",
@@ -154,52 +166,46 @@
   },
   "outputs": {
     "primary": "totalCost",
-    "breakdown": [
-      {
-        "id": "totalEnergy",
-        "label": "Total Energy Consumed",
-        "unit": "kWh",
-        "formula": "totalEnergy"
-      },
-      {
-        "id": "totalCycles",
-        "label": "Total Number of Cycles",
-        "unit": "cycles",
-        "formula": "totalCycles"
-      },
-      {
-        "id": "energyPerCycle",
-        "label": "Energy per Cycle",
-        "unit": "kWh",
-        "formula": "energyPerCycle"
-      }
-    ],
-    "breakdownUnits": {
-      "totalEnergy": "kWh",
-      "totalCycles": "cycles",
-      "energyPerCycle": "kWh"
+    "unit": "currency",
+    "breakdown": {
+      "energyPerCycle": "Energy per Cycle",
+      "totalEnergy": "Total Energy Consumed",
+      "totalCycles": "Total Number of Cycles"
     },
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review cycle count and operating days for accuracy.",
-      "Check system efficiency - lower efficiency increases energy waste.",
-      "Consider motor upgrades or maintenance to improve efficiency."
+    "hiddenLossDrivers": [
+      "Low system efficiency increases energy waste - consider motor/transmission upgrades.",
+      "High total cycle count - consider mechanical fatigue and maintenance costs."
     ],
-    "dataConfidenceAdjusted": "totalCost",
-    "unit": "currency"
+    "suggestedActions": [
+      "Improve system efficiency with regular lubrication and motor maintenance.",
+      "Optimize lifting height where possible to reduce energy consumption per cycle.",
+      "Schedule heavy cycling during off-peak energy hours to reduce electricity costs."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
-  "category": "İSG & Risk",
-  "sector": "Sağlık & Tıp",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "categorySlug": "sustainability-resource-esg",
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "sectorId": "saglik",
-  "profession": "Biyomedikal Mühendisi",
-  "categoryId": "safety",
+  "catalogCategory": "energy-sustainability",
+  "sectorSlug": "energy-carbon",
+  "sectorId": "enerji-karbon",
+  "profession": "Enerji Yöneticisi",
+  "categoryId": "energy",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      "mass>0",
+      "height>0",
+      "cyclesPerDay>0",
+      "operatingDays>0",
+      "efficiency>0",
+      "efficiency<=100",
+      "energyCost>0"
+    ],
+    "thresholds": {
+      "efficiency_warn": { "field": "efficiency", "value": 75, "direction": "below" },
+      "height_warn": { "field": "height", "value": 30, "direction": "above" }
+    }
   },
   "premiumFeatures": []
 }

@@ -11,6 +11,44 @@ import { academicReferences } from "@/lib/seo/academic-references";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 import { absoluteImageUrl, absoluteLocalizedUrl, SITE_URL } from "@/lib/semantic/site-url";
 
+/**
+ * Standard shipping details for digital products (free delivery, 1–5 business days transit).
+ */
+const SHIPPING_DETAILS: JsonLdRecord = {
+  "@type": "OfferShippingDetails",
+  shippingRate: {
+    "@type": "MonetaryAmount",
+    value: "0",
+    currency: "USD",
+  },
+  deliveryTime: {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: {
+      "@type": "QuantitativeValue",
+      minValue: 0,
+      maxValue: 1,
+      unitCode: "DAY",
+    },
+    transitTime: {
+      "@type": "QuantitativeValue",
+      minValue: 1,
+      maxValue: 5,
+      unitCode: "DAY",
+    },
+  },
+} as const;
+
+/**
+ * Standard return policy: 14-day finite return window, free return by mail.
+ */
+const RETURN_POLICY: JsonLdRecord = {
+  "@type": "MerchantReturnPolicy",
+  returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+  merchantReturnDays: 14,
+  returnMethod: "https://schema.org/ReturnByMail",
+  returnFees: "https://schema.org/FreeReturn",
+} as const;
+
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const FOUNDER_ID = `${SITE_URL}/#founder-baris-bagirlar`;
 const WEBSITE_ID = `${SITE_URL}/#website`;

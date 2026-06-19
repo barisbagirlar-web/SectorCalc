@@ -124,7 +124,8 @@
   ],
   "formulas": {
     "inverseTemperatureDifference": "1/T1 - 1/T2",
-    "inverseTemperatureDifference_aux": "1/T1 - 1/T2"
+    "inverseTemperatureDifference_aux": "1/T1 - 1/T2",
+    "activationEnergy": "R * (Math.log(k2/k1)) / (1/T1 - 1/T2)"
   },
   "outputs": {
     "primary": "inverseTemperatureDifference_aux",
@@ -172,5 +173,6 @@
     ],
     "thresholds": {}
   },
-  "premiumFeatures": []
+  "premiumFeatures": [],
+  "domainModel": "energy"
 }
