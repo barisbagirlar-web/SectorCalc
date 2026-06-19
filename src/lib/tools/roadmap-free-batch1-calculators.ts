@@ -2,14 +2,10 @@
 
 export const ROADMAP_FREE_BATCH1_SLUGS = [] as const;
 
-export function hasRoadmapFreeBatch1Calculator(_slug: string): boolean {
+export function hasRoadmapFreeBatch1Calculator(): boolean {
   return false;
 }
 
-export function calculateRoadmapFreeBatch1Tool(
-  _slug: string,
-  _values: Record<string, number | string>,
-  _locale = "en",
-): { primaryValue: string } {
+export function calculateRoadmapFreeBatch1Tool(): { primaryValue: string } {
   return { primaryValue: "0" };
 }

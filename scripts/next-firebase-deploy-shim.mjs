@@ -8,6 +8,18 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const args = process.argv.slice(2);
 
+// Detect recursive invocation: if SECTORCALC_SHIM_REAL_NEXT is set, forward directly.
+if (process.env.SECTORCALC_SHIM_REAL_NEXT) {
+  const realNextCandidates = [
+    join(ROOT, "node_modules/.bin/next.firebase-backup"),
+  ];
+  const realNext = realNextCandidates.find((candidate) => existsSync(candidate));
+  if (realNext) {
+    const s = spawnSync(process.execPath, [realNext, ...args], { cwd: ROOT, stdio: "inherit", env: process.env });
+    process.exit(s.status ?? 1);
+  }
+}
+
 function finalizeExistingBuild() {
   spawnSync("node", ["scripts/finalize-next-build.mjs"], { cwd: ROOT, stdio: "inherit" });
   const validate = spawnSync("node", ["scripts/validate-next-build.mjs"], {

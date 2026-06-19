@@ -38,7 +38,7 @@ export function ToolTile({ tool, onDark = false }: ToolTileProps) {
           </span>
           {tool.description || tool.shortDescription ? (
             <span
-              className={`mt-0.5 block text-xs leading-relaxed ${
+              className={`mt-0.5 block text-xs leading-relaxed line-clamp-2 ${
                 onDark ? "text-white/60" : "text-body-charcoal"
               }`}
             >

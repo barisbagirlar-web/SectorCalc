@@ -4,9 +4,7 @@
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
-import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getToolHref } from "@/lib/tools/paths";
-import { resolveLegacyPremiumSlug } from "@/lib/tools/legacy-premium-slug-redirects";
 import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
 import { legacyRevenueToolsCore } from "@/lib/tools/legacy-revenue-tools-core";
 import { revenueLegalDisclaimer } from "@/lib/tools/revenue-legal-disclaimer";

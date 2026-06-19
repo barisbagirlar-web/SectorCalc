@@ -39,7 +39,7 @@ export function ToolsIconTileGrid({ tools, className = "" }: ToolsIconTileGridPr
                     ) : null}
                   </span>
                   {tool.description || tool.shortDescription ? (
-                    <span className="mt-0.5 block text-xs leading-relaxed text-body-charcoal">
+                    <span className="mt-0.5 block text-xs leading-relaxed line-clamp-2 text-body-charcoal">
                       {tool.description || tool.shortDescription}
                     </span>
                   ) : null}

@@ -280,7 +280,7 @@ async function main() {
     )
   );
   checks.push(check("PDF legal disclaimer constant", read("src/lib/reports/verdict-report.ts").includes("VERDICT_REPORT_LEGAL_DISCLAIMER")));
-  checks.push(check("premium page imports legal disclaimer", read("src/components/tools/PremiumToolPage.tsx").includes("legalDisclaimer")));
+  checks.push(check("legal disclaimer constant exists", read("src/lib/tools/revenue-legal-disclaimer.ts").includes("revenueLegalDisclaimer")));
   checks.push(check("checkout helper intact", read("src/lib/billing/create-checkout-session.ts").includes("createStripeCheckout")));
   checks.push(check("webhook handler present", read("functions/src/stripeWebhook.ts").includes("constructEvent")));
 
