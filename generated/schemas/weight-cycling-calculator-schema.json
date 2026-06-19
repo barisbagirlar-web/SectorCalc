@@ -153,7 +153,7 @@
     "totalCost": "totalEnergy * energyCost"
   },
   "outputs": {
-    "primary": "energyPerCycle",
+    "primary": "totalCost",
     "breakdown": [
       {
         "id": "totalEnergy",
@@ -166,14 +166,27 @@
         "label": "Total Number of Cycles",
         "unit": "cycles",
         "formula": "totalCycles"
+      },
+      {
+        "id": "energyPerCycle",
+        "label": "Energy per Cycle",
+        "unit": "kWh",
+        "formula": "energyPerCycle"
       }
     ],
+    "breakdownUnits": {
+      "totalEnergy": "kWh",
+      "totalCycles": "cycles",
+      "energyPerCycle": "kWh"
+    },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Review cycle count and operating days for accuracy.",
+      "Check system efficiency — lower efficiency increases energy waste.",
+      "Consider motor upgrades or maintenance to improve efficiency."
     ],
     "dataConfidenceAdjusted": "totalCost",
-    "unit": "kg"
+    "unit": "currency"
   },
   "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",

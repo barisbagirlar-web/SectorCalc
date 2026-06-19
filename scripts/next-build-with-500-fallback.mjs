@@ -172,6 +172,7 @@ function runNextBuild() {
       FORCE_COLOR: "0",
       LOCALE_CENTER_STRICT: "1",
       SECTORCALC_SHIM_REAL_NEXT: "1",
+      SECTORCALC_FAST_PREVIEW_STATIC: "1",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });

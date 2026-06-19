@@ -99,12 +99,87 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   carbon_cost: ["carbon", "cost"],
   energy_carbon: ["energy", "carbon"],
   water_usage: ["water", "volume"],
+  total_co2: ["carbon", "energy", "material", "distance"],
+  total_co2_eq: ["carbon", "energy", "material"],
+  co2_emissions: ["carbon", "energy"],
+  base_kg_co2: ["carbon", "energy", "distance"],
+  total_kg_co2e: ["carbon", "energy", "distance"],
+  monthly_co2: ["carbon", "energy", "time"],
+  per_trip_co2: ["carbon", "energy", "distance"],
+  venue_co2: ["carbon", "energy", "time"],
+  electric_emission: ["carbon", "energy"],
+  commuting_emissions: ["carbon", "energy", "distance"],
+  scope1_emissions: ["carbon", "energy", "material"],
+  scope2_emissions: ["carbon", "energy"],
+  scope3_emissions: ["carbon", "energy", "distance"],
+  total_carbon_footprint: ["carbon", "energy", "material", "distance"],
+  net_carbon: ["carbon", "energy", "material"],
 
-  // Risk / Score
-  risk_score: ["risk", "score"],
-  risk_index: ["risk", "index"],
-  safety_score: ["safety", "score"],
-  composite_score: ["score", "index"],
+  // Fuel cost (naturally crosses distance + energy + cost)
+  fuel_cost: ["cost", "energy", "distance"],
+  fuel_cost_total: ["cost", "energy", "distance"],
+  fuel_cost_per_km: ["cost", "energy", "rate"],
+  fuel_cost_per_mile: ["cost", "energy", "rate"],
+  total_fuel_cost: ["cost", "energy", "distance"],
+
+  // Energy
+  annual_energy_consumption: ["energy", "time"],
+  annual_electricity_cost: ["energy", "cost", "time"],
+  annual_kwh: ["energy", "time"],
+  annual_energy_cost: ["energy", "cost", "time"],
+  energy_cost_per_day: ["energy", "cost", "time"],
+  power_required: ["energy", "material"],
+  power_watts: ["energy", "material", "water"],
+  wave_power_per_meter: ["energy", "water"],
+  effective_power: ["energy", "material"],
+  steam_energy_output_kw: ["energy", "water", "material"],
+  monthly_energy: ["energy", "time"],
+  min_energy: ["energy", "risk"],
+  max_energy: ["energy", "risk"],
+
+  // Water
+  total_water: ["water", "time"],
+  water_to_remove: ["water", "material"],
+  stock_ppm: ["water", "material"],
+  stock_volume_l: ["water", "material"],
+
+  // Waste / Material
+  total_waste_material: ["material", "waste"],
+  scrap_cost: ["material", "cost", "waste"],
+  scrap_rate: ["material", "quality", "waste"],
+  rework_cost: ["material", "cost", "quality"],
+  rework_rate: ["material", "quality"],
+  rework_labor_cost: ["labor", "cost", "material"],
+  scrap_revenue: ["material", "revenue"],
+  material_cost: ["material", "cost", "revenue"],
+  total_material_weight: ["material", "count", "waste"],
+
+  // Financial
+  net_salary: ["profit", "cost", "revenue"],
+  adjusted_purchasing_power: ["revenue", "profit", "time"],
+  purchasing_power_loss: ["revenue", "profit", "time"],
+
+  // Quality / Efficiency
+  performance: ["efficiency", "time"],
+  quality: ["quality", "efficiency"],
+  defect_rate: ["quality", "waste"],
+  quality_yield: ["quality", "efficiency"],
+  rework_rate: ["quality", "waste"],
+
+  // Risk
+  hazard_rate: ["risk", "time"],
+  cumulative_hazard: ["risk", "time"],
+
+  // Time / Delay
+  total_delay: ["time", "efficiency"],
+
+  // Direct labor cost — when formula uses labor inputs, this is valid
+  direct_labor_cost: ["labor", "cost"],
+  labor_cost: ["labor", "cost"],
+  labor_cost_total: ["labor", "cost"],
+
+  // Exposure hours — when formula uses time inputs, this is valid
+  annual_exposure_hours: ["time", "risk"],
 };
 
 /**
@@ -113,21 +188,23 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
 function inputDomainTags(inputId: string): readonly string[] {
   const tags: string[] = [];
   if (/labor|worker|operator|staff|personnel|employee|man_?hour|wage|salary/i.test(inputId)) tags.push("labor");
-  if (/material|raw_material|supply|component|part|stock/i.test(inputId)) tags.push("material");
-  if (/energy|power|kwh|electricity|fuel|gas|steam|utilities/i.test(inputId)) tags.push("energy");
+  if (/material|raw_material|supply|component|part|stock|fabric|item/i.test(inputId)) tags.push("material");
+  if (/energy|power|kwh|electricity|fuel|gas|steam|utilities|kva|watt/i.test(inputId)) tags.push("energy");
   if (/quality|defect|rework|scrap|reject|fail|inspection/i.test(inputId)) tags.push("quality");
   if (/downtime|idle|breakdown|stoppage|wait|delay|unplanned/i.test(inputId)) tags.push("downtime");
-  if (/revenue|price|sell|income|sales|customer/i.test(inputId)) tags.push("revenue");
-  if (/cost|expense|overhead|burden|charge|fee/i.test(inputId)) tags.push("cost");
+  if (/revenue|price|sell|income|sales|customer|rate\b.*hour|charge|fee|premium/i.test(inputId)) tags.push("revenue");
+  if (/cost|expense|overhead|burden|charge|fee|price_per/i.test(inputId)) tags.push("cost");
   if (/profit|margin|markup|earnings|return/i.test(inputId)) tags.push("profit");
-  if (/time|hour|minute|second|day|week|month|year|duration|period|cycle/i.test(inputId)) tags.push("time");
-  if (/rate|speed|velocity|frequency|ratio|percentage/i.test(inputId)) tags.push("rate");
-  if (/count|number|quantity|volume|unit|piece|item/i.test(inputId)) tags.push("count");
-  if (/carbon|co2|emission|environment|sustainability|green/i.test(inputId)) tags.push("carbon");
-  if (/water|wastewater|liquid/i.test(inputId)) tags.push("water");
+  if (/time|hour|minute|second|day|week|month|year|duration|period|cycle|shift|overtime/i.test(inputId)) tags.push("time");
+  if (/rate|speed|velocity|frequency|ratio|percentage|factor/i.test(inputId)) tags.push("rate");
+  if (/count|number|quantity|volume|unit|piece|item|parts|batch/i.test(inputId)) tags.push("count");
+  if (/carbon|co2|emission|environment|sustainability|green|carbon|co2e/i.test(inputId)) tags.push("carbon");
+  if (/water|wastewater|liquid|steam|flow|hydraulic/i.test(inputId)) tags.push("water");
   if (/risk|exposure|hazard|uncertainty|volatility/i.test(inputId)) tags.push("risk");
-  if (/efficiency|productivity|yield|throughput|utilization|utilisation/i.test(inputId)) tags.push("efficiency");
-  if (/setup|changeover|preparation|tooling|fixture/i.test(inputId)) tags.push("setup");
+  if (/efficiency|productivity|yield|throughput|utilization|utilisation|effectiveness/i.test(inputId)) tags.push("efficiency");
+  if (/setup|changeover|preparation|tooling|fixture|changeover/i.test(inputId)) tags.push("setup");
+  if (/distance|mileage|km|mile|travel|trip|route/i.test(inputId)) tags.push("distance");
+  if (/fuel|gasoline|diesel|petrol|gas/i.test(inputId)) tags.push("energy");
   return tags;
 }
 

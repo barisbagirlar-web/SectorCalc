@@ -18,6 +18,7 @@ function makeTool(partial: Partial<ToolData> & Pick<ToolData, "categoryKey" | "s
     categoryKey: partial.categoryKey,
     sector: partial.sector ?? "Sector",
     sectorKey: partial.sectorKey,
+    description: partial.description ?? "A sample tool for testing",
     premiumRequired: partial.premiumRequired ?? false,
     href: partial.href ?? "/tools/sample-tool",
   };

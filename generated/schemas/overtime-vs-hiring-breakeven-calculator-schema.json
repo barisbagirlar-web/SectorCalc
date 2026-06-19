@@ -265,7 +265,7 @@
     ]
   },
   "formulas": {
-    "annual_exposure_hours": "avg_hourly_wage",
+    "annual_exposure_hours": "overtime_hours_per_week * 52",
     "direct_labor_cost": "current_headcount * 1 * avg_hourly_wage * avg_hourly_wage",
     "result": "current_headcount * 1 * avg_hourly_wage * avg_hourly_wage * productivity_factor_new_hire * (overtime_premium)",
     "factor_overtime_premium": "overtime_premium"

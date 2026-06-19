@@ -170,9 +170,8 @@ export const NAIVE_COST_CALCULATORS: Record<string, (inputs: MarginCoreInputValu
  return hoursPerVisit * visitFreq * laborRate * staffCount + supplyCost;
  },
 
- "landscaping-lawn-care": (inputs) => {
- const area = num(inputs, "areaSize");
- const crewHours = num(inputs, "crewHours");
+"landscaping-lawn-care": (inputs) => {
+const crewHours = num(inputs, "crewHours");
  const laborRate = num(inputs, "laborRate", 25);
  const fuelCost = num(inputs, "fuelCost", 40);
  const equipCost = num(inputs, "equipmentCost", 30);
@@ -240,9 +239,8 @@ export const NAIVE_COST_CALCULATORS: Record<string, (inputs: MarginCoreInputValu
  },
 
  // ── Agriculture ─────────────────────────────────────────────────────
- "agriculture-crops": (inputs) => {
- const area = num(inputs, "areaSize");
- const fertilizerCost = num(inputs, "fertilizerCost");
+"agriculture-crops": (inputs) => {
+const fertilizerCost = num(inputs, "fertilizerCost");
  const seedCost = num(inputs, "seedCost");
  const laborCost = num(inputs, "laborCost");
  const pesticide = num(inputs, "pesticideCost");

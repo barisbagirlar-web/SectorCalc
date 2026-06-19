@@ -35,6 +35,8 @@ function evaluateAllFormulas(input: Bundle_discount_calculatorInput): Record<str
   try { const v = input.numberOfBundles >= input.bulkThreshold ? (asFormulaNumber(results["totalBundleCost"])) * (input.bulkDiscountPercent / 100) : 0; results["bulkDiscountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bulkDiscountAmount"] = 0; }
   try { const v = (asFormulaNumber(results["bundleDiscountAmount"])) + (asFormulaNumber(results["bulkDiscountAmount"])); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
   try { const v = (asFormulaNumber(results["undiscountedCost"])) - (asFormulaNumber(results["discountAmount"])); results["finalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalCost"] = 0; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
@@ -49,7 +51,7 @@ export function calculateBundle_discount_calculator(input: Bundle_discount_calcu
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
+  const hiddenLossDrivers: string[] = ["Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"

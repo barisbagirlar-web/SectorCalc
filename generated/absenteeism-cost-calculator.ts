@@ -30,7 +30,7 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Absenteeism_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.avg_hourly_wage * input.working_days_per_year); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.total_employees * (input.absenteeism_rate / 100) * input.avg_hours_per_day * input.working_days_per_year; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
   try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
   try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage * input.overhead_multiplier; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;

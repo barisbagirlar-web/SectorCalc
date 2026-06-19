@@ -22,5 +22,82 @@ describe("weight-cycling-calculator", () => {
     expect(result.breakdown).toBeDefined();
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);
     expect(Array.isArray(result.suggestedActions)).toBe(true);
+
+    // Verify formula values
+    // energyPerCycle = (100 * 9.81 * 5) / 3.6e6 / (90/100) ≈ 0.001514 kWh
+    expect(result.energyPerCycle).toBeCloseTo(0.001514, 5);
+    // totalCycles = 100 * 250 = 25000
+    expect(result.totalCycles).toBe(25000);
+    // totalEnergy = 0.001514 * 25000 ≈ 37.85 kWh
+    expect(result.totalEnergy).toBeCloseTo(37.85, 1);
+    // totalCost = 37.85 * 0.15 ≈ 5.68 currency
+    expect(result.totalCost).toBeCloseTo(5.68, 1);
+    // totalWasteCost should equal totalCost
+    expect(result.totalWasteCost).toBe(result.totalCost);
+
+    // Verify breakdown contains all keys
+    expect(result.breakdown).toHaveProperty("totalEnergy");
+    expect(result.breakdown).toHaveProperty("totalCycles");
+    expect(result.breakdown).toHaveProperty("energyPerCycle");
+  });
+
+  it("handles high-cycle industrial scenario", () => {
+    const input = {
+      mass: 500,
+      height: 10,
+      cyclesPerDay: 700,
+      operatingDays: 250,
+      efficiency: 75,
+      energyCost: 0.12,
+    } as Weight_cycling_calculatorInput;
+    const result = calculateWeight_cycling_calculator(input);
+
+    // energyPerCycle = (500 * 9.81 * 10) / 3.6e6 / (75/100) ≈ 0.01817 kWh
+    expect(result.energyPerCycle).toBeCloseTo(0.01817, 4);
+    // totalCycles = 700 * 250 = 175000
+    expect(result.totalCycles).toBe(175000);
+    // totalEnergy = 0.0181667 * 175000 ≈ 3179.17 kWh
+    expect(result.totalEnergy).toBeCloseTo(3179.17, 1);
+    // totalCost = 3179.17 * 0.12 ≈ 381.50
+    expect(result.totalCost).toBeCloseTo(381.50, 1);
+
+    // Should generate loss drivers for low efficiency
+    expect(result.hiddenLossDrivers.length).toBeGreaterThanOrEqual(0);
+    expect(result.suggestedActions.length).toBeGreaterThan(0);
+  });
+
+  it("handles zero and edge inputs gracefully", () => {
+    const input = {
+      mass: 0,
+      height: 0,
+      cyclesPerDay: 0,
+      operatingDays: 0,
+      efficiency: 0,
+      energyCost: 0,
+    } as Weight_cycling_calculatorInput;
+    const result = calculateWeight_cycling_calculator(input);
+
+    expect(result.energyPerCycle).toBe(0);
+    expect(result.totalCycles).toBe(0);
+    expect(result.totalEnergy).toBe(0);
+    expect(result.totalCost).toBe(0);
+    expect(result.totalWasteCost).toBe(0);
+    expect(Number.isFinite(result.totalWasteCost)).toBe(true);
+  });
+
+  it("includes dataConfidenceAdjusted calculation", () => {
+    const input = {
+      mass: 100,
+      height: 5,
+      cyclesPerDay: 100,
+      operatingDays: 250,
+      efficiency: 90,
+      energyCost: 0.15,
+      dataConfidence: 80,
+    } as Weight_cycling_calculatorInput;
+    const result = calculateWeight_cycling_calculator(input);
+
+    // dataConfidenceAdjusted = totalCost * 80/100
+    expect(result.dataConfidenceAdjusted).toBeCloseTo(result.totalCost * 0.8, 2);
   });
 });

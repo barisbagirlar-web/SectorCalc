@@ -30,7 +30,7 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Scaffolding_rental_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.labor_cost_per_hour * input.project_duration_days); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = (input.erection_hours_per_sqm * input.total_scaffold_area_sqm) + (input.dismantle_hours_per_sqm * input.total_scaffold_area_sqm); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
   try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
   try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;

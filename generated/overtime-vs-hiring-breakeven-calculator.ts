@@ -30,7 +30,7 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Overtime_vs_hiring_breakeven_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.avg_hourly_wage; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.overtime_hours_per_week * 52; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
   try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
   try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage * input.productivity_factor_new_hire * (input.overtime_premium); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.overtime_premium; results["factor_overtime_premium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_overtime_premium"] = 0; }

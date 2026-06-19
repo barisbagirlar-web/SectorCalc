@@ -155,7 +155,9 @@
     "bundleDiscountAmount": "undiscountedCost - totalBundleCost",
     "bulkDiscountAmount": "numberOfBundles >= bulkThreshold ? totalBundleCost * (bulkDiscountPercent / 100) : 0",
     "discountAmount": "bundleDiscountAmount + bulkDiscountAmount",
-    "finalCost": "undiscountedCost - discountAmount"
+    "finalCost": "undiscountedCost - discountAmount",
+    "direct_labor_cost": "0",
+    "result": "quantity * (discount_percent / 100) * list_price * (apply_to_all_units ? 1 : 0)"
   },
   "outputs": {
     "primary": "totalItems",
@@ -197,7 +199,9 @@
         "description": "İndirimler sonrası nihai maliyet"
       }
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
+    ],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],

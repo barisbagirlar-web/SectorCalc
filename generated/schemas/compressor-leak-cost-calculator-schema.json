@@ -264,7 +264,7 @@
   },
   "formulas": {
     "annual_exposure_hours": "operating_hours",
-    "direct_labor_cost": "number_of_leaks * (compressor_efficiency / 100) * operating_hours * electricity_cost",
+    "direct_labor_cost": "0",
     "result": "number_of_leaks * (compressor_efficiency / 100) * operating_hours * electricity_cost * leak_diameter"
   },
   "outputs": {
@@ -275,7 +275,8 @@
     ],
     "hiddenLossDrivers": [
       "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Physical exposure factors are normalized estimates",
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
     ],
     "suggestedActions": [
       "Reconcile labor and maintenance legs separately",

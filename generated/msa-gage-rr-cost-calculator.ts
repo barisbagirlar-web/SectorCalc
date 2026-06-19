@@ -31,7 +31,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Msa_gage_rr_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
   try { const v = input.num_parts * 1 * 1 * input.cost_per_defect * (input.num_appraisers * input.num_trials); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.num_appraisers; results["factor_num_appraisers"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_appraisers"] = 0; }
   try { const v = input.num_trials; results["factor_num_trials"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_trials"] = 0; }
@@ -49,7 +49,7 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
+  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"

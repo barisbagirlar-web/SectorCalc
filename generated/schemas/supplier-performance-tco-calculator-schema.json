@@ -262,7 +262,7 @@
   },
   "formulas": {
     "annual_exposure_hours": "lead_time_days",
-    "direct_labor_cost": "annual_quantity * (defect_rate / 100) * lead_time_days * purchase_price",
+    "direct_labor_cost": "0",
     "result": "annual_quantity * (defect_rate / 100) * lead_time_days * purchase_price"
   },
   "outputs": {
@@ -273,7 +273,8 @@
     ],
     "hiddenLossDrivers": [
       "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Physical exposure factors are normalized estimates",
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
     ],
     "suggestedActions": [
       "Reconcile labor and maintenance legs separately",

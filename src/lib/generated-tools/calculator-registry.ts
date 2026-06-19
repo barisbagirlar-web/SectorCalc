@@ -404,7 +404,7 @@ const CALCULATOR_LOADERS: Readonly<Record<string, CalculatorLoader>> = {
   "build-calculator": createLoader("build-calculator", "PASS"),
   "building-envelope-size-calculator": createLoader("building-envelope-size-calculator", "PASS"),
   "bulk-discount-calculator": createLoader("bulk-discount-calculator", "PASS"),
-  "bundle-discount-calculator": createLoader("bundle-discount-calculator", "PASS"),
+  "bundle-discount-calculator": createLoader("bundle-discount-calculator", "WARN"),
   "buoyancy-calculator": createLoader("buoyancy-calculator", "PASS"),
   "burn-rate-calculator": createLoader("burn-rate-calculator", "PASS"),
   "burnout-calculator": createLoader("burnout-calculator", "PASS"),

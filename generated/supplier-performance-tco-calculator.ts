@@ -31,7 +31,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Supplier_performance_tco_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.lead_time_days; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.annual_quantity * (input.defect_rate / 100) * input.lead_time_days * input.purchase_price; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
   try { const v = input.annual_quantity * (input.defect_rate / 100) * input.lead_time_days * input.purchase_price; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
@@ -47,7 +47,7 @@ export function calculateSupplier_performance_tco_calculator(input: Supplier_per
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
+  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"

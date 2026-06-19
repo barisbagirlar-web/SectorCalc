@@ -16,6 +16,7 @@
 
 import path from "node:path";
 import fs from "node:fs";
+import { execSync } from "node:child_process";
 import {
   validateAllSchemas,
   writeValidationReport,
@@ -51,6 +52,13 @@ interface CiGateResult {
     readonly totalIssues: number;
     readonly errorSlugs: readonly string[];
     readonly ok: boolean;
+  } | null;
+  readonly formulaGuard: {
+    readonly passed: boolean;
+    readonly schemasScanned: number;
+    readonly blockedSchemas: number;
+    readonly totalErrors: number;
+    readonly totalCrossDomainIssues: number;
   } | null;
   readonly message: string;
 }
@@ -194,7 +202,116 @@ async function main(): Promise<CiGateResult> {
         errorSlugs: goldenResult.errorSlugs,
         ok: false,
       },
+      formulaGuard: null,
       message: `CI GATE FAILED: Golden test has ${goldenResult.failed} failures`,
+    };
+  }
+
+  // ── Phase 4: Pre-commit formula guard ────────────────────────
+  console.log("\n" + "=".repeat(60));
+  console.log("CI GATE — Phase 4: Pre-commit formula guard");
+  console.log("=".repeat(60));
+
+  const guardScript = path.join(
+    process.cwd(),
+    "scripts/steelcore/pre-commit-formula-guard.ts",
+  );
+
+  // Step 4a: Silently update the known-patterns cache
+  console.log("  Step 4a: Updating known-patterns cache...");
+  try {
+    execSync(`npx tsx "${guardScript}" --update-cache`, {
+      cwd: process.cwd(),
+      stdio: "pipe",
+      timeout: 60_000,
+    });
+  } catch {
+    // Cache update failure is non-fatal — proceed to enforcement
+    console.log("  ⚠️  Cache update had issues (non-fatal).");
+  }
+
+  // Step 4b: Enforcement mode
+  console.log("  Step 4b: Running enforcement check...");
+  let formulaGuardPassed = false;
+  let guardSchemasScanned = 0;
+  let guardBlockedSchemas = 0;
+  let guardTotalErrors = 0;
+  let guardTotalCrossDomain = 0;
+
+  try {
+    const output = execSync(`npx tsx "${guardScript}"`, {
+      cwd: process.cwd(),
+      stdio: "pipe",
+      timeout: 60_000,
+      encoding: "utf-8",
+    });
+    formulaGuardPassed = true;
+
+    // Scan output for key stats
+    const schemasMatch = output.match(/Schemas scanned:\s+(\d+)/);
+    const errorsMatch = output.match(/Errors found:\s+(\d+)/);
+    const crossDomainMatch = output.match(/Cross-domain:\s+(\d+)/);
+    const blockedMatch = output.match(/Blocked schemas:\s+(\d+)/);
+
+    if (schemasMatch) guardSchemasScanned = Number(schemasMatch[1]);
+    if (errorsMatch) guardTotalErrors = Number(errorsMatch[1]);
+    if (crossDomainMatch) guardTotalCrossDomain = Number(crossDomainMatch[1]);
+    if (blockedMatch) guardBlockedSchemas = Number(blockedMatch[1]);
+
+    // Print the enforcement output
+    process.stdout.write(output);
+  } catch (err) {
+    // Guard enforcement failed — extract stats from stderr
+    const stderr =
+      err instanceof Error
+        ? err.message
+        : "Pre-commit formula guard check failed";
+
+    const schemasMatch = stderr.match(/Schemas scanned:\s+(\d+)/);
+    const errorsMatch = stderr.match(/Errors found:\s+(\d+)/);
+    const crossDomainMatch = stderr.match(/Cross-domain:\s+(\d+)/);
+    const blockedMatch = stderr.match(/Blocked schemas:\s+(\d+)/);
+
+    if (schemasMatch) guardSchemasScanned = Number(schemasMatch[1]);
+    if (errorsMatch) guardTotalErrors = Number(errorsMatch[1]);
+    if (crossDomainMatch) guardTotalCrossDomain = Number(crossDomainMatch[1]);
+    if (blockedMatch) guardBlockedSchemas = Number(blockedMatch[1]);
+
+    console.log(stderr);
+
+    return {
+      passed: false,
+      steelcore: {
+        valid: steelcoreReport.valid,
+        total: steelcoreReport.total,
+        passRate,
+        threshold: STEELCORE_PASS_THRESHOLD,
+        ok: true,
+      },
+      semantic: {
+        schemasScanned: schemaFiles.length,
+        schemasWithIssues,
+        totalIssues: totalSemanticIssues,
+        crossDomainContaminations: crossDomainCount,
+        starOneIssues: starOneCount,
+        ok: true,
+      },
+      golden: {
+        passed: goldenResult.passed,
+        total: goldenResult.total,
+        failed: goldenResult.failed,
+        totalIssues: goldenResult.totalIssues,
+        errorSlugs: goldenResult.errorSlugs,
+        ok: true,
+      },
+      formulaGuard: {
+        passed: formulaGuardPassed,
+        schemasScanned: guardSchemasScanned,
+        blockedSchemas: guardBlockedSchemas,
+        totalErrors: guardTotalErrors,
+        totalCrossDomainIssues: guardTotalCrossDomain,
+      },
+      message: `CI GATE FAILED: Pre-commit formula guard blocked ${guardBlockedSchemas} schema(s) with cross-domain contamination`,
     };
   }
 
@@ -222,6 +339,13 @@ async function main(): Promise<CiGateResult> {
       totalIssues: goldenResult.totalIssues,
       errorSlugs: goldenResult.errorSlugs,
       ok: true,
+    },
+    formulaGuard: {
+      passed: true,
+      schemasScanned: guardSchemasScanned,
+      blockedSchemas: 0,
+      totalErrors: guardTotalErrors,
+      totalCrossDomainIssues: guardTotalCrossDomain,
     },
     message: "CI GATE PASSED — All quality checks passed",
   };

@@ -7,6 +7,7 @@ import {
   generatedCalculateExport,
   generatedInputSchemaExport,
 } from "./export-names";
+import { createRuntimeFormulaGuard } from "./runtime-formula-guard";
 
 type RawGeneratedModule = Record<string, unknown>;
 
@@ -47,11 +48,36 @@ export async function loadClientCalculator(
       return null;
     }
 
-    // Wrap calculate with Trust Trace (synchronous hash)
+    // Wrap calculate: runtime guard (dev only) + Trust Trace (always)
+    let guardedCalculate: (input: Record<string, unknown>) => GeneratedToolResult;
+
+    if (process.env.NODE_ENV !== "production") {
+      const schemaJson = (await import(
+        /* webpackChunkName: "schema-[request]" */
+        `@generated/schemas/${slug}-schema.json`
+      )) as {
+        inputs: Array<{ id: string }>;
+        formulas: Record<string, string>;
+      };
+
+      const guard = createRuntimeFormulaGuard(
+        slug,
+        schemaJson.formulas,
+        schemaJson.inputs.map((i) => i.id),
+      );
+
+      guardedCalculate = guard.wrapCalculate(
+        calculate as (input: Record<string, unknown>) => unknown,
+        slug,
+      ) as (input: Record<string, unknown>) => GeneratedToolResult;
+    } else {
+      guardedCalculate = calculate as (input: Record<string, unknown>) => GeneratedToolResult;
+    }
+
     const wrappedCalculate = (
       input: Record<string, unknown>,
     ): GeneratedToolResult => {
-      const rawResult = (calculate as (input: Record<string, unknown>) => GeneratedToolResult)(input);
+      const rawResult = guardedCalculate(input);
       return wrapWithTrustTrace(rawResult);
     };
 

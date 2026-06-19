@@ -4,7 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { VerdictPdfDocument } from "@/components/reports/VerdictPdfDocument";
+import { IndustrialPdfDocument, bridgePayloadToIndustrialPdf, buildIndustrialPdfFileName } from "@/lib/pdf/industrial-pdf";
 import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
@@ -15,10 +15,6 @@ import {
   serializePremiumReportCsv,
   type PremiumReportExportPayload,
 } from "@/lib/premium-schema/premium-report-export";
-import {
-  buildVerdictReportFileName,
-  mapPremiumReportExportToVerdictReportData,
-} from "@/lib/reports/verdict-report";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
@@ -178,11 +174,11 @@ export function PremiumReportExportActions({
 
   const exportLocked = !entitlement.canExportPdf && !entitlement.canExportCsv;
 
-  const pdfExport = useMemo(
-    () => mapPremiumReportExportToVerdictReportData(payload),
-    [payload]
+  const pdfData = useMemo(
+    () => bridgePayloadToIndustrialPdf(payload, locale),
+    [payload, locale]
   );
-  const pdfFileName = buildVerdictReportFileName(payload.schemaSlug, payload.generatedAt);
+  const pdfFileName = buildIndustrialPdfFileName(payload.schemaSlug, locale, payload.generatedAt);
 
   return (
     <section className="sc-premium-decision-report__section sc-premium-decision-report__export">
@@ -219,10 +215,7 @@ export function PremiumReportExportActions({
             {entitlement.canExportPdf ? (
               <PDFDownloadLink
                 document={
-                  <VerdictPdfDocument
-                    data={pdfExport.data}
-                    severity={pdfExport.severity}
-                  />
+                  <IndustrialPdfDocument data={pdfData} />
                 }
                 fileName={pdfFileName}
                 onClick={() =>
@@ -235,7 +228,7 @@ export function PremiumReportExportActions({
                 {({ loading }) =>
                   loading
                     ? "Preparing PDF…"
-                    : "Download Premium Decision Summary PDF"
+                    : "Download Premium Decision Report PDF"
                 }
               </PDFDownloadLink>
             ) : null}

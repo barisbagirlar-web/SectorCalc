@@ -281,7 +281,7 @@
     ]
   },
   "formulas": {
-    "annual_exposure_hours": "(avg_hourly_wage * working_days_per_year)",
+    "annual_exposure_hours": "total_employees * (absenteeism_rate / 100) * avg_hours_per_day * working_days_per_year",
     "direct_labor_cost": "total_employees * (absenteeism_rate / 100) * (avg_hourly_wage * working_days_per_year) * avg_hourly_wage",
     "result": "total_employees * (absenteeism_rate / 100) * (avg_hourly_wage * working_days_per_year) * avg_hourly_wage * overhead_multiplier"
   },

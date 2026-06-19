@@ -99,9 +99,9 @@
     }
   ],
   "formulas": {
-    "annual_exposure_hours": "1",
-    "direct_labor_cost": "quantity * (maxDiscount / 100) * 1 * basePricePerUnit",
-    "result": "quantity * (maxDiscount / 100) * 1 * basePricePerUnit * scale"
+    "annual_exposure_hours": "quantity",
+    "direct_labor_cost": "0",
+    "result": "quantity * (maxDiscount / 100) * basePricePerUnit * scale"
   },
   "outputs": {
     "primary": "result",
@@ -111,7 +111,8 @@
     ],
     "hiddenLossDrivers": [
       "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Physical exposure factors are normalized estimates",
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
     ],
     "suggestedActions": [
       "Reconcile labor and maintenance legs separately",

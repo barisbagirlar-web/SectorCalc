@@ -273,7 +273,7 @@
   },
   "formulas": {
     "annual_exposure_hours": "1",
-    "direct_labor_cost": "current_quantity * (price_change_percent / 100) * 1 * current_price",
+    "direct_labor_cost": "0",
     "result": "current_quantity * (price_change_percent / 100) * 1 * current_price * (elasticity_coefficient)",
     "factor_elasticity_coefficient": "elasticity_coefficient"
   },
@@ -286,7 +286,8 @@
     ],
     "hiddenLossDrivers": [
       "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Physical exposure factors are normalized estimates",
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
     ],
     "suggestedActions": [
       "Reconcile labor and maintenance legs separately",

@@ -277,7 +277,7 @@
   },
   "formulas": {
     "annual_exposure_hours": "1",
-    "direct_labor_cost": "num_parts * 1 * 1 * cost_per_defect",
+    "direct_labor_cost": "0",
     "result": "num_parts * 1 * 1 * cost_per_defect * (num_appraisers * num_trials)",
     "factor_num_appraisers": "num_appraisers",
     "factor_num_trials": "num_trials"
@@ -292,7 +292,8 @@
     ],
     "hiddenLossDrivers": [
       "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Physical exposure factors are normalized estimates",
+      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
     ],
     "suggestedActions": [
       "Reconcile labor and maintenance legs separately",

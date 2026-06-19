@@ -29,8 +29,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Discount_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.quantity * (input.discount_percent / 100) * 1 * input.list_price; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.quantity * (input.discount_percent / 100) * 1 * input.list_price * input.apply_to_all_units; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.quantity * (input.discount_percent / 100) * input.list_price * (input.apply_to_all_units ? 1 : 0); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -45,7 +45,7 @@ export function calculateDiscount_calculator(input: Discount_calculatorInput): D
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
+  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"

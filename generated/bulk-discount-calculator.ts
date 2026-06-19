@@ -22,9 +22,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Bulk_discount_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.quantity * (input.maxDiscount / 100) * 1 * input.basePricePerUnit; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.quantity * (input.maxDiscount / 100) * 1 * input.basePricePerUnit * input.scale; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.quantity; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.quantity * (input.maxDiscount / 100) * input.basePricePerUnit * input.scale; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
@@ -39,7 +39,7 @@ export function calculateBulk_discount_calculator(input: Bulk_discount_calculato
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
+  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
