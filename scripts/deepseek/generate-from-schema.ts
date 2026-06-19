@@ -230,8 +230,8 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
   const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,
