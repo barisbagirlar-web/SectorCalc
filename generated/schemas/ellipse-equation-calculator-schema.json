@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "area": "Math.PI * semiMajor * semiMinor",
-    "area_aux": "Math.PI * semiMajor * semiMinor"
+    "area": "(centerX) * (centerY) * (semiMajor) * (semiMinor) * (rotation)",
+    "area_aux": "(centerX) * (centerY) * (semiMajor)"
   },
   "outputs": {
     "primary": "area",

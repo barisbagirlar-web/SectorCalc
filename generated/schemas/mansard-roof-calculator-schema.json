@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "halfSpan": "buildingWidth / 2",
-    "halfSpan_aux": "buildingWidth / 2"
+    "halfSpan": "(buildingWidth) * (buildingLength) * (lowerAngle) * (upperAngle) * (lowerHeight)",
+    "halfSpan_aux": "(buildingWidth) * (buildingLength) * (lowerAngle)"
   },
   "outputs": {
     "primary": "halfSpan_aux",

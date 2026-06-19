@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "bandwidth": "resistance / (2 * Math.PI * inductance)",
-    "bandwidth_aux": "resistance / (2 * Math.PI * inductance)"
+    "bandwidth": "(resistance) * (inductance) * (capacitance) * (frequency) * (voltage)",
+    "bandwidth_aux": "(resistance) * (inductance) * (capacitance)"
   },
   "outputs": {
     "primary": "bandwidth_aux",

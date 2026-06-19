@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Time_dilation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.velocity_km_s * 1000; results["v_m_s"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v_m_s"] = 0; }
-  try { const v = input.velocity_km_s * 1000; results["v_m_s_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v_m_s_aux"] = 0; }
+  try { const v = (input.velocity_km_s) * (input.properTime_s) * (input.c_m_s) * (input.outputTimeFactor); results["v_m_s"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v_m_s"] = 0; }
+  try { const v = (input.velocity_km_s) * (input.properTime_s) * (input.c_m_s); results["v_m_s_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v_m_s_aux"] = 0; }
   return results;
 }
 

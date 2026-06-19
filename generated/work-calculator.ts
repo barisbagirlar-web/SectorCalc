@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Work_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.angle * Math.PI / 180; results["angleRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad"] = 0; }
-  try { const v = input.angle * Math.PI / 180; results["angleRad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad_aux"] = 0; }
+  try { const v = (input.mass) * (input.distance) * (input.angle) * (input.frictionCoefficient); results["angleRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad"] = 0; }
+  try { const v = (input.mass) * (input.distance) * (input.angle); results["angleRad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad_aux"] = 0; }
   return results;
 }
 

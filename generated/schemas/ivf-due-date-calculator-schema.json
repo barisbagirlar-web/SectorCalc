@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "daysToAdd": "266 - embryoAge",
-    "daysToAdd_aux": "266 - embryoAge"
+    "daysToAdd": "(transferYear) * (transferMonth) * (transferDay) * (embryoAge)",
+    "daysToAdd_aux": "(transferYear) * (transferMonth) * (transferDay)"
   },
   "outputs": {
     "primary": "daysToAdd_aux",

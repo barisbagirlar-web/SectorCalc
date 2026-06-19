@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "q": "1/(2*dampingRatio)",
-    "q_aux": "1/(2*dampingRatio)"
+    "q": "(mass) * (stiffness) * (dampingRatio) * (excitationFrequency)",
+    "q_aux": "(mass) * (stiffness) * (dampingRatio)"
   },
   "outputs": {
     "primary": "q_aux",

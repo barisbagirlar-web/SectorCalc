@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Pomodoro_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfPomodoros * input.workDuration; results["totalWorkTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWorkTime"] = 0; }
-  try { const v = input.numberOfPomodoros * input.workDuration; results["totalWorkTime_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWorkTime_aux"] = 0; }
+  try { const v = (input.numberOfPomodoros) * (input.workDuration) * (input.shortBreakDuration) * (input.longBreakDuration) * (input.pomodorosBeforeLongBreak) * (input.startTimeMinutes); results["totalWorkTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWorkTime"] = 0; }
+  try { const v = (input.numberOfPomodoros) * (input.workDuration) * (input.shortBreakDuration); results["totalWorkTime_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWorkTime_aux"] = 0; }
   return results;
 }
 

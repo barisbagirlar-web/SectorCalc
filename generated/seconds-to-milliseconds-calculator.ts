@@ -24,10 +24,10 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Seconds_to_milliseconds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.seconds * 1000; results["milliseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["milliseconds"] = 0; }
-  try { const v = input.seconds / 60; results["minutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minutes"] = 0; }
-  try { const v = input.seconds / 3600; results["hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hours"] = 0; }
-  try { const v = input.seconds / 86400; results["days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["days"] = 0; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes) * (input.hours) * (input.days); results["milliseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["milliseconds"] = 0; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["minutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minutes"] = 0; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hours"] = 0; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["days"] = 0; }
   return results;
 }
 

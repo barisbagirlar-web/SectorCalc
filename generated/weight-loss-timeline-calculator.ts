@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Weight_loss_timeline_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialWeight - input.targetWeight; results["weightLossAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightLossAmount"] = 0; }
-  try { const v = input.initialWeight - input.targetWeight; results["weightLossAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightLossAmount_aux"] = 0; }
+  try { const v = (input.initialWeight) * (input.dryWeight) * (input.targetWeight) * (input.dryingRateConstant) * (input.processEfficiency) * (input.setupTime); results["weightLossAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightLossAmount"] = 0; }
+  try { const v = (input.initialWeight) * (input.dryWeight) * (input.targetWeight); results["weightLossAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightLossAmount_aux"] = 0; }
   return results;
 }
 

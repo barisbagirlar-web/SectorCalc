@@ -123,9 +123,9 @@
     }
   ],
   "formulas": {
-    "iqr": "q3 - q1",
-    "lowerFence": "q1 - 1.5 * (q3 - q1)",
-    "upperFence": "q3 + 1.5 * (q3 - q1)"
+    "iqr": "(min) * (q1) * (median) * (q3) * (max)",
+    "lowerFence": "(min) * (q1) * (median)",
+    "upperFence": "(min) * (q1) * (median)"
   },
   "outputs": {
     "primary": "iqr",

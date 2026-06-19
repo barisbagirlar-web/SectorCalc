@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "discountAmount": "monthlyBaseFee * discountPercent / 100",
-    "discountAmount_aux": "monthlyBaseFee * discountPercent / 100"
+    "discountAmount": "(monthlyBaseFee) * (dataCap) * (overageRate) * (usage) * (discountPercent) * (taxRate)",
+    "discountAmount_aux": "(monthlyBaseFee) * (dataCap) * (overageRate)"
   },
   "outputs": {
     "primary": "discountAmount_aux",

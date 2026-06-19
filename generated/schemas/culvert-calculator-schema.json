@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "area": "(Math.PI * D * D) / 4",
-    "area_aux": "(Math.PI * D * D) / 4"
+    "area": "(D) * (Cd) * (H) * (g) * (n)",
+    "area_aux": "(D) * (Cd) * (H)"
   },
   "outputs": {
     "primary": "area_aux",

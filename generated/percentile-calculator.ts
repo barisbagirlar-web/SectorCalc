@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Percentile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.percentile / 100) * 5; results["rankValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue"] = 0; }
-  try { const v = (input.percentile / 100) * 5; results["rankValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue_aux"] = 0; }
+  try { const v = (input.data1) * (input.data2) * (input.data3) * (input.data4) * (input.data5) * (input.percentile); results["rankValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue"] = 0; }
+  try { const v = (input.data1) * (input.data2) * (input.data3); results["rankValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankValue_aux"] = 0; }
   return results;
 }
 

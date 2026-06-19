@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Circadian_rhythm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.currentTime - input.wakeTime + 24) % 24); results["hoursSinceWake"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoursSinceWake"] = 0; }
-  try { const v = ((input.currentTime - input.wakeTime + 24) % 24); results["hoursSinceWake_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoursSinceWake_aux"] = 0; }
+  try { const v = (input.wakeTime) * (input.currentTime) * (input.sleepDuration) * (input.circadianAmplitude) * (input.baselineAlertness); results["hoursSinceWake"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoursSinceWake"] = 0; }
+  try { const v = (input.wakeTime) * (input.currentTime) * (input.sleepDuration); results["hoursSinceWake_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoursSinceWake_aux"] = 0; }
   return results;
 }
 

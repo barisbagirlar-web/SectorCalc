@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Visual_acuity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.letterHeight / 304.8; results["H_ft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["H_ft"] = 0; }
-  try { const v = input.letterHeight / 304.8; results["H_ft_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["H_ft_aux"] = 0; }
+  try { const v = (input.distance) * (input.letterHeight) * (input.snellenNumerator) * (input.overrideDenom); results["H_ft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["H_ft"] = 0; }
+  try { const v = (input.distance) * (input.letterHeight) * (input.snellenNumerator); results["H_ft_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["H_ft_aux"] = 0; }
   return results;
 }
 

@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Guitar_scale_length_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.scaleLength / 25.4; results["scaleLengthInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches"] = 0; }
-  try { const v = input.scaleLength / 25.4; results["scaleLengthInches_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches_aux"] = 0; }
+  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber) * (input.stringGauge) * (input.tuningFrequency); results["scaleLengthInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches"] = 0; }
+  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber); results["scaleLengthInches_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches_aux"] = 0; }
   return results;
 }
 

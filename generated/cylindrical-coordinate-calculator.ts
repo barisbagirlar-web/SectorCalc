@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Cylindrical_coordinate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.theta * Math.PI / 180; results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad"] = 0; }
-  try { const v = input.theta * Math.PI / 180; results["thetaRad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad_aux"] = 0; }
+  try { const v = (input.direction) * (input.r) * (input.theta) * (input.x) * (input.y) * (input.z); results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad"] = 0; }
+  try { const v = (input.direction) * (input.r) * (input.theta); results["thetaRad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad_aux"] = 0; }
   return results;
 }
 

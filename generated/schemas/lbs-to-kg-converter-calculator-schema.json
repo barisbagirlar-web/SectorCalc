@@ -227,8 +227,8 @@
     ]
   },
   "formulas": {
-    "mass_kg": "mass_lbs * 0.45359237",
-    "uncertainty_kg": "mass_kg * (measurement_uncertainty_pct / 100)"
+    "mass_kg": "(mass_lbs) * (precision_level) * (rounding_method) * (measurement_uncertainty_pct) * (material_type)",
+    "uncertainty_kg": "(mass_lbs) * (precision_level) * (rounding_method)"
   },
   "outputs": {
     "primary": "uncertainty_kg",

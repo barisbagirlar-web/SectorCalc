@@ -23,7 +23,7 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
   sectorSlug: "manufacturing",
   category: "cost",
   painStatement:
-    "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
+    "Quantifies the monetary impact of all 7 Lean wastes (Muda) — overproduction, waiting, transport, inventory, motion, overprocessing, and defects — translating operational inefficiencies into direct financial terms that management can act on.\n\nTraditional waste tracking stops at counting defects or measuring downtime hours. This tool converts every waste category into period-level cost, annualized loss, waste-to-revenue ratio, and risk-adjusted priority scores. It ranks which Muda category costs the most and where kaizen will deliver the highest return.\n\nExample: A factory with 50 overproduction units, 20 waiting hours, and 15 defect units in a 30-day period discovers that waiting and defects represent 62% of $28,500 total waste cost. The tool prioritizes defect reduction with a risk-adjusted score of 4.2/5 and projects $17,700 annual savings.\n\nProduction managers, Lean coordinators, and plant directors use this analyzer to translate Muda into boardroom-ready financial metrics, prioritize improvement investments by ROI, and track waste-to-revenue ratio reduction over consecutive periods.",
 
   inputs: [
     {

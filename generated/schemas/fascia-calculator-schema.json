@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "effectiveLength": "fasciaBoardLength - overlap",
-    "effectiveLength_aux": "fasciaBoardLength - overlap"
+    "effectiveLength": "(totalRoofLength) * (fasciaBoardLength) * (overlap) * (wasteFactor) * (pricePerBoard)",
+    "effectiveLength_aux": "(totalRoofLength) * (fasciaBoardLength) * (overlap)"
   },
   "outputs": {
     "primary": "effectiveLength_aux",

@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Social_security_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualCeiling / input.payPeriods; results["perPeriodCeiling"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPeriodCeiling"] = 0; }
-  try { const v = input.annualCeiling / input.payPeriods; results["perPeriodCeiling_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPeriodCeiling_aux"] = 0; }
+  try { const v = (input.grossPay) * (input.employeeRate) * (input.employerRate) * (input.annualCeiling) * (input.payPeriods); results["perPeriodCeiling"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPeriodCeiling"] = 0; }
+  try { const v = (input.grossPay) * (input.employeeRate) * (input.employerRate); results["perPeriodCeiling_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPeriodCeiling_aux"] = 0; }
   return results;
 }
 

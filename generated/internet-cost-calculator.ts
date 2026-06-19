@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Internet_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyBaseFee * input.discountPercent / 100; results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = input.monthlyBaseFee * input.discountPercent / 100; results["discountAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount_aux"] = 0; }
+  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate) * (input.usage) * (input.discountPercent) * (input.taxRate); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
+  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate); results["discountAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount_aux"] = 0; }
   return results;
 }
 

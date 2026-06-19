@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "hoursSinceWake": "((currentTime - wakeTime + 24) % 24)",
-    "hoursSinceWake_aux": "((currentTime - wakeTime + 24) % 24)"
+    "hoursSinceWake": "(wakeTime) * (currentTime) * (sleepDuration) * (circadianAmplitude) * (baselineAlertness)",
+    "hoursSinceWake_aux": "(wakeTime) * (currentTime) * (sleepDuration)"
   },
   "outputs": {
     "primary": "hoursSinceWake_aux",

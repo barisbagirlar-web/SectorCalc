@@ -123,10 +123,10 @@
     }
   ],
   "formulas": {
-    "milliseconds": "seconds * 1000",
-    "minutes": "seconds / 60",
-    "hours": "seconds / 3600",
-    "days": "seconds / 86400"
+    "milliseconds": "(seconds) * (milliseconds) * (minutes) * (hours) * (days)",
+    "minutes": "(seconds) * (milliseconds) * (minutes)",
+    "hours": "(seconds) * (milliseconds) * (minutes)",
+    "days": "(seconds) * (milliseconds) * (minutes)"
   },
   "outputs": {
     "primary": "milliseconds",

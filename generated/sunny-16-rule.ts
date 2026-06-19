@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Sunny_16_ruleInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / (input.iso / 100); results["baseShutterSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseShutterSpeed"] = 0; }
-  try { const v = 1 / (input.iso / 100); results["baseShutterSpeed_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseShutterSpeed_aux"] = 0; }
+  try { const v = (input.aperture) * (input.iso) * (input.lightCondition) * (input.ndFilter); results["baseShutterSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseShutterSpeed"] = 0; }
+  try { const v = (input.aperture) * (input.iso) * (input.lightCondition); results["baseShutterSpeed_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseShutterSpeed_aux"] = 0; }
   return results;
 }
 

@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "totalInvestment": "(tuitionCost + alternativeSalary) * yearsCollege",
-    "totalInvestment_aux": "(tuitionCost + alternativeSalary) * yearsCollege"
+    "totalInvestment": "(tuitionCost) * (yearsCollege) * (alternativeSalary) * (startingSalary) * (salaryGrowth) * (workingYears) * (discountRate)",
+    "totalInvestment_aux": "(tuitionCost) * (yearsCollege) * (alternativeSalary)"
   },
   "outputs": {
     "primary": "totalInvestment_aux",

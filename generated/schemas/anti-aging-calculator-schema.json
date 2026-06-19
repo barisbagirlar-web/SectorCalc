@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "treatmentEffectivenessFactor": "1 - treatmentEffectiveness",
-    "treatmentEffectivenessFactor_aux": "1 - treatmentEffectiveness"
+    "treatmentEffectivenessFactor": "(temperature) * (referenceTemperature) * (activationEnergy) * (referenceTime) * (treatmentEffectiveness)",
+    "treatmentEffectivenessFactor_aux": "(temperature) * (referenceTemperature) * (activationEnergy)"
   },
   "outputs": {
     "primary": "treatmentEffectivenessFactor_aux",

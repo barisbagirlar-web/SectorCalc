@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "rule144Estimate": "144 / interestRate",
-    "rule144Estimate_aux": "144 / interestRate"
+    "rule144Estimate": "(interestRate) * (compoundingPeriods) * (initialInvestment) * (targetMultiplier)",
+    "rule144Estimate_aux": "(interestRate) * (compoundingPeriods) * (initialInvestment)"
   },
   "outputs": {
     "primary": "rule144Estimate",

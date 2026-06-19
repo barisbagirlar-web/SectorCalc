@@ -14,6 +14,7 @@ import {
   type PdfChartConfig,
 } from "@/lib/pdf/industrial-pdf/types";
 import { resolveEngineeringContent } from "@/lib/pdf/industrial-pdf/content/engineering-explanations";
+import type { SavedVerdictReport } from "@/lib/reports/report-storage";
 
 const DRIVER_COLORS = [
   "#1E40AF", "#D97706", "#059669", "#DC2626",
@@ -101,4 +102,51 @@ export function bridgePayloadToIndustrialPdf(
     engineeringContent,
     formulaCategory,
   });
+}
+
+/* ─── SavedVerdictReport → PremiumReportExportPayload bridge ─── */
+
+function severityToExportStatus(severity: string): "critical" | "warning" | "acceptable" {
+  switch (severity) {
+    case "danger": return "critical";
+    case "watch": return "warning";
+    default: return "acceptable";
+  }
+}
+
+export function savedReportToPremiumExportPayload(
+  report: SavedVerdictReport,
+): PremiumReportExportPayload {
+  const status = severityToExportStatus(report.result.severity);
+  return {
+    reportId: report.id,
+    generatedAt: report.createdAt,
+    schemaSlug: report.toolSlug,
+    schemaName: report.toolTitle,
+    sectorSlug: report.sector,
+    title: report.result.headline,
+    executiveVerdict: {
+      status,
+      verdict: report.result.verdict,
+      explanation: report.result.headline,
+    },
+    bigNumber: {
+      label: report.result.primaryMetricLabel,
+      value: report.result.primaryMetricValue,
+      rawValue: parseFloat(report.result.primaryMetricValue.replace(/[^0-9.,\-]/g, "").replace(",", ".")) || 0,
+      unit: "",
+    },
+    hiddenDrivers: report.result.riskDrivers.map((driver, i) => ({
+      label: driver,
+      value: driver,
+      rawValue: 0,
+      description: `Risk driver ${i + 1}`,
+    })),
+    thresholds: [],
+    suggestedActions: report.result.suggestedAction
+      ? [report.result.suggestedAction]
+      : [],
+    assumptions: [],
+    legalNote: report.legalDisclaimer,
+  };
 }

@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Hangover_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 - input.hydration; results["dehydration_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dehydration_factor"] = 0; }
-  try { const v = 1 - input.food_intake; results["food_impact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["food_impact"] = 0; }
+  try { const v = (input.alcohol_grams) / (input.body_weight + input.hours + input.gender + input.food_intake + input.hydration) * 100; results["dehydration_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dehydration_factor"] = 0; }
+  try { const v = (input.alcohol_grams) * (input.body_weight) * (input.hours); results["food_impact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["food_impact"] = 0; }
   return results;
 }
 

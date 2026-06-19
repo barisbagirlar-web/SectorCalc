@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "monthlyRate": "interestRate / 100 / 12",
-    "numPayments": "loanTerm * 12"
+    "monthlyRate": "(homeValue) / (remainingMortgage + desiredLoanAmount + interestRate + loanTerm + maxLTV) * 100",
+    "numPayments": "(homeValue) * (remainingMortgage) * (desiredLoanAmount)"
   },
   "outputs": {
     "primary": "numPayments",

@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "pressureRatio": "downstreamPressure / upstreamPressure",
-    "criticalPressureRatio": "(2 / (specificHeatRatio + 1)) ** (specificHeatRatio / (specificHeatRatio - 1))"
+    "pressureRatio": "(upstreamPressure) / (downstreamPressure + temperature + gasConstant + specificHeatRatio + orificeDiameter + dischargeCoefficient) * 100",
+    "criticalPressureRatio": "(upstreamPressure) / (downstreamPressure + temperature) * 100"
   },
   "outputs": {
     "primary": "criticalPressureRatio",

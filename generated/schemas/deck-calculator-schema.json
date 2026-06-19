@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "area": "deckLength * deckWidth",
-    "area_aux": "deckLength * deckWidth"
+    "area": "(deckLength) * (deckWidth) * (boardLength) * (boardWidth) * (boardPrice) * (wasteFactor)",
+    "area_aux": "(deckLength) * (deckWidth) * (boardLength)"
   },
   "outputs": {
     "primary": "area_aux",

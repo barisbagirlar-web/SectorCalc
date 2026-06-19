@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Helical_gear_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * input.mn; results["normalCircularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch"] = 0; }
-  try { const v = Math.PI * input.mn; results["normalCircularPitch_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch_aux"] = 0; }
+  try { const v = (input.mn) * (input.z) * (input.beta) * (input.alpha) * (input.ha) * (input.c); results["normalCircularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch"] = 0; }
+  try { const v = (input.mn) * (input.z) * (input.beta); results["normalCircularPitch_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch_aux"] = 0; }
   return results;
 }
 

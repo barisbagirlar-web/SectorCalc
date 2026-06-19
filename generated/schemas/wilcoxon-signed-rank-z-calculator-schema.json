@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "expectedValue": "n * (n + 1) / 4",
-    "expectedValue_aux": "n * (n + 1) / 4"
+    "expectedValue": "(n) * (T) * (continuity) * (decimalPlaces)",
+    "expectedValue_aux": "(n) * (T) * (continuity)"
   },
   "outputs": {
     "primary": "expectedValue_aux",

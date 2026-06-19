@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Decimal_to_fraction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.maxDenom; results["denominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator"] = 0; }
-  try { const v = input.maxDenom; results["denominator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator_aux"] = 0; }
+  try { const v = (input.decimalValue) * (input.maxDenom) * (input.simplify) * (input.format) * (input.rounding) * (input.tolerance); results["denominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator"] = 0; }
+  try { const v = (input.decimalValue) * (input.maxDenom) * (input.simplify); results["denominator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator_aux"] = 0; }
   return results;
 }
 

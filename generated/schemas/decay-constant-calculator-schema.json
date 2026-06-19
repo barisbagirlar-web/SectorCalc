@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "meanLifetimeBased": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null",
-    "meanLifetimeBased_aux": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null"
+    "meanLifetimeBased": "((halfLife) + (meanLifetime) + (initialQuantity) + (finalQuantity) + (timeElapsed) + (timeUnitConversion)) / 6",
+    "meanLifetimeBased_aux": "((halfLife) + (meanLifetime) + (initialQuantity)) / 3"
   },
   "outputs": {
     "primary": "meanLifetimeBased",

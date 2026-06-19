@@ -26,9 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Decades_to_centuries_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.decades / 10; results["rawCenturies"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawCenturies"] = 0; }
-  try { const v = (asFormulaNumber(results["rawCenturies"])) * (1 - input.measurementError / input.decades); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerBound"] = 0; }
-  try { const v = (asFormulaNumber(results["rawCenturies"])) * (1 + input.measurementError / input.decades); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperBound"] = 0; }
+  try { const v = (input.decades) * (input.precision) * (input.confidenceLevel) * (input.measurementError) * (input.roundingMethod) * (input.ambientTemp); results["rawCenturies"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawCenturies"] = 0; }
+  try { const v = (input.decades) * (input.precision) * (input.confidenceLevel); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerBound"] = 0; }
+  try { const v = (input.decades) * (input.precision) * (input.confidenceLevel); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperBound"] = 0; }
   return results;
 }
 

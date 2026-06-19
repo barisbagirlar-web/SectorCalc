@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "weightLossAmount": "initialWeight - targetWeight",
-    "weightLossAmount_aux": "initialWeight - targetWeight"
+    "weightLossAmount": "(initialWeight) * (dryWeight) * (targetWeight) * (dryingRateConstant) * (processEfficiency) * (setupTime)",
+    "weightLossAmount_aux": "(initialWeight) * (dryWeight) * (targetWeight)"
   },
   "outputs": {
     "primary": "weightLossAmount",

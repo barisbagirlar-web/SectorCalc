@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Turns_to_degrees_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.turns * 360; results["rawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDegrees"] = 0; }
-  try { const v = input.turns * 360; results["rawDegrees_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDegrees_aux"] = 0; }
+  try { const v = (input.turns) * (input.decimalPlaces) * (input.operatorId) * (input.measurementDate) * (input.machineId) * (input.batchNumber); results["rawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDegrees"] = 0; }
+  try { const v = (input.turns) * (input.decimalPlaces) * (input.operatorId); results["rawDegrees_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDegrees_aux"] = 0; }
   return results;
 }
 

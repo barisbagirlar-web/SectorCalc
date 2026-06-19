@@ -24,9 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Critical_speed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.shaftDiameter/2) ** 2; results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossSectionArea"] = 0; }
-  try { const v = Math.PI/64 * input.shaftDiameter ** 4; results["momentOfInertia"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentOfInertia"] = 0; }
-  try { const v = input.density * (asFormulaNumber(results["crossSectionArea"])); results["massPerUnitLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massPerUnitLength"] = 0; }
+  try { const v = (input.shaftLength) * (input.shaftDiameter) * (input.youngsModulus) * (input.density) * (input.supportFactor); results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossSectionArea"] = 0; }
+  try { const v = (input.shaftLength) * (input.shaftDiameter) * (input.youngsModulus); results["momentOfInertia"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentOfInertia"] = 0; }
+  try { const v = (input.shaftLength) * (input.shaftDiameter) * (input.youngsModulus); results["massPerUnitLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massPerUnitLength"] = 0; }
   return results;
 }
 

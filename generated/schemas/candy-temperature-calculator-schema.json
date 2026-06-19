@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "altitudeAdjustment": "-(altitudeFt / 500)",
-    "altitudeAdjustment_aux": "-(altitudeFt / 500)"
+    "altitudeAdjustment": "(stageIndex) * (altitudeFt) * (customTempF) * (thermometerOffsetF)",
+    "altitudeAdjustment_aux": "(stageIndex) * (altitudeFt) * (customTempF)"
   },
   "outputs": {
     "primary": "altitudeAdjustment_aux",

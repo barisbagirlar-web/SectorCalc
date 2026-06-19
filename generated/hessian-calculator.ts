@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Hessian_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.c; results["f_xy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f_xy"] = 0; }
-  try { const v = input.c; results["f_xy_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f_xy_aux"] = 0; }
+  try { const v = (input.a) * (input.b) * (input.c) * (input.x) * (input.y); results["f_xy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f_xy"] = 0; }
+  try { const v = (input.a) * (input.b) * (input.c); results["f_xy_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f_xy_aux"] = 0; }
   return results;
 }
 

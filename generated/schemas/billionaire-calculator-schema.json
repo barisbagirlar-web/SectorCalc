@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "annualSavings": "annualIncome * (savingsRate / 100)",
-    "annualSavings_aux": "annualIncome * (savingsRate / 100)"
+    "annualSavings": "(currentNetWorth) * (annualIncome) * (savingsRate) * (annualReturn) * (desiredNetWorth)",
+    "annualSavings_aux": "(currentNetWorth) * (annualIncome) * (savingsRate)"
   },
   "outputs": {
     "primary": "annualSavings_aux",

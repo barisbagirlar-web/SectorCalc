@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: College_roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.tuitionCost + input.alternativeSalary) * input.yearsCollege; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
-  try { const v = (input.tuitionCost + input.alternativeSalary) * input.yearsCollege; results["totalInvestment_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment_aux"] = 0; }
+  try { const v = (input.tuitionCost) * (input.yearsCollege) * (input.alternativeSalary) * (input.startingSalary) * (input.salaryGrowth) * (input.workingYears) * (input.discountRate); results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
+  try { const v = (input.tuitionCost) * (input.yearsCollege) * (input.alternativeSalary); results["totalInvestment_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment_aux"] = 0; }
   return results;
 }
 

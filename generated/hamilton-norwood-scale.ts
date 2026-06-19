@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Hamilton_norwood_scaleInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.family_history_score; results["family_score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["family_score"] = 0; }
-  try { const v = input.family_history_score; results["family_score_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["family_score_aux"] = 0; }
+  try { const v = (input.age) * (input.frontal_recession_mm) * (input.vertex_thinning_percent) * (input.temporal_thinning_percent) * (input.family_history_score) * (input.duration_years); results["family_score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["family_score"] = 0; }
+  try { const v = (input.age) * (input.frontal_recession_mm) * (input.vertex_thinning_percent); results["family_score_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["family_score_aux"] = 0; }
   return results;
 }
 

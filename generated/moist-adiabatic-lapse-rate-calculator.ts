@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Moist_adiabatic_lapse_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.temperature + 273.15; results["T_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["T_K"] = 0; }
-  try { const v = input.pressure * 100; results["p_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p_Pa"] = 0; }
+  try { const v = (input.temperature) * (input.pressure) * (input.g) * (input.Lv) * (input.Rd) * (input.cpd) * (input.epsilon); results["T_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["T_K"] = 0; }
+  try { const v = (input.temperature) * (input.pressure) * (input.g); results["p_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p_Pa"] = 0; }
   return results;
 }
 

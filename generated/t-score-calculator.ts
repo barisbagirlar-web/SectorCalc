@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: T_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sampleSize - 1; results["degreesOfFreedom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom"] = 0; }
-  try { const v = input.sampleSize - 1; results["degreesOfFreedom_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom_aux"] = 0; }
+  try { const v = (input.sampleMean) * (input.populationMean) * (input.sampleStdDev) * (input.sampleSize); results["degreesOfFreedom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom"] = 0; }
+  try { const v = (input.sampleMean) * (input.populationMean) * (input.sampleStdDev); results["degreesOfFreedom_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom_aux"] = 0; }
   return results;
 }
 

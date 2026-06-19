@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "eligible": "age >= 70.5 ? 1 : 0",
-    "eligible_aux": "age >= 70.5 ? 1 : 0"
+    "eligible": "(age) * (distributionAmount) * (marginalTaxRate) * (iraBalance)",
+    "eligible_aux": "(age) * (distributionAmount) * (marginalTaxRate)"
   },
   "outputs": {
     "primary": "eligible_aux",

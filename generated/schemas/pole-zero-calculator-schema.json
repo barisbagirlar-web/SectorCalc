@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "w": "2 * Math.PI * frequency",
-    "w_aux": "2 * Math.PI * frequency"
+    "w": "(frequency) * (pole1_real) * (pole1_imag) * (pole2_real) * (pole2_imag) * (zero1_real) * (zero1_imag)",
+    "w_aux": "(frequency) * (pole1_real) * (pole1_imag)"
   },
   "outputs": {
     "primary": "w_aux",

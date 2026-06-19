@@ -123,9 +123,9 @@
     }
   ],
   "formulas": {
-    "crossSectionArea": "Math.PI * (shaftDiameter/2) ** 2",
-    "momentOfInertia": "Math.PI/64 * shaftDiameter ** 4",
-    "massPerUnitLength": "density * crossSectionArea"
+    "crossSectionArea": "(shaftLength) * (shaftDiameter) * (youngsModulus) * (density) * (supportFactor)",
+    "momentOfInertia": "(shaftLength) * (shaftDiameter) * (youngsModulus)",
+    "massPerUnitLength": "(shaftLength) * (shaftDiameter) * (youngsModulus)"
   },
   "outputs": {
     "primary": "massPerUnitLength",

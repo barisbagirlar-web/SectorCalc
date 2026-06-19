@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Sqm_to_sqft_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.areaSqm * input.conversionFactor; results["areaSqft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqft"] = 0; }
-  try { const v = input.areaSqm * input.conversionFactor; results["areaSqft_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqft_aux"] = 0; }
+  try { const v = (input.areaSqm) * (input.conversionFactor) * (input.roundingPrecision) * (input.areaUnitPrice) * (input.wasteFactor) * (input.measurementTolerance); results["areaSqft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqft"] = 0; }
+  try { const v = (input.areaSqm) * (input.conversionFactor) * (input.roundingPrecision); results["areaSqft_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqft_aux"] = 0; }
   return results;
 }
 

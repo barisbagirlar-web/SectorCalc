@@ -147,9 +147,9 @@
     }
   ],
   "formulas": {
-    "gregorianYearFromHebrew": "hebrewYear - 3761",
-    "daysInHebrewYear": "hebrewYear % 19 < 7 ? 354 : 384",
-    "isLeapYear": "hebrewYear % 19 === 0 || hebrewYear % 19 === 3 || hebrewYear % 19 === 6 || hebrewYear % 19 === 8 || hebrewYear % 19 === 11 || hebrewYear % 19 === 14 || hebrewYear % 19 === 17 ? 1 : 0"
+    "gregorianYearFromHebrew": "(gregorianYear) * (gregorianMonth) * (gregorianDay) * (hebrewYear) * (hebrewMonth) * (hebrewDay)",
+    "daysInHebrewYear": "(gregorianYear) * (gregorianMonth) * (gregorianDay)",
+    "isLeapYear": "(gregorianYear) * (gregorianMonth) * (gregorianDay)"
   },
   "outputs": {
     "primary": "isLeapYear",

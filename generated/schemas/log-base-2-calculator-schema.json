@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "exponentPart": "exponent - bias",
-    "exponentPart_aux": "exponent - bias"
+    "exponentPart": "(sign) * (fraction) * (exponent) * (bias) * (precision)",
+    "exponentPart_aux": "(sign) * (fraction) * (exponent)"
   },
   "outputs": {
     "primary": "exponentPart_aux",

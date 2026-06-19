@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Resistor_color_code_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 'Tolerans: +' + input.tolerance + '%'; results["toleranceInfo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceInfo"] = 0; }
-  try { const v = 'Tolerans: +' + input.tolerance + '%'; results["toleranceInfo_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceInfo_aux"] = 0; }
+  try { const v = (input.band1) * (input.band2) * (input.multiplier) * (input.tolerance); results["toleranceInfo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceInfo"] = 0; }
+  try { const v = (input.band1) * (input.band2) * (input.multiplier); results["toleranceInfo_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceInfo_aux"] = 0; }
   return results;
 }
 

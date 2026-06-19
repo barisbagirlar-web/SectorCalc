@@ -165,7 +165,7 @@ function main(): void {
   if (WRITE_BASELINE) {
     fs.writeFileSync(BASELINE_PATH, `${JSON.stringify(summary, null, 2)}\n`, "utf8");
     console.log(`\nWrote baseline → ${BASELINE_PATH}`);
-    return;
+    process.exit(0);
   }
 
   if (REGRESSION && fs.existsSync(BASELINE_PATH)) {
@@ -177,7 +177,7 @@ function main(): void {
       process.exit(1);
     }
     console.log(`\naudit-schema-field-i18n: REGRESSION PASS (${allLeaks.length} <= baseline ${baseline.total})`);
-    return;
+    process.exit(0);
   }
 
   if (allLeaks.length > 0 && STRICT) {

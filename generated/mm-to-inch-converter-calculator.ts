@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Mm_to_inch_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.apply_six_sigma ? 1.5 : 0; results["six_sigma_shift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift"] = 0; }
-  try { const v = input.apply_six_sigma ? 1.5 : 0; results["six_sigma_shift_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift_aux"] = 0; }
+  try { const v = (input.value_mm) * (input.precision) * (input.tolerance_mm) * (input.unit_system) * (input.apply_six_sigma); results["six_sigma_shift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift"] = 0; }
+  try { const v = (input.value_mm) * (input.precision) * (input.tolerance_mm); results["six_sigma_shift_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift_aux"] = 0; }
   return results;
 }
 

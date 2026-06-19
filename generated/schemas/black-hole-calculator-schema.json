@@ -99,9 +99,9 @@
     }
   ],
   "formulas": {
-    "eventHorizonRadius": "2 * 1.4766 * mass",
-    "photonSphereRadius": "3 * 1.4766 * mass",
-    "iscoRadius": "6 * 1.4766 * mass"
+    "eventHorizonRadius": "(mass) * (spin) * (charge) * (distance)",
+    "photonSphereRadius": "(mass) * (spin) * (charge)",
+    "iscoRadius": "(mass) * (spin) * (charge)"
   },
   "outputs": {
     "primary": "iscoRadius",

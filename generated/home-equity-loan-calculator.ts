@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Home_equity_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.interestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = input.loanTerm * 12; results["numPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numPayments"] = 0; }
+  try { const v = (input.homeValue) / (input.remainingMortgage + input.desiredLoanAmount + input.interestRate + input.loanTerm + input.maxLTV) * 100; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
+  try { const v = (input.homeValue) * (input.remainingMortgage) * (input.desiredLoanAmount); results["numPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numPayments"] = 0; }
   return results;
 }
 

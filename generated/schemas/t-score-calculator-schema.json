@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "degreesOfFreedom": "sampleSize - 1",
-    "degreesOfFreedom_aux": "sampleSize - 1"
+    "degreesOfFreedom": "(sampleMean) * (populationMean) * (sampleStdDev) * (sampleSize)",
+    "degreesOfFreedom_aux": "(sampleMean) * (populationMean) * (sampleStdDev)"
   },
   "outputs": {
     "primary": "degreesOfFreedom_aux",

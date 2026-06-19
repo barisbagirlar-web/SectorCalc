@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Mph_to_knots_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mph * input.conversionFactor; results["exactKnots"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactKnots"] = 0; }
-  try { const v = input.mph * input.conversionFactor; results["exactKnots_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactKnots_aux"] = 0; }
+  try { const v = (input.mph) * (input.conversionFactor) * (input.decimals) * (input.knownKnots) * (input.tolerance); results["exactKnots"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactKnots"] = 0; }
+  try { const v = (input.mph) * (input.conversionFactor) * (input.decimals); results["exactKnots_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactKnots_aux"] = 0; }
   return results;
 }
 

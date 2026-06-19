@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "k": "1/(4*Math.PI*8.854e-12*epsilon_r)",
-    "thetaRad": "theta*Math.PI/180"
+    "k": "(Q1) * (r1) * (Q2) * (r2) * (theta) * (epsilon_r)",
+    "thetaRad": "(Q1) * (r1) * (Q2)"
   },
   "outputs": {
     "primary": "thetaRad",

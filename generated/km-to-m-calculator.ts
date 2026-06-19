@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Km_to_m_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inputKm * input.conversionFactor * input.scaleFactor; results["rawMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters"] = 0; }
-  try { const v = input.inputKm * input.conversionFactor * input.scaleFactor; results["rawMeters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters_aux"] = 0; }
+  try { const v = (input.inputKm) * (input.conversionFactor) * (input.decimalPrecision) * (input.roundingMethod) * (input.minimumValue) * (input.maximumValue) * (input.scaleFactor); results["rawMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters"] = 0; }
+  try { const v = (input.inputKm) * (input.conversionFactor) * (input.decimalPrecision); results["rawMeters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters_aux"] = 0; }
   return results;
 }
 

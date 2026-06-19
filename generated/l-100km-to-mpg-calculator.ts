@@ -30,8 +30,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: L_100km_to_mpg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gallon_type == 1 ? 235.214583 : 282.480936; results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
-  try { const v = input.l_per_100km > 0 ? (asFormulaNumber(results["conversion_factor"])) / input.l_per_100km : 0; results["base_mpg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_mpg"] = 0; }
+  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places) * (input.rounding_method) * (input.measurement_standard) * (input.fuel_type) * (input.vehicle_class) * (input.route_type); results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
+  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places); results["base_mpg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_mpg"] = 0; }
   return results;
 }
 

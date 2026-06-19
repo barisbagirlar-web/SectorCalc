@@ -123,9 +123,9 @@
     }
   ],
   "formulas": {
-    "hazardRate": "failureRate",
-    "cumulativeHazard": "failureRate * time",
-    "meanTimeToFailure": "1 / failureRate"
+    "hazardRate": "(failureRate) / (time + targetSurvivalProb + observedFailures + totalTestTime) * 100",
+    "cumulativeHazard": "(failureRate) * (time) * (targetSurvivalProb)",
+    "meanTimeToFailure": "((failureRate) + (time) + (targetSurvivalProb)) / 3"
   },
   "outputs": {
     "primary": "meanTimeToFailure",

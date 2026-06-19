@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "celsius": "(fahrenheit - 32) * 5 / 9",
-    "celsius_aux": "(fahrenheit - 32) * 5 / 9"
+    "celsius": "(fahrenheit) * (decimalPlaces) * (atmosphericPressure) * (relativeHumidity)",
+    "celsius_aux": "(fahrenheit) * (decimalPlaces) * (atmosphericPressure)"
   },
   "outputs": {
     "primary": "celsius_aux",

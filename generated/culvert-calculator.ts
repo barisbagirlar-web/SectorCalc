@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Culvert_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.PI * input.D * input.D) / 4; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = (Math.PI * input.D * input.D) / 4; results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
+  try { const v = (input.D) * (input.Cd) * (input.H) * (input.g) * (input.n); results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  try { const v = (input.D) * (input.Cd) * (input.H); results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
   return results;
 }
 

@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "numClusters": "numClusters",
-    "numClusters_aux": "numClusters"
+    "numClusters": "(numPoints) * (numClusters) * (dimensions) * (maxIterations) * (tolerance) * (seed)",
+    "numClusters_aux": "(numPoints) * (numClusters) * (dimensions)"
   },
   "outputs": {
     "primary": "numClusters_aux",

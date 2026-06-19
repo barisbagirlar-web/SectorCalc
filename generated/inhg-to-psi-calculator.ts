@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Inhg_to_psi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw"] = 0; }
-  try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw_aux"] = 0; }
+  try { const v = (input.pressure_inhg) * (input.conversion_factor) * (input.decimal_places) * (input.altitude_ft) * (input.temperature_f); results["pressure_psi_raw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw"] = 0; }
+  try { const v = (input.pressure_inhg) * (input.conversion_factor) * (input.decimal_places); results["pressure_psi_raw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw_aux"] = 0; }
   return results;
 }
 

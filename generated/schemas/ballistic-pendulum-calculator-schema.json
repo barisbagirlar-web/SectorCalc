@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "angle_rad": "angle * Math.PI / 180",
-    "angle_rad_aux": "angle * Math.PI / 180"
+    "angle_rad": "(projectile_mass) * (pendulum_mass) * (pendulum_length) * (angle) * (gravity)",
+    "angle_rad_aux": "(projectile_mass) * (pendulum_mass) * (pendulum_length)"
   },
   "outputs": {
     "primary": "angle_rad_aux",

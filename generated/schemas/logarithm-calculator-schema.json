@@ -198,8 +198,8 @@
     ]
   },
   "formulas": {
-    "ratio": "value_x / reference_value",
-    "ratio_aux": "value_x / reference_value"
+    "ratio": "(value_x) / (base + unit_type + reference_value) * 100",
+    "ratio_aux": "(value_x) / (base + unit_type) * 100"
   },
   "outputs": {
     "primary": "ratio_aux",

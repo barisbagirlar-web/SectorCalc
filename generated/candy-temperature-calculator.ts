@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Candy_temperature_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = -(input.altitudeFt / 500); results["altitudeAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altitudeAdjustment"] = 0; }
-  try { const v = -(input.altitudeFt / 500); results["altitudeAdjustment_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altitudeAdjustment_aux"] = 0; }
+  try { const v = (input.stageIndex) * (input.altitudeFt) * (input.customTempF) * (input.thermometerOffsetF); results["altitudeAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altitudeAdjustment"] = 0; }
+  try { const v = (input.stageIndex) * (input.altitudeFt) * (input.customTempF); results["altitudeAdjustment_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altitudeAdjustment_aux"] = 0; }
   return results;
 }
 

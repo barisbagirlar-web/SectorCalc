@@ -7,7 +7,7 @@ export const FIVE_S_AUDIT_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
   sectorSlug: "lean-production",
   category: "cost",
   painStatement:
-    "5S audit scores are tracked, but the monetary impact of disorganization and search time stays invisible.",
+    "Converts 5S audit scores into actual dollar losses from workplace disorganization, search time, and inefficient workflows, making the financial case for workplace organization visible to management.\n\nMost factories track 5S scores but cannot answer: \"How much money are we losing because of a low 5S score?\" This tool models the efficiency loss percentage based on the gap between current and target 5S score, then multiplies it by total labor capacity cost to reveal the monthly financial drain of poor workplace organization.\n\nExample: A department with 50 employees, a 38/100 current 5S score, 87/100 target, and $35/hour labor cost discovers $34,496 monthly efficiency loss. Improving to the target score recovers $25,168 monthly — a $302,000 annual opportunity.\n\nLean managers, production supervisors, and continuous improvement teams use this converter to prove the ROI of 5S initiatives, set data-driven improvement targets, and communicate workplace organization value in financial terms that leadership understands.",
 
   inputs: [
     {

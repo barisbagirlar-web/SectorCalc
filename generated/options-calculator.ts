@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Options_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.r / 100; results["r_dec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r_dec"] = 0; }
-  try { const v = input.sigma / 100; results["sigma_dec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sigma_dec"] = 0; }
+  try { const v = (input.optionType) * (input.S) * (input.K) * (input.T) * (input.r) * (input.sigma); results["r_dec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r_dec"] = 0; }
+  try { const v = (input.optionType) * (input.S) * (input.K); results["sigma_dec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sigma_dec"] = 0; }
   return results;
 }
 

@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fire_number_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualExpenses / (input.withdrawalRate / 100); results["fireNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fireNumber"] = 0; }
-  try { const v = input.annualExpenses / (input.withdrawalRate / 100); results["fireNumber_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fireNumber_aux"] = 0; }
+  try { const v = (input.annualExpenses) * (input.withdrawalRate) * (input.currentSavings) * (input.annualSavings) * (input.expectedReturn) * (input.inflationRate); results["fireNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fireNumber"] = 0; }
+  try { const v = (input.annualExpenses) * (input.withdrawalRate) * (input.currentSavings); results["fireNumber_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fireNumber_aux"] = 0; }
   return results;
 }
 

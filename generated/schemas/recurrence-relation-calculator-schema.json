@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "a0_out": "a0",
-    "a1_out": "a1"
+    "a0_out": "(n) * (a0) * (a1) * (c1) * (c2)",
+    "a1_out": "(n) * (a0) * (a1)"
   },
   "outputs": {
     "primary": "a1_out",

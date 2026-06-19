@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "concretePerPost": "Math.PI * (postDiameter / 2) ** 2 * postDepth",
-    "concretePerPost_aux": "Math.PI * (postDiameter / 2) ** 2 * postDepth"
+    "concretePerPost": "(fenceLength) * (postSpacing) * (numberOfCorners) * (numberOfGateOpenings) * (postDiameter) * (postDepth)",
+    "concretePerPost_aux": "(fenceLength) * (postSpacing) * (numberOfCorners)"
   },
   "outputs": {
     "primary": "concretePerPost_aux",

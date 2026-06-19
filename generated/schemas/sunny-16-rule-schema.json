@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "baseShutterSpeed": "1 / (iso / 100)",
-    "baseShutterSpeed_aux": "1 / (iso / 100)"
+    "baseShutterSpeed": "(aperture) * (iso) * (lightCondition) * (ndFilter)",
+    "baseShutterSpeed_aux": "(aperture) * (iso) * (lightCondition)"
   },
   "outputs": {
     "primary": "baseShutterSpeed_aux",

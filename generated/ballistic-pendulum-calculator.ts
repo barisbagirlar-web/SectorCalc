@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Ballistic_pendulum_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.angle * Math.PI / 180; results["angle_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angle_rad"] = 0; }
-  try { const v = input.angle * Math.PI / 180; results["angle_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angle_rad_aux"] = 0; }
+  try { const v = (input.projectile_mass) * (input.pendulum_mass) * (input.pendulum_length) * (input.angle) * (input.gravity); results["angle_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angle_rad"] = 0; }
+  try { const v = (input.projectile_mass) * (input.pendulum_mass) * (input.pendulum_length); results["angle_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angle_rad_aux"] = 0; }
   return results;
 }
 

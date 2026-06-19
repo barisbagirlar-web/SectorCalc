@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "potentialABV": "initialSugar / 17",
-    "potentialABV_aux": "initialSugar / 17"
+    "potentialABV": "(initialSugar) * (fermentationTime) * (temperature) * (yeastPitchRate) * (batchVolume)",
+    "potentialABV_aux": "(initialSugar) * (fermentationTime) * (temperature)"
   },
   "outputs": {
     "primary": "potentialABV_aux",

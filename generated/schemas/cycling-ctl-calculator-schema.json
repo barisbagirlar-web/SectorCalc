@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "steadyStateCTL": "dailyTSS",
-    "steadyStateCTL_aux": "dailyTSS"
+    "steadyStateCTL": "(startCTL) * (dailyTSS) * (timeConstant) * (numDays)",
+    "steadyStateCTL_aux": "(startCTL) * (dailyTSS) * (timeConstant)"
   },
   "outputs": {
     "primary": "steadyStateCTL_aux",

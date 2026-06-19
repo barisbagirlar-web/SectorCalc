@@ -22,9 +22,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Black_hole_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * 1.4766 * input.mass; results["eventHorizonRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eventHorizonRadius"] = 0; }
-  try { const v = 3 * 1.4766 * input.mass; results["photonSphereRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["photonSphereRadius"] = 0; }
-  try { const v = 6 * 1.4766 * input.mass; results["iscoRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["iscoRadius"] = 0; }
+  try { const v = (input.mass) * (input.spin) * (input.charge) * (input.distance); results["eventHorizonRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eventHorizonRadius"] = 0; }
+  try { const v = (input.mass) * (input.spin) * (input.charge); results["photonSphereRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["photonSphereRadius"] = 0; }
+  try { const v = (input.mass) * (input.spin) * (input.charge); results["iscoRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["iscoRadius"] = 0; }
   return results;
 }
 

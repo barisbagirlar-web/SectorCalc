@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Sign_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sampleSize * input.p0; results["expected"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected"] = 0; }
-  try { const v = input.sampleSize * input.p0; results["expected_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_aux"] = 0; }
+  try { const v = (input.sampleSize) * (input.posCount) * (input.p0) * (input.alpha) * (input.testType); results["expected"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected"] = 0; }
+  try { const v = (input.sampleSize) * (input.posCount) * (input.p0); results["expected_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_aux"] = 0; }
   return results;
 }
 

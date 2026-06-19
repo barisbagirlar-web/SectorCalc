@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Slope_stability_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.slopeAngle * Math.PI / 180; results["angleRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad"] = 0; }
-  try { const v = input.frictionAngle * Math.PI / 180; results["frictionRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frictionRad"] = 0; }
+  try { const v = (input.slopeAngle) * (input.frictionAngle) * (input.cohesion) * (input.unitWeight) * (input.depth) * (input.porePressureRatio); results["angleRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRad"] = 0; }
+  try { const v = (input.slopeAngle) * (input.frictionAngle) * (input.cohesion); results["frictionRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frictionRad"] = 0; }
   return results;
 }
 

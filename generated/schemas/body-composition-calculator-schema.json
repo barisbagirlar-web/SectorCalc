@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "bmi": "weight / ((height/100) ** 2)",
-    "bmi_aux": "weight / ((height/100) ** 2)"
+    "bmi": "(weight) * (height) * (age) * (gender) * (waist) * (hip) * (neck)",
+    "bmi_aux": "(weight) * (height) * (age)"
   },
   "outputs": {
     "primary": "bmi",

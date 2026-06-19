@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "kmRaw": "lightYears * 9.461e12",
-    "kmRaw_aux": "lightYears * 9.461e12"
+    "kmRaw": "(lightYears) * (significantDigits) * (outputFormat) * (roundingMode)",
+    "kmRaw_aux": "(lightYears) * (significantDigits) * (outputFormat)"
   },
   "outputs": {
     "primary": "kmRaw_aux",

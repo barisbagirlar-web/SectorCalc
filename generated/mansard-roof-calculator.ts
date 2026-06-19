@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Mansard_roof_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.buildingWidth / 2; results["halfSpan"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfSpan"] = 0; }
-  try { const v = input.buildingWidth / 2; results["halfSpan_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfSpan_aux"] = 0; }
+  try { const v = (input.buildingWidth) * (input.buildingLength) * (input.lowerAngle) * (input.upperAngle) * (input.lowerHeight); results["halfSpan"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfSpan"] = 0; }
+  try { const v = (input.buildingWidth) * (input.buildingLength) * (input.lowerAngle); results["halfSpan_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfSpan_aux"] = 0; }
   return results;
 }
 

@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Log_base_2_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.exponent - input.bias; results["exponentPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exponentPart"] = 0; }
-  try { const v = input.exponent - input.bias; results["exponentPart_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exponentPart_aux"] = 0; }
+  try { const v = (input.sign) * (input.fraction) * (input.exponent) * (input.bias) * (input.precision); results["exponentPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exponentPart"] = 0; }
+  try { const v = (input.sign) * (input.fraction) * (input.exponent); results["exponentPart_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exponentPart_aux"] = 0; }
   return results;
 }
 

@@ -162,8 +162,8 @@
     ]
   },
   "formulas": {
-    "area_sqm": "area_sqft * 0.092903",
-    "area_sqm_aux": "area_sqft * 0.092903"
+    "area_sqm": "(area_sqft) * (measurement_accuracy) * (rounding_precision)",
+    "area_sqm_aux": "(area_sqft) * (measurement_accuracy) * (rounding_precision)"
   },
   "outputs": {
     "primary": "area_sqm_aux",

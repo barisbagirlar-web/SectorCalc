@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Traveling_salesmanInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numCities * input.avgDistance; results["estimatedTourDistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTourDistance"] = 0; }
-  try { const v = input.numCities * input.avgDistance; results["estimatedTourDistance_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTourDistance_aux"] = 0; }
+  try { const v = (input.numCities) * (input.avgDistance) * (input.distanceStdDev) * (input.speed) * (input.costPerKm) * (input.fixedCostPerStop) * (input.numVehicles); results["estimatedTourDistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTourDistance"] = 0; }
+  try { const v = (input.numCities) * (input.avgDistance) * (input.distanceStdDev); results["estimatedTourDistance_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTourDistance_aux"] = 0; }
   return results;
 }
 

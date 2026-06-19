@@ -7,7 +7,7 @@ export const THREE_B_PRINTING_BATCH_NESTING_SCHEMA: PremiumCalculatorSchema = {
   sectorSlug: "cnc-additive-manufacturing",
   category: "cost",
   painStatement:
-    "Build plate utilization is often guessed, leaving machine hours and unit cost on the table.",
+    "Optimizes 3D printer build plate utilization by calculating maximum parts per batch based on bounding box dimensions, bed size, and nesting efficiency — translating utilization percentages into cost per part.\n\nBuild plate utilization is the single biggest lever for additive manufacturing profitability, yet most operators estimate it by eye. This tool calculates exact rectangular nesting fit, utilization percentage, and machine hours per part, revealing the true cost impact of inefficient bed packing.\n\nExample: A 200\u00D7200 mm bed with 50\u00D750 mm parts fits 12 parts per batch at 75% utilization with an 8-hour print. Each part costs 0.67 machine hours. Poor nesting fitting only 8 parts raises machine hours to 1.0 per part — a 50% cost increase that directly reduces margin.\n\nAdditive manufacturing engineers and production planners use this optimizer to maximize batch size, reduce per-part machine costs, and make data-driven decisions about build orientation and multi-part nesting strategy.",
 
   inputs: [
     {

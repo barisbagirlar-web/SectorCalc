@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Pole_zero_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * Math.PI * input.frequency; results["w"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w"] = 0; }
-  try { const v = 2 * Math.PI * input.frequency; results["w_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w_aux"] = 0; }
+  try { const v = (input.frequency) * (input.pole1_real) * (input.pole1_imag) * (input.pole2_real) * (input.pole2_imag) * (input.zero1_real) * (input.zero1_imag); results["w"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w"] = 0; }
+  try { const v = (input.frequency) * (input.pole1_real) * (input.pole1_imag); results["w_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w_aux"] = 0; }
   return results;
 }
 

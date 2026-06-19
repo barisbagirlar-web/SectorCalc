@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "family_score": "family_history_score",
-    "family_score_aux": "family_history_score"
+    "family_score": "(age) * (frontal_recession_mm) * (vertex_thinning_percent) * (temporal_thinning_percent) * (family_history_score) * (duration_years)",
+    "family_score_aux": "(age) * (frontal_recession_mm) * (vertex_thinning_percent)"
   },
   "outputs": {
     "primary": "family_score_aux",

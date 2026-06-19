@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Euler_path_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.isConnected == 1 ? (input.oddVertices == 0 ? 2 : (input.oddVertices == 2 ? 1 : 0)) : 0; results["eulerResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eulerResult"] = 0; }
-  try { const v = input.isConnected == 1 ? (input.oddVertices == 0 ? 2 : (input.oddVertices == 2 ? 1 : 0)) : 0; results["eulerResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eulerResult_aux"] = 0; }
+  try { const v = (input.totalVertices) * (input.totalEdges) * (input.oddVertices) * (input.isConnected) * (input.minDegree) * (input.maxDegree); results["eulerResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eulerResult"] = 0; }
+  try { const v = (input.totalVertices) * (input.totalEdges) * (input.oddVertices); results["eulerResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eulerResult_aux"] = 0; }
   return results;
 }
 

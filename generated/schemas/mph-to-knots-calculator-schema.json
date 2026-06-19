@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "exactKnots": "mph * conversionFactor",
-    "exactKnots_aux": "mph * conversionFactor"
+    "exactKnots": "(mph) * (conversionFactor) * (decimals) * (knownKnots) * (tolerance)",
+    "exactKnots_aux": "(mph) * (conversionFactor) * (decimals)"
   },
   "outputs": {
     "primary": "exactKnots_aux",

@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "perPeriodCeiling": "annualCeiling / payPeriods",
-    "perPeriodCeiling_aux": "annualCeiling / payPeriods"
+    "perPeriodCeiling": "(grossPay) * (employeeRate) * (employerRate) * (annualCeiling) * (payPeriods)",
+    "perPeriodCeiling_aux": "(grossPay) * (employeeRate) * (employerRate)"
   },
   "outputs": {
     "primary": "perPeriodCeiling_aux",

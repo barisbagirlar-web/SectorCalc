@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Snr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10 ** (input.noiseFigure / 10); results["noiseFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["noiseFactor"] = 0; }
-  try { const v = 10 ** (input.noiseFigure / 10); results["noiseFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["noiseFactor_aux"] = 0; }
+  try { const v = (input.signalVoltage) * (input.loadResistance) * (input.bandwidth) * (input.temperature) * (input.noiseFigure); results["noiseFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["noiseFactor"] = 0; }
+  try { const v = (input.signalVoltage) * (input.loadResistance) * (input.bandwidth); results["noiseFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["noiseFactor_aux"] = 0; }
   return results;
 }
 

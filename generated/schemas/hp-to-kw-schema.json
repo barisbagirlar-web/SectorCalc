@@ -147,9 +147,9 @@
     }
   ],
   "formulas": {
-    "mechanicalPowerKW": "horsepower * 0.7457",
-    "outputPowerKW": "mechanicalPowerKW * (efficiency / 100)",
-    "lossesKW": "mechanicalPowerKW - outputPowerKW"
+    "mechanicalPowerKW": "(horsepower) * (efficiency) * (powerFactor) * (voltage) * (current) * (phases)",
+    "outputPowerKW": "(horsepower) * (efficiency) * (powerFactor)",
+    "lossesKW": "(horsepower) * (efficiency) * (powerFactor)"
   },
   "outputs": {
     "primary": "outputPowerKW",

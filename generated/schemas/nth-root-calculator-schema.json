@@ -123,10 +123,10 @@
     }
   ],
   "formulas": {
-    "nthRoot": "(radicand >= 0 ? 1 : -1) * (radicand >= 0 ? radicand : -radicand) ** (1 / index)",
-    "inputRadicand": "radicand",
-    "inputIndex": "index",
-    "rootVerification": "nthRoot ** index"
+    "nthRoot": "(radicand) * (index) * (precision) * (tolerance) * (initialGuess)",
+    "inputRadicand": "(radicand) * (index) * (precision)",
+    "inputIndex": "(radicand) * (index) * (precision)",
+    "rootVerification": "(radicand) * (index) * (precision)"
   },
   "outputs": {
     "primary": "nthRoot",

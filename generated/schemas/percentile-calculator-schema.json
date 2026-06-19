@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "rankValue": "(percentile / 100) * 5",
-    "rankValue_aux": "(percentile / 100) * 5"
+    "rankValue": "(data1) * (data2) * (data3) * (data4) * (data5) * (percentile)",
+    "rankValue_aux": "(data1) * (data2) * (data3)"
   },
   "outputs": {
     "primary": "rankValue_aux",

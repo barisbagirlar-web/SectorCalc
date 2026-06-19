@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Decay_constant_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.meanLifetime > 0 ? 1 / input.meanLifetime * input.timeUnitConversion : null; results["meanLifetimeBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanLifetimeBased"] = 0; }
-  try { const v = input.meanLifetime > 0 ? 1 / input.meanLifetime * input.timeUnitConversion : null; results["meanLifetimeBased_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanLifetimeBased_aux"] = 0; }
+  try { const v = ((input.halfLife) + (input.meanLifetime) + (input.initialQuantity) + (input.finalQuantity) + (input.timeElapsed) + (input.timeUnitConversion)) / 6; results["meanLifetimeBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanLifetimeBased"] = 0; }
+  try { const v = ((input.halfLife) + (input.meanLifetime) + (input.initialQuantity)) / 3; results["meanLifetimeBased_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanLifetimeBased_aux"] = 0; }
   return results;
 }
 

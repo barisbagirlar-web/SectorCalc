@@ -24,9 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Screen_resolution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.screenWidth * input.screenHeight; results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixels"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPixels"])) / 1000000; results["totalPixelsMP"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixelsMP"] = 0; }
-  try { const v = input.screenWidth / input.screenHeight; results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aspectDecimal"] = 0; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal) * (input.aspectRatioX) * (input.aspectRatioY); results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixels"] = 0; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["totalPixelsMP"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixelsMP"] = 0; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aspectDecimal"] = 0; }
   return results;
 }
 

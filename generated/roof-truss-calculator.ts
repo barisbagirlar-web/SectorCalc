@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Roof_truss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.span / 2 + input.overhang; results["halfRun"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfRun"] = 0; }
-  try { const v = input.span / 2 + input.overhang; results["halfRun_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfRun_aux"] = 0; }
+  try { const v = (input.span) * (input.rise) * (input.overhang) * (input.length) * (input.spacing); results["halfRun"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfRun"] = 0; }
+  try { const v = (input.span) * (input.rise) * (input.overhang); results["halfRun_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfRun_aux"] = 0; }
   return results;
 }
 

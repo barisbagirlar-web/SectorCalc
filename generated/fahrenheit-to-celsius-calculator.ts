@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fahrenheit_to_celsius_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fahrenheit - 32) * 5 / 9; results["celsius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsius"] = 0; }
-  try { const v = (input.fahrenheit - 32) * 5 / 9; results["celsius_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsius_aux"] = 0; }
+  try { const v = (input.fahrenheit) * (input.decimalPlaces) * (input.atmosphericPressure) * (input.relativeHumidity); results["celsius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsius"] = 0; }
+  try { const v = (input.fahrenheit) * (input.decimalPlaces) * (input.atmosphericPressure); results["celsius_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsius_aux"] = 0; }
   return results;
 }
 

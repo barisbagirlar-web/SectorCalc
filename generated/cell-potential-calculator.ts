@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Cell_potential_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cathodeStandardPotential - input.anodeStandardPotential; results["standardCellPotential"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardCellPotential"] = 0; }
-  try { const v = input.cathodeStandardPotential - input.anodeStandardPotential; results["standardCellPotential_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardCellPotential_aux"] = 0; }
+  try { const v = (input.cathodeStandardPotential) * (input.anodeStandardPotential) * (input.temperature) * (input.numberOfElectrons) * (input.reactionQuotient); results["standardCellPotential"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardCellPotential"] = 0; }
+  try { const v = (input.cathodeStandardPotential) * (input.anodeStandardPotential) * (input.temperature); results["standardCellPotential_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardCellPotential_aux"] = 0; }
   return results;
 }
 

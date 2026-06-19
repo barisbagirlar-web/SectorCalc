@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "areaSqft": "areaSqm * conversionFactor",
-    "areaSqft_aux": "areaSqm * conversionFactor"
+    "areaSqft": "(areaSqm) * (conversionFactor) * (roundingPrecision) * (areaUnitPrice) * (wasteFactor) * (measurementTolerance)",
+    "areaSqft_aux": "(areaSqm) * (conversionFactor) * (roundingPrecision)"
   },
   "outputs": {
     "primary": "areaSqft_aux",

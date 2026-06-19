@@ -26,9 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Hebrew_calendarInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hebrewYear - 3761; results["gregorianYearFromHebrew"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gregorianYearFromHebrew"] = 0; }
-  try { const v = input.hebrewYear % 19 < 7 ? 354 : 384; results["daysInHebrewYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInHebrewYear"] = 0; }
-  try { const v = input.hebrewYear % 19 === 0 || input.hebrewYear % 19 === 3 || input.hebrewYear % 19 === 6 || input.hebrewYear % 19 === 8 || input.hebrewYear % 19 === 11 || input.hebrewYear % 19 === 14 || input.hebrewYear % 19 === 17 ? 1 : 0; results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isLeapYear"] = 0; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay) * (input.hebrewYear) * (input.hebrewMonth) * (input.hebrewDay); results["gregorianYearFromHebrew"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gregorianYearFromHebrew"] = 0; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["daysInHebrewYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInHebrewYear"] = 0; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isLeapYear"] = 0; }
   return results;
 }
 

@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Deck_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deckLength * input.deckWidth; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = input.deckLength * input.deckWidth; results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
+  try { const v = (input.deckLength) * (input.deckWidth) * (input.boardLength) * (input.boardWidth) * (input.boardPrice) * (input.wasteFactor); results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  try { const v = (input.deckLength) * (input.deckWidth) * (input.boardLength); results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
   return results;
 }
 

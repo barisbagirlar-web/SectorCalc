@@ -7,7 +7,7 @@ export const THREE_B_PRINTING_SUPPORT_POST_PROCESS_SCHEMA: PremiumCalculatorSche
   sectorSlug: "cnc-additive-manufacturing",
   category: "cost",
   painStatement:
-    "Support material volume and post-process labor are often excluded from additive job costing.",
+    "Calculates the total cost of support structures and post-processing labor for 3D printed parts, revealing hidden expenses routinely excluded from additive manufacturing job quotes.\n\nAdditive manufacturing cost estimates frequently focus on build time and model material, ignoring support material consumption, removal labor, and surface finishing. This tool aggregates support volume cost, removal labor, and batch post-process cost into a total that often adds 30-60% to the apparent part cost.\n\nExample: A part with 20 cm\u00B3 support volume at $0.05/cm\u00B3 and 15-minute cleaning time at $25/hour has $12.25 total post-process cost. In a batch of 10, post-process adds only $1.23 per part. But a single-part batch with 60 cm\u00B3 support and 45-minute cleanup jumps to $46.50 — often more than the build cost.\n\nAdditive manufacturing engineers, shop owners, and quoting specialists use this calculator to build complete cost models, optimize part orientation for minimal support, and ensure every quote covers the full cost of post-processing.",
 
   inputs: [
     {

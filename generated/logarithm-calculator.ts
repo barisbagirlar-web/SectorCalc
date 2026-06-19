@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Logarithm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.value_x / input.reference_value; results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
-  try { const v = input.value_x / input.reference_value; results["ratio_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio_aux"] = 0; }
+  try { const v = (input.value_x) / (input.base + input.unit_type + input.reference_value) * 100; results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
+  try { const v = (input.value_x) / (input.base + input.unit_type) * 100; results["ratio_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio_aux"] = 0; }
   return results;
 }
 

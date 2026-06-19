@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "monthlyInterest": "(annualInterestRate / 100 / 12) * outstandingBalance",
-    "totalBalance": "outstandingBalance + monthlyInterest"
+    "monthlyInterest": "(outstandingBalance) * (annualInterestRate) * (minPaymentPercent) * (fixedMinAmount) * (pastDueAmount) * (overLimitAmount)",
+    "totalBalance": "(outstandingBalance) * (annualInterestRate) * (minPaymentPercent)"
   },
   "outputs": {
     "primary": "totalBalance",

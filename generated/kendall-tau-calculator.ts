@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Kendall_tau_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.P - input.Q; results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator"] = 0; }
-  try { const v = input.P - input.Q; results["numerator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator_aux"] = 0; }
+  try { const v = (input.n) * (input.P) * (input.Q) * (input.T) * (input.U); results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator"] = 0; }
+  try { const v = (input.n) * (input.P) * (input.Q); results["numerator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator_aux"] = 0; }
   return results;
 }
 

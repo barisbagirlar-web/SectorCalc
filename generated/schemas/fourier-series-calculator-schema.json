@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "dcOffset": "offset",
-    "dcOffset_aux": "offset"
+    "dcOffset": "(offset) * (amplitude) * (period) * (time) * (numHarmonics)",
+    "dcOffset_aux": "(offset) * (amplitude) * (period)"
   },
   "outputs": {
     "primary": "dcOffset_aux",

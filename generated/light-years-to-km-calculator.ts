@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Light_years_to_km_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.lightYears * 9.461e12; results["kmRaw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kmRaw"] = 0; }
-  try { const v = input.lightYears * 9.461e12; results["kmRaw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kmRaw_aux"] = 0; }
+  try { const v = (input.lightYears) * (input.significantDigits) * (input.outputFormat) * (input.roundingMode); results["kmRaw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kmRaw"] = 0; }
+  try { const v = (input.lightYears) * (input.significantDigits) * (input.outputFormat); results["kmRaw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kmRaw_aux"] = 0; }
   return results;
 }
 

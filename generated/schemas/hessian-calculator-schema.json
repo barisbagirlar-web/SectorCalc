@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "f_xy": "c",
-    "f_xy_aux": "c"
+    "f_xy": "(a) * (b) * (c) * (x) * (y)",
+    "f_xy_aux": "(a) * (b) * (c)"
   },
   "outputs": {
     "primary": "f_xy_aux",

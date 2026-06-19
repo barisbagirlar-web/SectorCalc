@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Qualified_charitable_distribution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.age >= 70.5 ? 1 : 0; results["eligible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eligible"] = 0; }
-  try { const v = input.age >= 70.5 ? 1 : 0; results["eligible_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eligible_aux"] = 0; }
+  try { const v = (input.age) * (input.distributionAmount) * (input.marginalTaxRate) * (input.iraBalance); results["eligible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eligible"] = 0; }
+  try { const v = (input.age) * (input.distributionAmount) * (input.marginalTaxRate); results["eligible_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eligible_aux"] = 0; }
   return results;
 }
 

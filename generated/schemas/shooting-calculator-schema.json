@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "kineticEnergy": "0.5 * mass * initialVelocity * initialVelocity",
-    "kineticEnergy_aux": "0.5 * mass * initialVelocity * initialVelocity"
+    "kineticEnergy": "(initialVelocity) - (angle + mass + gravity + launchHeight)",
+    "kineticEnergy_aux": "(initialVelocity) - (angle + mass)"
   },
   "outputs": {
     "primary": "kineticEnergy",

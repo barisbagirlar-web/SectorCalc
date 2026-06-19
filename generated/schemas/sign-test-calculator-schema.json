@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "expected": "sampleSize * p0",
-    "expected_aux": "sampleSize * p0"
+    "expected": "(sampleSize) * (posCount) * (p0) * (alpha) * (testType)",
+    "expected_aux": "(sampleSize) * (posCount) * (p0)"
   },
   "outputs": {
     "primary": "expected_aux",

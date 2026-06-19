@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "area": "Math.PI * (diameter / 1000) ** 2 / 4",
-    "deltaP_Pa": "pressureDrop * 100000"
+    "area": "(pressureDrop) * (diameter) * (dischargeCoefficient) * (density) * (viscosity)",
+    "deltaP_Pa": "(pressureDrop) - (diameter + dischargeCoefficient)"
   },
   "outputs": {
     "primary": "deltaP_Pa",

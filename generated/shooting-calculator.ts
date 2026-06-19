@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Shooting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.5 * input.mass * input.initialVelocity * input.initialVelocity; results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy"] = 0; }
-  try { const v = 0.5 * input.mass * input.initialVelocity * input.initialVelocity; results["kineticEnergy_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy_aux"] = 0; }
+  try { const v = (input.initialVelocity) - (input.angle + input.mass + input.gravity + input.launchHeight); results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy"] = 0; }
+  try { const v = (input.initialVelocity) - (input.angle + input.mass); results["kineticEnergy_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy_aux"] = 0; }
   return results;
 }
 

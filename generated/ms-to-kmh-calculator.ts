@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Ms_to_kmh_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.speedMs * input.conversionFactor; results["rawValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValue"] = 0; }
-  try { const v = input.speedMs * input.conversionFactor; results["rawValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValue_aux"] = 0; }
+  try { const v = (input.speedMs) * (input.conversionFactor) * (input.decimalPlaces) * (input.roundingMethod) * (input.expectedOutput); results["rawValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValue"] = 0; }
+  try { const v = (input.speedMs) * (input.conversionFactor) * (input.decimalPlaces); results["rawValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValue_aux"] = 0; }
   return results;
 }
 

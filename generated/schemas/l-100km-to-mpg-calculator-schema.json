@@ -195,8 +195,8 @@
     }
   ],
   "formulas": {
-    "conversion_factor": "gallon_type == 1 ? 235.214583 : 282.480936",
-    "base_mpg": "l_per_100km > 0 ? conversion_factor / l_per_100km : 0"
+    "conversion_factor": "(l_per_100km) * (gallon_type) * (decimal_places) * (rounding_method) * (measurement_standard) * (fuel_type) * (vehicle_class) * (route_type)",
+    "base_mpg": "(l_per_100km) * (gallon_type) * (decimal_places)"
   },
   "outputs": {
     "primary": "base_mpg",

@@ -7,7 +7,7 @@ export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSc
   sectorSlug: "cnc-additive-manufacturing",
   category: "cost",
   painStatement:
-    "Teams pick additive or machining without knowing the quantity where each method is cheaper.",
+    "Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\n\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit — overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\n\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining\u2019s $700.\n\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs.",
 
   inputs: [
     {

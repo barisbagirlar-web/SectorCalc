@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Wilcoxon_signed_rank_z_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.n * (input.n + 1) / 4; results["expectedValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedValue"] = 0; }
-  try { const v = input.n * (input.n + 1) / 4; results["expectedValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedValue_aux"] = 0; }
+  try { const v = (input.n) * (input.T) * (input.continuity) * (input.decimalPlaces); results["expectedValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedValue"] = 0; }
+  try { const v = (input.n) * (input.T) * (input.continuity); results["expectedValue_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedValue_aux"] = 0; }
   return results;
 }
 

@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-06-19T22:00:46.892Z",
+  "overall": "DEGRADED",
+  "totalSchemas": 3272,
+  "healthy": 2,
+  "degraded": 1,
+  "critical": 0,
+  "alerts": [
+    {
+      "timestamp": "2026-06-19T22:00:46.891Z",
+      "severity": "CLEAR",
+      "message": "CI Gate PASSED — all quality checks OK",
+      "details": []
+    },
+    {
+      "timestamp": "2026-06-19T22:00:46.891Z",
+      "severity": "CLEAR",
+      "message": "Zero formula constraint errors",
+      "details": []
+    },
+    {
+      "timestamp": "2026-06-19T22:00:46.891Z",
+      "severity": "HIGH",
+      "message": "110 QUARANTINE schemas exist",
+      "details": [
+        "Run quarantine-fix pipeline to resolve"
+      ]
+    }
+  ],
+  "constraintErrors": [],
+  "quarantineCount": 110,
+  "steelcorePassRate": 0.9663814180929096,
+  "goldenTestIssueCount": 0,
+  "lastCiGatePassed": true
+}

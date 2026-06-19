@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "q_from_bandwidth": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0",
-    "q_from_bandwidth_aux": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0"
+    "q_from_bandwidth": "(inductance) * (capacitance) * (resistance) * (frequency) * (bandwidth)",
+    "q_from_bandwidth_aux": "(inductance) * (capacitance) * (resistance)"
   },
   "outputs": {
     "primary": "q_from_bandwidth",

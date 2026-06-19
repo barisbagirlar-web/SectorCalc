@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "rawMeters": "inputKm * conversionFactor * scaleFactor",
-    "rawMeters_aux": "inputKm * conversionFactor * scaleFactor"
+    "rawMeters": "(inputKm) * (conversionFactor) * (decimalPrecision) * (roundingMethod) * (minimumValue) * (maximumValue) * (scaleFactor)",
+    "rawMeters_aux": "(inputKm) * (conversionFactor) * (decimalPrecision)"
   },
   "outputs": {
     "primary": "rawMeters_aux",

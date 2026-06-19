@@ -96,6 +96,12 @@ export function buildIndustrialPdfData(
     readonly isSample?: boolean;
   },
 ): IndustrialPdfData {
+  const SEVERITY_VALUES: readonly string[] = ["critical", "warning", "acceptable", "safe"];
+
+  function toSeverity(value: string): PdfSeverityLevel {
+    return SEVERITY_VALUES.includes(value) ? (value as PdfSeverityLevel) : "warning";
+  }
+
   return {
     locale,
     reportId: payload.reportId,
@@ -105,7 +111,7 @@ export function buildIndustrialPdfData(
     sectorSlug: payload.sectorSlug,
     title: payload.title,
     executiveVerdict: {
-      status: payload.executiveVerdict.status as PdfSeverityLevel,
+      status: toSeverity(payload.executiveVerdict.status),
       verdict: payload.executiveVerdict.verdict,
       explanation: payload.executiveVerdict.explanation,
     },
@@ -113,7 +119,7 @@ export function buildIndustrialPdfData(
     hiddenDrivers: [...payload.hiddenDrivers],
     thresholds: payload.thresholds.map((t) => ({
       ...t,
-      level: t.level as PdfSeverityLevel,
+      level: toSeverity(t.level),
     })),
     suggestedActions: [...payload.suggestedActions],
     inputs: options?.inputs ?? [],

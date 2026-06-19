@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "fireNumber": "annualExpenses / (withdrawalRate / 100)",
-    "fireNumber_aux": "annualExpenses / (withdrawalRate / 100)"
+    "fireNumber": "(annualExpenses) * (withdrawalRate) * (currentSavings) * (annualSavings) * (expectedReturn) * (inflationRate)",
+    "fireNumber_aux": "(annualExpenses) * (withdrawalRate) * (currentSavings)"
   },
   "outputs": {
     "primary": "fireNumber",

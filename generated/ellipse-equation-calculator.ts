@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Ellipse_equation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * input.semiMajor * input.semiMinor; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = Math.PI * input.semiMajor * input.semiMinor; results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
+  try { const v = (input.centerX) * (input.centerY) * (input.semiMajor) * (input.semiMinor) * (input.rotation); results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  try { const v = (input.centerX) * (input.centerY) * (input.semiMajor); results["area_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_aux"] = 0; }
   return results;
 }
 

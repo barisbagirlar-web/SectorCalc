@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "zodiacIndex": "((birthYear - 4) % 12 + 12) % 12",
-    "elementIndex": "((birthYear - 4) % 10 + 10) % 10"
+    "zodiacIndex": "(birthYear) * (birthMonth) * (birthDay) * (birthHour)",
+    "elementIndex": "(birthYear) * (birthMonth) * (birthDay)"
   },
   "outputs": {
     "primary": "zodiacIndex",

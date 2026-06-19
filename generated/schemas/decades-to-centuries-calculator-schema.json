@@ -147,9 +147,9 @@
     }
   ],
   "formulas": {
-    "rawCenturies": "decades / 10",
-    "lowerBound": "rawCenturies * (1 - measurementError / decades)",
-    "upperBound": "rawCenturies * (1 + measurementError / decades)"
+    "rawCenturies": "(decades) * (precision) * (confidenceLevel) * (measurementError) * (roundingMethod) * (ambientTemp)",
+    "lowerBound": "(decades) * (precision) * (confidenceLevel)",
+    "upperBound": "(decades) * (precision) * (confidenceLevel)"
   },
   "outputs": {
     "primary": "upperBound",

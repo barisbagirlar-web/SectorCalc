@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "angleRad": "slopeAngle * Math.PI / 180",
-    "frictionRad": "frictionAngle * Math.PI / 180"
+    "angleRad": "(slopeAngle) * (frictionAngle) * (cohesion) * (unitWeight) * (depth) * (porePressureRatio)",
+    "frictionRad": "(slopeAngle) * (frictionAngle) * (cohesion)"
   },
   "outputs": {
     "primary": "frictionRad",

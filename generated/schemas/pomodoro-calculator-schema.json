@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "totalWorkTime": "numberOfPomodoros * workDuration",
-    "totalWorkTime_aux": "numberOfPomodoros * workDuration"
+    "totalWorkTime": "(numberOfPomodoros) * (workDuration) * (shortBreakDuration) * (longBreakDuration) * (pomodorosBeforeLongBreak) * (startTimeMinutes)",
+    "totalWorkTime_aux": "(numberOfPomodoros) * (workDuration) * (shortBreakDuration)"
   },
   "outputs": {
     "primary": "totalWorkTime_aux",

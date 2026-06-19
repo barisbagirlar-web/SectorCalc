@@ -123,9 +123,9 @@
     }
   ],
   "formulas": {
-    "totalPixels": "screenWidth * screenHeight",
-    "totalPixelsMP": "totalPixels / 1000000",
-    "aspectDecimal": "screenWidth / screenHeight"
+    "totalPixels": "(screenWidth) * (screenHeight) * (screenDiagonal) * (aspectRatioX) * (aspectRatioY)",
+    "totalPixelsMP": "(screenWidth) * (screenHeight) * (screenDiagonal)",
+    "aspectDecimal": "(screenWidth) * (screenHeight) * (screenDiagonal)"
   },
   "outputs": {
     "primary": "totalPixels",

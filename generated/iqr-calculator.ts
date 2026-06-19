@@ -24,9 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Iqr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.q3 - input.q1; results["iqr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["iqr"] = 0; }
-  try { const v = input.q1 - 1.5 * (input.q3 - input.q1); results["lowerFence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerFence"] = 0; }
-  try { const v = input.q3 + 1.5 * (input.q3 - input.q1); results["upperFence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperFence"] = 0; }
+  try { const v = (input.min) * (input.q1) * (input.median) * (input.q3) * (input.max); results["iqr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["iqr"] = 0; }
+  try { const v = (input.min) * (input.q1) * (input.median); results["lowerFence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerFence"] = 0; }
+  try { const v = (input.min) * (input.q1) * (input.median); results["upperFence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperFence"] = 0; }
   return results;
 }
 

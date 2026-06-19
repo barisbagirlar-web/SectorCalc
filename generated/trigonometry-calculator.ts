@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Trigonometry_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.angle * Math.PI / 180; results["x_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_rad"] = 0; }
-  try { const v = input.angle * Math.PI / 180; results["x_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_rad_aux"] = 0; }
+  try { const v = (input.angle) * (input.amplitude) * (input.frequency) * (input.phase) * (input.verticalShift); results["x_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_rad"] = 0; }
+  try { const v = (input.angle) * (input.amplitude) * (input.frequency); results["x_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_rad_aux"] = 0; }
   return results;
 }
 

@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Chinese_zodiac_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.birthYear - 4) % 12 + 12) % 12; results["zodiacIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["zodiacIndex"] = 0; }
-  try { const v = ((input.birthYear - 4) % 10 + 10) % 10; results["elementIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["elementIndex"] = 0; }
+  try { const v = (input.birthYear) * (input.birthMonth) * (input.birthDay) * (input.birthHour); results["zodiacIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["zodiacIndex"] = 0; }
+  try { const v = (input.birthYear) * (input.birthMonth) * (input.birthDay); results["elementIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["elementIndex"] = 0; }
   return results;
 }
 

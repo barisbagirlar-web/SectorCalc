@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Electric_field_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1/(4*Math.PI*8.854e-12*input.epsilon_r); results["k"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["k"] = 0; }
-  try { const v = input.theta*Math.PI/180; results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad"] = 0; }
+  try { const v = (input.Q1) * (input.r1) * (input.Q2) * (input.r2) * (input.theta) * (input.epsilon_r); results["k"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["k"] = 0; }
+  try { const v = (input.Q1) * (input.r1) * (input.Q2); results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad"] = 0; }
   return results;
 }
 

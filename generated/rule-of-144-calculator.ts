@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Rule_of_144_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 144 / input.interestRate; results["rule144Estimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rule144Estimate"] = 0; }
-  try { const v = 144 / input.interestRate; results["rule144Estimate_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rule144Estimate_aux"] = 0; }
+  try { const v = (input.interestRate) * (input.compoundingPeriods) * (input.initialInvestment) * (input.targetMultiplier); results["rule144Estimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rule144Estimate"] = 0; }
+  try { const v = (input.interestRate) * (input.compoundingPeriods) * (input.initialInvestment); results["rule144Estimate_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rule144Estimate_aux"] = 0; }
   return results;
 }
 

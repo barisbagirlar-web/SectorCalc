@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Recurrence_relation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a0; results["a0_out"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a0_out"] = 0; }
-  try { const v = input.a1; results["a1_out"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a1_out"] = 0; }
+  try { const v = (input.n) * (input.a0) * (input.a1) * (input.c1) * (input.c2); results["a0_out"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a0_out"] = 0; }
+  try { const v = (input.n) * (input.a0) * (input.a1); results["a1_out"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a1_out"] = 0; }
   return results;
 }
 

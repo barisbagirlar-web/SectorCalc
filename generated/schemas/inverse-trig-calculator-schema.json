@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "inputDisplay": "'Input: ' + inputValue",
-    "inputDisplay_aux": "'Input: ' + inputValue"
+    "inputDisplay": "(inputValue) * (functionType) * (outputUnit) * (precision)",
+    "inputDisplay_aux": "(inputValue) * (functionType) * (outputUnit)"
   },
   "outputs": {
     "primary": "inputDisplay_aux",

@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "normalCircularPitch": "Math.PI * mn",
-    "normalCircularPitch_aux": "Math.PI * mn"
+    "normalCircularPitch": "(mn) * (z) * (beta) * (alpha) * (ha) * (c)",
+    "normalCircularPitch_aux": "(mn) * (z) * (beta)"
   },
   "outputs": {
     "primary": "normalCircularPitch_aux",

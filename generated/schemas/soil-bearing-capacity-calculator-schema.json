@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "φ_rad": "frictionAngle * Math.PI / 180",
-    "φ_rad_aux": "frictionAngle * Math.PI / 180"
+    "φ_rad": "(cohesion) * (frictionAngle) * (unitWeight) * (foundationDepth) * (foundationWidth) * (safetyFactor)",
+    "φ_rad_aux": "(cohesion) * (frictionAngle) * (unitWeight)"
   },
   "outputs": {
     "primary": "φ_rad_aux",

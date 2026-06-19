@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "pressure_psi_raw": "pressure_inhg * conversion_factor",
-    "pressure_psi_raw_aux": "pressure_inhg * conversion_factor"
+    "pressure_psi_raw": "(pressure_inhg) * (conversion_factor) * (decimal_places) * (altitude_ft) * (temperature_f)",
+    "pressure_psi_raw_aux": "(pressure_inhg) * (conversion_factor) * (decimal_places)"
   },
   "outputs": {
     "primary": "pressure_psi_raw_aux",

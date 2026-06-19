@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Q_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.frequency>0 && input.bandwidth>0) ? input.frequency/input.bandwidth : 0) ? 1 : 0); results["q_from_bandwidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_from_bandwidth"] = 0; }
-  try { const v = (((input.frequency>0 && input.bandwidth>0) ? input.frequency/input.bandwidth : 0) ? 1 : 0); results["q_from_bandwidth_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_from_bandwidth_aux"] = 0; }
+  try { const v = (input.inductance) * (input.capacitance) * (input.resistance) * (input.frequency) * (input.bandwidth); results["q_from_bandwidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_from_bandwidth"] = 0; }
+  try { const v = (input.inductance) * (input.capacitance) * (input.resistance); results["q_from_bandwidth_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_from_bandwidth_aux"] = 0; }
   return results;
 }
 

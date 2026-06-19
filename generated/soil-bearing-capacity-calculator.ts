@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Soil_bearing_capacity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.frictionAngle * Math.PI / 180; results["φ_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["φ_rad"] = 0; }
-  try { const v = input.frictionAngle * Math.PI / 180; results["φ_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["φ_rad_aux"] = 0; }
+  try { const v = (input.cohesion) * (input.frictionAngle) * (input.unitWeight) * (input.foundationDepth) * (input.foundationWidth) * (input.safetyFactor); results["φ_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["φ_rad"] = 0; }
+  try { const v = (input.cohesion) * (input.frictionAngle) * (input.unitWeight); results["φ_rad_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["φ_rad_aux"] = 0; }
   return results;
 }
 

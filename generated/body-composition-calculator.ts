@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Body_composition_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight / ((input.height/100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
-  try { const v = input.weight / ((input.height/100) ** 2); results["bmi_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi_aux"] = 0; }
+  try { const v = (input.weight) * (input.height) * (input.age) * (input.gender) * (input.waist) * (input.hip) * (input.neck); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
+  try { const v = (input.weight) * (input.height) * (input.age); results["bmi_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi_aux"] = 0; }
   return results;
 }
 

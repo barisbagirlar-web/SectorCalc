@@ -171,10 +171,10 @@
     }
   ],
   "formulas": {
-    "A": "width * thickness",
-    "I": "(width * thickness^3) / 12",
-    "P_yield": "yieldStrength * A",
-    "yieldStress": "yieldStrength"
+    "A": "(effectiveLengthFactor) * (unbracedLength) * (width) * (thickness) * (elasticModulus) * (yieldStrength) * (safetyFactor)",
+    "I": "(effectiveLengthFactor) * (unbracedLength) * (width)",
+    "P_yield": "(effectiveLengthFactor) * (unbracedLength) * (width)",
+    "yieldStress": "(effectiveLengthFactor) * (unbracedLength) * (width)"
   },
   "outputs": {
     "primary": "yieldStress",

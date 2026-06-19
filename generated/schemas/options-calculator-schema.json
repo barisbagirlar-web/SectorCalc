@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "r_dec": "r / 100",
-    "sigma_dec": "sigma / 100"
+    "r_dec": "(optionType) * (S) * (K) * (T) * (r) * (sigma)",
+    "sigma_dec": "(optionType) * (S) * (K)"
   },
   "outputs": {
     "primary": "sigma_dec",

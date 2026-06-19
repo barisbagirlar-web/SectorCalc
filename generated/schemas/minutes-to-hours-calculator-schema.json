@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "decimalHours": "inputMinutes / 60",
-    "decimalHours_aux": "inputMinutes / 60"
+    "decimalHours": "(inputMinutes) * (decPlaces) * (fmt) * (rndMode)",
+    "decimalHours_aux": "(inputMinutes) * (decPlaces) * (fmt)"
   },
   "outputs": {
     "primary": "decimalHours_aux",

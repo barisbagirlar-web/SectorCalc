@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "pKw": "14 - 0.045 * (temperature - 25)",
-    "pKw_aux": "14 - 0.045 * (temperature - 25)"
+    "pKw": "(ohConcentration) * (temperature) * (sampleVolume) * (measurementUncertainty)",
+    "pKw_aux": "(ohConcentration) * (temperature) * (sampleVolume)"
   },
   "outputs": {
     "primary": "pKw_aux",

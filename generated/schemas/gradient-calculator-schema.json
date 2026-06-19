@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "rise": "endElevation - startElevation",
-    "rise_aux": "endElevation - startElevation"
+    "rise": "(startEasting) * (startNorthing) * (startElevation) * (endEasting) * (endNorthing) * (endElevation)",
+    "rise_aux": "(startEasting) * (startNorthing) * (startElevation)"
   },
   "outputs": {
     "primary": "rise_aux",

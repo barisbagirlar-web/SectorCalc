@@ -26,12 +26,12 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Golden_hour_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sunset - input.sunrise; results["dayLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayLength"] = 0; }
-  try { const v = input.sunrise + (asFormulaNumber(results["dayLength"])) / 2; results["solarNoon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solarNoon"] = 0; }
-  try { const v = input.sunrise + 0.5; results["goldenHourMorningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningStart"] = 0; }
-  try { const v = input.sunrise + 1.5; results["goldenHourMorningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningEnd"] = 0; }
-  try { const v = input.sunset - 1.5; results["goldenHourEveningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningStart"] = 0; }
-  try { const v = input.sunset - 0.5; results["goldenHourEveningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningEnd"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude) * (input.longitude) * (input.dateOffset) * (input.timezoneOffset); results["dayLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayLength"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude); results["solarNoon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solarNoon"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude); results["goldenHourMorningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningStart"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude); results["goldenHourMorningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningEnd"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude); results["goldenHourEveningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningStart"] = 0; }
+  try { const v = (input.sunrise) * (input.sunset) * (input.latitude); results["goldenHourEveningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningEnd"] = 0; }
   return results;
 }
 

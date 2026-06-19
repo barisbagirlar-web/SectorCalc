@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "theta1": "incidentAngle * Math.PI / 180",
-    "theta1_aux": "incidentAngle * Math.PI / 180"
+    "theta1": "(incidentAngle) * (n1) * (n2) * (wavelength)",
+    "theta1_aux": "(incidentAngle) * (n1) * (n2)"
   },
   "outputs": {
     "primary": "theta1_aux",

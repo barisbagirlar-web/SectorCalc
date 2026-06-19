@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Ivf_due_date_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 266 - input.embryoAge; results["daysToAdd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysToAdd"] = 0; }
-  try { const v = 266 - input.embryoAge; results["daysToAdd_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysToAdd_aux"] = 0; }
+  try { const v = (input.transferYear) * (input.transferMonth) * (input.transferDay) * (input.embryoAge); results["daysToAdd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysToAdd"] = 0; }
+  try { const v = (input.transferYear) * (input.transferMonth) * (input.transferDay); results["daysToAdd_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysToAdd_aux"] = 0; }
   return results;
 }
 

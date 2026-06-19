@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Rlc_circuit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.resistance / (2 * Math.PI * input.inductance); results["bandwidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bandwidth"] = 0; }
-  try { const v = input.resistance / (2 * Math.PI * input.inductance); results["bandwidth_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bandwidth_aux"] = 0; }
+  try { const v = (input.resistance) * (input.inductance) * (input.capacitance) * (input.frequency) * (input.voltage); results["bandwidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bandwidth"] = 0; }
+  try { const v = (input.resistance) * (input.inductance) * (input.capacitance); results["bandwidth_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bandwidth_aux"] = 0; }
   return results;
 }
 

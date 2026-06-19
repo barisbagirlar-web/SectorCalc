@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "profitMean": "revenueMean - costMean",
-    "profitMean_aux": "revenueMean - costMean"
+    "profitMean": "((revenueMean) + (revenueStd) + (costMean) + (costStd) + (correlation) + (zScore)) / 6",
+    "profitMean_aux": "((revenueMean) + (revenueStd) + (costMean)) / 3"
   },
   "outputs": {
     "primary": "profitMean",

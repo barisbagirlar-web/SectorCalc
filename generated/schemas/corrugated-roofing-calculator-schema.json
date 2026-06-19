@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "roofArea": "roofWidth * roofLength",
-    "roofArea_aux": "roofWidth * roofLength"
+    "roofArea": "(roofWidth) * (roofLength) * (sheetWidth) * (sheetLength) * (overlapLength) * (pricePerSheet)",
+    "roofArea_aux": "(roofWidth) * (roofLength) * (sheetWidth)"
   },
   "outputs": {
     "primary": "roofArea_aux",

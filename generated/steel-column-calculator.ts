@@ -28,10 +28,10 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Steel_column_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.width * input.thickness; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
-  try { const v = (input.width * input.thickness**3) / 12; results["I"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I"] = 0; }
-  try { const v = input.yieldStrength * (asFormulaNumber(results["A"])); results["P_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["P_yield"] = 0; }
-  try { const v = input.yieldStrength; results["yieldStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldStress"] = 0; }
+  try { const v = (input.effectiveLengthFactor) * (input.unbracedLength) * (input.width) * (input.thickness) * (input.elasticModulus) * (input.yieldStrength) * (input.safetyFactor); results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
+  try { const v = (input.effectiveLengthFactor) * (input.unbracedLength) * (input.width); results["I"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I"] = 0; }
+  try { const v = (input.effectiveLengthFactor) * (input.unbracedLength) * (input.width); results["P_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["P_yield"] = 0; }
+  try { const v = (input.effectiveLengthFactor) * (input.unbracedLength) * (input.width); results["yieldStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldStress"] = 0; }
   return results;
 }
 

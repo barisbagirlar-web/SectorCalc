@@ -24,10 +24,10 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Nth_root_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.radicand >= 0 ? 1 : -1) * (input.radicand >= 0 ? input.radicand : -input.radicand) ** (1 / input.index); results["nthRoot"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nthRoot"] = 0; }
-  try { const v = input.radicand; results["inputRadicand"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputRadicand"] = 0; }
-  try { const v = input.index; results["inputIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputIndex"] = 0; }
-  try { const v = (asFormulaNumber(results["nthRoot"])) ** input.index; results["rootVerification"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootVerification"] = 0; }
+  try { const v = (input.radicand) * (input.index) * (input.precision) * (input.tolerance) * (input.initialGuess); results["nthRoot"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nthRoot"] = 0; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputRadicand"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputRadicand"] = 0; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputIndex"] = 0; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["rootVerification"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootVerification"] = 0; }
   return results;
 }
 

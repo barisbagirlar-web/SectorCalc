@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "outputPower": "torque * speed * Math.PI * 2 / 60000",
-    "outputPower_aux": "torque * speed * Math.PI * 2 / 60000"
+    "outputPower": "(voltage) * (current) * (powerFactor) * (phases) * (torque) * (speed)",
+    "outputPower_aux": "(voltage) * (current) * (powerFactor)"
   },
   "outputs": {
     "primary": "outputPower_aux",

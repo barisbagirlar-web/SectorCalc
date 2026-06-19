@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "estimatedTourDistance": "numCities * avgDistance",
-    "estimatedTourDistance_aux": "numCities * avgDistance"
+    "estimatedTourDistance": "(numCities) * (avgDistance) * (distanceStdDev) * (speed) * (costPerKm) * (fixedCostPerStop) * (numVehicles)",
+    "estimatedTourDistance_aux": "(numCities) * (avgDistance) * (distanceStdDev)"
   },
   "outputs": {
     "primary": "estimatedTourDistance_aux",

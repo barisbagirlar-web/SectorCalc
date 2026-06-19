@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Minutes_to_hours_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inputMinutes / 60; results["decimalHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalHours"] = 0; }
-  try { const v = input.inputMinutes / 60; results["decimalHours_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalHours_aux"] = 0; }
+  try { const v = (input.inputMinutes) * (input.decPlaces) * (input.fmt) * (input.rndMode); results["decimalHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalHours"] = 0; }
+  try { const v = (input.inputMinutes) * (input.decPlaces) * (input.fmt); results["decimalHours_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalHours_aux"] = 0; }
   return results;
 }
 

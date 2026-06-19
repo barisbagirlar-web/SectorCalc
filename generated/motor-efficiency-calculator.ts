@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Motor_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.torque * input.speed * Math.PI * 2 / 60000; results["outputPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPower"] = 0; }
-  try { const v = input.torque * input.speed * Math.PI * 2 / 60000; results["outputPower_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPower_aux"] = 0; }
+  try { const v = (input.voltage) * (input.current) * (input.powerFactor) * (input.phases) * (input.torque) * (input.speed); results["outputPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPower"] = 0; }
+  try { const v = (input.voltage) * (input.current) * (input.powerFactor); results["outputPower_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPower_aux"] = 0; }
   return results;
 }
 

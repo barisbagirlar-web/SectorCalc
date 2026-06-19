@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "noiseFactor": "10 ** (noiseFigure / 10)",
-    "noiseFactor_aux": "10 ** (noiseFigure / 10)"
+    "noiseFactor": "(signalVoltage) * (loadResistance) * (bandwidth) * (temperature) * (noiseFigure)",
+    "noiseFactor_aux": "(signalVoltage) * (loadResistance) * (bandwidth)"
   },
   "outputs": {
     "primary": "noiseFactor_aux",

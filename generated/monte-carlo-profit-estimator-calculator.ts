@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Monte_carlo_profit_estimator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenueMean - input.costMean; results["profitMean"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMean"] = 0; }
-  try { const v = input.revenueMean - input.costMean; results["profitMean_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMean_aux"] = 0; }
+  try { const v = ((input.revenueMean) + (input.revenueStd) + (input.costMean) + (input.costStd) + (input.correlation) + (input.zScore)) / 6; results["profitMean"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMean"] = 0; }
+  try { const v = ((input.revenueMean) + (input.revenueStd) + (input.costMean)) / 3; results["profitMean_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMean_aux"] = 0; }
   return results;
 }
 

@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Wood_siding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallWidth * input.wallHeight; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
-  try { const v = input.wallWidth * input.wallHeight; results["wallArea_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea_aux"] = 0; }
+  try { const v = (input.wallWidth) * (input.wallHeight) * (input.exposedFace) * (input.boardLength) * (input.wasteFactor) * (input.pricePerBoard); results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
+  try { const v = (input.wallWidth) * (input.wallHeight) * (input.exposedFace); results["wallArea_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea_aux"] = 0; }
   return results;
 }
 

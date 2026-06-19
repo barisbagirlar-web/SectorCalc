@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Inventory_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dailyDemand * input.leadTimeDays; results["reorderPoint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reorderPoint"] = 0; }
-  try { const v = input.dailyDemand * input.leadTimeDays; results["reorderPoint_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reorderPoint_aux"] = 0; }
+  try { const v = (input.annualDemand) * (input.orderingCost) * (input.holdingCost) * (input.dailyDemand) * (input.leadTimeDays); results["reorderPoint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reorderPoint"] = 0; }
+  try { const v = (input.annualDemand) * (input.orderingCost) * (input.holdingCost); results["reorderPoint_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reorderPoint_aux"] = 0; }
   return results;
 }
 

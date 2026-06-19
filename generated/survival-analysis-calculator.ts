@@ -24,9 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Survival_analysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.failureRate; results["hazardRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hazardRate"] = 0; }
-  try { const v = input.failureRate * input.time; results["cumulativeHazard"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cumulativeHazard"] = 0; }
-  try { const v = 1 / input.failureRate; results["meanTimeToFailure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanTimeToFailure"] = 0; }
+  try { const v = (input.failureRate) / (input.time + input.targetSurvivalProb + input.observedFailures + input.totalTestTime) * 100; results["hazardRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hazardRate"] = 0; }
+  try { const v = (input.failureRate) * (input.time) * (input.targetSurvivalProb); results["cumulativeHazard"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cumulativeHazard"] = 0; }
+  try { const v = ((input.failureRate) + (input.time) + (input.targetSurvivalProb)) / 3; results["meanTimeToFailure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanTimeToFailure"] = 0; }
   return results;
 }
 

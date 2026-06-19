@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fence_post_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost"] = 0; }
-  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost_aux"] = 0; }
+  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners) * (input.numberOfGateOpenings) * (input.postDiameter) * (input.postDepth); results["concretePerPost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost"] = 0; }
+  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners); results["concretePerPost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost_aux"] = 0; }
   return results;
 }
 

@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "wallArea": "wallWidth * wallHeight",
-    "wallArea_aux": "wallWidth * wallHeight"
+    "wallArea": "(wallWidth) * (wallHeight) * (exposedFace) * (boardLength) * (wasteFactor) * (pricePerBoard)",
+    "wallArea_aux": "(wallWidth) * (wallHeight) * (exposedFace)"
   },
   "outputs": {
     "primary": "wallArea_aux",

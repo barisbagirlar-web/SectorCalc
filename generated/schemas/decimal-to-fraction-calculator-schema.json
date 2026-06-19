@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "denominator": "maxDenom",
-    "denominator_aux": "maxDenom"
+    "denominator": "(decimalValue) * (maxDenom) * (simplify) * (format) * (rounding) * (tolerance)",
+    "denominator_aux": "(decimalValue) * (maxDenom) * (simplify)"
   },
   "outputs": {
     "primary": "denominator_aux",

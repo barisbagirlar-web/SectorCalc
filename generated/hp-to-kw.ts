@@ -26,9 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Hp_to_kwInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.horsepower * 0.7457; results["mechanicalPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechanicalPowerKW"] = 0; }
-  try { const v = (asFormulaNumber(results["mechanicalPowerKW"])) * (input.efficiency / 100); results["outputPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPowerKW"] = 0; }
-  try { const v = (asFormulaNumber(results["mechanicalPowerKW"])) - (asFormulaNumber(results["outputPowerKW"])); results["lossesKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossesKW"] = 0; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor) * (input.voltage) * (input.current) * (input.phases); results["mechanicalPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechanicalPowerKW"] = 0; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["outputPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPowerKW"] = 0; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["lossesKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossesKW"] = 0; }
   return results;
 }
 

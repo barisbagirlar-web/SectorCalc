@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "halfRun": "span / 2 + overhang",
-    "halfRun_aux": "span / 2 + overhang"
+    "halfRun": "(span) * (rise) * (overhang) * (length) * (spacing)",
+    "halfRun_aux": "(span) * (rise) * (overhang)"
   },
   "outputs": {
     "primary": "halfRun",

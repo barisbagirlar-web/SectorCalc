@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "rawValue": "speedMs * conversionFactor",
-    "rawValue_aux": "speedMs * conversionFactor"
+    "rawValue": "(speedMs) * (conversionFactor) * (decimalPlaces) * (roundingMethod) * (expectedOutput)",
+    "rawValue_aux": "(speedMs) * (conversionFactor) * (decimalPlaces)"
   },
   "outputs": {
     "primary": "rawValue_aux",

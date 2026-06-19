@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Standard_reduction_potential_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (8.314 * input.T) / (input.n * 96485); results["RT_nF"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["RT_nF"] = 0; }
-  try { const v = (8.314 * input.T) / (input.n * 96485); results["RT_nF_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["RT_nF_aux"] = 0; }
+  try { const v = (input.E0) * (input.T) * (input.n) * (input.Ox) * (input.Red) * (input.a) * (input.b); results["RT_nF"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["RT_nF"] = 0; }
+  try { const v = (input.E0) * (input.T) * (input.n); results["RT_nF_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["RT_nF_aux"] = 0; }
   return results;
 }
 

@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Poh_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 14 - 0.045 * (input.temperature - 25); results["pKw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pKw"] = 0; }
-  try { const v = 14 - 0.045 * (input.temperature - 25); results["pKw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pKw_aux"] = 0; }
+  try { const v = (input.ohConcentration) * (input.temperature) * (input.sampleVolume) * (input.measurementUncertainty); results["pKw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pKw"] = 0; }
+  try { const v = (input.ohConcentration) * (input.temperature) * (input.sampleVolume); results["pKw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pKw_aux"] = 0; }
   return results;
 }
 

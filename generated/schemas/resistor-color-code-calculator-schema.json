@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "toleranceInfo": "'Tolerans: ±' + tolerance + '%'",
-    "toleranceInfo_aux": "'Tolerans: ±' + tolerance + '%'"
+    "toleranceInfo": "(band1) * (band2) * (multiplier) * (tolerance)",
+    "toleranceInfo_aux": "(band1) * (band2) * (multiplier)"
   },
   "outputs": {
     "primary": "toleranceInfo",

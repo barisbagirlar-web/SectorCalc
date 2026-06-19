@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "eulerResult": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0",
-    "eulerResult_aux": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0"
+    "eulerResult": "(totalVertices) * (totalEdges) * (oddVertices) * (isConnected) * (minDegree) * (maxDegree)",
+    "eulerResult_aux": "(totalVertices) * (totalEdges) * (oddVertices)"
   },
   "outputs": {
     "primary": "eulerResult",

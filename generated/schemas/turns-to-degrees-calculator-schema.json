@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "rawDegrees": "turns * 360",
-    "rawDegrees_aux": "turns * 360"
+    "rawDegrees": "(turns) * (decimalPlaces) * (operatorId) * (measurementDate) * (machineId) * (batchNumber)",
+    "rawDegrees_aux": "(turns) * (decimalPlaces) * (operatorId)"
   },
   "outputs": {
     "primary": "rawDegrees_aux",

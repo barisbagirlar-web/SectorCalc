@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "ridgeLength": "buildingLength",
-    "ridgeLength_aux": "buildingLength"
+    "ridgeLength": "(buildingWidth) * (buildingLength) * (roofPitch) * (overhang) * (rafterSpacing) * (wasteFactor)",
+    "ridgeLength_aux": "(buildingWidth) * (buildingLength) * (roofPitch)"
   },
   "outputs": {
     "primary": "ridgeLength",

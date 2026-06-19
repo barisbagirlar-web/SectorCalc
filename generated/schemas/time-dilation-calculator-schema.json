@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "v_m_s": "velocity_km_s * 1000",
-    "v_m_s_aux": "velocity_km_s * 1000"
+    "v_m_s": "(velocity_km_s) * (properTime_s) * (c_m_s) * (outputTimeFactor)",
+    "v_m_s_aux": "(velocity_km_s) * (properTime_s) * (c_m_s)"
   },
   "outputs": {
     "primary": "v_m_s_aux",

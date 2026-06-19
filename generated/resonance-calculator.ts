@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Resonance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1/(2*input.dampingRatio); results["q"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
-  try { const v = 1/(2*input.dampingRatio); results["q_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_aux"] = 0; }
+  try { const v = (input.mass) * (input.stiffness) * (input.dampingRatio) * (input.excitationFrequency); results["q"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
+  try { const v = (input.mass) * (input.stiffness) * (input.dampingRatio); results["q_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q_aux"] = 0; }
   return results;
 }
 

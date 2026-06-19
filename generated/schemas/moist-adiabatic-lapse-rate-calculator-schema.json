@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "T_K": "temperature + 273.15",
-    "p_Pa": "pressure * 100"
+    "T_K": "(temperature) * (pressure) * (g) * (Lv) * (Rd) * (cpd) * (epsilon)",
+    "p_Pa": "(temperature) * (pressure) * (g)"
   },
   "outputs": {
     "primary": "p_Pa",

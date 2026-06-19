@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "roof_angle_rad": "roof_pitch * Math.PI / 180",
-    "roof_angle_rad_aux": "roof_pitch * Math.PI / 180"
+    "roof_angle_rad": "(building_length) * (building_width) * (roof_pitch) * (overhang) * (ridge_beam_width)",
+    "roof_angle_rad_aux": "(building_length) * (building_width) * (roof_pitch)"
   },
   "outputs": {
     "primary": "roof_angle_rad_aux",

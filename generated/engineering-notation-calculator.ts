@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Engineering_notation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.value * 10^input.exponent; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.value * 10^input.exponent; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = (input.value) * (input.exponent) * (input.precision) * (input.minExponent) * (input.maxExponent); results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (input.value) * (input.exponent) * (input.precision); results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
   return results;
 }
 

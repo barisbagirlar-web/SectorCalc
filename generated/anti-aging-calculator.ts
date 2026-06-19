@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Anti_aging_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 - input.treatmentEffectiveness; results["treatmentEffectivenessFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treatmentEffectivenessFactor"] = 0; }
-  try { const v = 1 - input.treatmentEffectiveness; results["treatmentEffectivenessFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treatmentEffectivenessFactor_aux"] = 0; }
+  try { const v = (input.temperature) * (input.referenceTemperature) * (input.activationEnergy) * (input.referenceTime) * (input.treatmentEffectiveness); results["treatmentEffectivenessFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treatmentEffectivenessFactor"] = 0; }
+  try { const v = (input.temperature) * (input.referenceTemperature) * (input.activationEnergy); results["treatmentEffectivenessFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treatmentEffectivenessFactor_aux"] = 0; }
   return results;
 }
 

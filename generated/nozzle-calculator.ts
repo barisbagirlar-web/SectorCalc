@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Nozzle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.diameter / 1000) ** 2 / 4; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = input.pressureDrop * 100000; results["deltaP_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaP_Pa"] = 0; }
+  try { const v = (input.pressureDrop) * (input.diameter) * (input.dischargeCoefficient) * (input.density) * (input.viscosity); results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  try { const v = (input.pressureDrop) - (input.diameter + input.dischargeCoefficient); results["deltaP_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaP_Pa"] = 0; }
   return results;
 }
 

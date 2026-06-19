@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fascia_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fasciaBoardLength - input.overlap; results["effectiveLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLength"] = 0; }
-  try { const v = input.fasciaBoardLength - input.overlap; results["effectiveLength_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLength_aux"] = 0; }
+  try { const v = (input.totalRoofLength) * (input.fasciaBoardLength) * (input.overlap) * (input.wasteFactor) * (input.pricePerBoard); results["effectiveLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLength"] = 0; }
+  try { const v = (input.totalRoofLength) * (input.fasciaBoardLength) * (input.overlap); results["effectiveLength_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLength_aux"] = 0; }
   return results;
 }
 

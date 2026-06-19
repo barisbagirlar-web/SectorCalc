@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Billionaire_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualIncome * (input.savingsRate / 100); results["annualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings"] = 0; }
-  try { const v = input.annualIncome * (input.savingsRate / 100); results["annualSavings_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings_aux"] = 0; }
+  try { const v = (input.currentNetWorth) * (input.annualIncome) * (input.savingsRate) * (input.annualReturn) * (input.desiredNetWorth); results["annualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings"] = 0; }
+  try { const v = (input.currentNetWorth) * (input.annualIncome) * (input.savingsRate); results["annualSavings_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings_aux"] = 0; }
   return results;
 }
 

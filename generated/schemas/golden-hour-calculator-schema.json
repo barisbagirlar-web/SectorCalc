@@ -147,12 +147,12 @@
     }
   ],
   "formulas": {
-    "dayLength": "sunset - sunrise",
-    "solarNoon": "sunrise + dayLength / 2",
-    "goldenHourMorningStart": "sunrise + 0.5",
-    "goldenHourMorningEnd": "sunrise + 1.5",
-    "goldenHourEveningStart": "sunset - 1.5",
-    "goldenHourEveningEnd": "sunset - 0.5"
+    "dayLength": "(sunrise) * (sunset) * (latitude) * (longitude) * (dateOffset) * (timezoneOffset)",
+    "solarNoon": "(sunrise) * (sunset) * (latitude)",
+    "goldenHourMorningStart": "(sunrise) * (sunset) * (latitude)",
+    "goldenHourMorningEnd": "(sunrise) * (sunset) * (latitude)",
+    "goldenHourEveningStart": "(sunrise) * (sunset) * (latitude)",
+    "goldenHourEveningEnd": "(sunrise) * (sunset) * (latitude)"
   },
   "outputs": {
     "primary": "dayLength",

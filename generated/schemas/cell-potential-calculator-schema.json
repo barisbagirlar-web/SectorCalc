@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "standardCellPotential": "cathodeStandardPotential - anodeStandardPotential",
-    "standardCellPotential_aux": "cathodeStandardPotential - anodeStandardPotential"
+    "standardCellPotential": "(cathodeStandardPotential) * (anodeStandardPotential) * (temperature) * (numberOfElectrons) * (reactionQuotient)",
+    "standardCellPotential_aux": "(cathodeStandardPotential) * (anodeStandardPotential) * (temperature)"
   },
   "outputs": {
     "primary": "standardCellPotential_aux",

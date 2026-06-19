@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "dehydration_factor": "1 - hydration",
-    "food_impact": "1 - food_intake"
+    "dehydration_factor": "(alcohol_grams) / (body_weight + hours + gender + food_intake + hydration) * 100",
+    "food_impact": "(alcohol_grams) * (body_weight) * (hours)"
   },
   "outputs": {
     "primary": "food_impact",

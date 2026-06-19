@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Atm_to_bar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pressure_atm * input.conversion_factor; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.pressure_atm * input.conversion_factor; results["primary_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary_aux"] = 0; }
+  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision) * (input.temperature_celsius) * (input.altitude_meters) * (input.measurement_uncertainty); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision); results["primary_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary_aux"] = 0; }
   return results;
 }
 

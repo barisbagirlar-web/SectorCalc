@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Gradient_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endElevation - input.startElevation; results["rise"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rise"] = 0; }
-  try { const v = input.endElevation - input.startElevation; results["rise_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rise_aux"] = 0; }
+  try { const v = (input.startEasting) * (input.startNorthing) * (input.startElevation) * (input.endEasting) * (input.endNorthing) * (input.endElevation); results["rise"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rise"] = 0; }
+  try { const v = (input.startEasting) * (input.startNorthing) * (input.startElevation); results["rise_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rise_aux"] = 0; }
   return results;
 }
 

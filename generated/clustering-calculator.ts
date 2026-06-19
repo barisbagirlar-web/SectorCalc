@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Clustering_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numClusters; results["numClusters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numClusters"] = 0; }
-  try { const v = input.numClusters; results["numClusters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numClusters_aux"] = 0; }
+  try { const v = (input.numPoints) * (input.numClusters) * (input.dimensions) * (input.maxIterations) * (input.tolerance) * (input.seed); results["numClusters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numClusters"] = 0; }
+  try { const v = (input.numPoints) * (input.numClusters) * (input.dimensions); results["numClusters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numClusters_aux"] = 0; }
   return results;
 }
 

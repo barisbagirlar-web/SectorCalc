@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "exceedanceProbability": "1 / returnPeriod",
-    "exceedanceProbability_aux": "1 / returnPeriod"
+    "exceedanceProbability": "(location) * (scale) * (shape) * (returnPeriod)",
+    "exceedanceProbability_aux": "(location) * (scale) * (shape)"
   },
   "outputs": {
     "primary": "exceedanceProbability_aux",

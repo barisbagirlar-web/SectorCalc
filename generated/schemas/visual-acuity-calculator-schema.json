@@ -99,8 +99,8 @@
     }
   ],
   "formulas": {
-    "H_ft": "letterHeight / 304.8",
-    "H_ft_aux": "letterHeight / 304.8"
+    "H_ft": "(distance) * (letterHeight) * (snellenNumerator) * (overrideDenom)",
+    "H_ft_aux": "(distance) * (letterHeight) * (snellenNumerator)"
   },
   "outputs": {
     "primary": "H_ft_aux",

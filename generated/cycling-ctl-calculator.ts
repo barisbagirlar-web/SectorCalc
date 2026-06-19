@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Cycling_ctl_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dailyTSS; results["steadyStateCTL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL"] = 0; }
-  try { const v = input.dailyTSS; results["steadyStateCTL_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL_aux"] = 0; }
+  try { const v = (input.startCTL) * (input.dailyTSS) * (input.timeConstant) * (input.numDays); results["steadyStateCTL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL"] = 0; }
+  try { const v = (input.startCTL) * (input.dailyTSS) * (input.timeConstant); results["steadyStateCTL_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL_aux"] = 0; }
   return results;
 }
 

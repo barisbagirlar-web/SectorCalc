@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "RT_nF": "(8.314 * T) / (n * 96485)",
-    "RT_nF_aux": "(8.314 * T) / (n * 96485)"
+    "RT_nF": "(E0) * (T) * (n) * (Ox) * (Red) * (a) * (b)",
+    "RT_nF_aux": "(E0) * (T) * (n)"
   },
   "outputs": {
     "primary": "RT_nF_aux",

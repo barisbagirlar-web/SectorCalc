@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "reorderPoint": "dailyDemand * leadTimeDays",
-    "reorderPoint_aux": "dailyDemand * leadTimeDays"
+    "reorderPoint": "(annualDemand) * (orderingCost) * (holdingCost) * (dailyDemand) * (leadTimeDays)",
+    "reorderPoint_aux": "(annualDemand) * (orderingCost) * (holdingCost)"
   },
   "outputs": {
     "primary": "reorderPoint_aux",

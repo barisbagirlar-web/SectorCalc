@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Credit_card_minimum_payment_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.annualInterestRate / 100 / 12) * input.outstandingBalance; results["monthlyInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterest"] = 0; }
-  try { const v = input.outstandingBalance + (asFormulaNumber(results["monthlyInterest"])); results["totalBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBalance"] = 0; }
+  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent) * (input.fixedMinAmount) * (input.pastDueAmount) * (input.overLimitAmount); results["monthlyInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterest"] = 0; }
+  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent); results["totalBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBalance"] = 0; }
   return results;
 }
 

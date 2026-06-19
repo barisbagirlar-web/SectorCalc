@@ -26,8 +26,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Corrugated_roofing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roofWidth * input.roofLength; results["roofArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roofArea"] = 0; }
-  try { const v = input.roofWidth * input.roofLength; results["roofArea_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roofArea_aux"] = 0; }
+  try { const v = (input.roofWidth) * (input.roofLength) * (input.sheetWidth) * (input.sheetLength) * (input.overlapLength) * (input.pricePerSheet); results["roofArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roofArea"] = 0; }
+  try { const v = (input.roofWidth) * (input.roofLength) * (input.sheetWidth); results["roofArea_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roofArea_aux"] = 0; }
   return results;
 }
 

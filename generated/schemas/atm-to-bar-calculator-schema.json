@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "primary": "pressure_atm * conversion_factor",
-    "primary_aux": "pressure_atm * conversion_factor"
+    "primary": "(pressure_atm) * (conversion_factor) * (precision) * (temperature_celsius) * (altitude_meters) * (measurement_uncertainty)",
+    "primary_aux": "(pressure_atm) * (conversion_factor) * (precision)"
   },
   "outputs": {
     "primary": "primary_aux",

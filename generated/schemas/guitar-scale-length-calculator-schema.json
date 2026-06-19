@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "scaleLengthInches": "scaleLength / 25.4",
-    "scaleLengthInches_aux": "scaleLength / 25.4"
+    "scaleLengthInches": "(scaleLength) * (numberOfFrets) * (fretNumber) * (stringGauge) * (tuningFrequency)",
+    "scaleLengthInches_aux": "(scaleLength) * (numberOfFrets) * (fretNumber)"
   },
   "outputs": {
     "primary": "scaleLengthInches_aux",

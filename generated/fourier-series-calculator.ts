@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fourier_series_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.offset; results["dcOffset"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset"] = 0; }
-  try { const v = input.offset; results["dcOffset_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset_aux"] = 0; }
+  try { const v = (input.offset) * (input.amplitude) * (input.period) * (input.time) * (input.numHarmonics); results["dcOffset"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset"] = 0; }
+  try { const v = (input.offset) * (input.amplitude) * (input.period); results["dcOffset_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset_aux"] = 0; }
   return results;
 }
 

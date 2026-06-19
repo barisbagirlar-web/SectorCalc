@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Fermentation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialSugar / 17; results["potentialABV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialABV"] = 0; }
-  try { const v = input.initialSugar / 17; results["potentialABV_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialABV_aux"] = 0; }
+  try { const v = (input.initialSugar) * (input.fermentationTime) * (input.temperature) * (input.yeastPitchRate) * (input.batchVolume); results["potentialABV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialABV"] = 0; }
+  try { const v = (input.initialSugar) * (input.fermentationTime) * (input.temperature); results["potentialABV_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialABV_aux"] = 0; }
   return results;
 }
 

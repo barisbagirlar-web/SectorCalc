@@ -22,8 +22,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Reflection_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.incidentAngle * Math.PI / 180; results["theta1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theta1"] = 0; }
-  try { const v = input.incidentAngle * Math.PI / 180; results["theta1_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theta1_aux"] = 0; }
+  try { const v = (input.incidentAngle) * (input.n1) * (input.n2) * (input.wavelength); results["theta1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theta1"] = 0; }
+  try { const v = (input.incidentAngle) * (input.n1) * (input.n2); results["theta1_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theta1_aux"] = 0; }
   return results;
 }
 

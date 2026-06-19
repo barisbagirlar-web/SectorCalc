@@ -25,7 +25,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Alpha_beta_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.covSM / input.varM; results["beta"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beta"] = 0; }
-  try { const v = input.covSM / input.varM; results["beta_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beta_aux"] = 0; }
+  try { const v = (input.stockReturn - input.riskFreeRate) / (input.marketReturn - input.riskFreeRate); results["beta_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beta_aux"] = 0; }
   return results;
 }
 

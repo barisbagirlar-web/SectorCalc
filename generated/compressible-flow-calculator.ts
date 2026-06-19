@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Compressible_flow_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.downstreamPressure / input.upstreamPressure; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
-  try { const v = (2 / (input.specificHeatRatio + 1)) ** (input.specificHeatRatio / (input.specificHeatRatio - 1)); results["criticalPressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalPressureRatio"] = 0; }
+  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature + input.gasConstant + input.specificHeatRatio + input.orificeDiameter + input.dischargeCoefficient) * 100; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
+  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature) * 100; results["criticalPressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalPressureRatio"] = 0; }
   return results;
 }
 

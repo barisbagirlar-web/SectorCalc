@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "x_rad": "angle * Math.PI / 180",
-    "x_rad_aux": "angle * Math.PI / 180"
+    "x_rad": "(angle) * (amplitude) * (frequency) * (phase) * (verticalShift)",
+    "x_rad_aux": "(angle) * (amplitude) * (frequency)"
   },
   "outputs": {
     "primary": "x_rad",

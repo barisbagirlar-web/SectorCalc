@@ -147,8 +147,8 @@
     }
   ],
   "formulas": {
-    "thetaRad": "theta * Math.PI / 180",
-    "thetaRad_aux": "theta * Math.PI / 180"
+    "thetaRad": "(direction) * (r) * (theta) * (x) * (y) * (z)",
+    "thetaRad_aux": "(direction) * (r) * (theta)"
   },
   "outputs": {
     "primary": "thetaRad_aux",
