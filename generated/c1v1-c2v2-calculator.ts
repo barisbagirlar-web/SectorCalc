@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from c1v1-c2v2-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface C1v1_c2v2_calculatorInput {
   v1: number;
   c2: number;
   v2: number;
+  dataConfidence?: number;
 }
 
 export const C1v1_c2v2_calculatorInputSchema = z.object({
@@ -16,24 +16,24 @@ export const C1v1_c2v2_calculatorInputSchema = z.object({
   v2: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: C1v1_c2v2_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.c1 * input.v1; results["c1v1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["c1v1"] = 0; }
-  try { const v = input.c2 * input.v2; results["c2v2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["c2v2"] = 0; }
-  try { const v = input.c2 * input.v2 / input.c1; results["v1FromC1C2V2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["v1FromC1C2V2"] = 0; }
-  try { const v = input.c1 * input.v1 / input.c2; results["v2FromC1V1C2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["v2FromC1V1C2"] = 0; }
-  try { const v = input.c2 * input.v2 / input.v1; results["c1FromC2V2V1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["c1FromC2V2V1"] = 0; }
-  try { const v = input.c1 * input.v1 / input.v2; results["c2FromC1V1V2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["c2FromC1V1V2"] = 0; }
+function evaluateAllFormulas(input: C1v1_c2v2_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.c1 * input.v1; results["c1v1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c1v1"] = 0; }
+  try { const v = input.c2 * input.v2; results["c2v2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c2v2"] = 0; }
+  try { const v = input.c2 * input.v2 / input.c1; results["v1FromC1C2V2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v1FromC1C2V2"] = 0; }
+  try { const v = input.c1 * input.v1 / input.c2; results["v2FromC1V1C2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v2FromC1V1C2"] = 0; }
+  try { const v = input.c2 * input.v2 / input.v1; results["c1FromC2V2V1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c1FromC2V2V1"] = 0; }
+  try { const v = input.c1 * input.v1 / input.v2; results["c2FromC1V1V2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c2FromC1V1V2"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateC1v1_c2v2_calculator(input: C1v1_c2v2_calculatorInput): C1v1_c2v2_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateC1v1_c2v2_calculator(input: C1v1_c2v2_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

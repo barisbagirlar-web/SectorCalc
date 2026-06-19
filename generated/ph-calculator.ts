@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from ph-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Ph_calculatorInput {
   volBase: number;
   concBase: number;
   Kw: number;
+  dataConfidence?: number;
 }
 
 export const Ph_calculatorInputSchema = z.object({
@@ -18,23 +18,23 @@ export const Ph_calculatorInputSchema = z.object({
   Kw: z.number().default(1e-14),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Ph_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.volAcid + input.volBase; results["totalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.volAcid * input.concAcid; results["molesAcid"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesAcid"] = 0; }
-  try { const v = input.volBase * input.concBase; results["molesBase"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesBase"] = 0; }
-  try { const v = (asFormulaNumber(results["molesAcid"])) - (asFormulaNumber(results["molesBase"])); results["excessH"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["excessH"] = 0; }
-  try { const v = (asFormulaNumber(results["excessH"])) >= 0 ? (asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"])) : input.Kw / (-(asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"]))); results["Hplus"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Hplus"] = 0; }
+function evaluateAllFormulas(input: Ph_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.volAcid + input.volBase; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
+  try { const v = input.volAcid * input.concAcid; results["molesAcid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesAcid"] = 0; }
+  try { const v = input.volBase * input.concBase; results["molesBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesBase"] = 0; }
+  try { const v = (asFormulaNumber(results["molesAcid"])) - (asFormulaNumber(results["molesBase"])); results["excessH"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["excessH"] = 0; }
+  try { const v = (asFormulaNumber(results["excessH"])) >= 0 ? (asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"])) : input.Kw / (-(asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"]))); results["Hplus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Hplus"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePh_calculator(input: Ph_calculatorInput): Ph_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculatePh_calculator(input: Ph_calculatorInput): Ph_calculator
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

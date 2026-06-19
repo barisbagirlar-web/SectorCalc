@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from wedding-cake-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Wedding_cake_calculatorInput {
   laborRate: number;
   overheadPercent: number;
   profitMarginPercent: number;
+  dataConfidence?: number;
 }
 
 export const Wedding_cake_calculatorInputSchema = z.object({
@@ -22,25 +22,25 @@ export const Wedding_cake_calculatorInputSchema = z.object({
   profitMarginPercent: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Wedding_cake_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.guestCount * input.portionGrams) / 1000; results["totalCakeWeightKg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCakeWeightKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCakeWeightKg"])) * input.ingredientCostPerKg; results["ingredientCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ingredientCost"] = 0; }
-  try { const v = input.laborHours * input.laborRate; results["laborCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["laborCost"] = 0; }
-  try { const v = ((asFormulaNumber(results["ingredientCost"])) + (asFormulaNumber(results["laborCost"]))) * (input.overheadPercent / 100); results["overheadCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overheadCost"] = 0; }
-  try { const v = (asFormulaNumber(results["ingredientCost"])) + (asFormulaNumber(results["laborCost"])) + (asFormulaNumber(results["overheadCost"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) * (1 + input.profitMarginPercent / 100); results["totalPrice"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPrice"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPrice"])) / input.guestCount; results["pricePerServing"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pricePerServing"] = 0; }
+function evaluateAllFormulas(input: Wedding_cake_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.guestCount * input.portionGrams) / 1000; results["totalCakeWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCakeWeightKg"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCakeWeightKg"])) * input.ingredientCostPerKg; results["ingredientCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ingredientCost"] = 0; }
+  try { const v = input.laborHours * input.laborRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCost"] = 0; }
+  try { const v = ((asFormulaNumber(results["ingredientCost"])) + (asFormulaNumber(results["laborCost"]))) * (input.overheadPercent / 100); results["overheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadCost"] = 0; }
+  try { const v = (asFormulaNumber(results["ingredientCost"])) + (asFormulaNumber(results["laborCost"])) + (asFormulaNumber(results["overheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCost"])) * (1 + input.profitMarginPercent / 100); results["totalPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPrice"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPrice"])) / input.guestCount; results["pricePerServing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pricePerServing"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWedding_cake_calculator(input: Wedding_cake_calculatorInput): Wedding_cake_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateWedding_cake_calculator(input: Wedding_cake_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

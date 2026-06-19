@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from dirty-bulk-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Dirty_bulk_calculatorInput {
   cleaningSurchargePercent: number;
   demurrageRiskFactor: number;
   demurrageRate: number;
+  dataConfidence?: number;
 }
 
 export const Dirty_bulk_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Dirty_bulk_calculatorInputSchema = z.object({
   demurrageRate: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Dirty_bulk_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.weight * input.distance * input.ratePerTonKm; results["baseCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseCost"] = 0; }
-  try { const v = (asFormulaNumber(results["baseCost"])) * (input.cleaningSurchargePercent / 100); results["cleaningSurcharge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cleaningSurcharge"] = 0; }
-  try { const v = input.demurrageRiskFactor * input.demurrageRate; results["demurrageCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["demurrageCost"] = 0; }
-  try { const v = (asFormulaNumber(results["baseCost"])) + (asFormulaNumber(results["cleaningSurcharge"])) + (asFormulaNumber(results["demurrageCost"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.weight; results["costPerTon"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["costPerTon"] = 0; }
+function evaluateAllFormulas(input: Dirty_bulk_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.weight * input.distance * input.ratePerTonKm; results["baseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseCost"] = 0; }
+  try { const v = (asFormulaNumber(results["baseCost"])) * (input.cleaningSurchargePercent / 100); results["cleaningSurcharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cleaningSurcharge"] = 0; }
+  try { const v = input.demurrageRiskFactor * input.demurrageRate; results["demurrageCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["demurrageCost"] = 0; }
+  try { const v = (asFormulaNumber(results["baseCost"])) + (asFormulaNumber(results["cleaningSurcharge"])) + (asFormulaNumber(results["demurrageCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCost"])) / input.weight; results["costPerTon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerTon"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput): Dirty_bulk_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from burnout-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Burnout_calculatorInput {
   ratedAmbient: number;
   thermalTimeConstant: number;
   dutyCycle: number;
+  dataConfidence?: number;
 }
 
 export const Burnout_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Burnout_calculatorInputSchema = z.object({
   dutyCycle: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Burnout_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.actualLoad / input.motorRatedPower; results["loadFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["loadFactor"] = 0; }
-  try { const v = input.maxInsulationTemp - input.ratedAmbient; results["deltaTRated"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deltaTRated"] = 0; }
+function evaluateAllFormulas(input: Burnout_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.actualLoad / input.motorRatedPower; results["loadFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadFactor"] = 0; }
+  try { const v = input.maxInsulationTemp - input.ratedAmbient; results["deltaTRated"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaTRated"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBurnout_calculator(input: Burnout_calculatorInput): Burnout_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateBurnout_calculator(input: Burnout_calculatorInput): Bur
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

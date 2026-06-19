@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pneumatic-force-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Pneumatic_force_calculatorInput {
   cylinderCount: number;
   safetyFactor: number;
   efficiency: number;
+  dataConfidence?: number;
 }
 
 export const Pneumatic_force_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Pneumatic_force_calculatorInputSchema = z.object({
   efficiency: z.number().default(0.9),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pneumatic_force_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.systemPressure * input.boreDiameter * input.rodDiameter * input.cylinderCount; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.systemPressure * input.boreDiameter * input.rodDiameter * input.cylinderCount * (input.safetyFactor * (input.efficiency / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.safetyFactor * (input.efficiency / 100); results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Pneumatic_force_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.systemPressure * input.boreDiameter * input.rodDiameter * input.cylinderCount; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.systemPressure * input.boreDiameter * input.rodDiameter * input.cylinderCount * (input.safetyFactor * (input.efficiency / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.safetyFactor * (input.efficiency / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePneumatic_force_calculator(input: Pneumatic_force_calculatorInput): Pneumatic_force_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculatePneumatic_force_calculator(input: Pneumatic_force_calcu
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

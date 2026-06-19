@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from le-chatelier-principle-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Le_chatelier_principleInput {
   temperatureChange: number;
   pressureChange: number;
   concentrationChange: number;
+  dataConfidence?: number;
 }
 
 export const Le_chatelier_principleInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Le_chatelier_principleInputSchema = z.object({
   concentrationChange: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Le_chatelier_principleInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.deltaH * input.temperatureChange; results["temperatureEffect"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["temperatureEffect"] = 0; }
-  try { const v = input.deltaN * input.pressureChange; results["pressureEffect"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressureEffect"] = 0; }
-  try { const v = input.concentrationChange; results["concentrationEffect"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["concentrationEffect"] = 0; }
-  try { const v = (asFormulaNumber(results["temperatureEffect"])) + (asFormulaNumber(results["pressureEffect"])) + (asFormulaNumber(results["concentrationEffect"])); results["netShift"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netShift"] = 0; }
+function evaluateAllFormulas(input: Le_chatelier_principleInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.deltaH * input.temperatureChange; results["temperatureEffect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperatureEffect"] = 0; }
+  try { const v = input.deltaN * input.pressureChange; results["pressureEffect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureEffect"] = 0; }
+  try { const v = input.concentrationChange; results["concentrationEffect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concentrationEffect"] = 0; }
+  try { const v = (asFormulaNumber(results["temperatureEffect"])) + (asFormulaNumber(results["pressureEffect"])) + (asFormulaNumber(results["concentrationEffect"])); results["netShift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netShift"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLe_chatelier_principle(input: Le_chatelier_principleInput): Le_chatelier_principleOutput {
@@ -45,8 +45,8 @@ export function calculateLe_chatelier_principle(input: Le_chatelier_principleInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

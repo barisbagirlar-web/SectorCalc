@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from kolesterol-hesaplayici-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Kolesterol_hesaplayiciInput {
   hdlKolesterol: number;
   trigliserit: number;
   ldlKolesterol: number;
+  dataConfidence?: number;
 }
 
 export const Kolesterol_hesaplayiciInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Kolesterol_hesaplayiciInputSchema = z.object({
   ldlKolesterol: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Kolesterol_hesaplayiciInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.ldlKolesterol > 0 ? input.ldlKolesterol : input.totalKolesterol - input.hdlKolesterol - input.trigliserit / 5; results["ldlKolesterol"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ldlKolesterol"] = 0; }
-  try { const v = input.totalKolesterol / input.hdlKolesterol; results["tcHdlRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tcHdlRatio"] = 0; }
-  try { const v = input.trigliserit / input.hdlKolesterol; results["trigHdlRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["trigHdlRatio"] = 0; }
-  try { const v = input.totalKolesterol - input.hdlKolesterol; results["nonHdlKolesterol"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["nonHdlKolesterol"] = 0; }
+function evaluateAllFormulas(input: Kolesterol_hesaplayiciInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.ldlKolesterol > 0 ? input.ldlKolesterol : input.totalKolesterol - input.hdlKolesterol - input.trigliserit / 5; results["ldlKolesterol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ldlKolesterol"] = 0; }
+  try { const v = input.totalKolesterol / input.hdlKolesterol; results["tcHdlRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tcHdlRatio"] = 0; }
+  try { const v = input.trigliserit / input.hdlKolesterol; results["trigHdlRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trigHdlRatio"] = 0; }
+  try { const v = input.totalKolesterol - input.hdlKolesterol; results["nonHdlKolesterol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nonHdlKolesterol"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateKolesterol_hesaplayici(input: Kolesterol_hesaplayiciInput): Kolesterol_hesaplayiciOutput {
@@ -43,8 +43,8 @@ export function calculateKolesterol_hesaplayici(input: Kolesterol_hesaplayiciInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cloud-waste-elimination-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cloud_waste_elimination_calculatorInput {
   reserved_instance_coverage: number;
   rightsizing_opportunity_score: number;
   cloud_provider: string;
+  dataConfidence?: number;
 }
 
 export const Cloud_waste_elimination_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Cloud_waste_elimination_calculatorInputSchema = z.object({
   cloud_provider: z.enum(['AWS', 'Azure', 'GCP', 'Other']).default('AWS'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cloud_waste_elimination_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.idle_resource_count * input.total_cloud_spend; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.idle_resource_count * input.total_cloud_spend * (1 + (input.compute_utilization_rate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.idle_resource_count * input.total_cloud_spend * (1 + (input.compute_utilization_rate / 100)) * ((input.storage_waste_percentage / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.storage_waste_percentage / 100); results["factor_storage_waste_percentage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_storage_waste_percentage"] = 0; }
+function evaluateAllFormulas(input: Cloud_waste_elimination_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.idle_resource_count * input.total_cloud_spend; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.idle_resource_count * input.total_cloud_spend * (1 + (input.compute_utilization_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.idle_resource_count * input.total_cloud_spend * (1 + (input.compute_utilization_rate / 100)) * ((input.storage_waste_percentage / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.storage_waste_percentage / 100); results["factor_storage_waste_percentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_storage_waste_percentage"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCloud_waste_elimination_calculator(input: Cloud_waste_elimination_calculatorInput): Cloud_waste_elimination_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateCloud_waste_elimination_calculator(input: Cloud_waste_e
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

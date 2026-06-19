@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from degree-of-combined-leverage-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Degree_of_combined_leverage_calculatorInput {
   variableCosts: number;
   fixedCosts: number;
   interestExpense: number;
+  dataConfidence?: number;
 }
 
 export const Degree_of_combined_leverage_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Degree_of_combined_leverage_calculatorInputSchema = z.object({
   interestExpense: z.number().default(10000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Degree_of_combined_leverage_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.salesRevenue - input.variableCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts - input.interestExpense); results["dcl"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dcl"] = 0; }
-  try { const v = (input.salesRevenue - input.variableCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts); results["dol"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dol"] = 0; }
-  try { const v = (input.salesRevenue - input.variableCosts - input.fixedCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts - input.interestExpense); results["dfl"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dfl"] = 0; }
+function evaluateAllFormulas(input: Degree_of_combined_leverage_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.salesRevenue - input.variableCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts - input.interestExpense); results["dcl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcl"] = 0; }
+  try { const v = (input.salesRevenue - input.variableCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts); results["dol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dol"] = 0; }
+  try { const v = (input.salesRevenue - input.variableCosts - input.fixedCosts) / (input.salesRevenue - input.variableCosts - input.fixedCosts - input.interestExpense); results["dfl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dfl"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateDegree_of_combined_leverage_calculator(input: Degree_of_combined_leverage_calculatorInput): Degree_of_combined_leverage_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateDegree_of_combined_leverage_calculator(input: Degree_of
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

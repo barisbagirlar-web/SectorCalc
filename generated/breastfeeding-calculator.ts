@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from breastfeeding-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Breastfeeding_calculatorInput {
   dailyFeeds: number;
   milkDensity: number;
   wastageFactor: number;
+  dataConfidence?: number;
 }
 
 export const Breastfeeding_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Breastfeeding_calculatorInputSchema = z.object({
   wastageFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Breastfeeding_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.babyWeight * 150; results["dailyVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyVolume"])) / input.dailyFeeds; results["perFeedVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["perFeedVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyVolume"])) * input.milkDensity; results["totalMass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyVolume"])) / (1 - input.wastageFactor / 100); results["productionVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productionVolume"] = 0; }
+function evaluateAllFormulas(input: Breastfeeding_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.babyWeight * 150; results["dailyVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyVolume"])) / input.dailyFeeds; results["perFeedVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perFeedVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyVolume"])) * input.milkDensity; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyVolume"])) / (1 - input.wastageFactor / 100); results["productionVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productionVolume"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBreastfeeding_calculator(input: Breastfeeding_calculatorInput): Breastfeeding_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateBreastfeeding_calculator(input: Breastfeeding_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

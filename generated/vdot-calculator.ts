@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from vdot-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Vdot_calculatorInput {
   sonumleme: number;
   malzemeFaktoru: number;
   guvenlikFaktoru: number;
+  dataConfidence?: number;
 }
 
 export const Vdot_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Vdot_calculatorInputSchema = z.object({
   guvenlikFaktoru: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Vdot_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (2 * Math.PI * input.frekans * input.genlik) / (input.sonumleme * input.malzemeFaktoru * input.guvenlikFaktoru); results["vdot"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vdot"] = 0; }
-  try { const v = (2 * Math.PI * input.frekans * input.genlik) / (input.sonumleme * input.malzemeFaktoru * input.guvenlikFaktoru); results["vdot_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vdot_aux"] = 0; }
+function evaluateAllFormulas(input: Vdot_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (2 * Math.PI * input.frekans * input.genlik) / (input.sonumleme * input.malzemeFaktoru * input.guvenlikFaktoru); results["vdot"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vdot"] = 0; }
+  try { const v = (2 * Math.PI * input.frekans * input.genlik) / (input.sonumleme * input.malzemeFaktoru * input.guvenlikFaktoru); results["vdot_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vdot_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateVdot_calculator(input: Vdot_calculatorInput): Vdot_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateVdot_calculator(input: Vdot_calculatorInput): Vdot_calc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

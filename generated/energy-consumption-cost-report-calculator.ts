@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from energy-consumption-cost-report-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Energy_consumption_cost_report_calculatorInput {
   facility_type: string;
   include_renewable_offset: boolean;
   renewable_kwh: number;
+  dataConfidence?: number;
 }
 
 export const Energy_consumption_cost_report_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Energy_consumption_cost_report_calculatorInputSchema = z.object({
   renewable_kwh: z.number().min(0).max(100000000).default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Energy_consumption_cost_report_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_energy_kwh * input.peak_demand_kw * (input.tariff_rate_per_kwh / 100) * input.demand_charge_per_kw; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.total_energy_kwh * input.peak_demand_kw * (input.tariff_rate_per_kwh / 100) * input.demand_charge_per_kw * (input.production_units * input.renewable_kwh); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.production_units * input.renewable_kwh; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Energy_consumption_cost_report_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_energy_kwh * input.peak_demand_kw * (input.tariff_rate_per_kwh / 100) * input.demand_charge_per_kw; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.total_energy_kwh * input.peak_demand_kw * (input.tariff_rate_per_kwh / 100) * input.demand_charge_per_kw * (input.production_units * input.renewable_kwh); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.production_units * input.renewable_kwh; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEnergy_consumption_cost_report_calculator(input: Energy_consumption_cost_report_calculatorInput): Energy_consumption_cost_report_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateEnergy_consumption_cost_report_calculator(input: Energy
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

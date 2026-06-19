@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from gas-pipe-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Gas_pipe_calculatorInput {
   outlet_pressure_bar: number;
   temperature_celsius: number;
   specific_gravity: number;
+  dataConfidence?: number;
 }
 
 export const Gas_pipe_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Gas_pipe_calculatorInputSchema = z.object({
   specific_gravity: z.number().default(0.6),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Gas_pipe_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.diameter_mm / 25.4; results["diameter_inch"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["diameter_inch"] = 0; }
-  try { const v = input.temperature_celsius + 273.15; results["temperature_K"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["temperature_K"] = 0; }
-  try { const v = input.inlet_pressure_bar - input.outlet_pressure_bar; results["pressure_drop_bar"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressure_drop_bar"] = 0; }
+function evaluateAllFormulas(input: Gas_pipe_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.diameter_mm / 25.4; results["diameter_inch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["diameter_inch"] = 0; }
+  try { const v = input.temperature_celsius + 273.15; results["temperature_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperature_K"] = 0; }
+  try { const v = input.inlet_pressure_bar - input.outlet_pressure_bar; results["pressure_drop_bar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_drop_bar"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateGas_pipe_calculator(input: Gas_pipe_calculatorInput): Gas_pipe_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateGas_pipe_calculator(input: Gas_pipe_calculatorInput): G
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

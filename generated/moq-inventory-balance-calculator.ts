@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from moq-inventory-balance-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Moq_inventory_balance_calculatorInput {
   lead_time_days: number;
   demand_std_dev: number;
   service_level: number;
+  dataConfidence?: number;
 }
 
 export const Moq_inventory_balance_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Moq_inventory_balance_calculatorInputSchema = z.object({
   service_level: z.number().min(50).max(99.99).default(95),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_demand * input.ordering_cost; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)) * (input.holding_cost_per_unit); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.holding_cost_per_unit; results["factor_holding_cost_per_unit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_holding_cost_per_unit"] = 0; }
+function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_demand * input.ordering_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annual_demand * input.ordering_cost * (1 + (input.service_level / 100)) * (input.holding_cost_per_unit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.holding_cost_per_unit; results["factor_holding_cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_holding_cost_per_unit"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMoq_inventory_balance_calculator(input: Moq_inventory_balance_calculatorInput): Moq_inventory_balance_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateMoq_inventory_balance_calculator(input: Moq_inventory_b
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

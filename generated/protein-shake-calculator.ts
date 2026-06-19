@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from protein-shake-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Protein_shake_calculatorInput {
   proteinPer100g: number;
   caloriesPer100g: number;
   liquidVolume: number;
+  dataConfidence?: number;
 }
 
 export const Protein_shake_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Protein_shake_calculatorInputSchema = z.object({
   liquidVolume: z.number().default(300),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Protein_shake_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.scoopWeight * input.numScoops * input.proteinPer100g / 100; results["totalProtein"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalProtein"] = 0; }
-  try { const v = input.scoopWeight * input.numScoops; results["totalPowderWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPowderWeight"] = 0; }
-  try { const v = input.scoopWeight * input.numScoops * input.caloriesPer100g / 100; results["totalCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.scoopWeight * input.numScoops * input.proteinPer100g / input.liquidVolume; results["proteinPer100ml"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["proteinPer100ml"] = 0; }
+function evaluateAllFormulas(input: Protein_shake_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.scoopWeight * input.numScoops * input.proteinPer100g / 100; results["totalProtein"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalProtein"] = 0; }
+  try { const v = input.scoopWeight * input.numScoops; results["totalPowderWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPowderWeight"] = 0; }
+  try { const v = input.scoopWeight * input.numScoops * input.caloriesPer100g / 100; results["totalCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = input.scoopWeight * input.numScoops * input.proteinPer100g / input.liquidVolume; results["proteinPer100ml"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["proteinPer100ml"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateProtein_shake_calculator(input: Protein_shake_calculatorInput): Protein_shake_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateProtein_shake_calculator(input: Protein_shake_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

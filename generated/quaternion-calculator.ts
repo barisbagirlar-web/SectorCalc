@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from quaternion-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Quaternion_calculatorInput {
   p1: number;
   p2: number;
   p3: number;
+  dataConfidence?: number;
 }
 
 export const Quaternion_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const Quaternion_calculatorInputSchema = z.object({
   p3: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Quaternion_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3; results["productW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productW"] = 0; }
-  try { const v = input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2; results["productX"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productX"] = 0; }
-  try { const v = input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1; results["productY"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productY"] = 0; }
-  try { const v = input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0; results["productZ"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productZ"] = 0; }
-  try { const v = "(" + (input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3) + ", " + (input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2) + ", " + (input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1) + ", " + (input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0) + ")"; results["productString"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productString"] = 0; }
+function evaluateAllFormulas(input: Quaternion_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3; results["productW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productW"] = 0; }
+  try { const v = input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2; results["productX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productX"] = 0; }
+  try { const v = input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1; results["productY"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productY"] = 0; }
+  try { const v = input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0; results["productZ"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productZ"] = 0; }
+  try { const v = "(" + (input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3) + ", " + (input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2) + ", " + (input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1) + ", " + (input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0) + ")"; results["productString"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productString"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateQuaternion_calculator(input: Quaternion_calculatorInput): Quaternion_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateQuaternion_calculator(input: Quaternion_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

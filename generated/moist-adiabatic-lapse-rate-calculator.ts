@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from moist-adiabatic-lapse-rate-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Moist_adiabatic_lapse_rate_calculatorInput {
   Rd: number;
   cpd: number;
   epsilon: number;
+  dataConfidence?: number;
 }
 
 export const Moist_adiabatic_lapse_rate_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Moist_adiabatic_lapse_rate_calculatorInputSchema = z.object({
   epsilon: z.number().default(0.622),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Moist_adiabatic_lapse_rate_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.temperature + 273.15; results["T_K"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["T_K"] = 0; }
-  try { const v = input.pressure * 100; results["p_Pa"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["p_Pa"] = 0; }
+function evaluateAllFormulas(input: Moist_adiabatic_lapse_rate_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.temperature + 273.15; results["T_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["T_K"] = 0; }
+  try { const v = input.pressure * 100; results["p_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p_Pa"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMoist_adiabatic_lapse_rate_calculator(input: Moist_adiabatic_lapse_rate_calculatorInput): Moist_adiabatic_lapse_rate_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateMoist_adiabatic_lapse_rate_calculator(input: Moist_adia
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

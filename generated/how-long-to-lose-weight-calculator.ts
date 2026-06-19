@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from how-long-to-lose-weight-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface How_long_to_lose_weight_calculatorInput {
   gender: number;
   activityLevel: number;
   dailyCalorieIntake: number;
+  dataConfidence?: number;
 }
 
 export const How_long_to_lose_weight_calculatorInputSchema = z.object({
@@ -22,22 +22,22 @@ export const How_long_to_lose_weight_calculatorInputSchema = z.object({
   dailyCalorieIntake: z.number().default(2000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: How_long_to_lose_weight_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.currentWeight_kg - input.goalWeight_kg; results["weightDiff_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weightDiff_kg"] = 0; }
-  try { const v = input.gender === 1 ? (10 * input.currentWeight_kg + 6.25 * input.height_cm - 5 * input.age + 5) : (10 * input.currentWeight_kg + 6.25 * input.height_cm - 5 * input.age - 161); results["bmr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) - input.dailyCalorieIntake; results["calorieDeficit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calorieDeficit"] = 0; }
+function evaluateAllFormulas(input: How_long_to_lose_weight_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.currentWeight_kg - input.goalWeight_kg; results["weightDiff_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightDiff_kg"] = 0; }
+  try { const v = input.gender === 1 ? (10 * input.currentWeight_kg + 6.25 * input.height_cm - 5 * input.age + 5) : (10 * input.currentWeight_kg + 6.25 * input.height_cm - 5 * input.age - 161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = (asFormulaNumber(results["tdee"])) - input.dailyCalorieIntake; results["calorieDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calorieDeficit"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHow_long_to_lose_weight_calculator(input: How_long_to_lose_weight_calculatorInput): How_long_to_lose_weight_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateHow_long_to_lose_weight_calculator(input: How_long_to_l
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

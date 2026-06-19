@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from periodic-table-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Periodic_table_calculatorInput {
   isotope2_mass: number;
   abundance1: number;
   abundance2: number;
+  dataConfidence?: number;
 }
 
 export const Periodic_table_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Periodic_table_calculatorInputSchema = z.object({
   abundance2: z.number().default(1.07),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Periodic_table_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.isotope1_mass * input.abundance1 + input.isotope2_mass * input.abundance2) / (input.abundance1 + input.abundance2); results["average_mass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["average_mass"] = 0; }
-  try { const v = input.isotope1_mass * (input.abundance1 / (input.abundance1 + input.abundance2)); results["isotope1_contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["isotope1_contribution"] = 0; }
-  try { const v = input.isotope2_mass * (input.abundance2 / (input.abundance1 + input.abundance2)); results["isotope2_contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["isotope2_contribution"] = 0; }
+function evaluateAllFormulas(input: Periodic_table_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.isotope1_mass * input.abundance1 + input.isotope2_mass * input.abundance2) / (input.abundance1 + input.abundance2); results["average_mass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["average_mass"] = 0; }
+  try { const v = input.isotope1_mass * (input.abundance1 / (input.abundance1 + input.abundance2)); results["isotope1_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isotope1_contribution"] = 0; }
+  try { const v = input.isotope2_mass * (input.abundance2 / (input.abundance1 + input.abundance2)); results["isotope2_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isotope2_contribution"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePeriodic_table_calculator(input: Periodic_table_calculatorInput): Periodic_table_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculatePeriodic_table_calculator(input: Periodic_table_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

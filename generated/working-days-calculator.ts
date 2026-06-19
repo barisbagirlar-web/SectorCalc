@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from working-days-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Working_days_calculatorInput {
   includeEnd: number;
   weekendDaysPerWeek: number;
   holidays: number;
+  dataConfidence?: number;
 }
 
 export const Working_days_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Working_days_calculatorInputSchema = z.object({
   holidays: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Working_days_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.endDate - input.startDate + input.includeStart + input.includeEnd - 1; results["totalCalendarDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCalendarDays"] = 0; }
-  try { const v = (input.weekendDaysPerWeek / 7) * (asFormulaNumber(results["totalCalendarDays"])); results["estimatedWeekendDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["estimatedWeekendDays"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCalendarDays"])) - (asFormulaNumber(results["estimatedWeekendDays"])) - input.holidays; results["workingDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["workingDays"] = 0; }
-  try { const v = input.holidays; results["holidays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["holidays"] = 0; }
+function evaluateAllFormulas(input: Working_days_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.endDate - input.startDate + input.includeStart + input.includeEnd - 1; results["totalCalendarDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCalendarDays"] = 0; }
+  try { const v = (input.weekendDaysPerWeek / 7) * (asFormulaNumber(results["totalCalendarDays"])); results["estimatedWeekendDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedWeekendDays"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCalendarDays"])) - (asFormulaNumber(results["estimatedWeekendDays"])) - input.holidays; results["workingDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["workingDays"] = 0; }
+  try { const v = input.holidays; results["holidays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["holidays"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWorking_days_calculator(input: Working_days_calculatorInput): Working_days_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateWorking_days_calculator(input: Working_days_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

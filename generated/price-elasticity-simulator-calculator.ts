@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from price-elasticity-simulator-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Price_elasticity_simulator_calculatorInput {
   fixed_cost_monthly: number;
   demand_shift_factor: number;
   confidence_level: string;
+  dataConfidence?: number;
 }
 
 export const Price_elasticity_simulator_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Price_elasticity_simulator_calculatorInputSchema = z.object({
   confidence_level: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Price_elasticity_simulator_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price * (input.elasticity_coefficient); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.elasticity_coefficient; results["factor_elasticity_coefficient"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_elasticity_coefficient"] = 0; }
+function evaluateAllFormulas(input: Price_elasticity_simulator_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price * (input.elasticity_coefficient); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.elasticity_coefficient; results["factor_elasticity_coefficient"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_elasticity_coefficient"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePrice_elasticity_simulator_calculator(input: Price_elasticity_simulator_calculatorInput): Price_elasticity_simulator_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculatePrice_elasticity_simulator_calculator(input: Price_elas
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

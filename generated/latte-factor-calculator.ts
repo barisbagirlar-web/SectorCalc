@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from latte-factor-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Latte_factor_calculatorInput {
   daysPerWeek: number;
   years: number;
   annualReturnRate: number;
+  dataConfidence?: number;
 }
 
 export const Latte_factor_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Latte_factor_calculatorInputSchema = z.object({
   annualReturnRate: z.number().default(7),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Latte_factor_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dailyExpense * input.daysPerWeek * 52; results["annualContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["annualContribution"])) * input.years; results["totalContributions"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalContributions"] = 0; }
-  try { const v = (asFormulaNumber(results["annualContribution"])) * ((1 + (input.annualReturnRate/100))**input.years - 1) / (input.annualReturnRate/100); results["futureValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["futureValue"] = 0; }
-  try { const v = (asFormulaNumber(results["futureValue"])) - (asFormulaNumber(results["totalContributions"])); results["interestEarned"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["interestEarned"] = 0; }
+function evaluateAllFormulas(input: Latte_factor_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dailyExpense * input.daysPerWeek * 52; results["annualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualContribution"] = 0; }
+  try { const v = (asFormulaNumber(results["annualContribution"])) * input.years; results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
+  try { const v = (asFormulaNumber(results["annualContribution"])) * ((1 + (input.annualReturnRate/100))**input.years - 1) / (input.annualReturnRate/100); results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["futureValue"] = 0; }
+  try { const v = (asFormulaNumber(results["futureValue"])) - (asFormulaNumber(results["totalContributions"])); results["interestEarned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["interestEarned"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLatte_factor_calculator(input: Latte_factor_calculatorInput): Latte_factor_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateLatte_factor_calculator(input: Latte_factor_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

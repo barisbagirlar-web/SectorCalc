@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from 5-2-diet-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface _5_2_diet_calculatorInput {
   fastKcal: number;
   weeks: number;
   maintenanceKcal: number;
+  dataConfidence?: number;
 }
 
 export const _5_2_diet_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const _5_2_diet_calculatorInputSchema = z.object({
   maintenanceKcal: z.number().default(2500),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: _5_2_diet_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 5 * input.normalKcal + 2 * input.fastKcal; results["totalWeeklyCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeeklyCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeeklyCalories"])) / 7; results["averageDailyCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["averageDailyCalories"] = 0; }
-  try { const v = 7 * input.maintenanceKcal - (asFormulaNumber(results["totalWeeklyCalories"])); results["weeklyCalorieDeficit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weeklyCalorieDeficit"] = 0; }
-  try { const v = (asFormulaNumber(results["weeklyCalorieDeficit"])) / 7700; results["weeklyWeightLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weeklyWeightLoss"] = 0; }
-  try { const v = (asFormulaNumber(results["weeklyWeightLoss"])) * input.weeks; results["estimatedTotalWeightLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["estimatedTotalWeightLoss"] = 0; }
+function evaluateAllFormulas(input: _5_2_diet_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 5 * input.normalKcal + 2 * input.fastKcal; results["totalWeeklyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyCalories"] = 0; }
+  try { const v = (asFormulaNumber(results["totalWeeklyCalories"])) / 7; results["averageDailyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageDailyCalories"] = 0; }
+  try { const v = 7 * input.maintenanceKcal - (asFormulaNumber(results["totalWeeklyCalories"])); results["weeklyCalorieDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyCalorieDeficit"] = 0; }
+  try { const v = (asFormulaNumber(results["weeklyCalorieDeficit"])) / 7700; results["weeklyWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyWeightLoss"] = 0; }
+  try { const v = (asFormulaNumber(results["weeklyWeightLoss"])) * input.weeks; results["estimatedTotalWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTotalWeightLoss"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput): _5_2_diet_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

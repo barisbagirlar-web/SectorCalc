@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from hra-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Hra_calculatorInput {
   hraReceived: number;
   rentPaid: number;
   cityType: number;
+  dataConfidence?: number;
 }
 
 export const Hra_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Hra_calculatorInputSchema = z.object({
   cityType: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Hra_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.da * input.basicSalary; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.da * input.basicSalary; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.da * input.basicSalary * 1 * (input.hraReceived); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.hraReceived; results["factor_hraReceived"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_hraReceived"] = 0; }
+function evaluateAllFormulas(input: Hra_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.da * input.basicSalary; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.da * input.basicSalary; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.da * input.basicSalary * 1 * (input.hraReceived); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.hraReceived; results["factor_hraReceived"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_hraReceived"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHra_calculator(input: Hra_calculatorInput): Hra_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateHra_calculator(input: Hra_calculatorInput): Hra_calcula
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from mortgage-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Mortgage_calculatorInput {
   insurance_rate: number;
   monthly_hoa: number;
   annual_income: number;
+  dataConfidence?: number;
 }
 
 export const Mortgage_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Mortgage_calculatorInputSchema = z.object({
   annual_income: z.number().min(0).max(10000000).default(120000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Mortgage_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.loan_term_years * input.loan_amount; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)) * ((input.annual_interest_rate / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.annual_interest_rate / 100); results["factor_annual_interest_rate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_annual_interest_rate"] = 0; }
+function evaluateAllFormulas(input: Mortgage_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.loan_term_years * input.loan_amount; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)) * ((input.annual_interest_rate / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.annual_interest_rate / 100); results["factor_annual_interest_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_annual_interest_rate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMortgage_calculator(input: Mortgage_calculatorInput): Mortgage_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateMortgage_calculator(input: Mortgage_calculatorInput): M
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

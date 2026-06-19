@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cbam-compliance-verdict-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Cbam_compliance_verdict_calculatorInput {
   free_allocation_factor: number;
   verification_status: string;
   compliance_deadline_met: boolean;
+  dataConfidence?: number;
 }
 
 export const Cbam_compliance_verdict_calculatorInputSchema = z.object({
@@ -22,23 +22,23 @@ export const Cbam_compliance_verdict_calculatorInputSchema = z.object({
   compliance_deadline_met: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cbam_compliance_verdict_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_imported_tonnes * input.carbon_price_origin; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_imported_tonnes * input.carbon_price_origin; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_imported_tonnes * input.carbon_price_origin * 1 * (input.embedded_emissions_per_tonne * input.cbam_certificate_price); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.embedded_emissions_per_tonne; results["factor_embedded_emissions_per_tonne"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_embedded_emissions_per_tonne"] = 0; }
-  try { const v = input.cbam_certificate_price; results["factor_cbam_certificate_price"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_cbam_certificate_price"] = 0; }
+function evaluateAllFormulas(input: Cbam_compliance_verdict_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_imported_tonnes * input.carbon_price_origin; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.total_imported_tonnes * input.carbon_price_origin; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.total_imported_tonnes * input.carbon_price_origin * 1 * (input.embedded_emissions_per_tonne * input.cbam_certificate_price); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.embedded_emissions_per_tonne; results["factor_embedded_emissions_per_tonne"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_embedded_emissions_per_tonne"] = 0; }
+  try { const v = input.cbam_certificate_price; results["factor_cbam_certificate_price"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_cbam_certificate_price"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCbam_compliance_verdict_calculator(input: Cbam_compliance_verdict_calculatorInput): Cbam_compliance_verdict_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateCbam_compliance_verdict_calculator(input: Cbam_complian
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

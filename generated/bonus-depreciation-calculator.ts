@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from bonus-depreciation-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Bonus_depreciation_calculatorInput {
   bonusRate: number;
   businessUse: number;
   section179: number;
+  dataConfidence?: number;
 }
 
 export const Bonus_depreciation_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Bonus_depreciation_calculatorInputSchema = z.object({
   section179: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Bonus_depreciation_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100); results["bonusDepreciation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bonusDepreciation"] = 0; }
-  try { const v = input.assetCost - input.section179 - ((input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100)); results["remainingBasis"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remainingBasis"] = 0; }
-  try { const v = input.section179 + ((input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100)); results["totalFirstYear"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFirstYear"] = 0; }
+function evaluateAllFormulas(input: Bonus_depreciation_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100); results["bonusDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bonusDepreciation"] = 0; }
+  try { const v = input.assetCost - input.section179 - ((input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100)); results["remainingBasis"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingBasis"] = 0; }
+  try { const v = input.section179 + ((input.assetCost - input.section179) * (input.bonusRate / 100) * (input.businessUse / 100)); results["totalFirstYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFirstYear"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBonus_depreciation_calculator(input: Bonus_depreciation_calculatorInput): Bonus_depreciation_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateBonus_depreciation_calculator(input: Bonus_depreciation
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from seconds-to-minutes-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Seconds_to_minutes_calculatorInput {
   temperatureCelsius: number;
   tempCoefficient: number;
   humidityPercent: number;
+  dataConfidence?: number;
 }
 
 export const Seconds_to_minutes_calculatorInputSchema = z.object({
@@ -24,20 +24,20 @@ export const Seconds_to_minutes_calculatorInputSchema = z.object({
   humidityPercent: z.number().default(50),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Seconds_to_minutes_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.seconds * input.scaleFactor + input.offsetSeconds + input.temperatureCelsius * input.tempCoefficient; results["effectiveSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveSeconds"])) / 60; results["rawMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawMinutes"] = 0; }
+function evaluateAllFormulas(input: Seconds_to_minutes_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.seconds * input.scaleFactor + input.offsetSeconds + input.temperatureCelsius * input.tempCoefficient; results["effectiveSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveSeconds"] = 0; }
+  try { const v = (asFormulaNumber(results["effectiveSeconds"])) / 60; results["rawMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMinutes"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSeconds_to_minutes_calculator(input: Seconds_to_minutes_calculatorInput): Seconds_to_minutes_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateSeconds_to_minutes_calculator(input: Seconds_to_minutes
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

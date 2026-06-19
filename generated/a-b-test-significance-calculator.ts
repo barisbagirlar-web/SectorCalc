@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from a-b-test-significance-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface A_b_test_significance_calculatorInput {
   variantVisitors: number;
   variantConversions: number;
   confidenceLevel: number;
+  dataConfidence?: number;
 }
 
 export const A_b_test_significance_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const A_b_test_significance_calculatorInputSchema = z.object({
   confidenceLevel: z.number().default(95),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: A_b_test_significance_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.controlConversions / input.controlVisitors; results["p1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["p1"] = 0; }
-  try { const v = input.variantConversions / input.variantVisitors; results["p2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["p2"] = 0; }
-  try { const v = (input.controlConversions + input.variantConversions) / (input.controlVisitors + input.variantVisitors); results["pPool"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pPool"] = 0; }
-  try { const v = 1 - input.confidenceLevel / 100; results["alpha"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["alpha"] = 0; }
+function evaluateAllFormulas(input: A_b_test_significance_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.controlConversions / input.controlVisitors; results["p1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p1"] = 0; }
+  try { const v = input.variantConversions / input.variantVisitors; results["p2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p2"] = 0; }
+  try { const v = (input.controlConversions + input.variantConversions) / (input.controlVisitors + input.variantVisitors); results["pPool"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pPool"] = 0; }
+  try { const v = 1 - input.confidenceLevel / 100; results["alpha"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alpha"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateA_b_test_significance_calculator(input: A_b_test_significance_calculatorInput): A_b_test_significance_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateA_b_test_significance_calculator(input: A_b_test_signif
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

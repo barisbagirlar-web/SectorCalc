@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pde-solver-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Pde_solver_calculatorInput {
   A1: number;
   A2: number;
   A3: number;
+  dataConfidence?: number;
 }
 
 export const Pde_solver_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Pde_solver_calculatorInputSchema = z.object({
   A3: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pde_solver_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.alpha * input.length * input.x * input.time; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.alpha * input.length * input.x * input.time * (input.A1 * input.A2 * input.A3); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.A1 * input.A2 * input.A3; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Pde_solver_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.alpha * input.length * input.x * input.time; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.alpha * input.length * input.x * input.time * (input.A1 * input.A2 * input.A3); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.A1 * input.A2 * input.A3; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePde_solver_calculator(input: Pde_solver_calculatorInput): Pde_solver_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculatePde_solver_calculator(input: Pde_solver_calculatorInput
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from landfill-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Landfill_calculatorInput {
   lifespanYears: number;
   existingVolume: number;
   availableArea: number;
+  dataConfidence?: number;
 }
 
 export const Landfill_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Landfill_calculatorInputSchema = z.object({
   availableArea: z.number().default(200000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Landfill_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dailyWaste * 365 * input.lifespanYears; results["wasteMass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteMass"] = 0; }
-  try { const v = (asFormulaNumber(results["wasteMass"])) / input.compactionDensity; results["wasteVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["wasteVolume"])) * (1 + input.coverRatio / 100); results["totalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolume"])) - input.existingVolume; results["remainingCapacity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remainingCapacity"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolume"])) / input.availableArea; results["landfillHeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["landfillHeight"] = 0; }
+function evaluateAllFormulas(input: Landfill_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dailyWaste * 365 * input.lifespanYears; results["wasteMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteMass"] = 0; }
+  try { const v = (asFormulaNumber(results["wasteMass"])) / input.compactionDensity; results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["wasteVolume"])) * (1 + input.coverRatio / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["totalVolume"])) - input.existingVolume; results["remainingCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingCapacity"] = 0; }
+  try { const v = (asFormulaNumber(results["totalVolume"])) / input.availableArea; results["landfillHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["landfillHeight"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLandfill_calculator(input: Landfill_calculatorInput): Landfill_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateLandfill_calculator(input: Landfill_calculatorInput): L
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

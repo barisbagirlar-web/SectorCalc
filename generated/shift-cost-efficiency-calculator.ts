@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from shift-cost-efficiency-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Shift_cost_efficiency_calculatorInput {
   number_of_operators: number;
   material_cost_per_unit: number;
   energy_cost_per_shift: number;
+  dataConfidence?: number;
 }
 
 export const Shift_cost_efficiency_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Shift_cost_efficiency_calculatorInputSchema = z.object({
   energy_cost_per_shift: z.number().min(0).max(100000).default(500),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Shift_cost_efficiency_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.shift_duration_hours; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit * input.total_units_produced; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Shift_cost_efficiency_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.shift_duration_hours; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.material_cost_per_unit * input.total_units_produced; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateShift_cost_efficiency_calculator(input: Shift_cost_efficiency_calculatorInput): Shift_cost_efficiency_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateShift_cost_efficiency_calculator(input: Shift_cost_effi
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

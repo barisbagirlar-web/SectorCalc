@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from nth-root-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Nth_root_calculatorInput {
   precision: number;
   tolerance: number;
   initialGuess: number;
+  dataConfidence?: number;
 }
 
 export const Nth_root_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Nth_root_calculatorInputSchema = z.object({
   initialGuess: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Nth_root_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.radicand >= 0 ? 1 : -1) * (input.radicand >= 0 ? input.radicand : -input.radicand) ** (1 / input.index); results["nthRoot"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["nthRoot"] = 0; }
-  try { const v = input.radicand; results["inputRadicand"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inputRadicand"] = 0; }
-  try { const v = input.index; results["inputIndex"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inputIndex"] = 0; }
-  try { const v = (asFormulaNumber(results["nthRoot"])) ** input.index; results["rootVerification"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rootVerification"] = 0; }
+function evaluateAllFormulas(input: Nth_root_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.radicand >= 0 ? 1 : -1) * (input.radicand >= 0 ? input.radicand : -input.radicand) ** (1 / input.index); results["nthRoot"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nthRoot"] = 0; }
+  try { const v = input.radicand; results["inputRadicand"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputRadicand"] = 0; }
+  try { const v = input.index; results["inputIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputIndex"] = 0; }
+  try { const v = (asFormulaNumber(results["nthRoot"])) ** input.index; results["rootVerification"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootVerification"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateNth_root_calculator(input: Nth_root_calculatorInput): Nth_root_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateNth_root_calculator(input: Nth_root_calculatorInput): N
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

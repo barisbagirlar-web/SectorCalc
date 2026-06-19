@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from perceived-stress-scale-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Perceived_stress_scale_calculatorInput {
   item2: number;
   item3: number;
   item4: number;
+  dataConfidence?: number;
 }
 
 export const Perceived_stress_scale_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Perceived_stress_scale_calculatorInputSchema = z.object({
   item4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Perceived_stress_scale_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.item1 + (4 - input.item2) + (4 - input.item3) + input.item4; results["total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.item1 + input.item4; results["directSum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["directSum"] = 0; }
-  try { const v = (4 - input.item2) + (4 - input.item3); results["reversedSum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["reversedSum"] = 0; }
+function evaluateAllFormulas(input: Perceived_stress_scale_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.item1 + (4 - input.item2) + (4 - input.item3) + input.item4; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.item1 + input.item4; results["directSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["directSum"] = 0; }
+  try { const v = (4 - input.item2) + (4 - input.item3); results["reversedSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reversedSum"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePerceived_stress_scale_calculator(input: Perceived_stress_scale_calculatorInput): Perceived_stress_scale_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculatePerceived_stress_scale_calculator(input: Perceived_stre
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

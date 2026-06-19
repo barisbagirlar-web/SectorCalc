@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from add-decimals-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Add_decimals_calculatorInput {
   dec2: number;
   dec3: number;
   dec4: number;
+  dataConfidence?: number;
 }
 
 export const Add_decimals_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Add_decimals_calculatorInputSchema = z.object({
   dec4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Add_decimals_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dec1 + input.dec2 + input.dec3 + input.dec4; results["sum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = input.dec1 + input.dec2; results["sum12"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum12"] = 0; }
-  try { const v = (asFormulaNumber(results["sum12"])) + input.dec3; results["sum123"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum123"] = 0; }
+function evaluateAllFormulas(input: Add_decimals_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dec1 + input.dec2 + input.dec3 + input.dec4; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
+  try { const v = input.dec1 + input.dec2; results["sum12"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum12"] = 0; }
+  try { const v = (asFormulaNumber(results["sum12"])) + input.dec3; results["sum123"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum123"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAdd_decimals_calculator(input: Add_decimals_calculatorInput): Add_decimals_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateAdd_decimals_calculator(input: Add_decimals_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

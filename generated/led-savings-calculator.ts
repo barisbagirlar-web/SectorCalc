@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from led-savings-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Led_savings_calculatorInput {
   daysPerYear: number;
   currentBulbCost: number;
   ledBulbCost: number;
+  dataConfidence?: number;
 }
 
 export const Led_savings_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Led_savings_calculatorInputSchema = z.object({
   ledBulbCost: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Led_savings_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.currentBulbWattage - input.ledBulbWattage) * input.numberOfBulbs * input.dailyUsageHours * input.daysPerYear / 1000; results["annualEnergySavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualEnergySavings"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergySavings"])) * input.electricityRate; results["annualCostSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualCostSavings"] = 0; }
-  try { const v = (asFormulaNumber(results["annualCostSavings"])) > 0 ? (input.ledBulbCost - input.currentBulbCost) * input.numberOfBulbs / (asFormulaNumber(results["annualCostSavings"])) : null; results["paybackPeriod"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["paybackPeriod"] = 0; }
+function evaluateAllFormulas(input: Led_savings_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.currentBulbWattage - input.ledBulbWattage) * input.numberOfBulbs * input.dailyUsageHours * input.daysPerYear / 1000; results["annualEnergySavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergySavings"] = 0; }
+  try { const v = (asFormulaNumber(results["annualEnergySavings"])) * input.electricityRate; results["annualCostSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCostSavings"] = 0; }
+  try { const v = (asFormulaNumber(results["annualCostSavings"])) > 0 ? (input.ledBulbCost - input.currentBulbCost) * input.numberOfBulbs / (asFormulaNumber(results["annualCostSavings"])) : null; results["paybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paybackPeriod"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLed_savings_calculator(input: Led_savings_calculatorInput): Led_savings_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateLed_savings_calculator(input: Led_savings_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

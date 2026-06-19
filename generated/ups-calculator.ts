@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from ups-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Ups_calculatorInput {
   batteryVoltage: number;
   depthOfDischarge: number;
   numberOfBatteries: number;
+  dataConfidence?: number;
 }
 
 export const Ups_calculatorInputSchema = z.object({
@@ -22,24 +22,24 @@ export const Ups_calculatorInputSchema = z.object({
   numberOfBatteries: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Ups_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.totalLoad / input.powerFactor; results["totalVA"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVA"] = 0; }
-  try { const v = (input.totalLoad / input.powerFactor) / input.batteryVoltage; results["loadCurrent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["loadCurrent"] = 0; }
-  try { const v = (input.totalLoad * input.requiredRuntime) / 60; results["batteryWattHours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["batteryWattHours"] = 0; }
-  try { const v = (input.totalLoad * input.requiredRuntime) / 60 / (input.inverterEfficiency / 100) / (input.depthOfDischarge / 100); results["adjustedWattHours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedWattHours"] = 0; }
-  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100))) / input.batteryVoltage; results["totalRequiredAh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalRequiredAh"] = 0; }
-  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100)) / input.batteryVoltage) / input.numberOfBatteries; results["perBatteryCapacityAh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["perBatteryCapacityAh"] = 0; }
+function evaluateAllFormulas(input: Ups_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalLoad / input.powerFactor; results["totalVA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVA"] = 0; }
+  try { const v = (input.totalLoad / input.powerFactor) / input.batteryVoltage; results["loadCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadCurrent"] = 0; }
+  try { const v = (input.totalLoad * input.requiredRuntime) / 60; results["batteryWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["batteryWattHours"] = 0; }
+  try { const v = (input.totalLoad * input.requiredRuntime) / 60 / (input.inverterEfficiency / 100) / (input.depthOfDischarge / 100); results["adjustedWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedWattHours"] = 0; }
+  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100))) / input.batteryVoltage; results["totalRequiredAh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRequiredAh"] = 0; }
+  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100)) / input.batteryVoltage) / input.numberOfBatteries; results["perBatteryCapacityAh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perBatteryCapacityAh"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateUps_calculator(input: Ups_calculatorInput): Ups_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateUps_calculator(input: Ups_calculatorInput): Ups_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

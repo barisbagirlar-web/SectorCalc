@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from log-loss-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Log_loss_calculatorInput {
   predicted3: number;
   actual4: number;
   predicted4: number;
+  dataConfidence?: number;
 }
 
 export const Log_loss_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Log_loss_calculatorInputSchema = z.object({
   predicted4: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Log_loss_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.actual1 * input.predicted1 * input.actual2 * input.predicted2; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.actual1 * input.predicted1 * input.actual2 * input.predicted2 * (input.actual3 * input.predicted3 * input.actual4 * input.predicted4); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.actual3 * input.predicted3 * input.actual4 * input.predicted4; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Log_loss_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.actual1 * input.predicted1 * input.actual2 * input.predicted2; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.actual1 * input.predicted1 * input.actual2 * input.predicted2 * (input.actual3 * input.predicted3 * input.actual4 * input.predicted4); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.actual3 * input.predicted3 * input.actual4 * input.predicted4; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLog_loss_calculator(input: Log_loss_calculatorInput): Log_loss_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateLog_loss_calculator(input: Log_loss_calculatorInput): L
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

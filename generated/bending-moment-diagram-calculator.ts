@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from bending-moment-diagram-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Bending_moment_diagram_calculatorInput {
   loadMagnitude: number;
   loadPosition: number;
   distanceX: number;
+  dataConfidence?: number;
 }
 
 export const Bending_moment_diagram_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Bending_moment_diagram_calculatorInputSchema = z.object({
   distanceX: z.number().default(2.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Bending_moment_diagram_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.loadMagnitude * (input.beamLength - input.loadPosition) / input.beamLength; results["leftReaction"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["leftReaction"] = 0; }
-  try { const v = input.loadMagnitude * input.loadPosition / input.beamLength; results["rightReaction"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rightReaction"] = 0; }
-  try { const v = input.distanceX <= input.loadPosition ? (input.loadMagnitude * (input.beamLength - input.loadPosition) * input.distanceX / input.beamLength) : (input.loadMagnitude * input.loadPosition * (input.beamLength - input.distanceX) / input.beamLength); results["bendingMomentAtX"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bendingMomentAtX"] = 0; }
-  try { const v = input.loadMagnitude * input.loadPosition * (input.beamLength - input.loadPosition) / input.beamLength; results["maxBendingMoment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxBendingMoment"] = 0; }
-  try { const v = input.loadPosition; results["maxMomentLocation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxMomentLocation"] = 0; }
+function evaluateAllFormulas(input: Bending_moment_diagram_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.loadMagnitude * (input.beamLength - input.loadPosition) / input.beamLength; results["leftReaction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leftReaction"] = 0; }
+  try { const v = input.loadMagnitude * input.loadPosition / input.beamLength; results["rightReaction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rightReaction"] = 0; }
+  try { const v = input.distanceX <= input.loadPosition ? (input.loadMagnitude * (input.beamLength - input.loadPosition) * input.distanceX / input.beamLength) : (input.loadMagnitude * input.loadPosition * (input.beamLength - input.distanceX) / input.beamLength); results["bendingMomentAtX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingMomentAtX"] = 0; }
+  try { const v = input.loadMagnitude * input.loadPosition * (input.beamLength - input.loadPosition) / input.beamLength; results["maxBendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxBendingMoment"] = 0; }
+  try { const v = input.loadPosition; results["maxMomentLocation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxMomentLocation"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBending_moment_diagram_calculator(input: Bending_moment_diagram_calculatorInput): Bending_moment_diagram_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateBending_moment_diagram_calculator(input: Bending_moment
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

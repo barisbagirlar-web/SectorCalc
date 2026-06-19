@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from financial-independence-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Financial_independence_calculatorInput {
   annualExpenses: number;
   annualReturn: number;
   safeWithdrawalRate: number;
+  dataConfidence?: number;
 }
 
 export const Financial_independence_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Financial_independence_calculatorInputSchema = z.object({
   safeWithdrawalRate: z.number().default(4),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Financial_independence_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualExpenses/(input.safeWithdrawalRate/100); results["fiTarget"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fiTarget"] = 0; }
-  try { const v = input.monthlySavings*12; results["annualSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualSavings"] = 0; }
+function evaluateAllFormulas(input: Financial_independence_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualExpenses/(input.safeWithdrawalRate/100); results["fiTarget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fiTarget"] = 0; }
+  try { const v = input.monthlySavings*12; results["annualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFinancial_independence_calculator(input: Financial_independence_calculatorInput): Financial_independence_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateFinancial_independence_calculator(input: Financial_inde
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

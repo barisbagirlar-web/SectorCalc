@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cubits-to-meters-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Cubits_to_meters_calculatorInput {
   conversionFactor: number;
   decimalPlaces: number;
   roundingMethod: number;
+  dataConfidence?: number;
 }
 
 export const Cubits_to_meters_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Cubits_to_meters_calculatorInputSchema = z.object({
   roundingMethod: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cubits_to_meters_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.cubits * input.conversionFactor; results["rawMeters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawMeters"] = 0; }
-  try { const v = input.cubits; results["cubits"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cubits"] = 0; }
-  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["decimalPlaces"] = 0; }
-  try { const v = input.roundingMethod; results["roundingMethod"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["roundingMethod"] = 0; }
+function evaluateAllFormulas(input: Cubits_to_meters_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.cubits * input.conversionFactor; results["rawMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters"] = 0; }
+  try { const v = input.cubits; results["cubits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubits"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
+  try { const v = input.roundingMethod; results["roundingMethod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roundingMethod"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_calculatorInput): Cubits_to_meters_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

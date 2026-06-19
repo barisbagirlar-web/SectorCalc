@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cycling-ctl-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Cycling_ctl_calculatorInput {
   dailyTSS: number;
   timeConstant: number;
   numDays: number;
+  dataConfidence?: number;
 }
 
 export const Cycling_ctl_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Cycling_ctl_calculatorInputSchema = z.object({
   numDays: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cycling_ctl_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dailyTSS; results["steadyStateCTL"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steadyStateCTL"] = 0; }
-  try { const v = input.dailyTSS; results["steadyStateCTL_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steadyStateCTL_aux"] = 0; }
+function evaluateAllFormulas(input: Cycling_ctl_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dailyTSS; results["steadyStateCTL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL"] = 0; }
+  try { const v = input.dailyTSS; results["steadyStateCTL_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCycling_ctl_calculator(input: Cycling_ctl_calculatorInput): Cycling_ctl_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateCycling_ctl_calculator(input: Cycling_ctl_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from home-equity-line-of-credit-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Home_equity_line_of_creditInput {
   interestRate: number;
   drawAmount: number;
   loanTerm: number;
+  dataConfidence?: number;
 }
 
 export const Home_equity_line_of_creditInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Home_equity_line_of_creditInputSchema = z.object({
   loanTerm: z.number().default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Home_equity_line_of_creditInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.loanTerm * input.homeValue; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.loanTerm * input.homeValue * (1 + (input.lvrLimit / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.loanTerm * input.homeValue * (1 + (input.lvrLimit / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Home_equity_line_of_creditInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.loanTerm * input.homeValue; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.loanTerm * input.homeValue * (1 + (input.lvrLimit / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.loanTerm * input.homeValue * (1 + (input.lvrLimit / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHome_equity_line_of_credit(input: Home_equity_line_of_creditInput): Home_equity_line_of_creditOutput {
@@ -46,8 +46,8 @@ export function calculateHome_equity_line_of_credit(input: Home_equity_line_of_c
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

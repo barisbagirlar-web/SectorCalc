@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from tablespoons-to-ml-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Tablespoons_to_ml_calculatorInput {
   conversionType: number;
   precision: number;
   customFactor: number;
+  dataConfidence?: number;
 }
 
 export const Tablespoons_to_ml_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Tablespoons_to_ml_calculatorInputSchema = z.object({
   customFactor: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Tablespoons_to_ml_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.customFactor > 0 ? input.customFactor : (input.conversionType === 1 ? 14.7868 : input.conversionType === 2 ? 15 : input.conversionType === 3 ? 17.7582 : 20); results["conversionFactorUsed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conversionFactorUsed"] = 0; }
-  try { const v = input.tablespoons * input.batchSize; results["totalTablespoons"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTablespoons"] = 0; }
+function evaluateAllFormulas(input: Tablespoons_to_ml_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.customFactor > 0 ? input.customFactor : (input.conversionType === 1 ? 14.7868 : input.conversionType === 2 ? 15 : input.conversionType === 3 ? 17.7582 : 20); results["conversionFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactorUsed"] = 0; }
+  try { const v = input.tablespoons * input.batchSize; results["totalTablespoons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTablespoons"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTablespoons_to_ml_calculator(input: Tablespoons_to_ml_calculatorInput): Tablespoons_to_ml_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateTablespoons_to_ml_calculator(input: Tablespoons_to_ml_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

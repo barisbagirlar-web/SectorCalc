@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from class-rank-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Class_rank_calculatorInput {
   sameCount: number;
   minScore: number;
   maxScore: number;
+  dataConfidence?: number;
 }
 
 export const Class_rank_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Class_rank_calculatorInputSchema = z.object({
   maxScore: z.number().default(100),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Class_rank_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.studentScore - input.minScore) / (input.maxScore - input.minScore); results["normalizedScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalizedScore"] = 0; }
-  try { const v = (input.lowerCount + 0.5 * input.sameCount) / input.totalStudents * 100; results["percentileRank"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["percentileRank"] = 0; }
-  try { const v = input.lowerCount + 1; results["rankPosition"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rankPosition"] = 0; }
+function evaluateAllFormulas(input: Class_rank_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.studentScore - input.minScore) / (input.maxScore - input.minScore); results["normalizedScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalizedScore"] = 0; }
+  try { const v = (input.lowerCount + 0.5 * input.sameCount) / input.totalStudents * 100; results["percentileRank"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentileRank"] = 0; }
+  try { const v = input.lowerCount + 1; results["rankPosition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankPosition"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateClass_rank_calculator(input: Class_rank_calculatorInput): Class_rank_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateClass_rank_calculator(input: Class_rank_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

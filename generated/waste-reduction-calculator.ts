@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from waste-reduction-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Waste_reduction_calculatorInput {
   wasteMaterial: number;
   materialCostPerKg: number;
   defectReductionTarget: number;
+  dataConfidence?: number;
 }
 
 export const Waste_reduction_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Waste_reduction_calculatorInputSchema = z.object({
   defectReductionTarget: z.number().default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Waste_reduction_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.materialInput / input.totalProduction; results["materialPerUnit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialPerUnit"] = 0; }
-  try { const v = input.defectUnits / input.totalProduction * 100; results["currentDefectRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["currentDefectRate"] = 0; }
-  try { const v = input.wasteMaterial / input.materialInput * 100; results["currentWasteRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["currentWasteRate"] = 0; }
-  try { const v = input.wasteMaterial * input.materialCostPerKg; results["currentWasteCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["currentWasteCost"] = 0; }
-  try { const v = input.defectUnits * (input.defectReductionTarget / 100) * (input.materialInput / input.totalProduction) * input.materialCostPerKg; results["savings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["savings"] = 0; }
+function evaluateAllFormulas(input: Waste_reduction_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.materialInput / input.totalProduction; results["materialPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialPerUnit"] = 0; }
+  try { const v = input.defectUnits / input.totalProduction * 100; results["currentDefectRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentDefectRate"] = 0; }
+  try { const v = input.wasteMaterial / input.materialInput * 100; results["currentWasteRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentWasteRate"] = 0; }
+  try { const v = input.wasteMaterial * input.materialCostPerKg; results["currentWasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentWasteCost"] = 0; }
+  try { const v = input.defectUnits * (input.defectReductionTarget / 100) * (input.materialInput / input.totalProduction) * input.materialCostPerKg; results["savings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["savings"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWaste_reduction_calculator(input: Waste_reduction_calculatorInput): Waste_reduction_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateWaste_reduction_calculator(input: Waste_reduction_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from abc-analysis-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Abc_analysis_calculatorInput {
   totalUsageValue: number;
   aClassThreshold: number;
   bClassThreshold: number;
+  dataConfidence?: number;
 }
 
 export const Abc_analysis_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Abc_analysis_calculatorInputSchema = z.object({
   bClassThreshold: z.number().default(90),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Abc_analysis_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualDemand * input.unitCost; results["itemUsageValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["itemUsageValue"] = 0; }
-  try { const v = ((asFormulaNumber(results["itemUsageValue"])) / input.totalUsageValue) * 100; results["percentageOfTotal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["percentageOfTotal"] = 0; }
+function evaluateAllFormulas(input: Abc_analysis_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualDemand * input.unitCost; results["itemUsageValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["itemUsageValue"] = 0; }
+  try { const v = ((asFormulaNumber(results["itemUsageValue"])) / input.totalUsageValue) * 100; results["percentageOfTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentageOfTotal"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAbc_analysis_calculator(input: Abc_analysis_calculatorInput): Abc_analysis_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateAbc_analysis_calculator(input: Abc_analysis_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

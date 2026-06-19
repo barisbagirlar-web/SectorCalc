@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from beer-barrels-to-liters-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Beer_barrels_to_liters_calculatorInput {
   referenceTemperatureC: number;
   thermalExpansionCoefficient: number;
   correctionFactor: number;
+  dataConfidence?: number;
 }
 
 export const Beer_barrels_to_liters_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Beer_barrels_to_liters_calculatorInputSchema = z.object({
   correctionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Beer_barrels_to_liters_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.barrels * input.litersPerBarrel; results["volumeAtReference"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeAtReference"] = 0; }
-  try { const v = 1 + input.thermalExpansionCoefficient * (input.temperatureC - input.referenceTemperatureC); results["temperatureCorrectionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["temperatureCorrectionFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeAtReference"])) * (asFormulaNumber(results["temperatureCorrectionFactor"])); results["volumeAfterTemperatureCorrection"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeAfterTemperatureCorrection"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeAfterTemperatureCorrection"])) * input.correctionFactor; results["volumeLiters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeLiters"] = 0; }
+function evaluateAllFormulas(input: Beer_barrels_to_liters_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.barrels * input.litersPerBarrel; results["volumeAtReference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeAtReference"] = 0; }
+  try { const v = 1 + input.thermalExpansionCoefficient * (input.temperatureC - input.referenceTemperatureC); results["temperatureCorrectionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperatureCorrectionFactor"] = 0; }
+  try { const v = (asFormulaNumber(results["volumeAtReference"])) * (asFormulaNumber(results["temperatureCorrectionFactor"])); results["volumeAfterTemperatureCorrection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeAfterTemperatureCorrection"] = 0; }
+  try { const v = (asFormulaNumber(results["volumeAfterTemperatureCorrection"])) * input.correctionFactor; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeLiters"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBeer_barrels_to_liters_calculator(input: Beer_barrels_to_liters_calculatorInput): Beer_barrels_to_liters_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateBeer_barrels_to_liters_calculator(input: Beer_barrels_t
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

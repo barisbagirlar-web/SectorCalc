@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from six-sigma-project-prioritizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Six_sigma_project_prioritizer_calculatorInput {
   project_risk: string;
   strategic_alignment: number;
   customer_impact: number;
+  dataConfidence?: number;
 }
 
 export const Six_sigma_project_prioritizer_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Six_sigma_project_prioritizer_calculatorInputSchema = z.object({
   customer_impact: z.number().min(1).max(10).default(8),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Six_sigma_project_prioritizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_volume * input.cost_per_defect; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)) * (input.process_sigma); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.process_sigma; results["factor_process_sigma"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_process_sigma"] = 0; }
+function evaluateAllFormulas(input: Six_sigma_project_prioritizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_volume * input.cost_per_defect; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)) * (input.process_sigma); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.process_sigma; results["factor_process_sigma"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_process_sigma"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sigma_project_prioritizer_calculatorInput): Six_sigma_project_prioritizer_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sig
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

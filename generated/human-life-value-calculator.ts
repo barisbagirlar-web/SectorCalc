@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from human-life-value-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Human_life_value_calculatorInput {
   rateOfReturn: number;
   inflationRate: number;
   currentSavings: number;
+  dataConfidence?: number;
 }
 
 export const Human_life_value_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Human_life_value_calculatorInputSchema = z.object({
   currentSavings: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Human_life_value_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualIncome * (1 - input.expenseRatio); results["netAnnualContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netAnnualContribution"] = 0; }
-  try { const v = (1 + input.rateOfReturn) / (1 + input.inflationRate) - 1; results["realRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["realRate"] = 0; }
+function evaluateAllFormulas(input: Human_life_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualIncome * (1 - input.expenseRatio); results["netAnnualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualContribution"] = 0; }
+  try { const v = (1 + input.rateOfReturn) / (1 + input.inflationRate) - 1; results["realRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["realRate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHuman_life_value_calculator(input: Human_life_value_calculatorInput): Human_life_value_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateHuman_life_value_calculator(input: Human_life_value_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

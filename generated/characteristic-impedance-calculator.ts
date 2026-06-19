@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from characteristic-impedance-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Characteristic_impedance_calculatorInput {
   mu_r: number;
   D: number;
   d: number;
+  dataConfidence?: number;
 }
 
 export const Characteristic_impedance_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Characteristic_impedance_calculatorInputSchema = z.object({
   d: z.number().default(2.8),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Characteristic_impedance_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 8.854187817e-12; results["epsilon0"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["epsilon0"] = 0; }
-  try { const v = 4 * Math.PI * 1e-7; results["mu0"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mu0"] = 0; }
-  try { const v = (asFormulaNumber(results["epsilon0"])) * input.epsilon_r; results["epsilon"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["epsilon"] = 0; }
-  try { const v = (asFormulaNumber(results["mu0"])) * input.mu_r; results["mu"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mu"] = 0; }
+function evaluateAllFormulas(input: Characteristic_impedance_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 8.854187817e-12; results["epsilon0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epsilon0"] = 0; }
+  try { const v = 4 * Math.PI * 1e-7; results["mu0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu0"] = 0; }
+  try { const v = (asFormulaNumber(results["epsilon0"])) * input.epsilon_r; results["epsilon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epsilon"] = 0; }
+  try { const v = (asFormulaNumber(results["mu0"])) * input.mu_r; results["mu"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCharacteristic_impedance_calculator(input: Characteristic_impedance_calculatorInput): Characteristic_impedance_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateCharacteristic_impedance_calculator(input: Characterist
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

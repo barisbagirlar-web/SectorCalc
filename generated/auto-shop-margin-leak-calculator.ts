@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from auto-shop-margin-leak-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Auto_shop_margin_leak_calculatorInput {
   total_parts_cost: number;
   shop_supply_charge_per_ro: number;
   shop_supply_cost_per_ro: number;
+  dataConfidence?: number;
 }
 
 export const Auto_shop_margin_leak_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Auto_shop_margin_leak_calculatorInputSchema = z.object({
   shop_supply_cost_per_ro: z.number().min(0).max(150).default(22),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Auto_shop_margin_leak_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.labor_rate_charged / 100) * (input.labor_rate_effective / 100) * input.total_labor_hours_sold * (input.parts_markup_percent / 100); results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = (input.labor_rate_charged / 100) * (input.labor_rate_effective / 100) * input.total_labor_hours_sold * (input.parts_markup_percent / 100) * ((input.parts_markup_realized / 100) * input.total_parts_cost * input.shop_supply_charge_per_ro * input.shop_supply_cost_per_ro); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.parts_markup_realized / 100) * input.total_parts_cost * input.shop_supply_charge_per_ro * input.shop_supply_cost_per_ro; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Auto_shop_margin_leak_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.labor_rate_charged / 100) * (input.labor_rate_effective / 100) * input.total_labor_hours_sold * (input.parts_markup_percent / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = (input.labor_rate_charged / 100) * (input.labor_rate_effective / 100) * input.total_labor_hours_sold * (input.parts_markup_percent / 100) * ((input.parts_markup_realized / 100) * input.total_parts_cost * input.shop_supply_charge_per_ro * input.shop_supply_cost_per_ro); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.parts_markup_realized / 100) * input.total_parts_cost * input.shop_supply_charge_per_ro * input.shop_supply_cost_per_ro; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAuto_shop_margin_leak_calculator(input: Auto_shop_margin_leak_calculatorInput): Auto_shop_margin_leak_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateAuto_shop_margin_leak_calculator(input: Auto_shop_margi
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from income-tax-calculator-us-federal-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Income_tax_calculator_us_federalInput {
   standard_deduction: number;
   additional_income: number;
   tax_credits: number;
+  dataConfidence?: number;
 }
 
 export const Income_tax_calculator_us_federalInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Income_tax_calculator_us_federalInputSchema = z.object({
   tax_credits: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Income_tax_calculator_us_federalInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_income - input.pre_tax_deductions + input.additional_income; results["adjusted_gross_income"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_gross_income"] = 0; }
-  try { const v = input.annual_income - input.pre_tax_deductions + input.additional_income; results["adjusted_gross_income_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_gross_income_aux"] = 0; }
+function evaluateAllFormulas(input: Income_tax_calculator_us_federalInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_income - input.pre_tax_deductions + input.additional_income; results["adjusted_gross_income"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_gross_income"] = 0; }
+  try { const v = input.annual_income - input.pre_tax_deductions + input.additional_income; results["adjusted_gross_income_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_gross_income_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateIncome_tax_calculator_us_federal(input: Income_tax_calculator_us_federalInput): Income_tax_calculator_us_federalOutput {
@@ -45,8 +45,8 @@ export function calculateIncome_tax_calculator_us_federal(input: Income_tax_calc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

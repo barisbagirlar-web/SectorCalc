@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sig-fig-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Sig_fig_calculatorInput {
   num3: number;
   num4: number;
   operation: number;
+  dataConfidence?: number;
 }
 
 export const Sig_fig_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Sig_fig_calculatorInputSchema = z.object({
   operation: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sig_fig_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.operation == 1 ? (input.num1 + input.num2 + input.num3 + input.num4) : (input.num1 * input.num2 * input.num3 * input.num4); results["rawResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawResult"] = 0; }
-  try { const v = input.operation == 1 ? (input.num1 + input.num2 + input.num3 + input.num4) : (input.num1 * input.num2 * input.num3 * input.num4); results["rawResult_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawResult_aux"] = 0; }
+function evaluateAllFormulas(input: Sig_fig_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.operation == 1 ? (input.num1 + input.num2 + input.num3 + input.num4) : (input.num1 * input.num2 * input.num3 * input.num4); results["rawResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawResult"] = 0; }
+  try { const v = input.operation == 1 ? (input.num1 + input.num2 + input.num3 + input.num4) : (input.num1 * input.num2 * input.num3 * input.num4); results["rawResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawResult_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSig_fig_calculator(input: Sig_fig_calculatorInput): Sig_fig_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateSig_fig_calculator(input: Sig_fig_calculatorInput): Sig
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

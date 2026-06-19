@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from college-value-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface College_value_calculatorInput {
   alternativeSalary: number;
   workingYears: number;
   discountRate: number;
+  dataConfidence?: number;
 }
 
 export const College_value_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const College_value_calculatorInputSchema = z.object({
   discountRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: College_value_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.collegeCost + input.yearsInCollege * input.alternativeSalary; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.expectedSalary - input.alternativeSalary; results["differential"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["differential"] = 0; }
-  try { const v = (input.collegeCost + input.yearsInCollege * input.alternativeSalary) / (input.expectedSalary - input.alternativeSalary); results["paybackYears"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["paybackYears"] = 0; }
-  try { const v = input.workingYears * (input.expectedSalary - input.alternativeSalary) - (input.collegeCost + input.yearsInCollege * input.alternativeSalary); results["totalUndiscountedGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalUndiscountedGain"] = 0; }
+function evaluateAllFormulas(input: College_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.collegeCost + input.yearsInCollege * input.alternativeSalary; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.expectedSalary - input.alternativeSalary; results["differential"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["differential"] = 0; }
+  try { const v = (input.collegeCost + input.yearsInCollege * input.alternativeSalary) / (input.expectedSalary - input.alternativeSalary); results["paybackYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paybackYears"] = 0; }
+  try { const v = input.workingYears * (input.expectedSalary - input.alternativeSalary) - (input.collegeCost + input.yearsInCollege * input.alternativeSalary); results["totalUndiscountedGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalUndiscountedGain"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCollege_value_calculator(input: College_value_calculatorInput): College_value_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateCollege_value_calculator(input: College_value_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

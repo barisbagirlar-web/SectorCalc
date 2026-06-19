@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from kaizen-savings-tracker-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Kaizen_savings_tracker_calculatorInput {
   defect_rate_before: number;
   defect_rate_after: number;
   annual_production_volume: number;
+  dataConfidence?: number;
 }
 
 export const Kaizen_savings_tracker_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Kaizen_savings_tracker_calculatorInputSchema = z.object({
   annual_production_volume: z.number().min(1000).max(10000000).default(100000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Kaizen_savings_tracker_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day * (input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Kaizen_savings_tracker_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day * (input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings_tracker_calculatorInput): Kaizen_savings_tracker_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

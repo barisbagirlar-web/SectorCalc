@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from second-order-reaction-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Second_order_reaction_calculatorInput {
   rateConstant: number;
   time: number;
   targetConcentration: number;
+  dataConfidence?: number;
 }
 
 export const Second_order_reaction_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Second_order_reaction_calculatorInputSchema = z.object({
   targetConcentration: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Second_order_reaction_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1 / (input.rateConstant * input.initialConcentrationA); results["halfLife"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["halfLife"] = 0; }
-  try { const v = 1 / (1 / input.initialConcentrationA + input.rateConstant * input.time); results["concentrationA"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["concentrationA"] = 0; }
-  try { const v = (1 / input.targetConcentration - 1 / input.initialConcentrationA) / input.rateConstant; results["requiredTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredTime"] = 0; }
+function evaluateAllFormulas(input: Second_order_reaction_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1 / (input.rateConstant * input.initialConcentrationA); results["halfLife"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfLife"] = 0; }
+  try { const v = 1 / (1 / input.initialConcentrationA + input.rateConstant * input.time); results["concentrationA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concentrationA"] = 0; }
+  try { const v = (1 / input.targetConcentration - 1 / input.initialConcentrationA) / input.rateConstant; results["requiredTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredTime"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSecond_order_reaction_calculator(input: Second_order_reaction_calculatorInput): Second_order_reaction_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateSecond_order_reaction_calculator(input: Second_order_re
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

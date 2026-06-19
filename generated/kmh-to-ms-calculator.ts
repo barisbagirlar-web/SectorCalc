@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from kmh-to-ms-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Kmh_to_ms_calculatorInput {
   decimal_places: number;
   conversion_factor: number;
   measurement_uncertainty_percent: number;
+  dataConfidence?: number;
 }
 
 export const Kmh_to_ms_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Kmh_to_ms_calculatorInputSchema = z.object({
   measurement_uncertainty_percent: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Kmh_to_ms_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.speed_kmh / input.conversion_factor; results["speed_ms_raw"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_ms_raw"] = 0; }
-  try { const v = input.speed_kmh / input.conversion_factor; results["speed_ms_raw_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_ms_raw_aux"] = 0; }
+function evaluateAllFormulas(input: Kmh_to_ms_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.speed_kmh / input.conversion_factor; results["speed_ms_raw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed_ms_raw"] = 0; }
+  try { const v = input.speed_kmh / input.conversion_factor; results["speed_ms_raw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed_ms_raw_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateKmh_to_ms_calculator(input: Kmh_to_ms_calculatorInput): Kmh_to_ms_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateKmh_to_ms_calculator(input: Kmh_to_ms_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

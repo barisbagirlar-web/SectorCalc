@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from grocery-budget-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Grocery_budget_calculatorInput {
   groceryPercentage: number;
   numberOfPeople: number;
   extraExpenses: number;
+  dataConfidence?: number;
 }
 
 export const Grocery_budget_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Grocery_budget_calculatorInputSchema = z.object({
   extraExpenses: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Grocery_budget_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.monthlyIncome * input.groceryPercentage / 100; results["baseGroceryFromIncome"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseGroceryFromIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["baseGroceryFromIncome"])) + input.extraExpenses; results["totalGroceyBudget"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalGroceyBudget"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGroceyBudget"])) / input.numberOfPeople; results["perPersonBudget"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["perPersonBudget"] = 0; }
+function evaluateAllFormulas(input: Grocery_budget_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.monthlyIncome * input.groceryPercentage / 100; results["baseGroceryFromIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseGroceryFromIncome"] = 0; }
+  try { const v = (asFormulaNumber(results["baseGroceryFromIncome"])) + input.extraExpenses; results["totalGroceyBudget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGroceyBudget"] = 0; }
+  try { const v = (asFormulaNumber(results["totalGroceyBudget"])) / input.numberOfPeople; results["perPersonBudget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPersonBudget"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateGrocery_budget_calculator(input: Grocery_budget_calculatorInput): Grocery_budget_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateGrocery_budget_calculator(input: Grocery_budget_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

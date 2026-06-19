@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from maximum-drawdown-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Maximum_drawdown_calculatorInput {
   timeToTrough: number;
   recoveryValue: number;
   recoveryTime: number;
+  dataConfidence?: number;
 }
 
 export const Maximum_drawdown_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Maximum_drawdown_calculatorInputSchema = z.object({
   recoveryTime: z.number().default(12),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Maximum_drawdown_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.peakValue - input.troughValue) / input.peakValue) * 100; results["maxDrawdownPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxDrawdownPercent"] = 0; }
-  try { const v = input.peakValue - input.troughValue; results["absoluteDrawdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["absoluteDrawdown"] = 0; }
-  try { const v = ((input.initialInvestment - input.troughValue) / input.initialInvestment) * 100; results["lossFromInitialPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lossFromInitialPercent"] = 0; }
-  try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredRecoveryGainPercent"] = 0; }
-  try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actualRecoveryGainPercent"] = 0; }
+function evaluateAllFormulas(input: Maximum_drawdown_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.peakValue - input.troughValue) / input.peakValue) * 100; results["maxDrawdownPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxDrawdownPercent"] = 0; }
+  try { const v = input.peakValue - input.troughValue; results["absoluteDrawdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDrawdown"] = 0; }
+  try { const v = ((input.initialInvestment - input.troughValue) / input.initialInvestment) * 100; results["lossFromInitialPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossFromInitialPercent"] = 0; }
+  try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredRecoveryGainPercent"] = 0; }
+  try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRecoveryGainPercent"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMaximum_drawdown_calculator(input: Maximum_drawdown_calculatorInput): Maximum_drawdown_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateMaximum_drawdown_calculator(input: Maximum_drawdown_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

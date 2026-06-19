@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from carats-to-grams-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Carats_to_grams_calculatorInput {
   batchSize: number;
   precision: number;
   pricePerGram: number;
+  dataConfidence?: number;
 }
 
 export const Carats_to_grams_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Carats_to_grams_calculatorInputSchema = z.object({
   pricePerGram: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Carats_to_grams_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.carats * input.batchSize; results["totalCarats"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCarats"] = 0; }
-  try { const v = input.carats * input.conversionFactor; results["gramsPerItem"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gramsPerItem"] = 0; }
-  try { const v = (asFormulaNumber(results["gramsPerItem"])) * input.batchSize; results["totalGrams"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalGrams"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGrams"])) * input.pricePerGram; results["totalPrice"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPrice"] = 0; }
+function evaluateAllFormulas(input: Carats_to_grams_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.carats * input.batchSize; results["totalCarats"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarats"] = 0; }
+  try { const v = input.carats * input.conversionFactor; results["gramsPerItem"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gramsPerItem"] = 0; }
+  try { const v = (asFormulaNumber(results["gramsPerItem"])) * input.batchSize; results["totalGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGrams"] = 0; }
+  try { const v = (asFormulaNumber(results["totalGrams"])) * input.pricePerGram; results["totalPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPrice"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCarats_to_grams_calculator(input: Carats_to_grams_calculatorInput): Carats_to_grams_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateCarats_to_grams_calculator(input: Carats_to_grams_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

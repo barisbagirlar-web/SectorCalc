@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from fabric-cutting-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Fabric_cutting_optimizer_calculatorInput {
   cutting_method: string;
   material_cost_per_m2: number;
   labor_rate_per_hour: number;
+  dataConfidence?: number;
 }
 
 export const Fabric_cutting_optimizer_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Fabric_cutting_optimizer_calculatorInputSchema = z.object({
   labor_rate_per_hour: z.number().min(5).max(100).default(25),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Fabric_cutting_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.quantity * (input.labor_rate_per_hour / 100) * 1 * input.material_cost_per_m2; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.quantity * (input.labor_rate_per_hour / 100) * 1 * input.material_cost_per_m2 * (input.fabric_width); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.fabric_width; results["factor_fabric_width"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_fabric_width"] = 0; }
+function evaluateAllFormulas(input: Fabric_cutting_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.quantity * (input.labor_rate_per_hour / 100) * 1 * input.material_cost_per_m2; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.quantity * (input.labor_rate_per_hour / 100) * 1 * input.material_cost_per_m2 * (input.fabric_width); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.fabric_width; results["factor_fabric_width"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_fabric_width"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFabric_cutting_optimizer_calculator(input: Fabric_cutting_optimizer_calculatorInput): Fabric_cutting_optimizer_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateFabric_cutting_optimizer_calculator(input: Fabric_cutti
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

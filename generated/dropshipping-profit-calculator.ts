@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from dropshipping-profit-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Dropshipping_profit_calculatorInput {
   orderVolume: number;
   fixedCosts: number;
   feePercentage: number;
+  dataConfidence?: number;
 }
 
 export const Dropshipping_profit_calculatorInputSchema = z.object({
@@ -20,24 +20,24 @@ export const Dropshipping_profit_calculatorInputSchema = z.object({
   feePercentage: z.number().default(3),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Dropshipping_profit_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.sellingPrice * input.orderVolume; results["revenue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["revenue"] = 0; }
-  try { const v = (input.costPrice + input.shippingCost) * input.orderVolume; results["totalCOGS"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCOGS"] = 0; }
-  try { const v = input.sellingPrice * (input.feePercentage / 100) * input.orderVolume; results["totalFees"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFees"] = 0; }
-  try { const v = (asFormulaNumber(results["revenue"])) - (asFormulaNumber(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["totalFees"])) - input.fixedCosts; results["netProfit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["revenue"]))) * 100; results["netProfitMargin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netProfitMargin"] = 0; }
+function evaluateAllFormulas(input: Dropshipping_profit_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.sellingPrice * input.orderVolume; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["revenue"] = 0; }
+  try { const v = (input.costPrice + input.shippingCost) * input.orderVolume; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCOGS"] = 0; }
+  try { const v = input.sellingPrice * (input.feePercentage / 100) * input.orderVolume; results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFees"] = 0; }
+  try { const v = (asFormulaNumber(results["revenue"])) - (asFormulaNumber(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
+  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["totalFees"])) - input.fixedCosts; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
+  try { const v = ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["revenue"]))) * 100; results["netProfitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfitMargin"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateDropshipping_profit_calculator(input: Dropshipping_profit_calculatorInput): Dropshipping_profit_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateDropshipping_profit_calculator(input: Dropshipping_prof
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

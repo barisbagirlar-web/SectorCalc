@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from mandolin-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Mandolin_calculatorInput {
   labor_rate: number;
   overhead_percent: number;
   profit_margin: number;
+  dataConfidence?: number;
 }
 
 export const Mandolin_calculatorInputSchema = z.object({
@@ -24,26 +24,26 @@ export const Mandolin_calculatorInputSchema = z.object({
   profit_margin: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Mandolin_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.mandolin_count * (input.body_wood_cost + input.neck_wood_cost + input.hardware_cost); results["total_material_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_material_cost"] = 0; }
-  try { const v = input.mandolin_count * input.labor_hours * input.labor_rate; results["total_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_labor_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_material_cost"])) + (asFormulaNumber(results["total_labor_cost"])); results["direct_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["direct_cost"])) * (input.overhead_percent / 100); results["overhead_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["direct_cost"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) * (1 + input.profit_margin / 100); results["selling_price"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["selling_price"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) / input.mandolin_count; results["cost_per_unit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cost_per_unit"] = 0; }
-  try { const v = (asFormulaNumber(results["selling_price"])) / input.mandolin_count; results["price_per_unit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["price_per_unit"] = 0; }
+function evaluateAllFormulas(input: Mandolin_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.mandolin_count * (input.body_wood_cost + input.neck_wood_cost + input.hardware_cost); results["total_material_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }
+  try { const v = input.mandolin_count * input.labor_hours * input.labor_rate; results["total_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_labor_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["total_material_cost"])) + (asFormulaNumber(results["total_labor_cost"])); results["direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["direct_cost"])) * (input.overhead_percent / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["direct_cost"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["total_cost"])) * (1 + input.profit_margin / 100); results["selling_price"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["selling_price"] = 0; }
+  try { const v = (asFormulaNumber(results["total_cost"])) / input.mandolin_count; results["cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cost_per_unit"] = 0; }
+  try { const v = (asFormulaNumber(results["selling_price"])) / input.mandolin_count; results["price_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["price_per_unit"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMandolin_calculator(input: Mandolin_calculatorInput): Mandolin_calculatorOutput {
@@ -55,8 +55,8 @@ export function calculateMandolin_calculator(input: Mandolin_calculatorInput): M
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

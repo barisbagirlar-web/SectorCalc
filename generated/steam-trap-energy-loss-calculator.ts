@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from steam-trap-energy-loss-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Steam_trap_energy_loss_calculatorInput {
   trap_type: string;
   failure_mode: string;
   condensate_recovery: boolean;
+  dataConfidence?: number;
 }
 
 export const Steam_trap_energy_loss_calculatorInputSchema = z.object({
@@ -22,23 +22,23 @@ export const Steam_trap_energy_loss_calculatorInputSchema = z.object({
   condensate_recovery: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Steam_trap_energy_loss_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.steam_pressure * input.steam_cost; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.steam_pressure * input.steam_cost; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.steam_pressure * input.steam_cost * 1 * (input.orifice_diameter * input.operating_hours_per_year); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.orifice_diameter; results["factor_orifice_diameter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_orifice_diameter"] = 0; }
-  try { const v = input.operating_hours_per_year; results["factor_operating_hours_per_year"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_operating_hours_per_year"] = 0; }
+function evaluateAllFormulas(input: Steam_trap_energy_loss_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.steam_pressure * input.steam_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.steam_pressure * input.steam_cost; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.steam_pressure * input.steam_cost * 1 * (input.orifice_diameter * input.operating_hours_per_year); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.orifice_diameter; results["factor_orifice_diameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_orifice_diameter"] = 0; }
+  try { const v = input.operating_hours_per_year; results["factor_operating_hours_per_year"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_operating_hours_per_year"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_energy_loss_calculatorInput): Steam_trap_energy_loss_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_ene
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

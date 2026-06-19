@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from aquarium-lighting-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Aquarium_lighting_calculatorInput {
   lightEfficiency: number;
   photoperiod: number;
   electricityCost: number;
+  dataConfidence?: number;
 }
 
 export const Aquarium_lighting_calculatorInputSchema = z.object({
@@ -22,22 +22,22 @@ export const Aquarium_lighting_calculatorInputSchema = z.object({
   electricityCost: z.number().default(0.15),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Aquarium_lighting_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.desiredLux * (input.tankLength * input.tankWidth) / 10000); results["requiredLumens"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredLumens"] = 0; }
-  try { const v = ((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency); results["requiredWatts"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredWatts"] = 0; }
-  try { const v = (((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency) * input.photoperiod) / 1000; results["dailyEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyEnergy"] = 0; }
-  try { const v = ((((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency) * input.photoperiod) / 1000) * 30 * input.electricityCost; results["monthlyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyCost"] = 0; }
+function evaluateAllFormulas(input: Aquarium_lighting_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.desiredLux * (input.tankLength * input.tankWidth) / 10000); results["requiredLumens"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredLumens"] = 0; }
+  try { const v = ((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency); results["requiredWatts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredWatts"] = 0; }
+  try { const v = (((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency) * input.photoperiod) / 1000; results["dailyEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyEnergy"] = 0; }
+  try { const v = ((((input.desiredLux * (input.tankLength * input.tankWidth) / 10000) / input.lightEfficiency) * input.photoperiod) / 1000) * 30 * input.electricityCost; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAquarium_lighting_calculator(input: Aquarium_lighting_calculatorInput): Aquarium_lighting_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateAquarium_lighting_calculator(input: Aquarium_lighting_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

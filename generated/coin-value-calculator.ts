@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from coin-value-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Coin_value_calculatorInput {
   quarterCount: number;
   halfDollarCount: number;
   dollarCoinCount: number;
+  dataConfidence?: number;
 }
 
 export const Coin_value_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Coin_value_calculatorInputSchema = z.object({
   dollarCoinCount: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Coin_value_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.pennyCount*1 + input.nickelCount*5 + input.dimeCount*10 + input.quarterCount*25 + input.halfDollarCount*50 + input.dollarCoinCount*100; results["totalCents"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCents"] = 0; }
-  try { const v = input.pennyCount + input.nickelCount + input.dimeCount + input.quarterCount + input.halfDollarCount + input.dollarCoinCount; results["totalCoins"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCoins"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCents"])) / 100; results["totalDollars"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDollars"] = 0; }
+function evaluateAllFormulas(input: Coin_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.pennyCount*1 + input.nickelCount*5 + input.dimeCount*10 + input.quarterCount*25 + input.halfDollarCount*50 + input.dollarCoinCount*100; results["totalCents"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCents"] = 0; }
+  try { const v = input.pennyCount + input.nickelCount + input.dimeCount + input.quarterCount + input.halfDollarCount + input.dollarCoinCount; results["totalCoins"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCoins"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCents"])) / 100; results["totalDollars"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDollars"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCoin_value_calculator(input: Coin_value_calculatorInput): Coin_value_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateCoin_value_calculator(input: Coin_value_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

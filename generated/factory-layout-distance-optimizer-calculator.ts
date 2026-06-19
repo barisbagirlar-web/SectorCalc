@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from factory-layout-distance-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Factory_layout_distance_optimizer_calculatorInput {
   path_efficiency_factor: number;
   layout_type: string;
   use_weighted_distance: boolean;
+  dataConfidence?: number;
 }
 
 export const Factory_layout_distance_optimizer_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Factory_layout_distance_optimizer_calculatorInputSchema = z.object(
   use_weighted_distance: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Factory_layout_distance_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.num_departments * input.flow_intensity_matrix * input.distance_matrix * (input.path_efficiency_factor / 100); results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.num_departments * input.flow_intensity_matrix * input.distance_matrix * (input.path_efficiency_factor / 100); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Factory_layout_distance_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.num_departments * input.flow_intensity_matrix * input.distance_matrix * (input.path_efficiency_factor / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.num_departments * input.flow_intensity_matrix * input.distance_matrix * (input.path_efficiency_factor / 100); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFactory_layout_distance_optimizer_calculator(input: Factory_layout_distance_optimizer_calculatorInput): Factory_layout_distance_optimizer_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateFactory_layout_distance_optimizer_calculator(input: Fac
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

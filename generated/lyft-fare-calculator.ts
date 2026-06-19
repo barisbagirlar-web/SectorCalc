@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from lyft-fare-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Lyft_fare_calculatorInput {
   costPerMinute: number;
   bookingFee: number;
   surge: number;
+  dataConfidence?: number;
 }
 
 export const Lyft_fare_calculatorInputSchema = z.object({
@@ -22,25 +22,25 @@ export const Lyft_fare_calculatorInputSchema = z.object({
   surge: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Lyft_fare_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.distance * input.costPerMile; results["distanceCharge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["distanceCharge"] = 0; }
-  try { const v = input.time * input.costPerMinute; results["timeCharge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["timeCharge"] = 0; }
-  try { const v = (input.baseFare + (asFormulaNumber(results["distanceCharge"])) + (asFormulaNumber(results["timeCharge"]))) * input.surge; results["subtotal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + input.bookingFee; results["totalFare"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFare"] = 0; }
-  try { const v = input.baseFare; results["baseFare"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseFare"] = 0; }
-  try { const v = input.bookingFee; results["bookingFee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bookingFee"] = 0; }
-  try { const v = input.surge; results["surge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["surge"] = 0; }
+function evaluateAllFormulas(input: Lyft_fare_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.distance * input.costPerMile; results["distanceCharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distanceCharge"] = 0; }
+  try { const v = input.time * input.costPerMinute; results["timeCharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timeCharge"] = 0; }
+  try { const v = (input.baseFare + (asFormulaNumber(results["distanceCharge"])) + (asFormulaNumber(results["timeCharge"]))) * input.surge; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
+  try { const v = (asFormulaNumber(results["subtotal"])) + input.bookingFee; results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFare"] = 0; }
+  try { const v = input.baseFare; results["baseFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseFare"] = 0; }
+  try { const v = input.bookingFee; results["bookingFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bookingFee"] = 0; }
+  try { const v = input.surge; results["surge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surge"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLyft_fare_calculator(input: Lyft_fare_calculatorInput): Lyft_fare_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateLyft_fare_calculator(input: Lyft_fare_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

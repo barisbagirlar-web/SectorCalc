@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from number-of-stages-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Number_of_stages_calculatorInput {
   p_out: number;
   r_max: number;
   safety_factor: number;
+  dataConfidence?: number;
 }
 
 export const Number_of_stages_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Number_of_stages_calculatorInputSchema = z.object({
   safety_factor: z.number().default(1.1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Number_of_stages_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.p_out / input.p_in; results["overallPR"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overallPR"] = 0; }
-  try { const v = input.p_out / input.p_in; results["overallPR_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overallPR_aux"] = 0; }
+function evaluateAllFormulas(input: Number_of_stages_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.p_out / input.p_in; results["overallPR"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallPR"] = 0; }
+  try { const v = input.p_out / input.p_in; results["overallPR_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallPR_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateNumber_of_stages_calculator(input: Number_of_stages_calculatorInput): Number_of_stages_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateNumber_of_stages_calculator(input: Number_of_stages_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

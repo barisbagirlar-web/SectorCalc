@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from ham-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Ham_calculatorInput {
   yield_percentage: number;
   packaging_cost_per_kg: number;
   overhead_percentage: number;
+  dataConfidence?: number;
 }
 
 export const Ham_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Ham_calculatorInputSchema = z.object({
   overhead_percentage: z.number().default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Ham_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.raw_material_cost + (input.processing_time * input.labor_cost_per_hour) + (input.energy_consumption_per_kg * input.energy_cost_per_kwh) + input.packaging_cost_per_kg; results["total_direct_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_direct_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_direct_cost"])) / (input.yield_percentage / 100); results["adjusted_cost_for_yield"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost_for_yield"] = 0; }
-  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) * (input.overhead_percentage / 100); results["overhead_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost_per_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
+function evaluateAllFormulas(input: Ham_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.raw_material_cost + (input.processing_time * input.labor_cost_per_hour) + (input.energy_consumption_per_kg * input.energy_cost_per_kwh) + input.packaging_cost_per_kg; results["total_direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["total_direct_cost"])) / (input.yield_percentage / 100); results["adjusted_cost_for_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost_for_yield"] = 0; }
+  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) * (input.overhead_percentage / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHam_calculator(input: Ham_calculatorInput): Ham_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateHam_calculator(input: Ham_calculatorInput): Ham_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

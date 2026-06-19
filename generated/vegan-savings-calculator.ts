@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from vegan-savings-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Vegan_savings_calculatorInput {
   costMeatPerMeal: number;
   costVeganPerMeal: number;
   weeks: number;
+  dataConfidence?: number;
 }
 
 export const Vegan_savings_calculatorInputSchema = z.object({
@@ -20,24 +20,24 @@ export const Vegan_savings_calculatorInputSchema = z.object({
   weeks: z.number().default(52),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Vegan_savings_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.numMeals * input.weeks; results["totalMeals"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMeals"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMeals"])) * (input.co2MeatPerMeal - input.co2VeganPerMeal); results["co2Savings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["co2Savings"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMeals"])) * (input.costMeatPerMeal - input.costVeganPerMeal); results["costSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["costSavings"] = 0; }
-  try { const v = 'Total CO2 Savings: ' + (asFormulaNumber(results["co2Savings"])) + ' kg CO2, Total Cost Savings: $' + (asFormulaNumber(results["costSavings"])); results["primary"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = 'Meat-based total CO2: ' + (input.numMeals * input.weeks * input.co2MeatPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costMeatPerMeal); results["breakdown1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown1"] = 0; }
-  try { const v = 'Vegan total CO2: ' + (input.numMeals * input.weeks * input.co2VeganPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costVeganPerMeal); results["breakdown2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown2"] = 0; }
+function evaluateAllFormulas(input: Vegan_savings_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.numMeals * input.weeks; results["totalMeals"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMeals"] = 0; }
+  try { const v = (asFormulaNumber(results["totalMeals"])) * (input.co2MeatPerMeal - input.co2VeganPerMeal); results["co2Savings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["co2Savings"] = 0; }
+  try { const v = (asFormulaNumber(results["totalMeals"])) * (input.costMeatPerMeal - input.costVeganPerMeal); results["costSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costSavings"] = 0; }
+  try { const v = 'Total CO2 Savings: ' + (asFormulaNumber(results["co2Savings"])) + ' kg CO2, Total Cost Savings: $' + (asFormulaNumber(results["costSavings"])); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = 'Meat-based total CO2: ' + (input.numMeals * input.weeks * input.co2MeatPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costMeatPerMeal); results["breakdown1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
+  try { const v = 'Vegan total CO2: ' + (input.numMeals * input.weeks * input.co2VeganPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costVeganPerMeal); results["breakdown2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown2"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateVegan_savings_calculator(input: Vegan_savings_calculatorInput): Vegan_savings_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateVegan_savings_calculator(input: Vegan_savings_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from warrior-diet-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Warrior_diet_calculatorInput {
   age: number;
   gender: number;
   activityLevel: number;
+  dataConfidence?: number;
 }
 
 export const Warrior_diet_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Warrior_diet_calculatorInputSchema = z.object({
   activityLevel: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Warrior_diet_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age + (input.gender === 1 ? 5 : -161); results["bmrMifflin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmrMifflin"] = 0; }
-  try { const v = (asFormulaNumber(results["bmrMifflin"])) * input.activityLevel; results["tdee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) * 0.8; results["feastCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["feastCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) * 0.2; results["undereatingCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["undereatingCalories"] = 0; }
+function evaluateAllFormulas(input: Warrior_diet_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age + (input.gender === 1 ? 5 : -161); results["bmrMifflin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmrMifflin"] = 0; }
+  try { const v = (asFormulaNumber(results["bmrMifflin"])) * input.activityLevel; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = (asFormulaNumber(results["tdee"])) * 0.8; results["feastCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feastCalories"] = 0; }
+  try { const v = (asFormulaNumber(results["tdee"])) * 0.2; results["undereatingCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["undereatingCalories"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWarrior_diet_calculator(input: Warrior_diet_calculatorInput): Warrior_diet_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateWarrior_diet_calculator(input: Warrior_diet_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from handshaking-lemma-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Handshaking_lemma_calculatorInput {
   v4: number;
   v5: number;
   v6: number;
+  dataConfidence?: number;
 }
 
 export const Handshaking_lemma_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Handshaking_lemma_calculatorInputSchema = z.object({
   v6: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Handshaking_lemma_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.v1 + input.v2 + input.v3 + input.v4 + input.v5 + input.v6; results["sum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = (asFormulaNumber(results["sum"])) / 2; results["edges"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["edges"] = 0; }
-  try { const v = (asFormulaNumber(results["sum"])) % 2 === 0 ? 1 : 0; results["isValid"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["isValid"] = 0; }
+function evaluateAllFormulas(input: Handshaking_lemma_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.v1 + input.v2 + input.v3 + input.v4 + input.v5 + input.v6; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
+  try { const v = (asFormulaNumber(results["sum"])) / 2; results["edges"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["edges"] = 0; }
+  try { const v = (asFormulaNumber(results["sum"])) % 2 === 0 ? 1 : 0; results["isValid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isValid"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHandshaking_lemma_calculator(input: Handshaking_lemma_calculatorInput): Handshaking_lemma_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateHandshaking_lemma_calculator(input: Handshaking_lemma_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

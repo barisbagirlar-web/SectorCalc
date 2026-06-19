@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cycling-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Cycling_calculatorInput {
   chainringTeeth: number;
   cogTeeth: number;
   timeMinutes: number;
+  dataConfidence?: number;
 }
 
 export const Cycling_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Cycling_calculatorInputSchema = z.object({
   timeMinutes: z.number().default(60),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cycling_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.chainringTeeth / input.cogTeeth; results["gearRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gearRatio"] = 0; }
-  try { const v = (Math.PI * input.wheelDiameter * input.cadence * (asFormulaNumber(results["gearRatio"])) * 60) / 1000000; results["speed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed"] = 0; }
-  try { const v = (asFormulaNumber(results["speed"])) * (input.timeMinutes / 60); results["distance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["distance"] = 0; }
+function evaluateAllFormulas(input: Cycling_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.chainringTeeth / input.cogTeeth; results["gearRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gearRatio"] = 0; }
+  try { const v = (Math.PI * input.wheelDiameter * input.cadence * (asFormulaNumber(results["gearRatio"])) * 60) / 1000000; results["speed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed"] = 0; }
+  try { const v = (asFormulaNumber(results["speed"])) * (input.timeMinutes / 60); results["distance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distance"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCycling_calculator(input: Cycling_calculatorInput): Cycling_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateCycling_calculator(input: Cycling_calculatorInput): Cyc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

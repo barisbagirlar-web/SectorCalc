@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from avogadros-number-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Avogadros_number_calculatorInput {
   moleculesPerUnitCell: number;
   unitCellVolume: number;
   density: number;
+  dataConfidence?: number;
 }
 
 export const Avogadros_number_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Avogadros_number_calculatorInputSchema = z.object({
   density: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Avogadros_number_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.mass / input.molarMass; results["moles"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["moles"] = 0; }
-  try { const v = (asFormulaNumber(results["moles"])) * input.avogadroConstant; results["numberOfMolecules"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["numberOfMolecules"] = 0; }
-  try { const v = (asFormulaNumber(results["numberOfMolecules"])) / (input.mass / input.density); results["moleculesPerVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["moleculesPerVolume"] = 0; }
-  try { const v = input.avogadroConstant / input.moleculesPerUnitCell; results["unitCellsPerMole"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["unitCellsPerMole"] = 0; }
-  try { const v = input.unitCellVolume / input.moleculesPerUnitCell; results["volumePerMolecule"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumePerMolecule"] = 0; }
+function evaluateAllFormulas(input: Avogadros_number_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.mass / input.molarMass; results["moles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moles"] = 0; }
+  try { const v = (asFormulaNumber(results["moles"])) * input.avogadroConstant; results["numberOfMolecules"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfMolecules"] = 0; }
+  try { const v = (asFormulaNumber(results["numberOfMolecules"])) / (input.mass / input.density); results["moleculesPerVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moleculesPerVolume"] = 0; }
+  try { const v = input.avogadroConstant / input.moleculesPerUnitCell; results["unitCellsPerMole"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unitCellsPerMole"] = 0; }
+  try { const v = input.unitCellVolume / input.moleculesPerUnitCell; results["volumePerMolecule"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumePerMolecule"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAvogadros_number_calculator(input: Avogadros_number_calculatorInput): Avogadros_number_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateAvogadros_number_calculator(input: Avogadros_number_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

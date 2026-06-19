@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from correction-factor-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Correction_factor_calculatorInput {
   standardTemperature: number;
   standardPressure: number;
   compressibilityFactor: number;
+  dataConfidence?: number;
 }
 
 export const Correction_factor_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Correction_factor_calculatorInputSchema = z.object({
   compressibilityFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Correction_factor_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.measuredPressure * (input.standardTemperature + 273.15)) / (input.standardPressure * (input.measuredTemperature + 273.15) * input.compressibilityFactor); results["correctionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctionFactor"] = 0; }
-  try { const v = input.measuredVolume * (asFormulaNumber(results["correctionFactor"])); results["correctedVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedVolume"] = 0; }
+function evaluateAllFormulas(input: Correction_factor_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.measuredPressure * (input.standardTemperature + 273.15)) / (input.standardPressure * (input.measuredTemperature + 273.15) * input.compressibilityFactor); results["correctionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctionFactor"] = 0; }
+  try { const v = input.measuredVolume * (asFormulaNumber(results["correctionFactor"])); results["correctedVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedVolume"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCorrection_factor_calculator(input: Correction_factor_calculatorInput): Correction_factor_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateCorrection_factor_calculator(input: Correction_factor_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

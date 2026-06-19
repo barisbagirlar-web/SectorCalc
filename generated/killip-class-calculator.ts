@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from killip-class-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Killip_class_calculatorInput {
   s3_gallop: number;
   systolic_bp: number;
   hypoperfusion: number;
+  dataConfidence?: number;
 }
 
 export const Killip_class_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Killip_class_calculatorInputSchema = z.object({
   hypoperfusion: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Killip_class_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 4 : (input.rales_extent > 50 ? 3 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 2 : 1)); results["killipClass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["killipClass"] = 0; }
-  try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 81 : (input.rales_extent > 50 ? 38 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 17 : 6)); results["mortalityRisk"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mortalityRisk"] = 0; }
+function evaluateAllFormulas(input: Killip_class_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 4 : (input.rales_extent > 50 ? 3 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 2 : 1)); results["killipClass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["killipClass"] = 0; }
+  try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 81 : (input.rales_extent > 50 ? 38 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 17 : 6)); results["mortalityRisk"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mortalityRisk"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateKillip_class_calculator(input: Killip_class_calculatorInput): Killip_class_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateKillip_class_calculator(input: Killip_class_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

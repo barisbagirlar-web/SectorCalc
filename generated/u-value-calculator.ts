@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from u-value-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface U_value_calculatorInput {
   thickness3: number;
   conductivity3: number;
   rse: number;
+  dataConfidence?: number;
 }
 
 export const U_value_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const U_value_calculatorInputSchema = z.object({
   rse: z.number().default(0.04),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: U_value_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.thickness1 / input.conductivity1; results["r1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r1"] = 0; }
-  try { const v = input.thickness2 / input.conductivity2; results["r2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r2"] = 0; }
-  try { const v = input.thickness3 / input.conductivity3; results["r3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r3"] = 0; }
-  try { const v = input.rsi + (asFormulaNumber(results["r1"])) + (asFormulaNumber(results["r2"])) + (asFormulaNumber(results["r3"])) + input.rse; results["totalResistance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalResistance"] = 0; }
-  try { const v = 1 / (asFormulaNumber(results["totalResistance"])); results["uValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uValue"] = 0; }
+function evaluateAllFormulas(input: U_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.thickness1 / input.conductivity1; results["r1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r1"] = 0; }
+  try { const v = input.thickness2 / input.conductivity2; results["r2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r2"] = 0; }
+  try { const v = input.thickness3 / input.conductivity3; results["r3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r3"] = 0; }
+  try { const v = input.rsi + (asFormulaNumber(results["r1"])) + (asFormulaNumber(results["r2"])) + (asFormulaNumber(results["r3"])) + input.rse; results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
+  try { const v = 1 / (asFormulaNumber(results["totalResistance"])); results["uValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uValue"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateU_value_calculator(input: U_value_calculatorInput): U_value_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateU_value_calculator(input: U_value_calculatorInput): U_v
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

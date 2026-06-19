@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from rental-income-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Rental_income_calculatorInput {
   maintenanceMonthly: number;
   insuranceMonthly: number;
   propertyTaxAnnual: number;
+  dataConfidence?: number;
 }
 
 export const Rental_income_calculatorInputSchema = z.object({
@@ -20,25 +20,25 @@ export const Rental_income_calculatorInputSchema = z.object({
   propertyTaxAnnual: z.number().default(2000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Rental_income_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.monthlyRent * 12 * (input.occupancyRate / 100); results["grossAnnualIncome"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["grossAnnualIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) * (input.managementFeePercent / 100); results["managementFees"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["managementFees"] = 0; }
-  try { const v = input.maintenanceMonthly * 12; results["totalMaintenance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMaintenance"] = 0; }
-  try { const v = input.insuranceMonthly * 12; results["totalInsurance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInsurance"] = 0; }
-  try { const v = (asFormulaNumber(results["managementFees"])) + (asFormulaNumber(results["totalMaintenance"])) + (asFormulaNumber(results["totalInsurance"])) + input.propertyTaxAnnual; results["totalExpenses"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalExpenses"] = 0; }
-  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) - (asFormulaNumber(results["totalExpenses"])); results["netAnnualIncome"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netAnnualIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["netAnnualIncome"])) / 12; results["netMonthlyIncome"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netMonthlyIncome"] = 0; }
+function evaluateAllFormulas(input: Rental_income_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.monthlyRent * 12 * (input.occupancyRate / 100); results["grossAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossAnnualIncome"] = 0; }
+  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) * (input.managementFeePercent / 100); results["managementFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["managementFees"] = 0; }
+  try { const v = input.maintenanceMonthly * 12; results["totalMaintenance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMaintenance"] = 0; }
+  try { const v = input.insuranceMonthly * 12; results["totalInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInsurance"] = 0; }
+  try { const v = (asFormulaNumber(results["managementFees"])) + (asFormulaNumber(results["totalMaintenance"])) + (asFormulaNumber(results["totalInsurance"])) + input.propertyTaxAnnual; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalExpenses"] = 0; }
+  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) - (asFormulaNumber(results["totalExpenses"])); results["netAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualIncome"] = 0; }
+  try { const v = (asFormulaNumber(results["netAnnualIncome"])) / 12; results["netMonthlyIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netMonthlyIncome"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRental_income_calculator(input: Rental_income_calculatorInput): Rental_income_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateRental_income_calculator(input: Rental_income_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

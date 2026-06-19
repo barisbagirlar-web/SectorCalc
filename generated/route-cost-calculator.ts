@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from route-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Route_cost_calculatorInput {
   maintenance_cost_per_km: number;
   toll_cost_total: number;
   load_weight_tonnes: number;
+  dataConfidence?: number;
 }
 
 export const Route_cost_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const Route_cost_calculatorInputSchema = z.object({
   load_weight_tonnes: z.number().min(0).max(40).default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Route_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.load_weight_tonnes * input.fuel_price_per_l; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.load_weight_tonnes * input.fuel_price_per_l; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.load_weight_tonnes * input.fuel_price_per_l * 1 * (input.distance_km * input.fuel_consumption_l_per_100km); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.distance_km; results["factor_distance_km"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_distance_km"] = 0; }
-  try { const v = input.fuel_consumption_l_per_100km; results["factor_fuel_consumption_l_per_100km"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_fuel_consumption_l_per_100km"] = 0; }
+function evaluateAllFormulas(input: Route_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.load_weight_tonnes * input.fuel_price_per_l; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.load_weight_tonnes * input.fuel_price_per_l; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.load_weight_tonnes * input.fuel_price_per_l * 1 * (input.distance_km * input.fuel_consumption_l_per_100km); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.distance_km; results["factor_distance_km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_distance_km"] = 0; }
+  try { const v = input.fuel_consumption_l_per_100km; results["factor_fuel_consumption_l_per_100km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_fuel_consumption_l_per_100km"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRoute_cost_calculator(input: Route_cost_calculatorInput): Route_cost_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateRoute_cost_calculator(input: Route_cost_calculatorInput
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

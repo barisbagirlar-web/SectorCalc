@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from rmd-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Rmd_calculatorInput {
   spouseAge: number;
   beneficiaryType: number;
   lifeExpectancyFactor: number;
+  dataConfidence?: number;
 }
 
 export const Rmd_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Rmd_calculatorInputSchema = z.object({
   lifeExpectancyFactor: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Rmd_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.age <= 72 ? 0 : (input.beneficiaryType === 1 ? (input.spouseAge >= input.age ? 27.4 : 25.6) : (input.beneficiaryType === 2 ? 10.0 : 12.2)); results["lifeExpectancyFactorCalc"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lifeExpectancyFactorCalc"] = 0; }
-  try { const v = input.lifeExpectancyFactor > 0 ? input.accountBalance / input.lifeExpectancyFactor : ((asFormulaNumber(results["lifeExpectancyFactorCalc"])) > 0 ? input.accountBalance / (asFormulaNumber(results["lifeExpectancyFactorCalc"])) : 0); results["rmdAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rmdAmount"] = 0; }
+function evaluateAllFormulas(input: Rmd_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.age <= 72 ? 0 : (input.beneficiaryType === 1 ? (input.spouseAge >= input.age ? 27.4 : 25.6) : (input.beneficiaryType === 2 ? 10.0 : 12.2)); results["lifeExpectancyFactorCalc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lifeExpectancyFactorCalc"] = 0; }
+  try { const v = input.lifeExpectancyFactor > 0 ? input.accountBalance / input.lifeExpectancyFactor : ((asFormulaNumber(results["lifeExpectancyFactorCalc"])) > 0 ? input.accountBalance / (asFormulaNumber(results["lifeExpectancyFactorCalc"])) : 0); results["rmdAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rmdAmount"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRmd_calculator(input: Rmd_calculatorInput): Rmd_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateRmd_calculator(input: Rmd_calculatorInput): Rmd_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pizza-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Pizza_cost_calculatorInput {
   laborCost: number;
   overheadCost: number;
   marginPercent: number;
+  dataConfidence?: number;
 }
 
 export const Pizza_cost_calculatorInputSchema = z.object({
@@ -22,22 +22,22 @@ export const Pizza_cost_calculatorInputSchema = z.object({
   marginPercent: z.number().default(40),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pizza_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.doughCost + input.sauceCost + input.cheeseCost + input.toppingsCost; results["totalIngredientCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalIngredientCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalIngredientCost"])) + input.laborCost + input.overheadCost; results["totalCostPerPizza"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCostPerPizza"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCostPerPizza"])) / (1 - input.marginPercent/100); results["sellingPricePerPizza"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sellingPricePerPizza"] = 0; }
-  try { const v = (asFormulaNumber(results["sellingPricePerPizza"])) - (asFormulaNumber(results["totalCostPerPizza"])); results["profitPerPizza"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["profitPerPizza"] = 0; }
+function evaluateAllFormulas(input: Pizza_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.doughCost + input.sauceCost + input.cheeseCost + input.toppingsCost; results["totalIngredientCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCost"] = 0; }
+  try { const v = (asFormulaNumber(results["totalIngredientCost"])) + input.laborCost + input.overheadCost; results["totalCostPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostPerPizza"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCostPerPizza"])) / (1 - input.marginPercent/100); results["sellingPricePerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerPizza"] = 0; }
+  try { const v = (asFormulaNumber(results["sellingPricePerPizza"])) - (asFormulaNumber(results["totalCostPerPizza"])); results["profitPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitPerPizza"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePizza_cost_calculator(input: Pizza_cost_calculatorInput): Pizza_cost_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculatePizza_cost_calculator(input: Pizza_cost_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

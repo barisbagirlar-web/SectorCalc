@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sewing-line-balancer-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Sewing_line_balancer_calculatorInput {
   bottleneck_time: number;
   line_balance_type: string;
   allow_rebalancing: boolean;
+  dataConfidence?: number;
 }
 
 export const Sewing_line_balancer_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Sewing_line_balancer_calculatorInputSchema = z.object({
   allow_rebalancing: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sewing_line_balancer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Sewing_line_balancer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSewing_line_balancer_calculator(input: Sewing_line_balancer_calculatorInput): Sewing_line_balancer_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateSewing_line_balancer_calculator(input: Sewing_line_bala
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

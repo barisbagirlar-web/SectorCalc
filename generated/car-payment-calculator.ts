@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from car-payment-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Car_payment_calculatorInput {
   loanTermMonths: number;
   salesTaxRate: number;
   additionalFees: number;
+  dataConfidence?: number;
 }
 
 export const Car_payment_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Car_payment_calculatorInputSchema = z.object({
   additionalFees: z.number().default(500),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Car_payment_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.carPrice * input.salesTaxRate / 100; results["salesTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["salesTax"] = 0; }
-  try { const v = input.carPrice + (asFormulaNumber(results["salesTax"])) + input.additionalFees - input.downPayment; results["principal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["principal"] = 0; }
-  try { const v = input.annualInterestRate / 12 / 100; results["monthlyRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyRate"] = 0; }
+function evaluateAllFormulas(input: Car_payment_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.carPrice * input.salesTaxRate / 100; results["salesTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["salesTax"] = 0; }
+  try { const v = input.carPrice + (asFormulaNumber(results["salesTax"])) + input.additionalFees - input.downPayment; results["principal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["principal"] = 0; }
+  try { const v = input.annualInterestRate / 12 / 100; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCar_payment_calculator(input: Car_payment_calculatorInput): Car_payment_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateCar_payment_calculator(input: Car_payment_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

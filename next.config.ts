@@ -59,7 +59,9 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
     staticGenerationRetryCount: 5,
-    workerThreads: false,
+    // Use default workerThreads:true (thread-based workers) to avoid jest-worker
+    // child-process race conditions on large App Router page sets.
+    // Single SSG worker at a time prevents module-load races.
     cpus: 1,
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 50,

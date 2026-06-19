@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from blackbody-radiation-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Blackbody_radiation_calculatorInput {
   emissivity: number;
   area: number;
   distance: number;
+  dataConfidence?: number;
 }
 
 export const Blackbody_radiation_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Blackbody_radiation_calculatorInputSchema = z.object({
   distance: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Blackbody_radiation_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.area * input.emissivity * 5.670374419e-8 * input.temperature**4; results["totalRadiatedPower"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalRadiatedPower"] = 0; }
-  try { const v = (2.897771955e-3 / input.temperature) * 1e9; results["peakWavelength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["peakWavelength"] = 0; }
-  try { const v = (input.area * input.emissivity * 5.670374419e-8 * input.temperature**4) / (4 * Math.PI * input.distance**2); results["irradiance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["irradiance"] = 0; }
+function evaluateAllFormulas(input: Blackbody_radiation_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.area * input.emissivity * 5.670374419e-8 * input.temperature**4; results["totalRadiatedPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRadiatedPower"] = 0; }
+  try { const v = (2.897771955e-3 / input.temperature) * 1e9; results["peakWavelength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakWavelength"] = 0; }
+  try { const v = (input.area * input.emissivity * 5.670374419e-8 * input.temperature**4) / (4 * Math.PI * input.distance**2); results["irradiance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["irradiance"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBlackbody_radiation_calculator(input: Blackbody_radiation_calculatorInput): Blackbody_radiation_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateBlackbody_radiation_calculator(input: Blackbody_radiati
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

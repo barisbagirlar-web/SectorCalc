@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from how-much-house-can-i-afford-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface How_much_house_can_i_afford_calculatorInput {
   propertyTaxRate: number;
   insuranceRate: number;
   monthlyHOA: number;
+  dataConfidence?: number;
 }
 
 export const How_much_house_can_i_afford_calculatorInputSchema = z.object({
@@ -24,25 +24,25 @@ export const How_much_house_can_i_afford_calculatorInputSchema = z.object({
   monthlyHOA: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: How_much_house_can_i_afford_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualIncome / 12; results["monthlyIncome"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyIncome"])) * 0.36; results["maxTotalMonthlyDebt"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxTotalMonthlyDebt"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyIncome"])) * 0.28; results["maxHousingExpense"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxHousingExpense"] = 0; }
-  try { const v = input.interestRate / 100 / 12; results["r"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["r"] = 0; }
-  try { const v = input.loanTerm * 12; results["n"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["n"] = 0; }
-  try { const v = ((asFormulaNumber(results["r"])) * (1 + (asFormulaNumber(results["r"]))) ** (asFormulaNumber(results["n"]))) / ((1 + (asFormulaNumber(results["r"]))) ** (asFormulaNumber(results["n"])) - 1); results["monthlyPaymentFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyPaymentFactor"] = 0; }
-  try { const v = (input.propertyTaxRate / 100 + input.insuranceRate / 100) / 12; results["monthlyTaxInsuranceRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyTaxInsuranceRate"] = 0; }
+function evaluateAllFormulas(input: How_much_house_can_i_afford_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualIncome / 12; results["monthlyIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyIncome"] = 0; }
+  try { const v = (asFormulaNumber(results["monthlyIncome"])) * 0.36; results["maxTotalMonthlyDebt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxTotalMonthlyDebt"] = 0; }
+  try { const v = (asFormulaNumber(results["monthlyIncome"])) * 0.28; results["maxHousingExpense"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxHousingExpense"] = 0; }
+  try { const v = input.interestRate / 100 / 12; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r"] = 0; }
+  try { const v = input.loanTerm * 12; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
+  try { const v = ((asFormulaNumber(results["r"])) * (1 + (asFormulaNumber(results["r"]))) ** (asFormulaNumber(results["n"]))) / ((1 + (asFormulaNumber(results["r"]))) ** (asFormulaNumber(results["n"])) - 1); results["monthlyPaymentFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPaymentFactor"] = 0; }
+  try { const v = (input.propertyTaxRate / 100 + input.insuranceRate / 100) / 12; results["monthlyTaxInsuranceRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyTaxInsuranceRate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHow_much_house_can_i_afford_calculator(input: How_much_house_can_i_afford_calculatorInput): How_much_house_can_i_afford_calculatorOutput {
@@ -54,8 +54,8 @@ export function calculateHow_much_house_can_i_afford_calculator(input: How_much_
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

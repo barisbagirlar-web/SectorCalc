@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from concrete-yield-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Concrete_yield_calculatorInput {
   admixtureMass: number;
   freshDensity: number;
   bagMass: number;
+  dataConfidence?: number;
 }
 
 export const Concrete_yield_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Concrete_yield_calculatorInputSchema = z.object({
   bagMass: z.number().default(50),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Concrete_yield_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.cementMass + input.waterMass + input.fineAggregateMass + input.coarseAggregateMass + input.admixtureMass; results["totalMass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMass"])) / input.freshDensity; results["yieldVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["yieldVolume"])) / (input.cementMass / input.bagMass); results["yieldPerBag"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldPerBag"] = 0; }
+function evaluateAllFormulas(input: Concrete_yield_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.cementMass + input.waterMass + input.fineAggregateMass + input.coarseAggregateMass + input.admixtureMass; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
+  try { const v = (asFormulaNumber(results["totalMass"])) / input.freshDensity; results["yieldVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["yieldVolume"])) / (input.cementMass / input.bagMass); results["yieldPerBag"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldPerBag"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateConcrete_yield_calculator(input: Concrete_yield_calculatorInput): Concrete_yield_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateConcrete_yield_calculator(input: Concrete_yield_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

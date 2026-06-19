@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from step-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Step_calculatorInput {
   stepDepth: number;
   landingWidth: number;
   headroom: number;
+  dataConfidence?: number;
 }
 
 export const Step_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Step_calculatorInputSchema = z.object({
   headroom: z.number().default(210),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Step_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.totalHeight * input.stepHeight * input.stepDepth * input.landingWidth; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.totalHeight * input.stepHeight * input.stepDepth * input.landingWidth * (input.headroom); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.headroom; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Step_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalHeight * input.stepHeight * input.stepDepth * input.landingWidth; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.totalHeight * input.stepHeight * input.stepDepth * input.landingWidth * (input.headroom); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.headroom; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateStep_calculator(input: Step_calculatorInput): Step_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateStep_calculator(input: Step_calculatorInput): Step_calc
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

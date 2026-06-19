@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from auc-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Auc_calculatorInput {
   y3: number;
   x4: number;
   y4: number;
+  dataConfidence?: number;
 }
 
 export const Auc_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Auc_calculatorInputSchema = z.object({
   y4: z.number().default(6),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Auc_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.x2 - input.x1) * (input.y1 + input.y2) / 2; results["area1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area1"] = 0; }
-  try { const v = (input.x3 - input.x2) * (input.y2 + input.y3) / 2; results["area2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area2"] = 0; }
-  try { const v = (input.x4 - input.x3) * (input.y3 + input.y4) / 2; results["area3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area3"] = 0; }
-  try { const v = (asFormulaNumber(results["area1"])) + (asFormulaNumber(results["area2"])) + (asFormulaNumber(results["area3"])); results["totalArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalArea"] = 0; }
+function evaluateAllFormulas(input: Auc_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.x2 - input.x1) * (input.y1 + input.y2) / 2; results["area1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area1"] = 0; }
+  try { const v = (input.x3 - input.x2) * (input.y2 + input.y3) / 2; results["area2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area2"] = 0; }
+  try { const v = (input.x4 - input.x3) * (input.y3 + input.y4) / 2; results["area3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area3"] = 0; }
+  try { const v = (asFormulaNumber(results["area1"])) + (asFormulaNumber(results["area2"])) + (asFormulaNumber(results["area3"])); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAuc_calculator(input: Auc_calculatorInput): Auc_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateAuc_calculator(input: Auc_calculatorInput): Auc_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

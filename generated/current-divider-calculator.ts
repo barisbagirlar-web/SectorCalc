@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from current-divider-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Current_divider_calculatorInput {
   R2: number;
   R3: number;
   R4: number;
+  dataConfidence?: number;
 }
 
 export const Current_divider_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Current_divider_calculatorInputSchema = z.object({
   R4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Current_divider_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.R1 > 0 ? input.I_total * (1/input.R1) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["I1"] = 0; }
-  try { const v = input.R2 > 0 ? input.I_total * (1/input.R2) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["I2"] = 0; }
-  try { const v = input.R3 > 0 ? input.I_total * (1/input.R3) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["I3"] = 0; }
-  try { const v = input.R4 > 0 ? input.I_total * (1/input.R4) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["I4"] = 0; }
+function evaluateAllFormulas(input: Current_divider_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.R1 > 0 ? input.I_total * (1/input.R1) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I1"] = 0; }
+  try { const v = input.R2 > 0 ? input.I_total * (1/input.R2) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I2"] = 0; }
+  try { const v = input.R3 > 0 ? input.I_total * (1/input.R3) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I3"] = 0; }
+  try { const v = input.R4 > 0 ? input.I_total * (1/input.R4) / ((input.R1>0?1/input.R1:0) + (input.R2>0?1/input.R2:0) + (input.R3>0?1/input.R3:0) + (input.R4>0?1/input.R4:0)) : 0; results["I4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I4"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCurrent_divider_calculator(input: Current_divider_calculatorInput): Current_divider_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateCurrent_divider_calculator(input: Current_divider_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

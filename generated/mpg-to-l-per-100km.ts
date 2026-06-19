@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from mpg-to-l-per-100km-schema.json
 import * as z from 'zod';
 
@@ -6,6 +5,7 @@ export interface Mpg_to_l_per_100kmInput {
   mpg: number;
   fuelType: number;
   auto_input_3: number;
+  dataConfidence?: number;
 }
 
 export const Mpg_to_l_per_100kmInputSchema = z.object({
@@ -14,20 +14,20 @@ export const Mpg_to_l_per_100kmInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Mpg_to_l_per_100kmInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["litersPer100km"] = 0; }
-  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km___235_214583____mpg___fue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["litersPer100km___235_214583____mpg___fue"] = 0; }
+function evaluateAllFormulas(input: Mpg_to_l_per_100kmInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["litersPer100km"] = 0; }
+  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km___235_214583____mpg___fue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["litersPer100km___235_214583____mpg___fue"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg_to_l_per_100kmOutput {
@@ -39,8 +39,8 @@ export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

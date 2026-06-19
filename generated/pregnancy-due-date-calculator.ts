@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pregnancy-due-date-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Pregnancy_due_date_calculatorInput {
   cycle_variability: number;
   parity: number;
   risk_factors: string;
+  dataConfidence?: number;
 }
 
 export const Pregnancy_due_date_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Pregnancy_due_date_calculatorInputSchema = z.object({
   risk_factors: z.enum(['none', 'hypertension', 'diabetes', 'multiple_gestation', 'previous_preterm', 'other']).default('none'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pregnancy_due_date_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.lmp_date * input.cycle_length * input.luteal_phase_length * input.ultrasound_ga_weeks; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.lmp_date * input.cycle_length * input.luteal_phase_length * input.ultrasound_ga_weeks * (input.ultrasound_ga_days * input.cycle_variability * input.parity); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.ultrasound_ga_days * input.cycle_variability * input.parity; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Pregnancy_due_date_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.lmp_date * input.cycle_length * input.luteal_phase_length * input.ultrasound_ga_weeks; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.lmp_date * input.cycle_length * input.luteal_phase_length * input.ultrasound_ga_weeks * (input.ultrasound_ga_days * input.cycle_variability * input.parity); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.ultrasound_ga_days * input.cycle_variability * input.parity; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePregnancy_due_date_calculator(input: Pregnancy_due_date_calculatorInput): Pregnancy_due_date_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculatePregnancy_due_date_calculator(input: Pregnancy_due_date
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

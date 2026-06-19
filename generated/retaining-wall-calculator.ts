@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from retaining-wall-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Retaining_wall_calculatorInput {
   soilDensity: number;
   concreteDensity: number;
   frictionAngle: number;
+  dataConfidence?: number;
 }
 
 export const Retaining_wall_calculatorInputSchema = z.object({
@@ -22,24 +22,24 @@ export const Retaining_wall_calculatorInputSchema = z.object({
   frictionAngle: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Retaining_wall_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.wallHeight * input.wallThickness * input.concreteDensity; results["W1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["W1"] = 0; }
-  try { const v = input.baseWidth * input.baseThickness * input.concreteDensity; results["W2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["W2"] = 0; }
-  try { const v = input.baseWidth - input.wallThickness; results["heel_length"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heel_length"] = 0; }
-  try { const v = input.soilDensity * input.wallHeight * (asFormulaNumber(results["heel_length"])); results["W3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["W3"] = 0; }
-  try { const v = (asFormulaNumber(results["W1"])) + (asFormulaNumber(results["W2"])) + (asFormulaNumber(results["W3"])); results["R"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["R"] = 0; }
-  try { const v = (asFormulaNumber(results["W1"])) * (input.wallThickness / 2) + (asFormulaNumber(results["W2"])) * (input.baseWidth / 2) + (asFormulaNumber(results["W3"])) * ((input.baseWidth + input.wallThickness) / 2); results["Mr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Mr"] = 0; }
+function evaluateAllFormulas(input: Retaining_wall_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.wallHeight * input.wallThickness * input.concreteDensity; results["W1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W1"] = 0; }
+  try { const v = input.baseWidth * input.baseThickness * input.concreteDensity; results["W2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W2"] = 0; }
+  try { const v = input.baseWidth - input.wallThickness; results["heel_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heel_length"] = 0; }
+  try { const v = input.soilDensity * input.wallHeight * (asFormulaNumber(results["heel_length"])); results["W3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W3"] = 0; }
+  try { const v = (asFormulaNumber(results["W1"])) + (asFormulaNumber(results["W2"])) + (asFormulaNumber(results["W3"])); results["R"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R"] = 0; }
+  try { const v = (asFormulaNumber(results["W1"])) * (input.wallThickness / 2) + (asFormulaNumber(results["W2"])) * (input.baseWidth / 2) + (asFormulaNumber(results["W3"])) * ((input.baseWidth + input.wallThickness) / 2); results["Mr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Mr"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRetaining_wall_calculator(input: Retaining_wall_calculatorInput): Retaining_wall_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateRetaining_wall_calculator(input: Retaining_wall_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

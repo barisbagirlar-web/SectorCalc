@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from flourishing-scale-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Flourishing_scale_calculatorInput {
   item6: number;
   item7: number;
   item8: number;
+  dataConfidence?: number;
 }
 
 export const Flourishing_scale_calculatorInputSchema = z.object({
@@ -24,20 +24,20 @@ export const Flourishing_scale_calculatorInputSchema = z.object({
   item8: z.number().default(4),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Flourishing_scale_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = (input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8) / 8; results["averageScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["averageScore"] = 0; }
+function evaluateAllFormulas(input: Flourishing_scale_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
+  try { const v = (input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8) / 8; results["averageScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageScore"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFlourishing_scale_calculator(input: Flourishing_scale_calculatorInput): Flourishing_scale_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateFlourishing_scale_calculator(input: Flourishing_scale_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

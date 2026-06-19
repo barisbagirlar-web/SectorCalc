@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cbam-exposure-check-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cbam_exposure_check_calculatorInput {
   compliance_readiness_score: number;
   industry_benchmark_intensity: number;
   emission_scope: string;
+  dataConfidence?: number;
 }
 
 export const Cbam_exposure_check_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Cbam_exposure_check_calculatorInputSchema = z.object({
   emission_scope: z.enum(['Scope 1 only', 'Scope 1 & 2', 'Scope 1, 2 & 3']).default('Scope 1 & 2'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cbam_exposure_check_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.carbon_intensity * input.cbam_carbon_price; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.carbon_intensity * input.cbam_carbon_price * (1 + (input.free_allocation_percentage / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.carbon_intensity * input.cbam_carbon_price * (1 + (input.free_allocation_percentage / 100)) * (input.annual_production_volume); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.annual_production_volume; results["factor_annual_production_volume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_annual_production_volume"] = 0; }
+function evaluateAllFormulas(input: Cbam_exposure_check_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.carbon_intensity * input.cbam_carbon_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.carbon_intensity * input.cbam_carbon_price * (1 + (input.free_allocation_percentage / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.carbon_intensity * input.cbam_carbon_price * (1 + (input.free_allocation_percentage / 100)) * (input.annual_production_volume); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.annual_production_volume; results["factor_annual_production_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_annual_production_volume"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCbam_exposure_check_calculator(input: Cbam_exposure_check_calculatorInput): Cbam_exposure_check_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateCbam_exposure_check_calculator(input: Cbam_exposure_che
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from restaurant-menu-margin-leak-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Restaurant_menu_margin_leak_calculatorInput {
   theft_shrinkage_percentage: number;
   discount_comp_percentage: number;
   covers_per_period: number;
+  dataConfidence?: number;
 }
 
 export const Restaurant_menu_margin_leak_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Restaurant_menu_margin_leak_calculatorInputSchema = z.object({
   covers_per_period: z.number().min(0).max(100000).default(3000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Restaurant_menu_margin_leak_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.covers_per_period * input.avg_cover_price; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.covers_per_period * input.avg_cover_price * (1 + (input.waste_percentage / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.covers_per_period * input.avg_cover_price * (1 + (input.waste_percentage / 100)) * (input.food_cost_per_cover); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.food_cost_per_cover; results["factor_food_cost_per_cover"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_food_cost_per_cover"] = 0; }
+function evaluateAllFormulas(input: Restaurant_menu_margin_leak_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.covers_per_period * input.avg_cover_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.covers_per_period * input.avg_cover_price * (1 + (input.waste_percentage / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.covers_per_period * input.avg_cover_price * (1 + (input.waste_percentage / 100)) * (input.food_cost_per_cover); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.food_cost_per_cover; results["factor_food_cost_per_cover"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_food_cost_per_cover"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRestaurant_menu_margin_leak_calculator(input: Restaurant_menu_margin_leak_calculatorInput): Restaurant_menu_margin_leak_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateRestaurant_menu_margin_leak_calculator(input: Restauran
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

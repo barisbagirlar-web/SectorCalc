@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from 5k-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface _5k_calculatorInput {
   machineHoursPerUnit: number;
   productionQuantity: number;
   sellingPricePerUnit: number;
+  dataConfidence?: number;
 }
 
 export const _5k_calculatorInputSchema = z.object({
@@ -22,24 +22,24 @@ export const _5k_calculatorInputSchema = z.object({
   sellingPricePerUnit: z.number().default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: _5k_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.machineCostPerHour * input.machineHoursPerUnit * input.productionQuantity; results["totalMachineCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMachineCost"] = 0; }
-  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.productionQuantity; results["totalVariableCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVariableCost"] = 0; }
-  try { const v = input.fixedCosts + (asFormulaNumber(results["totalVariableCost"])) + (asFormulaNumber(results["totalMachineCost"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.sellingPricePerUnit * input.productionQuantity; results["totalRevenue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) - (asFormulaNumber(results["totalCost"])); results["profit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = (asFormulaNumber(results["profit"])) / (asFormulaNumber(results["totalRevenue"])); results["profitMargin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["profitMargin"] = 0; }
+function evaluateAllFormulas(input: _5k_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.machineCostPerHour * input.machineHoursPerUnit * input.productionQuantity; results["totalMachineCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMachineCost"] = 0; }
+  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.productionQuantity; results["totalVariableCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVariableCost"] = 0; }
+  try { const v = input.fixedCosts + (asFormulaNumber(results["totalVariableCost"])) + (asFormulaNumber(results["totalMachineCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.sellingPricePerUnit * input.productionQuantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
+  try { const v = (asFormulaNumber(results["totalRevenue"])) - (asFormulaNumber(results["totalCost"])); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
+  try { const v = (asFormulaNumber(results["profit"])) / (asFormulaNumber(results["totalRevenue"])); results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate_5k_calculator(input: _5k_calculatorInput): _5k_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculate_5k_calculator(input: _5k_calculatorInput): _5k_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

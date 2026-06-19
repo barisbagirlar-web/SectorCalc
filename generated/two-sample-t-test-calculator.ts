@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from two-sample-t-test-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Two_sample_t_test_calculatorInput {
   sample2StdDev: number;
   sample2Size: number;
   alpha: number;
+  dataConfidence?: number;
 }
 
 export const Two_sample_t_test_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Two_sample_t_test_calculatorInputSchema = z.object({
   alpha: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Two_sample_t_test_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.sample1StdDev ** 2 / input.sample1Size + input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (((input.sample1StdDev ** 2 / input.sample1Size) ** 2) / (input.sample1Size - 1) + ((input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (input.sample2Size - 1)); results["degreesOfFreedom"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["degreesOfFreedom"] = 0; }
-  try { const v = ((input.sample1StdDev ** 2 / input.sample1Size + input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (((input.sample1StdDev ** 2 / input.sample1Size) ** 2) / (input.sample1Size - 1) + ((input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (input.sample2Size - 1)); results["degreesOfFreedom_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["degreesOfFreedom_aux"] = 0; }
+function evaluateAllFormulas(input: Two_sample_t_test_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.sample1StdDev ** 2 / input.sample1Size + input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (((input.sample1StdDev ** 2 / input.sample1Size) ** 2) / (input.sample1Size - 1) + ((input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (input.sample2Size - 1)); results["degreesOfFreedom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom"] = 0; }
+  try { const v = ((input.sample1StdDev ** 2 / input.sample1Size + input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (((input.sample1StdDev ** 2 / input.sample1Size) ** 2) / (input.sample1Size - 1) + ((input.sample2StdDev ** 2 / input.sample2Size) ** 2) / (input.sample2Size - 1)); results["degreesOfFreedom_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degreesOfFreedom_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTwo_sample_t_test_calculator(input: Two_sample_t_test_calculatorInput): Two_sample_t_test_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateTwo_sample_t_test_calculator(input: Two_sample_t_test_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

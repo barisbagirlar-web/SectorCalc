@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from voltage-drop-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Voltage_drop_calculatorInput {
   phase_type: string;
   power_factor: number;
   ambient_temperature: number;
+  dataConfidence?: number;
 }
 
 export const Voltage_drop_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Voltage_drop_calculatorInputSchema = z.object({
   ambient_temperature: z.number().min(-10).max(60).default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Voltage_drop_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.circuit_length * input.load_current * input.system_voltage * input.power_factor; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.circuit_length * input.load_current * input.system_voltage * input.power_factor * (input.ambient_temperature); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.ambient_temperature; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Voltage_drop_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.circuit_length * input.load_current * input.system_voltage * input.power_factor; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.circuit_length * input.load_current * input.system_voltage * input.power_factor * (input.ambient_temperature); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.ambient_temperature; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateVoltage_drop_calculator(input: Voltage_drop_calculatorInput): Voltage_drop_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateVoltage_drop_calculator(input: Voltage_drop_calculatorI
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

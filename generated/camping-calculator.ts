@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from camping-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Camping_calculatorInput {
   firewoodPerNight: number;
   temperatureAdjust: number;
   safetyMargin: number;
+  dataConfidence?: number;
 }
 
 export const Camping_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Camping_calculatorInputSchema = z.object({
   safetyMargin: z.number().default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Camping_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.numberOfCampers * input.waterPerPerson * input.numberOfNights * (1 + input.temperatureAdjust) * (1 + input.safetyMargin/100); results["totalWater"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWater"] = 0; }
-  try { const v = input.numberOfCampers * input.foodPerPerson * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFood"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFood"] = 0; }
-  try { const v = input.firewoodPerNight * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFirewood"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFirewood"] = 0; }
+function evaluateAllFormulas(input: Camping_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.numberOfCampers * input.waterPerPerson * input.numberOfNights * (1 + input.temperatureAdjust) * (1 + input.safetyMargin/100); results["totalWater"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWater"] = 0; }
+  try { const v = input.numberOfCampers * input.foodPerPerson * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFood"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFood"] = 0; }
+  try { const v = input.firewoodPerNight * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFirewood"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFirewood"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCamping_calculator(input: Camping_calculatorInput): Camping_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateCamping_calculator(input: Camping_calculatorInput): Cam
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

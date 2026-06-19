@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sustainable-development-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Sustainable_development_calculatorInput {
   recycled_waste: number;
   co2_emissions: number;
   production_units: number;
+  dataConfidence?: number;
 }
 
 export const Sustainable_development_calculatorInputSchema = z.object({
@@ -22,24 +22,24 @@ export const Sustainable_development_calculatorInputSchema = z.object({
   production_units: z.number().default(100),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sustainable_development_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.energy_consumption / input.production_units; results["energy_intensity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["energy_intensity"] = 0; }
-  try { const v = input.renewable_energy_share / 100; results["renewable_energy_ratio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["renewable_energy_ratio"] = 0; }
-  try { const v = input.water_usage / input.production_units; results["water_intensity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["water_intensity"] = 0; }
-  try { const v = input.recycled_waste / input.waste_generated; results["waste_recycling_rate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["waste_recycling_rate"] = 0; }
-  try { const v = input.co2_emissions / input.production_units; results["co2_intensity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["co2_intensity"] = 0; }
-  try { const v = ((asFormulaNumber(results["renewable_energy_ratio"])) * 25) + ((1 - (asFormulaNumber(results["water_intensity"])) / 10) * 25) + ((asFormulaNumber(results["waste_recycling_rate"])) * 25) + ((1 - (asFormulaNumber(results["co2_intensity"])) / 100) * 25); results["sustainability_score"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sustainability_score"] = 0; }
+function evaluateAllFormulas(input: Sustainable_development_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.energy_consumption / input.production_units; results["energy_intensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_intensity"] = 0; }
+  try { const v = input.renewable_energy_share / 100; results["renewable_energy_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["renewable_energy_ratio"] = 0; }
+  try { const v = input.water_usage / input.production_units; results["water_intensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["water_intensity"] = 0; }
+  try { const v = input.recycled_waste / input.waste_generated; results["waste_recycling_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waste_recycling_rate"] = 0; }
+  try { const v = input.co2_emissions / input.production_units; results["co2_intensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["co2_intensity"] = 0; }
+  try { const v = ((asFormulaNumber(results["renewable_energy_ratio"])) * 25) + ((1 - (asFormulaNumber(results["water_intensity"])) / 10) * 25) + ((asFormulaNumber(results["waste_recycling_rate"])) * 25) + ((1 - (asFormulaNumber(results["co2_intensity"])) / 100) * 25); results["sustainability_score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sustainability_score"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSustainable_development_calculator(input: Sustainable_development_calculatorInput): Sustainable_development_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateSustainable_development_calculator(input: Sustainable_d
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

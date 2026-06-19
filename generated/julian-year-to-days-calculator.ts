@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from julian-year-to-days-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Julian_year_to_days_calculatorInput {
   daysPerYear: number;
   precision: number;
   roundingMode: number;
+  dataConfidence?: number;
 }
 
 export const Julian_year_to_days_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Julian_year_to_days_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Julian_year_to_days_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.julianYears * input.daysPerYear; results["rawDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawDays"] = 0; }
-  try { const v = input.daysPerYear; results["daysPerYearUsed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["daysPerYearUsed"] = 0; }
+function evaluateAllFormulas(input: Julian_year_to_days_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.julianYears * input.daysPerYear; results["rawDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDays"] = 0; }
+  try { const v = input.daysPerYear; results["daysPerYearUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysPerYearUsed"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateJulian_year_to_days_calculator(input: Julian_year_to_days_calculatorInput): Julian_year_to_days_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateJulian_year_to_days_calculator(input: Julian_year_to_da
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

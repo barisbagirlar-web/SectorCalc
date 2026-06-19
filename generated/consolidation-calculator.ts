@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from consolidation-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Consolidation_calculatorInput {
   newInterestRate: number;
   newTermMonths: number;
   consolidationFee: number;
+  dataConfidence?: number;
 }
 
 export const Consolidation_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Consolidation_calculatorInputSchema = z.object({
   consolidationFee: z.number().default(500),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Consolidation_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.currentMonthlyPayment * input.currentRemainingMonths; results["currentTotalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["currentTotalCost"] = 0; }
-  try { const v = input.currentTotalDebt + input.consolidationFee; results["newLoanAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["newLoanAmount"] = 0; }
-  try { const v = input.newInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyRate"] = 0; }
+function evaluateAllFormulas(input: Consolidation_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.currentMonthlyPayment * input.currentRemainingMonths; results["currentTotalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentTotalCost"] = 0; }
+  try { const v = input.currentTotalDebt + input.consolidationFee; results["newLoanAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newLoanAmount"] = 0; }
+  try { const v = input.newInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateConsolidation_calculator(input: Consolidation_calculatorInput): Consolidation_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateConsolidation_calculator(input: Consolidation_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

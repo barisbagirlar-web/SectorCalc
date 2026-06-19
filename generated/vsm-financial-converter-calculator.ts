@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from vsm-financial-converter-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Vsm_financial_converter_calculatorInput {
   totalValueAddedTime: number;
   defectRate: number;
   reworkCostPerUnit: number;
+  dataConfidence?: number;
 }
 
 export const Vsm_financial_converter_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Vsm_financial_converter_calculatorInputSchema = z.object({
   reworkCostPerUnit: z.number().min(0).max(1000).default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Vsm_financial_converter_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualDemand * input.sellingPrice; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)) * (input.materialCostPerUnit); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.materialCostPerUnit; results["factor_materialCostPerUnit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_materialCostPerUnit"] = 0; }
+function evaluateAllFormulas(input: Vsm_financial_converter_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualDemand * input.sellingPrice; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)) * (input.materialCostPerUnit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.materialCostPerUnit; results["factor_materialCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_materialCostPerUnit"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateVsm_financial_converter_calculator(input: Vsm_financial_converter_calculatorInput): Vsm_financial_converter_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateVsm_financial_converter_calculator(input: Vsm_financial
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

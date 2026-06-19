@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from equity-dilution-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Equity_dilution_calculatorInput {
   newSharesIssued: number;
   investorCurrentShares: number;
   investorNewShares: number;
+  dataConfidence?: number;
 }
 
 export const Equity_dilution_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Equity_dilution_calculatorInputSchema = z.object({
   investorNewShares: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Equity_dilution_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.totalOutstandingShares + input.newSharesIssued; results["totalAfter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalAfter"] = 0; }
-  try { const v = input.investorCurrentShares + input.investorNewShares; results["investorTotalAfter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["investorTotalAfter"] = 0; }
-  try { const v = input.investorCurrentShares / input.totalOutstandingShares; results["ownershipBefore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ownershipBefore"] = 0; }
-  try { const v = (asFormulaNumber(results["investorTotalAfter"])) / (asFormulaNumber(results["totalAfter"])); results["ownershipAfter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ownershipAfter"] = 0; }
-  try { const v = (((asFormulaNumber(results["ownershipBefore"])) - (asFormulaNumber(results["ownershipAfter"]))) / (asFormulaNumber(results["ownershipBefore"]))) * 100; results["dilutionPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dilutionPercent"] = 0; }
+function evaluateAllFormulas(input: Equity_dilution_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalOutstandingShares + input.newSharesIssued; results["totalAfter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAfter"] = 0; }
+  try { const v = input.investorCurrentShares + input.investorNewShares; results["investorTotalAfter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["investorTotalAfter"] = 0; }
+  try { const v = input.investorCurrentShares / input.totalOutstandingShares; results["ownershipBefore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ownershipBefore"] = 0; }
+  try { const v = (asFormulaNumber(results["investorTotalAfter"])) / (asFormulaNumber(results["totalAfter"])); results["ownershipAfter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ownershipAfter"] = 0; }
+  try { const v = (((asFormulaNumber(results["ownershipBefore"])) - (asFormulaNumber(results["ownershipAfter"]))) / (asFormulaNumber(results["ownershipBefore"]))) * 100; results["dilutionPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dilutionPercent"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEquity_dilution_calculator(input: Equity_dilution_calculatorInput): Equity_dilution_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateEquity_dilution_calculator(input: Equity_dilution_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

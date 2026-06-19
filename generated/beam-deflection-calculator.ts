@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from beam-deflection-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Beam_deflection_calculatorInput {
   young_modulus: number;
   moment_of_inertia: number;
   yield_strength: number;
+  dataConfidence?: number;
 }
 
 export const Beam_deflection_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Beam_deflection_calculatorInputSchema = z.object({
   yield_strength: z.number().min(50).max(1000).default(250),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.beam_length * input.point_load * input.udl_load * input.load_position; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.beam_length * input.point_load * input.udl_load * input.load_position * (input.young_modulus * input.moment_of_inertia * input.yield_strength); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.young_modulus * input.moment_of_inertia * input.yield_strength; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.beam_length * input.point_load * input.udl_load * input.load_position; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.beam_length * input.point_load * input.udl_load * input.load_position * (input.young_modulus * input.moment_of_inertia * input.yield_strength); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.young_modulus * input.moment_of_inertia * input.yield_strength; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBeam_deflection_calculator(input: Beam_deflection_calculatorInput): Beam_deflection_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateBeam_deflection_calculator(input: Beam_deflection_calcu
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

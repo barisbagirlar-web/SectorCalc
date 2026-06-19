@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from flexible-manufacturing-roi-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Flexible_manufacturing_roi_calculatorInput {
   changeover_cost_per_hour: number;
   inventory_holding_cost_rate: number;
   avg_inventory_value: number;
+  dataConfidence?: number;
 }
 
 export const Flexible_manufacturing_roi_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Flexible_manufacturing_roi_calculatorInputSchema = z.object({
   avg_inventory_value: z.number().min(10000).max(100000000).default(2000000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Flexible_manufacturing_roi_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_production_volume * input.avg_batch_size * input.current_setup_time * input.target_setup_time; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.annual_production_volume * input.avg_batch_size * input.current_setup_time * input.target_setup_time * (input.hourly_operating_cost * input.changeover_cost_per_hour * (input.inventory_holding_cost_rate / 100) * input.avg_inventory_value); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.hourly_operating_cost * input.changeover_cost_per_hour * (input.inventory_holding_cost_rate / 100) * input.avg_inventory_value; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Flexible_manufacturing_roi_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_production_volume * input.avg_batch_size * input.current_setup_time * input.target_setup_time; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.annual_production_volume * input.avg_batch_size * input.current_setup_time * input.target_setup_time * (input.hourly_operating_cost * input.changeover_cost_per_hour * (input.inventory_holding_cost_rate / 100) * input.avg_inventory_value); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.hourly_operating_cost * input.changeover_cost_per_hour * (input.inventory_holding_cost_rate / 100) * input.avg_inventory_value; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFlexible_manufacturing_roi_calculator(input: Flexible_manufacturing_roi_calculatorInput): Flexible_manufacturing_roi_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateFlexible_manufacturing_roi_calculator(input: Flexible_m
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

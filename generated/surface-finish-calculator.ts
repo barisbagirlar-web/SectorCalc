@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from surface-finish-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Surface_finish_calculatorInput {
   cuttingSpeed: number;
   depthOfCut: number;
   desiredRa: number;
+  dataConfidence?: number;
 }
 
 export const Surface_finish_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Surface_finish_calculatorInputSchema = z.object({
   desiredRa: z.number().default(3.2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Surface_finish_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 31.25 * input.feedRate * input.feedRate / input.noseRadius; results["actualRa"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actualRa"] = 0; }
-  try { const v = 31.25 * input.feedRate * input.feedRate / input.desiredRa; results["recommendedNoseRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recommendedNoseRadius"] = 0; }
-  try { const v = 125 * input.feedRate * input.feedRate / input.noseRadius; results["actualRz"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actualRz"] = 0; }
+function evaluateAllFormulas(input: Surface_finish_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 31.25 * input.feedRate * input.feedRate / input.noseRadius; results["actualRa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRa"] = 0; }
+  try { const v = 31.25 * input.feedRate * input.feedRate / input.desiredRa; results["recommendedNoseRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommendedNoseRadius"] = 0; }
+  try { const v = 125 * input.feedRate * input.feedRate / input.noseRadius; results["actualRz"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRz"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSurface_finish_calculator(input: Surface_finish_calculatorInput): Surface_finish_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateSurface_finish_calculator(input: Surface_finish_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

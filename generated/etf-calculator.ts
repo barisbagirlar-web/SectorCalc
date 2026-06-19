@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from etf-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Etf_calculatorInput {
   investmentPeriod: number;
   expenseRatio: number;
   inflationRate: number;
+  dataConfidence?: number;
 }
 
 export const Etf_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Etf_calculatorInputSchema = z.object({
   inflationRate: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Etf_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.annualReturnRate - input.expenseRatio) / 100; results["netAnnualRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netAnnualRate"] = 0; }
-  try { const v = input.investmentPeriod * 12; results["totalMonths"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMonths"] = 0; }
-  try { const v = input.initialInvestment + (input.monthlyContribution * (asFormulaNumber(results["totalMonths"]))); results["totalContributions"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalContributions"] = 0; }
+function evaluateAllFormulas(input: Etf_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.annualReturnRate - input.expenseRatio) / 100; results["netAnnualRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualRate"] = 0; }
+  try { const v = input.investmentPeriod * 12; results["totalMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMonths"] = 0; }
+  try { const v = input.initialInvestment + (input.monthlyContribution * (asFormulaNumber(results["totalMonths"]))); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEtf_calculator(input: Etf_calculatorInput): Etf_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateEtf_calculator(input: Etf_calculatorInput): Etf_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

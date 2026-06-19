@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from taper-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Taper_calculatorInput {
   smallDiameter: number;
   length: number;
   referenceLength: number;
+  dataConfidence?: number;
 }
 
 export const Taper_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Taper_calculatorInputSchema = z.object({
   referenceLength: z.number().default(100),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Taper_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.largeDiameter - input.smallDiameter) / input.length; results["taperRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["taperRatio"] = 0; }
-  try { const v = ((input.largeDiameter - input.smallDiameter) / input.length) * input.referenceLength; results["taperPerRefLength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["taperPerRefLength"] = 0; }
+function evaluateAllFormulas(input: Taper_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.largeDiameter - input.smallDiameter) / input.length; results["taperRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taperRatio"] = 0; }
+  try { const v = ((input.largeDiameter - input.smallDiameter) / input.length) * input.referenceLength; results["taperPerRefLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taperPerRefLength"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTaper_calculator(input: Taper_calculatorInput): Taper_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateTaper_calculator(input: Taper_calculatorInput): Taper_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

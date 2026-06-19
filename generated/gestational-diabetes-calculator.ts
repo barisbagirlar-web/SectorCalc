@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from gestational-diabetes-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Gestational_diabetes_calculatorInput {
   ogtt1h: number;
   ogtt2h: number;
   gestationalWeek: number;
+  dataConfidence?: number;
 }
 
 export const Gestational_diabetes_calculatorInputSchema = z.object({
@@ -24,20 +24,20 @@ export const Gestational_diabetes_calculatorInputSchema = z.object({
   gestationalWeek: z.number().default(24),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Gestational_diabetes_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.age - 25) * 0.1 + (input.bmi - 25) * 0.2 + input.previousGDM * 2 + input.familyDiabetes * 1.5 + (input.fastingGlucose - 92) * 0.05 + (input.ogtt1h - 180) * 0.02 + (input.ogtt2h - 153) * 0.02 + (input.gestationalWeek - 24) * 0.01); results["riskScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["riskScore"] = 0; }
-  try { const v = ((input.fastingGlucose >= 92 || input.ogtt1h >= 180 || input.ogtt2h >= 153) ? 1 : 0); results["diagnosis"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["diagnosis"] = 0; }
+function evaluateAllFormulas(input: Gestational_diabetes_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.age - 25) * 0.1 + (input.bmi - 25) * 0.2 + input.previousGDM * 2 + input.familyDiabetes * 1.5 + (input.fastingGlucose - 92) * 0.05 + (input.ogtt1h - 180) * 0.02 + (input.ogtt2h - 153) * 0.02 + (input.gestationalWeek - 24) * 0.01); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
+  try { const v = ((input.fastingGlucose >= 92 || input.ogtt1h >= 180 || input.ogtt2h >= 153) ? 1 : 0); results["diagnosis"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["diagnosis"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateGestational_diabetes_calculator(input: Gestational_diabetes_calculatorInput): Gestational_diabetes_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateGestational_diabetes_calculator(input: Gestational_diab
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

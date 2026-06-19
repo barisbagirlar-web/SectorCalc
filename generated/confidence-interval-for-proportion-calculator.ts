@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from confidence-interval-for-proportion-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Confidence_interval_for_proportion_calculatorInput {
   successes: number;
   zValue: number;
   confidenceLevel: number;
+  dataConfidence?: number;
 }
 
 export const Confidence_interval_for_proportion_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Confidence_interval_for_proportion_calculatorInputSchema = z.object
   confidenceLevel: z.number().default(0.95),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Confidence_interval_for_proportion_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.successes / input.sampleSize; results["p"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["p"] = 0; }
-  try { const v = input.successes / input.sampleSize; results["p_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["p_aux"] = 0; }
+function evaluateAllFormulas(input: Confidence_interval_for_proportion_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.successes / input.sampleSize; results["p"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p"] = 0; }
+  try { const v = input.successes / input.sampleSize; results["p_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateConfidence_interval_for_proportion_calculator(input: Confidence_interval_for_proportion_calculatorInput): Confidence_interval_for_proportion_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateConfidence_interval_for_proportion_calculator(input: Co
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

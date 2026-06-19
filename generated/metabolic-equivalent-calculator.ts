@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from metabolic-equivalent-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Metabolic_equivalent_calculatorInput {
   duration_hours: number;
   duration_minutes: number;
   met: number;
+  dataConfidence?: number;
 }
 
 export const Metabolic_equivalent_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Metabolic_equivalent_calculatorInputSchema = z.object({
   met: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Metabolic_equivalent_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.met * input.weight * (input.duration_hours + input.duration_minutes/60); results["caloriesBurned"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = input.met * (input.duration_hours*60 + input.duration_minutes); results["metMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["metMinutes"] = 0; }
-  try { const v = (input.met * 3.5 * input.weight * (input.duration_hours*60 + input.duration_minutes)) / 1000; results["oxygenConsumed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["oxygenConsumed"] = 0; }
+function evaluateAllFormulas(input: Metabolic_equivalent_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.met * input.weight * (input.duration_hours + input.duration_minutes/60); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
+  try { const v = input.met * (input.duration_hours*60 + input.duration_minutes); results["metMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metMinutes"] = 0; }
+  try { const v = (input.met * 3.5 * input.weight * (input.duration_hours*60 + input.duration_minutes)) / 1000; results["oxygenConsumed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["oxygenConsumed"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMetabolic_equivalent_calculator(input: Metabolic_equivalent_calculatorInput): Metabolic_equivalent_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateMetabolic_equivalent_calculator(input: Metabolic_equiva
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

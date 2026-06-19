@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from renovation-budget-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Renovation_budget_optimizer_calculatorInput {
   contingency_pct: number;
   region_cost_index: number;
   sustainability_target: string;
+  dataConfidence?: number;
 }
 
 export const Renovation_budget_optimizer_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Renovation_budget_optimizer_calculatorInputSchema = z.object({
   sustainability_target: z.enum(['none', 'LEED', 'WELL', 'BREEAM']).default('none'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Renovation_budget_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_area_sqft * input.region_cost_index; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_area_sqft * input.region_cost_index * (1 + (input.labor_efficiency_factor / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_area_sqft * input.region_cost_index * (1 + (input.labor_efficiency_factor / 100)) * ((input.waste_factor_pct / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.waste_factor_pct / 100); results["factor_waste_factor_pct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_waste_factor_pct"] = 0; }
+function evaluateAllFormulas(input: Renovation_budget_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_area_sqft * input.region_cost_index; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.total_area_sqft * input.region_cost_index * (1 + (input.labor_efficiency_factor / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.total_area_sqft * input.region_cost_index * (1 + (input.labor_efficiency_factor / 100)) * ((input.waste_factor_pct / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.waste_factor_pct / 100); results["factor_waste_factor_pct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_waste_factor_pct"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRenovation_budget_optimizer_calculator(input: Renovation_budget_optimizer_calculatorInput): Renovation_budget_optimizer_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateRenovation_budget_optimizer_calculator(input: Renovatio
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

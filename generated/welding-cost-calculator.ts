@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from welding-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Welding_cost_calculatorInput {
   welding_speed_mm_per_min: number;
   filler_wire_cost_per_kg: number;
   gas_cost_per_liter: number;
+  dataConfidence?: number;
 }
 
 export const Welding_cost_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Welding_cost_calculatorInputSchema = z.object({
   gas_cost_per_liter: z.number().min(0.01).max(1).default(0.08),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Welding_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.weld_length_mm * input.weld_throat_mm * input.material_density_g_per_cm3 * (input.deposition_efficiency / 100); results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.weld_length_mm * input.weld_throat_mm * input.material_density_g_per_cm3 * (input.deposition_efficiency / 100) * ((input.labor_rate_per_hour / 100) * input.welding_speed_mm_per_min * input.filler_wire_cost_per_kg * input.gas_cost_per_liter); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.labor_rate_per_hour / 100) * input.welding_speed_mm_per_min * input.filler_wire_cost_per_kg * input.gas_cost_per_liter; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Welding_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.weld_length_mm * input.weld_throat_mm * input.material_density_g_per_cm3 * (input.deposition_efficiency / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.weld_length_mm * input.weld_throat_mm * input.material_density_g_per_cm3 * (input.deposition_efficiency / 100) * ((input.labor_rate_per_hour / 100) * input.welding_speed_mm_per_min * input.filler_wire_cost_per_kg * input.gas_cost_per_liter); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.labor_rate_per_hour / 100) * input.welding_speed_mm_per_min * input.filler_wire_cost_per_kg * input.gas_cost_per_liter; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWelding_cost_calculator(input: Welding_cost_calculatorInput): Welding_cost_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateWelding_cost_calculator(input: Welding_cost_calculatorI
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

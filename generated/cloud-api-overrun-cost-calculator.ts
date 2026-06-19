@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cloud-api-overrun-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cloud_api_overrun_cost_calculatorInput {
   retry_rate: number;
   data_egress_gb: number;
   egress_cost_per_gb: number;
+  dataConfidence?: number;
 }
 
 export const Cloud_api_overrun_cost_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Cloud_api_overrun_cost_calculatorInputSchema = z.object({
   egress_cost_per_gb: z.number().min(0.01).max(0.5).default(0.09),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cloud_api_overrun_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.api_call_volume * input.cost_per_call; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)) * (input.avg_overrun_duration); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.avg_overrun_duration; results["factor_avg_overrun_duration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_avg_overrun_duration"] = 0; }
+function evaluateAllFormulas(input: Cloud_api_overrun_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.api_call_volume * input.cost_per_call; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)) * (input.avg_overrun_duration); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.avg_overrun_duration; results["factor_avg_overrun_duration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_avg_overrun_duration"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_overrun_cost_calculatorInput): Cloud_api_overrun_cost_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_over
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

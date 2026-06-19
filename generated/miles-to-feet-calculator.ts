@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from miles-to-feet-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Miles_to_feet_calculatorInput {
   decimalPlaces: number;
   showYards: number;
   conversionFactor: number;
+  dataConfidence?: number;
 }
 
 export const Miles_to_feet_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Miles_to_feet_calculatorInputSchema = z.object({
   conversionFactor: z.number().default(5280),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Miles_to_feet_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.miles * input.conversionFactor; results["feet"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["feet"] = 0; }
-  try { const v = input.miles * input.conversionFactor; results["exactFeet"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["exactFeet"] = 0; }
-  try { const v = (input.miles * input.conversionFactor) / 3; results["yards"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yards"] = 0; }
+function evaluateAllFormulas(input: Miles_to_feet_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.miles * input.conversionFactor; results["feet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feet"] = 0; }
+  try { const v = input.miles * input.conversionFactor; results["exactFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactFeet"] = 0; }
+  try { const v = (input.miles * input.conversionFactor) / 3; results["yards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yards"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMiles_to_feet_calculator(input: Miles_to_feet_calculatorInput): Miles_to_feet_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateMiles_to_feet_calculator(input: Miles_to_feet_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

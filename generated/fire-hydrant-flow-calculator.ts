@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from fire-hydrant-flow-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Fire_hydrant_flow_calculatorInput {
   hazen_williams_coefficient: number;
   elevation_difference: number;
   number_of_hydrants: number;
+  dataConfidence?: number;
 }
 
 export const Fire_hydrant_flow_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Fire_hydrant_flow_calculatorInputSchema = z.object({
   number_of_hydrants: z.number().min(1).max(10).default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Fire_hydrant_flow_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.static_pressure * input.residual_pressure * (input.flow_rate_test / 100) * input.pipe_diameter; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.static_pressure * input.residual_pressure * (input.flow_rate_test / 100) * input.pipe_diameter * (input.pipe_length * input.hazen_williams_coefficient * input.elevation_difference * input.number_of_hydrants); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.pipe_length * input.hazen_williams_coefficient * input.elevation_difference * input.number_of_hydrants; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Fire_hydrant_flow_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.static_pressure * input.residual_pressure * (input.flow_rate_test / 100) * input.pipe_diameter; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.static_pressure * input.residual_pressure * (input.flow_rate_test / 100) * input.pipe_diameter * (input.pipe_length * input.hazen_williams_coefficient * input.elevation_difference * input.number_of_hydrants); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.pipe_length * input.hazen_williams_coefficient * input.elevation_difference * input.number_of_hydrants; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFire_hydrant_flow_calculator(input: Fire_hydrant_flow_calculatorInput): Fire_hydrant_flow_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateFire_hydrant_flow_calculator(input: Fire_hydrant_flow_c
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

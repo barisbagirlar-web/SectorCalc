@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from container-load-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Container_load_calculatorInput {
   stacking_factor: number;
   load_secure_method: string;
   use_pallet: boolean;
+  dataConfidence?: number;
 }
 
 export const Container_load_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Container_load_calculatorInputSchema = z.object({
   use_pallet: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Container_load_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.cargo_length_cm * input.cargo_width_cm * input.cargo_height_cm * input.cargo_weight_kg; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.cargo_length_cm * input.cargo_width_cm * input.cargo_height_cm * input.cargo_weight_kg * (input.stacking_factor); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.stacking_factor; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Container_load_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.cargo_length_cm * input.cargo_width_cm * input.cargo_height_cm * input.cargo_weight_kg; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.cargo_length_cm * input.cargo_width_cm * input.cargo_height_cm * input.cargo_weight_kg * (input.stacking_factor); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.stacking_factor; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateContainer_load_calculator(input: Container_load_calculatorInput): Container_load_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateContainer_load_calculator(input: Container_load_calcula
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

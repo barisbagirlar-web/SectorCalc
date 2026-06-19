@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from 401k-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface _401k_calculatorInput {
   expectedReturnRate: number;
   inflationRate: number;
   currentBalance: number;
+  dataConfidence?: number;
 }
 
 export const _401k_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const _401k_calculatorInputSchema = z.object({
   currentBalance: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: _401k_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.currentAge * input.currentSalary; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)) * (input.retirementAge); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_retirementAge"] = 0; }
+function evaluateAllFormulas(input: _401k_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.currentAge * input.currentSalary; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)) * (input.retirementAge); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_retirementAge"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate_401k_calculator(input: _401k_calculatorInput): _401k_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculate_401k_calculator(input: _401k_calculatorInput): _401k_c
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

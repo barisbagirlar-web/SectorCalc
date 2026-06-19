@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from need-based-aid-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Need_based_aid_calculatorInput {
   numberOfDependents: number;
   assets: number;
   otherAid: number;
+  dataConfidence?: number;
 }
 
 export const Need_based_aid_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Need_based_aid_calculatorInputSchema = z.object({
   otherAid: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Need_based_aid_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annualIncome * 0.47 + input.assets * 0.12 - (input.numberOfDependents - 1) * 5000; results["efc"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["efc"] = 0; }
-  try { const v = input.costOfAttendance - input.otherAid; results["adjustedCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedCost"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedCost"])) - (asFormulaNumber(results["efc"])); results["need"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["need"] = 0; }
+function evaluateAllFormulas(input: Need_based_aid_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annualIncome * 0.47 + input.assets * 0.12 - (input.numberOfDependents - 1) * 5000; results["efc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["efc"] = 0; }
+  try { const v = input.costOfAttendance - input.otherAid; results["adjustedCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedCost"] = 0; }
+  try { const v = (asFormulaNumber(results["adjustedCost"])) - (asFormulaNumber(results["efc"])); results["need"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["need"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateNeed_based_aid_calculator(input: Need_based_aid_calculatorInput): Need_based_aid_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateNeed_based_aid_calculator(input: Need_based_aid_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from word-form-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Word_form_calculatorInput {
   totalSentences: number;
   totalSyllables: number;
   complexWords: number;
+  dataConfidence?: number;
 }
 
 export const Word_form_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Word_form_calculatorInputSchema = z.object({
   complexWords: z.number().default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Word_form_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.totalWords / input.totalSentences; results["wordsPerSentence"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wordsPerSentence"] = 0; }
-  try { const v = input.totalSyllables / input.totalWords; results["syllablesPerWord"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["syllablesPerWord"] = 0; }
-  try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["fleschReadingEase"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fleschReadingEase"] = 0; }
-  try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["fleschKincaidGrade"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fleschKincaidGrade"] = 0; }
-  try { const v = (input.complexWords / input.totalWords) * 100; results["percentComplexWords"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["percentComplexWords"] = 0; }
+function evaluateAllFormulas(input: Word_form_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalWords / input.totalSentences; results["wordsPerSentence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wordsPerSentence"] = 0; }
+  try { const v = input.totalSyllables / input.totalWords; results["syllablesPerWord"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["syllablesPerWord"] = 0; }
+  try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["fleschReadingEase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fleschReadingEase"] = 0; }
+  try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["fleschKincaidGrade"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fleschKincaidGrade"] = 0; }
+  try { const v = (input.complexWords / input.totalWords) * 100; results["percentComplexWords"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentComplexWords"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWord_form_calculator(input: Word_form_calculatorInput): Word_form_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateWord_form_calculator(input: Word_form_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

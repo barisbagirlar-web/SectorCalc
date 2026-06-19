@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from evm-cost-forecast-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Evm_cost_forecast_calculatorInput {
   cpi: number;
   spi: number;
   useWeightedMethod: boolean;
+  dataConfidence?: number;
 }
 
 export const Evm_cost_forecast_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Evm_cost_forecast_calculatorInputSchema = z.object({
   useWeightedMethod: z.boolean().default(false),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Evm_cost_forecast_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.bac * input.ev * input.ac * input.pv; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.bac * input.ev * input.ac * input.pv * ((input.percentComplete / 100) * input.cpi * input.spi); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.percentComplete / 100) * input.cpi * input.spi; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Evm_cost_forecast_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.bac * input.ev * input.ac * input.pv; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.bac * input.ev * input.ac * input.pv * ((input.percentComplete / 100) * input.cpi * input.spi); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.percentComplete / 100) * input.cpi * input.spi; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEvm_cost_forecast_calculator(input: Evm_cost_forecast_calculatorInput): Evm_cost_forecast_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateEvm_cost_forecast_calculator(input: Evm_cost_forecast_c
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

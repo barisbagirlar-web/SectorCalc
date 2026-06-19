@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from nanoseconds-to-picoseconds-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Nanoseconds_to_picoseconds_calculatorInput {
   scale: number;
   offset: number;
   scientificNotation: number;
+  dataConfidence?: number;
 }
 
 export const Nanoseconds_to_picoseconds_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Nanoseconds_to_picoseconds_calculatorInputSchema = z.object({
   scientificNotation: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Nanoseconds_to_picoseconds_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.nanoseconds * input.conversionFactor; results["rawPicoseconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawPicoseconds"] = 0; }
-  try { const v = (asFormulaNumber(results["rawPicoseconds"])) * input.scale; results["scaledPicoseconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaledPicoseconds"] = 0; }
-  try { const v = (asFormulaNumber(results["scaledPicoseconds"])) + input.offset; results["finalPicoseconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalPicoseconds"] = 0; }
+function evaluateAllFormulas(input: Nanoseconds_to_picoseconds_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.nanoseconds * input.conversionFactor; results["rawPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPicoseconds"] = 0; }
+  try { const v = (asFormulaNumber(results["rawPicoseconds"])) * input.scale; results["scaledPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledPicoseconds"] = 0; }
+  try { const v = (asFormulaNumber(results["scaledPicoseconds"])) + input.offset; results["finalPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalPicoseconds"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateNanoseconds_to_picoseconds_calculator(input: Nanoseconds_to_picoseconds_calculatorInput): Nanoseconds_to_picoseconds_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateNanoseconds_to_picoseconds_calculator(input: Nanosecond
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

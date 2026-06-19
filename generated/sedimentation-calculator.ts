@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sedimentation-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Sedimentation_calculatorInput {
   basinLength: number;
   basinWidth: number;
   basinDepth: number;
+  dataConfidence?: number;
 }
 
 export const Sedimentation_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Sedimentation_calculatorInputSchema = z.object({
   basinDepth: z.number().default(3),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sedimentation_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity); results["settlingVelocity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["settlingVelocity"] = 0; }
-  try { const v = input.flowRate / (input.basinLength * input.basinWidth); results["overflowRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overflowRate"] = 0; }
-  try { const v = (input.basinLength * input.basinWidth * input.basinDepth) / input.flowRate; results["detentionTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["detentionTime"] = 0; }
-  try { const v = (input.fluidDensity * ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity) * input.particleDiameter) / input.fluidViscosity; results["reynoldsNumber"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["reynoldsNumber"] = 0; }
+function evaluateAllFormulas(input: Sedimentation_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity); results["settlingVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["settlingVelocity"] = 0; }
+  try { const v = input.flowRate / (input.basinLength * input.basinWidth); results["overflowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overflowRate"] = 0; }
+  try { const v = (input.basinLength * input.basinWidth * input.basinDepth) / input.flowRate; results["detentionTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["detentionTime"] = 0; }
+  try { const v = (input.fluidDensity * ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity) * input.particleDiameter) / input.fluidViscosity; results["reynoldsNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reynoldsNumber"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSedimentation_calculator(input: Sedimentation_calculatorInput): Sedimentation_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateSedimentation_calculator(input: Sedimentation_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

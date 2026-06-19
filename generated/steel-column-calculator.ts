@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from steel-column-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Steel_column_calculatorInput {
   elasticModulus: number;
   yieldStrength: number;
   safetyFactor: number;
+  dataConfidence?: number;
 }
 
 export const Steel_column_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Steel_column_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.67),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Steel_column_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.width * input.thickness; results["A"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["A"] = 0; }
-  try { const v = input.yieldStrength * (asFormulaNumber(results["A"])); results["P_yield"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["P_yield"] = 0; }
-  try { const v = input.yieldStrength; results["yieldStress"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yieldStress"] = 0; }
+function evaluateAllFormulas(input: Steel_column_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.width * input.thickness; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
+  try { const v = input.yieldStrength * (asFormulaNumber(results["A"])); results["P_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["P_yield"] = 0; }
+  try { const v = input.yieldStrength; results["yieldStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldStress"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSteel_column_calculator(input: Steel_column_calculatorInput): Steel_column_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateSteel_column_calculator(input: Steel_column_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

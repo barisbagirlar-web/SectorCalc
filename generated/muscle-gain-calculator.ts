@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from muscle-gain-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Muscle_gain_calculatorInput {
   activityLevel: number;
   calorieSurplus: number;
   proteinIntake: number;
+  dataConfidence?: number;
 }
 
 export const Muscle_gain_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Muscle_gain_calculatorInputSchema = z.object({
   proteinIntake: z.number().default(160),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Muscle_gain_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.gender * (10*input.weight + 6.25*input.height - 5*input.age + 5) + (1-input.gender) * (10*input.weight + 6.25*input.height - 5*input.age - 161); results["bmr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tdee"] = 0; }
+function evaluateAllFormulas(input: Muscle_gain_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.gender * (10*input.weight + 6.25*input.height - 5*input.age + 5) + (1-input.gender) * (10*input.weight + 6.25*input.height - 5*input.age - 161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMuscle_gain_calculator(input: Muscle_gain_calculatorInput): Muscle_gain_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateMuscle_gain_calculator(input: Muscle_gain_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

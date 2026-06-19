@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from 1rm-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface _1rm_calculatorInput {
   reps2: number;
   weight3: number;
   reps3: number;
+  dataConfidence?: number;
 }
 
 export const _1rm_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const _1rm_calculatorInputSchema = z.object({
   reps3: z.number().default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: _1rm_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.weight1 * (1 + input.reps1 / 30); results["set1Estimate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set1Estimate"] = 0; }
-  try { const v = input.weight2 * (1 + input.reps2 / 30); results["set2Estimate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set2Estimate"] = 0; }
-  try { const v = input.weight3 * (1 + input.reps3 / 30); results["set3Estimate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set3Estimate"] = 0; }
-  try { const v = ((asFormulaNumber(results["set1Estimate"])) + (asFormulaNumber(results["set2Estimate"])) + (asFormulaNumber(results["set3Estimate"]))) / 3; results["estimated1RM"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["estimated1RM"] = 0; }
+function evaluateAllFormulas(input: _1rm_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.weight1 * (1 + input.reps1 / 30); results["set1Estimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set1Estimate"] = 0; }
+  try { const v = input.weight2 * (1 + input.reps2 / 30); results["set2Estimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set2Estimate"] = 0; }
+  try { const v = input.weight3 * (1 + input.reps3 / 30); results["set3Estimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set3Estimate"] = 0; }
+  try { const v = ((asFormulaNumber(results["set1Estimate"])) + (asFormulaNumber(results["set2Estimate"])) + (asFormulaNumber(results["set3Estimate"]))) / 3; results["estimated1RM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimated1RM"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate_1rm_calculator(input: _1rm_calculatorInput): _1rm_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculate_1rm_calculator(input: _1rm_calculatorInput): _1rm_calc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

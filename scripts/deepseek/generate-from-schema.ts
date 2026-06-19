@@ -129,7 +129,7 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number>
 
   const formulaKeys = formulaEntries.map(([key]) => key);
   const inputIds = schema.inputs.map((input) => input.id);
-  const lines: string[] = ["const results: Record<string, number | string> = {};"];
+  const lines: string[] = ["const results: Record<string, number> = {};"];
   let compileFailures = 0;
 
   for (const [key, expression] of formulaEntries) {

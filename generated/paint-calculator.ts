@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from paint-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Paint_calculatorInput {
   coverage: number;
   coats: number;
   wastage: number;
+  dataConfidence?: number;
 }
 
 export const Paint_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Paint_calculatorInputSchema = z.object({
   wastage: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Paint_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.area * input.coats) / input.coverage; results["netPaint"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netPaint"] = 0; }
-  try { const v = (asFormulaNumber(results["netPaint"])) * (input.wastage / 100); results["wastagePaint"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wastagePaint"] = 0; }
-  try { const v = (asFormulaNumber(results["netPaint"])) + (asFormulaNumber(results["wastagePaint"])); results["totalPaint"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPaint"] = 0; }
+function evaluateAllFormulas(input: Paint_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.area * input.coats) / input.coverage; results["netPaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPaint"] = 0; }
+  try { const v = (asFormulaNumber(results["netPaint"])) * (input.wastage / 100); results["wastagePaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wastagePaint"] = 0; }
+  try { const v = (asFormulaNumber(results["netPaint"])) + (asFormulaNumber(results["wastagePaint"])); results["totalPaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaint"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePaint_calculator(input: Paint_calculatorInput): Paint_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculatePaint_calculator(input: Paint_calculatorInput): Paint_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

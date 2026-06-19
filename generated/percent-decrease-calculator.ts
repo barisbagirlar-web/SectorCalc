@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from percent-decrease-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Percent_decrease_calculatorInput {
   precision: number;
   adjustmentFactor: number;
   targetDecreasePercent: number;
+  dataConfidence?: number;
 }
 
 export const Percent_decrease_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Percent_decrease_calculatorInputSchema = z.object({
   targetDecreasePercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Percent_decrease_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["absoluteDecrease"] = 0; }
-  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["absoluteDecrease_aux"] = 0; }
+function evaluateAllFormulas(input: Percent_decrease_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDecrease"] = 0; }
+  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDecrease_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePercent_decrease_calculator(input: Percent_decrease_calculatorInput): Percent_decrease_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculatePercent_decrease_calculator(input: Percent_decrease_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

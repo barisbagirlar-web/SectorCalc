@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from fractional-odds-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Fractional_odds_calculatorInput {
   denominator: number;
   stake: number;
   taxRate: number;
+  dataConfidence?: number;
 }
 
 export const Fractional_odds_calculatorInputSchema = z.object({
@@ -16,24 +16,24 @@ export const Fractional_odds_calculatorInputSchema = z.object({
   taxRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Fractional_odds_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.stake * (input.numerator / input.denominator); results["profit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = input.stake * (1 + input.numerator / input.denominator); results["totalPayoutBeforeTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPayoutBeforeTax"] = 0; }
-  try { const v = 1 + input.numerator / input.denominator; results["decimalOdds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["decimalOdds"] = 0; }
-  try { const v = (input.denominator / (input.numerator + input.denominator)) * 100; results["impliedProbability"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["impliedProbability"] = 0; }
-  try { const v = (input.stake * (input.numerator / input.denominator)) * (1 - input.taxRate / 100); results["netProfitAfterTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netProfitAfterTax"] = 0; }
-  try { const v = input.stake + (input.stake * (input.numerator / input.denominator)) * (1 - input.taxRate / 100); results["netTotalPayoutAfterTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netTotalPayoutAfterTax"] = 0; }
+function evaluateAllFormulas(input: Fractional_odds_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.stake * (input.numerator / input.denominator); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
+  try { const v = input.stake * (1 + input.numerator / input.denominator); results["totalPayoutBeforeTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPayoutBeforeTax"] = 0; }
+  try { const v = 1 + input.numerator / input.denominator; results["decimalOdds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalOdds"] = 0; }
+  try { const v = (input.denominator / (input.numerator + input.denominator)) * 100; results["impliedProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["impliedProbability"] = 0; }
+  try { const v = (input.stake * (input.numerator / input.denominator)) * (1 - input.taxRate / 100); results["netProfitAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfitAfterTax"] = 0; }
+  try { const v = input.stake + (input.stake * (input.numerator / input.denominator)) * (1 - input.taxRate / 100); results["netTotalPayoutAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netTotalPayoutAfterTax"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFractional_odds_calculator(input: Fractional_odds_calculatorInput): Fractional_odds_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateFractional_odds_calculator(input: Fractional_odds_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

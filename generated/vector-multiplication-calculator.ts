@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from vector-multiplication-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Vector_multiplication_calculatorInput {
   bx: number;
   by: number;
   bz: number;
+  dataConfidence?: number;
 }
 
 export const Vector_multiplication_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Vector_multiplication_calculatorInputSchema = z.object({
   bz: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Vector_multiplication_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.ax*input.bx + input.ay*input.by + input.az*input.bz; results["dotProduct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dotProduct"] = 0; }
-  try { const v = input.ay*input.bz - input.az*input.by; results["crossProductX"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crossProductX"] = 0; }
-  try { const v = input.az*input.bx - input.ax*input.bz; results["crossProductY"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crossProductY"] = 0; }
-  try { const v = input.ax*input.by - input.ay*input.bx; results["crossProductZ"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crossProductZ"] = 0; }
+function evaluateAllFormulas(input: Vector_multiplication_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.ax*input.bx + input.ay*input.by + input.az*input.bz; results["dotProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dotProduct"] = 0; }
+  try { const v = input.ay*input.bz - input.az*input.by; results["crossProductX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossProductX"] = 0; }
+  try { const v = input.az*input.bx - input.ax*input.bz; results["crossProductY"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossProductY"] = 0; }
+  try { const v = input.ax*input.by - input.ay*input.bx; results["crossProductZ"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossProductZ"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateVector_multiplication_calculator(input: Vector_multiplication_calculatorInput): Vector_multiplication_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateVector_multiplication_calculator(input: Vector_multipli
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

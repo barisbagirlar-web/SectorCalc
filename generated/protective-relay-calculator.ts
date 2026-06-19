@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from protective-relay-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Protective_relay_calculatorInput {
   curve_constant_k: number;
   curve_constant_alpha: number;
   curve_constant_c: number;
+  dataConfidence?: number;
 }
 
 export const Protective_relay_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Protective_relay_calculatorInputSchema = z.object({
   curve_constant_c: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Protective_relay_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.fault_current_primary / input.ct_ratio; results["secondary_fault_current"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["secondary_fault_current"] = 0; }
-  try { const v = (input.fault_current_primary / input.ct_ratio) / input.relay_pickup; results["plug_setting_multiple"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["plug_setting_multiple"] = 0; }
+function evaluateAllFormulas(input: Protective_relay_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.fault_current_primary / input.ct_ratio; results["secondary_fault_current"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["secondary_fault_current"] = 0; }
+  try { const v = (input.fault_current_primary / input.ct_ratio) / input.relay_pickup; results["plug_setting_multiple"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["plug_setting_multiple"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateProtective_relay_calculator(input: Protective_relay_calculatorInput): Protective_relay_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateProtective_relay_calculator(input: Protective_relay_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

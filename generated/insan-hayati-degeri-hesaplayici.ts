@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from insan-hayati-degeri-hesaplayici-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Insan_hayati_degeri_hesaplayiciInput {
   retirementAge: number;
   discountRate: number;
   incomeGrowthRate: number;
+  dataConfidence?: number;
 }
 
 export const Insan_hayati_degeri_hesaplayiciInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Insan_hayati_degeri_hesaplayiciInputSchema = z.object({
   incomeGrowthRate: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Insan_hayati_degeri_hesaplayiciInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.retirementAge - input.currentAge; results["remainingYears"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remainingYears"] = 0; }
-  try { const v = input.annualIncome * (1 - input.personalExpenseRate / 100); results["netAnnualContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netAnnualContribution"] = 0; }
-  try { const v = input.incomeGrowthRate / 100; results["growthFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["growthFactor"] = 0; }
-  try { const v = input.discountRate / 100; results["discountFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["discountFactor"] = 0; }
+function evaluateAllFormulas(input: Insan_hayati_degeri_hesaplayiciInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.retirementAge - input.currentAge; results["remainingYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingYears"] = 0; }
+  try { const v = input.annualIncome * (1 - input.personalExpenseRate / 100); results["netAnnualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualContribution"] = 0; }
+  try { const v = input.incomeGrowthRate / 100; results["growthFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["growthFactor"] = 0; }
+  try { const v = input.discountRate / 100; results["discountFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountFactor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_degeri_hesaplayiciInput): Insan_hayati_degeri_hesaplayiciOutput {
@@ -47,8 +47,8 @@ export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_deg
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

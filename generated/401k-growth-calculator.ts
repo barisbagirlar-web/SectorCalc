@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from 401k-growth-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface _401k_growth_calculatorInput {
   salary: number;
   employerMatch: number;
   annualReturn: number;
+  dataConfidence?: number;
 }
 
 export const _401k_growth_calculatorInputSchema = z.object({
@@ -22,23 +22,23 @@ export const _401k_growth_calculatorInputSchema = z.object({
   annualReturn: z.number().default(7),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: _401k_growth_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.retirementAge - input.currentAge; results["yearsToRetire"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yearsToRetire"] = 0; }
-  try { const v = input.salary * input.employerMatch / 100; results["matchAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["matchAmount"] = 0; }
-  try { const v = input.annualContribution + (asFormulaNumber(results["matchAmount"])); results["totalAnnualAddition"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalAnnualAddition"] = 0; }
-  try { const v = input.annualContribution * (asFormulaNumber(results["yearsToRetire"])); results["totalContributions"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalContributions"] = 0; }
-  try { const v = (asFormulaNumber(results["matchAmount"])) * (asFormulaNumber(results["yearsToRetire"])); results["totalEmployerMatch"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalEmployerMatch"] = 0; }
+function evaluateAllFormulas(input: _401k_growth_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.retirementAge - input.currentAge; results["yearsToRetire"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearsToRetire"] = 0; }
+  try { const v = input.salary * input.employerMatch / 100; results["matchAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["matchAmount"] = 0; }
+  try { const v = input.annualContribution + (asFormulaNumber(results["matchAmount"])); results["totalAnnualAddition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAnnualAddition"] = 0; }
+  try { const v = input.annualContribution * (asFormulaNumber(results["yearsToRetire"])); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
+  try { const v = (asFormulaNumber(results["matchAmount"])) * (asFormulaNumber(results["yearsToRetire"])); results["totalEmployerMatch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmployerMatch"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate_401k_growth_calculator(input: _401k_growth_calculatorInput): _401k_growth_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculate_401k_growth_calculator(input: _401k_growth_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

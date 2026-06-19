@@ -9,10 +9,12 @@ import type { HomepageCoverageId } from "@/lib/home/homepage-positioning-data";
  * categoryKey, so no double-counting across cards.
  *
  * ECMI / ISO 9001 — deterministic, verifiable classification.
+ *
+ * LOCKED: `as const satisfies` ensures every key is a valid
+ * HomepageCoverageId and every value is a known categoryKey.
+ * Do NOT add sectorKey values here — only categoryKey.
  */
-export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
-  Record<HomepageCoverageId, readonly string[]>
-> = {
+export const HOMEPAGE_COVERAGE_TOOL_MATCHERS = {
   production: [
     "quality-six-sigma",
     "cnc-additive-manufacturing",
@@ -49,15 +51,15 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
     "food-cold-chain-hygiene",
     "packaging-local-business",
   ],
-};
+} as const satisfies Record<HomepageCoverageId, readonly string[]>;
 
 /**
  * Primary free-tools catalog filter slug for each homepage coverage card.
  * These are real categoryKey values that exist in the tool data.
+ *
+ * LOCKED: `as const satisfies` ensures every slug is a valid categoryKey.
  */
-export const HOMEPAGE_COVERAGE_FILTER_SLUG: Readonly<
-  Record<HomepageCoverageId, string>
-> = {
+export const HOMEPAGE_COVERAGE_FILTER_SLUG = {
   production: "quality-six-sigma",
   industrial: "hse-ergonomics",
   technical: "technology-ai-cloud-cyber",
@@ -66,7 +68,7 @@ export const HOMEPAGE_COVERAGE_FILTER_SLUG: Readonly<
   energy: "sustainability-resource-esg",
   finance: "finance-sales-working-capital",
   foodRetail: "food-cold-chain-hygiene",
-};
+} as const satisfies Record<HomepageCoverageId, string>;
 
 /**
  * Count tools belonging to a homepage coverage card.

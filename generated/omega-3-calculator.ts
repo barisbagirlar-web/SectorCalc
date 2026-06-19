@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from omega-3-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Omega_3_calculatorInput {
   epa_percent: number;
   dha_percent: number;
   body_weight_kg: number;
+  dataConfidence?: number;
 }
 
 export const Omega_3_calculatorInputSchema = z.object({
@@ -18,24 +18,24 @@ export const Omega_3_calculatorInputSchema = z.object({
   body_weight_kg: z.number().default(70),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Omega_3_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.capsule_size * input.capsules_per_day * (input.epa_percent / 100); results["total_epa_mg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_epa_mg"] = 0; }
-  try { const v = input.capsule_size * input.capsules_per_day * (input.dha_percent / 100); results["total_dha_mg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_dha_mg"] = 0; }
-  try { const v = input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100); results["combined_epa_dha_mg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["combined_epa_dha_mg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * (input.epa_percent / 100)) / input.body_weight_kg; results["epa_per_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["epa_per_kg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * (input.dha_percent / 100)) / input.body_weight_kg; results["dha_per_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dha_per_kg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100)) / input.body_weight_kg; results["combined_per_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["combined_per_kg"] = 0; }
+function evaluateAllFormulas(input: Omega_3_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.capsule_size * input.capsules_per_day * (input.epa_percent / 100); results["total_epa_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_epa_mg"] = 0; }
+  try { const v = input.capsule_size * input.capsules_per_day * (input.dha_percent / 100); results["total_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_dha_mg"] = 0; }
+  try { const v = input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100); results["combined_epa_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combined_epa_dha_mg"] = 0; }
+  try { const v = (input.capsule_size * input.capsules_per_day * (input.epa_percent / 100)) / input.body_weight_kg; results["epa_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epa_per_kg"] = 0; }
+  try { const v = (input.capsule_size * input.capsules_per_day * (input.dha_percent / 100)) / input.body_weight_kg; results["dha_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dha_per_kg"] = 0; }
+  try { const v = (input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100)) / input.body_weight_kg; results["combined_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combined_per_kg"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateOmega_3_calculator(input: Omega_3_calculatorInput): Omega_3_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateOmega_3_calculator(input: Omega_3_calculatorInput): Ome
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

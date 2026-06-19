@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from non-inverting-amplifier-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Non_inverting_amplifier_calculatorInput {
   vcc: number;
   vee: number;
   headroom: number;
+  dataConfidence?: number;
 }
 
 export const Non_inverting_amplifier_calculatorInputSchema = z.object({
@@ -20,23 +20,23 @@ export const Non_inverting_amplifier_calculatorInputSchema = z.object({
   headroom: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Non_inverting_amplifier_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1 + input.r2 / input.r1; results["gain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gain"] = 0; }
-  try { const v = input.vin * (1 + input.r2 / input.r1); results["vout_ideal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vout_ideal"] = 0; }
-  try { const v = input.vcc - input.headroom; results["vhigh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vhigh"] = 0; }
-  try { const v = input.vee + input.headroom; results["vlow"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vlow"] = 0; }
-  try { const v = ((asFormulaNumber(results["vout_ideal"])) > (asFormulaNumber(results["vhigh"])) || (asFormulaNumber(results["vout_ideal"])) < (asFormulaNumber(results["vlow"]))) ? 1 : 0; results["is_clipping"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["is_clipping"] = 0; }
+function evaluateAllFormulas(input: Non_inverting_amplifier_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1 + input.r2 / input.r1; results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain"] = 0; }
+  try { const v = input.vin * (1 + input.r2 / input.r1); results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout_ideal"] = 0; }
+  try { const v = input.vcc - input.headroom; results["vhigh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vhigh"] = 0; }
+  try { const v = input.vee + input.headroom; results["vlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vlow"] = 0; }
+  try { const v = ((asFormulaNumber(results["vout_ideal"])) > (asFormulaNumber(results["vhigh"])) || (asFormulaNumber(results["vout_ideal"])) < (asFormulaNumber(results["vlow"]))) ? 1 : 0; results["is_clipping"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["is_clipping"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateNon_inverting_amplifier_calculator(input: Non_inverting_amplifier_calculatorInput): Non_inverting_amplifier_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateNon_inverting_amplifier_calculator(input: Non_inverting
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

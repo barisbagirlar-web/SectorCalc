@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from work-study-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Work_study_calculatorInput {
   standardDeviation: number;
   precision: number;
   zScore: number;
+  dataConfidence?: number;
 }
 
 export const Work_study_calculatorInputSchema = z.object({
@@ -22,20 +22,20 @@ export const Work_study_calculatorInputSchema = z.object({
   zScore: z.number().default(1.96),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Work_study_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.observedTime * (input.ratingFactor / 100); results["normalTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalTime"] = 0; }
-  try { const v = (asFormulaNumber(results["normalTime"])) * (1 + input.allowanceFactor / 100); results["standardTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["standardTime"] = 0; }
+function evaluateAllFormulas(input: Work_study_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.observedTime * (input.ratingFactor / 100); results["normalTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalTime"] = 0; }
+  try { const v = (asFormulaNumber(results["normalTime"])) * (1 + input.allowanceFactor / 100); results["standardTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardTime"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWork_study_calculator(input: Work_study_calculatorInput): Work_study_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateWork_study_calculator(input: Work_study_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

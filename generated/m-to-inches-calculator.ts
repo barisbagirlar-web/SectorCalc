@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from m-to-inches-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface M_to_inches_calculatorInput {
   tolerance: number;
   expansionCoeff: number;
   tempDelta: number;
+  dataConfidence?: number;
 }
 
 export const M_to_inches_calculatorInputSchema = z.object({
@@ -22,24 +22,24 @@ export const M_to_inches_calculatorInputSchema = z.object({
   tempDelta: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: M_to_inches_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.meters * input.conversionFactor; results["baseInches"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseInches"] = 0; }
-  try { const v = 1 + input.expansionCoeff * input.tempDelta; results["thermalFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thermalFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["baseInches"])) * (asFormulaNumber(results["thermalFactor"])); results["correctedInches"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedInches"] = 0; }
-  try { const v = (asFormulaNumber(results["correctedInches"])) * input.quantity; results["totalInches"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInches"] = 0; }
-  try { const v = (asFormulaNumber(results["correctedInches"])) - input.tolerance; results["toleranceLower"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["toleranceLower"] = 0; }
-  try { const v = (asFormulaNumber(results["correctedInches"])) + input.tolerance; results["toleranceUpper"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["toleranceUpper"] = 0; }
+function evaluateAllFormulas(input: M_to_inches_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.meters * input.conversionFactor; results["baseInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseInches"] = 0; }
+  try { const v = 1 + input.expansionCoeff * input.tempDelta; results["thermalFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thermalFactor"] = 0; }
+  try { const v = (asFormulaNumber(results["baseInches"])) * (asFormulaNumber(results["thermalFactor"])); results["correctedInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedInches"] = 0; }
+  try { const v = (asFormulaNumber(results["correctedInches"])) * input.quantity; results["totalInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInches"] = 0; }
+  try { const v = (asFormulaNumber(results["correctedInches"])) - input.tolerance; results["toleranceLower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceLower"] = 0; }
+  try { const v = (asFormulaNumber(results["correctedInches"])) + input.tolerance; results["toleranceUpper"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toleranceUpper"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateM_to_inches_calculator(input: M_to_inches_calculatorInput): M_to_inches_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateM_to_inches_calculator(input: M_to_inches_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

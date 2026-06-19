@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cm-to-inch-converter-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Cm_to_inch_converter_calculatorInput {
   tolerance_class: string;
   unit_cost_per_inch: number;
   batch_quantity: number;
+  dataConfidence?: number;
 }
 
 export const Cm_to_inch_converter_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Cm_to_inch_converter_calculatorInputSchema = z.object({
   batch_quantity: z.number().min(1).max(1000000).default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cm_to_inch_converter_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.batch_quantity * 1 * 1 * input.unit_cost_per_inch; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.batch_quantity * 1 * 1 * input.unit_cost_per_inch * (input.length_cm); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.length_cm; results["factor_length_cm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_length_cm"] = 0; }
+function evaluateAllFormulas(input: Cm_to_inch_converter_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.batch_quantity * 1 * 1 * input.unit_cost_per_inch; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.batch_quantity * 1 * 1 * input.unit_cost_per_inch * (input.length_cm); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.length_cm; results["factor_length_cm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_length_cm"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCm_to_inch_converter_calculator(input: Cm_to_inch_converter_calculatorInput): Cm_to_inch_converter_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateCm_to_inch_converter_calculator(input: Cm_to_inch_conve
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

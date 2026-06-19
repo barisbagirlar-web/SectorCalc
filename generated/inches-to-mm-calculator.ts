@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from inches-to-mm-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Inches_to_mm_calculatorInput {
   tolerance: number;
   scaleFactor: number;
   offset: number;
+  dataConfidence?: number;
 }
 
 export const Inches_to_mm_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Inches_to_mm_calculatorInputSchema = z.object({
   offset: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Inches_to_mm_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.inches * input.conversionFactor * input.scaleFactor + input.offset; results["rawMM"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawMM"] = 0; }
-  try { const v = input.inches * input.conversionFactor * input.scaleFactor + input.offset; results["rawMM_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawMM_aux"] = 0; }
+function evaluateAllFormulas(input: Inches_to_mm_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.inches * input.conversionFactor * input.scaleFactor + input.offset; results["rawMM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMM"] = 0; }
+  try { const v = input.inches * input.conversionFactor * input.scaleFactor + input.offset; results["rawMM_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMM_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateInches_to_mm_calculator(input: Inches_to_mm_calculatorInput): Inches_to_mm_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateInches_to_mm_calculator(input: Inches_to_mm_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

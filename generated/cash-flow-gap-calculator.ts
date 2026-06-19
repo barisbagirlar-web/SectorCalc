@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cash-flow-gap-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cash_flow_gap_calculatorInput {
   payment_terms_suppliers: string;
   customer_payment_behavior: string;
   lean_inventory_flag: boolean;
+  dataConfidence?: number;
 }
 
 export const Cash_flow_gap_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Cash_flow_gap_calculatorInputSchema = z.object({
   lean_inventory_flag: z.boolean().default(false),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cash_flow_gap_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.avg_days_receivable * input.avg_days_payable * input.inventory_days * input.operating_expenses_daily; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.avg_days_receivable * input.avg_days_payable * input.inventory_days * input.operating_expenses_daily * (input.revenue_daily); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.revenue_daily; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Cash_flow_gap_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.avg_days_receivable * input.avg_days_payable * input.inventory_days * input.operating_expenses_daily; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.avg_days_receivable * input.avg_days_payable * input.inventory_days * input.operating_expenses_daily * (input.revenue_daily); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.revenue_daily; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCash_flow_gap_calculator(input: Cash_flow_gap_calculatorInput): Cash_flow_gap_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateCash_flow_gap_calculator(input: Cash_flow_gap_calculato
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

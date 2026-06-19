@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from collision-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Collision_calculatorInput {
   velocity1: number;
   mass2: number;
   velocity2: number;
+  dataConfidence?: number;
 }
 
 export const Collision_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Collision_calculatorInputSchema = z.object({
   velocity2: z.number().default(-5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Collision_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.mass1 - input.mass2) * input.velocity1 + 2 * input.mass2 * input.velocity2) / (input.mass1 + input.mass2); results["finalVelocityMass1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalVelocityMass1"] = 0; }
-  try { const v = (2 * input.mass1 * input.velocity1 + (input.mass2 - input.mass1) * input.velocity2) / (input.mass1 + input.mass2); results["finalVelocityMass2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalVelocityMass2"] = 0; }
-  try { const v = 0.5 * input.mass1 * input.velocity1 * input.velocity1 + 0.5 * input.mass2 * input.velocity2 * input.velocity2; results["initialKineticEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["initialKineticEnergy"] = 0; }
-  try { const v = 0.5 * input.mass1 * (asFormulaNumber(results["finalVelocityMass1"])) * (asFormulaNumber(results["finalVelocityMass1"])) + 0.5 * input.mass2 * (asFormulaNumber(results["finalVelocityMass2"])) * (asFormulaNumber(results["finalVelocityMass2"])); results["finalKineticEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalKineticEnergy"] = 0; }
+function evaluateAllFormulas(input: Collision_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.mass1 - input.mass2) * input.velocity1 + 2 * input.mass2 * input.velocity2) / (input.mass1 + input.mass2); results["finalVelocityMass1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalVelocityMass1"] = 0; }
+  try { const v = (2 * input.mass1 * input.velocity1 + (input.mass2 - input.mass1) * input.velocity2) / (input.mass1 + input.mass2); results["finalVelocityMass2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalVelocityMass2"] = 0; }
+  try { const v = 0.5 * input.mass1 * input.velocity1 * input.velocity1 + 0.5 * input.mass2 * input.velocity2 * input.velocity2; results["initialKineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["initialKineticEnergy"] = 0; }
+  try { const v = 0.5 * input.mass1 * (asFormulaNumber(results["finalVelocityMass1"])) * (asFormulaNumber(results["finalVelocityMass1"])) + 0.5 * input.mass2 * (asFormulaNumber(results["finalVelocityMass2"])) * (asFormulaNumber(results["finalVelocityMass2"])); results["finalKineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalKineticEnergy"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCollision_calculator(input: Collision_calculatorInput): Collision_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateCollision_calculator(input: Collision_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

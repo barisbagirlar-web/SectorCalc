@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from line-integral-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Line_integral_calculatorInput {
   c0: number;
   cx: number;
   cy: number;
+  dataConfidence?: number;
 }
 
 export const Line_integral_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Line_integral_calculatorInputSchema = z.object({
   cy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Line_integral_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.x2 - input.x1; results["dx"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dx"] = 0; }
-  try { const v = input.y2 - input.y1; results["dy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dy"] = 0; }
-  try { const v = input.c0 + input.cx*input.x1 + input.cy*input.y1 + (input.cx*(asFormulaNumber(results["dx"])) + input.cy*(asFormulaNumber(results["dy"])))/2; results["ortalama_f"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ortalama_f"] = 0; }
+function evaluateAllFormulas(input: Line_integral_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.x2 - input.x1; results["dx"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dx"] = 0; }
+  try { const v = input.y2 - input.y1; results["dy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dy"] = 0; }
+  try { const v = input.c0 + input.cx*input.x1 + input.cy*input.y1 + (input.cx*(asFormulaNumber(results["dx"])) + input.cy*(asFormulaNumber(results["dy"])))/2; results["ortalama_f"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ortalama_f"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLine_integral_calculator(input: Line_integral_calculatorInput): Line_integral_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateLine_integral_calculator(input: Line_integral_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

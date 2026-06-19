@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from swim-bike-run-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Swim_bike_run_calculatorInput {
   swimPace: number;
   bikeSpeed: number;
   runPace: number;
+  dataConfidence?: number;
 }
 
 export const Swim_bike_run_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Swim_bike_run_calculatorInputSchema = z.object({
   runPace: z.number().default(300),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Swim_bike_run_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.swimDistance / 100) * (input.swimPace / 60); results["swimTimeMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["swimTimeMinutes"] = 0; }
-  try { const v = (input.bikeDistance / input.bikeSpeed) * 60; results["bikeTimeMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bikeTimeMinutes"] = 0; }
-  try { const v = input.runDistance * (input.runPace / 60); results["runTimeMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["runTimeMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["swimTimeMinutes"])) + (asFormulaNumber(results["bikeTimeMinutes"])) + (asFormulaNumber(results["runTimeMinutes"])); results["totalTimeMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTimeMinutes"] = 0; }
+function evaluateAllFormulas(input: Swim_bike_run_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.swimDistance / 100) * (input.swimPace / 60); results["swimTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["swimTimeMinutes"] = 0; }
+  try { const v = (input.bikeDistance / input.bikeSpeed) * 60; results["bikeTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bikeTimeMinutes"] = 0; }
+  try { const v = input.runDistance * (input.runPace / 60); results["runTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runTimeMinutes"] = 0; }
+  try { const v = (asFormulaNumber(results["swimTimeMinutes"])) + (asFormulaNumber(results["bikeTimeMinutes"])) + (asFormulaNumber(results["runTimeMinutes"])); results["totalTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeMinutes"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSwim_bike_run_calculator(input: Swim_bike_run_calculatorInput): Swim_bike_run_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateSwim_bike_run_calculator(input: Swim_bike_run_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

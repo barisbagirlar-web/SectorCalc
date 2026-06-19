@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from material-replacement-cost-comparator-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Material_replacement_cost_comparator_calculatorInput {
   logistics_cost_current: number;
   logistics_cost_alternative: number;
   changeover_cost: number;
+  dataConfidence?: number;
 }
 
 export const Material_replacement_cost_comparator_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Material_replacement_cost_comparator_calculatorInputSchema = z.obje
   changeover_cost: z.number().min(0).max(10000000).default(5000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Material_replacement_cost_comparator_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_volume * input.current_material_cost; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_volume * input.current_material_cost * (1 + (input.scrap_rate_current / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_volume * input.current_material_cost * (1 + (input.scrap_rate_current / 100)) * (input.alternative_material_cost); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.alternative_material_cost; results["factor_alternative_material_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_alternative_material_cost"] = 0; }
+function evaluateAllFormulas(input: Material_replacement_cost_comparator_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_volume * input.current_material_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annual_volume * input.current_material_cost * (1 + (input.scrap_rate_current / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annual_volume * input.current_material_cost * (1 + (input.scrap_rate_current / 100)) * (input.alternative_material_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.alternative_material_cost; results["factor_alternative_material_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_alternative_material_cost"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMaterial_replacement_cost_comparator_calculator(input: Material_replacement_cost_comparator_calculatorInput): Material_replacement_cost_comparator_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateMaterial_replacement_cost_comparator_calculator(input: 
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

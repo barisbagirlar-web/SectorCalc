@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from aql-sampling-risk-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Aql_sampling_risk_cost_calculatorInput {
   defect_cost_per_unit: number;
   inspection_cost_per_unit: number;
   defect_rate_actual: number;
+  dataConfidence?: number;
 }
 
 export const Aql_sampling_risk_cost_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Aql_sampling_risk_cost_calculatorInputSchema = z.object({
   defect_rate_actual: z.number().min(0).max(100).default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Aql_sampling_risk_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.lot_size * input.unit_cost; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.lot_size * input.unit_cost * (1 + (input.aql_percent / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.lot_size * input.unit_cost * (1 + (input.aql_percent / 100)) * (input.defect_cost_per_unit); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.defect_cost_per_unit; results["factor_defect_cost_per_unit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_defect_cost_per_unit"] = 0; }
+function evaluateAllFormulas(input: Aql_sampling_risk_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.lot_size * input.unit_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.lot_size * input.unit_cost * (1 + (input.aql_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.lot_size * input.unit_cost * (1 + (input.aql_percent / 100)) * (input.defect_cost_per_unit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.defect_cost_per_unit; results["factor_defect_cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_defect_cost_per_unit"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAql_sampling_risk_cost_calculator(input: Aql_sampling_risk_cost_calculatorInput): Aql_sampling_risk_cost_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateAql_sampling_risk_cost_calculator(input: Aql_sampling_r
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

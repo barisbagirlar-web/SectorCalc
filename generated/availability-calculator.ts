@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from availability-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Availability_calculatorInput {
   plannedDowntime: number;
   numberOfFailures: number;
   meanTimeToRepair: number;
+  dataConfidence?: number;
 }
 
 export const Availability_calculatorInputSchema = z.object({
@@ -18,23 +18,23 @@ export const Availability_calculatorInputSchema = z.object({
   meanTimeToRepair: z.number().default(15),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Availability_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.unplannedDowntime + input.plannedDowntime; results["totalDowntime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDowntime"] = 0; }
-  try { const v = input.plannedAvailableTime - (input.unplannedDowntime + input.plannedDowntime); results["uptime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uptime"] = 0; }
-  try { const v = (input.plannedAvailableTime - input.unplannedDowntime - input.plannedDowntime) / input.plannedAvailableTime * 100; results["availability"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["availability"] = 0; }
-  try { const v = (input.plannedAvailableTime - input.unplannedDowntime - input.plannedDowntime) / input.numberOfFailures; results["mtbf"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mtbf"] = 0; }
-  try { const v = input.meanTimeToRepair; results["mttr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mttr"] = 0; }
+function evaluateAllFormulas(input: Availability_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.unplannedDowntime + input.plannedDowntime; results["totalDowntime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDowntime"] = 0; }
+  try { const v = input.plannedAvailableTime - (input.unplannedDowntime + input.plannedDowntime); results["uptime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uptime"] = 0; }
+  try { const v = (input.plannedAvailableTime - input.unplannedDowntime - input.plannedDowntime) / input.plannedAvailableTime * 100; results["availability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availability"] = 0; }
+  try { const v = (input.plannedAvailableTime - input.unplannedDowntime - input.plannedDowntime) / input.numberOfFailures; results["mtbf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mtbf"] = 0; }
+  try { const v = input.meanTimeToRepair; results["mttr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mttr"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAvailability_calculator(input: Availability_calculatorInput): Availability_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateAvailability_calculator(input: Availability_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

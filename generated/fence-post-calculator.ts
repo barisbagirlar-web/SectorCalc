@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from fence-post-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Fence_post_calculatorInput {
   numberOfGateOpenings: number;
   postDiameter: number;
   postDepth: number;
+  dataConfidence?: number;
 }
 
 export const Fence_post_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Fence_post_calculatorInputSchema = z.object({
   postDepth: z.number().default(0.6),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Fence_post_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["concretePerPost"] = 0; }
-  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["concretePerPost_aux"] = 0; }
+function evaluateAllFormulas(input: Fence_post_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost"] = 0; }
+  try { const v = Math.PI * (input.postDiameter / 2) ** 2 * input.postDepth; results["concretePerPost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFence_post_calculator(input: Fence_post_calculatorInput): Fence_post_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateFence_post_calculator(input: Fence_post_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

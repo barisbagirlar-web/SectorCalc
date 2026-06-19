@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from joist-span-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Joist_span_calculatorInput {
   live_load: number;
   dead_load: number;
   fb: number;
+  dataConfidence?: number;
 }
 
 export const Joist_span_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Joist_span_calculatorInputSchema = z.object({
   fb: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Joist_span_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.live_load + input.dead_load) * input.spacing / 12; results["total_load_plf"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_load_plf"] = 0; }
-  try { const v = (input.joist_width * input.joist_depth ** 2) / 6; results["section_modulus"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["section_modulus"] = 0; }
-  try { const v = input.fb * (asFormulaNumber(results["section_modulus"])); results["max_bending_moment_lb_in"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["max_bending_moment_lb_in"] = 0; }
-  try { const v = (asFormulaNumber(results["total_load_plf"])) / 12; results["w_pli"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["w_pli"] = 0; }
+function evaluateAllFormulas(input: Joist_span_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.live_load + input.dead_load) * input.spacing / 12; results["total_load_plf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_load_plf"] = 0; }
+  try { const v = (input.joist_width * input.joist_depth ** 2) / 6; results["section_modulus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["section_modulus"] = 0; }
+  try { const v = input.fb * (asFormulaNumber(results["section_modulus"])); results["max_bending_moment_lb_in"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["max_bending_moment_lb_in"] = 0; }
+  try { const v = (asFormulaNumber(results["total_load_plf"])) / 12; results["w_pli"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w_pli"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateJoist_span_calculator(input: Joist_span_calculatorInput): Joist_span_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateJoist_span_calculator(input: Joist_span_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from habit-tracker-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Habit_tracker_calculatorInput {
   totalDays: number;
   currentStreak: number;
   bestStreak: number;
+  dataConfidence?: number;
 }
 
 export const Habit_tracker_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Habit_tracker_calculatorInputSchema = z.object({
   bestStreak: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Habit_tracker_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.successfulDays / input.totalDays) * 100; results["compliancePercentage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compliancePercentage"] = 0; }
-  try { const v = input.daysTracked / input.totalDays; results["trackingRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["trackingRatio"] = 0; }
-  try { const v = input.bestStreak === 0 ? 0 : input.currentStreak / input.bestStreak; results["streakRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["streakRatio"] = 0; }
+function evaluateAllFormulas(input: Habit_tracker_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.successfulDays / input.totalDays) * 100; results["compliancePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["compliancePercentage"] = 0; }
+  try { const v = input.daysTracked / input.totalDays; results["trackingRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trackingRatio"] = 0; }
+  try { const v = input.bestStreak === 0 ? 0 : input.currentStreak / input.bestStreak; results["streakRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["streakRatio"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHabit_tracker_calculator(input: Habit_tracker_calculatorInput): Habit_tracker_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateHabit_tracker_calculator(input: Habit_tracker_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

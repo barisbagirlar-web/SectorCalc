@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from warehouse-layout-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Warehouse_layout_optimizer_calculatorInput {
   avg_inventory_turns: number;
   labor_cost_per_hour: number;
   equipment_cost_per_hour: number;
+  dataConfidence?: number;
 }
 
 export const Warehouse_layout_optimizer_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Warehouse_layout_optimizer_calculatorInputSchema = z.object({
   equipment_cost_per_hour: z.number().min(5).max(50).default(15),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Warehouse_layout_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_floor_area * (input.storage_area_percent / 100) * input.aisle_width * input.avg_pallet_size; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.total_floor_area * (input.storage_area_percent / 100) * input.aisle_width * input.avg_pallet_size * (input.avg_inventory_turns * input.labor_cost_per_hour * input.equipment_cost_per_hour); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.avg_inventory_turns * input.labor_cost_per_hour * input.equipment_cost_per_hour; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Warehouse_layout_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_floor_area * (input.storage_area_percent / 100) * input.aisle_width * input.avg_pallet_size; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.total_floor_area * (input.storage_area_percent / 100) * input.aisle_width * input.avg_pallet_size * (input.avg_inventory_turns * input.labor_cost_per_hour * input.equipment_cost_per_hour); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.avg_inventory_turns * input.labor_cost_per_hour * input.equipment_cost_per_hour; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWarehouse_layout_optimizer_calculator(input: Warehouse_layout_optimizer_calculatorInput): Warehouse_layout_optimizer_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateWarehouse_layout_optimizer_calculator(input: Warehouse_
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

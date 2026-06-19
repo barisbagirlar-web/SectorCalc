@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from boiler-horsepower-to-kw-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Boiler_horsepower_to_kw_calculatorInput {
   boilerEfficiency: number;
   operatingHours: number;
   conversionFactor: number;
+  dataConfidence?: number;
 }
 
 export const Boiler_horsepower_to_kw_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Boiler_horsepower_to_kw_calculatorInputSchema = z.object({
   conversionFactor: z.number().default(9.8095),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Boiler_horsepower_to_kw_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.boilerHorsepower * input.numberOfBoilers * (input.loadFactor / 100); results["totalBHP"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalBHP"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBHP"])) * input.conversionFactor; results["effectiveThermalPower_kW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveThermalPower_kW"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveThermalPower_kW"])) * input.operatingHours; results["annualEnergy_kWh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualEnergy_kWh"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveThermalPower_kW"])) / (input.boilerEfficiency / 100); results["inputFuelPower_kW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inputFuelPower_kW"] = 0; }
+function evaluateAllFormulas(input: Boiler_horsepower_to_kw_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.boilerHorsepower * input.numberOfBoilers * (input.loadFactor / 100); results["totalBHP"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBHP"] = 0; }
+  try { const v = (asFormulaNumber(results["totalBHP"])) * input.conversionFactor; results["effectiveThermalPower_kW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveThermalPower_kW"] = 0; }
+  try { const v = (asFormulaNumber(results["effectiveThermalPower_kW"])) * input.operatingHours; results["annualEnergy_kWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergy_kWh"] = 0; }
+  try { const v = (asFormulaNumber(results["effectiveThermalPower_kW"])) / (input.boilerEfficiency / 100); results["inputFuelPower_kW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputFuelPower_kW"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBoiler_horsepower_to_kw_calculator(input: Boiler_horsepower_to_kw_calculatorInput): Boiler_horsepower_to_kw_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateBoiler_horsepower_to_kw_calculator(input: Boiler_horsep
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

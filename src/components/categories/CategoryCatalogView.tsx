@@ -15,6 +15,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";
 import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
+import type { FreeToolCategoryEntry } from "@/lib/free-tools/free-tool-categories";
 import type { ToolData } from "@/lib/tools/all-tools-data";
 import type { CatalogGridVariant } from "@/lib/catalog/catalog-grid-variant-styles";
 
@@ -104,7 +105,6 @@ function Badge({ label }: { label: BadgeType }) {
 // ─── Resolve badge ──────────────────────────────────────────────────────────
 
 function resolveBadge(cat: CategoryCard, pageVariant: string): BadgeType | null {
-  if (cat.category.slug === "all") return null;
   if (cat.count <= 2 && pageVariant === "premium-tools") return "NEW";
   if (cat.premiumCount > 0) return "PRO";
   if (cat.freeCount > 0 && cat.premiumCount === 0) return "FREE";
@@ -276,7 +276,7 @@ export function CategoryCatalogView({
   }, []);
 
   // ── i18n helpers ──
-  const localizationKey = locale as keyof typeof (categories[0]?.category.title ?? {});
+  const localizationKey = locale as keyof FreeToolCategoryEntry["title"];
 
   return (
     <div className="min-w-0 flex-1">

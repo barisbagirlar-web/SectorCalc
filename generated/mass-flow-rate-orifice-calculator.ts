@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from mass-flow-rate-orifice-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Mass_flow_rate_orifice_calculatorInput {
   orificeArea: number;
   fluidDensity: number;
   pressureDifference: number;
+  dataConfidence?: number;
 }
 
 export const Mass_flow_rate_orifice_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Mass_flow_rate_orifice_calculatorInputSchema = z.object({
   pressureDifference: z.number().default(10000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Mass_flow_rate_orifice_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dischargeCoefficient * input.orificeArea * input.fluidDensity * input.pressureDifference; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.dischargeCoefficient * input.orificeArea * input.fluidDensity * input.pressureDifference; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Mass_flow_rate_orifice_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dischargeCoefficient * input.orificeArea * input.fluidDensity * input.pressureDifference; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.dischargeCoefficient * input.orificeArea * input.fluidDensity * input.pressureDifference; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMass_flow_rate_orifice_calculator(input: Mass_flow_rate_orifice_calculatorInput): Mass_flow_rate_orifice_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateMass_flow_rate_orifice_calculator(input: Mass_flow_rate
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

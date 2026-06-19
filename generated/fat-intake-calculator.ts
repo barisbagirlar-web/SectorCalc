@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from fat-intake-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Fat_intake_calculatorInput {
   fatPercentage: number;
   mealsPerDay: number;
   bodyWeight: number;
+  dataConfidence?: number;
 }
 
 export const Fat_intake_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Fat_intake_calculatorInputSchema = z.object({
   bodyWeight: z.number().default(70),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Fat_intake_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.dailyCalories * input.fatPercentage / 100 / 9; results["gramsFatPerDay"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gramsFatPerDay"] = 0; }
-  try { const v = input.dailyCalories * input.fatPercentage / 100; results["caloriesFromFat"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["caloriesFromFat"] = 0; }
-  try { const v = (input.dailyCalories * input.fatPercentage / 100 / 9) / input.bodyWeight; results["gramsFatPerKg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gramsFatPerKg"] = 0; }
-  try { const v = (input.dailyCalories * input.fatPercentage / 100 / 9) / input.mealsPerDay; results["gramsFatPerMeal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gramsFatPerMeal"] = 0; }
+function evaluateAllFormulas(input: Fat_intake_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.dailyCalories * input.fatPercentage / 100 / 9; results["gramsFatPerDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gramsFatPerDay"] = 0; }
+  try { const v = input.dailyCalories * input.fatPercentage / 100; results["caloriesFromFat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesFromFat"] = 0; }
+  try { const v = (input.dailyCalories * input.fatPercentage / 100 / 9) / input.bodyWeight; results["gramsFatPerKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gramsFatPerKg"] = 0; }
+  try { const v = (input.dailyCalories * input.fatPercentage / 100 / 9) / input.mealsPerDay; results["gramsFatPerMeal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gramsFatPerMeal"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateFat_intake_calculator(input: Fat_intake_calculatorInput): Fat_intake_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateFat_intake_calculator(input: Fat_intake_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

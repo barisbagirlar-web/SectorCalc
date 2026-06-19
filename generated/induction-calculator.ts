@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from induction-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Induction_calculatorInput {
   voltage: number;
   current: number;
   powerFactor: number;
+  dataConfidence?: number;
 }
 
 export const Induction_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Induction_calculatorInputSchema = z.object({
   powerFactor: z.number().default(0.85),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Induction_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 120 * input.frequency / input.poles; results["synchronousSpeed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["synchronousSpeed"] = 0; }
-  try { const v = (asFormulaNumber(results["synchronousSpeed"])) * (1 - input.slip / 100); results["rotorSpeed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rotorSpeed"] = 0; }
-  try { const v = (input.outputPower * 9550) / (asFormulaNumber(results["rotorSpeed"])); results["torque"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["torque"] = 0; }
+function evaluateAllFormulas(input: Induction_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 120 * input.frequency / input.poles; results["synchronousSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["synchronousSpeed"] = 0; }
+  try { const v = (asFormulaNumber(results["synchronousSpeed"])) * (1 - input.slip / 100); results["rotorSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rotorSpeed"] = 0; }
+  try { const v = (input.outputPower * 9550) / (asFormulaNumber(results["rotorSpeed"])); results["torque"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["torque"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateInduction_calculator(input: Induction_calculatorInput): Induction_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateInduction_calculator(input: Induction_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

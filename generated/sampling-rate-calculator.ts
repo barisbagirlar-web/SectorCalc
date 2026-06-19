@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sampling-rate-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Sampling_rate_calculatorInput {
   samplingFactor: number;
   bitDepth: number;
   channels: number;
+  dataConfidence?: number;
 }
 
 export const Sampling_rate_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Sampling_rate_calculatorInputSchema = z.object({
   channels: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sampling_rate_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.bandwidth * 2; results["nyquistRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["nyquistRate"] = 0; }
-  try { const v = input.bandwidth * input.samplingFactor; results["samplingRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["samplingRate"] = 0; }
-  try { const v = input.bandwidth * input.samplingFactor * input.bitDepth * input.channels; results["dataRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dataRate"] = 0; }
+function evaluateAllFormulas(input: Sampling_rate_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.bandwidth * 2; results["nyquistRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nyquistRate"] = 0; }
+  try { const v = input.bandwidth * input.samplingFactor; results["samplingRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["samplingRate"] = 0; }
+  try { const v = input.bandwidth * input.samplingFactor * input.bitDepth * input.channels; results["dataRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dataRate"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSampling_rate_calculator(input: Sampling_rate_calculatorInput): Sampling_rate_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateSampling_rate_calculator(input: Sampling_rate_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

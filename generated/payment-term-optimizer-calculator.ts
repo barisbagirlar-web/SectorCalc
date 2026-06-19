@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from payment-term-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Payment_term_optimizer_calculatorInput {
   discount_window_days: number;
   cost_of_capital_pct: number;
   customer_acceptance_rate_pct: number;
+  dataConfidence?: number;
 }
 
 export const Payment_term_optimizer_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Payment_term_optimizer_calculatorInputSchema = z.object({
   customer_acceptance_rate_pct: z.number().min(0).max(100).default(40),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Payment_term_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.annual_invoice_count * input.avg_invoice_value; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_invoice_count * input.avg_invoice_value * (1 + (input.early_payment_discount_pct / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_invoice_count * input.avg_invoice_value * (1 + (input.early_payment_discount_pct / 100)) * (input.current_terms_days); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.current_terms_days; results["factor_current_terms_days"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_current_terms_days"] = 0; }
+function evaluateAllFormulas(input: Payment_term_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.annual_invoice_count * input.avg_invoice_value; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.annual_invoice_count * input.avg_invoice_value * (1 + (input.early_payment_discount_pct / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.annual_invoice_count * input.avg_invoice_value * (1 + (input.early_payment_discount_pct / 100)) * (input.current_terms_days); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.current_terms_days; results["factor_current_terms_days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_current_terms_days"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePayment_term_optimizer_calculator(input: Payment_term_optimizer_calculatorInput): Payment_term_optimizer_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculatePayment_term_optimizer_calculator(input: Payment_term_o
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

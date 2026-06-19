@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from sober-date-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Sober_date_calculatorInput {
   endDay: number;
   endMonth: number;
   endYear: number;
+  dataConfidence?: number;
 }
 
 export const Sober_date_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Sober_date_calculatorInputSchema = z.object({
   endYear: z.number().default(2025),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Sober_date_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.endYear - input.startYear) * 365 + (input.endMonth - input.startMonth) * 30 + (input.endDay - input.startDay); results["totalDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDays"] = 0; }
-  try { const v = (input.endYear - input.startYear) * 365; results["yearPart"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yearPart"] = 0; }
-  try { const v = (input.endMonth - input.startMonth) * 30; results["monthPart"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthPart"] = 0; }
-  try { const v = (input.endDay - input.startDay); results["dayPart"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dayPart"] = 0; }
+function evaluateAllFormulas(input: Sober_date_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.endYear - input.startYear) * 365 + (input.endMonth - input.startMonth) * 30 + (input.endDay - input.startDay); results["totalDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDays"] = 0; }
+  try { const v = (input.endYear - input.startYear) * 365; results["yearPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearPart"] = 0; }
+  try { const v = (input.endMonth - input.startMonth) * 30; results["monthPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthPart"] = 0; }
+  try { const v = (input.endDay - input.startDay); results["dayPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayPart"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSober_date_calculator(input: Sober_date_calculatorInput): Sober_date_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateSober_date_calculator(input: Sober_date_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from wendler-531-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Wendler_531_calculatorInput {
   set1Percent: number;
   set2Percent: number;
   set3Percent: number;
+  dataConfidence?: number;
 }
 
 export const Wendler_531_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Wendler_531_calculatorInputSchema = z.object({
   set3Percent: z.number().default(85),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Wendler_531_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.oneRepMax * input.trainingMaxPercent / 100; results["trainingMax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["trainingMax"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set1Percent / 100; results["set1Weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set1Weight"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set2Percent / 100; results["set2Weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set2Weight"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set3Percent / 100; results["set3Weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["set3Weight"] = 0; }
+function evaluateAllFormulas(input: Wendler_531_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.oneRepMax * input.trainingMaxPercent / 100; results["trainingMax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trainingMax"] = 0; }
+  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set1Percent / 100; results["set1Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set1Weight"] = 0; }
+  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set2Percent / 100; results["set2Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set2Weight"] = 0; }
+  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set3Percent / 100; results["set3Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set3Weight"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWendler_531_calculator(input: Wendler_531_calculatorInput): Wendler_531_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateWendler_531_calculator(input: Wendler_531_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

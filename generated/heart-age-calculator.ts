@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from heart-age-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Heart_age_calculatorInput {
   smoker: number;
   diabetes: number;
   treatedBP: number;
+  dataConfidence?: number;
 }
 
 export const Heart_age_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Heart_age_calculatorInputSchema = z.object({
   treatedBP: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Heart_age_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.age + 0.2*(input.systolicBP-120) + 0.1*(input.totalCholesterol-200) - 0.1*(input.hdl-50) + 5*input.smoker + 3*input.diabetes + 2*input.treatedBP; results["heartAge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heartAge"] = 0; }
-  try { const v = input.age; results["baseAge"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseAge"] = 0; }
-  try { const v = 0.2*(input.systolicBP-120) + 0.1*(input.totalCholesterol-200) - 0.1*(input.hdl-50) + 5*input.smoker + 3*input.diabetes + 2*input.treatedBP; results["adjustment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment"] = 0; }
+function evaluateAllFormulas(input: Heart_age_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.age + 0.2*(input.systolicBP-120) + 0.1*(input.totalCholesterol-200) - 0.1*(input.hdl-50) + 5*input.smoker + 3*input.diabetes + 2*input.treatedBP; results["heartAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartAge"] = 0; }
+  try { const v = input.age; results["baseAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseAge"] = 0; }
+  try { const v = 0.2*(input.systolicBP-120) + 0.1*(input.totalCholesterol-200) - 0.1*(input.hdl-50) + 5*input.smoker + 3*input.diabetes + 2*input.treatedBP; results["adjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHeart_age_calculator(input: Heart_age_calculatorInput): Heart_age_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateHeart_age_calculator(input: Heart_age_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

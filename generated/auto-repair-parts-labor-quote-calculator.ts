@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from auto-repair-parts-labor-quote-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Auto_repair_parts_labor_quote_calculatorInput {
   tax_rate: number;
   discount_percent: number;
   parts_markup: number;
+  dataConfidence?: number;
 }
 
 export const Auto_repair_parts_labor_quote_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Auto_repair_parts_labor_quote_calculatorInputSchema = z.object({
   parts_markup: z.number().min(0).max(200).default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Auto_repair_parts_labor_quote_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.parts_cost * input.labor_hours * (input.labor_rate / 100) * (input.overhead_percent / 100); results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.parts_cost * input.labor_hours * (input.labor_rate / 100) * (input.overhead_percent / 100) * ((input.profit_margin / 100) * (input.tax_rate / 100) * (input.discount_percent / 100) * (input.parts_markup / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.profit_margin / 100) * (input.tax_rate / 100) * (input.discount_percent / 100) * (input.parts_markup / 100); results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Auto_repair_parts_labor_quote_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.parts_cost * input.labor_hours * (input.labor_rate / 100) * (input.overhead_percent / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.parts_cost * input.labor_hours * (input.labor_rate / 100) * (input.overhead_percent / 100) * ((input.profit_margin / 100) * (input.tax_rate / 100) * (input.discount_percent / 100) * (input.parts_markup / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.profit_margin / 100) * (input.tax_rate / 100) * (input.discount_percent / 100) * (input.parts_markup / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAuto_repair_parts_labor_quote_calculator(input: Auto_repair_parts_labor_quote_calculatorInput): Auto_repair_parts_labor_quote_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateAuto_repair_parts_labor_quote_calculator(input: Auto_re
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

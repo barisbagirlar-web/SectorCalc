@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from payback-period-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Payback_period_calculatorInput {
   annualNetCashFlow: number;
   annualGrowthRate: number;
   salvageValue: number;
+  dataConfidence?: number;
 }
 
 export const Payback_period_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Payback_period_calculatorInputSchema = z.object({
   salvageValue: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Payback_period_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.initialInvestment; results["totalInvestment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInvestment"] = 0; }
-  try { const v = input.annualNetCashFlow; results["annualCashFlowDisplay"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualCashFlowDisplay"] = 0; }
+function evaluateAllFormulas(input: Payback_period_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.initialInvestment; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
+  try { const v = input.annualNetCashFlow; results["annualCashFlowDisplay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCashFlowDisplay"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePayback_period_calculator(input: Payback_period_calculatorInput): Payback_period_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculatePayback_period_calculator(input: Payback_period_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

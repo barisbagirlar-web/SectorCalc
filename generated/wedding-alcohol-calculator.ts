@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from wedding-alcohol-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Wedding_alcohol_calculatorInput {
   beerRatio: number;
   wineRatio: number;
   spiritsRatio: number;
+  dataConfidence?: number;
 }
 
 export const Wedding_alcohol_calculatorInputSchema = z.object({
@@ -22,23 +22,23 @@ export const Wedding_alcohol_calculatorInputSchema = z.object({
   spiritsRatio: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Wedding_alcohol_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.guestCount * (input.alcoholPercentage / 100); results["drinkingGuests"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["drinkingGuests"] = 0; }
-  try { const v = (asFormulaNumber(results["drinkingGuests"])) * input.durationHours * input.drinksPerHour; results["totalDrinks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.beerRatio; results["beerDrinks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["beerDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.wineRatio; results["wineDrinks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wineDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.spiritsRatio; results["spiritsDrinks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["spiritsDrinks"] = 0; }
+function evaluateAllFormulas(input: Wedding_alcohol_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.guestCount * (input.alcoholPercentage / 100); results["drinkingGuests"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["drinkingGuests"] = 0; }
+  try { const v = (asFormulaNumber(results["drinkingGuests"])) * input.durationHours * input.drinksPerHour; results["totalDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDrinks"] = 0; }
+  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.beerRatio; results["beerDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beerDrinks"] = 0; }
+  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.wineRatio; results["wineDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wineDrinks"] = 0; }
+  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.spiritsRatio; results["spiritsDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spiritsDrinks"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calculatorInput): Wedding_alcohol_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from xirr-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Xirr_calculatorInput {
   cf2Days: number;
   finalValue: number;
   finalDays: number;
+  dataConfidence?: number;
 }
 
 export const Xirr_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Xirr_calculatorInputSchema = z.object({
   finalDays: z.number().default(365),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Xirr_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.initialInvestment * input.initialDate * input.cf1Amount * input.cf1Days; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.initialInvestment * input.initialDate * input.cf1Amount * input.cf1Days * (input.cf2Amount * input.cf2Days * input.finalValue * input.finalDays); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.cf2Amount * input.cf2Days * input.finalValue * input.finalDays; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Xirr_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.initialInvestment * input.initialDate * input.cf1Amount * input.cf1Days; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.initialInvestment * input.initialDate * input.cf1Amount * input.cf1Days * (input.cf2Amount * input.cf2Days * input.finalValue * input.finalDays); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.cf2Amount * input.cf2Days * input.finalValue * input.finalDays; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateXirr_calculator(input: Xirr_calculatorInput): Xirr_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateXirr_calculator(input: Xirr_calculatorInput): Xirr_calc
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

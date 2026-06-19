@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from atomic-radius-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Atomic_radius_calculatorInput {
   molarMass: number;
   structureType: number;
   manualPackingFactor: number;
+  dataConfidence?: number;
 }
 
 export const Atomic_radius_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Atomic_radius_calculatorInputSchema = z.object({
   manualPackingFactor: z.number().default(0.74),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Atomic_radius_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 6.02214076e+23; results["avogadro"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["avogadro"] = 0; }
-  try { const v = input.molarMass / (input.density * (asFormulaNumber(results["avogadro"]))); results["volumePerAtom"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumePerAtom"] = 0; }
-  try { const v = input.structureType == 0 ? input.manualPackingFactor : (input.structureType == 1 ? 0.52 : input.structureType == 2 ? 0.68 : input.structureType == 3 ? 0.74 : 0.74); results["packingFactorUsed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["packingFactorUsed"] = 0; }
-  try { const v = (asFormulaNumber(results["packingFactorUsed"])) * (asFormulaNumber(results["volumePerAtom"])); results["atomicVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["atomicVolume"] = 0; }
+function evaluateAllFormulas(input: Atomic_radius_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 6.02214076e+23; results["avogadro"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avogadro"] = 0; }
+  try { const v = input.molarMass / (input.density * (asFormulaNumber(results["avogadro"]))); results["volumePerAtom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumePerAtom"] = 0; }
+  try { const v = input.structureType == 0 ? input.manualPackingFactor : (input.structureType == 1 ? 0.52 : input.structureType == 2 ? 0.68 : input.structureType == 3 ? 0.74 : 0.74); results["packingFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["packingFactorUsed"] = 0; }
+  try { const v = (asFormulaNumber(results["packingFactorUsed"])) * (asFormulaNumber(results["volumePerAtom"])); results["atomicVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["atomicVolume"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAtomic_radius_calculator(input: Atomic_radius_calculatorInput): Atomic_radius_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateAtomic_radius_calculator(input: Atomic_radius_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

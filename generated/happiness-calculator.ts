@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from happiness-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Happiness_calculatorInput {
   career: number;
   leisure: number;
   environment: number;
+  dataConfidence?: number;
 }
 
 export const Happiness_calculatorInputSchema = z.object({
@@ -20,25 +20,25 @@ export const Happiness_calculatorInputSchema = z.object({
   environment: z.number().default(50),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Happiness_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.health*0.25 + input.wealth*0.2 + input.relationships*0.2 + input.career*0.15 + input.leisure*0.1 + input.environment*0.1; results["happinessScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["happinessScore"] = 0; }
-  try { const v = input.health * 0.25; results["healthContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["healthContribution"] = 0; }
-  try { const v = input.wealth * 0.2; results["wealthContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wealthContribution"] = 0; }
-  try { const v = input.relationships * 0.2; results["relationshipsContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["relationshipsContribution"] = 0; }
-  try { const v = input.career * 0.15; results["careerContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["careerContribution"] = 0; }
-  try { const v = input.leisure * 0.1; results["leisureContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["leisureContribution"] = 0; }
-  try { const v = input.environment * 0.1; results["environmentContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["environmentContribution"] = 0; }
+function evaluateAllFormulas(input: Happiness_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.health*0.25 + input.wealth*0.2 + input.relationships*0.2 + input.career*0.15 + input.leisure*0.1 + input.environment*0.1; results["happinessScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["happinessScore"] = 0; }
+  try { const v = input.health * 0.25; results["healthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthContribution"] = 0; }
+  try { const v = input.wealth * 0.2; results["wealthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wealthContribution"] = 0; }
+  try { const v = input.relationships * 0.2; results["relationshipsContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relationshipsContribution"] = 0; }
+  try { const v = input.career * 0.15; results["careerContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["careerContribution"] = 0; }
+  try { const v = input.leisure * 0.1; results["leisureContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leisureContribution"] = 0; }
+  try { const v = input.environment * 0.1; results["environmentContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["environmentContribution"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHappiness_calculator(input: Happiness_calculatorInput): Happiness_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateHappiness_calculator(input: Happiness_calculatorInput):
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

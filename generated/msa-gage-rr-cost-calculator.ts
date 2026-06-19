@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from msa-gage-rr-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Msa_gage_rr_cost_calculatorInput {
   reproducibility_variation: number;
   cost_per_defect: number;
   cost_per_escaped_defect: number;
+  dataConfidence?: number;
 }
 
 export const Msa_gage_rr_cost_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const Msa_gage_rr_cost_calculatorInputSchema = z.object({
   cost_per_escaped_defect: z.number().min(0).max(1000000).default(500),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Msa_gage_rr_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect * (input.num_appraisers * input.num_trials); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.num_appraisers; results["factor_num_appraisers"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_num_appraisers"] = 0; }
-  try { const v = input.num_trials; results["factor_num_trials"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_num_trials"] = 0; }
+function evaluateAllFormulas(input: Msa_gage_rr_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect * (input.num_appraisers * input.num_trials); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.num_appraisers; results["factor_num_appraisers"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_appraisers"] = 0; }
+  try { const v = input.num_trials; results["factor_num_trials"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_trials"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_calculatorInput): Msa_gage_rr_cost_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

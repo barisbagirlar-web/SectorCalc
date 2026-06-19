@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from tebibytes-to-terabytes-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Tebibytes_to_terabytes_calculatorInput {
   conversionFactor: number;
   precision: number;
   outputMultiplier: number;
+  dataConfidence?: number;
 }
 
 export const Tebibytes_to_terabytes_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Tebibytes_to_terabytes_calculatorInputSchema = z.object({
   outputMultiplier: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Tebibytes_to_terabytes_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = "1 TiB = " + input.conversionFactor + " TB"; results["conversionEquation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conversionEquation"] = 0; }
-  try { const v = input.tebibytes * input.conversionFactor; results["rawValueWithoutMultiplier"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawValueWithoutMultiplier"] = 0; }
+function evaluateAllFormulas(input: Tebibytes_to_terabytes_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = "1 TiB = " + input.conversionFactor + " TB"; results["conversionEquation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionEquation"] = 0; }
+  try { const v = input.tebibytes * input.conversionFactor; results["rawValueWithoutMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValueWithoutMultiplier"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTebibytes_to_terabytes_calculator(input: Tebibytes_to_terabytes_calculatorInput): Tebibytes_to_terabytes_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateTebibytes_to_terabytes_calculator(input: Tebibytes_to_t
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

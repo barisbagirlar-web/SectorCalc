@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from short-tons-to-kg-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Short_tons_to_kg_calculatorInput {
   item3_tons: number;
   item4_tons: number;
   precision: number;
+  dataConfidence?: number;
 }
 
 export const Short_tons_to_kg_calculatorInputSchema = z.object({
@@ -18,23 +18,23 @@ export const Short_tons_to_kg_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Short_tons_to_kg_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.item1_tons * 907.18474; results["item1_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["item1_kg"] = 0; }
-  try { const v = input.item2_tons * 907.18474; results["item2_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["item2_kg"] = 0; }
-  try { const v = input.item3_tons * 907.18474; results["item3_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["item3_kg"] = 0; }
-  try { const v = input.item4_tons * 907.18474; results["item4_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["item4_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["item1_kg"])) + (asFormulaNumber(results["item2_kg"])) + (asFormulaNumber(results["item3_kg"])) + (asFormulaNumber(results["item4_kg"])); results["total_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_kg"] = 0; }
+function evaluateAllFormulas(input: Short_tons_to_kg_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.item1_tons * 907.18474; results["item1_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item1_kg"] = 0; }
+  try { const v = input.item2_tons * 907.18474; results["item2_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item2_kg"] = 0; }
+  try { const v = input.item3_tons * 907.18474; results["item3_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item3_kg"] = 0; }
+  try { const v = input.item4_tons * 907.18474; results["item4_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item4_kg"] = 0; }
+  try { const v = (asFormulaNumber(results["item1_kg"])) + (asFormulaNumber(results["item2_kg"])) + (asFormulaNumber(results["item3_kg"])) + (asFormulaNumber(results["item4_kg"])); results["total_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_kg"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateShort_tons_to_kg_calculator(input: Short_tons_to_kg_calculatorInput): Short_tons_to_kg_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateShort_tons_to_kg_calculator(input: Short_tons_to_kg_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

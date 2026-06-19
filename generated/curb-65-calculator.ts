@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from curb-65-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Curb_65_calculatorInput {
   respiratoryRate: number;
   systolicBP: number;
   diastolicBP: number;
+  dataConfidence?: number;
 }
 
 export const Curb_65_calculatorInputSchema = z.object({
@@ -20,24 +20,24 @@ export const Curb_65_calculatorInputSchema = z.object({
   diastolicBP: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Curb_65_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (asFormulaNumber(results["ageScore"])) + (asFormulaNumber(results["confusionScore"])) + (asFormulaNumber(results["ureaScore"])) + (asFormulaNumber(results["respiratoryScore"])) + (asFormulaNumber(results["bpScore"])); results["score"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["score"] = 0; }
-  try { const v = (input.age >= 65) ? 1 : 0; results["ageScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ageScore"] = 0; }
-  try { const v = (input.confusion === 1) ? 1 : 0; results["confusionScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["confusionScore"] = 0; }
-  try { const v = (input.urea > 7) ? 1 : 0; results["ureaScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ureaScore"] = 0; }
-  try { const v = (input.respiratoryRate >= 30) ? 1 : 0; results["respiratoryScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["respiratoryScore"] = 0; }
-  try { const v = (input.systolicBP < 90 || input.diastolicBP <= 60) ? 1 : 0; results["bpScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bpScore"] = 0; }
+function evaluateAllFormulas(input: Curb_65_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (asFormulaNumber(results["ageScore"])) + (asFormulaNumber(results["confusionScore"])) + (asFormulaNumber(results["ureaScore"])) + (asFormulaNumber(results["respiratoryScore"])) + (asFormulaNumber(results["bpScore"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
+  try { const v = (input.age >= 65) ? 1 : 0; results["ageScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageScore"] = 0; }
+  try { const v = (input.confusion === 1) ? 1 : 0; results["confusionScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["confusionScore"] = 0; }
+  try { const v = (input.urea > 7) ? 1 : 0; results["ureaScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ureaScore"] = 0; }
+  try { const v = (input.respiratoryRate >= 30) ? 1 : 0; results["respiratoryScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["respiratoryScore"] = 0; }
+  try { const v = (input.systolicBP < 90 || input.diastolicBP <= 60) ? 1 : 0; results["bpScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bpScore"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCurb_65_calculator(input: Curb_65_calculatorInput): Curb_65_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateCurb_65_calculator(input: Curb_65_calculatorInput): Cur
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

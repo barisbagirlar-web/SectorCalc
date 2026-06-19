@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cm-to-mm-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Cm_to_mm_calculatorInput {
   tolerance_cm: number;
   batch_quantity: number;
   decimal_places: number;
+  dataConfidence?: number;
 }
 
 export const Cm_to_mm_calculatorInputSchema = z.object({
@@ -22,23 +22,23 @@ export const Cm_to_mm_calculatorInputSchema = z.object({
   decimal_places: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cm_to_mm_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1 + input.expansion_coefficient * (input.temperature_c - 20); results["thermal_effect"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thermal_effect"] = 0; }
-  try { const v = input.length_cm * input.correction_factor * (asFormulaNumber(results["thermal_effect"])); results["corrected_length_cm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["corrected_length_cm"] = 0; }
-  try { const v = (asFormulaNumber(results["corrected_length_cm"])) * 10; results["converted_mm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["converted_mm"] = 0; }
-  try { const v = input.tolerance_cm * 10; results["tolerance_mm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tolerance_mm"] = 0; }
-  try { const v = (asFormulaNumber(results["converted_mm"])) * input.batch_quantity; results["total_batch_mm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_batch_mm"] = 0; }
+function evaluateAllFormulas(input: Cm_to_mm_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1 + input.expansion_coefficient * (input.temperature_c - 20); results["thermal_effect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thermal_effect"] = 0; }
+  try { const v = input.length_cm * input.correction_factor * (asFormulaNumber(results["thermal_effect"])); results["corrected_length_cm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["corrected_length_cm"] = 0; }
+  try { const v = (asFormulaNumber(results["corrected_length_cm"])) * 10; results["converted_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["converted_mm"] = 0; }
+  try { const v = input.tolerance_cm * 10; results["tolerance_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tolerance_mm"] = 0; }
+  try { const v = (asFormulaNumber(results["converted_mm"])) * input.batch_quantity; results["total_batch_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_batch_mm"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCm_to_mm_calculator(input: Cm_to_mm_calculatorInput): Cm_to_mm_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateCm_to_mm_calculator(input: Cm_to_mm_calculatorInput): C
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

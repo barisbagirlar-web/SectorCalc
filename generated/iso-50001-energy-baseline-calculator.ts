@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from iso-50001-energy-baseline-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Iso_50001_energy_baseline_calculatorInput {
   energy_source_mix: string;
   baseline_type: string;
   use_weather_normalization: boolean;
+  dataConfidence?: number;
 }
 
 export const Iso_50001_energy_baseline_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Iso_50001_energy_baseline_calculatorInputSchema = z.object({
   use_weather_normalization: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Iso_50001_energy_baseline_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_energy_consumption * input.production_volume * input.heating_degree_days * input.cooling_degree_days; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.total_energy_consumption * input.production_volume * input.heating_degree_days * input.cooling_degree_days * (input.operating_hours); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.operating_hours; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Iso_50001_energy_baseline_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_energy_consumption * input.production_volume * input.heating_degree_days * input.cooling_degree_days; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.total_energy_consumption * input.production_volume * input.heating_degree_days * input.cooling_degree_days * (input.operating_hours); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.operating_hours; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_energy_baseline_calculatorInput): Iso_50001_energy_baseline_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_e
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

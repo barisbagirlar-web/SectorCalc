@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from trisomy-21-risk-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Trisomy_21_risk_calculatorInput {
   pappA: number;
   freeBetaHCG: number;
   previousTrisomy: number;
+  dataConfidence?: number;
 }
 
 export const Trisomy_21_risk_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Trisomy_21_risk_calculatorInputSchema = z.object({
   previousTrisomy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Trisomy_21_risk_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.maternalAge * input.gestationalAge * input.nuchalTranslucency * input.pappA; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.maternalAge * input.gestationalAge * input.nuchalTranslucency * input.pappA * (input.freeBetaHCG * input.previousTrisomy); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.freeBetaHCG * input.previousTrisomy; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Trisomy_21_risk_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.maternalAge * input.gestationalAge * input.nuchalTranslucency * input.pappA; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.maternalAge * input.gestationalAge * input.nuchalTranslucency * input.pappA * (input.freeBetaHCG * input.previousTrisomy); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.freeBetaHCG * input.previousTrisomy; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTrisomy_21_risk_calculator(input: Trisomy_21_risk_calculatorInput): Trisomy_21_risk_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateTrisomy_21_risk_calculator(input: Trisomy_21_risk_calcu
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

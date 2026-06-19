@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from poker-equity-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Poker_equity_calculatorInput {
   streets: number;
   potSize: number;
   betToCall: number;
+  dataConfidence?: number;
 }
 
 export const Poker_equity_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Poker_equity_calculatorInputSchema = z.object({
   betToCall: z.number().default(50),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Poker_equity_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.betToCall / (input.potSize + input.betToCall)) * 100; results["Pot Odds (%)"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Pot Odds (%)"] = 0; }
-  try { const v = (input.betToCall / (input.potSize + 2 * input.betToCall)) * 100; results["Break-even Equity (%)"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Break-even Equity (%)"] = 0; }
+function evaluateAllFormulas(input: Poker_equity_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.betToCall / (input.potSize + input.betToCall)) * 100; results["Pot Odds (%)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Pot Odds (%)"] = 0; }
+  try { const v = (input.betToCall / (input.potSize + 2 * input.betToCall)) * 100; results["Break-even Equity (%)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Break-even Equity (%)"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePoker_equity_calculator(input: Poker_equity_calculatorInput): Poker_equity_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculatePoker_equity_calculator(input: Poker_equity_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

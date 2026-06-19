@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from envelope-size-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Envelope_size_calculatorInput {
   flapLength: number;
   paperThickness: number;
   quantity: number;
+  dataConfidence?: number;
 }
 
 export const Envelope_size_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Envelope_size_calculatorInputSchema = z.object({
   quantity: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Envelope_size_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.width + 2 * input.flapLength) * (input.height + input.flapLength)) * input.quantity; results["totalPaperArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPaperArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPaperArea"])) * input.paperThickness; results["totalPaperVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPaperVolume"] = 0; }
-  try { const v = 2 * (input.width * input.height + input.width * input.flapLength + input.height * input.flapLength); results["envelopeSurfaceArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["envelopeSurfaceArea"] = 0; }
-  try { const v = (asFormulaNumber(results["envelopeSurfaceArea"])) * input.quantity; results["totalSurfaceArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalSurfaceArea"] = 0; }
+function evaluateAllFormulas(input: Envelope_size_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.width + 2 * input.flapLength) * (input.height + input.flapLength)) * input.quantity; results["totalPaperArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaperArea"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPaperArea"])) * input.paperThickness; results["totalPaperVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaperVolume"] = 0; }
+  try { const v = 2 * (input.width * input.height + input.width * input.flapLength + input.height * input.flapLength); results["envelopeSurfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["envelopeSurfaceArea"] = 0; }
+  try { const v = (asFormulaNumber(results["envelopeSurfaceArea"])) * input.quantity; results["totalSurfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSurfaceArea"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEnvelope_size_calculator(input: Envelope_size_calculatorInput): Envelope_size_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateEnvelope_size_calculator(input: Envelope_size_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

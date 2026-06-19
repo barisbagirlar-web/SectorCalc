@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from us-shoe-size-to-eu-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Us_shoe_size_to_eu_calculatorInput {
   footLengthCm: number;
   gender: number;
   userAdjustment: number;
+  dataConfidence?: number;
 }
 
 export const Us_shoe_size_to_eu_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Us_shoe_size_to_eu_calculatorInputSchema = z.object({
   userAdjustment: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Us_shoe_size_to_eu_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = Number(input.usSize) > 0 ? (Number(input.gender) === 0 ? Number(input.usSize) + 33 : Number(input.gender) === 1 ? Number(input.usSize) + 31 : Number(input.usSize) + 16) : (Number(input.footLengthCm) > 0 ? 1.5 * (Number(input.footLengthCm) + 1.5) : 0); results["rawEurSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawEurSize"] = 0; }
-  try { const v = Number((asFormulaNumber(results["rawEurSize"]))) + Number(input.userAdjustment); results["eurSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eurSize"] = 0; }
+function evaluateAllFormulas(input: Us_shoe_size_to_eu_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = Number(input.usSize) > 0 ? (Number(input.gender) === 0 ? Number(input.usSize) + 33 : Number(input.gender) === 1 ? Number(input.usSize) + 31 : Number(input.usSize) + 16) : (Number(input.footLengthCm) > 0 ? 1.5 * (Number(input.footLengthCm) + 1.5) : 0); results["rawEurSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawEurSize"] = 0; }
+  try { const v = Number((asFormulaNumber(results["rawEurSize"]))) + Number(input.userAdjustment); results["eurSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eurSize"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateUs_shoe_size_to_eu_calculator(input: Us_shoe_size_to_eu_calculatorInput): Us_shoe_size_to_eu_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateUs_shoe_size_to_eu_calculator(input: Us_shoe_size_to_eu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

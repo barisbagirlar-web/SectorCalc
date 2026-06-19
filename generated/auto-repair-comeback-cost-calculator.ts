@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from auto-repair-comeback-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Auto_repair_comeback_cost_calculatorInput {
   customer_lifetime_value: number;
   lost_customer_rate: number;
   shop_type: string;
+  dataConfidence?: number;
 }
 
 export const Auto_repair_comeback_cost_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Auto_repair_comeback_cost_calculatorInputSchema = z.object({
   shop_type: z.enum(['independent', 'dealer', 'fleet', 'franchise']).default('independent'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Auto_repair_comeback_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_repair_orders * input.parts_cost_per_comeback; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_repair_orders * input.parts_cost_per_comeback * (1 + (input.avg_labor_rate / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_repair_orders * input.parts_cost_per_comeback * (1 + (input.avg_labor_rate / 100)) * (input.comeback_count); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.comeback_count; results["factor_comeback_count"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_comeback_count"] = 0; }
+function evaluateAllFormulas(input: Auto_repair_comeback_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_repair_orders * input.parts_cost_per_comeback; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.total_repair_orders * input.parts_cost_per_comeback * (1 + (input.avg_labor_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.total_repair_orders * input.parts_cost_per_comeback * (1 + (input.avg_labor_rate / 100)) * (input.comeback_count); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.comeback_count; results["factor_comeback_count"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_comeback_count"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAuto_repair_comeback_cost_calculator(input: Auto_repair_comeback_cost_calculatorInput): Auto_repair_comeback_cost_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateAuto_repair_comeback_cost_calculator(input: Auto_repair
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

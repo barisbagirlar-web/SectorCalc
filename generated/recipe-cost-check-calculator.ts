@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from recipe-cost-check-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Recipe_cost_check_calculatorInput {
   energy_cost_per_kwh: number;
   energy_consumption_kwh: number;
   overhead_rate_percent: number;
+  dataConfidence?: number;
 }
 
 export const Recipe_cost_check_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Recipe_cost_check_calculatorInputSchema = z.object({
   overhead_rate_percent: z.number().min(0).max(200).default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Recipe_cost_check_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.material_cost_per_kg * (input.recipe_yield_percent / 100) * (input.labor_rate_per_hour / 100) * input.batch_size_kg; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.material_cost_per_kg * (input.recipe_yield_percent / 100) * (input.labor_rate_per_hour / 100) * input.batch_size_kg * (input.processing_time_minutes * input.energy_cost_per_kwh * input.energy_consumption_kwh * (input.overhead_rate_percent / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.processing_time_minutes * input.energy_cost_per_kwh * input.energy_consumption_kwh * (input.overhead_rate_percent / 100); results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Recipe_cost_check_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.material_cost_per_kg * (input.recipe_yield_percent / 100) * (input.labor_rate_per_hour / 100) * input.batch_size_kg; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.material_cost_per_kg * (input.recipe_yield_percent / 100) * (input.labor_rate_per_hour / 100) * input.batch_size_kg * (input.processing_time_minutes * input.energy_cost_per_kwh * input.energy_consumption_kwh * (input.overhead_rate_percent / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.processing_time_minutes * input.energy_cost_per_kwh * input.energy_consumption_kwh * (input.overhead_rate_percent / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRecipe_cost_check_calculator(input: Recipe_cost_check_calculatorInput): Recipe_cost_check_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateRecipe_cost_check_calculator(input: Recipe_cost_check_c
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

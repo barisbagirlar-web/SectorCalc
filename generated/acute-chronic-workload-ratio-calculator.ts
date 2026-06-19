@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from acute-chronic-workload-ratio-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Acute_chronic_workload_ratio_calculatorInput {
   chronicLoad: number;
   chronicPeriodDays: number;
   acwrThreshold: number;
+  dataConfidence?: number;
 }
 
 export const Acute_chronic_workload_ratio_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Acute_chronic_workload_ratio_calculatorInputSchema = z.object({
   acwrThreshold: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Acute_chronic_workload_ratio_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.acuteLoad / input.acutePeriodDays; results["acuteDailyLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["acuteDailyLoad"] = 0; }
-  try { const v = input.chronicLoad / input.chronicPeriodDays; results["chronicDailyLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chronicDailyLoad"] = 0; }
-  try { const v = (asFormulaNumber(results["acuteDailyLoad"])) / (asFormulaNumber(results["chronicDailyLoad"])); results["acwr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["acwr"] = 0; }
+function evaluateAllFormulas(input: Acute_chronic_workload_ratio_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.acuteLoad / input.acutePeriodDays; results["acuteDailyLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["acuteDailyLoad"] = 0; }
+  try { const v = input.chronicLoad / input.chronicPeriodDays; results["chronicDailyLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chronicDailyLoad"] = 0; }
+  try { const v = (asFormulaNumber(results["acuteDailyLoad"])) / (asFormulaNumber(results["chronicDailyLoad"])); results["acwr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["acwr"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAcute_chronic_workload_ratio_calculator(input: Acute_chronic_workload_ratio_calculatorInput): Acute_chronic_workload_ratio_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateAcute_chronic_workload_ratio_calculator(input: Acute_ch
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

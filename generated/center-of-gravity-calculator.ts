@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from center-of-gravity-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Center_of_gravity_calculatorInput {
   mass2: number;
   x2: number;
   y2: number;
+  dataConfidence?: number;
 }
 
 export const Center_of_gravity_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Center_of_gravity_calculatorInputSchema = z.object({
   y2: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Center_of_gravity_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.mass1 * input.x1 + input.mass2 * input.x2) / (input.mass1 + input.mass2); results["x_cg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["x_cg"] = 0; }
-  try { const v = (input.mass1 * input.y1 + input.mass2 * input.y2) / (input.mass1 + input.mass2); results["y_cg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["y_cg"] = 0; }
+function evaluateAllFormulas(input: Center_of_gravity_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.mass1 * input.x1 + input.mass2 * input.x2) / (input.mass1 + input.mass2); results["x_cg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_cg"] = 0; }
+  try { const v = (input.mass1 * input.y1 + input.mass2 * input.y2) / (input.mass1 + input.mass2); results["y_cg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["y_cg"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCenter_of_gravity_calculator(input: Center_of_gravity_calculatorInput): Center_of_gravity_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateCenter_of_gravity_calculator(input: Center_of_gravity_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

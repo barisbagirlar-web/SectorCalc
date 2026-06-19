@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from weeks-to-months-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Weeks_to_months_calculatorInput {
   workDaysPerWeek: number;
   workDaysPerMonth: number;
   precision: number;
+  dataConfidence?: number;
 }
 
 export const Weeks_to_months_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Weeks_to_months_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Weeks_to_months_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.weeks * input.daysPerWeek) / input.daysPerMonth; results["monthsCalendar"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthsCalendar"] = 0; }
-  try { const v = (input.weeks * input.workDaysPerWeek) / input.workDaysPerMonth; results["monthsWorking"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthsWorking"] = 0; }
+function evaluateAllFormulas(input: Weeks_to_months_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.weeks * input.daysPerWeek) / input.daysPerMonth; results["monthsCalendar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsCalendar"] = 0; }
+  try { const v = (input.weeks * input.workDaysPerWeek) / input.workDaysPerMonth; results["monthsWorking"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsWorking"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWeeks_to_months_calculator(input: Weeks_to_months_calculatorInput): Weeks_to_months_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateWeeks_to_months_calculator(input: Weeks_to_months_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

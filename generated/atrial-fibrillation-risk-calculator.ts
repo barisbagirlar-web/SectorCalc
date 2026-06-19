@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from atrial-fibrillation-risk-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Atrial_fibrillation_risk_calculatorInput {
   priorStrokeOrTIA: number;
   vascularDisease: number;
   sex: number;
+  dataConfidence?: number;
 }
 
 export const Atrial_fibrillation_risk_calculatorInputSchema = z.object({
@@ -22,25 +22,25 @@ export const Atrial_fibrillation_risk_calculatorInputSchema = z.object({
   sex: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Atrial_fibrillation_risk_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.congestiveHeartFailure; results["chfPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chfPoints"] = 0; }
-  try { const v = input.hypertension; results["htnPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["htnPoints"] = 0; }
-  try { const v = input.age >= 75 ? 2 : (input.age >= 65 ? 1 : 0); results["agePoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["agePoints"] = 0; }
-  try { const v = input.diabetes; results["dmPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dmPoints"] = 0; }
-  try { const v = input.priorStrokeOrTIA || input.vascularDisease ? 2 : 0; results["strokePoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["strokePoints"] = 0; }
-  try { const v = input.sex; results["sexPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sexPoints"] = 0; }
-  try { const v = (asFormulaNumber(results["chfPoints"])) + (asFormulaNumber(results["htnPoints"])) + (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["dmPoints"])) + (asFormulaNumber(results["strokePoints"])) + (asFormulaNumber(results["sexPoints"])); results["riskScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["riskScore"] = 0; }
+function evaluateAllFormulas(input: Atrial_fibrillation_risk_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.congestiveHeartFailure; results["chfPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chfPoints"] = 0; }
+  try { const v = input.hypertension; results["htnPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["htnPoints"] = 0; }
+  try { const v = input.age >= 75 ? 2 : (input.age >= 65 ? 1 : 0); results["agePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["agePoints"] = 0; }
+  try { const v = input.diabetes; results["dmPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dmPoints"] = 0; }
+  try { const v = input.priorStrokeOrTIA || input.vascularDisease ? 2 : 0; results["strokePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strokePoints"] = 0; }
+  try { const v = input.sex; results["sexPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sexPoints"] = 0; }
+  try { const v = (asFormulaNumber(results["chfPoints"])) + (asFormulaNumber(results["htnPoints"])) + (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["dmPoints"])) + (asFormulaNumber(results["strokePoints"])) + (asFormulaNumber(results["sexPoints"])); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibrillation_risk_calculatorInput): Atrial_fibrillation_risk_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibri
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

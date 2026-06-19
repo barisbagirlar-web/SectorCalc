@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from signage-safe-price-tool-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Signage_safe_price_tool_calculatorInput {
   quality_level: string;
   quantity: number;
   waste_factor: number;
+  dataConfidence?: number;
 }
 
 export const Signage_safe_price_tool_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Signage_safe_price_tool_calculatorInputSchema = z.object({
   waste_factor: z.number().min(0).max(50).default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Signage_safe_price_tool_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.labor_hours; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.quantity * (input.labor_rate / 100) * input.labor_hours * input.material_cost; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.quantity * (input.labor_rate / 100) * input.labor_hours * input.material_cost; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Signage_safe_price_tool_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.labor_hours; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.quantity * (input.labor_rate / 100) * input.labor_hours * input.material_cost; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.quantity * (input.labor_rate / 100) * input.labor_hours * input.material_cost; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSignage_safe_price_tool_calculator(input: Signage_safe_price_tool_calculatorInput): Signage_safe_price_tool_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateSignage_safe_price_tool_calculator(input: Signage_safe_
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

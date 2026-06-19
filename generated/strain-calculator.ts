@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from strain-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Strain_calculatorInput {
   temperature_change: number;
   cte: number;
   elastic_modulus: number;
+  dataConfidence?: number;
 }
 
 export const Strain_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Strain_calculatorInputSchema = z.object({
   elastic_modulus: z.number().default(200),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Strain_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = ((input.final_length - input.initial_length) / input.initial_length) * 100; results["mechStrainPct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mechStrainPct"] = 0; }
-  try { const v = input.cte * input.temperature_change * 100; results["thermStrainPct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thermStrainPct"] = 0; }
-  try { const v = (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * 100; results["totalStrainPct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalStrainPct"] = 0; }
-  try { const v = input.elastic_modulus > 0 ? (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * input.elastic_modulus * 1000 : 0; results["stressMpa"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["stressMpa"] = 0; }
+function evaluateAllFormulas(input: Strain_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = ((input.final_length - input.initial_length) / input.initial_length) * 100; results["mechStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechStrainPct"] = 0; }
+  try { const v = input.cte * input.temperature_change * 100; results["thermStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thermStrainPct"] = 0; }
+  try { const v = (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * 100; results["totalStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStrainPct"] = 0; }
+  try { const v = input.elastic_modulus > 0 ? (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * input.elastic_modulus * 1000 : 0; results["stressMpa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressMpa"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateStrain_calculator(input: Strain_calculatorInput): Strain_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateStrain_calculator(input: Strain_calculatorInput): Strai
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

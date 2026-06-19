@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from oil-barrels-to-liters-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Oil_barrels_to_liters_calculatorInput {
   referenceTemperature: number;
   alpha: number;
   precision: number;
+  dataConfidence?: number;
 }
 
 export const Oil_barrels_to_liters_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Oil_barrels_to_liters_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Oil_barrels_to_liters_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.barrels / (1 + input.alpha * (input.observedTemperature - input.referenceTemperature)); results["referenceBarrels"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["referenceBarrels"] = 0; }
-  try { const v = (asFormulaNumber(results["referenceBarrels"])) * 158.9873; results["rawLiters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawLiters"] = 0; }
+function evaluateAllFormulas(input: Oil_barrels_to_liters_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.barrels / (1 + input.alpha * (input.observedTemperature - input.referenceTemperature)); results["referenceBarrels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["referenceBarrels"] = 0; }
+  try { const v = (asFormulaNumber(results["referenceBarrels"])) * 158.9873; results["rawLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawLiters"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateOil_barrels_to_liters_calculator(input: Oil_barrels_to_liters_calculatorInput): Oil_barrels_to_liters_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateOil_barrels_to_liters_calculator(input: Oil_barrels_to_
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

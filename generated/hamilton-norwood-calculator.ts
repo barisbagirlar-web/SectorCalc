@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from hamilton-norwood-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Hamilton_norwood_calculatorInput {
   vertexDiameter: number;
   frontalThinningArea: number;
   crownThinningArea: number;
+  dataConfidence?: number;
 }
 
 export const Hamilton_norwood_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Hamilton_norwood_calculatorInputSchema = z.object({
   crownThinningArea: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Hamilton_norwood_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.temporalRecession / 3; results["recessionScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recessionScore"] = 0; }
-  try { const v = input.vertexDiameter / 5; results["vertexScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vertexScore"] = 0; }
-  try { const v = input.frontalThinningArea / 50; results["frontalThinningScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["frontalThinningScore"] = 0; }
-  try { const v = input.crownThinningArea / 50; results["crownThinningScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crownThinningScore"] = 0; }
-  try { const v = (asFormulaNumber(results["recessionScore"])) + (asFormulaNumber(results["vertexScore"])) + (asFormulaNumber(results["frontalThinningScore"])) + (asFormulaNumber(results["crownThinningScore"])); results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
+function evaluateAllFormulas(input: Hamilton_norwood_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.temporalRecession / 3; results["recessionScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recessionScore"] = 0; }
+  try { const v = input.vertexDiameter / 5; results["vertexScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vertexScore"] = 0; }
+  try { const v = input.frontalThinningArea / 50; results["frontalThinningScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frontalThinningScore"] = 0; }
+  try { const v = input.crownThinningArea / 50; results["crownThinningScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crownThinningScore"] = 0; }
+  try { const v = (asFormulaNumber(results["recessionScore"])) + (asFormulaNumber(results["vertexScore"])) + (asFormulaNumber(results["frontalThinningScore"])) + (asFormulaNumber(results["crownThinningScore"])); results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHamilton_norwood_calculator(input: Hamilton_norwood_calculatorInput): Hamilton_norwood_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateHamilton_norwood_calculator(input: Hamilton_norwood_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

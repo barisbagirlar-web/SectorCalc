@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cash-conversion-cycle-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Cash_conversion_cycle_calculatorInput {
   revenue: number;
   averagePayables: number;
   daysInPeriod: number;
+  dataConfidence?: number;
 }
 
 export const Cash_conversion_cycle_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Cash_conversion_cycle_calculatorInputSchema = z.object({
   daysInPeriod: z.number().default(365),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cash_conversion_cycle_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.averageInventory / input.cogs * input.daysInPeriod; results["dio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dio"] = 0; }
-  try { const v = input.averageReceivables / input.revenue * input.daysInPeriod; results["dso"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dso"] = 0; }
-  try { const v = input.averagePayables / input.cogs * input.daysInPeriod; results["dpo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dpo"] = 0; }
-  try { const v = (input.averageInventory / input.cogs * input.daysInPeriod) + (input.averageReceivables / input.revenue * input.daysInPeriod) - (input.averagePayables / input.cogs * input.daysInPeriod); results["cashConversionCycle"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cashConversionCycle"] = 0; }
+function evaluateAllFormulas(input: Cash_conversion_cycle_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.averageInventory / input.cogs * input.daysInPeriod; results["dio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dio"] = 0; }
+  try { const v = input.averageReceivables / input.revenue * input.daysInPeriod; results["dso"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dso"] = 0; }
+  try { const v = input.averagePayables / input.cogs * input.daysInPeriod; results["dpo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dpo"] = 0; }
+  try { const v = (input.averageInventory / input.cogs * input.daysInPeriod) + (input.averageReceivables / input.revenue * input.daysInPeriod) - (input.averagePayables / input.cogs * input.daysInPeriod); results["cashConversionCycle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cashConversionCycle"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCash_conversion_cycle_calculator(input: Cash_conversion_cycle_calculatorInput): Cash_conversion_cycle_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateCash_conversion_cycle_calculator(input: Cash_conversion
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

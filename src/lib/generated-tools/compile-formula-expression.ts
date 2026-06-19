@@ -1,9 +1,7 @@
+import { compileFormulaScriptFallback } from "@/lib/generated-tools/compile-formula-script";
 import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
 import { FormulaFailureAccumulator, type FormulaFailureCategory } from "@/lib/generated-tools/formula-failure-catalog";
-import {
-  categorizeCompileFailure,
-  validateFormulaAst,
-} from "@/lib/generated-tools/ast-formula-validator";
+import { validateFormulaAst } from "@/lib/generated-tools/ast-formula-validator";
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

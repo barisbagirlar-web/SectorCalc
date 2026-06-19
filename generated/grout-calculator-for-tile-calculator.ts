@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from grout-calculator-for-tile-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Grout_calculator_for_tile_calculatorInput {
   area: number;
   wasteFactor: number;
   groutDensity: number;
+  dataConfidence?: number;
 }
 
 export const Grout_calculator_for_tile_calculatorInputSchema = z.object({
@@ -22,25 +22,25 @@ export const Grout_calculator_for_tile_calculatorInputSchema = z.object({
   groutDensity: z.number().default(1.8),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Grout_calculator_for_tile_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.tileLength / 1000; results["L_m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["L_m"] = 0; }
-  try { const v = input.tileWidth / 1000; results["W_m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["W_m"] = 0; }
-  try { const v = input.jointWidth / 1000; results["J_m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["J_m"] = 0; }
-  try { const v = input.tileThickness / 1000; results["D_m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["D_m"] = 0; }
-  try { const v = (((asFormulaNumber(results["L_m"])) + (asFormulaNumber(results["W_m"]))) / ((asFormulaNumber(results["L_m"])) * (asFormulaNumber(results["W_m"])))) * (asFormulaNumber(results["J_m"])) * (asFormulaNumber(results["D_m"])) * input.wasteFactor * 1000; results["volumePerM2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumePerM2"] = 0; }
-  try { const v = (asFormulaNumber(results["volumePerM2"])) * input.area; results["totalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolume"])) * input.groutDensity; results["totalWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeight"] = 0; }
+function evaluateAllFormulas(input: Grout_calculator_for_tile_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.tileLength / 1000; results["L_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["L_m"] = 0; }
+  try { const v = input.tileWidth / 1000; results["W_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W_m"] = 0; }
+  try { const v = input.jointWidth / 1000; results["J_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["J_m"] = 0; }
+  try { const v = input.tileThickness / 1000; results["D_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["D_m"] = 0; }
+  try { const v = (((asFormulaNumber(results["L_m"])) + (asFormulaNumber(results["W_m"]))) / ((asFormulaNumber(results["L_m"])) * (asFormulaNumber(results["W_m"])))) * (asFormulaNumber(results["J_m"])) * (asFormulaNumber(results["D_m"])) * input.wasteFactor * 1000; results["volumePerM2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumePerM2"] = 0; }
+  try { const v = (asFormulaNumber(results["volumePerM2"])) * input.area; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["totalVolume"])) * input.groutDensity; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateGrout_calculator_for_tile_calculator(input: Grout_calculator_for_tile_calculatorInput): Grout_calculator_for_tile_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateGrout_calculator_for_tile_calculator(input: Grout_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

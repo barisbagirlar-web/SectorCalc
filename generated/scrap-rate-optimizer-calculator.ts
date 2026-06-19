@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from scrap-rate-optimizer-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Scrap_rate_optimizer_calculatorInput {
   overhead_cost_per_unit: number;
   process_stage: string;
   defect_type: string;
+  dataConfidence?: number;
 }
 
 export const Scrap_rate_optimizer_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const Scrap_rate_optimizer_calculatorInputSchema = z.object({
   defect_type: z.enum(['dimensional', 'surface', 'material', 'assembly', 'functional', 'cosmetic']).default('dimensional'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Scrap_rate_optimizer_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit * 1 * (input.defective_units * input.rework_units); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.defective_units; results["factor_defective_units"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_defective_units"] = 0; }
-  try { const v = input.rework_units; results["factor_rework_units"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_rework_units"] = 0; }
+function evaluateAllFormulas(input: Scrap_rate_optimizer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_units_produced * input.material_cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit * 1 * (input.defective_units * input.rework_units); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.defective_units; results["factor_defective_units"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_defective_units"] = 0; }
+  try { const v = input.rework_units; results["factor_rework_units"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_rework_units"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optimizer_calculatorInput): Scrap_rate_optimizer_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from calorie-to-watts-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Calorie_to_watts_calculatorInput {
   time_minutes: number;
   time_seconds: number;
   joules_per_cal: number;
+  dataConfidence?: number;
 }
 
 export const Calorie_to_watts_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Calorie_to_watts_calculatorInputSchema = z.object({
   joules_per_cal: z.number().default(4.184),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Calorie_to_watts_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.time_hours * 3600 + input.time_minutes * 60 + input.time_seconds; results["total_sec"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_sec"] = 0; }
-  try { const v = input.energy_cal * input.joules_per_cal; results["energy_J"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["energy_J"] = 0; }
-  try { const v = (asFormulaNumber(results["energy_J"])) / (asFormulaNumber(results["total_sec"])); results["power_W"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["power_W"] = 0; }
-  try { const v = (asFormulaNumber(results["power_W"])) / 1000; results["power_kW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["power_kW"] = 0; }
+function evaluateAllFormulas(input: Calorie_to_watts_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.time_hours * 3600 + input.time_minutes * 60 + input.time_seconds; results["total_sec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_sec"] = 0; }
+  try { const v = input.energy_cal * input.joules_per_cal; results["energy_J"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_J"] = 0; }
+  try { const v = (asFormulaNumber(results["energy_J"])) / (asFormulaNumber(results["total_sec"])); results["power_W"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power_W"] = 0; }
+  try { const v = (asFormulaNumber(results["power_W"])) / 1000; results["power_kW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power_kW"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCalorie_to_watts_calculator(input: Calorie_to_watts_calculatorInput): Calorie_to_watts_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateCalorie_to_watts_calculator(input: Calorie_to_watts_cal
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

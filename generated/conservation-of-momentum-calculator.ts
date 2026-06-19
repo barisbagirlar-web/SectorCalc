@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from conservation-of-momentum-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Conservation_of_momentum_calculatorInput {
   velocity1: number;
   mass2: number;
   velocity2: number;
+  dataConfidence?: number;
 }
 
 export const Conservation_of_momentum_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Conservation_of_momentum_calculatorInputSchema = z.object({
   velocity2: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Conservation_of_momentum_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.mass1 * input.velocity1 + input.mass2 * input.velocity2; results["totalMomentum"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMomentum"] = 0; }
-  try { const v = input.mass1 * input.velocity1; results["momentum1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["momentum1"] = 0; }
-  try { const v = input.mass2 * input.velocity2; results["momentum2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["momentum2"] = 0; }
+function evaluateAllFormulas(input: Conservation_of_momentum_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.mass1 * input.velocity1 + input.mass2 * input.velocity2; results["totalMomentum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMomentum"] = 0; }
+  try { const v = input.mass1 * input.velocity1; results["momentum1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentum1"] = 0; }
+  try { const v = input.mass2 * input.velocity2; results["momentum2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentum2"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateConservation_of_momentum_calculator(input: Conservation_of_momentum_calculatorInput): Conservation_of_momentum_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateConservation_of_momentum_calculator(input: Conservation
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

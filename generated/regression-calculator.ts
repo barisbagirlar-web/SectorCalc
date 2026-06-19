@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from regression-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Regression_calculatorInput {
   sumY: number;
   sumXY: number;
   sumX2: number;
+  dataConfidence?: number;
 }
 
 export const Regression_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Regression_calculatorInputSchema = z.object({
   sumX2: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Regression_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.n * input.sumXY - input.sumX * input.sumY) / (input.n * input.sumX2 - input.sumX ** 2); results["slope"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["slope"] = 0; }
-  try { const v = (input.sumY - (asFormulaNumber(results["slope"])) * input.sumX) / input.n; results["intercept"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["intercept"] = 0; }
+function evaluateAllFormulas(input: Regression_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.n * input.sumXY - input.sumX * input.sumY) / (input.n * input.sumX2 - input.sumX ** 2); results["slope"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slope"] = 0; }
+  try { const v = (input.sumY - (asFormulaNumber(results["slope"])) * input.sumX) / input.n; results["intercept"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["intercept"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRegression_calculator(input: Regression_calculatorInput): Regression_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateRegression_calculator(input: Regression_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

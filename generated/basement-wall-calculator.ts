@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from basement-wall-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Basement_wall_calculatorInput {
   concrete_strength: number;
   steel_ratio: number;
   soil_pressure: number;
+  dataConfidence?: number;
 }
 
 export const Basement_wall_calculatorInputSchema = z.object({
@@ -20,25 +20,25 @@ export const Basement_wall_calculatorInputSchema = z.object({
   soil_pressure: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Basement_wall_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.wall_length * input.wall_height * input.wall_thickness; results["wall_volume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wall_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["wall_volume"])) * (1 - input.steel_ratio / 100); results["concrete_volume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["concrete_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["wall_volume"])) * (input.steel_ratio / 100); results["steel_volume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steel_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["steel_volume"])) * 7850; results["steel_weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steel_weight"] = 0; }
-  try { const v = input.concrete_strength * input.wall_thickness * input.wall_thickness / 6; results["moment_capacity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["moment_capacity"] = 0; }
-  try { const v = input.soil_pressure * input.wall_height * input.wall_length / 2; results["lateral_load"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lateral_load"] = 0; }
-  try { const v = (asFormulaNumber(results["moment_capacity"])) / ((asFormulaNumber(results["lateral_load"])) * input.wall_height / 3); results["safety_factor_moment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["safety_factor_moment"] = 0; }
+function evaluateAllFormulas(input: Basement_wall_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.wall_length * input.wall_height * input.wall_thickness; results["wall_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wall_volume"] = 0; }
+  try { const v = (asFormulaNumber(results["wall_volume"])) * (1 - input.steel_ratio / 100); results["concrete_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concrete_volume"] = 0; }
+  try { const v = (asFormulaNumber(results["wall_volume"])) * (input.steel_ratio / 100); results["steel_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steel_volume"] = 0; }
+  try { const v = (asFormulaNumber(results["steel_volume"])) * 7850; results["steel_weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steel_weight"] = 0; }
+  try { const v = input.concrete_strength * input.wall_thickness * input.wall_thickness / 6; results["moment_capacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moment_capacity"] = 0; }
+  try { const v = input.soil_pressure * input.wall_height * input.wall_length / 2; results["lateral_load"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lateral_load"] = 0; }
+  try { const v = (asFormulaNumber(results["moment_capacity"])) / ((asFormulaNumber(results["lateral_load"])) * input.wall_height / 3); results["safety_factor_moment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safety_factor_moment"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateBasement_wall_calculator(input: Basement_wall_calculatorInput): Basement_wall_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateBasement_wall_calculator(input: Basement_wall_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

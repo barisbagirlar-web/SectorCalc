@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from area-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Area_calculatorInput {
   room2Length: number;
   room2Width: number;
   wasteFactor: number;
+  dataConfidence?: number;
 }
 
 export const Area_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Area_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Area_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.room1Length * input.room1Width; results["area1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area1"] = 0; }
-  try { const v = input.room2Length * input.room2Width; results["area2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area2"] = 0; }
-  try { const v = ((asFormulaNumber(results["area1"])) + (asFormulaNumber(results["area2"]))) * (1 + input.wasteFactor / 100); results["totalArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalArea"] = 0; }
+function evaluateAllFormulas(input: Area_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.room1Length * input.room1Width; results["area1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area1"] = 0; }
+  try { const v = input.room2Length * input.room2Width; results["area2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area2"] = 0; }
+  try { const v = ((asFormulaNumber(results["area1"])) + (asFormulaNumber(results["area2"]))) * (1 + input.wasteFactor / 100); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateArea_calculator(input: Area_calculatorInput): Area_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateArea_calculator(input: Area_calculatorInput): Area_calc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
-import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
+import { CategoryCatalogView } from "@/components/categories/CategoryCatalogView";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
@@ -98,7 +98,7 @@ export default async function IndustriesPage({ params }: PageProps) {
 
             {/* Compact category grid with tabs + search */}
             <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
-              <CategoryCompactGrid
+              <CategoryCatalogView
                 basePath="/industries"
                 categories={categoryCards}
                 tools={tools}

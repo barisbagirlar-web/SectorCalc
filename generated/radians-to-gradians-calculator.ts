@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from radians-to-gradians-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Radians_to_gradians_calculatorInput {
   conversionFactor: number;
   precision: number;
   offset: number;
+  dataConfidence?: number;
 }
 
 export const Radians_to_gradians_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Radians_to_gradians_calculatorInputSchema = z.object({
   offset: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Radians_to_gradians_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.angleRadians * input.conversionFactor; results["angleRadians___conversionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["angleRadians___conversionFactor"] = 0; }
-  try { const v = input.angleRadians * input.conversionFactor; results["angleRadians___conversionFactor_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["angleRadians___conversionFactor_aux"] = 0; }
+function evaluateAllFormulas(input: Radians_to_gradians_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.angleRadians * input.conversionFactor; results["angleRadians___conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRadians___conversionFactor"] = 0; }
+  try { const v = input.angleRadians * input.conversionFactor; results["angleRadians___conversionFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRadians___conversionFactor_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRadians_to_gradians_calculator(input: Radians_to_gradians_calculatorInput): Radians_to_gradians_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateRadians_to_gradians_calculator(input: Radians_to_gradia
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from expected-value-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Expected_value_calculatorInput {
   outcome3_value: number;
   outcome4_probability: number;
   outcome4_value: number;
+  dataConfidence?: number;
 }
 
 export const Expected_value_calculatorInputSchema = z.object({
@@ -24,23 +24,23 @@ export const Expected_value_calculatorInputSchema = z.object({
   outcome4_value: z.number().default(400),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Expected_value_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.outcome1_probability * input.outcome1_value) + (input.outcome2_probability * input.outcome2_value) + (input.outcome3_probability * input.outcome3_value) + (input.outcome4_probability * input.outcome4_value); results["EV"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["EV"] = 0; }
-  try { const v = input.outcome1_probability * input.outcome1_value; results["Outcome1_Contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Outcome1_Contribution"] = 0; }
-  try { const v = input.outcome2_probability * input.outcome2_value; results["Outcome2_Contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Outcome2_Contribution"] = 0; }
-  try { const v = input.outcome3_probability * input.outcome3_value; results["Outcome3_Contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Outcome3_Contribution"] = 0; }
-  try { const v = input.outcome4_probability * input.outcome4_value; results["Outcome4_Contribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Outcome4_Contribution"] = 0; }
+function evaluateAllFormulas(input: Expected_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.outcome1_probability * input.outcome1_value) + (input.outcome2_probability * input.outcome2_value) + (input.outcome3_probability * input.outcome3_value) + (input.outcome4_probability * input.outcome4_value); results["EV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["EV"] = 0; }
+  try { const v = input.outcome1_probability * input.outcome1_value; results["Outcome1_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome1_Contribution"] = 0; }
+  try { const v = input.outcome2_probability * input.outcome2_value; results["Outcome2_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome2_Contribution"] = 0; }
+  try { const v = input.outcome3_probability * input.outcome3_value; results["Outcome3_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome3_Contribution"] = 0; }
+  try { const v = input.outcome4_probability * input.outcome4_value; results["Outcome4_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome4_Contribution"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateExpected_value_calculator(input: Expected_value_calculatorInput): Expected_value_calculatorOutput {
@@ -52,8 +52,8 @@ export function calculateExpected_value_calculator(input: Expected_value_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

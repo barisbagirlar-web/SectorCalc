@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from ev-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Ev_cost_calculatorInput {
   vehicle_efficiency: number;
   daily_distance: number;
   maintenance_cost_per_km: number;
+  dataConfidence?: number;
 }
 
 export const Ev_cost_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Ev_cost_calculatorInputSchema = z.object({
   maintenance_cost_per_km: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Ev_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.daily_distance / 100 * input.vehicle_efficiency * (100 / input.charging_efficiency); results["energy_per_day"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["energy_per_day"] = 0; }
-  try { const v = (asFormulaNumber(results["energy_per_day"])) * input.electricity_price; results["energy_cost_per_day"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["energy_cost_per_day"] = 0; }
-  try { const v = input.daily_distance * input.maintenance_cost_per_km; results["maintenance_cost_per_day"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maintenance_cost_per_day"] = 0; }
-  try { const v = (asFormulaNumber(results["energy_cost_per_day"])) + (asFormulaNumber(results["maintenance_cost_per_day"])); results["total_cost_per_day"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_cost_per_day"] = 0; }
+function evaluateAllFormulas(input: Ev_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.daily_distance / 100 * input.vehicle_efficiency * (100 / input.charging_efficiency); results["energy_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_per_day"] = 0; }
+  try { const v = (asFormulaNumber(results["energy_per_day"])) * input.electricity_price; results["energy_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_cost_per_day"] = 0; }
+  try { const v = input.daily_distance * input.maintenance_cost_per_km; results["maintenance_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost_per_day"] = 0; }
+  try { const v = (asFormulaNumber(results["energy_cost_per_day"])) + (asFormulaNumber(results["maintenance_cost_per_day"])); results["total_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_day"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEv_cost_calculator(input: Ev_cost_calculatorInput): Ev_cost_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateEv_cost_calculator(input: Ev_cost_calculatorInput): Ev_
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

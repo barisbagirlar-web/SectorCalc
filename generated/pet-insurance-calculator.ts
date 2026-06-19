@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pet-insurance-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Pet_insurance_calculatorInput {
   coverageLimit: number;
   deductible: number;
   reimbursement: number;
+  dataConfidence?: number;
 }
 
 export const Pet_insurance_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Pet_insurance_calculatorInputSchema = z.object({
   reimbursement: z.number().default(80),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pet_insurance_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.breedRisk * (1 + input.age * 0.05); results["riskMultiplier"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["riskMultiplier"] = 0; }
-  try { const v = input.basePremium * (asFormulaNumber(results["riskMultiplier"])) * (input.coverageLimit / 5000) * (input.reimbursement / 80); results["adjustedMonthlyPremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedMonthlyPremium"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedMonthlyPremium"])) * 12; results["annualCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualCost"] = 0; }
-  try { const v = input.coverageLimit - input.deductible; results["effectiveCoverage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveCoverage"] = 0; }
+function evaluateAllFormulas(input: Pet_insurance_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.breedRisk * (1 + input.age * 0.05); results["riskMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskMultiplier"] = 0; }
+  try { const v = input.basePremium * (asFormulaNumber(results["riskMultiplier"])) * (input.coverageLimit / 5000) * (input.reimbursement / 80); results["adjustedMonthlyPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedMonthlyPremium"] = 0; }
+  try { const v = (asFormulaNumber(results["adjustedMonthlyPremium"])) * 12; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
+  try { const v = input.coverageLimit - input.deductible; results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveCoverage"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePet_insurance_calculator(input: Pet_insurance_calculatorInput): Pet_insurance_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculatePet_insurance_calculator(input: Pet_insurance_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from land-transfer-tax-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Land_transfer_tax_calculatorInput {
   exemptionAmount: number;
   isFirstTimeBuyer: number;
   fixedFee: number;
+  dataConfidence?: number;
 }
 
 export const Land_transfer_tax_calculatorInputSchema = z.object({
@@ -18,22 +18,22 @@ export const Land_transfer_tax_calculatorInputSchema = z.object({
   fixedFee: z.number().default(250),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Land_transfer_tax_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.propertyValue * (input.taxRate / 100); results["baseTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseTax"] = 0; }
-  try { const v = input.isFirstTimeBuyer * input.exemptionAmount; results["exemptionApplied"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["exemptionApplied"] = 0; }
-  try { const v = (asFormulaNumber(results["baseTax"])) - (asFormulaNumber(results["exemptionApplied"])) > 0 ? (asFormulaNumber(results["baseTax"])) - (asFormulaNumber(results["exemptionApplied"])) : 0; results["netTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netTax"] = 0; }
-  try { const v = (asFormulaNumber(results["netTax"])) + input.fixedFee; results["totalTax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTax"] = 0; }
+function evaluateAllFormulas(input: Land_transfer_tax_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.propertyValue * (input.taxRate / 100); results["baseTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseTax"] = 0; }
+  try { const v = input.isFirstTimeBuyer * input.exemptionAmount; results["exemptionApplied"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exemptionApplied"] = 0; }
+  try { const v = (asFormulaNumber(results["baseTax"])) - (asFormulaNumber(results["exemptionApplied"])) > 0 ? (asFormulaNumber(results["baseTax"])) - (asFormulaNumber(results["exemptionApplied"])) : 0; results["netTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netTax"] = 0; }
+  try { const v = (asFormulaNumber(results["netTax"])) + input.fixedFee; results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTax"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLand_transfer_tax_calculator(input: Land_transfer_tax_calculatorInput): Land_transfer_tax_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateLand_transfer_tax_calculator(input: Land_transfer_tax_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

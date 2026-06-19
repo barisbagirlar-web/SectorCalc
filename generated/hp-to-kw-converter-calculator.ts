@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from hp-to-kw-converter-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Hp_to_kw_converter_calculatorInput {
   power_factor: number;
   operating_hours_per_year: number;
   electricity_cost_per_kwh: number;
+  dataConfidence?: number;
 }
 
 export const Hp_to_kw_converter_calculatorInputSchema = z.object({
@@ -22,21 +22,21 @@ export const Hp_to_kw_converter_calculatorInputSchema = z.object({
   electricity_cost_per_kwh: z.number().min(0.01).max(1).default(0.12),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Hp_to_kw_converter_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_kwh"] = 0; }
-  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Hp_to_kw_converter_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_kwh"] = 0; }
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = 1 * input.horsepower * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateHp_to_kw_converter_calculator(input: Hp_to_kw_converter_calculatorInput): Hp_to_kw_converter_calculatorOutput {
@@ -48,8 +48,8 @@ export function calculateHp_to_kw_converter_calculator(input: Hp_to_kw_converter
   const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

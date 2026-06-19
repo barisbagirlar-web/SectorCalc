@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from duty-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Duty_calculatorInput {
   freight: number;
   dutyRate: number;
   vatRate: number;
+  dataConfidence?: number;
 }
 
 export const Duty_calculatorInputSchema = z.object({
@@ -18,23 +18,23 @@ export const Duty_calculatorInputSchema = z.object({
   vatRate: z.number().default(18),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Duty_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.productValue + input.insurance + input.freight; results["cifValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cifValue"] = 0; }
-  try { const v = (asFormulaNumber(results["cifValue"])) * input.dutyRate / 100; results["dutyAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dutyAmount"] = 0; }
-  try { const v = ((asFormulaNumber(results["cifValue"])) + (asFormulaNumber(results["dutyAmount"]))) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["cifValue"])) + (asFormulaNumber(results["dutyAmount"])) + (asFormulaNumber(results["vatAmount"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["dutyAmount"])); results["totalDuty"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDuty"] = 0; }
+function evaluateAllFormulas(input: Duty_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.productValue + input.insurance + input.freight; results["cifValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cifValue"] = 0; }
+  try { const v = (asFormulaNumber(results["cifValue"])) * input.dutyRate / 100; results["dutyAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dutyAmount"] = 0; }
+  try { const v = ((asFormulaNumber(results["cifValue"])) + (asFormulaNumber(results["dutyAmount"]))) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["cifValue"])) + (asFormulaNumber(results["dutyAmount"])) + (asFormulaNumber(results["vatAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (asFormulaNumber(results["dutyAmount"])); results["totalDuty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDuty"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateDuty_calculator(input: Duty_calculatorInput): Duty_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateDuty_calculator(input: Duty_calculatorInput): Duty_calc
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

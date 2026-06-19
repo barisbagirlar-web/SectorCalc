@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from wedding-cake-serving-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Wedding_cake_serving_calculatorInput {
   tier3Diameter: number;
   servingSize: number;
   guestCount: number;
+  dataConfidence?: number;
 }
 
 export const Wedding_cake_serving_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Wedding_cake_serving_calculatorInputSchema = z.object({
   guestCount: z.number().default(100),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Wedding_cake_serving_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.shape * input.tier1Diameter * input.tier2Diameter * input.tier3Diameter; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.shape * input.tier1Diameter * input.tier2Diameter * input.tier3Diameter * (input.servingSize * input.guestCount); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.servingSize * input.guestCount; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Wedding_cake_serving_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.shape * input.tier1Diameter * input.tier2Diameter * input.tier3Diameter; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.shape * input.tier1Diameter * input.tier2Diameter * input.tier3Diameter * (input.servingSize * input.guestCount); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.servingSize * input.guestCount; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateWedding_cake_serving_calculator(input: Wedding_cake_serving_calculatorInput): Wedding_cake_serving_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateWedding_cake_serving_calculator(input: Wedding_cake_ser
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

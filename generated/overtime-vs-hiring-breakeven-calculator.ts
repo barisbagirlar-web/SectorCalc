@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from overtime-vs-hiring-breakeven-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Overtime_vs_hiring_breakeven_calculatorInput {
   annual_benefits_cost_per_fte: number;
   productivity_factor_overtime: number;
   productivity_factor_new_hire: number;
+  dataConfidence?: number;
 }
 
 export const Overtime_vs_hiring_breakeven_calculatorInputSchema = z.object({
@@ -24,22 +24,22 @@ export const Overtime_vs_hiring_breakeven_calculatorInputSchema = z.object({
   productivity_factor_new_hire: z.number().min(10).max(100).default(70),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Overtime_vs_hiring_breakeven_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.avg_hourly_wage; results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage * input.productivity_factor_new_hire * (input.overtime_premium); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.overtime_premium; results["factor_overtime_premium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_overtime_premium"] = 0; }
+function evaluateAllFormulas(input: Overtime_vs_hiring_breakeven_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.avg_hourly_wage; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage * input.productivity_factor_new_hire * (input.overtime_premium); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.overtime_premium; results["factor_overtime_premium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_overtime_premium"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime_vs_hiring_breakeven_calculatorInput): Overtime_vs_hiring_breakeven_calculatorOutput {
@@ -51,8 +51,8 @@ export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

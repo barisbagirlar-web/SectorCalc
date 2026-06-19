@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from mpg-to-l-per-100km-converter-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Mpg_to_l_per_100km_converter_calculatorInput {
   annual_mileage: number;
   fuel_price_per_gallon: number;
   co2_per_gallon: number;
+  dataConfidence?: number;
 }
 
 export const Mpg_to_l_per_100km_converter_calculatorInputSchema = z.object({
@@ -20,20 +20,20 @@ export const Mpg_to_l_per_100km_converter_calculatorInputSchema = z.object({
   co2_per_gallon: z.number().min(0).max(15).default(8.887),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Mpg_to_l_per_100km_converter_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.mpg_value * input.annual_mileage * input.fuel_price_per_gallon * input.co2_per_gallon; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.mpg_value * input.annual_mileage * input.fuel_price_per_gallon * input.co2_per_gallon; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Mpg_to_l_per_100km_converter_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.mpg_value * input.annual_mileage * input.fuel_price_per_gallon * input.co2_per_gallon; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.mpg_value * input.annual_mileage * input.fuel_price_per_gallon * input.co2_per_gallon; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMpg_to_l_per_100km_converter_calculator(input: Mpg_to_l_per_100km_converter_calculatorInput): Mpg_to_l_per_100km_converter_calculatorOutput {
@@ -45,8 +45,8 @@ export function calculateMpg_to_l_per_100km_converter_calculator(input: Mpg_to_l
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

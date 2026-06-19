@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from irrigation-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Irrigation_calculatorInput {
   peakFactor: number;
   systemLosses: number;
   operatingHours: number;
+  dataConfidence?: number;
 }
 
 export const Irrigation_calculatorInputSchema = z.object({
@@ -20,21 +20,21 @@ export const Irrigation_calculatorInputSchema = z.object({
   operatingHours: z.number().default(12),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Irrigation_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.area * input.cropWater * 100000 * input.peakFactor) / (input.efficiency * (100 - input.systemLosses)); results["totalDailyVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDailyVolume"] = 0; }
-  try { const v = ((input.area * input.cropWater * 100000 * input.peakFactor) / (input.efficiency * (100 - input.systemLosses))) / input.operatingHours; results["requiredFlowRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredFlowRate"] = 0; }
-  try { const v = input.area * input.cropWater * 10; results["rawWaterRequirement"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawWaterRequirement"] = 0; }
+function evaluateAllFormulas(input: Irrigation_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.area * input.cropWater * 100000 * input.peakFactor) / (input.efficiency * (100 - input.systemLosses)); results["totalDailyVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDailyVolume"] = 0; }
+  try { const v = ((input.area * input.cropWater * 100000 * input.peakFactor) / (input.efficiency * (100 - input.systemLosses))) / input.operatingHours; results["requiredFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredFlowRate"] = 0; }
+  try { const v = input.area * input.cropWater * 10; results["rawWaterRequirement"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawWaterRequirement"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateIrrigation_calculator(input: Irrigation_calculatorInput): Irrigation_calculatorOutput {
@@ -46,8 +46,8 @@ export function calculateIrrigation_calculator(input: Irrigation_calculatorInput
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

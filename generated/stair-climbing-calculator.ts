@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from stair-climbing-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Stair_climbing_calculatorInput {
   treadDepth: number;
   riserHeightTarget: number;
   stairWidth: number;
+  dataConfidence?: number;
 }
 
 export const Stair_climbing_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Stair_climbing_calculatorInputSchema = z.object({
   stairWidth: z.number().default(100),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Stair_climbing_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.totalRise * input.treadDepth * input.riserHeightTarget * input.stairWidth; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.totalRise * input.treadDepth * input.riserHeightTarget * input.stairWidth; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Stair_climbing_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalRise * input.treadDepth * input.riserHeightTarget * input.stairWidth; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.totalRise * input.treadDepth * input.riserHeightTarget * input.stairWidth; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateStair_climbing_calculator(input: Stair_climbing_calculatorInput): Stair_climbing_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateStair_climbing_calculator(input: Stair_climbing_calcula
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

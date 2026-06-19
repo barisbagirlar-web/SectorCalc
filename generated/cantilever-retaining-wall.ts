@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cantilever-retaining-wall-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cantilever_retaining_wallInput {
   toeLength: number;
   soilDensity: number;
   frictionAngle: number;
+  dataConfidence?: number;
 }
 
 export const Cantilever_retaining_wallInputSchema = z.object({
@@ -24,24 +24,24 @@ export const Cantilever_retaining_wallInputSchema = z.object({
   frictionAngle: z.number().default(30),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cantilever_retaining_wallInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.stemThickness * input.height * 25; results["wallWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wallWeight"] = 0; }
-  try { const v = input.baseWidth * input.baseThickness * 25; results["baseWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = input.heelLength * input.baseThickness * 25; results["heelWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heelWeight"] = 0; }
-  try { const v = input.toeLength * input.baseThickness * 25; results["toeWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["toeWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["wallWeight"])) + (asFormulaNumber(results["baseWeight"])) + (asFormulaNumber(results["heelWeight"])) + (asFormulaNumber(results["toeWeight"])); results["totalWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeight"])) * input.baseWidth / 2; results["resistingMoment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["resistingMoment"] = 0; }
+function evaluateAllFormulas(input: Cantilever_retaining_wallInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.stemThickness * input.height * 25; results["wallWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallWeight"] = 0; }
+  try { const v = input.baseWidth * input.baseThickness * 25; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
+  try { const v = input.heelLength * input.baseThickness * 25; results["heelWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heelWeight"] = 0; }
+  try { const v = input.toeLength * input.baseThickness * 25; results["toeWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toeWeight"] = 0; }
+  try { const v = (asFormulaNumber(results["wallWeight"])) + (asFormulaNumber(results["baseWeight"])) + (asFormulaNumber(results["heelWeight"])) + (asFormulaNumber(results["toeWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = (asFormulaNumber(results["totalWeight"])) * input.baseWidth / 2; results["resistingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resistingMoment"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCantilever_retaining_wall(input: Cantilever_retaining_wallInput): Cantilever_retaining_wallOutput {
@@ -53,8 +53,8 @@ export function calculateCantilever_retaining_wall(input: Cantilever_retaining_w
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

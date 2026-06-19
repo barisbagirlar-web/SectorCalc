@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from decimal-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Decimal_calculatorInput {
   operation: number;
   precision: number;
   roundingMode: number;
+  dataConfidence?: number;
 }
 
 export const Decimal_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Decimal_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Decimal_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["unroundedResult"] = 0; }
-  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["unroundedResult_aux"] = 0; }
+function evaluateAllFormulas(input: Decimal_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unroundedResult"] = 0; }
+  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unroundedResult_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateDecimal_calculator(input: Decimal_calculatorInput): Decimal_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateDecimal_calculator(input: Decimal_calculatorInput): Dec
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -36274,7 +36274,7 @@
         "helper": "Valeur utilisée pour Pourcentage de risque dans le calcul."
       },
       "stoplosspips": {
-        "label": "Stop Loss (Pips)",
+        "label": "Stop Loss (pips)",
         "placeholder": "Saisir stop loss (pips)",
         "helper": "Valeur utilisée pour Stop Loss (Pips) dans le calcul."
       },
@@ -66296,9 +66296,9 @@
     "success": "Thank you — your note was queued for review.",
     "issueTypes": {
       "wrong-result": "Incorrect result",
-      "formula-suggestion": "Formula suggestion",
-      "unit-error": "Unit error",
-      "translation-error": "Translation error",
+      "formula-suggestion": "Suggestion de formule",
+      "unit-error": "Erreur d'unité",
+      "translation-error": "Erreur de traduction",
       "other": "Other",
       "wrong_result": "Résultat erroné",
       "missing_input": "Donnée manquante",
@@ -68215,44 +68215,44 @@
     "sectionWhoBullet3": "Consultants ayant besoin de données comparatives sectorielles",
     "sectionWhatTitle": "Ce que nous faisons",
     "sectionWhatBody": "Nous construisons des vérifications sectorielles et des calculateurs de décision qui comblent les lacunes des ERP.",
-    "sectionWhatBullet1": "Free checks for quick exposure signals",
-    "sectionWhatBullet2": "Premium analyzers for verdict-grade outputs",
-    "sectionWhatBullet3": "Export-ready decision reports with validation metadata",
-    "sectionForWhomTitle": "Who it is for",
-    "sectionForWhomBody": "Welding shops, CNC job shops, HVAC contractors, cleaning operators, restaurants, e-commerce sellers, and other sector operators who quote, bid, or plan with tight margins.",
-    "sectionForWhomBullet1": "Teams without dedicated pricing engineers",
-    "sectionForWhomBullet2": "Owners comparing quotes before signing",
-    "sectionForWhomBullet3": "Consultants needing repeatable sector templates",
-    "sectionReplacesTitle": "What we replace (and what we do not)",
-    "sectionReplacesBody": "SectorCalc replaces spreadsheet guesswork, notebook shortcuts, and random Google calculators — not SAP, Siemens, Oracle, or licensed engineering sign-off.",
-    "sectionReplacesBullet1": "Not a quote-only Word template generator",
-    "sectionReplacesBullet2": "Not an ERP or MES replacement",
-    "sectionReplacesBullet3": "Not a certified compliance authority",
-    "sectionReplacesBullet4": "Does replace ad-hoc Excel and opaque margin leaks",
+    "sectionWhatBullet1": "Contrôles gratuits pour des signaux d'exposition rapides",
+    "sectionWhatBullet2": "Analyseurs premium pour des résultats de qualité verdict",
+    "sectionWhatBullet3": "Rapports de décision prêts à exporter avec métadonnées de validation",
+    "sectionForWhomTitle": "À qui cela s'adresse",
+    "sectionForWhomBody": "Ateliers de soudure, ateliers CNC, entrepreneurs CVC, opérateurs de nettoyage, restaurants, vendeurs e-commerce et autres opérateurs sectoriels qui devisent, soumissionnent ou planifient avec des marges serrées.",
+    "sectionForWhomBullet1": "Équipes sans ingénieurs tarifaires dédiés",
+    "sectionForWhomBullet2": "Propriétaires comparant des devis avant de signer",
+    "sectionForWhomBullet3": "Consultants ayant besoin de modèles sectoriels reproductibles",
+    "sectionReplacesTitle": "Ce que nous remplaçons (et ce que nous ne remplaçons pas)",
+    "sectionReplacesBody": "SectorCalc remplace les approximations sur tableur, les raccourcis sur bloc-notes et les calculateurs Google aléatoires — pas SAP, Siemens, Oracle, ni les validations d'ingénierie agréées.",
+    "sectionReplacesBullet1": "Pas un générateur de modèles Word pour devis uniquement",
+    "sectionReplacesBullet2": "Pas un remplacement d'ERP ou de MES",
+    "sectionReplacesBullet3": "Pas une autorité de conformité certifiée",
+    "sectionReplacesBullet4": "Remplace bien les Excel ad-hoc et les fuites de marge opaques",
     "sectionLossesTitle": "Quatre types de pertes que nous mesurons",
     "sectionLossesBody": "SectorCalc se concentre sur quatre catégories de pertes opérationnelles que les ERP négligent.",
-    "sectionLossesBullet1": "Material and labor exposure",
-    "sectionLossesBullet2": "Schedule and rework buffers",
-    "sectionLossesBullet3": "Margin leak drivers with suggested actions",
-    "sectionLossesBullet4": "Representative scenarios — not guaranteed savings",
-    "sectionDualTitle": "Dual-Intelligence methodology",
-    "sectionDualBody": "Mind 2 (Requirement Engine) resolves which inputs are missing, derivable, or blocked before calculation. Mind 1 (Validation Engine) checks dimensions, invariants, and oracle/scenario coverage after calculation. The LLM layer is interface-only — never the calculation authority.",
-    "sectionDualBullet1": "Contract-driven input requirements",
-    "sectionDualBullet2": "Deterministic formula paths in production",
-    "sectionDualBullet3": "Oracle and scenario audits in governance pipeline",
-    "sectionDualBullet4": "Blocked results when validation fails",
-    "sectionTrustTitle": "Calculation Summary",
-    "sectionTrustBody": "Calculation Summary shows canonical inputs, assumptions, formula contract reference, validation status, and coverage notes alongside results — so operators can see why a number appeared, not just the headline.",
-    "sectionTrustBullet1": "Canonical input list with rejected keys",
-    "sectionTrustBullet2": "Mind 2 pre-calc and Mind 1 post-calc summaries",
-    "sectionTrustBullet3": "Export payload for PDF decision summaries (data layer)",
-    "sectionTrustBullet4": "Governance metadata for saved premium results",
-    "sectionResponsibilityTitle": "Responsibility boundary",
-    "sectionResponsibilityBody": "SectorCalc outputs are technical decision-support simulations based on user-provided inputs and documented assumptions. They are not legal, financial, tax, or engineering advice. Verify all outputs before bids, contracts, or operational commitments.",
-    "sectionResponsibilityBullet1": "User-provided inputs drive every result",
-    "sectionResponsibilityBullet2": "No guaranteed margin, savings, or approval",
-    "sectionResponsibilityBullet3": "Professional review may be required for regulated work",
-    "sectionResponsibilityBullet4": "Privacy: free-tier inputs processed in browser unless saved",
+    "sectionLossesBullet1": "Exposition matière et main-d'œuvre",
+    "sectionLossesBullet2": "Tampons pour planning et reprises",
+    "sectionLossesBullet3": "Facteurs de fuite de marge avec actions suggérées",
+    "sectionLossesBullet4": "Scénarios représentatifs — pas d'économies garanties",
+    "sectionDualTitle": "Méthodologie à double intelligence",
+    "sectionDualBody": "Mind 2 (Moteur d'exigences) détermine quelles entrées sont manquantes, dérivables ou bloquées avant le calcul. Mind 1 (Moteur de validation) vérifie les dimensions, invariants et la couverture oracle/scénario après le calcul. La couche LLM est uniquement d'interface — jamais l'autorité de calcul.",
+    "sectionDualBullet1": "Exigences d'entrée pilotées par contrat",
+    "sectionDualBullet2": "Chemins de formules déterministes en production",
+    "sectionDualBullet3": "Audits oracle et scénario dans le pipeline de gouvernance",
+    "sectionDualBullet4": "Résultats bloqués en cas d'échec de validation",
+    "sectionTrustTitle": "Résumé du calcul",
+    "sectionTrustBody": "Le Résumé du calcul affiche les entrées canoniques, hypothèses, référence du contrat de formule, statut de validation et notes de couverture avec les résultats — afin que les opérateurs puissent voir pourquoi un nombre est apparu, pas seulement le titre.",
+    "sectionTrustBullet1": "Liste d'entrées canoniques avec clés rejetées",
+    "sectionTrustBullet2": "Résumés pré-calcul Mind 2 et post-calcul Mind 1",
+    "sectionTrustBullet3": "Charge utile d'export pour les résumés de décision PDF (couche données)",
+    "sectionTrustBullet4": "Métadonnées de gouvernance pour les résultats premium sauvegardés",
+    "sectionResponsibilityTitle": "Limite de responsabilité",
+    "sectionResponsibilityBody": "Les sorties de SectorCalc sont des simulations d'aide à la décision technique basées sur les entrées fournies par l'utilisateur et des hypothèses documentées. Elles ne constituent pas des conseils juridiques, financiers, fiscaux ou d'ingénierie. Vérifiez toutes les sorties avant les soumissions, contrats ou engagements opérationnels.",
+    "sectionResponsibilityBullet1": "Les entrées fournies par l'utilisateur pilotent chaque résultat",
+    "sectionResponsibilityBullet2": "Aucune marge, économie ou approbation garantie",
+    "sectionResponsibilityBullet3": "Un examen professionnel peut être requis pour les travaux réglementés",
+    "sectionResponsibilityBullet4": "Confidentialité : les entrées du niveau gratuit sont traitées dans le navigateur sauf si sauvegardées",
     "aboutCards": [
       {
         "id": "mission",
@@ -68421,53 +68421,53 @@
   },
   "benchmarksPage": {
     "meta": {
-      "title": "Industry Benchmarks — Compare Your Metrics",
-      "description": "View sector-specific benchmark data and compare your operational metrics against industry standards."
+      "title": "Références sectorielles — Comparez vos indicateurs",
+      "description": "Consultez les données de référence sectorielles et comparez vos indicateurs opérationnels aux normes du secteur."
     },
-    "semanticTitle": "Industry Benchmark Data",
-    "semanticAnswer": "Reference benchmarks for each sector",
-    "semanticBullet1": "Compare results against sector baselines",
-    "semanticBullet2": "Identify performance gaps and improvement areas",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticTitle": "Données de référence sectorielles",
+    "semanticAnswer": "Références pour chaque secteur",
+    "semanticBullet1": "Comparez les résultats aux bases sectorielles",
+    "semanticBullet2": "Identifiez les écarts de performance et les axes d'amélioration",
+    "semanticBullet3": "Suivez les progrès avec des comparaisons structurées d'indicateurs",
     "eyebrow": "SectorCalc",
-    "headline": "Industry Benchmarks",
-    "sectorsTitle": "Available sectors",
-    "openLabel": "View benchmarks",
-    "backLink": "← Back to audit hub"
+    "headline": "Références sectorielles",
+    "sectorsTitle": "Secteurs disponibles",
+    "openLabel": "Voir les références",
+    "backLink": "← Retour au hub d'audit"
   },
   "sustainabilityPage": {
     "meta": {
-      "title": "Sustainability — Sector Benchmarks",
-      "description": "View sustainability metrics and sector benchmarks for carbon, energy, and waste reduction."
+      "title": "Durabilité — Références sectorielles",
+      "description": "Consultez les indicateurs de durabilité et les références sectorielles pour la réduction du carbone, de l'énergie et des déchets."
     },
-    "semanticTitle": "Sustainability Benchmarks",
-    "semanticAnswer": "Reference benchmarks for each sector",
-    "semanticBullet1": "Compare sustainability metrics against sector baselines",
-    "semanticBullet2": "Identify carbon, energy, and waste reduction opportunities",
-    "semanticBullet3": "Track progress with structured metric comparisons",
+    "semanticTitle": "Références de durabilité",
+    "semanticAnswer": "Références pour chaque secteur",
+    "semanticBullet1": "Comparez les indicateurs de durabilité aux bases sectorielles",
+    "semanticBullet2": "Identifiez les opportunités de réduction du carbone, de l'énergie et des déchets",
+    "semanticBullet3": "Suivez les progrès avec des comparaisons structurées d'indicateurs",
     "eyebrow": "SectorCalc",
-    "headline": "Sustainability Benchmarks",
-    "lead": "Compare your operational sustainability metrics against sector standards and identify reduction opportunities.",
-    "sectorsTitle": "Available sectors",
-    "auditLabel": "View audit",
-    "auditHub": "Audit hub",
-    "benchmarks": "Benchmarks"
+    "headline": "Références de durabilité",
+    "lead": "Comparez vos indicateurs de durabilité opérationnelle aux normes sectorielles et identifiez les opportunités de réduction.",
+    "sectorsTitle": "Secteurs disponibles",
+    "auditLabel": "Voir l'audit",
+    "auditHub": "Hub d'audit",
+    "benchmarks": "Références"
   },
   "sampleReportPage": {
     "meta": {
-      "title": "Sample Decision Report",
-      "description": "Preview a sample decision report generated by SectorCalc's sector-specific calculation tools."
+      "title": "Exemple de rapport de décision",
+      "description": "Aperçu d'un exemple de rapport de décision généré par les outils de calcul sectoriels de SectorCalc."
     },
     "eyebrow": "SectorCalc",
-    "title": "Sample Decision Report",
-    "description": "This is a representative preview of a SectorCalc decision report generated from user-provided inputs and governed formula contracts.",
-    "sampleReportIncludes": "This sample report includes: calculation summary, risk drivers, suggested actions, assumptions, and Trust Trace metadata. Actual reports vary by sector and subscription tier.",
-    "startFree": "Start with a free tool →",
-    "ctaEyebrow": "Try it yourself",
-    "ctaTitle": "Run a free calculation",
-    "ctaSubtitle": "Explore sector-specific tools and see your own results in seconds.",
-    "ctaPrimary": "Browse free tools",
-    "ctaSecondary": "View pricing"
+    "title": "Exemple de rapport de décision",
+    "description": "Ceci est un aperçu représentatif d'un rapport de décision SectorCalc généré à partir d'entrées fournies par l'utilisateur et de contrats de formules régis.",
+    "sampleReportIncludes": "Cet exemple de rapport inclut : résumé du calcul, facteurs de risque, actions suggérées, hypothèses et métadonnées Trust Trace. Les rapports réels varient selon le secteur et le niveau d'abonnement.",
+    "startFree": "Commencer avec un outil gratuit →",
+    "ctaEyebrow": "Essayez par vous-même",
+    "ctaTitle": "Effectuez un calcul gratuit",
+    "ctaSubtitle": "Explorez les outils spécifiques à chaque secteur et voyez vos propres résultats en quelques secondes.",
+    "ctaPrimary": "Parcourir les outils gratuits",
+    "ctaSecondary": "Voir les tarifs"
   },
   "trustPage": {
     "meta": {
@@ -68479,11 +68479,11 @@
   },
   "manifestoPage": {
     "meta": {
-      "title": "Manifesto — SectorCalc Vision",
-      "description": "The SectorCalc manifesto: making sector-specific calculations accessible to every operator."
+      "title": "Manifeste — Vision SectorCalc",
+      "description": "Le manifeste SectorCalc : rendre les calculs spécifiques aux secteurs accessibles à chaque opérateur."
     },
-    "headline": "Manifesto",
-    "lead": "SectorCalc is an Industrial Micro-SaaS App Store for operators who need measurement, loss detection, and decision-ready reports."
+    "headline": "Manifeste",
+    "lead": "SectorCalc est une boutique d'applications industrielles Micro-SaaS pour les opérateurs ayant besoin de mesures, de détection de pertes et de rapports prêts à la décision."
   },
   "methodologyPage": {
     "meta": {
@@ -68495,51 +68495,51 @@
   },
   "categoriesPage": {
     "meta": {
-      "title": "Tool Categories",
-      "description": "Browse all SectorCalc tool categories organized by sector, profession, and calculation type."
+      "title": "Catégories d'outils",
+      "description": "Parcourez toutes les catégories d'outils SectorCalc organisées par secteur, profession et type de calcul."
     },
     "categories": {
       "eyebrow": "SectorCalc",
-      "title": "Tool Categories",
-      "subtitle": "Browse tools by sector, profession, or calculation type."
+      "title": "Catégories d'outils",
+      "subtitle": "Parcourez les outils par secteur, profession ou type de calcul."
     },
     "breadcrumbHome": "Home",
-    "breadcrumbCategories": "Categories",
-    "itemListName": "Calculation Categories"
+    "breadcrumbCategories": "Catégories",
+    "itemListName": "Catégories de calcul"
   },
   "auditPage": {
     "meta": {
-      "title": "Audit Hub — Sector Benchmarks",
-      "description": "Audit your operational metrics against sector benchmarks and identify improvement areas."
+      "title": "Hub d'audit — Références sectorielles",
+      "description": "Auditez vos indicateurs opérationnels par rapport aux références sectorielles et identifiez les axes d'amélioration."
     },
-    "semanticTitle": "Audit Hub",
-    "semanticAnswer": "Compare your metrics against sector standards",
-    "semanticBullet1": "Select a sector to view benchmark data",
-    "semanticBullet2": "Compare your operational metrics against standards",
-    "semanticBullet3": "Identify gaps and prioritize improvements",
-    "benchmarksLink": "Benchmarks",
-    "cbamLink": "CBAM Compliance"
+    "semanticTitle": "Hub d'audit",
+    "semanticAnswer": "Comparez vos indicateurs aux normes sectorielles",
+    "semanticBullet1": "Sélectionnez un secteur pour voir les données de référence",
+    "semanticBullet2": "Comparez vos indicateurs opérationnels aux normes",
+    "semanticBullet3": "Identifiez les écarts et priorisez les améliorations",
+    "benchmarksLink": "Références",
+    "cbamLink": "Conformité CBAM"
   },
   "seoPage": {
-    "guidesEyebrow": "SectorCalc guides",
-    "authorityGuideEyebrow": "SectorCalc authority guide",
-    "whatYouCalculate": "What this page helps you calculate",
+    "guidesEyebrow": "Guides SectorCalc",
+    "authorityGuideEyebrow": "Guide d'autorité SectorCalc",
+    "whatYouCalculate": "Ce que cette page vous aide à calculer",
     "faq": "FAQ",
-    "relatedGuides": "Related guides",
-    "seoHubIndex": "SEO hub index",
-    "relatedFreeCalculators": "Related free calculators",
-    "relatedPremiumCalculators": "Related premium calculators",
-    "exploreFurther": "Explore further",
+    "relatedGuides": "Guides connexes",
+    "seoHubIndex": "Index du hub SEO",
+    "relatedFreeCalculators": "Calculateurs gratuits connexes",
+    "relatedPremiumCalculators": "Calculateurs premium connexes",
+    "exploreFurther": "Explorer plus loin",
     "breadcrumbHome": "Home",
     "breadcrumbGuides": "Guides",
     "seoHub": "SEO hub",
-    "categories": "Categories",
-    "industryPage": "Industry page",
-    "allIndustries": "All industries",
+    "categories": "Catégories",
+    "industryPage": "Page secteur",
+    "allIndustries": "Tous les secteurs",
     "pricing": "Pricing",
-    "startFree": "Start with free calculators",
-    "viewPremium": "View premium calculators",
-    "legalFooter": "SectorCalc guides are technical decision-support resources based on standard formulas and transparent assumptions. They are not financial, legal, medical or engineering advice."
+    "startFree": "Commencez par les calculateurs gratuits",
+    "viewPremium": "Consultez les calculateurs premium",
+    "legalFooter": "Les guides SectorCalc sont des ressources techniques d'aide à la décision basées sur des formules standard et des hypothèses transparentes. Ils ne constituent pas des conseils financiers, juridiques, médicaux ou techniques."
   },
   "howItWorks": {
     "meta": {
@@ -68549,154 +68549,154 @@
     "eyebrow": "Comment ça marche",
     "title": "Méthodologie, résultats et limites",
     "lead": "SectorCalc est une plateforme de mesure et de décision sectorielle. Les vérifications gratuites s'exécutent entièrement dans le navigateur.",
-    "privacyNote": "Free checks run without ERP setup. Business data is not sold.",
+    "privacyNote": "Les vérifications gratuites s'effectuent sans configuration ERP. Les données commerciales ne sont pas vendues.",
     "sections": [
       {
         "id": "free-check",
-        "title": "What the free check shows",
-        "body": "Free sector checks use 3–5 structured inputs per industry. Outputs include a visible risk level (LOW / MEDIUM / HIGH), a plain-language headline and summary of cost exposure. Free checks run in your browser without an account. They do not show minimum safe price, accept/reject verdict strings or PDF export.",
+        "title": "Ce que montre la vérification gratuite",
+        "body": "Les vérifications sectorielles gratuites utilisent 3 à 5 entrées structurées par secteur. Les résultats incluent un niveau de risque visible (FAIBLE / MOYEN / ÉLEVÉ), un titre en langage clair et un résumé de l'exposition aux coûts. Les vérifications gratuites s'exécutent dans votre navigateur sans compte. Elles n'affichent pas le prix de sécurité minimum, les chaînes de verdict d'acceptation/refus ou l'export PDF.",
         "bullets": [
-          "Visible risk signal only",
-          "Directional cost exposure summary",
-          "No minimum safe price floor",
-          "No final verdict or saved report"
+          "Signal de risque visible uniquement",
+          "Résumé directionnel de l'exposition aux coûts",
+          "Aucun prix plancher de sécurité minimum",
+          "Aucun verdict final ou rapport sauvegardé"
         ]
       },
       {
         "id": "premium-verdict",
-        "title": "What the premium verdict adds",
-        "body": "Premium analyzers use expanded input sets (typically 5–9 fields) to produce a decision verdict: minimum safe price where applicable, margin leak drivers, scenario comparison and a suggested action (accept, reprice, renegotiate or do not accept). Subscribers can save reports and export PDF copies.",
+        "title": "Ce que le verdict premium ajoute",
+        "body": "Les analyseurs premium utilisent des ensembles d'entrées élargis (généralement 5 à 9 champs) pour produire un verdict de décision : prix de sécurité minimum le cas échéant, facteurs de fuite de marge, comparaison de scénarios et une action suggérée (accepter, revaloriser, renégocier ou ne pas accepter). Les abonnés peuvent sauvegarder des rapports et exporter des copies PDF.",
         "bullets": [
-          "Minimum safe price or bid floor",
-          "Margin leak breakdown",
-          "Accept / reprice / reject verdict",
-          "PDF-ready report and saved history (Pro)"
+          "Prix de sécurité minimum ou plancher d'offre",
+          "Analyse des fuites de marge",
+          "Verdict accepter / revaloriser / refuser",
+          "Rapport prêt pour PDF et historique sauvegardé (Pro)"
         ]
       },
       {
         "id": "inputs",
-        "title": "Inputs used",
-        "body": "Each sector pack defines validated input fields — machine time, labor, material, margin targets, delay days and similar operating variables. Labels and helper text explain what belongs in each field. Premium analyzers may require additional fields not shown on the free tier.",
+        "title": "Entrées utilisées",
+        "body": "Chaque pack sectoriel définit des champs d'entrée validés — temps machine, main-d'œuvre, matériau, objectifs de marge, jours de retard et variables opérationnelles similaires. Les étiquettes et textes d'aide expliquent ce qui appartient à chaque champ. Les analyseurs premium peuvent nécessiter des champs supplémentaires non affichés dans le niveau gratuit.",
         "bullets": [
-          "Sector-specific field sets per tool",
-          "Visible labels and helper text",
-          "No raw formula sheets exposed to users",
-          "Inputs are illustrative simulations — verify before quoting"
+          "Ensembles de champs spécifiques au secteur par outil",
+          "Étiquettes visibles et textes d'aide",
+          "Aucune feuille de formule brute exposée aux utilisateurs",
+          "Les entrées sont des simulations illustratives — vérifiez avant de soumissionner"
         ]
       },
       {
         "id": "risk-signals",
-        "title": "Risk signals",
-        "body": "Risk levels combine input ratios, sector thresholds and margin targets configured per industry pack. HIGH risk means the quote or change may erode margin under stated assumptions — not a guarantee of loss, but a signal to reprice or reduce scope before committing.",
+        "title": "Signaux de risque",
+        "body": "Les niveaux de risque combinent les ratios d'entrée, les seuils sectoriels et les objectifs de marge configurés par pack sectoriel. Un risque ÉLEVÉ signifie que le devis ou le changement peut éroder la marge selon les hypothèses énoncées — pas une garantie de perte, mais un signal pour revaloriser ou réduire le périmètre avant de s'engager.",
         "bullets": [
-          "LOW / MEDIUM / HIGH visible on free tier",
-          "Premium adds verdict labels and leak drivers",
-          "Risk is text + level — not color alone",
-          "Signals are decision-support, not certified audit"
+          "FAIBLE / MOYEN / ÉLEVÉ visible dans le niveau gratuit",
+          "Premium ajoute des étiquettes de verdict et des facteurs de fuite",
+          "Le risque est texte + niveau — pas seulement la couleur",
+          "Les signaux sont une aide à la décision, pas un audit certifié"
         ]
       },
       {
         "id": "safe-price",
-        "title": "Safe price logic",
-        "body": "Where applicable, premium calculators compute a minimum safe price or bid floor from direct cost, target margin and sector-specific buffers (setup, scrap, tooling, delay). The exact model varies by sector — CNC machine shops, construction change orders and cleaning contracts use different drivers.",
+        "title": "Logique du prix de sécurité",
+        "body": "Le cas échéant, les calculateurs premium calculent un prix de sécurité minimum ou un plancher d'offre à partir du coût direct, de la marge cible et des tampons spécifiques au secteur (configuration, rebut, outillage, retard). Le modèle exact varie selon le secteur — les ateliers d'usinage CNC, les ordres de modification de construction et les contrats de nettoyage utilisent des facteurs différents.",
         "bullets": [
-          "Target margin applied to loaded direct cost",
-          "Sector buffers for setup, scrap or delay",
-          "Scenario rows at multiple margin targets",
-          "Safe price withheld on free tier intentionally"
+          "Marge cible appliquée au coût direct chargé",
+          "Tampons sectoriels pour configuration, rebut ou retard",
+          "Lignes de scénario à plusieurs objectifs de marge",
+          "Prix de sécurité intentionnellement retenu dans le niveau gratuit"
         ]
       },
       {
         "id": "limitations",
-        "title": "Report limitations",
-        "body": "All outputs are technical simulations and decision-support estimates. They are not financial, legal, engineering or tax advice. SectorCalc does not replace professional estimating, cost accounting or contractual review.",
+        "title": "Limitations du rapport",
+        "body": "Tous les résultats sont des simulations techniques et des estimations d'aide à la décision. Ils ne constituent pas des conseils financiers, juridiques, techniques ou fiscaux. SectorCalc ne remplace pas l'estimation professionnelle, la comptabilité analytique ou la révision contractuelle.",
         "bullets": [
-          "Not certified financial or engineering advice",
-          "Verify all numbers before commercial commitments",
-          "Models simplify real-world variability",
-          "Subscription does not guarantee business outcomes"
+          "Pas un conseil financier ou technique certifié",
+          "Vérifiez tous les chiffres avant tout engagement commercial",
+          "Les modèles simplifient la variabilité du monde réel",
+          "L'abonnement ne garantit pas les résultats commerciaux"
         ]
       },
       {
         "id": "privacy",
-        "title": "Data privacy",
-        "body": "Free checks run without ERP setup and without requiring an enterprise rollout. Business data is not sold. Saved reports and account data are linked to your SectorCalc login when you choose to save or subscribe.",
+        "title": "Confidentialité des données",
+        "body": "Les vérifications gratuites s'effectuent sans configuration ERP et sans nécessiter un déploiement en entreprise. Les données commerciales ne sont pas vendues. Les rapports sauvegardés et les données du compte sont liés à votre connexion SectorCalc lorsque vous choisissez de sauvegarder ou de vous abonner.",
         "bullets": [
-          "Free checks run without ERP setup",
-          "Business data is not sold",
-          "Stripe handles subscription billing securely",
-          "See Privacy Policy for retention details"
+          "Les vérifications gratuites s'effectuent sans configuration ERP",
+          "Les données commerciales ne sont pas vendues",
+          "Stripe gère la facturation des abonnements en toute sécurité",
+          "Voir la politique de confidentialité pour les détails de conservation"
         ]
       },
       {
         "id": "disclaimer",
-        "title": "Disclaimer",
-        "body": "DISCLAIMER_TEXT",
+        "title": "Avertissement",
+        "body": "TEXTE_AVERTISSEMENT",
         "bullets": []
       }
     ],
-    "compareTitle": "Free vs premium at a glance",
-    "freeTitle": "Free check",
+    "compareTitle": "Gratuit vs premium en un coup d'œil",
+    "freeTitle": "Vérification gratuite",
     "freeItems": [
-      "Visible risk level and summary",
-      "Browser-side processing",
-      "No PDF export",
-      "No minimum safe price"
+      "Niveau de risque visible et résumé",
+      "Traitement côté navigateur",
+      "Pas d'export PDF",
+      "Aucun prix de sécurité minimum"
     ],
-    "premiumTitle": "Premium verdict",
+    "premiumTitle": "Verdict premium",
     "premiumItems": [
-      "Full calculator inputs",
-      "Verdict label and suggested action",
-      "PDF export for saved reports",
-      "Single Verdict ($9) or Pro ($19/month)"
+      "Entrées complètes du calculateur",
+      "Étiquette de verdict et action suggérée",
+      "Export PDF pour les rapports sauvegardés",
+      "Verdict unique (9 $) ou Pro (19 $/mois)"
     ],
-    "linksFree": "Run a free check →",
-    "linksSample": "View sample verdict report →",
-    "linksPremium": "Browse premium calculators →",
-    "linksPricing": "View pricing →"
+    "linksFree": "Effectuer une vérification gratuite →",
+    "linksSample": "Voir un exemple de rapport de verdict →",
+    "linksPremium": "Parcourir les calculateurs premium →",
+    "linksPricing": "Voir les tarifs →"
   },
   "loginPage": {
     "meta": {
       "title": "Sign in",
-      "description": "Sign in to SectorCalc — admin panel or SectorCalc Pro access."
+      "description": "Connectez-vous à SectorCalc — panneau d'administration ou accès SectorCalc Pro."
     },
     "title": "Sign in",
-    "subtitle": "Admin sign-in for the lead panel, or Google sign-in below when returning from premium tools or pricing."
+    "subtitle": "Connexion administrateur pour le panneau principal, ou connexion Google ci-dessous lors du retour des outils premium ou des tarifs."
   },
   "accountPage": {
     "meta": {
       "title": "Account",
-      "description": "Manage your SectorCalc Pro access, premium decision tools and saved verdict reports."
+      "description": "Gérez votre accès SectorCalc Pro, vos outils de décision premium et vos rapports de verdict sauvegardés."
     }
   },
   "accountCreditsPage": {
     "meta": {
       "title": "Credits",
-      "description": "Buy SectorCalc credits for premium AI assistance and analyzer usage."
+      "description": "Achetez des crédits SectorCalc pour l'assistance IA premium et l'utilisation de l'analyseur."
     }
   },
   "accountFeedbackPage": {
     "meta": {
-      "title": "Feedback Queue",
-      "description": "Review tool feedback, formula objections, and improvement requests."
+      "title": "File d'attente des commentaires",
+      "description": "Examinez les commentaires sur les outils, les objections aux formules et les demandes d'amélioration."
     }
   },
   "constructionBidMarginPage": {
     "meta": {
-      "title": "Construction Bid Margin — Change Order Risk",
-      "description": "Protect construction project margin before you sign change orders. Free bid check and premium change-order verdict reports."
+      "title": "Marge d'offre de construction — Risque d'ordre de modification",
+      "description": "Protégez la marge de votre projet de construction avant de signer des ordres de modification. Vérification d'offre gratuite et rapports de verdict premium pour les ordres de modification."
     }
   },
   "cleaningContractMarginPage": {
     "meta": {
-      "title": "Cleaning Contract Margin — Bid Optimizer",
-      "description": "Stop cleaning contracts that lose money every month. Free cost check and premium bid verdict reports for office cleaning."
+      "title": "Marge de contrat de nettoyage — Optimiseur d'offre",
+      "description": "Arrêtez les contrats de nettoyage qui perdent de l'argent chaque mois. Vérification des coûts gratuite et rapports de verdict d'offre premium pour le nettoyage de bureaux."
     }
   },
   "cncQuoteRiskPage": {
     "meta": {
-      "title": "CNC Quote Risk Calculator",
-      "description": "Spot underpriced CNC jobs before they kill your margin. Run a free machine time check, then unlock safe price verdicts with SectorCalc Pro."
+      "title": "Calculateur de risque de devis CNC",
+      "description": "Repérez les offres CNC sous-évaluées avant qu'elles n'écrasent votre marge. Effectuez un contrôle gratuit du temps machine, puis débloquez des verdicts de prix sûrs avec SectorCalc Pro."
     }
   },
   "disclaimerPage": {
@@ -68756,12 +68756,12 @@
   },
   "industriesSlugPage": {
     "metaTitleFallback": "{name} Cost & Margin Tools",
-    "metaDescriptionFallback": "Use SectorCalc tools to check {name} cost risk, bid margin and hidden profit leaks before accepting work."
+    "metaDescriptionFallback": "Utilisez les outils SectorCalc pour vérifier le risque de coût, la marge d'offre et les fuites de profit cachées de {name} avant d'accepter un travail."
   },
   "accountReportsPage": {
     "meta": {
-      "title": "Saved Reports",
-      "description": "View saved SectorCalc Pro verdict reports linked to your account."
+      "title": "Rapports sauvegardés",
+      "description": "Consultez les rapports de verdict SectorCalc Pro sauvegardés liés à votre compte."
     }
   },
   "accountReportDetailPage": {
@@ -68776,7 +68776,7 @@
   "premiumSchemaPrintPage": {
     "meta": {
       "title": "{name} — Rapport d",
-      "description": "Print-ready premium decision report for {name}."
+      "description": "Rapport de décision premium prêt à imprimer pour {name}."
     }
   },
   "industrialFieldPanel": {

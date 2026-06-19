@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from retention-factor-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Retention_factor_calculatorInput {
   permeateConc: number;
   feedFlow: number;
   permeateFlow: number;
+  dataConfidence?: number;
 }
 
 export const Retention_factor_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Retention_factor_calculatorInputSchema = z.object({
   permeateFlow: z.number().default(5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Retention_factor_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.feedConc * input.permeateConc * input.feedFlow * input.permeateFlow; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.feedConc * input.permeateConc * input.feedFlow * input.permeateFlow; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Retention_factor_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.feedConc * input.permeateConc * input.feedFlow * input.permeateFlow; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.feedConc * input.permeateConc * input.feedFlow * input.permeateFlow; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateRetention_factor_calculator(input: Retention_factor_calculatorInput): Retention_factor_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateRetention_factor_calculator(input: Retention_factor_cal
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

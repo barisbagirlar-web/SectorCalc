@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from pilates-calorie-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Pilates_calorie_calculatorInput {
   mainDuration: number;
   cooldownDuration: number;
   difficultyFactor: number;
+  dataConfidence?: number;
 }
 
 export const Pilates_calorie_calculatorInputSchema = z.object({
@@ -18,21 +18,21 @@ export const Pilates_calorie_calculatorInputSchema = z.object({
   difficultyFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Pilates_calorie_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.weight * (2.5 * input.warmupDuration / 60 + 3.5 * input.mainDuration / 60 + 2.0 * input.cooldownDuration / 60) * input.difficultyFactor; results["caloriesBurned"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = (asFormulaNumber(results["caloriesBurned"])) / (input.warmupDuration + input.mainDuration + input.cooldownDuration); results["caloriesPerMinute"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
-  try { const v = input.warmupDuration + input.mainDuration + input.cooldownDuration; results["totalDuration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDuration"] = 0; }
+function evaluateAllFormulas(input: Pilates_calorie_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.weight * (2.5 * input.warmupDuration / 60 + 3.5 * input.mainDuration / 60 + 2.0 * input.cooldownDuration / 60) * input.difficultyFactor; results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
+  try { const v = (asFormulaNumber(results["caloriesBurned"])) / (input.warmupDuration + input.mainDuration + input.cooldownDuration); results["caloriesPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
+  try { const v = input.warmupDuration + input.mainDuration + input.cooldownDuration; results["totalDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDuration"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculatePilates_calorie_calculator(input: Pilates_calorie_calculatorInput): Pilates_calorie_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculatePilates_calorie_calculator(input: Pilates_calorie_calcu
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

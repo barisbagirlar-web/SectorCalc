@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from time-signature-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Time_signature_calculatorInput {
   denominator: number;
   tempo: number;
   measures: number;
+  dataConfidence?: number;
 }
 
 export const Time_signature_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Time_signature_calculatorInputSchema = z.object({
   measures: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Time_signature_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 60 / input.tempo; results["beatDurationSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["beatDurationSeconds"] = 0; }
-  try { const v = 60 / input.tempo * input.numerator; results["measureDurationSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["measureDurationSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["measureDurationSeconds"])) * input.measures; results["totalDurationSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDurationSeconds"] = 0; }
+function evaluateAllFormulas(input: Time_signature_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 60 / input.tempo; results["beatDurationSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beatDurationSeconds"] = 0; }
+  try { const v = 60 / input.tempo * input.numerator; results["measureDurationSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["measureDurationSeconds"] = 0; }
+  try { const v = (asFormulaNumber(results["measureDurationSeconds"])) * input.measures; results["totalDurationSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDurationSeconds"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateTime_signature_calculator(input: Time_signature_calculatorInput): Time_signature_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateTime_signature_calculator(input: Time_signature_calcula
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

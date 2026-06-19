@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from game-theory-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Game_theory_calculatorInput {
   payoff12: number;
   payoff21: number;
   payoff22: number;
+  dataConfidence?: number;
 }
 
 export const Game_theory_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Game_theory_calculatorInputSchema = z.object({
   payoff22: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Game_theory_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22; results["denom"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["denom"] = 0; }
-  try { const v = (input.payoff22 - input.payoff21) / (input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22); results["rowProb"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rowProb"] = 0; }
-  try { const v = (asFormulaNumber(results["rowProb"])) * input.payoff11 + (1 - (asFormulaNumber(results["rowProb"]))) * input.payoff21; results["gameValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gameValue"] = 0; }
-  try { const v = (input.payoff22 - input.payoff12) / (input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22); results["colProb"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["colProb"] = 0; }
+function evaluateAllFormulas(input: Game_theory_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22; results["denom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denom"] = 0; }
+  try { const v = (input.payoff22 - input.payoff21) / (input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22); results["rowProb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rowProb"] = 0; }
+  try { const v = (asFormulaNumber(results["rowProb"])) * input.payoff11 + (1 - (asFormulaNumber(results["rowProb"]))) * input.payoff21; results["gameValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gameValue"] = 0; }
+  try { const v = (input.payoff22 - input.payoff12) / (input.payoff11 - input.payoff12 - input.payoff21 + input.payoff22); results["colProb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["colProb"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateGame_theory_calculator(input: Game_theory_calculatorInput): Game_theory_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateGame_theory_calculator(input: Game_theory_calculatorInp
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

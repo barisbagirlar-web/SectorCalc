@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cycling-power-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cycling_power_calculatorInput {
   air_density: number;
   CdA: number;
   drivetrain_efficiency: number;
+  dataConfidence?: number;
 }
 
 export const Cycling_power_calculatorInputSchema = z.object({
@@ -24,20 +24,20 @@ export const Cycling_power_calculatorInputSchema = z.object({
   drivetrain_efficiency: z.number().default(0.95),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cycling_power_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 0.5 * input.air_density * input.CdA * ((input.speed / 3.6 + input.wind_speed / 3.6) ** 2) * (input.speed / 3.6); results["air_resistance_power"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["air_resistance_power"] = 0; }
-  try { const v = (input.rolling_resistance_coefficient * input.total_mass * 9.81) * (input.speed / 3.6); results["rolling_resistance_power"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rolling_resistance_power"] = 0; }
+function evaluateAllFormulas(input: Cycling_power_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 0.5 * input.air_density * input.CdA * ((input.speed / 3.6 + input.wind_speed / 3.6) ** 2) * (input.speed / 3.6); results["air_resistance_power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["air_resistance_power"] = 0; }
+  try { const v = (input.rolling_resistance_coefficient * input.total_mass * 9.81) * (input.speed / 3.6); results["rolling_resistance_power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rolling_resistance_power"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCycling_power_calculator(input: Cycling_power_calculatorInput): Cycling_power_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateCycling_power_calculator(input: Cycling_power_calculato
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

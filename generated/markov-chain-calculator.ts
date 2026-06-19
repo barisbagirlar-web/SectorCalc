@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from markov-chain-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Markov_chain_calculatorInput {
   pBA: number;
   initA: number;
   steps: number;
+  dataConfidence?: number;
 }
 
 export const Markov_chain_calculatorInputSchema = z.object({
@@ -16,20 +16,20 @@ export const Markov_chain_calculatorInputSchema = z.object({
   steps: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Markov_chain_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.pBA / (input.pAB + input.pBA); results["steadyStateA"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steadyStateA"] = 0; }
-  try { const v = input.pAB / (input.pAB + input.pBA); results["steadyStateB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steadyStateB"] = 0; }
+function evaluateAllFormulas(input: Markov_chain_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.pBA / (input.pAB + input.pBA); results["steadyStateA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateA"] = 0; }
+  try { const v = input.pAB / (input.pAB + input.pBA); results["steadyStateB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateB"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateMarkov_chain_calculator(input: Markov_chain_calculatorInput): Markov_chain_calculatorOutput {
@@ -41,8 +41,8 @@ export function calculateMarkov_chain_calculator(input: Markov_chain_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

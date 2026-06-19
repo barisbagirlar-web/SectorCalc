@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from electricity-usage-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Electricity_usage_calculatorInput {
   daysPerMonth: number;
   numberOfDevices: number;
   costPerKwh: number;
+  dataConfidence?: number;
 }
 
 export const Electricity_usage_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Electricity_usage_calculatorInputSchema = z.object({
   costPerKwh: z.number().default(0.15),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Electricity_usage_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.power * input.hoursPerDay * input.daysPerMonth * input.numberOfDevices; results["totalEnergyKwh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalEnergyKwh"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergyKwh"])) * input.costPerKwh; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
+function evaluateAllFormulas(input: Electricity_usage_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.power * input.hoursPerDay * input.daysPerMonth * input.numberOfDevices; results["totalEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergyKwh"] = 0; }
+  try { const v = (asFormulaNumber(results["totalEnergyKwh"])) * input.costPerKwh; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateElectricity_usage_calculator(input: Electricity_usage_calculatorInput): Electricity_usage_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateElectricity_usage_calculator(input: Electricity_usage_c
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

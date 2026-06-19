@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from cnc-machining-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Cnc_machining_cost_calculatorInput {
   batch_size: number;
   machine_hourly_rate_usd: number;
   labor_hourly_rate_usd: number;
+  dataConfidence?: number;
 }
 
 export const Cnc_machining_cost_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Cnc_machining_cost_calculatorInputSchema = z.object({
   labor_hourly_rate_usd: z.number().min(10).max(150).default(35),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Cnc_machining_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.part_weight_kg * input.stock_volume_cm3 * input.machining_time_min * input.setup_time_min; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.part_weight_kg * input.stock_volume_cm3 * input.machining_time_min * input.setup_time_min * (input.batch_size * (input.machine_hourly_rate_usd / 100) * (input.labor_hourly_rate_usd / 100)); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.batch_size * (input.machine_hourly_rate_usd / 100) * (input.labor_hourly_rate_usd / 100); results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+function evaluateAllFormulas(input: Cnc_machining_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.part_weight_kg * input.stock_volume_cm3 * input.machining_time_min * input.setup_time_min; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.part_weight_kg * input.stock_volume_cm3 * input.machining_time_min * input.setup_time_min * (input.batch_size * (input.machine_hourly_rate_usd / 100) * (input.labor_hourly_rate_usd / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.batch_size * (input.machine_hourly_rate_usd / 100) * (input.labor_hourly_rate_usd / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateCnc_machining_cost_calculator(input: Cnc_machining_cost_calculatorInput): Cnc_machining_cost_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateCnc_machining_cost_calculator(input: Cnc_machining_cost
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

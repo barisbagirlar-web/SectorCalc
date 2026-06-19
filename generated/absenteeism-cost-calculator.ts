@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from absenteeism-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -11,6 +10,7 @@ export interface Absenteeism_cost_calculatorInput {
   replacement_cost_per_hour: number;
   overhead_multiplier: number;
   industry_type: string;
+  dataConfidence?: number;
 }
 
 export const Absenteeism_cost_calculatorInputSchema = z.object({
@@ -24,21 +24,21 @@ export const Absenteeism_cost_calculatorInputSchema = z.object({
   industry_type: z.enum(['Manufacturing', 'Healthcare', 'Retail', 'Logistics', 'Professional Services', 'Construction']).default('Manufacturing'),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Absenteeism_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.avg_hourly_wage * input.working_days_per_year); results["annual_exposure_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage * input.overhead_multiplier; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+function evaluateAllFormulas(input: Absenteeism_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.avg_hourly_wage * input.working_days_per_year); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
+  try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.total_employees * (input.absenteeism_rate / 100) * (input.avg_hourly_wage * input.working_days_per_year) * input.avg_hourly_wage * input.overhead_multiplier; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateAbsenteeism_cost_calculator(input: Absenteeism_cost_calculatorInput): Absenteeism_cost_calculatorOutput {
@@ -50,8 +50,8 @@ export function calculateAbsenteeism_cost_calculator(input: Absenteeism_cost_cal
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

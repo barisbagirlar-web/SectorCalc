@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from forklift-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface Forklift_calculatorInput {
   liftHeight: number;
   maxLiftHeight: number;
   safetyFactor: number;
+  dataConfidence?: number;
 }
 
 export const Forklift_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const Forklift_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Forklift_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.standardLoadCenter / input.actualLoadCenter; results["loadCenterDeratingFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["loadCenterDeratingFactor"] = 0; }
-  try { const v = input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter); results["capacityAtLoadCenter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["capacityAtLoadCenter"] = 0; }
-  try { const v = (input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1); results["capacityAtLiftHeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["capacityAtLiftHeight"] = 0; }
-  try { const v = ((input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1)) / input.safetyFactor; results["finalSafeLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalSafeLoad"] = 0; }
+function evaluateAllFormulas(input: Forklift_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.standardLoadCenter / input.actualLoadCenter; results["loadCenterDeratingFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadCenterDeratingFactor"] = 0; }
+  try { const v = input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter); results["capacityAtLoadCenter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityAtLoadCenter"] = 0; }
+  try { const v = (input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1); results["capacityAtLiftHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityAtLiftHeight"] = 0; }
+  try { const v = ((input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1)) / input.safetyFactor; results["finalSafeLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalSafeLoad"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateForklift_calculator(input: Forklift_calculatorInput): Forklift_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateForklift_calculator(input: Forklift_calculatorInput): F
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

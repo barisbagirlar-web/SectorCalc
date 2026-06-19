@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
+import { CategoryCatalogView } from "@/components/categories/CategoryCatalogView";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -93,7 +93,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
             </div>
 
             <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
-              <CategoryCompactGrid
+              <CategoryCatalogView
                 basePath="/free-tools"
                 categories={categoryCards}
                 tools={tools}

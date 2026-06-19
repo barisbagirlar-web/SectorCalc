@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from inverting-amplifier-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Inverting_amplifier_calculatorInput {
   rf: number;
   vcc_plus: number;
   vcc_minus: number;
+  dataConfidence?: number;
 }
 
 export const Inverting_amplifier_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Inverting_amplifier_calculatorInputSchema = z.object({
   vcc_minus: z.number().default(-15),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Inverting_amplifier_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = -(input.rf/input.rin)*input.vin; results["vout_ideal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vout_ideal"] = 0; }
-  try { const v = -(input.rf/input.rin)*input.vin; results["vout_ideal_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vout_ideal_aux"] = 0; }
+function evaluateAllFormulas(input: Inverting_amplifier_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = -(input.rf/input.rin)*input.vin; results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout_ideal"] = 0; }
+  try { const v = -(input.rf/input.rin)*input.vin; results["vout_ideal_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout_ideal_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateInverting_amplifier_calculator(input: Inverting_amplifier_calculatorInput): Inverting_amplifier_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateInverting_amplifier_calculator(input: Inverting_amplifi
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

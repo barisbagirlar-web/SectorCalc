@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from invoice-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Invoice_calculatorInput {
   discountPercent: number;
   taxRate: number;
   shippingCost: number;
+  dataConfidence?: number;
 }
 
 export const Invoice_calculatorInputSchema = z.object({
@@ -16,22 +16,22 @@ export const Invoice_calculatorInputSchema = z.object({
   shippingCost: z.number().default(0),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Invoice_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.subtotal * (1 - input.discountPercent / 100) * (1 + input.taxRate / 100) + input.shippingCost; results["Final Invoice Total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Final Invoice Total"] = 0; }
-  try { const v = input.subtotal * input.discountPercent / 100; results["Discount Amount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Discount Amount"] = 0; }
-  try { const v = input.subtotal * (1 - input.discountPercent / 100) * input.taxRate / 100; results["Tax Amount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Tax Amount"] = 0; }
-  try { const v = input.subtotal * (1 - input.discountPercent / 100); results["Subtotal After Discount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["Subtotal After Discount"] = 0; }
+function evaluateAllFormulas(input: Invoice_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.subtotal * (1 - input.discountPercent / 100) * (1 + input.taxRate / 100) + input.shippingCost; results["Final Invoice Total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Final Invoice Total"] = 0; }
+  try { const v = input.subtotal * input.discountPercent / 100; results["Discount Amount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Discount Amount"] = 0; }
+  try { const v = input.subtotal * (1 - input.discountPercent / 100) * input.taxRate / 100; results["Tax Amount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Tax Amount"] = 0; }
+  try { const v = input.subtotal * (1 - input.discountPercent / 100); results["Subtotal After Discount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Subtotal After Discount"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateInvoice_calculator(input: Invoice_calculatorInput): Invoice_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateInvoice_calculator(input: Invoice_calculatorInput): Inv
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

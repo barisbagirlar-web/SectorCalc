@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from linoleum-calculator-schema.json
 import * as z from 'zod';
 
@@ -8,6 +7,7 @@ export interface Linoleum_calculatorInput {
   rollWidth: number;
   wastePercentage: number;
   pricePerSqM: number;
+  dataConfidence?: number;
 }
 
 export const Linoleum_calculatorInputSchema = z.object({
@@ -18,20 +18,20 @@ export const Linoleum_calculatorInputSchema = z.object({
   pricePerSqM: z.number().default(20),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Linoleum_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteFactor"] = 0; }
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteFactor_aux"] = 0; }
+function evaluateAllFormulas(input: Linoleum_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteFactor"] = 0; }
+  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteFactor_aux"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateLinoleum_calculator(input: Linoleum_calculatorInput): Linoleum_calculatorOutput {
@@ -43,8 +43,8 @@ export function calculateLinoleum_calculator(input: Linoleum_calculatorInput): L
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

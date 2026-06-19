@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from saas-shelfware-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -10,6 +9,7 @@ export interface Saas_shelfware_cost_calculatorInput {
   monthly_support_cost: number;
   contract_months_remaining: number;
   utilization_threshold: number;
+  dataConfidence?: number;
 }
 
 export const Saas_shelfware_cost_calculatorInputSchema = z.object({
@@ -22,22 +22,22 @@ export const Saas_shelfware_cost_calculatorInputSchema = z.object({
   utilization_threshold: z.number().min(0).max(100).default(80),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Saas_shelfware_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.total_licenses * input.license_cost_per_month; results["base_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)); results["adjusted_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)) * (input.active_users); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.active_users; results["factor_active_users"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["factor_active_users"] = 0; }
+function evaluateAllFormulas(input: Saas_shelfware_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.total_licenses * input.license_cost_per_month; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
+  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
+  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)) * (input.active_users); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.active_users; results["factor_active_users"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_active_users"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_cost_calculatorInput): Saas_shelfware_cost_calculatorOutput {
@@ -49,8 +49,8 @@ export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_co
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

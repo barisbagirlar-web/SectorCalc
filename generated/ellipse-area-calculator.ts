@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from ellipse-area-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Ellipse_area_calculatorInput {
   semiMinorAxis: number;
   precision: number;
   unitConversionFactor: number;
+  dataConfidence?: number;
 }
 
 export const Ellipse_area_calculatorInputSchema = z.object({
@@ -16,21 +16,21 @@ export const Ellipse_area_calculatorInputSchema = z.object({
   unitConversionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Ellipse_area_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.semiMajorAxis * input.semiMinorAxis; results["aTimesB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["aTimesB"] = 0; }
-  try { const v = Math.PI * (asFormulaNumber(results["aTimesB"])); results["area"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["area"] = 0; }
-  try { const v = (asFormulaNumber(results["area"])) * input.unitConversionFactor; results["convertedArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["convertedArea"] = 0; }
+function evaluateAllFormulas(input: Ellipse_area_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.semiMajorAxis * input.semiMinorAxis; results["aTimesB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aTimesB"] = 0; }
+  try { const v = Math.PI * (asFormulaNumber(results["aTimesB"])); results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  try { const v = (asFormulaNumber(results["area"])) * input.unitConversionFactor; results["convertedArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedArea"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateEllipse_area_calculator(input: Ellipse_area_calculatorInput): Ellipse_area_calculatorOutput {
@@ -42,8 +42,8 @@ export function calculateEllipse_area_calculator(input: Ellipse_area_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

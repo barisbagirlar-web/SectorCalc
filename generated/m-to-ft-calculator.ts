@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from m-to-ft-calculator-schema.json
 import * as z from 'zod';
 
@@ -9,6 +8,7 @@ export interface M_to_ft_calculatorInput {
   temperatureOffset: number;
   decimalPlaces: number;
   applyCorrection: number;
+  dataConfidence?: number;
 }
 
 export const M_to_ft_calculatorInputSchema = z.object({
@@ -20,22 +20,22 @@ export const M_to_ft_calculatorInputSchema = z.object({
   applyCorrection: z.number().default(1),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: M_to_ft_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = input.applyCorrection === 1 ? input.meters * (1 + input.temperatureOffset * 0.0000116) : input.meters; results["correctedMeters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedMeters"] = 0; }
-  try { const v = input.meters * input.conversionFactor; results["rawFeet"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawFeet"] = 0; }
-  try { const v = input.measurementUncertainty * input.conversionFactor; results["uncertaintyFeet"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uncertaintyFeet"] = 0; }
-  try { const v = input.applyCorrection; results["applyCorrection"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["applyCorrection"] = 0; }
+function evaluateAllFormulas(input: M_to_ft_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.applyCorrection === 1 ? input.meters * (1 + input.temperatureOffset * 0.0000116) : input.meters; results["correctedMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedMeters"] = 0; }
+  try { const v = input.meters * input.conversionFactor; results["rawFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawFeet"] = 0; }
+  try { const v = input.measurementUncertainty * input.conversionFactor; results["uncertaintyFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uncertaintyFeet"] = 0; }
+  try { const v = input.applyCorrection; results["applyCorrection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["applyCorrection"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateM_to_ft_calculator(input: M_to_ft_calculatorInput): M_to_ft_calculatorOutput {
@@ -47,8 +47,8 @@ export function calculateM_to_ft_calculator(input: M_to_ft_calculatorInput): M_t
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

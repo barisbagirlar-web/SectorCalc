@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Auto-generated from smoking-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -7,6 +6,7 @@ export interface Smoking_cost_calculatorInput {
   cigarettesPerPack: number;
   pricePerPack: number;
   yearsSmoking: number;
+  dataConfidence?: number;
 }
 
 export const Smoking_cost_calculatorInputSchema = z.object({
@@ -16,23 +16,23 @@ export const Smoking_cost_calculatorInputSchema = z.object({
   yearsSmoking: z.number().default(10),
 });
 
-function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: Smoking_cost_calculatorInput): Record<string, number | string> {
-  const results: Record<string, number | string> = {};
-  try { const v = (input.cigarettesPerDay / input.cigarettesPerPack) * input.pricePerPack; results["dailyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyCost"])) * 365; results["yearlyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yearlyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["yearlyCost"])) / 52; results["weeklyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weeklyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["yearlyCost"])) / 12; results["monthlyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyCost"])) * 365 * input.yearsSmoking; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
+function evaluateAllFormulas(input: Smoking_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.cigarettesPerDay / input.cigarettesPerPack) * input.pricePerPack; results["dailyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyCost"])) * 365; results["yearlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearlyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["yearlyCost"])) / 52; results["weeklyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["yearlyCost"])) / 12; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyCost"])) * 365 * input.yearsSmoking; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculateSmoking_cost_calculator(input: Smoking_cost_calculatorInput): Smoking_cost_calculatorOutput {
@@ -44,8 +44,8 @@ export function calculateSmoking_cost_calculator(input: Smoking_cost_calculatorI
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,
