@@ -56,7 +56,7 @@ function liveSteelCoreQuarantineCount(): number {
   try {
     const { execSync } = require("child_process");
     const out = execSync(
-      'npx tsx -e "const {validateAllSchemas}=require(process.cwd()+\"/src/lib/steelcore\");const r=validateAllSchemas();console.log(JSON.stringify(r.byStatus))"',
+      'npx tsx -e "const {validateAllSchemas}=require(process.cwd()+\'/src/lib/steelcore\');const r=validateAllSchemas();console.log(JSON.stringify(r.byStatus))"',
       { cwd: process.cwd(), timeout: 30000, encoding: "utf-8" }
     ).trim();
     const parsed = JSON.parse(out);
