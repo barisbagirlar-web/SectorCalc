@@ -5,7 +5,10 @@ import path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
-import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
+import {
+  resolveGeneratedToolTitle,
+  resolveGeneratedToolDescription,
+} from "@/lib/generated-tools/resolve-tool-display";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 import {
@@ -243,10 +246,9 @@ export function getAllTools(locale = "tr"): ToolData[] {
       );
       const sector = resolveSector(slug, raw, normalized, locale);
 
-      const description =
-        normalized?.about?.description?.short ||
-        asString(raw.shortDescription) ||
-        "";
+      const description = normalized
+        ? resolveGeneratedToolDescription(slug, normalized, locale)
+        : "";
 
       const toolData: ToolData = {
         slug,

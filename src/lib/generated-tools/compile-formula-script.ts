@@ -1,6 +1,6 @@
 import { toSafeVarName } from "@/lib/generated-tools/export-names";
 import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
-import { FormulaFailureAccumulator } from "@/lib/generated-tools/formula-failure-catalog";
+import { FormulaFailureAccumulator, type FormulaFailureCategory } from "@/lib/generated-tools/formula-failure-catalog";
 import { validateFormulaAst } from "@/lib/generated-tools/ast-formula-validator";
 
 type ScriptCompileOptions = {
@@ -607,7 +607,7 @@ export function compileFormulaScriptFallback(
       options.failureAccumulator.add(
         "unknown",
         options.selfKey ?? "unknown",
-        firstIssue ? (firstIssue.category as string) : "PARSE_FAILURE",
+        firstIssue ? (firstIssue.category as FormulaFailureCategory) : "PARSE_FAILURE",
         rawExpression,
         firstIssue
           ? `Script fallback safety check failed: ${firstIssue.category}: ${firstIssue.message}`

@@ -75,9 +75,22 @@ function ensureNextTypeAndBuildManifestStubs() {
 
   const serverDir = join(NEXT_DIR, "server");
   mkdirSync(serverDir, { recursive: true });
-  const pagesManifestPath = join(serverDir, "pages-manifest.json");
-  if (!existsSync(pagesManifestPath)) {
-    writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+
+  // Firebase framework integration requires these manifests post-build.
+  // Pre-stub them so Next.js can overwrite with real content on success,
+  // while Firebase never sees a missing-file error.
+  const manifestStubs = [
+    ["pages-manifest.json", JSON.stringify({})],
+    ["middleware-manifest.json", JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 })],
+    ["app-paths-manifest.json", JSON.stringify({})],
+    ["next-font-manifest.json", JSON.stringify({ pages: {}, app: {}, appUsingSizeAdjust: false, pagesUsingSizeAdjust: false })],
+  ];
+
+  for (const [name, content] of manifestStubs) {
+    const p = join(serverDir, name);
+    if (!existsSync(p)) {
+      writeFileSync(p, content, "utf8");
+    }
   }
 }
 

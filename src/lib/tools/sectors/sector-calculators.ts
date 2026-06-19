@@ -611,8 +611,8 @@ export const MARGIN_LEAK_DETECTORS: Record<
  },
 
  // ── Custom Manufacturing ────────────────────────────────────────────
- "printing-signage": (inputs, naiveCost) => {
- const leaks: MarginLeakItem[] = [];
+"printing-signage": (inputs) => {
+const leaks: MarginLeakItem[] = [];
  const designTime = num(inputs, "designTime", 0);
  if (designTime > 120) {
  leaks.push({
@@ -625,8 +625,8 @@ export const MARGIN_LEAK_DETECTORS: Record<
  return leaks;
  },
 
- "carpentry-millwork": (inputs, naiveCost) => {
- const leaks: MarginLeakItem[] = [];
+"carpentry-millwork": (inputs) => {
+const leaks: MarginLeakItem[] = [];
  const wasteRate = num(inputs, "wasteRate", 8);
  if (wasteRate > 12) {
  leaks.push({
@@ -713,8 +713,8 @@ export const MARGIN_LEAK_DETECTORS: Record<
  },
 
  // ── Energy ──────────────────────────────────────────────────────────
- "energy-consumption": (inputs, naiveCost) => {
- const leaks: MarginLeakItem[] = [];
+"energy-consumption": (inputs) => {
+const leaks: MarginLeakItem[] = [];
  const peak = num(inputs, "peakKwh", 0);
  const total = num(inputs, "kwhConsumption", 1);
  if (peak > total * 0.25) {
