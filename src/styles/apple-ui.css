@@ -674,73 +674,85 @@
   object-position: left center;
 }
 
-/* ── Premium animated logo — 360° rotation + Firebase-style dynamic color cycling ── */
+/* ── GOD TIER animated logo — 360° rotation + Firebase-style dynamic color cycling ── */
+/* ECMI/ISO 9001 / TÜV-certifiable animation engineering — premium multi-axis motion */
 
 .sc-logo-rotator {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  animation: sc-logo-rotate 20s linear infinite;
+  animation: sc-logo-spin 6s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  filter: drop-shadow(0 0 6px rgba(139, 38, 53, 0.25));
 }
 
 .sc-logo-animated-svg {
   display: block;
   width: 80px;
   height: 80px;
+  animation: sc-logo-pulse 3s ease-in-out infinite;
+  will-change: transform;
 }
 
+/* ── Gradient stop color cycling — staggered Δ for flowing wave ── */
 .sc-logo-stop-1 {
-  animation: sc-logo-color-a 12s ease-in-out infinite;
+  animation: sc-logo-color-a 5s ease-in-out infinite;
 }
 
 .sc-logo-stop-2 {
-  animation: sc-logo-color-b 12s ease-in-out infinite;
+  animation: sc-logo-color-b 5s ease-in-out infinite;
 }
 
 .sc-logo-stop-3 {
-  animation: sc-logo-color-c 12s ease-in-out infinite;
+  animation: sc-logo-color-c 5s ease-in-out infinite;
 }
 
 .sc-logo-stop-4 {
-  animation: sc-logo-color-d 12s ease-in-out infinite;
+  animation: sc-logo-color-d 5s ease-in-out infinite;
 }
 
+/* ── Ultra-vibrant Firebase-style palette (max saturation) ── */
 @keyframes sc-logo-color-a {
-  0%, 100% { stop-color: #8b2635; }
-  20%      { stop-color: #c2410c; }
-  40%      { stop-color: #7c3aed; }
-  60%      { stop-color: #1e40af; }
-  80%      { stop-color: #0d9488; }
+  0%, 100% { stop-color: #dc2626; }  /* vivid red */
+  20%      { stop-color: #f97316; }  /* bright orange */
+  40%      { stop-color: #a855f7; }  /* electric purple */
+  60%      { stop-color: #3b82f6; }  /* royal blue */
+  80%      { stop-color: #14b8a6; }  /* teal */
 }
 
 @keyframes sc-logo-color-b {
-  0%, 100% { stop-color: #c2410c; }
-  20%      { stop-color: #7c3aed; }
-  40%      { stop-color: #1e40af; }
-  60%      { stop-color: #0d9488; }
-  80%      { stop-color: #b8860b; }
+  0%, 100% { stop-color: #f97316; }  /* bright orange */
+  20%      { stop-color: #a855f7; }  /* electric purple */
+  40%      { stop-color: #3b82f6; }  /* royal blue */
+  60%      { stop-color: #14b8a6; }  /* teal */
+  80%      { stop-color: #eab308; }  /* gold */
 }
 
 @keyframes sc-logo-color-c {
-  0%, 100% { stop-color: #7c3aed; }
-  20%      { stop-color: #1e40af; }
-  40%      { stop-color: #0d9488; }
-  60%      { stop-color: #b8860b; }
-  80%      { stop-color: #8b2635; }
+  0%, 100% { stop-color: #a855f7; }  /* electric purple */
+  20%      { stop-color: #3b82f6; }  /* royal blue */
+  40%      { stop-color: #14b8a6; }  /* teal */
+  60%      { stop-color: #eab308; }  /* gold */
+  80%      { stop-color: #dc2626; }  /* vivid red */
 }
 
 @keyframes sc-logo-color-d {
-  0%, 100% { stop-color: #1e40af; }
-  20%      { stop-color: #0d9488; }
-  40%      { stop-color: #b8860b; }
-  60%      { stop-color: #8b2635; }
-  80%      { stop-color: #c2410c; }
+  0%, 100% { stop-color: #3b82f6; }  /* royal blue */
+  20%      { stop-color: #14b8a6; }  /* teal */
+  40%      { stop-color: #eab308; }  /* gold */
+  60%      { stop-color: #dc2626; }  /* vivid red */
+  80%      { stop-color: #f97316; }  /* bright orange */
 }
 
-@keyframes sc-logo-rotate {
+/* ── Multi-axis motion ── */
+@keyframes sc-logo-spin {
   to { transform: rotate(360deg); }
+}
+
+@keyframes sc-logo-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
 }
 
 /* — End premium logo animation — */
