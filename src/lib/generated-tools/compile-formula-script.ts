@@ -607,7 +607,7 @@ export function compileFormulaScriptFallback(
       options.failureAccumulator.add(
         "unknown",
         options.selfKey ?? "unknown",
-        firstIssue ? (firstIssue.category as FormulaFailureCategory) : "PARSE_FAILURE",
+        firstIssue ? (firstIssue.category as unknown as FormulaFailureCategory) : "PARSE_FAILURE",
         rawExpression,
         firstIssue
           ? `Script fallback safety check failed: ${firstIssue.category}: ${firstIssue.message}`
