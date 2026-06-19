@@ -10,28 +10,31 @@ import type { HomepageCoverageId } from "@/lib/home/homepage-positioning-data";
  *
  * ECMI / ISO 9001 — deterministic, verifiable classification.
  *
- * LOCKED: `as const satisfies` ensures every key is a valid
- * HomepageCoverageId and every value is a known categoryKey.
+ * RUNTIME-LOCKED: The build audit (scripts/audit-category-count-coherence.mjs)
+ * and vitest test (category-count-coherence.test.ts) validate that every key
+ * exists as a real ToolData.categoryKey. This prevents stale-key drift.
+ *
  * Do NOT add sectorKey values here — only categoryKey.
  */
-export const HOMEPAGE_COVERAGE_TOOL_MATCHERS = {
+export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
+  Record<HomepageCoverageId, readonly string[]>
+> = {
   production: [
     "quality-six-sigma",
     "cnc-additive-manufacturing",
     "metal-plastics-forming",
     "lean-production",
     "textile-print-lab",
-    "digital-factory-automation",
   ],
   industrial: [
     "hse-ergonomics",
     "maintenance-reliability",
+    "fitness-spor",
   ],
   technical: [
     "technology-ai-cloud-cyber",
     "electrical-power-systems",
     "process-chemical",
-    "mechanical-hvac-energy-loss",
   ],
   construction: [
     "project-construction-management",
@@ -45,21 +48,19 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS = {
   finance: [
     "finance-sales-working-capital",
     "workforce-hr",
-    "global-compliance-trade",
   ],
   foodRetail: [
     "food-cold-chain-hygiene",
-    "packaging-local-business",
   ],
-} as const satisfies Record<HomepageCoverageId, readonly string[]>;
+};
 
 /**
  * Primary free-tools catalog filter slug for each homepage coverage card.
  * These are real categoryKey values that exist in the tool data.
- *
- * LOCKED: `as const satisfies` ensures every slug is a valid categoryKey.
  */
-export const HOMEPAGE_COVERAGE_FILTER_SLUG = {
+export const HOMEPAGE_COVERAGE_FILTER_SLUG: Readonly<
+  Record<HomepageCoverageId, string>
+> = {
   production: "quality-six-sigma",
   industrial: "hse-ergonomics",
   technical: "technology-ai-cloud-cyber",
@@ -68,7 +69,7 @@ export const HOMEPAGE_COVERAGE_FILTER_SLUG = {
   energy: "sustainability-resource-esg",
   finance: "finance-sales-working-capital",
   foodRetail: "food-cold-chain-hygiene",
-} as const satisfies Record<HomepageCoverageId, string>;
+};
 
 /**
  * Count tools belonging to a homepage coverage card.

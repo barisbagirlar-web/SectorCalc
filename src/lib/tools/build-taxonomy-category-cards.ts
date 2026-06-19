@@ -28,6 +28,11 @@ export type TierFilter = "free" | "premium" | "all";
 
 /**
  * Build flat category cards with tool counts from the categorized index.
+ *
+ * TYPE-SAFE OVERLOAD: When tierFilter is "free" or "premium", visibleSlugs
+ * is REQUIRED to prevent counting unschematized tools.
+ * When tierFilter is "all", visibleSlugs is optional (default: count all).
+ *
  * When tierFilter is "premium", only premium/premium-schema tools are counted.
  * When tierFilter is "free", only free tools are counted.
  * When "all" (default), all tools are counted.
@@ -39,6 +44,16 @@ export type TierFilter = "free" | "premium" | "all";
  * Only includes categories that have at least one tool mapped.
  * Categories are sorted by their `order` field.
  */
+export function buildTaxonomyCategoryCards(
+  locale: string,
+  tierFilter: "free" | "premium",
+  visibleSlugs: ReadonlySet<string>,
+): CategoryCard[];
+export function buildTaxonomyCategoryCards(
+  locale: string,
+  tierFilter?: "all",
+  visibleSlugs?: ReadonlySet<string>,
+): CategoryCard[];
 export function buildTaxonomyCategoryCards(
   locale: string,
   tierFilter: TierFilter = "all",
