@@ -10,9 +10,9 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
-    "build:local": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
-    "build:next": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192 --dns-result-order=ipv4first' node scripts/next-build-with-500-fallback.mjs",
+    "build:local": "NODE_OPTIONS='--max-old-space-size=8192 --dns-result-order=ipv4first' node scripts/next-build-with-500-fallback.mjs",
+    "build:next": "NODE_OPTIONS='--max-old-space-size=8192 --dns-result-order=ipv4first' node scripts/next-build-with-500-fallback.mjs",
     "clean:next": "node scripts/clean-next-artifacts.mjs",
     "stop:builds": "node scripts/stop-local-builds.mjs",
     "validate:next-build": "node scripts/validate-next-build.mjs",

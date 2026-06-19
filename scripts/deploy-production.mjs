@@ -26,7 +26,7 @@ function run(command, args, options = {}) {
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
     },
     ...options,
   });
@@ -142,7 +142,7 @@ try {
     if (run("node", ["scripts/next-build-with-500-fallback.mjs"], {
       env: {
         ...process.env,
-        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
         SECTORCALC_FAST_PREVIEW_STATIC: "1",
       },
     }) !== 0) {
@@ -171,7 +171,7 @@ try {
   ], {
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
       SECTORCALC_FIREBASE_REUSE_BUILD: "1",
     },

@@ -76,6 +76,7 @@ function generateTypeInterface(schema: GeneratedToolSchema, exportBase: string):
     }
     fields.push(`  ${id}: ${tsType};`);
   }
+  fields.push("  dataConfidence?: number;");
   return `export interface ${exportBase}Input {\n${fields.join("\n")}\n}`;
 }
 
@@ -115,11 +116,11 @@ function generateFormulaEvaluator(
   const formulaEntries = Object.entries(schema.formulas);
   if (formulaEntries.length === 0) {
     return {
-      code: `function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+      code: `function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number | string> {
+function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
   return {};
 }`,
       compileFailures: 0,
@@ -149,7 +150,7 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number 
 
     const tsExpr = toTypeScriptNumericExpression(compiled);
     lines.push(
-      `try { const v = ${tsExpr}; results[${JSON.stringify(key)}] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
+      `try { const v = ${tsExpr}; results[${JSON.stringify(key)}] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
     );
   }
 
@@ -157,11 +158,11 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number 
 
   return {
     compileFailures,
-    code: `function asFormulaNumber(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+    code: `function asFormulaNumber(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
-function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number | string> {
+function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
   ${lines.join("\n  ")}
 }`,
   };
@@ -209,8 +210,8 @@ function generateCalculateFunction(
     : `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}])`;
 
   return `
-function toNumericFormulaValue(value: number | string | undefined): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : 0;
 }
 
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
@@ -259,8 +260,7 @@ export function generateFromSchemaFile(
   const exportBase = toGeneratedExportBaseName(slug);
   const { code: formulaEvaluator, compileFailures } = generateFormulaEvaluator(schema, exportBase, failureAccumulator);
 
-  const content = `// @ts-nocheck
-// Auto-generated from ${path.basename(schemaPath)}
+  const content = `// Auto-generated from ${path.basename(schemaPath)}
 import * as z from 'zod';
 
 ${generateTypeInterface(schema, exportBase)}
