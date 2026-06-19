@@ -40,14 +40,13 @@ if (args[0] === "build") {
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
     },
   }).status;
   process.exit(status ?? 1);
 }
 
 const realNextCandidates = [
-  join(ROOT, "node_modules/next/dist/bin/next"),
   join(ROOT, "node_modules/.bin/next.firebase-backup"),
 ];
 

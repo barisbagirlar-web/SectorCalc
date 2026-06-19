@@ -168,7 +168,7 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
       LOCALE_CENTER_STRICT: "1",
       SECTORCALC_SHIM_REAL_NEXT: "1",
