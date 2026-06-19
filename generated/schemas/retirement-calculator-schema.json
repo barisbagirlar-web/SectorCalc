@@ -172,7 +172,9 @@
   ],
   "formulas": {
     "yearsToRetirement": "retirementAge - currentAge",
-    "yearsToRetirement_aux": "retirementAge - currentAge"
+    "totalCorpus": "currentSavings * (1 + annualReturn/100)^yearsToRetirement + monthlyContribution * 12 * ((1 + annualReturn/100)^yearsToRetirement - 1) / (annualReturn/100)",
+    "requiredCorpus": "desiredMonthlyIncome * 12 * (1 + inflationRate/100)^yearsToRetirement / (annualReturn/100 - inflationRate/100)",
+    "shortfallSurplus": "totalCorpus - requiredCorpus"
   },
   "outputs": {
     "primary": "yearsToRetirement",

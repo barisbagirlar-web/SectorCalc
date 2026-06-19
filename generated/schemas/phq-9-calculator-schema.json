@@ -124,20 +124,23 @@
   ],
   "formulas": {
     "pressure_head": "operating_pressure / (fluid_density * 9.81)",
-    "pressure_head_aux": "operating_pressure / (fluid_density * 9.81)"
+    "velocity_head": "(flow_rate / (3.14159 * (pipe_diameter/2)^2))^2 / (2 * 9.81)",
+    "total_head": "pressure_head + velocity_head",
+    "adjusted_head": "total_head / efficiency_factor"
   },
   "outputs": {
-    "primary": "pressure_head_aux",
+    "primary": "adjusted_head",
     "breakdown": [
       "pressure_head",
-      "velocity_head"
+      "velocity_head",
+      "total_head"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "adjusted_head",
-    "unit": "Pa"
+    "unit": "m"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
@@ -149,7 +152,24 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "efficiency_factor",
+        "type": "range",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "field": "pipe_diameter",
+        "type": "min",
+        "value": 0
+      },
+      {
+        "field": "flow_rate",
+        "type": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -103,7 +103,7 @@
     "theta1_aux": "incidentAngle * Math.PI / 180"
   },
   "outputs": {
-    "primary": "theta1",
+    "primary": "theta1_aux",
     "breakdown": [
       "s-Polarization Reflectance: {rs}%",
       "p-Polarization Reflectance: {rp}%"
@@ -112,8 +112,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "averageReflectance",
-    "unit": "°"
+    "dataConfidenceAdjusted": "theta1_aux",
+    "unit": "%"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
@@ -125,7 +125,23 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "incidentAngleRange",
+        "expression": "incidentAngle >= 0 && incidentAngle <= 90",
+        "message": "Incident angle must be between 0 and 90 degrees."
+      },
+      {
+        "id": "n1Positive",
+        "expression": "n1 > 0",
+        "message": "Refractive index n1 must be positive."
+      },
+      {
+        "id": "n2Positive",
+        "expression": "n2 > 0",
+        "message": "Refractive index n2 must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

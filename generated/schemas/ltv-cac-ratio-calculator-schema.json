@@ -99,14 +99,14 @@
     },
     {
       "id": "totalCacSpend",
-      "label": "Toplam Edinme Maliyeti",
+      "label": "Total Acquisition Cost",
       "type": "number",
       "unit": "TRY",
       "default": 50000,
       "businessContext": "Total marketing and sales expenses in a given period.",
       "label_i18n": {
-        "en": "Toplam Edinme Maliyeti",
-        "tr": "Total Acquisition Cost",
+        "en": "Total Acquisition Cost",
+        "tr": "Toplam Edinme Maliyeti",
         "de": "Gesamtakquisitionskosten",
         "fr": "Coût total d'acquisition",
         "es": "Costo total de adquisición",
@@ -147,11 +147,12 @@
     }
   ],
   "formulas": {
+    "LTV": "(arpu * grossMargin / 100) * (1 / (churn / 100)) * (1 / (1 + discount / 100))",
     "CAC": "totalCacSpend / newCustomers",
-    "CAC_aux": "totalCacSpend / newCustomers"
+    "LTV_CAC_Ratio": "LTV / CAC"
   },
   "outputs": {
-    "primary": "CAC_aux",
+    "primary": "LTV_CAC_Ratio",
     "breakdown": [
       "LTV",
       "CAC"
@@ -173,8 +174,59 @@
   "profession": "Matematikçi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "arpu",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "grossMargin",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "grossMargin",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "churn",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "churn",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "discount",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "discount",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "totalCacSpend",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "newCustomers",
+        "rule": "min",
+        "value": 1
+      }
+    ],
+    "thresholds": {
+      "LTV_CAC_Ratio": {
+        "good": 3,
+        "warning": 1
+      }
+    }
   },
   "premiumFeatures": []
 }

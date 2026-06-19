@@ -131,7 +131,8 @@
     "breakdown": [
       "accelerationFactor",
       "equivalentTime",
-      "treatmentEffectivenessFactor"
+      "treatmentEffectivenessFactor",
+      "adjustedEquivalentTime"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -142,7 +143,8 @@
     "breakdownUnits": {
       "accelerationFactor": "unit",
       "equivalentTime": "years",
-      "treatmentEffectivenessFactor": "unit"
+      "treatmentEffectivenessFactor": "unit",
+      "adjustedEquivalentTime": "years"
     }
   },
   "category": "Enerji & Karbon",

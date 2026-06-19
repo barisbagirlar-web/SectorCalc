@@ -148,10 +148,10 @@
   ],
   "formulas": {
     "angleRad": "angle * Math.PI / 180",
-    "angleRad_aux": "angle * Math.PI / 180"
+    "forceGravity": "mass * gravity"
   },
   "outputs": {
-    "primary": "angleRad_aux",
+    "primary": "forceGravity",
     "breakdown": [
       "work",
       "power"
@@ -160,8 +160,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "power",
-    "unit": "kg"
+    "dataConfidenceAdjusted": "forceGravity",
+    "unit": "J"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -173,7 +173,43 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "mass",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "angle",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "angle",
+        "rule": "max",
+        "value": 90
+      },
+      {
+        "field": "frictionCoeff",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "distance",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "time",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "gravity",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -123,43 +123,63 @@
     }
   ],
   "formulas": {
-    "result": "surfaceArea",
-    "result_copy": "surfaceArea"
+    "effectiveCoverage": "coverageRate * (efficiency / 100)",
+    "rawRequiredVolume": "(surfaceArea * numberOfCoats * (stainIntensity / 100)) / coverageRate",
+    "totalRequiredVolume": "rawRequiredVolume * (100 / efficiency)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalRequiredVolume",
     "breakdown": [
       {
         "id": "effectiveCoverage",
-        "label": "Etkili Kaplama Oranı",
+        "label": "Effective Coverage Rate",
         "unit": "m²/L",
         "formula": "coverageRate * (efficiency / 100)"
       },
       {
         "id": "rawRequiredVolume",
-        "label": "Brüt Gerekli Hacim",
+        "label": "Raw Required Volume",
         "unit": "L",
         "formula": "(surfaceArea * numberOfCoats * (stainIntensity / 100)) / coverageRate"
+      },
+      {
+        "id": "totalRequiredVolume",
+        "label": "Total Required Volume",
+        "unit": "L",
+        "formula": "rawRequiredVolume * (100 / efficiency)"
       }
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result_copy",
-    "unit": "m²"
+    "dataConfidenceAdjusted": "totalRequiredVolume",
+    "unit": "L"
   },
-  "category": "Verimlilik & OEE",
-  "sector": "Matematik & Geometri",
+  "category": "Efficiency & OEE",
+  "sector": "Mathematics & Geometry",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "matematik",
-  "profession": "Veri Analisti",
+  "profession": "Data Analyst",
   "categoryId": "efficiency",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "stainIntensity",
+        "rule": "min:0, max:100"
+      },
+      {
+        "field": "efficiency",
+        "rule": "min:0, max:100"
+      },
+      {
+        "field": "numberOfCoats",
+        "rule": "min:1"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

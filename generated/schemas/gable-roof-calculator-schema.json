@@ -151,7 +151,7 @@
     "ridgeLength_aux": "buildingLength"
   },
   "outputs": {
-    "primary": "ridgeLength_aux",
+    "primary": "ridgeLength",
     "breakdown": [
       "rafterLength",
       "ridgeLength",
@@ -162,7 +162,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalRafters",
+    "dataConfidenceAdjusted": "ridgeLength_aux",
     "unit": "m"
   },
   "category": "Matematik & Analiz",
@@ -175,7 +175,38 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "buildingWidth",
+        "condition": "> 0",
+        "message": "Building width must be positive"
+      },
+      {
+        "field": "buildingLength",
+        "condition": "> 0",
+        "message": "Building length must be positive"
+      },
+      {
+        "field": "roofPitch",
+        "condition": "between 0 and 90",
+        "message": "Roof pitch must be between 0 and 90 degrees"
+      },
+      {
+        "field": "overhang",
+        "condition": ">= 0",
+        "message": "Overhang must be non-negative"
+      },
+      {
+        "field": "rafterSpacing",
+        "condition": "> 0",
+        "message": "Rafter spacing must be positive"
+      },
+      {
+        "field": "wasteFactor",
+        "condition": "between 0 and 100",
+        "message": "Waste factor must be between 0 and 100"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

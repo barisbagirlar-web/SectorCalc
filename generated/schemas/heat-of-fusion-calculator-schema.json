@@ -123,11 +123,12 @@
     }
   ],
   "formulas": {
+    "sensibleHeat": "mass * specificHeat * (meltingTemperature - initialTemperature)",
     "latentHeat": "mass * latentHeatOfFusion",
-    "latentHeat_aux": "mass * latentHeatOfFusion"
+    "totalHeat": "sensibleHeat + latentHeat"
   },
   "outputs": {
-    "primary": "latentHeat_aux",
+    "primary": "totalHeat",
     "breakdown": [
       "sensibleHeat",
       "latentHeat"
@@ -137,7 +138,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "totalHeat",
-    "unit": "kg"
+    "unit": "J"
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",
@@ -149,7 +150,14 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialTemperature",
+        "condition": "lte",
+        "value": "meltingTemperature",
+        "message": "Initial temperature must be ≤ melting temperature"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

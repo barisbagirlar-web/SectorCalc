@@ -99,21 +99,22 @@
     }
   ],
   "formulas": {
-    "breakdown": "volume_ml",
-    "breakdown_aux": "volume_ml"
+    "us_oz": "volume_ml * factor_us",
+    "uk_oz": "volume_ml * factor_uk"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "uk_oz",
     "breakdown": [
-      "UK Fluid Ounces",
-      "Volume in ml"
+      "rounded_us_oz",
+      "rounded_uk_oz",
+      "volume_ml"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "ml"
+    "dataConfidenceAdjusted": "uk_oz",
+    "unit": "oz"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
@@ -125,7 +126,18 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "volume_ml",
+        "condition": "> 0",
+        "message": "Volume must be positive"
+      },
+      {
+        "field": "precision",
+        "condition": ">= 0 && <= 10",
+        "message": "Precision must be between 0 and 10"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

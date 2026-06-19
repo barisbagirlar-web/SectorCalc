@@ -129,16 +129,17 @@
   "outputs": {
     "primary": "expected_aux",
     "breakdown": [
-      "zStatistic",
       "expected",
       "stdDev",
+      "zStatistic",
+      "pValue",
       "conclusion"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "conclusion",
+    "dataConfidenceAdjusted": "expected_aux",
     "unit": "1=two-sided, 2=greater, 3=less"
   },
   "category": "Matematik & Analiz",
@@ -151,7 +152,38 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "sampleSizePositive",
+        "field": "sampleSize",
+        "condition": "> 0",
+        "message": "Sample size must be positive."
+      },
+      {
+        "id": "posCountRange",
+        "field": "posCount",
+        "condition": ">= 0 and <= sampleSize",
+        "message": "Positive count must be between 0 and sample size."
+      },
+      {
+        "id": "p0Range",
+        "field": "p0",
+        "condition": "> 0 and < 1",
+        "message": "Hypothesized probability must be between 0 and 1."
+      },
+      {
+        "id": "alphaRange",
+        "field": "alpha",
+        "condition": "> 0 and < 1",
+        "message": "Significance level must be between 0 and 1."
+      },
+      {
+        "id": "testTypeValid",
+        "field": "testType",
+        "condition": "in [1,2,3]",
+        "message": "Test type must be 1, 2, or 3."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

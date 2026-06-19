@@ -123,11 +123,11 @@
     }
   ],
   "formulas": {
-    "shellFactor": "2 * Math.PI",
-    "shellFactor_aux": "2 * Math.PI"
+    "integral": "(a/4)*(upper^4 - lower^4) + (b/3)*(upper^3 - lower^3) + (c/2)*(upper^2 - lower^2)",
+    "volume": "2 * Math.PI * integral"
   },
   "outputs": {
-    "primary": "shellFactor_aux",
+    "primary": "volume",
     "breakdown": [
       "integral",
       "shellFactor"
@@ -136,8 +136,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "shellFactor",
-    "unit": "1/units"
+    "dataConfidenceAdjusted": "volume",
+    "unit": "units^3"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -149,7 +149,16 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "lower_less_upper",
+        "type": "comparison",
+        "field1": "lower",
+        "operator": "<",
+        "field2": "upper",
+        "message": "Lower bound must be less than upper bound."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

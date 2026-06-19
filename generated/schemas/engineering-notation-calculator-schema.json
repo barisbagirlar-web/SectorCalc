@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "breakdown": "value",
-    "breakdown_aux": "value"
+    "breakdown": "value * 10^exponent",
+    "breakdown_aux": "value * 10^exponent"
   },
   "outputs": {
     "primary": "breakdown_aux",

@@ -123,11 +123,12 @@
     }
   ],
   "formulas": {
-    "allowable": "yieldStrength / safetyFactor",
-    "allowable_aux": "yieldStrength / safetyFactor"
+    "bendingStress": "32 * bendingMoment / (PI * diameter^3)",
+    "torsionalShear": "16 * torque / (PI * diameter^3)",
+    "allowable": "yieldStrength / safetyFactor"
   },
   "outputs": {
-    "primary": "allowable_aux",
+    "primary": "allowable",
     "breakdown": [
       "bendingStress",
       "torsionalShear",
@@ -138,8 +139,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "margin",
-    "unit": "Nm"
+    "dataConfidenceAdjusted": "allowable",
+    "unit": "unit"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Fizik & Mekanik",
@@ -151,8 +152,24 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "quality",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "id": "diameter_positive",
+        "expression": "diameter > 0",
+        "message": "Diameter must be positive."
+      },
+      {
+        "id": "safetyFactor_positive",
+        "expression": "safetyFactor > 0",
+        "message": "Safety factor must be positive."
+      }
+    ],
+    "thresholds": {
+      "margin": {
+        "min": 0,
+        "max": 10
+      }
+    }
   },
   "premiumFeatures": []
 }

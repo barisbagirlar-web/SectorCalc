@@ -100,6 +100,7 @@
   ],
   "formulas": {
     "decimal": "percentValue / 100",
+    "denominatorRaw": "10^precision",
     "decimal_aux": "percentValue / 100"
   },
   "outputs": {
@@ -108,13 +109,13 @@
       "Yüzde değeri ondalık sayıya çevrildi: ${decimal}",
       "Kesir olarak yazıldı (${precision} ondalık basamak ile): ${numeratorRaw}/${denominatorRaw}",
       "Sadeleştirme: bu sürümde otomatik sadeleştirme yapılmadı",
-      "Tam sayılı kesir gösterimi: ${mixedNumber ? (whole > 0 ? `${whole} tam ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`) : 'kapalı'}"
+      "Tam sayılı kesir gösterimi: ${mixedNumber ? (whole > 0 ? `${whole} tam ${mixedNumerator}/${mixedDenominator}` : `${mixedNumerator}/${mixedDenominator}`) : 'kapalı'}"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "denominatorFrac",
+    "dataConfidenceAdjusted": "decimal_aux",
     "unit": "%"
   },
   "category": "Matematik & Analiz",
@@ -127,7 +128,32 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "percentValue",
+        "rule": "min",
+        "value": 0,
+        "message": "Percent value must be non-negative"
+      },
+      {
+        "field": "percentValue",
+        "rule": "max",
+        "value": 100,
+        "message": "Percent value must be at most 100"
+      },
+      {
+        "field": "precision",
+        "rule": "min",
+        "value": 0,
+        "message": "Precision must be non-negative"
+      },
+      {
+        "field": "precision",
+        "rule": "max",
+        "value": 10,
+        "message": "Precision must be at most 10"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

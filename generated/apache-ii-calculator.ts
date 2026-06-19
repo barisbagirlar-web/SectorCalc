@@ -27,6 +27,7 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Apache_ii_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.operatorSkill * 5; results["operatorSkillComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["operatorSkillComponent"] = 0; }
+  try { const v = 100 - input.machineAge * 2; results["machineAgeComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["machineAgeComponent"] = 0; }
   try { const v = input.maintenanceFrequency * 10; results["maintenanceComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenanceComponent"] = 0; }
   return results;
 }

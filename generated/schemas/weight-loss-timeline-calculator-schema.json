@@ -151,7 +151,7 @@
     "weightLossAmount_aux": "initialWeight - targetWeight"
   },
   "outputs": {
-    "primary": "weightLossAmount_aux",
+    "primary": "weightLossAmount",
     "breakdown": [
       "dryingTimeHours",
       "setupTime",
@@ -162,10 +162,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalTimeDays",
+    "dataConfidenceAdjusted": "weightLossAmount_aux",
     "unit": "kg",
     "breakdownUnits": {
-      "dryingTimeHours": "h"
+      "dryingTimeHours": "h",
+      "totalTimeDays": "days"
     }
   },
   "category": "İSG & Risk",
@@ -178,7 +179,33 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "targetWeight",
+        "condition": "targetWeight > dryWeight",
+        "message": "Target weight must be greater than dry weight."
+      },
+      {
+        "field": "initialWeight",
+        "condition": "initialWeight > targetWeight",
+        "message": "Initial weight must be greater than target weight."
+      },
+      {
+        "field": "dryingRateConstant",
+        "condition": "dryingRateConstant > 0",
+        "message": "Drying rate constant must be positive."
+      },
+      {
+        "field": "processEfficiency",
+        "condition": "processEfficiency >= 0 && processEfficiency <= 100",
+        "message": "Process efficiency must be between 0 and 100."
+      },
+      {
+        "field": "setupTime",
+        "condition": "setupTime >= 0",
+        "message": "Setup time must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

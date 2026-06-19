@@ -123,11 +123,12 @@
     }
   ],
   "formulas": {
+    "ipInt": "((ip1 << 24) >>> 0) + (ip2 << 16) + (ip3 << 8) + ip4",
     "maskInt": "cidr === 0 ? 0 : (4294967295 << (32 - cidr)) >>> 0",
-    "maskInt_aux": "cidr === 0 ? 0 : (4294967295 << (32 - cidr)) >>> 0"
+    "hostCount": "cidr === 32 ? 1 : (1 << (32 - cidr)) - 2"
   },
   "outputs": {
-    "primary": "maskInt_aux",
+    "primary": "hostCount",
     "breakdown": [
       "broadcastInt",
       "maskInt",
@@ -150,7 +151,38 @@
   "profession": "Ağ Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "ip1",
+        "type": "range",
+        "min": 0,
+        "max": 255
+      },
+      {
+        "field": "ip2",
+        "type": "range",
+        "min": 0,
+        "max": 255
+      },
+      {
+        "field": "ip3",
+        "type": "range",
+        "min": 0,
+        "max": 255
+      },
+      {
+        "field": "ip4",
+        "type": "range",
+        "min": 0,
+        "max": 255
+      },
+      {
+        "field": "cidr",
+        "type": "range",
+        "min": 0,
+        "max": 32
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -51,7 +51,7 @@
     },
     {
       "id": "holdingCost",
-      "label": "Birim Elde Tutma Maliyeti",
+      "label": "Unit Holding Cost",
       "type": "number",
       "unit": "TRY/unit/year",
       "default": 2,
@@ -137,7 +137,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "inventoryTurnover",
+    "dataConfidenceAdjusted": "reorderPoint_aux",
     "unit": "TRY"
   },
   "category": "Lojistik & Rota",

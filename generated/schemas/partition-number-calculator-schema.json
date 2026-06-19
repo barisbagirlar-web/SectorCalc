@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "unit",
       "default": 10,
-      "businessContext": "Positive integer for which the number of divisions will be calculated.",
+      "businessContext": "Positive integer for which the number of partitions will be calculated.",
       "label_i18n": {
         "en": "Number (n)",
         "tr": "Sayı (n)",
@@ -31,7 +31,7 @@
       "type": "number",
       "unit": "unit",
       "default": 3.141592653589793,
-      "businessContext": "Matematiksel sabit pi.",
+      "businessContext": "Mathematical constant pi.",
       "label_i18n": {
         "en": "Pi",
         "tr": "Pi Sayısı",
@@ -99,11 +99,11 @@
     }
   ],
   "formulas": {
-    "breakdown": "n",
-    "breakdown_aux": "n"
+    "denominatorValue": "divisor * n * sqrt3",
+    "denominatorValue_aux": "divisor * n * sqrt3"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "denominatorValue",
     "breakdown": [
       "exponentValue",
       "denominatorValue"

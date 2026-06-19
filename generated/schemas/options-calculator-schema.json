@@ -164,7 +164,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "putDelta",
+    "dataConfidenceAdjusted": "sigma_dec",
     "unit": "currency"
   },
   "category": "Finans & Yatırım",
@@ -177,7 +177,41 @@
   "profession": "Risk Uzmanı",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "optionType",
+        "type": "in",
+        "value": [
+          0,
+          1
+        ]
+      },
+      {
+        "field": "S",
+        "type": "gt",
+        "value": 0
+      },
+      {
+        "field": "K",
+        "type": "gt",
+        "value": 0
+      },
+      {
+        "field": "T",
+        "type": "gt",
+        "value": 0
+      },
+      {
+        "field": "r",
+        "type": "gte",
+        "value": 0
+      },
+      {
+        "field": "sigma",
+        "type": "gte",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

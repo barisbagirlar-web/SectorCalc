@@ -148,21 +148,29 @@
   ],
   "formulas": {
     "meatWeight": "totalWeight * (1 - fatPercentage / 100)",
-    "fatWeight": "totalWeight * (fatPercentage / 100)"
+    "fatWeight": "totalWeight * (fatPercentage / 100)",
+    "casingLength": "totalWeight * 1000 / (3.14159 * (casingDiameter / 1000) * (casingDiameter / 1000) * 1000)",
+    "meatCostTotal": "meatWeight * meatCost",
+    "fatCostTotal": "fatWeight * fatCost",
+    "casingCostTotal": "casingLength * casingCost",
+    "totalCost": "meatCostTotal + fatCostTotal + casingCostTotal"
   },
   "outputs": {
-    "primary": "fatWeight",
+    "primary": "totalCost",
     "breakdown": [
       "meatWeight",
       "fatWeight",
-      "casingLength"
+      "casingLength",
+      "meatCostTotal",
+      "fatCostTotal",
+      "casingCostTotal"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "totalCost",
-    "unit": "kg"
+    "unit": "USD"
   },
   "category": "Matematik & Analiz",
   "sector": "Gıda & Beslenme",
@@ -174,7 +182,43 @@
   "profession": "Gıda Mühendisi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "fatPercentage",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "fatPercentage",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "totalWeight",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "casingDiameter",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "meatCost",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "fatCost",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "casingCost",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

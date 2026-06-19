@@ -112,7 +112,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "returnLevel",
+    "dataConfidenceAdjusted": "exceedanceProbability_aux",
     "unit": "years"
   },
   "category": "Finans & Yatırım",
@@ -125,7 +125,18 @@
   "profession": "Matematikçi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "scale",
+        "condition": "> 0",
+        "message": "Scale must be greater than 0."
+      },
+      {
+        "field": "returnPeriod",
+        "condition": "> 0",
+        "message": "Return period must be greater than 0."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

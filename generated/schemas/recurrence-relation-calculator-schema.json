@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "n",
-      "label": "Terim indeksi (n)",
+      "label": "Term index (n)",
       "type": "number",
       "unit": "unit",
       "default": 10,
@@ -27,7 +27,7 @@
     },
     {
       "id": "a0",
-      "label": "Başlangıç değeri a0",
+      "label": "Initial value a0",
       "type": "number",
       "unit": "unit",
       "default": 0,
@@ -51,7 +51,7 @@
     },
     {
       "id": "a1",
-      "label": "Başlangıç değeri a1",
+      "label": "Initial value a1",
       "type": "number",
       "unit": "unit",
       "default": 1,
@@ -130,7 +130,8 @@
     "primary": "a1_out",
     "breakdown": [
       "a0_out",
-      "a1_out"
+      "a1_out",
+      "an"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [

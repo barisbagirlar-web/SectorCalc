@@ -184,7 +184,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "lnQ",
+    "dataConfidenceAdjusted": "RT_nF_aux",
     "unit": "V"
   },
   "category": "Dönüşüm & Ölçüm",
@@ -197,7 +197,23 @@
   "profession": "Kimyager",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "n_positive",
+        "condition": "n > 0",
+        "message": "Number of electrons must be positive."
+      },
+      {
+        "id": "T_positive",
+        "condition": "T > 0",
+        "message": "Temperature must be positive."
+      },
+      {
+        "id": "concentrations_positive",
+        "condition": "Ox > 0 and Red > 0",
+        "message": "Concentrations must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

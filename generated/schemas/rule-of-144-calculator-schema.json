@@ -112,7 +112,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "difference",
+    "dataConfidenceAdjusted": "rule144Estimate_aux",
     "unit": "%"
   },
   "category": "Matematik & Analiz",
@@ -125,7 +125,32 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "interestRate",
+        "rule": "min",
+        "value": 0.01,
+        "message": "Interest rate must be greater than 0."
+      },
+      {
+        "field": "compoundingPeriods",
+        "rule": "min",
+        "value": 1,
+        "message": "Compounding periods must be at least 1."
+      },
+      {
+        "field": "initialInvestment",
+        "rule": "min",
+        "value": 0,
+        "message": "Initial investment must be non-negative."
+      },
+      {
+        "field": "targetMultiplier",
+        "rule": "min",
+        "value": 1,
+        "message": "Target multiplier must be at least 1."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

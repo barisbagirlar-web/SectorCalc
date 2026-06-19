@@ -124,10 +124,10 @@
   ],
   "formulas": {
     "panelLengthActual": "roofLength + (overhang / 12)",
-    "panelLengthActual_aux": "roofLength + (overhang / 12)"
+    "totalLinearFeet": "roofWidth * (roofLength + overhang / 12)"
   },
   "outputs": {
-    "primary": "panelLengthActual_aux",
+    "primary": "panelLengthActual",
     "breakdown": [
       "totalLinearFeet",
       "totalClips"
@@ -136,7 +136,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalClips",
+    "dataConfidenceAdjusted": "totalLinearFeet",
     "unit": "ft"
   },
   "category": "Enerji & Karbon",
@@ -149,7 +149,40 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "energy",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "roofLength",
+        "rule": "min",
+        "value": 1,
+        "message": "Roof length must be at least 1 ft."
+      },
+      {
+        "field": "roofWidth",
+        "rule": "min",
+        "value": 1,
+        "message": "Roof width must be at least 1 ft."
+      },
+      {
+        "field": "panelCoverage",
+        "rule": "range",
+        "min": 12,
+        "max": 18,
+        "message": "Panel coverage must be between 12 and 18 inches."
+      },
+      {
+        "field": "overhang",
+        "rule": "min",
+        "value": 0,
+        "message": "Overhang cannot be negative."
+      },
+      {
+        "field": "clipSpacing",
+        "rule": "range",
+        "min": 12,
+        "max": 24,
+        "message": "Clip spacing must be between 12 and 24 inches."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

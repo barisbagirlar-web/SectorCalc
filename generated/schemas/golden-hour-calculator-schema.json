@@ -148,7 +148,11 @@
   ],
   "formulas": {
     "dayLength": "sunset - sunrise",
-    "solarNoon": "sunrise + dayLength / 2"
+    "solarNoon": "sunrise + dayLength / 2",
+    "goldenHourMorningStart": "sunrise + 0.5",
+    "goldenHourMorningEnd": "sunrise + 1.5",
+    "goldenHourEveningStart": "sunset - 1.5",
+    "goldenHourEveningEnd": "sunset - 0.5"
   },
   "outputs": {
     "primary": "dayLength",
@@ -185,7 +189,68 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "sunrise",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sunrise",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "sunset",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sunset",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "latitude",
+        "rule": "min",
+        "value": -90
+      },
+      {
+        "field": "latitude",
+        "rule": "max",
+        "value": 90
+      },
+      {
+        "field": "longitude",
+        "rule": "min",
+        "value": -180
+      },
+      {
+        "field": "longitude",
+        "rule": "max",
+        "value": 180
+      },
+      {
+        "field": "dateOffset",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "dateOffset",
+        "rule": "max",
+        "value": 365
+      },
+      {
+        "field": "timezoneOffset",
+        "rule": "min",
+        "value": -12
+      },
+      {
+        "field": "timezoneOffset",
+        "rule": "max",
+        "value": 14
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

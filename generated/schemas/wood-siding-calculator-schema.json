@@ -161,8 +161,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCost",
-    "unit": "ft"
+    "dataConfidenceAdjusted": "wallArea_aux",
+    "unit": "$"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Mobilya & Ahşap",
@@ -174,7 +174,18 @@
   "profession": "Marangoz",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "exposedFace",
+        "condition": "exposedFace >= 4 && exposedFace <= 8",
+        "message": "Exposed face must be between 4 and 8 inches."
+      },
+      {
+        "field": "wasteFactor",
+        "condition": "wasteFactor >= 0 && wasteFactor <= 50",
+        "message": "Waste factor must be between 0% and 50%."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -148,6 +148,7 @@
   ],
   "formulas": {
     "operatorSkillComponent": "operatorSkill * 5",
+    "machineAgeComponent": "100 - machineAge * 2",
     "maintenanceComponent": "maintenanceFrequency * 10"
   },
   "outputs": {

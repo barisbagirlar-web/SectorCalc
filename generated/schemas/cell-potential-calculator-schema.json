@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b.",
+      "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures.",
       "label_i18n": {
         "en": "Reaction Quotient (Q)",
         "tr": "Reaksiyon Bölümü (Q)",
@@ -136,7 +136,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "cellPotential",
+    "dataConfidenceAdjusted": "standardCellPotential_aux",
     "unit": "V"
   },
   "category": "Teknik & Mühendislik",

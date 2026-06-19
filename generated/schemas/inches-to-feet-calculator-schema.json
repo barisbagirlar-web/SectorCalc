@@ -123,28 +123,31 @@
     }
   ],
   "formulas": {
-    "breakdown": "inch1",
-    "breakdown_aux": "inch1"
+    "normalized_product": "inch1 * inch2 * inch3 * inch4",
+    "result": "inch1 * inch2 * inch3 * inch4 * (precision)",
+    "adjustment_factor": "precision"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "result",
     "breakdown": [
-      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "in",
+    "unit": "units",
     "breakdownUnits": {
-      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision": "in",
-      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision": "in",
-      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision": "in",
-      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision": "in"
+      "feet1": "ft",
+      "feet2": "ft",
+      "feet3": "ft",
+      "feet4": "ft"
     }
   },
   "category": "Kalite & Süreç Kontrol",

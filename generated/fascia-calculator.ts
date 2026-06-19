@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateFascia_calculator(input: Fascia_calculatorInput): Fascia_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["effectiveLength"]);
+  const totalWasteCost = toNumericFormulaValue(values["effectiveLength_aux"]);
   const breakdown = {
     
   };

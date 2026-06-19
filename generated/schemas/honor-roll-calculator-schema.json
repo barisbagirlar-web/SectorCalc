@@ -123,11 +123,14 @@
     }
   ],
   "formulas": {
+    "defectScore": "100 - defectRate",
     "deliveryScore": "onTimeDelivery",
-    "deliveryScore_aux": "onTimeDelivery"
+    "productivityScore": "(productivity / targetProductivity) * 100",
+    "safetyScore": "100 - (safetyIncidents * 10)",
+    "honorScore": "(defectScore + deliveryScore + productivityScore + safetyScore) / 4"
   },
   "outputs": {
-    "primary": "deliveryScore_aux",
+    "primary": "honorScore",
     "breakdown": [
       "defectScore",
       "deliveryScore",
@@ -151,7 +154,43 @@
   "profession": "İSG Uzmanı",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "defectRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "defectRate",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "onTimeDelivery",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "onTimeDelivery",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "productivity",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "targetProductivity",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "safetyIncidents",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

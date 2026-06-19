@@ -160,8 +160,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "estimatedEndMinutes",
-    "unit": "pomodoros"
+    "dataConfidenceAdjusted": "totalWorkTime_aux",
+    "unit": "min"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
@@ -173,7 +173,56 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "positiveInputs",
+        "type": "range",
+        "field": "numberOfPomodoros",
+        "min": 1,
+        "max": 100,
+        "message": "Number of pomodoros must be between 1 and 100."
+      },
+      {
+        "id": "positiveWorkDuration",
+        "type": "range",
+        "field": "workDuration",
+        "min": 1,
+        "max": 120,
+        "message": "Work duration must be between 1 and 120 minutes."
+      },
+      {
+        "id": "positiveShortBreak",
+        "type": "range",
+        "field": "shortBreakDuration",
+        "min": 1,
+        "max": 30,
+        "message": "Short break duration must be between 1 and 30 minutes."
+      },
+      {
+        "id": "positiveLongBreak",
+        "type": "range",
+        "field": "longBreakDuration",
+        "min": 1,
+        "max": 60,
+        "message": "Long break duration must be between 1 and 60 minutes."
+      },
+      {
+        "id": "positivePomodorosBeforeLongBreak",
+        "type": "range",
+        "field": "pomodorosBeforeLongBreak",
+        "min": 1,
+        "max": 20,
+        "message": "Pomodoros before long break must be between 1 and 20."
+      },
+      {
+        "id": "startTimeRange",
+        "type": "range",
+        "field": "startTimeMinutes",
+        "min": 0,
+        "max": 1440,
+        "message": "Start time must be between 0 and 1440 minutes."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

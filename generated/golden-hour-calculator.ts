@@ -28,6 +28,10 @@ function evaluateAllFormulas(input: Golden_hour_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = input.sunset - input.sunrise; results["dayLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayLength"] = 0; }
   try { const v = input.sunrise + (asFormulaNumber(results["dayLength"])) / 2; results["solarNoon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solarNoon"] = 0; }
+  try { const v = input.sunrise + 0.5; results["goldenHourMorningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningStart"] = 0; }
+  try { const v = input.sunrise + 1.5; results["goldenHourMorningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningEnd"] = 0; }
+  try { const v = input.sunset - 1.5; results["goldenHourEveningStart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningStart"] = 0; }
+  try { const v = input.sunset - 0.5; results["goldenHourEveningEnd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningEnd"] = 0; }
   return results;
 }
 

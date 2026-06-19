@@ -123,11 +123,14 @@
     }
   ],
   "formulas": {
+    "torqueScore": "torqueReading * calibrationFactor",
+    "vibrationImpact": "vibrationLevel * 10",
     "defectPenalty": "defectCount * 5",
-    "defectPenalty_aux": "defectCount * 5"
+    "rawScore": "torqueScore - vibrationImpact - defectPenalty",
+    "oatScore": "rawScore / angleReading"
   },
   "outputs": {
-    "primary": "defectPenalty_aux",
+    "primary": "oatScore",
     "breakdown": [
       "torqueScore",
       "vibrationImpact",

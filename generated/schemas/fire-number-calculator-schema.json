@@ -57,8 +57,8 @@
       "default": 0,
       "businessContext": "Current total investment portfolio value",
       "label_i18n": {
-        "en": "Mevcut Birikim",
-        "tr": "Current Stock",
+        "en": "Current Savings",
+        "tr": "Mevcut Birikim",
         "de": "Vorhandenes Guthaben",
         "fr": "Épargne actuelle",
         "es": "Ahorro actual",
@@ -160,7 +160,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "yearsToFire",
+    "dataConfidenceAdjusted": "fireNumber_aux",
     "unit": "TL"
   },
   "category": "Teknik & Mühendislik",
@@ -173,7 +173,53 @@
   "profession": "Gemi Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "withdrawalRate",
+        "rule": "range",
+        "params": [
+          0,
+          100
+        ]
+      },
+      {
+        "field": "expectedReturn",
+        "rule": "range",
+        "params": [
+          0,
+          100
+        ]
+      },
+      {
+        "field": "inflationRate",
+        "rule": "range",
+        "params": [
+          0,
+          100
+        ]
+      },
+      {
+        "field": "annualExpenses",
+        "rule": "min",
+        "params": [
+          0
+        ]
+      },
+      {
+        "field": "currentSavings",
+        "rule": "min",
+        "params": [
+          0
+        ]
+      },
+      {
+        "field": "annualSavings",
+        "rule": "min",
+        "params": [
+          0
+        ]
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

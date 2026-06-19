@@ -162,13 +162,16 @@
     ]
   },
   "formulas": {
-    "normalized_product": "area_sqft * 1",
-    "result": "area_sqft * 1"
+    "area_sqm": "area_sqft * 0.092903",
+    "area_sqm_aux": "area_sqft * 0.092903"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "area_sqm_aux",
     "breakdown": [
-      "normalized_product"
+      "area_sqm",
+      "tolerance_band",
+      "result_lower",
+      "result_upper"
     ],
     "hiddenLossDrivers": [
       "Model uses normalized input chain — validate units",
@@ -178,8 +181,8 @@
       "Cross-check with historical actuals",
       "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "dataConfidenceAdjusted": "area_sqm_aux",
+    "unit": "m²"
   },
   "toolName": "sqft-to-sqm-converter-calculator",
   "catalogCategory": "conversion",

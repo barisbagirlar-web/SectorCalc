@@ -147,13 +147,13 @@
     }
   ],
   "formulas": {
-    "rankValue": "(percentile / 100) * 6",
-    "rankValue_aux": "(percentile / 100) * 6"
+    "rankValue": "(percentile / 100) * 5",
+    "rankValue_aux": "(percentile / 100) * 5"
   },
   "outputs": {
     "primary": "rankValue_aux",
     "breakdown": [
-      "sortedDataStr",
+      "sortedData",
       "rankValue",
       "lowerValue",
       "upperValue"
@@ -162,7 +162,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "percentileValue",
+    "dataConfidenceAdjusted": "rankValue_aux",
     "unit": "mm"
   },
   "category": "Matematik & Analiz",
@@ -175,7 +175,15 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "percentile",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "message": "Percentile must be between 0 and 100"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

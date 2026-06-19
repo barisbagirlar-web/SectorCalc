@@ -24,10 +24,10 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Moment_of_inertia_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shape; results["1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["1"] = 0; }
-  try { const v = input.shape; results["2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["2"] = 0; }
-  try { const v = input.shape; results["3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["3"] = 0; }
-  try { const v = input.shape; results["4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["4"] = 0; }
+  try { const v = input.shape==1 ? (input.dim1 * input.dim2**3)/12 : null; results["I_x_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_x_rectangle"] = 0; }
+  try { const v = input.shape==1 ? (input.dim2 * input.dim1**3)/12 : null; results["I_y_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_y_rectangle"] = 0; }
+  try { const v = input.shape==4 ? (input.dim1 * input.dim2**3 - (input.dim1 - input.dim4) * (input.dim2 - 2*input.dim3)**3)/12 : null; results["I_x_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_x_Ibeam"] = 0; }
+  try { const v = input.shape==4 ? (2*input.dim3 * input.dim1**3 + (input.dim2 - 2*input.dim3) * input.dim4**3)/12 : null; results["I_y_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_y_Ibeam"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMoment_of_inertia_calculator(input: Moment_of_inertia_calculatorInput): Moment_of_inertia_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["1"]);
+  const totalWasteCost = toNumericFormulaValue(values["I_x_rectangle"]);
   const breakdown = {
     
   };

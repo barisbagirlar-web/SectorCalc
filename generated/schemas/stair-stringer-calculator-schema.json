@@ -123,11 +123,9 @@
     }
   ],
   "formulas": {
-    "riserHeight": "totalRise",
-    "totalRun": "totalRise",
-    "stringerLength": "totalRise",
-    "angle": "totalRise",
-    "numberTreads": "totalRise"
+    "riserHeight": "totalRise / numberRisers",
+    "totalRun": "(numberRisers - 1) * treadDepth",
+    "numberTreads": "numberRisers - 1"
   },
   "outputs": {
     "primary": "numberTreads",
@@ -160,8 +158,45 @@
   "profession": "İnşaat Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "totalRise",
+        "condition": "> 0",
+        "message": "Total Rise must be positive"
+      },
+      {
+        "field": "numberRisers",
+        "condition": ">= 2",
+        "message": "Number of Risers must be at least 2"
+      },
+      {
+        "field": "treadDepth",
+        "condition": "> 0",
+        "message": "Tread Depth must be positive"
+      },
+      {
+        "field": "stringerWidth",
+        "condition": "> 0",
+        "message": "Stringer Width must be positive"
+      },
+      {
+        "field": "nosing",
+        "condition": ">= 0",
+        "message": "Nosing Overhang must be non-negative"
+      }
+    ],
+    "thresholds": {
+      "riserHeight": {
+        "min": 100,
+        "max": 200,
+        "message": "Riser height should be between 100 mm and 200 mm"
+      },
+      "angle": {
+        "min": 30,
+        "max": 45,
+        "message": "Inclination angle should be between 30° and 45°"
+      }
+    }
   },
   "premiumFeatures": []
 }

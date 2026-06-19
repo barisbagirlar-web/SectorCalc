@@ -124,10 +124,11 @@
   ],
   "formulas": {
     "absoluteDecrease": "initialValue - finalValue",
-    "absoluteDecrease_aux": "initialValue - finalValue"
+    "adjustedPercentDecrease": "((initialValue * adjustmentFactor - finalValue) / (initialValue * adjustmentFactor)) * 100",
+    "targetVariance": "adjustedPercentDecrease - targetDecreasePercent"
   },
   "outputs": {
-    "primary": "absoluteDecrease_aux",
+    "primary": "targetVariance",
     "breakdown": [
       "absoluteDecrease",
       "adjustedPercentDecreaseRounded",
@@ -137,10 +138,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "targetVarianceRounded",
+    "dataConfidenceAdjusted": "targetVariance",
     "unit": "TRY",
     "breakdownUnits": {
-      "adjustedPercentDecreaseRounded": "%"
+      "adjustedPercentDecreaseRounded": "%",
+      "targetVarianceRounded": "%"
     }
   },
   "category": "Matematik & Analiz",
@@ -153,7 +155,33 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialValue",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Initial value must be greater than 0."
+      },
+      {
+        "field": "finalValue",
+        "rule": "greaterThanOrEqual",
+        "value": 0,
+        "message": "Final value must be non-negative."
+      },
+      {
+        "field": "precision",
+        "rule": "between",
+        "min": 0,
+        "max": 10,
+        "message": "Precision must be between 0 and 10."
+      },
+      {
+        "field": "adjustmentFactor",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Adjustment factor must be greater than 0."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

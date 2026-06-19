@@ -123,22 +123,23 @@
     }
   ],
   "formulas": {
-    "breakdown": "age",
-    "breakdown_aux": "age"
+    "mortalityProbability": "0.001 * (age - 20) * (1 + 0.5 * isSmoker)",
+    "discountFactor": "1 / (1 + interestRate / 100) ^ termYears",
+    "presentValue": "coverageAmount * mortalityProbability * discountFactor"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "presentValue",
     "breakdown": [
-      "Mortality Probability: ${breakdown0}",
-      "Discount Factor: ${breakdown1}",
-      "Coverage Amount: ${breakdown2}"
+      "Mortality Probability: ${mortalityProbability}",
+      "Discount Factor: ${discountFactor}",
+      "Present Value: ${presentValue}"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "years"
+    "dataConfidenceAdjusted": "presentValue",
+    "unit": "USD"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
@@ -150,7 +151,33 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "age",
+        "condition": "age >= 18 && age <= 100",
+        "message": "Age must be between 18 and 100."
+      },
+      {
+        "field": "isSmoker",
+        "condition": "isSmoker === 0 || isSmoker === 1",
+        "message": "Smoker must be 0 or 1."
+      },
+      {
+        "field": "coverageAmount",
+        "condition": "coverageAmount >= 10000 && coverageAmount <= 10000000",
+        "message": "Coverage amount must be between $10,000 and $10,000,000."
+      },
+      {
+        "field": "termYears",
+        "condition": "termYears >= 1 && termYears <= 50",
+        "message": "Term must be between 1 and 50 years."
+      },
+      {
+        "field": "interestRate",
+        "condition": "interestRate >= 0 && interestRate <= 20",
+        "message": "Interest rate must be between 0% and 20%."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -99,11 +99,11 @@
     }
   ],
   "formulas": {
-    "primary": "n",
-    "breakdown": "n"
+    "result": "n + r + decimalPlaces",
+    "result_aux": "n + r + decimalPlaces"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "result",
     "breakdown": [
       {
         "id": "nFactorial",
@@ -122,7 +122,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "result_aux",
     "unit": "items"
   },
   "category": "Teknik & Mühendislik",
@@ -135,7 +135,28 @@
   "profession": "Matematikçi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "n_positive",
+        "type": "range",
+        "field": "n",
+        "min": 1,
+        "message": "n must be at least 1."
+      },
+      {
+        "id": "r_nonnegative",
+        "type": "range",
+        "field": "r",
+        "min": 0,
+        "message": "r must be non-negative."
+      },
+      {
+        "id": "r_leq_n",
+        "type": "custom",
+        "condition": "r <= n",
+        "message": "r must be less than or equal to n."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

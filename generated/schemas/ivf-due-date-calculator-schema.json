@@ -27,13 +27,13 @@
     },
     {
       "id": "transferMonth",
-      "label": "Transfer Ay",
+      "label": "Transfer Month",
       "type": "number",
       "unit": "ay",
       "default": 1,
       "businessContext": "Embryo transfer month (1-12)",
       "label_i18n": {
-        "en": "Transfer Ay",
+        "en": "Transfer Month",
         "tr": "Transfer Ayı",
         "de": "Transfer Monat",
         "fr": "Mois de transfert",
@@ -112,10 +112,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "dueDateTimestamp",
+    "dataConfidenceAdjusted": "daysToAdd_aux",
     "unit": "yıl",
     "breakdownUnits": {
-      "transferTimestamp": "A"
+      "transferTimestamp": "ms",
+      "daysToAdd": "gün"
     }
   },
   "category": "Dönüşüm & Ölçüm",
@@ -128,7 +129,32 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "transferMonth",
+        "rule": "between",
+        "params": [
+          1,
+          12
+        ]
+      },
+      {
+        "field": "transferDay",
+        "rule": "between",
+        "params": [
+          1,
+          31
+        ]
+      },
+      {
+        "field": "embryoAge",
+        "rule": "in",
+        "params": [
+          3,
+          5
+        ]
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

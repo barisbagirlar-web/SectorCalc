@@ -116,7 +116,9 @@
     "dataConfidenceAdjusted": "q",
     "unit": "kg",
     "breakdownUnits": {
-      "f_n": "N"
+      "f_n": "Hz",
+      "f_d": "Hz",
+      "q": "dimensionless"
     }
   },
   "category": "Teknik & Mühendislik",
@@ -129,7 +131,40 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "mass_positive",
+        "type": "range",
+        "field": "mass",
+        "min": 0.001,
+        "max": 1000000,
+        "message": "Mass must be positive."
+      },
+      {
+        "id": "stiffness_positive",
+        "type": "range",
+        "field": "stiffness",
+        "min": 0.001,
+        "max": 1000000,
+        "message": "Stiffness must be positive."
+      },
+      {
+        "id": "damping_ratio_range",
+        "type": "range",
+        "field": "dampingRatio",
+        "min": 0,
+        "max": 1,
+        "message": "Damping ratio must be between 0 and 1."
+      },
+      {
+        "id": "excitation_frequency_positive",
+        "type": "range",
+        "field": "excitationFrequency",
+        "min": 0.001,
+        "max": 1000000,
+        "message": "Excitation frequency must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

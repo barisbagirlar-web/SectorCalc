@@ -55,7 +55,7 @@
       "type": "number",
       "unit": "mm",
       "default": 190,
-      "businessContext": "Length of a single brick in millimeters (e.g., 190).",
+      "businessContext": "Length of a single brick in millimeters.",
       "label_i18n": {
         "en": "Brick Length",
         "tr": "Tuğla uzunluğu",
@@ -172,10 +172,16 @@
   ],
   "formulas": {
     "wallVolume": "wallLength * wallHeight * (brickWidth / 1000)",
-    "wallVolume_aux": "wallLength * wallHeight * (brickWidth / 1000)"
+    "brickVolume": "(brickLength / 1000) * (brickWidth / 1000) * (brickHeight / 1000)",
+    "brickVolumeWithJoint": "((brickLength + jointThickness) / 1000) * ((brickWidth + jointThickness) / 1000) * ((brickHeight + jointThickness) / 1000)",
+    "totalBricks": "wallVolume / brickVolumeWithJoint",
+    "solidVolume": "totalBricks * brickVolume",
+    "mortarVolumeBase": "wallVolume - solidVolume",
+    "waste": "mortarVolumeBase * (wasteFactor / 100)",
+    "totalMortar": "mortarVolumeBase + waste"
   },
   "outputs": {
-    "primary": "wallVolume_aux",
+    "primary": "totalMortar",
     "breakdown": [
       "totalBricks",
       "mortarVolumeBase",
@@ -187,7 +193,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "totalMortar",
-    "unit": "m"
+    "unit": "m3"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İnşaat & Yapı",
@@ -199,7 +205,43 @@
   "profession": "İnşaat Mühendisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "wallLength",
+        "condition": "> 0",
+        "message": "Wall length must be positive."
+      },
+      {
+        "field": "wallHeight",
+        "condition": "> 0",
+        "message": "Wall height must be positive."
+      },
+      {
+        "field": "brickLength",
+        "condition": "> 0",
+        "message": "Brick length must be positive."
+      },
+      {
+        "field": "brickWidth",
+        "condition": "> 0",
+        "message": "Brick width must be positive."
+      },
+      {
+        "field": "brickHeight",
+        "condition": "> 0",
+        "message": "Brick height must be positive."
+      },
+      {
+        "field": "jointThickness",
+        "condition": ">= 0",
+        "message": "Joint thickness must be non-negative."
+      },
+      {
+        "field": "wasteFactor",
+        "condition": ">= 0",
+        "message": "Waste factor must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

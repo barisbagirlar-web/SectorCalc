@@ -136,7 +136,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "denominator",
+    "dataConfidenceAdjusted": "numerator_aux",
     "unit": "adet"
   },
   "category": "Matematik & Analiz",
@@ -149,7 +149,50 @@
   "profession": "Veri Bilimci",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "n_positive",
+        "type": "range",
+        "field": "n",
+        "min": 2,
+        "max": 1000,
+        "message": "n must be at least 2"
+      },
+      {
+        "id": "P_Q_T_U_nonnegative",
+        "type": "range",
+        "field": "P",
+        "min": 0,
+        "message": "P must be non-negative"
+      },
+      {
+        "id": "P_Q_T_U_nonnegative",
+        "type": "range",
+        "field": "Q",
+        "min": 0,
+        "message": "Q must be non-negative"
+      },
+      {
+        "id": "P_Q_T_U_nonnegative",
+        "type": "range",
+        "field": "T",
+        "min": 0,
+        "message": "T must be non-negative"
+      },
+      {
+        "id": "P_Q_T_U_nonnegative",
+        "type": "range",
+        "field": "U",
+        "min": 0,
+        "message": "U must be non-negative"
+      },
+      {
+        "id": "sum_check",
+        "type": "custom",
+        "condition": "P + Q + T + U <= n*(n-1)/2",
+        "message": "Sum of P, Q, T, U must not exceed total pairs"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

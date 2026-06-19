@@ -112,8 +112,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "taxSavings",
-    "unit": "years"
+    "dataConfidenceAdjusted": "eligible_aux",
+    "unit": "USD"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Günlük Yaşam & Ev",
@@ -125,7 +125,38 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "age",
+        "rule": "min",
+        "value": 70.5,
+        "message": "Age must be at least 70.5 for QCD eligibility."
+      },
+      {
+        "field": "distributionAmount",
+        "rule": "max",
+        "value": 100000,
+        "message": "Distribution amount cannot exceed $100,000 per year."
+      },
+      {
+        "field": "marginalTaxRate",
+        "rule": "min",
+        "value": 0,
+        "message": "Marginal tax rate must be non-negative."
+      },
+      {
+        "field": "marginalTaxRate",
+        "rule": "max",
+        "value": 100,
+        "message": "Marginal tax rate cannot exceed 100%."
+      },
+      {
+        "field": "iraBalance",
+        "rule": "min",
+        "value": 0,
+        "message": "IRA balance must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

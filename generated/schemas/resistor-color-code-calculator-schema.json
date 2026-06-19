@@ -103,7 +103,7 @@
     "toleranceInfo_aux": "'Tolerans: ±' + tolerance + '%'"
   },
   "outputs": {
-    "primary": "toleranceInfo_aux",
+    "primary": "toleranceInfo",
     "breakdown": [
       "resistanceCalculation",
       "toleranceInfo"
@@ -125,7 +125,24 @@
   "profession": "Elektronik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "band1",
+        "rule": "min:0, max:9"
+      },
+      {
+        "field": "band2",
+        "rule": "min:0, max:9"
+      },
+      {
+        "field": "multiplier",
+        "rule": "min:0, max:9"
+      },
+      {
+        "field": "tolerance",
+        "rule": "in:1,2,5,10,20"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

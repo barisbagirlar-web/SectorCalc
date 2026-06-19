@@ -137,7 +137,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "fociDistance",
+    "dataConfidenceAdjusted": "area_aux",
     "unit": "mm",
     "breakdownUnits": {
       "perimeter": "m"
@@ -153,7 +153,23 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "semiMajorPositive",
+        "expression": "semiMajor > 0",
+        "message": "Semi-major axis must be positive."
+      },
+      {
+        "id": "semiMinorPositive",
+        "expression": "semiMinor > 0",
+        "message": "Semi-minor axis must be positive."
+      },
+      {
+        "id": "semiMajorGreaterSemiMinor",
+        "expression": "semiMajor >= semiMinor",
+        "message": "Semi-major axis must be greater than or equal to semi-minor axis."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -153,14 +153,15 @@
   "outputs": {
     "primary": "concretePerPost_aux",
     "breakdown": [
-      "concreteTotal"
+      "numberOfPosts",
+      "concretePerPost"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "concreteTotal",
-    "unit": "m"
+    "dataConfidenceAdjusted": "concretePerPost_aux",
+    "unit": "m3"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
@@ -172,7 +173,38 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "fenceLength",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "postSpacing",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "numberOfCorners",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "numberOfGateOpenings",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "postDiameter",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "postDepth",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

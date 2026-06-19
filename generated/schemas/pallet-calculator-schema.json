@@ -123,11 +123,11 @@
     }
   ],
   "formulas": {
-    "totalWeight": "totalItems * itemWeight",
-    "totalWeight_aux": "totalItems * itemWeight"
+    "itemsPerPalletActual": "itemsPerLayer * layersPerPallet",
+    "totalWeight": "totalItems * itemWeight"
   },
   "outputs": {
-    "primary": "totalWeight_aux",
+    "primary": "totalWeight",
     "breakdown": [
       "palletsByCount",
       "palletsByWeight",
@@ -139,7 +139,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "weightUtilization",
+    "dataConfidenceAdjusted": "totalWeight",
     "unit": "pcs",
     "breakdownUnits": {
       "weightUtilization": "%"
@@ -155,8 +155,39 @@
   "profession": "Lojistik Uzmanı",
   "categoryId": "efficiency",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "itemsPerLayer",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "layersPerPallet",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "itemWeight",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "maxPalletWeight",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "totalItems",
+        "rule": "min",
+        "value": 1
+      }
+    ],
+    "thresholds": {
+      "weightUtilization": {
+        "warning": 90,
+        "critical": 100
+      }
+    }
   },
   "premiumFeatures": []
 }

@@ -123,24 +123,32 @@
     }
   ],
   "formulas": {
-    "wasteFactor": "1 + wastePercentage / 100",
-    "wasteFactor_aux": "1 + wastePercentage / 100"
+    "normalized_product": "roomLength * roomWidth * rollWidth * (wastePercentage / 100)",
+    "result": "roomLength * roomWidth * rollWidth * (wastePercentage / 100) * (pricePerSqM)",
+    "adjustment_factor": "pricePerSqM"
   },
   "outputs": {
-    "primary": "wasteFactor_aux",
+    "primary": "result",
     "breakdown": [
-      "Number of strips: {numberOfStrips}",
-      "Total linear meters: {totalLinearMeters} m",
-      "Area before waste: {areaBeforeWaste} m²"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "totalCost",
-    "unit": "m",
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
     "breakdownUnits": {
-      "Total linear meters: {totalLinearMeters} m": "m"
+      "Number of strips: {numberOfStrips}": "count",
+      "Total linear meters: {totalLinearMeters} m": "m",
+      "Area before waste: {areaBeforeWaste} m²": "m²",
+      "Area with waste: {areaWithWaste} m²": "m²",
+      "Total cost: {totalCost} currency": "currency"
     }
   },
   "category": "Maliyet & Bütçeleme",
@@ -153,7 +161,38 @@
   "profession": "Matematikçi",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "roomLength",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "roomWidth",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "rollWidth",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "wastePercentage",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "wastePercentage",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "pricePerSqM",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

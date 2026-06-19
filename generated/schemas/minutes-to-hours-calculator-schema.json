@@ -99,11 +99,11 @@
     }
   ],
   "formulas": {
-    "breakdown": "inputMinutes",
-    "breakdown_aux": "inputMinutes"
+    "decimalHours": "inputMinutes / 60",
+    "decimalHours_aux": "inputMinutes / 60"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "decimalHours_aux",
     "breakdown": [
       "hours",
       "minutes"
@@ -112,7 +112,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "minutes",
+    "dataConfidenceAdjusted": "decimalHours_aux",
     "unit": "min",
     "breakdownUnits": {
       "hours": "h",
@@ -129,7 +129,39 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "inputMinutes",
+        "type": "min",
+        "value": 0,
+        "message": "Minutes must be non-negative"
+      },
+      {
+        "field": "decPlaces",
+        "type": "min",
+        "value": 0,
+        "message": "Decimal places must be non-negative"
+      },
+      {
+        "field": "fmt",
+        "type": "in",
+        "value": [
+          0,
+          1
+        ],
+        "message": "Output format must be 0 or 1"
+      },
+      {
+        "field": "rndMode",
+        "type": "in",
+        "value": [
+          0,
+          1,
+          2
+        ],
+        "message": "Rounding mode must be 0, 1, or 2"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

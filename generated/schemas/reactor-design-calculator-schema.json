@@ -148,10 +148,10 @@
   ],
   "formulas": {
     "outletConcentration": "inletConcentration * (1 - conversion)",
-    "outletConcentration_aux": "inletConcentration * (1 - conversion)"
+    "residenceTime": "volumetricFlowRate * safetyFactor / (rateConstant * inletConcentration ** (reactionOrder - 1) * (1 - conversion))"
   },
   "outputs": {
-    "primary": "outletConcentration_aux",
+    "primary": "outletConcentration",
     "breakdown": [
       {
         "label": "Residence Time",
@@ -181,7 +181,26 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "conversion",
+        "condition": "between",
+        "value": [
+          0,
+          1
+        ]
+      },
+      {
+        "field": "reactionOrder",
+        "condition": "greaterThan",
+        "value": 0
+      },
+      {
+        "field": "rateConstant",
+        "condition": "greaterThan",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -172,7 +172,8 @@
   ],
   "formulas": {
     "normalTime": "observedTime * (ratingFactor / 100)",
-    "standardTime": "normalTime * (1 + allowanceFactor / 100)"
+    "standardTime": "normalTime * (1 + allowanceFactor / 100)",
+    "requiredSamples": "(zScore * standardDeviation / (precision / 100 * observedTime)) ** 2"
   },
   "outputs": {
     "primary": "standardTime",
@@ -186,10 +187,10 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "actualPrecision",
+    "dataConfidenceAdjusted": "requiredSamples",
     "unit": "minute",
     "breakdownUnits": {
-      "requiredSamples": "A"
+      "requiredSamples": "cycles"
     }
   },
   "category": "Matematik & Analiz",
@@ -202,7 +203,43 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "observedTime",
+        "condition": "> 0",
+        "message": "Observed time must be positive"
+      },
+      {
+        "field": "ratingFactor",
+        "condition": ">= 50 and <= 150",
+        "message": "Rating factor should be between 50% and 150%"
+      },
+      {
+        "field": "allowanceFactor",
+        "condition": ">= 0 and <= 50",
+        "message": "Allowance factor should be between 0% and 50%"
+      },
+      {
+        "field": "cycleCount",
+        "condition": ">= 1",
+        "message": "Cycle count must be at least 1"
+      },
+      {
+        "field": "standardDeviation",
+        "condition": ">= 0",
+        "message": "Standard deviation must be non-negative"
+      },
+      {
+        "field": "precision",
+        "condition": "> 0 and <= 100",
+        "message": "Precision must be between 0% and 100%"
+      },
+      {
+        "field": "zScore",
+        "condition": "> 0",
+        "message": "Z-score must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

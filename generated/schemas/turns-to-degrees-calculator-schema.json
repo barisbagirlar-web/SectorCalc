@@ -148,24 +148,24 @@
   ],
   "formulas": {
     "rawDegrees": "turns * 360",
-    "turns": "turns",
-    "decimalPlaces": "decimalPlaces"
+    "rawDegrees_aux": "turns * 360"
   },
   "outputs": {
-    "primary": "decimalPlaces",
+    "primary": "rawDegrees_aux",
     "breakdown": [
       "turns",
       "rawDegrees",
-      "decimalPlaces"
+      "roundedDegrees"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "decimalPlaces",
-    "unit": "turns",
+    "dataConfidenceAdjusted": "rawDegrees_aux",
+    "unit": "°",
     "breakdownUnits": {
-      "rawDegrees": "°"
+      "rawDegrees": "°",
+      "roundedDegrees": "°"
     }
   },
   "category": "Kalite & Süreç Kontrol",
@@ -178,7 +178,23 @@
   "profession": "CNC Operatörü",
   "categoryId": "quality",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "turns",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimalPlaces",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimalPlaces",
+        "rule": "max",
+        "value": 10
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

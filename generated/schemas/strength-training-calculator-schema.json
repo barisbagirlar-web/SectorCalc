@@ -148,10 +148,12 @@
   ],
   "formulas": {
     "primary": "weightLifted * (1 + repetitions / 30)",
-    "breakdown": "weightLifted"
+    "relativeStrength": "weightLifted / bodyWeight",
+    "volumeLoad": "weightLifted * repetitions * sets",
+    "effectiveTrainingLoad": "weightLifted * (1 + repetitions / 30) * (1 - fatigueFactor / 100)"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "primary",
     "breakdown": [
       "Relative Strength (kg per kg BW)",
       "Volume Load (kg*reps)",
@@ -161,7 +163,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "primary",
     "unit": "kg"
   },
   "category": "İSG & Risk",
@@ -174,7 +176,43 @@
   "profession": "Antrenör",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "weightLifted",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "repetitions",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "bodyWeight",
+        "rule": "min",
+        "value": 20
+      },
+      {
+        "field": "sets",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "restPeriod",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "fatigueFactor",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "fatigueFactor",
+        "rule": "max",
+        "value": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

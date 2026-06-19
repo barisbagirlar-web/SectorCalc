@@ -147,11 +147,11 @@
     }
   ],
   "formulas": {
-    "breakdown": "wine_acidity",
-    "breakdown_aux": "wine_acidity"
+    "result": "wine_acidity + wine_sweetness + wine_body",
+    "result_aux": "wine_acidity + wine_sweetness + wine_body"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "result",
     "breakdown": [
       "Flavor Balance (%)",
       "Weight Compatibility (%)"
@@ -160,7 +160,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "result_aux",
     "unit": "score (0-10)"
   },
   "category": "Dönüşüm & Ölçüm",

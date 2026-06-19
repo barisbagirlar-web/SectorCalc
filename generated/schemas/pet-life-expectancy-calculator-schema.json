@@ -173,6 +173,7 @@
   "formulas": {
     "activityMultiplier": "0.8 + (activityLevel / 10) * 0.2",
     "dietMultiplier": "0.7 + (dietQuality / 10) * 0.3",
+    "vetMultiplier": "1 + 0.05 * vetVisits",
     "sterilizationMultiplier": "1 + 0.1 * sterilized"
   },
   "outputs": {
@@ -188,7 +189,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "lifeExpectancy",
+    "dataConfidenceAdjusted": "sterilizationMultiplier",
     "unit": "years"
   },
   "category": "Kalite & Süreç Kontrol",
@@ -201,7 +202,38 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "quality",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "weight",
+        "condition": "weight > 0",
+        "message": "Weight must be positive"
+      },
+      {
+        "field": "idealWeight",
+        "condition": "idealWeight > 0",
+        "message": "Ideal weight must be positive"
+      },
+      {
+        "field": "activityLevel",
+        "condition": "activityLevel >= 0 && activityLevel <= 10",
+        "message": "Activity level must be between 0 and 10"
+      },
+      {
+        "field": "dietQuality",
+        "condition": "dietQuality >= 0 && dietQuality <= 10",
+        "message": "Diet quality must be between 0 and 10"
+      },
+      {
+        "field": "vetVisits",
+        "condition": "vetVisits >= 0",
+        "message": "Vet visits must be non-negative"
+      },
+      {
+        "field": "sterilized",
+        "condition": "sterilized === 0 || sterilized === 1",
+        "message": "Sterilized must be 0 or 1"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

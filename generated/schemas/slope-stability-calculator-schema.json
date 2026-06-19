@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)",
+      "businessContext": "Vertical depth from slope surface to potential failure plane",
       "label_i18n": {
         "en": "Depth to Failure Plane (z)",
         "tr": "Kırılma Düzlemi Derinliği (z)",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)",
+      "businessContext": "Ratio of pore water pressure to overburden stress",
       "label_i18n": {
         "en": "Pore Pressure Ratio (rᵤ)",
         "tr": "Boşluk Suyu Basıncı Oranı (rᵤ)",
@@ -161,8 +161,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "FS",
-    "unit": "°"
+    "dataConfidenceAdjusted": "frictionRad",
+    "unit": "-"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Denizcilik & Gemi",
@@ -174,8 +174,44 @@
   "profession": "Gemi Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "id": "slopeAngleRange",
+        "condition": "slopeAngle > 0 && slopeAngle < 90",
+        "message": "Slope angle must be between 0 and 90 degrees."
+      },
+      {
+        "id": "frictionAngleRange",
+        "condition": "frictionAngle >= 0 && frictionAngle < 90",
+        "message": "Friction angle must be between 0 and 90 degrees."
+      },
+      {
+        "id": "cohesionNonNegative",
+        "condition": "cohesion >= 0",
+        "message": "Cohesion must be non-negative."
+      },
+      {
+        "id": "unitWeightPositive",
+        "condition": "unitWeight > 0",
+        "message": "Unit weight must be positive."
+      },
+      {
+        "id": "depthPositive",
+        "condition": "depth > 0",
+        "message": "Depth must be positive."
+      },
+      {
+        "id": "porePressureRatioRange",
+        "condition": "porePressureRatio >= 0 && porePressureRatio < 1",
+        "message": "Pore pressure ratio must be between 0 and 1."
+      }
+    ],
+    "thresholds": {
+      "FS": {
+        "min": 0,
+        "max": 10
+      }
+    }
   },
   "premiumFeatures": []
 }

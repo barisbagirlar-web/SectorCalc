@@ -124,20 +124,24 @@
   ],
   "formulas": {
     "correctedLength": "finLength + finThickness / 2",
-    "correctedLength_aux": "finLength + finThickness / 2"
+    "crossSectionArea": "finWidth * finThickness",
+    "perimeter": "2 * (finWidth + finThickness)"
   },
   "outputs": {
-    "primary": "correctedLength_aux",
+    "primary": "perimeter",
     "breakdown": [
+      "correctedLength",
+      "crossSectionArea",
+      "perimeter",
       "mValue",
-      "correctedLength"
+      "finEfficiency"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finEfficiency",
-    "unit": "m"
+    "dataConfidenceAdjusted": "perimeter",
+    "unit": "dimensionless"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
@@ -149,7 +153,33 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "finLength",
+        "condition": ">0",
+        "message": "Fin length must be positive"
+      },
+      {
+        "field": "finThickness",
+        "condition": ">0",
+        "message": "Fin thickness must be positive"
+      },
+      {
+        "field": "finWidth",
+        "condition": ">0",
+        "message": "Fin width must be positive"
+      },
+      {
+        "field": "heatTransferCoefficient",
+        "condition": ">0",
+        "message": "Heat transfer coefficient must be positive"
+      },
+      {
+        "field": "thermalConductivity",
+        "condition": ">0",
+        "message": "Thermal conductivity must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

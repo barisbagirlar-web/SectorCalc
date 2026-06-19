@@ -99,11 +99,11 @@
     }
   ],
   "formulas": {
-    "efficiencyScore": "sleepEfficiency",
-    "efficiencyScore_aux": "sleepEfficiency"
+    "durationScore": "totalSleepHours / 8 * 100",
+    "efficiencyScore": "sleepEfficiency"
   },
   "outputs": {
-    "primary": "efficiencyScore_aux",
+    "primary": "efficiencyScore",
     "breakdown": [
       "durationScore",
       "latencyScore",
@@ -114,10 +114,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "sleepQualityScore",
+    "dataConfidenceAdjusted": "efficiencyScore",
     "unit": "%",
     "breakdownUnits": {
       "durationScore": "%",
+      "latencyScore": "%",
+      "disturbanceScore": "%",
       "efficiencyScore": "%"
     }
   },
@@ -131,8 +133,55 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "totalSleepHours",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "totalSleepHours",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "timeToFallAsleep",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "timeToFallAsleep",
+        "rule": "max",
+        "value": 180
+      },
+      {
+        "field": "awakeningsCount",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "awakeningsCount",
+        "rule": "max",
+        "value": 20
+      },
+      {
+        "field": "sleepEfficiency",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "sleepEfficiency",
+        "rule": "max",
+        "value": 100
+      }
+    ],
+    "thresholds": {
+      "sleepQualityScore": {
+        "good": 80,
+        "fair": 60,
+        "poor": 40
+      }
+    }
   },
   "premiumFeatures": []
 }

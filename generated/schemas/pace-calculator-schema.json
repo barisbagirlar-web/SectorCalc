@@ -12,7 +12,7 @@
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
-        "fr": "Debye-Hückel B",
+        "fr": "Distance (km)",
         "es": "Distancia (km)",
         "ar": "المسافة (كم)"
       },
@@ -99,20 +99,23 @@
     }
   ],
   "formulas": {
-    "breakdown": "distanceKm",
-    "breakdown_aux": "distanceKm"
+    "totalHours": "hours + minutes/60 + seconds/3600",
+    "speedKmh": "distanceKm / totalHours",
+    "pacePerKm": "totalHours * 60 / distanceKm",
+    "pacePerMile": "pacePerKm * 1.60934"
   },
   "outputs": {
-    "primary": "breakdown_aux",
+    "primary": "speedKmh",
     "breakdown": [
       "Speed in km/h",
-      "Pace per mile"
+      "Pace per km (min/km)",
+      "Pace per mile (min/mile)"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "Speed_in_km_h",
+    "dataConfidenceAdjusted": "speedKmh",
     "unit": "km"
   },
   "category": "İSG & Risk",
@@ -125,7 +128,20 @@
   "profession": "Antrenör",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "distanceKm",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Distance must be greater than 0."
+      },
+      {
+        "field": "totalHours",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Total time must be greater than 0."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

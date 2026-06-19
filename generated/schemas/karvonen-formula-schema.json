@@ -124,10 +124,11 @@
   ],
   "formulas": {
     "heartRateReserve": "max_hr - resting_hr",
-    "heartRateReserve_aux": "max_hr - resting_hr"
+    "targetHRMin": "((heartRateReserve * intensity_min) / 100) + resting_hr",
+    "targetHRMax": "((heartRateReserve * intensity_max) / 100) + resting_hr"
   },
   "outputs": {
-    "primary": "heartRateReserve_aux",
+    "primary": "targetHRMax",
     "breakdown": [
       "Heart Rate Reserve: heartRateReserve bpm",
       "Target HR Zone: targetHRMin - targetHRMax bpm"
@@ -137,7 +138,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "targetHRMax",
-    "unit": "years"
+    "unit": "bpm"
   },
   "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",

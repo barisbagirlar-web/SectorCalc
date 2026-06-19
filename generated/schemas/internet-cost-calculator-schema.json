@@ -147,22 +147,22 @@
     }
   ],
   "formulas": {
-    "temelUcret": "monthlyBaseFee",
-    "temelUcret_aux": "monthlyBaseFee"
+    "discountAmount": "monthlyBaseFee * discountPercent / 100",
+    "discountAmount_aux": "monthlyBaseFee * discountPercent / 100"
   },
   "outputs": {
-    "primary": "temelUcret_aux",
+    "primary": "discountAmount_aux",
     "breakdown": [
-      "temelUcret",
-      "kotaAsimUcreti",
-      "indirimTutari",
-      "vergiTutari"
+      "monthlyBaseFee",
+      "overageCost",
+      "discountAmount",
+      "taxAmount"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "toplamAylik",
+    "dataConfidenceAdjusted": "discountAmount_aux",
     "unit": "TL"
   },
   "category": "Maliyet & Bütçeleme",
@@ -175,7 +175,23 @@
   "profession": "Proses Mühendisi",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "usage",
+        "condition": "usage >= 0",
+        "message": "Usage must be non-negative"
+      },
+      {
+        "field": "discountPercent",
+        "condition": "discountPercent >= 0 and discountPercent <= 100",
+        "message": "Discount must be between 0 and 100"
+      },
+      {
+        "field": "taxRate",
+        "condition": "taxRate >= 0 and taxRate <= 100",
+        "message": "Tax rate must be between 0 and 100"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

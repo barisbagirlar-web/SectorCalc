@@ -163,11 +163,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "transverseCircularPitch",
+    "dataConfidenceAdjusted": "normalCircularPitch_aux",
     "unit": "mm",
     "breakdownUnits": {
-      "outsideDiameter": "m",
-      "rootDiameter": "m"
+      "outsideDiameter": "mm",
+      "rootDiameter": "mm"
     }
   },
   "category": "Teknik & Mühendislik",
@@ -180,7 +180,38 @@
   "profession": "CNC Operatörü",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "mn",
+        "condition": "mn > 0",
+        "message": "Normal module must be positive"
+      },
+      {
+        "field": "z",
+        "condition": "z >= 5",
+        "message": "Number of teeth must be at least 5"
+      },
+      {
+        "field": "beta",
+        "condition": "beta >= 0 && beta < 45",
+        "message": "Helix angle must be between 0 and 45 degrees"
+      },
+      {
+        "field": "alpha",
+        "condition": "alpha > 0 && alpha < 45",
+        "message": "Pressure angle must be between 0 and 45 degrees"
+      },
+      {
+        "field": "ha",
+        "condition": "ha > 0",
+        "message": "Addendum coefficient must be positive"
+      },
+      {
+        "field": "c",
+        "condition": "c >= 0",
+        "message": "Dedendum coefficient must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -27,7 +27,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Hrv_biofeedback_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 220 - input.age; results["maximumHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maximumHeartRate"] = 0; }
-  try { const v = 220 - input.age; results["maximumHeartRate_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maximumHeartRate_aux"] = 0; }
+  try { const v = input.hrvRMSSD * 0.5 + input.hrvSDNN * 0.5; results["coherenceAmplitude"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coherenceAmplitude"] = 0; }
+  try { const v = input.sessionDuration / 10; results["sessionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sessionFactor"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHrv_biofeedback_calculator(input: Hrv_biofeedback_calculatorInput): Hrv_biofeedback_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["maximumHeartRate_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["maximumHeartRate"]);
   const breakdown = {
     
   };

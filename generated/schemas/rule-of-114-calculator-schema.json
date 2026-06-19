@@ -27,9 +27,9 @@
     },
     {
       "id": "initialInvestment",
-      "label": "Başlangıç Yatırımı",
+      "label": "Initial Investment",
       "type": "number",
-      "unit": "TL",
+      "unit": "USD",
       "default": 10000,
       "businessContext": "Yatırımın başlangıç değeri",
       "label_i18n": {
@@ -51,18 +51,18 @@
     },
     {
       "id": "targetMultiplier",
-      "label": "Hedef Katlama",
+      "label": "Target Multiplier",
       "type": "number",
-      "unit": "unit",
+      "unit": "x",
       "default": 3,
       "businessContext": "Kaç katına çıkma hedefi (genelde 3)",
       "label_i18n": {
-        "en": "Hedef Katlama",
-        "tr": "Target Fold",
+        "en": "Target Multiplier",
+        "tr": "Hedef Katlama",
         "de": "Zielvervielfachung",
-        "fr": "Doublement cible",
-        "es": "Multiplicación objetivo",
-        "ar": "هدف المضاعفة"
+        "fr": "Multiplicateur cible",
+        "es": "Multiplicador objetivo",
+        "ar": "المضاعف المستهدف"
       },
       "businessContext_i18n": {
         "en": "Target multiple (usually 3)",
@@ -75,18 +75,18 @@
     },
     {
       "id": "compoundingFrequency",
-      "label": "Yıllık Bileşik Faiz Sıklığı",
+      "label": "Compounding Frequency per Year",
       "type": "number",
-      "unit": "kez/yıl",
+      "unit": "times/year",
       "default": 1,
       "businessContext": "Faizin yılda kaç kez bileşiklendiği",
       "label_i18n": {
-        "en": "Annual Compounding Frequency",
+        "en": "Compounding Frequency per Year",
         "tr": "Yıllık Bileşik Faiz Sıklığı",
-        "de": "Jährliche Zinseszinshäufigkeit",
-        "fr": "Fréquence de composition annuelle",
-        "es": "Frecuencia de capitalización anual",
-        "ar": "تكرار الفائدة المركبة السنوية"
+        "de": "Zinseszinshäufigkeit pro Jahr",
+        "fr": "Fréquence de composition par an",
+        "es": "Frecuencia de capitalización por año",
+        "ar": "تكرار المضاعفة سنويًا"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year",
@@ -100,7 +100,7 @@
   ],
   "formulas": {
     "approximateYears": "114 / annualInterestRate",
-    "approximateYears_aux": "114 / annualInterestRate"
+    "futureValue": "initialInvestment * targetMultiplier"
   },
   "outputs": {
     "primary": "approximateYears",
@@ -113,7 +113,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "futureValue",
-    "unit": "%"
+    "unit": "years"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -125,7 +125,32 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "annualInterestRate",
+        "rule": "gt",
+        "value": 0,
+        "message": "Annual interest rate must be greater than 0."
+      },
+      {
+        "field": "initialInvestment",
+        "rule": "gt",
+        "value": 0,
+        "message": "Initial investment must be greater than 0."
+      },
+      {
+        "field": "targetMultiplier",
+        "rule": "gt",
+        "value": 1,
+        "message": "Target multiplier must be greater than 1."
+      },
+      {
+        "field": "compoundingFrequency",
+        "rule": "gte",
+        "value": 1,
+        "message": "Compounding frequency must be at least 1."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

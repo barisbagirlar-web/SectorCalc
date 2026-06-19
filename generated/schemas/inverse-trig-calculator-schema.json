@@ -103,7 +103,7 @@
     "inputDisplay_aux": "'Input: ' + inputValue"
   },
   "outputs": {
-    "primary": "inputDisplay",
+    "primary": "inputDisplay_aux",
     "breakdown": [
       "functionUsed",
       "inputDisplay",
@@ -114,7 +114,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "degreesDisplay",
+    "dataConfidenceAdjusted": "inputDisplay_aux",
     "unit": "—",
     "breakdownUnits": {
       "degreesDisplay": "°"
@@ -130,7 +130,14 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "inputValue",
+        "condition": "functionType==1 or functionType==2",
+        "rule": "inputValue >= -1 and inputValue <= 1",
+        "message": "For arcsin and arccos, input must be between -1 and 1."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

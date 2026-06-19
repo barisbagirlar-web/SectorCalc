@@ -124,10 +124,10 @@
   ],
   "formulas": {
     "pressure_psi_raw": "pressure_inhg * conversion_factor",
-    "pressure_psi_raw___pressure_inhg___conve": "pressure_psi_raw = pressure_inhg * conversion_factor"
+    "pressure_psi_raw_aux": "pressure_inhg * conversion_factor"
   },
   "outputs": {
-    "primary": "pressure_psi_raw___pressure_inhg___conve",
+    "primary": "pressure_psi_raw_aux",
     "breakdown": [
       "pressure_psi_raw = pressure_inhg * conversion_factor",
       "pressure_psi = round(pressure_psi_raw, decimal_places)"
@@ -136,8 +136,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "pressure_psi_raw___pressure_inhg___conve",
-    "unit": "inHg"
+    "dataConfidenceAdjusted": "pressure_psi_raw_aux",
+    "unit": "psi"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -149,7 +149,20 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "pressure_inhg_positive",
+        "field": "pressure_inhg",
+        "condition": "> 0",
+        "message": "Pressure must be positive."
+      },
+      {
+        "id": "decimal_places_range",
+        "field": "decimal_places",
+        "condition": ">= 0 && <= 10",
+        "message": "Decimal places must be between 0 and 10."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

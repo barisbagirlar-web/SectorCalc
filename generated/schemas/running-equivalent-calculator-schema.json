@@ -124,10 +124,11 @@
   ],
   "formulas": {
     "totalKnownTime": "knownTimeMinutes + knownTimeSeconds / 60",
-    "totalKnownTime_aux": "knownTimeMinutes + knownTimeSeconds / 60"
+    "predictedTimeMinutes": "totalKnownTime * (targetDistance / knownDistance) ^ exponent",
+    "predictedPacePerKm": "predictedTimeMinutes / targetDistance"
   },
   "outputs": {
-    "primary": "totalKnownTime_aux",
+    "primary": "predictedTimeMinutes",
     "breakdown": [
       "predictedTimeMinutes",
       "predictedPacePerKm"
@@ -152,7 +153,34 @@
   "profession": "Antrenör",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "knownDistance",
+        "rule": "greaterThan",
+        "value": 0
+      },
+      {
+        "field": "targetDistance",
+        "rule": "greaterThan",
+        "value": 0
+      },
+      {
+        "field": "knownTimeMinutes",
+        "rule": "greaterThanOrEqual",
+        "value": 0
+      },
+      {
+        "field": "knownTimeSeconds",
+        "rule": "between",
+        "min": 0,
+        "max": 59
+      },
+      {
+        "field": "exponent",
+        "rule": "greaterThan",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

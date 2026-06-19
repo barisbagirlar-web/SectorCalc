@@ -147,14 +147,17 @@
     }
   ],
   "formulas": {
+    "basePremium": "propertyValue * floodZoneFactor * buildingTypeFactor",
     "deductibleCredit": "deductible * 0.02",
-    "deductibleCredit_aux": "deductible * 0.02"
+    "depreciationFactor": "1 - (ageOfBuilding * 0.005)",
+    "finalPremium": "basePremium * depreciationFactor - deductibleCredit"
   },
   "outputs": {
-    "primary": "deductibleCredit_aux",
+    "primary": "finalPremium",
     "breakdown": [
       "basePremium",
-      "deductibleCredit"
+      "deductibleCredit",
+      "depreciationFactor"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -173,7 +176,40 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "propertyValue",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "floodZoneFactor",
+        "rule": "range",
+        "min": 0.01,
+        "max": 0.05
+      },
+      {
+        "field": "coverageAmount",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "deductible",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "buildingTypeFactor",
+        "rule": "range",
+        "min": 1,
+        "max": 1.5
+      },
+      {
+        "field": "ageOfBuilding",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -123,15 +123,19 @@
     }
   ],
   "formulas": {
+    "age_contribution": "machine_age_years * 0.1",
     "downtime_factor": "downtime_hours / (downtime_hours + 24)",
-    "downtime_factor_aux": "downtime_hours / (downtime_hours + 24)"
+    "temp_factor": "ambient_temperature_celsius / 40",
+    "cold_start_penalty": "cold_starts_per_day * 0.05",
+    "msi": "(age_contribution + downtime_factor + temp_factor + cold_start_penalty) * severity_factor"
   },
   "outputs": {
-    "primary": "downtime_factor_aux",
+    "primary": "msi",
     "breakdown": [
       "age_contribution",
       "downtime_factor",
-      "temp_factor"
+      "temp_factor",
+      "cold_start_penalty"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -140,8 +144,10 @@
     "dataConfidenceAdjusted": "msi",
     "unit": "min",
     "breakdownUnits": {
+      "age_contribution": "min",
       "downtime_factor": "min",
-      "temp_factor": "°C"
+      "temp_factor": "min",
+      "cold_start_penalty": "min"
     }
   },
   "category": "Dönüşüm & Ölçüm",

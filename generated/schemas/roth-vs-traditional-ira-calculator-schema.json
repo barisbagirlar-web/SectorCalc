@@ -147,11 +147,12 @@
     }
   ],
   "formulas": {
-    "n": "yearsUntilRetirement",
-    "n_aux": "yearsUntilRetirement"
+    "rothValue": "annualContribution * ((1 + expectedAnnualReturn/100) ^ yearsUntilRetirement)",
+    "tradValue": "annualContribution * (1 - currentTaxRate/100) * ((1 + expectedAnnualReturn/100) ^ yearsUntilRetirement) / (1 - expectedRetirementTaxRate/100)",
+    "rothMinusTrad": "rothValue - tradValue"
   },
   "outputs": {
-    "primary": "n_aux",
+    "primary": "rothMinusTrad",
     "breakdown": [
       "rothValue",
       "tradValue"
@@ -161,7 +162,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "rothMinusTrad",
-    "unit": "years"
+    "unit": "USD"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

@@ -100,10 +100,14 @@
   ],
   "formulas": {
     "currentAgeMonths": "currentAgeWeeks / 4.345",
-    "currentAgeMonths_aux": "currentAgeWeeks / 4.345"
+    "monthlyGrowthRate": "currentWeight / currentAgeMonths",
+    "weightAtMaturity": "monthlyGrowthRate * breedMaturityAgeMonths * adjustmentFactor",
+    "weightRangeLow": "weightAtMaturity * 0.9",
+    "weightRangeHigh": "weightAtMaturity * 1.1",
+    "weightRangeLow___________weightRangeHigh": "weightRangeLow + ' - ' + weightRangeHigh + ' kg'"
   },
   "outputs": {
-    "primary": "currentAgeMonths_aux",
+    "primary": "weightAtMaturity",
     "breakdown": [
       "monthlyGrowthRate",
       "weightRangeLow + ' - ' + weightRangeHigh + ' kg'"
@@ -125,7 +129,28 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "currentWeight",
+        "condition": "> 0",
+        "message": "Current weight must be positive."
+      },
+      {
+        "field": "currentAgeWeeks",
+        "condition": "> 0",
+        "message": "Current age must be positive."
+      },
+      {
+        "field": "breedMaturityAgeMonths",
+        "condition": "> 0",
+        "message": "Breed maturity age must be positive."
+      },
+      {
+        "field": "adjustmentFactor",
+        "condition": "> 0",
+        "message": "Adjustment factor must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -227,13 +227,15 @@
     ]
   },
   "formulas": {
-    "normalized_product": "mass_lbs * (measurement_uncertainty_pct / 100)",
-    "result": "mass_lbs * (measurement_uncertainty_pct / 100)"
+    "mass_kg": "mass_lbs * 0.45359237",
+    "uncertainty_kg": "mass_kg * (measurement_uncertainty_pct / 100)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "uncertainty_kg",
     "breakdown": [
-      "normalized_product"
+      "mass_kg",
+      "uncertainty_kg",
+      "loss_kg"
     ],
     "hiddenLossDrivers": [
       "Model uses normalized input chain — validate units",
@@ -243,8 +245,8 @@
       "Cross-check with historical actuals",
       "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "uncertainty_kg",
+    "unit": "kg"
   },
   "toolName": "lbs-to-kg-converter-calculator",
   "catalogCategory": "conversion",

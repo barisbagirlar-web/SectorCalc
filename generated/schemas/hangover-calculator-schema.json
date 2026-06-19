@@ -27,7 +27,7 @@
     },
     {
       "id": "body_weight",
-      "label": "Vücut Ağırlığı",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
@@ -53,7 +53,7 @@
       "id": "hours",
       "label": "Drinking Duration",
       "type": "number",
-      "unit": "saat",
+      "unit": "hours",
       "default": 4,
       "businessContext": "Drinking duration",
       "label_i18n": {
@@ -75,7 +75,7 @@
     },
     {
       "id": "gender",
-      "label": "Cinsiyet",
+      "label": "Gender",
       "type": "number",
       "unit": "unit",
       "default": 1,
@@ -123,11 +123,11 @@
     },
     {
       "id": "hydration",
-      "label": "Hidrasyon Durumu",
+      "label": "Hydration Status",
       "type": "number",
       "unit": "unit",
       "default": 0.5,
-      "businessContext": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)",
+      "businessContext": "Hydration level (0: dehydrated, 1: fully hydrated)",
       "label_i18n": {
         "en": "Hydration Status",
         "tr": "Hidrasyon Durumu",
@@ -161,24 +161,63 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "hangover_score",
+    "dataConfidenceAdjusted": "food_impact",
     "unit": "g",
     "breakdownUnits": {
-      "dehydration_factor": "%"
+      "bac": "%",
+      "dehydration_factor": "%",
+      "food_impact": "%"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Günlük Yaşam & Ev",
+  "category": "Health & Wellness",
+  "sector": "Lifestyle",
   "premiumRequired": false,
-  "catalogCategory": "food-cooking",
-  "sectorSlug": "restaurant",
-  "categorySlug": "quality-six-sigma",
-  "sectorId": "ev-yasam",
-  "profession": "Ev Yöneticisi",
-  "categoryId": "conversion",
+  "catalogCategory": "health",
+  "sectorSlug": "lifestyle",
+  "categorySlug": "health",
+  "sectorId": "lifestyle",
+  "profession": "General",
+  "categoryId": "health",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "alcohol_grams",
+        "min": 0,
+        "max": 500
+      },
+      {
+        "field": "body_weight",
+        "min": 30,
+        "max": 300
+      },
+      {
+        "field": "hours",
+        "min": 0,
+        "max": 24
+      },
+      {
+        "field": "gender",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "field": "food_intake",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "field": "hydration",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "thresholds": {
+      "hangover_score": {
+        "low": 0,
+        "medium": 0.5,
+        "high": 1
+      }
+    }
   },
   "premiumFeatures": []
 }

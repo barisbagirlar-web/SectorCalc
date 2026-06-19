@@ -27,7 +27,7 @@
     },
     {
       "id": "amplitude",
-      "label": "Genlik (A)",
+      "label": "Amplitude (A)",
       "type": "number",
       "unit": "mm/s",
       "default": 1,
@@ -51,7 +51,7 @@
     },
     {
       "id": "period",
-      "label": "Periyot (T)",
+      "label": "Period (T)",
       "type": "number",
       "unit": "s",
       "default": 1,
@@ -75,7 +75,7 @@
     },
     {
       "id": "time",
-      "label": "Zaman (t)",
+      "label": "Time (t)",
       "type": "number",
       "unit": "s",
       "default": 0,
@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Number of single harmonic to use (1, 3, 5)",
+      "businessContext": "Number of odd harmonics to use (1, 3, 5)",
       "label_i18n": {
         "en": "Number of Harmonics (N)",
         "tr": "Harmonik Sayısı (N)",
@@ -123,22 +123,22 @@
     }
   ],
   "formulas": {
-    "breakdown": "offset",
-    "breakdown_aux": "offset"
+    "dcOffset": "offset",
+    "dcOffset_aux": "offset"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "dcOffset_aux",
     "breakdown": [
-      "DC Offset Katkısı (mm/s)",
-      "1. Harmonik (f₁) Katkısı (mm/s)",
-      "3. Harmonik (f₃) Katkısı (mm/s)",
-      "5. Harmonik (f₅) Katkısı (mm/s)"
+      "dcOffset",
+      "harmonic1",
+      "harmonic3",
+      "harmonic5"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown",
+    "dataConfidenceAdjusted": "dcOffset_aux",
     "unit": "mm/s"
   },
   "category": "Matematik & Analiz",
@@ -151,7 +151,17 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "numHarmonics",
+        "rule": "in",
+        "value": [
+          1,
+          3,
+          5
+        ]
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

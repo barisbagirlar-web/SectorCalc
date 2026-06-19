@@ -54,7 +54,7 @@
       "label": "Denominator Coefficients (comma-separated)",
       "type": "number",
       "unit": "none",
-      "default": 1,
+      "default": "1,2,1",
       "businessContext": "Coefficients of denominator polynomial from highest to lowest order, e.g., 1,2,1 for s^2+2s+1",
       "label_i18n": {
         "en": "Denominator Coefficients (comma-separated)",
@@ -171,21 +171,26 @@
     }
   ],
   "formulas": {
-    "breakdown": "F_s",
-    "breakdown_aux": "F_s"
+    "normalized_product": "F_s * numerator_order * denominator_coeffs * denominator_order",
+    "result": "F_s * numerator_order * denominator_coeffs * denominator_order * (time_value * damping_ratio * natural_frequency)",
+    "adjustment_factor": "time_value * damping_ratio * natural_frequency"
   },
   "outputs": {
-    "primary": "breakdown",
+    "primary": "result",
     "breakdown": [
-      "Exponential term",
-      "Sinusoidal term"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "breakdown",
-    "unit": "none"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
@@ -197,7 +202,18 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "denominator_order",
+        "condition": "> 0",
+        "message": "Denominator order must be greater than 0"
+      },
+      {
+        "field": "time_value",
+        "condition": ">= 0",
+        "message": "Time must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

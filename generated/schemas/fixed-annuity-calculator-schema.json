@@ -124,10 +124,12 @@
   ],
   "formulas": {
     "periodicRate": "annualInterestRate / 100",
-    "periodicRate_aux": "annualInterestRate / 100"
+    "paymentAmount": "presentValue * periodicRate / (1 - (1 + periodicRate)^(-numberOfPeriods))",
+    "totalPaid": "paymentAmount * numberOfPeriods",
+    "totalInterest": "totalPaid - presentValue"
   },
   "outputs": {
-    "primary": "periodicRate",
+    "primary": "paymentAmount",
     "breakdown": [
       {
         "id": "totalPaid",
@@ -157,7 +159,18 @@
   "profession": "Finans Müdürü",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "annualInterestRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "numberOfPeriods",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

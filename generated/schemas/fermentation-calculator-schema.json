@@ -124,10 +124,10 @@
   ],
   "formulas": {
     "potentialABV": "initialSugar / 17",
-    "co2Mass": "initialSugar * 0.5 * batchVolume"
+    "potentialABV_aux": "initialSugar / 17"
   },
   "outputs": {
-    "primary": "co2Mass",
+    "primary": "potentialABV_aux",
     "breakdown": [
       "potentialABV",
       "efficiency",
@@ -137,7 +137,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "co2Mass",
+    "dataConfidenceAdjusted": "potentialABV_aux",
     "unit": "g/L",
     "breakdownUnits": {
       "efficiency": "%"
@@ -153,7 +153,45 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialSugar",
+        "condition": "min",
+        "value": 0
+      },
+      {
+        "field": "fermentationTime",
+        "condition": "min",
+        "value": 0
+      },
+      {
+        "field": "temperature",
+        "condition": "range",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "field": "yeastPitchRate",
+        "condition": "min",
+        "value": 0
+      },
+      {
+        "field": "batchVolume",
+        "condition": "min",
+        "value": 0
+      },
+      {
+        "field": "yeastHealth",
+        "condition": "range",
+        "min": 0.5,
+        "max": 1.5
+      },
+      {
+        "field": "nutrientLevel",
+        "condition": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

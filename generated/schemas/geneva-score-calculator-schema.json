@@ -123,11 +123,15 @@
     }
   ],
   "formulas": {
+    "dimensionalScore": "dimensionalAccuracy <= 0.1 ? 100 : 50",
+    "surfaceScore": "surfaceRoughness <= 0.8 ? 100 : 50",
     "hardnessScore": "hardnessValue >= 58 ? 100 : 80",
-    "consistencyScore": "materialConsistency"
+    "consistencyScore": "materialConsistency >= 95 ? 100 : 70",
+    "visualScore": "visualDefects == 0 ? 100 : 60",
+    "genevaScore": "(dimensionalScore + surfaceScore + hardnessScore + consistencyScore + visualScore) / 5"
   },
   "outputs": {
-    "primary": "consistencyScore",
+    "primary": "genevaScore",
     "breakdown": [
       "dimensionalScore",
       "surfaceScore",
@@ -152,7 +156,38 @@
   "profession": "Maden Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "dimensionalAccuracy",
+        "type": "range",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "field": "surfaceRoughness",
+        "type": "range",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "field": "hardnessValue",
+        "type": "range",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "field": "materialConsistency",
+        "type": "range",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "field": "visualDefects",
+        "type": "range",
+        "min": 0,
+        "max": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

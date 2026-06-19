@@ -153,15 +153,15 @@
   "outputs": {
     "primary": "denominator_aux",
     "breakdown": [
-      "numerator",
-      "denominator",
+      "simplifiedNumerator",
+      "simplifiedDenominator",
       "wholePart"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "denominator",
+    "dataConfidenceAdjusted": "denominator_aux",
     "unit": "—"
   },
   "category": "Matematik & Analiz",

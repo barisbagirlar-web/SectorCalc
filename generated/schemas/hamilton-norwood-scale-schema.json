@@ -166,7 +166,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "progression_risk",
+    "dataConfidenceAdjusted": "family_score_aux",
     "unit": "years",
     "breakdownUnits": {
       "Temporal Score: {temporal_score}": "°C",
@@ -183,7 +183,68 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "age",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "age",
+        "rule": "max",
+        "value": 120
+      },
+      {
+        "field": "frontal_recession_mm",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "frontal_recession_mm",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "vertex_thinning_percent",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "vertex_thinning_percent",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "temporal_thinning_percent",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "temporal_thinning_percent",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "family_history_score",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "family_history_score",
+        "rule": "max",
+        "value": 3
+      },
+      {
+        "field": "duration_years",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "duration_years",
+        "rule": "max",
+        "value": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -24,8 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Linoleum_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteFactor"] = 0; }
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteFactor_aux"] = 0; }
+  try { const v = input.roomLength * input.roomWidth * input.rollWidth * (input.wastePercentage / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
+  try { const v = input.roomLength * input.roomWidth * input.rollWidth * (input.wastePercentage / 100) * (input.pricePerSqM); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.pricePerSqM; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
   return results;
 }
 
@@ -36,12 +37,12 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLinoleum_calculator(input: Linoleum_calculatorInput): Linoleum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["wasteFactor_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

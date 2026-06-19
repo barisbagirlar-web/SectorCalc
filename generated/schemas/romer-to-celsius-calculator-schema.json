@@ -124,22 +124,28 @@
   ],
   "formulas": {
     "calibratedRomer": "temperatureRomer + calibrationFactor",
-    "celsiusExact": "(calibratedRomer - 7.5) * (40/21)"
+    "celsiusExact": "(calibratedRomer - 7.5) * (40/21)",
+    "expandedUncertainty": "measurementUncertainty * (confidenceLevel / 50)"
   },
   "outputs": {
-    "primary": "celsiusExact",
+    "primary": "expandedUncertainty",
     "breakdown": [
       "calibratedRomer",
-      "celsiusExact"
+      "celsiusExact",
+      "celsiusRounded",
+      "expandedUncertainty"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "celsiusRounded",
+    "dataConfidenceAdjusted": "expandedUncertainty",
     "unit": "°C",
     "breakdownUnits": {
-      "celsiusExact": "°C"
+      "calibratedRomer": "°Rø",
+      "celsiusExact": "°C",
+      "celsiusRounded": "°C",
+      "expandedUncertainty": "°C"
     }
   },
   "category": "Dönüşüm & Ölçüm",
@@ -152,7 +158,33 @@
   "profession": "Matematikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "temperatureRomer",
+        "condition": "type === 'number' && value !== null && !isNaN(value)",
+        "message": "Temperature must be a valid number."
+      },
+      {
+        "field": "decimalPrecision",
+        "condition": "value >= 0 && value <= 10 && Number.isInteger(value)",
+        "message": "Decimal places must be an integer between 0 and 10."
+      },
+      {
+        "field": "calibrationFactor",
+        "condition": "type === 'number' && !isNaN(value)",
+        "message": "Calibration offset must be a valid number."
+      },
+      {
+        "field": "measurementUncertainty",
+        "condition": "value > 0",
+        "message": "Measurement uncertainty must be positive."
+      },
+      {
+        "field": "confidenceLevel",
+        "condition": "value > 0 && value <= 100",
+        "message": "Confidence level must be between 0 and 100."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

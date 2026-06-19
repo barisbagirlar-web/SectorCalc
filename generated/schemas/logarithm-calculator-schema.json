@@ -198,13 +198,14 @@
     ]
   },
   "formulas": {
-    "normalized_product": "value_x * reference_value",
-    "result": "value_x * reference_value"
+    "ratio": "value_x / reference_value",
+    "ratio_aux": "value_x / reference_value"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "ratio_aux",
     "breakdown": [
-      "normalized_product"
+      "ratio",
+      "log_value"
     ],
     "hiddenLossDrivers": [
       "Model uses normalized input chain — validate units",
@@ -214,7 +215,7 @@
       "Cross-check with historical actuals",
       "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "result",
+    "dataConfidenceAdjusted": "ratio_aux",
     "unit": "units"
   },
   "catalogCategory": "math-statistics",

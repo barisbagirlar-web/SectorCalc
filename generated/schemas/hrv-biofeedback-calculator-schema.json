@@ -148,10 +148,11 @@
   ],
   "formulas": {
     "maximumHeartRate": "220 - age",
-    "maximumHeartRate_aux": "220 - age"
+    "coherenceAmplitude": "hrvRMSSD * 0.5 + hrvSDNN * 0.5",
+    "sessionFactor": "sessionDuration / 10"
   },
   "outputs": {
-    "primary": "maximumHeartRate_aux",
+    "primary": "maximumHeartRate",
     "breakdown": [
       "breathingMatch",
       "coherenceAmplitude",
@@ -179,7 +180,68 @@
   "profession": "İstatistikçi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "breathingRate",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "breathingRate",
+        "rule": "max",
+        "value": 20
+      },
+      {
+        "field": "heartRate",
+        "rule": "min",
+        "value": 30
+      },
+      {
+        "field": "heartRate",
+        "rule": "max",
+        "value": 220
+      },
+      {
+        "field": "hrvRMSSD",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "hrvRMSSD",
+        "rule": "max",
+        "value": 200
+      },
+      {
+        "field": "hrvSDNN",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "hrvSDNN",
+        "rule": "max",
+        "value": 300
+      },
+      {
+        "field": "sessionDuration",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "sessionDuration",
+        "rule": "max",
+        "value": 60
+      },
+      {
+        "field": "age",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "age",
+        "rule": "max",
+        "value": 120
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

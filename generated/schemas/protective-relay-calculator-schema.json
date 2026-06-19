@@ -172,20 +172,22 @@
   ],
   "formulas": {
     "secondary_fault_current": "fault_current_primary / ct_ratio",
-    "plug_setting_multiple": "(fault_current_primary / ct_ratio) / relay_pickup"
+    "plug_setting_multiple": "secondary_fault_current / relay_pickup",
+    "trip_time": "tms * (curve_constant_k / (plug_setting_multiple ^ curve_constant_alpha - 1) + curve_constant_c)"
   },
   "outputs": {
-    "primary": "plug_setting_multiple",
+    "primary": "trip_time",
     "breakdown": [
       "secondary_fault_current",
-      "plug_setting_multiple"
+      "plug_setting_multiple",
+      "trip_time"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "trip_time",
-    "unit": "A"
+    "unit": "s"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -197,7 +199,38 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "ct_ratio",
+        "condition": "> 0",
+        "message": "CT Ratio must be positive"
+      },
+      {
+        "field": "relay_pickup",
+        "condition": "> 0",
+        "message": "Relay pickup must be positive"
+      },
+      {
+        "field": "fault_current_primary",
+        "condition": "> 0",
+        "message": "Fault current must be positive"
+      },
+      {
+        "field": "tms",
+        "condition": "> 0",
+        "message": "TMS must be positive"
+      },
+      {
+        "field": "curve_constant_k",
+        "condition": "> 0",
+        "message": "k must be positive"
+      },
+      {
+        "field": "curve_constant_alpha",
+        "condition": "> 0",
+        "message": "α must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -127,18 +127,19 @@
     "kineticEnergy_aux": "0.5 * mass * initialVelocity * initialVelocity"
   },
   "outputs": {
-    "primary": "kineticEnergy_aux",
+    "primary": "kineticEnergy",
     "breakdown": [
       "kineticEnergy",
       "maxHeight",
-      "timeOfFlight"
+      "timeOfFlight",
+      "range"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "range",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "kineticEnergy_aux",
+    "unit": "J"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
@@ -150,7 +151,33 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialVelocity",
+        "condition": "> 0",
+        "message": "Initial velocity must be positive."
+      },
+      {
+        "field": "angle",
+        "condition": ">= 0 and <= 90",
+        "message": "Launch angle must be between 0 and 90 degrees."
+      },
+      {
+        "field": "mass",
+        "condition": "> 0",
+        "message": "Mass must be positive."
+      },
+      {
+        "field": "gravity",
+        "condition": "> 0",
+        "message": "Gravity must be positive."
+      },
+      {
+        "field": "launchHeight",
+        "condition": ">= 0",
+        "message": "Launch height must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

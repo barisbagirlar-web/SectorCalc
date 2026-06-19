@@ -147,11 +147,12 @@
     }
   ],
   "formulas": {
+    "correctionBolus": "(bloodGlucose - targetGlucose) / insulinSensitivity",
     "carbBolus": "carbIntake / insulinCarbRatio",
-    "carbBolus_aux": "carbIntake / insulinCarbRatio"
+    "totalBolus": "correctionBolus + carbBolus - activeInsulin"
   },
   "outputs": {
-    "primary": "carbBolus_aux",
+    "primary": "totalBolus",
     "breakdown": [
       "correctionBolus",
       "carbBolus"
@@ -161,7 +162,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "totalBolus",
-    "unit": "mg/dL"
+    "unit": "U"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",
@@ -173,7 +174,38 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "bloodGlucose_range",
+        "condition": "bloodGlucose >= 20 && bloodGlucose <= 600",
+        "message": "Blood glucose must be between 20 and 600 mg/dL"
+      },
+      {
+        "id": "targetGlucose_range",
+        "condition": "targetGlucose >= 70 && targetGlucose <= 180",
+        "message": "Target glucose must be between 70 and 180 mg/dL"
+      },
+      {
+        "id": "insulinSensitivity_positive",
+        "condition": "insulinSensitivity > 0",
+        "message": "Insulin sensitivity must be positive"
+      },
+      {
+        "id": "carbIntake_nonnegative",
+        "condition": "carbIntake >= 0",
+        "message": "Carb intake must be non-negative"
+      },
+      {
+        "id": "insulinCarbRatio_positive",
+        "condition": "insulinCarbRatio > 0",
+        "message": "Insulin-to-carb ratio must be positive"
+      },
+      {
+        "id": "activeInsulin_nonnegative",
+        "condition": "activeInsulin >= 0",
+        "message": "Active insulin must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

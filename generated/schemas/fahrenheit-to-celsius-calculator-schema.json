@@ -27,7 +27,7 @@
     },
     {
       "id": "decimalPlaces",
-      "label": "Ondalık Basamak",
+      "label": "Decimal Places",
       "type": "number",
       "unit": "unit",
       "default": 2,
@@ -105,31 +105,46 @@
   "outputs": {
     "primary": "celsius_aux",
     "breakdown": [
-      "Formül: °C = (°F - 32) × 5/9",
-      "Hesaplama: °C = ({fahrenheit} - 32) × 5/9 = {celsius}",
-      "Yuvarlanmış Sonuç ({decimalPlaces} ondalık): {roundedResult} °C"
+      "Formula: °C = (°F - 32) × 5/9",
+      "Calculation: °C = ({fahrenheit} - 32) × 5/9 = {celsius}",
+      "Rounded Result ({decimalPlaces} decimals): {roundedResult} °C"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedResult",
+    "dataConfidenceAdjusted": "celsius_aux",
     "unit": "°C",
     "breakdownUnits": {
-      "Hesaplama: °C = ({fahrenheit} - 32) × 5/9 = {celsius}": "°C"
+      "Calculation: °C = ({fahrenheit} - 32) × 5/9 = {celsius}": "°C"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Birim & Dönüşüm",
+  "category": "Conversion & Measurement",
+  "sector": "Unit & Conversion",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "birim-donusum",
-  "profession": "Mühendis",
+  "profession": "Engineer",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "fahrenheit",
+        "type": "range",
+        "min": -459.67,
+        "max": 10000,
+        "message": "Fahrenheit must be >= -459.67"
+      },
+      {
+        "field": "decimalPlaces",
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "message": "Decimal places must be between 0 and 10"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

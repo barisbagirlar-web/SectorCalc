@@ -113,7 +113,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedZScore",
+    "dataConfidenceAdjusted": "expectedValue_aux",
     "unit": "—"
   },
   "category": "Matematik & Analiz",
@@ -126,7 +126,28 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "n_positive_integer",
+        "expression": "n > 0 && n == floor(n)",
+        "errorMessage": "n must be a positive integer"
+      },
+      {
+        "id": "T_range",
+        "expression": "T >= 0 && T <= n * (n + 1) / 2",
+        "errorMessage": "T must be between 0 and n(n+1)/2"
+      },
+      {
+        "id": "continuity_binary",
+        "expression": "continuity == 0 || continuity == 1",
+        "errorMessage": "Continuity correction must be 0 or 1"
+      },
+      {
+        "id": "decimalPlaces_nonnegative_integer",
+        "expression": "decimalPlaces >= 0 && decimalPlaces == floor(decimalPlaces)",
+        "errorMessage": "Decimal places must be a non-negative integer"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

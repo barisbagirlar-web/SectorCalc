@@ -147,11 +147,14 @@
     }
   ],
   "formulas": {
+    "parentIncomeContrib": "parentAGI * 0.47",
+    "parentAssetContrib": "parentAssets * 0.12",
+    "studentIncomeContrib": "studentIncome * 0.50",
     "studentAssetContrib": "studentAssets * 0.20",
-    "studentAssetContrib_aux": "studentAssets * 0.20"
+    "sai": "parentIncomeContrib + parentAssetContrib + studentIncomeContrib + studentAssetContrib"
   },
   "outputs": {
-    "primary": "studentAssetContrib_aux",
+    "primary": "sai",
     "breakdown": [
       "parentIncomeContrib",
       "parentAssetContrib",
@@ -175,7 +178,38 @@
   "profession": "Ev Yöneticisi",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "parentAGI",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "parentAssets",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "studentIncome",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "studentAssets",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "familySize",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "numberInCollege",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

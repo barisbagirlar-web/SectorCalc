@@ -131,13 +131,13 @@
     "breakdown": [
       "actualValue",
       "exponentPart",
-      "fractionalPart"
+      "log2Result"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "actualValue",
+    "dataConfidenceAdjusted": "exponentPart_aux",
     "unit": "—"
   },
   "category": "Matematik & Analiz",
@@ -150,7 +150,23 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "sign_positive",
+        "expression": "sign == 0",
+        "message": "Sign must be 0 for positive input."
+      },
+      {
+        "id": "fraction_range",
+        "expression": "fraction >= 0 && fraction < 1",
+        "message": "Fraction must be in [0, 1)."
+      },
+      {
+        "id": "precision_positive",
+        "expression": "precision >= 0",
+        "message": "Precision must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

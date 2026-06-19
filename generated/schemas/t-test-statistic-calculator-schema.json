@@ -99,13 +99,11 @@
     }
   ],
   "formulas": {
-    "meanDifference": "sampleMean",
-    "standardError": "sampleMean",
-    "tStatistic": "sampleMean",
-    "degreesOfFreedom": "sampleMean"
+    "meanDifference": "sampleMean - populationMean",
+    "degreesOfFreedom": "sampleSize - 1"
   },
   "outputs": {
-    "primary": "tStatistic",
+    "primary": "degreesOfFreedom",
     "breakdown": [
       "meanDifference",
       "standardError",
@@ -131,7 +129,20 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "sampleSize",
+        "rule": "greaterThan",
+        "value": 1,
+        "errorMessage": "Sample size must be greater than 1."
+      },
+      {
+        "field": "standardDeviation",
+        "rule": "greaterThan",
+        "value": 0,
+        "errorMessage": "Standard deviation must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

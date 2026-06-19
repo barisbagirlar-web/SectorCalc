@@ -195,7 +195,8 @@
     }
   ],
   "formulas": {
-    "treated": "treatedHypertension",
+    "sumFemale": "age * 0.1 + totalCholesterol * 0.05 - hdlCholesterol * 0.1 + systolicBP * 0.02 + treatedHypertension * 0.5 + diabetes * 0.8 + smoker * 0.6",
+    "sumMale": "age * 0.12 + totalCholesterol * 0.06 - hdlCholesterol * 0.08 + systolicBP * 0.03 + treatedHypertension * 0.4 + diabetes * 0.7 + smoker * 0.5",
     "meanSumFemale": "-29.1817"
   },
   "outputs": {
@@ -210,7 +211,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "riskScore",
+    "dataConfidenceAdjusted": "meanSumFemale",
     "unit": "years"
   },
   "category": "İSG & Risk",
@@ -223,7 +224,32 @@
   "profession": "Biyomedikal Mühendisi",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "age",
+        "min": 20,
+        "max": 79,
+        "message": "Age must be between 20 and 79"
+      },
+      {
+        "field": "totalCholesterol",
+        "min": 100,
+        "max": 400,
+        "message": "Total cholesterol must be between 100 and 400 mg/dL"
+      },
+      {
+        "field": "hdlCholesterol",
+        "min": 10,
+        "max": 100,
+        "message": "HDL cholesterol must be between 10 and 100 mg/dL"
+      },
+      {
+        "field": "systolicBP",
+        "min": 80,
+        "max": 250,
+        "message": "Systolic BP must be between 80 and 250 mmHg"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

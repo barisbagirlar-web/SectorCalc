@@ -99,7 +99,7 @@
     },
     {
       "id": "viscosity",
-      "label": "Kinematik Viskozite",
+      "label": "Kinematic Viscosity",
       "type": "number",
       "unit": "m²/s",
       "default": 0.000001,
@@ -129,7 +129,6 @@
   "outputs": {
     "primary": "deltaP_Pa",
     "breakdown": [
-      "massFlowRate",
       "velocity",
       "reynoldsNumber"
     ],
@@ -137,8 +136,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "reynoldsNumber",
-    "unit": "Pa"
+    "dataConfidenceAdjusted": "deltaP_Pa",
+    "unit": "kg/s"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",
@@ -150,7 +149,33 @@
   "profession": "CNC Operatörü",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "pressureDrop",
+        "condition": ">0",
+        "message": "Pressure drop must be positive"
+      },
+      {
+        "field": "diameter",
+        "condition": ">0",
+        "message": "Diameter must be positive"
+      },
+      {
+        "field": "dischargeCoefficient",
+        "condition": ">0 && <=1",
+        "message": "Discharge coefficient must be between 0 and 1"
+      },
+      {
+        "field": "density",
+        "condition": ">0",
+        "message": "Density must be positive"
+      },
+      {
+        "field": "viscosity",
+        "condition": ">0",
+        "message": "Viscosity must be positive"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -136,8 +136,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "kmh",
-    "unit": "m/s"
+    "dataConfidenceAdjusted": "rawValue_aux",
+    "unit": "km/h"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -149,7 +149,23 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "speedMs",
+        "condition": "> 0",
+        "message": "Speed must be positive."
+      },
+      {
+        "field": "decimalPlaces",
+        "condition": ">= 0",
+        "message": "Decimal places must be non-negative."
+      },
+      {
+        "field": "roundingMethod",
+        "condition": "in [0,1,2]",
+        "message": "Rounding method must be 0, 1, or 2."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

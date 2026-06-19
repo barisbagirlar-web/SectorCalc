@@ -100,10 +100,14 @@
   ],
   "formulas": {
     "monthlyInterestRate": "interestRate / 100 / 12",
-    "monthlyInterestRate_aux": "interestRate / 100 / 12"
+    "depreciableBase": "assetCost - residualValue",
+    "monthlyDepreciation": "depreciableBase / leaseTerm",
+    "monthlyLeasePayment": "monthlyDepreciation + (depreciableBase * monthlyInterestRate)",
+    "totalLeaseCost": "monthlyLeasePayment * leaseTerm",
+    "totalInterest": "totalLeaseCost - depreciableBase"
   },
   "outputs": {
-    "primary": "monthlyInterestRate_aux",
+    "primary": "monthlyLeasePayment",
     "breakdown": [
       "totalLeaseCost",
       "totalInterest"
@@ -125,7 +129,32 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "assetCost",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Asset cost must be positive."
+      },
+      {
+        "field": "residualValue",
+        "rule": "greaterThanOrEqual",
+        "value": 0,
+        "message": "Residual value must be non-negative."
+      },
+      {
+        "field": "leaseTerm",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Lease term must be positive."
+      },
+      {
+        "field": "interestRate",
+        "rule": "greaterThanOrEqual",
+        "value": 0,
+        "message": "Interest rate must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

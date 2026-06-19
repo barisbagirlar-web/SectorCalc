@@ -24,8 +24,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Heat_of_fusion_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = input.mass * input.specificHeat * (input.meltingTemperature - input.initialTemperature); results["sensibleHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sensibleHeat"] = 0; }
   try { const v = input.mass * input.latentHeatOfFusion; results["latentHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["latentHeat"] = 0; }
-  try { const v = input.mass * input.latentHeatOfFusion; results["latentHeat_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["latentHeat_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["sensibleHeat"])) + (asFormulaNumber(results["latentHeat"])); results["totalHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHeat"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateHeat_of_fusion_calculator(input: Heat_of_fusion_calculatorInput): Heat_of_fusion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["latentHeat_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalHeat"]);
   const breakdown = {
     
   };

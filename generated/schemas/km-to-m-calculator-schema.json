@@ -184,10 +184,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "clamped",
+    "dataConfidenceAdjusted": "rawMeters_aux",
     "unit": "m",
     "breakdownUnits": {
-      "rawMeters": "m"
+      "rawMeters": "m",
+      "rounded": "m"
     }
   },
   "category": "Dönüşüm & Ölçüm",
@@ -200,7 +201,52 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "inputKm",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "conversionFactor",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimalPrecision",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "decimalPrecision",
+        "rule": "max",
+        "value": 10
+      },
+      {
+        "field": "roundingMethod",
+        "rule": "in",
+        "value": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "field": "minimumValue",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "maximumValue",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "scaleFactor",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

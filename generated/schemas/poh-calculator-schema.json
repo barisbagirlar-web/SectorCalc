@@ -113,7 +113,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "hConcentration",
+    "dataConfidenceAdjusted": "pKw_aux",
     "unit": "mol/L",
     "breakdownUnits": {
       "hConcentration": "%"
@@ -129,7 +129,34 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "ohConcentration",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Hydroxide concentration must be positive."
+      },
+      {
+        "field": "temperature",
+        "rule": "between",
+        "min": 0,
+        "max": 100,
+        "message": "Temperature must be between 0 and 100 °C."
+      },
+      {
+        "field": "sampleVolume",
+        "rule": "greaterThan",
+        "value": 0,
+        "message": "Sample volume must be positive."
+      },
+      {
+        "field": "measurementUncertainty",
+        "rule": "between",
+        "min": 0,
+        "max": 100,
+        "message": "Measurement uncertainty must be between 0 and 100%."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

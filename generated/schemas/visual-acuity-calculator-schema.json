@@ -113,10 +113,10 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "logMAR",
+    "dataConfidenceAdjusted": "H_ft_aux",
     "unit": "ft",
     "breakdownUnits": {
-      "Visual Angle (arcmin): alpha_min": "min"
+      "Visual Angle (arcmin)": "min"
     }
   },
   "category": "Dönüşüm & Ölçüm",
@@ -129,7 +129,28 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "distance_positive",
+        "condition": "distance > 0",
+        "message": "Testing distance must be positive."
+      },
+      {
+        "id": "letterHeight_positive",
+        "condition": "letterHeight > 0",
+        "message": "Letter height must be positive."
+      },
+      {
+        "id": "snellenNumerator_positive",
+        "condition": "snellenNumerator > 0",
+        "message": "Snellen numerator must be positive."
+      },
+      {
+        "id": "overrideDenom_nonnegative",
+        "condition": "overrideDenom >= 0",
+        "message": "Override denominator must be non-negative."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

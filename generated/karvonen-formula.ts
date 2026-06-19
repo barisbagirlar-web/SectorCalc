@@ -25,7 +25,8 @@ function asFormulaNumber(value: number): number {
 function evaluateAllFormulas(input: Karvonen_formulaInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.max_hr - input.resting_hr; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
-  try { const v = input.max_hr - input.resting_hr; results["heartRateReserve_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve_aux"] = 0; }
+  try { const v = (((asFormulaNumber(results["heartRateReserve"])) * input.intensity_min) / 100) + input.resting_hr; results["targetHRMin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetHRMin"] = 0; }
+  try { const v = (((asFormulaNumber(results["heartRateReserve"])) * input.intensity_max) / 100) + input.resting_hr; results["targetHRMax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetHRMax"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateKarvonen_formula(input: Karvonen_formulaInput): Karvonen_formulaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["heartRateReserve_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["targetHRMax"]);
   const breakdown = {
     
   };

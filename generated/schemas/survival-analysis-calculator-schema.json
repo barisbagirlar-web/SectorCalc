@@ -133,6 +133,7 @@
       "hazardRate",
       "cumulativeHazard",
       "meanTimeToFailure",
+      "survivalProbability",
       "requiredTimeForTargetSurvival",
       "b10Life"
     ],
@@ -140,7 +141,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "b10Life",
+    "dataConfidenceAdjusted": "meanTimeToFailure",
     "unit": "failures/hour"
   },
   "category": "Matematik & Analiz",
@@ -153,7 +154,24 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "failureRate",
+        "rule": "greaterThan",
+        "value": 0
+      },
+      {
+        "field": "time",
+        "rule": "greaterThanOrEqual",
+        "value": 0
+      },
+      {
+        "field": "targetSurvivalProb",
+        "rule": "between",
+        "min": 0,
+        "max": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

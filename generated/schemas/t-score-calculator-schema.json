@@ -112,7 +112,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "tScore",
+    "dataConfidenceAdjusted": "degreesOfFreedom_aux",
     "unit": "°",
     "breakdownUnits": {
       "degreesOfFreedom": "°"
@@ -128,7 +128,18 @@
   "profession": "İstatistikçi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "sampleSizePositive",
+        "expression": "sampleSize > 0",
+        "message": "Sample size must be greater than 0."
+      },
+      {
+        "id": "stdDevPositive",
+        "expression": "sampleStdDev > 0",
+        "message": "Sample standard deviation must be greater than 0."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

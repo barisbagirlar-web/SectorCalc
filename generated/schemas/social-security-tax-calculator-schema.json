@@ -136,7 +136,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalSS",
+    "dataConfidenceAdjusted": "perPeriodCeiling_aux",
     "unit": "currency"
   },
   "category": "Finans & Yatırım",
@@ -149,7 +149,33 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "grossPay",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "employeeRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "employerRate",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "annualCeiling",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "payPeriods",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

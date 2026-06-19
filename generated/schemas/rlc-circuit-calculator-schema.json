@@ -139,7 +139,7 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "bandwidth",
+    "dataConfidenceAdjusted": "bandwidth_aux",
     "unit": "Ω"
   },
   "category": "Teknik & Mühendislik",
@@ -152,7 +152,33 @@
   "profession": "Elektronik Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "positive_resistance",
+        "condition": "resistance > 0",
+        "message": "Resistance must be positive."
+      },
+      {
+        "id": "positive_inductance",
+        "condition": "inductance > 0",
+        "message": "Inductance must be positive."
+      },
+      {
+        "id": "positive_capacitance",
+        "condition": "capacitance > 0",
+        "message": "Capacitance must be positive."
+      },
+      {
+        "id": "positive_frequency",
+        "condition": "frequency > 0",
+        "message": "Frequency must be positive."
+      },
+      {
+        "id": "positive_voltage",
+        "condition": "voltage > 0",
+        "message": "Voltage must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

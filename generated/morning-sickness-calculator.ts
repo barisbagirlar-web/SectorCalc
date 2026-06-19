@@ -24,8 +24,11 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Morning_sickness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = input.machine_age_years * 0.1; results["age_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["age_contribution"] = 0; }
   try { const v = input.downtime_hours / (input.downtime_hours + 24); results["downtime_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["downtime_factor"] = 0; }
-  try { const v = input.downtime_hours / (input.downtime_hours + 24); results["downtime_factor_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["downtime_factor_aux"] = 0; }
+  try { const v = input.ambient_temperature_celsius / 40; results["temp_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temp_factor"] = 0; }
+  try { const v = input.cold_starts_per_day * 0.05; results["cold_start_penalty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cold_start_penalty"] = 0; }
+  try { const v = ((asFormulaNumber(results["age_contribution"])) + (asFormulaNumber(results["downtime_factor"])) + (asFormulaNumber(results["temp_factor"])) + (asFormulaNumber(results["cold_start_penalty"]))) * input.severity_factor; results["msi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["msi"] = 0; }
   return results;
 }
 
@@ -36,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMorning_sickness_calculator(input: Morning_sickness_calculatorInput): Morning_sickness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["downtime_factor_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["msi"]);
   const breakdown = {
     
   };

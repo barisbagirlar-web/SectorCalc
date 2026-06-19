@@ -161,8 +161,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "losses",
-    "unit": "V"
+    "dataConfidenceAdjusted": "outputPower_aux",
+    "unit": "%"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Enerji & Elektrik",
@@ -174,8 +174,68 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "id": "voltage_range",
+        "field": "voltage",
+        "condition": "between",
+        "value": [
+          100,
+          1000
+        ],
+        "message": "Voltage must be between 100 and 1000 V"
+      },
+      {
+        "id": "current_range",
+        "field": "current",
+        "condition": "between",
+        "value": [
+          0.1,
+          1000
+        ],
+        "message": "Current must be between 0.1 and 1000 A"
+      },
+      {
+        "id": "powerFactor_range",
+        "field": "powerFactor",
+        "condition": "between",
+        "value": [
+          0,
+          1
+        ],
+        "message": "Power factor must be between 0 and 1"
+      },
+      {
+        "id": "phases_valid",
+        "field": "phases",
+        "condition": "in",
+        "value": [
+          1,
+          3
+        ],
+        "message": "Phases must be 1 or 3"
+      },
+      {
+        "id": "torque_range",
+        "field": "torque",
+        "condition": "min",
+        "value": 0,
+        "message": "Torque must be non-negative"
+      },
+      {
+        "id": "speed_range",
+        "field": "speed",
+        "condition": "min",
+        "value": 0,
+        "message": "Speed must be non-negative"
+      }
+    ],
+    "thresholds": {
+      "efficiency": {
+        "min": 0,
+        "max": 100
+      }
+    }
   },
   "premiumFeatures": []
 }

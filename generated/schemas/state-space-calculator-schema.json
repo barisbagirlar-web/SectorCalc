@@ -148,14 +148,15 @@
   ],
   "formulas": {
     "steadyStateProb": "1 / numStates",
-    "steadyStateProb_aux": "1 / numStates"
+    "expectedDiscountedReward": "rewardPerState * (1 - discountFactor^timeSteps) / (1 - discountFactor)",
+    "stateDistribution": "initialState"
   },
   "outputs": {
-    "primary": "steadyStateProb_aux",
+    "primary": "steadyStateProb",
     "breakdown": [
-      "Expected total discounted reward over time steps",
-      "Steady-state probability per state",
-      "Initial state distribution vector"
+      "expectedDiscountedReward",
+      "steadyStateProb",
+      "stateDistribution"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -174,7 +175,36 @@
   "profession": "Kimyager",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "numStates",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "transitionProb",
+        "rule": "range",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "field": "initialState",
+        "rule": "range",
+        "min": 0,
+        "max": "numStates - 1"
+      },
+      {
+        "field": "timeSteps",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "discountFactor",
+        "rule": "range",
+        "min": 0,
+        "max": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

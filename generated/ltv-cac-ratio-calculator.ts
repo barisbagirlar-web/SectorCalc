@@ -26,8 +26,9 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Ltv_cac_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = (input.arpu * input.grossMargin / 100) * (1 / (input.churn / 100)) * (1 / (1 + input.discount / 100)); results["LTV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["LTV"] = 0; }
   try { const v = input.totalCacSpend / input.newCustomers; results["CAC"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["CAC"] = 0; }
-  try { const v = input.totalCacSpend / input.newCustomers; results["CAC_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["CAC_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["LTV"])) / (asFormulaNumber(results["CAC"])); results["LTV_CAC_Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["LTV_CAC_Ratio"] = 0; }
   return results;
 }
 
@@ -38,7 +39,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateLtv_cac_ratio_calculator(input: Ltv_cac_ratio_calculatorInput): Ltv_cac_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["CAC_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["LTV_CAC_Ratio"]);
   const breakdown = {
     
   };

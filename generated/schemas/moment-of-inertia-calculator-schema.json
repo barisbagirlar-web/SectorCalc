@@ -123,23 +123,27 @@
     }
   ],
   "formulas": {
-    "1": "shape",
-    "2": "shape",
-    "3": "shape",
-    "4": "shape"
+    "I_x_rectangle": "shape==1 ? (dim1 * dim2^3)/12 : null",
+    "I_y_rectangle": "shape==1 ? (dim2 * dim1^3)/12 : null",
+    "I_x_Ibeam": "shape==4 ? (dim1 * dim2^3 - (dim1 - dim4) * (dim2 - 2*dim3)^3)/12 : null",
+    "I_y_Ibeam": "shape==4 ? (2*dim3 * dim1^3 + (dim2 - 2*dim3) * dim4^3)/12 : null"
   },
   "outputs": {
-    "primary": "1",
+    "primary": "I_x_rectangle",
     "breakdown": [
-      "I_y",
-      "Shape description"
+      "I_x_rectangle",
+      "I_y_rectangle",
+      "I_circle",
+      "I_hollow_circle",
+      "I_x_Ibeam",
+      "I_y_Ibeam"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "I_y",
-    "unit": "mm"
+    "dataConfidenceAdjusted": "I_x_rectangle",
+    "unit": "mm^4"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",
@@ -151,7 +155,16 @@
   "profession": "Matematikçi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      "shape in [1,2,3,4]",
+      "dim1 > 0",
+      "dim2 > 0",
+      "dim3 >= 0",
+      "dim4 >= 0",
+      "if shape==3 then dim3 < dim1",
+      "if shape==4 then dim3 < dim2/2",
+      "if shape==4 then dim4 < dim1"
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

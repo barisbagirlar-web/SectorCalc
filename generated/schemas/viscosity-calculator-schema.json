@@ -123,11 +123,11 @@
     }
   ],
   "formulas": {
-    "radius": "diameter / 2",
-    "radius_aux": "diameter / 2"
+    "result": "flowRate + pressureDrop + diameter",
+    "result_aux": "flowRate + pressureDrop + diameter"
   },
   "outputs": {
-    "primary": "radius_aux",
+    "primary": "result",
     "breakdown": [
       "kinematicViscosity",
       "reynoldsNumber"
@@ -136,8 +136,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "reynoldsNumber",
-    "unit": "m³/s"
+    "dataConfidenceAdjusted": "result_aux",
+    "unit": "Pa·s"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",
@@ -149,8 +149,20 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "id": "positiveInputs",
+        "condition": "flowRate > 0 && pressureDrop > 0 && diameter > 0 && length > 0 && density > 0",
+        "message": "All inputs must be positive numbers."
+      }
+    ],
+    "thresholds": {
+      "reynoldsNumber": {
+        "laminar": "< 2000",
+        "transitional": "2000-4000",
+        "turbulent": "> 4000"
+      }
+    }
   },
   "premiumFeatures": []
 }

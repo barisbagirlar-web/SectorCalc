@@ -99,14 +99,11 @@
     }
   ],
   "formulas": {
-    "fullRetirementAge": "birthYear",
-    "monthsEarly": "birthYear",
-    "reductionFactor": "birthYear",
-    "reducedMonthlyBenefit": "birthYear",
-    "reductionPercentage": "birthYear"
+    "result": "birthYear + earlyRetirementAge + monthlyBenefitAtFRA",
+    "result_aux": "birthYear + earlyRetirementAge + monthlyBenefitAtFRA"
   },
   "outputs": {
-    "primary": "reducedMonthlyBenefit",
+    "primary": "result",
     "breakdown": [
       "reductionPercentage",
       "monthsEarly"
@@ -115,10 +112,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "reductionPercentage",
-    "unit": "year",
+    "dataConfidenceAdjusted": "result_aux",
+    "unit": "USD",
     "breakdownUnits": {
-      "reductionPercentage": "%"
+      "reductionPercentage": "%",
+      "monthsEarly": "months"
     }
   },
   "category": "Finans & Yatırım",
@@ -131,7 +129,44 @@
   "profession": "Finans Müdürü",
   "categoryId": "finance",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "birthYear",
+        "rule": "min",
+        "value": 1900,
+        "message": "Birth year must be >= 1900"
+      },
+      {
+        "field": "birthYear",
+        "rule": "max",
+        "value": 2006,
+        "message": "Birth year must be <= 2006"
+      },
+      {
+        "field": "earlyRetirementAge",
+        "rule": "min",
+        "value": 62,
+        "message": "Early retirement age must be at least 62"
+      },
+      {
+        "field": "earlyRetirementAge",
+        "rule": "max",
+        "value": 70,
+        "message": "Early retirement age must be at most 70"
+      },
+      {
+        "field": "monthlyBenefitAtFRA",
+        "rule": "min",
+        "value": 0,
+        "message": "Monthly benefit must be positive"
+      },
+      {
+        "field": "scalingFactor",
+        "rule": "min",
+        "value": 0,
+        "message": "Scaling factor must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

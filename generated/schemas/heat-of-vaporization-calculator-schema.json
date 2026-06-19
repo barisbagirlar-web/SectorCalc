@@ -171,11 +171,13 @@
     }
   ],
   "formulas": {
+    "heatingEnergy": "mass * specificHeat * (boilingPoint - initialTemp)",
     "vaporizationEnergy": "mass * latentHeat",
-    "vaporizationEnergy_aux": "mass * latentHeat"
+    "totalTheoretical": "heatingEnergy + vaporizationEnergy",
+    "totalRequired": "totalTheoretical * safetyFactor / (efficiency / 100)"
   },
   "outputs": {
-    "primary": "vaporizationEnergy_aux",
+    "primary": "totalRequired",
     "breakdown": [
       "heatingEnergy",
       "vaporizationEnergy",
@@ -186,7 +188,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "totalRequired",
-    "unit": "kg"
+    "unit": "kJ"
   },
   "category": "Verimlilik & OEE",
   "sector": "Fizik & Mekanik",
@@ -198,7 +200,26 @@
   "profession": "Fizik Mühendisi",
   "categoryId": "efficiency",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "initialTemp",
+        "condition": "lessThan",
+        "value": "boilingPoint",
+        "message": "Initial temperature must be less than boiling point."
+      },
+      {
+        "field": "efficiency",
+        "condition": "greaterThan",
+        "value": 0,
+        "message": "Efficiency must be greater than 0."
+      },
+      {
+        "field": "safetyFactor",
+        "condition": "greaterThan",
+        "value": 0,
+        "message": "Safety factor must be greater than 0."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -28,8 +28,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Maclaurin_series_polynomial_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.x; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.x; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
   return results;
 }
 

@@ -130,13 +130,14 @@
     "primary": "angle_rad_aux",
     "breakdown": [
       "angle_rad",
-      "height_rise"
+      "height_rise",
+      "velocity"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "velocity",
+    "dataConfidenceAdjusted": "angle_rad_aux",
     "unit": "m/s"
   },
   "category": "Teknik & Mühendislik",

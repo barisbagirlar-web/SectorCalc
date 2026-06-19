@@ -112,8 +112,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "outputValue",
-    "unit": "ly"
+    "dataConfidenceAdjusted": "kmRaw_aux",
+    "unit": "km"
   },
   "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
@@ -125,7 +125,40 @@
   "profession": "Matematikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "lightYears",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "significantDigits",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "significantDigits",
+        "rule": "max",
+        "value": 15
+      },
+      {
+        "field": "outputFormat",
+        "rule": "in",
+        "value": [
+          0,
+          1
+        ]
+      },
+      {
+        "field": "roundingMode",
+        "rule": "in",
+        "value": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

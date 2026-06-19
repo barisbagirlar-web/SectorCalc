@@ -3,7 +3,7 @@
   "inputs": [
     {
       "id": "airDensity",
-      "label": "Hava Yoğunluğu",
+      "label": "Air Density",
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
@@ -75,7 +75,7 @@
     },
     {
       "id": "efficiency",
-      "label": "Verimlilik",
+      "label": "Efficiency",
       "type": "number",
       "unit": "%",
       "default": 40,
@@ -100,32 +100,56 @@
   ],
   "formulas": {
     "sweptArea": "Math.PI * (rotorDiameter / 2) ** 2",
-    "sweptArea_aux": "Math.PI * (rotorDiameter / 2) ** 2"
+    "rawPower": "0.5 * airDensity * sweptArea * windSpeed ** 3",
+    "power": "rawPower * (efficiency / 100)"
   },
   "outputs": {
-    "primary": "sweptArea",
+    "primary": "power",
     "breakdown": [
-      "Süpürme Alanı: ${sweptArea} m²",
-      "Ham Güç (Verimsiz): ${rawPower} kW"
+      "Swept Area: ${sweptArea} m²",
+      "Raw Power (Inefficient): ${rawPower} kW",
+      "Power Output: ${power} kW"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "power",
-    "unit": "kg/m³"
+    "unit": "kW"
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Havacılık & Uzay",
+  "category": "Engineering",
+  "sector": "Energy",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
-  "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "metal-plastics-forming",
-  "sectorId": "havacilik",
-  "profession": "Tasarım Mühendisi",
+  "sectorSlug": "energy",
+  "categorySlug": "wind-energy",
+  "sectorId": "energy",
+  "profession": "Design Engineer",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "rotorDiameter",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "windSpeed",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "efficiency",
+        "rule": "range",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "field": "airDensity",
+        "rule": "min",
+        "value": 0
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

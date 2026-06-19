@@ -171,8 +171,8 @@
     }
   ],
   "formulas": {
-    "breakdown": "x",
-    "breakdown_aux": "x"
+    "breakdown": "a0 + a1*x + a2*x^2 + a3*x^3 + a4*x^4 + a5*x^5",
+    "breakdown_aux": "a0 + a1*x + a2*x^2 + a3*x^3 + a4*x^4 + a5*x^5"
   },
   "outputs": {
     "primary": "breakdown_aux",

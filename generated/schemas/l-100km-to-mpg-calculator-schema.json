@@ -210,11 +210,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "output_mpg",
-    "unit": "L/100km",
+    "dataConfidenceAdjusted": "base_mpg",
+    "unit": "mpg",
     "breakdownUnits": {
+      "Input Fuel Consumption: l_per_100km L/100km": "L/100km",
       "Gallon Standard: gallon_type == 1 ? 'US' : 'UK'": "gal",
-      "Calculated MPG: output_mpg miles per gallon": "gal"
+      "Conversion Factor: conversion_factor": "L/100km to mpg factor",
+      "Calculated MPG: output_mpg miles per gallon": "mpg"
     }
   },
   "category": "Kalite & Süreç Kontrol",
@@ -227,7 +229,28 @@
   "profession": "Üretim Mühendisi",
   "categoryId": "quality",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "l_per_100km",
+        "condition": "> 0",
+        "message": "Fuel consumption must be greater than 0."
+      },
+      {
+        "field": "gallon_type",
+        "condition": "in [1,2]",
+        "message": "Gallon standard must be 1 (US) or 2 (UK)."
+      },
+      {
+        "field": "decimal_places",
+        "condition": ">= 0",
+        "message": "Decimal places must be non-negative."
+      },
+      {
+        "field": "rounding_method",
+        "condition": "in [0,1,2]",
+        "message": "Rounding method must be 0, 1, or 2."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

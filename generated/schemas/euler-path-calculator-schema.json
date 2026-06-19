@@ -103,7 +103,7 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Grafikteki en küçük düğüm derecesi",
+      "businessContext": "Minimum node degree in the graph.",
       "label_i18n": {
         "en": "Minimum Derece",
         "tr": "Min Temperature",
@@ -127,7 +127,7 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Grafikteki en büyük düğüm derecesi",
+      "businessContext": "Maximum node degree in the graph.",
       "label_i18n": {
         "en": "Maksimum Derece",
         "tr": "Max Temperature",

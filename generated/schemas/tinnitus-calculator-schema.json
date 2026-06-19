@@ -29,7 +29,7 @@
       "id": "exposureDuration_h",
       "label": "Daily Exposure Duration",
       "type": "number",
-      "unit": "saat",
+      "unit": "hours",
       "default": 8,
       "businessContext": "Daily duration of employee exposure to noise",
       "label_i18n": {
@@ -51,9 +51,9 @@
     },
     {
       "id": "age_years",
-      "label": "Yaş",
+      "label": "Age",
       "type": "number",
-      "unit": "yıl",
+      "unit": "years",
       "default": 40,
       "businessContext": "Employee age",
       "label_i18n": {
@@ -75,9 +75,9 @@
     },
     {
       "id": "exposureYears",
-      "label": "Exposure Year",
+      "label": "Exposure Years",
       "type": "number",
-      "unit": "yıl",
+      "unit": "years",
       "default": 10,
       "businessContext": "Total noise exposure years",
       "label_i18n": {
@@ -124,10 +124,12 @@
   ],
   "formulas": {
     "adjustedNoiseLevel": "noiseLevel_dBA - (hearingProtection_dB > 0 ? (hearingProtection_dB - 7) / 2 : 0)",
-    "adjustedNoiseLevel_aux": "noiseLevel_dBA - (hearingProtection_dB > 0 ? (hearingProtection_dB - 7) / 2 : 0)"
+    "permissibleTime": "480 / (2 ^ ((adjustedNoiseLevel - 85) / 3))",
+    "dailyDosePercent": "(exposureDuration_h * 60) / permissibleTime * 100",
+    "tinnitusRiskScore": "((adjustedNoiseLevel - 80) * exposureYears * (age_years / 40)) / 100"
   },
   "outputs": {
-    "primary": "adjustedNoiseLevel_aux",
+    "primary": "tinnitusRiskScore",
     "breakdown": [
       "adjustedNoiseLevel",
       "permissibleTime",
@@ -138,23 +140,82 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "tinnitusRiskScore",
-    "unit": "dBA",
+    "unit": "score",
     "breakdownUnits": {
+      "adjustedNoiseLevel": "dBA",
+      "permissibleTime": "minutes",
       "dailyDosePercent": "%"
     }
   },
-  "category": "İSG & Risk",
-  "sector": "Sağlık & Tıp",
+  "category": "Health & Safety",
+  "sector": "Healthcare & Medical",
   "premiumRequired": false,
   "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
+  "sectorSlug": "healthcare",
   "categorySlug": "hse-ergonomics",
-  "sectorId": "saglik",
-  "profession": "Biyomedikal Mühendisi",
+  "sectorId": "healthcare",
+  "profession": "Biomedical Engineer",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
-    "thresholds": {}
+    "rules": [
+      {
+        "field": "noiseLevel_dBA",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "noiseLevel_dBA",
+        "rule": "max",
+        "value": 140
+      },
+      {
+        "field": "exposureDuration_h",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "exposureDuration_h",
+        "rule": "max",
+        "value": 24
+      },
+      {
+        "field": "age_years",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "age_years",
+        "rule": "max",
+        "value": 120
+      },
+      {
+        "field": "exposureYears",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "exposureYears",
+        "rule": "max",
+        "value": 70
+      },
+      {
+        "field": "hearingProtection_dB",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "hearingProtection_dB",
+        "rule": "max",
+        "value": 50
+      }
+    ],
+    "thresholds": {
+      "tinnitusRiskScore": {
+        "low": 0,
+        "medium": 0.5,
+        "high": 1
+      }
+    }
   },
   "premiumFeatures": []
 }

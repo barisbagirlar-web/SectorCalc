@@ -123,8 +123,8 @@
     }
   ],
   "formulas": {
-    "breakdown": "timeLow",
-    "breakdown_aux": "timeLow"
+    "breakdown": "timeLow + timeMid + timeHiAndVersion + clockSeqAndVariant + node",
+    "breakdown_aux": "timeLow + timeMid + timeHiAndVersion + clockSeqAndVariant + node"
   },
   "outputs": {
     "primary": "breakdown",
@@ -152,7 +152,58 @@
   "profession": "İstatistikçi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "timeLow",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "timeLow",
+        "rule": "max",
+        "value": 4294967295
+      },
+      {
+        "field": "timeMid",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "timeMid",
+        "rule": "max",
+        "value": 65535
+      },
+      {
+        "field": "timeHiAndVersion",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "timeHiAndVersion",
+        "rule": "max",
+        "value": 65535
+      },
+      {
+        "field": "clockSeqAndVariant",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "clockSeqAndVariant",
+        "rule": "max",
+        "value": 65535
+      },
+      {
+        "field": "node",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "node",
+        "rule": "max",
+        "value": 281474976710655
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

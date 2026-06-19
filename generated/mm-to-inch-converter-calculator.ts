@@ -24,8 +24,8 @@ function asFormulaNumber(value: number): number {
 
 function evaluateAllFormulas(input: Mm_to_inch_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.value_mm * input.tolerance_mm; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.value_mm * input.tolerance_mm; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.apply_six_sigma ? 1.5 : 0; results["six_sigma_shift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift"] = 0; }
+  try { const v = input.apply_six_sigma ? 1.5 : 0; results["six_sigma_shift_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["six_sigma_shift_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number): number {
 
 export function calculateMm_to_inch_converter_calculator(input: Mm_to_inch_converter_calculatorInput): Mm_to_inch_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["six_sigma_shift_aux"]);
   const breakdown = {
     
   };

@@ -53,7 +53,7 @@
       "id": "childAge",
       "label": "Child Age",
       "type": "number",
-      "unit": "yıl",
+      "unit": "years",
       "default": 5,
       "businessContext": "Child's age (years)",
       "label_i18n": {
@@ -77,7 +77,7 @@
       "id": "maxDosePerKg",
       "label": "Maximum Dose/kg/Day",
       "type": "number",
-      "unit": "mg/kg/gün",
+      "unit": "mg/kg/day",
       "default": 80,
       "businessContext": "Safe upper limit mg/kg/day (e.g., 80)",
       "label_i18n": {
@@ -99,7 +99,7 @@
     },
     {
       "id": "concentration",
-      "label": "Konsantrasyon",
+      "label": "Concentration",
       "type": "number",
       "unit": "mg/mL",
       "default": 100,
@@ -123,14 +123,15 @@
     }
   ],
   "formulas": {
+    "youngDose": "(childAge / (childAge + 12)) * adultDose",
     "maxAllowedDose": "maxDosePerKg * childWeight",
-    "maxAllowedDose_aux": "maxDosePerKg * childWeight"
+    "volumeYoung": "youngDose / concentration"
   },
   "outputs": {
-    "primary": "maxAllowedDose_aux",
+    "primary": "youngDose",
     "breakdown": [
-      "Young Kuralı: ${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
-      "Maksimum Güvenli Günlük Doz: ${maxAllowedDose} mg"
+      "Young's Rule: ${youngDose} mg (${volumeYoung} mL), Safe: ${isYoungSafe}",
+      "Maximum Safe Daily Dose: ${maxAllowedDose} mg"
     ],
     "hiddenLossDrivers": [],
     "suggestedActions": [
@@ -139,17 +140,43 @@
     "dataConfidenceAdjusted": "volumeYoung",
     "unit": "mg"
   },
-  "category": "İSG & Risk",
-  "sector": "Sağlık & Tıp",
+  "category": "Safety & Risk",
+  "sector": "Healthcare & Medicine",
   "premiumRequired": false,
   "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "quality-six-sigma",
-  "sectorId": "saglik",
-  "profession": "Biyomedikal Mühendisi",
+  "sectorSlug": "healthcare",
+  "categorySlug": "safety",
+  "sectorId": "healthcare",
+  "profession": "Biomedical Engineer",
   "categoryId": "safety",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "childAge",
+        "condition": "childAge >= 0 && childAge <= 18",
+        "message": "Child age must be between 0 and 18 years."
+      },
+      {
+        "field": "childWeight",
+        "condition": "childWeight > 0 && childWeight <= 150",
+        "message": "Child weight must be between 0 and 150 kg."
+      },
+      {
+        "field": "adultDose",
+        "condition": "adultDose > 0",
+        "message": "Adult dose must be positive."
+      },
+      {
+        "field": "maxDosePerKg",
+        "condition": "maxDosePerKg > 0",
+        "message": "Maximum dose per kg must be positive."
+      },
+      {
+        "field": "concentration",
+        "condition": "concentration > 0",
+        "message": "Concentration must be positive."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

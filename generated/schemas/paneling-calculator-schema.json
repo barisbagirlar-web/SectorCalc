@@ -124,10 +124,12 @@
   ],
   "formulas": {
     "panelWidthM": "panelWidth / 100",
-    "panelHeightM": "panelHeight / 100"
+    "panelHeightM": "panelHeight / 100",
+    "roomArea": "roomWidth * roomHeight",
+    "panelArea": "panelWidthM * panelHeightM"
   },
   "outputs": {
-    "primary": "panelHeightM",
+    "primary": "panelArea",
     "breakdown": [
       "basePanels",
       "wasteExtra"
@@ -136,8 +138,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "wasteExtra",
-    "unit": "m"
+    "dataConfidenceAdjusted": "panelArea",
+    "unit": "panels"
   },
   "category": "Matematik & Analiz",
   "sector": "Yenilenebilir Enerji",
@@ -149,7 +151,38 @@
   "profession": "Enerji Mühendisi",
   "categoryId": "math",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "roomWidth",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "roomHeight",
+        "rule": "min",
+        "value": 0.1
+      },
+      {
+        "field": "panelWidth",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "panelHeight",
+        "rule": "min",
+        "value": 1
+      },
+      {
+        "field": "wasteFactor",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "wasteFactor",
+        "rule": "max",
+        "value": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

@@ -161,8 +161,8 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "toleranceMax",
-    "unit": "m²"
+    "dataConfidenceAdjusted": "areaSqft_aux",
+    "unit": "ft²"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
@@ -174,7 +174,53 @@
   "profession": "Mühendis",
   "categoryId": "conversion",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "areaSqm",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "conversionFactor",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "roundingPrecision",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "roundingPrecision",
+        "rule": "max",
+        "value": 10
+      },
+      {
+        "field": "areaUnitPrice",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "wasteFactor",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "wasteFactor",
+        "rule": "max",
+        "value": 100
+      },
+      {
+        "field": "measurementTolerance",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "measurementTolerance",
+        "rule": "max",
+        "value": 100
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

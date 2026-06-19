@@ -195,13 +195,18 @@
     }
   ],
   "formulas": {
+    "dx": "actualX - basicX",
+    "dy": "actualY - basicY",
     "MMC": "holeDiaNom - holeDiaTolLower",
-    "MMC_aux": "holeDiaNom - holeDiaTolLower"
+    "bonus": "holeDiaActual - MMC",
+    "totalTol": "positionTol + bonus",
+    "bonusMsg": "bonus",
+    "totalTolMsg": "totalTol"
   },
   "outputs": {
-    "primary": "MMC_aux",
+    "primary": "totalTolMsg",
     "breakdown": [
-      "posErrMsg",
+      "posErr",
       "bonusMsg",
       "totalTolMsg"
     ],
@@ -222,7 +227,18 @@
   "profession": "CNC Operatörü",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "id": "holeDiaActual_range",
+        "condition": "holeDiaActual >= holeDiaNom - holeDiaTolLower",
+        "message": "Actual hole diameter must be >= MMC size."
+      },
+      {
+        "id": "holeDiaActual_max",
+        "condition": "holeDiaActual <= holeDiaNom + 0.5",
+        "message": "Actual hole diameter seems too large; check input."
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

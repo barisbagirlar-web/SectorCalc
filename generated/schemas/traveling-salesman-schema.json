@@ -188,10 +188,15 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "costPerCity",
-    "unit": "adet",
+    "dataConfidenceAdjusted": "estimatedTourDistance_aux",
+    "unit": "€",
     "breakdownUnits": {
-      "travelTimeHours": "h"
+      "estimatedTourDistance": "km",
+      "distanceVariability": "km",
+      "totalDistance": "km",
+      "travelTimeHours": "h",
+      "totalCost": "€",
+      "costPerCity": "€"
     }
   },
   "category": "Maliyet & Bütçeleme",
@@ -204,7 +209,43 @@
   "profession": "İstatistikçi",
   "categoryId": "cost",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "numCities",
+        "rule": "min",
+        "value": 2
+      },
+      {
+        "field": "avgDistance",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "distanceStdDev",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "speed",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "costPerKm",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "fixedCostPerStop",
+        "rule": "min",
+        "value": 0
+      },
+      {
+        "field": "numVehicles",
+        "rule": "min",
+        "value": 1
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []

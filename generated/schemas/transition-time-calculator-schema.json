@@ -124,7 +124,8 @@
   ],
   "formulas": {
     "preDelayTime": "preDelay",
-    "postSettlingTime": "postSettling"
+    "postSettlingTime": "postSettling",
+    "motionTime": "if maxVelocity == 0 then 0 else (distance / maxVelocity) + (maxVelocity / (2 * acceleration))"
   },
   "outputs": {
     "primary": "postSettlingTime",
@@ -138,7 +139,7 @@
       "Review inputs and verify results against site standards."
     ],
     "dataConfidenceAdjusted": "postSettlingTime",
-    "unit": "m"
+    "unit": "s"
   },
   "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",
@@ -150,7 +151,33 @@
   "profession": "Matematikçi",
   "categoryId": "engineering",
   "validation": {
-    "rules": [],
+    "rules": [
+      {
+        "field": "distance",
+        "condition": "> 0",
+        "message": "Distance must be positive"
+      },
+      {
+        "field": "acceleration",
+        "condition": "> 0",
+        "message": "Acceleration must be positive"
+      },
+      {
+        "field": "maxVelocity",
+        "condition": ">= 0",
+        "message": "Max velocity must be non-negative"
+      },
+      {
+        "field": "preDelay",
+        "condition": ">= 0",
+        "message": "Pre-delay must be non-negative"
+      },
+      {
+        "field": "postSettling",
+        "condition": ">= 0",
+        "message": "Post-settling time must be non-negative"
+      }
+    ],
     "thresholds": {}
   },
   "premiumFeatures": []
