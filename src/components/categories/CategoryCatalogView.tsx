@@ -1,25 +1,26 @@
 /**
- * CategoryCatalogView — Compact category cards + scroll-to filtered tools.
+ * CategoryCatalogView — Compact category cards + full tool listing below.
  *
  * No tab bar, no inline search (hero search covers that).
- * Click a category → sets ?category=slug in URL and scrolls to the
- * CatalogHubToolsClientPanel which filters tools by that categoryKey.
+ * Click a category card → expands a detail panel below the grid listing
+ * ALL tools in that category with their localized names and direct links.
  *
  * ECMI / ISO 9001 — TÜV-certifiable industrial UX.
  */
 
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useMemo, useCallback, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";
+import { resolveCanonicalCategorySlug } from "@/lib/free-tools/free-tool-categories";
 import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
 import type { FreeToolCategoryEntry } from "@/lib/free-tools/free-tool-categories";
 import type { ToolData } from "@/lib/tools/all-tools-data";
 import type { CatalogGridVariant } from "@/lib/catalog/catalog-grid-variant-styles";
-import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -209,12 +210,26 @@ export function CategoryCatalogView({
 
   const activeCategorySlug = searchParams?.get("category") ?? null;
 
+  // ── Find tools for the active category ──
+  const categoryTools = useMemo(() => {
+    if (!activeCategorySlug) return [];
+    const canonicalSlug = resolveCanonicalCategorySlug(activeCategorySlug);
+    return tools.filter(
+      (tool) => resolveCanonicalCategorySlug(tool.categoryKey) === canonicalSlug,
+    );
+  }, [tools, activeCategorySlug]);
+
+  // ── Find the active category card ──
+  const activeCategoryCard = useMemo(() => {
+    if (!activeCategorySlug) return null;
+    return categories.find((c) => c.category.slug === activeCategorySlug) ?? null;
+  }, [categories, activeCategorySlug]);
+
   // ── Scroll to tools list when category is active ──
   const handleCategoryClick = useCallback(
     (slug: string) => {
       const params = new URLSearchParams(searchParams?.toString() ?? "");
       if (params.get("category") === slug) {
-        // Toggle off
         params.delete("category");
       } else {
         params.set("category", slug);
@@ -223,13 +238,14 @@ export function CategoryCatalogView({
       const url = qs ? `${basePath}?${qs}` : basePath;
       window.history.pushState(null, "", url);
 
-      // Scroll to tools list on next frame
-      requestAnimationFrame(() => {
-        const el = document.getElementById("tools-list");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
+      if (params.get("category")) {
+        requestAnimationFrame(() => {
+          const el = document.getElementById("category-tools");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      }
     },
     [basePath, searchParams],
   );
@@ -244,6 +260,21 @@ export function CategoryCatalogView({
         <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">
           {t("compactGrid.categories")}
         </h2>
+        {activeCategorySlug && (
+          <button
+            type="button"
+            onClick={() => {
+              const params = new URLSearchParams(searchParams?.toString() ?? "");
+              params.delete("category");
+              const url = params.toString() ? `${basePath}?${params}` : basePath;
+              window.history.pushState(null, "", url);
+            }}
+            className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600"
+          >
+            Clear selection
+            <span aria-hidden="true">✕</span>
+          </button>
+        )}
       </div>
 
       {/* ── Category grid ── */}
@@ -269,14 +300,97 @@ export function CategoryCatalogView({
         </div>
       )}
 
-      {/* ── Filtered tools below ── */}
-      <div ref={toolsRef} className="mt-10">
-        <CatalogHubToolsClientPanel
-          locale={locale}
-          tools={tools}
-          variant={pageVariant}
-        />
-      </div>
+      {/* ── Full tool listing for selected category ── */}
+      {activeCategoryCard && categoryTools.length > 0 && (
+        <div
+          id="category-tools"
+          className="mt-8 animate-[fadeIn_0.25s_ease]"
+        >
+          {(() => {
+            const cat = activeCategoryCard;
+            const colors = getCategoryColor(cat.category.slug);
+            const svgHtml = cat.category.symbolSvg || resolveCategorySvgSymbol(cat.category.slug);
+            const badge = resolveBadge(cat, pageVariant);
+            const title = cat.category.title[localizationKey] ?? cat.category.title.en;
+            const tagline = cat.category.tagline?.[localizationKey] ?? cat.category.tagline?.en;
+            const field = (cat.category as Record<string, unknown>).field as Record<string, string> | undefined;
+            const fieldLabel = field?.[localizationKey] ?? field?.en;
+
+            return (
+              <div
+                className="rounded-xl p-6"
+                style={{
+                  background: colors.bg,
+                  border: `1.5px solid ${colors.color}33`,
+                  borderLeft: `4px solid ${colors.color}`,
+                }}
+              >
+                {/* ── Category header ── */}
+                <div className="mb-5 flex items-start gap-3">
+                  <div
+                    className="h-12 w-12 shrink-0"
+                    aria-hidden="true"
+                    dangerouslySetInnerHTML={{
+                      __html: svgHtml.replace(
+                        'stroke="currentColor"',
+                        `stroke="${colors.color}"`,
+                      ),
+                    }}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-base font-extrabold text-gray-900">{title}</h3>
+                      {badge && <Badge label={badge} />}
+                    </div>
+                    <p className="mt-0.5 text-xs text-gray-500">
+                      {categoryTools.length} tool{categoryTools.length !== 1 ? "s" : ""}
+                      {fieldLabel ? ` · ${fieldLabel}` : ""}
+                      {tagline ? ` · ${tagline}` : ""}
+                    </p>
+                  </div>
+                </div>
+
+                {/* ── Tool list ── */}
+                <div className="space-y-1.5">
+                  {categoryTools.map((tool) => (
+                    <Link
+                      key={tool.slug}
+                      href={tool.href}
+                      className={cn(
+                        "flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-150",
+                        "hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1",
+                      )}
+                      style={{
+                        background: "#FFFFFF",
+                        border: `1px solid ${colors.color}22`,
+                        color: "#374151",
+                      }}
+                    >
+                      <span className="line-clamp-1 flex-1">{tool.name}</span>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        className="ml-2 shrink-0 text-gray-400"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M5 3l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+      )}
 
       {/* ── Platform disclaimer ── */}
       <div className="mt-10 flex flex-wrap items-center gap-3.5 rounded-xl border border-slate-200 bg-white px-6 py-4.5">

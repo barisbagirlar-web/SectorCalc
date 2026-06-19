@@ -164,6 +164,17 @@
     transform-origin: 0 50%;
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes route-loading-pulse {
     0% {
       transform: scaleX(0.08);

@@ -11,7 +11,7 @@ const args = process.argv.slice(2);
 // Detect recursive invocation: if SECTORCALC_SHIM_REAL_NEXT is set, forward directly.
 if (process.env.SECTORCALC_SHIM_REAL_NEXT) {
   const realNextCandidates = [
-    join(ROOT, "node_modules/.bin/next.firebase-backup"),
+    join(ROOT, "node_modules/next/dist/bin/next.firebase-backup"),
   ];
   const realNext = realNextCandidates.find((candidate) => existsSync(candidate));
   if (realNext) {
@@ -47,7 +47,7 @@ if (args[0] === "build") {
 }
 
 const realNextCandidates = [
-  join(ROOT, "node_modules/.bin/next.firebase-backup"),
+  join(ROOT, "node_modules/next/dist/bin/next.firebase-backup"),
 ];
 
 const realNext = realNextCandidates.find((candidate) => existsSync(candidate));
