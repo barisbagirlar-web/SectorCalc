@@ -1,13 +1,19 @@
+import { validateFormulaAst } from "@/lib/generated-tools/ast-formula-validator";
+
+/**
+ * Validates that `expression` is a syntactically valid single-expression formula.
+ * Uses jsep AST parser instead of `new Function()` for safety.
+ */
 function isValidJavaScriptExpression(expression: string): boolean {
   const trimmed = expression.trim();
   if (!trimmed) {
     return false;
   }
-  const erfShim =
-    "const erf=(x)=>{const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;const sign=x<0?-1:1;x=Math.abs(x);const t=1/(1+p*x);const y=1-(((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t)*Math.exp(-x*x);return sign*y;};";
   try {
-    // eslint-disable-next-line no-new-func
-    new Function("input", "results", `${erfShim} return (${trimmed});`);
+    const result = validateFormulaAst(trimmed, [], []);
+    if (!result.valid) {
+      return false;
+    }
     return true;
   } catch {
     return false;
