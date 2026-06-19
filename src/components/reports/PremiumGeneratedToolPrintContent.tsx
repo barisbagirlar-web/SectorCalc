@@ -18,7 +18,9 @@ import {
   resolvePrimaryPrintValue,
   buildMethodologyDescription,
   findReferenceStandards,
+  resolveBreakdownLabel,
 } from "@/lib/reports/resolve-print-values";
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { getToolMethodology, type ToolMethodology } from "@/lib/reports/tool-methodology";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
@@ -321,12 +323,16 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               </div>
               {Object.entries(breakdown).slice(0, 3).map(([key, value]) => {
                 if (typeof value !== "number" || !Number.isFinite(value)) return null;
-                const breakdownMap = schema.outputs?.breakdown as Record<string, string> | undefined;
-                const label = breakdownMap?.[key] ?? key;
+                const breakdownLabel = resolveBreakdownLabel(
+                  key,
+                  schema.outputs.breakdown,
+                  (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n,
+                  locale,
+                );
                 const formatted = formatGeneratedNumericValue(value, key, locale);
                 return (
                   <div className="result-card" key={key}>
-                    <div className="rc-label">{label}</div>
+                    <div className="rc-label">{breakdownLabel}</div>
                     <div className="rc-value" style={{ fontSize: 16 }}>{formatted}</div>
                     <div className="rc-sub">{t("breakdownItem")}</div>
                   </div>

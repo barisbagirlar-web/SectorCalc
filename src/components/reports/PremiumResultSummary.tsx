@@ -11,6 +11,7 @@ import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-u
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { normalizeLocale } from "@/lib/format/localization";
 import { resolvePrimaryPrintValue, resolveBreakdownLabel } from "@/lib/reports/resolve-print-values";
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
 
 /* ─── Badge ───────────────────────────────────────────────────────── */
 function Badge({ label, variant }: { label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }) {
@@ -131,7 +132,12 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
     cards.push({ label: t("primaryResult"), value: formattedPrimary, sub: t("simulationNotice"), highlight: true });
     for (let i = 0; i < Math.min(breakdownEntries.length, 3); i++) {
       const [key, val] = breakdownEntries[i];
-      const label = resolveBreakdownLabel(key, schema.outputs.breakdown, schema.outputs.breakdown_i18n, locale);
+      const label = resolveBreakdownLabel(
+              key,
+              schema.outputs.breakdown,
+              (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n,
+              locale,
+            );
       cards.push({ label, value: formatGeneratedNumericValue(val, key, locale), sub: t("breakdownItem"), highlight: false });
     }
     while (cards.length < 4) {
@@ -148,7 +154,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
       }
     }
     return cards.slice(0, 4);
-  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown, schema.outputs.breakdown_i18n]);
+  }, [t, formattedPrimary, breakdownEntries, hiddenDrivers, riskLabel, riskScore, locale, schema.outputs.breakdown, (schema.outputs as { breakdown_i18n?: Partial<Record<SupportedLocale, Readonly<Record<string, string>>>> }).breakdown_i18n]);
 
   const insights = useMemo(() => {
     const items: Array<{ type: string; icon: string; title: string; text: string }> = [];

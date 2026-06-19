@@ -40,6 +40,7 @@ export type ToolData = {
   readonly categoryKey: string;
   readonly sector: string;
   readonly sectorKey: string;
+  readonly description: string;
   readonly premiumRequired: boolean;
   readonly premiumCategorySlug?: PremiumCategorySlug;
   readonly premiumCategory?: string;
@@ -242,11 +243,17 @@ export function getAllTools(locale = "tr"): ToolData[] {
       );
       const sector = resolveSector(slug, raw, normalized, locale);
 
+      const description =
+        normalized?.about?.description?.short ||
+        asString(raw.shortDescription) ||
+        "";
+
       const toolData: ToolData = {
         slug,
         name: resolveToolTitle(slug, raw, normalized, locale),
         ...category,
         ...sector,
+        description,
         premiumRequired: isPremiumTool(raw, normalized, catalogItem?.tier),
         premiumCategorySlug: getPremiumCategorySlugForTool(slug),
         premiumCategory: resolvePremiumCategoryTitle(getPremiumCategorySlugForTool(slug), locale),

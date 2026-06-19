@@ -26,7 +26,7 @@ function run(command, args, options = {}) {
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
     },
     ...options,
   });
@@ -133,20 +133,9 @@ try {
   const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
 
   if (!hasBuild) {
-    console.log("deploy-production: running prebuild steps…");
-    if (run("npm", ["run", "prebuild"]) !== 0) {
-      console.error("deploy-production: prebuild failed.");
-      process.exit(1);
-    }
-    console.log("deploy-production: running next build (SSG-limited for deploy)…");
-    if (run("node", ["scripts/next-build-with-500-fallback.mjs"], {
-      env: {
-        ...process.env,
-        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
-        SECTORCALC_FAST_PREVIEW_STATIC: "1",
-      },
-    }) !== 0) {
-      console.error("deploy-production: next build failed.");
+    console.log("deploy-production: running full npm run build pipeline…");
+    if (run("npm", ["run", "build"]) !== 0) {
+      console.error("deploy-production: build failed.");
       process.exit(1);
     }
   } else {
@@ -171,7 +160,7 @@ try {
   ], {
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
       SECTORCALC_FIREBASE_REUSE_BUILD: "1",
     },

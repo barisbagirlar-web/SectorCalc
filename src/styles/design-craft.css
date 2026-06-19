@@ -5059,7 +5059,6 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 .sc-home-omni__stroke-icon,
 .sc-home-omni__category-icon svg,
-.sc-home-omni__loss-icon,
 .sc-home-omni__audience-icon,
 .sc-home-omni__why-icon {
   flex-shrink: 0;
@@ -5082,12 +5081,40 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   background: rgb(15 23 42 / 0.05);
 }
 
+.sc-home-omni__loss-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  background: rgb(194 65 12 / 0.1);
+  flex-shrink: 0;
+  transition: background-color 200ms ease;
+}
+
+.sc-home-omni__loss-card:hover .sc-home-omni__loss-icon-wrap {
+  background: rgb(194 65 12 / 0.15);
+}
+
+.sc-home-omni__loss-icon {
+  flex-shrink: 0;
+  color: var(--sc-copper);
+  transition: transform 250ms ease;
+}
+
+.sc-home-omni__loss-card:hover .sc-home-omni__loss-icon {
+  transform: scale(1.08);
+}
+
 .sc-home-omni__loss-card {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
   height: 100%;
-  padding: 1.125rem;
+  padding: 1.5rem 1.25rem;
   border: 1px solid var(--sc-border);
   border-radius: 0.75rem;
   background: #fff;
@@ -5095,17 +5122,19 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 .sc-home-omni__loss-title {
   margin: 0;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   line-height: 1.35;
   color: var(--sc-text);
+  letter-spacing: 0.01em;
 }
 
 .sc-home-omni__loss-text {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.55;
   color: var(--sc-muted);
+  max-width: 22ch;
 }
 
 .sc-home-omni__audience-card {

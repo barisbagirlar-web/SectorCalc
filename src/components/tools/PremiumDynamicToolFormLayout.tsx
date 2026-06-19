@@ -196,11 +196,6 @@ export function PremiumDynamicToolFormLayout({
               emptyLabel={t("clickToCompute")}
               statusLabel={result && showValidResultBadge ? tPremium("validStatus") : undefined}
               loading={loading}
-              toolSlug={slug}
-              userId={userId}
-              routePath={routePath}
-              toolType="premium"
-              inputSnapshot={inputSnapshot}
               onPrintReport={onPrintReport}
             />
           </div>

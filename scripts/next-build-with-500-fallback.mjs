@@ -19,7 +19,6 @@ import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs"
 
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
-const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
 const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
 const PERSISTENT_BUILD_LOG = join(ROOT, ".vercel-last-build.log");
@@ -34,7 +33,6 @@ type RedirectRoutes = never;
 type RewriteRoutes = never;
 type AppRouteHandlerRoutes = never;
 type PageData = Record<string, unknown>;
-export {};
 `;
 
 function acquireBuildLock() {
@@ -81,11 +79,6 @@ function ensureNextTypeAndBuildManifestStubs() {
   if (!existsSync(pagesManifestPath)) {
     writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
   }
-
-  const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
-  if (!existsSync(middlewareManifestPath)) {
-    writeFileSync(middlewareManifestPath, JSON.stringify({}));
-  }
 }
 
 function ssgFullyCompleted(log) {
@@ -116,7 +109,7 @@ function recoverableManifestFailure(log) {
 function ssgPageModuleRaceFailure(log) {
   return (
     (log.includes("Cannot find module") &&
-      (log.includes("/.next/server/") || log.includes("/.next/server/pages/"))) ||
+      (log.includes("/.next/server/app/") || log.includes("/.next/server/pages/"))) ||
     log.includes("Unexpected end of JSON input") ||
     log.includes("Cannot find module for page: /_document") ||
     log.includes("PageNotFoundError")
@@ -124,7 +117,7 @@ function ssgPageModuleRaceFailure(log) {
 }
 
 function interruptedBuild(log, status) {
-  return status === 143 || status === 130 || status === 137 || /SIGTERM|SIGINT|SIGKILL|ENOMEM|JavaScript heap out of memory/i.test(log);
+  return status === 143 || status === 130 || /SIGTERM|SIGINT|ENOMEM|JavaScript heap out of memory/i.test(log);
 }
 
 function preserveBuildLogForDiagnostics() {
@@ -162,14 +155,9 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      // DNS resolution order: force IPv4 first to avoid intermittent
-      // "getaddrinfo ENOTFOUND" failures on Vercel builders (Node.js 17+
-      // defaults to verbatim/ipv6first, which can fail for Google Fonts
-      // and other CDNs).
-      NODE_OPTIONS:
-        process.env.NODE_OPTIONS ??
-        "--max-old-space-size=8192 --dns-result-order=ipv4first",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FORCE_COLOR: "0",
+      LOCALE_CENTER_STRICT: "1",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });
@@ -273,7 +261,7 @@ function shouldRetryWithFullClean(result) {
   return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
 }
 
-const MAX_ATTEMPTS = 5;
+const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 2;
 let lastOutput = "";
 
 try {
@@ -347,25 +335,15 @@ try {
       console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
-      // Remove webpack filesystem cache — corrupted JSON causes SSG parse failures.
-      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
       continue;
     }
 
     if (attempt < MAX_ATTEMPTS) {
-      // Check if the build log exists — it may have the actual error even if result.output is empty.
-      const fullLog = existsSync(BUILD_LOG) ? readBuildLogTail(4000) : "";
-      if (recoverableManifestFailure(fullLog) || result.status === 1) {
-        console.warn("next-build-with-500-fallback: manifest race — stubbing and retrying without full clean…");
-        ensureNextTypeAndBuildManifestStubs();
-        continue;
-      }
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
-      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
     }

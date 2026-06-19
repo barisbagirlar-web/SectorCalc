@@ -19,12 +19,15 @@ describe("clv-cac-calculator", () => {
   } as unknown as Clv_cac_calculatorInput;
     const result = calculateClv_cac_calculator(input);
     expect(result).toBeDefined();
-    expect(typeof result.result).toBe("number");
-    expect(Number.isFinite(result.result)).toBe(true);
+    expect(typeof result.totalWasteCost).toBe("number");
+    expect(Number.isFinite(result.totalWasteCost)).toBe(true);
     expect(result.breakdown).toBeDefined();
     expect(typeof result.breakdown.annual_revenue).toBe("number");
+    expect(typeof result.breakdown.annual_gross_profit).toBe("number");
+    expect(typeof result.breakdown.result).toBe("number");
     expect(typeof result.breakdown.clv_cac_ratio).toBe("number");
     expect(typeof result.breakdown.payback_months).toBe("number");
+    expect(typeof result.breakdown.churn_rate).toBe("number");
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);
     expect(Array.isArray(result.suggestedActions)).toBe(true);
   });

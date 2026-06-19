@@ -15,6 +15,7 @@ interface IndustryPageParams {
  slug: IndustrySlug;
 }
 
+export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<{ slug: IndustrySlug }[]> {

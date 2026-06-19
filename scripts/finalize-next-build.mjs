@@ -59,26 +59,6 @@ function ensureExportDetail() {
   );
 }
 
-/** Create a stub prerender-manifest.json if the build didn't generate one (preview mode). */
-function ensurePrerenderManifest() {
-  const path = join(NEXT, "prerender-manifest.json");
-  if (existsSync(path)) {
-    return;
-  }
-  writeFileSync(
-    path,
-    JSON.stringify({
-      version: 4,
-      routes: {},
-      dynamicRoutes: {},
-      notFoundRoutes: [],
-      preview: { previewModeId: "stub", previewModeSigningKey: "", previewModeEncryptionKey: "" },
-    }),
-    "utf8",
-  );
-  console.warn("finalize-next-build: created stub prerender-manifest.json (preview SSG mode).");
-}
-
 function main() {
   if (!existsSync(join(NEXT, "BUILD_ID"))) {
     console.error("finalize-next-build: BUILD_ID missing — run next build first.");
@@ -86,7 +66,6 @@ function main() {
   }
 
   ensure500StaticFiles();
-  ensurePrerenderManifest();
 
   // Firebase Hosting expects export markers; Vercel App Router must stay serverless.
   if (process.env.VERCEL !== "1") {

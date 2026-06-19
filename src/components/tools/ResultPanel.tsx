@@ -15,7 +15,6 @@ import {
   resolvePrimaryOutputUnit,
 } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
 
 export type ResultPanelProps = {
   readonly result: GeneratedToolResult | null;
@@ -26,12 +25,7 @@ export type ResultPanelProps = {
   readonly emptyLabel: string;
   readonly loading?: boolean;
   readonly statusLabel?: string;
-  readonly toolSlug?: string;
-  readonly userId?: string | null;
   readonly enableEnterpriseActions?: boolean;
-  readonly routePath?: string;
-  readonly toolType?: "free" | "premium";
-  readonly inputSnapshot?: Readonly<Record<string, FeedbackSnapshotValue>>;
   readonly onPrintReport?: () => void;
 };
 
@@ -96,12 +90,7 @@ export function ResultPanel({
   emptyLabel,
   loading = false,
   statusLabel,
-  toolSlug,
-  userId,
   enableEnterpriseActions,
-  routePath,
-  toolType = "premium",
-  inputSnapshot,
   onPrintReport,
 }: ResultPanelProps) {
 

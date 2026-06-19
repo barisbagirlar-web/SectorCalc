@@ -95,7 +95,7 @@ export default async function IndustriesPage({ params }: PageProps) {
               <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
                 <IndustriesTaxonomyGrid
                   basePath="/industries"
-                  sectors={filteredSectorCards}
+                  sectors={taxonomySectorCards}
                   variant="industry"
                 />
               </Suspense>

@@ -4,7 +4,7 @@
  * Called by firebase.json hosting.build.command during deploy.
  */
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import {
   acquireGlobalBuildLock,
@@ -13,29 +13,6 @@ import {
 
 const ROOT = process.cwd();
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
-const NEXT_DIR = join(ROOT, ".next");
-
-function ensureManifestStubs() {
-  const typesDir = join(NEXT_DIR, "types");
-  mkdirSync(typesDir, { recursive: true });
-
-  const serverDir = join(NEXT_DIR, "server");
-  mkdirSync(serverDir, { recursive: true });
-
-  const stubs = {
-    "build-manifest.json": { pages: {}, devFiles: [], ampDevFiles: [] },
-    "types/routes.d.ts": "// stub\ntype AppRoutes = never;\ntype PageRoutes = never;\n",
-    "server/pages-manifest.json": {},
-    "server/middleware-manifest.json": {},
-  };
-
-  for (const [relPath, content] of Object.entries(stubs)) {
-    const fullPath = join(NEXT_DIR, relPath);
-    if (!existsSync(fullPath)) {
-      writeFileSync(fullPath, typeof content === "string" ? content : JSON.stringify(content), "utf8");
-    }
-  }
-}
 
 function run(command, args) {
   const result = spawnSync(command, args, {
@@ -66,14 +43,8 @@ if (hasBuild) {
 acquireGlobalBuildLock("firebase-hosting-build");
 
 try {
-  ensureManifestStubs();
   console.log("firebase-hosting-build: running full npm run build pipeline…");
   run("npm", ["run", "build"]);
-
-  // Finalize build artifacts (export-marker.json, 500 fallback, etc.)
-  run("node", ["scripts/finalize-next-build.mjs"]);
-  run("node", ["scripts/validate-next-build.mjs"]);
-  console.log("firebase-hosting-build: build complete, ready for Firebase deploy.");
 } finally {
   releaseGlobalBuildLock();
 }

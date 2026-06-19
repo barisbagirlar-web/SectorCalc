@@ -291,14 +291,14 @@
   },
   "outputs": {
     "primary": "result",
-    "breakdown": [
-      "annual_revenue",
-      "annual_gross_profit",
-      "result",
-      "clv_cac_ratio",
-      "payback_months",
-      "churn_rate"
-    ],
+    "breakdown": {
+      "annual_revenue": "Annual Revenue",
+      "annual_gross_profit": "Annual Gross Profit",
+      "result": "Customer Lifetime Value (CLV)",
+      "clv_cac_ratio": "CLV / CAC Ratio",
+      "payback_months": "CAC Payback Period",
+      "churn_rate": "Churn Rate"
+    },
     "breakdownUnits": {
       "annual_revenue": "USD",
       "annual_gross_profit": "USD",
