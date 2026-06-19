@@ -10,7 +10,8 @@
     "closeDialog": "Dialog schließen",
     "regionLanguage": "Region und Sprache",
     "trustCompliance": "Vertrauens- und Compliance-Signale",
-    "industrialPanel": "Industrielles Entscheidungspanel"
+    "industrialPanel": "Industrielles Entscheidungspanel",
+    "logoAlt": "SectorCalc"
   },
   "leadCapture": {
     "eyebrow": "Lead-Erfassung",
@@ -21,7 +22,8 @@
     "companyLabel": "Unternehmen",
     "intentLabel": "Absicht",
     "submitButton": "Frühzugang anfordern",
-    "successMessage": "Danke. Dieses Vorschauformular überträgt keine Daten. Schließen Sie Ihre Lead-Pipeline an, wenn Sie bereit sind."
+    "successMessage": "Danke. Dieses Vorschauformular überträgt keine Daten. Schließen Sie Ihre Lead-Pipeline an, wenn Sie bereit sind.",
+    "companyPlaceholder": "Optional"
   },
   "toolDiscovery": {
     "sectorFallback": "Branche",
@@ -54,7 +56,8 @@
     "messageLabel": "Nachricht (optional)",
     "messagePlaceholder": "Zeitplan, Kundenkontext oder Fragen (max. 500 Zeichen)",
     "submitting": "Wird gesendet…",
-    "submitRequest": "Anfrage senden"
+    "submitRequest": "Anfrage senden",
+    "nameLabel": "Name"
   },
   "nav": {
     "freeCalculators": "Kostenlose Rechner",
@@ -82,7 +85,9 @@
     "freeTools": "Gratis-Checks",
     "premiumTools": "Premium-Urteile",
     "unlockPro": "Pro freischalten",
-    "runFreeCheck": "Gratis-Check"
+    "runFreeCheck": "Gratis-Check",
+    "premiumLayer": "Premium",
+    "audit": "Audit"
   },
   "trace": {
     "launcher": "Mit Trace sprechen",
@@ -183,7 +188,8 @@
     "browseByCategory": "Nach Kategorie",
     "startFree": "Gratis-Check starten",
     "viewPremium": "Premium-Rechner",
-    "free": "Gratis"
+    "free": "Gratis",
+    "premium": "Premium"
   },
   "pricing": {
     "eyebrow": "Preise",
@@ -236,8 +242,13 @@
       "savedReports": "Gespeichertes Urteilsarchiv",
       "pdfExport": "PDF-Export",
       "teamSeats": "Mehrplatz-Zugang",
-      "adminControls": "Admin-Sitz-Steuerung"
-    }
+      "adminControls": "Admin-Sitz-Steuerung",
+      "colPro": "Pro",
+      "colEnterprise": "Enterprise"
+    },
+    "freePrice": "$0",
+    "singlePrice": "$9",
+    "team": "Team"
   },
   "checkout": {
     "redirecting": "Weiterleitung zur Kasse…",
@@ -302,7 +313,8 @@
     },
     "phase2": {
       "reservedLabel": "Stochastischer Engine-Slot",
-      "reservedBody": "Volle P90-Sensitivitätsmatrix und PDF-Export nach Premium-Freischaltung hier."
+      "reservedBody": "Volle P90-Sensitivitätsmatrix und PDF-Export nach Premium-Freischaltung hier.",
+      "label": "MarginCore · Phase 2"
     }
   },
   "freeTool": {
@@ -325,7 +337,9 @@
       "Empfohlene Maßnahme",
       "Sensitivitätsmatrix"
     ],
-    "withheldFromFree": "Nicht in der kostenlosen Version"
+    "withheldFromFree": "Nicht in der kostenlosen Version",
+    "premiumBadge": "Premium",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -426,7 +440,8 @@
       "showingLimited": "{shown} von {total} Rechnern werden angezeigt. Nutzen Sie Branchenfilter oder Suche, um die Liste einzugrenzen.",
       "moreResults": "+ {count} weitere Ergebnisse",
       "badgeFree": "Kostenlos",
-      "clearSearch": "Leeren"
+      "clearSearch": "Leeren",
+      "badgePremium": "Premium"
     },
     "discoveryTabs": {
       "all": "Alle",
@@ -633,7 +648,8 @@
       "relatedGuideTitle": "So funktioniert diese Berechnung",
       "relatedHubTitle": "Rechner in dieser Kategorie vergleichen",
       "relatedPremiumTitle": "Verwandter Premium-Rechner",
-      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen"
+      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen",
+      "faqTitle": "FAQ"
     },
     "premium": {
       "whenToUseTitle": "Wann dieser Rechner sinnvoll ist",
@@ -667,7 +683,8 @@
       "reportBullet3": "Empfohlene Maßnahmen und Annahmenhinweise",
       "reportBullet4": "Exportfähiges PDF und CSV bei bezahltem Zugang",
       "faqIsFreeTitle": "Ist dieser Rechner kostenlos?",
-      "faqIsFreeAnswer": "Dieses Tool gehört zum Premium-Analyseumfang. Vollständige Ergebnisse und Entscheidungszusammenfassungen erfordern Credits oder ein aktives Pro-Abonnement."
+      "faqIsFreeAnswer": "Dieses Tool gehört zum Premium-Analyseumfang. Vollständige Ergebnisse und Entscheidungszusammenfassungen erfordern Credits oder ein aktives Pro-Abonnement.",
+      "faqTitle": "FAQ"
     }
   },
   "trust": {
@@ -716,7 +733,8 @@
       "energyCarbon": "Energie & Kohlenstoff",
       "routingLogistics": "Route & Logistik",
       "constructionField": "Bau & Baustelle"
-    }
+    },
+    "brand": "SectorCalc"
   },
   "region": {
     "auto": "Auto (by language)",
@@ -724,11 +742,19 @@
     "germany": "Deutschland · EUR",
     "indicatorHint": "Währung folgt Sprache oder manueller Regionswahl",
     "manualActive": "Manuelle Region: {region}",
-    "followsLanguage": "Folgt Sprache → {region}"
+    "followsLanguage": "Folgt Sprache → {region}",
+    "label": "Region",
+    "global": "Global · USD",
+    "indicator": "{region} · {currency}"
   },
   "locale": {
     "label": "Sprache",
-    "en": "Englisch"
+    "en": "Englisch",
+    "tr": "Türkçe",
+    "es": "Español",
+    "de": "Deutsch",
+    "ar": "العربية",
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Mehr erfahren",
@@ -738,7 +764,8 @@
     "calculate": "Berechnen",
     "badge": {
       "free": "Gratis",
-      "new": "Neu"
+      "new": "Neu",
+      "premium": "Premium"
     }
   },
   "theme": {
@@ -878,7 +905,8 @@
       "secondaryCta": "Beispielbericht ansehen",
       "metrics": {
         "sectors": {
-          "label": "Branchen"
+          "label": "Branchen",
+          "value": "27 LIVE"
         },
         "confidence": {
           "label": "Konfidenz",
@@ -887,6 +915,10 @@
         "gate": {
           "label": "Zugang",
           "value": "PRO-GATE"
+        },
+        "engine": {
+          "label": "Engine",
+          "value": "P90 MC"
         }
       }
     },
@@ -913,7 +945,8 @@
         "id": "Berichts-ID",
         "sector": "Branche",
         "verdict": "Urteil",
-        "updated": "Aktualisiert"
+        "updated": "Aktualisiert",
+        "status": "Status"
       },
       "status": {
         "complete": "Vollständig",
@@ -1031,7 +1064,9 @@
         "Regionale Einheiten und Richtwert-Benchmarks",
         "Gespeicherte Berichte und Feldmodus"
       ],
-      "availability": "Jetzt verfügbar"
+      "availability": "Jetzt verfügbar",
+      "badge": "Business",
+      "title": "Business"
     },
     "enterprisePlan": {
       "body": "Für Organisationen, die verifizierte Berechnungs-Workflows, Teamnutzung, Berichts-Governance, Auditierbarkeit, individuelle Branchenpakete und beschaffungsfreundliche Entscheidungsunterstützung benötigen.",
@@ -1041,7 +1076,9 @@
         "Individuelle Branchenpakete",
         "Beschaffungsfreundliches Onboarding"
       ],
-      "availability": "Enterprise-Gespräch — kontaktieren Sie uns"
+      "availability": "Enterprise-Gespräch — kontaktieren Sie uns",
+      "badge": "Enterprise",
+      "title": "Enterprise"
     },
     "bundles": {
       "title": "Branchenpakete",
@@ -1551,7 +1588,8 @@
     "headline": "Berechnen, messen und optimieren",
     "headlineAccent": "für Ihre Branche.",
     "lead": "Production, logistics, construction, Energie and daily life — exprot formulas, clear results, no ERP complexity.",
-    "activeModule": "Branchenrechner"
+    "activeModule": "Branchenrechner",
+    "brand": "SectorCalc"
   },
   "auditHub": {
     "eyebrow": "SectorCalc Audit-Hub",
@@ -3148,7 +3186,8 @@
         "locale": "Sprache",
         "tool": "Tool-Slug",
         "severity": "Schwere",
-        "all": "Alle"
+        "all": "Alle",
+        "status": "Status"
       },
       "status": {
         "new": "Neu",
@@ -3185,12 +3224,16 @@
       "uk": "Vereinigtes Königreich",
       "eu": "Europa",
       "tr": "Türkei",
-      "latam": "Lateinamerika"
+      "latam": "Lateinamerika",
+      "label": "Region",
+      "global": "Global",
+      "mena": "MENA"
     },
     "system": {
       "label": "Maßsystem",
       "metric": "Metrisch",
-      "mixed": "Gemischt"
+      "mixed": "Gemischt",
+      "imperial": "Imperial"
     },
     "dimension": {
       "label": "Größe",
@@ -3233,7 +3276,8 @@
       "ratio": "Verhältnis",
       "days": "Tage",
       "months": "Monate",
-      "score": "Punkte"
+      "score": "Punkte",
+      "percent": "%"
     },
     "metric": {
       "gross_margin": "Bruttomarge",
@@ -3325,8 +3369,14 @@
       "resultsMetric": "Kennzahl",
       "sectionStatement": "Stellungnahme",
       "backToIndex": "← Zurück zum Index",
-      "representativeLabel": "Repräsentatives Szenario (kein verifiziertes Kundenergebnis)"
-    }
+      "representativeLabel": "Repräsentatives Szenario (kein verifiziertes Kundenergebnis)",
+      "colIndex": "#",
+      "colDetail": "Detail",
+      "colPdf": "PDF",
+      "emDash": "—",
+      "detailLink": "[HTML]"
+    },
+    "problem": "Problem"
   },
   "fieldMode": {
     "eyebrow": "Feldmodus",
@@ -3380,7 +3430,8 @@
       "min": "{label} muss mindestens {min} sein.",
       "max": "{label} darf höchstens {max} sein.",
       "contractNotFound": "Smart-Form-Vertrag für dieses Tool nicht gefunden."
-    }
+    },
+    "exportLabel": "Exportieren:"
   },
   "generatedTool": {
     "calculate": "Berechnen",
@@ -3541,7 +3592,10 @@
       "institutionalProfileLink": "Institutionsprofil",
       "academicBadge": "Akademisch verifiziert — IIT Bombay",
       "academicBadgeAria": "Akademisches Verifizierungsabzeichen und MathSciNet-Autorenreferenz",
-      "helpfulLabel": "Personen finden diesen Rechner hilfreich"
+      "helpfulLabel": "Personen finden diesen Rechner hilfreich",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mrIdBadge": "MR {mrId}"
     },
     "interactionActionBar": {
       "reactionGroupLabel": "Hilfreichkeits-Feedback",
@@ -3712,7 +3766,10 @@
       "supplierMissingFields": "Lieferanten-ID und Produktcode eingeben.",
       "supplierFetchFailed": "Lieferantendaten konnten nicht abgerufen werden.",
       "supplierFetchSuccess": "{value} kg CO2e ({unit}, {source}) zu eingekauften Waren hinzugefügt.",
-      "supplierLastFetch": "Letzter Abruf: {product} mit {factor} kg CO2e/{unit}."
+      "supplierLastFetch": "Letzter Abruf: {product} mit {factor} kg CO2e/{unit}.",
+      "scope1": "Scope 1",
+      "scope2": "Scope 2",
+      "scope3": "Scope 3"
     },
     "insufficientCredits": "Sie benötigen mindestens 1 Credit für diese Premium-Analyse.",
     "buyCreditsCta": "Credits kaufen",
@@ -3807,7 +3864,8 @@
       "colValue": "Wert",
       "colUnit": "Einheit",
       "colSource": "Quelle / Referenz",
-      "badgeDefault": "Ingenieuranalyse"
+      "badgeDefault": "Ingenieuranalyse",
+      "colParameter": "Parameter"
     },
     "downloadPdfReport": "⬇ Premium-PDF-Bericht herunterladen",
     "csvHeaders": {
@@ -3840,7 +3898,9 @@
     "inventory": "Bestand",
     "motion": "Bewegung",
     "defects": "Fehler / Ausschuss",
-    "overprocessing": "Überbearbeitung"
+    "overprocessing": "Überbearbeitung",
+    "transport": "Transport",
+    "transportation": "Transport"
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -6315,7 +6375,8 @@
       },
       "accommodationcost": {
         "label": "Unterkunft",
-        "placeholder": "Unterkunft eingeben"
+        "placeholder": "Unterkunft eingeben",
+        "helper": "Hotels, Hostels, Ferienwohnungen"
       },
       "foodcost": {
         "label": "Lebensmittel",
@@ -63281,7 +63342,9 @@
         "helper": "Eingabewert für Annual Earnings (Strom) in der Berechnung."
       },
       "fulretirement_age": {
-        "label": "Volles Rentenalter"
+        "label": "Volles Rentenalter",
+        "placeholder": "Volles Rentenalter eingeben",
+        "helper": "Alter, ab dem die volle Rente ohne Abschläge bezogen werden kann"
       }
     },
     "social-security-delayed-retirement-calculator": {
@@ -66095,7 +66158,12 @@
     "resourceAria": "Technische Indizes",
     "linkedinAria": "SectorCalc auf LinkedIn",
     "twitterAria": "SectorCalc auf X",
-    "llmIndexLabel": "LLM-Index"
+    "llmIndexLabel": "LLM-Index",
+    "logoText": "SectorCalc",
+    "metaCopyright": "© 2026 SectorCalc",
+    "linkedinLabel": "LinkedIn",
+    "twitterLabel": "X",
+    "sitemapLabel": "Sitemap"
   },
   "calculatorLibrary": {
     "metaTitle": "Rechner-Bibliothek — SectorCalc",
@@ -66107,7 +66175,11 @@
     "freeToolsLabel": "Kostenlose Rechner",
     "premiumToolsLabel": "Premium-Rechner",
     "industriesLabel": "Branchen-Hubs",
-    "generatedToolsLabel": "Generierte Rechner"
+    "generatedToolsLabel": "Generierte Rechner",
+    "llmsLabel": "llms.txt",
+    "indexLabel": "sectorcalc-index.txt",
+    "faqLabel": "faq-knowledge.txt",
+    "servicesLabel": "services-products.txt"
   },
   "guidance": {
     "inputGuide": {
@@ -66164,7 +66236,8 @@
       "input": "Eingabe",
       "process": "Berechnung",
       "quantity": "Menge",
-      "stops": "Stopps"
+      "stops": "Stopps",
+      "radius": "Radius"
     }
   },
   "calculatorCards": {
@@ -66196,7 +66269,19 @@
     "selectorNote": "Default follows Region; you may switch reference systems for comparison.",
     "engineeringWarning": "This tool provides standard-referenced pre-calculation only. Final design, safety, and conformity Entscheidungs require authorized Engineering review.",
     "systems": {
-      "ISO_METRIC": "ISO Metrisch"
+      "ISO_METRIC": "ISO Metrisch",
+      "AWS": "AWS",
+      "ISO_EN": "ISO / EN",
+      "JIS": "JIS",
+      "UNC_UNF": "UNC / UNF",
+      "ASME_BPVC": "ASME BPVC",
+      "PED_EN_13445": "PED / EN 13445",
+      "ASTM_AISI": "ASTM / AISI",
+      "EN_DIN": "EN / DIN",
+      "ASME_Y14_5": "ASME Y14.5",
+      "ISO_GPS": "ISO GPS",
+      "AISC": "AISC",
+      "EUROCODE": "Eurocode"
     }
   },
   "calculationFeedback": {
@@ -66421,7 +66506,9 @@
     "successBody": "Credits können einige Sekunden dauern. Aktualisieren Sie die Seite, wenn sich Ihr Guthaben nicht aktualisiert.",
     "canceledTitle": "Checkout abgebrochen",
     "canceledBody": "Es wurde keine Zahlung vorgenommen. Sie können es jederzeit erneut versuchen.",
-    "backToAccount": "Zurück zum Konto"
+    "backToAccount": "Zurück zum Konto",
+    "eyebrow": "Credits",
+    "balanceLabel": "Credits"
   },
   "runtimeReadiness": {
     "eyebrow": "Qualitätsprüfung",
@@ -67931,7 +68018,10 @@
       "technicalSimulationOnly": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
       "sectorSpecificCalculator": "Branchenspezifischer Rechner — Eingaben eingeben, um Ergebnisse zu sehen.",
       "calculatorModuleNotFound": "Rechnermodul nicht gefunden.",
-      "failedToLoadCalculator": "Rechner konnte nicht geladen werden."
+      "failedToLoadCalculator": "Rechner konnte nicht geladen werden.",
+      "status": "Status",
+      "trustTrace": "Trust Trace",
+      "cbam": "CBAM"
     },
     "ttLabels": {
       "htmlLang": "de",
@@ -67954,7 +68044,10 @@
       "tool": "Werkzeug",
       "disclaimer": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
       "issuedStatus": "AUSGESTELLT"
-    }
+    },
+    "eyebrow": "Trust Trace",
+    "notFoundHash": "Hash: {hash}",
+    "labelHash": "SHA-256: {hash}"
   },
   "sector": {
     "title": "Branchenrechner",
@@ -68329,7 +68422,8 @@
     "sectionHowBullet3": "Ergebnisse in Sekunden, nicht in Stunden",
     "ctaTitle": "Bereit zu messen?",
     "ctaBody": "Keine Kreditkarte erforderlich. Keine Demo-Buchung. Wählen Sie einfach ein Tool aus und beginnen Sie.",
-    "ctaButton": "Tools durchsuchen"
+    "ctaButton": "Tools durchsuchen",
+    "eyebrow": "SectorCalc"
   },
   "benchmarksPage": {
     "meta": {
@@ -68344,7 +68438,8 @@
     "headline": "Branchen-Benchmarks",
     "sectorsTitle": "Verfügbare Branchen",
     "openLabel": "Benchmarks anzeigen",
-    "backLink": "← Zurück zum Audit-Hub"
+    "backLink": "← Zurück zum Audit-Hub",
+    "eyebrow": "SectorCalc"
   },
   "sustainabilityPage": {
     "meta": {
@@ -68360,7 +68455,9 @@
     "lead": "Vergleichen Sie Ihre betrieblichen Nachhaltigkeitskennzahlen mit Branchenstandards und identifizieren Sie Reduktionsmöglichkeiten.",
     "sectorsTitle": "Verfügbare Branchen",
     "auditLabel": "Audit anzeigen",
-    "auditHub": "Audit-Hub"
+    "auditHub": "Audit-Hub",
+    "eyebrow": "SectorCalc",
+    "benchmarks": "Vergleichswerte"
   },
   "sampleReportPage": {
     "meta": {
@@ -68375,7 +68472,8 @@
     "ctaTitle": "Eine kostenlose Berechnung durchführen",
     "ctaSubtitle": "Entdecken Sie branchenspezifische Tools und sehen Sie Ihre eigenen Ergebnisse in Sekundenschnelle.",
     "ctaPrimary": "Kostenlose Tools durchsuchen",
-    "ctaSecondary": "Preise anzeigen"
+    "ctaSecondary": "Preise anzeigen",
+    "eyebrow": "SectorCalc"
   },
   "trustPage": {
     "meta": {
@@ -68408,10 +68506,12 @@
     },
     "categories": {
       "title": "Tool-Kategorien",
-      "subtitle": "Durchsuchen Sie Tools nach Branche, Beruf oder Berechnungstyp."
+      "subtitle": "Durchsuchen Sie Tools nach Branche, Beruf oder Berechnungstyp.",
+      "eyebrow": "SectorCalc"
     },
     "breadcrumbCategories": "Kategorien",
-    "itemListName": "Berechnungskategorien"
+    "itemListName": "Berechnungskategorien",
+    "breadcrumbHome": "Home"
   },
   "auditPage": {
     "meta": {
@@ -68423,7 +68523,8 @@
     "semanticBullet1": "Wählen Sie eine Branche aus, um Benchmark-Daten anzuzeigen",
     "semanticBullet2": "Vergleichen Sie Ihre Betriebskennzahlen mit Standards",
     "semanticBullet3": "Identifizieren Sie Lücken und priorisieren Sie Verbesserungen",
-    "cbamLink": "CBAM-Compliance"
+    "cbamLink": "CBAM-Compliance",
+    "benchmarksLink": "Benchmarks"
   },
   "seoPage": {
     "guidesEyebrow": "SectorCalc-Leitfäden",
@@ -68440,7 +68541,11 @@
     "allIndustries": "Alle Branchen",
     "startFree": "Beginnen Sie mit kostenlosen Rechnern",
     "viewPremium": "Premium-Rechner anzeigen",
-    "legalFooter": "SectorCalc-Leitfäden sind technische Entscheidungshilfen, die auf Standardformeln und transparenten Annahmen basieren. Sie stellen keine Finanz-, Rechts-, Medizin- oder Ingenieurberatung dar."
+    "legalFooter": "SectorCalc-Leitfäden sind technische Entscheidungshilfen, die auf Standardformeln und transparenten Annahmen basieren. Sie stellen keine Finanz-, Rechts-, Medizin- oder Ingenieurberatung dar.",
+    "faq": "FAQ",
+    "breadcrumbHome": "Home",
+    "breadcrumbGuides": "Guides",
+    "pricing": "Pricing"
   },
   "howItWorks": {
     "meta": {
@@ -68566,12 +68671,14 @@
   },
   "accountPage": {
     "meta": {
-      "description": "Verwalten Sie Ihren SectorCalc Pro-Zugang, Premium-Entscheidungstools und gespeicherte Urteilsberichte."
+      "description": "Verwalten Sie Ihren SectorCalc Pro-Zugang, Premium-Entscheidungstools und gespeicherte Urteilsberichte.",
+      "title": "Account"
     }
   },
   "accountCreditsPage": {
     "meta": {
-      "description": "SectorCalc-Guthaben für Premium-KI-Unterstützung und Analyzer-Nutzung kaufen."
+      "description": "SectorCalc-Guthaben für Premium-KI-Unterstützung und Analyzer-Nutzung kaufen.",
+      "title": "Credits"
     }
   },
   "accountFeedbackPage": {

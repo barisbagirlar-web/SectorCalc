@@ -300,8 +300,8 @@ export function CategoryCatalogView({
         </div>
       )}
 
-      {/* ── All-tools panel (when no category selected) ── */}
-      {!activeCategorySlug && (
+      {/* ── All-tools panel (when no category selected or invalid slug) ── */}
+      {(!activeCategorySlug || !activeCategoryCard) && (
         <div className="mt-10">
           <CatalogHubToolsClientPanel
             locale={locale}

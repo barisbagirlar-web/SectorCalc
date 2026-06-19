@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { getCurrentUserIdToken } from "@/lib/firebase/auth";
 import { calculatePremiumVerdict } from "@/lib/actions/calculate-premium";
@@ -21,6 +22,7 @@ import {
 import type { PremiumDecisionReport } from "@/lib/calculators/premium-types";
 import type { ResultTone } from "@/data/tool-schema";
 import type { ReactNode } from "react";
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { Badge } from "@/components/ui/Badge";
 import { REPORT_EXPORT_FORMATS } from "@/data/reports";
 import { EXPORT_MOCK_MESSAGE } from "@/config/export-messages";
@@ -187,10 +189,12 @@ function StochasticMarginReportPanel({
  toolSlug,
  toolTitle,
 }: StochasticPremiumPanelProps) {
- const [loading, setLoading] = useState(false);
- const [parsed, setParsed] = useState<ParsedPremiumVerdict | null>(null);
- const [pdfLoading, setPdfLoading] = useState(false);
- const [exportMessage, setExportMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [parsed, setParsed] = useState<ParsedPremiumVerdict | null>(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
+  const [exportMessage, setExportMessage] = useState<string | null>(null);
+  const locale = useLocale();
+  const t = useTranslations("premiumDecisionReport.export");
 
  useEffect(() => {
  trackEvent(ANALYTICS_EVENTS.premium_preview_viewed, { toolSlug });
@@ -265,12 +269,13 @@ function StochasticMarginReportPanel({
 
  trackEvent(ANALYTICS_EVENTS.export_clicked, { toolSlug, format: "PDF" });
 
- const result = await generatePremiumPdfFromAnalysis({
- idToken,
- toolTitle,
- toolSlug: toolSlug ?? "premium-verdict",
- sector,
- snapshot: {
+    const result = await generatePremiumPdfFromAnalysis({
+      idToken,
+      toolTitle,
+      toolSlug: toolSlug ?? "premium-verdict",
+      sector,
+      locale: locale as SupportedLocale,
+      snapshot: {
  naivePrice: parsed.naivePrice,
  riskBuffer: parsed.riskBuffer,
  p90SafePrice: parsed.p90SafePrice,
@@ -293,7 +298,7 @@ function StochasticMarginReportPanel({
  } finally {
  setPdfLoading(false);
  }
- }, [parsed, sector, toolSlug, toolTitle]);
+  }, [parsed, sector, toolSlug, toolTitle, locale]);
 
  return (
  <div className="premium-panel mx-auto min-w-0 max-w-4xl shadow-none">
@@ -363,7 +368,7 @@ function StochasticMarginReportPanel({
  disabled={pdfLoading}
  onClick={() => void handleDownloadPdf()}
  >
-              {pdfLoading ? "Preparing PDF…" : "Download Decision Summary PDF"}
+              {pdfLoading ? t("preparingPdf") : t("downloadPdf")}
  </Button>
  </div>
  {exportMessage ? (

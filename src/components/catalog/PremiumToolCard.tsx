@@ -1,3 +1,4 @@
+import { Lock } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import type { CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
@@ -8,6 +9,7 @@ export type PremiumToolCardProps = {
   readonly openLabel: string;
 };
 
+/** Text-based premium tool item — name + description + PRO badge. */
 export function PremiumToolCard({
   tool,
   locale,
@@ -19,30 +21,38 @@ export function PremiumToolCard({
 
   const body = (
     <>
-      <h3 className="sc-premium-tool-card__title">{title}</h3>
-      <p className="sc-premium-tool-card__description">{description}</p>
-      <FormulaGateCatalogMeta
-        slug={tool.slug}
-        locale={locale}
-        openLabel={openLabel}
-        isClickable={isClickable}
-      />
+      <div className="flex items-center gap-1.5">
+        <span className="text-sm font-semibold leading-tight text-premium-velvet transition-colors group-hover:underline">
+          {title}
+        </span>
+        <span className="inline-flex shrink-0 items-center gap-1 font-sans text-[9px] font-semibold uppercase tracking-wider text-sc-copper">
+          <Lock className="h-2.5 w-2.5" aria-hidden />
+          PRO
+        </span>
+      </div>
+      {description ? (
+        <p className="mt-0.5 text-xs leading-relaxed text-body-charcoal line-clamp-2">
+          {description}
+        </p>
+      ) : null}
     </>
   );
 
   if (isClickable && tool.routePath) {
     return (
-      <article id={`tool-${tool.slug}`} className="sc-premium-tool-card sc-premium-tool-card--active">
-        <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
-          {body}
-        </Link>
-      </article>
+      <Link
+        href={tool.routePath}
+        prefetch={false}
+        className="group block text-premium-velvet hover:text-deep-navy"
+      >
+        {body}
+      </Link>
     );
   }
 
   return (
-    <article id={`tool-${tool.slug}`} className="sc-premium-tool-card sc-premium-tool-card--pending" aria-disabled="true">
+    <span className="block cursor-default opacity-60">
       {body}
-    </article>
+    </span>
   );
 }

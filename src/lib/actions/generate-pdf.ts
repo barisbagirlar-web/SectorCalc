@@ -2,11 +2,10 @@
 
 import React from "react";
 import { renderToBuffer, type DocumentProps } from "@react-pdf/renderer";
-import { IndustrialPdfDocument } from "@/lib/pdf/industrial-pdf/IndustrialPdfDocument";
+import { IndustrialPdfDocument, buildIndustrialPdfFileName } from "@/lib/pdf/industrial-pdf";
 import { bridgePayloadToIndustrialPdf } from "@/lib/pdf/industrial-pdf/bridge";
 import { verifyProSubscriber } from "@/lib/billing/verify-pro-subscriber";
 import {
-  buildPremiumPdfFileName,
   parsedVerdictToPremiumPdfData,
   savedReportToPremiumPdfData,
   type MargincorePdfSnapshot,
@@ -66,9 +65,11 @@ async function renderIndustrialBuffer(data: PremiumPdfData, locale: SupportedLoc
 export async function generatePremiumPdf({
   reportId,
   idToken,
+  locale = "en",
 }: {
   reportId: string;
   idToken: string;
+  locale?: SupportedLocale;
 }): Promise<GeneratePremiumPdfResult> {
   const uid = await verifyProSubscriber(idToken);
   if (!uid) {
@@ -82,11 +83,11 @@ export async function generatePremiumPdf({
 
   try {
     const data = savedReportToPremiumPdfData(report);
-    const buffer = await renderIndustrialBuffer(data);
+    const buffer = await renderIndustrialBuffer(data, locale);
     return {
       ok: true,
       pdfBase64: buffer.toString("base64"),
-      fileName: buildPremiumPdfFileName(report.toolSlug, report.createdAt),
+      fileName: buildIndustrialPdfFileName(report.toolSlug, locale, report.createdAt),
     };
   } catch {
     return { ok: false, error: "Could not generate PDF." };
@@ -100,6 +101,7 @@ export async function generatePremiumPdfFromAnalysis({
   sector,
   snapshot,
   inputs = [],
+  locale = "en",
 }: {
   idToken: string;
   toolTitle: string;
@@ -107,6 +109,7 @@ export async function generatePremiumPdfFromAnalysis({
   sector: string;
   snapshot: MargincorePdfSnapshot;
   inputs?: VerdictReportInput[];
+  locale?: SupportedLocale;
 }): Promise<GeneratePremiumPdfResult> {
   const uid = await verifyProSubscriber(idToken);
   if (!uid) {
@@ -121,11 +124,11 @@ export async function generatePremiumPdfFromAnalysis({
       snapshot,
       inputs,
     });
-    const buffer = await renderIndustrialBuffer(data);
+    const buffer = await renderIndustrialBuffer(data, locale);
     return {
       ok: true,
       pdfBase64: buffer.toString("base64"),
-      fileName: buildPremiumPdfFileName(toolSlug, data.generatedAt),
+      fileName: buildIndustrialPdfFileName(toolSlug, locale, data.generatedAt),
     };
   } catch {
     return { ok: false, error: "Could not generate PDF." };

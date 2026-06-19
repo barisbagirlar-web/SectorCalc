@@ -51,6 +51,8 @@ export interface PdfReportLabels {
   readonly footerBrand: string;
   readonly allRightsReserved: string;
   readonly verificationUrl: string;
+  readonly standards: string;
+  readonly sampleBanner: string;
 }
 
 export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
@@ -101,6 +103,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — Engineering Decision Platform",
     allRightsReserved: "All rights reserved.",
     verificationUrl: "Verify at:",
+    standards: "Applicable Standards",
+    sampleBanner: "SAMPLE REPORT — Unlock premium to export without this label",
   },
 
   tr: {
@@ -150,6 +154,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — Mühendislik Karar Platformu",
     allRightsReserved: "Tüm hakları saklıdır.",
     verificationUrl: "Doğrulama adresi:",
+    standards: "Uygulanabilir Standartlar",
+    sampleBanner: "ÖRNEK RAPOR — Etiketsiz dışa aktarmak için premium kilidi açın",
   },
 
   de: {
@@ -199,6 +205,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — Technische Entscheidungsplattform",
     allRightsReserved: "Alle Rechte vorbehalten.",
     verificationUrl: "Verifizieren unter:",
+    standards: "Anwendbare Normen",
+    sampleBanner: "MUSTERBERICHT — Entsperren Sie Premium, um ohne dieses Label zu exportieren",
   },
 
   fr: {
@@ -248,6 +256,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — Plateforme de Décision Technique",
     allRightsReserved: "Tous droits réservés.",
     verificationUrl: "Vérifier à :",
+    standards: "Normes Applicables",
+    sampleBanner: "RAPPORT ÉCHANTILLON — Débloquez premium pour exporter sans ce label",
   },
 
   es: {
@@ -297,6 +307,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — Plataforma de Decisión Técnica",
     allRightsReserved: "Todos los derechos reservados.",
     verificationUrl: "Verificar en:",
+    standards: "Estándares Aplicables",
+    sampleBanner: "INFORME DE MUESTRA — Desbloquee premium para exportar sin esta etiqueta",
   },
 
   ar: {
@@ -346,6 +358,8 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     footerBrand: "SectorCalc — منصة القرارات الهندسية",
     allRightsReserved: "جميع الحقوق محفوظة.",
     verificationUrl: "التحقق على:",
+    standards: "المعايير المطبقة",
+    sampleBanner: "تقرير عينة — قم بإلغاء قفل الميزات المتميزة للتصدير بدون هذه التسمية",
   },
 };
 

@@ -156,8 +156,7 @@
     "bulkDiscountAmount": "numberOfBundles >= bulkThreshold ? totalBundleCost * (bulkDiscountPercent / 100) : 0",
     "discountAmount": "bundleDiscountAmount + bulkDiscountAmount",
     "finalCost": "undiscountedCost - discountAmount",
-    "direct_labor_cost": "0",
-    "result": "quantity * (discount_percent / 100) * list_price * (apply_to_all_units ? 1 : 0)"
+    "direct_labor_cost": "0"
   },
   "outputs": {
     "primary": "totalItems",

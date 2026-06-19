@@ -88,10 +88,12 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
 };
 
 export function shouldUsePreviewStaticParams(): boolean {
+  // Force-full overrides everything — use only when full SSG is reliably safe.
   if (process.env.SECTORCALC_FORCE_FULL_STATIC === "1") {
     return false;
   }
 
+  // Explicit opt-in (Vercel preview, local test, etc.)
   if (process.env.SECTORCALC_FAST_PREVIEW_STATIC === "1") {
     return true;
   }
@@ -100,12 +102,21 @@ export function shouldUsePreviewStaticParams(): boolean {
     return true;
   }
 
-  // Vercel production/hobby: cap SSG — full 20k+ page tree exceeds memory/time and triggers ENOENT races.
+  // Vercel production: cap SSG when the build limit flag is set.
   if (process.env.VERCEL === "1" && process.env.SECTORCALC_VERCEL_BUILD_LIMIT === "1") {
     return true;
   }
 
-  return false;
+  // Firebase Hosting framework integration: Firebase runs `next build` in-process
+  // and never sets SECTORCALC_FAST_PREVIEW_STATIC. Full 22k+ page SSG OOMs or
+  // times out in Firebase's environment. Default to preview mode for Firebase.
+  // The firebase CLI always has a FIREBASE_CONFIG or GCLOUD_PROJECT set.
+  if (process.env.GCLOUD_PROJECT?.startsWith("sectorcalc") || process.env.FIREBASE_CONFIG) {
+    return true;
+  }
+
+  // Explicit — preview-safe by default. Only SECTORCALC_FORCE_FULL_STATIC bypasses.
+  return true;
 }
 
 function paramKey<T extends StaticParamRecord>(param: T): string {

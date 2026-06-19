@@ -25,7 +25,7 @@ function pickColor(index: number): string {
 }
 
 function parseNumeric(raw: number, formatted: string): number {
-  if (Number.isFinite(raw) && raw !== 0) return Math.abs(raw);
+  if (Number.isFinite(raw)) return Math.abs(raw);
   const cleaned = formatted.replace(/[^0-9.,\-]/g, "").replace(",", ".");
   const parsed = Number(cleaned);
   return Number.isFinite(parsed) ? Math.abs(parsed) : 0;

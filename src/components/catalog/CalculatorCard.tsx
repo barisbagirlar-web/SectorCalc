@@ -1,7 +1,7 @@
 "use client";
 
+import { Lock } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { CalculatorCardIcon } from "@/components/catalog/CalculatorCardIcon";
 
 export type CalculatorCardAccent = "blue" | "orange" | "green";
 
@@ -23,14 +23,7 @@ export type CalculatorCardProps = {
   readonly sectorCountLabel?: (free: number, premium: number) => string;
 };
 
-function CardArrowIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M3 8h10M9 4l4 4-4 4" />
-    </svg>
-  );
-}
-
+/** Text-based tool or industry item — name + description, no box. */
 export function CalculatorCard({
   title,
   description,
@@ -41,7 +34,6 @@ export function CalculatorCard({
   inputCount,
   freeToolCount,
   premiumToolCount,
-  accent = "blue",
   badgeFreeLabel,
   badgePremiumLabel,
   ctaLabel,
@@ -59,32 +51,42 @@ export function CalculatorCard({
         : null;
 
   return (
-    <article className="sc-calc-card" data-calculator-card="true">
-      <div className="sc-card-badges">
-        {!isIndustry ? (
-          <span className={isPremium ? "sc-badge-premium" : "sc-badge-free"}>
-            {isPremium ? badgePremiumLabel : badgeFreeLabel}
+    <article>
+      <Link href={href} prefetch={false} className="group block text-premium-velvet hover:text-deep-navy">
+        <div className="flex items-center gap-1.5">
+          {isIndustry ? (
+            <span className="flex items-center gap-1">
+              {metric ? (
+                <span className="text-[10px] font-medium uppercase tracking-wider text-body-charcoal">
+                  {metric}
+                </span>
+              ) : null}
+              <span className="text-xs leading-tight text-body-charcoal">{categoryLabel}</span>
+            </span>
+          ) : (
+            <>
+              <span className="text-sm font-semibold leading-tight transition-colors group-hover:underline">
+                {title}
+              </span>
+              {isPremium ? (
+                <span className="inline-flex shrink-0 items-center gap-1 font-sans text-[9px] font-semibold uppercase tracking-wider text-sc-copper">
+                  <Lock className="h-2.5 w-2.5" aria-hidden />
+                  PRO
+                </span>
+              ) : null}
+            </>
+          )}
+        </div>
+        {isIndustry ? (
+          <span className="text-sm font-semibold leading-tight transition-colors group-hover:underline">
+            {title}
           </span>
-        ) : (
-          <span className="sc-badge-free">{badgeFreeLabel}</span>
-        )}
-        <span className="sc-badge-cat">{categoryLabel}</span>
-      </div>
-
-      <div className={`sc-card-icon-wrap sc-icon-${accent}`}>
-        <CalculatorCardIcon accent={accent} />
-      </div>
-
-      <h3 className="sc-card-title">{title}</h3>
-      <p className="sc-card-desc">{description}</p>
-
-      <div className="sc-card-cta">
-        <Link href={href} prefetch={false} className="sc-card-link">
-          {ctaLabel}
-          <CardArrowIcon />
-        </Link>
-        {metric ? <span className="sc-card-metric">{metric}</span> : null}
-      </div>
+        ) : description ? (
+          <p className="mt-0.5 text-xs leading-relaxed text-body-charcoal line-clamp-2">
+            {description}
+          </p>
+        ) : null}
+      </Link>
     </article>
   );
 }

@@ -10,7 +10,8 @@
     "closeDialog": "İletişim kutusunu kapat",
     "regionLanguage": "Bölge ve dil",
     "trustCompliance": "Güven ve uyumluluk sinyalleri",
-    "industrialPanel": "Endüstriyel karar paneli"
+    "industrialPanel": "Endüstriyel karar paneli",
+    "logoAlt": "SectorCalc"
   },
   "leadCapture": {
     "eyebrow": "Lead yakalama",
@@ -83,7 +84,10 @@
     "archive": "Arşiv",
     "freeTools": "Ücretsiz",
     "premiumTools": "Premium",
-    "runFreeCheck": "Hesapla"
+    "runFreeCheck": "Hesapla",
+    "premiumLayer": "Premium",
+    "premiumNav": "Premium",
+    "unlockPro": "Pro"
   },
   "trace": {
     "launcher": "Trace ile konuş",
@@ -103,7 +107,8 @@
       "description": "Binlerce sektör aracı arasından doğru hesaplayıcıya yönlendiririm, girdileri sade dille açıklarım ve rehberliği izlenebilir tutarım.\n\nBugün ne hesaplayalım?",
       "feature1": "{count} ücretsiz hesaplayıcı — her zaman ücretsiz",
       "feature2": "{count} premium hesaplayıcı — akıllı öneriler",
-      "cta": "Konuşmaya başla"
+      "cta": "Konuşmaya başla",
+      "badge": "Trace AI"
     },
     "proBadge": "Premium karar kanıtı",
     "placeholder": "Hesaplama ihtiyacını yaz…",
@@ -170,7 +175,11 @@
     "time": "Zaman kaybı",
     "timeDesc": "Kurulum, gecikme, mola pencereleri ve OEE tarzı verimlilik riski.",
     "energy": "Enerji kaybı",
-    "energyDesc": "kWh, karbon ve CBAM tarzı uyum maliyeti tamponları."
+    "energyDesc": "kWh, karbon ve CBAM tarzı uyum maliyeti tamponları.",
+    "financialTr": "Parasal kayıp",
+    "materialTr": "Malzeme kaybı",
+    "timeTr": "Zaman kaybı",
+    "energyTr": "Enerji kaybı"
   },
   "sectors": {
     "title": "{count} aktif sektör arasından seçin",
@@ -179,7 +188,8 @@
     "browseByCategory": "Kategoriye göre gözat",
     "startFree": "Ücretsiz Marj Kontrolü",
     "viewPremium": "Premium Hesaplayıcı",
-    "free": "Ücretsiz"
+    "free": "Ücretsiz",
+    "premium": "Premium"
   },
   "pricing": {
     "eyebrow": "Fiyatlandırma",
@@ -231,8 +241,14 @@
       "savedReports": "Kayıtlı karar arşivi",
       "pdfExport": "PDF dışa aktarma",
       "teamSeats": "Çok koltuklu erişim",
-      "adminControls": "Admin koltuk kontrolleri"
-    }
+      "adminControls": "Admin koltuk kontrolleri",
+      "colFree": "Free",
+      "colPro": "Pro"
+    },
+    "freePrice": "$0",
+    "singlePrice": "$9",
+    "pro": "Pro",
+    "proAnnualPrice": "$149"
   },
   "checkout": {
     "redirecting": "Ödeme sayfasına yönlendiriliyor…",
@@ -268,14 +284,16 @@
       "cycleTime": "Çevrim süresi (dk)",
       "quantity": "Adet (birim)",
       "subtitle": "CNC marj riski — hızlı kontrol",
-      "rateNote": "Fire oranı malzeme israfını yansıtır. Atölye verilerinize göre ayarlayın."
+      "rateNote": "Fire oranı malzeme israfını yansıtır. Atölye verilerinize göre ayarlayın.",
+      "submit": "Run"
     },
     "result": {
       "title": "Çıktı",
       "totalMinutes": "Toplam süre",
       "machineHours": "Makine saati",
       "setupBurden": "Kurulum yükü",
-      "naiveCost": "Temel değer"
+      "naiveCost": "Temel değer",
+      "empty": "—"
     },
     "premium": {
       "title": "CNC Denetim Motoru",
@@ -289,7 +307,9 @@
       "fullAnalyzerLink": "CNC hesaplama aracı →",
       "eyebrow": "Premium CNC risk raporu",
       "body": "Tolerans kontrolü, duyarlılık senaryoları ve aksiyon planı ile tam marj risk analizi. Gizli kayıp sürücüleri ve önerilen fiyat ayarlamalarını içerir.",
-      "disclaimer": "Yalnızca teknik simülasyon. İş kararları almadan önce gerçek maliyet verilerinizle doğrulayın."
+      "disclaimer": "Yalnızca teknik simülasyon. İş kararları almadan önce gerçek maliyet verilerinizle doğrulayın.",
+      "cta": "Run",
+      "loading": "…"
     },
     "phase2": {
       "label": "MarginCore Pilot",
@@ -317,7 +337,9 @@
       "Önerilen aksiyon",
       "Duyarlılık matrisi"
     ],
-    "withheldFromFree": "Ücretsiz kullanımdan gizlendi"
+    "withheldFromFree": "Ücretsiz kullanımdan gizlendi",
+    "premiumBadge": "Premium",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -418,7 +440,8 @@
       "showingLimited": "Toplam {total} hesaplayıcıdan {shown} tanesi gösteriliyor. Listeyi daraltmak için sektör filtresi veya arama kullanın.",
       "moreResults": "+ {count} diğer sonuç",
       "badgeFree": "Ücretsiz",
-      "clearSearch": "Temizle"
+      "clearSearch": "Temizle",
+      "badgePremium": "Premium"
     },
     "discoveryTabs": {
       "all": "Tümü",
@@ -445,7 +468,8 @@
       "ctaCalculate": "Hesapla",
       "ctaOpenAnalysis": "Hesaplamayı aç",
       "ctaOpenSector": "Sektörü aç",
-      "freeCount": "{count} ücretsiz"
+      "freeCount": "{count} ücretsiz",
+      "premiumCount": "{count} premium"
     },
     "discoveryFooter": {
       "freeToolsLead": "Daha detaylı hesaplama mı gerekiyor?",
@@ -709,7 +733,8 @@
       "energyCarbon": "Enerji & Karbon",
       "routingLogistics": "Rota & Lojistik",
       "constructionField": "İnşaat & Saha"
-    }
+    },
+    "brand": "SectorCalc"
   },
   "region": {
     "label": "Bölge",
@@ -719,14 +744,17 @@
     "germany": "Almanya · EUR",
     "indicatorHint": "Para birimi dilinize veya manuel bölge seçiminize göre belirlenir",
     "manualActive": "Manuel bölge: {region}",
-    "followsLanguage": "Dile göre → {region}"
+    "followsLanguage": "Dile göre → {region}",
+    "indicator": "{region} · {currency}"
   },
   "locale": {
     "label": "Dil",
     "en": "İngilizce",
     "es": "İspanyolca",
     "de": "Almanca",
-    "fr": "Fransızca"
+    "fr": "Fransızca",
+    "tr": "Türkçe",
+    "ar": "العربية"
   },
   "common": {
     "learnMore": "Daha fazla bilgi",
@@ -736,7 +764,8 @@
     "calculate": "Hesapla",
     "badge": {
       "free": "Ücretsiz",
-      "new": "Yeni"
+      "new": "Yeni",
+      "premium": "Premium"
     }
   },
   "theme": {
@@ -880,10 +909,12 @@
           "value": "27 CANLI"
         },
         "engine": {
-          "label": "Motor"
+          "label": "Motor",
+          "value": "P90 MC"
         },
         "confidence": {
-          "label": "Güven"
+          "label": "Güven",
+          "value": "Z = 1.28"
         },
         "gate": {
           "label": "Erişim",
@@ -1479,7 +1510,8 @@
         },
         "industrial": {
           "title": "Sanayi ve Atölyeler",
-          "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları."
+          "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
           "title": "Mühendislik",
@@ -1575,7 +1607,8 @@
     "headline": "Sektörünüz için hesaplayın, ölçün, optimize edin",
     "headlineAccent": "Sektör Karar Platformu",
     "lead": "Üretim, lojistik, inşaat, enerji ve günlük hayat — uzman formüller, net sonuçlar, ERP karmaşası yok.",
-    "activeModule": "Sektör hesaplayıcısı"
+    "activeModule": "Sektör hesaplayıcısı",
+    "brand": "SectorCalc"
   },
   "auditHub": {
     "eyebrow": "SectorCalc Denetim Merkezi",
@@ -3225,7 +3258,9 @@
       "us": "Amerika Birleşik Devletleri",
       "uk": "Birleşik Krallık",
       "eu": "Avrupa",
-      "latam": "Latin Amerika"
+      "latam": "Latin Amerika",
+      "tr": "Türkiye",
+      "mena": "MENA"
     },
     "system": {
       "label": "Ölçü sistemi",
@@ -3262,7 +3297,8 @@
     },
     "severity": {
       "good": "Olumlu",
-      "watch": "İzle"
+      "watch": "İzle",
+      "risk": "Risk"
     },
     "confidence": {
       "low": "Düşük güven",
@@ -3273,7 +3309,8 @@
       "ratio": "oran",
       "days": "gün",
       "months": "ay",
-      "score": "değer"
+      "score": "değer",
+      "percent": "%"
     },
     "metric": {
       "gross_margin": "Brüt marj",
@@ -3367,7 +3404,11 @@
       "resultsMetric": "Metrik",
       "sectionStatement": "Beyan",
       "backToIndex": "← Dizine dön",
-      "representativeLabel": "Temsilî senaryo (doğrulanmış müşteri sonucu değildir)"
+      "representativeLabel": "Temsilî senaryo (doğrulanmış müşteri sonucu değildir)",
+      "colIndex": "#",
+      "colPdf": "PDF",
+      "emDash": "—",
+      "detailLink": "[HTML]"
     }
   },
   "runtimeReadiness": {
@@ -3633,7 +3674,10 @@
       "institutionalProfileLink": "Kurumsal profil",
       "academicBadge": "Akademik Onaylı — IIT Bombay",
       "academicBadgeAria": "Akademik onay rozeti ve MathSciNet yazar referansı",
-      "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor"
+      "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mrIdBadge": "MR {mrId}"
     },
     "interactionActionBar": {
       "reactionGroupLabel": "Faydalılık geri bildirimi",
@@ -3892,7 +3936,8 @@
       "colValue": "Değer",
       "colUnit": "Birim",
       "colSource": "Standart / Kaynak",
-      "badgeDefault": "Mühendislik Analizi"
+      "badgeDefault": "Mühendislik Analizi",
+      "metaTraceId": "Trust Trace ID"
     },
     "downloadPdfReport": "⬇ Premium PDF Raporu İndir",
     "csvHeaders": {
@@ -66147,7 +66192,11 @@
     "linkedinAria": "SectorCalc LinkedIn",
     "twitterAria": "SectorCalc X",
     "llmIndexLabel": "LLM İndeksi",
-    "sitemapLabel": "Site Haritası"
+    "sitemapLabel": "Site Haritası",
+    "metaCopyright": "© 2026 SectorCalc",
+    "logoText": "SectorCalc",
+    "linkedinLabel": "LinkedIn",
+    "twitterLabel": "X"
   },
   "calculatorLibrary": {
     "metaTitle": "Hesap Makinesi Kütüphanesi — SectorCalc",
@@ -66159,7 +66208,11 @@
     "freeToolsLabel": "Ücretsiz hesap makineleri",
     "premiumToolsLabel": "Premium hesap makineleri",
     "industriesLabel": "Sektör merkezleri",
-    "generatedToolsLabel": "Üretilmiş hesaplayıcılar"
+    "generatedToolsLabel": "Üretilmiş hesaplayıcılar",
+    "llmsLabel": "llms.txt",
+    "indexLabel": "sectorcalc-index.txt",
+    "faqLabel": "faq-knowledge.txt",
+    "servicesLabel": "services-products.txt"
   },
   "inputGuide": {
     "shape": {
@@ -67511,7 +67564,19 @@
     "selectorNote": "Varsayılan bölgeye göre gelir; karşılaştırma için değiştirebilirsiniz.",
     "engineeringWarning": "Bu araç standard referanslı ön hesaplama sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik kontrolü gerektirir.",
     "systems": {
-      "ISO_METRIC": "ISO metrik"
+      "ISO_METRIC": "ISO metrik",
+      "AWS": "AWS",
+      "ISO_EN": "ISO / EN",
+      "JIS": "JIS",
+      "UNC_UNF": "UNC / UNF",
+      "ASME_BPVC": "ASME BPVC",
+      "PED_EN_13445": "PED / EN 13445",
+      "ASTM_AISI": "ASTM / AISI",
+      "EN_DIN": "EN / DIN",
+      "ASME_Y14_5": "ASME Y14.5",
+      "ISO_GPS": "ISO GPS",
+      "AISC": "AISC",
+      "EUROCODE": "Eurocode"
     }
   },
   "calculationFeedback": {
@@ -67947,7 +68012,9 @@
       "technicalSimulationOnly": "Yalnızca teknik simülasyon. Finansal, hukuki veya mühendislik tavsiyesi değildir.",
       "sectorSpecificCalculator": "Sektöre özel hesap makinesi — sonuçları görmek için girdileri girin.",
       "calculatorModuleNotFound": "Hesaplama modülü bulunamadı.",
-      "failedToLoadCalculator": "Hesap makinesi yüklenemedi."
+      "failedToLoadCalculator": "Hesap makinesi yüklenemedi.",
+      "trustTrace": "Trust Trace",
+      "cbam": "CBAM"
     },
     "ttLabels": {
       "htmlLang": "tr",
@@ -67970,7 +68037,10 @@
       "tool": "Araç",
       "disclaimer": "Yalnızca teknik simülasyon. Finansal, hukuki veya mühendislik tavsiyesi değildir.",
       "issuedStatus": "YAYINLANDI"
-    }
+    },
+    "eyebrow": "Trust Trace",
+    "notFoundHash": "Hash: {hash}",
+    "labelHash": "SHA-256: {hash}"
   },
   "toolFinder": {
     "eyebrow": "Araç bulucu",
@@ -68327,7 +68397,8 @@
           "sectionResponsibilityBullet4"
         ]
       }
-    ]
+    ],
+    "eyebrow": "SectorCalc"
   },
   "benchmarksPage": {
     "meta": {
@@ -68342,7 +68413,8 @@
     "headline": "Sektör Karşılaştırmaları",
     "sectorsTitle": "Mevcut sektörler",
     "openLabel": "Karşılaştırmaları görüntüle",
-    "backLink": "← Denetim merkezine dön"
+    "backLink": "← Denetim merkezine dön",
+    "eyebrow": "SectorCalc"
   },
   "sustainabilityPage": {
     "meta": {
@@ -68359,7 +68431,8 @@
     "sectorsTitle": "Mevcut sektörler",
     "auditLabel": "Denetimi görüntüle",
     "auditHub": "Denetim merkezi",
-    "benchmarks": "Karşılaştırmalar"
+    "benchmarks": "Karşılaştırmalar",
+    "eyebrow": "SectorCalc"
   },
   "sampleReportPage": {
     "meta": {
@@ -68374,7 +68447,8 @@
     "ctaTitle": "Ücretsiz hesaplama çalıştırın",
     "ctaSubtitle": "Sektöre özel araçları keşfedin ve saniyeler içinde kendi sonuçlarınızı görün.",
     "ctaPrimary": "Ücretsiz araçlara göz atın",
-    "ctaSecondary": "Fiyatlandırmayı görüntüle"
+    "ctaSecondary": "Fiyatlandırmayı görüntüle",
+    "eyebrow": "SectorCalc"
   },
   "trustPage": {
     "meta": {
@@ -68389,7 +68463,8 @@
       "title": "Manifesto — SectorCalc Vizyonu",
       "description": "SectorCalc manifestosu: sektöre özel hesaplamaları her operatör için erişilebilir kılmak."
     },
-    "lead": "SectorCalc, ölçüm, kayıp tespiti ve karara hazır raporlara ihtiyaç duyan operatörler için bir Endüstriyel Mikro-SaaS Uygulama Mağazasıdır."
+    "lead": "SectorCalc, ölçüm, kayıp tespiti ve karara hazır raporlara ihtiyaç duyan operatörler için bir Endüstriyel Mikro-SaaS Uygulama Mağazasıdır.",
+    "headline": "Manifesto"
   },
   "methodologyPage": {
     "meta": {
@@ -68406,7 +68481,8 @@
     },
     "categories": {
       "title": "Araç Kategorileri",
-      "subtitle": "Araçları sektöre, mesleğe veya hesaplama türüne göre keşfedin."
+      "subtitle": "Araçları sektöre, mesleğe veya hesaplama türüne göre keşfedin.",
+      "eyebrow": "SectorCalc"
     },
     "breadcrumbHome": "Ana Sayfa",
     "breadcrumbCategories": "Kategoriler",
@@ -68570,12 +68646,14 @@
   },
   "accountPage": {
     "meta": {
-      "description": "SectorCalc Pro erişiminizi, premium karar araçlarınızı ve kaydedilmiş karar raporlarınızı yönetin."
+      "description": "SectorCalc Pro erişiminizi, premium karar araçlarınızı ve kaydedilmiş karar raporlarınızı yönetin.",
+      "title": "Account"
     }
   },
   "accountCreditsPage": {
     "meta": {
-      "description": "Premium AI yardımı ve analizör kullanımı için SectorCalc kredisi satın alın."
+      "description": "Premium AI yardımı ve analizör kullanımı için SectorCalc kredisi satın alın.",
+      "title": "Credits"
     }
   },
   "accountFeedbackPage": {
@@ -68736,5 +68814,8 @@
     "card1.description": "Kurulum süresi, fire, işçilik, kapasite ve marj riski.",
     "card2.title": "Hızlı raporlar, düşük genel gider",
     "card2.description": "Ağır yazılımlar olmadan pratik karar desteği alın."
+  },
+  "premiumToolPage": {
+    "metaTitleSuffix": " | SectorCalc Pro"
   }
 }

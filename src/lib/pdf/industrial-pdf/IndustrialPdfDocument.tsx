@@ -388,7 +388,7 @@ function ExecutiveSummaryPage({ data, L }: { data: IndustrialPdfData; L: PdfRepo
           <Text style={styles.paragraph}>{data.engineeringContent.interpretationGuide}</Text>
           {data.engineeringContent.standards.length > 0 ? (
             <>
-              <Text style={styles.sectionSubtitle}>Standards</Text>
+              <Text style={styles.sectionSubtitle}>{L.standards}</Text>
               {data.engineeringContent.standards.map((s) => (
                 <Text key={s} style={styles.bullet}>• {s}</Text>
               ))}
@@ -568,7 +568,7 @@ export function IndustrialPdfDocument({ data }: IndustrialPdfDocumentProps) {
     >
       {data.isSample ? (
         <Page size="A4" style={{ backgroundColor: AMBER }}>
-          <Text style={styles.sampleBanner}>Sample Report — Premium Feature</Text>
+          <Text style={styles.sampleBanner}>{L.sampleBanner}</Text>
         </Page>
       ) : null}
       <CoverPage data={data} L={L} />

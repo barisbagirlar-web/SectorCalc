@@ -36,7 +36,6 @@ function evaluateAllFormulas(input: Bundle_discount_calculatorInput): Record<str
   try { const v = (asFormulaNumber(results["bundleDiscountAmount"])) + (asFormulaNumber(results["bulkDiscountAmount"])); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
   try { const v = (asFormulaNumber(results["undiscountedCost"])) - (asFormulaNumber(results["discountAmount"])); results["finalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalCost"] = 0; }
   try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  results["result"] = 0;
   return results;
 }
 

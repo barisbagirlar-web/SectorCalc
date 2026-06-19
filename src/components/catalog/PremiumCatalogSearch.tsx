@@ -4,10 +4,9 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { Search } from "lucide-react";
+import { Search, Lock } from "lucide-react";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
-import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import {
   buildPremiumCatalogSearchEntries,
 } from "@/lib/catalog/premium-catalog-source";
@@ -302,44 +301,57 @@ export function PremiumCatalogSearch({ tools, categories, totalActiveCount }: Pr
                 <p className="mt-1 text-xs text-body-charcoal">{t("noResultsHint")}</p>
               </div>
             ) : (
-              <div className="sc-premium-tool-grid">
+              <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {visibleTools.map((tool) =>
                   tool.isActive && tool.routePath ? (
-                    <article
-                      key={tool.slug}
-                      id={"tool-" + tool.slug}
-                      className="sc-premium-tool-card sc-premium-tool-card--active"
-                    >
-                      <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
-                        <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                        <p className="sc-premium-tool-card__description">{tool.description}</p>
-                        <FormulaGateCatalogMeta
-                          slug={tool.slug}
-                          locale={locale}
-                          openLabel={t("openCalculator")}
-                          isClickable
-                        />
+                    <li key={tool.slug} className="min-w-0">
+                      <Link
+                        href={tool.routePath}
+                        prefetch={false}
+                        className="group block text-premium-velvet hover:text-deep-navy"
+                        id={"tool-" + tool.slug}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm font-semibold leading-tight transition-colors group-hover:underline">
+                            {tool.title}
+                          </span>
+                          <span className="inline-flex shrink-0 items-center gap-1 font-sans text-[9px] font-semibold uppercase tracking-wider text-sc-copper">
+                            <Lock className="h-2.5 w-2.5" aria-hidden />
+                            PRO
+                          </span>
+                        </div>
+                        {tool.description ? (
+                          <p className="mt-0.5 text-xs leading-relaxed text-body-charcoal line-clamp-2">
+                            {tool.description}
+                          </p>
+                        ) : null}
                       </Link>
-                    </article>
+                    </li>
                   ) : (
-                    <article
-                      key={tool.slug}
-                      id={"tool-" + tool.slug}
-                      className="sc-premium-tool-card sc-premium-tool-card--pending"
-                      aria-disabled="true"
-                    >
-                      <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                      <p className="sc-premium-tool-card__description">{tool.description}</p>
-                      <FormulaGateCatalogMeta
-                        slug={tool.slug}
-                        locale={locale}
-                        openLabel={t("openCalculator")}
-                        isClickable={false}
-                      />
-                    </article>
+                    <li key={tool.slug} className="min-w-0">
+                      <span
+                        className="block cursor-default opacity-60"
+                        id={"tool-" + tool.slug}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm font-semibold leading-tight text-premium-velvet">
+                            {tool.title}
+                          </span>
+                          <span className="inline-flex shrink-0 items-center gap-1 font-sans text-[9px] font-semibold uppercase tracking-wider text-sc-copper">
+                            <Lock className="h-2.5 w-2.5" aria-hidden />
+                            PRO
+                          </span>
+                        </div>
+                        {tool.description ? (
+                          <p className="mt-0.5 text-xs leading-relaxed text-body-charcoal line-clamp-2">
+                            {tool.description}
+                          </p>
+                        ) : null}
+                      </span>
+                    </li>
                   ),
                 )}
-              </div>
+              </ul>
             )}
           </section>
       </div>

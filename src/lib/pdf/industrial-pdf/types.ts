@@ -35,10 +35,6 @@ export interface PdfEngineeringExplanation {
   readonly industryContext: string;
 }
 
-export interface PdfEngineeringContent {
-  readonly [category: string]: PdfEngineeringExplanation;
-}
-
 export interface IndustrialPdfData {
   readonly locale: SupportedLocale;
   readonly reportId: string;

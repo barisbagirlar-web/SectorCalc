@@ -227,8 +227,8 @@ export function PremiumReportExportActions({
               >
                 {({ loading }) =>
                   loading
-                    ? "Preparing PDF…"
-                    : "Download Premium Decision Report PDF"
+                    ? t("preparingPdf")
+                    : t("downloadPdf")
                 }
               </PDFDownloadLink>
             ) : null}

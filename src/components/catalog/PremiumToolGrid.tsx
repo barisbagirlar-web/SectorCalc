@@ -7,6 +7,7 @@ export type PremiumToolGridProps = {
   readonly openLabel: string;
 };
 
+/** Text-based premium tool grid — 3-4 equal columns, symmetric. */
 export function PremiumToolGrid({
   tools,
   locale,
@@ -17,15 +18,16 @@ export function PremiumToolGrid({
   }
 
   return (
-    <div className="sc-premium-tool-grid">
+    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {tools.map((tool) => (
-        <PremiumToolCard
-          key={`${tool.source}-${tool.slug}`}
-          tool={tool}
-          locale={locale}
-          openLabel={openLabel}
-        />
+        <li key={`${tool.source}-${tool.slug}`} className="min-w-0">
+          <PremiumToolCard
+            tool={tool}
+            locale={locale}
+            openLabel={openLabel}
+          />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
