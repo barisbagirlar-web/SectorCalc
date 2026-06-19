@@ -19,6 +19,7 @@ import {
   buildMethodologyDescription,
   findReferenceStandards,
 } from "@/lib/reports/resolve-print-values";
+import { getToolMethodology, type ToolMethodology } from "@/lib/reports/tool-methodology";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const locale = useLocale();
@@ -138,6 +139,8 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const references = findReferenceStandards(schema.validation.rules);
   const methodologyDesc = buildMethodologyDescription(schema.inputs, schema.formulas, locale);
   const formulaEntries = Object.entries(schema.formulas).slice(0, 2);
+  const toolMethodology = getToolMethodology(slug, localeTag);
+  const hasCustomMethodology = toolMethodology !== null;
 
   return (
     <>
@@ -187,7 +190,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaStandard")}</div>
-            <div className="meta-val"><span className="iso-tag">{references.length > 0 ? references[0] : t("metaStandard")}</span></div>
+            <div className="meta-val"><span className="iso-tag">{hasCustomMethodology ? toolMethodology.standardRef : (references.length > 0 ? references[0] : t("metaStandard"))}</span></div>
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaType")}</div>
@@ -479,12 +482,12 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               <div className="trust-item">
                 <div className="trust-item-icon">📐</div>
                 <div className="trust-item-title">{t("trustStandard")}</div>
-                <div className="trust-item-desc">{t("trustStandardDesc")}</div>
+                <div className="trust-item-desc">{hasCustomMethodology ? toolMethodology.trustStandardDesc : t("trustStandardDesc")}</div>
               </div>
               <div className="trust-item">
                 <div className="trust-item-icon">⚡</div>
                 <div className="trust-item-title">{t("trustBoundary")}</div>
-                <div className="trust-item-desc">{t("trustBoundaryDesc")}</div>
+                <div className="trust-item-desc">{hasCustomMethodology ? toolMethodology.trustBoundaryDesc : t("trustBoundaryDesc")}</div>
               </div>
             </div>
           </section>

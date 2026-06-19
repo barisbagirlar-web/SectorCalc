@@ -2,12 +2,13 @@
 
 import { useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { useSubscription } from "@/hooks/useSubscription";
 import {
   downloadGeneratedToolCsv,
   serializeGeneratedToolCsv,
 } from "@/lib/generated-tools/generated-tool-export";
+import { savePrintData } from "@/lib/reports/generated-tool-print-data";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 
@@ -27,6 +28,7 @@ export function GeneratedToolExportActions({
   result,
 }: GeneratedToolExportActionsProps) {
   const locale = useLocale();
+  const router = useRouter();
   const t = useTranslations("generatedTool.export");
   const csvT = useTranslations("generatedTool.csvHeaders");
   const { isPro, loading } = useSubscription();
@@ -55,8 +57,14 @@ export function GeneratedToolExportActions({
     if (exportLocked) {
       return;
     }
-    window.print();
-  }, [exportLocked]);
+    savePrintData({
+      slug,
+      inputs,
+      result: result as unknown as Record<string, unknown>,
+      schema: schema as unknown as Record<string, unknown>,
+    });
+    router.push(`/tools/generated/${slug}/print`);
+  }, [exportLocked, slug, inputs, result, schema, router]);
 
   if (loading) {
     return null;

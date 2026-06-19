@@ -1,13 +1,36 @@
 import type { NextConfig } from "next";
+import type { Compiler } from "webpack";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
+import fs from "node:fs";
 import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/i18n/locale-rewrite-exclude";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
 const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
+
+/**
+ * Webpack plugin — ensures Next.js manifest stubs exist after compilation
+ * but before SSG ("Collecting page data").
+ * Next.js 15 App Router does not create pages-manifest.json; without this
+ * stub the build crashes during page data collection.
+ */
+class EnsureManifestStubsPlugin {
+  apply(compiler: Compiler): void {
+    compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
+      const nextDir = path.join(process.cwd(), ".next");
+      const serverDir = path.join(nextDir, "server");
+      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+      // Only create if missing — Next.js may have generated it for hybrid apps.
+      if (!fs.existsSync(pagesManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+      }
+    });
+  }
+}
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -28,6 +51,8 @@ const nextConfig: NextConfig = {
           config: [path.join(process.cwd(), "next.config.ts")],
         },
       };
+      config.plugins ??= [];
+      config.plugins.push(new EnsureManifestStubsPlugin());
     }
     config.resolve.alias = {
       ...config.resolve.alias,
