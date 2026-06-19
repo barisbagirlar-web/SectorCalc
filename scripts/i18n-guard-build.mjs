@@ -44,7 +44,7 @@ const SKIP_EXACT = new Set([
   'Incorrect', 'Correct', 'Guide', '[HTML]', 'PDF', 'CSV',
   'Delay', 'Disruption',
   'Distance (km)', 'Stop Loss (pips)', 'Stop Loss (Pips)', 'Favorable',
-  'Description', 'Altitude (m)', 'Distance',
+  'Description', 'Altitude (m)', 'Distance', 'AQL (%)',
 ]);
 
 function getValue(obj, path) {
