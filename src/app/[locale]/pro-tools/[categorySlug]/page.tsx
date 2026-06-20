@@ -43,12 +43,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: `${detail.title} | SectorCalc`,
     description: detail.summary,
-    path: `/premium-tools/${categorySlug}`,
+    path: `/pro-tools/${categorySlug}`,
     locale: locale as AppLocale,
   });
 }
 
-export default async function PremiumToolsCategoryPage({ params }: PageProps) {
+export default async function ProToolsCategoryPage({ params }: PageProps) {
   const { locale, categorySlug } = await params;
   setRequestLocale(locale);
   const detail = getPremiumCatalogCategoryDetail(categorySlug as GlobalToolCategorySlug, locale);
@@ -73,8 +73,8 @@ export default async function PremiumToolsCategoryPage({ params }: PageProps) {
     await buildLocalizedBreadcrumbJsonLd(
       [
         { key: "home", path: "/" },
-        { key: "premiumTools", path: "/premium-tools" },
-        { name: detail.title, path: `/premium-tools/${categorySlug}` },
+        { key: "premiumTools", path: "/pro-tools" },
+        { name: detail.title, path: `/pro-tools/${categorySlug}` },
       ],
       locale,
     ),
@@ -86,7 +86,7 @@ export default async function PremiumToolsCategoryPage({ params }: PageProps) {
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <nav aria-label="Breadcrumb" className="mb-4 text-sm text-body-charcoal">
-            <Link href="/premium-tools" prefetch={false} className="hover:underline">
+            <Link href="/pro-tools" prefetch={false} className="hover:underline">
               {t("breadcrumbPremiumTools")}
             </Link>
             <span className="mx-2">/</span>

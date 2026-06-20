@@ -79,15 +79,23 @@ function fixBooleanArithmetic(content, boolFields) {
 
 /**
  * Fix 2: String/enum field used in arithmetic context.
- *   input.str * x  →  Number(input.str) * x
+ *   input.str * x  →  (Number(input.str) || 0) * x
+ *
+ * Uses `|| 0` fallback because non-numeric enum strings (e.g. "standard",
+ * "general") produce NaN when passed to Number(). The fallback ensures:
+ *   - Numeric strings: Number("2") → 2, 2 || 0 → 2  ✓
+ *   - Enum strings:    Number("standard") → NaN, NaN || 0 → 0  ✓
+ *   - Booleans:        Number(false) → 0, 0 || 0 → 0  ✓
+ *   - Zero:            Number(0) → 0, 0 || 0 → 0  ✓
  */
 function fixStringArithmetic(content, strFields) {
   let result = content;
   let changed = false;
 
   for (const field of strFields) {
+    // Check all possible fix patterns (old Number-only and new fallback)
     const alreadyFixed = new RegExp(
-      `Number\\(input\\.${esc(field)}\\)|\\(input\\.${esc(field)}\\s*\\?\\s*1\\s*:\\s*0\\)`,
+      `Number\\(input\\.${esc(field)}\\)\\s*\\|\\|\\s*0|\\(input\\.${esc(field)}\\s*\\?\\s*1\\s*:\\s*0\\)`,
     );
     if (alreadyFixed.test(result)) continue;
 
@@ -99,7 +107,7 @@ function fixStringArithmetic(content, strFields) {
 
     result = result.replace(
       new RegExp(`\\binput\\.${esc(field)}\\b`, "g"),
-      `Number(input.${field})`,
+      `(Number(input.${field}) || 0)`,
     );
     changed = true;
   }

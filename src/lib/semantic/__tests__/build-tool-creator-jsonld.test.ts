@@ -46,6 +46,6 @@ describe("buildToolPageCreatorJsonLd", () => {
       "@type": "Person",
       "@id": toolReferenceCreatorJsonLdId(),
     });
-    expect(app.url).toContain("/en/tools/generated/absenteeism-cost-calculator");
+    expect(app.url).toContain("/tools/generated/absenteeism-cost-calculator");
   });
 });

@@ -1094,6 +1094,194 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       );
     },
   },
+  /* ─── Industrial Formula Tools (18) —— atomic sub-formulas ─── */
+  {
+    id: "finance.irr_estimate",
+    family: "finance",
+    label: "IRR estimate using simplified Newton-Raphson (inputs as flat cash flows)",
+    fn: (inputs) => {
+      const cf0 = num(inputs, "initialInvestment");
+      let r = 0.15;
+      for (let i = 0; i < 100; i++) {
+        let npv = cf0;
+        let dnpv = 0;
+        for (let t = 1; t <= 10; t++) {
+          const fcf = num(inputs, `cf${t}`, 0);
+          npv += fcf / Math.pow(1 + r, t);
+          dnpv -= t * fcf / Math.pow(1 + r, t + 1);
+        }
+        if (Math.abs(npv) < 1e-8) break;
+        if (Math.abs(dnpv) < 1e-12) break;
+        r = r - npv / dnpv;
+      }
+      return assertFinite(r);
+    },
+  },
+  {
+    id: "finance.wacc",
+    family: "finance",
+    label: "Weighted Average Cost of Capital",
+    fn: (inputs) => {
+      const e = num(inputs, "equityValue");
+      const d = num(inputs, "debtValue");
+      const v = e + d;
+      if (v === 0) return 0;
+      return assertFinite((e / v) * num(inputs, "costOfEquity") + (d / v) * num(inputs, "costOfDebt") * (1 - num(inputs, "taxRate") / 100));
+    },
+  },
+  {
+    id: "finance.nal",
+    family: "finance",
+    label: "Net Advantage of Leasing (NAL) estimate",
+    fn: (inputs) => {
+      const purchasePrice = num(inputs, "purchasePrice");
+      const leasePayment = num(inputs, "monthlyLeasePayment");
+      const months = num(inputs, "leaseTermMonths");
+      const rd = num(inputs, "costOfDebt") / 100 * (1 - num(inputs, "taxRate") / 100);
+      let pvLease = 0;
+      const monthlyRd = Math.pow(1 + rd, 1 / 12) - 1;
+      for (let m = 1; m <= months; m++) {
+        pvLease += (leasePayment * (1 - num(inputs, "taxRate") / 100)) / Math.pow(1 + monthlyRd, m);
+      }
+      return assertFinite(purchasePrice - pvLease);
+    },
+  },
+  {
+    id: "fluid.darcy_friction_factor",
+    family: "fluid",
+    label: "Darcy friction factor via Colebrook-White",
+    fn: (inputs) => {
+      const re = num(inputs, "reynoldsNumber");
+      if (re <= 0) return 0;
+      if (re < 2300) return assertFinite(64 / re);
+      const rr = num(inputs, "relativeRoughness") / (3.7 * num(inputs, "diameterMm", 100));
+      const reTerm = 5.74 / Math.pow(re, 0.9);
+      return assertFinite(0.25 / Math.pow(Math.log10(rr + reTerm), 2));
+    },
+  },
+  {
+    id: "fluid.heat_exchanger_lmtd",
+    family: "fluid",
+    label: "LMTD for counter-flow heat exchanger",
+    fn: (inputs) => {
+      const dt1 = num(inputs, "deltaT1");
+      const dt2 = num(inputs, "deltaT2");
+      if (Math.abs(dt1 - dt2) < 0.01) return assertFinite(dt1);
+      return assertFinite((dt1 - dt2) / Math.log(dt1 / dt2));
+    },
+  },
+  {
+    id: "oee.oee_score",
+    family: "oee",
+    label: "Full OEE score as percent (A × P × Q × 100)",
+    fn: (inputs) => assertFinite(num(inputs, "availability") * num(inputs, "performance") * num(inputs, "quality") * 100),
+  },
+  {
+    id: "lean.balance_efficiency",
+    family: "lean",
+    label: "Line balance efficiency percent",
+    fn: (inputs) => {
+      const twc = num(inputs, "totalWorkContent");
+      const takt = num(inputs, "taktTime");
+      const nReal = num(inputs, "actualStations");
+      if (takt <= 0 || nReal <= 0) return 0;
+      return assertFinite((twc / (nReal * takt)) * 100);
+    },
+  },
+  {
+    id: "time.normal_time",
+    family: "time",
+    label: "Normal time from observed time and rating factor",
+    fn: (inputs) => assertFinite(num(inputs, "observedTime") * num(inputs, "ratingFactor")),
+  },
+  {
+    id: "time.standard_time",
+    family: "time",
+    label: "Standard time with total allowance",
+    fn: (inputs) => assertFinite(num(inputs, "normalTime") * (1 + num(inputs, "totalAllowance"))),
+  },
+  {
+    id: "learning.wright_unit_time",
+    family: "measurement",
+    label: "Wright learning curve unit time",
+    fn: (inputs) => {
+      const a = num(inputs, "firstUnitTime");
+      const b = Math.log(num(inputs, "learningRate") / 100) / Math.log(2);
+      return assertFinite(a * Math.pow(num(inputs, "cumulativeQuantity"), b));
+    },
+  },
+  {
+    id: "measurement.spring_rate",
+    family: "measurement",
+    label: "Helical compression spring rate (N/mm)",
+    fn: (inputs) => {
+      const g = num(inputs, "shearModulusGPa", 79.3) * 1e3;
+      const d = num(inputs, "wireDiameter");
+      const D = num(inputs, "meanCoilDiameter");
+      const na = num(inputs, "activeCoils");
+      return assertFinite(g * Math.pow(d, 4) / (8 * Math.pow(D, 3) * na));
+    },
+  },
+  {
+    id: "carbon.total_co2e",
+    family: "energy",
+    label: "Total CO₂e from scope 1 + 2 + 3 sources",
+    fn: (inputs) => {
+      const s1 = num(inputs, "scope1") || 0;
+      const s2 = num(inputs, "scope2") || 0;
+      const s3 = num(inputs, "scope3") || 0;
+      return assertFinite(s1 + s2 + s3);
+    },
+  },
+  {
+    id: "stats.ols_beta1",
+    family: "measurement",
+    label: "OLS slope coefficient β₁",
+    fn: (inputs) => {
+      const n = num(inputs, "sampleSize");
+      const sx = num(inputs, "sumX");
+      const sy = num(inputs, "sumY");
+      const sxy = num(inputs, "sumXY");
+      const sx2 = num(inputs, "sumX2");
+      const denom = n * sx2 - sx * sx;
+      if (Math.abs(denom) < 1e-15) return 0;
+      return assertFinite((n * sxy - sx * sy) / denom);
+    },
+  },
+  {
+    id: "stats.sample_size_proportion",
+    family: "measurement",
+    label: "Minimum sample size for proportion",
+    fn: (inputs) => {
+      const z = num(inputs, "zScore");
+      const p = num(inputs, "estimatedProportion") / 100;
+      const e = num(inputs, "errorMargin") / 100;
+      if (e <= 0) return 1;
+      return Math.ceil(z * z * p * (1 - p) / (e * e));
+    },
+  },
+  {
+    id: "stats.anova_f_stat",
+    family: "measurement",
+    label: "One-way ANOVA F-statistic",
+    fn: (inputs) => {
+      const msB = num(inputs, "msBetween");
+      const msW = num(inputs, "msWithin");
+      if (msW <= 0) return 0;
+      return assertFinite(msB / msW);
+    },
+  },
+  {
+    id: "measurement.hydraulic_cylinder_push_pull_ratio",
+    family: "measurement",
+    label: "Hydraulic cylinder push-pull force ratio",
+    fn: (inputs) => {
+      const d = num(inputs, "pistonDia");
+      const rod = num(inputs, "rodDia");
+      if (d <= rod) return 1;
+      return assertFinite((d * d - rod * rod) / (d * d));
+    },
+  },
 ];
 
 // Legacy aliases — stable ids for existing pilot schemas (same functions)
@@ -1768,6 +1956,87 @@ const FORMULA_META_DETAILS: Record<
   "measurement.open_belt_length_mm": {
     description: "Open belt length from pulley diameters and center distance.",
     requiredInputs: ["driverDiameterMm", "drivenDiameterMm", "centerDistanceMm"],
+    outputHint: "number",
+  },
+  /* ─── Industrial Formula Tools (18) —— meta ─── */
+  "finance.irr_estimate": {
+    description: "IRR estimate using simplified Newton-Raphson.",
+    requiredInputs: ["initialInvestment"],
+    outputHint: "percentage",
+  },
+  "finance.wacc": {
+    description: "Weighted Average Cost of Capital.",
+    requiredInputs: ["equityValue", "debtValue", "costOfEquity", "costOfDebt", "taxRate"],
+    outputHint: "percentage",
+  },
+  "finance.nal": {
+    description: "Net Advantage of Leasing.",
+    requiredInputs: ["purchasePrice", "monthlyLeasePayment", "leaseTermMonths", "costOfDebt", "taxRate"],
+    outputHint: "currency",
+  },
+  "fluid.darcy_friction_factor": {
+    description: "Darcy friction factor via Colebrook-White equation.",
+    requiredInputs: ["reynoldsNumber", "relativeRoughness", "diameterMm"],
+    outputHint: "number",
+  },
+  "fluid.heat_exchanger_lmtd": {
+    description: "Log Mean Temperature Difference for heat exchangers.",
+    requiredInputs: ["deltaT1", "deltaT2"],
+    outputHint: "number",
+  },
+  "oee.oee_score": {
+    description: "Full OEE as percent (A × P × Q × 100).",
+    requiredInputs: ["availability", "performance", "quality"],
+    outputHint: "percentage",
+  },
+  "lean.balance_efficiency": {
+    description: "Line balance efficiency percent (Σtᵢ / N_real × takt).",
+    requiredInputs: ["totalWorkContent", "taktTime", "actualStations"],
+    outputHint: "percentage",
+  },
+  "time.normal_time": {
+    description: "Normal time from observed time and rating factor.",
+    requiredInputs: ["observedTime", "ratingFactor"],
+    outputHint: "number",
+  },
+  "time.standard_time": {
+    description: "Standard time from normal time and total allowance.",
+    requiredInputs: ["normalTime", "totalAllowance"],
+    outputHint: "number",
+  },
+  "learning.wright_unit_time": {
+    description: "Wright learning curve unit time a × N^b.",
+    requiredInputs: ["firstUnitTime", "learningRate", "cumulativeQuantity"],
+    outputHint: "number",
+  },
+  "measurement.spring_rate": {
+    description: "Helical compression spring rate k (N/mm).",
+    requiredInputs: ["wireDiameter", "meanCoilDiameter", "activeCoils"],
+    outputHint: "number",
+  },
+  "carbon.total_co2e": {
+    description: "Total CO₂e from scope 1 + 2 + 3.",
+    requiredInputs: ["scope1", "scope2", "scope3"],
+    outputHint: "number",
+  },
+  "stats.ols_beta1": {
+    description: "OLS slope coefficient β₁ from sample statistics.",
+    requiredInputs: ["sampleSize", "sumX", "sumY", "sumXY", "sumX2"],
+    outputHint: "number",
+  },
+  "stats.sample_size_proportion": {
+    description: "Minimum sample size for proportion with given z, p, e.",
+    requiredInputs: ["zScore", "estimatedProportion", "errorMargin"],
+    outputHint: "number",
+  },
+  "stats.anova_f_stat": {
+    description: "One-way ANOVA F-statistic = MSB/MSW.",
+    requiredInputs: ["msBetween", "msWithin"],
+    outputHint: "number",
+  },
+  "measurement.hydraulic_cylinder_push_pull_ratio": {
+    description: "Hydraulic cylinder push-pull force ratio.",
+    requiredInputs: ["pistonDia", "rodDia"],
     outputHint: "number",
   },
 };

@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Locale catalog smoke — /free-tools, /premium-tools, /categories, /industries
+ * Locale catalog smoke — /free-tools, /pro-tools, /categories, /industries
  * across en (root) + tr, ar, de, fr, es prefixed routes.
  */
 
@@ -51,8 +51,8 @@ async function main(): Promise<void> {
     "/de/free-tools",
     "/fr/free-tools",
     "/es/free-tools",
-    "/premium-tools",
-    "/tr/premium-tools",
+    "/pro-tools",
+    "/tr/pro-tools",
     "/categories",
     "/tr/categories",
     "/industries",

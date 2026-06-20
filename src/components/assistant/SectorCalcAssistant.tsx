@@ -27,10 +27,17 @@ function extractToolSlug(pathname: string): string {
   return match?.[1] ?? "";
 }
 
+const GATEWAY_FALLBACK: Record<string, string> = {
+  en: "The AI assistant could not generate a response. Check the calculation fields and try again.",
+  tr: "Şu anda AI yardımcısı yanıt üretemedi. Hesaplama alanlarını kontrol ederek tekrar deneyin.",
+  de: "Der KI-Assistent konnte keine Antwort generieren. Überprüfen Sie die Eingabefelder und versuchen Sie es erneut.",
+  fr: "L'assistant IA n'a pas pu générer de réponse. Vérifiez les champs de calcul et réessayez.",
+  es: "El asistente de IA no pudo generar una respuesta. Verifique los campos de cálculo e intente de nuevo.",
+  ar: "لم يتمكن المساعد الذكي من إنشاء رد. تحقق من حقول الحساب وحاول مرة أخرى.",
+};
+
 function gatewayFallbackMessage(locale: string): string {
-  return locale === "tr"
-    ? "Şu anda AI yardımcısı yanıt üretemedi. Hesaplama alanlarını kontrol ederek tekrar deneyin."
-    : "The AI assistant could not generate a response. Check the calculation fields and try again.";
+  return GATEWAY_FALLBACK[locale] ?? GATEWAY_FALLBACK.en;
 }
 
 function buildGatewaySuggestion(result: CustomerAiSafeResponse): AssistantSuggestion | null {
@@ -84,6 +91,7 @@ export function SectorCalcAssistant() {
       body: JSON.stringify({
         locale,
         role: isPremium ? "premium" : "free",
+        isTrace: true,
         messages: conversation,
       }),
     });

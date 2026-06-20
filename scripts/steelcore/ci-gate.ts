@@ -61,6 +61,12 @@ interface CiGateResult {
     readonly totalErrors: number;
     readonly totalCrossDomainIssues: number;
   } | null;
+  readonly boundary: {
+    readonly passed: boolean;
+    readonly totalTests: number;
+    readonly passedTests: number;
+    readonly failedTests: number;
+  } | null;
   readonly message: string;
 }
 
@@ -97,6 +103,8 @@ async function main(): Promise<CiGateResult> {
       },
       semantic: null,
       golden: null,
+      formulaGuard: null,
+      boundary: null,
       message: `CI GATE FAILED: SteelCore pass rate ${(passRate * 100).toFixed(1)}% < ${(STEELCORE_PASS_THRESHOLD * 100).toFixed(0)}%`,
     };
   }
@@ -137,7 +145,8 @@ async function main(): Promise<CiGateResult> {
     }
   }
 
-  const semanticOk = true; // Non-blocking for now — tracks trend
+  const enforceSemantic = process.argv.includes("--enforce");
+  const semanticOk = enforceSemantic ? crossDomainCount === 0 : true;
   console.log(
     `Semantic: ${schemasWithIssues}/${schemaFiles.length} schemas with issues, ${totalSemanticIssues} total issues`,
   );
@@ -148,6 +157,34 @@ async function main(): Promise<CiGateResult> {
     console.log(
       `  ⚠️  ${crossDomainCount} formulas have cross-domain contamination — these produce numerically valid but semantically WRONG results.`,
     );
+  }
+  if (!semanticOk) {
+    console.error(`❌ CROSS-DOMAIN CONTAMINATION BLOCK: ${crossDomainCount} violation(s) detected with --enforce flag.`);
+  }
+
+  if (!semanticOk) {
+    return {
+      passed: false,
+      steelcore: {
+        valid: steelcoreReport.valid,
+        total: steelcoreReport.total,
+        passRate,
+        threshold: STEELCORE_PASS_THRESHOLD,
+        ok: true,
+      },
+      semantic: {
+        schemasScanned: schemaFiles.length,
+        schemasWithIssues,
+        totalIssues: totalSemanticIssues,
+        crossDomainContaminations: crossDomainCount,
+        starOneIssues: starOneCount,
+        ok: false,
+      },
+      golden: null,
+      formulaGuard: null,
+      boundary: null,
+      message: `CI GATE FAILED: ${crossDomainCount} cross-domain contamination(s) detected with --enforce flag`,
+    };
   }
 
   // 3. Golden test suite
@@ -161,6 +198,8 @@ async function main(): Promise<CiGateResult> {
       steelcore: null,
       semantic: null,
       golden: null,
+      formulaGuard: null,
+      boundary: null,
       message: `CI GATE FAILED: schemas dir not found: ${SCHEMAS_DIR}`,
     };
   }
@@ -204,6 +243,7 @@ async function main(): Promise<CiGateResult> {
         ok: false,
       },
       formulaGuard: null,
+      boundary: null,
       message: `CI GATE FAILED: Golden test has ${goldenResult.failed} failures`,
     };
   }
@@ -312,6 +352,7 @@ async function main(): Promise<CiGateResult> {
         totalErrors: guardTotalErrors,
         totalCrossDomainIssues: guardTotalCrossDomain,
       },
+      boundary: null,
       message: `CI GATE FAILED: Pre-commit formula guard blocked ${guardBlockedSchemas} schema(s) with cross-domain contamination`,
     };
   }
@@ -339,6 +380,88 @@ async function main(): Promise<CiGateResult> {
     console.log(`  Report: generated/formula-health-report.json`);
   } catch (err: unknown) {
     console.log(`  ⚠️  Health report generation failed: ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // ── Phase 6: Boundary Enforcement (known-answer vector validation) ─
+  console.log("\n" + "=".repeat(60));
+  console.log("CI GATE — Phase 6: Boundary Enforcement (known-answer vectors)");
+  console.log("=".repeat(60));
+
+  let boundaryPassed = false;
+  let boundaryTotal = 0;
+  let boundaryPassedCount = 0;
+  let boundaryFailedCount = 0;
+
+  try {
+    const boundaryScript = path.join(
+      process.cwd(),
+      "scripts/steelcore/enforce-boundaries.mjs",
+    );
+    const output = execSync(`node "${boundaryScript}"`, {
+      cwd: process.cwd(),
+      stdio: "pipe",
+      timeout: 60_000,
+      encoding: "utf-8",
+    });
+    process.stdout.write(output);
+    boundaryPassed = true;
+    // Parse summary line
+    const summaryMatch = output.match(
+      /(\d+)\/(\d+)\s+PASS/,
+    );
+    if (summaryMatch) {
+      boundaryPassedCount = Number(summaryMatch[1]);
+      boundaryTotal = Number(summaryMatch[2]);
+      boundaryFailedCount = boundaryTotal - boundaryPassedCount;
+    }
+    console.log(`\n  Boundary enforcement: ${boundaryPassedCount}/${boundaryTotal} PASS — ${boundaryFailedCount === 0 ? "ALL BOUNDARIES HOLD" : "FAILURES DETECTED"}`);
+  } catch (err) {
+    boundaryPassed = false;
+    const stderr = err instanceof Error ? err.message : String(err);
+    console.log(`  ❌ Boundary enforcement FAILED: ${stderr.slice(0, 300)}`);
+  }
+
+  if (!boundaryPassed) {
+    return {
+      passed: false,
+      steelcore: {
+        valid: steelcoreReport.valid,
+        total: steelcoreReport.total,
+        passRate,
+        threshold: STEELCORE_PASS_THRESHOLD,
+        ok: true,
+      },
+      semantic: {
+        schemasScanned: schemaFiles.length,
+        schemasWithIssues,
+        totalIssues: totalSemanticIssues,
+        crossDomainContaminations: crossDomainCount,
+        starOneIssues: starOneCount,
+        ok: true,
+      },
+      golden: {
+        passed: goldenResult.passed,
+        total: goldenResult.total,
+        failed: goldenResult.failed,
+        totalIssues: goldenResult.totalIssues,
+        errorSlugs: goldenResult.errorSlugs,
+        ok: true,
+      },
+      formulaGuard: {
+        passed: true,
+        schemasScanned: guardSchemasScanned,
+        blockedSchemas: 0,
+        totalErrors: guardTotalErrors,
+        totalCrossDomainIssues: guardTotalCrossDomain,
+      },
+      boundary: {
+        passed: false,
+        totalTests: boundaryTotal,
+        passedTests: boundaryPassedCount,
+        failedTests: boundaryFailedCount,
+      },
+      message: "CI GATE FAILED: Boundary enforcement detected known-answer vector violations",
+    };
   }
 
   return {
@@ -373,7 +496,13 @@ async function main(): Promise<CiGateResult> {
       totalErrors: guardTotalErrors,
       totalCrossDomainIssues: guardTotalCrossDomain,
     },
-    message: "CI GATE PASSED — All quality checks passed",
+    boundary: {
+      passed: true,
+      totalTests: boundaryTotal,
+      passedTests: boundaryPassedCount,
+      failedTests: boundaryFailedCount,
+    },
+    message: "CI GATE PASSED — All quality checks passed (SteelCore + Semantic + Golden + FormulaGuard + Boundary)",
   };
 }
 

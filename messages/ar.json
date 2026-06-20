@@ -35,11 +35,11 @@
   "leadIntent": {
     "closeDialog": "إغلاق مربع الحوار",
     "closeButton": "إغلاق",
-    "tellUsDescription": "أخبرنا بما تحتاجه. فتح Premium والتصدير ليسا متاحين بعد — نسجل نيتك للإصدار القادم.",
+    "tellUsDescription": "أخبرنا بما تحتاجه. فتح Pro والتصدير ليسا متاحين بعد — نسجل نيتك للإصدار القادم.",
     "verdictUnlockDescription": "أدخل بريدك الإلكتروني لتلقي وصول الدفع للحصول على الحكم الكامل للهامش — السعر الآمن، وتحليل التسرب، والإجراء الموصى به.",
-    "paywallDescription": "إعادة بناء فتح التقرير المميز. تصفح الأسعار أو استمر بالأدوات المجانية حتى تصبح صفحات المحلل الجديدة متاحة.",
+    "paywallDescription": "إعادة بناء فتح التقرير الPro. تصفح الأسعار أو استمر بالأدوات المجانية حتى تصبح صفحات المحلل الجديدة متاحة.",
     "viewPricing": "عرض الأسعار",
-    "successMessage": "شكراً. سجلنا طلب التقرير الخاص بك. في الإصدار القادم، سيكون فتح التقرير المميز والتصدير متاحين مباشرة داخل SectorCalc.",
+    "successMessage": "شكراً. سجلنا طلب التقرير الخاص بك. في الإصدار القادم، سيكون فتح التقرير الPro والتصدير متاحين مباشرة داخل SectorCalc.",
     "continueExploring": "مواصلة استكشاف الأدوات",
     "emailLabel": "البريد الإلكتروني",
     "verdictEmailPlaceholder": "أرسل حكمي إلى هذا البريد الإلكتروني",
@@ -61,14 +61,14 @@
   },
   "nav": {
     "freeCalculators": "الحاسبات المجانية",
-    "premiumCalculators": "الحاسبات المميزة",
+    "premiumCalculators": "حاسبات Pro",
     "industryCalculators": "حاسبات القطاعات",
     "calculators": "حاسبات",
     "caseStudies": "دراسات الحالة",
     "resources": "الموارد",
     "signUp": "إنشاء حساب",
     "tools": "فحوصات مجانية",
-    "premiumVerdicts": "أحكام Premium",
+    "premiumVerdicts": "أحكام Pro",
     "industries": "حاسبات القطاعات",
     "byFunction": "حسب الوظيفة",
     "categories": "الفئات",
@@ -78,7 +78,7 @@
     "getPro": "GET PRO",
     "account": "الحساب",
     "auditEngine": "الأدوات",
-    "premiumLayer": "مميز",
+    "premiumLayer": "Pro",
     "myReports": "التقارير",
     "settings": "الحساب",
     "audit": "التدقيق",
@@ -102,29 +102,29 @@
     "freeTagline": "Trace مجاني.",
     "freeTaglineLink": "سجّل الدخول للحصول على رؤى Pro.",
     "welcome": "أنا Trace — مساعد SectorCalc للحسابات القطاعية. أساعدك في العثور على الأداة المناسبة وشرح المدخلات والتوجيه إلى أدوات موثّقة. ماذا تريد أن تحسب؟",
-    "welcomePro": "أنا Trace Pro — مستشار القرار المميز في SectorCalc. أفسّر النتائج وأقارن السيناريوهات وأوجّهك عبر محللات Premium. على أي قرار تعمل؟",
+    "welcomePro": "أنا Trace Pro — مستشار القرار الPro في SectorCalc. أفسّر النتائج وأقارن السيناريوهات وأوجّهك عبر محللات Pro. على أي قرار تعمل؟",
     "intro": {
       "badge": "تريس إيه آي",
       "title": "أنا تريس.",
       "description": "أوجّهك إلى الحاسبة المناسبة من آلاف الأدوات القطاعية، أشرح المدخلات بلغة واضحة، وأحافظ على إرشاد قابل للتتبع.\n\nماذا نحسب اليوم؟",
       "feature1": "{count} حاسبة مجانية — مجاني دائمًا",
-      "feature2": "{count} حاسبة مميزة — توصيات ذكية",
+      "feature2": "{count} حاسبة Pro — توصيات ذكية",
       "cta": "ابدأ المحادثة"
     },
-    "proBadge": "إثبات قرار مميز",
+    "proBadge": "إثبات قرار Pro",
     "placeholder": "صف احتياجك الحسابي…",
     "placeholderPro": "صف قرارك أو سيناريوك…",
     "send": "اسأل",
     "loading": "Trace يفكّر…",
     "error": "تعذّر على Trace الرد. حاول مرة أخرى.",
-    "footerNote": "Trace مجاني. سجّل الدخول للحصول على إرشاد مميز.",
+    "footerNote": "Trace مجاني. سجّل الدخول للحصول على إرشاد Pro.",
     "disclaimer": "إرشاد فقط — ليس نصيحة مالية أو قانونية أو هندسية. تُنفَّذ الحسابات في أدوات SectorCalc.",
     "upsell": "هل تحتاج تحليلًا أعمق؟",
     "upsellCta": "تسجيل الدخول",
     "quickActions": {
       "findTool": "اعثر على الأداة المناسبة",
       "explainInputs": "ما المدخلات التي أحتاجها؟",
-      "premiumHint": "ماذا يضيف المميز؟",
+      "premiumHint": "ماذا يضيف الPro؟",
       "pricing": "عرض الأسعار",
       "decisionSummary": "لخّص قراري",
       "compareScenario": "قارن السيناريوهات",
@@ -134,18 +134,18 @@
     "quickMessages": {
       "findTool": "أي أداة SectorCalc تناسب سؤالي؟",
       "explainInputs": "ما المدخلات التي يجب إدخالها لهذا الحساب؟",
-      "premiumHint": "ما القيمة الإضافية التي تقدمها الأدوات المميزة؟",
+      "premiumHint": "ما القيمة الإضافية التي تقدمها الأدوات الPro؟",
       "pricing": "كيف يعمل تسعير SectorCalc؟",
       "decisionSummary": "ساعدني في تلخيص هذا القرار بنتائجي الحالية.",
       "compareScenario": "قارن سيناريوهات بديلة لوضعي.",
       "reportHelp": "اشرح تقرير الحساب بلغة واضحة.",
-      "multiTool": "ما الأدوات المميزة التي يجب أن أجمعها لهذه المشكلة؟"
+      "multiTool": "ما الأدوات الPro التي يجب أن أجمعها لهذه المشكلة؟"
     },
     "errors": {
       "authRequired": "سجّل الدخول لاستخدام Trace Pro.",
       "connection": "خطأ في الاتصال. يرجى المحاولة لاحقًا.",
       "noCredits": "ليس لديك رصيد كافٍ لـ Trace Pro.",
-      "premiumOnly": "Trace Pro متاح لمشتركي Premium فقط."
+      "premiumOnly": "Trace Pro متاح لمشتركي Pro فقط."
     }
   },
   "osGate": {
@@ -188,9 +188,9 @@
     "viewAll": "عرض جميع {count} القطاع ←",
     "browseByCategory": "تصفح حسب الفئة",
     "startFree": "ابدأ فحص الهامش المجاني",
-    "viewPremium": "عرض حاسبة Premium",
+    "viewPremium": "عرض حاسبة Pro",
     "free": "مجاني",
-    "premium": "مميز"
+    "premium": "Pro"
   },
   "pricing": {
     "eyebrow": "الأسعار",
@@ -199,7 +199,7 @@
     "singleReportNote": "تقارير قرار فردية من 9$ للحساب لمرة واحدة.",
     "roiCopy": "تجنّب عرض سيئ واحد قد يغطي سنة Pro كاملة.",
     "sampleReport": "عرض تقرير حكم نموذجي ←",
-    "browsePremium": "تصفح حاسبات Premium ←",
+    "browsePremium": "تصفح حاسبات Pro ←",
     "startFree": "ابدأ بأدوات مجانية ←",
     "availableNow": "متاح الآن",
     "waitlist": "قائمة الانتظار",
@@ -212,21 +212,21 @@
     "single": "تقرير أداة واحدة",
     "singlePrice": "$9",
     "singlePeriod": "تقرير واحد",
-    "singleDescription": "تشغيل واحد لحاسبة Premium مع حكم كامل — مثالي لقرار واحد عالي المخاطر.",
+    "singleDescription": "تشغيل واحد لحاسبة Pro مع حكم كامل — مثالي لقرار واحد عالي المخاطر.",
     "singleFeatures": "One premium calculator verdict|Minimum safe السعر where applicable|Margin leak breakdown|PDF-ready report for that run",
     "singleCta": "احصل على الحكم الكامل مقابل 9$",
     "pro": "برو",
     "proPrice": "19 دولارًا شهريًا",
     "proPeriod": "",
     "proDescription": "For oلكلators and owners who need decision reports.",
-    "proFeatures": "حاسبات Premium|تشخيص خسائر مخفية|فحوصات عتبات|تصدير PDF / CSV|مخرجات تقارير محفوظة",
+    "proFeatures": "حاسبات Pro|تشخيص خسائر مخفية|فحوصات عتبات|تصدير PDF / CSV|مخرجات تقارير محفوظة",
     "proCta": "ابدأ وصول تقارير Pro",
     "proBadge": "الأكثر شيوعًا",
     "proAnnual": "Pro سنوي",
     "proAnnualPrice": "149 دولارًا",
     "proAnnualPeriod": "لكل year",
     "proAnnualDescription": "Full Pro access billed annually — best القيمة for teams quoting weekly.",
-    "proAnnualFeatures": "جميع حاسبات Premium|تقارير أحكام محفوظة|تصدير PDF|إعداد ذو أولوية عند التوفر",
+    "proAnnualFeatures": "جميع حاسبات Pro|تقارير أحكام محفوظة|تصدير PDF|إعداد ذو أولوية عند التوفر",
     "proAnnualCta": "ابدأ Pro سنوي",
     "team": "الفريق",
     "teamPrice": "49 دولارًا شهريًا",
@@ -262,14 +262,14 @@
   "checkoutPages": {
     "successEyebrow": "الدفع",
     "successTitle": "تم استلام الدفع.",
-    "successText": "جارٍ تجهيز وصول Premium. إن لم يُفتح التقرير فورًا، حدّث الصفحة أو تواصل مع الدعم.",
+    "successText": "جارٍ تجهيز وصول Pro. إن لم يُفتح التقرير فورًا، حدّث الصفحة أو تواصل مع الدعم.",
     "successRefreshNote": "تم تأكيد الدفع. يُطبّق الوصول على الخادم — حدّث خلال ثوانٍ إن بقي التقرير مقفلًا.",
     "successPrimaryCta": "العودة إلى الحاسبة",
-    "successPremiumCta": "فتح حاسبات Premium",
+    "successPremiumCta": "فتح حاسبات Pro",
     "successSecondaryCta": "انتقل إلى الأسعار",
     "cancelEyebrow": "الدفع",
     "cancelTitle": "تم إلغاء الدفع.",
-    "cancelText": "يمكنك متابعة الحاسبات المجانية أو العودة للحاسبة Premium عند الجاهزية.",
+    "cancelText": "يمكنك متابعة الحاسبات المجانية أو العودة للحاسبة Pro عند الجاهزية.",
     "cancelPricingCta": "العودة إلى الأسعار",
     "cancelReturnCta": "العودة إلى الحاسبة",
     "cancelFreeCta": "عرض الحاسبات المجانية"
@@ -308,14 +308,14 @@
       "bufferLabel": "مخزن P90",
       "p90Label": "P90 آمن",
       "fullAnalyzerLink": "فتح CNC Audit Engine ←",
-      "eyebrow": "تقرير مخاطر CNC المميز",
+      "eyebrow": "تقرير مخاطر CNC الPro",
       "body": "تحليل كامل لمخاطر الهامش مع فحص التسامح وسيناريوهات الحساسية وخطة العمل. يشمل محركات الخسارة المخفية وتعديلات الأسعار المقترحة.",
       "disclaimer": "محاكاة فنية فقط. تحقق من بيانات التكلفة الفعلية قبل اتخاذ قرارات تجارية."
     },
     "phase2": {
       "label": "MarginCore · المرحلة 2",
       "reservedLabel": "فتحة محرك stochastic",
-      "reservedBody": "مصفوفة حساسية P90 الكاملة وتصدير PDF تُفعّل هنا بعد فتح Premium."
+      "reservedBody": "مصفوفة حساسية P90 الكاملة وتصدير PDF تُفعّل هنا بعد فتح Pro."
     }
   },
   "freeTool": {
@@ -323,8 +323,8 @@
     "riskScoreAria": "Risk score: {score} لكلcent",
     "whatItMeans": "ماذا يعني هذا",
     "premiumPreviewTitle": "في التقرير الكامل تحصل على:",
-    "premiumBadge": "مميز",
-    "urgencyBanner": "🔥 {count} تقرير Premium اشتُري هذا الأسبوع",
+    "premiumBadge": "Pro",
+    "urgencyBanner": "🔥 {count} تقرير Pro اشتُري هذا الأسبوع",
     "premiumPreview1": "Detailed التكلفة breakdown",
     "premiumPreview2": "حساب المتغيرات المخفية",
     "premiumPreview3": "Exلكلt action recommendation",
@@ -346,7 +346,7 @@
     "categories": {
       "eyebrow": "حسب الوظيفة",
       "title": "اعثر على الحاسبات حسب ما تحتاج قياسه.",
-      "subtitle": "اختر نوع الحساب أولاً — الإنتاجية، الهدر، التكلفة، التوجيه، الطاقة، القياس أو المالية — ثم افتح الفحص المجاني أو التقرير المميز المناسب.",
+      "subtitle": "اختر نوع الحساب أولاً — الإنتاجية، الهدر، التكلفة، التوجيه، الطاقة، القياس أو المالية — ثم افتح الفحص المجاني أو التقرير الPro المناسب.",
       "metaTitle": "حاسبات حسب الوظيفة — OEE، الهدر، المسار، الطاقة",
       "metaDescription": "أدوات SectorCalc حسب ما تقيسه: OEE، الهدر، المسار، المعايرة، الطاقة، الهامش، المالية والحسابات اليومية."
     },
@@ -364,11 +364,11 @@
       }
     },
     "premiumTools": {
-      "eyebrow": "حاسبات مميزة",
-      "title": "حاسبات مميزة",
-      "subtitle": "حاسبات قطاعية مميزة للإنتاج والتكلفة والطاقة والمخزون والقرارات التقنية والتشغيلية التي تحتاج مدخلات أكثر ومقارنة سيناريوهات وملخص قرار.",
-      "metaTitle": "حاسبات مميزة | SectorCalc",
-      "metaDescription": "حاسبات مميزة للسيناريوهات وفحص المخاطر وملخصات القرار."
+      "eyebrow": "حاسبات Pro",
+      "title": "حاسبات Pro",
+      "subtitle": "حاسبات قطاعية Pro للإنتاج والتكلفة والطاقة والمخزون والقرارات التقنية والتشغيلية التي تحتاج مدخلات أكثر ومقارنة سيناريوهات وملخص قرار.",
+      "metaTitle": "حاسبات Pro | SectorCalc",
+      "metaDescription": "حاسبات Pro للسيناريوهات وفحص المخاطر وملخصات القرار."
     },
     "industries": {
       "eyebrow": "حاسبات قطاعية",
@@ -382,9 +382,9 @@
         "eyebrow": "حزم قطاعية",
         "headlineLead": "الخسارة تبدأ عبر",
         "headlineTail": "قطاعات نشطة",
-        "subtitle": "فحص سريع مجاني مع تقرير قرار مميز في كل حزمة — اختر مجموعة القطاع أولاً.",
-        "featuredTitle": "قطاعات مميزة",
-        "featuredLead": "حزم قطاعية عالية الزيارات مع أدوات مجانية وحاسبات مميزة.",
+        "subtitle": "فحص سريع مجاني مع تقرير قرار Pro في كل حزمة — اختر مجموعة القطاع أولاً.",
+        "featuredTitle": "قطاعات Pro",
+        "featuredLead": "حزم قطاعية عالية الزيارات مع أدوات مجانية وحاسبات Pro.",
         "sectorGroupsTitle": "مجموعات قطاعية",
         "sectorPackBadge": "حزمة قطاعية"
       }
@@ -409,9 +409,9 @@
       },
       "premium-tools": {
         "navLabel": "تصفح حسب نوع التقرير",
-        "allLabel": "كل الحاسبات المميزة",
+        "allLabel": "كل حاسبات Pro",
         "categoryToolsTitle": "حاسبات {category}",
-        "categoryToolsSubtitle": "{count} حاسبة مميزة",
+        "categoryToolsSubtitle": "{count} حاسبة Pro",
         "countLabel": "{count, plural, one {# حاسبة} other {# حاسبات}}",
         "viewCategory": "عرض الحاسبات",
         "viewCategoryOpen": "الحاسبات معروضة",
@@ -433,7 +433,7 @@
       "placeholder": {
         "categories": "ابحث حسب الوظيفة أو القطاع أو اسم الأداة…",
         "free-tools": "البحث في الحاسبات المجانية...",
-        "premium-tools": "البحث في الحاسبات المميزة...",
+        "premium-tools": "البحث في حاسبات Pro...",
         "industries": "البحث في الحاسبات القطاعية...",
         "homepage": "ابحث عن قطاع أو تكلفة أو حساب تقني..."
       },
@@ -441,7 +441,7 @@
       "showingLimited": "عرض {shown} من {total} حاسبة. استخدم مرشحات القطاع أو البحث لتضييق القائمة.",
       "moreResults": "+ {count} نتائج إضافية",
       "badgeFree": "مجاني",
-      "badgePremium": "مميز",
+      "badgePremium": "Pro",
       "clearSearch": "مسح"
     },
     "discoveryTabs": {
@@ -463,18 +463,18 @@
         "quality-lean": "الجودة واللين",
         "engineering-technical": "الهندسة والتقنية"
       },
-      "premiumToolsAll": "كل الحاسبات المميزة"
+      "premiumToolsAll": "كل حاسبات Pro"
     },
     "discoveryCards": {
       "ctaCalculate": "احسب",
       "ctaOpenAnalysis": "فتح الحساب",
       "ctaOpenSector": "افتح القطاع",
       "freeCount": "{count} مجاني",
-      "premiumCount": "{count} مميز"
+      "premiumCount": "{count} Pro"
     },
     "discoveryFooter": {
       "freeToolsLead": "هل تحتاج حسابًا أعمق؟",
-      "freeToolsCta": "عرض الحاسبات المميزة"
+      "freeToolsCta": "عرض حاسبات Pro"
     },
     "compactGrid": {
       "categories": "الفئات",
@@ -537,7 +537,7 @@
     "viewCalculatorsOpen": "الحاسبات المعروضة",
     "totalCount": "حاسبات مجانية {traffic} · أدوات القطاع {sectors} · الفئات {categories}",
     "categoryNavLabel": "الانتقال إلى الفئة",
-    "featuredTitle": "حاسبات مميزة",
+    "featuredTitle": "حاسبات Pro",
     "featuredLead": "أكثر الأدوات المجانية بحثًا عبر المالية والصحة والبناء والصناعة.",
     "openCalculator": "فتح الحاسبة",
     "decisionAnalyzerNote": "حاسبة القرارات متاحة",
@@ -546,18 +546,18 @@
     "includes1": "2–5 مدخلات مع وحدات في كل حقل",
     "includes2": "نتيجة فورية من جانب المتصفح",
     "includes3": "شرح قصير بلغة بسيطة",
-    "includes4": "رابط للحاسبة المميزة ذات الصلة عند توفرها",
+    "includes4": "رابط للحاسبة الPro ذات الصلة عند توفرها",
     "excludesTitle": "ما لا تتضمنه الأدوات المجانية",
     "excludes1": "السعر الآمن P90 أو حكم القبول/الرفض",
     "excludes2": "تصدير PDF أو سجل التقارير المحفوظة",
     "excludes3": "تشخيص تسرب الهامش أو مصفوفة الحساسية",
     "excludes4": "تخزين مدخلات الطبقة المجانية في الحساب",
     "sectorToolsTitle": "أدوات القرارات القطاعية",
-    "sectorToolsLead": "فحوصات مجانية خاصة بالصناعة مرتبطة بحاسبات الأحكام المميزة عبر 27 قطاعًا.",
+    "sectorToolsLead": "فحوصات مجانية خاصة بالصناعة مرتبطة بحاسبات الأحكام الPro عبر 27 قطاعًا.",
     "sectorToolsCount": "{count} أداة قطاعية مجانية عبر {industries} صناعة",
     "premiumUpsellTitle": "هل تحتاج إلى حكم، وليس مجرد رقم؟",
-    "premiumUpsellBody": "تضيف الحاسبات المميزة حدودًا سعرية آمنة، وكشف تسرب الهامش، وأحكام القبول/إعادة التسعير — مضمنة مع SectorCalc Pro.",
-    "premiumUpsellCta": "استكشاف الحاسبات المميزة",
+    "premiumUpsellBody": "تضيف حاسبات Pro حدودًا سعرية آمنة، وكشف تسرب الهامش، وأحكام القبول/إعادة التسعير — مضمنة مع SectorCalc Pro.",
+    "premiumUpsellCta": "استكشاف حاسبات Pro",
     "premiumUpsellIndustries": "تصفح حسب الصناعة ←",
     "categories": {
       "construction-measurement": "البناء والقياس",
@@ -609,12 +609,12 @@
       "includes2": "معالجة داخل المتصفح فقط — لا تُخزَّن المدخلات",
       "includes3": "معادلة موسعة لنوع هذه الحاسبة",
       "excludesTitle": "ما لا تتضمنه هذه النتيجة",
-      "excludes1": "الحكم المميز أو الحد الأدنى الآمن للسعر",
+      "excludes1": "الحكم الPro أو الحد الأدنى الآمن للسعر",
       "excludes2": "تصدير بصيغة PDF",
       "excludes3": "تقارير محفوظة",
       "excludes4": "تشخيص هامش المتغير المخفي",
       "premiumBlockTitle": "اطلع على ما يفوته هذا التقدير",
-      "premiumBlockBody": "الحاسبات المجانية تُظهر الرقم الأول. الحاسبات المميزة تُضيف المحركات الخفية، العتبات، الإجراءات المقترحة وتقارير القرار الجاهزة للتصدير.",
+      "premiumBlockBody": "الحاسبات المجانية تُظهر الرقم الأول. حاسبات Pro تُضيف المحركات الخفية، العتبات، الإجراءات المقترحة وتقارير القرار الجاهزة للتصدير.",
       "premiumCta": "اطلع على ما يفوته هذا التقدير ←",
       "premiumBlockNote": "الأفضل عندما تؤثر النتيجة على التسعير، العمليات أو قرارات الإدارة.",
       "relatedTitle": "حاسبات ذات صلة",
@@ -643,14 +643,14 @@
       "faqTitle": "الأسئلة الشائعة",
       "faqUseTitle": "What is this calculator المستخدم for?",
       "faqFreeTitle": "هل هذه الحاسبة مجانية؟",
-      "faqPremiumTitle": "متى أستخدم حاسبة مميزة؟",
+      "faqPremiumTitle": "متى أستخدم حاسبة Pro؟",
       "faqUseAnswer": "{title} gives a quick formula-based estimate from the القيمةs you enter. Use it for sanity checks before quoting, ordering or planning.",
       "faqFreeAnswer": "نعم. حاسبات SectorCalc المجانية تعمل في متصفحك دون تسجيل.",
-      "faqPremiumAnswer": "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
+      "faqPremiumAnswer": "استخدم حاسبة Pro عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
       "relatedGuideTitle": "تعرّف كيف يعمل هذا الحساب",
       "relatedHubTitle": "قارن الحاسبات في هذه الفئة",
-      "relatedPremiumTitle": "حاسبة مميزة ذات صلة",
-      "relatedPremiumCta": "عرض الحاسبة المميزة ذات الصلة"
+      "relatedPremiumTitle": "حاسبة Pro ذات صلة",
+      "relatedPremiumCta": "عرض الحاسبة الPro ذات الصلة"
     },
     "premium": {
       "whenToUseTitle": "متى تستخدم هذه الحاسبة",
@@ -665,7 +665,7 @@
       "assumptionsTitle": "Assumptions المستخدم",
       "faqTitle": "الأسئلة الشائعة",
       "faqMeasureTitle": "ماذا تقيس هذه الحاسبة؟",
-      "faqReportTitle": "ما الذي يتضمنه تقرير قرار Premium؟",
+      "faqReportTitle": "ما الذي يتضمنه تقرير قرار Pro؟",
       "faqErpTitle": "هل هذا بديل لـ ERP أو الاستشارة المهنية؟",
       "faqMeasureAnswer": "{name} measures hidden loss exposure and oلكلating drivers from the inputs you provide, with threshold interpretation against stated bands.",
       "faqReportAnswer": "تقرير القرار يشمل ملخصًا تنفيذيًا وتفصيل عوامل مخفية وفحص عتبات وإجراءات وافتراضات ومخرجات جاهزة للتصدير.",
@@ -675,17 +675,17 @@
       "relatedHubTitle": "قارن الحاسبات في هذه الفئة",
       "relatedIndustryTitle": "تصفح حاسبات القطاع",
       "pricingCta": "افتح تقرير القرار الكامل",
-      "faqPremiumTitle": "متى أستخدم حاسبة مميزة؟",
-      "faqPremiumAnswer": "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
-      "relatedPremiumTitle": "حاسبة مميزة ذات صلة",
-      "relatedPremiumCta": "عرض الحاسبة المميزة ذات الصلة",
+      "faqPremiumTitle": "متى أستخدم حاسبة Pro؟",
+      "faqPremiumAnswer": "استخدم حاسبة Pro عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
+      "relatedPremiumTitle": "حاسبة Pro ذات صلة",
+      "relatedPremiumCta": "عرض الحاسبة الPro ذات الصلة",
       "decidesBody": "استخدم هذه الحاسبة عندما تحتاج إلى تقرير ما إذا كانت المدخلات ضمن نطاقات التعرض المقبولة، وأي عامل تفحصه أولاً، وهل تعيد التسعير أو إعادة الجدولة قبل تكرار العمل.",
       "reportBullet1": "ملخص تنفيذي مع حالة العتبات",
       "reportBullet2": "تفصيل عوامل الخسارة الخفية",
       "reportBullet3": "إجراءات مقترحة وملاحظات الافتراضات",
       "reportBullet4": "PDF وCSV جاهزان للتصدير مع الوصول المدفوع",
       "faqIsFreeTitle": "هل هذه الآلة الحاسبة مجانية؟",
-      "faqIsFreeAnswer": "هذه الأداة جزء من نطاق التحليل المميز. النتائج الكاملة وملخصات القرار تتطلب أرصدة أو اشتراك Pro نشط."
+      "faqIsFreeAnswer": "هذه الأداة جزء من نطاق التحليل الPro. النتائج الكاملة وملخصات القرار تتطلب أرصدة أو اشتراك Pro نشط."
     }
   },
   "trust": {
@@ -697,7 +697,7 @@
   },
   "purchaseSuccess": {
     "proUpsellTitle": "هل تريد وصولًا غير محدود لكل الأدوات؟",
-    "proUpsellBody": "27 قطاعًا، حاسبات Premium غير محدودة وتقارير محفوظة — Pro من 19$/شهر.",
+    "proUpsellBody": "27 قطاعًا، حاسبات Pro غير محدودة وتقارير محفوظة — Pro من 19$/شهر.",
     "proUpsellCta": "الترقية إلى Pro ←"
   },
   "footer": {
@@ -706,12 +706,12 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "حاسبات قطاعية مجانية ومميزة للتصنيع والورش والهندسة وعمليات الأعمال.",
+    "tagline": "حاسبات قطاعية مجانية وPro للتصنيع والورش والهندسة وعمليات الأعمال.",
     "productTitle": "المنتج",
     "legalTitle": "قانوني",
     "product": {
       "freeChecks": "حاسبات مجانية",
-      "premiumTools": "حاسبات مميزة",
+      "premiumTools": "حاسبات Pro",
       "industries": "حاسبات القطاعات",
       "pricing": "الأسعار"
     },
@@ -726,7 +726,7 @@
     "account": {
       "login": "تسجيل الدخول",
       "signUp": "إنشاء حساب",
-      "premiumTools": "حاسبات مميزة",
+      "premiumTools": "حاسبات Pro",
       "pricing": "الأسعار"
     },
     "areas": {
@@ -755,7 +755,7 @@
     "es": "الإسبانية",
     "de": "الألمانية",
     "ar": "العربية",
-    "fr": "الفرنسية"
+    "fr": "Français"
   },
   "common": {
     "learnMore": "اعرف المزيد",
@@ -765,7 +765,7 @@
     "calculate": "احسب",
     "badge": {
       "free": "مجاني",
-      "premium": "مميز",
+      "premium": "Pro",
       "new": "جديد"
     }
   },
@@ -781,7 +781,7 @@
       "premium": "١٥٠ آلة حاسبة متميزة | توصيات مربحة"
     },
     "hero": {
-      "trustStrip": "{count} sectors · Free calculators · Premium reports · Exلكلt logic · No ERP required"
+      "trustStrip": "{count} sectors · Free calculators · Pro reports · Exلكلt logic · No ERP required"
     },
     "pain": {
       "eyebrow": "قياس شامل",
@@ -794,7 +794,7 @@
         },
         "labor": {
           "title": "مخاطر العمالة والوقت",
-          "text": "الفحوصات المجانية تظهر المخاطر المرئية — حاسبات Premium تقدم الحكم الكامل."
+          "text": "الفحوصات المجانية تظهر المخاطر المرئية — حاسبات Pro تقدم الحكم الكامل."
         },
         "overhead": {
           "title": "مخاطر النفقات العامة والنطاق",
@@ -814,16 +814,16 @@
     "premiumStep": {
       "eyebrow": "الخطوة 2",
       "title": "افتح الحكم الكامل",
-      "subtitle": "Premium calculators add minimum safe السعر, محركات تسرب الهامش, suggested action and PDF export — the decision layer oلكلators need before quoting.",
-      "cta": "عرض حاسبات Premium",
-      "cardEyebrow": "حكم Premium",
+      "subtitle": "Pro calculators add minimum safe السعر, محركات تسرب الهامش, suggested action and PDF export — the decision layer oلكلators need before quoting.",
+      "cta": "عرض حاسبات Pro",
+      "cardEyebrow": "حكم Pro",
       "cardTitle": "Minimum safe السعر + action",
       "cardBody": "Margin leak breakdown, accept / reالسعر verdict and exportable PDF report."
     },
     "sample": {
       "eyebrow": "تقرير حكم نموذجي",
       "title": "تقرير مخاطر عرض CNC",
-      "subtitle": "هكذا يبدو مخرج قرار Premium — ليس جدول بيانات.",
+      "subtitle": "هكذا يبدو مخرج قرار Pro — ليس جدول بيانات.",
       "verdictLabel": "الحكم",
       "verdictValue": "لا تقبل دون 1,840$",
       "riskLabel": "مخاطر الهامش",
@@ -848,7 +848,7 @@
       "proItem2": "تفصيل تسريب الهامش",
       "proItem3": "Accept / Reالسعر / Do Not Accept verdict",
       "proItem4": "تقرير جاهز PDF وسجل محفوظ",
-      "proCta": "عرض أحكام Premium"
+      "proCta": "عرض أحكام Pro"
     },
     "trust": {
       "title": "حساب موثوق عبر {count} قطاعًا",
@@ -862,7 +862,7 @@
           "text": "{count} فحصًا سريعًا للقطاع في متصفحك — لا يلزم حساب."
         },
         "premiumVerdicts": {
-          "title": "أحكام Premium تشرح المخاطر",
+          "title": "أحكام Pro تشرح المخاطر",
           "text": "Minimum safe السعر, margin leaks and suggested action before you quote."
         },
         "stripe": {
@@ -884,7 +884,7 @@
     "cta": {
       "eyebrow": "ابدأ",
       "title": "ابدأ الحساب لقطاعك",
-      "subtitle": "ابدأ بالأدوات المجانية، وارتقِ إلى تقارير Premium عند الحاجة.",
+      "subtitle": "ابدأ بالأدوات المجانية، وارتقِ إلى تقارير Pro عند الحاجة.",
       "primary": "Explore Free Tools",
       "secondary": "عرض تقرير حكم نموذجي"
     },
@@ -902,7 +902,7 @@
       "statusLine": "MarginCore · Risk المدةinal",
       "title": "MarginCore: تحليلات مخاطر احترافية للشركات الصغيرة والمتوسطة.",
       "subtitle": "Deالمدةinistic exposure, P90 safe bid limits and sensitivity matrices — why margin leaks, not what to charge.",
-      "primaryCta": "الوصول إلى أحكام Premium",
+      "primaryCta": "الوصول إلى أحكام Pro",
       "secondaryCta": "عرض تقرير نموذجي",
       "metrics": {
         "sectors": {
@@ -926,7 +926,7 @@
     "grid": {
       "eyebrow": "تغطية القطاعات",
       "title": "ملخصات تنفيذية حسب القطاع",
-      "subtitle": "وحدات مخاطر مجمّعة — فحوصات مجانية وحاسبات أحكام Premium. بدون أيقونات أو ضجيج: اقرأ التعرض وافتح الوحدة.",
+      "subtitle": "وحدات مخاطر مجمّعة — فحوصات مجانية وحاسبات أحكام Pro. بدون أيقونات أو ضجيج: اقرأ التعرض وافتح الوحدة.",
       "sectorCount": "{count} وحدة",
       "freeLabel": "فحص أولي",
       "proLabel": "الحكم"
@@ -981,7 +981,7 @@
       "explainTool": "هذه الأداة تحوّل مدخلات عملك إلى حكم واضح مع عوامل المخاطر:",
       "inputs": "You enter the core التكلفةs, quantities, and المعدلs for your job. Required fields are kept minimal, and optional fields sharpen the result.",
       "results": "النتيجة حكم مع مقاييس وعوامل مخاطر — لترى السبب وما يجب تعديله.",
-      "approvedReports": "يمكن حفظ نتائج Premium كملخصات قرار قابلة للتصدير لمراجعة الفريق داخليًا.",
+      "approvedReports": "يمكن حفظ نتائج Pro كملخصات قرار قابلة للتصدير لمراجعة الفريق داخليًا.",
       "trustTrace": "يسجل ملخص الحساب المدخلات والافتراضات وخطوات التحقق لتوضيح كيفية إنتاج النتيجة.",
       "regionalUnits": "SectorCalc supports metric, imلكلial, and regional units, and shows the conversions it المستخدم.",
       "benchmarks": "SectorCalc يعرض سياق معايير إقليمية استrشادية بجانب نتيجتك — للتوجيه وليس أرقامًا رسمية.",
@@ -994,7 +994,7 @@
     }
   },
   "premiumSeo": {
-    "eyebrow": "دليل أداة Premium",
+    "eyebrow": "دليل أداة Pro",
     "metaTitle": "{tool} | دليل التسعير والهامش والمخاطر | SectorCalc",
     "metaDescription": "كيف يعمل {tool}، ولمن، ماذا تُدخل، وكيف تقرأ النتيجة. دعم قرار التسعير ومخاطر الهامش من SectorCalc.",
     "h1": "{tool}: السعر the job and protect the margin",
@@ -1017,9 +1017,9 @@
     "outputsTitle": "ماذا تعني النتيجة",
     "outputs": "يُرجع {tool} {outputs} مع مقاييس وتنبيهات عتبة وعوامل مخاطر — لترى سبب وصول الرقم إلى موضعه.",
     "trustTitle": "ملخصات قرار متميزة وملخص الحساب",
-    "trust": "يمكن أن تتضمن نتائج Premium ملخص حساب محفوظًا كملخص قرار قابل للتصدير.",
+    "trust": "يمكن أن تتضمن نتائج Pro ملخص حساب محفوظًا كملخص قرار قابل للتصدير.",
     "faqTitle": "أسئلة شائعة",
-    "relatedTitle": "أدوات Premium ذات صلة",
+    "relatedTitle": "أدوات Pro ذات صلة",
     "faq": [
       {
         "q": "هل {tool} مجاني؟",
@@ -1035,7 +1035,7 @@
       },
       {
         "q": "هل يمكنني مشاركة النتيجة؟",
-        "a": "نعم. يمكن تصدير نتائج Premium كملخصات قرار مع ملخص الحساب."
+        "a": "نعم. يمكن تصدير نتائج Pro كملخصات قرار مع ملخص الحساب."
       },
       {
         "q": "لأي قطاع {tool}؟",
@@ -1062,7 +1062,7 @@
       "title": "الأعمال",
       "body": "للفرق التي تحتاج حسابات متكررة وملخصات قرار متميزة وسياق معياري.",
       "features": [
-        "حاسبات Premium في 27 قطاعًا",
+        "حاسبات Pro في 27 قطاعًا",
         "ملخصات قرار متميزة مع ملخص الحساب",
         "وحدات إقليمية ومعايير استرشادية",
         "تقارير محفوظة ووضع الميدان"
@@ -1184,7 +1184,7 @@
   "homepageHybrid": {
     "meta": {
       "title": "SectorCalc | حاسبات قطاعية للصناعة والإنتاج والأعمال",
-      "description": "SectorCalc يقدّم حاسبات قطاعية مجانية ومميزة للتصنيع والورش والهندسة وتكاليف الأعمال والهدر والهامش والطاقة والمخزون والمسارات والعمالة والخسائر التشغيلية."
+      "description": "SectorCalc يقدّم حاسبات قطاعية مجانية وPro للتصنيع والورش والهندسة وتكاليف الأعمال والهدر والهامش والطاقة والمخزون والمسارات والعمالة والخسائر التشغيلية."
     },
     "hero": {
       "highlight": "منصة الحاسبات القطاعية",
@@ -1192,7 +1192,7 @@
       "subtitle": "يجمع SectorCalc حاسبات قطاعية للإنتاج والورشة والموقع والخدمات اللوجستية والطاقة والمالية في منصة مركّزة.",
       "supporting": "بدون تعقيد ERP — للفرق الصغيرة والمتوسطة وفرق الميدان",
       "ctaPrimary": "حاسبات مجانية",
-      "ctaSecondary": "استكشف المميز",
+      "ctaSecondary": "استكشف الPro",
       "panelTitle": "ما يحسبه الفريق أولاً",
       "panelItems": {
         "production": "سعر ساعة الآلة وOEE والهدر",
@@ -1307,7 +1307,7 @@
         },
         "byDecision": {
           "title": "حسب لحظة القرار",
-          "text": "ابدأ بفحص مجاني ثم افتح الحاسبات المميزة عندما يحتاج العرض أو العمل أو الشراء إلى مزيد من العمق."
+          "text": "ابدأ بفحص مجاني ثم افتح حاسبات Pro عندما يحتاج العرض أو العمل أو الشراء إلى مزيد من العمق."
         }
       }
     },
@@ -1338,7 +1338,7 @@
       "subtitle": "اكشف التكاليف التي تمر دون ملاحظة في العمل اليومي."
     },
     "freePremium": {
-      "title": "حاسبات مجانية ومميزة",
+      "title": "حاسبات مجانية وPro",
       "freeTitle": "حاسبات مجانية ({count})",
       "freeText": "فحوصات قطاعية سريعة في المتصفح بمدخلات أساسية وإشارات مخاطر واضحة.",
       "freeItems": {
@@ -1348,7 +1348,7 @@
         "noSignup": "استكشف دون تسجيل"
       },
       "freeCta": "جرّب الآن",
-      "premiumTitle": "حاسبات مميزة ({count})",
+      "premiumTitle": "حاسبات Pro ({count})",
       "premiumText": "أضف مدخلات أعمق ومقارنة سيناريوهات وملخصات قرار قابلة للتصدير عندما يرتفع المخاطر.",
       "premiumItems": {
         "inputs": "مدخلات أكثر وقيم افتراضية احترافية",
@@ -1540,9 +1540,9 @@
     },
     "finalCta": {
       "title": "أي حساب نوضحه اليوم؟",
-      "subtitle": "ابدأ مجاناً ثم انتقل إلى الحاسبات المميزة عندما يتطلب القرار مدخلات أكثر وملخصاً أوضح.",
+      "subtitle": "ابدأ مجاناً ثم انتقل إلى حاسبات Pro عندما يتطلب القرار مدخلات أكثر وملخصاً أوضح.",
       "ctaPrimary": "حاسبات مجانية",
-      "ctaSecondary": "حاسبات مميزة"
+      "ctaSecondary": "حاسبات Pro"
     }
   },
   "industrialHome": {
@@ -1578,7 +1578,7 @@
         "tools": "أدوات مجانية",
         "industries": "القطاعات",
         "categories": "الفئات",
-        "premium": "تقارير Premium",
+        "premium": "تقارير Pro",
         "archive": "أرشيف التدقيق"
       }
     },
@@ -1614,20 +1614,20 @@
     "signInPrompt": "سجّل الدخول لتحميل خزينة التدقيق الشخصية من Firestore.",
     "signInCta": "تسجيل الدخول",
     "viewFullArchive": "فتح الأرشيف الكامل",
-    "emptySignedIn": "لا تدقيقات محفوظة. شغّل حاسبة Premium واحفظ الحكم لملء الأرشيف."
+    "emptySignedIn": "لا تدقيقات محفوظة. شغّل حاسبة Pro واحفظ الحكم لملء الأرشيف."
   },
   "emptyStates": {
     "reports": {
       "title": "لا تقارير محفوظة بعد",
       "body": "أجرِ فحص قطاع مجاني، ثم افتح Single Verdict أو SectorCalc Pro لحفظ التقارير.",
-      "bodyWithCredits": "شغّل حاسبة Premium المفتوحة واحفظ تقرير الحكم هنا.",
+      "bodyWithCredits": "شغّل حاسبة Pro المفتوحة واحفظ تقرير الحكم هنا.",
       "ctaFree": "استكشف الأدوات المجانية",
-      "ctaPremium": "فتح حاسبات Premium",
+      "ctaPremium": "فتح حاسبات Pro",
       "viewReport": "عرض التقرير"
     },
     "purchases": {
       "title": "رصيد حكم واحد",
-      "body": "الشراء لمرة واحدة يفتح حاسبة Premium لأداة ذلك القطاع."
+      "body": "الشراء لمرة واحدة يفتح حاسبة Pro لأداة ذلك القطاع."
     },
     "login": {
       "eyebrow": "تسجيل الدخول مطلوب",
@@ -1661,7 +1661,7 @@
     },
     "benefits": {
       "title": "ما تحصل عليه",
-      "item1": "وصول مبكر لتقارير قرار Premium",
+      "item1": "وصول مبكر لتقارير قرار Pro",
       "item2": "مساهمة مباشرة في تصميم معايير القطاع",
       "item3": "Optional case study participation with explicit لكلmission"
     },
@@ -1708,7 +1708,7 @@
     }
   },
   "premiumDecisionReport": {
-    "documentLabel": "تقرير قرار Premium",
+    "documentLabel": "تقرير قرار Pro",
     "reportEyebrow": "تقرير القرار",
     "decisionDesk": "مكتب القرار",
     "runPrompt": "أدخل قيم التشغيل وابدأ الحساب.",
@@ -1724,7 +1724,7 @@
     "actionDecision": "قرار",
     "assumptionsTitle": "Assumptions المستخدم",
     "legalTitle": "ملاحظة قانونية",
-    "exportTitle": "مخرجات تقرير Premium",
+    "exportTitle": "مخرجات تقرير Pro",
     "previewCta": "معاينة التقرير",
     "bufferedExposure": "التعرض المخزّن",
     "status": {
@@ -1733,7 +1733,7 @@
       "Acceptable": "مقبول"
     },
     "export": {
-      "title": "مخرجات تقرير Premium",
+      "title": "مخرجات تقرير Pro",
       "sectionExecutive": "ملخص تنفيذي",
       "sectionDrivers": "العوامل المخفية",
       "sectionThreshold": "فحص العتبة",
@@ -1785,10 +1785,10 @@
     "tools": "الأدوات",
     "account": "الحساب",
     "freeTools": "حاسبة مجانية",
-    "premiumTools": "حاسبة Premium",
+    "premiumTools": "حاسبة Pro",
     "reports": "تقرير القرار",
     "freeCalculators": "الحاسبات المجانية",
-    "premiumCalculators": "الحاسبات المميزة",
+    "premiumCalculators": "حاسبات Pro",
     "industryCalculators": "حاسبات القطاعات"
   },
   "homepage": {
@@ -1806,9 +1806,9 @@
     "metaDescription": "حاسبات مجانية متخصصة في المجال الصناعي."
   },
   "premiumTools": {
-    "title": "حاسبة Premium",
+    "title": "حاسبة Pro",
     "openAnalyzer": "فتح الحاسبة",
-    "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro.",
+    "lockedTrustTrace": "ملخص الحساب ميزة Pro Pro.",
     "subtitle": "اكتشف حاسبات متميزة تناسب صناعتك.",
     "searchPlaceholder": "ابحث عن قطاع، مهنة، أو أداة...",
     "categoryTitle": "تصفح حسب القطاع",
@@ -1823,7 +1823,7 @@
     "title": "استكشف حسب القطاع",
     "viewAll": "اختر القطاع",
     "relatedFreeTools": "حاسبات مجانية ذات صلة",
-    "relatedPremiumTools": "حاسبات مميزة ذات صلة",
+    "relatedPremiumTools": "حاسبات Pro ذات صلة",
     "openCalculator": "افتح الحاسبة",
     "viewAllCalculators": "عرض كل الحاسبات",
     "viewAllCalculatorsLead": "تصفح مكتبة الحاسبات الكاملة لمزيد من أدوات القطاع.",
@@ -1841,7 +1841,7 @@
     "awaiting": "أدخل القيم لرؤية النتيجة",
     "validationRequired": "يرجى اختيار قيمة.",
     "validationNumber": "أدخل رقماً صالحاً.",
-    "premiumEyebrow": "حاسبة مميزة",
+    "premiumEyebrow": "حاسبة Pro",
     "mode": {
       "label": "وضع الحساب",
       "quick": "بسيط",
@@ -1880,7 +1880,7 @@
     "calculationFailed": "تعذّر حساب هذه النتيجة. تحقق من المدخلات وأعد المحاولة.",
     "invalidInput": "One or more القيمةs are invalid. Please review the highlighted fields.",
     "networkError": "فشل الاتصال. تحقق من الشبكة وحاول مرة أخرى.",
-    "accessDenied": "تحتاج وصول Premium لهذا التقرير.",
+    "accessDenied": "تحتاج وصول Pro لهذا التقرير.",
     "notFound": "تعذّر العثور على هذه الصفحة أو الأداة.",
     "generic": "حدث خطأ. يرجى المحاولة مجددًا.",
     "errorPageTitle": "حدث خطأ ما",
@@ -1894,8 +1894,8 @@
     "freeToolsTitle": "Free Sector Calculators | SectorCalc",
     "freeToolsDescription": "Free browser calculators for التكلفة, measurement, الطاقة and business decisions. No sign-up required.",
     "pricingTitle": "التسعير | SectorCalc",
-    "pricingDescription": "حاسبات مجانية وتقارير قرار Premium — تقارير فردية من 9$، Pro من 19$/شهر.",
-    "premiumToolsTitle": "حاسبات Premium | SectorCalc",
+    "pricingDescription": "حاسبات مجانية وتقارير قرار Pro — تقارير فردية من 9$، Pro من 19$/شهر.",
+    "premiumToolsTitle": "حاسبات Pro | SectorCalc",
     "premiumToolsDescription": "Hidden-loss diagnostics, threshold checks and export-ready decision reports for oلكلational teams."
   },
   "campaign": {
@@ -1905,7 +1905,7 @@
     },
     "seoHub": {
       "freeCalculators": "حاسبات مجانية",
-      "premiumAnalyzers": "حاسبات Premium",
+      "premiumAnalyzers": "حاسبات Pro",
       "viewPricing": "عرض الأسعار"
     },
     "clusters": {
@@ -1925,9 +1925,9 @@
     "freeCalculatorHeading": "حاسبة مجانية",
     "freeCalculatorNote": "Quick check only — no minimum safe السعر or accept/reject verdict.",
     "openTool": "فتح {tool}",
-    "premiumHeading": "حاسبة Premium",
+    "premiumHeading": "حاسبة Pro",
     "startPro": "ابدأ SectorCalc Pro",
-    "relatedHeading": "حاسبات Premium ذات صلة",
+    "relatedHeading": "حاسبات Pro ذات صلة",
     "relatedNote": "تشخيص الخسائر المخفية مع فحوصات العتبات وإجراءات مقترحة وتقارير جاهزة للتصدير.",
     "openAnalyzer": "فتح الحاسبة ←",
     "viewAll": "عرض جميع الحاسبات ←",
@@ -1935,12 +1935,12 @@
     "additionalNote": "أدوات قرار ذات صلة في خارطة SectorCalc لهذا القطاع.",
     "allIndustries": "جميع القطاعات",
     "freeCalculatorLink": "حاسبة مجانية",
-    "premiumAnalyzerLink": "حاسبة Premium",
+    "premiumAnalyzerLink": "حاسبة Pro",
     "proPricing": "أسعار SectorCalc Pro",
     "account": "الحساب",
     "calculatorLibraryLink": "مكتبة الحاسبات",
     "freeToolsLink": "حاسبات مجانية",
-    "premiumToolsLink": "حاسبات مميزة"
+    "premiumToolsLink": "حاسبات Pro"
   },
   "premiumAccess": {
     "previewEyebrow": "معاينة عامة",
@@ -1952,10 +1952,10 @@
     "getPro": "احصل على Pro",
     "lockedExport": "تصدير PDF وجداول متاح في خطط Pro.",
     "lockedReportHistory": "سجل التقارير يتطلب حساب Pro مسجّل الدخول.",
-    "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro.",
+    "lockedTrustTrace": "ملخص الحساب ميزة Pro Pro.",
     "fullReportRequiresPro": "التقرير القابل للتصدير الكامل يتطلب SectorCalc Pro.",
     "panelTitle": "تسجيل دخول SectorCalc Pro",
-    "panelDescription": "سجّل الدخول عبر Google للوصول إلى الحاسبات المميزة أو متابعة الدفع. تسجيل دخول المسؤول منفصل في الأعلى.",
+    "panelDescription": "سجّل الدخول عبر Google للوصول إلى حاسبات Pro أو متابعة الدفع. تسجيل دخول المسؤول منفصل في الأعلى.",
     "signInButton": "المتابعة مع Google",
     "signingIn": "جارٍ تسجيل الدخول…",
     "signInErrors": {
@@ -3326,8 +3326,8 @@
     "resultsHeading": "النتائج",
     "publishedDisclaimer": "سينario توضيحي مركّب — ليس تدقيقاً موثقاً للشركة المذكورة. ليس نصيحة مالية أو قانونية أو هندسية.",
     "ctaTitle": "اصنع الفرق في قطاعك",
-    "ctaBody": "حسّن الحسابات وقلّل تسرب التكاليف مع SectorCalc Premium.",
-    "ctaButton": "ابدأ Premium →",
+    "ctaBody": "حسّن الحسابات وقلّل تسرب التكاليف مع SectorCalc Pro.",
+    "ctaButton": "ابدأ Pro →",
     "database": {
       "metaTitle": "قصص النجاح: توفير حقيقي وكفاءة في الأعمال | SectorCalc",
       "metaDescription": "حالات الكفاءة والتوفير موثّقة بصيغة قاعدة بيانات أكاديمية. VDI 2067، ECMI Guidelines، ISO 15663.",
@@ -3398,27 +3398,27 @@
     "privacyNote": "Stored only on this device. No secrets or sensitive لكلsonal data."
   },
   "premiumCategoryCatalog": {
-    "title": "حاسبات مميزة",
-    "subtitle": "أدوات قرار مميزة في 20 فئة تشغيلية مع حاسبات مجانية مرتبطة.",
-    "metaTitle": "حاسبات مميزة | SectorCalc",
-    "metaDescription": "تصفح فئات الحاسبات المميزة — الإنتاج الرشيق، الجودة، CNC، المالية، سلسلة التوريد والمزيد.",
-    "premiumCount": "{count} أداة مميزة",
+    "title": "حاسبات Pro",
+    "subtitle": "أدوات قرار Pro في 20 فئة تشغيلية مع حاسبات مجانية مرتبطة.",
+    "metaTitle": "حاسبات Pro | SectorCalc",
+    "metaDescription": "تصفح فئات حاسبات Pro — الإنتاج الرشيق، الجودة، CNC، المالية، سلسلة التوريد والمزيد.",
+    "premiumCount": "{count} أداة Pro",
     "toolCount": "{count} حاسبة",
     "relatedFreeCount": "{count} أداة مجانية مرتبطة",
     "viewCategory": "فتح الفئة",
-    "breadcrumbPremiumTools": "حاسبات مميزة",
-    "premiumSection": "حاسبات مميزة",
+    "breadcrumbPremiumTools": "حاسبات Pro",
+    "premiumSection": "حاسبات Pro",
     "relatedFreeSection": "حاسبات مجانية مرتبطة",
     "openCalculator": "فتح الحاسبة",
     "methodologyPreparing": "المنهجية قيد الإعداد",
     "searchPlaceholder": "البحث في الأدوات المتميزة...",
-    "searchLabel": "البحث في الأدوات المميزة",
+    "searchLabel": "البحث في الأدوات الPro",
     "clearSearch": "مسح",
     "browseByCategory": "تصفح حسب الفئة",
     "viewMoreResults": "عرض المزيد من النتائج ({count})",
     "allCategory": "الكل",
     "categoryToolsTitle": "حاسبات {category}",
-    "categoryToolsSubtitle": "{count} حاسبة مميزة",
+    "categoryToolsSubtitle": "{count} حاسبة Pro",
     "selectedCategory": "محدد",
     "resultCount": "{count} أداة متميزة معروضة",
     "noResults": "لم يتم العثور على أدوات متميزة.",
@@ -3426,7 +3426,7 @@
   },
   "freeToolUi": {
     "preCheck": "فحص مجاني أولي",
-    "premiumAnalyzer": "حاسبة مميزة",
+    "premiumAnalyzer": "حاسبة Pro",
     "classicForm": "نموذج كلاسيكي",
     "smartFormMeta": "نموذج ذكي",
     "simple": "بسيط",
@@ -3534,9 +3534,9 @@
     "quarantineWarning": "تستخدم هذه الحاسبة صيغًا تقديرية — تحقق من النتائج وفقًا لمعاييرك.",
     "trustTraceVerified": "✓ Trust Trace — تم التحقق من سلامة النتيجة",
     "premiumUpsell": {
-      "ariaLabel": "الترقية إلى التحليل المميز",
+      "ariaLabel": "الترقية إلى التحليل الPro",
       "message": "هل تريد تحليلاً أكثر تفصيلاً لهذا الحساب؟",
-      "cta": "انتقل إلى Premium →"
+      "cta": "انتقل إلى Pro →"
     },
     "noWarnings": "لا توجد إشارات تحذير حرجة.",
     "noSuggestedActions": "لا توجد اقتراحات إجراء إضافية.",
@@ -3802,7 +3802,7 @@
       "supplierFetchSuccess": "تمت إضافة {value} kg CO2e ({unit}، {source}) إلى البضائع المشتراة.",
       "supplierLastFetch": "آخر جلب: {product} بمعدل {factor} kg CO2e/{unit}."
     },
-    "insufficientCredits": "تحتاج إلى رصيد واحد على الأقل لهذا التحليل المميز.",
+    "insufficientCredits": "تحتاج إلى رصيد واحد على الأقل لهذا التحليل الPro.",
     "buyCreditsCta": "شراء أرصدة",
     "creditsLoading": "جارٍ تحميل رصيد الأرصدة…",
     "export": {
@@ -3891,7 +3891,7 @@
       "colSource": "المصدر / المرجع",
       "badgeDefault": "تحليل هندسي"
     },
-    "downloadPdfReport": "⬇ تحميل تقرير PDF المميز",
+    "downloadPdfReport": "⬇ تحميل تقرير PDF الPro",
     "csvHeaders": {
       "reportLabel": "تقرير الأداة المُنشأة",
       "tool": "أداة",
@@ -4331,18 +4331,18 @@
   "schemaBreadcrumbs": {
     "home": "الرئيسية",
     "freeTools": "حاسبات مجانية",
-    "premiumTools": "حاسبات مميزة",
+    "premiumTools": "حاسبات Pro",
     "industries": "حاسبات قطاعية",
     "generatedTools": "الآلات الحاسبة المولدة"
   },
   "premiumSchemaPage": {
-    "eyebrow": "حاسبة مميزة",
+    "eyebrow": "حاسبة Pro",
     "featuredQuestion": "ماذا تحسب {name}؟",
     "bullet1": "محركات الخسارة الخفية وفحوصات العتبات",
     "bullet2": "إجراءات مقترحة للمراجعة التشغيلية",
     "bullet3": "PDF وCSV جاهزان للتصدير في الخطط المدفوعة",
     "legalQuestion": "هل هذه نصيحة مالية أو هندسية؟",
-    "legalAnswer": "لا. حاسبات SectorCalc المميزة أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
+    "legalAnswer": "لا. حاسبات SectorCalc الPro أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
     "serviceType": "حساب قرار تشغيلي"
   },
   "freeToolInputs": {
@@ -6262,7 +6262,7 @@
       "transport_mode": {
         "label": "وسيلة النقل",
         "placeholder": "أدخل وسيلة النقل",
-        "helper": "وسيلة النقل. لكل وسيلة هياكل تكلفة وملفات مخاطر وتأثير كربوني مميزة."
+        "helper": "وسيلة النقل. لكل وسيلة هياكل تكلفة وملفات مخاطر وتأثير كربوني Pro."
       },
       "fuel_surcharge_percent": {
         "label": "رسوم الوقود الإضافية (%)",
@@ -30650,8 +30650,8 @@
       },
       "base_premium": {
         "label": "القسط الأساسي (القسط الأساسي للجزء ب)",
-        "placeholder": "أدخل Base Premium (Standard Part B Premium)",
-        "helper": "القيمة المستخدمة لـ Base Premium (Standard Part B Premium) في الحساب."
+        "placeholder": "أدخل Base Pro (Standard Part B Pro)",
+        "helper": "القيمة المستخدمة لـ Base Pro (Standard Part B Pro) في الحساب."
       }
     },
     "medicare-part-d-calculator": {
@@ -37494,7 +37494,7 @@
       "use_complex_roots": {
         "label": "السماح بالجذور المركبة",
         "placeholder": "أدخل السماح بالجذور المركبة",
-        "helper": "عندما يكون صحيحًا، تُرجع الآلة الحاسبة جذورًا مركبة للمميزات السالبة. عندما يكون خاطئًا، تُرجع خطأً للجذور غير الحقيقية."
+        "helper": "عندما يكون صحيحًا، تُرجع الآلة الحاسبة جذورًا مركبة للProات السالبة. عندما يكون خاطئًا، تُرجع خطأً للجذور غير الحقيقية."
       }
     },
     "quality-cost-paf-calculator": {
@@ -48831,9 +48831,9 @@
         "helper": "قطر سلك الحشو. يؤثر على مساحة المقطع العرضي ومعدل الترسيب."
       },
       "use_premium_data": {
-        "label": "استخدام البيانات المميزة (الاتجاهات التاريخية)",
-        "placeholder": "أدخل استخدام البيانات المميزة (الاتجاهات التاريخية)",
-        "helper": "إذا كان صحيحًا، يضبط كفاءة الترسيب وعامل المشغل بناءً على البيانات التاريخية من قاعدة البيانات المميزة."
+        "label": "استخدام البيانات الPro (الاتجاهات التاريخية)",
+        "placeholder": "أدخل استخدام البيانات الPro (الاتجاهات التاريخية)",
+        "helper": "إذا كان صحيحًا، يضبط كفاءة الترسيب وعامل المشغل بناءً على البيانات التاريخية من قاعدة البيانات الPro."
       }
     },
     "welding-calculator": {
@@ -48930,8 +48930,8 @@
         "helper": "عملية اللحام بالقوس القياسية وفقًا لـ AWS A3.0."
       },
       "use_premium_material": {
-        "label": "استخدام مادة حشو مميزة",
-        "placeholder": "أدخل استخدام مادة حشو مميزة",
+        "label": "استخدام مادة حشو Pro",
+        "placeholder": "أدخل استخدام مادة حشو Pro",
         "helper": "تبديل لتطبيق علاوة تكلفة بنسبة 20% لسلك الإضافة عالي الأداء."
       }
     },
@@ -50189,12 +50189,12 @@
       "input_tokens_per_month": {
         "label": "رموز الإدخال شهريًا",
         "placeholder": "أدخل رموز الإدخال شهريًا",
-        "helper": "إجمالي عدد الرموز المميزة المرسلة إلى النموذج كمدخل (موجه) على مدار شهر."
+        "helper": "إجمالي عدد الرموز الPro المرسلة إلى النموذج كمدخل (موجه) على مدار شهر."
       },
       "output_tokens_per_month": {
         "label": "رموز الإخراج شهريًا",
         "placeholder": "أدخل رموز الإخراج شهريًا",
-        "helper": "إجمالي عدد الرموز المميزة التي يولدها النموذج كمخرجات (إكمال) على مدار شهر."
+        "helper": "إجمالي عدد الرموز الPro التي يولدها النموذج كمخرجات (إكمال) على مدار شهر."
       },
       "batch_size": {
         "label": "متوسط حجم الدفعة",
@@ -52174,7 +52174,7 @@
       "product_family_count": {
         "label": "عدد عائلات المنتجات",
         "placeholder": "أدخل عدد عائلات المنتجات",
-        "helper": "مجموعات المنتجات المميزة التي تتم معالجتها على الخط. الأعداد الأعلى تزيد من تعقيد التغييرات."
+        "helper": "مجموعات المنتجات الPro التي تتم معالجتها على الخط. الأعداد الأعلى تزيد من تعقيد التغييرات."
       },
       "standard_deviation_changeover_time": {
         "label": "الانحراف المعياري لوقت التغيير (بالدقائق)",
@@ -59485,7 +59485,7 @@
       "num_parts": {
         "label": "عدد الأجزاء في الدراسة",
         "placeholder": "أدخل عدد الأجزاء في الدراسة",
-        "helper": "عدد الأجزاء المميزة المختارة لدراسة Gage R&R، عادة 5-20 وفقًا لإرشادات AIAG MSA."
+        "helper": "عدد الأجزاء الPro المختارة لدراسة Gage R&R، عادة 5-20 وفقًا لإرشادات AIAG MSA."
       },
       "num_appraisers": {
         "label": "عدد المقيمين",
@@ -61157,7 +61157,7 @@
       "num_sku": {
         "label": "عدد وحدات SKU",
         "placeholder": "أدخل عدد وحدات SKU",
-        "helper": "إجمالي عدد أصناف المنتجات المميزة المعروضة."
+        "helper": "إجمالي عدد أصناف المنتجات الPro المعروضة."
       },
       "avg_volume_per_sku": {
         "label": "متوسط الحجم لكل SKU",
@@ -61167,7 +61167,7 @@
       "num_components": {
         "label": "عدد المكونات الفريدة",
         "placeholder": "أدخل عدد المكونات الفريدة",
-        "helper": "إجمالي عدد المواد الخام أو الأجزاء المميزة المستخدمة عبر جميع وحدات التخزين (SKU)."
+        "helper": "إجمالي عدد المواد الخام أو الأجزاء الPro المستخدمة عبر جميع وحدات التخزين (SKU)."
       },
       "avg_bom_levels": {
         "label": "متوسط مستويات قائمة المواد",
@@ -62627,7 +62627,7 @@
       "active_users": {
         "label": "المستخدمون النشطون (شهريًا)",
         "placeholder": "أدخل المستخدمون النشطون (شهريًا)",
-        "helper": "عدد المستخدمين المميزين الذين سجلوا الدخول مرة واحدة على الأقل في آخر 30 يومًا."
+        "helper": "عدد المستخدمين الProين الذين سجلوا الدخول مرة واحدة على الأقل في آخر 30 يومًا."
       },
       "license_cost_per_month": {
         "label": "تكلفة الترخيص شهريًا",
@@ -64487,7 +64487,7 @@
       "fabric_type": {
         "label": "نوع القماش",
         "placeholder": "أدخل نوع القماش",
-        "helper": "أنواع الأقمشة المختلفة لها ملفات توليد نفايات وإمكانيات إعادة تدوير مميزة."
+        "helper": "أنواع الأقمشة المختلفة لها ملفات توليد نفايات وإمكانيات إعادة تدوير Pro."
       },
       "waste_percentage": {
         "label": "النسبة المئوية الحالية للنفايات (%)",
@@ -66169,7 +66169,7 @@
     "faqLabel": "faq-knowledge.txt",
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "حاسبات مجانية",
-    "premiumToolsLabel": "حاسبات مميزة",
+    "premiumToolsLabel": "حاسبات Pro",
     "industriesLabel": "مراكز القطاعات",
     "generatedToolsLabel": "حاسبات مُولَّدة"
   },
@@ -66238,7 +66238,7 @@
     "ctaOpen": "افتح الحاسبة",
     "ctaOpenSector": "افتح القطاع",
     "inputCount": "~{count} مدخلات",
-    "sectorToolCounts": "{free} مجاني · {premium} مميز",
+    "sectorToolCounts": "{free} مجاني · {premium} Pro",
     "resultsLabel": "عرض <strong>{count}</strong> حاسبة"
   },
   "disclaimer": {
@@ -66350,7 +66350,7 @@
       "body": "Calculator routes expose schema.org إجراءs and software application metadata.",
       "item1": "WebSite + Organization في الصفحات الأساسية",
       "item2": "احسبإجراء on calculator detail routes",
-      "item3": "تتضمن أدوات القرار المميزة بيانات وصفية لتقرير القرار عند الحاجة"
+      "item3": "تتضمن أدوات القرار الPro بيانات وصفية لتقرير القرار عند الحاجة"
     },
     "resources": {
       "title": "Public الموارد",
@@ -66480,7 +66480,7 @@
   "credits": {
     "eyebrow": "الاعتمادات",
     "title": "أرصدة SectorCalc",
-    "subtitle": "اشترِ أرصدة للمساعدة المميزة بالذكاء الاصطناعي واستخدام المحلل.",
+    "subtitle": "اشترِ أرصدة للمساعدة الPro بالذكاء الاصطناعي واستخدام المحلل.",
     "balanceLabel": "الاعتمادات",
     "loading": "جارٍ التحميل…",
     "packageLabel": "{credits} رصيد — ${price}",
@@ -66502,13 +66502,13 @@
     "eyebrow": "مراجعة الجودة",
     "title": "الحساب غير متاح مؤقتًا",
     "body": "هذه الآلة الحاسبة قيد مراجعة الجودة. تم تعطيل الحساب الكامل مؤقتًا لتجنب مخرجات غير موثوقة.",
-    "browsePremiumCta": "تصفح الأدوات المميزة الأخرى"
+    "browsePremiumCta": "تصفح الأدوات الPro الأخرى"
   },
   "runtimeTrust": {
     "eyebrow": "مراجعة الجودة",
     "title": "الآلة الحاسبة قيد مراجعة الجودة",
     "body": "اكتشف فحص جودة وقت التشغيل حالة قد تؤثر على المخرجات الموثوقة. تم تعطيل الحساب الكامل والدفع مؤقتًا لمنع نتائج غير موثوقة أو دفع غير صحيح.",
-    "browsePremiumCta": "تصفح الأدوات المميزة الأخرى"
+    "browsePremiumCta": "تصفح الأدوات الPro الأخرى"
   },
   "inputGuide": {
     "shape": {
@@ -67797,12 +67797,12 @@
       "content": "يوفر SectorCalc حاسبات صناعية وتجارية لأغراض إعلامية ودعم اتخاذ القرار. لا تشكل أدواتنا استشارة هندسية أو مالية أو قانونية مهنية. أنت وحدك المسؤول عن التحقق من أي نتائج قبل اتخاذ قرارات عمل."
     },
     "section2": {
-      "title": "2. الميزات المميزة والأرصدة",
-      "content": "تتطلب الأدوات المميزة أرصدة. الأرصدة غير قابلة للاسترداد وتنتهي صلاحيتها بعد 12 شهرًا من الشراء. يمكنك شراء حزم الأرصدة عبر مزود الدفع الآمن لدينا. لا تُرحَّل الأرصدة غير المستخدمة."
+      "title": "2. الميزات الPro والأرصدة",
+      "content": "تتطلب الأدوات الPro أرصدة. الأرصدة غير قابلة للاسترداد وتنتهي صلاحيتها بعد 12 شهرًا من الشراء. يمكنك شراء حزم الأرصدة عبر مزود الدفع الآمن لدينا. لا تُرحَّل الأرصدة غير المستخدمة."
     },
     "section3": {
       "title": "3. حسابات المستخدمين",
-      "content": "يجب إنشاء حساب للوصول إلى الميزات المميزة. أنت مسؤول عن الحفاظ على سرية بيانات تسجيل الدخول وعن جميع الأنشطة التي تتم عبر حسابك."
+      "content": "يجب إنشاء حساب للوصول إلى الميزات الPro. أنت مسؤول عن الحفاظ على سرية بيانات تسجيل الدخول وعن جميع الأنشطة التي تتم عبر حسابك."
     },
     "section4": {
       "title": "4. الملكية الفكرية",
@@ -67878,11 +67878,11 @@
     "intro": "نريدك أن تكون راضيًا عن مشترياتك. يرجى قراءة سياسة الاسترداد هذه بعناية.",
     "section1": {
       "title": "1. الأرصدة والاشتراكات",
-      "content": "الأرصدة: مشتريات الأرصدة نهائية وغير قابلة للاسترداد. تنتهي صلاحية الأرصدة غير المستخدمة بعد 12 شهرًا من الشراء. لن يُصدر أي استرداد نقدي للأرصدة غير المستخدمة. الاشتراكات: إذا اشتريت اشتراكًا متكررًا، يمكنك طلب استرداد كامل خلال 14 يومًا من أول دفعة، بشرط ألا تكون قد استخدمت أي أداة مميزة خلال تلك الفترة. بعد 14 يومًا أو بعد أول استخدام، لا تُسترد رسوم الاشتراك."
+      "content": "الأرصدة: مشتريات الأرصدة نهائية وغير قابلة للاسترداد. تنتهي صلاحية الأرصدة غير المستخدمة بعد 12 شهرًا من الشراء. لن يُصدر أي استرداد نقدي للأرصدة غير المستخدمة. الاشتراكات: إذا اشتريت اشتراكًا متكررًا، يمكنك طلب استرداد كامل خلال 14 يومًا من أول دفعة، بشرط ألا تكون قد استخدمت أي أداة Pro خلال تلك الفترة. بعد 14 يومًا أو بعد أول استخدام، لا تُسترد رسوم الاشتراك."
     },
     "section2": {
       "title": "2. أدوات معيبة أو غير صحيحة",
-      "content": "إذا أنتجت أداة مميزة نتائج خاطئة بشكل واضح بسبب خطأ في نظامنا، فسنسترد الأرصدة المستخدمة لذلك الحساب (حتى عدد الأرصدة المُنفقة) أو نوفر أرصدة بديلة. يرجى الإبلاغ عن المشكلة مع لقطات الشاشة والتفاصيل إلى info@sectorcalc.com."
+      "content": "إذا أنتجت أداة Pro نتائج خاطئة بشكل واضح بسبب خطأ في نظامنا، فسنسترد الأرصدة المستخدمة لذلك الحساب (حتى عدد الأرصدة المُنفقة) أو نوفر أرصدة بديلة. يرجى الإبلاغ عن المشكلة مع لقطات الشاشة والتفاصيل إلى info@sectorcalc.com."
     },
     "section3": {
       "title": "3. كيفية طلب الاسترداد",
@@ -67904,10 +67904,10 @@
   "creditsPricing": {
     "meta": {
       "title": "الأسعار – أرصدة SectorCalc",
-      "description": "اشترِ أرصدة لفتح الحاسبات الصناعية المميزة. تبدأ الخطط من 1.99 دولار."
+      "description": "اشترِ أرصدة لفتح الحاسبات الصناعية الPro. تبدأ الخطط من 1.99 دولار."
     },
     "title": "اختر أرصدتك",
-    "subtitle": "رصيد واحد يفتح حسابًا مميزًا واحدًا. تنتهي صلاحية الأرصدة بعد 12 شهرًا من الشراء.",
+    "subtitle": "رصيد واحد يفتح حسابًا Proًا واحدًا. تنتهي صلاحية الأرصدة بعد 12 شهرًا من الشراء.",
     "creditsLabel": "{count} رصيد",
     "perCredit": "/ رصيد",
     "buyNow": "شراء أرصدة",
@@ -67922,7 +67922,7 @@
   },
   "verify": {
     "metaTitle": "التحقق من تقرير الحساب — SectorCalc Trust Trace",
-    "metaDescription": "التحقق التشفيري من تقرير حساب مميز من SectorCalc. تحقق من الأصالة والسلامة وحالة الإصدار.",
+    "metaDescription": "التحقق التشفيري من تقرير حساب Pro من SectorCalc. تحقق من الأصالة والسلامة وحالة الإصدار.",
     "eyebrow": "ترست تريس",
     "title": "التحقق التشفيري",
     "description": "التحقق من أصالة وسلامة تقرير الحساب عبر تجزئة SHA-256 مقابل سجل SectorCalc المعتمد.",
@@ -67932,7 +67932,7 @@
     "revokedBadge": "تم إلغاء التقرير",
     "verifiedMessage": "تم التحقق من هذا التقرير تشفيريًا بواسطة نظام Trust Trace من SectorCalc. سجل الحساب أصلي ولم يتم العبث به.",
     "notFoundMessage": "لم يتم العثور على تقرير معتمد مطابق في سجل SectorCalc.",
-    "notFoundHelp": "لم يتم ربط هذا التجزئة بعد بحساب تم التحقق منه. يتم تسجيل التقارير في وقت تصدير الحساب المميز. إذا قمت بمسح رمز QR من تقرير صالح، يرجى التأكد من التقاط التجزئة بأكملها بشكل صحيح.",
+    "notFoundHelp": "لم يتم ربط هذا التجزئة بعد بحساب تم التحقق منه. يتم تسجيل التقارير في وقت تصدير الحساب الPro. إذا قمت بمسح رمز QR من تقرير صالح، يرجى التأكد من التقاط التجزئة بأكملها بشكل صحيح.",
     "notFoundHash": "التجزئة: {hash}",
     "revokedMessage": "تم إلغاء هذا التقرير.",
     "revokedHelp": "لم يعد التقرير الملغي يعتبر صالحًا. اتصل بالمصدر للحصول على تقرير محدث.",
@@ -67976,7 +67976,7 @@
     "calcSummary": "ملخص الحساب",
     "issued": "تاريخ الإصدار",
     "summaryDisclaimer": "محاكاة فنية. ليست نصيحة مالية أو قانونية أو هندسية. إخلاء مسؤولية الإصدار {version}.",
-    "premiumSummary": "ملخص القرار المميز",
+    "premiumSummary": "ملخص القرار الPro",
     "saveSummary": "حفظ ملخص القرار",
     "saveSummaryDesc": "احفظ هذا الحساب مع المدخلات والنتائج لسجلاتك.",
     "upgradeToSave": "قم بالترقية إلى Pro لحفظ ملخصات الحساب التفصيلية.",
@@ -68205,7 +68205,7 @@
     "sectionWhatTitle": "ماذا نفعل",
     "sectionWhatBody": "نحول آلام القطاع إلى سير عمل حسابية منظمة: قياس المدخلات، كشف الخسائر المخفية، اقتراح إجراء، وإرفاق ملخص حسابي بالنتائج.",
     "sectionWhatBullet1": "فحوصات مجانية لإشارات كشف سريعة",
-    "sectionWhatBullet2": "محللات مميزة لمخرجات من درجة الحكم",
+    "sectionWhatBullet2": "محللات Pro لمخرجات من درجة الحكم",
     "sectionWhatBullet3": "تقارير قرار جاهزة للتصدير مع بيانات وصفية للتحقق",
     "sectionForWhomTitle": "لمن هذا",
     "sectionForWhomBody": "ورش اللحام، ورش CNC، مقاولو التكييف، مشغلو التنظيف، المطاعم، بائعو التجارة الإلكترونية، وغيرهم من مشغلي القطاع الذين يقدمون عروض أسعار أو يخططون بهوامش ضيقة.",
@@ -68235,7 +68235,7 @@
     "sectionTrustBullet1": "قائمة المدخلات الأساسية مع المفاتيح المرفوضة",
     "sectionTrustBullet2": "ملخصات ما قبل الحساب من العقل 2 وما بعد الحساب من العقل 1",
     "sectionTrustBullet3": "حمولة تصدير لملخصات قرارات PDF (طبقة البيانات)",
-    "sectionTrustBullet4": "بيانات وصفية للحوكمة للنتائج المميزة المحفوظة",
+    "sectionTrustBullet4": "بيانات وصفية للحوكمة للنتائج الPro المحفوظة",
     "sectionResponsibilityTitle": "حدود المسؤولية",
     "sectionResponsibilityBody": "مخرجات SectorCalc هي محاكاة دعم قرارات فنية تستند إلى مدخلات المستخدم وافتراضات موثقة. وهي ليست استشارات قانونية أو مالية أو ضريبية أو هندسية. تحقق من جميع المخرجات قبل تقديم العروض أو العقود أو الالتزامات التشغيلية.",
     "sectionResponsibilityBullet1": "كل نتيجة تعتمد على المدخلات التي يقدمها المستخدم",
@@ -68510,7 +68510,7 @@
     "relatedGuides": "الأدلة ذات الصلة",
     "seoHubIndex": "فهرس مركز تحسين محركات البحث (SEO)",
     "relatedFreeCalculators": "الحاسبات المجانية ذات الصلة",
-    "relatedPremiumCalculators": "الحاسبات المميزة ذات الصلة",
+    "relatedPremiumCalculators": "حاسبات Pro ذات الصلة",
     "exploreFurther": "استكشف المزيد",
     "breadcrumbHome": "الرئيسية",
     "breadcrumbGuides": "أدلة",
@@ -68520,17 +68520,17 @@
     "allIndustries": "جميع الصناعات",
     "pricing": "التسعير",
     "startFree": "ابدأ بالحاسبات المجانية",
-    "viewPremium": "عرض الحاسبات المميزة",
+    "viewPremium": "عرض حاسبات Pro",
     "legalFooter": "أدلة SectorCalc هي موارد دعم قرارات تقنية تستند إلى صيغ قياسية وافتراضات شفافة. إنها ليست استشارات مالية أو قانونية أو طبية أو هندسية."
   },
   "howItWorks": {
     "meta": {
       "title": "كيف يعمل — المنهجية والقيود",
-      "description": "كيفية عمل فحوصات الهامش المجانية من SectorCalc وتقارير الأحكام المميزة: المدخلات، إشارات المخاطر، منطق السعر الآمن، القيود، الخصوصية وإخلاء المسؤولية."
+      "description": "كيفية عمل فحوصات الهامش المجانية من SectorCalc وتقارير الأحكام الPro: المدخلات، إشارات المخاطر، منطق السعر الآمن، القيود، الخصوصية وإخلاء المسؤولية."
     },
     "eyebrow": "كيف يعمل",
     "title": "المنهجية والمخرجات والقيود",
-    "lead": "SectorCalc هي منصة قياس واتخاذ قرارات خاصة بكل قطاع. الفحوصات المجانية تبني الثقة؛ الأحكام المميزة توفر طبقة القرار التي يحتاجها المشغلون قبل تقديم العروض.",
+    "lead": "SectorCalc هي منصة قياس واتخاذ قرارات خاصة بكل قطاع. الفحوصات المجانية تبني الثقة؛ الأحكام الPro توفر طبقة القرار التي يحتاجها المشغلون قبل تقديم العروض.",
     "privacyNote": "الفحوصات المجانية تعمل دون إعداد نظام تخطيط موارد المؤسسات (ERP). لا يتم بيع بيانات الأعمال.",
     "sections": [
       {
@@ -68545,9 +68545,9 @@
         ]
       },
       {
-        "id": "حكم مميز",
-        "title": "ما يضيفه الحكم المميز",
-        "body": "المحللات المميزة تستخدم مجموعات مدخلات موسعة (عادة 5–9 حقول) لإنتاج حكم قرار: الحد الأدنى للسعر الآمن عند الاقتضاء، محركات تسرب الهامش، مقارنة السيناريوهات وإجراء مقترح (قبول، إعادة تسعير، إعادة تفاوض أو عدم القبول). يمكن للمشتركين حفظ التقارير وتصدير نسخ PDF.",
+        "id": "حكم Pro",
+        "title": "ما يضيفه الحكم الPro",
+        "body": "المحللات الPro تستخدم مجموعات مدخلات موسعة (عادة 5–9 حقول) لإنتاج حكم قرار: الحد الأدنى للسعر الآمن عند الاقتضاء، محركات تسرب الهامش، مقارنة السيناريوهات وإجراء مقترح (قبول، إعادة تسعير، إعادة تفاوض أو عدم القبول). يمكن للمشتركين حفظ التقارير وتصدير نسخ PDF.",
         "bullets": [
           "الحد الأدنى للسعر الآمن أو أرضية العرض",
           "تحليل تسرب الهامش",
@@ -68558,7 +68558,7 @@
       {
         "id": "المدخلات",
         "title": "المدخلات المستخدمة",
-        "body": "كل حزمة قطاع تحدد حقول مدخلات مُتحقق منها — وقت الآلة، العمالة، المواد، أهداف الهامش، أيام التأخير ومتغيرات تشغيلية مماثلة. التسميات والنص المساعد يشرح ما ينتمي لكل حقل. قد تتطلب المحللات المميزة حقولًا إضافية غير معروضة في الطبقة المجانية.",
+        "body": "كل حزمة قطاع تحدد حقول مدخلات مُتحقق منها — وقت الآلة، العمالة، المواد، أهداف الهامش، أيام التأخير ومتغيرات تشغيلية مماثلة. التسميات والنص المساعد يشرح ما ينتمي لكل حقل. قد تتطلب المحللات الPro حقولًا إضافية غير معروضة في الطبقة المجانية.",
         "bullets": [
           "مجموعات حقول خاصة بكل قطاع لكل أداة",
           "تسميات مرئية ونص مساعد",
@@ -68572,7 +68572,7 @@
         "body": "مستويات المخاطر تجمع بين نسب المدخلات، عتبات القطاع وأهداف الهامش المكونة لكل حزمة صناعة. المخاطر العالية تعني أن العرض أو التغيير قد يؤدي إلى تآكل الهامش في ظل الافتراضات المذكورة — ليس ضمانًا للخسارة، بل إشارة لإعادة التسعير أو تقليل النطاق قبل الالتزام.",
         "bullets": [
           "منخفض / متوسط / مرتفع مرئي في الطبقة المجانية",
-          "المميز يضيف تسميات الأحكام ومحركات التسرب",
+          "الPro يضيف تسميات الأحكام ومحركات التسرب",
           "المخاطر هي نص + مستوى — وليس لونًا فقط",
           "الإشارات هي دعم قرار، وليست تدقيقًا معتمدًا"
         ]
@@ -68617,7 +68617,7 @@
         "bullets": []
       }
     ],
-    "compareTitle": "نظرة سريعة على المجاني مقابل المميز",
+    "compareTitle": "نظرة سريعة على المجاني مقابل الPro",
     "freeTitle": "فحص مجاني",
     "freeItems": [
       "مستوى المخاطر المرئي والملخص",
@@ -68625,7 +68625,7 @@
       "لا تصدير PDF",
       "لا يوجد سعر آمن أدنى"
     ],
-    "premiumTitle": "الحكم المميز",
+    "premiumTitle": "الحكم الPro",
     "premiumItems": [
       "مدخلات الحاسبة الكاملة",
       "تسمية الحكم والإجراء المقترح",
@@ -68643,18 +68643,18 @@
       "description": "تسجيل الدخول إلى SectorCalc — لوحة الإدارة أو الوصول إلى SectorCalc Pro."
     },
     "title": "تسجيل الدخول",
-    "subtitle": "تسجيل دخول المشرف للوحة العملاء المحتملين، أو تسجيل الدخول عبر Google أدناه عند العودة من الأدوات المميزة أو الأسعار."
+    "subtitle": "تسجيل دخول المشرف للوحة العملاء المحتملين، أو تسجيل الدخول عبر Google أدناه عند العودة من الأدوات الPro أو الأسعار."
   },
   "accountPage": {
     "meta": {
       "title": "الحساب",
-      "description": "إدارة وصولك إلى SectorCalc Pro وأدوات القرار المميزة وتقارير الحكم المحفوظة."
+      "description": "إدارة وصولك إلى SectorCalc Pro وأدوات القرار الPro وتقارير الحكم المحفوظة."
     }
   },
   "accountCreditsPage": {
     "meta": {
       "title": "الرصيد",
-      "description": "شراء رصيد SectorCalc للمساعدة المميزة بالذكاء الاصطناعي واستخدام المحلل."
+      "description": "شراء رصيد SectorCalc للمساعدة الPro بالذكاء الاصطناعي واستخدام المحلل."
     }
   },
   "accountFeedbackPage": {
@@ -68666,13 +68666,13 @@
   "constructionBidMarginPage": {
     "meta": {
       "title": "هامش عطاء البناء — مخاطر أمر التغيير",
-      "description": "احمِ هامش مشروع البناء قبل توقيع أوامر التغيير. فحص عطاء مجاني وتقارير حكم مميزة لأمر التغيير."
+      "description": "احمِ هامش مشروع البناء قبل توقيع أوامر التغيير. فحص عطاء مجاني وتقارير حكم Pro لأمر التغيير."
     }
   },
   "cleaningContractMarginPage": {
     "meta": {
       "title": "هامش عقد التنظيف — محسّن العروض",
-      "description": "أوقف عقود التنظيف التي تخسر أموالاً كل شهر. فحص تكلفة مجاني وتقارير حكم العروض المميزة لتنظيف المكاتب."
+      "description": "أوقف عقود التنظيف التي تخسر أموالاً كل شهر. فحص تكلفة مجاني وتقارير حكم العروض الPro لتنظيف المكاتب."
     }
   },
   "cncQuoteRiskPage": {
@@ -68694,7 +68694,7 @@
       {
         "title": "دعم قرار إرشادي",
         "paragraphs": [
-          "الحاسبات ومعاينات التقارير المميزة على SectorCalc هي أدوات دعم قرار إرشادية.",
+          "الحاسبات ومعاينات التقارير الPro على SectorCalc هي أدوات دعم قرار إرشادية.",
           "صُممت لتنظيم التفكير — وليس لاعتماد العطاءات أو الهوامش أو السلامة أو الامتثال أو البيانات المالية."
         ]
       },
@@ -68758,7 +68758,7 @@
   "premiumSchemaPrintPage": {
     "meta": {
       "title": "{name} — طباعة التقرير | SectorCalc",
-      "description": "تقرير قرار مميز جاهز للطباعة لـ {name}."
+      "description": "تقرير قرار Pro جاهز للطباعة لـ {name}."
     }
   },
   "industrialFieldPanel": {
@@ -68782,7 +68782,7 @@
     "saveToReports": "حفظ في تقاريري"
   },
   "toolPageShell": {
-    "premiumVerdicts": "الأحكام المميزة",
+    "premiumVerdicts": "الأحكام الPro",
     "freePreChecks": "الفحوصات الأولية المجانية",
     "marginLeakPreCheck": "فحص أولي لتسرب الهامش",
     "home": "الرئيسية",
@@ -68790,7 +68790,7 @@
     "assumptionsFallback": "راجع مدخلاتك مقابل العقود الحقيقية والفواتير والبيانات التشغيلية. مخرجات SectorCalc إرشادية ولا تحل محل المحاسبة المهنية أو المراجعة القانونية أو التقديرات المعتمدة.",
     "calcRegeneration": "إعادة توليد الآلة الحاسبة قيد التقدم. سيعيد فحص المخطط هذه الأداة.",
     "ctaUnlockTitle": "فتح جميع أدوات القرار",
-    "ctaUnlockSubtitle": "SectorCalc Pro يفتح أدوات القرار المميزة عبر جميع القطاعات — 19 دولارًا شهريًا، يمكنك الإلغاء في أي وقت.",
+    "ctaUnlockSubtitle": "SectorCalc Pro يفتح أدوات القرار الPro عبر جميع القطاعات — 19 دولارًا شهريًا، يمكنك الإلغاء في أي وقت.",
     "ctaContinueTitle": "استمر مع أدوات القطاع",
     "ctaContinueSubtitle": "قم بتشغيل فحص سريع آخر أو افتح أداة القرار عندما يؤثر الرقم على الهامش أو التسعير أو المخاطر.",
     "ctaViewPro": "عرض SectorCalc Pro",

@@ -78,7 +78,7 @@ export function matchTools(message: string): AssistantSuggestion[] {
 export function defaultNavigationSuggestions(): AssistantSuggestion[] {
   return [
     { slug: "free-tools", label: "Free Calculators", href: "/free-tools" },
-    { slug: "premium-tools", label: "Premium Calculators", href: "/premium-tools" },
+    { slug: "premium-tools", label: "Pro Calculators", href: "/pro-tools" },
     { slug: "pricing", label: "Pricing", href: "/pricing" },
   ];
 }

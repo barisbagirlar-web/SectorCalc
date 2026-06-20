@@ -152,7 +152,7 @@ export function CncStochasticPremiumPanel({
  </dl>
  </div>
  <Button
- href="/premium-tools"
+ href="/pro-tools"
  variant="secondary"
  size="sm"
  className="mt-3 w-full"

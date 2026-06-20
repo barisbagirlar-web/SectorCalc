@@ -16,7 +16,7 @@ export type { TaxonomySectorCard };
 export type SectorTaxonomyGridVariant = CatalogGridVariant;
 
 type IndustriesTaxonomyGridProps = {
-  readonly basePath: "/industries" | "/free-tools" | "/premium-tools";
+  readonly basePath: "/industries" | "/free-tools" | "/pro-tools";
   readonly sectors: readonly TaxonomySectorCard[];
   readonly variant?: SectorTaxonomyGridVariant;
 };

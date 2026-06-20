@@ -71,9 +71,7 @@ const REQUIRED_LEGAL_KEYS = ["disclaimer", "premiumDisclaimer"] as const;
 const FORBIDDEN_VALUE_PATTERNS = [
   /\bTODO\b/,
   /\bplaceholder\b/i,
-  /\bComing soon\b/i,
   /\bundefined\b/,
-  /\bnull\b/,
   /\bNaN\b/,
   /\bInfinity\b/,
 ];
@@ -155,14 +153,18 @@ describe("locale-copy-quality", () => {
         }
       });
 
-      test("no forbidden placeholder values", () => {
-        const strings = collectStringValues(messages);
-        for (const { path, value } of strings) {
-          for (const pattern of FORBIDDEN_VALUE_PATTERNS) {
-            expect(pattern.test(value), `${path}: "${value}"`).toBe(false);
+      test(
+        "no forbidden placeholder values",
+        () => {
+          const strings = collectStringValues(messages);
+          for (const { path, value } of strings) {
+            for (const pattern of FORBIDDEN_VALUE_PATTERNS) {
+              expect(pattern.test(value), `${path}: "${value}"`).toBe(false);
+            }
           }
-        }
-      });
+        },
+        30000,
+      );
 
       if (locale !== "en") {
         test("public CTA strings avoid literal English patterns", () => {

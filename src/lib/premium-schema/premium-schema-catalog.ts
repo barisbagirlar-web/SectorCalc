@@ -399,7 +399,7 @@ export function buildCategoryPageCatalogGroups(
 export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
   const trimmed = legacyOrSchemaSlug.trim();
   if (!trimmed) {
-    return "/premium-tools";
+    return "/pro-tools";
   }
 
   const schemaFromRegistry = getPremiumCalculatorSchema(trimmed);
@@ -416,7 +416,7 @@ export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
     return resolvePremiumToolHref(trimmed);
   }
 
-  return "/premium-tools";
+  return "/pro-tools";
 }
 
 export function containsForbiddenPublicCatalogTerm(value: string): boolean {

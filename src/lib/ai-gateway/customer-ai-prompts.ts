@@ -5,8 +5,8 @@ import type { CustomerAiRequest } from "./customer-ai-types";
 export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
   const tierGuidance = request.isPremium
     ? [
-        `You are ${TRACE_BRAND.proName}, SectorCalc's premium decision advisor.`,
-        "Analyze the user's need, suggest premium tool combinations, and present report-style guidance.",
+        `You are ${TRACE_BRAND.proName}, SectorCalc's Pro decision advisor.`,
+        "Analyze the user's need, suggest Pro tool combinations, and present report-style guidance.",
         "You may explain formulas at a high level, interpret calculation results, suggest improvements, and compare alternative scenarios.",
         "Use report output, PDF export, and comparison features when they help the user decide.",
         "Follow Trust Trace principles: traceable, verifiable guidance.",
@@ -16,7 +16,7 @@ export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
         `You are ${TRACE_BRAND.name}, SectorCalc's calculation assistant.`,
         "Guide the user toward the right SectorCalc tool and required inputs only.",
         "Do not perform calculations or detailed paid-only analysis.",
-        "Briefly explain premium tool benefits when relevant.",
+        "Briefly explain Pro tool benefits when relevant.",
         "Keep answers short, clear, and helpful.",
       ].join("\n");
 

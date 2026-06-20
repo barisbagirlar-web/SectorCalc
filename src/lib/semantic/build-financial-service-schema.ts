@@ -93,7 +93,7 @@ export function buildPlatformFinancialServiceSchema(locale: string): JsonLdRecor
     name: "SectorCalc financial calculators",
     description:
       "Sector-specific pricing, margin, personnel, and decision-support calculators covering cost estimation, break-even analysis, margin analysis, cash flow forecasting, working capital assessment, ROI calculation, and financial ratio analysis across 17 industry categories.",
-    url: absoluteLocalizedUrl(locale, "/premium-tools"),
+    url: absoluteLocalizedUrl(locale, "/pro-tools"),
     provider: {
       "@type": "Organization",
       name: "SectorCalc",
@@ -103,7 +103,7 @@ export function buildPlatformFinancialServiceSchema(locale: string): JsonLdRecor
     serviceType: PLATFORM_FINANCIAL_SERVICE_TYPES,
     feesAndCommissionsSpecification: "Free calculators: no cost. Premium decision reports: available via Pro subscription ($19/mo) or single report purchase ($9/report).",
     termsOfService: `${SITE_URL}/terms`,
-    knowsAbout: `${SITE_URL}/premium-tools`,
+    knowsAbout: `${SITE_URL}/pro-tools`,
   }) as JsonLdRecord;
 }
 

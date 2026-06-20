@@ -29,6 +29,6 @@ describe("locale rewrite exclude", () => {
 
   test("normal marketing paths still rewrite to /en", () => {
     expect(isCatchAllRewriteTarget("/free-tools")).toBe(true);
-    expect(isCatchAllRewriteTarget("/premium-tools/lean-production")).toBe(true);
+    expect(isCatchAllRewriteTarget("/pro-tools/lean-production")).toBe(true);
   });
 });

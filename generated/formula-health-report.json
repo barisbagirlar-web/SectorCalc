@@ -1,27 +1,33 @@
 {
-  "timestamp": "2026-06-19T22:30:44.264Z",
-  "overall": "HEALTHY",
+  "timestamp": "2026-06-20T14:04:21.742Z",
+  "overall": "CRITICAL",
   "totalSchemas": 3272,
   "healthy": 2,
   "degraded": 0,
-  "critical": 0,
+  "critical": 1,
   "alerts": [
     {
-      "timestamp": "2026-06-19T22:30:44.263Z",
+      "timestamp": "2026-06-20T14:04:21.742Z",
       "severity": "CLEAR",
       "message": "CI Gate PASSED — all quality checks OK",
       "details": []
     },
     {
-      "timestamp": "2026-06-19T22:30:44.263Z",
+      "timestamp": "2026-06-20T14:04:21.742Z",
       "severity": "CLEAR",
       "message": "Zero formula constraint errors",
+      "details": []
+    },
+    {
+      "timestamp": "2026-06-20T14:04:21.742Z",
+      "severity": "CRITICAL",
+      "message": "1162 golden test issue(s) — check generated/golden-test-report.json",
       "details": []
     }
   ],
   "constraintErrors": [],
   "quarantineCount": 0,
-  "steelcorePassRate": 0.9993887530562348,
-  "goldenTestIssueCount": 0,
+  "steelcorePassRate": 1,
+  "goldenTestIssueCount": 1162,
   "lastCiGatePassed": true
 }

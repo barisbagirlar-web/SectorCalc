@@ -135,4 +135,4 @@ export const PRICING_ROI_COPY = "One avoided bad quote can pay for a full year o
 export const PRICING_PAGE_H1 = "Choose how you protect your margin.";
 
 export { sectorCalcProPricing } from "@/lib/pricing/sectorcalc-pro";
-export const PRICING_PRO_TAGLINE = "Premium verdict analyzers turn free risk signals into minimum safe prices.";
+export const PRICING_PRO_TAGLINE = "Pro verdict analyzers turn free risk signals into minimum safe prices.";

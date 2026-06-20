@@ -397,7 +397,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/generated/restaurant-menu-margin-leak", label: "Restaurant Menu Margin Calculator" },
     ],
     industryLinks: [
-      { href: "/premium-tools", label: "All Premium Calculators" },
+      { href: "/pro-tools", label: "All Premium Calculators" },
       { href: "/pricing", label: "Pricing" },
     ],
     faq: [

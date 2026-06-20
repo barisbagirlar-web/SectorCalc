@@ -26,9 +26,9 @@ describe("nav-active", () => {
   });
 
   test("premium tools active on premium catalog and premium tool pages", () => {
-    expect(isNavLinkActive("/premium-tools", "/premium-tools")).toBe(true);
-    expect(isNavLinkActive("/tr/premium-tools", "/premium-tools")).toBe(true);
-    expect(isNavLinkActive("/tools/premium-schema/margin-leak", "/premium-tools")).toBe(true);
-    expect(isNavLinkActive("/free-tools", "/premium-tools")).toBe(false);
+    expect(isNavLinkActive("/pro-tools", "/pro-tools")).toBe(true);
+    expect(isNavLinkActive("/tr/pro-tools", "/pro-tools")).toBe(true);
+    expect(isNavLinkActive("/tools/premium-schema/margin-leak", "/pro-tools")).toBe(true);
+    expect(isNavLinkActive("/free-tools", "/pro-tools")).toBe(false);
   });
 });

@@ -140,12 +140,52 @@ function main() {
     }
   }
 
+  // ── MISSING KEY CHECK: en.json anahtarlarının tüm dillerde var olduğunu doğrula ──
+  const flattenKeys = (obj, prefix = "") => {
+    let keys = [];
+    for (const [key, value] of Object.entries(obj)) {
+      const newKey = prefix ? `${prefix}.${key}` : key;
+      if (value && typeof value === "object" && !Array.isArray(value)) {
+        keys = keys.concat(flattenKeys(value, newKey));
+      } else {
+        keys.push(newKey);
+      }
+    }
+    return keys;
+  };
+
+  const enKeysSet = new Set(flattenKeys(en));
+  let missingKeyCount = 0;
+
+  for (const locale of locales) {
+    const localeData = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8"));
+    const localeKeys = new Set(flattenKeys(localeData));
+
+    for (const key of enKeysSet) {
+      if (!localeKeys.has(key)) {
+        console.log(`${RED}  MISSING KEY${RESET} [${locale.toUpperCase()}] ${key}`);
+        missingKeyCount++;
+      }
+    }
+  }
+
   console.log(`\n${BOLD}═══ RESULT ═══${RESET}`);
-  if (totalLeaks === 0) {
-    console.log(`${GREEN}✓ ZERO leaks — BUILD PASS${RESET}\n`);
+  let hasFailure = false;
+
+  if (totalLeaks > 0) {
+    console.log(`${RED}✗ ${totalLeaks} English leak(s) found${RESET}`);
+    hasFailure = true;
+  }
+  if (missingKeyCount > 0) {
+    console.log(`${RED}✗ ${missingKeyCount} missing key(s) across locales${RESET}`);
+    hasFailure = true;
+  }
+
+  if (!hasFailure) {
+    console.log(`${GREEN}✓ ZERO leaks and ZERO missing keys — BUILD PASS${RESET}\n`);
     process.exit(0);
   } else {
-    console.log(`${RED}✗ ${totalLeaks} leak(s) found — BUILD FAILED${RESET}`);
+    console.log(`${RED}✗ i18n integrity check FAILED${RESET}`);
     console.log(`${YELLOW}  Run: npm run i18n:fix${RESET}`);
     console.log(`${YELLOW}  Or:  node scripts/i18n-auto-fix.mjs${RESET}\n`);
     process.exit(1);

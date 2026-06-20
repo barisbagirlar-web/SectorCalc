@@ -22,7 +22,7 @@ const ENGLISH_REPLY: Record<AssistantTopic, string> = {
   explainTool: "That tool turns your job inputs into a clear verdict with the risk drivers behind it.",
   inputs: "You enter the core costs, quantities, and rates for your job. Required fields are minimal; optional fields sharpen the result.",
   results: "The result is a verdict with the metrics and risk drivers behind it, so you can see why it lands where it does.",
-  approvedReports: "Premium results can be saved as exportable decision summaries your team can review internally.",
+  approvedReports: "Pro results can be saved as exportable decision summaries your team can review internally.",
   trustTrace: "Calculation Summary records inputs, assumptions, and validation steps so you can see how the result was derived.",
   regionalUnits: "SectorCalc supports metric, imperial, and regional units, and shows the conversions it used.",
   benchmarks: "SectorCalc shows indicative regional benchmark context next to your result, not official figures.",

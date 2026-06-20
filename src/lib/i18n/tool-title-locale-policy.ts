@@ -6,24 +6,30 @@ export type ToolTitleLocale = (typeof TOOL_TITLE_LOCALES)[number];
 const TOOL_TYPE_SUFFIX_EN =
   /\b(calculator|converter|optimizer|analyz(?:er|er)|estimator|checker|verdict|simulator|predictor|assessment|detector|comparator|report|tracker|balancer|prioritizer|function|converter)\b/i;
 
-/** Locale-specific markers that a tool title is localized (not raw EN). */
+/**
+ * Locale-specific markers that a tool title is localized (not raw EN).
+ *
+ * Uses substring matching (no `\b`) to catch compound words like
+ * German "Kostenrechner" → `rechner`, Turkish "MaliyetHesaplayici" → `maliyet`.
+ * False-positive risk is negligible in calculator tool titles.
+ */
 export const TOOL_TITLE_LOCALE_MARKERS: Record<ToolTitleLocale, readonly RegExp[]> = {
   en: [/[A-Za-z]/],
   tr: [
     /[çğıöşüÇĞİÖŞÜ]/,
-    /\b(hesap|hesapla|hesaplay|hesaplama|dönüştür|analiz|optimiz|dengeley|karşılaştır|tahmin|simül|kontrol|değerlendir|tespit|izleme|rapor|maliyet|oran|aracı|hesaplayıcı|dönüştürücü|dengeleyici|optimize|teklif|temizlik|kimyasal|denklem)\b/i,
+    /(hesap|hesapla|hesaplay|hesaplama|dönüştür|analiz|optimiz|dengeley|karşılaştır|tahmin|simül|kontrol|değerlendir|tespit|izleme|rapor|maliyet|oran|aracı|hesaplayıcı|dönüştürücü|dengeleyici|optimize|teklif|temizlik|kimyasal|denklem)/i,
   ],
   de: [
     /[äöüßÄÖÜ]/,
-    /\b(rechner|umrechner|analys|optimier|vergleichs?|simulator|schätz|prüf|bewert|detektor|bericht|tracker|kosten|berechn|gleichung|ausgleich|engpass|verlust|prioris|reinigung|angebot|ernte|manuelle|arbeit|cobot|leasing|kauf)\b/i,
+    /(rechner|umrechner|analys|optimier|vergleichs?|simulator|schätz|prüf|bewert|detektor|bericht|tracker|kosten|berechn|gleichung|ausgleich|engpass|verlust|prioris|reinigung|angebot|ernte|manuelle|arbeit|cobot|leasing|kauf)/i,
   ],
   fr: [
     /[àâçéèêëîïôùûü]/i,
-    /\b(calculateur|convertisseur|analys|optimis|compar|simulateur|estimat|vérifi|équilibr|détect|coût|perte|matrice|devis|nettoyage|changement|cobot|travail|rendement|culture)\b/i,
+    /(calculateur|convertisseur|analys|optimis|compar|simulateur|estimat|vérifi|équilibr|détect|coût|perte|matrice|devis|nettoyage|changement|cobot|travail|rendement|culture)/i,
   ],
   es: [
     /[áéíóúñü]/i,
-    /\b(calculadora|convertidor|analis|optimiz|compar|simulador|estim|verific|equilib|detect|costo|pérdida|cumplimiento|presupuesto|limpieza|veredicto|cambio|matriz|cobot|trabajo|rendimiento|cultivo)\b/i,
+    /(calculadora|convertidor|analis|optimiz|compar|simulador|estim|verific|equilib|detect|costo|pérdida|cumplimiento|presupuesto|limpieza|veredicto|cambio|matriz|cobot|trabajo|rendimiento|cultivo)/i,
   ],
   ar: [/[\u0600-\u06FF]/],
 };

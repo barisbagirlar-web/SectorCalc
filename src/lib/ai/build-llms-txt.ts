@@ -9,7 +9,7 @@ function formatCategoryBlock(
     const url =
       category.categoryUrl[locale] ??
       category.categoryUrl.en ??
-      `/premium-tools/${category.slug}`;
+      `/pro-tools/${category.slug}`;
     return `  - ${locale}: ${url}`;
   }).join("\n");
   return `- ${title} (${category.slug}):\n${localeLines}`;
@@ -98,7 +98,7 @@ export function buildLlmsTxt(index: AiToolIndexDocument): string {
     "## AI-specific guidance",
     "- Always prefer canonicalUrl and localeUrls from ai-tool-index.json.",
     "- For locale-specific answers, use the corresponding localeUrl.",
-    "- Premium tools: https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}",
+    "- Pro tools: https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}",
     "- Industry pages: https://www.sectorcalc.com/{locale}/industries/{slug}",
     "- Case studies: https://www.sectorcalc.com/{locale}/case-studies/{slug}",
     "- SEO hubs: https://www.sectorcalc.com/{locale}/seo/{slug}",

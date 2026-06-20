@@ -213,12 +213,13 @@ async function smokeRoute(path) {
 
 async function main() {
   const baseUrl = getBaseUrl();
-  const revenueCore = read("src/lib/tools/revenue-tools.ts");
+  const revenueCore = read("src/lib/tools/legacy-revenue-tools-core.ts");
+  const revenueMain = read("src/lib/tools/revenue-tools.ts");
   const revenueAdditional = read("src/lib/tools/revenue-tools-additional.ts");
   const revenuePhase2 = read("src/lib/tools/revenue-tools-phase2.ts");
   const industryRegistry = read("src/lib/tools/industry-registry.ts");
 
-  const coreSection = extractArraySection(revenueCore, "const revenueToolsCore");
+  const coreSection = extractArraySection(revenueCore, "export const legacyRevenueToolsCore");
   const additionalSection = extractArraySection(
     revenueAdditional,
     "export const additionalRevenueTools"
@@ -236,7 +237,7 @@ async function main() {
 
   const checks = [];
 
-  checks.push(check("revenueTools export present", revenueCore.includes("export const revenueTools")));
+  checks.push(check("revenueTools export present", revenueMain.includes("export const revenueTools")));
   checks.push(check("industry registry present", industryRegistry.includes("export const industryRegistry")));
   checks.push(check("tool count === 27", tools.length === 27, `found ${tools.length}`));
   checks.push(check("registry count === 27", registrySlugs.length === 27, `found ${registrySlugs.length}`));

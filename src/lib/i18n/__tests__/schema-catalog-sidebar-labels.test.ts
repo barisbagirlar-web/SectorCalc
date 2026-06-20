@@ -35,10 +35,12 @@ describe("all-tools-data locale labels", () => {
   it("localizes free-tool categories outside Turkish", () => {
     const enTools = getFreeTools("en");
     const trTools = getFreeTools("tr");
-    const enFinance = enTools.find((tool) => tool.categoryKey === "vergi-finansal-raporlama");
-    const trFinance = trTools.find((tool) => tool.categoryKey === "vergi-finansal-raporlama");
 
-    expect(enFinance?.category).toBe("Tax & Financial Reporting");
-    expect(trFinance?.category).toBe("Vergi & Finansal Raporlama");
+    // Find a category present in both EN and TR data with different labels
+    const enFinance = enTools.find((tool) => tool.categoryKey === "finance-sales-working-capital");
+    const trFinance = trTools.find((tool) => tool.categoryKey === "finance-sales-working-capital");
+
+    expect(enFinance?.category).toBe("Finance, Sales & Working Capital");
+    expect(trFinance?.category).toBe("Finans, Satış ve İşletme Sermayesi");
   });
 });

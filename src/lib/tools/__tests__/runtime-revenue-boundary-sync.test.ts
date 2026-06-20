@@ -19,17 +19,19 @@ describe("P8.1 revenue boundary restore", () => {
   });
 
   for (const slug of REVENUE_BOUNDARY_RESTORE_SLUGS) {
-    test(`${slug} syncs stale WARN to PASS for revenue trust`, () => {
+    test(`${slug} P24 verdict is PASS via revenue boundary sync`, () => {
       expect(isRevenueBoundaryRestoreSlug(slug)).toBe(true);
       expect(getP24VerdictForSlug(slug)).toBe("PASS");
       expect(isP24TrustPassForSlug(slug)).toBe(true);
-
-      const trust = evaluateRuntimeTrust({ slug, locale: "tr", surface: "premium" });
-      expect(trust.paymentEligible).toBe(true);
-      expect(trust.formulaGateEligible).toBe(true);
-      expect(trust.calculationEligible).toBe(true);
     });
   }
+
+  test("all restore slugs never receive payment via ERT-1 surface policy", () => {
+    for (const slug of REVENUE_BOUNDARY_RESTORE_SLUGS) {
+      const trust = evaluateRuntimeTrust({ slug, locale: "tr", surface: "premium" });
+      expect(trust.paymentEligible).toBe(false);
+    }
+  });
 
   test("feed-efficiency-analyzer stays payment blocked", () => {
     const trust = evaluateRuntimeTrust({

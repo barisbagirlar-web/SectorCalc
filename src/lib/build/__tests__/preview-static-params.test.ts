@@ -23,9 +23,9 @@ describe("shouldUsePreviewStaticParams", () => {
     clearEnv();
   });
 
-  test("returns false for local full builds by default", () => {
+  test("returns true for local full builds by default (Firebase-safe preview default)", () => {
     clearEnv();
-    expect(shouldUsePreviewStaticParams()).toBe(false);
+    expect(shouldUsePreviewStaticParams()).toBe(true);
   });
 
   test("returns true on Vercel when build limit flag is set", () => {

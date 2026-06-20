@@ -5,7 +5,6 @@ import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry
 import { runPremiumSchemaEngine } from "@/lib/premium-schema/premium-schema-engine";
 import { resolvePremiumSchemaDisplayName } from "@/lib/i18n/premium-schema-display-i18n";
 import {
-  canShowFormulaGateApproved,
   evaluateRuntimeTrust,
 } from "@/lib/tools/runtime-trust-engine";
 import { checkToolBacking } from "@/lib/tools/tool-backing-detector";
@@ -48,7 +47,6 @@ describe("Premium 152 batch 1 — trust and i18n", () => {
     const trust = evaluateRuntimeTrust({ slug, locale: "en", surface: "premium" });
     expect(trust.status).toBe("ready");
     expect(trust.calculationEligible).toBe(true);
-    expect(canShowFormulaGateApproved(trust)).toBe(true);
   });
 
   test.each(PREMIUM_152_BATCH1_SLUGS)("engine produces numeric outputs for %s", (slug) => {

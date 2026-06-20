@@ -26,7 +26,7 @@ describe("seo authority signal JSON-LD", () => {
   test("about page emits Organization and Person graphs for all locales", () => {
     for (const locale of ["en", "tr", "de", "fr", "es", "ar"] as const) {
       const graphs = buildAboutPageAuthorityJsonLd(locale);
-      expect(graphs).toHaveLength(2);
+      expect(graphs).toHaveLength(3);
       expect(graphs[0]?.["@type"]).toBe("Organization");
       expect(graphs[1]?.["@type"]).toBe("Person");
       expect(graphs[1]?.jobTitle).toBeTruthy();

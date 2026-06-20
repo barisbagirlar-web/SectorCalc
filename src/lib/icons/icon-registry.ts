@@ -46,7 +46,7 @@ export type HeroIcon = ComponentType<SVGProps<SVGSVGElement>>;
 /** Platform / navigation */
 export const NAV_ICON_BY_HREF: Record<string, HeroIcon> = {
  "/free-tools": MagnifyingGlassCircleIcon,
- "/premium-tools": DocumentCheckIcon,
+ "/pro-tools": DocumentCheckIcon,
  "/industries": Squares2X2Icon,
  "/pricing": ReceiptPercentIcon,
  "/account/reports": ClipboardDocumentListIcon,

@@ -44,8 +44,8 @@ const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/tr",
   "/free-tools",
   "/tr/free-tools",
-  "/premium-tools",
-  "/tr/premium-tools",
+  "/pro-tools",
+  "/tr/pro-tools",
   "/categories",
   "/tr/categories",
   "/industries",
@@ -102,7 +102,7 @@ function mapManifestPriority(item: SitemapManifestItem): IndexableUrlPriority {
   if (
     item.path === "/" ||
     item.path === "/free-tools" ||
-    item.path === "/premium-tools" ||
+    item.path === "/pro-tools" ||
     item.path === "/categories" ||
     item.path === "/industries" ||
     item.path === "/pricing"

@@ -2373,7 +2373,7 @@ const CALCULATOR_LOADERS: Readonly<Record<string, CalculatorLoader>> = {
   "push-up-calculator": createLoader("push-up-calculator", "PASS"),
   "pyramid-surface-area-calculator": createLoader("pyramid-surface-area-calculator", "PASS"),
   "pyramid-volume-calculator": createLoader("pyramid-volume-calculator", "PASS"),
-  "pythagorean-theorem-calculator": createLoader("pythagorean-theorem-calculator", "WARN"),
+  "pythagorean-theorem-calculator": createLoader("pythagorean-theorem-calculator", "PASS"),
   "pythagorean-triple-generator-calculator": createLoader("pythagorean-triple-generator-calculator", "PASS"),
   "pythagorean-triples-calculator": createLoader("pythagorean-triples-calculator", "PASS"),
   "q-value-calculator": createLoader("q-value-calculator", "PASS"),

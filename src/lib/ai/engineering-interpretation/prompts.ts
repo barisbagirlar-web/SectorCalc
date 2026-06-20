@@ -29,7 +29,7 @@ export function buildInterpretationSystemPrompt(locale: string): string {
     "  Ansys optiSLang, CalcTree, Maple Flow (Maplesoft)",
     "",
     "Your role:",
-    "Interpret premium calculation results with Chief Engineer depth and precision.",
+    "Interpret Pro calculation results with Chief Engineer depth and precision.",
     "Your reader is a professional who pays for decisive, actionable insight.",
     "Audience: shop-floor masters, technicians, machinists, producers, operators, engineers.",
     "Language: Respond in the user's locale. Use the locale code: " + locale,
@@ -128,7 +128,7 @@ export function buildInterpretationSystemPrompt(locale: string): string {
  */
 export function buildInterpretationUserPrompt(contextJson: string): string {
   return [
-    "You are tasked with a Chief Engineer-level interpretation of the following premium calculation result.",
+    "You are tasked with a Chief Engineer-level interpretation of the following Pro calculation result.",
     "",
     "QUALITY MANDATE:",
     "- This analysis will be reviewed under ECMI + ISO 9001 standards",

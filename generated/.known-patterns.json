@@ -213,7 +213,7 @@
   "k-d-ratio-calculator": {
     "defect_rate": "Cross-domain contamination: Formula \"defect_rate\" (expected [quality, defect]) uses inputs from unexpected domain(s) [material]. Inputs: [defective_parts, total_inspected]",
     "quality_yield": "Cross-domain contamination: Formula \"quality_yield\" (expected [quality]) uses inputs from unexpected domain(s) [material]. Inputs: [accepted_parts, total_inspected]",
-    "rework_rate": "Cross-domain contamination: Formula \"rework_rate\" (expected [quality, waste]) uses inputs from unexpected domain(s) [material]. Inputs: [reworked_parts, total_inspected]"
+    "rework_rate": "Cross-domain contamination: Formula \"rework_rate\" (expected [quality]) uses inputs from unexpected domain(s) [material]. Inputs: [reworked_parts, total_inspected]"
   },
   "laser-calculator": {
     "effectivePower": "Cross-domain contamination: Formula \"effectivePower\" (expected [energy]) uses inputs from unexpected domain(s) [material]. Inputs: [laserPower, materialAbsorption]"

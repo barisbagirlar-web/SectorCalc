@@ -34,7 +34,7 @@ export async function IndustrialHome() {
               <Link href="/free-tools" className="sc-cta-primary">
                 Free calculators
               </Link>
-              <Link href="/premium-tools" className="sc-cta-secondary">
+              <Link href="/pro-tools" className="sc-cta-secondary">
                 Premium analyzers
               </Link>
             </div>

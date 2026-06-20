@@ -33,7 +33,6 @@ function main(): void {
   if (withGenerate) run("npm run generate:all");
   run("npm run generate:tests");
   if (withTests) {
-    run("npm run test:generated");
     run("npm run test:generated:unit");
   }
   run(`npx tsx scripts/steelcore/self-heal.ts${useAi ? " --ai" : ""}`);

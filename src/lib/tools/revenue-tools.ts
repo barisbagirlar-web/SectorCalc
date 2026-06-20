@@ -6,6 +6,7 @@ import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { getToolHref } from "@/lib/tools/paths";
 import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
+import { industrialFormulaTools } from "@/lib/tools/revenue-tools-industrial-formulas";
 import { legacyRevenueToolsCore } from "@/lib/tools/legacy-revenue-tools-core";
 import { revenueLegalDisclaimer } from "@/lib/tools/revenue-legal-disclaimer";
 import premiumSlugs from "../../../premium-slugs.json";
@@ -158,6 +159,7 @@ function buildRegeneratedPremiumSlugTool(slug: string): RevenueTool {
 const LEGACY_REVENUE_TOOLS: RevenueTool[] = [
   ...legacyRevenueToolsCore,
   ...additionalRevenueTools,
+  ...industrialFormulaTools,
 ];
 
 const LEGACY_PAID_SLUGS = new Set(LEGACY_REVENUE_TOOLS.map((tool) => tool.paidSlug));

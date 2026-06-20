@@ -1,9 +1,9 @@
 {
   "passed": true,
   "steelcore": {
-    "valid": 3270,
+    "valid": 3272,
     "total": 3272,
-    "passRate": 0.9993887530562348,
+    "passRate": 1,
     "threshold": 0.9,
     "ok": true
   },
@@ -19,7 +19,7 @@
     "passed": 3272,
     "total": 3272,
     "failed": 0,
-    "totalIssues": 0,
+    "totalIssues": 1162,
     "errorSlugs": [],
     "ok": true
   },
@@ -30,5 +30,11 @@
     "totalErrors": 0,
     "totalCrossDomainIssues": 163
   },
-  "message": "CI GATE PASSED — All quality checks passed"
+  "boundary": {
+    "passed": true,
+    "totalTests": 1,
+    "passedTests": 1,
+    "failedTests": 0
+  },
+  "message": "CI GATE PASSED — All quality checks passed (SteelCore + Semantic + Golden + FormulaGuard + Boundary)"
 }

@@ -26,7 +26,7 @@ export function EmptyReports({ hasPurchaseCredits = false }: EmptyReportsProps) 
  {hasPurchaseCredits ? t("bodyWithCredits") : t("body")}
  </p>
  <Link
- href={hasPurchaseCredits ? "/premium-tools" : "/free-tools"}
+ href={hasPurchaseCredits ? "/pro-tools" : "/free-tools"}
  className="inline-flex min-h-[44px] items-center rounded-sm bg-accent-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep-navy focus-visible:ring-offset-2"
  >
  {hasPurchaseCredits ? t("ctaPremium") : t("ctaFree")}

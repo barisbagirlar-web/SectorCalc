@@ -70,7 +70,7 @@ const STATIC_FILE_EXTENSION =
 
 export const LOCALE_LESS_PUBLIC_ROUTES = [
   "/free-tools",
-  "/premium-tools",
+  "/pro-tools",
   "/industries",
   "/pricing",
   "/calculator-library",

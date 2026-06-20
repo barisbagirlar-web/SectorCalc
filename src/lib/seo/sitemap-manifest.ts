@@ -114,7 +114,7 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/categories", "hub", 0.9, "weekly"),
     createItem("/free-tools", "hub", 0.9, "weekly"),
-    createItem("/premium-tools", "hub", 0.9, "weekly"),
+    createItem("/pro-tools", "hub", 0.9, "weekly"),
     createItem("/calculator-library", "hub", 0.85, "monthly"),
     createItem("/developer-showcase", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
@@ -124,7 +124,7 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
     ...listGlobalCategories().map((category) =>
-      createItem(`/premium-tools/${category.slug}`, "hub", 0.85, "weekly"),
+      createItem(`/pro-tools/${category.slug}`, "hub", 0.85, "weekly"),
     ),
   ];
 }
@@ -285,7 +285,7 @@ export function countAuthorityGuideSitemapEntries(): number {
 export const SITEMAP_STATIC_ROUTES = [
   "/",
   "/free-tools",
-  "/premium-tools",
+  "/pro-tools",
   "/categories",
   "/industries",
   "/pricing",

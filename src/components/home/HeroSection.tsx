@@ -33,7 +33,7 @@ export async function HeroSection({ searchEntries }: HeroSectionProps) {
               <Link href="/free-tools" className="sc-cta-primary">
                 {t("hero.ctaPrimary")}
               </Link>
-              <Link href="/premium-tools" className="sc-cta-secondary">
+              <Link href="/pro-tools" className="sc-cta-secondary">
                 {t("hero.ctaSecondary")}
               </Link>
             </div>

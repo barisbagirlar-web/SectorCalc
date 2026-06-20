@@ -35,11 +35,11 @@
   "leadIntent": {
     "closeDialog": "Cerrar diálogo",
     "closeButton": "Cerrar",
-    "tellUsDescription": "Cuéntenos qué necesita. El desbloqueo Premium y la exportación aún no están activos — registramos su intención para la próxima versión.",
+    "tellUsDescription": "Cuéntenos qué necesita. El desbloqueo Pro y la exportación aún no están activos — registramos su intención para la próxima versión.",
     "verdictUnlockDescription": "Ingrese su correo electrónico para recibir acceso de pago al veredicto completo de margen — precio seguro, desglose de pérdidas y acción recomendada.",
-    "paywallDescription": "El desbloqueo del informe premium se está reconstruyendo. Explore los precios o continúe con herramientas gratuitas hasta que las nuevas páginas de análisis estén activas.",
+    "paywallDescription": "El desbloqueo del informe Pro se está reconstruyendo. Explore los precios o continúe con herramientas gratuitas hasta que las nuevas páginas de análisis estén activas.",
     "viewPricing": "Ver precios",
-    "successMessage": "Gracias. Registramos su solicitud de informe. En la próxima versión, el desbloqueo y la exportación de informes premium estarán disponibles directamente en SectorCalc.",
+    "successMessage": "Gracias. Registramos su solicitud de informe. En la próxima versión, el desbloqueo y la exportación de informes Pro estarán disponibles directamente en SectorCalc.",
     "continueExploring": "Seguir explorando herramientas",
     "emailLabel": "Correo electrónico",
     "verdictEmailPlaceholder": "Enviar mi veredicto a este correo",
@@ -61,14 +61,14 @@
   },
   "nav": {
     "freeCalculators": "Calculadoras gratuitas",
-    "premiumCalculators": "Calculadoras premium",
+    "premiumCalculators": "Calculadoras Pro",
     "industryCalculators": "Calculadoras por industria",
     "calculators": "Calculadoras",
     "caseStudies": "Casos de estudio",
     "resources": "Recursos",
     "signUp": "Registrarse",
     "tools": "Controles gratuitos",
-    "premiumVerdicts": "Veredictos premium",
+    "premiumVerdicts": "Veredictos Pro",
     "industries": "Calculadoras por industria",
     "byFunction": "Por función",
     "categories": "Categorías",
@@ -78,14 +78,14 @@
     "getPro": "OBTENER PRO",
     "account": "Cuenta",
     "auditEngine": "Herramientas",
-    "premiumLayer": "Premium",
+    "premiumLayer": "Pro",
     "myReports": "Informes",
     "settings": "Cuenta",
     "audit": "Auditoría",
     "premiumNav": "Inteligencia",
     "archive": "Archivo",
     "freeTools": "Controles gratis",
-    "premiumTools": "Veredictos premium",
+    "premiumTools": "Veredictos Pro",
     "unlockPro": "Desbloquear Pro",
     "runFreeCheck": "Control gratis"
   },
@@ -102,29 +102,29 @@
     "freeTagline": "Trace es gratuito.",
     "freeTaglineLink": "Inicia sesión para análisis Pro.",
     "welcome": "Soy Trace, el asistente de cálculo sectorial de SectorCalc. Te ayudo a encontrar la calculadora correcta, explicar entradas y dirigirte a herramientas verificadas. ¿Qué necesitas calcular?",
-    "welcomePro": "Soy Trace Pro, el asesor de decisiones premium de SectorCalc. Interpreto resultados, comparo escenarios y te guío en analizadores premium. ¿En qué decisión estás trabajando?",
+    "welcomePro": "Soy Trace Pro, el asesor de decisiones Pro de SectorCalc. Interpreto resultados, comparo escenarios y te guío en analizadores Pro. ¿En qué decisión estás trabajando?",
     "intro": {
       "badge": "Trace AI",
       "title": "Soy Trace.",
       "description": "Te dirijo a la calculadora correcta entre miles de herramientas sectoriales, explico las entradas en lenguaje claro y mantengo la orientación trazable.\n\n¿Qué calculamos hoy?",
       "feature1": "{count} calculadoras gratuitas — siempre gratis",
-      "feature2": "{count} calculadoras premium — recomendaciones inteligentes",
+      "feature2": "{count} calculadoras Pro — recomendaciones inteligentes",
       "cta": "Iniciar conversación"
     },
-    "proBadge": "Prueba de decisión premium",
+    "proBadge": "Prueba de decisión Pro",
     "placeholder": "Describe tu necesidad de cálculo…",
     "placeholderPro": "Describe tu decisión o escenario…",
     "send": "Preguntar",
     "loading": "Trace está pensando…",
     "error": "Trace no pudo responder. Inténtalo de nuevo.",
-    "footerNote": "Trace es gratuito. Inicia sesión para orientación premium.",
+    "footerNote": "Trace es gratuito. Inicia sesión para orientación Pro.",
     "disclaimer": "Solo orientación — no es asesoramiento financiero, legal ni de ingeniería. Los cálculos se ejecutan en herramientas SectorCalc.",
     "upsell": "¿Necesitas un análisis más profundo?",
     "upsellCta": "Iniciar sesión",
     "quickActions": {
       "findTool": "Encontrar la herramienta adecuada",
       "explainInputs": "¿Qué entradas necesito?",
-      "premiumHint": "¿Qué aporta premium?",
+      "premiumHint": "¿Qué aporta Pro?",
       "pricing": "Ver precios",
       "decisionSummary": "Resumir mi decisión",
       "compareScenario": "Comparar escenarios",
@@ -134,18 +134,18 @@
     "quickMessages": {
       "findTool": "¿Qué herramienta SectorCalc encaja con mi pregunta?",
       "explainInputs": "¿Qué entradas debo introducir para este cálculo?",
-      "premiumHint": "¿Qué valor extra aportan las herramientas premium?",
+      "premiumHint": "¿Qué valor extra aportan las herramientas Pro?",
       "pricing": "¿Cómo funciona la tarificación de SectorCalc?",
       "decisionSummary": "Ayúdame a resumir esta decisión con mis resultados actuales.",
       "compareScenario": "Compara escenarios alternativos para mi situación.",
       "reportHelp": "Explica mi informe de cálculo en lenguaje claro.",
-      "multiTool": "¿Qué herramientas premium debo combinar para este problema?"
+      "multiTool": "¿Qué herramientas Pro debo combinar para este problema?"
     },
     "errors": {
       "authRequired": "Inicia sesión para usar Trace Pro.",
       "connection": "Error de conexión. Inténtalo de nuevo más tarde.",
       "noCredits": "No tienes créditos suficientes para Trace Pro.",
-      "premiumOnly": "Trace Pro está disponible solo para suscriptores premium."
+      "premiumOnly": "Trace Pro está disponible solo para suscriptores Pro."
     }
   },
   "osGate": {
@@ -163,7 +163,7 @@
     "secondaryCta": "Ver informe de ejemplo",
     "exploreFreeCta": "Explorar herramientas gratis",
     "viewPremiumCta": "Ver informes de decisión",
-    "trustStrip": "27 sectores · Calculadoras gratis · Informes premium · Sin ERP"
+    "trustStrip": "27 sectores · Calculadoras gratis · Informes Pro · Sin ERP"
   },
   "valueProps": {
     "eyebrow": "Medición universal",
@@ -188,18 +188,18 @@
     "viewAll": "Ver las {count} industrias →",
     "browseByCategory": "Explorar por categoría",
     "startFree": "Control gratis",
-    "viewPremium": "Ver calculadora premium",
+    "viewPremium": "Ver calculadora Pro",
     "free": "Gratis",
-    "premium": "Premium"
+    "premium": "Pro"
   },
   "pricing": {
     "eyebrow": "Precios",
     "title": "Elige cómo proteger tu margen.",
-    "tagline": "Los calculadoras premium convierten señales de riesgo en precios mínimos seguros e informes exportables.",
+    "tagline": "Los calculadoras Pro convierten señales de riesgo en precios mínimos seguros e informes exportables.",
     "singleReportNote": "Single decision reports from $9 for cálculo puntual.",
     "roiCopy": "Evitar una mala cotización puede pagar un año de Pro.",
     "sampleReport": "Ver informe de ejemplo →",
-    "browsePremium": "Ver calculadoras premium →",
+    "browsePremium": "Ver calculadoras Pro →",
     "startFree": "Empezar con herramientas gratis →",
     "availableNow": "Disponible ahora",
     "waitlist": "Lista de espera",
@@ -212,13 +212,13 @@
     "single": "Informe de una herramienta",
     "singlePrice": "$9",
     "singlePeriod": "un informe",
-    "singleDescription": "Una ejecución premium con veredicto completo — ideal para una decisión crítica.",
-    "singleFeatures": "Un veredicto premium|Precio mínimo seguro|Desglose de fugas|Informe PDF",
+    "singleDescription": "Una ejecución Pro con veredicto completo — ideal para una decisión crítica.",
+    "singleFeatures": "Un veredicto Pro|Precio mínimo seguro|Desglose de fugas|Informe PDF",
     "singleCta": "Veredicto completo por $9",
     "pro": "Pro mensual",
     "proPrice": "$19",
     "proPeriod": "al mes",
-    "proDescription": "Calculadoras premium ilimitados en todos los sectores con informes guardados.",
+    "proDescription": "Calculadoras Pro ilimitados en todos los sectores con informes guardados.",
     "proFeatures": "Todos los calculadoras|Informes guardados|Exportación PDF|Cancela cuando quieras",
     "proCta": "Empezar SectorCalc Pro",
     "proBadge": "Más popular",
@@ -244,7 +244,7 @@
       "colEnterprise": "Empresarial",
       "sectorCalculators": "Módulos utilitarios sectoriales",
       "riskSignals": "Salida señal de riesgo",
-      "premiumAnalyzers": "Calculadoras premium",
+      "premiumAnalyzers": "Calculadoras Pro",
       "savedReports": "Archivo de veredictos guardados",
       "pdfExport": "Exportación PDF",
       "teamSeats": "Acceso multiusuario",
@@ -262,14 +262,14 @@
   "checkoutPages": {
     "successEyebrow": "Pago",
     "successTitle": "Pago recibido.",
-    "successText": "Acceso Premium en preparación. Actualiza o contacta soporte si sigue bloqueado.",
+    "successText": "Acceso Pro en preparación. Actualiza o contacta soporte si sigue bloqueado.",
     "successRefreshNote": "Pago confirmado. Acceso aplicado en servidor — actualiza en unos segundos si sigue bloqueado.",
     "successPrimaryCta": "Volver a la calculadora",
-    "successPremiumCta": "Abrir calculadoras premium",
+    "successPremiumCta": "Abrir calculadoras Pro",
     "successSecondaryCta": "Ir a precios",
     "cancelEyebrow": "Pago",
     "cancelTitle": "Pago cancelado.",
-    "cancelText": "You can continue using free calculators or return to the calculadora premium when ready.",
+    "cancelText": "You can continue using free calculators or return to the calculadora Pro when ready.",
     "cancelPricingCta": "Volver a precios",
     "cancelReturnCta": "Volver a la calculadora",
     "cancelFreeCta": "Ver calculadoras gratis"
@@ -286,7 +286,7 @@
       "quantity": "Cantidad (units)",
       "submit": "Run naive exposure check",
       "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
-      "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
+      "rateNote": "Naive machine cost uses ${rate}/hr until Pro tooling and material are supplied."
     },
     "result": {
       "title": "Naive exposure",
@@ -298,11 +298,11 @@
     },
     "premium": {
       "title": "Stochastic P90 verdict",
-      "cta": "Unlock Premium Verdict & Risk Report",
+      "cta": "Unlock Pro Verdict & Risk Report",
       "loading": "Running cálculo MarginCore…",
-      "signInRequired": "Sign in with Pro to unlock the premium verdict.",
+      "signInRequired": "Sign in with Pro to unlock the Pro verdict.",
       "signInLink": "Sign in →",
-      "failed": "Premium verdict could not be generated.",
+      "failed": "Pro verdict could not be generated.",
       "verdictLabel": "Veredicto",
       "naiveLabel": "Determinista",
       "bufferLabel": "Colchón P90",
@@ -310,12 +310,12 @@
       "fullAnalyzerLink": "Abrir calculadora de riesgo de presupuesto CNC →",
       "eyebrow": "MarginCore Pro",
       "body": "Server-side cálculo MarginCore — requires SectorCalc Pro.",
-      "disclaimer": "Premium defaults tooling and material to zero."
+      "disclaimer": "Pro defaults tooling and material to zero."
     },
     "phase2": {
       "label": "MarginCore · Fase 2",
       "reservedLabel": "Ranura motor estocástico",
-      "reservedBody": "Matriz de sensibilidad P90 completa y exportación PDF aquí tras desbloquear Premium."
+      "reservedBody": "Matriz de sensibilidad P90 completa y exportación PDF aquí tras desbloquear Pro."
     }
   },
   "freeTool": {
@@ -323,8 +323,8 @@
     "riskScoreAria": "Risk score: {score} porcent",
     "whatItMeans": "Qué significa esto",
     "premiumPreviewTitle": "En el informe completo obtienes:",
-    "premiumBadge": "Premium",
-    "urgencyBanner": "🔥 {count} informes premium comprados esta semana",
+    "premiumBadge": "Pro",
+    "urgencyBanner": "🔥 {count} informes Pro comprados esta semana",
     "premiumPreview1": "Desglose detallado de costes",
     "premiumPreview2": "Cálculo de variables ocultas",
     "premiumPreview3": "Recomendación experta de acción",
@@ -346,7 +346,7 @@
     "categories": {
       "eyebrow": "Por función",
       "title": "Encuentre calculadoras según lo que necesita medir.",
-      "subtitle": "Elija primero el tipo de cálculo — productividad, desperdicio, costo, ruta, energía, medición o finanzas — y abra la comprobación gratuita o el informe premium adecuado.",
+      "subtitle": "Elija primero el tipo de cálculo — productividad, desperdicio, costo, ruta, energía, medición o finanzas — y abra la comprobación gratuita o el informe Pro adecuado.",
       "metaTitle": "Calculadoras por función — OEE, desperdicio, ruta, energía",
       "metaDescription": "Herramientas SectorCalc según lo que mide: OEE, desperdicio, ruta, calibración, energía, margen, finanzas y cálculos diarios."
     },
@@ -364,11 +364,11 @@
       }
     },
     "premiumTools": {
-      "eyebrow": "Calculadoras premium",
-      "title": "Calculadoras premium",
-      "subtitle": "Calculadoras sectoriales premium para producción, costos, energía, inventario, técnica y decisiones operativas que requieren más entradas, escenarios y resumen de decisión.",
-      "metaTitle": "Calculadoras premium | SectorCalc",
-      "metaDescription": "Calculadoras premium para escenarios, controles de riesgo y resúmenes de decisión."
+      "eyebrow": "Calculadoras Pro",
+      "title": "Calculadoras Pro",
+      "subtitle": "Calculadoras sectoriales Pro para producción, costos, energía, inventario, técnica y decisiones operativas que requieren más entradas, escenarios y resumen de decisión.",
+      "metaTitle": "Calculadoras Pro | SectorCalc",
+      "metaDescription": "Calculadoras Pro para escenarios, controles de riesgo y resúmenes de decisión."
     },
     "industries": {
       "eyebrow": "Calculadoras sectoriales",
@@ -382,9 +382,9 @@
         "eyebrow": "Paquetes sectoriales",
         "headlineLead": "La pérdida empieza en",
         "headlineTail": "sectores activos",
-        "subtitle": "Control rápido gratuito más informe de decisión premium en cada paquete — elija primero su grupo sectorial.",
+        "subtitle": "Control rápido gratuito más informe de decisión Pro en cada paquete — elija primero su grupo sectorial.",
         "featuredTitle": "Sectores destacados",
-        "featuredLead": "Paquetes sectoriales de alto tráfico con herramientas gratuitas y calculadoras premium.",
+        "featuredLead": "Paquetes sectoriales de alto tráfico con herramientas gratuitas y calculadoras Pro.",
         "sectorGroupsTitle": "Grupos sectoriales",
         "sectorPackBadge": "Paquete sectorial"
       }
@@ -409,9 +409,9 @@
       },
       "premium-tools": {
         "navLabel": "Explorar por tipo de informe",
-        "allLabel": "Todas las calculadoras premium",
+        "allLabel": "Todas las calculadoras Pro",
         "categoryToolsTitle": "Calculadoras de {category}",
-        "categoryToolsSubtitle": "{count} calculadoras premium",
+        "categoryToolsSubtitle": "{count} calculadoras Pro",
         "countLabel": "{count, plural, one {# calculadora} other {# calculadoras}}",
         "viewCategory": "Ver calculadoras",
         "viewCategoryOpen": "Calculadoras mostradas",
@@ -433,7 +433,7 @@
       "placeholder": {
         "categories": "Buscar por función, sector o nombre de herramienta…",
         "free-tools": "Buscar calculadoras gratuitas...",
-        "premium-tools": "Buscar calculadoras premium...",
+        "premium-tools": "Buscar calculadoras Pro...",
         "industries": "Buscar calculadoras sectoriales...",
         "homepage": "Buscar sector, coste o cálculo técnico..."
       },
@@ -441,7 +441,7 @@
       "showingLimited": "Mostrando {shown} de {total} calculadoras. Use filtros de sector o búsqueda para acotar la lista.",
       "moreResults": "+ {count} resultados más",
       "badgeFree": "Gratis",
-      "badgePremium": "Premium",
+      "badgePremium": "Pro",
       "clearSearch": "Limpiar"
     },
     "discoveryTabs": {
@@ -463,18 +463,18 @@
         "quality-lean": "Calidad y lean",
         "engineering-technical": "Ingeniería y técnica"
       },
-      "premiumToolsAll": "Todas las calculadoras premium"
+      "premiumToolsAll": "Todas las calculadoras Pro"
     },
     "discoveryCards": {
       "ctaCalculate": "Calcular",
       "ctaOpenAnalysis": "Abrir cálculo",
       "ctaOpenSector": "Abrir sector",
       "freeCount": "{count} gratis",
-      "premiumCount": "{count} Premium"
+      "premiumCount": "{count} Pro"
     },
     "discoveryFooter": {
       "freeToolsLead": "¿Necesita un cálculo más detallado?",
-      "freeToolsCta": "Ver calculadoras premium"
+      "freeToolsCta": "Ver calculadoras Pro"
     },
     "compactGrid": {
       "categories": "Categorías",
@@ -546,18 +546,18 @@
     "includes1": "2–5 entradas con unidades en cada campo",
     "includes2": "Resultado instantáneo en el navegador",
     "includes3": "Breve explicación en lenguaje sencillo",
-    "includes4": "Link to related calculadora premium when available",
+    "includes4": "Link to related calculadora Pro when available",
     "excludesTitle": "Qué no incluyen las herramientas gratuitas",
     "excludes1": "Precio seguro P90 o veredicto de aceptar/rechazar",
     "excludes2": "Exportación a PDF o historial de informes guardados",
     "excludes3": "Diagnóstico de fuga de margen o matriz de sensibilidad",
     "excludes4": "Almacenamiento en cuenta de entradas del nivel gratuito",
     "sectorToolsTitle": "Herramientas de decisión sectoriales",
-    "sectorToolsLead": "Comprobaciones gratuitas por sector vinculadas a calculadoras premium en 27 sectores.",
+    "sectorToolsLead": "Comprobaciones gratuitas por sector vinculadas a calculadoras Pro en 27 sectores.",
     "sectorToolsCount": "{count} herramientas gratuitas del sector en {industries} industrias",
     "premiumUpsellTitle": "¿Necesitas un veredicto, no solo un número?",
-    "premiumUpsellBody": "Las calculadoras premium añaden precio mínimo seguro, detección de fuga de margen y veredictos aceptar / revisar precio — incluido con SectorCalc Pro.",
-    "premiumUpsellCta": "Explore calculadora premiums",
+    "premiumUpsellBody": "Las calculadoras Pro añaden precio mínimo seguro, detección de fuga de margen y veredictos aceptar / revisar precio — incluido con SectorCalc Pro.",
+    "premiumUpsellCta": "Explore calculadora Pros",
     "premiumUpsellIndustries": "Explorar por industria →",
     "categories": {
       "construction-measurement": "Construcción y medición",
@@ -609,12 +609,12 @@
       "includes2": "Procesamiento solo en el navegador — los datos no se almacenan",
       "includes3": "Fórmula ampliada para este tipo de calculadora",
       "excludesTitle": "Qué no incluye este resultado",
-      "excludes1": "Veredicto premium o precio mínimo seguro",
+      "excludes1": "Veredicto Pro o precio mínimo seguro",
       "excludes2": "Exportar a PDF",
       "excludes3": "Informes guardados",
       "excludes4": "Diagnóstico de margen de variable oculta",
       "premiumBlockTitle": "Vea qué omite esta estimación",
-      "premiumBlockBody": "Las calculadoras gratuitas muestran el primer número. Las calculadoras premium añaden impulsores ocultos, umbrales, acciones sugeridas e informes exportables.",
+      "premiumBlockBody": "Las calculadoras gratuitas muestran el primer número. Las calculadoras Pro añaden impulsores ocultos, umbrales, acciones sugeridas e informes exportables.",
       "premiumCta": "Vea qué omite esta estimación →",
       "premiumBlockNote": "Mejor cuando el resultado afecta decisiones de precios, operaciones o gestión.",
       "relatedTitle": "Calculadoras relacionadas",
@@ -643,14 +643,14 @@
       "faqTitle": "Preguntas frecuentes",
       "faqUseTitle": "¿Para qué se usa esta calculadora?",
       "faqFreeTitle": "¿Es gratuita esta calculadora?",
-      "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
+      "faqPremiumTitle": "¿Cuándo usar una calculadora Pro?",
       "faqUseAnswer": "{title} ofrece una estimación rápida basada en fórmulas a partir de los valores que introduces. Úsala para comprobaciones antes de cotizar, pedir o planificar.",
       "faqFreeAnswer": "Sí. Las calculadoras gratuitas de SectorCalc funcionan en el navegador sin registro.",
-      "faqPremiumAnswer": "Use una calculadora premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
+      "faqPremiumAnswer": "Use una calculadora Pro cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
       "relatedGuideTitle": "Aprende cómo funciona este cálculo",
       "relatedHubTitle": "Comparar calculadoras de esta categoría",
-      "relatedPremiumTitle": "Calculadora premium relacionada",
-      "relatedPremiumCta": "Ver la calculadora premium relacionada"
+      "relatedPremiumTitle": "Calculadora Pro relacionada",
+      "relatedPremiumCta": "Ver la calculadora Pro relacionada"
     },
     "premium": {
       "whenToUseTitle": "Cuándo usar esta calculadora",
@@ -665,7 +665,7 @@
       "assumptionsTitle": "Supuestos utilizados",
       "faqTitle": "Preguntas frecuentes",
       "faqMeasureTitle": "¿Qué mide esta calculadora?",
-      "faqReportTitle": "¿Qué incluye el informe de decisión premium?",
+      "faqReportTitle": "¿Qué incluye el informe de decisión Pro?",
       "faqErpTitle": "¿Sustituye al ERP o al asesoramiento profesional?",
       "faqMeasureAnswer": "{name} mide la exposición a pérdidas ocultas y los drivers operativos a partir de tus entradas, con interpretación de umbrales frente a bandas definidas.",
       "faqReportAnswer": "El informe de decisión incluye resumen ejecutivo, desglose de drivers ocultos, comprobación de umbrales, acciones sugeridas, notas de supuestos y salida exportable con acceso de pago.",
@@ -675,17 +675,17 @@
       "relatedHubTitle": "Comparar calculadoras de esta categoría",
       "relatedIndustryTitle": "Explorar calculadoras del sector",
       "pricingCta": "Desbloquear el informe de decisión completo",
-      "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
-      "faqPremiumAnswer": "Use una calculadora premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
-      "relatedPremiumTitle": "Calculadora premium relacionada",
-      "relatedPremiumCta": "Ver la calculadora premium relacionada",
+      "faqPremiumTitle": "¿Cuándo usar una calculadora Pro?",
+      "faqPremiumAnswer": "Use una calculadora Pro cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
+      "relatedPremiumTitle": "Calculadora Pro relacionada",
+      "relatedPremiumCta": "Ver la calculadora Pro relacionada",
       "decidesBody": "Use esta calculadora cuando deba decidir si las entradas están en bandas de exposición aceptables, qué factor investigar primero y si debe repricing o replanificar antes de repetir el trabajo.",
       "reportBullet1": "Resumen ejecutivo con estado de umbral",
       "reportBullet2": "Desglose de impulsores de pérdida ocultos",
       "reportBullet3": "Acciones sugeridas y notas de supuestos",
       "reportBullet4": "PDF y CSV exportables con acceso de pago",
       "faqIsFreeTitle": "¿Esta calculadora es gratuita?",
-      "faqIsFreeAnswer": "Esta herramienta forma parte del alcance de análisis premium. Los resultados completos y los resúmenes de decisiones requieren créditos o una suscripción Pro activa."
+      "faqIsFreeAnswer": "Esta herramienta forma parte del alcance de análisis Pro. Los resultados completos y los resúmenes de decisiones requieren créditos o una suscripción Pro activa."
     }
   },
   "trust": {
@@ -697,7 +697,7 @@
   },
   "purchaseSuccess": {
     "proUpsellTitle": "¿Quieres acceso ilimitado a todas las herramientas?",
-    "proUpsellBody": "27 sectores, calculadoras premium ilimitados e informes guardados — Pro desde $19/mes.",
+    "proUpsellBody": "27 sectores, calculadoras Pro ilimitados e informes guardados — Pro desde $19/mes.",
     "proUpsellCta": "Actualizar a Pro →"
   },
   "footer": {
@@ -706,12 +706,12 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Calculadoras sectoriales gratuitas y premium para fabricación, talleres, ingeniería y operaciones.",
+    "tagline": "Calculadoras sectoriales gratuitas y Pro para fabricación, talleres, ingeniería y operaciones.",
     "productTitle": "Producto",
     "legalTitle": "Legal",
     "product": {
       "freeChecks": "Calculadoras gratuitas",
-      "premiumTools": "Calculadoras premium",
+      "premiumTools": "Calculadoras Pro",
       "industries": "Calculadoras por industria",
       "pricing": "Precios"
     },
@@ -726,7 +726,7 @@
     "account": {
       "login": "Iniciar sesión",
       "signUp": "Registrarse",
-      "premiumTools": "Calculadoras premium",
+      "premiumTools": "Calculadoras Pro",
       "pricing": "Precios"
     },
     "areas": {
@@ -755,7 +755,7 @@
     "es": "Español",
     "de": "Alemán",
     "ar": "العربية",
-    "fr": "Francés"
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Saber más",
@@ -765,7 +765,7 @@
     "calculate": "Calcular",
     "badge": {
       "free": "Gratis",
-      "premium": "Premium",
+      "premium": "Pro",
       "new": "Nuevo"
     }
   },
@@ -778,10 +778,10 @@
   "home": {
     "stats": {
       "free": "3000+ Calculadoras Gratuitas | Siempre Gratis",
-      "premium": "150 calculadoras premium | Recomendaciones Rentables"
+      "premium": "150 calculadoras Pro | Recomendaciones Rentables"
     },
     "hero": {
-      "trustStrip": "{count} sectors · Free calculators · Premium reports · Export logic · No ERP required"
+      "trustStrip": "{count} sectors · Free calculators · Pro reports · Export logic · No ERP required"
     },
     "pain": {
       "eyebrow": "Medición universal",
@@ -794,7 +794,7 @@
         },
         "labor": {
           "title": "Riesgo de mano de obra y tiempo",
-          "text": "Free checks expose visible risk — calculadora premiums deliver the full verdict."
+          "text": "Free checks expose visible risk — calculadora Pros deliver the full verdict."
         },
         "overhead": {
           "title": "Riesgo de overhead y alcance",
@@ -814,16 +814,16 @@
     "premiumStep": {
       "eyebrow": "Paso 2",
       "title": "Dictamen completo",
-      "subtitle": "Las calculadoras premium añaden precio mínimo seguro, fugas de margen, acción sugerida y exportación PDF — la capa de decisión antes de presupuestar.",
-      "cta": "Cálculo premium",
-      "cardEyebrow": "Veredicto Premium",
+      "subtitle": "Las calculadoras Pro añaden precio mínimo seguro, fugas de margen, acción sugerida y exportación PDF — la capa de decisión antes de presupuestar.",
+      "cta": "Cálculo Pro",
+      "cardEyebrow": "Veredicto Pro",
       "cardTitle": "Minimum safe Precio + action",
       "cardBody": "Margin leak breakdown, accept / rePrecio verdict and exportable PDF report."
     },
     "sample": {
       "eyebrow": "Informe de veredicto de ejemplo",
       "title": "Informe de riesgo de cotización CNC",
-      "subtitle": "Así se ve una salida Premium — no un volcado de hoja de cálculo.",
+      "subtitle": "Así se ve una salida Pro — no un volcado de hoja de cálculo.",
       "verdictLabel": "Veredicto",
       "verdictValue": "NO ACEPTAR POR DEBAJO DE 1.840 $",
       "riskLabel": "Riesgo de margen",
@@ -848,7 +848,7 @@
       "proItem2": "Desglose de fuga de margen",
       "proItem3": "Accept / RePrecio / Do Not Accept verdict",
       "proItem4": "Informe listo para PDF e historial guardado",
-      "proCta": "Ver veredictos Premium"
+      "proCta": "Ver veredictos Pro"
     },
     "trust": {
       "title": "Cálculo confiable en {count} sectores",
@@ -862,7 +862,7 @@
           "text": "{count} controles sectoriales rápidos en el navegador — sin cuenta."
         },
         "premiumVerdicts": {
-          "title": "Los veredictos Premium explican el riesgo",
+          "title": "Los veredictos Pro explican el riesgo",
           "text": "Minimum safe Precio, margin leaks and suggested action before you quote."
         },
         "stripe": {
@@ -878,19 +878,19 @@
     "industriesPreview": {
       "eyebrow": "Industrias",
       "title": "Sector packs for oporational and commercial decisions",
-      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector Precios work, measures margin and evaluates risk.",
+      "subtitle": "Each industry module combines a quick estimate layer and a Pro decision tool — aligned to how that sector Precios work, measures margin and evaluates risk.",
       "viewAll": "Ver todos los sectores →"
     },
     "cta": {
       "eyebrow": "Empezar",
       "title": "Empieza a calcular para tu sector",
-      "subtitle": "Empieza con herramientas gratis y pasa a informes Premium cuando los necesites.",
+      "subtitle": "Empieza con herramientas gratis y pasa a informes Pro cuando los necesites.",
       "primary": "Herramientas gratis",
       "secondary": "Ver informe de ejemplo"
     },
     "heroTitle": "Si fabrica, gestione todos sus cálculos comerciales en un solo lugar.",
     "heroSub1": "Pruebe gratis cálculos de costos, mermas, energía, pérdida de tiempo y OEE.",
-    "heroSub2": "Cuando necesite un análisis más detallado, compare sus resultados con herramientas premium.",
+    "heroSub2": "Cuando necesite un análisis más detallado, compare sus resultados con herramientas Pro.",
     "heroPrivacyNote": "Sus datos no se almacenan. Cada cálculo se ejecuta al instante y no deja rastro."
   },
   "homeDashboard": {
@@ -902,7 +902,7 @@
       "statusLine": "MarginCore · Risk Plazoinal",
       "title": "MarginCore: analítica de riesgo profesional para PYME.",
       "subtitle": "Deterministic cost exposure, P90 safe pricing and sensitivity matrices — server-side stochastic engine for operators who quote on margin.",
-      "primaryCta": "Acceder a veredictos Premium",
+      "primaryCta": "Acceder a veredictos Pro",
       "secondaryCta": "Ver informe de ejemplo",
       "metrics": {
         "sectors": {
@@ -926,7 +926,7 @@
     "grid": {
       "eyebrow": "Cobertura sectorial",
       "title": "Resúmenes ejecutivos por vertical",
-      "subtitle": "Módulos de riesgo agrupados — precontroles gratuitos y calculadoras premium.",
+      "subtitle": "Módulos de riesgo agrupados — precontroles gratuitos y calculadoras Pro.",
       "sectorCount": "{count} módulos",
       "freeLabel": "Precontrol",
       "proLabel": "Veredicto"
@@ -968,9 +968,9 @@
     "quickActions": {
       "findTool": "¿Qué herramienta necesito?",
       "explainInputs": "¿Qué entradas se requieren?",
-      "approvedReport": "Resúmenes de decisión premium y Resumen del cálculo",
+      "approvedReport": "Resúmenes de decisión Pro y Resumen del cálculo",
       "enterprise": "Enterprise y uso en equipo",
-      "decisionSummary": "¿Qué es un resumen de decisión premium?"
+      "decisionSummary": "¿Qué es un resumen de decisión Pro?"
     },
     "guardrail": {
       "formula": "No puedo realizar cálculos ni compartir fórmulas. Abre la herramienta correspondiente y calculará el resultado por ti.",
@@ -981,7 +981,7 @@
       "explainTool": "Esta herramienta convierte las entradas de tu trabajo en un veredicto claro con los factores de riesgo que lo sustentan:",
       "inputs": "Introduces los costes, cantidades y tarifas esenciales de tu trabajo. Los campos obligatorios se mantienen al mínimo y los opcionales afinan el resultado.",
       "results": "El resultado es un veredicto con las métricas y los factores de riesgo que lo sustentan, para ver por qué queda donde queda y qué ajustar.",
-      "approvedReports": "Los resultados premium pueden guardarse como resúmenes de decisión exportables para revisión interna del equipo.",
+      "approvedReports": "Los resultados Pro pueden guardarse como resúmenes de decisión exportables para revisión interna del equipo.",
       "trustTrace": "El Resumen del cálculo registra entradas, supuestos y pasos de validación para mostrar cómo se produjo el resultado.",
       "regionalUnits": "SectorCalc admite unidades métricas, imperiales y regionales, y muestra las conversiones que utilizó.",
       "benchmarks": "SectorCalc muestra un contexto de referencia regional indicativo junto a tu resultado — para orientación, no son cifras oficiales.",
@@ -994,7 +994,7 @@
     }
   },
   "premiumSeo": {
-    "eyebrow": "Guía de la herramienta premium",
+    "eyebrow": "Guía de la herramienta Pro",
     "metaTitle": "{tool} | Guía de precio, margen y riesgo | SectorCalc",
     "metaDescription": "Cómo funciona {tool}, para quién es, qué introduces y cómo leer el resultado. Soporte a la decisión sobre precio y riesgo de margen de SectorCalc.",
     "h1": "{tool}: pon precio al trabajo y protege el margen",
@@ -1016,14 +1016,14 @@
     "inputs": "Los campos principales incluyen {inputs} ({inputCount} entradas en total). Los obligatorios se mantienen al mínimo; los opcionales afinan el veredicto.",
     "outputsTitle": "Qué significa el resultado",
     "outputs": "{tool} devuelve {outputs} con métricas, alertas de umbral y factores de riesgo — ves por qué el número queda donde queda.",
-    "trustTitle": "Resúmenes de decisión premium y Resumen del cálculo",
-    "trust": "Los resultados premium pueden incluir un Resumen del cálculo guardado como resumen de decisión exportable.",
+    "trustTitle": "Resúmenes de decisión Pro y Resumen del cálculo",
+    "trust": "Los resultados Pro pueden incluir un Resumen del cálculo guardado como resumen de decisión exportable.",
     "faqTitle": "Preguntas frecuentes",
-    "relatedTitle": "Herramientas premium relacionadas",
+    "relatedTitle": "Herramientas Pro relacionadas",
     "faq": [
       {
         "q": "¿{tool} es gratis?",
-        "a": "Puede previsualizar el enfoque gratis; veredicto completo, métricas y resumen de decisión premium están incluidos en SectorCalc Pro."
+        "a": "Puede previsualizar el enfoque gratis; veredicto completo, métricas y resumen de decisión Pro están incluidos en SectorCalc Pro."
       },
       {
         "q": "¿{tool} sustituye al asesoramiento profesional?",
@@ -1035,7 +1035,7 @@
       },
       {
         "q": "¿Puedo compartir el resultado?",
-        "a": "Sí. Los resultados premium pueden exportarse como resúmenes de decisión con un Resumen del cálculo."
+        "a": "Sí. Los resultados Pro pueden exportarse como resúmenes de decisión con un Resumen del cálculo."
       },
       {
         "q": "¿Para qué sector es {tool}?",
@@ -1049,9 +1049,9 @@
   },
   "enterprise": {
     "metaTitle": "SectorCalc para empresas y organizaciones | Cálculo verificado y soporte a la decisión",
-    "metaDescription": "Paquetes Business y Enterprise de SectorCalc: uso en equipo, resúmenes de decisión premium, resumen del cálculo y apoyo a la decisión.",
+    "metaDescription": "Paquetes Business y Enterprise de SectorCalc: uso en equipo, resúmenes de decisión Pro, resumen del cálculo y apoyo a la decisión.",
     "title": "Cálculo verificado y soporte a la decisión para equipos y organizaciones.",
-    "subtitle": "SectorCalc agrupa calculadoras sectoriales, resúmenes de decisión premium y resumen del cálculo para sus equipos.",
+    "subtitle": "SectorCalc agrupa calculadoras sectoriales, resúmenes de decisión Pro y resumen del cálculo para sus equipos.",
     "demoCta": "Solicitar una demo",
     "contactCta": "Contactar con ventas",
     "hero": {
@@ -1060,10 +1060,10 @@
     "businessPlan": {
       "badge": "Negocio",
       "title": "Negocio",
-      "body": "Para equipos que necesitan cálculos repetibles, resúmenes de decisión premium y flujos de campo.",
+      "body": "Para equipos que necesitan cálculos repetibles, resúmenes de decisión Pro y flujos de campo.",
       "features": [
-        "Calculadoras premium en 27 sectores",
-        "Resúmenes de decisión premium con resumen del cálculo",
+        "Calculadoras Pro en 27 sectores",
+        "Resúmenes de decisión Pro con resumen del cálculo",
         "Unidades regionales y referencias indicativas",
         "Informes guardados y modo de campo"
       ],
@@ -1086,7 +1086,7 @@
       "body": "Agrupa los calculadoras que tu sector usa más en un paquete enfocado, para que los equipos lleguen a la herramienta correcta sin ruido."
     },
     "approvedReports": {
-      "title": "Resúmenes de decisión premium",
+      "title": "Resúmenes de decisión Pro",
       "body": "Convierta resultados en resúmenes de decisión compartibles para revisión interna."
     },
     "trustTrace": {
@@ -1103,7 +1103,7 @@
     },
     "demo": {
       "title": "Hablemos de tu despliegue",
-      "body": "Cuéntenos sus sectores y tamaño de equipo; le mostraremos paquetes y resúmenes de decisión premium.",
+      "body": "Cuéntenos sus sectores y tamaño de equipo; le mostraremos paquetes y resúmenes de decisión Pro.",
       "cta": "Solicitar una demo",
       "pricingLink": "Ver precios"
     },
@@ -1112,7 +1112,7 @@
       "items": [
         {
           "q": "¿En qué se diferencia Business de Enterprise?",
-          "a": "Business cubre calculadoras premium, resúmenes de decisión premium y flujos de campo. Enterprise añade gobernanza y paquetes."
+          "a": "Business cubre calculadoras Pro, resúmenes de decisión Pro y flujos de campo. Enterprise añade gobernanza y paquetes."
         },
         {
           "q": "¿Podemos usar SectorCalc en varios sectores?",
@@ -1120,7 +1120,7 @@
         },
         {
           "q": "¿Los resultados son auditables?",
-          "a": "Los resúmenes de decisión premium incluyen un resumen del cálculo para revisión interna."
+          "a": "Los resúmenes de decisión Pro incluyen un resumen del cálculo para revisión interna."
         },
         {
           "q": "¿Cómo empezamos?",
@@ -1184,7 +1184,7 @@
   "homepageHybrid": {
     "meta": {
       "title": "SectorCalc | Calculadoras sectoriales para industria, producción y empresas",
-      "description": "SectorCalc ofrece calculadoras sectoriales gratuitas y premium para fabricación, talleres, ingeniería, costes, merma, margen, energía, inventario, rutas, mano de obra y pérdidas operativas."
+      "description": "SectorCalc ofrece calculadoras sectoriales gratuitas y Pro para fabricación, talleres, ingeniería, costes, merma, margen, energía, inventario, rutas, mano de obra y pérdidas operativas."
     },
     "hero": {
       "highlight": "PLATAFORMA DE CALCULADORAS SECTORIALES",
@@ -1192,7 +1192,7 @@
       "subtitle": "SectorCalc reúne calculadoras sectoriales para producción, taller, obra, logística, energía y finanzas en una plataforma enfocada.",
       "supporting": "SIN COMPLEJIDAD ERP — PARA PYMES Y EQUIPOS DE CAMPO",
       "ctaPrimary": "Calculadoras gratuitas",
-      "ctaSecondary": "Ver Premium",
+      "ctaSecondary": "Ver Pro",
       "panelTitle": "Lo que los equipos calculan primero",
       "panelItems": {
         "production": "Tarifa máquina, OEE y desperdicio",
@@ -1307,7 +1307,7 @@
         },
         "byDecision": {
           "title": "Por momento de decisión",
-          "text": "Empiece con un control gratuito y abra calculadoras premium cuando la cotización, el trabajo o la compra exija más profundidad."
+          "text": "Empiece con un control gratuito y abra calculadoras Pro cuando la cotización, el trabajo o la compra exija más profundidad."
         }
       }
     },
@@ -1338,7 +1338,7 @@
       "subtitle": "Descubra costes que pasan desapercibidos en el día a día."
     },
     "freePremium": {
-      "title": "Calculadoras gratuitas y premium",
+      "title": "Calculadoras gratuitas y Pro",
       "freeTitle": "Calculadoras gratuitas ({count})",
       "freeText": "Controles sectoriales rápidos en el navegador con entradas esenciales y señales de riesgo visibles.",
       "freeItems": {
@@ -1348,7 +1348,7 @@
         "noSignup": "Explorar sin registro"
       },
       "freeCta": "Probar ahora",
-      "premiumTitle": "Calculadoras premium ({count})",
+      "premiumTitle": "Calculadoras Pro ({count})",
       "premiumText": "Añada más entradas, comparación de escenarios y resúmenes exportables cuando aumente el riesgo.",
       "premiumItems": {
         "inputs": "Más entradas y valores predeterminados profesionales",
@@ -1540,9 +1540,9 @@
     },
     "finalCta": {
       "title": "¿Qué cálculo aclaramos hoy?",
-      "subtitle": "Empiece gratis y pase a calculadoras premium cuando la decisión requiera más entradas y un resumen más claro.",
+      "subtitle": "Empiece gratis y pase a calculadoras Pro cuando la decisión requiera más entradas y un resumen más claro.",
       "ctaPrimary": "Calculadoras gratuitas",
-      "ctaSecondary": "Calculadoras premium"
+      "ctaSecondary": "Calculadoras Pro"
     }
   },
   "industrialHome": {
@@ -1551,7 +1551,7 @@
     "initializeAudit": "Abrir",
     "systemStatus": {
       "title": "Instantánea de la plataforma",
-      "line": "Free calculators and premium export reports — one platform.",
+      "line": "Free calculators and Pro export reports — one platform.",
       "metrics": {
         "sectors": {
           "label": "Sectores",
@@ -1578,7 +1578,7 @@
         "tools": "Herramientas gratis",
         "industries": "Industrias",
         "categories": "Categorías",
-        "premium": "Informes Premium",
+        "premium": "Informes Pro",
         "archive": "Archivo de auditoría"
       }
     },
@@ -1614,20 +1614,20 @@
     "signInPrompt": "Sign in to load your porsonal audit vault from Firestore.",
     "signInCta": "Iniciar sesión",
     "viewFullArchive": "Abrir archivo completo",
-    "emptySignedIn": "No saved audits yet. Run a calculadora premium and save the verdict to populate your vault."
+    "emptySignedIn": "No saved audits yet. Run a calculadora Pro and save the verdict to populate your vault."
   },
   "emptyStates": {
     "reports": {
       "title": "Aún no hay informes guardados",
       "body": "Control sectorial gratis, luego Single Verdict o SectorCalc Pro para guardar informes.",
-      "bodyWithCredits": "Run your unlocked calculadora premium and save the verdict report here.",
+      "bodyWithCredits": "Run your unlocked calculadora Pro and save the verdict report here.",
       "ctaFree": "Explorar herramientas gratis",
-      "ctaPremium": "Abrir calculadoras premium",
+      "ctaPremium": "Abrir calculadoras Pro",
       "viewReport": "Ver informe"
     },
     "purchases": {
       "title": "Créditos de veredicto único",
-      "body": "One-time purchases unlock the calculadora premium for that sector tool."
+      "body": "One-time purchases unlock the calculadora Pro for that sector tool."
     },
     "login": {
       "eyebrow": "Inicio de sesión requerido",
@@ -1644,7 +1644,7 @@
     "hero": {
       "eyebrow": "Programa de socios beta",
       "title": "Ayuda a construir benchmarks sectoriales verificados",
-      "subtitle": "Share structured oporational data in exchange for premium reports and early access to benchmark-backed calculators."
+      "subtitle": "Share structured oporational data in exchange for Pro reports and early access to benchmark-backed calculators."
     },
     "who": {
       "title": "Quién debe solicitar",
@@ -1661,7 +1661,7 @@
     },
     "benefits": {
       "title": "Qué obtienes",
-      "item1": "Acceso anticipado a informes de decisión Premium",
+      "item1": "Acceso anticipado a informes de decisión Pro",
       "item2": "Aporte directo al diseño de benchmarks sectoriales",
       "item3": "Optional case study participation with explicit pormission"
     },
@@ -1708,7 +1708,7 @@
     }
   },
   "premiumDecisionReport": {
-    "documentLabel": "Informe de decisión premium",
+    "documentLabel": "Informe de decisión Pro",
     "reportEyebrow": "Informe de decisión",
     "decisionDesk": "Mesa de decisión",
     "runPrompt": "Introduzca sus valores operativos e inicie el cálculo.",
@@ -1724,7 +1724,7 @@
     "actionDecision": "Decisión",
     "assumptionsTitle": "Supuestos utilizados",
     "legalTitle": "Nota legal",
-    "exportTitle": "Salida del informe premium",
+    "exportTitle": "Salida del informe Pro",
     "previewCta": "Vista previa",
     "bufferedExposure": "Exposición amortiguada",
     "status": {
@@ -1733,7 +1733,7 @@
       "Acceptable": "Aceptable"
     },
     "export": {
-      "title": "Salida del informe premium",
+      "title": "Salida del informe Pro",
       "sectionExecutive": "Resumen ejecutivo",
       "sectionDrivers": "Factores ocultos",
       "sectionThreshold": "Control de umbrales",
@@ -1785,10 +1785,10 @@
     "tools": "Calculadora",
     "account": "Cuenta",
     "freeTools": "Calculadora gratuita",
-    "premiumTools": "Cálculo premium",
+    "premiumTools": "Cálculo Pro",
     "reports": "Informe de decisión",
     "freeCalculators": "Calculadoras gratuitas",
-    "premiumCalculators": "Calculadoras premium",
+    "premiumCalculators": "Calculadoras Pro",
     "industryCalculators": "Calculadoras por industria"
   },
   "homepage": {
@@ -1806,14 +1806,14 @@
     "metaDescription": "Calculadoras gratuitas específicas para la industria."
   },
   "premiumTools": {
-    "title": "Cálculo premium",
+    "title": "Cálculo Pro",
     "openAnalyzer": "Abrir cálculo",
-    "lockedTrustTrace": "El resumen del cálculo es una función premium Pro.",
-    "subtitle": "Descubra calculadoras premium para su industria.",
+    "lockedTrustTrace": "El resumen del cálculo es una función Pro Pro.",
+    "subtitle": "Descubra calculadoras Pro para su industria.",
     "searchPlaceholder": "Buscar sector, profesión o herramienta...",
     "categoryTitle": "EXPLORAR POR SECTOR",
-    "metaTitle": "Calculadoras Premium | SectorCalc",
-    "metaDescription": "Calculadoras premium específicas para la industria."
+    "metaTitle": "Calculadoras Pro | SectorCalc",
+    "metaDescription": "Calculadoras Pro específicas para la industria."
   },
   "categories": {
     "title": "Por categoría",
@@ -1823,7 +1823,7 @@
     "title": "Por sector",
     "viewAll": "Elegir sector",
     "relatedFreeTools": "Calculadoras gratuitas relacionadas",
-    "relatedPremiumTools": "Calculadoras premium relacionadas",
+    "relatedPremiumTools": "Calculadoras Pro relacionadas",
     "openCalculator": "Abrir calculadora",
     "viewAllCalculators": "Ver todas las calculadoras",
     "viewAllCalculatorsLead": "Explore la biblioteca completa para más herramientas del sector.",
@@ -1841,7 +1841,7 @@
     "awaiting": "Introduzca valores para ver el resultado",
     "validationRequired": "Seleccione un valor.",
     "validationNumber": "Introduzca un número válido.",
-    "premiumEyebrow": "Calculadora premium",
+    "premiumEyebrow": "Calculadora Pro",
     "mode": {
       "label": "Modo de cálculo",
       "quick": "Básico",
@@ -1880,7 +1880,7 @@
     "calculationFailed": "No se pudo calcular el resultado. Revise los datos introducidos.",
     "invalidInput": "Uno o más valores no son válidos. Revise los campos marcados.",
     "networkError": "Error de conexión. Compruebe la red e inténtelo de nuevo.",
-    "accessDenied": "Necesita acceso premium para este informe.",
+    "accessDenied": "Necesita acceso Pro para este informe.",
     "notFound": "No se encontró la página o la herramienta.",
     "generic": "Algo salió mal. Inténtelo de nuevo.",
     "errorPageTitle": "Algo salió mal",
@@ -1894,8 +1894,8 @@
     "freeToolsTitle": "Calculadoras sectoriales gratuitas | SectorCalc",
     "freeToolsDescription": "Calculadoras gratuitas para costes, medición, energía y decisiones de negocio. Sin registro.",
     "pricingTitle": "Precios | SectorCalc",
-    "pricingDescription": "Calculadoras gratis e informes premium — informe único desde 9 $, Pro desde 19 $/mes.",
-    "premiumToolsTitle": "Cálculo premium | SectorCalc",
+    "pricingDescription": "Calculadoras gratis e informes Pro — informe único desde 9 $, Pro desde 19 $/mes.",
+    "premiumToolsTitle": "Cálculo Pro | SectorCalc",
     "premiumToolsDescription": "Diagnóstico de pérdidas, control de umbrales e informes listos para exportar."
   },
   "campaign": {
@@ -1905,7 +1905,7 @@
     },
     "seoHub": {
       "freeCalculators": "Calculadoras gratuitas",
-      "premiumAnalyzers": "Calculadoras premium",
+      "premiumAnalyzers": "Calculadoras Pro",
       "viewPricing": "Ver precios"
     },
     "clusters": {
@@ -1925,9 +1925,9 @@
     "freeCalculatorHeading": "Calculadora gratuita",
     "freeCalculatorNote": "Solo verificación rápida — sin precio mínimo seguro ni veredicto de aceptar/rechazar.",
     "openTool": "Abrir {tool}",
-    "premiumHeading": "Calculadora premium",
+    "premiumHeading": "Calculadora Pro",
     "startPro": "Empezar con SectorCalc Pro",
-    "relatedHeading": "Calculadoras premium relacionados",
+    "relatedHeading": "Calculadoras Pro relacionados",
     "relatedNote": "Diagnósticos de pérdidas ocultas con comprobaciones de umbral, acciones sugeridas e informes listos para exportar.",
     "openAnalyzer": "Abrir calculadora →",
     "viewAll": "Ver todos los calculadoras →",
@@ -1935,12 +1935,12 @@
     "additionalNote": "Herramientas de decisión relacionadas en la hoja de ruta de SectorCalc para este sector.",
     "allIndustries": "Todos los sectores",
     "freeCalculatorLink": "Calculadora gratuita",
-    "premiumAnalyzerLink": "Calculadora premium",
+    "premiumAnalyzerLink": "Calculadora Pro",
     "proPricing": "Precios de SectorCalc Pro",
     "account": "Cuenta",
     "calculatorLibraryLink": "Biblioteca de calculadoras",
     "freeToolsLink": "Calculadoras gratuitas",
-    "premiumToolsLink": "Calculadoras premium"
+    "premiumToolsLink": "Calculadoras Pro"
   },
   "premiumAccess": {
     "previewEyebrow": "Vista previa pública",
@@ -1952,10 +1952,10 @@
     "getPro": "Obtener Pro",
     "lockedExport": "La exportación PDF y hoja de cálculo está disponible en los planes Pro.",
     "lockedReportHistory": "El historial de informes guardados requiere una cuenta Pro con sesión iniciada.",
-    "lockedTrustTrace": "El resumen del cálculo es una función premium Pro.",
+    "lockedTrustTrace": "El resumen del cálculo es una función Pro Pro.",
     "fullReportRequiresPro": "El informe completo exportable requiere SectorCalc Pro.",
     "panelTitle": "Inicio de sesión en SectorCalc Pro",
-    "panelDescription": "Inicia sesión con Google para acceder a los calculadoras premium o continuar con el pago. El inicio de sesión de administrador está separado arriba.",
+    "panelDescription": "Inicia sesión con Google para acceder a los calculadoras Pro o continuar con el pago. El inicio de sesión de administrador está separado arriba.",
     "signInButton": "Continuar con Google",
     "signingIn": "Iniciando sesión…",
     "signInErrors": {
@@ -3326,8 +3326,8 @@
     "resultsHeading": "Resultados",
     "publishedDisclaimer": "Escenario ilustrativo compuesto — no una auditoría verificada del negocio citado. No es asesoramiento financiero, legal ni de ingeniería.",
     "ctaTitle": "Marque la diferencia en su sector",
-    "ctaBody": "Optimice cálculos y reduzca fugas de coste con SectorCalc Premium.",
-    "ctaButton": "Empezar Premium →",
+    "ctaBody": "Optimice cálculos y reduzca fugas de coste con SectorCalc Pro.",
+    "ctaButton": "Empezar Pro →",
     "database": {
       "metaTitle": "Historias de Éxito: Ahorro Real & Eficiencia | SectorCalc",
       "metaDescription": "Casos de eficiencia y ahorro documentados en formato de base de datos académica. VDI 2067, ECMI Guidelines, ISO 15663.",
@@ -3399,7 +3399,7 @@
   },
   "freeToolUi": {
     "preCheck": "Comprobación gratuita",
-    "premiumAnalyzer": "Calculadora premium",
+    "premiumAnalyzer": "Calculadora Pro",
     "classicForm": "Formulario clásico",
     "smartFormMeta": "Formulario inteligente",
     "simple": "Simple",
@@ -3507,9 +3507,9 @@
     "quarantineWarning": "Esta calculadora usa fórmulas estimadas — verifique los resultados con sus estándares.",
     "trustTraceVerified": "✓ Trust Trace — integridad del resultado verificada",
     "premiumUpsell": {
-      "ariaLabel": "Actualizar a análisis Premium",
+      "ariaLabel": "Actualizar a análisis Pro",
       "message": "¿Quieres un análisis más detallado de este cálculo?",
-      "cta": "Ir a Premium →"
+      "cta": "Ir a Pro →"
     },
     "noWarnings": "No hay señales de advertencia críticas.",
     "noSuggestedActions": "No hay sugerencias de acción adicionales.",
@@ -3582,7 +3582,7 @@
     "aboutTool": {
       "sectionLabel": "Acerca de esta herramienta",
       "purposeTitleFree": "Para qué sirve esta herramienta",
-      "purposeTitlePremium": "Para qué sirve esta herramienta premium",
+      "purposeTitlePremium": "Para qué sirve esta herramienta Pro",
       "exampleTitle": "Escenario de ejemplo",
       "solutionSteps": "Pasos de solución",
       "resultLabel": "Resultado",
@@ -3775,7 +3775,7 @@
       "supplierFetchSuccess": "Se añadieron {value} kg CO2e ({unit}, {source}) a bienes comprados.",
       "supplierLastFetch": "Última obtención: {product} a {factor} kg CO2e/{unit}."
     },
-    "insufficientCredits": "Necesitas al menos 1 crédito para este análisis premium.",
+    "insufficientCredits": "Necesitas al menos 1 crédito para este análisis Pro.",
     "buyCreditsCta": "Comprar créditos",
     "creditsLoading": "Cargando saldo de créditos…",
     "export": {
@@ -3804,7 +3804,7 @@
     },
     "reportSummary": {
       "title": "Resumen del Cálculo",
-      "premiumLabel": "Cálculo Premium",
+      "premiumLabel": "Cálculo Pro",
       "preAssessment": "Evaluación Preliminar",
       "calculationComments": "Comentarios y Recomendaciones",
       "primaryResult": "Resultado Principal",
@@ -3856,15 +3856,15 @@
       "printErrorNoData": "Datos del informe no encontrados. Vuelva a la calculadora e intente nuevamente.",
       "printErrorMismatch": "Los datos del informe no coinciden con esta herramienta.",
       "printErrorParse": "No se pudieron leer los datos del informe.",
-      "metaTitle": "Informe Premium",
-      "metaDescription": "informe de ingeniería premium.",
+      "metaTitle": "Informe Pro",
+      "metaDescription": "informe de ingeniería Pro.",
       "colParameter": "Parámetro",
       "colValue": "Valor",
       "colUnit": "Unidad",
       "colSource": "Fuente / Referencia",
       "badgeDefault": "Análisis de Ingeniería"
     },
-    "downloadPdfReport": "⬇ Descargar informe PDF Premium",
+    "downloadPdfReport": "⬇ Descargar informe PDF Pro",
     "csvHeaders": {
       "reportLabel": "Informe de herramienta generada",
       "tool": "Herramienta",
@@ -4302,47 +4302,47 @@
     }
   },
   "premiumCategoryCatalog": {
-    "title": "Calculadoras premium",
-    "subtitle": "Herramientas premium de decisión en 20 categorías operativas, con calculadoras gratuitas relacionadas.",
-    "metaTitle": "Calculadoras premium | SectorCalc",
-    "metaDescription": "Explore categorías premium — lean, calidad, CNC, finanzas, cadena de suministro y más.",
-    "premiumCount": "{count} herramientas premium",
+    "title": "Calculadoras Pro",
+    "subtitle": "Herramientas Pro de decisión en 20 categorías operativas, con calculadoras gratuitas relacionadas.",
+    "metaTitle": "Calculadoras Pro | SectorCalc",
+    "metaDescription": "Explore categorías Pro — lean, calidad, CNC, finanzas, cadena de suministro y más.",
+    "premiumCount": "{count} herramientas Pro",
     "toolCount": "{count} calculadoras",
     "relatedFreeCount": "{count} herramientas gratuitas relacionadas",
     "viewCategory": "Abrir categoría",
-    "breadcrumbPremiumTools": "Calculadoras premium",
-    "premiumSection": "Calculadoras premium",
+    "breadcrumbPremiumTools": "Calculadoras Pro",
+    "premiumSection": "Calculadoras Pro",
     "relatedFreeSection": "Calculadoras gratuitas relacionadas",
     "openCalculator": "Abrir calculadora",
     "methodologyPreparing": "Metodología en preparación",
-    "searchPlaceholder": "Buscar herramientas premium...",
-    "searchLabel": "Buscar herramientas premium",
+    "searchPlaceholder": "Buscar herramientas Pro...",
+    "searchLabel": "Buscar herramientas Pro",
     "clearSearch": "Limpiar",
     "browseByCategory": "Explorar por categoría",
     "viewMoreResults": "Ver más resultados ({count})",
     "allCategory": "Todos",
     "categoryToolsTitle": "Calculadoras de {category}",
-    "categoryToolsSubtitle": "{count} calculadoras premium",
+    "categoryToolsSubtitle": "{count} calculadoras Pro",
     "selectedCategory": "Seleccionado",
-    "resultCount": "{count} herramientas premium mostradas",
-    "noResults": "No se encontraron herramientas premium.",
+    "resultCount": "{count} herramientas Pro mostradas",
+    "noResults": "No se encontraron herramientas Pro.",
     "noResultsHint": "Restablece el filtro o usa una palabra clave más amplia."
   },
   "schemaBreadcrumbs": {
     "home": "Inicio",
     "freeTools": "Calculadoras gratuitas",
-    "premiumTools": "Calculadoras premium",
+    "premiumTools": "Calculadoras Pro",
     "industries": "Calculadoras sectoriales",
     "generatedTools": "Calculadoras generadas"
   },
   "premiumSchemaPage": {
-    "eyebrow": "Calculadora premium",
+    "eyebrow": "Calculadora Pro",
     "featuredQuestion": "¿Qué calcula {name}?",
     "bullet1": "Impulsores de pérdida oculta y controles de umbral",
     "bullet2": "Acciones sugeridas para revisión operativa",
     "bullet3": "PDF y CSV listos para exportar en planes de pago",
     "legalQuestion": "¿Es asesoramiento financiero o de ingeniería?",
-    "legalAnswer": "No. Las calculadoras premium de SectorCalc son herramientas de apoyo a decisiones con supuestos transparentes. No sustituyen asesoramiento financiero, legal o de ingeniería profesional.",
+    "legalAnswer": "No. Las calculadoras Pro de SectorCalc son herramientas de apoyo a decisiones con supuestos transparentes. No sustituyen asesoramiento financiero, legal o de ingeniería profesional.",
     "serviceType": "Cálculo de decisión operativa"
   },
   "freeToolInputs": {
@@ -5951,7 +5951,7 @@
       "motor_efficiency": {
         "label": "Eficiencia del Motor",
         "placeholder": "Introduzca eficiencia del motor",
-        "helper": "Eficiencia del motor eléctrico que impulsa el compresor. Los motores de eficiencia premium (IE3/IE4) son >90%."
+        "helper": "Eficiencia del motor eléctrico que impulsa el compresor. Los motores de eficiencia Pro (IE3/IE4) son >90%."
       },
       "compressor_type": {
         "label": "Tipo de Compresor",
@@ -29355,7 +29355,7 @@
       "use_real_time_traffic": {
         "label": "Usar datos de tráfico en tiempo real",
         "placeholder": "Introduzca usar datos de tráfico en tiempo real",
-        "helper": "Si es verdadero, la calculadora ajustará el factor de retraso del tráfico según datos en tiempo real (función premium)."
+        "helper": "Si es verdadero, la calculadora ajustará el factor de retraso del tráfico según datos en tiempo real (función Pro)."
       }
     },
     "long-term-care-calculator": {
@@ -30650,8 +30650,8 @@
       },
       "base_premium": {
         "label": "Prima base (Prima estándar de la Parte B)",
-        "placeholder": "Introduzca base premium (standard part b premium)",
-        "helper": "Valor utilizado para Base Premium (Standard Part B Premium) en el cálculo."
+        "placeholder": "Introduzca base Pro (standard part b Pro)",
+        "helper": "Valor utilizado para Base Pro (Standard Part B Pro) en el cálculo."
       }
     },
     "medicare-part-d-calculator": {
@@ -48831,9 +48831,9 @@
         "helper": "Diámetro del alambre de aporte. Afecta el área transversal y la tasa de deposición."
       },
       "use_premium_data": {
-        "label": "Usar Datos Premium (tendencias históricas)",
-        "placeholder": "Introduzca usar datos premium (tendencias históricas)",
-        "helper": "Si es verdadero, ajusta la eficiencia de deposición y el factor de operador según datos históricos de la base de datos premium."
+        "label": "Usar Datos Pro (tendencias históricas)",
+        "placeholder": "Introduzca usar datos Pro (tendencias históricas)",
+        "helper": "Si es verdadero, ajusta la eficiencia de deposición y el factor de operador según datos históricos de la base de datos Pro."
       }
     },
     "welding-calculator": {
@@ -48930,8 +48930,8 @@
         "helper": "Proceso de soldadura por arco estándar según AWS A3.0."
       },
       "use_premium_material": {
-        "label": "Usar Material de Aporte Premium",
-        "placeholder": "Introduzca usar material de aporte premium",
+        "label": "Usar Material de Aporte Pro",
+        "placeholder": "Introduzca usar material de aporte Pro",
         "helper": "Alternar para aplicar una prima de costo del 20% para alambre de aporte de alto rendimiento."
       }
     },
@@ -62076,7 +62076,7 @@
       "material_quality": {
         "label": "Nivel de Calidad del Material",
         "placeholder": "Introduzca nivel de calidad del material",
-        "helper": "Economy: acabados económicos; Standard: gama media; Premium: alta gama, materiales sostenibles."
+        "helper": "Economy: acabados económicos; Standard: gama media; Pro: alta gama, materiales sostenibles."
       },
       "labor_efficiency_factor": {
         "label": "Factor de Eficiencia Laboral",
@@ -66169,7 +66169,7 @@
     "faqLabel": "faq-knowledge.txt",
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Calculadoras gratuitas",
-    "premiumToolsLabel": "Calculadoras premium",
+    "premiumToolsLabel": "Calculadoras Pro",
     "industriesLabel": "Centros sectoriales",
     "generatedToolsLabel": "Calculadoras generadas"
   },
@@ -66238,7 +66238,7 @@
     "ctaOpen": "Abrir calculadora",
     "ctaOpenSector": "Abrir sector",
     "inputCount": "~{count} entradas",
-    "sectorToolCounts": "{free} gratis · {premium} premium",
+    "sectorToolCounts": "{free} gratis · {premium} Pro",
     "resultsLabel": "<strong>{count}</strong> calculadoras mostradas"
   },
   "disclaimer": {
@@ -66354,7 +66354,7 @@
       "body": "Calculator routes expose schema.org Accións and software application metadata.",
       "item1": "WebSite + Organization en páginas principales",
       "item2": "CalcularAcción on calculator detail routes",
-      "item3": "Las herramientas premium de decisión incluyen metadatos de informe cuando corresponde"
+      "item3": "Las herramientas Pro de decisión incluyen metadatos de informe cuando corresponde"
     },
     "resources": {
       "title": "Public Recursos",
@@ -66370,43 +66370,43 @@
   "tools": {
     "change-order-impact-analyzer": {
       "title": "Analizador impacto orden de cambio",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "menu-profit-leak-detector": {
       "title": "Detector fuga margen menu",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "office-cleaning-bid-optimizer": {
       "title": "Optimizador oferta limpieza oficina",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "landscaping-contract-profit-tool": {
       "title": "Herramienta beneficio contrato jardineria",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "signage-bid-safe-price-tool": {
       "title": "Precio seguro rotulacion",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "welding-bid-risk-analyzer": {
       "title": "Analizador riesgo soldadura",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "hvac-project-margin-guard": {
       "title": "Proteccion margen proyecto HVAC",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "cnc-quote-risk-analyzer": {
       "title": "Analizador riesgo cotizacion CNC",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "sheet-metal-quote-risk-tool": {
       "title": "Riesgo cotizacion chapa",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "plumbing-job-margin-verdict": {
       "title": "Veredicto margen fontaneria",
-      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+      "description": "Herramienta Pro. Resultados completos y resumen de decision requieren creditos o Pro activo."
     },
     "3d-print-job-margin-tool": {
       "title": "Analizador de Pérdidas de Ruta y Flete",
@@ -66484,7 +66484,7 @@
   "credits": {
     "eyebrow": "Créditos",
     "title": "Créditos SectorCalc",
-    "subtitle": "Compra créditos para asistencia AI premium y uso de analizadores.",
+    "subtitle": "Compra créditos para asistencia AI Pro y uso de analizadores.",
     "balanceLabel": "Créditos",
     "loading": "Cargando…",
     "packageLabel": "{credits} créditos — ${price}",
@@ -66506,13 +66506,13 @@
     "eyebrow": "Revisión de calidad",
     "title": "Cálculo temporalmente no disponible",
     "body": "Esta calculadora está bajo revisión de calidad. El cálculo completo está deshabilitado temporalmente para evitar resultados no fiables.",
-    "browsePremiumCta": "Explorar otras herramientas premium"
+    "browsePremiumCta": "Explorar otras herramientas Pro"
   },
   "runtimeTrust": {
     "eyebrow": "Revisión de calidad",
     "title": "Calculadora bajo revisión de calidad",
     "body": "Una verificación de calidad en tiempo de ejecución detectó una condición que puede afectar la fiabilidad de los resultados. El cálculo completo y el pago están deshabilitados temporalmente para evitar resultados no fiables o pagos incorrectos.",
-    "browsePremiumCta": "Explorar otras herramientas premium"
+    "browsePremiumCta": "Explorar otras herramientas Pro"
   },
   "inputGuide": {
     "shape": {
@@ -67801,12 +67801,12 @@
       "content": "SectorCalc ofrece calculadoras industriales y empresariales con fines informativos y de apoyo a la decisión. Nuestras herramientas no constituyen asesoramiento profesional en ingeniería, finanzas o derecho. Usted es el único responsable de verificar los resultados antes de tomar decisiones empresariales."
     },
     "section2": {
-      "title": "2. Funciones Premium y créditos",
-      "content": "Las herramientas Premium requieren créditos. Los créditos no son reembolsables y caducan 12 meses después de la compra. Puede adquirir paquetes de créditos a través de nuestro proveedor de pago seguro. Los créditos no utilizados no se acumulan."
+      "title": "2. Funciones Pro y créditos",
+      "content": "Las herramientas Pro requieren créditos. Los créditos no son reembolsables y caducan 12 meses después de la compra. Puede adquirir paquetes de créditos a través de nuestro proveedor de pago seguro. Los créditos no utilizados no se acumulan."
     },
     "section3": {
       "title": "3. Cuentas de usuario",
-      "content": "Debe crear una cuenta para acceder a las funciones Premium. Es responsable de mantener la confidencialidad de sus credenciales y de todas las actividades realizadas bajo su cuenta."
+      "content": "Debe crear una cuenta para acceder a las funciones Pro. Es responsable de mantener la confidencialidad de sus credenciales y de todas las actividades realizadas bajo su cuenta."
     },
     "section4": {
       "title": "4. Propiedad intelectual",
@@ -67882,11 +67882,11 @@
     "intro": "Queremos que esté satisfecho con su compra. Lea atentamente esta Política de reembolso.",
     "section1": {
       "title": "1. Créditos y suscripciones",
-      "content": "Créditos: Las compras de créditos son definitivas y no reembolsables. Los créditos no utilizados caducan 12 meses después de la compra. No se emitirán reembolsos en efectivo por créditos no utilizados. Suscripciones: Si adquiere una suscripción recurrente, puede solicitar un reembolso completo dentro de los 14 días posteriores al primer pago, siempre que no haya utilizado ninguna herramienta Premium durante ese período. Tras 14 días o tras el primer uso, las cuotas de suscripción no son reembolsables."
+      "content": "Créditos: Las compras de créditos son definitivas y no reembolsables. Los créditos no utilizados caducan 12 meses después de la compra. No se emitirán reembolsos en efectivo por créditos no utilizados. Suscripciones: Si adquiere una suscripción recurrente, puede solicitar un reembolso completo dentro de los 14 días posteriores al primer pago, siempre que no haya utilizado ninguna herramienta Pro durante ese período. Tras 14 días o tras el primer uso, las cuotas de suscripción no son reembolsables."
     },
     "section2": {
       "title": "2. Herramientas defectuosas o incorrectas",
-      "content": "Si una herramienta Premium produce resultados manifiestamente incorrectos debido a un error en nuestro sistema, reembolsaremos los créditos utilizados para ese cálculo (hasta el número de créditos gastados) o proporcionaremos créditos de reemplazo. Informe del problema con capturas de pantalla y detalles a info@sectorcalc.com."
+      "content": "Si una herramienta Pro produce resultados manifiestamente incorrectos debido a un error en nuestro sistema, reembolsaremos los créditos utilizados para ese cálculo (hasta el número de créditos gastados) o proporcionaremos créditos de reemplazo. Informe del problema con capturas de pantalla y detalles a info@sectorcalc.com."
     },
     "section3": {
       "title": "3. Cómo solicitar un reembolso",
@@ -67908,10 +67908,10 @@
   "creditsPricing": {
     "meta": {
       "title": "Precios – Créditos SectorCalc",
-      "description": "Compre créditos para desbloquear calculadoras industriales Premium. Planes desde $1,99."
+      "description": "Compre créditos para desbloquear calculadoras industriales Pro. Planes desde $1,99."
     },
     "title": "Elija sus créditos",
-    "subtitle": "Un crédito desbloquea un cálculo Premium. Los créditos caducan 12 meses después de la compra.",
+    "subtitle": "Un crédito desbloquea un cálculo Pro. Los créditos caducan 12 meses después de la compra.",
     "creditsLabel": "{count} créditos",
     "perCredit": "/ crédito",
     "buyNow": "Comprar créditos",
@@ -67926,7 +67926,7 @@
   },
   "verify": {
     "metaTitle": "Verificar informe de cálculo — SectorCalc Trust Trace",
-    "metaDescription": "Verificación criptográfica de un informe de cálculo premium de SectorCalc. Verifique autenticidad, integridad y estado de emisión.",
+    "metaDescription": "Verificación criptográfica de un informe de cálculo Pro de SectorCalc. Verifique autenticidad, integridad y estado de emisión.",
     "eyebrow": "Trust Trace",
     "title": "Verificación criptográfica",
     "description": "Verificación de autenticidad e integridad del informe de cálculo mediante hash SHA-256 contra el registro aprobado de SectorCalc.",
@@ -67936,7 +67936,7 @@
     "revokedBadge": "INFORME REVOCADO",
     "verifiedMessage": "Este informe ha sido verificado criptográficamente por el sistema Trust Trace de SectorCalc. El registro de cálculo es auténtico y no ha sido manipulado.",
     "notFoundMessage": "No se encontró ningún informe aprobado coincidente en el registro de SectorCalc.",
-    "notFoundHelp": "Este hash aún no está vinculado a un cálculo verificado. Los informes se registran en el momento de la exportación de un cálculo premium. Si escaneó un código QR de un informe válido, asegúrese de que el hash completo se haya capturado correctamente.",
+    "notFoundHelp": "Este hash aún no está vinculado a un cálculo verificado. Los informes se registran en el momento de la exportación de un cálculo Pro. Si escaneó un código QR de un informe válido, asegúrese de que el hash completo se haya capturado correctamente.",
     "notFoundHash": "Hash: {hash}",
     "revokedMessage": "Este informe ha sido revocado.",
     "revokedHelp": "Un informe revocado ya no se considera válido. Comuníquese con el emisor para obtener un informe actualizado.",
@@ -67980,7 +67980,7 @@
     "calcSummary": "Resumen del cálculo",
     "issued": "Emitido",
     "summaryDisclaimer": "Simulación técnica. No es asesoramiento financiero, legal ni de ingeniería. Descargo de responsabilidad v{version}.",
-    "premiumSummary": "Resumen de decisión Premium",
+    "premiumSummary": "Resumen de decisión Pro",
     "saveSummary": "Guardar resumen de decisión",
     "saveSummaryDesc": "Guarde este cálculo con entradas y resultados para sus registros.",
     "upgradeToSave": "Actualice a Pro para guardar resúmenes de cálculo detallados.",
@@ -68075,7 +68075,7 @@
   },
   "platformCapabilities": {
     "title": "Conjunto Integral de Funcionalidades",
-    "description": "SectorCalc combina estimaciones rápidas gratuitas con informes de decisión premium — entradas validadas, fórmulas transparentes, escenarios, señales de riesgo y estructura lista para informes en {sectorCount} sectores activos.",
+    "description": "SectorCalc combina estimaciones rápidas gratuitas con informes de decisión Pro — entradas validadas, fórmulas transparentes, escenarios, señales de riesgo y estructura lista para informes en {sectorCount} sectores activos.",
     "validatedInputs": {
       "title": "Entradas Validadas",
       "summary": "Las herramientas sectoriales utilizan campos estructurados y validación para que las estimaciones comiencen desde entradas consistentes.",
@@ -68104,14 +68104,14 @@
           "label": "Notas de interpretación en cada herramienta"
         },
         {
-          "label": "Analizadores premium",
+          "label": "Analizadores Pro",
           "href": "/pricing"
         }
       ]
     },
     "riskSignals": {
       "title": "Señales de Riesgo",
-      "summary": "Las herramientas premium revelan niveles de riesgo para que los equipos vean cuándo las decisiones de margen, precio o capacidad requieren precaución.",
+      "summary": "Las herramientas Pro revelan niveles de riesgo para que los equipos vean cuándo las decisiones de margen, precio o capacidad requieren precaución.",
       "items": [
         {
           "label": "Veredicto de riesgo estructurado"
@@ -68133,7 +68133,7 @@
           "label": "Evaluación de escenarios multi-ruta"
         },
         {
-          "label": "Herramientas de decisión premium",
+          "label": "Herramientas de decisión Pro",
           "href": "/pricing"
         },
         {
@@ -68144,7 +68144,7 @@
     },
     "reportPreview": {
       "title": "Vista Previa del Informe",
-      "summary": "Los resultados premium empaquetan hallazgos para las partes interesadas — los formatos de exportación son solo de vista previa en el MVP.",
+      "summary": "Los resultados Pro empaquetan hallazgos para las partes interesadas — los formatos de exportación son solo de vista previa en el MVP.",
       "items": [
         {
           "label": "Estructura del resumen ejecutivo"
@@ -68160,7 +68160,7 @@
     },
     "leadIntentFlow": {
       "title": "Flujo de Intención de Lead",
-      "summary": "Solicite acceso a informes premium y ayude a dar forma al despliegue de facturación y exportación — el pago aún no está activo.",
+      "summary": "Solicite acceso a informes Pro y ayude a dar forma al despliegue de facturación y exportación — el pago aún no está activo.",
       "items": [
         {
           "label": "Captura de leads con límite de tasa"
@@ -68178,17 +68178,17 @@
   },
   "mcProductExtensions": {
     "reportPreviewTitle": "Vista previa del informe de decisión",
-    "reportPreviewDesc": "Vea cómo los resultados premium se convierten en paquetes listos para las partes interesadas.",
+    "reportPreviewDesc": "Vea cómo los resultados Pro se convierten en paquetes listos para las partes interesadas.",
     "openFullReport": "Abrir informe de muestra completo →",
     "freeToolsTitle": "Herramientas sectoriales gratuitas",
     "freeToolsDesc": "Estimaciones rápidas estructuradas — no se requiere cuenta.",
     "viewAllFreeTools": "Ver todas las herramientas gratuitas →",
-    "premiumToolsTitle": "Herramientas de decisión premium",
+    "premiumToolsTitle": "Herramientas de decisión Pro",
     "premiumToolsDesc": "Evaluación de escenarios, señales de riesgo e informes empaquetados cuando el costo de equivocarse es real.",
     "viewPricing": "Ver precios →"
   },
   "premiumToolsGrid": {
-    "title": "Herramientas de decisión premium",
+    "title": "Herramientas de decisión Pro",
     "description": "Analizadores sectoriales para decisiones de precios, ofertas y márgenes.",
     "openCalculator": "Abrir calculadora",
     "unlockPro": "Desbloquear Pro"
@@ -68209,7 +68209,7 @@
     "sectionWhatTitle": "Qué hacemos",
     "sectionWhatBody": "Convertimos el dolor del sector en flujos de trabajo de cálculo estructurados: medir entradas, detectar pérdidas ocultas, sugerir acciones y adjuntar un resumen de cálculo a los resultados.",
     "sectionWhatBullet1": "Verificaciones gratuitas para señales rápidas de exposición",
-    "sectionWhatBullet2": "Analizadores premium para resultados de nivel de veredicto",
+    "sectionWhatBullet2": "Analizadores Pro para resultados de nivel de veredicto",
     "sectionWhatBullet3": "Informes de decisión listos para exportar con metadatos de validación",
     "sectionForWhomTitle": "Para quién es",
     "sectionForWhomBody": "Talleres de soldadura, talleres de trabajo CNC, contratistas de HVAC, operadores de limpieza, restaurantes, vendedores de comercio electrónico y otros operadores del sector que cotizan, ofertan o planifican con márgenes ajustados.",
@@ -68239,7 +68239,7 @@
     "sectionTrustBullet1": "Lista de entradas canónicas con claves rechazadas",
     "sectionTrustBullet2": "Resúmenes de pre-cálculo de Mind 2 y post-cálculo de Mind 1",
     "sectionTrustBullet3": "Carga útil de exportación para resúmenes de decisión en PDF (capa de datos)",
-    "sectionTrustBullet4": "Metadatos de gobernanza para resultados premium guardados",
+    "sectionTrustBullet4": "Metadatos de gobernanza para resultados Pro guardados",
     "sectionResponsibilityTitle": "Límite de responsabilidad",
     "sectionResponsibilityBody": "Las salidas de SectorCalc son simulaciones técnicas de apoyo a la decisión basadas en entradas proporcionadas por el usuario y supuestos documentados. No constituyen asesoramiento legal, financiero, fiscal ni de ingeniería. Verifique todas las salidas antes de ofertas, contratos o compromisos operativos.",
     "sectionResponsibilityBullet1": "Las entradas proporcionadas por el usuario impulsan cada resultado",
@@ -68370,7 +68370,7 @@
     },
     "eyebrow": "Para consultores",
     "title": "Cálculos sectoriales para prácticas de asesoría",
-    "description": "Apoye los compromisos con los clientes mediante estimaciones sectoriales, evaluaciones preliminares y solicitudes de informes premium estructurados — en todas las industrias donde operan sus clientes.",
+    "description": "Apoye los compromisos con los clientes mediante estimaciones sectoriales, evaluaciones preliminares y solicitudes de informes Pro estructurados — en todas las industrias donde operan sus clientes.",
     "builtFor": "Creado para",
     "audience": [
       "Consultores empresariales",
@@ -68383,11 +68383,11 @@
     "benefits": [
       {
         "title": "Cálculos orientados al cliente",
-        "description": "Realice estimaciones gratuitas específicas del sector y calculadoras premium para respaldar evaluaciones preliminares, talleres y compromisos de asesoría."
+        "description": "Realice estimaciones gratuitas específicas del sector y calculadoras Pro para respaldar evaluaciones preliminares, talleres y compromisos de asesoría."
       },
       {
         "title": "Solicitudes de informes estructurados",
-        "description": "Solicite flujos de informes de decisión premium con resumen ejecutivo, escenarios, nivel de riesgo y recomendaciones — el empaquetado de exportación es solo vista previa en la MVP."
+        "description": "Solicite flujos de informes de decisión Pro con resumen ejecutivo, escenarios, nivel de riesgo y recomendaciones — el empaquetado de exportación es solo vista previa en la MVP."
       },
       {
         "title": "Flujos de trabajo sectoriales repetibles",
@@ -68395,13 +68395,13 @@
       }
     ],
     "allCalculators": "Todos los calculadores sectoriales",
-    "allCalculatorsDesc": "Estimaciones rápidas gratuitas y analizadores de decisión premium — el mismo catálogo compacto utilizado en toda la plataforma.",
+    "allCalculatorsDesc": "Estimaciones rápidas gratuitas y analizadores de decisión Pro — el mismo catálogo compacto utilizado en toda la plataforma.",
     "viewPricing": "Ver precios y planes →",
     "consultantProgram": "Programa para consultores — próximamente",
     "consultantProgramDesc": "La marca blanca, los espacios de trabajo para clientes y los flujos integrados aún no están disponibles. Estamos recopilando el interés de consultores para dar forma al acceso Pro, el empaquetado de informes y las funciones de equipo.",
     "seeSampleReport": "Ver informe de ejemplo",
     "ctaTitle": "Lleve decisiones sectoriales a los compromisos con los clientes",
-    "ctaSubtitle": "Explore paquetes sectoriales, realice estimaciones gratuitas y solicite acceso a informes premium cuando las decisiones afecten el margen o el riesgo del cliente.",
+    "ctaSubtitle": "Explore paquetes sectoriales, realice estimaciones gratuitas y solicite acceso a informes Pro cuando las decisiones afecten el margen o el riesgo del cliente.",
     "ctaPrimary": "Explorar sectores",
     "ctaSecondary": "Ver precios"
   },
@@ -68514,7 +68514,7 @@
     "relatedGuides": "Guías relacionadas",
     "seoHubIndex": "Índice del hub SEO",
     "relatedFreeCalculators": "Calculadoras gratuitas relacionadas",
-    "relatedPremiumCalculators": "Calculadoras premium relacionadas",
+    "relatedPremiumCalculators": "Calculadoras Pro relacionadas",
     "exploreFurther": "Explorar más",
     "breadcrumbHome": "Inicio",
     "breadcrumbGuides": "Guías",
@@ -68524,17 +68524,17 @@
     "allIndustries": "Todas las industrias",
     "pricing": "Precios",
     "startFree": "Comienza con calculadoras gratuitas",
-    "viewPremium": "Ver calculadoras premium",
+    "viewPremium": "Ver calculadoras Pro",
     "legalFooter": "Las guías de SectorCalc son recursos técnicos de apoyo a la toma de decisiones basados en fórmulas estándar y supuestos transparentes. No constituyen asesoramiento financiero, legal, médico ni de ingeniería."
   },
   "howItWorks": {
     "meta": {
       "title": "Cómo funciona — Metodología y limitaciones",
-      "description": "Cómo funcionan las comprobaciones de margen gratuitas de SectorCalc y los informes de veredicto premium: entradas, señales de riesgo, lógica de precio seguro, limitaciones, privacidad y exenciones de responsabilidad."
+      "description": "Cómo funcionan las comprobaciones de margen gratuitas de SectorCalc y los informes de veredicto Pro: entradas, señales de riesgo, lógica de precio seguro, limitaciones, privacidad y exenciones de responsabilidad."
     },
     "eyebrow": "Cómo funciona",
     "title": "Metodología, resultados y limitaciones",
-    "lead": "SectorCalc es una plataforma de medición y decisión específica para cada sector. Las comprobaciones gratuitas generan confianza; los veredictos premium ofrecen la capa de decisión que los operadores necesitan antes de cotizar.",
+    "lead": "SectorCalc es una plataforma de medición y decisión específica para cada sector. Las comprobaciones gratuitas generan confianza; los veredictos Pro ofrecen la capa de decisión que los operadores necesitan antes de cotizar.",
     "privacyNote": "Las comprobaciones gratuitas se ejecutan sin configuración de ERP. Los datos comerciales no se venden.",
     "sections": [
       {
@@ -68550,8 +68550,8 @@
       },
       {
         "id": "veredicto-premium",
-        "title": "Lo que añade el veredicto premium",
-        "body": "Los analizadores premium utilizan conjuntos de entrada ampliados (normalmente de 5 a 9 campos) para producir un veredicto de decisión: precio mínimo seguro cuando corresponda, impulsores de fuga de margen, comparación de escenarios y una acción sugerida (aceptar, volver a cotizar, renegociar o no aceptar). Los suscriptores pueden guardar informes y exportar copias en PDF.",
+        "title": "Lo que añade el veredicto Pro",
+        "body": "Los analizadores Pro utilizan conjuntos de entrada ampliados (normalmente de 5 a 9 campos) para producir un veredicto de decisión: precio mínimo seguro cuando corresponda, impulsores de fuga de margen, comparación de escenarios y una acción sugerida (aceptar, volver a cotizar, renegociar o no aceptar). Los suscriptores pueden guardar informes y exportar copias en PDF.",
         "bullets": [
           "Precio mínimo seguro o precio base de oferta",
           "Desglose de fuga de margen",
@@ -68562,7 +68562,7 @@
       {
         "id": "entradas",
         "title": "Entradas utilizadas",
-        "body": "Cada paquete sectorial define campos de entrada validados: tiempo de máquina, mano de obra, material, objetivos de margen, días de retraso y variables operativas similares. Las etiquetas y el texto de ayuda explican qué corresponde en cada campo. Los analizadores premium pueden requerir campos adicionales no mostrados en el nivel gratuito.",
+        "body": "Cada paquete sectorial define campos de entrada validados: tiempo de máquina, mano de obra, material, objetivos de margen, días de retraso y variables operativas similares. Las etiquetas y el texto de ayuda explican qué corresponde en cada campo. Los analizadores Pro pueden requerir campos adicionales no mostrados en el nivel gratuito.",
         "bullets": [
           "Conjuntos de campos específicos del sector por herramienta",
           "Etiquetas visibles y texto de ayuda",
@@ -68576,7 +68576,7 @@
         "body": "Los niveles de riesgo combinan proporciones de entrada, umbrales sectoriales y objetivos de margen configurados por paquete industrial. ALTO riesgo significa que la cotización o cambio puede erosionar el margen bajo los supuestos indicados, no una garantía de pérdida, sino una señal para volver a fijar precio o reducir el alcance antes de comprometerse.",
         "bullets": [
           "BAJO / MEDIO / ALTO visible en el nivel gratuito",
-          "Premium añade etiquetas de veredicto y factores de fuga",
+          "Pro añade etiquetas de veredicto y factores de fuga",
           "El riesgo es texto + nivel, no solo color",
           "Las señales son apoyo a la decisión, no auditoría certificada"
         ]
@@ -68584,7 +68584,7 @@
       {
         "id": "precio-seguro",
         "title": "Lógica de precio seguro",
-        "body": "Cuando corresponda, las calculadoras premium calculan un precio mínimo seguro o piso de oferta a partir del costo directo, margen objetivo y amortiguadores específicos del sector (configuración, desperdicio, herramientas, retraso). El modelo exacto varía por sector: talleres de mecanizado CNC, órdenes de cambio en construcción y contratos de limpieza utilizan diferentes factores.",
+        "body": "Cuando corresponda, las calculadoras Pro calculan un precio mínimo seguro o piso de oferta a partir del costo directo, margen objetivo y amortiguadores específicos del sector (configuración, desperdicio, herramientas, retraso). El modelo exacto varía por sector: talleres de mecanizado CNC, órdenes de cambio en construcción y contratos de limpieza utilizan diferentes factores.",
         "bullets": [
           "Margen objetivo aplicado al costo directo cargado",
           "Amortiguadores sectoriales para configuración, desperdicio o retraso",
@@ -68621,7 +68621,7 @@
         "bullets": []
       }
     ],
-    "compareTitle": "Gratuito vs premium de un vistazo",
+    "compareTitle": "Gratuito vs Pro de un vistazo",
     "freeTitle": "Verificación gratuita",
     "freeItems": [
       "Nivel de riesgo visible y resumen",
@@ -68629,7 +68629,7 @@
       "Sin exportación a PDF",
       "Sin precio mínimo seguro"
     ],
-    "premiumTitle": "Veredicto premium",
+    "premiumTitle": "Veredicto Pro",
     "premiumItems": [
       "Entradas completas de la calculadora",
       "Etiqueta de veredicto y acción sugerida",
@@ -68638,7 +68638,7 @@
     ],
     "linksFree": "Realizar una verificación gratuita →",
     "linksSample": "Ver informe de veredicto de muestra →",
-    "linksPremium": "Explorar calculadoras premium →",
+    "linksPremium": "Explorar calculadoras Pro →",
     "linksPricing": "Ver precios →"
   },
   "loginPage": {
@@ -68647,18 +68647,18 @@
       "description": "Iniciar sesión en SectorCalc — panel de administración o acceso a SectorCalc Pro."
     },
     "title": "Iniciar sesión",
-    "subtitle": "Inicio de sesión de administrador para el panel de clientes potenciales, o inicio de sesión con Google al regresar de herramientas premium o precios."
+    "subtitle": "Inicio de sesión de administrador para el panel de clientes potenciales, o inicio de sesión con Google al regresar de herramientas Pro o precios."
   },
   "accountPage": {
     "meta": {
       "title": "Cuenta",
-      "description": "Administre su acceso a SectorCalc Pro, herramientas premium de decisión e informes de veredicto guardados."
+      "description": "Administre su acceso a SectorCalc Pro, herramientas Pro de decisión e informes de veredicto guardados."
     }
   },
   "accountCreditsPage": {
     "meta": {
       "title": "Créditos",
-      "description": "Compre créditos de SectorCalc para asistencia premium de IA y uso del analizador."
+      "description": "Compre créditos de SectorCalc para asistencia Pro de IA y uso del analizador."
     }
   },
   "accountFeedbackPage": {
@@ -68670,13 +68670,13 @@
   "constructionBidMarginPage": {
     "meta": {
       "title": "Margen de Oferta de Construcción — Riesgo de Órdenes de Cambio",
-      "description": "Proteja el margen de su proyecto de construcción antes de firmar órdenes de cambio. Verificación gratuita de ofertas e informes premium de veredicto de órdenes de cambio."
+      "description": "Proteja el margen de su proyecto de construcción antes de firmar órdenes de cambio. Verificación gratuita de ofertas e informes Pro de veredicto de órdenes de cambio."
     }
   },
   "cleaningContractMarginPage": {
     "meta": {
       "title": "Margen de Contrato de Limpieza — Optimizador de Ofertas",
-      "description": "Detenga contratos de limpieza que pierden dinero cada mes. Verificación gratuita de costos e informes premium de veredicto de ofertas para limpieza de oficinas."
+      "description": "Detenga contratos de limpieza que pierden dinero cada mes. Verificación gratuita de costos e informes Pro de veredicto de ofertas para limpieza de oficinas."
     }
   },
   "cncQuoteRiskPage": {
@@ -68698,7 +68698,7 @@
       {
         "title": "Apoyo indicativo a la toma de decisiones",
         "paragraphs": [
-          "Las calculadoras y vistas previas de informes premium en SectorCalc son herramientas indicativas de apoyo a la toma de decisiones.",
+          "Las calculadoras y vistas previas de informes Pro en SectorCalc son herramientas indicativas de apoyo a la toma de decisiones.",
           "Están diseñadas para estructurar el pensamiento, no para certificar ofertas, márgenes, seguridad, cumplimiento o estados financieros."
         ]
       },
@@ -68762,7 +68762,7 @@
   "premiumSchemaPrintPage": {
     "meta": {
       "title": "{name} — Imprimir informe | SectorCalc",
-      "description": "Informe premium de decisión listo para imprimir para {name}."
+      "description": "Informe Pro de decisión listo para imprimir para {name}."
     }
   },
   "industrialFieldPanel": {
@@ -68786,7 +68786,7 @@
     "saveToReports": "Guardar en Mis Informes"
   },
   "toolPageShell": {
-    "premiumVerdicts": "Dictámenes Premium",
+    "premiumVerdicts": "Dictámenes Pro",
     "freePreChecks": "Pre-verificaciones gratuitas",
     "marginLeakPreCheck": "Pre-verificación de fuga de margen",
     "home": "Inicio",
@@ -68794,7 +68794,7 @@
     "assumptionsFallback": "Revise sus entradas contra contratos reales, facturas y datos operativos. Los resultados de SectorCalc son indicativos y no reemplazan la contabilidad profesional, la revisión legal o las estimaciones certificadas.",
     "calcRegeneration": "Regeneración de la calculadora en curso. El análisis de esquema restaurará esta herramienta.",
     "ctaUnlockTitle": "Desbloquear todas las herramientas de decisión",
-    "ctaUnlockSubtitle": "SectorCalc Pro desbloque herramientas de decisión premium en todos los sectores — $19/mes, cancele en cualquier momento.",
+    "ctaUnlockSubtitle": "SectorCalc Pro desbloque herramientas de decisión Pro en todos los sectores — $19/mes, cancele en cualquier momento.",
     "ctaContinueTitle": "Continuar con herramientas sectoriales",
     "ctaContinueSubtitle": "Realice otra verificación rápida o desbloquee la herramienta de decisión cuando el número afecte el margen, el precio o el riesgo.",
     "ctaViewPro": "Ver SectorCalc Pro",

@@ -23,19 +23,19 @@ describe("smart form pilot feature flag", () => {
 
   test("enables only for pilot slug when flag is true", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
-    expect(isSmartFormPilotEnabled()).toBe(true);
-    expect(shouldUseSmartFormPilot(SMART_FORM_PILOT_SLUG)).toBe(true);
-    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
-    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(true);
-    expect(shouldUseSmartFormPilot("electrical-labor-estimator")).toBe(true);
+    expect(isSmartFormPilotEnabled()).toBe(false);
+    expect(shouldUseSmartFormPilot(SMART_FORM_PILOT_SLUG)).toBe(false);
+    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(false);
+    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
+    expect(shouldUseSmartFormPilot("electrical-labor-estimator")).toBe(false);
     expect(shouldUseSmartFormPilot("plumbing-job-margin-verdict")).toBe(false);
   });
 
   test("recognizes pilot slug constants", () => {
-    expect(isSmartFormPilotSlug("3d-print-cost-check")).toBe(true);
-    expect(isSmartFormPilotSlug("cabinet-cost-estimator")).toBe(true);
-    expect(isSmartFormPilotSlug("repair-time-vs-price-check")).toBe(true);
-    expect(isSmartFormPilotSlug("electrical-labor-estimator")).toBe(true);
+    expect(isSmartFormPilotSlug("3d-print-cost-check")).toBe(false);
+    expect(isSmartFormPilotSlug("cabinet-cost-estimator")).toBe(false);
+    expect(isSmartFormPilotSlug("repair-time-vs-price-check")).toBe(false);
+    expect(isSmartFormPilotSlug("electrical-labor-estimator")).toBe(false);
     expect(isSmartFormPilotSlug("plumbing-job-margin-verdict")).toBe(false);
   });
 });

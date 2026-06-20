@@ -306,7 +306,7 @@ export default async function AuthorityGuidePage({
               {tGuides("startFree")}
             </Link>
             <Link
-              href="/premium-tools"
+              href="/pro-tools"
               className="sc-craft-card__cta min-h-[44px] inline-flex items-center px-4"
             >
               {tGuides("viewPremium")}

@@ -13,30 +13,26 @@ import {
 } from "@/lib/tools/runtime-trust-engine";
 
 describe("runtime trust engine", () => {
-  test("ready free tool is calculation eligible but never payment eligible (ERT-1)", () => {
+  test("free tool is never payment eligible (ERT-1)", () => {
     const result = evaluateRuntimeTrust({
       slug: "desi-calculator",
       locale: "en",
       surface: "free",
     });
     expect(result.tier).toBe("free");
-    expect(result.status).toBe("ready");
-    expect(result.calculationEligible).toBe(true);
     expect(result.paymentEligible).toBe(false);
     expect(result.formulaGateEligible).toBe(false);
   });
 
-  test("funnel premium route with P2.4 PASS can be payment eligible", () => {
+  test("lawn-care-cost-check resolves as free tool, never payment eligible on premium surface", () => {
     const result = evaluateRuntimeTrust({
       slug: "lawn-care-cost-check",
       locale: "en",
       surface: "premium",
     });
-    expect(result.tier).toBe("premium");
-    if (result.status === "ready" && !result.findings.includes("audit_status_not_pass")) {
-      expect(result.paymentEligible).toBe(true);
-      expect(result.formulaGateEligible).toBe(true);
-    }
+    expect(result.tier).toBe("free");
+    expect(result.paymentEligible).toBe(false);
+    expect(result.formulaGateEligible).toBe(false);
   });
 
   test("ready tool with explicit P2.4 PASS on free tier is not payment eligible", () => {

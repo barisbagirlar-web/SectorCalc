@@ -46,7 +46,7 @@ export default async function CheckoutSuccessPage({ params, searchParams }: Page
               {t("successPrimaryCta")}
             </Link>
             <Link
-              href="/premium-tools"
+              href="/pro-tools"
               className="sc-cta-secondary inline-flex min-h-[48px] items-center justify-center"
             >
               {t("successPremiumCta")}

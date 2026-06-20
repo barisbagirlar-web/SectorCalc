@@ -100,7 +100,7 @@ export function buildHomeOfferCatalogSchema(locale: string): JsonLdRecord {
       {
         "@type": "Offer",
         name: catalogLabel(locale, "premium"),
-        url: absoluteLocalizedUrl(locale, "/premium-tools"),
+        url: absoluteLocalizedUrl(locale, "/pro-tools"),
       },
       {
         "@type": "Offer",

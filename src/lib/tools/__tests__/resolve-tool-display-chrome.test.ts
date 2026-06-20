@@ -82,8 +82,8 @@ describe("resolve-tool-display-chrome", () => {
 
   it("returns Turkish keyword tags from generated bundle", () => {
     const tags = resolveToolKeywordTags("tool-wear-cost-calculator", schema, "tr");
-    expect(tags[0]).toBe("Birim Başına Takım Maliyeti");
-    expect(tags[1]).toBe("Takım Ömrü (Parça/Takım)");
+    expect(tags[0]).toBe("Takım Birim Maliyeti");
+    expect(tags[1]).toBe("Takım Ömrü (Takım Başına Parça)");
     expect(tags[2]).toBe("Değiştirme Süresi");
   });
 
@@ -123,7 +123,7 @@ describe("resolveFreeToolFieldDisplay", () => {
       helper: "Purchase price of a single cutting tool or insert.",
     });
 
-    expect(resolved.label).toBe("Birim Başına Takım Maliyeti");
+    expect(resolved.label).toBe("Takım Birim Maliyeti");
     expect(resolved.helper).toContain("kesici takım");
     expect(hasCalculatorFieldCopyResidue("tr", resolved)).toBe(false);
   });

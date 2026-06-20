@@ -10,17 +10,21 @@
  */
 
 import { createRequire } from "node:module";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import {
   CRITICAL_SLOW_MS,
   getBaseUrl,
   SLOW_WARNING_MS,
+  loadPremiumSlugsFromRegistry,
+  loadAllFreeToolSlugsFromRegistry,
+  loadLegacyCalculatorRoutes,
 } from "./smoke-utils.mjs";
 
 const require = createRequire(import.meta.url);
 
-const ROUTES = [
+// ── Core marketing pages (static, always tested) ──
+const CORE_ROUTES = [
   "/",
   "/tr",
   "/pricing",
@@ -41,12 +45,47 @@ const ROUTES = [
   "/de/premium-tools",
   "/fr/premium-tools",
   "/es/premium-tools",
-  "/tools/premium/cnc-quote-risk-analyzer",
-  "/tools/premium/change-order-impact-analyzer",
-  "/tools/premium/office-cleaning-bid-optimizer",
-  "/tools/premium/welding-bid-risk-analyzer",
-  "/tools/premium/millwork-bid-risk-analyzer",
 ];
+
+// ── Dynamically build all tool routes ──
+function buildToolRoutes() {
+  const routes = [];
+
+  // Premium tool routes (all 27)
+  try {
+    const premiumSlugs = loadPremiumSlugsFromRegistry();
+    for (const slug of premiumSlugs) {
+      routes.push(`/tools/premium/${slug}`);
+    }
+  } catch {
+    console.warn("Could not load premium slugs from registry");
+  }
+
+  // Free tool routes (sample — full coverage is handled by smoke:all-calculation-forms)
+  try {
+    const freeSlugs = loadAllFreeToolSlugsFromRegistry();
+    for (const slug of freeSlugs) {
+      routes.push(`/tools/free/${slug}`);
+    }
+  } catch {
+    console.warn("Could not load free slugs from registry");
+  }
+
+  // Legacy calculator routes
+  try {
+    const legacyRoutes = loadLegacyCalculatorRoutes();
+    for (const route of legacyRoutes) {
+      routes.push(route);
+    }
+  } catch {
+    console.warn("Could not load legacy routes");
+  }
+
+  return routes;
+}
+
+const TOOL_ROUTES = buildToolRoutes();
+const ROUTES = [...CORE_ROUTES, ...TOOL_ROUTES];
 
 const PROBE_ROUTES = [
   "/es",

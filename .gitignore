@@ -46,6 +46,12 @@ credentials.json
 # Build artifacts — regenerated every build (timestamp noise)
 steelcore-validation-report.json
 
+# Heal suggestions — AI-generated patches awaiting human approval
+heal-suggestions/
+
+# Quarantine zone — generated code snapshot for inspection
+generated-temp/
+
 # logs
 npm-debug.log*
 yarn-debug.log*

@@ -24,7 +24,7 @@ import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/premium-schema/sc
 import { getPremiumSchemaCatalogItems } from "@/lib/premium-schema/premium-schema-catalog";
 
 const PUBLIC_ROOT = join(process.cwd(), "public");
-const INDEXNOW_SCRIPT = join(process.cwd(), "scripts", "submit-indexnow.mjs");
+const INDEXNOW_SCRIPT = join(process.cwd(), "scripts", "submit-indexnow.ts");
 
 function readPublicTxt(name: string): string {
   const path = join(PUBLIC_ROOT, name);
@@ -99,9 +99,9 @@ describe("seo-authority architecture", () => {
     expect(FREE_TRAFFIC_TOOLS.length).toBe(CANONICAL_FREE_SLUGS.length);
   });
 
-  test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(0);
-    expect(listPremiumSchemaSlugs().length).toBe(0);
+  test("PREMIUM_SCHEMAS has active batch schemas", () => {
+    expect(PREMIUM_SCHEMAS.length).toBe(5);
+    expect(listPremiumSchemaSlugs().length).toBe(5);
   });
 
   test("sitemap helper produces indexable public routes", () => {

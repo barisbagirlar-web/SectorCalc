@@ -22,7 +22,7 @@ import {
 import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
 
 interface CategoriesHubGridProps {
-  readonly basePath: "/industries" | "/free-tools" | "/premium-tools";
+  readonly basePath: "/industries" | "/free-tools" | "/pro-tools";
   readonly categories: readonly CategoryCard[];
   readonly locale: string;
   readonly variant?: CatalogGridVariant;

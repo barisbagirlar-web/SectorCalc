@@ -23,6 +23,11 @@ function toNumericFormulaValue(value: number): number {
 function evaluateAllFormulas(input: Pythagorean_theorem_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.legA * input.legA + input.legB * input.legB; results["hypotenuse"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hypotenuse"] = Number.NaN; }
+  try { const v = input.legA * input.legA + input.legB * input.legB; results["hypotenuse_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hypotenuse_aux"] = Number.NaN; }
+  try { const v = input.legA * input.legA; results["legA___legA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["legA___legA"] = Number.NaN; }
+  try { const v = input.legB * input.legB; results["legB___legB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["legB___legB"] = Number.NaN; }
+  try { const v = input.legA * input.legA + input.legB * input.legB; results["legA___legA___legB___legB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["legA___legA___legB___legB"] = Number.NaN; }
+  try { const v = Math.sqrt(input.legA * input.legA + input.legB * input.legB); results["SQRT_legA___legA___legB___legB_"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["SQRT_legA___legA___legB___legB_"] = Number.NaN; }
   return results;
 }
 

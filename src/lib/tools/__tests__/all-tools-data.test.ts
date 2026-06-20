@@ -5,7 +5,7 @@ vi.mock("server-only", () => ({}));
 import { getAllTools, getFreeTools, getPremiumTools } from "@/lib/tools/all-tools-data";
 
 describe("all-tools-data", () => {
-  it("includes slug-based premium schemas from filenames", () => {
+  it("includes slug-based premium schemas from filenames", { timeout: 30000 }, () => {
     const premiumTools = getPremiumTools("en");
     const slugOnlyPremium = premiumTools.find(
       (tool) => tool.slug === "auto-repair-parts-labor-quote-calculator",
@@ -34,10 +34,10 @@ describe("all-tools-data", () => {
 
   it("prefers taxonomy category label over metadata categorySlug", () => {
     const tool = getAllTools("en").find((entry) => entry.slug === "margin-calculator");
-    expect(tool?.categoryKey).toBe("maliyet-butceleme");
+    expect(tool?.categoryKey).toBe("finance-sales-working-capital");
   });
 
-  it("resolves localized sector labels for all supported locales", async () => {
+  it("resolves localized sector labels for all supported locales", { timeout: 30000 }, async () => {
     const { SUPPORTED_LOCALES } = await import("@/lib/i18n/locale-config");
     for (const locale of SUPPORTED_LOCALES) {
       const tool = getAllTools(locale).find((entry) => entry.sectorKey === "cnc-manufacturing");

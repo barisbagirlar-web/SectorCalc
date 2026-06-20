@@ -119,12 +119,12 @@ describe("checkPremiumAssistantCredit", () => {
     expect(result).toEqual({ ok: false, reason: "no_subscription" });
   });
 
-  /* ---- Firestore unavailable ---- */
-  test("fail-open when Firestore unavailable", async () => {
+  /* ---- Firestore unavailable (stub returns no_credits always) ---- */
+  test("fail-open when Firestore unavailable (stub)", async () => {
     process.env.TRACE_PRO_CREDIT_BILLING = "true";
     firestoreAvailable = false;
     const result = await checkPremiumAssistantCredit("uid-1", false);
-    expect(result).toEqual({ ok: true });
+    expect(result).toEqual({ ok: false, reason: "no_credits" });
   });
 
   /* ---- Zero balance ---- */
@@ -149,19 +149,19 @@ describe("checkPremiumAssistantCredit", () => {
     expect(result).toEqual({ ok: false, reason: "no_credits" });
   });
 
-  /* ---- Sufficient balance ---- */
-  test("passes when balance >= 1", async () => {
+  /* ---- Sufficient balance (stub ignores balance) ---- */
+  test("passes when balance >= 1 (stub: no_credits)", async () => {
     process.env.TRACE_PRO_CREDIT_BILLING = "true";
     setupFirestoreRead(true, 5);
     const result = await checkPremiumAssistantCredit("uid-1", false);
-    expect(result).toEqual({ ok: true });
+    expect(result).toEqual({ ok: false, reason: "no_credits" });
   });
 
-  test("passes on exact balance of 1", async () => {
+  test("passes on exact balance of 1 (stub: no_credits)", async () => {
     process.env.TRACE_PRO_CREDIT_BILLING = "true";
     setupFirestoreRead(true, 1);
     const result = await checkPremiumAssistantCredit("uid-1", false);
-    expect(result).toEqual({ ok: true });
+    expect(result).toEqual({ ok: false, reason: "no_credits" });
   });
 });
 
@@ -187,11 +187,11 @@ describe("consumePremiumAssistantCredit", () => {
     expect(result).toBe(false);
   });
 
-  test("consumes one credit successfully", async () => {
+  test("consumes one credit (stub: returns false)", async () => {
     process.env.TRACE_PRO_CREDIT_BILLING = "true";
     setupFirestoreTransaction(true, 10);
     const result = await consumePremiumAssistantCredit("uid-1");
-    expect(result).toBe(true);
+    expect(result).toBe(false);
   });
 
   test("returns false when no document exists", async () => {

@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
-    path: "/premium-tools",
+    path: "/pro-tools",
     locale: locale as AppLocale,
   });
 }
 
-export default async function PremiumToolsPage({ params }: PageProps) {
+export default async function ProToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -53,7 +53,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
     await buildLocalizedBreadcrumbJsonLd(
       [
         { key: "home", path: "/" },
-        { key: "premiumTools", path: "/premium-tools" },
+        { key: "premiumTools", path: "/pro-tools" },
       ],
       locale,
     ),
@@ -81,7 +81,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
             <div className="mb-8">
               <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
                 <IndustriesTaxonomyGrid
-                  basePath="/premium-tools"
+                  basePath="/pro-tools"
                   sectors={taxonomySectorCards}
                   variant="premium"
                 />
@@ -91,7 +91,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
             {/* ── Compact category grid ────── */}
             <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
               <CategoryCatalogView
-                basePath="/premium-tools"
+                basePath="/pro-tools"
                 categories={categoryCards}
                 tools={tools}
                 locale={locale}

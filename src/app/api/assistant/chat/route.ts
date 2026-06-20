@@ -16,6 +16,7 @@ import {
   parseBearerToken,
   verifySignedInUser,
 } from "@/lib/firebase/verify-signed-in-user";
+import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -70,6 +71,8 @@ function parseMessages(value: unknown): ChatMessageInput[] {
     .slice(-MAX_MESSAGES);
 }
 
+const AI_TIMEOUT_MS = 8_000;
+
 function getDeepSeekClient(): OpenAI {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
@@ -79,10 +82,29 @@ function getDeepSeekClient(): OpenAI {
   return new OpenAI({
     apiKey,
     baseURL: "https://api.deepseek.com",
+    timeout: AI_TIMEOUT_MS,
+    maxRetries: 1,
   });
 }
 
+const FALLBACK_MESSAGE: Record<SupportedLocale, string> = {
+  en: "System is currently busy. Please describe your calculation need using the sector tools directly.",
+  tr: "Sistem şu anda yoğun. Lütfen hesaplama ihtiyacınızı sektör araçlarıyla doğrudan tanımlayın.",
+  de: "Das System ist derzeit ausgelastet. Bitte beschreiben Sie Ihren Berechnungsbedarf direkt mit den Branchentools.",
+  fr: "Le système est actuellement occupé. Veuillez décrire votre besoin de calcul à l'aide des outils sectoriels.",
+  es: "El sistema está ocupado actualmente. Describa su necesidad de cálculo usando las herramientas del sector directamente.",
+  ar: "النظام مشغول حالياً. يرجى وصف احتياجك الحسابي باستخدام أدوات القطاع مباشرة.",
+};
+
+function fallbackResponse(locale: string): NextResponse {
+  const resolved = isSupportedLocale(locale) ? locale : "en";
+  return NextResponse.json({ reply: FALLBACK_MESSAGE[resolved] }, { status: 200 });
+}
+
 export async function POST(req: Request) {
+  let isTrace = false;
+  let locale = "en";
+
   try {
     let body: AssistantChatRequestBody;
     try {
@@ -92,7 +114,8 @@ export async function POST(req: Request) {
     }
 
     // ── Trace/public bypass: isTrace=true → skip Firebase auth ──
-    const isTrace = body.isTrace === true;
+    isTrace = body.isTrace === true;
+    locale = parseLocale(body.locale);
     let signedInUser: { uid: string } | null = null;
 
     if (isTrace) {
@@ -129,7 +152,7 @@ export async function POST(req: Request) {
     }
 
     const role = parseRole(body.role);
-    const locale = parseLocale(body.locale);
+    locale = parseLocale(body.locale);
     const client = getDeepSeekClient();
     const model = process.env.AI_ASSISTANT_CHAT_MODEL?.trim() || "deepseek-chat";
 
@@ -149,6 +172,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ reply: reply.slice(0, MAX_CONTENT_LENGTH) });
   } catch (error) {
+    if (isTrace) {
+      console.warn("DeepSeek trace fallback:", error instanceof Error ? error.message : "unknown");
+      return fallbackResponse(locale);
+    }
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Assistant chat failed." },
       { status: 502 },

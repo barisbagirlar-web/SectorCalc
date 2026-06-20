@@ -10,7 +10,7 @@ import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards
 export type SectorTaxonomyGridVariant = "industry" | "free" | "premium";
 
 type SectorTaxonomyGridProps = {
-  readonly basePath: "/industries" | "/free-tools" | "/premium-tools";
+  readonly basePath: "/industries" | "/free-tools" | "/pro-tools";
   readonly sectors: readonly TaxonomySectorCard[];
   readonly toolCountLabel: (count: number) => string;
   readonly variant?: SectorTaxonomyGridVariant;

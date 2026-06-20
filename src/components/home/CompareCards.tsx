@@ -58,7 +58,7 @@ export async function CompareCards() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Link href="/premium-tools" className="sc-cta-secondary sc-home-omni__split-cta">
+            <Link href="/pro-tools" className="sc-cta-secondary sc-home-omni__split-cta">
               {t("freePremium.premiumCta")}
             </Link>
           </article>

@@ -24,7 +24,7 @@ import type { ToolData } from "@/lib/tools/all-tools-data";
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 export type CategoryCatalogViewProps = {
-  readonly basePath: "/free-tools" | "/premium-tools" | "/industries";
+  readonly basePath: "/free-tools" | "/pro-tools" | "/industries";
   readonly categories: readonly CategoryCard[];
   readonly tools: readonly ToolData[];
   readonly locale: string;

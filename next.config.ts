@@ -128,6 +128,19 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Premium → Pro rebrand redirects (301, SEO-safe)
+      { source: "/premium-tools", destination: "/pro-tools", permanent: true },
+      { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
+      {
+        source: "/:locale(en|tr|de|fr|es|ar)/premium-tools",
+        destination: "/:locale/pro-tools",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|tr|de|fr|es|ar)/premium-tools/:path*",
+        destination: "/:locale/pro-tools/:path*",
+        permanent: true,
+      },
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/en", destination: "/", permanent: true },

@@ -13,8 +13,8 @@ describe("buildCatalogFilterHref", () => {
   });
 
   test("appends encoded category query param", () => {
-    expect(buildCatalogFilterHref("/premium-tools", "category", "lean-production")).toBe(
-      "/premium-tools?category=lean-production",
+    expect(buildCatalogFilterHref("/pro-tools", "category", "lean-production")).toBe(
+      "/pro-tools?category=lean-production",
     );
   });
 });

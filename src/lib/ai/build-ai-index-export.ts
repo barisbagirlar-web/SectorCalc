@@ -43,7 +43,7 @@ function buildLocaleUrls(path: string): Record<string, string> {
 }
 
 function buildCategoryAnchorPath(categorySlug: string, toolSlug: string): string {
-  return `/premium-tools/${categorySlug}#tool-${toolSlug}`;
+  return `/pro-tools/${categorySlug}#tool-${toolSlug}`;
 }
 
 function resolveRouteStatus(item: CategorizedToolItem): AiRouteStatus {
@@ -149,7 +149,7 @@ export function buildAiCategoryRecords(): readonly AiCategoryIndexRecord[] {
       title: categoryTitle,
       summary: summaryText,
       toolCount: summary?.totalToolCount ?? 0,
-      categoryUrl: buildLocaleUrls(`/premium-tools/${category.slug}`),
+      categoryUrl: buildLocaleUrls(`/pro-tools/${category.slug}`),
     };
   });
 }

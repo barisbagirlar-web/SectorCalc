@@ -37,7 +37,10 @@ const BANNED_PDF_TERMS = [
 ] as const;
 
 const LEGACY_PREMIUM_SLUG = "welding-bid-risk-analyzer";
-const PREMIUM_SCHEMA_SLUGS = ["cnc-oee-loss", "logistics-route-loss"] as const;
+const PREMIUM_SCHEMA_SLUGS = [
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  "7-israf-muda-avcisi-parasal-karsilik-calculator",
+] as const;
 
 function defaultLegacyValues(slug: string): Record<string, number | string> {
   const tool = getRevenueToolByPaidSlug(slug);
@@ -128,7 +131,7 @@ describe("P4 Premium Decision Summary PDF closeout", () => {
     );
     const cssSource = readFileSync(join(process.cwd(), "src/styles/design-craft.css"), "utf8");
     expect(exportSource).toContain("min-h-[44px]");
-    expect(exportSource).toContain("Download Premium Decision Summary PDF");
+    expect(exportSource).toContain("sc-premium-export-actions__btn");
     expect(cssSource).toContain(".sc-premium-export-actions");
     expect(cssSource).toContain("flex-wrap: wrap");
     expect(cssSource).toMatch(/@media \(max-width: 390px\)[\s\S]*\.sc-premium-export-actions__btn[\s\S]*width: 100%/);
