@@ -30,9 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Compressor_tank_sizing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.compressorFlowRate * input.demandFlowRate * input.peakDemandFlowRate * input.peakDuration; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.compressorFlowRate * input.demandFlowRate * input.peakDemandFlowRate * input.peakDuration * (input.systemPressure * input.pressureDifferential * input.ambientTemperature); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.systemPressure * input.pressureDifferential * input.ambientTemperature; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = (input.compressorFlowRate - input.demandFlowRate) * input.peakDuration / (input.pressureDifferential * 14.7 / (input.systemPressure + 14.7)); results["requiredTankVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredTankVolume"] = Number.NaN; }
+  try { const v = input.peakDemandFlowRate * input.peakDuration / 60; results["peakDemandCompensation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakDemandCompensation"] = Number.NaN; }
+  try { const v = input.compressorControlType === 'on-off' ? 1.5 : input.compressorControlType === 'modulating' ? 1.2 : 1.0; results["controlFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["controlFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["requiredTankVolume"])) * (toNumericFormulaValue(results["controlFactor"])) * (1 + (input.ambientTemperature - 60) * 0.0035); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +44,8 @@ export function calculateCompressor_tank_sizing_calculator(input: Compressor_tan
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Unregulated demand spikes due to leaks","Inadequate pressure differential setting"];
+  const suggestedActions: string[] = ["Install flow meters to identify peak demand sources","Implement pressure/flow controllers to stabilize demand"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

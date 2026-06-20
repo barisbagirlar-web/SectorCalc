@@ -281,6 +281,9 @@ pass "${STAGE}.3" "Payment gateway smoke passed"
 
 echo "  [8.4] Unit coherence audit (schema-level dimension consistency)..."
 npm run audit:unit-coherence || fail "${STAGE}.4" "Unit coherence audit failed. Incompatible units detected."
+
+# Sub-Phase 8.5 — Stub formula audit (warning only)
+npm run audit:stub-formulas:premium 2>/dev/null || echo "  [8.5] ⚠ Premium stub formulas detected — run npm run repair:premium-product-chain"
 pass "${STAGE}.4" "Unit coherence — all schemas dimension-consistent"
 
 # ═══════════════════════════════════════════════════════════════════════════

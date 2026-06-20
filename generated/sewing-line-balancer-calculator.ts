@@ -26,8 +26,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Sewing_line_balancer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.total_work_content * input.number_of_operators * input.takt_time * input.bottleneck_time; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (input.total_work_content / (input.number_of_operators * input.bottleneck_time)) * 100; results["balance_efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["balance_efficiency"] = Number.NaN; }
+  try { const v = Math.ceil(input.total_work_content / input.takt_time); results["theoretical_min_operators"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["theoretical_min_operators"] = Number.NaN; }
+  try { const v = input.number_of_operators - (toNumericFormulaValue(results["theoretical_min_operators"])); results["excess_operators"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["excess_operators"] = Number.NaN; }
+  try { const v = ((input.total_work_content / (input.number_of_operators * input.bottleneck_time)) * 100) - ((toNumericFormulaValue(results["excess_operators"])) * 2); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -38,8 +40,8 @@ export function calculateSewing_line_balancer_calculator(input: Sewing_line_bala
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["High bottleneck time relative to takt time","Excess operators beyond theoretical minimum"];
+  const suggestedActions: string[] = ["Reallocate operators to reduce bottleneck time","Implement cross-training to increase flexibility"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

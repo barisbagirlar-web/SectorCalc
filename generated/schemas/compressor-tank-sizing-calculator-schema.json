@@ -275,26 +275,27 @@
     ]
   },
   "formulas": {
-    "normalized_product": "compressorFlowRate * demandFlowRate * peakDemandFlowRate * peakDuration",
-    "result": "compressorFlowRate * demandFlowRate * peakDemandFlowRate * peakDuration * (systemPressure * pressureDifferential * ambientTemperature)",
-    "adjustment_factor": "systemPressure * pressureDifferential * ambientTemperature"
+    "requiredTankVolume": "(compressorFlowRate - demandFlowRate) * peakDuration / (pressureDifferential * 14.7 / (systemPressure + 14.7))",
+    "peakDemandCompensation": "peakDemandFlowRate * peakDuration / 60",
+    "controlFactor": "compressorControlType === 'on-off' ? 1.5 : compressorControlType === 'modulating' ? 1.2 : 1.0",
+    "result": "requiredTankVolume * controlFactor * (1 + (ambientTemperature - 60) * 0.0035)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "requiredTankVolume",
+      "controlFactor"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Unregulated demand spikes due to leaks",
+      "Inadequate pressure differential setting"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Install flow meters to identify peak demand sources",
+      "Implement pressure/flow controllers to stabilize demand"
     ],
-    "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "dataConfidenceAdjusted": "result * 1.1",
+    "unit": "gallons"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

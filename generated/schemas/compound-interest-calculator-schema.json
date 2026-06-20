@@ -252,26 +252,26 @@
     ]
   },
   "formulas": {
-    "normalized_product": "principal * annualInterestRate * timePeriod * additionalContribution",
-    "result": "principal * annualInterestRate * timePeriod * additionalContribution * (inflationRate * taxRate)",
-    "adjustment_factor": "inflationRate * taxRate"
+    "result": "principal * (1 + annualInterestRate / 100 / compoundingFrequency) ** (compoundingFrequency * timePeriod) + additionalContribution * (((1 + annualInterestRate / 100 / compoundingFrequency) ** (compoundingFrequency * timePeriod) - 1) / (annualInterestRate / 100 / compoundingFrequency))",
+    "realValue": "result / (1 + inflationRate / 100) ** timePeriod",
+    "afterTax": "result - (result - principal - additionalContribution * compoundingFrequency * timePeriod) * taxRate / 100"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "realValue",
+      "afterTax"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Inflation erosion of purchasing power",
+      "Tax drag on compound growth"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Increase compounding frequency to daily",
+      "Invest in tax-advantaged accounts"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "unit": "USD"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

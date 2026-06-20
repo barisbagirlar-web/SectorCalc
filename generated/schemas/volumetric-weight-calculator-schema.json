@@ -295,21 +295,26 @@
     ]
   },
   "formulas": {
-    "normalized_product": "length_cm * width_cm * height_cm * actual_weight_kg",
-    "result": "length_cm * width_cm * height_cm * actual_weight_kg"
+    "volumetric_weight_kg": "length_cm * width_cm * height_cm / carrier_factor",
+    "chargeable_weight_kg": "Math.max(actual_weight_kg, length_cm * width_cm * height_cm / carrier_factor)",
+    "stacking_penalty": "is_stackable === 'no' ? 0.15 : 0",
+    "hazard_surcharge": "hazardous_material === 'yes' ? 0.25 : 0",
+    "package_type_factor": "package_type === 'box' ? 1.0 : package_type === 'pallet' ? 1.2 : 1.1",
+    "result": "chargeable_weight_kg * (1 + stacking_penalty + hazard_surcharge) * package_type_factor * 2.5"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product"
+      "volumetric_weight_kg",
+      "chargeable_weight_kg"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Incorrect carrier factor selection leading to overcharging",
+      "Non-stackable packages reducing truck fill rate"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Verify carrier DIM factor matches contract terms",
+      "Implement stackable packaging design to reduce penalties"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

@@ -263,6 +263,657 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       return assertFinite(num(inputs, "p90Cost") / (denom / 100));
     },
   },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #1 — AI Token Cost (6 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.ai_daily_prompt",
+    family: "cost",
+    label: "AI daily prompt cost",
+    fn: (inputs) => nonNegative((num(inputs, "dailyRequests") * num(inputs, "promptTokens") * num(inputs, "pricePerMToken")) / 1_000_000),
+  },
+  {
+    id: "cost.ai_daily_completion",
+    family: "cost",
+    label: "AI daily completion cost",
+    fn: (inputs) => nonNegative((num(inputs, "dailyRequests") * num(inputs, "completionTokens") * num(inputs, "pricePerMToken")) / 1_000_000),
+  },
+  {
+    id: "cost.ai_daily_cache",
+    family: "cost",
+    label: "AI daily cache net cost",
+    fn: (inputs) => nonNegative((num(inputs, "dailyRequests") * num(inputs, "completionTokens") * (num(inputs, "cacheHitRatio") / 100) * num(inputs, "cacheReadPrice")) / 1_000_000),
+  },
+  {
+    id: "cost.ai_daily_total",
+    family: "cost",
+    label: "AI daily total base cost",
+    fn: (inputs) => nonNegative(num(inputs, "dailyPromptCost") + num(inputs, "dailyCompletionCost") + num(inputs, "dailyCacheCost")),
+  },
+  {
+    id: "cost.ai_monthly_projection",
+    family: "cost",
+    label: "AI monthly projected cost with growth",
+    fn: (inputs) => nonNegative(num(inputs, "dailyTotalCost") * 30 * (1 + (num(inputs, "growthRate") / 100))),
+  },
+  {
+    id: "cost.ai_tco",
+    family: "cost",
+    label: "AI total cost of ownership (monthly)",
+    fn: (inputs) => {
+      const projection = num(inputs, "monthlyProjection");
+      const buffer = num(inputs, "confidenceBuffer") / 100;
+      return nonNegative(projection + projection * buffer + num(inputs, "infraOverhead") + num(inputs, "fallbackModelCost"));
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #2 — Altı Sigma Proje Önceliklendirici (6 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "stats.dpmo",
+    family: "measurement",
+    label: "DPMO from defects, units and opportunities",
+    fn: (inputs) => {
+      const u = num(inputs, "units"); const o = num(inputs, "opportunities"); const d = num(inputs, "defects");
+      if (u * o === 0) return 0;
+      return assertFinite((d / (u * o)) * 1_000_000);
+    },
+  },
+  {
+    id: "stats.yield_rate",
+    family: "measurement",
+    label: "Process yield rate",
+    fn: (inputs) => {
+      const u = num(inputs, "units"); const o = num(inputs, "opportunities"); const d = num(inputs, "defects");
+      if (u * o === 0) return 0;
+      return assertFinite(1 - d / (u * o));
+    },
+  },
+  {
+    id: "stats.z_bench",
+    family: "measurement",
+    label: "Z_bench from yield using inverse normal approximation",
+    fn: (inputs) => {
+      const y = num(inputs, "yield"); if (y <= 0 || y >= 1) return 0;
+      // Rational approximation for NORMSINV (Abramowitz & Stegun)
+      const t = Math.sqrt(-2 * Math.log(1 - y));
+      return assertFinite(t - (2.515517 + 0.802853 * t + 0.010328 * t * t) / (1 + 1.432788 * t + 0.189269 * t * t + 0.001308 * t * t * t));
+    },
+  },
+  {
+    id: "stats.sigma_level",
+    family: "measurement",
+    label: "Sigma level = Z_bench + 1.5 shift",
+    fn: (inputs) => assertFinite(num(inputs, "zBench") + 1.5),
+  },
+  {
+    id: "cost.copq",
+    family: "cost",
+    label: "Cost of Poor Quality",
+    fn: (inputs) => nonNegative(num(inputs, "internalFailure") + num(inputs, "externalFailure") + num(inputs, "appraisal") + num(inputs, "prevention")),
+  },
+  {
+    id: "stats.project_score",
+    family: "measurement",
+    label: "Six Sigma project priority score",
+    fn: (inputs) => assertFinite(num(inputs, "financialPriority") * 0.35 + num(inputs, "sigmaGap") * 0.25 + num(inputs, "strategicAlignment") * 0.25 + num(inputs, "ease") * 0.15),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #3 — AQL Sampling (4 formulas - ATI, TotalRiskCost, OptimalCost)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "quality.ati",
+    family: "scrap",
+    label: "Average Total Inspection (ATI)",
+    fn: (inputs) => {
+      const n = num(inputs, "sampleSize"); const N = num(inputs, "lotSize"); const Pa = num(inputs, "acceptanceProb");
+      return nonNegative(n + (1 - Pa) * (N - n));
+    },
+  },
+  {
+    id: "quality.total_risk_cost",
+    family: "scrap",
+    label: "Total risk cost from escaped defects",
+    fn: (inputs) => {
+      const N = num(inputs, "lotSize"); const p = num(inputs, "defectRate") / 100; const Pa = num(inputs, "acceptanceProb"); const dr = num(inputs, "detectionRate") / 100; const cpd = num(inputs, "costPerDefect");
+      return nonNegative(N * p * (1 - Pa) * (1 - dr) * cpd);
+    },
+  },
+  {
+    id: "quality.alpha_risk",
+    family: "scrap",
+    label: "Producer's risk (alpha)",
+    fn: (inputs) => assertFinite(1 - num(inputs, "acceptanceProb")),
+  },
+  {
+    id: "quality.beta_risk",
+    family: "scrap",
+    label: "Consumer's risk (beta)",
+    fn: (inputs) => assertFinite(num(inputs, "acceptanceProbLTPD")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #4 — Araç Amortismanı (4 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "depreciation.sl_annual",
+    family: "cost",
+    label: "Straight-line annual depreciation",
+    fn: (inputs) => {
+      const cost = num(inputs, "cost"); const salvage = num(inputs, "residualValue"); const life = num(inputs, "usefulLife");
+      if (life <= 0) return 0;
+      return nonNegative((cost - salvage) / life);
+    },
+  },
+  {
+    id: "depreciation.db_rate",
+    family: "cost",
+    label: "Double-declining balance rate",
+    fn: (inputs) => {
+      const life = num(inputs, "usefulLife");
+      if (life <= 0) return 0;
+      return assertFinite(2 / life);
+    },
+  },
+  {
+    id: "depreciation.tco",
+    family: "cost",
+    label: "Vehicle TCO over useful life",
+    fn: (inputs) => {
+      const cost = num(inputs, "acquisitionCost"); const op = num(inputs, "annualOpCost"); const maint = num(inputs, "annualMaintCost"); const fuel = num(inputs, "fuelCostPerYear"); const salvage = num(inputs, "residualValue"); const rate = num(inputs, "discountRate") / 100; const life = num(inputs, "usefulLife");
+      let pv = 0;
+      for (let t = 1; t <= life; t++) pv += (op + maint + fuel) / Math.pow(1 + rate, t);
+      return nonNegative(cost + pv - salvage / Math.pow(1 + rate, life));
+    },
+  },
+  {
+    id: "depreciation.tax_shield",
+    family: "cost",
+    label: "Annual tax shield from depreciation",
+    fn: (inputs) => nonNegative(num(inputs, "annualDepreciation") * (num(inputs, "taxRate") / 100)),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #5 — Arıza Süresi Maliyeti (sub-components + total: 7 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.downtime_labor",
+    family: "cost",
+    label: "Downtime direct labor loss",
+    fn: (inputs) => nonNegative(num(inputs, "downtimeHours") * num(inputs, "affectedWorkers") * num(inputs, "avgHourlyRate") * 1.3),
+  },
+  {
+    id: "cost.downtime_production",
+    family: "cost",
+    label: "Downtime production loss",
+    fn: (inputs) => nonNegative(num(inputs, "downtimeHours") * num(inputs, "lineCapacityPerHour") * num(inputs, "contributionMarginPerUnit")),
+  },
+  {
+    id: "cost.downtime_energy",
+    family: "cost",
+    label: "Downtime energy waste",
+    fn: (inputs) => nonNegative(num(inputs, "idlePowerKw") * num(inputs, "downtimeHours") * num(inputs, "electricityRate")),
+  },
+  {
+    id: "cost.downtime_recovery",
+    family: "cost",
+    label: "Downtime recovery cost",
+    fn: (inputs) => nonNegative(num(inputs, "overtimeHours") * num(inputs, "overtimeRate")),
+  },
+  {
+    id: "cost.downtime_quality",
+    family: "cost",
+    label: "Downtime quality loss",
+    fn: (inputs) => nonNegative(num(inputs, "startupScrapUnits") * num(inputs, "unitCost")),
+  },
+  {
+    id: "cost.downtime_total",
+    family: "cost",
+    label: "Total downtime cost (6 components)",
+    fn: (inputs) => nonNegative(num(inputs, "directLaborLoss") + num(inputs, "productionLoss") + num(inputs, "energyWaste") + num(inputs, "recoveryCost") + num(inputs, "qualityLoss") + num(inputs, "penalty")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #6 — Auto Repair Comeback (computed from raw inputs)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.comeback_direct",
+    family: "cost",
+    label: "Direct comeback cost (computed from raw inputs)",
+    fn: (inputs) => {
+      const cb = num(inputs, "comebackOrders");
+      const diagMin = num(inputs, "avgDiagnosisMinutes");
+      const repairMin = num(inputs, "avgRepairMinutes") || 0;
+      const laborRate = num(inputs, "laborRate");
+      const parts = num(inputs, "avgWastedPartsValue") || 0;
+      const bayHours = num(inputs, "bayOccupancyHours") || 0;
+      const revPerBay = num(inputs, "revenuePerBayHour") || 0;
+      const labor = cb * ((diagMin + repairMin) / 60) * laborRate;
+      const partsCost = cb * parts;
+      const oppCost = cb * bayHours * revPerBay;
+      return nonNegative(labor + partsCost + oppCost);
+    },
+  },
+  {
+    id: "cost.comeback_total",
+    family: "cost",
+    label: "Total comeback cost with warranty and goodwill",
+    fn: (inputs) => nonNegative(num(inputs, "directCost") + num(inputs, "warrantyCost") + num(inputs, "goodwillCost")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #7 — Auto Repair Quote Consistency (4 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "stats.quote_variance",
+    family: "measurement",
+    label: "Quote variance = STDEV/AVERAGE",
+    fn: (inputs) => {
+      const q1 = num(inputs, "q1"); const q2 = num(inputs, "q2"); const q3 = num(inputs, "q3");
+      const avg = (q1 + q2 + q3) / 3; if (avg <= 0) return 0;
+      const variance = ((q1 - avg) ** 2 + (q2 - avg) ** 2 + (q3 - avg) ** 2) / 3;
+      return assertFinite(Math.sqrt(variance) / avg);
+    },
+  },
+  {
+    id: "stats.price_deviation",
+    family: "measurement",
+    label: "Part price deviation from market average",
+    fn: (inputs) => {
+      const quoted = num(inputs, "quotedPrice"); const market = num(inputs, "marketPrice");
+      if (market <= 0) return 0;
+      return assertFinite((quoted - market) / market);
+    },
+  },
+  {
+    id: "stats.consistency_score",
+    family: "measurement",
+    label: "Quote consistency score (0-100)",
+    fn: (inputs) => {
+      const v = num(inputs, "variance"); const pd = Math.abs(num(inputs, "priceDeviation")); const ld = Math.abs(num(inputs, "laborDeviation"));
+      return assertFinite(Math.max(0, 100 - v * 50 - pd * 25 - ld * 25));
+    },
+  },
+  {
+    id: "cost.margin_leak_quote",
+    family: "cost",
+    label: "Margin leak from quote variance",
+    fn: (inputs) => nonNegative(num(inputs, "marketPrice") - num(inputs, "quotedPrice")) * num(inputs, "quantity"),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #8 — Auto Shop Marj Kaçak (2 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.effective_labor_rate",
+    family: "cost",
+    label: "Effective labor rate",
+    fn: (inputs) => {
+      const rev = num(inputs, "laborRevenue"); const hours = num(inputs, "flagHours");
+      if (hours <= 0) return 0;
+      return assertFinite(rev / hours);
+    },
+  },
+  {
+    id: "cost.annual_margin_leakage",
+    family: "cost",
+    label: "Annual margin leakage from target gap",
+    fn: (inputs) => {
+      const rev = num(inputs, "totalRevenue"); const target = num(inputs, "targetMargin") / 100; const actual = num(inputs, "actualMargin") / 100;
+      return nonNegative(rev * (target - actual));
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #9 — Basınç Vessel Kalınlık (ASME) (4 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "measurement.vessel_shell_thickness",
+    family: "measurement",
+    label: "ASME shell thickness: t = (P*R)/(S*E - 0.6*P) + CA",
+    fn: (inputs) => {
+      const P = num(inputs, "pressure"); const R = num(inputs, "radius"); const S = num(inputs, "stressAllowable"); const E = num(inputs, "jointEfficiency"); const CA = num(inputs, "corrosionAllowance");
+      const denom = S * E - 0.6 * P;
+      if (denom <= 0) return 0;
+      return nonNegative((P * R) / denom + CA);
+    },
+  },
+  {
+    id: "measurement.vessel_sphere_thickness",
+    family: "measurement",
+    label: "ASME spherical thickness: t = (P*R)/(2*S*E - 0.2*P) + CA",
+    fn: (inputs) => {
+      const P = num(inputs, "pressure"); const R = num(inputs, "radius"); const S = num(inputs, "stressAllowable"); const E = num(inputs, "jointEfficiency"); const CA = num(inputs, "corrosionAllowance");
+      const denom = 2 * S * E - 0.2 * P;
+      if (denom <= 0) return 0;
+      return nonNegative((P * R) / denom + CA);
+    },
+  },
+  {
+    id: "measurement.vessel_mawp",
+    family: "measurement",
+    label: "MAWP from actual thickness",
+    fn: (inputs) => {
+      const S = num(inputs, "stressAllowable"); const E = num(inputs, "jointEfficiency"); const t = num(inputs, "actualThickness"); const CA = num(inputs, "corrosionAllowance"); const R = num(inputs, "radius");
+      const denom = R + 0.6 * (t - CA);
+      if (denom <= 0) return 0;
+      return assertFinite((S * E * (t - CA)) / denom);
+    },
+  },
+  {
+    id: "measurement.vessel_weight",
+    family: "measurement",
+    label: "Vessel weight from geometry",
+    fn: (inputs) => {
+      const D = num(inputs, "diameter"); const L = num(inputs, "length"); const t = num(inputs, "thickness"); const density = num(inputs, "materialDensity");
+      return nonNegative(Math.PI * D * L * t * density);
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #10 — Basınçlı Hava Enerji Maliyeti (2 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "energy.compressed_air_power",
+    family: "energy",
+    label: "Compressor actual power with efficiencies",
+    fn: (inputs) => {
+      const Q = num(inputs, "flowRate"); const dP = num(inputs, "deltaPressure"); const effIso = num(inputs, "efficiencyIsothermal") / 100; const effMotor = num(inputs, "efficiencyMotor") / 100; const effDrive = num(inputs, "efficiencyDrive") / 100;
+      const totalEff = effIso * effMotor * effDrive;
+      if (totalEff <= 0) return 0;
+      return nonNegative((Q * dP) / totalEff);
+    },
+  },
+  {
+    id: "energy.compressed_air_annual_cost",
+    family: "energy",
+    label: "Total annual compressed air energy cost",
+    fn: (inputs) => nonNegative(num(inputs, "annualEnergyCost") + num(inputs, "leakageCost") + num(inputs, "pressureDropCost") - num(inputs, "heatRecoverySavings")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #11 — Başabaş Noktası (5 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.bep_units",
+    family: "cost",
+    label: "Break-even point in units",
+    fn: (inputs) => {
+      const f = num(inputs, "fixedCosts"); const p = num(inputs, "unitPrice"); const v = num(inputs, "unitVariableCost");
+      if (p - v <= 0) return 0;
+      return nonNegative(f / (p - v));
+    },
+  },
+  {
+    id: "cost.cmr",
+    family: "cost",
+    label: "Contribution margin ratio",
+    fn: (inputs) => {
+      const p = num(inputs, "unitPrice"); const v = num(inputs, "unitVariableCost");
+      if (p <= 0) return 0;
+      return assertFinite((p - v) / p);
+    },
+  },
+  {
+    id: "cost.bep_revenue",
+    family: "cost",
+    label: "Break-even revenue",
+    fn: (inputs) => {
+      const f = num(inputs, "fixedCosts"); const cmr = num(inputs, "cmr");
+      if (cmr <= 0) return 0;
+      return nonNegative(f / cmr);
+    },
+  },
+  {
+    id: "cost.margin_of_safety_pct",
+    family: "cost",
+    label: "Margin of safety percent",
+    fn: (inputs) => {
+      const actual = num(inputs, "actualSales"); const bep = num(inputs, "bepUnits");
+      if (actual <= 0) return 0;
+      return assertFinite((actual - bep) / actual * 100);
+    },
+  },
+  {
+    id: "cost.operating_leverage",
+    family: "cost",
+    label: "Degree of operating leverage",
+    fn: (inputs) => {
+      const cm = num(inputs, "contributionMargin"); const noi = num(inputs, "netOperatingIncome");
+      if (noi <= 0) return 0;
+      return assertFinite(cm / noi);
+    },
+  },
+  {
+    id: "cost.target_profit_units",
+    family: "cost",
+    label: "Units needed for target profit",
+    fn: (inputs) => {
+      const f = num(inputs, "fixedCosts"); const tp = num(inputs, "targetProfit"); const cm = num(inputs, "unitContributionMargin");
+      if (cm <= 0) return 0;
+      return nonNegative((f + tp) / cm);
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #12 — Beton Hacmi (1 formula — total cost)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "measurement.concrete_volume_total",
+    family: "measurement",
+    label: "Total concrete volume from geometry",
+    fn: (inputs) => {
+      const slabV = num(inputs, "slabLength") * num(inputs, "slabWidth") * (num(inputs, "slabThickness") / 100);
+      const footingV = num(inputs, "footingLength") * num(inputs, "footingWidth") * num(inputs, "footingDepth") * num(inputs, "footingCount");
+      const colV = Math.PI * (num(inputs, "columnDiameter") / 2 / 100) ** 2 * num(inputs, "columnHeight") * num(inputs, "columnCount");
+      const wallV = num(inputs, "wallLength") * num(inputs, "wallHeight") * (num(inputs, "wallThickness") / 100);
+      const geoV = slabV + footingV + colV + wallV;
+      return nonNegative(geoV * (1 + num(inputs, "wasteFactor") / 100));
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #13 — Kalibrasyon Sapma Riski (3 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "measurement.drift_rate",
+    family: "measurement",
+    label: "Calibration drift rate per day",
+    fn: (inputs) => {
+      const lastErr = num(inputs, "lastError"); const prevErr = num(inputs, "prevError"); const days = num(inputs, "timeBetweenDays");
+      if (days <= 0) return 0;
+      return assertFinite((lastErr - prevErr) / days);
+    },
+  },
+  {
+    id: "measurement.current_uncertainty",
+    family: "measurement",
+    label: "Current measurement uncertainty",
+    fn: (inputs) => {
+      const base = num(inputs, "baseUncertainty"); const predicted = num(inputs, "predictedDrift"); const env = num(inputs, "environmentalFactor");
+      return assertFinite(Math.sqrt(base * base + predicted * predicted + env * env));
+    },
+  },
+  {
+    id: "measurement.calibration_risk_score",
+    family: "measurement",
+    label: "Calibration risk score",
+    fn: (inputs) => {
+      const unc = num(inputs, "currentUncertainty"); const tol = num(inputs, "toleranceLimit");
+      if (tol <= 0) return 0;
+      return assertFinite((unc / tol) * num(inputs, "criticality") * num(inputs, "usageFrequency"));
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #14 — CBAM Maruziyet (3 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "carbon.embedded_emissions",
+    family: "carbon",
+    label: "Total embedded emissions (Scope 1 + 2)",
+    fn: (inputs) => nonNegative(num(inputs, "directEmissions") + num(inputs, "indirectEmissions")),
+  },
+  {
+    id: "carbon.cbam_certificate_cost",
+    family: "carbon",
+    label: "CBAM certificate cost after free allowance",
+    fn: (inputs) => {
+      const total = num(inputs, "embeddedEmissions"); const allowance = num(inputs, "freeAllowance"); const price = num(inputs, "euEtsPrice");
+      return nonNegative(Math.max(0, total - allowance) * price);
+    },
+  },
+  {
+    id: "carbon.compliance_score",
+    family: "carbon",
+    label: "CBAM compliance score (0-100)",
+    fn: (inputs) => assertFinite(num(inputs, "dataCompleteness") * 0.3 + num(inputs, "verificationStatus") * 0.3 + num(inputs, "reductionProgress") * 0.4),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #15 — CBAM Uyumluluk Kararı (3 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "carbon.specific_embedded",
+    family: "carbon",
+    label: "Specific embedded emissions per ton",
+    fn: (inputs) => {
+      const total = num(inputs, "totalEmbedded"); const mass = num(inputs, "totalMass");
+      if (mass <= 0) return 0;
+      return assertFinite(total / mass);
+    },
+  },
+  {
+    id: "carbon.actual_vs_default",
+    family: "carbon",
+    label: "Actual-to-default emission factor ratio",
+    fn: (inputs) => {
+      const actual = num(inputs, "specificEmbedded"); const def = num(inputs, "defaultFactor");
+      if (def <= 0) return 0;
+      return assertFinite(actual / def);
+    },
+  },
+  {
+    id: "carbon.cbam_financial_liability",
+    family: "carbon",
+    label: "CBAM net financial liability",
+    fn: (inputs) => {
+      const total = num(inputs, "totalEmbedded"); const euPrice = num(inputs, "euEtsPrice"); const originPrice = num(inputs, "carbonPricePaidOrigin");
+      return nonNegative(total * (euPrice - originPrice));
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #16 — Chatter Yüzey Kalite Kaybı (5 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "measurement.cutting_speed",
+    family: "measurement",
+    label: "Cutting speed Vc = (PI * D * n) / 1000",
+    fn: (inputs) => assertFinite((Math.PI * num(inputs, "diameter") * num(inputs, "rpm")) / 1000),
+  },
+  {
+    id: "measurement.chip_load",
+    family: "measurement",
+    label: "Chip load per tooth fz = Vf / (z * n)",
+    fn: (inputs) => {
+      const Vf = num(inputs, "feedRate"); const z = num(inputs, "toothCount"); const n = num(inputs, "rpm");
+      if (z * n <= 0) return 0;
+      return assertFinite(Vf / (z * n));
+    },
+  },
+  {
+    id: "measurement.surface_roughness_theoretical",
+    family: "measurement",
+    label: "Theoretical surface roughness Ra = fz^2 / (8 * r_epsilon)",
+    fn: (inputs) => {
+      const fz = num(inputs, "chipLoad"); const r = num(inputs, "noseRadius");
+      if (r <= 0) return 0;
+      return assertFinite((fz * fz) / (8 * r));
+    },
+  },
+  {
+    id: "measurement.surface_roughness_actual",
+    family: "measurement",
+    label: "Actual surface roughness with chatter amplification",
+    fn: (inputs) => assertFinite(num(inputs, "theoreticalRa") * (1 + num(inputs, "chatterAmplification") / 100)),
+  },
+  {
+    id: "cost.chatter_quality_loss",
+    family: "cost",
+    label: "Quality loss cost from chatter",
+    fn: (inputs) => {
+      const actual = num(inputs, "actualRa"); const limit = num(inputs, "toleranceLimit"); const reworkCost = num(inputs, "reworkCostPerMicron");
+      if (actual <= limit) return 0;
+      return nonNegative((actual - limit) * reworkCost);
+    },
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #17 — Cıvata Tork (5 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "measurement.bolt_d2",
+    family: "measurement",
+    label: "Pitch diameter d2 = d - 0.649519 * p",
+    fn: (inputs) => nonNegative(num(inputs, "nominalDiameter") - 0.649519 * num(inputs, "pitch")),
+  },
+  {
+    id: "measurement.bolt_d3",
+    family: "measurement",
+    label: "Root diameter d3 = d - 1.226869 * p",
+    fn: (inputs) => nonNegative(num(inputs, "nominalDiameter") - 1.226869 * num(inputs, "pitch")),
+  },
+  {
+    id: "measurement.bolt_tensile_area",
+    family: "measurement",
+    label: "Tensile stress area At = (PI/4) * ((d2 + d3)/2)^2",
+    fn: (inputs) => {
+      const d2 = num(inputs, "d2"); const d3 = num(inputs, "d3");
+      const avgD = (d2 + d3) / 2;
+      return nonNegative((Math.PI / 4) * avgD * avgD);
+    },
+  },
+  {
+    id: "measurement.bolt_preload",
+    family: "measurement",
+    label: "Bolt preload F = sigma_p * At",
+    fn: (inputs) => nonNegative((0.7 * num(inputs, "proofStrength")) * num(inputs, "tensileArea")),
+  },
+  {
+    id: "measurement.bolt_torque",
+    family: "measurement",
+    label: "Tightening torque T = K * D * F",
+    fn: (inputs) => nonNegative(num(inputs, "torqueCoefficient") * num(inputs, "nominalDiameter") / 1000 * num(inputs, "preload")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #18 — Ciro Maliyeti (Turnover) (1 formula)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.turnover_total",
+    family: "cost",
+    label: "Total turnover cost per employee",
+    fn: (inputs) => nonNegative(num(inputs, "separationCost") + num(inputs, "vacancyCost") + num(inputs, "replacementCost") + num(inputs, "trainingCost") + num(inputs, "productivityLoss")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #19 — Cloud API Overrun (3 formulas)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.cloud_overrun_cost",
+    family: "cost",
+    label: "API overrun cost",
+    fn: (inputs) => nonNegative(Math.max(0, num(inputs, "totalRequests") - num(inputs, "includedRequests")) * num(inputs, "overageRate")),
+  },
+  {
+    id: "cost.cloud_throttling_cost",
+    family: "cost",
+    label: "API throttling cost",
+    fn: (inputs) => nonNegative(num(inputs, "throttledRequests") * num(inputs, "retryCost") * num(inputs, "avgRetries")),
+  },
+  {
+    id: "cost.cloud_overrun_total",
+    family: "cost",
+    label: "Total cloud API overrun cost",
+    fn: (inputs) => nonNegative(num(inputs, "overrunCost") + num(inputs, "throttlingCost") + num(inputs, "dataEgressCost") + num(inputs, "slaPenalty")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOL #20 — Cloud Fire Elimination (1 formula)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: "cost.cloud_waste_total",
+    family: "cost",
+    label: "Total cloud waste eliminated",
+    fn: (inputs) => nonNegative(num(inputs, "zombieCost") + num(inputs, "oversizingSavings") + num(inputs, "spotSavings") + num(inputs, "reservedSavings") + num(inputs, "idleHoursCost")),
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // END TOOLS 1-20 FORMULAS
+  // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "yield.gap_value",
     family: "scrap",
@@ -997,7 +1648,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     family: "cost",
     label: "Simple NPV with fixed annual cash flow",
     fn: (inputs) => {
-      const investment = num(inputs, "initialInvestment");
+      const investment = Math.abs(num(inputs, "initialInvestment"));
       const annual = num(inputs, "annualCashFlow");
       const rate = num(inputs, "discountRatePercent") / 100;
       const years = Math.max(1, Math.round(num(inputs, "horizonYears", 5)));
@@ -1191,8 +1842,8 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "time.normal_time",
     family: "time",
-    label: "Normal time from observed time and rating factor",
-    fn: (inputs) => assertFinite(num(inputs, "observedTime") * num(inputs, "ratingFactor")),
+    label: "Normal time from observed time and rating factor (%)",
+    fn: (inputs) => assertFinite(num(inputs, "observedTime") * num(inputs, "ratingFactor") / 100),
   },
   {
     id: "time.standard_time",
@@ -2039,6 +2690,97 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["pistonDia", "rodDia"],
     outputHint: "number",
   },
+  // ── TOOL 1: AI Token Cost ──
+  "cost.ai_daily_prompt": { description: "Daily prompt cost = (requests × promptTokens × price) / 1M.", requiredInputs: ["dailyRequests", "promptTokens", "pricePerMToken"], outputHint: "currency" },
+  "cost.ai_daily_completion": { description: "Daily completion cost = (requests × completionTokens × price) / 1M.", requiredInputs: ["dailyRequests", "completionTokens", "pricePerMToken"], outputHint: "currency" },
+  "cost.ai_daily_cache": { description: "Daily cache cost = cachedTokens × cacheReadPrice / 1M.", requiredInputs: ["dailyRequests", "completionTokens", "cacheHitRatio", "cacheReadPrice"], outputHint: "currency" },
+  "cost.ai_daily_total": { description: "Daily total = prompt + completion + cache.", requiredInputs: ["dailyPromptCost", "dailyCompletionCost", "dailyCacheCost"], outputHint: "currency" },
+  "cost.ai_monthly_projection": { description: "Monthly projection = dailyTotal × 30 × (1 + growthRate).", requiredInputs: ["dailyTotalCost", "growthRate"], outputHint: "currency" },
+  "cost.ai_tco": { description: "TCO = projection + buffer + infra + fallback.", requiredInputs: ["monthlyProjection", "confidenceBuffer", "infraOverhead", "fallbackModelCost"], outputHint: "currency" },
+  // ── TOOL 2: Six Sigma ──
+  "stats.dpmo": { description: "DPMO = (defects / (units × opportunities)) × 1M.", requiredInputs: ["defects", "units", "opportunities"], outputHint: "number" },
+  "stats.yield_rate": { description: "Yield = 1 - (defects / (units × opportunities)).", requiredInputs: ["defects", "units", "opportunities"], outputHint: "percentage" },
+  "stats.z_bench": { description: "Z_bench from yield using Abramowitz & Stegun approximation.", requiredInputs: ["yield"], outputHint: "number" },
+  "stats.sigma_level": { description: "Sigma level = Z_bench + 1.5 shift.", requiredInputs: ["zBench"], outputHint: "number" },
+  "cost.copq": { description: "COPQ = internal + external + appraisal + prevention.", requiredInputs: ["internalFailure", "externalFailure", "appraisal", "prevention"], outputHint: "currency" },
+  "stats.project_score": { description: "Project priority = 0.35×fin + 0.25×sigma + 0.25×strat + 0.15×ease.", requiredInputs: ["financialPriority", "sigmaGap", "strategicAlignment", "ease"], outputHint: "number" },
+  // ── TOOL 3: AQL Sampling ──
+  "quality.ati": { description: "ATI = n + (1 - Pa) × (N - n).", requiredInputs: ["sampleSize", "lotSize", "acceptanceProb"], outputHint: "number" },
+  "quality.total_risk_cost": { description: "Risk cost = N × p × (1-Pa) × (1-detectionRate) × costPerDefect.", requiredInputs: ["lotSize", "defectRate", "acceptanceProb", "detectionRate", "costPerDefect"], outputHint: "currency" },
+  "quality.alpha_risk": { description: "Producer's risk alpha = 1 - Pa_at_AQL.", requiredInputs: ["acceptanceProb"], outputHint: "percentage" },
+  "quality.beta_risk": { description: "Consumer's risk beta = Pa_at_LTPD.", requiredInputs: ["acceptanceProbLTPD"], outputHint: "percentage" },
+  // ── TOOL 4: Vehicle Depreciation ──
+  "depreciation.sl_annual": { description: "SL annual = (cost - residual) / usefulLife.", requiredInputs: ["cost", "residualValue", "usefulLife"], outputHint: "currency" },
+  "depreciation.db_rate": { description: "DB rate = 2 / usefulLife.", requiredInputs: ["usefulLife"], outputHint: "percentage" },
+  "depreciation.tco": { description: "TCO = acquisition + PV(op+maint) - PV(residual).", requiredInputs: ["acquisitionCost", "annualOpCost", "annualMaintCost", "residualValue", "discountRate", "usefulLife"], outputHint: "currency" },
+  "depreciation.tax_shield": { description: "Annual tax shield = depreciation × taxRate.", requiredInputs: ["annualDepreciation", "taxRate"], outputHint: "currency" },
+  // ── TOOL 5: Downtime Cost ──
+  "cost.downtime_labor": { description: "Direct labor loss = downtime × workers × rate × 1.3.", requiredInputs: ["downtimeHours", "affectedWorkers", "avgHourlyRate"], outputHint: "currency" },
+  "cost.downtime_production": { description: "Production loss = downtime × capacity × contributionMargin.", requiredInputs: ["downtimeHours", "lineCapacityPerHour", "contributionMarginPerUnit"], outputHint: "currency" },
+  "cost.downtime_energy": { description: "Energy waste = idlePower × hours × rate.", requiredInputs: ["idlePowerKw", "downtimeHours", "electricityRate"], outputHint: "currency" },
+  "cost.downtime_recovery": { description: "Recovery cost = overtimeHours × overtimeRate.", requiredInputs: ["overtimeHours", "overtimeRate"], outputHint: "currency" },
+  "cost.downtime_quality": { description: "Quality loss = startupScrap × unitCost.", requiredInputs: ["startupScrapUnits", "unitCost"], outputHint: "currency" },
+  "cost.downtime_total": { description: "Total downtime = labor + production + energy + recovery + quality + penalty.", requiredInputs: ["directLaborLoss", "productionLoss", "energyWaste", "recoveryCost", "qualityLoss", "penalty"], outputHint: "currency" },
+  // ── TOOL 6: Auto Comeback ──
+  "cost.comeback_direct": { description: "Direct comeback = labor + parts + opportunity.", requiredInputs: ["laborCost", "partsCost", "opportunityCost"], outputHint: "currency" },
+  "cost.comeback_total": { description: "Total comeback = direct + warranty + goodwill.", requiredInputs: ["directCost", "warrantyCost", "goodwillCost"], outputHint: "currency" },
+  // ── TOOL 7: Quote Consistency ──
+  "stats.quote_variance": { description: "Quote variance = STDEV / AVERAGE of 3 quotes.", requiredInputs: ["q1", "q2", "q3"], outputHint: "number" },
+  "stats.price_deviation": { description: "Price deviation = (quoted - market) / market.", requiredInputs: ["quotedPrice", "marketPrice"], outputHint: "percentage" },
+  "stats.consistency_score": { description: "Consistency score = 100 - (var×50 + |priceDev|×25 + |laborDev|×25).", requiredInputs: ["variance", "priceDeviation", "laborDeviation"], outputHint: "number" },
+  "cost.margin_leak_quote": { description: "Margin leak = (market - quoted) × quantity.", requiredInputs: ["marketPrice", "quotedPrice", "quantity"], outputHint: "currency" },
+  // ── TOOL 8: Auto Shop Margin Leak ──
+  "cost.effective_labor_rate": { description: "Effective labor rate = laborRevenue / flagHours.", requiredInputs: ["laborRevenue", "flagHours"], outputHint: "currency" },
+  "cost.annual_margin_leakage": { description: "Annual leakage = revenue × (target - net).", requiredInputs: ["totalRevenue", "targetMargin", "netMargin"], outputHint: "currency" },
+  // ── TOOL 9: ASME Pressure Vessel ──
+  "measurement.vessel_shell_thickness": { description: "Shell thickness = P×R / (S×E - 0.6×P) + CA.", requiredInputs: ["pressure", "radius", "stressAllowable", "jointEfficiency", "corrosionAllowance"], outputHint: "number" },
+  "measurement.vessel_sphere_thickness": { description: "Sphere thickness = P×R / (2×S×E - 0.2×P) + CA.", requiredInputs: ["pressure", "radius", "stressAllowable", "jointEfficiency", "corrosionAllowance"], outputHint: "number" },
+  "measurement.vessel_mawp": { description: "MAWP = S×E×(t-CA) / (R+0.6×(t-CA)).", requiredInputs: ["stressAllowable", "jointEfficiency", "actualThickness", "corrosionAllowance", "radius"], outputHint: "number" },
+  "measurement.vessel_weight": { description: "Vessel weight = π × D × L × t × density.", requiredInputs: ["diameter", "length", "thickness", "materialDensity"], outputHint: "number" },
+  // ── TOOL 10: Compressed Air ──
+  "energy.compressed_air_power": { description: "Compressor power = Q×ΔP / (effIso×effMotor×effDrive).", requiredInputs: ["flowRate", "deltaPressure", "efficiencyIsothermal", "efficiencyMotor", "efficiencyDrive"], outputHint: "number" },
+  "energy.compressed_air_annual_cost": { description: "Annual cost = energy + leakage - heatRecovery.", requiredInputs: ["annualEnergyCost", "leakageCost", "pressureDropCost", "heatRecoverySavings"], outputHint: "currency" },
+  // ── TOOL 11: Break-Even ──
+  "cost.bep_units": { description: "BEP units = fixedCosts / (price - variableCost).", requiredInputs: ["fixedCosts", "unitPrice", "unitVariableCost"], outputHint: "number" },
+  "cost.cmr": { description: "CMR = (price - variable) / price.", requiredInputs: ["unitPrice", "unitVariableCost"], outputHint: "percentage" },
+  "cost.bep_revenue": { description: "BEP revenue = fixedCosts / CMR.", requiredInputs: ["fixedCosts", "cmr"], outputHint: "currency" },
+  "cost.margin_of_safety_pct": { description: "MoS% = (actual - BEP) / actual × 100.", requiredInputs: ["actualSales", "bepUnits"], outputHint: "percentage" },
+  "cost.operating_leverage": { description: "DOL = contributionMargin / netOperatingIncome.", requiredInputs: ["contributionMargin", "netOperatingIncome"], outputHint: "number" },
+  "cost.target_profit_units": { description: "Target profit units = (fixed + target) / unitContributionMargin.", requiredInputs: ["fixedCosts", "targetProfit", "unitContributionMargin"], outputHint: "number" },
+  // ── TOOL 12: Concrete Volume ──
+  "measurement.concrete_volume_total": { description: "Total concrete volume from slab/footing/column/wall geometry.", requiredInputs: ["slabLength", "slabWidth", "slabThickness", "footingCount", "columnCount", "wasteFactor"], outputHint: "number" },
+  // ── TOOL 13: Calibration Drift ──
+  "measurement.drift_rate": { description: "Drift rate = (lastError - prevError) / daysBetween.", requiredInputs: ["lastError", "prevError", "timeBetweenDays"], outputHint: "number" },
+  "measurement.current_uncertainty": { description: "Uncertainty = sqrt(base² + predicted² + env²).", requiredInputs: ["baseUncertainty", "predictedDrift", "environmentalFactor"], outputHint: "number" },
+  "measurement.calibration_risk_score": { description: "Risk = (uncertainty/tolerance) × criticality × freq.", requiredInputs: ["currentUncertainty", "toleranceLimit", "criticality", "usageFrequency"], outputHint: "number" },
+  // ── TOOL 14: CBAM Exposure ──
+  "carbon.embedded_emissions": { description: "Total embedded = direct + indirect.", requiredInputs: ["directEmissions", "indirectEmissions"], outputHint: "number" },
+  "carbon.cbam_certificate_cost": { description: "CBAM cost = max(0, total - allowance) × EUprice.", requiredInputs: ["embeddedEmissions", "freeAllowance", "euEtsPrice"], outputHint: "currency" },
+  "carbon.compliance_score": { description: "Compliance = data×0.3 + verification×0.3 + reduction×0.4.", requiredInputs: ["dataCompleteness", "verificationStatus", "reductionProgress"], outputHint: "number" },
+  // ── TOOL 15: CBAM Compliance ──
+  "carbon.specific_embedded": { description: "Specific = totalEmbedded / totalMass.", requiredInputs: ["totalEmbedded", "totalMass"], outputHint: "number" },
+  "carbon.actual_vs_default": { description: "AVD = specific / defaultFactor.", requiredInputs: ["specificEmbedded", "defaultFactor"], outputHint: "number" },
+  "carbon.cbam_financial_liability": { description: "Liability = total × (EUprice - originPrice).", requiredInputs: ["totalEmbedded", "euEtsPrice", "carbonPricePaidOrigin"], outputHint: "currency" },
+  // ── TOOL 16: Chatter Surface Quality ──
+  "measurement.cutting_speed": { description: "Vc = π × D × n / 1000.", requiredInputs: ["diameter", "rpm"], outputHint: "number" },
+  "measurement.chip_load": { description: "fz = Vf / (z × n).", requiredInputs: ["feedRate", "toothCount", "rpm"], outputHint: "number" },
+  "measurement.surface_roughness_theoretical": { description: "Ra_theo = fz² / (8 × r_epsilon).", requiredInputs: ["chipLoad", "noseRadius"], outputHint: "number" },
+  "measurement.surface_roughness_actual": { description: "Ra_actual = Ra_theo × (1 + chatterAmplification/100).", requiredInputs: ["theoreticalRa", "chatterAmplification"], outputHint: "number" },
+  "cost.chatter_quality_loss": { description: "Quality loss = (Ra_actual - limit) × reworkCost.", requiredInputs: ["actualRa", "toleranceLimit", "reworkCostPerMicron"], outputHint: "currency" },
+  // ── TOOL 17: Bolt Torque ──
+  "measurement.bolt_d2": { description: "Pitch diameter d2 = d - 0.649519×p.", requiredInputs: ["nominalDiameter", "pitch"], outputHint: "number" },
+  "measurement.bolt_d3": { description: "Root diameter d3 = d - 1.226869×p.", requiredInputs: ["nominalDiameter", "pitch"], outputHint: "number" },
+  "measurement.bolt_tensile_area": { description: "At = π/4 × ((d2+d3)/2)².", requiredInputs: ["d2", "d3"], outputHint: "number" },
+  "measurement.bolt_preload": { description: "Preload = 0.7 × proofStrength × At.", requiredInputs: ["proofStrength", "tensileArea"], outputHint: "number" },
+  "measurement.bolt_torque": { description: "Torque = K × D × F.", requiredInputs: ["torqueCoefficient", "nominalDiameter", "preload"], outputHint: "number" },
+  // ── TOOL 18: Turnover Cost ──
+  "cost.turnover_total": { description: "Total turnover = separation + vacancy + replacement + training + productivity.", requiredInputs: ["separationCost", "vacancyCost", "replacementCost", "trainingCost", "productivityLoss"], outputHint: "currency" },
+  // ── TOOL 19: Cloud API Overrun ──
+  "cost.cloud_overrun_cost": { description: "Overrun = max(0, total - included) × overageRate.", requiredInputs: ["totalRequests", "includedRequests", "overageRate"], outputHint: "currency" },
+  "cost.cloud_throttling_cost": { description: "Throttling = throttled × retryCost × avgRetries.", requiredInputs: ["throttledRequests", "retryCost", "avgRetries"], outputHint: "currency" },
+  "cost.cloud_overrun_total": { description: "Total = overrun + throttling + egress + SLA.", requiredInputs: ["overrunCost", "throttlingCost", "dataEgressCost", "slaPenalty"], outputHint: "currency" },
+  // ── TOOL 20: Cloud Waste ──
+  "cost.cloud_waste_total": { description: "Total waste = zombie + oversizing + spot + reserved + idle.", requiredInputs: ["zombieCost", "oversizingSavings", "spotSavings", "reservedSavings", "idleHoursCost"], outputHint: "currency" },
 };
 
 function buildFormulaRegistryMeta(): FormulaRegistryMeta[] {

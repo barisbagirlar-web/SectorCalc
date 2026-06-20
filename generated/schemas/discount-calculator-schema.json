@@ -238,24 +238,23 @@
     ]
   },
   "formulas": {
-    "annual_exposure_hours": "1",
-    "direct_labor_cost": "0",
-    "result": "quantity * (discount_percent / 100) * list_price * (apply_to_all_units ? 1 : 0)"
+    "result": "quantity * (list_price * (1 - discount_percent / 100) - variable_cost_per_unit) - fixed_cost_allocation",
+    "discount_amount": "quantity * list_price * (discount_percent / 100)",
+    "margin_percent": "((list_price * (1 - discount_percent / 100) - variable_cost_per_unit) / (list_price * (1 - discount_percent / 100))) * 100"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "annual_exposure_hours",
-      "direct_labor_cost"
+      "discount_amount",
+      "margin_percent"
     ],
     "hiddenLossDrivers": [
-      "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates",
-      "Direct labor cost is set to 0 because no labor-related inputs are available in this tool"
+      "Excessive discounting eroding margin",
+      "Fixed cost allocation not covered by volume"
     ],
     "suggestedActions": [
-      "Reconcile labor and maintenance legs separately",
-      "Benchmark noise/vibration factors with site measurement"
+      "Review discount tiers to maintain target margin",
+      "Increase order quantity to dilute fixed cost allocation"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

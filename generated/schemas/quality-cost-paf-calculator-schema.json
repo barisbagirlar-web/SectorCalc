@@ -266,26 +266,32 @@
     ]
   },
   "formulas": {
-    "normalized_product": "total_sales * prevention_training_cost * prevention_design_cost * appraisal_inspection_cost",
-    "result": "total_sales * prevention_training_cost * prevention_design_cost * appraisal_inspection_cost * (appraisal_audit_cost * internal_failure_scrap_cost * internal_failure_downtime_cost * external_failure_warranty_cost)",
-    "adjustment_factor": "appraisal_audit_cost * internal_failure_scrap_cost * internal_failure_downtime_cost * external_failure_warranty_cost"
+    "total_prevention_cost": "prevention_training_cost + prevention_design_cost",
+    "total_appraisal_cost": "appraisal_inspection_cost + appraisal_audit_cost",
+    "total_failure_cost": "internal_failure_scrap_cost + internal_failure_downtime_cost + external_failure_warranty_cost",
+    "total_quality_cost": "total_prevention_cost + total_appraisal_cost + total_failure_cost",
+    "coq_ratio": "total_quality_cost / total_sales * 100",
+    "result": "total_quality_cost"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "total_prevention_cost",
+      "total_appraisal_cost",
+      "total_failure_cost",
+      "total_quality_cost",
+      "coq_ratio"
     ],
+    "unit": "USD",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "External failure costs (warranty/returns) often exceed captured costs",
+      "Prevention under-investment leads to exponential appraisal/failure costs"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Increase prevention budget to reduce failure costs (1:10 leverage)",
+      "Track CoQ ratio monthly, target <15% of sales"
     ],
-    "dataConfidenceAdjusted": "result",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

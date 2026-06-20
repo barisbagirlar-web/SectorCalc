@@ -30,11 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Scrap_rate_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit * 1 * (input.defective_units * input.rework_units); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.defective_units; results["factor_defective_units"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_defective_units"] = Number.NaN; }
-  try { const v = input.rework_units; results["factor_rework_units"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_rework_units"] = Number.NaN; }
+  try { const v = (input.defective_units / input.total_units_produced) * 100; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.defective_units * (input.material_cost_per_unit + input.labor_cost_per_unit + input.overhead_cost_per_unit); results["scrap_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scrap_cost"] = Number.NaN; }
+  try { const v = input.rework_units * (input.material_cost_per_unit + input.labor_cost_per_unit + input.overhead_cost_per_unit); results["rework_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rework_cost"] = Number.NaN; }
+  try { const v = ((input.defective_units + input.rework_units) / input.total_units_produced) * 100; results["total_scrap_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_scrap_rate"] = Number.NaN; }
   return results;
 }
 
@@ -45,8 +44,8 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["Inadequate process control","Poor raw material quality"];
+  const suggestedActions: string[] = ["Implement SPC for real-time monitoring","Conduct root cause analysis on top defect types"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

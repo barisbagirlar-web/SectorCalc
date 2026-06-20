@@ -266,26 +266,27 @@
     ]
   },
   "formulas": {
-    "normalized_product": "changeover_time_matrix * number_of_changeovers_per_month * setup_external_time * setup_internal_time",
-    "result": "changeover_time_matrix * number_of_changeovers_per_month * setup_external_time * setup_internal_time * (product_family_count * standard_deviation_changeover_time)",
-    "adjustment_factor": "product_family_count * standard_deviation_changeover_time"
+    "total_changeover_downtime": "number_of_changeovers_per_month * changeover_time_matrix",
+    "smed_reduction_potential": "setup_internal_time - (setup_external_time * 0.5)",
+    "six_sigma_sigma_level": "(changeover_time_matrix - setup_internal_time) / (standard_deviation_changeover_time + 0.001)",
+    "result": "total_changeover_downtime * (1 - (lean_smed_implemented === 'yes' ? 0.3 : 0)) * (1 + (product_family_count - 1) * 0.05) * (1 + (standard_deviation_changeover_time / (changeover_time_matrix + 0.001)) * 0.2)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "total_changeover_downtime",
+      "smed_reduction_potential"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Unplanned downtime due to tooling issues",
+      "Lack of standardized work instructions"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Implement SMED to convert internal setup to external",
+      "Standardize changeover procedures across shifts"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "unit": "hours"
   },
   "toolName": "changeover-matrix-optimizer-calculator",
   "catalogCategory": "everyday-life",

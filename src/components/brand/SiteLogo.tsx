@@ -50,7 +50,7 @@ export function SiteLogo({
       aria-label={t("logoHome")}
     >
       <img
-        src={BRAND_ASSETS.logo.symbolSvg}
+        src={BRAND_ASSETS.logo.symbolBoldSvg}
         alt={t("logoAlt")}
         width={BRAND_ASSETS.logo.displaySymbolWidth}
         height={BRAND_ASSETS.logo.displaySymbolHeight}

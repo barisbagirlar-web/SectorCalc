@@ -22,8 +22,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Currency_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sourceAmount * input.exchangeRate * input.fixedFee * (input.percentageFee / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.sourceAmount * input.exchangeRate * input.fixedFee * (input.percentageFee / 100); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.sourceAmount * input.exchangeRate - (input.fixedFee + input.sourceAmount * input.percentageFee) * input.exchangeRate; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.sourceAmount * input.exchangeRate - input.fixedFee * input.exchangeRate - input.sourceAmount * input.percentageFee * input.exchangeRate; results["netAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netAmount"] = Number.NaN; }
+  try { const v = input.fixedFee * input.exchangeRate + input.sourceAmount * input.percentageFee * input.exchangeRate; results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFees"] = Number.NaN; }
   return results;
 }
 
@@ -34,8 +35,8 @@ export function calculateCurrency_converter_calculator(input: Currency_converter
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Percentage fee applied to source amount before conversion","Fixed fee in source currency converted at same rate"];
+  const suggestedActions: string[] = ["Negotiate lower percentage fee for large transfers","Compare exchange rates across providers to minimize spread"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

@@ -24,22 +24,21 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Gross_margin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = ((input.sellingPricePerUnit * (1 - input.discountPercentage / 100)) - (input.costPerUnit + input.additionalVariableCostPerUnit)) * input.unitsSold; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   try { const v = input.sellingPricePerUnit * input.unitsSold * (1 - input.discountPercentage / 100); results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
   try { const v = (input.costPerUnit + input.additionalVariableCostPerUnit) * input.unitsSold; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCOGS"] = Number.NaN; }
-  try { const v = (toNumericFormulaValue(results["totalRevenue"])) - (toNumericFormulaValue(results["totalCOGS"])); results["grossMarginAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossMarginAmount"] = Number.NaN; }
-  try { const v = ((toNumericFormulaValue(results["grossMarginAmount"])) / (toNumericFormulaValue(results["totalRevenue"]))) * 100; results["grossMarginPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossMarginPercentage"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateGross_margin_calculator(input: Gross_margin_calculatorInput): Gross_margin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["grossMarginPercentage"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["Discount erosion on high-volume items","Uncaptured variable cost increases"];
+  const suggestedActions: string[] = ["Review discount tiers to minimize margin leakage","Negotiate bulk purchase discounts for high-cost materials"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

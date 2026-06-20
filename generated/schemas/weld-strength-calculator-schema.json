@@ -273,26 +273,31 @@
     ]
   },
   "formulas": {
-    "normalized_product": "base_material_yield_strength * weld_material_tensile_strength * throat_thickness * weld_length",
-    "result": "base_material_yield_strength * weld_material_tensile_strength * throat_thickness * weld_length * (applied_load * load_angle)",
-    "adjustment_factor": "applied_load * load_angle"
+    "allowable_stress": "weld_material_tensile_strength * 0.6",
+    "effective_area": "throat_thickness * weld_length",
+    "load_angle_factor": "Math.cos(load_angle * Math.PI / 180) * 0.5 + 0.5",
+    "quality_factor": "quality_level === 'B' ? 1.0 : quality_level === 'C' ? 0.85 : 0.7",
+    "allowable_load": "allowable_stress * effective_area * load_angle_factor * quality_factor / 1000",
+    "result": "allowable_load - applied_load",
+    "safety_margin": "result / applied_load * 100",
+    "process_capability": "Math.min(1, (allowable_load - applied_load) / (0.1 * allowable_load))"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "allowable_load",
+      "safety_margin"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Inconsistent weld quality due to operator skill variation",
+      "Undetected porosity or lack of fusion reducing effective throat"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Implement real-time weld parameter monitoring with feedback control",
+      "Conduct periodic destructive testing to validate process capability"
     ],
-    "dataConfidenceAdjusted": "result",
-    "unit": "USD"
+    "dataConfidenceAdjusted": "result * (1 - 0.05 * (1 - process_capability))",
+    "unit": "kN"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -30,9 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100) * (input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = ((input.annual_revenue * (input.operating_margin / 100)) - (input.total_inventory_value * (input.inventory_carrying_cost_percent / 100)) - (input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect) - input.annual_energy_cost) / (input.annual_revenue * (input.operating_margin / 100)) * 100; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.total_inventory_value * (input.inventory_carrying_cost_percent / 100); results["inventory_waste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inventory_waste"] = Number.NaN; }
+  try { const v = input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect; results["quality_waste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quality_waste"] = Number.NaN; }
+  try { const v = input.annual_energy_cost; results["energy_waste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy_waste"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +44,8 @@ export function calculateRoi_calculator(input: Roi_calculatorInput): Roi_calcula
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Expedited freight due to inventory shortages","Lost sales from quality issues"];
+  const suggestedActions: string[] = ["Implement Kanban to reduce inventory by 30%","Deploy Six Sigma DMAIC to cut defect rate by 50%"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

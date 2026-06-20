@@ -30,10 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Npv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.project_life_years * input.initial_investment; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.project_life_years * input.initial_investment * (1 + (input.discount_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.project_life_years * input.initial_investment * (1 + (input.discount_rate / 100)) * (input.annual_cash_inflow); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.annual_cash_inflow; results["factor_annual_cash_inflow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_annual_cash_inflow"] = Number.NaN; }
+  try { const v = (-input.initial_investment + (input.annual_cash_inflow - input.annual_cash_outflow) * ((1 - (1 + input.discount_rate/100/12)**(-input.project_life_years*12)) / (input.discount_rate/100/12)) + input.salvage_value / (1 + input.discount_rate/100/12)**(input.project_life_years*12)) * (1 - input.tax_rate/100); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (-input.initial_investment + (input.annual_cash_inflow - input.annual_cash_outflow) * ((1 - (1 + input.discount_rate/100/12)**(-input.project_life_years*12)) / (input.discount_rate/100/12)) + input.salvage_value / (1 + input.discount_rate/100/12)**(input.project_life_years*12)) * (1 - input.tax_rate/100); results["npv_nominal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv_nominal"] = Number.NaN; }
+  try { const v = (-input.initial_investment + (input.annual_cash_inflow - input.annual_cash_outflow) * ((1 - (1 + (input.discount_rate/100 - input.inflation_rate/100)/12)**(-input.project_life_years*12)) / ((input.discount_rate/100 - input.inflation_rate/100)/12)) + input.salvage_value / (1 + (input.discount_rate/100 - input.inflation_rate/100)/12)**(input.project_life_years*12)) * (1 - input.tax_rate/100); results["npv_real"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv_real"] = Number.NaN; }
+  try { const v = input.initial_investment / (input.annual_cash_inflow - input.annual_cash_outflow); results["payback_period"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["payback_period"] = Number.NaN; }
   return results;
 }
 
@@ -44,8 +44,8 @@ export function calculateNpv_calculator(input: Npv_calculatorInput): Npv_calcula
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["Inflation erosion of real returns","Tax shield not optimized"];
+  const suggestedActions: string[] = ["Negotiate lower WACC with lenders","Accelerate depreciation schedule"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

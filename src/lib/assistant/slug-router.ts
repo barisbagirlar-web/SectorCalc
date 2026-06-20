@@ -22,9 +22,18 @@ export type SlugRouterResult = {
   readonly suggestion?: AssistantSuggestion;
 };
 
+/**
+ * Revenue tool slugs NOT in REGENERATION lists but used by deterministic rules.
+ * Revenue tools live in src/lib/tools/revenue-tools-*.ts with their own paths.
+ */
+const REVENUE_FREE_SLUGS = new Set<string>(["roi-quick-check"]);
+const REVENUE_PREMIUM_SLUGS = new Set<string>(["roi-payback-analyzer"]);
+
 const VALID_SLUGS = new Set<string>([
   ...REGENERATION_PREMIUM_SLUGS,
   ...REGENERATION_FREE_SLUGS,
+  ...REVENUE_FREE_SLUGS,
+  ...REVENUE_PREMIUM_SLUGS,
 ]);
 
 const KEYWORD_RULES: ReadonlyArray<{ readonly patterns: RegExp[]; readonly slug: string }> = [
@@ -56,6 +65,10 @@ const KEYWORD_RULES: ReadonlyArray<{ readonly patterns: RegExp[]; readonly slug:
     patterns: [/işçilik/i, /personel/i, /employee total cost/i],
     slug: "employee-total-cost-calculator",
   },
+  {
+    patterns: [/\broi\b/, /yatırım/i, /return on investment/i, /investment return/i, /getiri/i, /kazanç/i],
+    slug: "roi-quick-check",
+  },
 ];
 
 function resolveToolSuggestion(slug: string, locale: string): AssistantSuggestion | undefined {
@@ -73,12 +86,15 @@ function resolveToolSuggestion(slug: string, locale: string): AssistantSuggestio
     return { slug, label, href };
   }
 
-  if (REGENERATION_PREMIUM_SLUGS.includes(slug)) {
+  if (REGENERATION_PREMIUM_SLUGS.includes(slug) || REVENUE_PREMIUM_SLUGS.has(slug)) {
     return { slug, label: slug, href: `/tools/premium/${slug}` };
   }
 
-  if (REGENERATION_FREE_SLUGS.includes(slug)) {
-    return { slug, label: slug, href: `/tools/free/${slug}` };
+  if (REGENERATION_FREE_SLUGS.includes(slug) || REVENUE_FREE_SLUGS.has(slug)) {
+    const labels: Record<string, string> = {
+      "roi-quick-check": "ROI Quick Check",
+    };
+    return { slug, label: labels[slug] ?? slug, href: `/tools/free/${slug}` };
   }
 
   return { slug, label: slug, href: `/tools/generated/${slug}` };
@@ -123,6 +139,8 @@ async function deepSeekSlug(query: string): Promise<string | null> {
     "break-even-safety-margin-calculator",
     "inventory-carrying-cost-eoq-calculator",
     "employee-total-cost-calculator",
+    "roi-quick-check",
+    "roi-payback-analyzer",
   ].join(", ");
 
   const prompt = [

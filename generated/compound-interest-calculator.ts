@@ -28,9 +28,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Compound_interest_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.principal * input.annualInterestRate * input.timePeriod * input.additionalContribution; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.principal * input.annualInterestRate * input.timePeriod * input.additionalContribution * (input.inflationRate * input.taxRate); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.inflationRate * input.taxRate; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.principal * (1 + input.annualInterestRate / 100 / input.compoundingFrequency) ** (input.compoundingFrequency * input.timePeriod) + input.additionalContribution * (((1 + input.annualInterestRate / 100 / input.compoundingFrequency) ** (input.compoundingFrequency * input.timePeriod) - 1) / (input.annualInterestRate / 100 / input.compoundingFrequency)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["result"])) / (1 + input.inflationRate / 100) ** input.timePeriod; results["realValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["realValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["result"])) - ((toNumericFormulaValue(results["result"])) - input.principal - input.additionalContribution * input.compoundingFrequency * input.timePeriod) * input.taxRate / 100; results["afterTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["afterTax"] = Number.NaN; }
   return results;
 }
 
@@ -41,8 +41,8 @@ export function calculateCompound_interest_calculator(input: Compound_interest_c
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Inflation erosion of purchasing power","Tax drag on compound growth"];
+  const suggestedActions: string[] = ["Increase compounding frequency to daily","Invest in tax-advantaged accounts"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

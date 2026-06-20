@@ -30,9 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Water_usage_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWaterIn * input.productionOutput * input.processWater * input.coolingWater; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.totalWaterIn * input.productionOutput * input.processWater * input.coolingWater * (input.wastewaterDischarge * input.recycledWater * input.leakageLosses); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.wastewaterDischarge * input.recycledWater * input.leakageLosses; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.productionOutput / input.totalWaterIn; results["waterEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterEfficiency"] = Number.NaN; }
+  try { const v = input.recycledWater / input.totalWaterIn; results["reuseRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reuseRate"] = Number.NaN; }
+  try { const v = (input.leakageLosses + (input.totalWaterIn - input.processWater - input.coolingWater - input.wastewaterDischarge - input.recycledWater)) / input.totalWaterIn; results["lossRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lossRatio"] = Number.NaN; }
+  try { const v = ((input.processWater + input.coolingWater) * (1 - (toNumericFormulaValue(results["reuseRate"]))) * (1 + (toNumericFormulaValue(results["lossRatio"]))) * 0.001 * 1.5) + (input.wastewaterDischarge * 0.002) + (input.leakageLosses * 0.003); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +44,8 @@ export function calculateWater_usage_optimizer_calculator(input: Water_usage_opt
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Evaporation and drift from cooling towers","Unmetered process water usage"];
+  const suggestedActions: string[] = ["Implement closed-loop cooling system to reduce makeup water","Install submeters on high-use processes to identify leaks"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

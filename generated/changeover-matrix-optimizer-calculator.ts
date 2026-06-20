@@ -30,9 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Changeover_matrix_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.changeover_time_matrix * input.number_of_changeovers_per_month * input.setup_external_time * input.setup_internal_time; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.changeover_time_matrix * input.number_of_changeovers_per_month * input.setup_external_time * input.setup_internal_time * (input.product_family_count * input.standard_deviation_changeover_time); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.product_family_count * input.standard_deviation_changeover_time; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.number_of_changeovers_per_month * input.changeover_time_matrix; results["total_changeover_downtime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_changeover_downtime"] = Number.NaN; }
+  try { const v = input.setup_internal_time - (input.setup_external_time * 0.5); results["smed_reduction_potential"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["smed_reduction_potential"] = Number.NaN; }
+  try { const v = (input.changeover_time_matrix - input.setup_internal_time) / (input.standard_deviation_changeover_time + 0.001); results["six_sigma_sigma_level"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["six_sigma_sigma_level"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_changeover_downtime"])) * (1 - (input.lean_smed_implemented === 'yes' ? 0.3 : 0)) * (1 + (input.product_family_count - 1) * 0.05) * (1 + (input.standard_deviation_changeover_time / (input.changeover_time_matrix + 0.001)) * 0.2); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +44,8 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Unplanned downtime due to tooling issues","Lack of standardized work instructions"];
+  const suggestedActions: string[] = ["Implement SMED to convert internal setup to external","Standardize changeover procedures across shifts"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

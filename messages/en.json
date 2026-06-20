@@ -92,6 +92,10 @@
   "trace": {
     "launcher": "Talk to Trace",
     "fabBubble": "Hello 🐍 Which sector are you calculating for?<br/><b>4,090+</b> tools — I'll find the best one for you.",
+    "bubbleGreeting": "I'm Trace. I guide you to the right calculator from thousands of sector tools, explain inputs in plain language, and keep your guidance traceable.",
+    "bubbleCta": "What should we calculate today?",
+    "bubbleFreeTools": "4,090+ free calculators — always free",
+    "bubblePremiumTools": "150 premium calculators — smart insights",
     "bubbleOnline": "Online",
     "close": "Close",
     "title": "I'm Trace.",
@@ -3581,6 +3585,8 @@
     "loading": "Loading calculator…",
     "loadError": "Calculator module could not be loaded.",
     "quarantineWarning": "This calculator uses estimated formulas — verify results against site standards.",
+    "stubFormulaLabel": "Formula caution:",
+    "stubFormulaHint": "this tool uses a generic placeholder formula. Results are indicative only — verify with domain-specific calculations.",
     "trustTraceVerified": "✓ Trust Trace — result integrity verified",
     "premiumUpsell": {
       "ariaLabel": "Upgrade to pro analysis",
@@ -67657,6 +67663,8 @@
     "downloadCsv": "Download CSV",
     "downloadWord": "Download Word",
     "print": "Print",
+    "downloadPdf": "Download PDF",
+    "loadingPdf": "Preparing PDF…",
     "calcSummary": "Calculation Summary",
     "issued": "Issued",
     "summaryDisclaimer": "Technical simulation. Not financial, legal, or engineering advice. Disclaimer v{version}.",

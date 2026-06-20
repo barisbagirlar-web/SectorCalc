@@ -26,8 +26,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Feed_cost_estimator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.feed_intake_kg * input.raw_material_cost_per_kg * (input.processing_loss_percent / 100) * input.moisture_adjustment_factor; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.feed_intake_kg * input.raw_material_cost_per_kg * (input.processing_loss_percent / 100) * input.moisture_adjustment_factor; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.raw_material_cost_per_kg * (1 + input.processing_loss_percent / 100) * input.moisture_adjustment_factor; results["effective_cost_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_cost_per_kg"] = Number.NaN; }
+  try { const v = input.quality_grade === 'premium' ? 1.15 : (input.quality_grade === 'standard' ? 1.0 : 0.85); results["quality_adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quality_adjustment_factor"] = Number.NaN; }
+  try { const v = input.include_transport_cost ? 0.05 : 0; results["transport_surcharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transport_surcharge"] = Number.NaN; }
+  try { const v = input.feed_intake_kg * (toNumericFormulaValue(results["effective_cost_per_kg"])) * (toNumericFormulaValue(results["quality_adjustment_factor"])) + input.feed_intake_kg * (toNumericFormulaValue(results["transport_surcharge"])); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -38,8 +40,8 @@ export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimat
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Moisture variation in raw materials","Processing loss due to equipment wear"];
+  const suggestedActions: string[] = ["Implement moisture sensors for real-time adjustment","Schedule regular maintenance to reduce processing losses"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

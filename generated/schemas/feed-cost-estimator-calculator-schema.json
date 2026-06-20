@@ -211,21 +211,25 @@
     ]
   },
   "formulas": {
-    "normalized_product": "feed_intake_kg * raw_material_cost_per_kg * (processing_loss_percent / 100) * moisture_adjustment_factor",
-    "result": "feed_intake_kg * raw_material_cost_per_kg * (processing_loss_percent / 100) * moisture_adjustment_factor"
+    "effective_cost_per_kg": "raw_material_cost_per_kg * (1 + processing_loss_percent / 100) * moisture_adjustment_factor",
+    "quality_adjustment_factor": "quality_grade === 'premium' ? 1.15 : (quality_grade === 'standard' ? 1.0 : 0.85)",
+    "transport_surcharge": "include_transport_cost ? 0.05 : 0",
+    "result": "feed_intake_kg * effective_cost_per_kg * quality_adjustment_factor + feed_intake_kg * transport_surcharge"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product"
+      "effective_cost_per_kg",
+      "quality_adjustment_factor",
+      "transport_surcharge"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Moisture variation in raw materials",
+      "Processing loss due to equipment wear"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Implement moisture sensors for real-time adjustment",
+      "Schedule regular maintenance to reduce processing losses"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

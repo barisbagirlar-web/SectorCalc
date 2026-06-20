@@ -92,6 +92,10 @@
   "trace": {
     "launcher": "Parler à Trace",
     "fabBubble": "Bonjour 🐍 Dans quel secteur calculez-vous ?<br/><b>4.090+</b> outils — je trouve le meilleur pour vous.",
+    "bubbleGreeting": "Je suis Trace. Je vous oriente vers le bon calculateur parmi des milliers d'outils sectoriels, explique les entrées clairement et garde le conseil traçable.",
+    "bubbleCta": "Que calculons-nous aujourd'hui ?",
+    "bubbleFreeTools": "4 090+ calculateurs gratuits — toujours gratuit",
+    "bubblePremiumTools": "150 calculateurs premium — recommandations intelligentes",
     "bubbleOnline": "En ligne",
     "close": "Fermer",
     "title": "Je suis Trace.",
@@ -3505,6 +3509,8 @@
     "loading": "Chargement du calculateur…",
     "loadError": "Le module calculateur n'a pas pu être chargé.",
     "quarantineWarning": "Ce calculateur utilise des formules estimées — vérifiez les résultats par rapport à vos standards.",
+    "stubFormulaLabel": "Attention formule:",
+    "stubFormulaHint": "cet outil utilise une formule générique. Les résultats sont indicatifs — vérifiez avec des calculs spécifiques au domaine.",
     "trustTraceVerified": "✓ Trust Trace — intégrité du résultat vérifiée",
     "premiumUpsell": {
       "ariaLabel": "Passer à l'analyse Pro",
@@ -67977,6 +67983,8 @@
     "downloadCsv": "Télécharger CSV",
     "downloadWord": "Télécharger Word",
     "print": "Imprimer",
+    "downloadPdf": "Télécharger PDF",
+    "loadingPdf": "Préparation du PDF…",
     "calcSummary": "Résumé du calcul",
     "issued": "Émis le",
     "summaryDisclaimer": "Simulation technique. Pas un conseil financier, juridique ou technique. Clause de non-responsabilité v{version}.",

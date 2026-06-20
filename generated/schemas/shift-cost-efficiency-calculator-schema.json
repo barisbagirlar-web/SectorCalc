@@ -260,23 +260,27 @@
     ]
   },
   "formulas": {
-    "annual_exposure_hours": "shift_duration_hours",
-    "direct_labor_cost": "number_of_operators * 1 * shift_duration_hours * labor_cost_per_hour",
-    "result": "number_of_operators * 1 * shift_duration_hours * labor_cost_per_hour * total_units_produced"
+    "direct_labor_cost": "number_of_operators * shift_duration_hours * labor_cost_per_hour",
+    "material_cost": "total_units_produced * material_cost_per_unit",
+    "total_cost": "direct_labor_cost + material_cost + energy_cost_per_shift",
+    "first_pass_yield": "(total_units_produced - defective_units - rework_units) / total_units_produced",
+    "cost_per_good_unit": "total_cost / (total_units_produced - defective_units)",
+    "result": "cost_per_good_unit / first_pass_yield"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "annual_exposure_hours",
-      "direct_labor_cost"
+      "total_cost",
+      "first_pass_yield",
+      "cost_per_good_unit"
     ],
     "hiddenLossDrivers": [
-      "Composite model — validate each cost leg against actuals",
-      "Physical exposure factors are normalized estimates"
+      "Rework inefficiency inflating effective unit cost",
+      "Energy cost per shift not scaled to production volume"
     ],
     "suggestedActions": [
-      "Reconcile labor and maintenance legs separately",
-      "Benchmark noise/vibration factors with site measurement"
+      "Implement real-time quality monitoring to reduce defects",
+      "Optimize shift schedule to align energy usage with production peaks"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

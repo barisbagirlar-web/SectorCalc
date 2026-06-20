@@ -22,8 +22,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Inflation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.present_value * (input.inflation_rate / 100) * input.years * input.frequency; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.present_value * (input.inflation_rate / 100) * input.years * input.frequency; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.present_value * ((1 + input.inflation_rate / 100 / input.frequency) ** (input.frequency * input.years)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.present_value * ((1 + input.inflation_rate / 100 / input.frequency) ** (input.frequency * input.years)); results["future_value"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["future_value"] = Number.NaN; }
+  try { const v = input.present_value / ((1 + input.inflation_rate / 100 / input.frequency) ** (input.frequency * input.years)); results["purchasing_power"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["purchasing_power"] = Number.NaN; }
+  try { const v = input.present_value * ((1 + input.inflation_rate / 100 / input.frequency) ** (input.frequency * input.years)) - input.present_value; results["inflation_loss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inflation_loss"] = Number.NaN; }
   return results;
 }
 
@@ -34,8 +36,8 @@ export function calculateInflation_calculator(input: Inflation_calculatorInput):
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Compounding frequency effect","Inflation rate volatility"];
+  const suggestedActions: string[] = ["Invest in inflation-protected securities","Negotiate cost-of-living adjustments"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

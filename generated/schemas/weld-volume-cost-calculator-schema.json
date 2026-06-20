@@ -300,23 +300,27 @@
     ]
   },
   "formulas": {
-    "normalized_product": "plate_thickness * root_face * root_gap * groove_angle",
-    "result": "plate_thickness * root_face * root_gap * groove_angle * (weld_length * leg_length)",
-    "adjustment_factor": "weld_length * leg_length"
+    "groove_volume": "((plate_thickness - root_face) * (plate_thickness - root_face) * Math.tan(groove_angle * Math.PI / 360) + root_gap * (plate_thickness - root_face)) * weld_length",
+    "fillet_volume": "0.5 * leg_length * leg_length * weld_length",
+    "total_volume": "joint_type === 'fillet' ? fillet_volume : groove_volume",
+    "deposit_weight": "total_volume * 7.85 / 1000",
+    "labor_cost": "deposit_weight / (weld_process === 'SMAW' ? 0.55 : weld_process === 'GMAW' ? 0.80 : 0.65) * 50",
+    "result": "deposit_weight * 2.5 + labor_cost"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "total_volume",
+      "deposit_weight",
+      "labor_cost"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Excessive root gap increases volume by up to 30%",
+      "Low deposition efficiency due to spatter and slag loss"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Optimize groove angle to 60° per AWS D1.1 to reduce filler metal",
+      "Use GMAW instead of SMAW to improve deposition efficiency by 25%"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

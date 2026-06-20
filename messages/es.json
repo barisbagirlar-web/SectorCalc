@@ -92,6 +92,10 @@
   "trace": {
     "launcher": "Hablar con Trace",
     "fabBubble": "Hola 🐍 ¿En qué sector estás calculando?<br/><b>4.090+</b> herramientas — encuentro la mejor para ti.",
+    "bubbleGreeting": "Soy Trace. Te dirijo a la calculadora correcta entre miles de herramientas sectoriales, explico las entradas en lenguaje claro y mantengo la orientación trazable.",
+    "bubbleCta": "¿Qué calculamos hoy?",
+    "bubbleFreeTools": "4090+ calculadoras gratuitas — siempre gratis",
+    "bubblePremiumTools": "150 calculadoras premium — recomendaciones inteligentes",
     "bubbleOnline": "En línea",
     "close": "Cerrar",
     "title": "Soy Trace.",
@@ -3505,6 +3509,8 @@
     "loading": "Cargando calculadora…",
     "loadError": "No se pudo cargar el módulo de la calculadora.",
     "quarantineWarning": "Esta calculadora usa fórmulas estimadas — verifique los resultados con sus estándares.",
+    "stubFormulaLabel": "Precaución de fórmula:",
+    "stubFormulaHint": "esta herramienta usa una fórmula genérica. Los resultados son indicativos — verifique con cálculos específicos del dominio.",
     "trustTraceVerified": "✓ Trust Trace — integridad del resultado verificada",
     "premiumUpsell": {
       "ariaLabel": "Actualizar a análisis Pro",
@@ -67977,6 +67983,8 @@
     "downloadCsv": "Descargar CSV",
     "downloadWord": "Descargar Word",
     "print": "Imprimir",
+    "downloadPdf": "Descargar PDF",
+    "loadingPdf": "Preparando PDF…",
     "calcSummary": "Resumen del cálculo",
     "issued": "Emitido",
     "summaryDisclaimer": "Simulación técnica. No es asesoramiento financiero, legal ni de ingeniería. Descargo de responsabilidad v{version}.",

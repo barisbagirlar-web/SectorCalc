@@ -268,26 +268,28 @@
     ]
   },
   "formulas": {
-    "normalized_product": "material_density * length * flange_width * flange_thickness",
-    "result": "material_density * length * flange_width * flange_thickness * (web_height * web_thickness * quantity)",
-    "adjustment_factor": "web_height * web_thickness * quantity"
+    "cross_section_area": "flange_width * flange_thickness * 2 + web_height * web_thickness",
+    "volume": "cross_section_area * length * 1e-6",
+    "weight": "volume * material_density",
+    "result": "weight * quantity"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "cross_section_area",
+      "volume",
+      "weight"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Flange/web thickness variation due to mill tolerances",
+      "Length measurement errors from thermal expansion"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Verify actual dimensions with calipers before cutting",
+      "Apply material density correction based on mill certificate"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "USD"
+    "unit": "kg"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

@@ -20,6 +20,29 @@ const NON_COST_OUTPUT_UNITS = new Set([
 ]);
 
 /** True when expression is only input identifiers joined by + (placeholder stub). */
+/**
+ * True when ALL formulas in a schema are simple multiplication product chains
+ * without domain-specific operations (/, Math.*, + mixed with other ops).
+ * These are archetype-engine placeholders, not real formulas.
+ */
+export function isProductChainFormula(
+  formulas: Record<string, string>,
+  inputIds: readonly string[],
+): boolean {
+  const expressions = Object.values(formulas).filter((v) => typeof v === "string");
+  if (expressions.length === 0) return true;
+  return expressions.every((expr) => {
+    const hasStubMarker = expr.includes("normalized_product") || expr.includes("adjustment_factor");
+    const isBareMult = /^[\w\s*()]+$/.test(expr)
+      && !expr.includes("+")
+      && !expr.includes("/")
+      && !expr.includes("Math.")
+      && expr.split("*").length >= 2
+      && !expr.includes("**");
+    return hasStubMarker || isBareMult;
+  });
+}
+
 export function isStubSumFormula(expression: string, inputIds: readonly string[]): boolean {
   const trimmed = expression.trim();
   if (!trimmed.includes("+")) {

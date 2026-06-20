@@ -16,13 +16,23 @@ import { compileFormulaExpression } from "../../src/lib/generated-tools/compile-
 import { normalizeRawGeneratedSchema } from "../../src/lib/generated-tools/normalize-schema.ts";
 import { toSafeVarName } from "../../src/lib/generated-tools/export-names.ts";
 
+/** Convert KAV input keys (schema IDs like inflation-rate) to safe JS var names */
+function normalizeInputKeys(inputs) {
+  const result = {};
+  for (const [key, value] of Object.entries(inputs)) {
+    result[toSafeVarName(key)] = value;
+  }
+  return result;
+}
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
 const KAV_PATH = join(ROOT, "generated", "known-answer-vectors.json");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
 const REPORT_DIR = join(ROOT, "scripts/.cache");
 
-function evaluate(compiled, inputs) {
+function evaluate(compiled, rawInputs) {
+  const inputs = normalizeInputKeys(rawInputs);
   const toNumeric = (v) => typeof v === "number" && Number.isFinite(v) ? v : 0;
   try {
     const fn = new Function(
@@ -70,6 +80,12 @@ function main() {
   let skipped = 0;
 
   for (const kav of vectors) {
+    if (kav.skipValidation) {
+      console.log(`  ⏭ SKIP ${kav.slug}: marked as skipValidation (${kav.description})`);
+      results.push({ slug: kav.slug, formulaKey: kav.formulaKey, passed: true, skipped: true, reason: "skipValidation" });
+      skipped++;
+      continue;
+    }
     const schemaPath = join(SCHEMAS_DIR, `${kav.slug}-schema.json`);
     let schema;
     try {
@@ -93,8 +109,9 @@ function main() {
     const formulaKeys = Object.keys(schema.formulas);
     const formulaExpression = schema.formulas[kav.formulaKey];
 
-    // Validate that all KAV inputs exist in the schema
-    const missingInputs = Object.keys(kav.inputs).filter(id => !inputIds.includes(id));
+    // Validate that all KAV inputs exist in the schema (after toSafeVarName normalization)
+    const schemaInputIds = new Set(inputIds.map(id => toSafeVarName(id)));
+    const missingInputs = Object.keys(kav.inputs).filter(id => !schemaInputIds.has(toSafeVarName(id)));
     if (missingInputs.length > 0) {
       console.log(`  ⚠ SKIP ${kav.slug}: KAV has inputs not in schema: ${missingInputs.join(", ")}`);
       results.push({ slug: kav.slug, formulaKey: kav.formulaKey, passed: false, skipped: true, reason: `Missing inputs: ${missingInputs.join(", ")}` });

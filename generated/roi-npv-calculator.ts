@@ -30,10 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Roi_npv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.project_life_years * input.initial_investment; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.project_life_years * input.initial_investment * (1 + (input.discount_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.project_life_years * input.initial_investment * (1 + (input.discount_rate / 100)) * (input.annual_cash_inflow); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.annual_cash_inflow; results["factor_annual_cash_inflow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_annual_cash_inflow"] = Number.NaN; }
+  try { const v = (-input.initial_investment + (input.annual_cash_inflow - input.annual_cash_outflow) * (1 - input.tax_rate / 100) * ((1 - (1 + input.discount_rate / 100) ** (-input.project_life_years)) / (input.discount_rate / 100)) + input.salvage_value * (1 + input.inflation_rate / 100) ** (-input.project_life_years)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (input.annual_cash_inflow - input.annual_cash_outflow) * (1 - input.tax_rate / 100); results["net_annual_cash_flow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["net_annual_cash_flow"] = Number.NaN; }
+  try { const v = (-input.initial_investment + (toNumericFormulaValue(results["net_annual_cash_flow"])) * ((1 - (1 + input.discount_rate / 100) ** (-input.project_life_years)) / (input.discount_rate / 100)) + input.salvage_value * (1 + input.inflation_rate / 100) ** (-input.project_life_years)); results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["net_annual_cash_flow"])) * input.project_life_years + input.salvage_value - input.initial_investment) / input.initial_investment) * 100; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
@@ -44,8 +44,8 @@ export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["Inflation erosion of future cash flows","Tax burden reducing net benefits"];
+  const suggestedActions: string[] = ["Negotiate lower equipment costs or explore leasing options","Implement lean initiatives to reduce annual operating costs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

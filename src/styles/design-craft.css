@@ -6627,6 +6627,133 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 
+/* Trace AI animated logo — Firebase warm gradient */
+.sc-trace-ai-logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: visible;
+  width: var(--trace-logo-size, 44px);
+  height: var(--trace-logo-size, 44px);
+  --trace-logo-w: var(--trace-logo-size, 44px);
+}
+
+.sc-trace-ai-logo--sm { --trace-logo-size: 28px; }
+.sc-trace-ai-logo--md { --trace-logo-size: 44px; }
+.sc-trace-ai-logo--lg { --trace-logo-size: 64px; }
+.sc-trace-ai-logo--fab { --trace-logo-size: 50px; }
+
+/* Pulsing glow aura */
+.sc-trace-ai-logo__glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,202,40,0.35) 0%, rgba(255,145,0,0.15) 40%, transparent 70%);
+  animation: sc-trace-logo-glow 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sc-trace-logo-glow {
+  0%, 100% { opacity: 0.5; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Rotating gradient ring */
+.sc-trace-ai-logo__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sc-trace-ai-logo__ring-path {
+  animation: sc-trace-logo-ring-spin 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes sc-trace-logo-ring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Inner body */
+.sc-trace-ai-logo__body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.sc-trace-ai-logo__body-circle {
+  animation: sc-trace-logo-pulse 3.6s ease-in-out infinite;
+}
+
+@keyframes sc-trace-logo-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.88; }
+}
+
+.sc-trace-ai-logo__highlight {
+  animation: sc-trace-logo-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes sc-trace-logo-shimmer {
+  0%, 100% { opacity: 0.5; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(2px, -1px); }
+}
+
+/* Trailblazer "T" mark */
+.sc-trace-ai-logo__glyph {
+  animation: sc-trace-logo-mark-float 3s ease-in-out infinite;
+}
+
+@keyframes sc-trace-logo-mark-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+.sc-trace-ai-logo__mark {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+  animation: sc-trace-logo-mark-draw 2.5s ease-out infinite;
+}
+
+@keyframes sc-trace-logo-mark-draw {
+  0% { stroke-dashoffset: 60; }
+  30% { stroke-dashoffset: 0; }
+  70% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 60; }
+}
+
+.sc-trace-ai-logo__dot {
+  animation: sc-trace-logo-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sc-trace-logo-dot-pulse {
+  0%, 100% { opacity: 1; r: var(--dot-r, 2.2); }
+  50% { opacity: 0.6; r: calc(var(--dot-r, 2.2) + 0.8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-trace-ai-logo__glow,
+  .sc-trace-ai-logo__ring-path,
+  .sc-trace-ai-logo__body-circle,
+  .sc-trace-ai-logo__highlight,
+  .sc-trace-ai-logo__glyph,
+  .sc-trace-ai-logo__mark,
+  .sc-trace-ai-logo__dot {
+    animation: none !important;
+  }
+  .sc-trace-ai-logo__ring-path {
+    transform: rotate(0deg);
+  }
+  .sc-trace-ai-logo__mark {
+    stroke-dashoffset: 0;
+  }
+}
+
 .sc-trace {
   position: fixed;
   right: 1.5rem;
@@ -6653,9 +6780,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  border: 1.5px solid rgba(96, 165, 250, 0.35);
-  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.5);
+  background: transparent;
   color: #ffffff;
   cursor: pointer;
   isolation: isolate;
@@ -6663,18 +6788,21 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   transform: translateZ(0);
   transition:
     transform 200ms ease,
-    box-shadow 200ms ease;
+    filter 200ms ease;
+  /* Warm glow instead of blue */
+  filter: drop-shadow(0 4px 16px rgba(255, 145, 0, 0.35));
 }
 .sc-trace__fab:hover:not(:disabled) {
-  transform: scale(1.06);
-  box-shadow: 0 12px 32px rgba(29, 78, 216, 0.6);
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 24px rgba(255, 145, 0, 0.5));
 }
 .sc-trace__fab:active:not(:disabled) {
-  transform: scale(0.96);
+  transform: scale(0.95);
 }
 .sc-trace__fab:focus-visible {
-  outline: 3px solid rgba(96, 165, 250, 0.75);
+  outline: 3px solid rgba(255, 202, 40, 0.6);
   outline-offset: 6px;
+  border-radius: 50%;
 }
 .sc-trace__fab:disabled {
   opacity: 0.7;
@@ -6726,21 +6854,22 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   position: relative;
   width: 100%;
   background: #111c30;
-  border: 1px solid #1e3a5a;
-  border-radius: 16px 16px 4px 16px;
-  padding: 16px 18px 14px 16px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 145, 0, 0.2);
+  border-radius: 18px 18px 4px 18px;
+  padding: 20px 18px 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 145, 0, 0.08);
+  overflow: hidden;
 }
 
-/* Gradient top border line */
+/* Gradient top border — warm Firebase colors */
 .sc-trace__bubble-greeting-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 18px;
   right: 18px;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent, #3b82f6 40%, #60a5fa 60%, transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFCA28 25%, #FF9100 50%, #DD2C00 75%, transparent);
   border-radius: 0 0 3px 3px;
   pointer-events: none;
 }
@@ -6778,27 +6907,26 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: #94a3b8;
 }
 
-/* Bubble head — avatar + name + status */
+/* Logo centering at top */
+.sc-trace__bubble-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Bubble head — name + status (centered below logo) */
 .sc-trace__bubble-head {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.sc-trace__bubble-head-avatar {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-}
-.sc-trace__bubble-avatar-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
+  gap: 3px;
+  margin-bottom: 12px;
 }
 .sc-trace__bubble-head-name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  color: #e2e8f0;
+  color: #f1f5f9;
+  letter-spacing: 0.02em;
 }
 .sc-trace__bubble-head-status {
   font-size: 10px;
@@ -6806,7 +6934,6 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 1px;
 }
 .sc-trace__bubble-green-dot {
   width: 5px;
@@ -6820,11 +6947,11 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   50% { opacity: 0.2; }
 }
 
-/* Message text */
+/* Message text — clickable greeting area */
 .sc-trace__bubble-text {
   display: block;
   width: 100%;
-  margin: 0;
+  margin: 0 0 14px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -6832,57 +6959,92 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   font-family: inherit;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   text-align: left;
   cursor: pointer;
   transition: color 0.15s ease;
   word-break: break-word;
   overflow-wrap: break-word;
-  animation: sc-bubble-text-slide 0.4s ease 0.6s both;
-}
-.sc-trace__bubble-text strong {
-  color: #f1f5f9;
-  font-weight: 600;
+  animation: sc-bubble-text-slide 0.45s ease 0.5s both;
 }
 .sc-trace__bubble-text:hover {
   color: #e2e8f0;
 }
 .sc-trace__bubble-text:focus-visible {
-  outline: 2px solid rgba(96, 165, 250, 0.5);
+  outline: 2px solid rgba(255, 202, 40, 0.4);
   outline-offset: 2px;
   border-radius: 6px;
 }
+
+/* Greeting paragraph */
+.sc-trace__bubble-greeting-paragraph {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* CTA — "Bugün ne hesaplayalım?" */
+.sc-trace__bubble-cta {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fbbf24;
+  letter-spacing: 0.01em;
+}
+
+/* Stats section */
+.sc-trace__bubble-stats {
+  animation: sc-bubble-text-slide 0.4s ease 0.8s both;
+}
+.sc-trace__bubble-stats-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 202, 40, 0.2) 30%, rgba(255, 145, 0, 0.25) 70%, transparent);
+  margin-bottom: 10px;
+}
+.sc-trace__bubble-stats-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sc-trace__bubble-stat {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #64748b;
+}
+.sc-trace__bubble-stat--premium {
+  color: #f59e0b;
+}
+
 @keyframes sc-bubble-text-slide {
   0% { opacity: 0; transform: translateY(5px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Fab icon sizing */
-.sc-trace__fab-icon {
-  width: 1.4rem;
-  height: 1.4rem;
-  position: relative;
-  z-index: 1;
-}
-
 @media (max-width: 640px) {
   .sc-trace__bubble-greeting {
-    max-width: min(260px, calc(100vw - 2.5rem));
+    max-width: min(270px, calc(100vw - 2.5rem));
     bottom: calc(100% + 0.6rem);
   }
   .sc-trace__bubble-greeting-card {
-    padding: 14px 14px 12px 14px;
-    border-radius: 14px 14px 4px 14px;
+    padding: 16px 14px 14px;
+    border-radius: 16px 16px 4px 16px;
   }
   .sc-trace__bubble-greeting-card::before {
     left: 14px;
     right: 14px;
   }
-  .sc-trace__bubble-text {
+  .sc-trace__bubble-greeting-paragraph {
+    font-size: 11.5px;
+  }
+  .sc-trace__bubble-cta {
     font-size: 12px;
   }
+  .sc-trace__bubble-stat {
+    font-size: 10px;
+  }
   .sc-trace__bubble-head-name {
-    font-size: 13px;
+    font-size: 14px;
   }
   .sc-trace__bubble-greeting-tail {
     margin-right: 18px;
@@ -6891,6 +7053,13 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     width: 50px;
     height: 50px;
   }
+  .sc-trace-ai-logo--fab {
+    --trace-logo-size: 44px;
+  }
+  .sc-trace {
+    right: 1.125rem;
+    bottom: 1.125rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .sc-trace__bubble-greeting {
@@ -6898,22 +7067,10 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     opacity: 1;
     transform: none;
   }
-  .sc-trace__bubble-text {
-    animation: none;
-  }
-}
-.sc-trace__fab-icon {
-  width: 1.4rem;
-  height: 1.4rem;
-}
-@media (max-width: 640px) {
-  .sc-trace {
-    right: 1.125rem;
-    bottom: 1.125rem;
-  }
-  .sc-trace__fab {
-    width: 72px;
-    height: 72px;
+  .sc-trace__bubble-greeting-card,
+  .sc-trace__bubble-text,
+  .sc-trace__bubble-stats {
+    animation: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

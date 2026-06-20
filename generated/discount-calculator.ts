@@ -28,9 +28,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Discount_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
-  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
-  try { const v = input.quantity * (input.discount_percent / 100) * input.list_price * (input.apply_to_all_units ? 1 : 0); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.quantity * (input.list_price * (1 - input.discount_percent / 100) - input.variable_cost_per_unit) - input.fixed_cost_allocation; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.quantity * input.list_price * (input.discount_percent / 100); results["discount_amount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discount_amount"] = Number.NaN; }
+  try { const v = ((input.list_price * (1 - input.discount_percent / 100) - input.variable_cost_per_unit) / (input.list_price * (1 - input.discount_percent / 100))) * 100; results["margin_percent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["margin_percent"] = Number.NaN; }
   return results;
 }
 
@@ -41,8 +41,8 @@ export function calculateDiscount_calculator(input: Discount_calculatorInput): D
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
-  const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
+  const hiddenLossDrivers: string[] = ["Excessive discounting eroding margin","Fixed cost allocation not covered by volume"];
+  const suggestedActions: string[] = ["Review discount tiers to maintain target margin","Increase order quantity to dilute fixed cost allocation"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

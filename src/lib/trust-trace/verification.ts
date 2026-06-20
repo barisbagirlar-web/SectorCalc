@@ -13,6 +13,13 @@ export function generateQRData(verificationHash: string): string {
   return `${SITE_URL}/verify/${verificationHash}`;
 }
 
-export function buildQrCodeImageUrl(targetUrl: string, size = 120): string {
-  return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(targetUrl)}`;
+/**
+ * Build QR code image URL using our server-side API.
+ * Previously used external api.qrserver.com — now in-house.
+ */
+export function buildQrCodeImageUrl(targetUrl: string, size = 140): string {
+  const baseUrl = typeof window !== "undefined"
+    ? window.location.origin
+    : (process.env.NEXT_PUBLIC_BASE_URL ?? "https://sectorcalc.com");
+  return `${baseUrl}/api/qr?url=${encodeURIComponent(targetUrl)}&size=${size}`;
 }

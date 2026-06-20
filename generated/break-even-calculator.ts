@@ -28,10 +28,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Break_even_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.production_volume * input.fixed_costs; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.production_volume * input.fixed_costs * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.production_volume * input.fixed_costs * (1 + (input.defect_rate / 100)) * (input.variable_cost_per_unit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.variable_cost_per_unit; results["factor_variable_cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_variable_cost_per_unit"] = Number.NaN; }
+  try { const v = input.fixed_costs / ((input.selling_price_per_unit - input.variable_cost_per_unit) * (1 - input.defect_rate / 1000000) - (input.defect_rate / 1000000) * input.rework_cost_per_unit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.selling_price_per_unit * (1 - input.defect_rate / 1000000) - (input.defect_rate / 1000000) * input.rework_cost_per_unit; results["effective_selling_price"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_selling_price"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effective_selling_price"])) - input.variable_cost_per_unit; results["contribution_margin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution_margin"] = Number.NaN; }
   return results;
 }
 
@@ -42,8 +41,8 @@ export function calculateBreak_even_calculator(input: Break_even_calculatorInput
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["defect_rate","rework_cost_per_unit"];
+  const suggestedActions: string[] = ["Reduce defect rate via Six Sigma DMAIC","Negotiate lower rework costs with suppliers"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

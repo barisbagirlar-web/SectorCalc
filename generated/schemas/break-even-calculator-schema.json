@@ -238,25 +238,23 @@
     ]
   },
   "formulas": {
-    "base_cost": "production_volume * fixed_costs",
-    "adjusted_cost": "production_volume * fixed_costs * (1 + (defect_rate / 100))",
-    "result": "production_volume * fixed_costs * (1 + (defect_rate / 100)) * (variable_cost_per_unit)",
-    "factor_variable_cost_per_unit": "variable_cost_per_unit"
+    "result": "fixed_costs / ((selling_price_per_unit - variable_cost_per_unit) * (1 - defect_rate / 1000000) - (defect_rate / 1000000) * rework_cost_per_unit)",
+    "effective_selling_price": "selling_price_per_unit * (1 - defect_rate / 1000000) - (defect_rate / 1000000) * rework_cost_per_unit",
+    "contribution_margin": "effective_selling_price - variable_cost_per_unit"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_variable_cost_per_unit"
+      "effective_selling_price",
+      "contribution_margin"
     ],
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "defect_rate",
+      "rework_cost_per_unit"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Reduce defect rate via Six Sigma DMAIC",
+      "Negotiate lower rework costs with suppliers"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

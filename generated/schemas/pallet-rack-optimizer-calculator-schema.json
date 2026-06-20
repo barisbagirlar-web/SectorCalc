@@ -254,26 +254,26 @@
     ]
   },
   "formulas": {
-    "normalized_product": "rack_height_mm * pallet_depth_mm * pallet_width_mm * pallet_height_mm",
-    "result": "rack_height_mm * pallet_depth_mm * pallet_width_mm * pallet_height_mm * (beam_thickness_mm * clearance_vertical_mm * aisle_width_mm * rack_length_mm)",
-    "adjustment_factor": "beam_thickness_mm * clearance_vertical_mm * aisle_width_mm * rack_length_mm"
+    "result": "((rack_height_mm - beam_thickness_mm) / (pallet_height_mm + clearance_vertical_mm)) * (rack_length_mm / pallet_width_mm) * (pallet_depth_mm / 1000) * (aisle_width_mm / 1000)",
+    "storage_efficiency": "((rack_height_mm - beam_thickness_mm) / (pallet_height_mm + clearance_vertical_mm)) * (rack_length_mm / pallet_width_mm) * (pallet_depth_mm / 1000) * (aisle_width_mm / 1000) / (rack_height_mm * rack_length_mm * (pallet_depth_mm + aisle_width_mm) / 1000000)",
+    "throughput_potential": "((rack_height_mm - beam_thickness_mm) / (pallet_height_mm + clearance_vertical_mm)) * (rack_length_mm / pallet_width_mm) * 2"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "storage_efficiency",
+      "throughput_potential"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Vertical clearance waste",
+      "Aisle width inefficiency"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Reduce vertical clearance to minimum safe gap",
+      "Optimize aisle width for forklift type"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "unit": "USD"
   },
   "toolName": "pallet-rack-optimizer-calculator",
   "catalogCategory": "everyday-life",

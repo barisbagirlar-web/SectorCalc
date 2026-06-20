@@ -92,6 +92,10 @@
   "trace": {
     "launcher": "Trace ile konuş",
     "fabBubble": "Merhaba 🐍 Hangi sektörde hesaplama yapıyorsunuz?<br/><b>4.090+</b> araç arasından size en uygununu buluyorum.",
+    "bubbleGreeting": "Ben Trace. Binlerce sektör aracı arasından doğru hesaplayıcıya yönlendiririm, girdileri sade dille açıklarım ve rehberliği izlenebilir tutarım.",
+    "bubbleCta": "Bugün ne hesaplayalım?",
+    "bubbleFreeTools": "4090 ücretsiz hesaplayıcı — her zaman ücretsiz",
+    "bubblePremiumTools": "150 premium hesaplayıcı — akıllı öneriler",
     "bubbleOnline": "Çevrimiçi",
     "close": "Kapat",
     "title": "Ben Trace.",
@@ -3589,6 +3593,8 @@
     "loading": "Hesaplayıcı yükleniyor…",
     "loadError": "Hesaplayıcı modülü yüklenemedi.",
     "quarantineWarning": "Bu hesaplayıcı tahmini formüller kullanır — sonuçları saha standartlarınıza göre doğrulayın.",
+    "stubFormulaLabel": "Formül uyarısı:",
+    "stubFormulaHint": "bu araç genel amaçlı bir yer tutucu formül kullanır. Sonuçlar gösterge niteliğindedir — alana özgü hesaplamalarla doğrulayın.",
     "trustTraceVerified": "✓ Trust Trace — sonuç bütünlüğü doğrulandı",
     "premiumUpsell": {
       "ariaLabel": "Pro analize yükselt",
@@ -67987,6 +67993,8 @@
     "downloadCsv": "CSV İndir",
     "downloadWord": "Word İndir",
     "print": "Yazdır",
+    "downloadPdf": "PDF İndir",
+    "loadingPdf": "PDF hazırlanıyor…",
     "calcSummary": "Hesaplama Özeti",
     "issued": "Yayın tarihi",
     "summaryDisclaimer": "Teknik simülasyon. Finansal, hukuki veya mühendislik tavsiyesi niteliği taşımaz. Sorumluluk reddi s{version}.",

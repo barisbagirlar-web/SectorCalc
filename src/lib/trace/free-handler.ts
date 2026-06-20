@@ -9,6 +9,7 @@ import {
   buildTraceFreeLocaleHint,
   TRACE_FREE_SYSTEM_PROMPT,
 } from "@/lib/trace/prompts";
+import { buildToolCatalogForPrompt } from "@/lib/trace/tool-catalog-prompt";
 import { findBestTools } from "@/lib/trace/tool-recommendation";
 import { routeAssistantSlug } from "@/lib/assistant/slug-router";
 import type { TraceFreeRequest, TraceFreeResponse } from "@/lib/trace/types";
@@ -35,7 +36,7 @@ function formatSuggestionsForPrompt(
   suggestions: readonly { slug: string; label: string; href: string }[],
 ): string {
   if (suggestions.length === 0) {
-    return "No indexed tool match yet.";
+    return "No keyword match. Use the catalog below to recommend the right tool.";
   }
 
   return suggestions
@@ -57,6 +58,8 @@ async function generateFlashReply(
   const system = [
     TRACE_FREE_SYSTEM_PROMPT,
     buildTraceFreeLocaleHint(context.locale),
+    "=== FULL TOOL CATALOG (use this to route EVERY question) ===",
+    buildToolCatalogForPrompt(context.locale),
     blockedMessage
       ? `Guardrail note: ${blockedMessage}. Explain the limit briefly and stay helpful.`
       : "",
@@ -70,7 +73,7 @@ async function generateFlashReply(
     "Page context:",
     serializeTraceContext(context),
     "",
-    "Candidate tools:",
+    "Keyword-matched tools:",
     formatSuggestionsForPrompt(suggestions),
   ].join("\n");
 

@@ -265,23 +265,25 @@
     ]
   },
   "formulas": {
-    "normalized_product": "annual_revenue * (operating_margin / 100) * total_inventory_value * (inventory_carrying_cost_percent / 100)",
-    "result": "annual_revenue * (operating_margin / 100) * total_inventory_value * (inventory_carrying_cost_percent / 100) * (annual_labor_cost * (defect_rate_percent / 100) * cost_per_defect * annual_energy_cost)",
-    "adjustment_factor": "annual_labor_cost * (defect_rate_percent / 100) * cost_per_defect * annual_energy_cost"
+    "result": "((annual_revenue * (operating_margin / 100)) - (total_inventory_value * (inventory_carrying_cost_percent / 100)) - (annual_labor_cost * (defect_rate_percent / 100) * cost_per_defect) - annual_energy_cost) / (annual_revenue * (operating_margin / 100)) * 100",
+    "inventory_waste": "total_inventory_value * (inventory_carrying_cost_percent / 100)",
+    "quality_waste": "annual_labor_cost * (defect_rate_percent / 100) * cost_per_defect",
+    "energy_waste": "annual_energy_cost"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "inventory_waste",
+      "quality_waste",
+      "energy_waste"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Expedited freight due to inventory shortages",
+      "Lost sales from quality issues"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Implement Kanban to reduce inventory by 30%",
+      "Deploy Six Sigma DMAIC to cut defect rate by 50%"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

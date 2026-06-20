@@ -20,12 +20,16 @@ const STOP_WORDS = new Set([
   "the", "a", "an", "and", "or", "for", "to", "of", "in", "on", "my", "your",
   "tool", "calculator", "analyzer", "help", "need", "want", "how", "do", "i",
   "is", "are", "what", "with", "me", "can", "best", "good",
+  "bir", "ve", "bu", "ile", "icin", "ben", "sen", "o", "biz",
+  "siz", "onlar", "araci", "hesaplama", "hesaplayici", "analiz",
+  "araç", "veya", "ama", "cok", "daha", "kadar", "gibi", "sonra",
+  "once", "yani", "ancak", "ise", "mi", "mu", "de", "da",
 ]);
 
 function tokenize(text: string): string[] {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/[^a-z0-9\s\u00C0-\u024F\u0600-\u06FF\-]/g, " ")
     .split(/[\s-]+/)
     .filter((token) => token.length > 2 && !STOP_WORDS.has(token));
 }

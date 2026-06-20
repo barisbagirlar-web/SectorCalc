@@ -40,6 +40,9 @@ const SCHEMA_CATEGORY_TO_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGrou
   energy: "energy_carbon",
   carbon: "energy_carbon",
   benchmark: "benchmark_health",
+  finance: "cost_margin",
+  fluid: "measurement_calibration",
+  lean: "oee_productivity",
 };
 
 const LOCALE_MESSAGES: Record<string, Record<string, unknown>> = {

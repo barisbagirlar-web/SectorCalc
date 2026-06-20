@@ -265,25 +265,25 @@
     ]
   },
   "formulas": {
-    "base_cost": "project_life_years * initial_investment",
-    "adjusted_cost": "project_life_years * initial_investment * (1 + (discount_rate / 100))",
-    "result": "project_life_years * initial_investment * (1 + (discount_rate / 100)) * (annual_cash_inflow)",
-    "factor_annual_cash_inflow": "annual_cash_inflow"
+    "result": "(-initial_investment + (annual_cash_inflow - annual_cash_outflow) * ((1 - (1 + discount_rate/100/12)**(-project_life_years*12)) / (discount_rate/100/12)) + salvage_value / (1 + discount_rate/100/12)**(project_life_years*12)) * (1 - tax_rate/100)",
+    "npv_nominal": "(-initial_investment + (annual_cash_inflow - annual_cash_outflow) * ((1 - (1 + discount_rate/100/12)**(-project_life_years*12)) / (discount_rate/100/12)) + salvage_value / (1 + discount_rate/100/12)**(project_life_years*12)) * (1 - tax_rate/100)",
+    "npv_real": "(-initial_investment + (annual_cash_inflow - annual_cash_outflow) * ((1 - (1 + (discount_rate/100 - inflation_rate/100)/12)**(-project_life_years*12)) / ((discount_rate/100 - inflation_rate/100)/12)) + salvage_value / (1 + (discount_rate/100 - inflation_rate/100)/12)**(project_life_years*12)) * (1 - tax_rate/100)",
+    "payback_period": "initial_investment / (annual_cash_inflow - annual_cash_outflow)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_annual_cash_inflow"
+      "npv_nominal",
+      "npv_real",
+      "payback_period"
     ],
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "Inflation erosion of real returns",
+      "Tax shield not optimized"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Negotiate lower WACC with lenders",
+      "Accelerate depreciation schedule"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

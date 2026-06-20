@@ -99,24 +99,26 @@
     }
   ],
   "formulas": {
-    "normalized_product": "sourceAmount * exchangeRate * fixedFee * (percentageFee / 100)",
-    "result": "sourceAmount * exchangeRate * fixedFee * (percentageFee / 100)"
+    "result": "sourceAmount * exchangeRate - (fixedFee + sourceAmount * percentageFee) * exchangeRate",
+    "netAmount": "sourceAmount * exchangeRate - fixedFee * exchangeRate - sourceAmount * percentageFee * exchangeRate",
+    "totalFees": "fixedFee * exchangeRate + sourceAmount * percentageFee * exchangeRate"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product"
+      "netAmount",
+      "totalFees"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Percentage fee applied to source amount before conversion",
+      "Fixed fee in source currency converted at same rate"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Negotiate lower percentage fee for large transfers",
+      "Compare exchange rates across providers to minimize spread"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "%"
+    "unit": "USD"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

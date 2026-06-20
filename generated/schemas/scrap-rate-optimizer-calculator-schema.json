@@ -276,30 +276,27 @@
     ]
   },
   "formulas": {
-    "base_cost": "total_units_produced * material_cost_per_unit",
-    "adjusted_cost": "total_units_produced * material_cost_per_unit * 1",
-    "result": "total_units_produced * material_cost_per_unit * 1 * (defective_units * rework_units)",
-    "factor_defective_units": "defective_units",
-    "factor_rework_units": "rework_units"
+    "result": "(defective_units / total_units_produced) * 100",
+    "scrap_cost": "defective_units * (material_cost_per_unit + labor_cost_per_unit + overhead_cost_per_unit)",
+    "rework_cost": "rework_units * (material_cost_per_unit + labor_cost_per_unit + overhead_cost_per_unit)",
+    "total_scrap_rate": "((defective_units + rework_units) / total_units_produced) * 100"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_defective_units",
-      "factor_rework_units"
+      "scrap_cost",
+      "rework_cost"
     ],
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "Inadequate process control",
+      "Poor raw material quality"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Implement SPC for real-time monitoring",
+      "Conduct root cause analysis on top defect types"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "USD"
+    "unit": "%"
   },
   "toolName": "scrap-rate-optimizer-calculator",
   "catalogCategory": "everyday-life",

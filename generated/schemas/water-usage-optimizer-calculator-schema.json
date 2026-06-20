@@ -271,26 +271,28 @@
     ]
   },
   "formulas": {
-    "normalized_product": "totalWaterIn * productionOutput * processWater * coolingWater",
-    "result": "totalWaterIn * productionOutput * processWater * coolingWater * (wastewaterDischarge * recycledWater * leakageLosses)",
-    "adjustment_factor": "wastewaterDischarge * recycledWater * leakageLosses"
+    "waterEfficiency": "productionOutput / totalWaterIn",
+    "reuseRate": "recycledWater / totalWaterIn",
+    "lossRatio": "(leakageLosses + (totalWaterIn - processWater - coolingWater - wastewaterDischarge - recycledWater)) / totalWaterIn",
+    "result": "((processWater + coolingWater) * (1 - reuseRate) * (1 + lossRatio) * 0.001 * 1.5) + (wastewaterDischarge * 0.002) + (leakageLosses * 0.003)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
+      "waterEfficiency",
+      "reuseRate",
+      "lossRatio"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Evaporation and drift from cooling towers",
+      "Unmetered process water usage"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Implement closed-loop cooling system to reduce makeup water",
+      "Install submeters on high-use processes to identify leaks"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "unit": "USD"
   },
   "toolName": "water-usage-optimizer-calculator",
   "catalogCategory": "everyday-life",

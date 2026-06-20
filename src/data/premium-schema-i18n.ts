@@ -284,6 +284,78 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Tahrik değişiklikleri belgelenmiş hız ve kayış uzunluğu olmadan yapılır.",
   },
+  "irr-quick-check": {
+    title: "İç Verim Oranı Hızlı Kontrol",
+    painStatement: "Yatırım araçları, işaret değişiklikleriyle modelleme yapılmadığında nakit akışını gizlice tahrip edebilir.",
+  },
+  "npv-quick-check": {
+    title: "NBD Hızlı Kontrol",
+    painStatement: "Proje NBD'si risk olasılıkları ve terminal değeri dikkate alınmadığında yanıltıcı olabilir.",
+  },
+  "dcf-valuation-check": {
+    title: "İNA Değerleme Hızlı Kontrol",
+    painStatement: "Basit çarpanlarla işletme değerlemesi gerçek kurumsal değeri ıskalayabilir; WACC ile İNA altın standarttır.",
+  },
+  "lease-vs-buy-check": {
+    title: "Kiralama vs Satın Alma Hızlı Kontrol",
+    painStatement: "Vergi kalkanı ve hurda değeri dikkate alınmadan yapılan ekipman kiralama/satın alma kararları sermayeyi yanlış tahsis edebilir.",
+  },
+  "pressure-drop-quick": {
+    title: "Boru Basınç Düşümü Hızlı Kontrol",
+    painStatement: "Küçük boyutlandırılmış borular büyük pompa enerji kaybına ve debi yetersizliğine yol açar.",
+  },
+  "heat-exchanger-quick": {
+    title: "Isı Değiştirici Hızlı Tahmin",
+    painStatement: "Isı değiştirici küçük boyutlandırması proses darboğazlarına neden olur.",
+  },
+  "oee-quick-check": {
+    title: "OEE Hızlı Kontrol",
+    painStatement: "Gizli duruş ve hız kayıpları tek bir sayaçta görünmeden etkin kapasiteyi %40 oranında düşürebilir.",
+  },
+  "line-balancing-quick": {
+    title: "Hat Dengeleme Hızlı Kontrol",
+    painStatement: "Dengesiz montaj hatları, standart verimlilik metriklerinin gözden kaçırdığı YİP darboğazları ve bekleme israfı yaratır.",
+  },
+  "standard-time-quick": {
+    title: "Standart Süre Hızlı Kontrol",
+    painStatement: "Değerleme ve tolerans ayarlaması yapılmadan gözlemlenen sürelere güvenmek kronik eksik personel ve maliyet aşımlarına yol açar.",
+  },
+  "learning-curve-quick": {
+    title: "Öğrenme Eğrisi Hızlı Kontrol",
+    painStatement: "Öğrenme eğrisi modellenmeden uzun vadeli birim maliyet projeksiyonları gerçeğin %30-50 üzerinde olabilir.",
+  },
+  "spring-design-quick": {
+    title: "Yay Tasarımı Hızlı Kontrol",
+    painStatement: "Güvenlik kritik uygulamalarda yay arızası felaketle sonuçlanabilir; Wahl düzeltmesi ve burkulma kontrolü zorunludur.",
+  },
+  "carbon-footprint-scope123": {
+    title: "Karbon Ayak İzi Hızlı Kontrol",
+    painStatement: "Kapsam 3 olmadan karbon raporlaması gerçek maruziyeti %70-90 oranında eksik tahmin eder.",
+  },
+  "regression-quick-check": {
+    title: "Regresyon Hızlı Kontrol",
+    painStatement: "Basit ortalamalar proses trendlerini gizler; R², F-testi ve anlamlılık ile OLS regresyonu veri odaklı kararlar için minimum standarttır.",
+  },
+  "sample-size-quick": {
+    title: "Örneklem Büyüklüğü Hızlı Kontrol",
+    painStatement: "Düşük güçlü çalışmalar kaynak israf eder ve gerçek etkileri kaçırır; doğru güç analizi hem Tip I hem Tip II hataları önler.",
+  },
+  "anova-quick-check": {
+    title: "ANOVA Hızlı Kontrol",
+    painStatement: "Birden fazla grup ortalamasını ANOVA olmadan karşılaştırmak Tip I hatasını şişirir.",
+  },
+  "roi-quick-check": {
+    title: "YG Hızlı Kontrol",
+    painStatement: "Geri ödeme süresi, İVH ve NBD olmadan yalnızca YG'ye dayanmak sermaye yanlış tahsisine yol açabilir.",
+  },
+  "belt-pulley-quick": {
+    title: "Kayış-Kasnak Hızlı Kontrol",
+    painStatement: "Yanlış kasnak oranı veya kayış kayması motor aşırı yüklenmesine, makine ömrünün kısalmasına ve enerji israfına neden olabilir.",
+  },
+  "hydraulic-cylinder-quick": {
+    title: "Hidrolik Silindir Hızlı Kontrol",
+    painStatement: "Hidrolik silindir mili burkulması felaketle sonuçlanabilir; uzun stroklu tasarımlarda SF≥3,5 ile Euler burkulması zorunludur.",
+  },
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
     painStatement:

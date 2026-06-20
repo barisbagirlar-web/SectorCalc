@@ -99,22 +99,26 @@
     }
   ],
   "formulas": {
-    "numberOfPeriods": "endYear - startYear",
+    "result": "(endingValue / beginningValue) ** (1 / (endYear - startYear)) - 1",
     "totalReturn": "(endingValue / beginningValue) - 1",
-    "cagr": "(endingValue / beginningValue) ** (1 / (endYear - startYear)) - 1"
+    "numberOfPeriods": "endYear - startYear"
   },
   "outputs": {
-    "primary": "cagr",
+    "primary": "result",
     "breakdown": [
       "totalReturn",
       "numberOfPeriods"
     ],
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review inputs and verify results against site standards."
+    "hiddenLossDrivers": [
+      "Inflation not accounted for",
+      "Dividends or cash flows excluded"
     ],
-    "dataConfidenceAdjusted": "cagr",
-    "unit": "currency"
+    "suggestedActions": [
+      "Verify beginning and ending values for accuracy",
+      "Consider reinvestment of dividends for total return"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "%"
   },
   "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",

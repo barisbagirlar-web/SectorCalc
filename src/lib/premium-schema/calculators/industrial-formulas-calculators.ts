@@ -677,7 +677,7 @@ export function calculateLearningCurve(inputs: LearningCurveInputs): LearningCur
 
   let verdict: LearningCurveResult["learningCurveVerdict"] = "ON_TRACK";
   if (breakEven !== null && cumulativeQuantity < breakEven) verdict = "BELOW_BREAK_EVEN";
-  else if (targetUnitCost !== null && targetUnitCost > 0) {
+  else if (typeof targetUnitCost === "number" && targetUnitCost > 0) {
     const unitCost = wrightUnit * hourlyCost + unitMaterialCost;
     if (unitCost > targetUnitCost) verdict = "ABOVE_TARGET_COST";
   }

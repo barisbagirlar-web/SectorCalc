@@ -30,9 +30,12 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Shift_cost_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shift_duration_hours; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.labor_cost_per_hour; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
-  try { const v = input.number_of_operators * 1 * input.shift_duration_hours * input.labor_cost_per_hour * input.total_units_produced; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.number_of_operators * input.shift_duration_hours * input.labor_cost_per_hour; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit; results["material_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["material_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["direct_labor_cost"])) + (toNumericFormulaValue(results["material_cost"])) + input.energy_cost_per_shift; results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost"] = Number.NaN; }
+  try { const v = (input.total_units_produced - input.defective_units - input.rework_units) / input.total_units_produced; results["first_pass_yield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["first_pass_yield"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_cost"])) / (input.total_units_produced - input.defective_units); results["cost_per_good_unit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cost_per_good_unit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cost_per_good_unit"])) / (toNumericFormulaValue(results["first_pass_yield"])); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +46,8 @@ export function calculateShift_cost_efficiency_calculator(input: Shift_cost_effi
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
-  const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
+  const hiddenLossDrivers: string[] = ["Rework inefficiency inflating effective unit cost","Energy cost per shift not scaled to production volume"];
+  const suggestedActions: string[] = ["Implement real-time quality monitoring to reduce defects","Optimize shift schedule to align energy usage with production peaks"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

@@ -30,9 +30,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Pallet_rack_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm * (input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = ((input.rack_height_mm - input.beam_thickness_mm) / (input.pallet_height_mm + input.clearance_vertical_mm)) * (input.rack_length_mm / input.pallet_width_mm) * (input.pallet_depth_mm / 1000) * (input.aisle_width_mm / 1000); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = ((input.rack_height_mm - input.beam_thickness_mm) / (input.pallet_height_mm + input.clearance_vertical_mm)) * (input.rack_length_mm / input.pallet_width_mm) * (input.pallet_depth_mm / 1000) * (input.aisle_width_mm / 1000) / (input.rack_height_mm * input.rack_length_mm * (input.pallet_depth_mm + input.aisle_width_mm) / 1000000); results["storage_efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["storage_efficiency"] = Number.NaN; }
+  try { const v = ((input.rack_height_mm - input.beam_thickness_mm) / (input.pallet_height_mm + input.clearance_vertical_mm)) * (input.rack_length_mm / input.pallet_width_mm) * 2; results["throughput_potential"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["throughput_potential"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +43,8 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Vertical clearance waste","Aisle width inefficiency"];
+  const suggestedActions: string[] = ["Reduce vertical clearance to minimum safe gap","Optimize aisle width for forklift type"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

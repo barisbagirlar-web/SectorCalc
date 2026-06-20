@@ -30,10 +30,9 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Mortgage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.loan_term_years * input.loan_amount; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.loan_term_years * input.loan_amount * (1 + (input.down_payment_percent / 100)) * ((input.annual_interest_rate / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = (input.annual_interest_rate / 100); results["factor_annual_interest_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_annual_interest_rate"] = Number.NaN; }
+  try { const v = ((input.loan_amount * (input.annual_interest_rate / 100 / 12) * ((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12))) / (((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12)) - 1) + (input.loan_amount / (1 - input.down_payment_percent / 100) * input.property_tax_rate / 100 / 12) + (input.loan_amount / (1 - input.down_payment_percent / 100) * input.insurance_rate / 100 / 12) + input.monthly_hoa) * 12; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = ((input.loan_amount * (input.annual_interest_rate / 100 / 12) * ((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12))) / (((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12)) - 1) * (input.loan_term_years * 12) - input.loan_amount); results["total_interest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_interest"] = Number.NaN; }
+  try { const v = ((input.loan_amount * (input.annual_interest_rate / 100 / 12) * ((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12))) / (((1 + input.annual_interest_rate / 100 / 12) ** (input.loan_term_years * 12)) - 1) + (input.loan_amount / (1 - input.down_payment_percent / 100) * input.property_tax_rate / 100 / 12) + (input.loan_amount / (1 - input.down_payment_percent / 100) * input.insurance_rate / 100 / 12) + input.monthly_hoa) / (input.annual_income / 12) * 100; results["dti_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dti_ratio"] = Number.NaN; }
   return results;
 }
 
@@ -44,8 +43,8 @@ export function calculateMortgage_calculator(input: Mortgage_calculatorInput): M
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
+  const hiddenLossDrivers: string[] = ["Private Mortgage Insurance (PMI) if down payment < 20%","Escrow account shortfalls due to tax reassessment"];
+  const suggestedActions: string[] = ["Increase down payment to 20% to eliminate PMI","Shop for lower homeowner's insurance rates"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

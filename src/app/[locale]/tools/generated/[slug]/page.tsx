@@ -25,6 +25,10 @@ import { buildGeneratedToolHowToJsonLd } from "@/lib/semantic/build-generated-to
 import { buildGeneratedToolProductJsonLd } from "@/lib/semantic/build-generated-tool-product-jsonld";
 import { buildGeneratedToolWebPageJsonLd } from "@/lib/semantic/build-generated-tool-webpage-jsonld";
 import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import {
+  buildIndustrialFreeToolSchema,
+  isIndustrialFreeToolSlug,
+} from "@/lib/tools/industrial-free-schema-factory";
 
 interface GeneratedToolRouteParams {
   slug: string;
@@ -51,9 +55,14 @@ export async function generateMetadata({
   params: Promise<GeneratedToolRouteParams>;
 }): Promise<Metadata> {
   const { slug, locale } = await params;
-  const schema = getGeneratedToolSchema(slug);
+  let schema = getGeneratedToolSchema(slug);
   if (!schema) {
-    return {};
+    if (isIndustrialFreeToolSlug(slug)) {
+      schema = buildIndustrialFreeToolSchema(slug);
+    }
+    if (!schema) {
+      return {};
+    }
   }
 
   const displayName = resolveGeneratedToolTitle(slug, schema, locale);
@@ -76,9 +85,14 @@ export default async function GeneratedToolRoutePage({
   const { slug, locale } = await params;
   setRequestLocale(locale);
 
-  const schema = getGeneratedToolSchema(slug);
+  let schema = getGeneratedToolSchema(slug);
   if (!schema) {
-    notFound();
+    if (isIndustrialFreeToolSlug(slug)) {
+      schema = buildIndustrialFreeToolSchema(slug);
+    }
+    if (!schema) {
+      notFound();
+    }
   }
 
   const displayName = resolveGeneratedToolTitle(slug, schema, locale);

@@ -300,25 +300,25 @@
     ]
   },
   "formulas": {
-    "base_cost": "project_life_years * initial_investment",
-    "adjusted_cost": "project_life_years * initial_investment * (1 + (discount_rate / 100))",
-    "result": "project_life_years * initial_investment * (1 + (discount_rate / 100)) * (annual_cash_inflow)",
-    "factor_annual_cash_inflow": "annual_cash_inflow"
+    "result": "(-initial_investment + (annual_cash_inflow - annual_cash_outflow) * (1 - tax_rate / 100) * ((1 - (1 + discount_rate / 100) ** (-project_life_years)) / (discount_rate / 100)) + salvage_value * (1 + inflation_rate / 100) ** (-project_life_years))",
+    "net_annual_cash_flow": "(annual_cash_inflow - annual_cash_outflow) * (1 - tax_rate / 100)",
+    "npv": "(-initial_investment + net_annual_cash_flow * ((1 - (1 + discount_rate / 100) ** (-project_life_years)) / (discount_rate / 100)) + salvage_value * (1 + inflation_rate / 100) ** (-project_life_years))",
+    "roi": "((net_annual_cash_flow * project_life_years + salvage_value - initial_investment) / initial_investment) * 100"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_annual_cash_inflow"
+      "net_annual_cash_flow",
+      "npv",
+      "roi"
     ],
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "Inflation erosion of future cash flows",
+      "Tax burden reducing net benefits"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Negotiate lower equipment costs or explore leasing options",
+      "Implement lean initiatives to reduce annual operating costs"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"

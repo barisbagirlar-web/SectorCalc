@@ -216,24 +216,28 @@
     ]
   },
   "formulas": {
-    "normalized_product": "total_work_content * number_of_operators * takt_time * bottleneck_time",
-    "result": "total_work_content * number_of_operators * takt_time * bottleneck_time"
+    "balance_efficiency": "(total_work_content / (number_of_operators * bottleneck_time)) * 100",
+    "theoretical_min_operators": "Math.ceil(total_work_content / takt_time)",
+    "excess_operators": "number_of_operators - theoretical_min_operators",
+    "result": "((total_work_content / (number_of_operators * bottleneck_time)) * 100) - (excess_operators * 2)"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product"
+      "balance_efficiency",
+      "theoretical_min_operators",
+      "excess_operators"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "High bottleneck time relative to takt time",
+      "Excess operators beyond theoretical minimum"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Reallocate operators to reduce bottleneck time",
+      "Implement cross-training to increase flexibility"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "units"
+    "unit": "%"
   },
   "toolName": "sewing-line-balancer-calculator",
   "catalogCategory": "everyday-life",

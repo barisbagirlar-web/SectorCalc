@@ -99,24 +99,28 @@
     }
   ],
   "formulas": {
-    "normalized_product": "present-value * (inflation-rate / 100) * years * frequency",
-    "result": "present-value * (inflation-rate / 100) * years * frequency"
+    "result": "present-value * ((1 + inflation-rate / 100 / frequency) ** (frequency * years))",
+    "future_value": "present-value * ((1 + inflation-rate / 100 / frequency) ** (frequency * years))",
+    "purchasing_power": "present-value / ((1 + inflation-rate / 100 / frequency) ** (frequency * years))",
+    "inflation_loss": "present-value * ((1 + inflation-rate / 100 / frequency) ** (frequency * years)) - present-value"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "normalized_product"
+      "future_value",
+      "purchasing_power",
+      "inflation_loss"
     ],
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Compounding frequency effect",
+      "Inflation rate volatility"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
+      "Invest in inflation-protected securities",
+      "Negotiate cost-of-living adjustments"
     ],
     "dataConfidenceAdjusted": "result",
-    "unit": "%",
+    "unit": "USD",
     "breakdownUnits": {
       "realValueReductionPercent": "%"
     }

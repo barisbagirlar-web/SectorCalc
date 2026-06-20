@@ -30,9 +30,10 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Beam_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.material_density * input.length * input.flange_width * input.flange_thickness; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.material_density * input.length * input.flange_width * input.flange_thickness * (input.web_height * input.web_thickness * input.quantity); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.web_height * input.web_thickness * input.quantity; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.flange_width * input.flange_thickness * 2 + input.web_height * input.web_thickness; results["cross_section_area"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cross_section_area"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cross_section_area"])) * input.length * 1e-6; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * input.material_density; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weight"])) * input.quantity; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +44,8 @@ export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInp
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Flange/web thickness variation due to mill tolerances","Length measurement errors from thermal expansion"];
+  const suggestedActions: string[] = ["Verify actual dimensions with calipers before cutting","Apply material density correction based on mill certificate"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

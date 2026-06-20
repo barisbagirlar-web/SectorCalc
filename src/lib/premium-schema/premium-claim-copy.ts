@@ -223,6 +223,24 @@ const CATEGORY_CLAIM_TEMPLATES: Readonly<
       "This analyzer compares your inputs against benchmark pressure and threshold bands.",
     decisionValue: "See which benchmark drivers need action before margin erodes further.",
   },
+  finance: {
+    claimType: "sample_scenario",
+    headline: "A spreadsheet IRR hides convergence risk and sensitivity blindspots.",
+    valueStatement: "This analyzer provides transparent financial metrics with convergence diagnostics and scenario analysis.",
+    decisionValue: "Decide investment acceptance, financing structure or project prioritization.",
+  },
+  fluid: {
+    claimType: "sample_scenario",
+    headline: "Pipe pressure drop looks small until pump oversizing costs 30% more energy.",
+    valueStatement: "This analyzer automates full hydraulic analysis with Reynolds, friction factor and minor losses.",
+    decisionValue: "Decide pipe diameter, pump selection or layout redesign.",
+  },
+  lean: {
+    claimType: "sample_scenario",
+    headline: "An unbalanced line hides bottleneck idle time that extends lead time by 40%.",
+    valueStatement: "This analyzer computes balance efficiency, bottleneck utilization and kaizen prioritization.",
+    decisionValue: "Decide station rebalancing, task reassignment or automation investment.",
+  },
 };
 
 const FORBIDDEN_PUBLIC_TERMS = /\b(schema|migration|pilot|debug)\b/i;

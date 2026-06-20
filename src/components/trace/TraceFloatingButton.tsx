@@ -6,36 +6,15 @@ import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { FreeTraceChat } from "@/components/trace/FreeTraceChat";
 import { ProTraceChat } from "@/components/trace/ProTraceChat";
-import { SectorCalcLogo } from "@/components/ui/SectorCalcLogo";
+import { TraceAiLogo } from "@/components/trace/TraceAiLogo";
 
 const BUBBLE_AUTO_HIDE_MS = 16_000;
 
-/** Simple orb avatar — matches the dark bubble head. */
-function TraceBubbleAvatar() {
-  const id = useRef(`traceAvatarGrad-${Math.random().toString(36).slice(2, 8)}`).current;
-  return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className="sc-trace__bubble-avatar-svg">
-      <defs>
-        <radialGradient id={id} cx="62%" cy="28%" r="68%">
-          <stop offset="0%" stopColor="#60a5fa" />
-          <stop offset="100%" stopColor="#1e3a8a" />
-        </radialGradient>
-      </defs>
-      <circle cx="16" cy="16" r="15.5" fill={`url(#${id})`} stroke="rgba(96,165,250,0.3)" strokeWidth="1.5" />
-      <rect x="9" y="12" width="14" height="2" rx="1" fill="#93c5fd" />
-      <rect x="11.5" y="14.5" width="2.5" height="7" rx="1.25" fill="#93c5fd" />
-      <circle cx="16" cy="24" r="1.5" fill="#bfdbfe" />
-    </svg>
-  );
-}
-
-/** Welcome bubble — dark card with close, avatar head, and rich greeting text. */
+/** Welcome bubble — redesigned dark card with Trace AI logo, greeting, stats. */
 function TraceFabBubble({
-  text,
   onOpen,
   visible,
 }: {
-  text: string;
   onOpen: () => void;
   visible: boolean;
 }) {
@@ -73,7 +52,6 @@ function TraceFabBubble({
       animKeyRef.current += 1;
       const el = bubbleRef.current;
       el.style.animation = "none";
-      // Force reflow
       void el.offsetHeight;
       el.style.animation = "";
     }
@@ -99,28 +77,44 @@ function TraceFabBubble({
           ✕
         </button>
 
-        {/* Head: avatar + name + online status */}
+        {/* Logo area */}
+        <div className="sc-trace__bubble-logo-wrap">
+          <TraceAiLogo size="md" />
+        </div>
+
+        {/* Head: name + online status */}
         <div className="sc-trace__bubble-head">
-          <div className="sc-trace__bubble-head-avatar">
-            <TraceBubbleAvatar />
-          </div>
-          <div>
-            <div className="sc-trace__bubble-head-name">Trace AI</div>
-            <div className="sc-trace__bubble-head-status">
-              <span className="sc-trace__bubble-green-dot" />
-              {t("bubbleOnline")}
-            </div>
+          <div className="sc-trace__bubble-head-name">Trace AI</div>
+          <div className="sc-trace__bubble-head-status">
+            <span className="sc-trace__bubble-green-dot" />
+            {t("bubbleOnline")}
           </div>
         </div>
 
-        {/* Message body */}
+        {/* Main greeting text */}
         <button
           type="button"
           className="sc-trace__bubble-text"
           onClick={handleBubbleClick}
-          aria-label={text.replace(/<[^>]*>/g, "")}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
+        >
+          <p className="sc-trace__bubble-greeting-paragraph">
+            {t("bubbleGreeting")}
+          </p>
+          <p className="sc-trace__bubble-cta">{t("bubbleCta")}</p>
+        </button>
+
+        {/* Stats divider */}
+        <div className="sc-trace__bubble-stats">
+          <div className="sc-trace__bubble-stats-divider" />
+          <div className="sc-trace__bubble-stats-row">
+            <span className="sc-trace__bubble-stat">
+              {t("bubbleFreeTools")}
+            </span>
+            <span className="sc-trace__bubble-stat sc-trace__bubble-stat--premium">
+              {t("bubblePremiumTools")}
+            </span>
+          </div>
+        </div>
       </div>
       <div className="sc-trace__bubble-greeting-tail" aria-hidden="true" />
     </div>
@@ -133,7 +127,6 @@ export function TraceFloatingButton() {
   const isPro = userRole === "premium" && Boolean(user);
   const [open, setOpen] = useState(false);
   const [bubbleVisible, setBubbleVisible] = useState(true);
-  const bubbleText = t.raw("fabBubble");
 
   useEffect(() => {
     const openHandler = () => setOpen(true);
@@ -151,16 +144,12 @@ export function TraceFloatingButton() {
 
   const handleFabClick = useCallback(() => {
     if (bubbleVisible) {
-      // Bubble is showing → close it and open chat
       setBubbleVisible(false);
       setOpen(true);
     } else if (open) {
-      // Chat is open → close it, mark bubble as visible again
       setOpen(false);
-      // Show bubble after a short delay
       setTimeout(() => setBubbleVisible(true), 300);
     } else {
-      // Neither bubble nor chat → show bubble
       setBubbleVisible(true);
     }
   }, [bubbleVisible, open]);
@@ -178,7 +167,6 @@ export function TraceFloatingButton() {
       ) : null}
 
       <TraceFabBubble
-        text={bubbleText}
         onOpen={handleOpen}
         visible={bubbleVisible}
       />
@@ -195,8 +183,8 @@ export function TraceFloatingButton() {
         {/* Online badge */}
         <span className="sc-trace__fab-online-badge" aria-hidden="true" />
 
-        {/* SectorCalc brand logo */}
-        <SectorCalcLogo width={26} height={26} inverted className="sc-trace__fab-icon" />
+        {/* Trace AI animated logo */}
+        <TraceAiLogo size="fab" />
 
         {open ? <X className="sc-trace__fab-close-icon" aria-hidden="true" /> : null}
       </button>

@@ -30,9 +30,12 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Quality_cost_paf_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_sales * input.prevention_training_cost * input.prevention_design_cost * input.appraisal_inspection_cost; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.total_sales * input.prevention_training_cost * input.prevention_design_cost * input.appraisal_inspection_cost * (input.appraisal_audit_cost * input.internal_failure_scrap_cost * input.internal_failure_downtime_cost * input.external_failure_warranty_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.appraisal_audit_cost * input.internal_failure_scrap_cost * input.internal_failure_downtime_cost * input.external_failure_warranty_cost; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.prevention_training_cost + input.prevention_design_cost; results["total_prevention_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_prevention_cost"] = Number.NaN; }
+  try { const v = input.appraisal_inspection_cost + input.appraisal_audit_cost; results["total_appraisal_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_appraisal_cost"] = Number.NaN; }
+  try { const v = input.internal_failure_scrap_cost + input.internal_failure_downtime_cost + input.external_failure_warranty_cost; results["total_failure_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_failure_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_prevention_cost"])) + (toNumericFormulaValue(results["total_appraisal_cost"])) + (toNumericFormulaValue(results["total_failure_cost"])); results["total_quality_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_quality_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_quality_cost"])) / input.total_sales * 100; results["coq_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coq_ratio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_quality_cost"])); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -43,8 +46,8 @@ export function calculateQuality_cost_paf_calculator(input: Quality_cost_paf_cal
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["External failure costs (warranty/returns) often exceed captured costs","Prevention under-investment leads to exponential appraisal/failure costs"];
+  const suggestedActions: string[] = ["Increase prevention budget to reduce failure costs (1:10 leverage)","Track CoQ ratio monthly, target <15% of sales"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

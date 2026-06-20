@@ -147,20 +147,25 @@
     }
   ],
   "formulas": {
+    "result": "((mortgageMonth + creditCardMonth + autoLoanMonth + studentLoanMonth + otherDebtMonth) / grossMonthlyIncome) * 100",
     "totalDebt": "mortgageMonth + creditCardMonth + autoLoanMonth + studentLoanMonth + otherDebtMonth",
-    "debtToIncomeRatio": "(totalDebt / grossMonthlyIncome) * 100"
+    "debtToIncomeRatio": "((mortgageMonth + creditCardMonth + autoLoanMonth + studentLoanMonth + otherDebtMonth) / grossMonthlyIncome) * 100"
   },
   "outputs": {
-    "primary": "debtToIncomeRatio",
+    "primary": "result",
     "breakdown": [
       "totalDebt",
-      "grossMonthlyIncome"
+      "debtToIncomeRatio"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "High credit card utilization",
+      "Unexpected medical expenses"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Consolidate high-interest debts",
+      "Increase income through side gigs"
     ],
-    "dataConfidenceAdjusted": "debtToIncomeRatio",
+    "dataConfidenceAdjusted": "result",
     "unit": "%"
   },
   "category": "Finans & Yatırım",

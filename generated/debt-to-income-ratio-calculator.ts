@@ -26,20 +26,21 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Debt_to_income_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = ((input.mortgageMonth + input.creditCardMonth + input.autoLoanMonth + input.studentLoanMonth + input.otherDebtMonth) / input.grossMonthlyIncome) * 100; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   try { const v = input.mortgageMonth + input.creditCardMonth + input.autoLoanMonth + input.studentLoanMonth + input.otherDebtMonth; results["totalDebt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDebt"] = Number.NaN; }
-  try { const v = ((toNumericFormulaValue(results["totalDebt"])) / input.grossMonthlyIncome) * 100; results["debtToIncomeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["debtToIncomeRatio"] = Number.NaN; }
+  try { const v = ((input.mortgageMonth + input.creditCardMonth + input.autoLoanMonth + input.studentLoanMonth + input.otherDebtMonth) / input.grossMonthlyIncome) * 100; results["debtToIncomeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["debtToIncomeRatio"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateDebt_to_income_ratio_calculator(input: Debt_to_income_ratio_calculatorInput): Debt_to_income_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["debtToIncomeRatio"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
+  const hiddenLossDrivers: string[] = ["High credit card utilization","Unexpected medical expenses"];
+  const suggestedActions: string[] = ["Consolidate high-interest debts","Increase income through side gigs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)

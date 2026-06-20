@@ -266,25 +266,23 @@
     ]
   },
   "formulas": {
-    "base_cost": "loan_term_years * loan_amount",
-    "adjusted_cost": "loan_term_years * loan_amount * (1 + (down_payment_percent / 100))",
-    "result": "loan_term_years * loan_amount * (1 + (down_payment_percent / 100)) * ((annual_interest_rate / 100))",
-    "factor_annual_interest_rate": "(annual_interest_rate / 100)"
+    "result": "((loan_amount * (annual_interest_rate / 100 / 12) * ((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12))) / (((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12)) - 1) + (loan_amount / (1 - down_payment_percent / 100) * property_tax_rate / 100 / 12) + (loan_amount / (1 - down_payment_percent / 100) * insurance_rate / 100 / 12) + monthly_hoa) * 12",
+    "total_interest": "((loan_amount * (annual_interest_rate / 100 / 12) * ((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12))) / (((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12)) - 1) * (loan_term_years * 12) - loan_amount)",
+    "dti_ratio": "((loan_amount * (annual_interest_rate / 100 / 12) * ((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12))) / (((1 + annual_interest_rate / 100 / 12) ** (loan_term_years * 12)) - 1) + (loan_amount / (1 - down_payment_percent / 100) * property_tax_rate / 100 / 12) + (loan_amount / (1 - down_payment_percent / 100) * insurance_rate / 100 / 12) + monthly_hoa) / (annual_income / 12) * 100"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "base_cost",
-      "adjusted_cost",
-      "factor_annual_interest_rate"
+      "total_interest",
+      "dti_ratio"
     ],
     "hiddenLossDrivers": [
-      "Scrap and rework not in unit price",
-      "Volume discount not applied"
+      "Private Mortgage Insurance (PMI) if down payment < 20%",
+      "Escrow account shortfalls due to tax reassessment"
     ],
     "suggestedActions": [
-      "Reconcile unit cost with last PO",
-      "Stress-test with +10% waste"
+      "Increase down payment to 20% to eliminate PMI",
+      "Shop for lower homeowner's insurance rates"
     ],
     "dataConfidenceAdjusted": "result",
     "unit": "USD"
