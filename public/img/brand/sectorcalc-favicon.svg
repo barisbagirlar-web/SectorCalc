@@ -8,20 +8,26 @@
   aria-labelledby="faviconTitle"
 >
   <title id="faviconTitle">SectorCalc</title>
-  <defs>
-    <linearGradient id="favBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="100%" stop-color="#1E293B"/>
-    </linearGradient>
-  </defs>
 
-  <!-- Rounded square background -->
-  <rect x="0" y="0" width="512" height="512" rx="96" fill="url(#favBg)"/>
+  <!--
+    White background with black logo.
+    - Background fills entire 512×512 canvas (rounded square).
+    - Logo is centered at (256, 256) with scale 0.95 so it sits safely
+      within the PWA maskable safe zone (inner ~60% diameter).
+    - Logo natural bbox: X=101..413 (312px), Y=91..394 (303px);
+      scaled to ~296×288, well within the 307px maskable safe circle.
+    - White background ensures the icon is clearly visible on dark browser
+      tabs, black logo guarantees contrast on light backgrounds.
+  -->
 
-  <!-- Header logo symbol — maximally scaled to fill favicon box
-       Original content bbox: 101..413(X) × 91..394(Y), center (257, 242.5)
-       Scale 1.6 maps to 6..506(X) × 14..498(Y) ≈ 99% fill -->
-  <g fill="#FFFFFF" transform="translate(256, 256) scale(1.6) translate(-257, -242.5)">
+  <!-- White rounded-square background -->
+  <rect x="0" y="0" width="512" height="512" rx="32" fill="#FFFFFF"/>
+
+  <!-- Thin visual border for subtle definition on white surfaces -->
+  <rect x="5" y="5" width="502" height="502" rx="28" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+
+  <!-- Black logo — centered, maskable-safe -->
+  <g fill="#000000" transform="translate(256, 256) scale(0.95) translate(-257, -242.5)">
     <rect x="101" y="209" width="58" height="20" rx="0"/>
     <rect x="355" y="209" width="58" height="20" rx="0"/>
     <path d="M254 111H197V91H276V340H254V111Z"/>
