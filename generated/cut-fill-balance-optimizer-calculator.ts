@@ -43,7 +43,10 @@ export function calculateCut_fill_balance_optimizer_calculator(input: Cut_fill_b
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_cutVolume: toNumericFormulaValue(values["factor_cutVolume"]),
+    factor_fillVolume: toNumericFormulaValue(values["factor_fillVolume"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -57,6 +60,7 @@ export function calculateCut_fill_balance_optimizer_calculator(input: Cut_fill_b
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Automated haul route optimization"],
   };
@@ -65,10 +69,18 @@ export function calculateCut_fill_balance_optimizer_calculator(input: Cut_fill_b
 
 export interface Cut_fill_balance_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_cutVolume: number; factor_fillVolume: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cut_fill_balance_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_cutVolume","factor_fillVolume"],
+} as const;
+

@@ -1,0 +1,85 @@
+{
+  "slug": "payroll-vergi-hesaplama",
+  "name": "Payroll Vergi Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "income",
+      "label": "Gelir / Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "min": 0,
+      "businessContext": "Annual income.",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Yıllık Gelir"
+      },
+      "businessContext_i18n": {
+        "en": "Annual income.",
+        "tr": "Yıllık gelir."
+      }
+    },
+    {
+      "id": "rate",
+      "label": "Oran / Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Rate.",
+      "label_i18n": {
+        "en": "Rate",
+        "tr": "Oran"
+      },
+      "businessContext_i18n": {
+        "en": "Rate.",
+        "tr": "Oran."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "income * (rate/100)",
+    "result": "income * (rate/100)"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "USD",
+    "breakdown": {
+      "result": "income * (rate/100)"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick payroll vergi hesaplama.",
+      "long": "Free payroll vergi hesaplama tool."
+    }
+  },
+  "sector": "Vergi",
+  "toolName": "payroll-vergi-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "tax"
+}

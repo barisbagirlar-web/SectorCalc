@@ -41,7 +41,8 @@ export function calculateDowntime_cost_calculator(input: Downtime_cost_calculato
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -55,6 +56,7 @@ export function calculateDowntime_cost_calculator(input: Downtime_cost_calculato
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-plant comparison","Custom threshold alerts"],
   };
@@ -63,10 +65,18 @@ export function calculateDowntime_cost_calculator(input: Downtime_cost_calculato
 
 export interface Downtime_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Downtime_cost_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

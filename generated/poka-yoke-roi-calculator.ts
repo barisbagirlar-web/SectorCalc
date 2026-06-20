@@ -42,7 +42,9 @@ export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculato
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_implementation_cost: toNumericFormulaValue(values["factor_implementation_cost"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculato
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Custom dashboard"],
   };
@@ -64,10 +67,18 @@ export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculato
 
 export interface Poka_yoke_roi_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_implementation_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Poka_yoke_roi_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_implementation_cost"],
+} as const;
+

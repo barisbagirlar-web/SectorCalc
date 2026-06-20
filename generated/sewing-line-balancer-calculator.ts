@@ -38,7 +38,9 @@ export function calculateSewing_line_balancer_calculator(input: Sewing_line_bala
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    balance_efficiency: toNumericFormulaValue(values["balance_efficiency"]),
+    theoretical_min_operators: toNumericFormulaValue(values["theoretical_min_operators"]),
+    excess_operators: toNumericFormulaValue(values["excess_operators"])
   };
   const hiddenLossDrivers: string[] = ["High bottleneck time relative to takt time","Excess operators beyond theoretical minimum"];
   const suggestedActions: string[] = ["Reallocate operators to reduce bottleneck time","Implement cross-training to increase flexibility"];
@@ -52,6 +54,7 @@ export function calculateSewing_line_balancer_calculator(input: Sewing_line_bala
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "%",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","What-if simulation","Multi-line comparison"],
   };
@@ -60,10 +63,18 @@ export function calculateSewing_line_balancer_calculator(input: Sewing_line_bala
 
 export interface Sewing_line_balancer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { balance_efficiency: number; theoretical_min_operators: number; excess_operators: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Sewing_line_balancer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "%",
+  breakdownKeys: ["balance_efficiency","theoretical_min_operators","excess_operators"],
+} as const;
+

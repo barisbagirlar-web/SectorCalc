@@ -49,7 +49,12 @@ export function calculateSpc_limit_calculator(input: Spc_limit_calculatorInput):
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    ucl_xbar: toNumericFormulaValue(values["ucl_xbar"]),
+    lcl_xbar: toNumericFormulaValue(values["lcl_xbar"]),
+    ucl_r: toNumericFormulaValue(values["ucl_r"]),
+    lcl_r: toNumericFormulaValue(values["lcl_r"]),
+    cp: toNumericFormulaValue(values["cp"]),
+    cpk: toNumericFormulaValue(values["cpk"])
   };
   const hiddenLossDrivers: string[] = ["Out-of-control points not detected in real time","Common-cause variation masking special-cause signals"];
   const suggestedActions: string[] = ["Plot X-bar and R charts weekly","Investigate any point beyond control limits within 24 hours"];
@@ -63,6 +68,7 @@ export function calculateSpc_limit_calculator(input: Spc_limit_calculatorInput):
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "dimensionless",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Real-time data streaming","Multi-plant comparison"],
   };
@@ -71,10 +77,18 @@ export function calculateSpc_limit_calculator(input: Spc_limit_calculatorInput):
 
 export interface Spc_limit_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { ucl_xbar: number; lcl_xbar: number; ucl_r: number; lcl_r: number; cp: number; cpk: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Spc_limit_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "dimensionless",
+  breakdownKeys: ["ucl_xbar","lcl_xbar","ucl_r","lcl_r","cp","cpk"],
+} as const;
+

@@ -1,0 +1,75 @@
+{
+  "slug": "sleep-latency-hesaplama",
+  "name": "Sleep Latency Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "dataSize",
+      "label": "Score",
+      "type": "number",
+      "unit": "MB",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Veri boyutu.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "dataSize * (1 + dataSize/500) + Math.sqrt(dataSize) * 5",
+    "result": "dataSize * (1 + dataSize/500) + Math.sqrt(dataSize) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "dataSize"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick sleep latency hesaplama.",
+      "long": "Free sleep latency hesaplama tool."
+    }
+  },
+  "sector": "Sağlık & Fitness",
+  "toolName": "sleep-latency-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "health"
+}

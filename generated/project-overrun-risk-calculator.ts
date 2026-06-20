@@ -42,7 +42,9 @@ export function calculateProject_overrun_risk_calculator(input: Project_overrun_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_plannedDuration: toNumericFormulaValue(values["factor_plannedDuration"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateProject_overrun_risk_calculator(input: Project_overrun_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Monte Carlo simulation","Multi-project comparison"],
   };
@@ -64,10 +67,18 @@ export function calculateProject_overrun_risk_calculator(input: Project_overrun_
 
 export interface Project_overrun_risk_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_plannedDuration: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Project_overrun_risk_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_plannedDuration"],
+} as const;
+

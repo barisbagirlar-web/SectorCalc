@@ -1,0 +1,75 @@
+{
+  "slug": "normal-shock-hesaplama",
+  "name": "Normal Shock Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Score",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Örneklem ortalaması.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "sampleMean * (1 + sampleMean/500) + Math.sqrt(sampleMean) * 5",
+    "result": "sampleMean * (1 + sampleMean/500) + Math.sqrt(sampleMean) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "sampleMean"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick normal shock hesaplama.",
+      "long": "Free normal shock hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "normal-shock-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

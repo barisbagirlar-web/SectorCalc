@@ -42,7 +42,9 @@ export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    net_annual_cash_flow: toNumericFormulaValue(values["net_annual_cash_flow"]),
+    npv: toNumericFormulaValue(values["npv"]),
+    roi: toNumericFormulaValue(values["roi"])
   };
   const hiddenLossDrivers: string[] = ["Inflation erosion of future cash flows","Tax burden reducing net benefits"];
   const suggestedActions: string[] = ["Negotiate lower equipment costs or explore leasing options","Implement lean initiatives to reduce annual operating costs"];
@@ -56,6 +58,7 @@ export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Monte Carlo simulation","Sensitivity analysis","Multi-scenario comparison","Automated report generation"],
   };
@@ -64,10 +67,18 @@ export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi
 
 export interface Roi_npv_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { net_annual_cash_flow: number; npv: number; roi: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Roi_npv_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["net_annual_cash_flow","npv","roi"],
+} as const;
+

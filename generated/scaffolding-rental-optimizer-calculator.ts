@@ -41,7 +41,8 @@ export function calculateScaffolding_rental_optimizer_calculator(input: Scaffold
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -55,6 +56,7 @@ export function calculateScaffolding_rental_optimizer_calculator(input: Scaffold
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Automated reorder suggestions"],
   };
@@ -63,10 +65,18 @@ export function calculateScaffolding_rental_optimizer_calculator(input: Scaffold
 
 export interface Scaffolding_rental_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Scaffolding_rental_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost"],
+} as const;
+

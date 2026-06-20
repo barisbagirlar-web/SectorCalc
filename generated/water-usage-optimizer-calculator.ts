@@ -42,7 +42,9 @@ export function calculateWater_usage_optimizer_calculator(input: Water_usage_opt
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    waterEfficiency: toNumericFormulaValue(values["waterEfficiency"]),
+    reuseRate: toNumericFormulaValue(values["reuseRate"]),
+    lossRatio: toNumericFormulaValue(values["lossRatio"])
   };
   const hiddenLossDrivers: string[] = ["Evaporation and drift from cooling towers","Unmetered process water usage"];
   const suggestedActions: string[] = ["Implement closed-loop cooling system to reduce makeup water","Install submeters on high-use processes to identify leaks"];
@@ -56,6 +58,7 @@ export function calculateWater_usage_optimizer_calculator(input: Water_usage_opt
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Benchmarking against industry standards","Custom alert thresholds"],
   };
@@ -64,10 +67,18 @@ export function calculateWater_usage_optimizer_calculator(input: Water_usage_opt
 
 export interface Water_usage_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { waterEfficiency: number; reuseRate: number; lossRatio: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Water_usage_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["waterEfficiency","reuseRate","lossRatio"],
+} as const;
+

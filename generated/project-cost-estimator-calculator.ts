@@ -42,7 +42,9 @@ export function calculateProject_cost_estimator_calculator(input: Project_cost_e
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_labor_hours: toNumericFormulaValue(values["factor_labor_hours"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateProject_cost_estimator_calculator(input: Project_cost_e
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Monte Carlo simulation","Benchmarking against industry standards"],
   };
@@ -64,10 +67,18 @@ export function calculateProject_cost_estimator_calculator(input: Project_cost_e
 
 export interface Project_cost_estimator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_labor_hours: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Project_cost_estimator_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_labor_hours"],
+} as const;
+

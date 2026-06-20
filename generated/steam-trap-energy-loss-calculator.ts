@@ -41,7 +41,10 @@ export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_ene
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_orifice_diameter: toNumericFormulaValue(values["factor_orifice_diameter"]),
+    factor_operating_hours_per_year: toNumericFormulaValue(values["factor_operating_hours_per_year"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -55,6 +58,7 @@ export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_ene
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Automated report scheduling"],
   };
@@ -63,10 +67,18 @@ export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_ene
 
 export interface Steam_trap_energy_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_orifice_diameter: number; factor_operating_hours_per_year: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Steam_trap_energy_loss_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_orifice_diameter","factor_operating_hours_per_year"],
+} as const;
+

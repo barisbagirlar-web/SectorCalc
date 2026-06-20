@@ -1,0 +1,113 @@
+{
+  "slug": "pregnancy-test-hesaplama",
+  "name": "Pregnancy Test Hesaplama",
+  "description": "Professional pregnancy test hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "lastPeriodDate",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "date",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Son adet döneminin ilk günü.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Son Adet Tarihi",
+        "fr": "Son Adet Tarihi",
+        "es": "Son Adet Tarihi",
+        "ar": "Son Adet Tarihi"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Son adet döneminin ilk günü.",
+        "fr": "Son adet döneminin ilk günü.",
+        "es": "Son adet döneminin ilk günü.",
+        "ar": "Son adet döneminin ilk günü."
+      }
+    },
+    {
+      "id": "cycleLength",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "days",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Adet döngüsü uzunluğu.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Döngü Süresi",
+        "fr": "Döngü Süresi",
+        "es": "Döngü Süresi",
+        "ar": "Döngü Süresi"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Adet döngüsü uzunluğu.",
+        "fr": "Adet döngüsü uzunluğu.",
+        "es": "Adet döngüsü uzunluğu.",
+        "ar": "Adet döngüsü uzunluğu."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "(lastPeriodDate - cycleLength) / Math.sqrt((lastPeriodDate + cycleLength) / 2 + 1) * 10 + 50",
+    "result": "(lastPeriodDate - cycleLength) / Math.sqrt((lastPeriodDate + cycleLength) / 2 + 1) * 10 + 50"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "lastPeriodDate * cycleLength"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick pregnancy test hesaplama calculation.",
+      "long": "This free tool provides a quick pregnancy test hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Pregnancy Test Hesaplama include?",
+        "answer": "Basic pregnancy test hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "pregnancy-test-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

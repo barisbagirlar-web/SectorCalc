@@ -42,7 +42,9 @@ export function calculateCloud_waste_elimination_calculator(input: Cloud_waste_e
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_storage_waste_percentage: toNumericFormulaValue(values["factor_storage_waste_percentage"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateCloud_waste_elimination_calculator(input: Cloud_waste_e
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Anomaly detection","Multi-cloud comparison"],
   };
@@ -64,10 +67,18 @@ export function calculateCloud_waste_elimination_calculator(input: Cloud_waste_e
 
 export interface Cloud_waste_elimination_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_storage_waste_percentage: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cloud_waste_elimination_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_storage_waste_percentage"],
+} as const;
+

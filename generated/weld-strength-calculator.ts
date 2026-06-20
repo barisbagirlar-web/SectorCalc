@@ -46,7 +46,8 @@ export function calculateWeld_strength_calculator(input: Weld_strength_calculato
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    allowable_load: toNumericFormulaValue(values["allowable_load"]),
+    safety_margin: toNumericFormulaValue(values["safety_margin"])
   };
   const hiddenLossDrivers: string[] = ["Inconsistent weld quality due to operator skill variation","Undetected porosity or lack of fusion reducing effective throat"];
   const suggestedActions: string[] = ["Implement real-time weld parameter monitoring with feedback control","Conduct periodic destructive testing to validate process capability"];
@@ -60,6 +61,7 @@ export function calculateWeld_strength_calculator(input: Weld_strength_calculato
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "kN",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-material database","Fatigue life prediction","Weld procedure specification (WPS) generator"],
   };
@@ -68,10 +70,18 @@ export function calculateWeld_strength_calculator(input: Weld_strength_calculato
 
 export interface Weld_strength_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { allowable_load: number; safety_margin: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Weld_strength_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "kN",
+  breakdownKeys: ["allowable_load","safety_margin"],
+} as const;
+

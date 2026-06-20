@@ -36,7 +36,7 @@ export function calculateTime_study_analyzer_calculator(input: Time_study_analyz
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -50,6 +50,7 @@ export function calculateTime_study_analyzer_calculator(input: Time_study_analyz
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "%",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-operator comparison","Custom performance rating"],
   };
@@ -58,10 +59,18 @@ export function calculateTime_study_analyzer_calculator(input: Time_study_analyz
 
 export interface Time_study_analyzer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Time_study_analyzer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "%",
+  breakdownKeys: ["normalized_product"],
+} as const;
+

@@ -42,7 +42,9 @@ export function calculateMaterial_replacement_cost_comparator_calculator(input: 
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_alternative_material_cost: toNumericFormulaValue(values["factor_alternative_material_cost"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateMaterial_replacement_cost_comparator_calculator(input: 
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario simulation","Supplier benchmarking"],
   };
@@ -64,10 +67,18 @@ export function calculateMaterial_replacement_cost_comparator_calculator(input: 
 
 export interface Material_replacement_cost_comparator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_alternative_material_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Material_replacement_cost_comparator_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_alternative_material_cost"],
+} as const;
+

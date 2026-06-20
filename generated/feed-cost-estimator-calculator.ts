@@ -38,7 +38,9 @@ export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimat
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    effective_cost_per_kg: toNumericFormulaValue(values["effective_cost_per_kg"]),
+    quality_adjustment_factor: toNumericFormulaValue(values["quality_adjustment_factor"]),
+    transport_surcharge: toNumericFormulaValue(values["transport_surcharge"])
   };
   const hiddenLossDrivers: string[] = ["Moisture variation in raw materials","Processing loss due to equipment wear"];
   const suggestedActions: string[] = ["Implement moisture sensors for real-time adjustment","Schedule regular maintenance to reduce processing losses"];
@@ -52,6 +54,7 @@ export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimat
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-plant comparison","Real-time commodity price feed"],
   };
@@ -60,10 +63,18 @@ export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimat
 
 export interface Feed_cost_estimator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { effective_cost_per_kg: number; quality_adjustment_factor: number; transport_surcharge: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Feed_cost_estimator_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["effective_cost_per_kg","quality_adjustment_factor","transport_surcharge"],
+} as const;
+

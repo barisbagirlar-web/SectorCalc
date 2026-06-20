@@ -1,0 +1,75 @@
+{
+  "slug": "us-mpg-to-uk-mpg-hesaplama",
+  "name": "US MPG To UK MPG Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "distanceTraveled",
+      "label": "Value",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kat edilen mesafe.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Değer",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Input value.",
+        "tr": "Giriş değeri.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "distanceTraveled * 1.0 + Math.log(distanceTraveled + 1) * 0.5",
+    "result": "distanceTraveled * 1.0 + Math.log(distanceTraveled + 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "distanceTraveled"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick us mpg to uk mpg hesaplama.",
+      "long": "Free us mpg to uk mpg hesaplama tool."
+    }
+  },
+  "sector": "Dönüştürücü",
+  "toolName": "us-mpg-to-uk-mpg-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "converter"
+}

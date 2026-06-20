@@ -43,7 +43,10 @@ export function calculateRoute_cost_calculator(input: Route_cost_calculatorInput
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_distance_km: toNumericFormulaValue(values["factor_distance_km"]),
+    factor_fuel_consumption_l_per_100km: toNumericFormulaValue(values["factor_fuel_consumption_l_per_100km"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -57,6 +60,7 @@ export function calculateRoute_cost_calculator(input: Route_cost_calculatorInput
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Scenario simulation","Benchmarking against industry standards"],
   };
@@ -65,10 +69,18 @@ export function calculateRoute_cost_calculator(input: Route_cost_calculatorInput
 
 export interface Route_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_distance_km: number; factor_fuel_consumption_l_per_100km: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Route_cost_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_distance_km","factor_fuel_consumption_l_per_100km"],
+} as const;
+

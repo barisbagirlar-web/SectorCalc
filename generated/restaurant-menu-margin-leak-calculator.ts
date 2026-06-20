@@ -42,7 +42,9 @@ export function calculateRestaurant_menu_margin_leak_calculator(input: Restauran
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_food_cost_per_cover: toNumericFormulaValue(values["factor_food_cost_per_cover"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateRestaurant_menu_margin_leak_calculator(input: Restauran
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-location benchmarking","Ingredient cost roll-up"],
   };
@@ -64,10 +67,18 @@ export function calculateRestaurant_menu_margin_leak_calculator(input: Restauran
 
 export interface Restaurant_menu_margin_leak_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_food_cost_per_cover: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Restaurant_menu_margin_leak_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_food_cost_per_cover"],
+} as const;
+

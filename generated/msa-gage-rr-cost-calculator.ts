@@ -43,7 +43,10 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"]),
+    factor_num_appraisers: toNumericFormulaValue(values["factor_num_appraisers"]),
+    factor_num_trials: toNumericFormulaValue(values["factor_num_trials"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -57,6 +60,7 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-plant comparison","Custom threshold configuration"],
   };
@@ -65,10 +69,18 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
 
 export interface Msa_gage_rr_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number; factor_num_appraisers: number; factor_num_trials: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Msa_gage_rr_cost_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost","factor_num_appraisers","factor_num_trials"],
+} as const;
+

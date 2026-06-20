@@ -1,0 +1,113 @@
+{
+  "slug": "monte-carlo-simulasyonu-hesaplayici",
+  "name": "Monte Carlo Simülasyonu Hesaplayıcı",
+  "description": "Professional monte carlo simülasyonu hesaplayıcı tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "inputA",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Birinci giriş değeri.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Giriş A",
+        "fr": "Giriş A",
+        "es": "Giriş A",
+        "ar": "Giriş A"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Birinci giriş değeri.",
+        "fr": "Birinci giriş değeri.",
+        "es": "Birinci giriş değeri.",
+        "ar": "Birinci giriş değeri."
+      }
+    },
+    {
+      "id": "inputB",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "businessContext": "İkinci giriş değeri.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Giriş B",
+        "fr": "Giriş B",
+        "es": "Giriş B",
+        "ar": "Giriş B"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "İkinci giriş değeri.",
+        "fr": "İkinci giriş değeri.",
+        "es": "İkinci giriş değeri.",
+        "ar": "İkinci giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "inputA * inputB + Math.floor(inputA / inputB) * 0.5",
+    "result": "inputA * inputB + Math.floor(inputA / inputB) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "inputA * inputB"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick monte carlo simülasyonu hesaplayıcı calculation.",
+      "long": "This free tool provides a quick monte carlo simülasyonu hesaplayıcı."
+    },
+    "faqs": [
+      {
+        "question": "What does this Monte Carlo Simülasyonu Hesaplayıcı include?",
+        "answer": "Basic monte carlo simülasyonu hesaplayıcı calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "monte-carlo-simulasyonu-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

@@ -41,7 +41,8 @@ export function calculateCompressor_leak_cost_calculator(input: Compressor_leak_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates","Direct labor cost is set to 0 because no labor-related inputs are available in this tool"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -55,6 +56,7 @@ export function calculateCompressor_leak_cost_calculator(input: Compressor_leak_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Custom reporting"],
   };
@@ -63,10 +65,18 @@ export function calculateCompressor_leak_cost_calculator(input: Compressor_leak_
 
 export interface Compressor_leak_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Compressor_leak_cost_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost"],
+} as const;
+

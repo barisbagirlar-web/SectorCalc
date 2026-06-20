@@ -43,7 +43,10 @@ export function calculateFilament_recycling_cost_comparator_calculator(input: Fi
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"]),
+    machine_maintenance_annual: toNumericFormulaValue(values["machine_maintenance_annual"]),
+    machine_runtime_hours: toNumericFormulaValue(values["machine_runtime_hours"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -57,6 +60,7 @@ export function calculateFilament_recycling_cost_comparator_calculator(input: Fi
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-plant comparison","Scenario simulation"],
   };
@@ -65,10 +69,18 @@ export function calculateFilament_recycling_cost_comparator_calculator(input: Fi
 
 export interface Filament_recycling_cost_comparator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number; machine_maintenance_annual: number; machine_runtime_hours: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Filament_recycling_cost_comparator_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost","machine_maintenance_annual","machine_runtime_hours"],
+} as const;
+

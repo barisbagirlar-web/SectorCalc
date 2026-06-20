@@ -41,7 +41,8 @@ export function calculateEvm_cost_forecast_calculator(input: Evm_cost_forecast_c
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -55,6 +56,7 @@ export function calculateEvm_cost_forecast_calculator(input: Evm_cost_forecast_c
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Monte Carlo simulation","Multi-project roll-up"],
   };
@@ -63,10 +65,18 @@ export function calculateEvm_cost_forecast_calculator(input: Evm_cost_forecast_c
 
 export interface Evm_cost_forecast_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Evm_cost_forecast_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

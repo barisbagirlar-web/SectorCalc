@@ -39,7 +39,8 @@ export function calculateOee_downtime_calculator(input: Oee_downtime_calculatorI
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -53,6 +54,7 @@ export function calculateOee_downtime_calculator(input: Oee_downtime_calculatorI
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Real-time dashboard","Multi-plant comparison","Historical data storage"],
   };
@@ -61,10 +63,18 @@ export function calculateOee_downtime_calculator(input: Oee_downtime_calculatorI
 
 export interface Oee_downtime_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Oee_downtime_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

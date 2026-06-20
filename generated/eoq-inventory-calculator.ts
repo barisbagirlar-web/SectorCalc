@@ -43,7 +43,10 @@ export function calculateEoq_inventory_calculator(input: Eoq_inventory_calculato
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_holding_cost_per_unit: toNumericFormulaValue(values["factor_holding_cost_per_unit"]),
+    factor_unit_cost: toNumericFormulaValue(values["factor_unit_cost"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -57,6 +60,7 @@ export function calculateEoq_inventory_calculator(input: Eoq_inventory_calculato
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-warehouse comparison","ABC-XYZ classification integration","What-if scenario simulation","Real-time dashboard with KPI alerts"],
   };
@@ -65,10 +69,18 @@ export function calculateEoq_inventory_calculator(input: Eoq_inventory_calculato
 
 export interface Eoq_inventory_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_holding_cost_per_unit: number; factor_unit_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Eoq_inventory_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_holding_cost_per_unit","factor_unit_cost"],
+} as const;
+

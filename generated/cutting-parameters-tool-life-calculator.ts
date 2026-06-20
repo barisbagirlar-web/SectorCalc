@@ -38,7 +38,7 @@ export function calculateCutting_parameters_tool_life_calculator(input: Cutting_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -52,6 +52,7 @@ export function calculateCutting_parameters_tool_life_calculator(input: Cutting_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-machine comparison","Custom material database"],
   };
@@ -60,10 +61,18 @@ export function calculateCutting_parameters_tool_life_calculator(input: Cutting_
 
 export interface Cutting_parameters_tool_life_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cutting_parameters_tool_life_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["normalized_product"],
+} as const;
+

@@ -42,7 +42,9 @@ export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"]),
+    factor_overtime_premium: toNumericFormulaValue(values["factor_overtime_premium"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -56,6 +58,7 @@ export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Scenario simulation","Multi-site comparison"],
   };
@@ -64,10 +67,18 @@ export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime
 
 export interface Overtime_vs_hiring_breakeven_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number; factor_overtime_premium: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Overtime_vs_hiring_breakeven_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost","factor_overtime_premium"],
+} as const;
+

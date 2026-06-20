@@ -42,7 +42,11 @@ export function calculateCpk_ppm_converter_calculator(input: Cpk_ppm_converter_c
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    z_value: toNumericFormulaValue(values["z_value"]),
+    cdf_z: toNumericFormulaValue(values["cdf_z"]),
+    ppm_defect_rate: toNumericFormulaValue(values["ppm_defect_rate"]),
+    ppm_upper_bound: toNumericFormulaValue(values["ppm_upper_bound"]),
+    sigma_level: toNumericFormulaValue(values["sigma_level"])
   };
   const hiddenLossDrivers: string[] = ["Sigma shift (1.5σ) not applied — long-term drift assumed zero","Normal distribution assumption may not hold for all processes"];
   const suggestedActions: string[] = ["Validate process normality with Anderson-Darling test","Track Cpk trend monthly; investigate any drop >0.3"];
@@ -56,6 +60,7 @@ export function calculateCpk_ppm_converter_calculator(input: Cpk_ppm_converter_c
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "PPM",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Historical comparison","Multi-process dashboard"],
   };
@@ -64,10 +69,18 @@ export function calculateCpk_ppm_converter_calculator(input: Cpk_ppm_converter_c
 
 export interface Cpk_ppm_converter_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { z_value: number; cdf_z: number; ppm_defect_rate: number; ppm_upper_bound: number; sigma_level: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cpk_ppm_converter_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "PPM",
+  breakdownKeys: ["z_value","cdf_z","ppm_defect_rate","ppm_upper_bound","sigma_level"],
+} as const;
+

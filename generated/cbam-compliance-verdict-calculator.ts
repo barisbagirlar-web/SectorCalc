@@ -41,7 +41,10 @@ export function calculateCbam_compliance_verdict_calculator(input: Cbam_complian
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_embedded_emissions_per_tonne: toNumericFormulaValue(values["factor_embedded_emissions_per_tonne"]),
+    factor_cbam_certificate_price: toNumericFormulaValue(values["factor_cbam_certificate_price"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -55,6 +58,7 @@ export function calculateCbam_compliance_verdict_calculator(input: Cbam_complian
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Benchmarking against industry standards","Multi-plant aggregation"],
   };
@@ -63,10 +67,18 @@ export function calculateCbam_compliance_verdict_calculator(input: Cbam_complian
 
 export interface Cbam_compliance_verdict_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_embedded_emissions_per_tonne: number; factor_cbam_certificate_price: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cbam_compliance_verdict_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_embedded_emissions_per_tonne","factor_cbam_certificate_price"],
+} as const;
+

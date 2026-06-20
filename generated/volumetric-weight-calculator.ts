@@ -44,7 +44,8 @@ export function calculateVolumetric_weight_calculator(input: Volumetric_weight_c
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    volumetric_weight_kg: toNumericFormulaValue(values["volumetric_weight_kg"]),
+    chargeable_weight_kg: toNumericFormulaValue(values["chargeable_weight_kg"])
   };
   const hiddenLossDrivers: string[] = ["Incorrect carrier factor selection leading to overcharging","Non-stackable packages reducing truck fill rate"];
   const suggestedActions: string[] = ["Verify carrier DIM factor matches contract terms","Implement stackable packaging design to reduce penalties"];
@@ -58,6 +59,7 @@ export function calculateVolumetric_weight_calculator(input: Volumetric_weight_c
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-currency cost comparison","Real-time carrier rate integration","Batch processing","Customizable alert thresholds"],
   };
@@ -66,10 +68,18 @@ export function calculateVolumetric_weight_calculator(input: Volumetric_weight_c
 
 export interface Volumetric_weight_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { volumetric_weight_kg: number; chargeable_weight_kg: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Volumetric_weight_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["volumetric_weight_kg","chargeable_weight_kg"],
+} as const;
+

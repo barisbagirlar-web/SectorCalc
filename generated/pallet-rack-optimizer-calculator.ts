@@ -41,7 +41,8 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    storage_efficiency: toNumericFormulaValue(values["storage_efficiency"]),
+    throughput_potential: toNumericFormulaValue(values["throughput_potential"])
   };
   const hiddenLossDrivers: string[] = ["Vertical clearance waste","Aisle width inefficiency"];
   const suggestedActions: string[] = ["Reduce vertical clearance to minimum safe gap","Optimize aisle width for forklift type"];
@@ -55,6 +56,7 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Real-time structural load monitoring"],
   };
@@ -63,10 +65,18 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
 
 export interface Pallet_rack_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { storage_efficiency: number; throughput_potential: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Pallet_rack_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["storage_efficiency","throughput_potential"],
+} as const;
+

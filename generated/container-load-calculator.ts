@@ -41,7 +41,8 @@ export function calculateContainer_load_calculator(input: Container_load_calcula
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -55,6 +56,7 @@ export function calculateContainer_load_calculator(input: Container_load_calcula
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-container optimization","Real-time carrier rate integration","3D load visualization"],
   };
@@ -63,10 +65,18 @@ export function calculateContainer_load_calculator(input: Container_load_calcula
 
 export interface Container_load_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Container_load_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

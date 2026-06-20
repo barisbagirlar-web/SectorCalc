@@ -36,7 +36,7 @@ export function calculateWps_preheat_temperature_calculator(input: Wps_preheat_t
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -50,6 +50,7 @@ export function calculateWps_preheat_temperature_calculator(input: Wps_preheat_t
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "%",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-user collaboration","Custom material database"],
   };
@@ -58,10 +59,18 @@ export function calculateWps_preheat_temperature_calculator(input: Wps_preheat_t
 
 export interface Wps_preheat_temperature_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Wps_preheat_temperature_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "%",
+  breakdownKeys: ["normalized_product"],
+} as const;
+

@@ -42,7 +42,8 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    total_changeover_downtime: toNumericFormulaValue(values["total_changeover_downtime"]),
+    smed_reduction_potential: toNumericFormulaValue(values["smed_reduction_potential"])
   };
   const hiddenLossDrivers: string[] = ["Unplanned downtime due to tooling issues","Lack of standardized work instructions"];
   const suggestedActions: string[] = ["Implement SMED to convert internal setup to external","Standardize changeover procedures across shifts"];
@@ -56,6 +57,7 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "hours",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-plant comparison","Automated SMED video analysis integration","Real-time OEE dashboard sync"],
   };
@@ -64,10 +66,18 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
 
 export interface Changeover_matrix_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { total_changeover_downtime: number; smed_reduction_potential: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Changeover_matrix_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "hours",
+  breakdownKeys: ["total_changeover_downtime","smed_reduction_potential"],
+} as const;
+

@@ -1,0 +1,98 @@
+{
+  "slug": "stock-hesaplama",
+  "name": "Stock Hesaplama",
+  "description": "Professional stock hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "investment",
+      "label": "Yatırım / Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Initial investment.",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Yatırım Tutarı"
+      },
+      "businessContext_i18n": {
+        "en": "Initial investment.",
+        "tr": "Başlangıç yatırımı."
+      }
+    },
+    {
+      "id": "returnPct",
+      "label": "Getiri / Return",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": -100,
+      "max": 10000,
+      "businessContext": "Rate of return.",
+      "label_i18n": {
+        "en": "Rate of Return",
+        "tr": "Getiri Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Rate of return.",
+        "tr": "Getiri oranı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "investment * (1 + returnPct/100)",
+    "result": "investment * (1 + returnPct/100)"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "USD",
+    "breakdown": {
+      "result": "investment * (1 + returnPct/100)"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick stock hesaplama calculation.",
+      "long": "This free tool provides a quick stock hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Stock Hesaplama include?",
+        "answer": "Basic stock hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Yatırım",
+  "toolName": "stock-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "investment"
+}

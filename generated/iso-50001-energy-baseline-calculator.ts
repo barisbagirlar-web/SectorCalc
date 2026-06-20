@@ -41,7 +41,8 @@ export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_e
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -55,6 +56,7 @@ export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_e
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "units",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Automated EnPI reporting"],
   };
@@ -63,10 +65,18 @@ export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_e
 
 export interface Iso_50001_energy_baseline_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Iso_50001_energy_baseline_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "units",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

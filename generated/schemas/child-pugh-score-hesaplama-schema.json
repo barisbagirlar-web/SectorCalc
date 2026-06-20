@@ -1,0 +1,113 @@
+{
+  "slug": "child-pugh-score-hesaplama",
+  "name": "Child Pugh Score Hesaplama",
+  "description": "Professional child pugh score hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "clinicalScore",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "points",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Klinik değerlendirme puanı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Klinik Puan",
+        "fr": "Klinik Puan",
+        "es": "Klinik Puan",
+        "ar": "Klinik Puan"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Klinik değerlendirme puanı.",
+        "fr": "Klinik değerlendirme puanı.",
+        "es": "Klinik değerlendirme puanı.",
+        "ar": "Klinik değerlendirme puanı."
+      }
+    },
+    {
+      "id": "param2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ek parametre 2.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Parametre 2",
+        "fr": "Parametre 2",
+        "es": "Parametre 2",
+        "ar": "Parametre 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Ek parametre 2.",
+        "fr": "Ek parametre 2.",
+        "es": "Ek parametre 2.",
+        "ar": "Ek parametre 2."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "clinicalScore / param2 * 100 + Math.sqrt(clinicalScore * param2) / 10",
+    "result": "clinicalScore / param2 * 100 + Math.sqrt(clinicalScore * param2) / 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "clinicalScore * param2"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick child pugh score hesaplama calculation.",
+      "long": "This free tool provides a quick child pugh score hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Child Pugh Score Hesaplama include?",
+        "answer": "Basic child pugh score hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "child-pugh-score-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

@@ -43,7 +43,10 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_lower_spec_limit: toNumericFormulaValue(values["factor_lower_spec_limit"]),
+    factor_upper_spec_limit: toNumericFormulaValue(values["factor_upper_spec_limit"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -57,6 +60,7 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-parameter simulation","Custom specification limits"],
   };
@@ -65,10 +69,18 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
 
 export interface Taguchi_quality_loss_function_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_lower_spec_limit: number; factor_upper_spec_limit: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Taguchi_quality_loss_function_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_lower_spec_limit","factor_upper_spec_limit"],
+} as const;
+

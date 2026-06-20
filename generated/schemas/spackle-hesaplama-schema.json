@@ -1,0 +1,75 @@
+{
+  "slug": "spackle-hesaplama",
+  "name": "Spackle Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "skinTypeScore",
+      "label": "Score",
+      "type": "number",
+      "unit": "points",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Cilt tipi değerlendirme puanı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "skinTypeScore * (1 + skinTypeScore/500) + Math.sqrt(skinTypeScore) * 5",
+    "result": "skinTypeScore * (1 + skinTypeScore/500) + Math.sqrt(skinTypeScore) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "skinTypeScore"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick spackle hesaplama.",
+      "long": "Free spackle hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "spackle-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

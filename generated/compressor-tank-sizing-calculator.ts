@@ -42,7 +42,8 @@ export function calculateCompressor_tank_sizing_calculator(input: Compressor_tan
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    requiredTankVolume: toNumericFormulaValue(values["requiredTankVolume"]),
+    controlFactor: toNumericFormulaValue(values["controlFactor"])
   };
   const hiddenLossDrivers: string[] = ["Unregulated demand spikes due to leaks","Inadequate pressure differential setting"];
   const suggestedActions: string[] = ["Install flow meters to identify peak demand sources","Implement pressure/flow controllers to stabilize demand"];
@@ -56,6 +57,7 @@ export function calculateCompressor_tank_sizing_calculator(input: Compressor_tan
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "gallons",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Custom report branding"],
   };
@@ -64,10 +66,18 @@ export function calculateCompressor_tank_sizing_calculator(input: Compressor_tan
 
 export interface Compressor_tank_sizing_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { requiredTankVolume: number; controlFactor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Compressor_tank_sizing_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "gallons",
+  breakdownKeys: ["requiredTankVolume","controlFactor"],
+} as const;
+

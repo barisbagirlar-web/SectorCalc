@@ -1,0 +1,113 @@
+{
+  "slug": "sure-signature-hesaplama",
+  "name": "Süre Signature Hesaplama",
+  "description": "Professional süre signature hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "timeValue",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "min",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Zaman değeri.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    },
+    {
+      "id": "frequency",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "per-day",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Günlük tekrar sayısı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Giriş Faktörü",
+        "fr": "Giriş Faktörü",
+        "es": "Giriş Faktörü",
+        "ar": "Giriş Faktörü"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Hesaplama için giriş faktörü.",
+        "fr": "Hesaplama için giriş faktörü.",
+        "es": "Hesaplama için giriş faktörü.",
+        "ar": "Hesaplama için giriş faktörü."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "timeValue * frequency + Math.floor(timeValue / frequency) * 0.5",
+    "result": "timeValue * frequency + Math.floor(timeValue / frequency) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "timeValue * frequency"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick süre signature hesaplama calculation.",
+      "long": "This free tool provides a quick süre signature hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Süre Signature Hesaplama include?",
+        "answer": "Basic süre signature hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "sure-signature-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

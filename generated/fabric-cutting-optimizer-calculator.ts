@@ -42,7 +42,9 @@ export function calculateFabric_cutting_optimizer_calculator(input: Fabric_cutti
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
+    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"]),
+    factor_fabric_width: toNumericFormulaValue(values["factor_fabric_width"])
   };
   const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
@@ -56,6 +58,7 @@ export function calculateFabric_cutting_optimizer_calculator(input: Fabric_cutti
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-roll nesting","Real-time waste tracking"],
   };
@@ -64,10 +67,18 @@ export function calculateFabric_cutting_optimizer_calculator(input: Fabric_cutti
 
 export interface Fabric_cutting_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_exposure_hours: number; direct_labor_cost: number; factor_fabric_width: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Fabric_cutting_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_exposure_hours","direct_labor_cost","factor_fabric_width"],
+} as const;
+

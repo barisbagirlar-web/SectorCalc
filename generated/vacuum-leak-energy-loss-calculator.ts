@@ -42,7 +42,9 @@ export function calculateVacuum_leak_energy_loss_calculator(input: Vacuum_leak_e
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_kwh: toNumericFormulaValue(values["annual_kwh"]),
+    annual_energy_cost: toNumericFormulaValue(values["annual_energy_cost"]),
+    factor_leak_diameter_mm: toNumericFormulaValue(values["factor_leak_diameter_mm"])
   };
   const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
@@ -56,6 +58,7 @@ export function calculateVacuum_leak_energy_loss_calculator(input: Vacuum_leak_e
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Custom reporting"],
   };
@@ -64,10 +67,18 @@ export function calculateVacuum_leak_energy_loss_calculator(input: Vacuum_leak_e
 
 export interface Vacuum_leak_energy_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_kwh: number; annual_energy_cost: number; factor_leak_diameter_mm: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Vacuum_leak_energy_loss_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_kwh","annual_energy_cost","factor_leak_diameter_mm"],
+} as const;
+

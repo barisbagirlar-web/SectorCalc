@@ -63,6 +63,7 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario simulation","Cohort analysis & segmentation","Automated alerting via email"],
   };
@@ -71,10 +72,18 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
 
 export interface Clv_cac_calculatorOutput {
   totalWasteCost: number;
+  unit: string;
   breakdown: { annual_revenue: number; annual_gross_profit: number; result: number; clv_cac_ratio: number; payback_months: number; churn_rate: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Clv_cac_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_revenue","annual_gross_profit","result","clv_cac_ratio","payback_months","churn_rate"],
+} as const;
+

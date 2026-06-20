@@ -1,0 +1,75 @@
+{
+  "slug": "permutasyon-hesaplayici",
+  "name": "Permütasyon Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "totalItems",
+      "label": "Score",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam öğe sayısı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Toplam Öğe",
+        "fr": "Toplam Öğe",
+        "es": "Toplam Öğe",
+        "ar": "Toplam Öğe"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Toplam öğe sayısı.",
+        "fr": "Toplam öğe sayısı.",
+        "es": "Toplam öğe sayısı.",
+        "ar": "Toplam öğe sayısı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "totalItems * (1 + totalItems/500) + Math.sqrt(totalItems) * 5",
+    "result": "totalItems * (1 + totalItems/500) + Math.sqrt(totalItems) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "totalItems"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick permütasyon hesaplayıcı.",
+      "long": "Free permütasyon hesaplayıcı tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "permutasyon-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

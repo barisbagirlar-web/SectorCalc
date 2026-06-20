@@ -44,7 +44,9 @@ export function calculateWeld_volume_cost_calculator(input: Weld_volume_cost_cal
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    total_volume: toNumericFormulaValue(values["total_volume"]),
+    deposit_weight: toNumericFormulaValue(values["deposit_weight"]),
+    labor_cost: toNumericFormulaValue(values["labor_cost"])
   };
   const hiddenLossDrivers: string[] = ["Excessive root gap increases volume by up to 30%","Low deposition efficiency due to spatter and slag loss"];
   const suggestedActions: string[] = ["Optimize groove angle to 60° per AWS D1.1 to reduce filler metal","Use GMAW instead of SMAW to improve deposition efficiency by 25%"];
@@ -58,6 +60,7 @@ export function calculateWeld_volume_cost_calculator(input: Weld_volume_cost_cal
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-user collaboration","Custom joint library","API access"],
   };
@@ -66,10 +69,18 @@ export function calculateWeld_volume_cost_calculator(input: Weld_volume_cost_cal
 
 export interface Weld_volume_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { total_volume: number; deposit_weight: number; labor_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Weld_volume_cost_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["total_volume","deposit_weight","labor_cost"],
+} as const;
+

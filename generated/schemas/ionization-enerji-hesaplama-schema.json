@@ -1,0 +1,84 @@
+{
+  "slug": "ionization-enerji-hesaplama",
+  "name": "Ionization Enerji Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "usage",
+      "label": "Kullanım / Usage",
+      "type": "number",
+      "unit": "kWh",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Energy usage.",
+      "label_i18n": {
+        "en": "Energy Usage",
+        "tr": "Enerji Kullanımı"
+      },
+      "businessContext_i18n": {
+        "en": "Energy usage.",
+        "tr": "Enerji kullanımı."
+      }
+    },
+    {
+      "id": "rate",
+      "label": "Birim Fiyat / Unit Rate",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0,
+      "businessContext": "Cost per unit.",
+      "label_i18n": {
+        "en": "Rate",
+        "tr": "Birim Fiyat"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per unit.",
+        "tr": "Birim fiyat."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "usage * rate",
+    "result": "usage * rate"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "kWh",
+    "breakdown": {
+      "result": "usage * rate"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick ionization enerji hesaplama.",
+      "long": "Free ionization enerji hesaplama tool."
+    }
+  },
+  "sector": "Kimya",
+  "toolName": "ionization-enerji-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "chemistry"
+}

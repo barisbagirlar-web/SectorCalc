@@ -44,7 +44,9 @@ export function calculateShift_cost_efficiency_calculator(input: Shift_cost_effi
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    total_cost: toNumericFormulaValue(values["total_cost"]),
+    first_pass_yield: toNumericFormulaValue(values["first_pass_yield"]),
+    cost_per_good_unit: toNumericFormulaValue(values["cost_per_good_unit"])
   };
   const hiddenLossDrivers: string[] = ["Rework inefficiency inflating effective unit cost","Energy cost per shift not scaled to production volume"];
   const suggestedActions: string[] = ["Implement real-time quality monitoring to reduce defects","Optimize shift schedule to align energy usage with production peaks"];
@@ -58,6 +60,7 @@ export function calculateShift_cost_efficiency_calculator(input: Shift_cost_effi
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-shift comparison","Real-time OEE integration"],
   };
@@ -66,10 +69,18 @@ export function calculateShift_cost_efficiency_calculator(input: Shift_cost_effi
 
 export interface Shift_cost_efficiency_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { total_cost: number; first_pass_yield: number; cost_per_good_unit: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Shift_cost_efficiency_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["total_cost","first_pass_yield","cost_per_good_unit"],
+} as const;
+

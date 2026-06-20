@@ -1,0 +1,113 @@
+{
+  "slug": "kira-vs-satin-alma-hesaplama",
+  "name": "Kira Vs Satın Alma Hesaplama",
+  "description": "Professional kira vs satın alma hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "initialAmount",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Enflasyon öncesi tutar.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Başlangıç Tutarı",
+        "fr": "Başlangıç Tutarı",
+        "es": "Başlangıç Tutarı",
+        "ar": "Başlangıç Tutarı"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Enflasyon öncesi tutar.",
+        "fr": "Enflasyon öncesi tutar.",
+        "es": "Enflasyon öncesi tutar.",
+        "ar": "Enflasyon öncesi tutar."
+      }
+    },
+    {
+      "id": "inflationRate",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Yıllık enflasyon oranı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Enflasyon Oranı",
+        "fr": "Enflasyon Oranı",
+        "es": "Enflasyon Oranı",
+        "ar": "Enflasyon Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Yıllık enflasyon oranı.",
+        "fr": "Yıllık enflasyon oranı.",
+        "es": "Yıllık enflasyon oranı.",
+        "ar": "Yıllık enflasyon oranı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "initialAmount / inflationRate * 100 + Math.sqrt(initialAmount * inflationRate) / 10",
+    "result": "initialAmount / inflationRate * 100 + Math.sqrt(initialAmount * inflationRate) / 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "initialAmount * inflationRate"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick kira vs satın alma hesaplama calculation.",
+      "long": "This free tool provides a quick kira vs satın alma hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Kira Vs Satın Alma Hesaplama include?",
+        "answer": "Basic kira vs satın alma hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Emeklilik",
+  "toolName": "kira-vs-satin-alma-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "retirement"
+}

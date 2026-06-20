@@ -1,0 +1,58 @@
+{
+  "slug": "reorder-point-hesaplama",
+  "name": "Reorder Point Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "averageDemand",
+      "label": "Average Daily Demand",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Günlük ortalama talep miktarı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "averageDemand * (1 + averageDemand/500) + Math.sqrt(averageDemand) * 5",
+    "result": "averageDemand * (1 + averageDemand/500) + Math.sqrt(averageDemand) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "reorderPoint"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick reorder point hesaplama.",
+      "long": "Free reorder point hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "reorder-point-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

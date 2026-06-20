@@ -42,7 +42,8 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    scrap_cost: toNumericFormulaValue(values["scrap_cost"]),
+    rework_cost: toNumericFormulaValue(values["rework_cost"])
   };
   const hiddenLossDrivers: string[] = ["Inadequate process control","Poor raw material quality"];
   const suggestedActions: string[] = ["Implement SPC for real-time monitoring","Conduct root cause analysis on top defect types"];
@@ -56,6 +57,7 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "%",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Real-time dashboard","Multi-plant comparison","Automated alerting"],
   };
@@ -64,10 +66,18 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
 
 export interface Scrap_rate_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { scrap_cost: number; rework_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Scrap_rate_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "%",
+  breakdownKeys: ["scrap_cost","rework_cost"],
+} as const;
+

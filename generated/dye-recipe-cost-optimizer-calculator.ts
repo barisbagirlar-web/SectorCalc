@@ -42,7 +42,9 @@ export function calculateDye_recipe_cost_optimizer_calculator(input: Dye_recipe_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_dye_concentration_gpl: toNumericFormulaValue(values["factor_dye_concentration_gpl"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -56,6 +58,7 @@ export function calculateDye_recipe_cost_optimizer_calculator(input: Dye_recipe_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-batch comparison","Supplier cost benchmarking"],
   };
@@ -64,10 +67,18 @@ export function calculateDye_recipe_cost_optimizer_calculator(input: Dye_recipe_
 
 export interface Dye_recipe_cost_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_dye_concentration_gpl: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Dye_recipe_cost_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_dye_concentration_gpl"],
+} as const;
+

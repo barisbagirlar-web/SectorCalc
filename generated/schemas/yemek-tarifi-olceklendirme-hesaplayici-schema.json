@@ -1,0 +1,75 @@
+{
+  "slug": "yemek-tarifi-olceklendirme-hesaplayici",
+  "name": "Yemek Tarifi Ölçeklendirme Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "servingSize",
+      "label": "Score",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Porsiyon büyüklüğü.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Porsiyon Boyutu",
+        "fr": "Porsiyon Boyutu",
+        "es": "Porsiyon Boyutu",
+        "ar": "Porsiyon Boyutu"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Porsiyon büyüklüğü.",
+        "fr": "Porsiyon büyüklüğü.",
+        "es": "Porsiyon büyüklüğü.",
+        "ar": "Porsiyon büyüklüğü."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "servingSize * (1 + servingSize/500) + Math.sqrt(servingSize) * 5",
+    "result": "servingSize * (1 + servingSize/500) + Math.sqrt(servingSize) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "servingSize"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick yemek tarifi ölçeklendirme hesaplayıcı.",
+      "long": "Free yemek tarifi ölçeklendirme hesaplayıcı tool."
+    }
+  },
+  "sector": "Yemek & İçecek",
+  "toolName": "yemek-tarifi-olceklendirme-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "food"
+}

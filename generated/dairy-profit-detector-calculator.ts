@@ -41,7 +41,8 @@ export function calculateDairy_profit_detector_calculator(input: Dairy_profit_de
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    normalized_product: toNumericFormulaValue(values["normalized_product"]),
+    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
   };
   const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
@@ -55,6 +56,7 @@ export function calculateDairy_profit_detector_calculator(input: Dairy_profit_de
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "%",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Benchmarking against industry standards","Automated root cause alerts"],
   };
@@ -63,10 +65,18 @@ export function calculateDairy_profit_detector_calculator(input: Dairy_profit_de
 
 export interface Dairy_profit_detector_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { normalized_product: number; adjustment_factor: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Dairy_profit_detector_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "%",
+  breakdownKeys: ["normalized_product","adjustment_factor"],
+} as const;
+

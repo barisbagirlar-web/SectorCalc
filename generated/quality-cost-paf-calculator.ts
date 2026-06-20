@@ -44,7 +44,11 @@ export function calculateQuality_cost_paf_calculator(input: Quality_cost_paf_cal
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    total_prevention_cost: toNumericFormulaValue(values["total_prevention_cost"]),
+    total_appraisal_cost: toNumericFormulaValue(values["total_appraisal_cost"]),
+    total_failure_cost: toNumericFormulaValue(values["total_failure_cost"]),
+    total_quality_cost: toNumericFormulaValue(values["total_quality_cost"]),
+    coq_ratio: toNumericFormulaValue(values["coq_ratio"])
   };
   const hiddenLossDrivers: string[] = ["External failure costs (warranty/returns) often exceed captured costs","Prevention under-investment leads to exponential appraisal/failure costs"];
   const suggestedActions: string[] = ["Increase prevention budget to reduce failure costs (1:10 leverage)","Track CoQ ratio monthly, target <15% of sales"];
@@ -58,6 +62,7 @@ export function calculateQuality_cost_paf_calculator(input: Quality_cost_paf_cal
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Benchmarking against industry standards","Multi-plant comparison","Real-time dashboard"],
   };
@@ -66,10 +71,18 @@ export function calculateQuality_cost_paf_calculator(input: Quality_cost_paf_cal
 
 export interface Quality_cost_paf_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { total_prevention_cost: number; total_appraisal_cost: number; total_failure_cost: number; total_quality_cost: number; coq_ratio: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Quality_cost_paf_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["total_prevention_cost","total_appraisal_cost","total_failure_cost","total_quality_cost","coq_ratio"],
+} as const;
+

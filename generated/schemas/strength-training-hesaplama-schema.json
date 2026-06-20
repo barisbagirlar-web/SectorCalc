@@ -1,0 +1,75 @@
+{
+  "slug": "strength-training-hesaplama",
+  "name": "Strength Training Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "maxWeight",
+      "label": "Score",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Bir tekrar maksimum ağırlık.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Maksimum Ağırlık",
+        "fr": "Maksimum Ağırlık",
+        "es": "Maksimum Ağırlık",
+        "ar": "Maksimum Ağırlık"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Bir tekrar maksimum ağırlık.",
+        "fr": "Bir tekrar maksimum ağırlık.",
+        "es": "Bir tekrar maksimum ağırlık.",
+        "ar": "Bir tekrar maksimum ağırlık."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "maxWeight * (1 + maxWeight/500) + Math.sqrt(maxWeight) * 5",
+    "result": "maxWeight * (1 + maxWeight/500) + Math.sqrt(maxWeight) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "maxWeight"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick strength training hesaplama.",
+      "long": "Free strength training hesaplama tool."
+    }
+  },
+  "sector": "Seyahat",
+  "toolName": "strength-training-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "travel"
+}

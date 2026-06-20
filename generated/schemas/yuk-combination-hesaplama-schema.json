@@ -1,0 +1,75 @@
+{
+  "slug": "yuk-combination-hesaplama",
+  "name": "Yük Combination Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "totalItems",
+      "label": "Score",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam öğe sayısı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Toplam Öğe",
+        "fr": "Toplam Öğe",
+        "es": "Toplam Öğe",
+        "ar": "Toplam Öğe"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Toplam öğe sayısı.",
+        "fr": "Toplam öğe sayısı.",
+        "es": "Toplam öğe sayısı.",
+        "ar": "Toplam öğe sayısı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "totalItems * totalItems / 100 + Math.sqrt(totalItems) * 10",
+    "result": "totalItems * totalItems / 100 + Math.sqrt(totalItems) * 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "totalItems"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick yük combination hesaplama.",
+      "long": "Free yük combination hesaplama tool."
+    }
+  },
+  "sector": "Kimya",
+  "toolName": "yuk-combination-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "chemistry"
+}

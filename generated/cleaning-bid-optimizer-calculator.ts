@@ -41,7 +41,8 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_kwh: toNumericFormulaValue(values["annual_kwh"]),
+    annual_energy_cost: toNumericFormulaValue(values["annual_energy_cost"])
   };
   const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
@@ -55,6 +56,7 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-site comparison","Custom KPI dashboard"],
   };
@@ -63,10 +65,18 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
 
 export interface Cleaning_bid_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_kwh: number; annual_energy_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Cleaning_bid_optimizer_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_kwh","annual_energy_cost"],
+} as const;
+

@@ -1,0 +1,113 @@
+{
+  "slug": "max-heart-oran-hesaplama",
+  "name": "Max Heart Oran Hesaplama",
+  "description": "Professional max heart oran hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "years",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kişinin yaşı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Kişinin yaşı.",
+        "fr": "Kişinin yaşı.",
+        "es": "Kişinin yaşı.",
+        "ar": "Kişinin yaşı."
+      }
+    },
+    {
+      "id": "heartRateValue",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "bpm",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kalp atış hızı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Nabız",
+        "fr": "Nabız",
+        "es": "Nabız",
+        "ar": "Nabız"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Kalp atış hızı.",
+        "fr": "Kalp atış hızı.",
+        "es": "Kalp atış hızı.",
+        "ar": "Kalp atış hızı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "age / heartRateValue * 100 + Math.sqrt(age * heartRateValue) / 10",
+    "result": "age / heartRateValue * 100 + Math.sqrt(age * heartRateValue) / 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "age * heartRateValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick max heart oran hesaplama calculation.",
+      "long": "This free tool provides a quick max heart oran hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Max Heart Oran Hesaplama include?",
+        "answer": "Basic max heart oran hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "max-heart-oran-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

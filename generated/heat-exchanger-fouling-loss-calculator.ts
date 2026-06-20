@@ -41,7 +41,8 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    annual_kwh: toNumericFormulaValue(values["annual_kwh"]),
+    annual_energy_cost: toNumericFormulaValue(values["annual_energy_cost"])
   };
   const hiddenLossDrivers: string[] = ["Off-shift idle load","Leak or standby losses"];
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
@@ -55,6 +56,7 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-unit comparison","Custom threshold alerts"],
   };
@@ -63,10 +65,18 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
 
 export interface Heat_exchanger_fouling_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { annual_kwh: number; annual_energy_cost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Heat_exchanger_fouling_loss_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["annual_kwh","annual_energy_cost"],
+} as const;
+

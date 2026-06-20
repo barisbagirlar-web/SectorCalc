@@ -43,7 +43,10 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    base_cost: toNumericFormulaValue(values["base_cost"]),
+    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
+    factor_route_distance_km: toNumericFormulaValue(values["factor_route_distance_km"]),
+    factor_average_speed_kmh: toNumericFormulaValue(values["factor_average_speed_kmh"])
   };
   const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
@@ -57,6 +60,7 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "USD",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-route comparison","Benchmarking against industry standards"],
   };
@@ -65,10 +69,18 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
 
 export interface Logistics_route_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { base_cost: number; adjusted_cost: number; factor_route_distance_km: number; factor_average_speed_kmh: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Logistics_route_loss_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "USD",
+  breakdownKeys: ["base_cost","adjusted_cost","factor_route_distance_km","factor_average_speed_kmh"],
+} as const;
+

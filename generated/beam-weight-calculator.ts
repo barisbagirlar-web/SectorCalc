@@ -42,7 +42,9 @@ export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInp
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    
+    cross_section_area: toNumericFormulaValue(values["cross_section_area"]),
+    volume: toNumericFormulaValue(values["volume"]),
+    weight: toNumericFormulaValue(values["weight"])
   };
   const hiddenLossDrivers: string[] = ["Flange/web thickness variation due to mill tolerances","Length measurement errors from thermal expansion"];
   const suggestedActions: string[] = ["Verify actual dimensions with calipers before cutting","Apply material density correction based on mill certificate"];
@@ -56,6 +58,7 @@ export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInp
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: "kg",
     premiumRequired: true,
     premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-beam comparison","Custom material database","API integration"],
   };
@@ -64,10 +67,18 @@ export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInp
 
 export interface Beam_weight_calculatorOutput {
   totalWasteCost: number;
-  breakdown: {  };
+  unit: string;
+  breakdown: { cross_section_area: number; volume: number; weight: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}
+};
+
+export const Beam_weight_calculatorOutputMeta = {
+  primaryKey: "result",
+  unit: "kg",
+  breakdownKeys: ["cross_section_area","volume","weight"],
+} as const;
+
