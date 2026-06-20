@@ -3,7 +3,7 @@ import {
   listGlobalCategories,
   type GlobalToolCategorySlug,
 } from "@/lib/catalog/global-tool-category-taxonomy";
-import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import { resolveToolCategory, MANUAL_CATEGORY_OVERRIDES, type ToolCategoryResolutionInput } from "@/lib/catalog/resolve-tool-category";
 import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
@@ -92,6 +92,12 @@ function resolveCategorySlugForSlug(
   tier: "free" | "premium",
   source: CategorizedToolSource,
 ): GlobalToolCategorySlug {
+  // Check manual overrides FIRST — these are expert-reviewed, highest authority
+  const manual = MANUAL_CATEGORY_OVERRIDES[slug];
+  if (manual) {
+    return manual;
+  }
+
   const fromSchema = SCHEMA_CATALOG_MAP[slug]?.categorySlug;
   if (fromSchema) {
     return fromSchema as GlobalToolCategorySlug;

@@ -19,14 +19,15 @@ import {
 
 // ── Types ─────────────────────────────────────────────────────────
 
-/** All 34 canonical global category slugs (20 from premium-152 + 14 free-only). */
+/** All 29 canonical global category slugs (20 from premium-152 + 15 free-only). */
 export type GlobalToolCategorySlug =
   | Premium152SeedCategory["slug"]
-  // Free-only categories (14) — not present in premium-152 seed
+  // Free-only categories (15) — not present in premium-152 seed
   | "mathematics-statistics"
   | "health-fitness-daily-life"
   | "conversion-measurement"
   | "automotive-transport"
+  | "agriculture-food-beverage"
   | "maritime-shipping"
   | "mining-geology"
   | "furniture-woodworking"
@@ -84,6 +85,14 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
     enTitle: "Automotive & Transport",
     iconKey: "car",
     summary: "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+    premiumSeedCount: 0,
+  },
+  {
+    slug: "agriculture-food-beverage",
+    trTitle: "Tarım, Gıda & İçecek",
+    enTitle: "Agriculture, Food & Beverage",
+    iconKey: "wheat",
+    summary: "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
     premiumSeedCount: 0,
   },
   {
