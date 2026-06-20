@@ -11,7 +11,7 @@ import {
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
 import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
-import { FREE_TOOLS } from "@/data/tools";
+import { getLocalizedFreeTools } from "@/data/tools";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import {
   buildCategoryPageCatalogGroups,
@@ -84,7 +84,7 @@ export function getCachedCategoryPageCatalogGroups(locale = "en"): readonly Cata
   if (hit) {
     return hit;
   }
-  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(FREE_TOOLS), locale);
+  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(getLocalizedFreeTools(locale)), locale);
   categoryPageCache.set(key, groups);
   return groups;
 }

@@ -7,6 +7,7 @@ import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import type { SeoAuthorityEntity } from "@/lib/seo/seo-authority-model";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import { resolveFreeTrafficToolDisplayTitle } from "@/lib/tools/free-traffic-catalog";
 import type { ProgrammaticSeoPage } from "@/lib/seo/programmatic-seo-pages";
 
 export type JsonLdRecord = Record<string, unknown>;
@@ -150,7 +151,7 @@ export function buildCalculatorJsonLd(
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: tool.title,
+    name: resolveFreeTrafficToolDisplayTitle(tool.slug, locale),
     url: localizedUrl(locale, `/tools/free/${tool.slug}`),
     applicationCategory: "CalculatorApplication",
     operatingSystem: "Web",

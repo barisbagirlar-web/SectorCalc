@@ -7,6 +7,8 @@ import arMessages from "../../../messages/ar.json";
 import catalogI18nBundle from "../../data/free-tool-catalog-i18n.generated.json";
 import batch1I18nBundle from "../../data/roadmap-free-batch1-i18n.generated.json";
 import batch2I18nBundle from "../../data/roadmap-free-batch2-i18n.generated.json";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+import { humanizeCanonicalSlug } from "@/lib/tools/canonical-tool-slugs";
 
 type MessageRecord = Record<string, unknown>;
 
@@ -155,7 +157,19 @@ export function resolveFreeToolDisplayTitle(
   locale: string,
   registryTitle: string,
 ): string {
-  return resolveFreeToolLocalizedCopy(slug, locale).title ?? registryTitle;
+  const localized = resolveFreeToolLocalizedCopy(slug, locale).title;
+  if (localized) return localized;
+
+  // Glossary-based translation of humanized slug
+  if (locale !== "en") {
+    const humanized = humanizeCanonicalSlug(slug);
+    const translated = translateCalculatorPhrase(humanized, locale);
+    if (translated.trim() && translated !== humanized) {
+      return translated;
+    }
+  }
+
+  return registryTitle;
 }
 
 /** Locale-aware SEO title — never falls back to English tier-one copy on non-EN locales. */

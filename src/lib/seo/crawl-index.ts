@@ -1,4 +1,4 @@
-import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
+import { listPublicFreeTrafficTools, resolveFreeTrafficToolDisplayTitle } from "@/lib/tools/free-traffic-catalog";
 import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
 import { buildPremiumSchemaCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
 import { listProgrammaticSeoSlugs, PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";
@@ -6,7 +6,7 @@ import { INDUSTRIES } from "@/data/industries";
 import { hasCanonicalToolCatalog } from "@/lib/tools/canonical-tool-slugs";
 import type { CrawlIndexGroup } from "@/components/seo/CrawlIndexLinkList";
 
-export function buildFreeToolsCrawlGroups(): readonly CrawlIndexGroup[] {
+export function buildFreeToolsCrawlGroups(locale = "en"): readonly CrawlIndexGroup[] {
   const categories = getOrderedFreeTrafficCategories();
 
   return categories
@@ -16,7 +16,7 @@ export function buildFreeToolsCrawlGroups(): readonly CrawlIndexGroup[] {
         .filter((tool) => tool.category === category.id)
         .map((tool) => ({
           href: `/tools/generated/${tool.slug}`,
-          label: tool.title,
+          label: resolveFreeTrafficToolDisplayTitle(tool.slug, locale),
         })),
     }))
     .filter((group) => group.links.length > 0);

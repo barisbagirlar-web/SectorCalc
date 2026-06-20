@@ -19,7 +19,7 @@ import {
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
-import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
+import { getFreeTrafficToolBySlugLocalized } from "@/lib/tools/free-traffic-catalog";
 import { getPremiumSchemaBySlug } from "@/lib/premium-schema/schemas/index";
 import {
   buildBreadcrumbJsonLd,
@@ -75,7 +75,7 @@ export async function generateMetadata({
 function buildGuideJsonLd(guide: AuthorityGuide, locale: string, homeLabel: string, guidesLabel: string): JsonLdRecord[] {
   const freeItems = guide.relatedFreeToolSlugs
     .map((slug) => {
-      const tool = getFreeTrafficToolBySlug(slug);
+      const tool = getFreeTrafficToolBySlugLocalized(slug, locale);
       if (!tool) {
         return null;
       }
@@ -207,7 +207,7 @@ export default async function AuthorityGuidePage({
           <h2 className="sc-pro-headline text-lg">{tGuides("relatedFreeCalculators")}</h2>
           <ul className="mt-3 flex flex-wrap gap-3">
             {guide.relatedFreeToolSlugs.map((toolSlug) => {
-              const tool = getFreeTrafficToolBySlug(toolSlug);
+              const tool = getFreeTrafficToolBySlugLocalized(toolSlug, locale);
               if (!tool) {
                 return null;
               }

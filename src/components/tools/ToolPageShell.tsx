@@ -96,6 +96,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
             <RelatedTools
               relatedToolIds={definition.relatedToolIds}
               currentSlug={definition.slug}
+              locale={locale}
             />
           </Container>
         </section>

@@ -13,6 +13,7 @@ import {
   inferFreeTrafficCategory,
   type FreeTrafficCategory,
 } from "@/lib/tools/free-traffic-infer";
+import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-i18n";
 
 export type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 export { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
@@ -127,8 +128,23 @@ export const FEATURED_TRAFFIC_SLUGS: readonly string[] = [
   "cm-to-inches-converter",
 ].filter((slug) => CANONICAL_FREE_SLUGS.includes(slug));
 
+/** Resolve a tool title with locale-aware fallback (messages, catalog i18n, glossary, English). */
+export function resolveFreeTrafficToolDisplayTitle(slug: string, locale: string): string {
+  if (locale === "en") return humanizeCanonicalSlug(slug);
+  return resolveFreeToolDisplayTitle(slug, locale, humanizeCanonicalSlug(slug));
+}
+
 export function getFreeTrafficToolBySlug(slug: string): FreeTrafficTool | undefined {
   return FREE_TRAFFIC_TOOLS.find((tool) => tool.slug === slug);
+}
+
+export function getFreeTrafficToolBySlugLocalized(
+  slug: string,
+  locale: string,
+): FreeTrafficTool | undefined {
+  const tool = FREE_TRAFFIC_TOOLS.find((t) => t.slug === slug);
+  if (!tool) return undefined;
+  return { ...tool, title: resolveFreeTrafficToolDisplayTitle(slug, locale) };
 }
 
 export function listFreeTrafficToolsByCategory(

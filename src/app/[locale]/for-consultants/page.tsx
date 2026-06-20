@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/sections/CTASection";
 import { ConsultantAccessCta } from "@/components/leads/ConsultantAccessCta";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
-import { ALL_TOOLS } from "@/data/tools";
+import { getLocalizedAllTools } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -73,7 +73,7 @@ export default async function ForConsultantsPage({ params }: PageProps) {
               {t("allCalculatorsDesc")}
             </p>
             <div className="mt-6">
-              <ToolsTileGrid tools={ALL_TOOLS} />
+              <ToolsTileGrid tools={getLocalizedAllTools(locale)} />
             </div>
             <p className="mt-4 text-sm text-text-secondary">
               <Link href="/pricing" className="font-semibold text-deep-navy hover:underline">
