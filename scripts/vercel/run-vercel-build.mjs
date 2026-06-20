@@ -179,7 +179,7 @@ function main() {
       console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
     }
 
-    runStep("npm", ["run", "fix:generated-types"], {
+    runStep("node", ["scripts/fix-generated-boolean-arithmetic.mjs"], {
       label: "fix:generated-types — repair boolean/string arithmetic in generated/*.ts",
     });
 
