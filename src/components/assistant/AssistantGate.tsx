@@ -1,14 +1,4 @@
-"use client";
-
-import { usePathname } from "@/i18n/routing";
-import { TraceFloatingButton } from "@/components/trace/TraceFloatingButton";
-
+/** Trace AI popup devre dışı. AssistantGate hiçbir şey render etmez. */
 export function AssistantGate() {
-  const pathname = usePathname();
-
-  if (pathname.includes("/print") || pathname.includes("/admin")) {
-    return null;
-  }
-
-  return <TraceFloatingButton />;
+  return null;
 }
